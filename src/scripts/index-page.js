@@ -230,8 +230,22 @@ function sortRouteResults(results) {
   return copy.sort(compareResults);
 }
 
+function countPaddleableRoutes(results) {
+  return results.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
+}
+
 function selectRepresentativeRoute(results) {
-  return sortRouteResults(results)[0] ?? null;
+  const sorted = sortRouteResults(results);
+  const route = sorted[0] ?? null;
+  const mode =
+    activeFilters.sort === 'nearest' && userLocationState === 'ready' && userLocation ? 'nearest' : 'best';
+
+  return route
+    ? {
+        route,
+        mode,
+      }
+    : null;
 }
 
 function buildDisplayItems(allResults, filteredResults) {
@@ -241,8 +255,10 @@ function buildDisplayItems(allResults, filteredResults) {
 
   for (const [riverId, routes] of filteredByRiver.entries()) {
     const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
-    const cardRoute = selectRepresentativeRoute(routes);
-    if (!cardRoute) continue;
+    const representative = selectRepresentativeRoute(routes);
+    if (!representative) continue;
+    const cardRoute = representative.route;
+    const paddleableRouteCount = countPaddleableRoutes(routes);
 
     if (totalRouteCount > 1 && cardRoute.river.riverId) {
       items.push({
@@ -251,8 +267,10 @@ function buildDisplayItems(allResults, filteredResults) {
         link: `/rivers/by-river/${cardRoute.river.riverId}/`,
         riverId: cardRoute.river.riverId,
         cardRoute,
+        representativeMode: representative.mode,
         routes,
         totalRouteCount,
+        paddleableRouteCount,
       });
       continue;
     }
@@ -263,8 +281,10 @@ function buildDisplayItems(allResults, filteredResults) {
       link: `/rivers/${cardRoute.river.slug}/`,
       riverId: cardRoute.river.riverId ?? cardRoute.river.slug,
       cardRoute,
+      representativeMode: 'best',
       routes: [cardRoute],
       totalRouteCount: 1,
+      paddleableRouteCount: countPaddleableRoutes([cardRoute]),
     });
   }
 
@@ -491,14 +511,24 @@ async function renderSummaryMap(items) {
 function routeLabelForItem(item) {
   const route = item.cardRoute.river.reach;
   if (item.kind === 'group') {
-    const prefix =
-      activeFilters.sort === 'nearest' && userLocationState === 'ready'
-        ? 'Nearest route'
-        : 'Best route';
-    return `${item.totalRouteCount} routes - ${prefix}: ${route}`;
+    const prefix = item.representativeMode === 'nearest' ? 'Nearest route' : 'Best route';
+    return `${prefix}: ${route}`;
   }
 
   return route;
+}
+
+function routeCountLabelForItem(item) {
+  if (item.kind !== 'group') {
+    return '';
+  }
+
+  const paddleableLabel =
+    item.paddleableRouteCount === 0
+      ? 'No paddleable routes today'
+      : `${item.paddleableRouteCount} of ${item.totalRouteCount} paddleable today`;
+
+  return `${item.totalRouteCount} routes on this river - ${paddleableLabel}`;
 }
 
 function updateCard(card, item) {
@@ -515,6 +545,7 @@ function updateCard(card, item) {
     state.textContent = `${result.river.state} | ${result.river.region}`;
   }
   setText(card, 'route-label', routeLabelForItem(item));
+  setText(card, 'route-count-label', routeCountLabelForItem(item));
   setText(card, 'score', String(result.score));
   setText(card, 'rating', ratingLabel(result.rating));
   setText(card, 'card-summary', result.summary.cardText);
@@ -826,17 +857,17 @@ function updateFilterSummary(filtered, total) {
 
   if (activeFilters.sort === 'nearest') {
     if (userLocationState === 'pending') {
-      filterSummary.textContent = 'Requesting your location. Showing best now until it comes through.';
+      filterSummary.textContent = 'Requesting your location. Grouped river cards will switch to the nearest route when it comes through.';
       return;
     }
 
     if (userLocationState === 'denied') {
-      filterSummary.textContent = 'Location access was denied. Showing best now instead.';
+      filterSummary.textContent = 'Location access was denied. Grouped river cards are showing the best route instead.';
       return;
     }
 
     if (userLocationState === 'unavailable') {
-      filterSummary.textContent = 'Location is unavailable in this browser. Showing best now instead.';
+      filterSummary.textContent = 'Location is unavailable in this browser. Grouped river cards are showing the best route instead.';
       return;
     }
   }

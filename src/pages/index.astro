@@ -287,9 +287,14 @@ const summarySourceBadges = (river: (typeof rivers)[number]) => [
             <h2 class="river-card__title">{item.route.name}</h2>
             <p class="river-card__reach" data-field="route-label">
               {item.kind === 'group'
-                ? `${item.routeCount} routes on this river`
+                ? `Best route: ${item.route.reach}`
                 : item.route.reach}
             </p>
+            {item.kind === 'group' ? (
+              <p class="river-card__group-meta muted" data-field="route-count-label">
+                {item.routeCount} routes on this river
+              </p>
+            ) : null}
             <div class="river-card__badges" data-source-badges>
               {summarySourceBadges(item.route).map((badge) => (
                 <span class={`source-badge source-badge--${badge.tone}`}>{badge.label}</span>
