@@ -5,7 +5,7 @@ import { serializeDetailResult, serializeRiverGroupResult, serializeSummaryResul
 import { getAllRiverScores, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
 
-const host = process.env.CANOE_API_HOST || '127.0.0.1';
+const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
 const staticDir = staticDirArg ? resolve(process.cwd(), staticDirArg) : null;
 const port = Number(
