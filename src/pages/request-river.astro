@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import requestPageScript from '../scripts/request-page.js?url';
+
+const requestEmail = 'routes@paddletoday.com';
+---
+
+<BaseLayout
+  title="Request A River | Paddle Today"
+  description="Request a river or reach for Paddle Today to review. Submit the basics and any useful source links."
+>
+  <section class="info-hero">
+    <p class="eyebrow" data-request-kicker>Request a river</p>
+    <h1 data-request-title>Ask us to add a river or reach.</h1>
+    <p class="muted" data-request-lede>
+      Send the basics and any useful source links. We use that to prioritize the next rivers we research and score.
+    </p>
+  </section>
+
+  <section class="request-layout">
+    <article class="request-card">
+      <p class="eyebrow">Request form</p>
+      <h2 data-request-form-title>What to send</h2>
+      <p class="muted" data-request-form-note>
+        A river name, state, and enough context to understand the reach. DNR, USGS, park, or club links help a lot.
+      </p>
+
+      <form class="request-form" data-request-form novalidate>
+        <label>
+          River or reach name *
+          <input name="routeName" required placeholder="Example: St. Croix River - Taylors Falls to Osceola" />
+        </label>
+
+        <label>
+          State *
+          <input name="state" required placeholder="MN, WI, IA, etc." maxlength="32" autocomplete="address-level1" />
+        </label>
+
+        <label>
+          Put-in name
+          <input name="putIn" placeholder="Launch or access name" />
+        </label>
+
+        <label>
+          Take-out name
+          <input name="takeOut" placeholder="Exit or access name" />
+        </label>
+
+        <label>
+          Known links
+          <textarea name="sources" rows="3" placeholder="Paste one or more DNR, USGS, park, club, or outfitter URLs"></textarea>
+        </label>
+
+        <label>
+          Additional information *
+          <span class="request-form__hint" id="request-notes-hint">Minimum 12 characters. Include anything that helps.</span>
+          <textarea
+            name="notes"
+            rows="5"
+            required
+            aria-describedby="request-notes-hint"
+            placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, local demand, or anything else useful."
+          ></textarea>
+        </label>
+
+        <label>
+          Your email (optional)
+          <input name="replyEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+        </label>
+
+        <label class="request-form__hp" aria-hidden="true">
+          Leave this blank
+          <input name="company" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <div class="request-form__actions">
+          <button class="filter-chip" type="submit" data-request-submit>Send request</button>
+          <a class="river-link river-link--inline" href={`mailto:${requestEmail}`}>Email instead</a>
+        </div>
+
+        <p class="muted request-form__status" data-request-status aria-live="polite"></p>
+      </form>
+    </article>
+
+    <aside class="info-card">
+      <p class="eyebrow">What happens next</p>
+      <h2 data-request-sidebar-title>How requests are used</h2>
+      <ul class="compact-list">
+        <li>We store requests for review and triage.</li>
+        <li>Rivers with strong gauge coverage and usable source material rise fastest.</li>
+        <li>Direct gauges and clear threshold guidance still matter more than raw demand.</li>
+      </ul>
+      <p class="muted" data-request-sidebar-note>
+        You can also use this form to flag outdated access, shuttle, hazard, or threshold details on an existing river page.
+      </p>
+    </aside>
+  </section>
+
+  <script type="module" src={requestPageScript}></script>
+</BaseLayout>

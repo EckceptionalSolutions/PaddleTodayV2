@@ -1,0 +1,26 @@
+{
+  "name": "canoe-adventures-v2",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "api": "tsx src/server/api-server.ts --port 4322",
+    "api:watch": "tsx watch src/server/api-server.ts --port 4322",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "npm run build && npm run serve",
+    "preview:local": "npm run build && npm run serve:local",
+    "serve": "tsx src/server/api-server.ts --static dist --port 4321",
+    "serve:local": "tsx src/server/api-server.ts --static dist --port 4323",
+    "start": "tsx src/server/api-server.ts --static dist",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "astro": "^5.17.3"
+  },
+  "devDependencies": {
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.1.2"
+  }
+}

@@ -1,0 +1,55 @@
+---
+type Props = {
+  title: string;
+  description?: string;
+};
+
+const { title, description = 'Live river scores, confidence, and explanations for paddlers.' } =
+  Astro.props as Props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="shortcut icon" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="apple-touch-icon" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <img
+            class="brand__logo"
+            src="/brand/paddle-today-logo-transparent-512.png"
+            alt="Paddle Today"
+          />
+          <div class="brand__copy brand__copy--with-wordmark">
+            <span class="brand__eyebrow">Paddle Today</span>
+            <span class="brand__title">Know if it is worth paddling today.</span>
+          </div>
+        </a>
+
+        <div class="site-header__meta">
+          <nav class="site-header__nav" aria-label="Primary">
+            <a class="site-header__nav-link" href="/about/">About</a>
+            <a class="site-header__nav-link" href="/request-river/">Request a river</a>
+          </nav>
+          <span class="site-header__pill">Live river calls</span>
+          <p class="site-header__blurb">
+            Score, confidence, and a clear reason to go, wait, or skip.
+          </p>
+        </div>
+      </header>
+
+      <main class="main-shell">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>

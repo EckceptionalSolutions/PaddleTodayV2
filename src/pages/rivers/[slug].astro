@@ -1,0 +1,898 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeatureIcon from '../../components/FeatureIcon.astro';
+import { listRivers } from '../../lib/rivers';
+import riverDetailPageScript from '../../scripts/river-detail-page.js?url';
+
+export function getStaticPaths() {
+  return listRivers().map((river) => ({
+    params: { slug: river.slug },
+    props: { river },
+  }));
+}
+
+const { river } = Astro.props;
+const thresholdQualityLabel =
+  river.profile.thresholdSourceStrength === 'official'
+    ? 'Official guidance'
+    : river.profile.thresholdSourceStrength === 'mixed'
+      ? 'Mixed guidance'
+      : river.profile.thresholdSourceStrength === 'community'
+        ? 'Community guidance'
+        : 'Derived guidance';
+const thresholdQualityClass = `threshold-pill--${river.profile.thresholdSourceStrength}`;
+const thresholdModelLabel =
+  river.profile.thresholdModel === 'minimum-only' ? 'Minimum-only' : 'Two-sided';
+const formatThresholdValue = (value: number | undefined) => {
+  if (typeof value !== 'number') {
+    return 'Not calibrated yet';
+  }
+
+  if (river.gaugeSource.unit === 'cfs') {
+    return `${Math.round(value).toLocaleString('en-US')} ${river.gaugeSource.unit}`;
+  }
+
+  return `${value.toFixed(2).replace(/\\.00$/, '')} ${river.gaugeSource.unit}`;
+};
+const targetBandLabel = river.profile.thresholdModel === 'minimum-only' ? 'Target band' : 'Target band';
+const targetBandValue =
+  river.profile.thresholdModel === 'two-sided' &&
+  typeof river.profile.idealMin === 'number' &&
+  typeof river.profile.idealMax === 'number'
+    ? `${formatThresholdValue(river.profile.idealMin)} to ${formatThresholdValue(river.profile.idealMax)}`
+    : 'Not calibrated yet';
+const lowThresholdValue = formatThresholdValue(river.profile.tooLow);
+const highThresholdValue = formatThresholdValue(river.profile.tooHigh);
+const putIn = river.putIn;
+const takeOut = river.takeOut;
+const logistics = river.logistics;
+const putInMapsUrl =
+  typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number'
+    ? `https://www.google.com/maps?q=${putIn.latitude},${putIn.longitude}`
+    : undefined;
+const takeOutMapsUrl =
+  typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number'
+    ? `https://www.google.com/maps?q=${takeOut.latitude},${takeOut.longitude}`
+    : undefined;
+const directionsGoogleUrl =
+  typeof putIn?.latitude === 'number' &&
+  typeof putIn?.longitude === 'number' &&
+  typeof takeOut?.latitude === 'number' &&
+  typeof takeOut?.longitude === 'number'
+    ? `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(`${putIn.latitude},${putIn.longitude}`)}&destination=${encodeURIComponent(`${takeOut.latitude},${takeOut.longitude}`)}`
+    : undefined;
+const directionsAppleUrl =
+  typeof putIn?.latitude === 'number' &&
+  typeof putIn?.longitude === 'number' &&
+  typeof takeOut?.latitude === 'number' &&
+  typeof takeOut?.longitude === 'number'
+    ? `https://maps.apple.com/?saddr=${encodeURIComponent(`${putIn.latitude},${putIn.longitude}`)}&daddr=${encodeURIComponent(`${takeOut.latitude},${takeOut.longitude}`)}&dirflg=d`
+    : undefined;
+const openStreetMapUrl = `https://www.openstreetmap.org/?mlat=${river.latitude}&mlon=${river.longitude}#map=11/${river.latitude}/${river.longitude}`;
+const shuttleHeadline = logistics?.shuttle.toLowerCase().includes('bike') ? 'Car or bike' : 'Car shuttle';
+const permitsHeadline =
+  logistics?.permits.startsWith('No') || logistics?.permits.startsWith('N/A')
+    ? 'None noted'
+    : 'Check posted rules';
+const campingHeadline =
+  logistics?.camping.startsWith('No') ||
+  logistics?.camping.startsWith('N/A') ||
+  logistics?.camping.toLowerCase().includes('day trip')
+    ? 'Day trip'
+    : 'Options nearby';
+const primaryAccessCaveat = logistics?.accessCaveats?.[0] ?? 'Check parking, launch, and access rules on the ground.';
+const secondaryAccessCaveat = logistics?.accessCaveats?.[1] ?? primaryAccessCaveat;
+const thresholdBadgeLabel =
+  river.profile.thresholdSourceStrength === 'official'
+    ? 'Official'
+    : river.profile.thresholdSourceStrength === 'mixed'
+      ? 'Mixed'
+      : river.profile.thresholdModel === 'minimum-only'
+        ? 'Minimum'
+        : 'Community';
+const reportChangeHref =
+  `/request-river/?mode=update&routeName=${encodeURIComponent(`${river.name} - ${river.reach}`)}&state=${encodeURIComponent(river.state)}` +
+  `${putIn?.name ? `&putIn=${encodeURIComponent(putIn.name)}` : ''}` +
+  `${takeOut?.name ? `&takeOut=${encodeURIComponent(takeOut.name)}` : ''}` +
+  `${river.profile.thresholdSource.url ? `&sources=${encodeURIComponent(river.profile.thresholdSource.url)}` : ''}` +
+  `&notes=${encodeURIComponent(
+    `River: ${river.name} - ${river.reach}\n\nI noticed this might need an update:\n- \n\nWhat changed or looked wrong:\n- \n`
+  )}`;
+const reportChangeEmail = `mailto:routes@paddletoday.com?subject=${encodeURIComponent(`River update: ${river.name} (${river.state})`)}&body=${encodeURIComponent(
+  `River: ${river.name} - ${river.reach}\nState: ${river.state}\nPut-in: ${putIn?.name ?? 'N/A'}\nTake-out: ${takeOut?.name ?? 'N/A'}\n\nWhat might need an update:\n- \n`
+)}`;
+const hasAccessPlanner = (river.accessPoints?.length ?? 0) > 2;
+const accessPlannerPointsJson = JSON.stringify(river.accessPoints ?? []);
+const siblingRoutes = listRivers()
+  .filter((candidate) => candidate.riverId === river.riverId && candidate.slug !== river.slug)
+  .sort((left, right) => left.reach.localeCompare(right.reach));
+const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverId}/` : null;
+---
+
+<BaseLayout
+  title={`${river.name} | Paddle Today`}
+  description={`${river.name}: live score, confidence, and a plain-language explanation of gauge, trend, weather, and seasonality.`}
+>
+  <article
+    class="river-detail"
+    data-river-detail
+    data-river-slug={river.slug}
+    data-river-id={river.riverId}
+    data-river-name={river.name}
+    data-river-reach={river.reach}
+    data-river-state={river.state}
+    data-river-region={river.region}
+    data-put-in-name={putIn?.name}
+    data-put-in-latitude={putIn?.latitude}
+    data-put-in-longitude={putIn?.longitude}
+    data-take-out-name={takeOut?.name}
+    data-take-out-latitude={takeOut?.latitude}
+    data-take-out-longitude={takeOut?.longitude}
+  >
+    <a class="back-link" href="/">All river calls</a>
+
+    {riverHubHref ? (
+      <p class="river-detail__group-link">
+        <a href={riverHubHref}>See all {siblingRoutes.length + 1} reaches on {river.name}</a>
+      </p>
+    ) : null}
+
+    <section class="river-detail__hero">
+      <div class="river-detail__hero-main">
+        <div class="river-detail__hero-top">
+          <p class="eyebrow">{river.state} | {river.region}</p>
+          <h1 class="river-detail__title">{river.name}</h1>
+          <p class="river-detail__reach">{river.reach}</p>
+          <div class="river-card__badges river-card__badges--detail">
+            <span class="source-badge source-badge--usgs">USGS</span>
+            <span class={`source-badge source-badge--${river.profile.thresholdSourceStrength}`}>
+              {thresholdBadgeLabel}
+            </span>
+            {river.profile.thresholdModel === 'minimum-only' ? (
+              <span class="source-badge source-badge--minimum">Low floor</span>
+            ) : null}
+          </div>
+        </div>
+
+        <p class="river-detail__summary" data-field="explanation">
+          Checking today's river call.
+        </p>
+
+        <div class="river-detail__meta-row">
+          <span class="pill" data-field="decision">Checking</span>
+          <span class="pill" data-field="confidence">Checking confidence</span>
+          <span class="pill" data-field="data-status">Checking reads</span>
+          <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
+          <span class="pill">{river.statusText}</span>
+        </div>
+
+        <div class="river-detail__quick-grid river-detail__quick-grid--compact">
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Flow now</span>
+            <strong data-field="gauge-now">Checking</strong>
+            <small data-field="flow-band">Checking</small>
+          </article>
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Trend</span>
+            <strong data-field="trend">Checking</strong>
+            <small data-field="gauge-freshness">Checking</small>
+          </article>
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Weather risk</span>
+            <strong data-field="weather-now">Checking</strong>
+            <small data-field="weather-freshness">Checking</small>
+          </article>
+        </div>
+      </div>
+
+      <aside class="river-call-panel river-call-panel--sticky">
+        <p class="eyebrow">Today's launch call</p>
+        <div class="score-orb score-orb--featured" aria-label="Live score loading">
+          <span class="score-orb__score" data-field="score">--</span>
+          <span class="score-orb__rating" data-field="rating">Checking</span>
+        </div>
+        <p class="river-call-panel__statement" data-field="decision-line">
+          Checking the current launch window.
+        </p>
+        <div class="river-call-panel__reliability">
+          <span class="pill" data-field="rail-reliability">Checking reads</span>
+          <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
+            Checking freshness and source quality.
+          </p>
+        </div>
+        <dl class="river-call-panel__meta">
+          <div>
+            <dt>Observed</dt>
+            <dd data-field="observed-at">Checking</dd>
+          </div>
+          <div>
+            <dt>Last scored</dt>
+            <dd data-field="generated-at">Checking</dd>
+          </div>
+        </dl>
+        <div class="river-call-panel__actions">
+          <button class="filter-chip" type="button" data-detail-refresh>
+            Refresh river call
+          </button>
+          <span class="muted river-call-panel__refresh-note" data-detail-refresh-note>
+            Auto-refreshes every 5 minutes.
+          </span>
+        </div>
+        <a
+          class="river-link river-link--wide"
+          href={river.profile.thresholdSource.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View threshold source
+        </a>
+      </aside>
+    </section>
+
+    <section class="status-banner status-banner--offline status-banner--hidden" data-detail-fetch-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Refresh failed</div>
+      <div class="status-banner__body">
+        <strong data-detail-fetch-title>Live inputs could not be refreshed.</strong>
+        <p class="muted" data-detail-fetch-detail>
+          This river call may be stale. Retry before you drive.
+        </p>
+      </div>
+    </section>
+
+    <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Read quality</div>
+      <div class="status-banner__body">
+        <strong data-detail-banner-title>Checking live inputs.</strong>
+        <p class="muted" data-detail-banner-detail>
+          Loading the latest river read.
+        </p>
+      </div>
+      <div class="status-banner__grid" data-detail-reliability-grid>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Gauge input</span>
+          <strong data-field="reliability-gauge-title">Checking</strong>
+          <p class="muted" data-field="reliability-gauge-detail">
+            Waiting on the gauge read.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Weather input</span>
+          <strong data-field="reliability-weather-title">Checking</strong>
+          <p class="muted" data-field="reliability-weather-detail">
+            Waiting on weather.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Next step</span>
+          <strong data-field="reliability-action-title">Checking</strong>
+          <p class="muted" data-field="reliability-action-detail">
+            Waiting on enough data to give the next step.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-launch-plan">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="map" size={16} />
+        Access plan
+      </p>
+      <div class="river-launch-plan__hero">
+        <div class="river-launch-plan__copy">
+          <h2 class="river-subtitle">Access, shuttle, and map</h2>
+          <p class="muted">
+            {logistics?.summary ??
+              'Use the links below to confirm launch, shuttle, and access rules.'}
+          </p>
+          <div class="detail-map__links">
+            {putInMapsUrl ? (
+              <a
+                class="river-link river-link--inline"
+                href={putInMapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-putin-link
+              >
+                Open put-in
+              </a>
+            ) : null}
+            {takeOutMapsUrl ? (
+              <a
+                class="river-link river-link--inline"
+                href={takeOutMapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-takeout-link
+              >
+                Open take-out
+              </a>
+            ) : null}
+            {directionsGoogleUrl ? (
+              <a
+                class="river-link river-link--inline"
+                href={directionsGoogleUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-directions-google
+              >
+                Directions (Google)
+              </a>
+            ) : null}
+            {directionsAppleUrl ? (
+              <a
+                class="river-link river-link--inline"
+                href={directionsAppleUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-directions-apple
+              >
+                Directions (Apple)
+              </a>
+            ) : null}
+            <a
+              class="river-link river-link--inline"
+              href={openStreetMapUrl}
+              target="_blank"
+              rel="noreferrer"
+              data-access-openstreetmap
+            >
+              Open in OpenStreetMap
+            </a>
+          </div>
+        </div>
+
+        <div class="river-logistics__grid river-logistics__grid--compact">
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Trip length</span>
+            <strong>{logistics?.distanceLabel ?? 'Check sources'}</strong>
+            <small>{river.reach}</small>
+          </article>
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Shuttle</span>
+            <strong>{shuttleHeadline}</strong>
+            <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
+          </article>
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Permits</span>
+            <strong>{permitsHeadline}</strong>
+            <small>{logistics?.permits ?? 'Check local access rules.'}</small>
+          </article>
+          <article class="snapshot-card">
+            <span class="snapshot-card__label">Camping</span>
+            <strong>{campingHeadline}</strong>
+            <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
+          </article>
+        </div>
+      </div>
+
+      {hasAccessPlanner ? (
+        <section class="river-access-planner" data-access-planner>
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="map" size={16} />
+                Access planner
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Pick a shorter segment</h3>
+            </div>
+            <p class="muted river-why-panel__section-note">
+              This changes launch and take-out logistics, not today&apos;s river score.
+            </p>
+          </div>
+
+          <div class="river-access-planner__controls">
+            <label class="river-access-planner__field">
+              <span class="snapshot-card__label">Put-in</span>
+              <select data-access-putin>
+                {(river.accessPoints ?? []).map((point, index) => (
+                  <option value={point.id} selected={index === 0}>{point.name}</option>
+                ))}
+              </select>
+            </label>
+            <label class="river-access-planner__field">
+              <span class="snapshot-card__label">Take-out</span>
+              <select data-access-takeout>
+                {(river.accessPoints ?? []).map((point, index, points) => (
+                  <option value={point.id} selected={index === points.length - 1}>{point.name}</option>
+                ))}
+              </select>
+            </label>
+          </div>
+
+          <div class="river-detail__quick-grid river-detail__quick-grid--compact river-access-planner__metrics">
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Segment length</span>
+              <strong data-access-distance>{logistics?.distanceLabel ?? '15.2 mi'}</strong>
+              <small data-access-shape>Lake to creek</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Paddle time</span>
+              <strong data-access-time>About 5 to 7 hr</strong>
+              <small data-access-stage>Full route option</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Shuttle</span>
+              <strong data-access-shuttle>Self-shuttle</strong>
+              <small data-access-note>Choose a shorter in/out pair for a shorter day.</small>
+            </article>
+          </div>
+
+          <p class="muted river-access-planner__summary" data-access-summary>
+            Peltier Lake to Long Lake is the full route. Shorter access pairs are useful when wind, time, or group energy changes the plan.
+          </p>
+
+          <script type="application/json" data-access-points set:html={accessPlannerPointsJson}></script>
+        </section>
+      ) : null}
+
+      <div class="river-launch-plan__body">
+        <div class="river-launch-plan__stack">
+          <div class="river-access-grid">
+            <article class="river-access-card river-access-card--put-in">
+              <span class="river-access-card__eyebrow">Start</span>
+              <h3 class="river-logistics__title">Put-in</h3>
+              <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
+              {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
+                <button
+                  class="river-inline-button"
+                  type="button"
+                  data-copy-coords
+                  data-copy-label="Put-in"
+                  data-copy-value={`${putIn.latitude}, ${putIn.longitude}`}
+                  data-default-label="Copy coordinates"
+                  data-field="active-putin-copy"
+                >
+                  Copy coordinates
+                </button>
+              ) : null}
+              <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
+            </article>
+
+            <article class="river-access-card river-access-card--take-out">
+              <span class="river-access-card__eyebrow">Finish</span>
+              <h3 class="river-logistics__title">Take-out</h3>
+              <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
+              {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
+                <button
+                  class="river-inline-button"
+                  type="button"
+                  data-copy-coords
+                  data-copy-label="Take-out"
+                  data-copy-value={`${takeOut.latitude}, ${takeOut.longitude}`}
+                  data-default-label="Copy coordinates"
+                  data-field="active-takeout-copy"
+                >
+                  Copy coordinates
+                </button>
+              ) : null}
+              <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
+            </article>
+          </div>
+
+          <dl class="detail-map__facts detail-map__facts--launch-plan">
+            <div>
+              <dt>Put-in</dt>
+              <dd data-field="active-fact-putin">{putIn?.name ?? 'Check source links'}</dd>
+            </div>
+            <div>
+              <dt>Take-out</dt>
+              <dd data-field="active-fact-takeout">{takeOut?.name ?? 'Check source links'}</dd>
+            </div>
+            <div>
+              <dt>Trip length</dt>
+              <dd data-field="active-fact-distance">{logistics?.distanceLabel ?? 'Check source links'}</dd>
+            </div>
+            <div>
+              <dt>Map mode</dt>
+              <dd data-field="active-fact-map-mode">Access points</dd>
+            </div>
+          </dl>
+
+          <div class="river-logistics__columns river-logistics__columns--tight">
+            <section class="river-logistics__notes">
+              <h3 class="river-logistics__title">Access caveats</h3>
+              <ul class="compact-list">
+                {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
+                  <li>{note}</li>
+                ))}
+              </ul>
+            </section>
+
+            <section class="river-logistics__notes">
+              <h3 class="river-logistics__title">Watch for</h3>
+              <ul class="compact-list">
+                {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
+                  <li>{note}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+        </div>
+
+        <div class="detail-map-frame detail-map-frame--launch-plan">
+          <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
+          <p class="detail-map__status muted" data-detail-map-status>
+            Loading access map.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-why-panel launch-readiness">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="compass" size={16} />
+        Why
+      </p>
+      <div class="launch-readiness__hero">
+        <span class="launch-readiness__verdict launch-readiness__verdict--watch" data-field="readiness-verdict">
+          Watch
+        </span>
+        <div class="launch-readiness__copy">
+          <h2 class="river-subtitle">Quick read</h2>
+          <p class="launch-readiness__summary" data-field="readiness-summary">
+            Pulling together flow, weather, and access.
+          </p>
+          <p class="muted" data-field="readiness-note">
+            Fast go / watch / skip read.
+          </p>
+        </div>
+      </div>
+
+      <div class="launch-readiness__grid" data-readiness-grid>
+        <article class="readiness-item readiness-item--watch">
+          <span class="readiness-item__label">Launch call</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on live reads.</p>
+        </article>
+        <article class="readiness-item readiness-item--watch">
+          <span class="readiness-item__label">Flow window</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on the gauge read.</p>
+        </article>
+        <article class="readiness-item readiness-item--watch">
+          <span class="readiness-item__label">Trend</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on gauge history.</p>
+        </article>
+        <article class="readiness-item readiness-item--watch">
+          <span class="readiness-item__label">Weather</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on weather.</p>
+        </article>
+        <article class="readiness-item readiness-item--watch">
+          <span class="readiness-item__label">Access</span>
+          <strong>Checking</strong>
+          <p class="muted">Waiting on access notes.</p>
+        </article>
+      </div>
+
+      <div class="river-decision-checklist__inline">
+        <div class="river-why-panel__section-head">
+          <div>
+            <p class="eyebrow section-label">
+              <FeatureIcon name="compass" size={16} />
+              Checklist
+            </p>
+            <h3 class="river-subtitle river-subtitle--compact">Trip checks</h3>
+          </div>
+          <p class="muted river-why-panel__section-note">
+            A single `skip` item should usually stop the trip.
+          </p>
+        </div>
+        <ul class="decision-checklist" data-checklist>
+          <li class="decision-checklist__item decision-checklist__item--watch">
+            <span class="decision-checklist__status">Watch</span>
+            <div>
+              <strong>Checking checklist</strong>
+              <p class="muted">Waiting on the river read.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="river-why-panel__visuals">
+        <section class="river-visual-panel">
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="gauge" size={16} />
+                Gauge
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Recent trend</h3>
+            </div>
+            <p class="muted river-why-panel__section-note" data-field="chart-caption">
+              Checking recent gauge samples.
+            </p>
+          </div>
+
+          <div class="gauge-visual">
+            <div class="gauge-visual__controls">
+              <div class="segmented-control" role="group" aria-label="Gauge chart range">
+                <button class="segmented-control__button" type="button" data-chart-window="24">
+                  24h
+                </button>
+                <button
+                  class="segmented-control__button segmented-control__button--active"
+                  type="button"
+                  data-chart-window="72"
+                >
+                  72h
+                </button>
+                <button class="segmented-control__button" type="button" data-chart-window="168">
+                  7d
+                </button>
+              </div>
+              <p class="gauge-visual__trend muted" data-field="chart-trend-note">
+                Checking trend.
+              </p>
+            </div>
+
+            <svg
+              class="gauge-visual__chart"
+              viewBox="0 0 420 210"
+              width="420"
+              height="210"
+              role="img"
+              aria-label="Recent gauge trend chart"
+            >
+              <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
+
+              <g class="gauge-chart__grid">
+                <line x1="62" y1="30" x2="392" y2="30" />
+                <line x1="62" y1="96" x2="392" y2="96" />
+                <line x1="62" y1="162" x2="392" y2="162" />
+              </g>
+
+              <g class="gauge-chart__axis">
+                <line x1="62" y1="18" x2="62" y2="178" />
+                <line x1="62" y1="178" x2="392" y2="178" />
+              </g>
+
+              <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
+              <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
+
+              <path data-chart-line d="M62 140 L392 90" />
+              <circle data-chart-dot cx="392" cy="90" r="4" />
+
+              <g class="gauge-chart__labels gauge-chart__labels--y">
+                <text x="12" y="33" data-chart-y-max>--</text>
+                <text x="12" y="99" data-chart-y-mid>--</text>
+                <text x="12" y="165" data-chart-y-min>--</text>
+              </g>
+
+              <g class="gauge-chart__labels gauge-chart__labels--x">
+                <text x="62" y="198" data-chart-x-start>--</text>
+                <text x="202" y="198" data-chart-x-mid>--</text>
+                <text x="332" y="198" data-chart-x-end>--</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+
+        <section class="river-visual-panel">
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="thermo" size={16} />
+                Weather
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Comfort and risk</h3>
+            </div>
+            <p class="weather-visual__badge" data-field="weather-condition">Checking weather.</p>
+          </div>
+
+          <div class="weather-visual">
+            <div class="weather-visual__grid">
+              <article class="weather-tile">
+                <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Temperature</span>
+                <strong data-field="weather-temp">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Wind</span>
+                <strong data-field="weather-wind">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Rain risk</span>
+                <strong data-field="weather-rain-risk">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="storm" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Storm signal</span>
+                <strong data-field="weather-storm-risk">Loading</strong>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-accordion-group">
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Confidence</span>
+            <strong>How the app is weighting trust today</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted" style="margin: 0 0 0.8rem;">
+            Confidence reflects source quality, data freshness, and how direct the inputs are.
+          </p>
+          <ul class="confidence-rationale" data-confidence-rationale>
+            <li>Checking confidence notes.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Outlook</span>
+            <strong>Tomorrow and weekend</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted">
+            Conservative directional reads only. Withheld when confidence is too weak.
+          </p>
+          <div class="outlook-grid" data-outlooks>
+            <article class="outlook-card">
+              <span class="outlook-card__label">Tomorrow</span>
+              <strong>Checking</strong>
+              <p class="muted">Waiting on forecast.</p>
+            </article>
+            <article class="outlook-card">
+              <span class="outlook-card__label">Weekend</span>
+              <strong>Checking</strong>
+              <p class="muted">Waiting on forecast.</p>
+            </article>
+          </div>
+        </div>
+      </details>
+
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Inputs</span>
+            <strong>Gauge thresholds and timestamps</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <table class="detail-table">
+            <tbody>
+              <tr>
+                <td>Gauge site</td>
+                <td>{river.gaugeSource.siteName}</td>
+              </tr>
+              <tr>
+                <td>Flow band</td>
+                <td data-field="flow-band">Checking</td>
+              </tr>
+              <tr>
+                <td>Gauge now</td>
+                <td data-field="gauge-now">Checking</td>
+              </tr>
+              <tr>
+                <td>Threshold model</td>
+                <td>{thresholdModelLabel}</td>
+              </tr>
+              <tr>
+                <td>{targetBandLabel}</td>
+                <td>{targetBandValue}</td>
+              </tr>
+              <tr>
+                <td>Low threshold</td>
+                <td>{lowThresholdValue}</td>
+              </tr>
+              <tr>
+                <td>High threshold</td>
+                <td>{highThresholdValue}</td>
+              </tr>
+              <tr>
+                <td>Threshold quality</td>
+                <td>{thresholdQualityLabel}</td>
+              </tr>
+              <tr>
+                <td>Confidence note</td>
+                <td>{river.profile.confidenceNotes}</td>
+              </tr>
+              <tr>
+                <td>Observed</td>
+                <td data-field="observed-at">Checking</td>
+              </tr>
+              <tr>
+                <td>Last scored</td>
+                <td data-field="generated-at">Checking</td>
+              </tr>
+              <tr>
+                <td>24h trend</td>
+                <td data-field="trend">Checking</td>
+              </tr>
+              <tr>
+                <td>Threshold source</td>
+                <td>{river.profile.thresholdSource.label} (see source links below)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Notes</span>
+            <strong>Calibration and known caveats</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <ul class="factor-list">
+            {river.evidenceNotes.map((note) => (
+              <li class="factor-item impact-neutral">
+                <div class="factor-item__head">
+                  <span class="factor-item__label">{note.label}</span>
+                  <span class="factor-item__value">{note.value}</span>
+                </div>
+                {note.note ? <p class="muted" style="margin: 0.55rem 0 0;">{note.note}</p> : null}
+                {note.sourceUrl ? (
+                  <p style="margin: 0.55rem 0 0;">
+                    <a href={note.sourceUrl} target="_blank" rel="noreferrer">
+                      Source
+                    </a>
+                  </p>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
+
+      <details class="river-accordion">
+        <summary class="river-accordion__summary">
+          <span>
+            <span class="eyebrow section-label">Sources</span>
+            <strong>Open the original gauge and planning sources</strong>
+          </span>
+        </summary>
+        <div class="river-accordion__body">
+          <ul class="source-list">
+            {river.sourceLinks.map((source) => (
+              <li>
+                <a href={source.url} target="_blank" rel="noreferrer">{source.label}</a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="river-detail__panel river-report-panel">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="compass" size={16} />
+        Flag a change
+      </p>
+      <div class="river-report-panel__content">
+        <div>
+          <h2 class="river-subtitle river-subtitle--compact">Spotted something outdated?</h2>
+          <p class="muted">
+            Access rules, hazards, wood, shuttle details, and threshold notes change. Send a quick correction if something on this page looks off.
+          </p>
+        </div>
+        <div class="detail-map__links">
+          <a class="river-link river-link--inline" href={reportChangeHref}>
+            Report a change
+          </a>
+          <a class="river-link river-link--inline" href={reportChangeEmail}>
+            Email update
+          </a>
+        </div>
+      </div>
+    </section>
+    <script type="module" src={riverDetailPageScript}></script>
+  </article>
+</BaseLayout>

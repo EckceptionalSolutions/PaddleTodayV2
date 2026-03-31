@@ -1,0 +1,47 @@
+name: Paddle Today API
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build app
+        run: npm run build
+
+      - name: Create deploy package
+        run: |
+          mkdir deploy-package
+          cp package.json deploy-package/package.json
+          cp package-lock.json deploy-package/package-lock.json
+          cp -R dist deploy-package/dist
+          cp -R public deploy-package/public
+          cp -R src deploy-package/src
+          cp tsconfig.json deploy-package/tsconfig.json
+
+      - name: Deploy API to Azure App Service
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE }}
+          package: deploy-package

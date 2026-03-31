@@ -1,0 +1,73 @@
+---
+const { name = 'map', size = 22, title, class: className = '' } = Astro.props;
+const s = Number(size) || 22;
+
+const common = {
+  width: s,
+  height: s,
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  xmlns: 'http://www.w3.org/2000/svg',
+  'stroke-width': 1.75,
+  'stroke-linecap': 'round',
+  'stroke-linejoin': 'round',
+  class: ['icon', className].filter(Boolean).join(' '),
+};
+
+const ariaProps = title
+  ? { role: 'img', 'aria-label': String(title) }
+  : { 'aria-hidden': 'true' };
+---
+
+{name === 'map' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M9 18l-6 2V6l6-2 6 2 6-2v14l-6 2-6-2Z" />
+    <path stroke="currentColor" d="M9 4v14" />
+    <path stroke="currentColor" d="M15 6v14" />
+  </svg>
+) : name === 'gauge' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M12 7a7 7 0 1 1-7 7" />
+    <path stroke="currentColor" d="M12 7v4.5l3 2" />
+    <path stroke="currentColor" d="M5 14h2" />
+    <path stroke="currentColor" d="M12 4v2" />
+    <path stroke="currentColor" d="M17 14h2" />
+  </svg>
+) : name === 'thermo' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z" />
+    <path stroke="currentColor" d="M12 9v8" />
+  </svg>
+) : name === 'wind' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5" />
+    <path stroke="currentColor" d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5" />
+    <path stroke="currentColor" d="M5 17h7" />
+  </svg>
+) : name === 'rain' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z" />
+    <path stroke="currentColor" d="M9 18.5l-.8 2" />
+    <path stroke="currentColor" d="M13 18.5l-.8 2" />
+    <path stroke="currentColor" d="M17 18.5l-.8 2" />
+  </svg>
+) : name === 'storm' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z" />
+    <path stroke="currentColor" d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z" />
+  </svg>
+) : name === 'compass' ? (
+  <svg {...common} {...ariaProps}>
+    <circle cx="12" cy="12" r="9" stroke="currentColor" />
+    <path stroke="currentColor" d="M14.9 9.1l-2 6-6 2 2-6 6-2Z" />
+    <path stroke="currentColor" d="M12 3v2" />
+    <path stroke="currentColor" d="M3 12h2" />
+    <path stroke="currentColor" d="M19 12h2" />
+    <path stroke="currentColor" d="M12 19v2" />
+  </svg>
+) : (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M12 2v20" />
+    <path stroke="currentColor" d="M2 12h20" />
+  </svg>
+)}

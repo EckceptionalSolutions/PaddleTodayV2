@@ -1,0 +1,355 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FeatureIcon from '../components/FeatureIcon.astro';
+import { listRiverGroups, listRivers } from '../lib/rivers';
+import indexPageScript from '../scripts/index-page.js?url';
+
+const rivers = listRivers();
+const riverGroups = listRiverGroups();
+const states = [...new Set(rivers.map((river) => river.state))].sort();
+const regions = [...new Set(rivers.map((river) => river.region))].sort();
+const multiRouteGroups = riverGroups.filter((group) => group.routeCount > 1);
+const multiRouteIds = new Set(multiRouteGroups.map((group) => group.riverId));
+const singleRoutes = rivers.filter((river) => !multiRouteIds.has(river.riverId ?? ''));
+const displayCards = [
+  ...multiRouteGroups.map((group) => ({
+    kind: 'group' as const,
+    key: group.riverId,
+    riverId: group.riverId,
+    routeCount: group.routeCount,
+    route: group.routes[0],
+  })),
+  ...singleRoutes.map((route) => ({
+    kind: 'route' as const,
+    key: route.slug,
+    riverId: route.riverId,
+    routeCount: 1,
+    route,
+  })),
+].sort((left, right) => left.route.name.localeCompare(right.route.name));
+const thresholdBadgeLabel = (river: (typeof rivers)[number]) =>
+  river.profile.thresholdSourceStrength === 'official'
+    ? 'Official'
+    : river.profile.thresholdSourceStrength === 'mixed'
+      ? 'Mixed'
+      : river.profile.thresholdModel === 'minimum-only'
+        ? 'Minimum'
+        : 'Community';
+const summarySourceBadges = (river: (typeof rivers)[number]) => [
+  { label: 'USGS', tone: 'usgs' },
+  { label: thresholdBadgeLabel(river), tone: river.profile.thresholdSourceStrength },
+  ...(river.profile.thresholdModel === 'minimum-only'
+    ? [{ label: 'Low floor', tone: 'minimum' as const }]
+    : []),
+];
+---
+
+<BaseLayout
+  title="Paddle Today | Can I paddle this river today?"
+  description="A live river-conditions MVP that answers whether a river is worth paddling today with a score, confidence, explanation, and key factors."
+>
+  <section class="hero hero--home">
+    <div class="hero__main">
+      <p class="hero__kicker">Live river board</p>
+      <h1>Can I paddle this river today?</h1>
+      <p class="hero__lede">
+        Live river calls with score, confidence, and a plain-language reason. Just what you need to decide.
+      </p>
+      <div class="hero__meta">
+        <span class="stat-chip">{displayCards.length} tracked river calls</span>
+        <span class="stat-chip">Direct USGS gauges only</span>
+        <span class="stat-chip">Explainable score + confidence</span>
+      </div>
+
+      <div class="hero-principles">
+        <article class="hero-principle hero-principle--compact">
+          <span class="hero-principle__label">Score</span>
+          <strong>How good the route looks right now</strong>
+        </article>
+        <article class="hero-principle hero-principle--compact">
+          <span class="hero-principle__label">Confidence</span>
+          <strong>How much the inputs deserve trust</strong>
+        </article>
+        <article class="hero-principle hero-principle--compact">
+          <span class="hero-principle__label">Why</span>
+          <strong>Gauge, trend, weather, and evidence</strong>
+        </article>
+      </div>
+    </div>
+
+    <aside class="hero-call" aria-live="polite">
+      <p class="eyebrow">Best right now</p>
+      <p class="hero-call__state" data-featured-state>Checking rivers.</p>
+      <h2 class="hero-call__title" data-featured-name>Finding the best option</h2>
+      <p class="hero-call__reach" data-featured-reach>Checking today's strongest call.</p>
+
+      <div class="hero-call__scoreline">
+        <div class="score-orb score-orb--featured" aria-label="Featured river score loading">
+          <span class="score-orb__score" data-field="featured-score">--</span>
+          <span class="score-orb__rating" data-field="featured-rating">Checking</span>
+        </div>
+
+        <div class="hero-call__meta">
+          <span class="pill" data-field="featured-decision">Checking</span>
+          <span class="pill" data-field="featured-confidence">Checking confidence</span>
+          <span class="pill" data-field="featured-band">Checking flow band</span>
+        </div>
+      </div>
+
+      <p class="hero-call__summary muted" data-field="featured-explanation">
+        The best current call will appear here once scores load.
+      </p>
+
+      <a class="river-link river-link--inline" href="/" data-featured-link>
+        Open featured river
+      </a>
+    </aside>
+  </section>
+
+  <section class="board-strip" aria-label="Live river status">
+    <section class="conditions-overview">
+      <p class="eyebrow conditions-overview__eyebrow">Latest update</p>
+      <p class="conditions-overview__headline" data-summary-headline>
+        Checking river reads.
+      </p>
+      <p class="muted conditions-overview__detail" data-summary-detail>
+        Loading today's river calls.
+      </p>
+    </section>
+
+    <section class="summary-metrics" aria-label="River call counts">
+      <article class="summary-metric">
+        <span class="summary-metric__label">Strong</span>
+        <strong data-summary-great>--</strong>
+      </article>
+      <article class="summary-metric">
+        <span class="summary-metric__label">Good</span>
+        <strong data-summary-good>--</strong>
+      </article>
+      <article class="summary-metric">
+        <span class="summary-metric__label">Borderline</span>
+        <strong data-summary-marginal>--</strong>
+      </article>
+      <article class="summary-metric">
+        <span class="summary-metric__label">No-go</span>
+        <strong data-summary-no-go>--</strong>
+      </article>
+    </section>
+  </section>
+
+  <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
+    <div class="status-banner__eyebrow">Read quality</div>
+    <div class="status-banner__body">
+      <strong data-board-banner-title>Checking live reads.</strong>
+      <p class="muted" data-board-banner-detail>
+        Pulling the latest gauge and weather data.
+      </p>
+    </div>
+  </section>
+
+  <section class="summary-map-shell" data-summary-map-shell>
+    <div class="summary-map-copy">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="map" size={16} />
+        Score map
+      </p>
+      <h2 class="section-title">River map</h2>
+      <p class="muted">
+        Each point uses the stored route midpoint. The number is the score. The ring shows confidence.
+      </p>
+
+      <div class="summary-map-legend" aria-label="Score map legend">
+        <span class="summary-map-legend__item">
+          <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+          Strong
+        </span>
+        <span class="summary-map-legend__item">
+          <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
+          Borderline
+        </span>
+        <span class="summary-map-legend__item">
+          <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
+          No-go
+        </span>
+      </div>
+    </div>
+
+    <div class="summary-map-frame">
+      <div class="summary-map" data-summary-map aria-label="River score map"></div>
+      <p class="summary-map__status muted" data-summary-map-status>
+        Loading map.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-head">
+    <div>
+      <p class="eyebrow">River list</p>
+      <h2 class="section-title">Best rivers right now</h2>
+    </div>
+    <div class="section-head__actions">
+      <p class="muted section-head__note">
+        Sorted best to worst right now.
+      </p>
+      <div class="section-head__controls">
+        <button class="filter-chip" type="button" data-board-refresh>
+          Refresh board
+        </button>
+        <span class="muted section-head__status" data-board-refresh-note>
+          Auto-refreshes every 5 minutes.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
+    <div class="status-banner__eyebrow">Refresh failed</div>
+    <div class="status-banner__body">
+      <strong data-board-fetch-title>Live river calls could not be refreshed.</strong>
+      <p class="muted" data-board-fetch-detail>
+        The board may be stale. Retry before you drive.
+      </p>
+    </div>
+  </section>
+
+  <section class="board-filters" aria-label="River board filters">
+    <div class="board-filters__controls">
+      <label class="filter-select filter-select--sort">
+        <span class="sr-only">Sort the board</span>
+        <select class="filter-select__input" data-sort-select>
+          <option value="best-now">Best now</option>
+          <option value="nearest">Nearest to me</option>
+          <option value="highest-confidence">Highest confidence</option>
+          <option value="lowest-risk">Lowest risk</option>
+          <option value="a-z">A-Z</option>
+        </select>
+      </label>
+      <span class="location-indicator" data-location-indicator hidden aria-live="polite">
+        <span class="location-indicator__spinner" aria-hidden="true"></span>
+        <span data-location-indicator-label>Finding nearest rivers...</span>
+      </span>
+      <label class="filter-search">
+        <span class="sr-only">Search rivers</span>
+        <input
+          class="filter-search__input"
+          type="search"
+          placeholder="Search a river or route"
+          data-filter-search
+        />
+      </label>
+      <label class="filter-select">
+        <span class="sr-only">Filter by state</span>
+        <select class="filter-select__input" data-filter-state>
+          <option value="">All states</option>
+          {states.map((state) => (
+            <option value={state}>{state}</option>
+          ))}
+        </select>
+      </label>
+      <label class="filter-select">
+        <span class="sr-only">Filter by region</span>
+        <select class="filter-select__input" data-filter-region>
+          <option value="">All regions</option>
+          {regions.map((region) => (
+            <option value={region}>{region}</option>
+          ))}
+        </select>
+      </label>
+      <button class="filter-chip" type="button" data-filter-toggle="paddleable">
+        Paddleable only
+      </button>
+      <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
+        High confidence only
+      </button>
+    </div>
+    <p class="muted board-filters__summary" data-filter-summary>
+      Showing every river while live reads load.
+    </p>
+  </section>
+
+  <section class="river-grid" aria-label="River score summary" data-river-grid>
+    {displayCards.map((item) => (
+      <article
+        class="river-card"
+        data-board-card
+        data-card-kind={item.kind}
+        data-card-key={item.key}
+        data-river-id={item.riverId}
+        data-river-slug={item.kind === 'route' ? item.route.slug : ''}
+        data-river-name={item.route.name}
+        data-river-reach={item.route.reach}
+        data-river-state={item.route.state}
+        data-river-region={item.route.region}
+      >
+        <div class="river-card__top">
+          <div>
+            <p class="river-card__state">{item.route.state} | {item.route.region}</p>
+            <h2 class="river-card__title">{item.route.name}</h2>
+            <p class="river-card__reach" data-field="route-label">
+              {item.kind === 'group'
+                ? `${item.routeCount} routes on this river`
+                : item.route.reach}
+            </p>
+            <div class="river-card__badges" data-source-badges>
+              {summarySourceBadges(item.route).map((badge) => (
+                <span class={`source-badge source-badge--${badge.tone}`}>{badge.label}</span>
+              ))}
+            </div>
+          </div>
+
+          <div class="score-orb" aria-label="Live score loading">
+            <span class="score-orb__score" data-field="score">--</span>
+            <span class="score-orb__rating" data-field="rating">Checking</span>
+          </div>
+        </div>
+
+        <div class="river-card__signal-row">
+          <span class="pill" data-field="decision">Checking</span>
+          <span class="pill" data-field="data-status">Checking reads</span>
+        </div>
+
+        <p class="river-card__copy">
+          <span class="river-card__why-label">Why now</span>
+          <span data-field="card-summary">Checking score, confidence, and key factors.</span>
+        </p>
+
+        <dl class="river-card__metrics">
+          <div class="river-card__metric">
+            <dt>Flow band</dt>
+            <dd data-field="band-plain">Checking</dd>
+          </div>
+          <div class="river-card__metric">
+            <dt>Gauge now</dt>
+            <dd data-field="gauge-now">Checking</dd>
+          </div>
+          <div class="river-card__metric">
+            <dt>Confidence</dt>
+            <dd data-field="confidence-plain">Checking</dd>
+          </div>
+        </dl>
+
+        <p class="river-card__freshness muted" data-field="freshness">
+          Checking
+        </p>
+        <p class="river-card__distance muted" data-field="distance" hidden>
+          0 mi away
+        </p>
+
+        <div class="river-card__footer river-card__footer--compact">
+          <span class="pill" data-field="primary-factor">Checking gauge</span>
+          <span class="pill" data-field="secondary-factor">Checking evidence</span>
+        </div>
+
+        <a
+          class="river-link"
+          href={item.kind === 'group' ? `/rivers/by-river/${item.riverId}/` : `/rivers/${item.route.slug}/`}
+          data-card-link
+        >
+          {item.kind === 'group' ? 'Open river page' : 'Open full river call'}
+        </a>
+      </article>
+    ))}
+  </section>
+
+  <script type="module" src={indexPageScript}></script>
+</BaseLayout>
