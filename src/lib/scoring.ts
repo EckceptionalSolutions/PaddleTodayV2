@@ -45,19 +45,25 @@ export function scoreRiverCondition(args: {
 
   const gaugeAssessment = assessGauge(args.river, args.gauge);
   const trendAssessment = assessTrend(args.river, args.gauge, gaugeAssessment.band);
-  const weatherAssessment = assessWeather(args.weather);
-  const seasonAssessment = assessSeason(args.river, now);
-  const difficultyAssessment = assessDifficulty(args.river);
-
-  const rawScore =
-    gaugeAssessment.points +
-    trendAssessment.points +
+  const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
+  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.weather, now);
+  const comfortAssessment = assessComfortAdjustment(args.river, args.weather, now);
+  const riverQuality = computeRiverQuality(args.river, gaugeAssessment, trendAssessment);
+  const rawTripScore =
+    riverQuality +
     weatherAssessment.points +
-    seasonAssessment.points +
-    difficultyAssessment.points;
-
-  const scoreCap = args.river.profile.thresholdModel === 'minimum-only' ? 74 : 100;
-  const score = clamp(Math.round(rawScore), 0, scoreCap);
+    temperatureAssessment.points +
+    comfortAssessment.points;
+  const scoreBreakdown = buildScoreBreakdown({
+    river: args.river,
+    weather: args.weather,
+    riverQuality,
+    weatherAdjustment: weatherAssessment.points,
+    temperatureAdjustment: temperatureAssessment.points,
+    comfortAdjustment: comfortAssessment.points,
+    rawTripScore,
+  });
+  const score = scoreBreakdown.finalScore;
   const rating = ratingFromScore(score);
   const confidence = computeConfidence({
     river: args.river,
@@ -109,8 +115,8 @@ export function scoreRiverCondition(args: {
       id: 'weather',
       label: 'Weather',
       value: weatherLabel(args.weather),
-      detail: weatherAssessment.detail,
-      impact: weatherAssessment.impact,
+      detail: [weatherAssessment.detail, temperatureAssessment.detail].filter(Boolean).join(' '),
+      impact: combinedImpact(weatherAssessment.impact, temperatureAssessment.impact),
     },
     {
       id: 'live-data',
@@ -143,19 +149,20 @@ export function scoreRiverCondition(args: {
       label: 'Difficulty',
       value: titleCase(args.river.profile.difficulty),
       detail: args.river.profile.difficultyNotes,
-      impact: difficultyAssessment.impact,
+      impact: comfortAssessment.difficultyImpact,
     },
     {
       id: 'seasonality',
       label: 'Seasonality',
-      value: seasonAssessment.value,
-      detail: seasonAssessment.detail,
-      impact: seasonAssessment.impact,
+      value: comfortAssessment.seasonValue,
+      detail: comfortAssessment.seasonDetail,
+      impact: comfortAssessment.seasonImpact,
     },
   ];
 
   return {
     river: args.river,
+    riverQuality,
     score,
     rating,
     gaugeBand: gaugeAssessment.band,
@@ -167,10 +174,12 @@ export function scoreRiverCondition(args: {
       gaugeAssessment,
       trendAssessment,
       weatherAssessment,
-      difficultyAssessment,
+      temperatureAssessment,
+      comfortAssessment,
       confidence,
       liveData,
     }),
+    scoreBreakdown,
     confidence,
     liveData,
     factors,
@@ -188,9 +197,25 @@ function scoreWithoutGauge(args: {
   liveData: LiveDataStatus;
   now: Date;
 }): RiverScoreResult {
-  const weatherAssessment = assessWeather(args.weather);
-  const seasonAssessment = assessSeason(args.river, args.now);
-  const score = clamp(Math.round(30 + weatherAssessment.points + seasonAssessment.points), 0, 100);
+  const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
+  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.weather, args.now);
+  const comfortAssessment = assessComfortAdjustment(args.river, args.weather, args.now);
+  const riverQuality = 30;
+  const rawTripScore =
+    riverQuality +
+    weatherAssessment.points +
+    temperatureAssessment.points +
+    comfortAssessment.points;
+  const scoreBreakdown = buildScoreBreakdown({
+    river: args.river,
+    weather: args.weather,
+    riverQuality,
+    weatherAdjustment: weatherAssessment.points,
+    temperatureAdjustment: temperatureAssessment.points,
+    comfortAdjustment: comfortAssessment.points,
+    rawTripScore,
+  });
+  const score = scoreBreakdown.finalScore;
   const confidence = computeConfidence({
     river: args.river,
     gauge: null,
@@ -200,11 +225,13 @@ function scoreWithoutGauge(args: {
 
   return {
     river: args.river,
+    riverQuality,
     score,
-    rating: 'Borderline',
+    rating: ratingFromScore(score),
     gaugeBand: 'unavailable',
     gaugeBandLabel: 'Unavailable',
     explanation: `${args.river.name} cannot be scored confidently right now. ${args.liveData.summary}`,
+    scoreBreakdown,
     confidence,
     liveData: args.liveData,
     factors: [
@@ -219,7 +246,7 @@ function scoreWithoutGauge(args: {
         id: 'weather',
         label: 'Weather',
         value: weatherLabel(args.weather),
-        detail: weatherAssessment.detail,
+        detail: [weatherAssessment.detail, temperatureAssessment.detail].filter(Boolean).join(' '),
         impact: weatherAssessment.impact,
       },
       {
@@ -246,9 +273,9 @@ function scoreWithoutGauge(args: {
       {
         id: 'seasonality',
         label: 'Seasonality',
-        value: seasonAssessment.value,
-        detail: seasonAssessment.detail,
-        impact: seasonAssessment.impact,
+        value: comfortAssessment.seasonValue,
+        detail: comfortAssessment.seasonDetail,
+        impact: comfortAssessment.seasonImpact,
       },
     ],
     checklist: [
@@ -309,7 +336,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
     }
 
     return {
-      points: 54,
+      points: 60,
       impact: 'warning',
       detail: `Above the published minimum of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}, but the app does not yet have a defendable upper target or high-water threshold for this reach.`,
       band: 'minimum-met',
@@ -542,42 +569,70 @@ function assessWeather(weather: WeatherSnapshot | null): {
     };
   }
 
-  let points = 15;
+  let points = 8;
   const notes: string[] = [];
   let impact: ScoreImpact = 'positive';
 
+  if (typeof weather.temperatureF === 'number') {
+    if (weather.temperatureF < 35) {
+      points -= 12;
+      impact = 'negative';
+      notes.push(`Air temperature is near freezing at ${Math.round(weather.temperatureF)}°F.`);
+    } else if (weather.temperatureF < 40) {
+      points -= 8;
+      impact = 'warning';
+      notes.push(`Air temperature is cold at ${Math.round(weather.temperatureF)}°F.`);
+    } else if (weather.temperatureF < 50) {
+      points -= 3;
+      impact = impact === 'negative' ? 'negative' : 'warning';
+      notes.push(`Air temperature is cool at ${Math.round(weather.temperatureF)}°F.`);
+    } else if (weather.temperatureF <= 80) {
+      points += 4;
+      notes.push(`Air temperature looks comfortable at ${Math.round(weather.temperatureF)}°F.`);
+    } else if (weather.temperatureF <= 88) {
+      points += 1;
+      notes.push(`Air temperature is warm at ${Math.round(weather.temperatureF)}°F.`);
+    } else {
+      points -= 3;
+      impact = impact === 'negative' ? 'negative' : 'warning';
+      notes.push(`Air temperature is hot at ${Math.round(weather.temperatureF)}°F.`);
+    }
+  }
+
   if (weather.next12hStormRisk) {
-    points -= 7;
+    points -= 8;
     impact = 'negative';
     notes.push('Thunderstorm risk shows up in the next 12 hours.');
   }
 
   if ((weather.next12hWindMphMax ?? 0) >= 20) {
-    points -= 4;
+    points -= 5;
     impact = impact === 'negative' ? 'negative' : 'warning';
     notes.push(`Winds may gust into the ${Math.round(weather.next12hWindMphMax ?? 0)} mph range.`);
   } else if ((weather.next12hWindMphMax ?? 0) >= 14) {
-    points -= 2;
+    points -= 3;
     impact = impact === 'negative' ? 'negative' : 'warning';
     notes.push('Wind is noticeable but not automatically a deal-breaker.');
   } else {
+    points += 2;
     notes.push('Wind looks manageable.');
   }
 
   if ((weather.next12hPrecipProbabilityMax ?? 0) >= 70 || (weather.next12hPrecipitationIn ?? 0) >= 0.3) {
-    points -= 4;
+    points -= 7;
     impact = impact === 'negative' ? 'negative' : 'warning';
     notes.push('Rain odds are high enough to add uncertainty.');
   } else if ((weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
-    points -= 2;
+    points -= 3;
     impact = impact === 'negative' ? 'negative' : 'warning';
     notes.push('Some rain is possible, but it does not dominate the call.');
   } else {
+    points += 1;
     notes.push('No major rain signal is showing up right now.');
   }
 
   return {
-    points: clamp(points, 0, 15),
+    points: clamp(points, -18, 15),
     impact,
     detail: notes.join(' '),
   };
@@ -629,6 +684,274 @@ function assessDifficulty(river: River): {
   };
 }
 
+function computeRiverQuality(
+  river: River,
+  gaugeAssessment: { points: number },
+  trendAssessment: { points: number }
+): number {
+  const scoreCap = river.profile.thresholdModel === 'minimum-only' ? 74 : 100;
+  return clamp(Math.round(gaugeAssessment.points + trendAssessment.points), 0, scoreCap);
+}
+
+function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null): {
+  points: number;
+  impact: ScoreImpact;
+  detail: string;
+} {
+  if (!weather) {
+    return {
+      points: 0,
+      impact: 'warning',
+      detail: 'Weather data is unavailable, so the score leans more heavily on the river reading.',
+    };
+  }
+
+  let points = 0;
+  const notes: string[] = [];
+  let impact: ScoreImpact = 'neutral';
+  const windSensitivity = windSensitivityForRiver(river);
+  const rainSensitivity = rainSensitivityForRiver(river);
+
+  if (weather.next12hStormRisk) {
+    points -= Math.round(8 * rainSensitivity);
+    impact = 'negative';
+    notes.push('Thunderstorm risk shows up in the next 12 hours.');
+  }
+
+  const maxWind = weather.next12hWindMphMax ?? 0;
+  const windPenalty = maxWind > 20 ? -10 : maxWind >= 15 ? -6 : maxWind > 10 ? -3 : 0;
+  points += Math.round(windPenalty * windSensitivity);
+  if (windPenalty <= -10) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    notes.push(`Winds may gust into the ${Math.round(maxWind)} mph range.`);
+  } else if (windPenalty < 0) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    notes.push('Wind is noticeable but not automatically a deal-breaker.');
+  } else {
+    notes.push('Wind looks manageable.');
+  }
+
+  const precipProbability = weather.next12hPrecipProbabilityMax ?? 0;
+  const rainPenalty = precipProbability > 60 ? -6 : precipProbability >= 30 ? -3 : 0;
+  points += Math.round(rainPenalty * rainSensitivity);
+  if (rainPenalty <= -6) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    notes.push('Rain odds are high enough to add uncertainty.');
+  } else if (rainPenalty < 0) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    notes.push('Some rain is possible, but it does not dominate the call.');
+  } else {
+    notes.push('No major rain signal is showing up right now.');
+  }
+
+  const precipTimingPenalty =
+    typeof weather.next12hPrecipStartsInHours === 'number'
+      ? weather.next12hPrecipStartsInHours <= 3
+        ? -5
+        : weather.next12hPrecipStartsInHours <= 12
+          ? -2
+          : 0
+      : 0;
+  points += Math.round(precipTimingPenalty * rainSensitivity);
+  if (precipTimingPenalty <= -5) {
+    impact = 'negative';
+    notes.push('Rain looks imminent in the next few hours.');
+  } else if (precipTimingPenalty < 0) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    notes.push('Rain is likely later today.');
+  }
+
+  return {
+    points: clamp(points, -25, 0),
+    impact,
+    detail: notes.join(' '),
+  };
+}
+
+function assessTemperatureAdjustment(river: River, weather: WeatherSnapshot | null, now: Date): {
+  points: number;
+  impact: ScoreImpact;
+  detail: string;
+} {
+  if (!weather || typeof weather.temperatureF !== 'number') {
+    return {
+      points: 0,
+      impact: 'warning',
+      detail: 'Air temperature is unavailable, so the trip-day score leans more heavily on other signals.',
+    };
+  }
+
+  const month = now.getMonth() + 1;
+  const coldSeasonMultiplier = [4, 5, 10, 11].includes(month) ? 1.25 : 1;
+  const tempSensitivity = tempSensitivityForRiver(river);
+  const temp = weather.temperatureF;
+  const basePenalty =
+    temp < 35 ? -12 : temp < 50 ? -6 : temp < 65 ? -2 : temp <= 85 ? 0 : temp <= 92 ? -4 : -8;
+  const points = Math.round(basePenalty * coldSeasonMultiplier * tempSensitivity);
+
+  return {
+    points,
+    impact: points <= -8 ? 'negative' : points < 0 ? 'warning' : 'neutral',
+    detail:
+      points < 0
+        ? temp < 35
+          ? `Air temperature is near freezing at ${Math.round(temp)}°F, which lowers same-day trip quality${coldSeasonMultiplier > 1 ? ' more in the shoulder season' : ''}.`
+          : `Air temperature is ${Math.round(temp)}°F, which lowers same-day trip quality${coldSeasonMultiplier > 1 ? ' more in the shoulder season' : ''}.`
+        : `Air temperature is ${Math.round(temp)}°F and does not meaningfully lower the trip-day score.`,
+  };
+}
+
+function assessComfortAdjustment(
+  river: River,
+  weather: WeatherSnapshot | null,
+  now: Date
+): {
+  points: number;
+  impact: ScoreImpact;
+  detail: string;
+  seasonValue: string;
+  seasonDetail: string;
+  seasonImpact: ScoreImpact;
+  difficultyImpact: ScoreImpact;
+} {
+  const month = now.getMonth() + 1;
+  const inSeason = river.profile.seasonMonths.includes(month);
+  let points = 0;
+
+  const seasonValue = inSeason ? 'Normal window' : 'Outside core window';
+  const seasonImpact: ScoreImpact = inSeason ? 'neutral' : 'warning';
+  const seasonDetail = inSeason
+    ? river.profile.seasonNotes
+    : `Outside the usual season. ${river.profile.seasonNotes}`;
+
+  if (!inSeason) {
+    points -= 4;
+  }
+
+  let difficultyImpact: ScoreImpact = 'neutral';
+  if (river.profile.difficulty === 'hard') {
+    points -= 6;
+    difficultyImpact = 'warning';
+  }
+
+  return {
+    points: points + pleasantDayBonus({ river, weather, inSeason }),
+    impact: points > 0 ? 'positive' : points < 0 ? 'warning' : 'neutral',
+    detail:
+      river.profile.difficulty === 'hard'
+        ? `${river.profile.difficultyNotes} This kind of reach needs more margin even when the gauge is in range.`
+        : inSeason
+          ? 'No extra trip-day comfort penalty beyond weather and flow.'
+          : 'Outside the usual season reduces trip-day quality even if the gauge is workable.',
+    seasonValue,
+    seasonDetail,
+    seasonImpact,
+    difficultyImpact,
+  };
+}
+
+function pleasantDayBonus(args: {
+  river: River;
+  weather: WeatherSnapshot | null;
+  inSeason: boolean;
+}): number {
+  if (!args.inSeason || !args.weather || args.river.profile.difficulty === 'hard') {
+    return 0;
+  }
+
+  const comfortableTemp =
+    typeof args.weather.temperatureF === 'number' &&
+    args.weather.temperatureF >= 65 &&
+    args.weather.temperatureF <= 82;
+  const calmWind = (args.weather.next12hWindMphMax ?? args.weather.windMph ?? Infinity) <= 10;
+  const dry = (args.weather.next12hPrecipProbabilityMax ?? Infinity) < 20;
+  const noStorms = !args.weather.next12hStormRisk;
+  const fairSky = args.weather.weatherCode === null || [0, 1, 2].includes(args.weather.weatherCode);
+
+  return comfortableTemp && calmWind && dry && noStorms && fairSky ? 8 : 0;
+}
+
+function buildScoreBreakdown(args: {
+  river: River;
+  weather: WeatherSnapshot | null;
+  riverQuality: number;
+  weatherAdjustment: number;
+  temperatureAdjustment: number;
+  comfortAdjustment: number;
+  rawTripScore: number;
+}): RiverScoreResult['scoreBreakdown'] {
+  let finalScore = Math.round(args.rawTripScore);
+  const capReasons: string[] = [];
+
+  if (typeof args.weather?.temperatureF === 'number' && args.weather.temperatureF < 35) {
+    finalScore = Math.min(finalScore, 70);
+    capReasons.push('Near-freezing air caps today at 70.');
+  }
+
+  if ((args.weather?.next12hWindMphMax ?? 0) > 20) {
+    finalScore = Math.min(finalScore, 75);
+    capReasons.push('High wind caps today at 75.');
+  }
+
+  if (
+    (args.weather?.next12hPrecipProbabilityMax ?? 0) > 60 &&
+    typeof args.weather?.next12hPrecipStartsInHours === 'number' &&
+    args.weather.next12hPrecipStartsInHours <= 3
+  ) {
+    finalScore = Math.min(finalScore, 65);
+    capReasons.push('Imminent heavy rain caps today at 65.');
+  }
+
+  if (args.river.profile.thresholdModel === 'minimum-only') {
+    finalScore = Math.min(finalScore, 74);
+    capReasons.push('Minimum-only guidance caps the trip score at 74.');
+  }
+
+  finalScore = clamp(finalScore, 0, 100);
+
+  return {
+    riverQuality: args.riverQuality,
+    weatherAdjustment: args.weatherAdjustment,
+    temperatureAdjustment: args.temperatureAdjustment,
+    comfortAdjustment: args.comfortAdjustment,
+    rawTripScore: Math.round(args.rawTripScore),
+    finalScore,
+    capReasons,
+  };
+}
+
+function windSensitivityForRiver(river: River): number {
+  if (typeof river.profile.windSensitivity === 'number') {
+    return river.profile.windSensitivity;
+  }
+
+  return river.name === 'Rice Creek' ? 1.15 : 1;
+}
+
+function rainSensitivityForRiver(river: River): number {
+  if (typeof river.profile.rainSensitivity === 'number') {
+    return river.profile.rainSensitivity;
+  }
+
+  if (river.profile.rainfallSensitivity === 'high') {
+    return 1.3;
+  }
+
+  if (river.profile.rainfallSensitivity === 'low') {
+    return 0.8;
+  }
+
+  return 1;
+}
+
+function tempSensitivityForRiver(river: River): number {
+  if (typeof river.profile.tempSensitivity === 'number') {
+    return river.profile.tempSensitivity;
+  }
+
+  return 1;
+}
+
 function computeConfidence(args: {
   river: River;
   gauge: GaugeReading | null;
@@ -636,16 +959,17 @@ function computeConfidence(args: {
   liveData: LiveDataStatus;
 }): ConfidenceResult {
   let score = 0.2;
-  const rationale: string[] = [];
+  const reasons: string[] = [];
+  const warnings: string[] = [];
 
   if (args.gauge && args.river.gaugeSource.kind === 'direct') {
     score += 0.25;
-    rationale.push('Direct USGS gauge for the reach.');
+    reasons.push('Direct gauge available.');
   } else if (args.gauge) {
     score += 0.08;
-    rationale.push('Uses a proxy gauge.');
+    warnings.push('Using a nearby gauge instead of one on this reach.');
   } else {
-    rationale.push('No live gauge reading is available.');
+    warnings.push('No live gauge is available right now.');
   }
 
   if (
@@ -654,15 +978,15 @@ function computeConfidence(args: {
     typeof args.river.profile.idealMax === 'number'
   ) {
     score += 0.1;
-    rationale.push('The river profile has a two-sided ideal window.');
+    reasons.push('Ideal range is well defined.');
   } else if (
     args.river.profile.thresholdModel === 'minimum-only' &&
     (typeof args.river.profile.tooLow === 'number' || typeof args.river.profile.idealMin === 'number')
   ) {
     score += 0.08;
-    rationale.push('A published low-water minimum is defined.');
+    reasons.push('A low-water floor is defined.');
     score -= 0.03;
-    rationale.push('Upper-band and high-water guidance are still incomplete.');
+    warnings.push('Upper range is still estimated.');
   }
 
   if (
@@ -671,61 +995,66 @@ function computeConfidence(args: {
     typeof args.river.profile.tooHigh === 'number'
   ) {
     score += 0.08;
-    rationale.push('Hard low and high bounds are defined.');
+    reasons.push('Low and high bounds are defined.');
   }
 
   if (args.river.profile.thresholdSourceStrength === 'official') {
     score += 0.14;
-    rationale.push('Thresholds come from an official manager or watershed source.');
+    reasons.push('Range comes from an official source.');
   } else if (args.river.profile.thresholdSourceStrength === 'mixed') {
     score += 0.08;
-    rationale.push('Thresholds are backed by a mix of source types.');
+    reasons.push('Range is backed by more than one source.');
   } else if (args.river.profile.thresholdSourceStrength === 'community') {
     score += 0.03;
-    rationale.push('Thresholds are community-sourced rather than manager-published.');
+    warnings.push('Range is based on community guidance.');
   } else {
     score -= 0.08;
-    rationale.push('Thresholds are derived or weakly sourced.');
+    warnings.push('Range is estimated from limited source material.');
   }
 
   if (args.gauge?.trend !== 'unknown') {
     score += 0.05;
-    rationale.push('Recent gauge trend is available.');
+    reasons.push('Recent gauge trend is available.');
   }
 
   if (args.weather?.observedAt && args.liveData.weather.state === 'live') {
     score += 0.05;
-    rationale.push('Live weather and short forecast are available.');
+    reasons.push('Weather data is recent.');
   }
 
   if (args.river.profile.rainfallSensitivity === 'high') {
     score -= 0.05;
-    rationale.push('This river changes quickly after rain.');
+    warnings.push('This river changes quickly after rain.');
   }
 
   if (args.liveData.gauge.state === 'stale') {
     score -= 0.22;
-    rationale.push('The latest gauge reading is older than the freshness target.');
+    warnings.push('Gauge data is older than the freshness target.');
   } else if (args.liveData.gauge.state === 'unavailable') {
     score -= 0.28;
-    rationale.push('The gauge feed is currently unavailable.');
+    warnings.push('Gauge data is unavailable.');
   }
 
   if (args.liveData.weather.state === 'stale') {
     score -= 0.08;
-    rationale.push('Weather coverage is older than the freshness target.');
+    warnings.push('Weather data is older than the freshness target.');
   } else if (args.liveData.weather.state === 'unavailable') {
     score -= 0.04;
-    rationale.push('Weather coverage is unavailable.');
+    warnings.push('Weather data is unavailable.');
   }
 
   score = clamp(score, 0.05, 0.95);
 
   const label: ConfidenceLabel = score >= 0.78 ? 'High' : score >= 0.58 ? 'Medium' : 'Low';
+  const level: ConfidenceResult['level'] = label.toLowerCase() as ConfidenceResult['level'];
+  const rationale = [...reasons, ...warnings].slice(0, 6);
 
   return {
     score: Math.round(score * 100),
     label,
+    level,
+    reasons: reasons.slice(0, 4),
+    warnings: warnings.slice(0, 4),
     rationale,
   };
 }
@@ -1033,6 +1362,10 @@ function checklistStatusForWeather(weather: WeatherSnapshot | null): ChecklistSt
     return 'watch';
   }
 
+  if ((weather.temperatureF ?? 999) < 35) {
+    return 'watch';
+  }
+
   if (weather.next12hStormRisk || (weather.next12hWindMphMax ?? 0) >= 20) {
     return 'skip';
   }
@@ -1051,6 +1384,9 @@ function weatherChecklistDetail(weather: WeatherSnapshot | null): string {
 
   const parts: string[] = [];
   parts.push(weather.next12hStormRisk ? 'Storm signal is present in the next 12 hours.' : 'No storm signal is showing in the next 12 hours.');
+  if (typeof weather.temperatureF === 'number') {
+    parts.push(`Air temperature is around ${Math.round(weather.temperatureF)}°F.`);
+  }
   if (typeof weather.next12hWindMphMax === 'number') {
     parts.push(`Peak wind looks near ${Math.round(weather.next12hWindMphMax)} mph.`);
   }
@@ -1060,6 +1396,13 @@ function weatherChecklistDetail(weather: WeatherSnapshot | null): string {
   return parts.join(' ');
 }
 
+function combinedImpact(left: ScoreImpact, right: ScoreImpact): ScoreImpact {
+  if (left === 'negative' || right === 'negative') return 'negative';
+  if (left === 'warning' || right === 'warning') return 'warning';
+  if (left === 'positive' || right === 'positive') return 'positive';
+  return 'neutral';
+}
+
 function buildExplanation(args: {
   river: River;
   rating: ScoreRating;
@@ -1067,7 +1410,8 @@ function buildExplanation(args: {
   gaugeAssessment: { band: string };
   trendAssessment: { detail: string };
   weatherAssessment: { detail: string };
-  difficultyAssessment: { points: number; detail: string };
+  temperatureAssessment: { detail: string; points: number };
+  comfortAssessment: { detail: string; points: number };
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
 }): string {
@@ -1097,21 +1441,21 @@ function buildExplanation(args: {
 
   const freshnessSentence =
     args.liveData.overall === 'live' ? '' : ` ${args.liveData.summary}`;
-  const difficultySentence =
-    args.difficultyAssessment.points < 0
-      ? ` ${args.difficultyAssessment.detail}`
+  const comfortSentence =
+    args.comfortAssessment.points < 0
+      ? ` ${args.comfortAssessment.detail}`
       : '';
 
-  return `${lead} ${gaugeSentence} ${args.trendAssessment.detail} ${args.weatherAssessment.detail}${freshnessSentence}${difficultySentence} ${confidenceSentence}`.replace(
+  return `${lead} ${gaugeSentence} ${args.trendAssessment.detail} ${args.weatherAssessment.detail} ${args.temperatureAssessment.detail}${freshnessSentence}${comfortSentence} ${confidenceSentence}`.replace(
     /\s+/g,
     ' '
   ).trim();
 }
 
 function ratingFromScore(score: number): ScoreRating {
-  if (score >= 80) return 'Strong';
-  if (score >= 65) return 'Good';
-  if (score >= 45) return 'Borderline';
+  if (score >= 90) return 'Strong';
+  if (score >= 75) return 'Good';
+  if (score >= 60) return 'Borderline';
   return 'No-go';
 }
 

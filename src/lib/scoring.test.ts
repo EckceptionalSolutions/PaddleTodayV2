@@ -53,6 +53,7 @@ const weather: WeatherSnapshot = {
   currentPrecipitationIn: 0,
   next12hPrecipProbabilityMax: 10,
   next12hPrecipitationIn: 0.01,
+  next12hPrecipStartsInHours: null,
   next12hWindMphMax: 10,
   next12hStormRisk: false,
   weatherCode: 1,
@@ -114,7 +115,7 @@ function makeRiverGauge(
 }
 
 describe('scoreRiverCondition', () => {
-it('scores an in-range river as good or strong', () => {
+  it('scores an in-range river as good or strong', () => {
     const now = new Date('2026-05-10T12:00:00Z');
     const result = scoreRiverCondition({
       river: baseRiver,
@@ -129,13 +130,40 @@ it('scores an in-range river as good or strong', () => {
       now,
     });
 
-    expect(result.score).toBeGreaterThanOrEqual(80);
-    expect(result.rating).toBe('Strong');
+    expect(result.score).toBeGreaterThanOrEqual(75);
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
     expect(result.confidence.label).toBe('Medium');
     expect(result.liveData.overall).toBe('live');
     expect(result.gaugeBand).toBe('ideal');
     expect(result.checklist.some((item) => item.label === 'Gauge window')).toBe(true);
     expect(result.outlooks[0]?.availability).toBe('available');
+  });
+
+  it('only reaches 100 when gauge and weather are both excellent', () => {
+    const now = new Date('2026-05-10T12:00:00Z');
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(500, 'steady', 0),
+        observedAt: '2026-05-10T11:00:00Z',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+        temperatureF: 72,
+        windMph: 4,
+        gustMph: 7,
+        next12hWindMphMax: 7,
+        next12hPrecipProbabilityMax: 0,
+        next12hPrecipitationIn: 0,
+        next12hStormRisk: false,
+        weatherCode: 0,
+      },
+      now,
+    });
+
+    expect(result.score).toBe(100);
+    expect(result.rating).toBe('Strong');
   });
 
   it('pushes a too-low river toward no-go', () => {
@@ -162,6 +190,34 @@ it('scores an in-range river as good or strong', () => {
     expect(result.score).toBeLessThan(45);
     expect(result.rating).toBe('No-go');
     expect(result.gaugeBand).toBe('too-low');
+  });
+
+  it('pulls an ideal-gauge river down when cold rain and wind make the day unattractive', () => {
+    const now = new Date('2026-04-01T12:00:00Z');
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(500, 'steady', 0),
+        observedAt: '2026-04-01T11:00:00Z',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-04-01T11:15:00Z',
+        temperatureF: 31,
+        windMph: 7,
+        gustMph: 19,
+        next12hWindMphMax: 14,
+        next12hPrecipProbabilityMax: 72,
+        next12hPrecipitationIn: 0.14,
+        next12hStormRisk: false,
+      },
+      now,
+    });
+
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.score).toBeLessThan(75);
+    expect(result.rating).toBe('Borderline');
+    expect(result.factors.find((factor) => factor.id === 'weather')?.detail).toContain('near freezing');
   });
 
   it('marks stale gauge data as degraded and lowers confidence', () => {
@@ -266,7 +322,7 @@ it('scores an in-range river as good or strong', () => {
 
     expect(highShoulder.gaugeBand).toBe('high-shoulder');
     expect(highShoulder.score).toBeLessThan(ideal.score);
-    expect(highShoulder.rating === 'Good' || highShoulder.rating === 'Borderline').toBe(true);
+    expect(highShoulder.rating === 'Borderline' || highShoulder.rating === 'No-go').toBe(true);
   });
 
   it('exposes threshold evidence quality as an explainable factor', () => {
@@ -325,8 +381,8 @@ it('scores an in-range river as good or strong', () => {
     });
 
     expect(officialResult.confidence.score).toBeGreaterThan(communityResult.confidence.score);
-    expect(officialResult.confidence.rationale).toContain(
-      'Thresholds come from an official manager or watershed source.'
+    expect(officialResult.confidence.reasons).toContain(
+      'Range comes from an official source.'
     );
   });
 
@@ -401,7 +457,7 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.score).toBeLessThanOrEqual(74);
-    expect(result.rating).toBe('Good');
+    expect(result.rating).toBe('Borderline');
     expect(result.confidence.label).toBe('Medium');
     expect(result.explanation).toContain('published minimum');
   });
@@ -532,7 +588,7 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('low-shoulder');
-    expect(result.rating).toBe('Borderline');
+    expect(result.rating === 'Borderline' || result.rating === 'No-go').toBe(true);
   });
 
   it('keeps Black Hawk Creek inside the official DNR range with high confidence but technical caution', () => {
@@ -573,6 +629,32 @@ describe('seed river calibration', () => {
     expect(result.gaugeBand).toBe('ideal');
     expect(result.confidence.label).toBe('High');
     expect(thresholdFactor?.value).toBe('Official numeric guidance');
+  });
+
+  it('keeps Rice Creek out of the 90s on a cold rainy day even when the gauge is ideal', () => {
+    expect(riceCreek).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: riceCreek as River,
+      gauge: makeRiverGauge(riceCreek as River, 7.27, 'steady', -0.02),
+      weather: {
+        ...weather,
+        observedAt: '2026-04-01T11:15:00Z',
+        temperatureF: 31,
+        windMph: 7,
+        gustMph: 19,
+        next12hWindMphMax: 14.4,
+        next12hPrecipProbabilityMax: 73,
+        next12hPrecipitationIn: 0.144,
+        next12hStormRisk: false,
+      },
+      now: new Date('2026-04-01T12:00:00Z'),
+    });
+
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.score).toBeLessThan(90);
+    expect(result.rating).toBe('Borderline');
+    expect(result.checklist.find((item) => item.label === 'Weather window')?.status).toBe('watch');
   });
 
   it('treats the lower Kettle inside the AW band as an in-play mixed-source call', () => {
@@ -626,7 +708,7 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Good');
+    expect(result.rating).toBe('Borderline');
     expect(result.confidence.label).toBe('Medium');
   });
 
@@ -645,7 +727,7 @@ describe('seed river calibration', () => {
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.score).toBeLessThanOrEqual(74);
-    expect(result.rating).toBe('Good');
+    expect(result.rating).toBe('Borderline');
   });
 
   it('keeps the downstream Black Hawk reach inside the official DNR range with a high-confidence but conservative call', () => {
@@ -716,7 +798,7 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Good');
+    expect(result.rating).toBe('Borderline');
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
   });
 });

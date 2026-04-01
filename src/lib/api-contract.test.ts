@@ -84,6 +84,7 @@ const weather: WeatherSnapshot = {
   currentPrecipitationIn: 0,
   next12hPrecipProbabilityMax: 12,
   next12hPrecipitationIn: 0.01,
+  next12hPrecipStartsInHours: null,
   next12hWindMphMax: 10,
   next12hStormRisk: false,
   weatherCode: 1,
@@ -150,6 +151,8 @@ describe('api-contract serializers', () => {
       { label: 'Official', tone: 'official' },
     ]);
     expect(summary.summary.cardText).toContain('Ideal window');
+    expect(summary.summary.shortExplanation).toBe('Perfect level • Stable • light wind');
+    expect(summary.summary.rawSignalLine).toBe('Gauge: 520 cfs • Wind: 10 mph • Temp: 67°F');
     expect(summary.summary.gaugeNow).toBe('520 cfs');
     expect(summary.liveData.gaugeDetail).toContain('Latest gauge reading');
     expect(summary.liveData.weatherDetail).toContain('Latest weather reading');
@@ -172,6 +175,7 @@ describe('api-contract serializers', () => {
     expect(detail.river.profile.idealMin).toBe(300);
     expect(detail.river.profile.tooHigh).toBe(900);
     expect(detail.gauge?.recentSamples).toHaveLength(2);
+    expect(detail.scoreBreakdown.riverQuality).toBeGreaterThan(0);
     expect(detail.checklist.length).toBeGreaterThan(0);
     expect(detail.outlooks.length).toBe(2);
     expect('summary' in detail.river).toBe(false);

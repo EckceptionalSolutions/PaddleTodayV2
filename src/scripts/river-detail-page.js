@@ -444,13 +444,62 @@ function renderFactors(factors) {
     .join('');
 }
 
-function renderConfidenceRationale(rationale) {
-  const list = root.querySelector('[data-confidence-rationale]');
-  if (!(list instanceof HTMLElement)) return;
+function renderConfidenceDetail(confidence) {
+  const labelEl = setText('confidence-detail-label', confidence?.label ?? 'checking');
+  if (labelEl instanceof HTMLElement) {
+    labelEl.textContent = confidence?.label?.toLowerCase() ?? 'checking';
+  }
 
-  list.innerHTML = rationale.length
-    ? rationale.map((note) => `<li>${note}</li>`).join('')
-    : '<li>Confidence notes are unavailable.</li>';
+  const reasonsList = root.querySelector('[data-confidence-reasons]');
+  const warningsList = root.querySelector('[data-confidence-warnings]');
+  const warningsGroup = root.querySelector('[data-confidence-warnings-group]');
+
+  if (reasonsList instanceof HTMLElement) {
+    const reasons = Array.isArray(confidence?.reasons) ? confidence.reasons : [];
+    reasonsList.innerHTML = reasons.length
+      ? reasons.map((note) => `<li>${note}</li>`).join('')
+      : '<li>Confidence reasons are unavailable.</li>';
+  }
+
+  if (warningsList instanceof HTMLElement && warningsGroup instanceof HTMLElement) {
+    const warnings = Array.isArray(confidence?.warnings) ? confidence.warnings : [];
+    warningsGroup.hidden = warnings.length === 0;
+    warningsList.innerHTML = warnings.length
+      ? warnings.map((note) => `<li>${note}</li>`).join('')
+      : '';
+  }
+}
+
+function signedPoints(value) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return 'Unavailable';
+  }
+
+  return value > 0 ? `+${value}` : `${value}`;
+}
+
+function renderScoreBreakdown(result) {
+  const breakdown = result.scoreBreakdown;
+  if (!breakdown) {
+    return;
+  }
+
+  setText('breakdown-river-quality', `${breakdown.riverQuality}`);
+  setText('breakdown-weather-adjustment', signedPoints(breakdown.weatherAdjustment));
+  setText('breakdown-temperature-adjustment', signedPoints(breakdown.temperatureAdjustment));
+  setText('breakdown-comfort-adjustment', signedPoints(breakdown.comfortAdjustment));
+  setText(
+    'breakdown-summary',
+    `River quality ${breakdown.riverQuality} + weather ${signedPoints(breakdown.weatherAdjustment)} + temperature ${signedPoints(breakdown.temperatureAdjustment)} + comfort ${signedPoints(breakdown.comfortAdjustment)} = ${breakdown.finalScore}.`
+  );
+
+  const capList = root.querySelector('[data-score-cap-reasons]');
+  if (capList instanceof HTMLElement) {
+    const reasons = Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [];
+    capList.innerHTML = reasons.length
+      ? reasons.map((reason) => `<li>${reason}</li>`).join('')
+      : '<li>No soft cap applied today.</li>';
+  }
 }
 
 function renderChecklist(checklist) {
@@ -1327,7 +1376,8 @@ async function loadDetail({ silent = false } = {}) {
     renderFactors(result.factors);
     renderChecklist(result.checklist);
     renderOutlooks(result.outlooks);
-    renderConfidenceRationale(result.confidence.rationale);
+    renderConfidenceDetail(result.confidence);
+    renderScoreBreakdown(result);
     lastDetailSuccessAt = Date.now();
     hasLoadedDetailOnce = true;
     setDetailFetchBannerState('hidden');
@@ -1460,9 +1510,11 @@ async function loadDetail({ silent = false } = {}) {
         explanation: 'Weekend is withheld because the live river read could not be loaded.',
       },
     ]);
-    renderConfidenceRationale([
-      'Confidence notes are unavailable because live data could not be loaded.',
-    ]);
+    renderConfidenceDetail({
+      label: 'Low',
+      reasons: [],
+      warnings: ['Confidence is unavailable because live data could not be loaded.'],
+    });
   }
 }
 

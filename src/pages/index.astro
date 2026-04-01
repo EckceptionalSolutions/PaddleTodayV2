@@ -126,9 +126,6 @@ const trackedCount = rivers.length;
         <p class="eyebrow">Explore</p>
         <h2 class="section-title">Browse more rivers</h2>
       </div>
-      <p class="muted section-head__note">
-        Use the map and filters once you want to compare options beyond the top calls.
-      </p>
     </div>
 
     <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
@@ -141,138 +138,134 @@ const trackedCount = rivers.length;
       </div>
     </section>
 
-    <div class="explore-shell">
-      <div class="explore-shell__sidebar">
-        <section class="conditions-overview">
-          <p class="eyebrow conditions-overview__eyebrow">Latest update</p>
-          <p class="conditions-overview__headline" data-summary-headline>
-            Loading today&apos;s river board.
-          </p>
-          <p class="muted conditions-overview__detail" data-summary-detail>
-            Live gauge and weather reads are loading.
-          </p>
-        </section>
+    <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Read quality</div>
+      <div class="status-banner__body">
+        <strong data-board-banner-title>Checking live reads.</strong>
+        <p class="muted" data-board-banner-detail>
+          Pulling the latest gauge and weather data.
+        </p>
+      </div>
+    </section>
 
-        <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
-          <div class="status-banner__eyebrow">Read quality</div>
-          <div class="status-banner__body">
-            <strong data-board-banner-title>Checking live reads.</strong>
-            <p class="muted" data-board-banner-detail>
-              Pulling the latest gauge and weather data.
-            </p>
-          </div>
-        </section>
-
-        <section class="board-filters" aria-label="River board filters">
-          <div class="board-filters__controls">
-            <label class="filter-select filter-select--sort">
-              <span class="sr-only">Sort the board</span>
-              <select class="filter-select__input" data-sort-select>
-                <option value="best-now">Best overall</option>
-                <option value="near-you">Best near me</option>
-                <option value="nearest">Nearest only</option>
-                <option value="highest-confidence">Highest confidence</option>
-                <option value="lowest-risk">Lowest risk</option>
-                <option value="a-z">A-Z</option>
-              </select>
-            </label>
-            <span class="location-indicator" data-location-indicator hidden aria-live="polite">
-              <span class="location-indicator__spinner" aria-hidden="true"></span>
-              <span data-location-indicator-label>Finding nearest rivers...</span>
-            </span>
-            <label class="filter-search">
-              <span class="sr-only">Search rivers</span>
-              <input
-                class="filter-search__input"
-                type="search"
-                placeholder="Search a river or route"
-                data-filter-search
-              />
-            </label>
-            <label class="filter-select">
-              <span class="sr-only">Filter by state</span>
-              <select class="filter-select__input" data-filter-state>
-                <option value="">All states</option>
-                {states.map((state) => (
-                  <option value={state}>{state}</option>
-                ))}
-              </select>
-            </label>
-            <label class="filter-select">
-              <span class="sr-only">Filter by region</span>
-              <select class="filter-select__input" data-filter-region>
-                <option value="">All regions</option>
-                {regions.map((region) => (
-                  <option value={region}>{region}</option>
-                ))}
-              </select>
-            </label>
-            <button class="filter-chip" type="button" data-filter-toggle="paddleable">
-              Paddleable only
-            </button>
-            <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
-              High confidence only
-            </button>
-            <button class="filter-chip" type="button" data-board-refresh>
-              Refresh board
-            </button>
-          </div>
-          <p class="muted board-filters__summary" data-filter-summary>
-            Loading the full river board.
-          </p>
-          <p class="muted board-filters__summary" data-board-refresh-note>
-            Auto-refreshes every 5 minutes.
-          </p>
-        </section>
+    <section class="board-filters board-filters--full" aria-label="River board filters">
+      <div class="board-filters__meta board-filters__meta--top">
+        <p class="muted board-filters__summary" data-filter-summary>
+          Loading rivers.
+        </p>
+        <p class="muted board-filters__summary" data-board-refresh-note>
+          Auto-refreshes every 5 minutes.
+        </p>
       </div>
 
-      <div class="explore-shell__main">
-        <section class="summary-map-shell" data-summary-map-shell>
-          <div class="summary-map-copy">
-            <p class="eyebrow section-label">
-              <FeatureIcon name="map" size={16} />
-              River map
-            </p>
-            <p class="muted">
-              Map and filters are secondary. Use them after you have looked at the top calls.
-            </p>
+      <div class="board-filters__controls">
+        <label class="filter-select filter-select--sort">
+          <span class="sr-only">Sort the board</span>
+          <select class="filter-select__input" data-sort-select>
+            <option value="best-now">Best overall</option>
+            <option value="near-you">Best near me</option>
+            <option value="nearest">Nearest only</option>
+            <option value="highest-confidence">Highest confidence</option>
+            <option value="lowest-risk">Lowest risk</option>
+            <option value="a-z">A-Z</option>
+          </select>
+        </label>
+        <span class="location-indicator" data-location-indicator hidden aria-live="polite">
+          <span class="location-indicator__spinner" aria-hidden="true"></span>
+          <span data-location-indicator-label>Finding nearest rivers...</span>
+        </span>
+        <label class="filter-search">
+          <span class="sr-only">Search rivers</span>
+          <input
+            class="filter-search__input"
+            type="search"
+            placeholder="Search a river or route"
+            data-filter-search
+          />
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Filter by state</span>
+          <select class="filter-select__input" data-filter-state>
+            <option value="">All states</option>
+            {states.map((state) => (
+              <option value={state}>{state}</option>
+            ))}
+          </select>
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Filter by region</span>
+          <select class="filter-select__input" data-filter-region>
+            <option value="">All regions</option>
+            {regions.map((region) => (
+              <option value={region}>{region}</option>
+            ))}
+          </select>
+        </label>
+        <button class="filter-chip" type="button" data-filter-toggle="paddleable">
+          Paddleable only
+        </button>
+        <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
+          High confidence only
+        </button>
+        <button class="filter-chip" type="button" data-board-refresh>
+          Refresh board
+        </button>
+      </div>
+    </section>
 
-            <div class="summary-map-legend" aria-label="Score map legend">
-              <span class="summary-map-legend__item">
-                <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-                Strong
-              </span>
-              <span class="summary-map-legend__item">
-                <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-                Borderline
-              </span>
-              <span class="summary-map-legend__item">
-                <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-                No-go
-              </span>
-            </div>
-          </div>
+    <section class="summary-map-shell" data-summary-map-shell>
+      <div class="summary-map-copy">
+        <p class="eyebrow section-label">
+          <FeatureIcon name="map" size={16} />
+          Score map
+        </p>
+        <h2 class="section-title">River map</h2>
+        <p class="muted">
+          Each point uses the stored route midpoint. The number is the score. The ring shows confidence.
+        </p>
 
-          <div class="summary-map-frame">
-            <div class="summary-map" data-summary-map aria-label="River score map"></div>
-            <p class="summary-map__status muted" data-summary-map-status>
-              Loading map.
-            </p>
-          </div>
-        </section>
+        <div class="summary-map-legend" aria-label="Score map legend">
+          <span class="summary-map-legend__item">
+            <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+            Strong
+          </span>
+          <span class="summary-map-legend__item">
+            <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
+            Borderline
+          </span>
+          <span class="summary-map-legend__item">
+            <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
+            No-go
+          </span>
+        </div>
+      </div>
 
-        <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
+      <div class="summary-map-frame">
+        <div class="summary-map" data-summary-map aria-label="River score map"></div>
+        <p class="summary-map__status muted" data-summary-map-status>
+          Loading map.
+        </p>
+      </div>
+    </section>
+
+    <div class="section-head section-head--stacked explore-list-head">
+      <div>
+        <p class="eyebrow">River list</p>
+        <h3 class="section-title">Browse more rivers</h3>
       </div>
     </div>
+
+    <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
   </section>
 
   <template data-river-card-template>
     <article class="river-card river-card--decision">
+      <p class="river-card__state" data-field="state"></p>
+
       <div class="river-card__top">
-        <div>
-          <p class="river-card__state" data-field="state"></p>
+        <div class="river-card__title-block">
           <h3 class="river-card__title" data-field="name"></h3>
-          <p class="river-card__reach" data-field="route-label"></p>
+          <p class="river-card__subtitle" data-field="route-label"></p>
         </div>
         <div class="score-orb" aria-label="River score">
           <span class="score-orb__score" data-field="score"></span>
@@ -280,14 +273,12 @@ const trackedCount = rivers.length;
         </div>
       </div>
 
-      <p class="river-card__confidence-line">
-        <span data-field="confidence"></span>
-        <span data-field="distance" hidden></span>
-      </p>
+      <p class="river-card__meta-line" data-field="meta-line"></p>
 
-      <p class="river-card__copy" data-field="card-summary"></p>
+      <p class="river-card__explanation" data-field="card-summary"></p>
+      <p class="river-card__signal-line" data-field="raw-signal"></p>
 
-      <a class="river-link" href="/" data-card-link>View river</a>
+      <a class="river-link river-link--wide" href="/" data-card-link>View river</a>
     </article>
   </template>
 

@@ -7,6 +7,7 @@ import type {
   RiverScoreResult,
   ScoreFactor,
   ScoreRating,
+  ScoreBreakdown,
   WeatherSnapshot,
 } from './types';
 
@@ -43,6 +44,8 @@ export interface RiverSummaryApiItem {
   };
   summary: {
     cardText: string;
+    shortExplanation: string;
+    rawSignalLine: string;
     gaugeNow: string;
     confidenceText: string;
     freshnessText: string;
@@ -80,6 +83,7 @@ export interface RiverDetailApiResult {
   gaugeBand: RiverScoreResult['gaugeBand'];
   gaugeBandLabel: string;
   explanation: string;
+  scoreBreakdown: ScoreBreakdown;
   confidence: RiverScoreResult['confidence'];
   liveData: RiverScoreResult['liveData'];
   factors: ScoreFactor[];
@@ -136,6 +140,8 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
     },
     summary: {
       cardText: compactCardSummary(result),
+      shortExplanation: shortCardExplanation(result),
+      rawSignalLine: rawSignalLine(result),
       gaugeNow: gaugeValueText(result),
       confidenceText: `${result.confidence.label} (${result.confidence.score}/100)`,
       freshnessText: compactFreshnessText(result),
@@ -210,6 +216,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
     gaugeBand: result.gaugeBand,
     gaugeBandLabel: result.gaugeBandLabel,
     explanation: result.explanation,
+    scoreBreakdown: result.scoreBreakdown,
     confidence: result.confidence,
     liveData: result.liveData,
     factors: result.factors,
@@ -247,6 +254,79 @@ function compactCardSummary(result: RiverScoreResult): string {
   return `${result.gaugeBandLabel}. ${trendFactor?.value ?? 'Trend unavailable'}. ${weatherFactor?.value ?? 'Weather unavailable'}.`;
 }
 
+function shortCardExplanation(result: RiverScoreResult): string {
+  return `${levelExplanation(result)} • ${trendExplanation(result)} • ${weatherExplanation(result)}`;
+}
+
+function rawSignalLine(result: RiverScoreResult): string {
+  const parts = [gaugeSignal(result), windSignal(result), temperatureSignal(result)].filter(Boolean);
+  return parts.join(' • ');
+}
+
+function levelExplanation(result: RiverScoreResult): string {
+  switch (result.gaugeBand) {
+    case 'ideal':
+      return 'Perfect level';
+    case 'low-shoulder':
+    case 'minimum-met':
+      return 'Slightly low';
+    case 'too-low':
+      return 'Too low';
+    case 'high-shoulder':
+      return 'High water';
+    case 'too-high':
+      return 'Too high';
+    default:
+      return 'Level unclear';
+  }
+}
+
+function levelChip(result: RiverScoreResult): string {
+  switch (result.gaugeBand) {
+    case 'ideal':
+      return 'Ideal';
+    case 'high-shoulder':
+    case 'too-high':
+      return 'High';
+    case 'low-shoulder':
+    case 'minimum-met':
+    case 'too-low':
+      return 'Low';
+    default:
+      return 'Unclear';
+  }
+}
+
+function trendExplanation(result: RiverScoreResult): string {
+  const trend = result.gauge?.trend ?? 'unknown';
+  if (trend === 'steady') return 'Stable';
+  if (trend === 'rising') return 'Rising';
+  if (trend === 'falling') return 'Falling';
+  return 'Trend mixed';
+}
+
+function weatherExplanation(result: RiverScoreResult): string {
+  const weather = result.weather;
+  if (!weather) return 'weather mixed';
+  if (weather.next12hStormRisk || (weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
+    return 'rain incoming';
+  }
+  if ((weather.next12hWindMphMax ?? 0) >= 14) {
+    return 'windy';
+  }
+  return 'light wind';
+}
+
+function weatherSignal(result: RiverScoreResult): string {
+  const weather = result.weather;
+  if (!weather) return 'Weather mixed';
+  if (weather.next12hStormRisk || (weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
+    return 'Rain incoming';
+  }
+  if ((weather.next12hPrecipProbabilityMax ?? 0) <= 15) return 'No rain';
+  return 'Light rain';
+}
+
 function decisionLabel(rating: ScoreRating): string {
   if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
   if (rating === 'Borderline') return 'Maybe today';
@@ -264,6 +344,43 @@ function gaugeValueText(result: RiverScoreResult): string {
       : Math.round(result.gauge.current).toLocaleString('en-US');
 
   return `${value} ${result.gauge.unit}`;
+}
+
+function gaugeSignal(result: RiverScoreResult): string {
+  if (result.gauge) {
+    return `Gauge: ${gaugeValueText(result)}`;
+  }
+
+  if (result.gaugeBand === 'too-low' || result.gaugeBand === 'low-shoulder' || result.gaugeBand === 'minimum-met') {
+    return 'Gauge: Low';
+  }
+
+  if (result.gaugeBand === 'too-high' || result.gaugeBand === 'high-shoulder') {
+    return 'Gauge: High';
+  }
+
+  return 'Gauge: Unavailable';
+}
+
+function windSignal(result: RiverScoreResult): string {
+  const weather = result.weather;
+  if (!weather) return 'Wind: Unknown';
+
+  const wind = weather.next12hWindMphMax ?? weather.windMph;
+  if (typeof wind === 'number' && Number.isFinite(wind)) {
+    return `Wind: ${Math.round(wind)} mph`;
+  }
+
+  return 'Wind: Unknown';
+}
+
+function temperatureSignal(result: RiverScoreResult): string {
+  const temp = result.weather?.temperatureF;
+  if (typeof temp === 'number' && Number.isFinite(temp)) {
+    return `Temp: ${Math.round(temp)}°F`;
+  }
+
+  return '';
 }
 
 function compactFreshnessText(result: RiverScoreResult): string {

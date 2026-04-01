@@ -430,6 +430,43 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
       </div>
     </section>
 
+    <section class="river-detail__panel river-score-breakdown">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="gauge" size={16} />
+        Score breakdown
+      </p>
+
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact">
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">River quality</span>
+          <strong data-field="breakdown-river-quality">Checking</strong>
+          <small>Gauge and trend only</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Weather adjustment</span>
+          <strong data-field="breakdown-weather-adjustment">Checking</strong>
+          <small>Wind, rain, and timing</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Temperature adjustment</span>
+          <strong data-field="breakdown-temperature-adjustment">Checking</strong>
+          <small>Air temperature and season</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Comfort adjustment</span>
+          <strong data-field="breakdown-comfort-adjustment">Checking</strong>
+          <small>Difficulty, season, and perfect-day bonus</small>
+        </article>
+      </div>
+
+      <p class="muted river-score-breakdown__summary" data-field="breakdown-summary">
+        Checking how today&apos;s trip score is built.
+      </p>
+      <ul class="compact-list river-score-breakdown__caps" data-score-cap-reasons>
+        <li>Checking score caps.</li>
+      </ul>
+    </section>
+
     <section class="river-detail__panel river-launch-plan">
       <p class="eyebrow section-label">
         <FeatureIcon name="map" size={16} />
@@ -681,16 +718,29 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Confidence</span>
-            <strong>How the app is weighting trust today</strong>
+            <strong>Why this confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
           </span>
         </summary>
         <div class="river-accordion__body">
-          <p class="muted" style="margin: 0 0 0.8rem;">
-            Confidence reflects source quality, data freshness, and how direct the inputs are.
+          <p class="muted confidence-detail__intro">
+            Confidence reflects how direct the gauge is, how clear the range is, and how fresh the live inputs are.
           </p>
-          <ul class="confidence-rationale" data-confidence-rationale>
-            <li>Checking confidence notes.</li>
-          </ul>
+
+          <div class="confidence-detail__groups">
+            <section class="confidence-detail__group">
+              <span class="eyebrow section-label">Why</span>
+              <ul class="confidence-rationale" data-confidence-reasons>
+                <li>Checking confidence reasons.</li>
+              </ul>
+            </section>
+
+            <section class="confidence-detail__group" data-confidence-warnings-group hidden>
+              <span class="eyebrow section-label">Watch for</span>
+              <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
+                <li>Checking confidence warnings.</li>
+              </ul>
+            </section>
+          </div>
         </div>
       </details>
 

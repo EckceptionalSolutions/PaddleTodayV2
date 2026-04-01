@@ -59,6 +59,7 @@ export async function fetchWeatherSnapshot(latitude: number, longitude: number):
   const hourlyPrecipitation = numericSeries(data.hourly?.precipitation);
   const hourlyWeatherCodes = numericSeries(data.hourly?.weather_code);
   const hourlyWind = numericSeries(data.hourly?.wind_speed_10m);
+  const hourlyTimes = Array.isArray(data.hourly?.time) ? data.hourly.time : [];
   const daily = indexDaily(data.daily);
   const currentDate = current.time ? String(current.time).slice(0, 10) : null;
 
@@ -70,6 +71,12 @@ export async function fetchWeatherSnapshot(latitude: number, longitude: number):
     currentPrecipitationIn: toNullableNumber(current.precipitation),
     next12hPrecipProbabilityMax: maxValue(precipitationProbabilities),
     next12hPrecipitationIn: sumValues(hourlyPrecipitation),
+    next12hPrecipStartsInHours: firstPrecipSignalHours({
+      currentTime: typeof current.time === 'string' ? current.time : null,
+      hourlyTimes,
+      hourlyPrecipitation,
+      precipitationProbabilities,
+    }),
     next12hWindMphMax: maxValue(hourlyWind),
     next12hStormRisk: hourlyWeatherCodes.some((code) => isStormCode(code)),
     weatherCode: toNullableNumber(current.weather_code),
@@ -226,4 +233,40 @@ function formatMonthDay(date: string): string {
 
 function minValue(values: number[]): number | null {
   return values.length > 0 ? Math.min(...values) : null;
+}
+
+function firstPrecipSignalHours(args: {
+  currentTime: string | null;
+  hourlyTimes: string[];
+  hourlyPrecipitation: number[];
+  precipitationProbabilities: number[];
+}): number | null {
+  if (!args.currentTime) {
+    return null;
+  }
+
+  const currentTimestamp = new Date(args.currentTime).getTime();
+  if (!Number.isFinite(currentTimestamp)) {
+    return null;
+  }
+
+  for (let index = 0; index < args.hourlyTimes.length; index += 1) {
+    const timestamp = new Date(args.hourlyTimes[index] ?? '').getTime();
+    if (!Number.isFinite(timestamp)) {
+      continue;
+    }
+
+    const hoursUntil = (timestamp - currentTimestamp) / 3_600_000;
+    if (hoursUntil < 0 || hoursUntil > 12) {
+      continue;
+    }
+
+    const precipProbability = args.precipitationProbabilities[index] ?? 0;
+    const precipitation = args.hourlyPrecipitation[index] ?? 0;
+    if (precipProbability >= 40 || precipitation >= 0.01) {
+      return Math.round(hoursUntil * 10) / 10;
+    }
+  }
+
+  return null;
 }

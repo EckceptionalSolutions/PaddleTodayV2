@@ -205,12 +205,17 @@ function formatTravelLabel(minutes) {
     return '';
   }
 
-  if (minutes >= 120) {
-    const hours = Math.round((minutes / 60) * 10) / 10;
-    return `~${hours} hr away`;
+  if (minutes < 60) {
+    return `${minutes} min away`;
   }
 
-  return `~${minutes} min away`;
+  const hours = Math.floor(minutes / 60);
+  const remainingMinutes = minutes % 60;
+  if (remainingMinutes === 0) {
+    return `${hours}h away`;
+  }
+
+  return `${hours}h ${remainingMinutes}m away`;
 }
 
 function distanceBucketLabel(minutes) {
@@ -351,25 +356,27 @@ function sortItems(items, mode) {
 }
 
 function routeLabelForItem(item) {
-  if (item.kind === 'group') {
-    if (item.representativeMode === 'nearest') {
-      return `Nearest route: ${item.cardRoute.river.reach}`;
-    }
-    if (item.representativeMode === 'near-you') {
-      return `Best nearby route: ${item.cardRoute.river.reach}`;
-    }
-    return `Best route: ${item.cardRoute.river.reach}`;
-  }
-
   return item.cardRoute.river.reach;
 }
 
-function confidenceText(item) {
+function regionStateText(item) {
+  return `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`.toUpperCase();
+}
+function confidenceLabel(item) {
   return `${item.cardRoute.confidence.label} confidence`;
 }
-
+function metaLineText(item, showDistance) {
+  const parts = [confidenceLabel(item)];
+  if (showDistance && Number.isFinite(item.travelMinutes)) {
+    parts.push(formatTravelLabel(item.travelMinutes));
+  }
+  return parts.join(' • ');
+}
 function cardSummary(item) {
-  return item.cardRoute.explanation;
+  return item.cardRoute.summary?.shortExplanation ?? item.cardRoute.explanation;
+}
+function rawSignalLine(item) {
+  return item.cardRoute.summary?.rawSignalLine ?? item.cardRoute.summary?.gaugeNow ?? '';
 }
 
 function createCard(item, { showDistance = false, compact = false } = {}) {
@@ -389,18 +396,14 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
     card.classList.add('river-card--compact');
   }
 
-  setText(card, 'state', `${item.cardRoute.river.state} | ${item.cardRoute.river.region}`);
+  setText(card, 'state', regionStateText(item));
   setText(card, 'name', item.cardRoute.river.name);
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', item.cardRoute.rating);
-  setText(card, 'confidence', confidenceText(item));
+  setText(card, 'meta-line', metaLineText(item, showDistance));
   setText(card, 'card-summary', cardSummary(item));
-
-  const distanceNode = setText(card, 'distance', formatTravelLabel(item.travelMinutes));
-  if (distanceNode instanceof HTMLElement) {
-    distanceNode.hidden = !(showDistance && Number.isFinite(item.travelMinutes));
-  }
+  setText(card, 'raw-signal', rawSignalLine(item));
 
   const orb = card.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
@@ -459,8 +462,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.textContent = nearbyReady
-      ? `${item.distanceBucket} | ${item.cardRoute.river.state}`
-      : `${item.cardRoute.river.state} | ${item.cardRoute.river.region}`;
+      ? `${item.distanceBucket} • ${item.cardRoute.river.state}`
+      : `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`;
   }
   if (featuredName instanceof HTMLElement) {
     featuredName.textContent = item.cardRoute.river.name;
@@ -471,7 +474,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
 
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
-  setText(document, 'featured-confidence', confidenceText(item));
+  setText(document, 'featured-confidence', confidenceLabel(item));
   setText(
     document,
     'featured-distance',
@@ -671,11 +674,11 @@ function updateFilterSummary(exploreItems) {
               : 'best overall';
 
   if (exploreItems.length === 0) {
-    filterSummary.textContent = 'No rivers match these filters. Clear one to bring more back.';
+    filterSummary.textContent = 'No rivers match these filters.';
     return;
   }
 
-  filterSummary.textContent = `Showing ${exploreItems.length} rivers in Explore, sorted by ${sortLabel}.`;
+  filterSummary.textContent = `Showing ${exploreItems.length} rivers • ${sortLabel}`;
 }
 
 function updateSummaryStatus(items, routeResults) {
@@ -685,7 +688,7 @@ function updateSummaryStatus(items, routeResults) {
 
   if (items.length === 0) {
     summaryHeadline.textContent = 'No rivers match the current filters.';
-    summaryDetail.textContent = 'Clear a filter or search more broadly to bring rivers back into view.';
+    summaryDetail.textContent = 'Clear a filter to bring rivers back.';
     return;
   }
 
@@ -697,19 +700,19 @@ function updateSummaryStatus(items, routeResults) {
     ? new Date(routeResults[0].generatedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })
     : 'unknown time';
 
-  summaryHeadline.textContent = `As of ${generatedAt}: ${liveCount} live, ${degradedCount} limited, ${offlineCount} offline.`;
+  summaryHeadline.textContent = `Updated ${generatedAt}`;
 
   if (offlineCount > 0) {
-    summaryDetail.textContent = 'Some rivers are missing current source data. Open the river page before a longer drive.';
+    summaryDetail.textContent = `${offlineCount} offline • ${degradedCount} limited • ${liveCount} live`;
     return;
   }
 
   if (degradedCount > 0) {
-    summaryDetail.textContent = 'Some rivers are using stale or partial inputs. Treat those calls as a second look.';
+    summaryDetail.textContent = `${degradedCount} limited • ${liveCount} live`;
     return;
   }
 
-  summaryDetail.textContent = 'All rivers are using fresh gauge and weather reads.';
+  summaryDetail.textContent = `${liveCount} rivers live`;
 }
 
 function updateBoardStatusBanner(items) {
@@ -729,7 +732,7 @@ function updateBoardStatusBanner(items) {
       boardBannerTitle.textContent = `${offlineCount} rivers need another look.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = 'One or more direct reads are offline. Use the detail page before you drive.';
+      boardBannerDetail.textContent = `${degradedCount} limited • ${liveCount} live`;
     }
     return;
   }
@@ -737,10 +740,10 @@ function updateBoardStatusBanner(items) {
   if (degradedCount > 0) {
     boardStatusBanner.classList.add('status-banner--degraded');
     if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${degradedCount} rivers are using older or partial inputs.`;
+      boardBannerTitle.textContent = `${degradedCount} rivers are limited.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = `${liveCount} rivers are fully live. Recheck the limited calls before you leave home.`;
+      boardBannerDetail.textContent = `${liveCount} rivers are fully live`;
     }
     return;
   }
@@ -750,7 +753,7 @@ function updateBoardStatusBanner(items) {
     boardBannerTitle.textContent = 'The board is up to date.';
   }
   if (boardBannerDetail instanceof HTMLElement) {
-    boardBannerDetail.textContent = `${liveCount} rivers are live right now. Start with the top calls, then explore if you need more options.`;
+    boardBannerDetail.textContent = `${liveCount} rivers are live`;
   }
 }
 
@@ -765,7 +768,7 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>
       <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
-      <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceText(item))}</p>
+      <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceLabel(item))}</p>
       <a class="score-map-popup__link" href="${item.link}">View river</a>
     </article>
   `;
@@ -873,7 +876,7 @@ function setBoardRefreshState(state, detail = '') {
 
   if (boardRefreshNote instanceof HTMLElement) {
     if (state === 'loading') {
-      boardRefreshNote.textContent = 'Refreshing gauge and weather reads.';
+      boardRefreshNote.textContent = 'Refreshing live reads.';
       return;
     }
 
@@ -886,7 +889,7 @@ function setBoardRefreshState(state, detail = '') {
       boardRefreshNote.textContent = `Last refresh ${new Date(lastBoardSuccessAt).toLocaleTimeString([], {
         hour: 'numeric',
         minute: '2-digit',
-      })}. Auto-refreshes every 5 minutes.`;
+      })} • Auto-refreshes every 5 minutes`;
       return;
     }
 

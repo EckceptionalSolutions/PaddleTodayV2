@@ -52,6 +52,9 @@ export interface RiverScoringProfile {
   thresholdSource: SourceLink;
   thresholdSourceStrength: SourceStrength;
   rainfallSensitivity: RainfallSensitivity;
+  windSensitivity?: number;
+  rainSensitivity?: number;
+  tempSensitivity?: number;
   seasonMonths: number[];
   seasonNotes: string;
   difficulty: 'easy' | 'moderate' | 'hard';
@@ -149,11 +152,22 @@ export interface WeatherSnapshot {
   currentPrecipitationIn: number | null;
   next12hPrecipProbabilityMax: number | null;
   next12hPrecipitationIn: number | null;
+  next12hPrecipStartsInHours: number | null;
   next12hWindMphMax: number | null;
   next12hStormRisk: boolean;
   weatherCode: number | null;
   tomorrow: ForecastWindow | null;
   weekend: ForecastWindow | null;
+}
+
+export interface ScoreBreakdown {
+  riverQuality: number;
+  weatherAdjustment: number;
+  temperatureAdjustment: number;
+  comfortAdjustment: number;
+  rawTripScore: number;
+  finalScore: number;
+  capReasons: string[];
 }
 
 export interface ScoreFactor {
@@ -167,6 +181,9 @@ export interface ScoreFactor {
 export interface ConfidenceResult {
   score: number;
   label: ConfidenceLabel;
+  level: 'high' | 'medium' | 'low';
+  reasons: string[];
+  warnings: string[];
   rationale: string[];
 }
 
@@ -201,11 +218,13 @@ export interface LiveDataStatus {
 
 export interface RiverScoreResult {
   river: River;
+  riverQuality: number;
   score: number;
   rating: ScoreRating;
   gaugeBand: GaugeBand | 'unavailable';
   gaugeBandLabel: string;
   explanation: string;
+  scoreBreakdown: ScoreBreakdown;
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
   factors: ScoreFactor[];
