@@ -165,24 +165,6 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
           <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
           <span class="pill">{river.statusText}</span>
         </div>
-
-        <div class="river-detail__quick-grid river-detail__quick-grid--compact">
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Flow now</span>
-            <strong data-field="gauge-now">Checking</strong>
-            <small data-field="flow-band">Checking</small>
-          </article>
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Trend</span>
-            <strong data-field="trend">Checking</strong>
-            <small data-field="gauge-freshness">Checking</small>
-          </article>
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Weather risk</span>
-            <strong data-field="weather-now">Checking</strong>
-            <small data-field="weather-freshness">Checking</small>
-          </article>
-        </div>
       </div>
 
       <aside class="river-call-panel river-call-panel--sticky">
@@ -268,6 +250,182 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
           <p class="muted" data-field="reliability-action-detail">
             Waiting on enough data to give the next step.
           </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-why-score">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="compass" size={16} />
+        Why this score
+      </p>
+
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-why-score__grid">
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Level</span>
+          <strong data-field="gauge-now">Checking</strong>
+          <small data-field="flow-band">Checking</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Trend</span>
+          <strong data-field="trend">Checking</strong>
+          <small data-field="gauge-freshness">Checking</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Weather</span>
+          <strong data-field="weather-now">Checking</strong>
+          <small data-field="weather-freshness">Checking</small>
+        </article>
+      </div>
+
+      <div class="river-why-panel__visuals">
+        <section class="river-visual-panel">
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="gauge" size={16} />
+                Gauge
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Recent trend</h3>
+            </div>
+            <p class="muted river-why-panel__section-note" data-field="chart-caption">
+              Checking recent gauge samples.
+            </p>
+          </div>
+
+          <div class="gauge-visual">
+            <div class="gauge-visual__controls">
+              <div class="segmented-control" role="group" aria-label="Gauge chart range">
+                <button class="segmented-control__button" type="button" data-chart-window="24">
+                  24h
+                </button>
+                <button
+                  class="segmented-control__button segmented-control__button--active"
+                  type="button"
+                  data-chart-window="72"
+                >
+                  72h
+                </button>
+                <button class="segmented-control__button" type="button" data-chart-window="168">
+                  7d
+                </button>
+              </div>
+              <p class="gauge-visual__trend muted" data-field="chart-trend-note">
+                Checking trend.
+              </p>
+            </div>
+
+            <svg
+              class="gauge-visual__chart"
+              viewBox="0 0 420 210"
+              width="420"
+              height="210"
+              role="img"
+              aria-label="Recent gauge trend chart"
+            >
+              <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
+
+              <g class="gauge-chart__grid">
+                <line x1="62" y1="30" x2="392" y2="30" />
+                <line x1="62" y1="96" x2="392" y2="96" />
+                <line x1="62" y1="162" x2="392" y2="162" />
+              </g>
+
+              <g class="gauge-chart__axis">
+                <line x1="62" y1="18" x2="62" y2="178" />
+                <line x1="62" y1="178" x2="392" y2="178" />
+              </g>
+
+              <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
+              <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
+
+              <path data-chart-line d="M62 140 L392 90" />
+              <circle data-chart-dot cx="392" cy="90" r="4" />
+
+              <g class="gauge-chart__labels gauge-chart__labels--y">
+                <text x="12" y="33" data-chart-y-max>--</text>
+                <text x="12" y="99" data-chart-y-mid>--</text>
+                <text x="12" y="165" data-chart-y-min>--</text>
+              </g>
+
+              <g class="gauge-chart__labels gauge-chart__labels--x">
+                <text x="62" y="198" data-chart-x-start>--</text>
+                <text x="202" y="198" data-chart-x-mid>--</text>
+                <text x="332" y="198" data-chart-x-end>--</text>
+              </g>
+            </svg>
+          </div>
+        </section>
+
+        <section class="river-visual-panel">
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="thermo" size={16} />
+                Weather
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Comfort and risk</h3>
+            </div>
+            <p class="weather-visual__badge" data-field="weather-condition">Checking weather.</p>
+          </div>
+
+          <div class="weather-visual">
+            <div class="weather-visual__grid">
+              <article class="weather-tile">
+                <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Temperature</span>
+                <strong data-field="weather-temp">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Wind</span>
+                <strong data-field="weather-wind">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Rain risk</span>
+                <strong data-field="weather-rain-risk">Loading</strong>
+              </article>
+
+              <article class="weather-tile">
+                <FeatureIcon name="storm" size={18} class="weather-tile__icon" />
+                <span class="weather-tile__label">Storm signal</span>
+                <strong data-field="weather-storm-risk">Loading</strong>
+              </article>
+            </div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-quick-facts">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="compass" size={16} />
+        Quick facts
+      </p>
+
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact">
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Trip length</span>
+          <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
+          <small>{river.reach}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Difficulty</span>
+          <strong>{river.profile.difficulty}</strong>
+          <small>{river.profile.difficultyNotes}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Threshold quality</span>
+          <strong>{thresholdQualityLabel}</strong>
+          <small>{thresholdModelLabel}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Shuttle</span>
+          <strong>{shuttleHeadline}</strong>
+          <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
         </article>
       </div>
     </section>
@@ -515,200 +673,6 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
             Loading access map.
           </p>
         </div>
-      </div>
-    </section>
-
-    <section class="river-detail__panel river-why-panel launch-readiness">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="compass" size={16} />
-        Why
-      </p>
-      <div class="launch-readiness__hero">
-        <span class="launch-readiness__verdict launch-readiness__verdict--watch" data-field="readiness-verdict">
-          Watch
-        </span>
-        <div class="launch-readiness__copy">
-          <h2 class="river-subtitle">Quick read</h2>
-          <p class="launch-readiness__summary" data-field="readiness-summary">
-            Pulling together flow, weather, and access.
-          </p>
-          <p class="muted" data-field="readiness-note">
-            Fast go / watch / skip read.
-          </p>
-        </div>
-      </div>
-
-      <div class="launch-readiness__grid" data-readiness-grid>
-        <article class="readiness-item readiness-item--watch">
-          <span class="readiness-item__label">Launch call</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on live reads.</p>
-        </article>
-        <article class="readiness-item readiness-item--watch">
-          <span class="readiness-item__label">Flow window</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on the gauge read.</p>
-        </article>
-        <article class="readiness-item readiness-item--watch">
-          <span class="readiness-item__label">Trend</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on gauge history.</p>
-        </article>
-        <article class="readiness-item readiness-item--watch">
-          <span class="readiness-item__label">Weather</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on weather.</p>
-        </article>
-        <article class="readiness-item readiness-item--watch">
-          <span class="readiness-item__label">Access</span>
-          <strong>Checking</strong>
-          <p class="muted">Waiting on access notes.</p>
-        </article>
-      </div>
-
-      <div class="river-decision-checklist__inline">
-        <div class="river-why-panel__section-head">
-          <div>
-            <p class="eyebrow section-label">
-              <FeatureIcon name="compass" size={16} />
-              Checklist
-            </p>
-            <h3 class="river-subtitle river-subtitle--compact">Trip checks</h3>
-          </div>
-          <p class="muted river-why-panel__section-note">
-            A single `skip` item should usually stop the trip.
-          </p>
-        </div>
-        <ul class="decision-checklist" data-checklist>
-          <li class="decision-checklist__item decision-checklist__item--watch">
-            <span class="decision-checklist__status">Watch</span>
-            <div>
-              <strong>Checking checklist</strong>
-              <p class="muted">Waiting on the river read.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-
-      <div class="river-why-panel__visuals">
-        <section class="river-visual-panel">
-          <div class="river-why-panel__section-head">
-            <div>
-              <p class="eyebrow section-label">
-                <FeatureIcon name="gauge" size={16} />
-                Gauge
-              </p>
-              <h3 class="river-subtitle river-subtitle--compact">Recent trend</h3>
-            </div>
-            <p class="muted river-why-panel__section-note" data-field="chart-caption">
-              Checking recent gauge samples.
-            </p>
-          </div>
-
-          <div class="gauge-visual">
-            <div class="gauge-visual__controls">
-              <div class="segmented-control" role="group" aria-label="Gauge chart range">
-                <button class="segmented-control__button" type="button" data-chart-window="24">
-                  24h
-                </button>
-                <button
-                  class="segmented-control__button segmented-control__button--active"
-                  type="button"
-                  data-chart-window="72"
-                >
-                  72h
-                </button>
-                <button class="segmented-control__button" type="button" data-chart-window="168">
-                  7d
-                </button>
-              </div>
-              <p class="gauge-visual__trend muted" data-field="chart-trend-note">
-                Checking trend.
-              </p>
-            </div>
-
-            <svg
-              class="gauge-visual__chart"
-              viewBox="0 0 420 210"
-              width="420"
-              height="210"
-              role="img"
-              aria-label="Recent gauge trend chart"
-            >
-              <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
-
-              <g class="gauge-chart__grid">
-                <line x1="62" y1="30" x2="392" y2="30" />
-                <line x1="62" y1="96" x2="392" y2="96" />
-                <line x1="62" y1="162" x2="392" y2="162" />
-              </g>
-
-              <g class="gauge-chart__axis">
-                <line x1="62" y1="18" x2="62" y2="178" />
-                <line x1="62" y1="178" x2="392" y2="178" />
-              </g>
-
-              <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
-              <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
-
-              <path data-chart-line d="M62 140 L392 90" />
-              <circle data-chart-dot cx="392" cy="90" r="4" />
-
-              <g class="gauge-chart__labels gauge-chart__labels--y">
-                <text x="12" y="33" data-chart-y-max>--</text>
-                <text x="12" y="99" data-chart-y-mid>--</text>
-                <text x="12" y="165" data-chart-y-min>--</text>
-              </g>
-
-              <g class="gauge-chart__labels gauge-chart__labels--x">
-                <text x="62" y="198" data-chart-x-start>--</text>
-                <text x="202" y="198" data-chart-x-mid>--</text>
-                <text x="332" y="198" data-chart-x-end>--</text>
-              </g>
-            </svg>
-          </div>
-        </section>
-
-        <section class="river-visual-panel">
-          <div class="river-why-panel__section-head">
-            <div>
-              <p class="eyebrow section-label">
-                <FeatureIcon name="thermo" size={16} />
-                Weather
-              </p>
-              <h3 class="river-subtitle river-subtitle--compact">Comfort and risk</h3>
-            </div>
-            <p class="weather-visual__badge" data-field="weather-condition">Checking weather.</p>
-          </div>
-
-          <div class="weather-visual">
-            <div class="weather-visual__grid">
-              <article class="weather-tile">
-                <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Temperature</span>
-                <strong data-field="weather-temp">Loading</strong>
-              </article>
-
-              <article class="weather-tile">
-                <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Wind</span>
-                <strong data-field="weather-wind">Loading</strong>
-              </article>
-
-              <article class="weather-tile">
-                <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Rain risk</span>
-                <strong data-field="weather-rain-risk">Loading</strong>
-              </article>
-
-              <article class="weather-tile">
-                <FeatureIcon name="storm" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Storm signal</span>
-                <strong data-field="weather-storm-risk">Loading</strong>
-              </article>
-            </div>
-          </div>
-        </section>
       </div>
     </section>
 

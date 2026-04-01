@@ -1,4 +1,4 @@
-﻿import {
+import {
   MAP_STYLE_URL,
   bindMarkerPopup,
   ensureMapLibre,
@@ -6,27 +6,39 @@
   markerClassForRating,
 } from '/scripts/map-runtime.js';
 
-const cards = Array.from(document.querySelectorAll('[data-board-card]'));
-const grid = document.querySelector('[data-river-grid]');
+const STORAGE_KEY = 'paddletoday:user-location';
+const GEOLOCATION_TIMEOUT_MS = 10000;
+const AUTO_REFRESH_MS = 5 * 60 * 1000;
+const NEARBY_TRAVEL_MINUTES = 90;
+const DAY_TRIP_TRAVEL_MINUTES = 180;
+const AVERAGE_DRIVE_MPH = 50;
+
+const nearbyGrid = document.querySelector('[data-nearby-grid]');
+const nearbySummary = document.querySelector('[data-nearby-summary]');
+const nearbyEmpty = document.querySelector('[data-nearby-empty]');
+const overallGrid = document.querySelector('[data-overall-grid]');
+const overallSummary = document.querySelector('[data-overall-summary]');
+const exploreGrid = document.querySelector('[data-explore-grid]');
+const cardTemplate = document.querySelector('[data-river-card-template]');
+
+const featuredPanel = document.querySelector('.hero-call');
+const featuredLabel = document.querySelector('[data-best-near-label]');
+const featuredState = document.querySelector('[data-featured-state]');
+const featuredName = document.querySelector('[data-featured-name]');
+const featuredReach = document.querySelector('[data-featured-reach]');
+const featuredLink = document.querySelector('[data-featured-link]');
+
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
 const boardStatusBanner = document.querySelector('[data-board-status-banner]');
 const boardBannerTitle = document.querySelector('[data-board-banner-title]');
 const boardBannerDetail = document.querySelector('[data-board-banner-detail]');
-const featuredPanel = document.querySelector('.hero-call');
-const featuredState = document.querySelector('[data-featured-state]');
-const featuredName = document.querySelector('[data-featured-name]');
-const featuredReach = document.querySelector('[data-featured-reach]');
-const featuredLink = document.querySelector('[data-featured-link]');
-const summaryMapShell = document.querySelector('[data-summary-map-shell]');
-const summaryMap = document.querySelector('[data-summary-map]');
-const summaryMapStatus = document.querySelector('[data-summary-map-status]');
-const summaryMapToggle = document.querySelector('[data-map-toggle]');
-const boardRefreshButton = document.querySelector('[data-board-refresh]');
-const boardRefreshNote = document.querySelector('[data-board-refresh-note]');
 const boardFetchBanner = document.querySelector('[data-board-fetch-banner]');
 const boardFetchTitle = document.querySelector('[data-board-fetch-title]');
 const boardFetchDetail = document.querySelector('[data-board-fetch-detail]');
+const boardRefreshButton = document.querySelector('[data-board-refresh]');
+const boardRefreshNote = document.querySelector('[data-board-refresh-note]');
+
 const filterSummary = document.querySelector('[data-filter-summary]');
 const filterButtons = Array.from(document.querySelectorAll('[data-filter-toggle]'));
 const filterSearch = document.querySelector('[data-filter-search]');
@@ -35,12 +47,15 @@ const filterRegion = document.querySelector('[data-filter-region]');
 const sortSelect = document.querySelector('[data-sort-select]');
 const locationIndicator = document.querySelector('[data-location-indicator]');
 const locationIndicatorLabel = document.querySelector('[data-location-indicator-label]');
-const summaryCounts = {
-  great: document.querySelector('[data-summary-great]'),
-  good: document.querySelector('[data-summary-good]'),
-  marginal: document.querySelector('[data-summary-marginal]'),
-  noGo: document.querySelector('[data-summary-no-go]'),
-};
+
+const locationUseButton = document.querySelector('[data-location-use]');
+const locationForm = document.querySelector('[data-location-form]');
+const locationInput = document.querySelector('[data-location-input]');
+const locationClearButton = document.querySelector('[data-location-clear]');
+const locationStatus = document.querySelector('[data-location-status]');
+
+const summaryMap = document.querySelector('[data-summary-map]');
+const summaryMapStatus = document.querySelector('[data-summary-map-status]');
 
 const statusWeight = {
   live: 2,
@@ -48,21 +63,12 @@ const statusWeight = {
   offline: 0,
 };
 
-const featuredRatingClasses = ['hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go'];
-const orbRatingClasses = ['score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go'];
-const confidenceClasses = ['metric-value--high', 'metric-value--medium', 'metric-value--low'];
-const decisionClasses = ['decision-pill--paddle', 'decision-pill--maybe', 'decision-pill--skip'];
-const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading'];
-const AUTO_REFRESH_MS = 5 * 60 * 1000;
-const GEOLOCATION_TIMEOUT_MS = 10000;
+const confidenceWeight = {
+  High: 3,
+  Medium: 2,
+  Low: 1,
+};
 
-let mapRuntime = null;
-let mapMarkers = [];
-let latestResults = [];
-let lastBoardSuccessAt = null;
-let hasLoadedBoardOnce = false;
-let userLocation = null;
-let userLocationState = 'idle';
 const activeFilters = {
   paddleable: false,
   highConfidence: false,
@@ -71,6 +77,28 @@ const activeFilters = {
   region: '',
   sort: 'best-now',
 };
+
+let latestResults = [];
+let hasLoadedBoardOnce = false;
+let lastBoardSuccessAt = null;
+let mapRuntime = null;
+let mapMarkers = [];
+let userLocation = null;
+let userLocationState = 'idle';
+
+function setText(scope, field, value) {
+  const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
+  for (const node of nodes) {
+    node.textContent = value;
+  }
+  return nodes[0] ?? null;
+}
+
+function ratingToneKey(rating) {
+  if (rating === 'Strong') return 'great';
+  if (rating === 'Borderline') return 'marginal';
+  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
+}
 
 function groupResultsByRiverId(results) {
   const grouped = new Map();
@@ -85,30 +113,6 @@ function groupResultsByRiverId(results) {
   return grouped;
 }
 
-function setText(scope, field, value) {
-  const elements = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
-  for (const element of elements) {
-    element.textContent = value;
-  }
-  return elements[0] ?? null;
-}
-
-function decisionLabel(rating) {
-  if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Borderline') return 'Maybe today';
-  return 'Skip today';
-}
-
-function ratingLabel(rating) {
-  return rating;
-}
-
-function ratingToneKey(rating) {
-  if (rating === 'Strong') return 'great';
-  if (rating === 'Borderline') return 'marginal';
-  return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
-}
-
 function compareResults(left, right) {
   const leftStatus = statusWeight[left.liveData.overall] ?? 0;
   const rightStatus = statusWeight[right.liveData.overall] ?? 0;
@@ -120,33 +124,24 @@ function compareResults(left, right) {
 }
 
 function compareConfidence(left, right) {
-  if (left.confidence.score !== right.confidence.score) {
-    return right.confidence.score - left.confidence.score;
+  const leftConfidence = confidenceWeight[left.confidence.label] ?? 0;
+  const rightConfidence = confidenceWeight[right.confidence.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
   }
 
   return compareResults(left, right);
 }
 
 function compareLowestRisk(left, right) {
-  const statusRank = { live: 0, degraded: 1, offline: 2 };
   const ratingRank = { Strong: 0, Good: 1, Borderline: 2, 'No-go': 3 };
-  const leftStatus = statusRank[left.liveData.overall] ?? 3;
-  const rightStatus = statusRank[right.liveData.overall] ?? 3;
-  if (leftStatus !== rightStatus) {
-    return leftStatus - rightStatus;
-  }
-
   const leftRating = ratingRank[left.rating] ?? 4;
   const rightRating = ratingRank[right.rating] ?? 4;
   if (leftRating !== rightRating) {
     return leftRating - rightRating;
   }
 
-  if (left.confidence.score !== right.confidence.score) {
-    return right.confidence.score - left.confidence.score;
-  }
-
-  return right.score - left.score;
+  return compareConfidence(left, right);
 }
 
 function compareAZ(left, right) {
@@ -189,197 +184,574 @@ function distanceForResult(result) {
   );
 }
 
-function formatDistanceLabel(distance) {
+function estimateTravelMinutes(distance) {
   if (!Number.isFinite(distance)) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  return Math.max(5, Math.round((distance / AVERAGE_DRIVE_MPH) * 60 / 5) * 5);
+}
+
+function distancePenalty(minutes) {
+  if (!Number.isFinite(minutes)) {
+    return 0;
+  }
+
+  return Math.min(minutes / 6, 30);
+}
+
+function formatTravelLabel(minutes) {
+  if (!Number.isFinite(minutes)) {
     return '';
   }
 
-  const value = distance < 10 ? distance.toFixed(1) : Math.round(distance).toString();
-  return `${value} mi away`;
+  if (minutes >= 120) {
+    const hours = Math.round((minutes / 60) * 10) / 10;
+    return `~${hours} hr away`;
+  }
+
+  return `~${minutes} min away`;
 }
 
-function compareNearest(left, right) {
-  const leftDistance = distanceForResult(left);
-  const rightDistance = distanceForResult(right);
-
-  if (leftDistance !== rightDistance) {
-    return leftDistance - rightDistance;
+function distanceBucketLabel(minutes) {
+  if (!Number.isFinite(minutes)) {
+    return 'Distance unavailable';
   }
 
-  return compareResults(left, right);
+  if (minutes <= 30) return 'Within 30 minutes';
+  if (minutes <= 90) return 'Within 90 minutes';
+  return 'Day trip';
 }
 
-function sortRouteResults(results) {
-  const copy = [...results];
-  if (activeFilters.sort === 'nearest') {
-    return (userLocationState === 'ready' && userLocation ? copy.sort(compareNearest) : copy.sort(compareResults));
-  }
+function pickRepresentativeRoute(routes, mode) {
+  const copy = [...routes];
 
-  if (activeFilters.sort === 'highest-confidence') {
-    return copy.sort(compareConfidence);
-  }
-
-  if (activeFilters.sort === 'lowest-risk') {
-    return copy.sort(compareLowestRisk);
-  }
-
-  if (activeFilters.sort === 'a-z') {
-    return copy.sort(compareAZ);
-  }
-
-  return copy.sort(compareResults);
-}
-
-function countPaddleableRoutes(results) {
-  return results.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
-}
-
-function selectRepresentativeRoute(results) {
-  const sorted = sortRouteResults(results);
-  const route = sorted[0] ?? null;
-  const mode =
-    activeFilters.sort === 'nearest' && userLocationState === 'ready' && userLocation ? 'nearest' : 'best';
-
-  return route
-    ? {
-        route,
-        mode,
+  if (mode === 'near-you' && userLocation) {
+    copy.sort((left, right) => {
+      const leftMinutes = estimateTravelMinutes(distanceForResult(left));
+      const rightMinutes = estimateTravelMinutes(distanceForResult(right));
+      const leftEffective = left.score - distancePenalty(leftMinutes);
+      const rightEffective = right.score - distancePenalty(rightMinutes);
+      if (leftEffective !== rightEffective) {
+        return rightEffective - leftEffective;
       }
-    : null;
+      if (leftMinutes !== rightMinutes) {
+        return leftMinutes - rightMinutes;
+      }
+      return compareResults(left, right);
+    });
+    return { route: copy[0] ?? null, mode: 'near-you' };
+  }
+
+  if (mode === 'nearest' && userLocation) {
+    copy.sort((left, right) => {
+      const leftDistance = distanceForResult(left);
+      const rightDistance = distanceForResult(right);
+      if (leftDistance !== rightDistance) {
+        return leftDistance - rightDistance;
+      }
+      return compareResults(left, right);
+    });
+    return { route: copy[0] ?? null, mode: 'nearest' };
+  }
+
+  if (mode === 'highest-confidence') {
+    copy.sort(compareConfidence);
+    return { route: copy[0] ?? null, mode: 'best' };
+  }
+
+  if (mode === 'lowest-risk') {
+    copy.sort(compareLowestRisk);
+    return { route: copy[0] ?? null, mode: 'best' };
+  }
+
+  if (mode === 'a-z') {
+    copy.sort(compareAZ);
+    return { route: copy[0] ?? null, mode: 'best' };
+  }
+
+  copy.sort(compareResults);
+  return { route: copy[0] ?? null, mode: 'best' };
 }
 
-function buildDisplayItems(allResults, filteredResults) {
+function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-now') {
   const allByRiver = groupResultsByRiverId(allResults);
   const filteredByRiver = groupResultsByRiverId(filteredResults);
   const items = [];
 
   for (const [riverId, routes] of filteredByRiver.entries()) {
-    const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
-    const representative = selectRepresentativeRoute(routes);
-    if (!representative) continue;
+    const representative = pickRepresentativeRoute(routes, selectionMode);
     const cardRoute = representative.route;
-    const paddleableRouteCount = countPaddleableRoutes(routes);
+    if (!cardRoute) continue;
 
-    if (totalRouteCount > 1 && cardRoute.river.riverId) {
-      items.push({
-        kind: 'group',
-        key: cardRoute.river.riverId,
-        link: `/rivers/by-river/${cardRoute.river.riverId}/`,
-        riverId: cardRoute.river.riverId,
-        cardRoute,
-        representativeMode: representative.mode,
-        routes,
-        totalRouteCount,
-        paddleableRouteCount,
-      });
-      continue;
-    }
+    const totalRouteCount = allByRiver.get(riverId)?.length ?? routes.length;
+    const distanceMilesValue = distanceForResult(cardRoute);
+    const travelMinutes = estimateTravelMinutes(distanceMilesValue);
+    const effectiveScore = cardRoute.score - distancePenalty(travelMinutes);
+    const paddleableRouteCount = routes.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
 
     items.push({
-      kind: 'route',
-      key: cardRoute.river.slug,
-      link: `/rivers/${cardRoute.river.slug}/`,
-      riverId: cardRoute.river.riverId ?? cardRoute.river.slug,
+      key: cardRoute.river.riverId || cardRoute.river.slug,
+      kind: totalRouteCount > 1 ? 'group' : 'route',
+      link:
+        totalRouteCount > 1 && cardRoute.river.riverId
+          ? `/rivers/by-river/${cardRoute.river.riverId}/`
+          : `/rivers/${cardRoute.river.slug}/`,
       cardRoute,
-      representativeMode: 'best',
-      routes: [cardRoute],
-      totalRouteCount: 1,
-      paddleableRouteCount: countPaddleableRoutes([cardRoute]),
+      totalRouteCount,
+      paddleableRouteCount,
+      representativeMode: representative.mode,
+      distanceMiles: distanceMilesValue,
+      travelMinutes,
+      effectiveScore,
+      distanceBucket: distanceBucketLabel(travelMinutes),
     });
   }
 
   return items;
 }
 
-function compareDisplayItems(left, right) {
-  if (activeFilters.sort === 'a-z') {
-    const riverCompare = left.cardRoute.river.name.localeCompare(right.cardRoute.river.name);
-    if (riverCompare !== 0) {
-      return riverCompare;
-    }
-
-    return left.cardRoute.river.reach.localeCompare(right.cardRoute.river.reach);
-  }
-
-  return compareResults(left.cardRoute, right.cardRoute);
-}
-
-function sortDisplayItems(items) {
+function sortItems(items, mode) {
   const copy = [...items];
-  if (activeFilters.sort === 'nearest' && userLocationState === 'ready' && userLocation) {
-    return copy.sort((left, right) => {
-      const leftDistance = distanceForResult(left.cardRoute);
-      const rightDistance = distanceForResult(right.cardRoute);
-      if (leftDistance !== rightDistance) {
-        return leftDistance - rightDistance;
-      }
 
-      return compareDisplayItems(left, right);
+  if (mode === 'near-you' && userLocation) {
+    return copy.sort((left, right) => {
+      if (left.effectiveScore !== right.effectiveScore) {
+        return right.effectiveScore - left.effectiveScore;
+      }
+      if (left.travelMinutes !== right.travelMinutes) {
+        return left.travelMinutes - right.travelMinutes;
+      }
+      return compareResults(left.cardRoute, right.cardRoute);
     });
   }
 
-  if (activeFilters.sort === 'highest-confidence') {
+  if (mode === 'nearest' && userLocation) {
+    return copy.sort((left, right) => {
+      if (left.travelMinutes !== right.travelMinutes) {
+        return left.travelMinutes - right.travelMinutes;
+      }
+      return compareResults(left.cardRoute, right.cardRoute);
+    });
+  }
+
+  if (mode === 'highest-confidence') {
     return copy.sort((left, right) => compareConfidence(left.cardRoute, right.cardRoute));
   }
 
-  if (activeFilters.sort === 'lowest-risk') {
+  if (mode === 'lowest-risk') {
     return copy.sort((left, right) => compareLowestRisk(left.cardRoute, right.cardRoute));
   }
 
-  return copy.sort(compareDisplayItems);
+  if (mode === 'a-z') {
+    return copy.sort((left, right) => compareAZ(left.cardRoute, right.cardRoute));
+  }
+
+  return copy.sort((left, right) => compareResults(left.cardRoute, right.cardRoute));
 }
 
-function normalizeFilterKey(filterKey) {
-  if (filterKey === 'high-confidence') return 'highConfidence';
-  if (filterKey === 'hide-no-go') return 'hideNoGo';
-  return filterKey;
+function routeLabelForItem(item) {
+  if (item.kind === 'group') {
+    if (item.representativeMode === 'nearest') {
+      return `Nearest route: ${item.cardRoute.river.reach}`;
+    }
+    if (item.representativeMode === 'near-you') {
+      return `Best nearby route: ${item.cardRoute.river.reach}`;
+    }
+    return `Best route: ${item.cardRoute.river.reach}`;
+  }
+
+  return item.cardRoute.river.reach;
 }
 
-function clearClasses(element, classNames) {
-  if (!(element instanceof HTMLElement)) return;
-  element.classList.remove(...classNames);
+function confidenceText(item) {
+  return `${item.cardRoute.confidence.label} confidence`;
 }
 
-function decorateDecision(element, rating) {
-  if (!(element instanceof HTMLElement)) return;
-  clearClasses(element, decisionClasses);
-  element.classList.add(
-    rating === 'Strong' || rating === 'Good'
-      ? 'decision-pill--paddle'
-      : rating === 'Borderline'
-        ? 'decision-pill--maybe'
-        : 'decision-pill--skip'
+function cardSummary(item) {
+  return item.cardRoute.explanation;
+}
+
+function createCard(item, { showDistance = false, compact = false } = {}) {
+  if (!(cardTemplate instanceof HTMLTemplateElement)) {
+    return document.createElement('div');
+  }
+
+  const fragment = cardTemplate.content.cloneNode(true);
+  const card = fragment.querySelector('.river-card');
+  if (!(card instanceof HTMLElement)) {
+    return document.createElement('div');
+  }
+
+  const ratingKey = ratingToneKey(item.cardRoute.rating);
+  card.classList.add(`river-card--${ratingKey}`);
+  if (compact) {
+    card.classList.add('river-card--compact');
+  }
+
+  setText(card, 'state', `${item.cardRoute.river.state} | ${item.cardRoute.river.region}`);
+  setText(card, 'name', item.cardRoute.river.name);
+  setText(card, 'route-label', routeLabelForItem(item));
+  setText(card, 'score', String(item.cardRoute.score));
+  setText(card, 'rating', item.cardRoute.rating);
+  setText(card, 'confidence', confidenceText(item));
+  setText(card, 'card-summary', cardSummary(item));
+
+  const distanceNode = setText(card, 'distance', formatTravelLabel(item.travelMinutes));
+  if (distanceNode instanceof HTMLElement) {
+    distanceNode.hidden = !(showDistance && Number.isFinite(item.travelMinutes));
+  }
+
+  const orb = card.querySelector('.score-orb');
+  if (orb instanceof HTMLElement) {
+    orb.classList.add(`score-orb--${ratingKey}`);
+  }
+
+  const link = card.querySelector('[data-card-link]');
+  if (link instanceof HTMLAnchorElement) {
+    link.href = item.link;
+  }
+
+  return card;
+}
+
+function renderCardGrid(container, items, options = {}) {
+  if (!(container instanceof HTMLElement)) {
+    return;
+  }
+
+  container.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  for (const item of items) {
+    fragment.appendChild(createCard(item, options));
+  }
+  container.appendChild(fragment);
+}
+
+function updateFeaturedHero(nearbyItems, overallItems) {
+  const nearbyReady = userLocationState === 'ready' && nearbyItems.length > 0;
+  const item = nearbyReady ? nearbyItems[0] : overallItems[0] ?? null;
+
+  if (!item) {
+    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Best river right now';
+    if (featuredState instanceof HTMLElement) featuredState.textContent = 'Live river calls unavailable';
+    if (featuredName instanceof HTMLElement) featuredName.textContent = 'Check sources';
+    if (featuredReach instanceof HTMLElement) featuredReach.textContent = 'Live calls could not be loaded.';
+    setText(document, 'featured-score', '--');
+    setText(document, 'featured-rating', 'Unavailable');
+    setText(document, 'featured-confidence', 'Confidence unavailable');
+    setText(document, 'featured-distance', 'Distance unavailable');
+    setText(document, 'featured-explanation', 'Reload the board or open a river page to verify the latest sources.');
+    if (featuredLink instanceof HTMLAnchorElement) {
+      featuredLink.href = '#top-rivers-today';
+    }
+    return;
+  }
+
+  const ratingKey = ratingToneKey(item.cardRoute.rating);
+  if (featuredPanel instanceof HTMLElement) {
+    featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
+    featuredPanel.classList.add(`hero-call--${ratingKey}`);
+  }
+
+  if (featuredLabel instanceof HTMLElement) {
+    featuredLabel.textContent = nearbyReady ? 'Best river near you today' : 'Best river right now';
+  }
+  if (featuredState instanceof HTMLElement) {
+    featuredState.textContent = nearbyReady
+      ? `${item.distanceBucket} | ${item.cardRoute.river.state}`
+      : `${item.cardRoute.river.state} | ${item.cardRoute.river.region}`;
+  }
+  if (featuredName instanceof HTMLElement) {
+    featuredName.textContent = item.cardRoute.river.name;
+  }
+  if (featuredReach instanceof HTMLElement) {
+    featuredReach.textContent = routeLabelForItem(item);
+  }
+
+  setText(document, 'featured-score', String(item.cardRoute.score));
+  setText(document, 'featured-rating', item.cardRoute.rating);
+  setText(document, 'featured-confidence', confidenceText(item));
+  setText(
+    document,
+    'featured-distance',
+    nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Best overall'
   );
+  setText(document, 'featured-explanation', item.cardRoute.explanation);
+
+  const orb = featuredPanel?.querySelector('.score-orb');
+  if (orb instanceof HTMLElement) {
+    orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
+    orb.classList.add(`score-orb--${ratingKey}`);
+  }
+
+  if (featuredLink instanceof HTMLAnchorElement) {
+    featuredLink.href = item.link;
+  }
 }
 
-function decorateConfidence(element, confidenceLabel) {
-  if (!(element instanceof HTMLElement)) return;
-  clearClasses(element, confidenceClasses);
-  element.classList.add(`metric-value--${confidenceLabel.toLowerCase()}`);
+function renderNearbySection(nearbyItems, overallItems) {
+  if (!(nearbySummary instanceof HTMLElement) || !(nearbyEmpty instanceof HTMLElement)) {
+    return;
+  }
+
+  if (userLocationState !== 'ready' || !userLocation) {
+    nearbySummary.textContent = 'Add your location to rank rivers by score and driving time. Until then, this list mirrors the strongest overall calls.';
+    renderCardGrid(nearbyGrid, overallItems.slice(0, 3), { compact: true, showDistance: false });
+    nearbyEmpty.hidden = true;
+    return;
+  }
+
+  if (nearbyItems.length === 0) {
+    nearbySummary.textContent = 'No rivers landed inside the nearby travel window. Try the overall list or widen your search below.';
+    if (nearbyGrid instanceof HTMLElement) nearbyGrid.innerHTML = '';
+    nearbyEmpty.hidden = false;
+    return;
+  }
+
+  const withinWindow = nearbyItems.filter((item) => item.travelMinutes <= NEARBY_TRAVEL_MINUTES);
+  const nearbyDisplay = (withinWindow.length ? withinWindow : nearbyItems).slice(0, 4);
+  nearbySummary.textContent =
+    withinWindow.length > 0
+      ? `Ranked by score with a distance penalty. Rivers within about ${NEARBY_TRAVEL_MINUTES} minutes rise to the top.`
+      : 'No rivers landed within about 90 minutes, so this shows the strongest day-trip options instead.';
+
+  nearbyEmpty.hidden = true;
+  renderCardGrid(nearbyGrid, nearbyDisplay, { compact: true, showDistance: true });
 }
 
-function decorateDataStatus(element, overall) {
-  if (!(element instanceof HTMLElement)) return;
-  element.classList.remove('data-status-pill--live', 'data-status-pill--degraded', 'data-status-pill--offline');
-  element.classList.add(`data-status-pill--${overall}`);
+function renderOverallSection(items) {
+  if (overallSummary instanceof HTMLElement) {
+    overallSummary.textContent = 'The strongest live river calls overall, sorted by raw score.';
+  }
+
+  renderCardGrid(overallGrid, items.slice(0, 6), { compact: true, showDistance: userLocationState === 'ready' });
 }
 
-function decorateBanner(element, overall) {
-  if (!(element instanceof HTMLElement)) return;
-  clearClasses(element, bannerClasses);
-  element.classList.add(`status-banner--${overall}`);
+function matchesRouteFilters(result) {
+  if (activeFilters.paddleable && !['Strong', 'Good'].includes(result.rating)) {
+    return false;
+  }
+
+  if (activeFilters.highConfidence && result.confidence.label !== 'High') {
+    return false;
+  }
+
+  if (activeFilters.state && result.river.state !== activeFilters.state) {
+    return false;
+  }
+
+  if (activeFilters.region && result.river.region !== activeFilters.region) {
+    return false;
+  }
+
+  if (activeFilters.search) {
+    const haystack = `${result.river.name} ${result.river.reach} ${result.river.state} ${result.river.region}`.toLowerCase();
+    if (!haystack.includes(activeFilters.search.toLowerCase())) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
-function setHidden(element, hidden) {
-  if (!(element instanceof HTMLElement)) return;
-  element.classList.toggle('status-banner--hidden', hidden);
+function getFilteredResults(results) {
+  return results.filter(matchesRouteFilters);
 }
 
-function sourceStatusLine(liveData) {
-  const gaugeLabel = liveData.gaugeState === 'live' ? 'Gauge live' : liveData.gaugeState === 'stale' ? 'Gauge stale' : 'Gauge offline';
-  const weatherLabel =
-    liveData.weatherState === 'live' ? 'Weather live' : liveData.weatherState === 'stale' ? 'Weather stale' : 'Weather offline';
-  return `${gaugeLabel} - ${weatherLabel}`;
+function normalizeSortMode() {
+  if (activeFilters.sort === 'near-you') {
+    return userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
+  }
+
+  if (activeFilters.sort === 'nearest') {
+    return userLocationState === 'ready' && userLocation ? 'nearest' : 'best-now';
+  }
+
+  return activeFilters.sort;
+}
+
+function updateFilterButtonStates() {
+  for (const button of filterButtons) {
+    if (!(button instanceof HTMLElement)) continue;
+    const key = button.dataset.filterToggle;
+    const active = key ? Boolean(activeFilters[key]) : false;
+    button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+}
+
+function updateLocationIndicator() {
+  if (!(locationIndicator instanceof HTMLElement)) {
+    return;
+  }
+
+  if (userLocationState === 'pending') {
+    locationIndicator.hidden = false;
+    locationIndicator.dataset.state = 'loading';
+    if (locationIndicatorLabel instanceof HTMLElement) {
+      locationIndicatorLabel.textContent = 'Finding nearest rivers...';
+    }
+    return;
+  }
+
+  if (userLocationState === 'denied') {
+    locationIndicator.hidden = false;
+    locationIndicator.dataset.state = 'error';
+    if (locationIndicatorLabel instanceof HTMLElement) {
+      locationIndicatorLabel.textContent = 'Location blocked';
+    }
+    return;
+  }
+
+  if (userLocationState === 'unavailable') {
+    locationIndicator.hidden = false;
+    locationIndicator.dataset.state = 'error';
+    if (locationIndicatorLabel instanceof HTMLElement) {
+      locationIndicatorLabel.textContent = 'Location unavailable';
+    }
+    return;
+  }
+
+  locationIndicator.hidden = true;
+  locationIndicator.dataset.state = 'idle';
+}
+
+function updateLocationStatus() {
+  if (!(locationStatus instanceof HTMLElement)) {
+    return;
+  }
+
+  if (userLocationState === 'pending') {
+    locationStatus.textContent = 'Finding your location.';
+    return;
+  }
+
+  if (userLocation) {
+    locationStatus.textContent = `Using ${userLocation.label}. Nearby rivers now rank by score and drive time.`;
+    if (locationClearButton instanceof HTMLButtonElement) {
+      locationClearButton.hidden = false;
+    }
+    return;
+  }
+
+  if (locationClearButton instanceof HTMLButtonElement) {
+    locationClearButton.hidden = true;
+  }
+
+  if (userLocationState === 'denied') {
+    locationStatus.textContent = 'Location access was denied. Enter a city or ZIP code instead.';
+    return;
+  }
+
+  if (userLocationState === 'unavailable') {
+    locationStatus.textContent = 'Location is unavailable in this browser. Enter a city or ZIP code instead.';
+    return;
+  }
+
+  locationStatus.textContent = "Use your location or enter a city or ZIP code to tailor today's board.";
+}
+
+function updateFilterSummary(exploreItems) {
+  if (!(filterSummary instanceof HTMLElement)) {
+    return;
+  }
+
+  const sortLabel =
+    activeFilters.sort === 'near-you'
+      ? 'best near you'
+      : activeFilters.sort === 'nearest'
+        ? 'nearest route'
+        : activeFilters.sort === 'highest-confidence'
+          ? 'highest confidence'
+          : activeFilters.sort === 'lowest-risk'
+            ? 'lowest risk'
+            : activeFilters.sort === 'a-z'
+              ? 'A-Z'
+              : 'best overall';
+
+  if (exploreItems.length === 0) {
+    filterSummary.textContent = 'No rivers match these filters. Clear one to bring more back.';
+    return;
+  }
+
+  filterSummary.textContent = `Showing ${exploreItems.length} rivers in Explore, sorted by ${sortLabel}.`;
+}
+
+function updateSummaryStatus(items, routeResults) {
+  if (!(summaryHeadline instanceof HTMLElement) || !(summaryDetail instanceof HTMLElement)) {
+    return;
+  }
+
+  if (items.length === 0) {
+    summaryHeadline.textContent = 'No rivers match the current filters.';
+    summaryDetail.textContent = 'Clear a filter or search more broadly to bring rivers back into view.';
+    return;
+  }
+
+  const visibleRoutes = items.map((item) => item.cardRoute);
+  const liveCount = visibleRoutes.filter((result) => result.liveData.overall === 'live').length;
+  const degradedCount = visibleRoutes.filter((result) => result.liveData.overall === 'degraded').length;
+  const offlineCount = visibleRoutes.filter((result) => result.liveData.overall === 'offline').length;
+  const generatedAt = routeResults[0]?.generatedAt
+    ? new Date(routeResults[0].generatedAt).toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' })
+    : 'unknown time';
+
+  summaryHeadline.textContent = `As of ${generatedAt}: ${liveCount} live, ${degradedCount} limited, ${offlineCount} offline.`;
+
+  if (offlineCount > 0) {
+    summaryDetail.textContent = 'Some rivers are missing current source data. Open the river page before a longer drive.';
+    return;
+  }
+
+  if (degradedCount > 0) {
+    summaryDetail.textContent = 'Some rivers are using stale or partial inputs. Treat those calls as a second look.';
+    return;
+  }
+
+  summaryDetail.textContent = 'All rivers are using fresh gauge and weather reads.';
+}
+
+function updateBoardStatusBanner(items) {
+  if (!(boardStatusBanner instanceof HTMLElement)) {
+    return;
+  }
+
+  const liveCount = items.filter((item) => item.cardRoute.liveData.overall === 'live').length;
+  const degradedCount = items.filter((item) => item.cardRoute.liveData.overall === 'degraded').length;
+  const offlineCount = items.filter((item) => item.cardRoute.liveData.overall === 'offline').length;
+
+  boardStatusBanner.classList.remove('status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading');
+
+  if (offlineCount > 0) {
+    boardStatusBanner.classList.add('status-banner--offline');
+    if (boardBannerTitle instanceof HTMLElement) {
+      boardBannerTitle.textContent = `${offlineCount} rivers need another look.`;
+    }
+    if (boardBannerDetail instanceof HTMLElement) {
+      boardBannerDetail.textContent = 'One or more direct reads are offline. Use the detail page before you drive.';
+    }
+    return;
+  }
+
+  if (degradedCount > 0) {
+    boardStatusBanner.classList.add('status-banner--degraded');
+    if (boardBannerTitle instanceof HTMLElement) {
+      boardBannerTitle.textContent = `${degradedCount} rivers are using older or partial inputs.`;
+    }
+    if (boardBannerDetail instanceof HTMLElement) {
+      boardBannerDetail.textContent = `${liveCount} rivers are fully live. Recheck the limited calls before you leave home.`;
+    }
+    return;
+  }
+
+  boardStatusBanner.classList.add('status-banner--live');
+  if (boardBannerTitle instanceof HTMLElement) {
+    boardBannerTitle.textContent = 'The board is up to date.';
+  }
+  if (boardBannerDetail instanceof HTMLElement) {
+    boardBannerDetail.textContent = `${liveCount} rivers are live right now. Start with the top calls, then explore if you need more options.`;
+  }
 }
 
 function markerClassFor(item) {
@@ -387,23 +759,14 @@ function markerClassFor(item) {
 }
 
 function popupMarkup(item) {
-  const result = item.cardRoute;
-  const routeLabel =
-    item.kind === 'group'
-      ? `Showing route: ${escapeHtml(result.river.reach)}`
-      : escapeHtml(result.river.reach);
-  const linkLabel = item.kind === 'group' ? 'Open river page' : 'Open route';
-
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(result.river.state)} | ${escapeHtml(result.river.region)}</p>
-      <h3>${escapeHtml(result.river.name)}</h3>
-      <p class="score-map-popup__reach">${routeLabel}</p>
-      <p class="score-map-popup__summary">${escapeHtml(result.explanation)}</p>
-      <p class="score-map-popup__meta">
-        Score ${result.score} - ${escapeHtml(ratingLabel(result.rating))} - Confidence ${escapeHtml(result.confidence.label)}
-      </p>
-      <a class="score-map-popup__link" href="${item.link}">${linkLabel}</a>
+      <p class="score-map-popup__state">${escapeHtml(item.cardRoute.river.state)} | ${escapeHtml(item.cardRoute.river.region)}</p>
+      <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
+      <p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>
+      <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
+      <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceText(item))}</p>
+      <a class="score-map-popup__link" href="${item.link}">View river</a>
     </article>
   `;
 }
@@ -453,33 +816,28 @@ async function renderSummaryMap(items) {
     let hasBounds = false;
 
     for (const item of items) {
-      const result = item.cardRoute;
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassFor(item);
-      markerNode.innerHTML = `<span>${result.score}</span>`;
+      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${result.river.name}: score ${result.score}, confidence ${result.confidence.label}`
+        `${item.cardRoute.river.name}: score ${item.cardRoute.score}, confidence ${item.cardRoute.confidence.label}`
       );
 
       const marker = new maplibregl.Marker({
         element: markerNode,
         anchor: 'center',
       })
-        .setLngLat([result.river.longitude, result.river.latitude])
+        .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
         .setPopup(
-          new maplibregl.Popup({
-            offset: 18,
-            closeButton: false,
-            maxWidth: '280px',
-          }).setHTML(popupMarkup(item))
+          new maplibregl.Popup({ offset: 18, closeButton: false, maxWidth: '280px' }).setHTML(popupMarkup(item))
         )
         .addTo(mapRuntime);
 
       bindMarkerPopup(marker, markerNode);
       mapMarkers.push(marker);
-      bounds.extend([result.river.longitude, result.river.latitude]);
+      bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
       hasBounds = true;
     }
 
@@ -496,7 +854,6 @@ async function renderSummaryMap(items) {
       return;
     }
 
-    mapRuntime.resize();
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = 'No rivers match the current filters.';
     }
@@ -505,578 +862,6 @@ async function renderSummaryMap(items) {
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = 'Map unavailable right now. Use the river list below.';
     }
-  }
-}
-
-function routeLabelForItem(item) {
-  const route = item.cardRoute.river.reach;
-  if (item.kind === 'group') {
-    const prefix = item.representativeMode === 'nearest' ? 'Nearest route' : 'Best route';
-    return `${prefix}: ${route}`;
-  }
-
-  return route;
-}
-
-function routeCountLabelForItem(item) {
-  if (item.kind !== 'group') {
-    return '';
-  }
-
-  const paddleableLabel =
-    item.paddleableRouteCount === 0
-      ? 'No paddleable routes today'
-      : `${item.paddleableRouteCount} of ${item.totalRouteCount} paddleable today`;
-
-  return `${item.totalRouteCount} routes on this river - ${paddleableLabel}`;
-}
-
-function updateCard(card, item) {
-  const result = item.cardRoute;
-  const ratingKey = ratingToneKey(result.rating);
-  const decision = decisionLabel(result.rating);
-
-  const title = card.querySelector('.river-card__title');
-  if (title instanceof HTMLElement) {
-    title.textContent = result.river.name;
-  }
-  const state = card.querySelector('.river-card__state');
-  if (state instanceof HTMLElement) {
-    state.textContent = `${result.river.state} | ${result.river.region}`;
-  }
-  setText(card, 'route-label', routeLabelForItem(item));
-  setText(card, 'route-count-label', routeCountLabelForItem(item));
-  setText(card, 'score', String(result.score));
-  setText(card, 'rating', ratingLabel(result.rating));
-  setText(card, 'card-summary', result.summary.cardText);
-  setText(
-    card,
-    'freshness',
-    result.liveData.overall === 'live'
-      ? result.summary.freshnessText
-      : `${sourceStatusLine(result.liveData)}. ${result.liveData.summary}`
-  );
-  setText(card, 'band-plain', result.gaugeBandLabel);
-  setText(card, 'gauge-now', result.summary.gaugeNow);
-  const confidenceField = setText(card, 'confidence-plain', result.summary.confidenceText);
-  decorateConfidence(confidenceField, result.confidence.label);
-
-  card.dataset.score = String(result.score);
-  card.dataset.dataStatus = result.liveData.overall;
-  card.dataset.rating = result.rating;
-  card.dataset.confidence = result.confidence.label;
-  card.classList.remove('river-card--great', 'river-card--good', 'river-card--marginal', 'river-card--no-go');
-  card.classList.add(`river-card--${ratingKey}`);
-
-  const orb = card.querySelector('.score-orb');
-  if (orb instanceof HTMLElement) {
-    orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
-    orb.classList.add(`score-orb--${ratingKey}`);
-  }
-
-  const decisionPill = setText(card, 'decision', decision);
-  decorateDecision(decisionPill, result.rating);
-
-  const dataStatus = setText(card, 'data-status', `Reads ${result.liveData.overall}`);
-  decorateDataStatus(dataStatus, result.liveData.overall);
-
-  setText(card, 'primary-factor', result.summary.primaryFactor);
-  setText(card, 'secondary-factor', result.summary.secondaryFactor);
-  renderSourceBadges(card, result.sources);
-
-  const link = card.querySelector('[data-card-link]');
-  if (link instanceof HTMLAnchorElement) {
-    link.href = item.link;
-    link.textContent = item.kind === 'group' ? 'Open river page' : 'Open full river call';
-  }
-}
-
-function renderSourceBadges(card, badges) {
-  const badgesEl = card.querySelector('[data-source-badges]');
-  if (!(badgesEl instanceof HTMLElement) || !Array.isArray(badges)) {
-    return;
-  }
-
-  badgesEl.innerHTML = badges
-    .map(
-      (badge) =>
-        `<span class="source-badge source-badge--${badge.tone}">${escapeHtml(badge.label)}</span>`
-    )
-    .join('');
-}
-
-function updateFeaturedCall(item) {
-  if (!(featuredPanel instanceof HTMLElement)) {
-    return;
-  }
-
-  const result = item.cardRoute;
-  const ratingKey = ratingToneKey(result.rating);
-  const decision = decisionLabel(result.rating);
-  const confidenceText = `${result.confidence.label} confidence (${result.confidence.score}/100)`;
-
-  clearClasses(featuredPanel, featuredRatingClasses);
-  featuredPanel.classList.add(`hero-call--${ratingKey}`);
-
-  if (featuredState instanceof HTMLElement) {
-    featuredState.textContent = `${result.river.state} | ${result.river.region}`;
-  }
-  if (featuredName instanceof HTMLElement) {
-    featuredName.textContent = result.river.name;
-  }
-  if (featuredReach instanceof HTMLElement) {
-    const groupPrefix =
-      activeFilters.sort === 'nearest' && userLocationState === 'ready'
-        ? 'Nearest route'
-        : 'Best route';
-    featuredReach.textContent = item.kind === 'group' ? `${groupPrefix}: ${result.river.reach}` : result.river.reach;
-  }
-  if (featuredLink instanceof HTMLAnchorElement) {
-    featuredLink.href = item.link;
-    featuredLink.textContent = item.kind === 'group' ? 'Open river page' : 'Open featured river';
-  }
-
-  setText(document, 'featured-score', String(result.score));
-  setText(document, 'featured-rating', ratingLabel(result.rating));
-  setText(document, 'featured-explanation', result.explanation);
-
-  const featuredDecision = setText(document, 'featured-decision', decision);
-  decorateDecision(featuredDecision, result.rating);
-
-  const featuredConfidence = setText(document, 'featured-confidence', confidenceText);
-  decorateConfidence(featuredConfidence, result.confidence.label);
-
-  const featuredBand = setText(document, 'featured-band', `Band ${result.gaugeBandLabel}`);
-  decorateDecision(featuredBand, result.gaugeBandLabel.includes('Too') ? 'No-go' : result.rating);
-
-  const orb = featuredPanel.querySelector('.score-orb');
-  if (orb instanceof HTMLElement) {
-    clearClasses(orb, orbRatingClasses);
-    orb.classList.add(`score-orb--${ratingKey}`);
-  }
-}
-
-function updateSummaryStatus(items, routeResults) {
-  if (!(summaryHeadline instanceof HTMLElement) || !(summaryDetail instanceof HTMLElement)) {
-    return;
-  }
-
-  if (items.length === 0) {
-    summaryHeadline.textContent = 'No rivers match the current filters.';
-    summaryDetail.textContent = 'Clear a filter or search for a broader river name.';
-    if (summaryCounts.great instanceof HTMLElement) summaryCounts.great.textContent = '0';
-    if (summaryCounts.good instanceof HTMLElement) summaryCounts.good.textContent = '0';
-    if (summaryCounts.marginal instanceof HTMLElement) summaryCounts.marginal.textContent = '0';
-    if (summaryCounts.noGo instanceof HTMLElement) summaryCounts.noGo.textContent = '0';
-    return;
-  }
-
-  const visibleRoutes = items.map((item) => item.cardRoute);
-  const liveCount = visibleRoutes.filter((result) => result.liveData.overall === 'live').length;
-  const degradedCount = visibleRoutes.filter((result) => result.liveData.overall === 'degraded').length;
-  const offlineCount = visibleRoutes.filter((result) => result.liveData.overall === 'offline').length;
-  const generatedAt = routeResults[0]?.generatedAt
-    ? new Date(routeResults[0].generatedAt).toLocaleString([], {
-        dateStyle: 'medium',
-        timeStyle: 'short',
-      })
-    : 'unknown time';
-
-  summaryHeadline.textContent = `As of ${generatedAt}: ${liveCount} live, ${degradedCount} limited, ${offlineCount} offline.`;
-
-  if (summaryCounts.great instanceof HTMLElement) {
-    summaryCounts.great.textContent = String(visibleRoutes.filter((result) => result.rating === 'Strong').length);
-  }
-  if (summaryCounts.good instanceof HTMLElement) {
-    summaryCounts.good.textContent = String(visibleRoutes.filter((result) => result.rating === 'Good').length);
-  }
-  if (summaryCounts.marginal instanceof HTMLElement) {
-    summaryCounts.marginal.textContent = String(
-      visibleRoutes.filter((result) => result.rating === 'Borderline').length
-    );
-  }
-  if (summaryCounts.noGo instanceof HTMLElement) {
-    summaryCounts.noGo.textContent = String(visibleRoutes.filter((result) => result.rating === 'No-go').length);
-  }
-
-  if (offlineCount > 0) {
-    summaryDetail.textContent =
-      'Some rivers are missing current source data. Recheck detail pages before you drive.';
-    return;
-  }
-
-  if (degradedCount > 0) {
-    summaryDetail.textContent =
-      'At least one river is using stale or partial inputs. Give those rivers a second look.';
-    return;
-  }
-
-  summaryDetail.textContent = 'All rivers are using fresh gauge and weather reads.';
-}
-
-function updateBoardStatusBanner(items) {
-  if (!(boardStatusBanner instanceof HTMLElement)) {
-    return;
-  }
-
-  if (items.length === 0) {
-    decorateBanner(boardStatusBanner, 'live');
-    if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = 'No rivers match the current filters.';
-    }
-    if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = 'Clear a filter to bring more rivers back into view.';
-    }
-    return;
-  }
-
-  const visibleRoutes = items.map((item) => item.cardRoute);
-  const liveCount = visibleRoutes.filter((result) => result.liveData.overall === 'live').length;
-  const degradedCount = visibleRoutes.filter((result) => result.liveData.overall === 'degraded').length;
-  const offlineCount = visibleRoutes.filter((result) => result.liveData.overall === 'offline').length;
-  const gaugeStaleCount = visibleRoutes.filter(
-    (result) => result.liveData.gaugeState === 'stale' && result.liveData.weatherState === 'live'
-  ).length;
-  const weatherStaleCount = visibleRoutes.filter(
-    (result) => result.liveData.gaugeState === 'live' && result.liveData.weatherState === 'stale'
-  ).length;
-  const bothStaleCount = visibleRoutes.filter(
-    (result) => result.liveData.gaugeState === 'stale' && result.liveData.weatherState === 'stale'
-  ).length;
-  const gaugeOfflineCount = visibleRoutes.filter((result) => result.liveData.gaugeState === 'unavailable').length;
-
-  if (offlineCount > 0) {
-    decorateBanner(boardStatusBanner, 'offline');
-    if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${offlineCount} river call${offlineCount === 1 ? '' : 's'} need another look.`;
-    }
-    if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = [
-        gaugeOfflineCount > 0 ? `${gaugeOfflineCount} gauge offline` : null,
-        bothStaleCount > 0 ? `${bothStaleCount} gauge + weather stale` : null,
-        gaugeStaleCount > 0 ? `${gaugeStaleCount} gauge stale only` : null,
-        weatherStaleCount > 0 ? `${weatherStaleCount} weather stale only` : null,
-      ]
-        .filter(Boolean)
-        .join('. ') || 'At least one direct gauge is offline. Open the river page and verify the source.';
-    }
-    return;
-  }
-
-  if (degradedCount > 0) {
-    decorateBanner(boardStatusBanner, 'degraded');
-    if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${degradedCount} river call${degradedCount === 1 ? '' : 's'} are using older or partial inputs.`;
-    }
-    if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = [
-        gaugeStaleCount > 0 ? `${gaugeStaleCount} gauge stale only` : null,
-        weatherStaleCount > 0 ? `${weatherStaleCount} weather stale only` : null,
-        bothStaleCount > 0 ? `${bothStaleCount} gauge + weather stale` : null,
-        `${liveCount} fully live`,
-      ]
-        .filter(Boolean)
-        .join('. ') + '. Recheck those rivers before you leave home.';
-    }
-    return;
-  }
-
-  decorateBanner(boardStatusBanner, 'live');
-  if (boardBannerTitle instanceof HTMLElement) {
-    boardBannerTitle.textContent = 'The board is up to date.';
-  }
-  if (boardBannerDetail instanceof HTMLElement) {
-    boardBannerDetail.textContent =
-      `${liveCount} river call${liveCount === 1 ? '' : 's'} are live right now. Filter the list, then open a river.`;
-  }
-}
-
-function matchesRouteFilters(result) {
-  if (activeFilters.paddleable && !['Strong', 'Good'].includes(result.rating)) {
-    return false;
-  }
-
-  if (activeFilters.highConfidence && result.confidence.label !== 'High') {
-    return false;
-  }
-
-  if (activeFilters.state && result.river.state !== activeFilters.state) {
-    return false;
-  }
-
-  if (activeFilters.region && result.river.region !== activeFilters.region) {
-    return false;
-  }
-
-  if (activeFilters.search) {
-    const haystack = `${result.river.name} ${result.river.reach} ${result.river.state} ${result.river.region}`.toLowerCase();
-    if (!haystack.includes(activeFilters.search.toLowerCase())) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-function getFilteredResults(results) {
-  return results.filter(matchesRouteFilters);
-}
-
-function updateFilterButtonStates() {
-  for (const button of filterButtons) {
-    if (!(button instanceof HTMLElement)) continue;
-    const filterKey = normalizeFilterKey(button.dataset.filterToggle ?? '');
-    const active = Boolean(activeFilters[filterKey]);
-    button.classList.toggle('filter-chip--active', active);
-    button.setAttribute('aria-pressed', active ? 'true' : 'false');
-  }
-}
-
-function updateFilterSummary(filtered, total) {
-  if (!(filterSummary instanceof HTMLElement)) {
-    return;
-  }
-
-  const activeCount = [
-    activeFilters.paddleable,
-    activeFilters.highConfidence,
-    activeFilters.search,
-    activeFilters.state,
-    activeFilters.region,
-  ].filter(Boolean).length;
-  const sortLabel =
-    activeFilters.sort === 'nearest'
-      ? 'nearest'
-      : activeFilters.sort === 'highest-confidence'
-      ? 'strongest confidence'
-      : activeFilters.sort === 'lowest-risk'
-        ? 'lowest risk'
-        : activeFilters.sort === 'a-z'
-          ? 'A-Z'
-          : 'best now';
-
-  if (activeFilters.sort === 'nearest') {
-    if (userLocationState === 'pending') {
-      filterSummary.textContent = 'Requesting your location. Grouped river cards will switch to the nearest route when it comes through.';
-      return;
-    }
-
-    if (userLocationState === 'denied') {
-      filterSummary.textContent = 'Location access was denied. Grouped river cards are showing the best route instead.';
-      return;
-    }
-
-    if (userLocationState === 'unavailable') {
-      filterSummary.textContent = 'Location is unavailable in this browser. Grouped river cards are showing the best route instead.';
-      return;
-    }
-  }
-
-  if (activeCount === 0) {
-    filterSummary.textContent = `Showing all ${total} river calls, sorted by ${sortLabel}.`;
-    return;
-  }
-
-  if (filtered.length === 0) {
-    filterSummary.textContent =
-      'No rivers match these filters. Clear one to bring more back.';
-    return;
-  }
-
-  filterSummary.textContent = `Showing ${filtered.length} of ${total} river calls, sorted by ${sortLabel}.`;
-}
-
-function updateLocationIndicator() {
-  if (!(locationIndicator instanceof HTMLElement)) {
-    return;
-  }
-
-  if (activeFilters.sort !== 'nearest') {
-    locationIndicator.hidden = true;
-    locationIndicator.dataset.state = 'idle';
-    return;
-  }
-
-  if (userLocationState === 'pending') {
-    locationIndicator.hidden = false;
-    locationIndicator.dataset.state = 'loading';
-    if (locationIndicatorLabel instanceof HTMLElement) {
-      locationIndicatorLabel.textContent = 'Finding nearest rivers...';
-    }
-    return;
-  }
-
-  if (userLocationState === 'denied') {
-    locationIndicator.hidden = false;
-    locationIndicator.dataset.state = 'error';
-    if (locationIndicatorLabel instanceof HTMLElement) {
-      locationIndicatorLabel.textContent = 'Location blocked';
-    }
-    return;
-  }
-
-  if (userLocationState === 'unavailable') {
-    locationIndicator.hidden = false;
-    locationIndicator.dataset.state = 'error';
-    if (locationIndicatorLabel instanceof HTMLElement) {
-      locationIndicatorLabel.textContent = 'Location unavailable';
-    }
-    return;
-  }
-
-  locationIndicator.hidden = true;
-  locationIndicator.dataset.state = 'idle';
-}
-
-function updateDistanceLabels(items) {
-  const itemsByKey = new Map(items.map((item) => [item.key, item]));
-
-  for (const card of cards) {
-    if (!(card instanceof HTMLElement)) continue;
-
-    const distanceEl = card.querySelector('[data-field="distance"]');
-    if (!(distanceEl instanceof HTMLElement)) continue;
-
-    if (activeFilters.sort !== 'nearest' || userLocationState !== 'ready' || !userLocation) {
-      distanceEl.hidden = true;
-      continue;
-    }
-
-    const key = card.dataset.cardKey;
-    if (!key) {
-      distanceEl.hidden = true;
-      continue;
-    }
-
-    const item = itemsByKey.get(key);
-    if (!item) {
-      distanceEl.hidden = true;
-      continue;
-    }
-
-    distanceEl.textContent = formatDistanceLabel(distanceForResult(item.cardRoute));
-    distanceEl.hidden = false;
-  }
-}
-
-function applyBoardFilters(results) {
-  const filteredRoutes = getFilteredResults(results);
-  const filtered = sortDisplayItems(buildDisplayItems(results, filteredRoutes));
-  const allItems = sortDisplayItems(buildDisplayItems(results, results));
-
-  updateFilterButtonStates();
-  updateFilterSummary(filtered, allItems.length);
-  updateLocationIndicator();
-  updateDistanceLabels(filtered);
-  updateSummaryStatus(filtered, results);
-  updateBoardStatusBanner(filtered);
-
-  const featuredResult = filtered[0] ?? allItems[0] ?? null;
-  if (featuredResult) {
-    updateFeaturedCall(featuredResult);
-  }
-
-  renderSummaryMap(filtered);
-
-  const orderedCards = new Map(cards.map((card) => [card.dataset.cardKey, card]));
-  if (grid instanceof HTMLElement) {
-    for (const item of filtered) {
-      const card = orderedCards.get(item.key);
-      if (card instanceof HTMLElement) {
-        grid.appendChild(card);
-      }
-    }
-  }
-
-  for (const card of cards) {
-    if (!(card instanceof HTMLElement)) continue;
-    const key = card.dataset.cardKey;
-    card.hidden = !filtered.some((item) => item.key === key);
-  }
-}
-
-function requestUserLocation() {
-  if (userLocationState === 'pending' || userLocationState === 'ready') {
-    return;
-  }
-
-  if (!navigator.geolocation) {
-    userLocationState = 'unavailable';
-    applyBoardFilters(latestResults);
-    return;
-  }
-
-  userLocationState = 'pending';
-  applyBoardFilters(latestResults);
-
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      userLocation = {
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude,
-      };
-      userLocationState = 'ready';
-      applyBoardFilters(latestResults);
-    },
-    () => {
-      userLocationState = 'denied';
-      applyBoardFilters(latestResults);
-    },
-    {
-      enableHighAccuracy: false,
-      timeout: GEOLOCATION_TIMEOUT_MS,
-      maximumAge: 5 * 60 * 1000,
-    }
-  );
-}
-
-function setupFilters(results) {
-  latestResults = results;
-  updateFilterButtonStates();
-
-  for (const button of filterButtons) {
-    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
-    button.dataset.filterBound = 'true';
-    button.addEventListener('click', () => {
-      const filterKey = normalizeFilterKey(button.dataset.filterToggle ?? '');
-      activeFilters[filterKey] = !activeFilters[filterKey];
-      applyBoardFilters(latestResults);
-    });
-  }
-
-  if (filterSearch instanceof HTMLInputElement && filterSearch.dataset.filterBound !== 'true') {
-    filterSearch.dataset.filterBound = 'true';
-    filterSearch.addEventListener('input', () => {
-      activeFilters.search = filterSearch.value.trim();
-      applyBoardFilters(latestResults);
-    });
-  }
-
-  if (filterState instanceof HTMLSelectElement && filterState.dataset.filterBound !== 'true') {
-    filterState.dataset.filterBound = 'true';
-    filterState.addEventListener('change', () => {
-      activeFilters.state = filterState.value;
-      applyBoardFilters(latestResults);
-    });
-  }
-
-  if (filterRegion instanceof HTMLSelectElement && filterRegion.dataset.filterBound !== 'true') {
-    filterRegion.dataset.filterBound = 'true';
-    filterRegion.addEventListener('change', () => {
-      activeFilters.region = filterRegion.value;
-      applyBoardFilters(latestResults);
-    });
-  }
-
-  if (sortSelect instanceof HTMLSelectElement && sortSelect.dataset.filterBound !== 'true') {
-    sortSelect.dataset.filterBound = 'true';
-    sortSelect.addEventListener('change', () => {
-      activeFilters.sort = sortSelect.value;
-      if (activeFilters.sort === 'nearest') {
-        requestUserLocation();
-      }
-      applyBoardFilters(latestResults);
-    });
   }
 }
 
@@ -1114,13 +899,13 @@ function setBoardFetchBannerState(kind, detail) {
     return;
   }
 
+  boardFetchBanner.classList.toggle('status-banner--hidden', kind === 'hidden');
   if (kind === 'hidden') {
-    setHidden(boardFetchBanner, true);
     return;
   }
 
-  setHidden(boardFetchBanner, false);
-  decorateBanner(boardFetchBanner, 'offline');
+  boardFetchBanner.classList.remove('status-banner--live', 'status-banner--degraded', 'status-banner--loading');
+  boardFetchBanner.classList.add('status-banner--offline');
   if (boardFetchTitle instanceof HTMLElement) {
     boardFetchTitle.textContent =
       kind === 'initial'
@@ -1132,22 +917,265 @@ function setBoardFetchBannerState(kind, detail) {
   }
 }
 
-function setError(card) {
-  const explanation = card.querySelector('[data-field="card-summary"]');
-  if (explanation) {
-    explanation.textContent = 'Live reads are unavailable right now. Open the river page for the source links.';
+function renderHomepage(results) {
+  const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
+  const nearbyBaseItems = sortItems(buildDisplayItems(results, results, 'near-you'), 'near-you');
+  const nearbyItems = nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
+
+  updateFeaturedHero(nearbyItems, overallItems);
+  renderNearbySection(nearbyItems, overallItems);
+  renderOverallSection(overallItems);
+
+  const filteredRoutes = getFilteredResults(results);
+  const normalizedSortMode = normalizeSortMode();
+  const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
+
+  updateFilterButtonStates();
+  updateLocationIndicator();
+  updateLocationStatus();
+  updateFilterSummary(exploreItems);
+  updateSummaryStatus(exploreItems, results);
+  updateBoardStatusBanner(exploreItems);
+  renderSummaryMap(exploreItems);
+  renderCardGrid(exploreGrid, exploreItems, {
+    showDistance: userLocationState === 'ready' && userLocation,
+  });
+}
+
+function saveLocation(location) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
+}
+
+function loadStoredLocation() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) {
+      return null;
+    }
+    const parsed = JSON.parse(raw);
+    if (
+      parsed &&
+      typeof parsed.latitude === 'number' &&
+      typeof parsed.longitude === 'number' &&
+      typeof parsed.label === 'string'
+    ) {
+      return parsed;
+    }
+  } catch (error) {
+    console.warn('Failed to parse stored location.', error);
   }
 
-  setText(card, 'freshness', 'No current live read available.');
-  setText(card, 'band-plain', 'Unavailable');
-  setText(card, 'gauge-now', 'Unavailable');
-  setText(card, 'confidence-plain', 'Check sources');
+  return null;
+}
 
-  const decision = setText(card, 'decision', 'Check sources');
-  decorateDecision(decision, 'No-go');
+function setUserLocation(location) {
+  userLocation = location;
+  userLocationState = 'ready';
+  saveLocation(location);
+  if (activeFilters.sort === 'best-now') {
+    activeFilters.sort = 'near-you';
+    if (sortSelect instanceof HTMLSelectElement) {
+      sortSelect.value = 'near-you';
+    }
+  }
+  if (locationInput instanceof HTMLInputElement) {
+    locationInput.value = location.label;
+  }
+  if (latestResults.length > 0) {
+    renderHomepage(latestResults);
+  } else {
+    updateLocationStatus();
+  }
+}
 
-  const dataStatus = setText(card, 'data-status', 'Reads offline');
-  decorateDataStatus(dataStatus, 'offline');
+function clearUserLocation() {
+  userLocation = null;
+  userLocationState = 'idle';
+  localStorage.removeItem(STORAGE_KEY);
+  if (locationInput instanceof HTMLInputElement) {
+    locationInput.value = '';
+  }
+  if (latestResults.length > 0) {
+    renderHomepage(latestResults);
+  } else {
+    updateLocationStatus();
+  }
+}
+
+async function geocodeManualLocation(query) {
+  const response = await fetch(
+    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json&countryCode=US`,
+    {
+      headers: { accept: 'application/json' },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Geocoding failed: HTTP ${response.status}`);
+  }
+
+  const payload = await response.json();
+  const match = Array.isArray(payload?.results) ? payload.results[0] : null;
+  if (!match || typeof match.latitude !== 'number' || typeof match.longitude !== 'number') {
+    return null;
+  }
+
+  const admin = match.admin1 || match.country || '';
+  return {
+    latitude: match.latitude,
+    longitude: match.longitude,
+    label: admin ? `${match.name}, ${admin}` : match.name,
+    source: 'manual',
+  };
+}
+
+function requestUserLocation() {
+  if (!navigator.geolocation) {
+    userLocationState = 'unavailable';
+    updateLocationStatus();
+    renderHomepage(latestResults);
+    return;
+  }
+
+  userLocationState = 'pending';
+  updateLocationStatus();
+  updateLocationIndicator();
+  if (latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      setUserLocation({
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+        label: 'your current location',
+        source: 'geolocation',
+      });
+    },
+    () => {
+      userLocationState = 'denied';
+      updateLocationStatus();
+      if (latestResults.length > 0) {
+        renderHomepage(latestResults);
+      }
+    },
+    {
+      enableHighAccuracy: false,
+      timeout: GEOLOCATION_TIMEOUT_MS,
+      maximumAge: 5 * 60 * 1000,
+    }
+  );
+}
+
+async function maybeUseGrantedLocation() {
+  if (!('permissions' in navigator) || typeof navigator.permissions.query !== 'function') {
+    return;
+  }
+
+  try {
+    const result = await navigator.permissions.query({ name: 'geolocation' });
+    if (result.state === 'granted' && !userLocation) {
+      requestUserLocation();
+    }
+  } catch (error) {
+    console.warn('Could not check geolocation permission.', error);
+  }
+}
+
+function setupFilters() {
+  for (const button of filterButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      const key = button.dataset.filterToggle;
+      if (!key) return;
+      activeFilters[key] = !activeFilters[key];
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterSearch instanceof HTMLInputElement && filterSearch.dataset.filterBound !== 'true') {
+    filterSearch.dataset.filterBound = 'true';
+    filterSearch.addEventListener('input', () => {
+      activeFilters.search = filterSearch.value.trim();
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterState instanceof HTMLSelectElement && filterState.dataset.filterBound !== 'true') {
+    filterState.dataset.filterBound = 'true';
+    filterState.addEventListener('change', () => {
+      activeFilters.state = filterState.value;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterRegion instanceof HTMLSelectElement && filterRegion.dataset.filterBound !== 'true') {
+    filterRegion.dataset.filterBound = 'true';
+    filterRegion.addEventListener('change', () => {
+      activeFilters.region = filterRegion.value;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (sortSelect instanceof HTMLSelectElement && sortSelect.dataset.filterBound !== 'true') {
+    sortSelect.dataset.filterBound = 'true';
+    sortSelect.addEventListener('change', () => {
+      activeFilters.sort = sortSelect.value;
+      if ((activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest') && !userLocation) {
+        requestUserLocation();
+      } else {
+        renderHomepage(latestResults);
+      }
+    });
+  }
+}
+
+function setupLocationControls() {
+  if (locationUseButton instanceof HTMLButtonElement) {
+    locationUseButton.addEventListener('click', () => {
+      requestUserLocation();
+    });
+  }
+
+  if (locationClearButton instanceof HTMLButtonElement) {
+    locationClearButton.addEventListener('click', () => {
+      clearUserLocation();
+    });
+  }
+
+  if (locationForm instanceof HTMLFormElement) {
+    locationForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const query = locationInput instanceof HTMLInputElement ? locationInput.value.trim() : '';
+      if (!query) {
+        updateLocationStatus();
+        return;
+      }
+
+      if (locationStatus instanceof HTMLElement) {
+        locationStatus.textContent = 'Looking up that location.';
+      }
+
+      try {
+        const match = await geocodeManualLocation(query);
+        if (!match) {
+          if (locationStatus instanceof HTMLElement) {
+            locationStatus.textContent = 'That city or ZIP was not found. Try a nearby town or a different ZIP code.';
+          }
+          return;
+        }
+
+        setUserLocation(match);
+      } catch (error) {
+        console.error('Manual location lookup failed.', error);
+        if (locationStatus instanceof HTMLElement) {
+          locationStatus.textContent = 'That location could not be looked up right now. Try again.';
+        }
+      }
+    });
+  }
 }
 
 async function loadBoard({ silent = false } = {}) {
@@ -1157,9 +1185,7 @@ async function loadBoard({ silent = false } = {}) {
 
   try {
     const response = await fetch('/api/rivers/summary.json', {
-      headers: {
-        accept: 'application/json',
-      },
+      headers: { accept: 'application/json' },
       cache: 'no-store',
     });
 
@@ -1168,29 +1194,15 @@ async function loadBoard({ silent = false } = {}) {
     }
 
     const payload = await response.json();
-    const results = Array.isArray(payload?.rivers) ? payload.rivers : [];
-    const sortedResults = [...results].sort(compareResults);
-    const allItems = sortDisplayItems(buildDisplayItems(sortedResults, sortedResults));
-    setupFilters(sortedResults);
-    const itemsByKey = new Map(allItems.map((item) => [item.key, item]));
-
-    for (const card of cards) {
-      if (!(card instanceof HTMLElement)) continue;
-      const key = card.dataset.cardKey;
-      if (!key) continue;
-      const item = itemsByKey.get(key);
-      if (!item) continue;
-      updateCard(card, item);
-    }
-
-    applyBoardFilters(sortedResults);
-    latestResults = sortedResults;
-    lastBoardSuccessAt = Date.now();
+    latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
     hasLoadedBoardOnce = true;
+    lastBoardSuccessAt = Date.now();
     setBoardFetchBannerState('hidden');
     setBoardRefreshState('ready');
+    renderHomepage(latestResults);
   } catch (error) {
     console.error('Failed to load river scores on summary page.', error);
+
     if (hasLoadedBoardOnce) {
       setBoardFetchBannerState('hidden');
       setBoardRefreshState('error', 'Last refresh failed. Showing the last good board.');
@@ -1199,7 +1211,7 @@ async function loadBoard({ silent = false } = {}) {
 
     setBoardFetchBannerState(
       'initial',
-      'Live river reads could not load. Retry the board, then open a river page if you need to verify the sources.'
+      'Live river calls could not load. Retry the board, then open a river page if you need to verify the sources.'
     );
     setBoardRefreshState('error', 'Last refresh failed. Retry now.');
 
@@ -1207,49 +1219,43 @@ async function loadBoard({ silent = false } = {}) {
       summaryHeadline.textContent = 'Live river status is unavailable.';
     }
     if (summaryDetail instanceof HTMLElement) {
-      summaryDetail.textContent = 'Current gauge and weather reads could not load. Open a river page to verify the sources directly.';
+      summaryDetail.textContent = 'Current gauge and weather reads could not load.';
     }
-    if (filterSummary instanceof HTMLElement) {
-      filterSummary.textContent = 'Filters are unavailable because the river list could not load.';
+    if (nearbySummary instanceof HTMLElement) {
+      nearbySummary.textContent = 'Nearby calls are unavailable until the river board loads.';
     }
-    if (boardStatusBanner instanceof HTMLElement) {
-      decorateBanner(boardStatusBanner, 'offline');
-    }
-    if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = 'River board unavailable.';
-    }
-    if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = 'Treat every river as unconfirmed until live gauge and weather reads return.';
-    }
-
-    if (featuredState instanceof HTMLElement) {
-      featuredState.textContent = 'Featured call unavailable';
-    }
-    if (featuredName instanceof HTMLElement) {
-      featuredName.textContent = 'Check sources';
-    }
-    if (featuredReach instanceof HTMLElement) {
-      featuredReach.textContent = 'Open a river page to verify the latest gauge and weather reads.';
-    }
-    setText(document, 'featured-explanation', 'A featured river call is unavailable right now.');
-    setText(document, 'featured-decision', 'Check sources');
-    setText(document, 'featured-confidence', 'Confidence unavailable');
-    setText(document, 'featured-band', 'Flow band unavailable');
-
-    for (const card of cards) {
-      if (!(card instanceof HTMLElement)) continue;
-      setError(card);
+    if (overallSummary instanceof HTMLElement) {
+      overallSummary.textContent = 'Top river calls are unavailable until the river board loads.';
     }
   }
 }
+
+setupFilters();
+setupLocationControls();
+
+const storedLocation = loadStoredLocation();
+if (storedLocation) {
+  userLocation = storedLocation;
+  userLocationState = 'ready';
+  activeFilters.sort = 'near-you';
+  if (locationInput instanceof HTMLInputElement) {
+    locationInput.value = storedLocation.label;
+  }
+  if (sortSelect instanceof HTMLSelectElement) {
+    sortSelect.value = 'near-you';
+  }
+}
+
+updateLocationStatus();
+maybeUseGrantedLocation();
 
 if (boardRefreshButton instanceof HTMLButtonElement) {
   boardRefreshButton.addEventListener('click', () => {
     loadBoard();
   });
 }
+
 loadBoard();
 window.setInterval(() => {
   loadBoard({ silent: true });
 }, AUTO_REFRESH_MS);
-
