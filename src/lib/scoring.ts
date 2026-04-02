@@ -1420,8 +1420,8 @@ function buildExplanation(args: {
       ? `${args.river.name} looks good today.`
       : args.rating === 'Good'
         ? `${args.river.name} is workable today.`
-        : args.rating === 'Borderline'
-          ? `${args.river.name} is borderline today.`
+        : args.rating === 'Fair'
+          ? `${args.river.name} is fair today.`
           : `${args.river.name} looks like a skip today.`;
 
   const gaugeSentence =
@@ -1455,7 +1455,7 @@ function buildExplanation(args: {
 function ratingFromScore(score: number): ScoreRating {
   if (score >= 90) return 'Strong';
   if (score >= 75) return 'Good';
-  if (score >= 60) return 'Borderline';
+  if (score >= 60) return 'Fair';
   return 'No-go';
 }
 

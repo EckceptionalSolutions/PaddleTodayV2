@@ -96,7 +96,7 @@ function setText(scope, field, value) {
 
 function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
-  if (rating === 'Borderline') return 'marginal';
+  if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
@@ -134,7 +134,7 @@ function compareConfidence(left, right) {
 }
 
 function compareLowestRisk(left, right) {
-  const ratingRank = { Strong: 0, Good: 1, Borderline: 2, 'No-go': 3 };
+  const ratingRank = { Strong: 0, Good: 1, Fair: 2, 'No-go': 3 };
   const leftRating = ratingRank[left.rating] ?? 4;
   const rightRating = ratingRank[right.rating] ?? 4;
   if (leftRating !== rightRating) {
@@ -355,8 +355,37 @@ function sortItems(items, mode) {
   return copy.sort((left, right) => compareResults(left.cardRoute, right.cardRoute));
 }
 
+function isGroupedItem(item) {
+  return item.kind === 'group' && item.totalRouteCount > 1;
+}
+
+function routeCountLabel(item) {
+  return `${item.totalRouteCount} routes on this river`;
+}
+
+function representativeRouteLabel(item) {
+  const prefix = item.representativeMode === 'nearest' ? 'Nearest route' : 'Best route';
+  return `${prefix}: ${item.cardRoute.river.reach}`;
+}
+
 function routeLabelForItem(item) {
+  if (isGroupedItem(item)) {
+    return routeCountLabel(item);
+  }
+
   return item.cardRoute.river.reach;
+}
+
+function featuredRouteLabelForItem(item) {
+  if (isGroupedItem(item)) {
+    return `${routeCountLabel(item)} - ${representativeRouteLabel(item)}`;
+  }
+
+  return routeLabelForItem(item);
+}
+
+function routeLengthLabel(item) {
+  return item.cardRoute.river.distanceLabel || '';
 }
 
 function regionStateText(item) {
@@ -370,6 +399,9 @@ function metaLineText(item, showDistance) {
   if (showDistance && Number.isFinite(item.travelMinutes)) {
     parts.push(formatTravelLabel(item.travelMinutes));
   }
+  if (routeLengthLabel(item)) {
+    parts.push(routeLengthLabel(item));
+  }
   return parts.join(' • ');
 }
 function cardSummary(item) {
@@ -377,6 +409,10 @@ function cardSummary(item) {
 }
 function rawSignalLine(item) {
   return item.cardRoute.summary?.rawSignalLine ?? item.cardRoute.summary?.gaugeNow ?? '';
+}
+
+function cardLinkLabel(item) {
+  return isGroupedItem(item) ? 'Compare routes' : 'View river';
 }
 
 function createCard(item, { showDistance = false, compact = false } = {}) {
@@ -395,7 +431,9 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   if (compact) {
     card.classList.add('river-card--compact');
   }
+  card.classList.add(item.kind === 'group' ? 'river-card--group' : 'river-card--route');
 
+  setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'state', regionStateText(item));
   setText(card, 'name', item.cardRoute.river.name);
   setText(card, 'route-label', routeLabelForItem(item));
@@ -413,6 +451,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   const link = card.querySelector('[data-card-link]');
   if (link instanceof HTMLAnchorElement) {
     link.href = item.link;
+    link.textContent = cardLinkLabel(item);
   }
 
   return card;
@@ -469,7 +508,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     featuredName.textContent = item.cardRoute.river.name;
   }
   if (featuredReach instanceof HTMLElement) {
-    featuredReach.textContent = routeLabelForItem(item);
+    featuredReach.textContent = featuredRouteLabelForItem(item);
   }
 
   setText(document, 'featured-score', String(item.cardRoute.score));
@@ -490,6 +529,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
 
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = item.link;
+    featuredLink.textContent = cardLinkLabel(item);
   }
 }
 
@@ -499,7 +539,7 @@ function renderNearbySection(nearbyItems, overallItems) {
   }
 
   if (userLocationState !== 'ready' || !userLocation) {
-    nearbySummary.textContent = 'Add your location to rank rivers by score and driving time. Until then, this list mirrors the strongest overall calls.';
+    nearbySummary.textContent = 'Set your location to rank rivers by score and practical drive time. Until then, this list mirrors the strongest overall calls.';
     renderCardGrid(nearbyGrid, overallItems.slice(0, 3), { compact: true, showDistance: false });
     nearbyEmpty.hidden = true;
     return;
@@ -626,7 +666,7 @@ function updateLocationStatus() {
   }
 
   if (userLocationState === 'pending') {
-    locationStatus.textContent = 'Finding your location.';
+    locationStatus.textContent = 'Finding your location so nearby rivers can rank better.';
     return;
   }
 
@@ -643,16 +683,16 @@ function updateLocationStatus() {
   }
 
   if (userLocationState === 'denied') {
-    locationStatus.textContent = 'Location access was denied. Enter a city or ZIP code instead.';
+    locationStatus.textContent = 'Location access was denied. Enter a city or ZIP code to improve the ranking.';
     return;
   }
 
   if (userLocationState === 'unavailable') {
-    locationStatus.textContent = 'Location is unavailable in this browser. Enter a city or ZIP code instead.';
+    locationStatus.textContent = 'Location is unavailable in this browser. Enter a city or ZIP code to improve the ranking.';
     return;
   }
 
-  locationStatus.textContent = "Use your location or enter a city or ZIP code to tailor today's board.";
+  locationStatus.textContent = "Use your location or enter a city or ZIP code to get better river recommendations.";
 }
 
 function updateFilterSummary(exploreItems) {
@@ -762,14 +802,19 @@ function markerClassFor(item) {
 }
 
 function popupMarkup(item) {
+  const reachMarkup = isGroupedItem(item)
+    ? `<p class="score-map-popup__reach">${escapeHtml(routeCountLabel(item))}</p>
+      <p class="score-map-popup__meta">${escapeHtml(representativeRouteLabel(item))}</p>`
+    : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
+
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(item.cardRoute.river.state)} | ${escapeHtml(item.cardRoute.river.region)}</p>
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
-      <p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>
+      ${reachMarkup}
       <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
       <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceLabel(item))}</p>
-      <a class="score-map-popup__link" href="${item.link}">View river</a>
+      <a class="score-map-popup__link" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
 }

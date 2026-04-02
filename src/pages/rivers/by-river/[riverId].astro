@@ -30,16 +30,15 @@ const regionSummary = group.regions.join(', ');
         <p class="eyebrow">{stateSummary} | {regionSummary}</p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Comparing {group.routeCount} scored routes on this river.
+          Compare {group.routeCount} route calls on this river.
         </p>
         <p class="muted river-group-page__summary" data-group-detail>
-          A river name can cover very different routes. Use this page to compare them before opening a full trip-day call.
+          One river can hold very different launch calls. Compare the score, confidence, and summary line before you open full trip details.
         </p>
 
-        <div class="hero__meta">
-          <span class="stat-chip">{group.routeCount} scored routes</span>
-          <span class="stat-chip">Route-specific calls</span>
-          <span class="stat-chip">Open full route call for launch details</span>
+        <div class="hero__meta river-group-page__meta">
+          <span class="stat-chip">{group.routeCount} routes</span>
+          <span class="stat-chip">Each route has its own launch call</span>
         </div>
       </div>
 
@@ -50,37 +49,62 @@ const regionSummary = group.regions.join(', ');
           <span class="score-orb__rating" data-field="selected-rating">Checking</span>
         </div>
         <p class="river-call-panel__statement" data-field="selected-reach">
-          Choosing the best current route.
+          Loading the selected route.
         </p>
-        <div class="river-call-panel__reliability">
-          <span class="pill" data-field="selected-decision">Checking</span>
+        <div class="river-call-panel__reliability river-call-panel__reliability--compact">
+          <span class="pill" data-field="selected-status">Checking</span>
           <p class="muted river-call-panel__reliability-note" data-field="selected-confidence">
-            Checking confidence and flow band.
+            Checking confidence.
           </p>
         </div>
-        <p class="muted river-call-panel__reliability-note" data-field="selected-explanation">
-          Live route comparison will appear here once the grouped scores load.
+        <p class="river-call-panel__summary-line" data-field="selected-summary">
+          Summary line will appear once the grouped scores load.
         </p>
-        <div class="river-call-panel__actions">
+        <p class="river-call-panel__signal-line" data-field="selected-signal">
+          Data line will appear once the grouped scores load.
+        </p>
+        <div class="river-call-panel__actions river-call-panel__actions--inline">
           <button class="filter-chip" type="button" data-group-refresh>
             Refresh river
           </button>
-          <span class="muted river-call-panel__refresh-note" data-group-refresh-note>
-            Auto-refreshes every 5 minutes.
-          </span>
+          <a class="river-link river-link--wide" href="/" data-group-selected-link>
+            View river
+          </a>
         </div>
-        <a class="river-link river-link--wide" href="/" data-group-selected-link>
-          Open full route call
-        </a>
+        <p class="muted river-call-panel__refresh-note" data-group-refresh-note>
+          Auto-refreshes every 5 minutes.
+        </p>
       </aside>
     </section>
 
-    <section class="status-banner status-banner--loading" data-group-status-banner aria-live="polite">
+    <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route comparison</div>
       <div class="status-banner__body">
-        <strong data-group-banner-title>Checking grouped river calls.</strong>
+        <strong data-group-banner-title>Checking route calls.</strong>
         <p class="muted" data-group-banner-detail>
-          Loading live route comparisons for this river.
+          Loading live route comparison for this river.
+        </p>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel river-group-page__panel--map">
+      <div class="river-group-page__section-head river-group-page__section-head--map">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="map" size={16} />
+            Route map
+          </p>
+          <h2 class="section-title">Where these routes sit</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          All route starts and finishes on one supporting map.
+        </p>
+      </div>
+
+      <div class="river-group-page__map-shell">
+        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
+        <p class="muted river-group-page__map-status" data-group-map-status>
+          Loading route map.
         </p>
       </div>
     </section>
@@ -95,7 +119,7 @@ const regionSummary = group.regions.join(', ');
           <h2 class="section-title">Compare routes on this river</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Route scores share a river name, not the same launch call.
+          Same river, different launch calls.
         </p>
       </div>
 
@@ -107,9 +131,12 @@ const regionSummary = group.regions.join(', ');
             data-group-route-button
             data-route-slug={route.slug}
           >
+            <span class="route-choice__kind">Route</span>
             <span class="route-choice__eyebrow">{route.state} | {route.region}</span>
             <strong class="route-choice__title">{route.reach}</strong>
-            <span class="route-choice__meta">Checking live score.</span>
+            <span class="route-choice__score">-- • Checking</span>
+            <span class="route-choice__meta">Checking confidence • -- mi</span>
+            <span class="route-choice__summary">Loading summary line.</span>
           </button>
         ))}
       </div>

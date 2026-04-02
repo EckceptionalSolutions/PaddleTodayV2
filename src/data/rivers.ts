@@ -194,6 +194,365 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'root-river-lanesboro-peterson',
+    slug: 'root-river-lanesboro-peterson',
+    name: 'Root River',
+    reach: 'Lanesboro to Peterson',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Classic Driftless day paddle with easy current and strong scenery. Flow is still the main call, but low-water scraping and post-rain debris should lower confidence before the gauge gets extreme.',
+    statusText:
+      'Treat about 300 cfs as the lower edge of a worthwhile day, not a perfect one. This route improves with a little more water, but rising flow and fresh rain still matter.',
+    latitude: 43.76164,
+    longitude: -91.88708,
+    gaugeSource: {
+      id: 'usgs-05384000',
+      provider: 'usgs',
+      siteId: '05384000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Root River near Lanesboro, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 325,
+      idealMax: 700,
+      tooLow: 200,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'MilesPaddled Root River I same-segment gauge note',
+        url: 'https://milespaddled.com/root-river-i/',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the normal window. Summer can still work well, but low water hurts quality before the route becomes impossible.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly approachable current, but shallow riffles, sweepers, and cold shoulder-season water still make this more than a blind yes.',
+      confidenceNotes:
+        'The route itself is strongly supported by MN DNR, but the numeric scoring band is still a cautious manual calibration anchored by one same-segment trip report at 300 cfs and nearby Root River evidence rather than an official published sweet spot.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact-route gauge note',
+        value: '2.4 ft / 300 cfs = recommended, but low',
+        note: 'MilesPaddled ties this exact Lanesboro to Peterson route to a 300 cfs day at the Lanesboro gauge and describes it as a recommended but low-water run.',
+        sourceUrl: 'https://milespaddled.com/root-river-i/',
+      },
+      {
+        label: 'Route context',
+        value: 'MN DNR recommended day trip',
+        note: 'MN DNR supports Lanesboro to Peterson as a marquee Root River day trip with public accesses at both ends.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Low water and post-rain debris',
+        note: 'Low water means scraping and channel-picking. After rain, current and wood risk rise before a simple score fully captures it.',
+      },
+      {
+        label: 'Threshold confidence',
+        value: 'Mixed',
+        note: 'The route and gauge are direct, but the working band is still a conservative manual calibration rather than an official manager-published paddling range.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Root River I',
+        url: 'https://milespaddled.com/root-river-i/',
+      },
+      {
+        label: 'MN DNR Root River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/index.html',
+      },
+      {
+        label: 'MN DNR Root River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Root River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf',
+      },
+      {
+        label: 'MN DNR Root River Hwy 16 Public Water Access',
+        url: 'https://www.dnr.state.mn.us/water_access/site.html?id=WAS02189',
+      },
+      {
+        label: 'MN DNR Root River Peterson Public Water Access',
+        url: 'https://www.dnr.state.mn.us/water_access/site.html?id=WAS00265',
+      },
+      {
+        label: 'USGS 05384000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05384000/',
+      },
+    ],
+  },
+  {
+    id: 'wolf-river-lily-hollister',
+    slug: 'wolf-river-lily-hollister',
+    name: 'Wolf River',
+    reach: 'Hwy 52 to West Hollister Road',
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Short rocky Wolf River warm-up with class I-II rapids and multiple boulder-garden lines. This is one of the clearer gauge-driven whitewater-ish day trips in the old repo, but it still deserves a moderate-skill stance.',
+    statusText:
+      'Treat about 250 cfs as the low cutoff and 500 cfs as a strong target. Above that, the river is still in play, but the consequences rise faster than on an easy scenic float.',
+    latitude: 45.27752,
+    longitude: -88.83183,
+    gaugeSource: {
+      id: 'usgs-04074950',
+      provider: 'usgs',
+      siteId: '04074950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wolf River at Langlade, WI',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1000,
+      tooLow: 250,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'American Whitewater Wolf gauge info plus MilesPaddled Wolf I notes',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal window. Shoulder-season cold water makes swims and boulder hits matter more here than on easier day rivers.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The rapids stay in the class I-II range for this section, but shallow boulder gardens and faster current still reward paddlers who can read lines and recover from quick mistakes.',
+      confidenceNotes:
+        'The gauge is direct and American Whitewater provides a usable section range, but the route still leans on river-running judgment rather than a simple scenic-float threshold. The app keeps the call more conservative than the raw number alone.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Working band',
+        value: '250 to 2,000 cfs',
+        note: 'American Whitewater lists this Wolf section family as boatable through that broader range, with 250 to 1,000 cfs covering the lower to moderate sweet spot.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+      },
+      {
+        label: 'Strong target',
+        value: '~500 cfs',
+        note: 'Miles Paddled describes about 500 cfs as an awesome level for this exact Lily to Hollister section.',
+        sourceUrl: 'https://milespaddled.com/wolf-river-i/',
+      },
+      {
+        label: 'Too low cutoff',
+        value: '~250 cfs',
+        note: 'Miles Paddled treats roughly 250 cfs as the too-low cutoff point for this route.',
+        sourceUrl: 'https://milespaddled.com/wolf-river-i/',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Both landings are backed by Wisconsin DNR boat-access inventory records.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Wolf gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+      },
+      {
+        label: 'MilesPaddled Wolf River I',
+        url: 'https://milespaddled.com/wolf-river-i/',
+      },
+      {
+        label: 'USGS 04074950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+      },
+      {
+        label: 'WI DNR Wolf River State Trail',
+        url: 'https://dnr.wisconsin.gov/topic/parks/wolfriver',
+      },
+      {
+        label: 'WI DNR boat access inventory',
+        url: 'https://dnr.wisconsin.gov/topic/lands/boataccess',
+      },
+    ],
+  },
+  {
+    id: 'white-river-maple-ridge-highway-112',
+    slug: 'white-river-maple-ridge-highway-112',
+    name: 'White River',
+    reach: 'Maple Ridge Road to Highway 112 Dam',
+    state: 'Wisconsin',
+    region: 'Northern Wisconsin',
+    summary:
+      'Fast-moving Northwoods run with nearly continuous class I-II current, clay banks, and a dam finish. This is a moving-water decision first, not a lazy scenic float.',
+    statusText:
+      'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
+    latitude: 46.46811,
+    longitude: -90.96808,
+    gaugeSource: {
+      id: 'usgs-04027500',
+      provider: 'usgs',
+      siteId: '04027500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'White River near Ashland, WI',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.35,
+      idealMax: 1.75,
+      tooLow: 1.1,
+      tooHigh: 2.6,
+      thresholdSource: {
+        label: 'MilesPaddled White River same-route gauge note',
+        url: 'https://milespaddled.com/white-river-bayfield-county/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the core window. Cold shoulder-season water and hydro-related fluctuation make the route less forgiving than its class rating alone suggests.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly class I-II, but nearly continuous current, boulder gardens, and the dam finish reward paddlers who can read lines and stay attentive for the full day.',
+      confidenceNotes:
+        'The gauge is direct and the route note gives one exact same-route recommended level, but the working band is still a cautious manual calibration rather than an official manager-published threshold. Hydropeaking remarks from USGS also justify a more conservative read.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact-route gauge note',
+        value: '1.47 ft / 200 cfs = recommended',
+        note: 'MilesPaddled ties this exact Maple Ridge to Hwy 112 route to a recommended day around 1.47 ft / 200 cfs on the White River gauge near Ashland.',
+        sourceUrl: 'https://milespaddled.com/white-river-bayfield-county/',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Continuous current plus dam take-out',
+        note: 'This is not a drift-and-chat river. Quick current, boulder gardens, and the dam finish mean consequence rises before the number alone looks extreme.',
+      },
+      {
+        label: 'USGS gauge note',
+        value: 'Hydropeaking / diurnal fluctuation possible',
+        note: 'USGS remarks mention hydroelectric-plant-driven fluctuation, so the same reading can feel less stable than on a free-flowing scenic river.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?site_no=04027500',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Partial',
+        note: 'Put-in and take-out coordinates are good, but official landing and parking authority is weaker than on the strongest seeded routes.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled White River route notes',
+        url: 'https://milespaddled.com/white-river-bayfield-county/',
+      },
+      {
+        label: 'USGS 04027500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04027500/',
+      },
+      {
+        label: 'USGS 04027500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?site_no=04027500',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-fox-highway-70',
+    slug: 'st-croix-river-fox-highway-70',
+    name: 'St. Croix River',
+    reach: 'Fox Landing to Highway 70',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Broad northwoods border run with current, boulder gardens, and real wind exposure. This is more practical once the Danbury gauge gets above the scrape-and-walk low end.',
+    statusText:
+      'Treat about 1,000 cfs as the low-water floor. Below that this route gets too scrapy to recommend widely, and above that wind and channel-reading still matter.',
+    latitude: 45.83215,
+    longitude: -92.74622,
+    gaugeSource: {
+      id: 'usgs-05333500',
+      provider: 'usgs',
+      siteId: '05333500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'St. Croix River near Danbury, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1000,
+      thresholdSource: {
+        label: 'MilesPaddled St. Croix River III minimum-flow note',
+        url: 'https://milespaddled.com/st-croix-river-iii/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.3,
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the main window. Wind matters almost as much as level on this broader channel, and cold shoulder-season water raises the cost of mistakes.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Intermediate day trip with multiple channels, boulder gardens, and level-dependent rapids. A workable gauge does not erase the need for route-finding and wind judgment.',
+      confidenceNotes:
+        'The direct gauge and verified access points are solid, but the numeric threshold is still community-derived and mostly useful as a low-water floor. The app stays conservative above the minimum because a broader preferred band is not yet well calibrated.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Low-water floor',
+        value: '~1,000 cfs',
+        note: 'Miles Paddled recommends waiting for at least about 1,000 cfs on the Danbury gauge for this Fox Landing to Highway 70 section.',
+        sourceUrl: 'https://milespaddled.com/st-croix-river-iii/',
+      },
+      {
+        label: 'Too low reference',
+        value: '720 cfs',
+        note: 'The same route report describes 720 cfs as too low for a worthwhile run.',
+        sourceUrl: 'https://milespaddled.com/st-croix-river-iii/',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Fox Landing and the Highway 70 landing are both backed by Wisconsin DNR boat-access inventory records.',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Wind on a broad channel',
+        note: 'Even when the gauge is workable, headwind and crosswind can dominate the effort on this wide upper St. Croix reach.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled St. Croix River III',
+        url: 'https://milespaddled.com/st-croix-river-iii/',
+      },
+      {
+        label: 'USGS 05333500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05333500/',
+      },
+      {
+        label: 'WI DNR boat access inventory',
+        url: 'https://dnr.wisconsin.gov/topic/lands/boataccess',
+      },
+      {
+        label: 'NPS Saint Croix boating rules',
+        url: 'https://www.nps.gov/sacn/planyourvisit/boating.htm',
+      },
+      {
+        label: 'NPS Saint Croix maps',
+        url: 'https://www.nps.gov/sacn/planyourvisit/maps.htm',
+      },
+    ],
+  },
+  {
     id: 'zumbro-river-falls',
     slug: 'zumbro-river-falls',
     name: 'Zumbro River',

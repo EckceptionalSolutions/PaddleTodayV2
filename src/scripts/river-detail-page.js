@@ -100,7 +100,7 @@ function setText(field, value) {
 
 function decisionLabel(rating) {
   if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Borderline') return 'Maybe today';
+  if (rating === 'Fair') return 'Watch closely';
   return 'Skip today';
 }
 
@@ -111,13 +111,13 @@ function ratingLabel(rating) {
 function decisionStatement(rating) {
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
   if (rating === 'Good') return 'Launch window looks workable right now.';
-  if (rating === 'Borderline') return 'This one needs a closer look before you drive.';
+  if (rating === 'Fair') return 'Usable, but it needs a closer look before you drive.';
   return 'Today looks like a pass unless you have fresher local intel.';
 }
 
 function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
-  if (rating === 'Borderline') return 'marginal';
+  if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
@@ -140,7 +140,7 @@ function decorateDecision(element, rating) {
   element.classList.add(
     rating === 'Strong' || rating === 'Good'
       ? 'decision-pill--paddle'
-      : rating === 'Borderline'
+      : rating === 'Fair'
         ? 'decision-pill--maybe'
         : 'decision-pill--skip'
   );
@@ -822,7 +822,7 @@ function formatDuration(hours) {
 
 function routeLineColor(result) {
   if (result?.rating === 'Strong' || result?.rating === 'Good') return '#2c8a54';
-  if (result?.rating === 'Borderline') return '#ad752c';
+  if (result?.rating === 'Fair') return '#ad752c';
   if (result?.rating === 'No-go') return '#bb5840';
   return '#1e7397';
 }

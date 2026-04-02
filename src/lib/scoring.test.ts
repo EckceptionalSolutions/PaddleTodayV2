@@ -216,7 +216,7 @@ describe('scoreRiverCondition', () => {
 
     expect(result.gaugeBand).toBe('ideal');
     expect(result.score).toBeLessThan(75);
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
     expect(result.factors.find((factor) => factor.id === 'weather')?.detail).toContain('near freezing');
   });
 
@@ -322,7 +322,7 @@ describe('scoreRiverCondition', () => {
 
     expect(highShoulder.gaugeBand).toBe('high-shoulder');
     expect(highShoulder.score).toBeLessThan(ideal.score);
-    expect(highShoulder.rating === 'Borderline' || highShoulder.rating === 'No-go').toBe(true);
+  expect(highShoulder.rating === 'Fair' || highShoulder.rating === 'No-go').toBe(true);
   });
 
   it('exposes threshold evidence quality as an explainable factor', () => {
@@ -457,7 +457,7 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.score).toBeLessThanOrEqual(74);
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
     expect(result.confidence.label).toBe('Medium');
     expect(result.explanation).toContain('published minimum');
   });
@@ -525,10 +525,14 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
 });
 
 describe('seed river calibration', () => {
-  const cannon = rivers.find((river) => river.slug === 'cannon-river-welch');
-  const straight = rivers.find((river) => river.slug === 'straight-river-faribault');
-  const zumbro = rivers.find((river) => river.slug === 'zumbro-river-falls');
-  const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson-waterloo');
+const cannon = rivers.find((river) => river.slug === 'cannon-river-welch');
+const straight = rivers.find((river) => river.slug === 'straight-river-faribault');
+const rootRiver = rivers.find((river) => river.slug === 'root-river-lanesboro-peterson');
+const wolfRiver = rivers.find((river) => river.slug === 'wolf-river-lily-hollister');
+const whiteRiver = rivers.find((river) => river.slug === 'white-river-maple-ridge-highway-112');
+const stCroixFox70 = rivers.find((river) => river.slug === 'st-croix-river-fox-highway-70');
+const zumbro = rivers.find((river) => river.slug === 'zumbro-river-falls');
+const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson-waterloo');
   const riceCreek = rivers.find((river) => river.slug === 'rice-creek-peltier-to-long-lake');
   const kettle = rivers.find((river) => river.slug === 'kettle-river-lower-kettle-5-to-6');
   const southForkZumbro = rivers.find((river) => river.slug === 'south-fork-zumbro-lake-zumbro');
@@ -588,7 +592,7 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('low-shoulder');
-    expect(result.rating === 'Borderline' || result.rating === 'No-go').toBe(true);
+  expect(result.rating === 'Fair' || result.rating === 'No-go').toBe(true);
   });
 
   it('keeps Black Hawk Creek inside the official DNR range with high confidence but technical caution', () => {
@@ -653,7 +657,7 @@ describe('seed river calibration', () => {
 
     expect(result.gaugeBand).toBe('ideal');
     expect(result.score).toBeLessThan(90);
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
     expect(result.checklist.find((item) => item.label === 'Weather window')?.status).toBe('watch');
   });
 
@@ -708,8 +712,85 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
     expect(result.confidence.label).toBe('Medium');
+  });
+
+  it('treats Root River around 300 cfs as a low-shoulder day instead of a perfect sweet-spot call', () => {
+    expect(rootRiver).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: rootRiver as River,
+      gauge: makeRiverGauge(rootRiver as River, 300, 'steady', 5),
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+      },
+      now,
+    });
+
+    expect(result.gaugeBand).toBe('low-shoulder');
+  expect(result.rating).toBe('Fair');
+    expect(result.confidence.label === 'Medium' || result.confidence.label === 'High').toBe(true);
+  });
+
+  it('treats Wolf River around 500 cfs as the intended ideal-window call', () => {
+    expect(wolfRiver).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: wolfRiver as River,
+      gauge: makeRiverGauge(wolfRiver as River, 500, 'steady', 20),
+      weather: {
+        ...weather,
+        observedAt: '2026-06-10T11:15:00Z',
+      },
+      now: new Date('2026-06-10T12:00:00Z'),
+    });
+
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
+    expect(result.confidence.label).not.toBe('Low');
+  });
+
+  it('treats White River around 1.47 ft as the intended same-route target without pretending it is official guidance', () => {
+    expect(whiteRiver).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: whiteRiver as River,
+      gauge: {
+        ...makeRiverGauge(whiteRiver as River, 1.47, 'steady', 0.08),
+        observedAt: '2026-06-10T11:00:00Z',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-06-10T11:15:00Z',
+      },
+      now: new Date('2026-06-10T12:00:00Z'),
+    });
+
+    const thresholdFactor = result.factors.find((factor) => factor.id === 'threshold-quality');
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
+    expect(result.confidence.label).toBe('Medium');
+    expect(thresholdFactor?.value).toBe('Community numeric guidance');
+  });
+
+  it('treats St. Croix Fox to Highway 70 above 1000 cfs as minimum-met rather than a fully calibrated sweet spot', () => {
+    expect(stCroixFox70).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: stCroixFox70 as River,
+      gauge: makeRiverGauge(stCroixFox70 as River, 1100, 'steady', 30),
+      weather: {
+        ...weather,
+        observedAt: '2026-06-10T11:15:00Z',
+      },
+      now: new Date('2026-06-10T12:00:00Z'),
+    });
+
+    expect(result.gaugeBand).toBe('minimum-met');
+  expect(result.rating).toBe('Fair');
+    expect(result.score).toBeLessThanOrEqual(74);
   });
 
   it('treats Sugar River above 60 cfs as an above-minimum easy-day candidate with capped upside', () => {
@@ -727,7 +808,7 @@ describe('seed river calibration', () => {
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.score).toBeLessThanOrEqual(74);
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
   });
 
   it('keeps the downstream Black Hawk reach inside the official DNR range with a high-confidence but conservative call', () => {
@@ -798,7 +879,7 @@ describe('seed river calibration', () => {
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.rating).toBe('Borderline');
+  expect(result.rating).toBe('Fair');
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
   });
 });

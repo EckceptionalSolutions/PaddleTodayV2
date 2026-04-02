@@ -31,12 +31,14 @@ const trackedCount = rivers.length;
         <div class="location-panel__header">
           <div>
             <p class="eyebrow">Your location</p>
-            <h2 class="section-title section-title--compact">Find the best rivers near you</h2>
+            <h2 class="section-title section-title--compact">Set your location to get better recommendations</h2>
           </div>
-          <button class="filter-chip" type="button" data-location-use>
+          <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
             Use my location
           </button>
         </div>
+
+        <p class="location-panel__benefit">Nearby rivers rank better when location is set.</p>
 
         <form class="location-panel__form" data-location-form>
           <label class="filter-search location-panel__search">
@@ -231,7 +233,7 @@ const trackedCount = rivers.length;
           </span>
           <span class="summary-map-legend__item">
             <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-            Borderline
+            Fair
           </span>
           <span class="summary-map-legend__item">
             <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
@@ -260,7 +262,10 @@ const trackedCount = rivers.length;
 
   <template data-river-card-template>
     <article class="river-card river-card--decision">
-      <p class="river-card__state" data-field="state"></p>
+      <div class="river-card__eyebrow-row">
+        <span class="river-card__kind" data-field="card-kind"></span>
+        <p class="river-card__state" data-field="state"></p>
+      </div>
 
       <div class="river-card__top">
         <div class="river-card__title-block">

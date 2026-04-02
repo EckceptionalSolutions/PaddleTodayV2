@@ -21,6 +21,7 @@ export interface RiverSummaryApiItem {
     region: string;
     latitude: number;
     longitude: number;
+    distanceLabel: string;
   };
   sources: Array<{
     label: string;
@@ -63,6 +64,9 @@ export interface RiverDetailApiResult {
     reach: string;
     state: string;
     region: string;
+    latitude: number;
+    longitude: number;
+    distanceLabel: string;
     gaugeSource: {
       unit: RiverScoreResult['river']['gaugeSource']['unit'];
     };
@@ -120,6 +124,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       region: result.river.region,
       latitude: result.river.latitude,
       longitude: result.river.longitude,
+      distanceLabel: result.river.logistics?.distanceLabel ?? '',
     },
     sources: summarySourceBadges(result),
     score: result.score,
@@ -196,6 +201,9 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       reach: result.river.reach,
       state: result.river.state,
       region: result.river.region,
+      latitude: result.river.latitude,
+      longitude: result.river.longitude,
+      distanceLabel: result.river.logistics?.distanceLabel ?? '',
       gaugeSource: {
         unit: result.river.gaugeSource.unit,
       },
@@ -329,7 +337,7 @@ function weatherSignal(result: RiverScoreResult): string {
 
 function decisionLabel(rating: ScoreRating): string {
   if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Borderline') return 'Maybe today';
+  if (rating === 'Fair') return 'Watch closely';
   return 'Skip today';
 }
 

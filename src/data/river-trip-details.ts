@@ -64,6 +64,134 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'root-river-lanesboro-peterson': {
+    putIn: {
+      name: 'Highway 16 / Lanesboro access',
+      latitude: 43.7368,
+      longitude: -91.9468,
+    },
+    takeOut: {
+      name: 'Highway 16 / Peterson access',
+      latitude: 43.78648,
+      longitude: -91.82735,
+    },
+    logistics: {
+      distanceLabel: '13.5 mi',
+      shuttle:
+        'Bike shuttle on the Root River State Trail is a strong option. Two-car shuttle on local roads is straightforward if you want a simpler setup.',
+      permits:
+        'No special paddling permit is known for this state water-trail day trip. Confirm any local parking rules at both Hwy 16 accesses.',
+      camping:
+        'Treat this as a day trip unless you separately book local lodging or campground options in Lanesboro or Peterson.',
+      summary:
+        'Put in at the Hwy 16 access in Lanesboro and take out at the Hwy 16 access in Peterson. This is one of the cleaner Root River shuttle days, but low-water riffles and changing access details still deserve a same-day check.',
+      accessCaveats: [
+        'Both endpoints are supported by MN DNR public water access records, but parking details and any local restrictions are still best confirmed on arrival.',
+        'Do not assume every roadside pull-off near the bridge is valid long-term parking without checking signage.',
+      ],
+      watchFor: [
+        'Shallow riffles and scrape risk when the gauge is near the low end.',
+        'Fresh wood or strainers after rain, especially on blind bends.',
+        'Cold-water exposure outside midsummer, even on an easy-current day.',
+      ],
+    },
+  },
+  'wolf-river-lily-hollister': {
+    putIn: {
+      name: 'Hwy 52 access (Lily)',
+      latitude: 45.30768,
+      longitude: -88.85806,
+    },
+    takeOut: {
+      name: 'West Hollister Road carry-in',
+      latitude: 45.24736,
+      longitude: -88.80559,
+    },
+    logistics: {
+      distanceLabel: '6.5 mi',
+      shuttle:
+        'Vehicle shuttle is easiest. A bike shuttle on the Wolf River State Trail is possible if your group wants it.',
+      permits:
+        'No paddling permit is known. Wisconsin DNR notes the Wolf River State Trail does not require a trail pass if you use it for a bike shuttle.',
+      camping:
+        'Treat this as a day trip unless you independently confirm nearby legal camping.',
+      summary:
+        'Put in at Hwy 52 in Lily and take out at West Hollister just above Burnt Point Rapids. This is a compact bouldery run, not a lazy scenic float.',
+      accessCaveats: [
+        'Both landings are backed by Wisconsin DNR access records, but check parking conditions on the ground before you leave a vehicle.',
+        'The take-out is near the next rapid zone, so do not drift past your exit while you are distracted or tired.',
+      ],
+      watchFor: [
+        'Shallow boulder gardens at lower flows.',
+        'Pushier hydraulics and faster swims when the flow climbs.',
+        'Cold water and downed trees on blind corners.',
+      ],
+    },
+  },
+  'white-river-maple-ridge-highway-112': {
+    putIn: {
+      name: 'Maple Ridge Road access',
+      latitude: 46.43763,
+      longitude: -91.0262,
+    },
+    takeOut: {
+      name: 'Highway 112 Dam / White River Flowage access',
+      latitude: 46.49858,
+      longitude: -90.90995,
+    },
+    logistics: {
+      distanceLabel: '15 mi',
+      shuttle:
+        'Expect a long-ish vehicle shuttle. MilesPaddled describes it as steep and better by car than bike.',
+      permits:
+        'No route-specific permit is known. Access rules at Maple Ridge Road and the Highway 112 dam area still deserve a same-day check before you leave a vehicle.',
+      camping:
+        'No dependable on-route camping is confirmed. Treat this as a long day trip unless you separately confirm legal overnight options.',
+      summary:
+        'Put in at Maple Ridge Road near Mason and take out above the Highway 112 dam / flowage. This is a full moving-water day with a dam-finish mindset, not a casual float.',
+      accessCaveats: [
+        'The coordinates and route shape are solid, but official landing or parking authority is weaker than on the strongest seeded routes.',
+        'Do not drift toward the dam or restricted area at the take-out. Treat the finish as a deliberate exit, not a soft glide into flatwater.',
+      ],
+      watchFor: [
+        'Nearly continuous current and class I-II features with fewer easy bailout points than a typical family float.',
+        'Boulder gardens, strainers, and pin risk that become more serious as levels rise.',
+        'Hydropeaking or diurnal fluctuation, plus cold-water exposure outside midsummer.',
+      ],
+    },
+  },
+  'st-croix-river-fox-highway-70': {
+    putIn: {
+      name: 'Fox Landing',
+      latitude: 45.89030603,
+      longitude: -92.71283975,
+    },
+    takeOut: {
+      name: 'Highway 70 boat launch',
+      latitude: 45.77399682,
+      longitude: -92.77959116,
+    },
+    logistics: {
+      distanceLabel: '9.75 mi',
+      shuttle:
+        'Plan a longer shuttle and budget time for the steep approach near Fox Landing. Low-clearance vehicles should be cautious on the rougher road section.',
+      permits:
+        'No route-specific paddling permit is known. Follow Saint Croix National Scenic Riverway rules and any posted landing restrictions.',
+      camping:
+        'Camping rules vary across the Riverway, so do not assume the landings themselves allow overnight use.',
+      summary:
+        'Use Fox Landing as the put-in and Highway 70 as the take-out. The gauge tells you when the route stops being too scrapy, but wind and broad-channel effort still shape the day.',
+      accessCaveats: [
+        'Both landings are backed by Wisconsin DNR inventory records, but the inventory is not a full landing-rules page.',
+        'The Fox Landing approach road is rougher and steeper than a typical flat park launch.',
+      ],
+      watchFor: [
+        'Low-water scraping and channel-picking around islands and boulder gardens.',
+        'Wind on the wide channel, especially if it turns into a long headwind day.',
+        'Level-dependent rapids that become more serious than the score alone suggests.',
+      ],
+    },
+  },
   'zumbro-river-falls': {
     putIn: {
       name: 'Green Bridge (Zumbro River)',

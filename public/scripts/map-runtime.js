@@ -64,7 +64,7 @@ export function markerClassForRating(rating, confidenceLabel) {
   const tone =
     rating === 'Strong'
       ? 'great'
-      : rating === 'Borderline'
+      : rating === 'Fair'
         ? 'marginal'
         : String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 

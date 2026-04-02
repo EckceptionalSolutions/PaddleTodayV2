@@ -75,6 +75,103 @@ Remaining gap:
 - This river still has the weakest threshold evidence of the 3 seed profiles.
 - The best next improvement would be a stronger local paddling source or a repeated set of same-segment observations tied to the Zumbro Falls gauge.
 
+## Root River: Lanesboro to Peterson
+
+Working thresholds:
+
+- sweet spot: `325` to `700` cfs
+- low bound: `200` cfs
+- high bound: `1,200` cfs
+
+Evidence used:
+
+- MilesPaddled gives the key same-segment clue for this exact route and ties a recommended but low-water day to about `2.4 ft / 300 cfs` at the Lanesboro gauge.
+- MN DNR officially supports Lanesboro to Peterson as a recommended Root River day trip and documents public water accesses at both ends.
+- Other Root River notes in the old repo consistently describe low-water scraping and higher-water debris/current risk, but do not publish a better official numeric band for this exact reach.
+
+Interpretation:
+
+- `300` cfs looks more like the lower edge of a worthwhile day than the center of an ideal window.
+- The MVP therefore treats the lower `300s` as a low shoulder instead of calling them perfect.
+- The upper side remains conservative because we still do not have a stronger published same-segment high-water cutoff.
+
+Remaining gap:
+
+- There is still no clearly published official paddling threshold from MN DNR or USGS for this exact reach.
+- The best next upgrade would be more repeated same-segment observations tied to `05384000` or a stronger local paddling source with a true preferred band.
+
+## Wolf River: Hwy 52 to West Hollister Road
+
+Working thresholds:
+
+- low bound: `250` cfs
+- sweet spot: `500` to `1,000` cfs
+- high bound: `2,000` cfs
+
+Evidence used:
+
+- American Whitewater publishes gauge guidance for the relevant Wolf section family and treats `250` to `1,000` cfs as the lower-to-moderate boatable range, with `1,000` to `2,000` cfs as more pushy but still runnable.
+- MilesPaddled gives exact-route context and says about `250` cfs is the too-low cutoff while `500` cfs is an awesome level for Lily to Hollister.
+- Wisconsin DNR boat-access records support both endpoints.
+
+Interpretation:
+
+- This is one of the clearer old-repo candidates for a cautious two-sided band.
+- The app still keeps the route conservative because boulder gardens and rapids make the consequences steeper than the score alone suggests.
+
+Remaining gap:
+
+- The upper bound is still more whitewater-source-derived than manager-published.
+- The route would benefit from more repeated same-section observations at higher flows.
+
+## White River: Maple Ridge Road to Highway 112 Dam
+
+Working thresholds:
+
+- sweet spot: `1.35` to `1.75` ft
+- low bound: `1.1` ft
+- high bound: `2.6` ft
+
+Evidence used:
+
+- MilesPaddled gives the key same-route clue for this exact White River segment and describes about `1.47 ft / 200 cfs` as a recommended level.
+- The same route notes describe nearly continuous class I-II current, boulder gardens, and a dam finish, which justifies a more conservative read than a flatwater route with the same certainty.
+- USGS remarks for `04027500` mention diurnal fluctuation from hydroelectric operations, which means the gauge can be a little less stable in feel than a free-flowing scenic river.
+
+Interpretation:
+
+- `1.47` ft looks like the center of the best exact-route evidence we have today.
+- The app treats this as a cautious two-sided band rather than minimum-only guidance, because the same-route recommendation is stronger than a bare low-water floor.
+- The upper side still stays conservative because hydro-related fluctuation and access uncertainty both lower trust before the raw number alone looks extreme.
+
+Remaining gap:
+
+- This is still mostly community-sourced calibration, not an official manager-published paddling threshold.
+- Official landing and parking authority is weaker than on the strongest seeded routes.
+
+## St. Croix River: Fox Landing to Highway 70
+
+Working thresholds:
+
+- published floor: `1,000` cfs
+
+Evidence used:
+
+- MilesPaddled gives the clearest usable numeric signal for this exact segment:
+  - `720` cfs was too low
+  - wait for at least `~1,000` cfs
+- Wisconsin DNR access records support both endpoints, and the Danbury gauge is direct and relevant.
+
+Interpretation:
+
+- The route is scoreable today, but only as a `minimum-only` river.
+- Wind and broad-channel effort matter enough that the product should avoid overclaiming a precise sweet spot above the low-water floor.
+
+Remaining gap:
+
+- No stronger preferred band or high-water cutoff was found for this exact route.
+- The best next upgrade would be more repeated same-segment observations or a stronger local paddling source that distinguishes merely runnable water from truly good conditions.
+
 ## Black Hawk Creek: Franck Park to Ranchero Road
 
 Working thresholds:

@@ -38,7 +38,7 @@ export async function getRiverScore(slug: string): Promise<RiverScoreResult | nu
 }
 
 export async function getAllRiverScores(): Promise<RiverScoreResult[]> {
-  return Promise.all(rivers.map((river) => scoreRiver(river)));
+  return Promise.all(listRivers().map((river) => scoreRiver(river)));
 }
 
 export function getRiversByRiverId(riverId: string): River[] {
