@@ -465,6 +465,96 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'red-cedar-river-menomonie-dunnville',
+    slug: 'red-cedar-river-menomonie-dunnville',
+    name: 'Red Cedar River',
+    reach: 'Menomonie to Dunnville',
+    state: 'Wisconsin',
+    region: 'West-Central Wisconsin',
+    summary:
+      'Easy lower Red Cedar day with mild riffles, a strong access pair, and one of the better bike shuttles in the current seed set. It still needs enough water to keep the riffles fun instead of scratchy.',
+    statusText:
+      'Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water starts to flatten the riffles into a faster wood-watch day.',
+    latitude: 44.794472375,
+    longitude: -91.918879435,
+    gaugeSource: {
+      id: 'usgs-05369000',
+      provider: 'usgs',
+      siteId: '05369000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Red Cedar River at Menomonie, WI',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6.4,
+      idealMax: 7.0,
+      tooLow: 5.8,
+      tooHigh: 8.2,
+      thresholdSource: {
+        label: 'MilesPaddled Red Cedar River I gauge note',
+        url: 'https://milespaddled.com/red-cedar-river-i/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the core window. This is an easy river, but cold shoulder-season water and fresh post-storm wood still lower the quality fast.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Beginner-friendly when the gauge is in range, with mild riffles early and mostly forgiving current. The main trip-day risks are low water, storm debris, and a longer full-day pace.',
+      confidenceNotes:
+        'The direct Menomonie gauge and Wisconsin DNR access records make the route itself trustworthy. Confidence is still capped below the official tier because the preferred range comes mainly from a same-route trip report rather than a manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Same-route sweet spot',
+        value: '6.4 to 7.0 ft',
+        note: 'MilesPaddled describes about 6.4 to 7.0 ft at Menomonie as the best range for keeping some character in the riffles without turning the river into fast, featureless high water.',
+        sourceUrl: 'https://milespaddled.com/red-cedar-river-i/',
+      },
+      {
+        label: 'Trip length',
+        value: '14.75 mi',
+        note: 'This is a real day trip, but the rail-trail shuttle and mild current keep it friendlier than many 15-mile river days.',
+        sourceUrl: 'https://milespaddled.com/red-cedar-river-i/',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Both Riverside Park Canoe Launch and Dunnville Bottoms Boat Landing are backed by Wisconsin DNR boat-access records.',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Wood after storms',
+        note: 'Even an easy lower Red Cedar day can change fast after storms if strainers and fresh wood move into the current.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Red Cedar River I',
+        url: 'https://milespaddled.com/red-cedar-river-i/',
+      },
+      {
+        label: 'USGS 05369000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05369000/',
+      },
+      {
+        label: 'WI DNR Riverside Park canoe launch record',
+        url: 'https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_BOAT_BoatAccess_WTM_Ext/MapServer/2/query?f=json&where=BOATLANDING_SEQ_NO%3D970&outFields=*&returnGeometry=false',
+      },
+      {
+        label: 'WI DNR Dunnville Bottoms boat landing record',
+        url: 'https://dnrmaps.wi.gov/arcgis/rest/services/LF_DML/LF_DNR_BOAT_BoatAccess_WTM_Ext/MapServer/2/query?f=json&where=BOATLANDING_SEQ_NO%3D3005&outFields=*&returnGeometry=false',
+      },
+      {
+        label: 'WI DNR Red Cedar State Trail',
+        url: 'https://dnr.wisconsin.gov/topic/parks/redcedar',
+      },
+    ],
+  },
+  {
     id: 'st-croix-river-fox-highway-70',
     slug: 'st-croix-river-fox-highway-70',
     name: 'St. Croix River',
@@ -1471,9 +1561,9 @@ export const rivers: River[] = [
     state: 'Iowa',
     region: 'Northeast Iowa',
     summary:
-      'Classic Driftless float with clear water, bluff scenery, and one strong rule: do not show up under the published low-water floor and expect a clean day.',
+      'Classic Driftless float with clear water and bluff scenery. The big question here is simple: is there enough water to make it worth the drive?',
     statusText:
-      'Treat 200 cfs as the low-water floor. Above that can be in play, but the app does not yet have a defendable upper target or high-water cutoff for this reach.',
+      'Treat 200 cfs as the low end. Above that can work, but there is still not enough guidance to call the upper end with much confidence.',
     latitude: 43.44202,
     longitude: -92.03809,
     gaugeSource: {
@@ -1501,7 +1591,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally beginner-friendly at sensible levels, but this is still a long moving-water day with strainers and flood-current consequences.',
       confidenceNotes:
-        'The app only has a community-sourced low-water floor for this reach today. Official county and Iowa DNR sources support the segment itself, but not a published upper target band.',
+        'This reach has a community-sourced low-water mark, but not a published upper range. County and Iowa DNR sources support the segment itself, but not the full scoring range.',
     },
     evidenceNotes: [
       {
@@ -1519,7 +1609,7 @@ export const rivers: River[] = [
       {
         label: 'Flood caution',
         value: 'Rain matters quickly',
-        note: 'Fast rises and fresh wood after storms lower confidence because no defensible high-water threshold is calibrated yet.',
+        note: 'Fast rises and fresh wood after storms lower confidence because the high end is still not well defined.',
       },
       {
         label: 'Difficulty',
@@ -1554,9 +1644,9 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'South-Central Wisconsin',
     summary:
-      'Mostly mellow Sugar River day trip where the main decision is simple: avoid very low water, then keep the rest of the call conservative because the upper band is not calibrated yet.',
+      'Mostly mellow Sugar River day trip where low water is the main thing to watch. Above that, the route is straightforward, but the high end is still fuzzy.',
     statusText:
-      'Treat 60 cfs at Verona as the low-water floor. Above that can be workable, but the app does not yet have a defendable high-side target for this reach.',
+      'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this reach.',
     latitude: 42.86083,
     longitude: -89.53419,
     gaugeSource: {
@@ -1584,7 +1674,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally mellow current, but distance, muddy shallows, and long flat stretches still matter if you launch too low.',
       confidenceNotes:
-        'The only defendable numeric threshold here is a community-sourced low-water minimum. The route itself is straightforward, but the app does not yet have a published upper target or high-water cutoff.',
+        'The clearest number here is a community-sourced low-water mark. The route itself is straightforward, but there is still no published upper range for this reach.',
     },
     evidenceNotes: [
       {
@@ -1602,13 +1692,13 @@ export const rivers: River[] = [
       {
         label: 'Gauge context',
         value: 'Verona gauge only',
-        note: 'The Verona gauge provides a workable low-water reference, but the app does not yet have defensible high-side guidance for this exact reach.',
+        note: 'The Verona gauge gives a useful low-water reference, but there is still not enough high-water guidance for this exact reach.',
         sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
       },
       {
         label: 'Difficulty',
         value: 'Easy',
-        note: 'Good candidate for an easy day only once the river is clearly above its published minimum.',
+        note: 'A good easy-day candidate once the river is clearly above its low-water mark.',
       },
     ],
     sourceLinks: [
@@ -1623,6 +1713,87 @@ export const rivers: River[] = [
       {
         label: 'USGS 05436500 downstream monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05436500/',
+      },
+    ],
+  },
+  {
+    id: 'sugar-river-county-road-x-county-road-ee',
+    slug: 'sugar-river-county-road-x-county-road-ee',
+    name: 'Sugar River',
+    reach: 'County Road X to County Road EE',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Longer mellow Sugar River day where the main question is still water level. Stay above the Verona low end, then treat the rest of the score with a little caution.',
+    statusText:
+      'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this Albany reach.',
+    latitude: 42.76684,
+    longitude: -89.464665,
+    gaugeSource: {
+      id: 'usgs-05435950',
+      provider: 'usgs',
+      siteId: '05435950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar River near Verona, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 60,
+      thresholdSource: {
+        label: 'MilesPaddled Sugar River V minimum-flow note',
+        url: 'https://milespaddled.com/sugar-river-v/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the practical window. This is another easy river where low water matters more than finding a perfect number.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly mellow current, but 11.5 miles plus deadfall and muddy bridge landings still make the day feel bigger than the label suggests.',
+      confidenceNotes:
+        'The clearest number here is the same community-sourced Verona low-water mark used on the upstream Sugar reach. Access points are mapped, but the route still lacks a published upper range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published minimum',
+        value: '60 cfs',
+        note: 'MilesPaddled recommends avoiding very low flow on the Verona gauge so this segment does not turn into a shallow, frustrating day.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Trip style',
+        value: 'Mellow, full day',
+        note: 'County Road X to County Road EE is a scenic 11.5-mile float with low water as the primary quality problem rather than technical difficulty.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Access support',
+        value: 'Regional trail map',
+        note: 'Capitol Water Trails maps both bridge access points, but local parking authority is still lighter than a formal DNR access page.',
+        sourceUrl: 'http://www.capitolwatertrails.org/maps/sugarR_6/map6_big_Color.gif',
+      },
+      {
+        label: 'Gauge context',
+        value: 'Verona gauge only',
+        note: 'The Verona gauge gives a useful low-water mark, but there is still not enough high-water guidance for this exact lower Sugar segment.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Sugar River V',
+        url: 'https://milespaddled.com/sugar-river-v/',
+      },
+      {
+        label: 'Capitol Water Trails Upper Sugar map',
+        url: 'http://www.capitolwatertrails.org/maps/sugarR_6/map6_big_Color.gif',
+      },
+      {
+        label: 'USGS 05435950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
       },
     ],
   },

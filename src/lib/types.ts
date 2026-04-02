@@ -162,12 +162,18 @@ export interface WeatherSnapshot {
 
 export interface ScoreBreakdown {
   riverQuality: number;
-  weatherAdjustment: number;
+  windAdjustment: number;
   temperatureAdjustment: number;
+  rainAdjustment: number;
   comfortAdjustment: number;
   rawTripScore: number;
   finalScore: number;
   capReasons: string[];
+  riverQualityExplanation: string;
+  windExplanation: string;
+  temperatureExplanation: string;
+  rainExplanation: string;
+  comfortExplanation: string;
 }
 
 export interface ScoreFactor {

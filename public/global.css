@@ -82,7 +82,7 @@ a {
 .site-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 1rem;
   padding: 1.35rem 0 0.75rem;
 }
@@ -137,6 +137,7 @@ a {
   gap: 0.45rem;
   justify-items: end;
   max-width: 30rem;
+  align-self: center;
 }
 
 .site-header__nav {
@@ -150,19 +151,32 @@ a {
   display: inline-flex;
   align-items: center;
   min-height: 2.1rem;
-  padding: 0.32rem 0.75rem;
+  padding: 0.36rem 0.82rem;
   border-radius: 999px;
-  border: 1px solid rgba(16, 35, 45, 0.08);
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--ink-soft);
+  border: 1px solid rgba(16, 35, 45, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--ink);
   text-decoration: none;
-  font-size: 0.84rem;
+  font-size: 0.86rem;
   font-weight: 600;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
 }
 
 .site-header__nav-link:hover {
-  border-color: rgba(30, 115, 151, 0.22);
+  border-color: rgba(30, 115, 151, 0.28);
+  background: rgba(233, 245, 250, 0.92);
   color: var(--river-deep);
+  transform: translateY(-1px);
+}
+
+.site-header__nav-link:focus-visible {
+  outline: 2px solid rgba(30, 115, 151, 0.22);
+  outline-offset: 2px;
 }
 
 .site-header__pill,
@@ -250,6 +264,10 @@ a {
 
 .request-layout {
   grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+}
+
+.request-layout--single {
+  grid-template-columns: minmax(0, 1fr);
 }
 
 .info-card {
@@ -2378,6 +2396,103 @@ a {
   gap: 0.5rem;
 }
 
+.river-score-breakdown__hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(180px, 0.42fr);
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.river-score-breakdown__summary {
+  margin-top: 0.4rem;
+}
+
+.river-score-breakdown__final {
+  align-content: start;
+}
+
+.river-score-breakdown__groups {
+  display: grid;
+  gap: 1rem;
+}
+
+.river-score-breakdown__group {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.river-score-breakdown__group-title {
+  margin: 0;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.river-score-breakdown__rows {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.river-score-breakdown__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 0.72rem 0;
+}
+
+.river-score-breakdown__row + .river-score-breakdown__row {
+  border-top: 1px solid rgba(16, 35, 45, 0.08);
+}
+
+.river-score-breakdown__row-copy {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.river-score-breakdown__row-label {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.river-score-breakdown__row-detail {
+  margin: 0;
+  max-width: 48ch;
+  font-size: 0.84rem;
+  line-height: 1.38;
+}
+
+.river-score-breakdown__row-value {
+  align-self: center;
+  font-family: var(--serif);
+  font-size: 1.18rem;
+  line-height: 1;
+  color: var(--ink);
+  text-align: right;
+}
+
+.river-score-breakdown__row-value--positive {
+  color: var(--good);
+}
+
+.river-score-breakdown__row-value--negative {
+  color: var(--bad);
+}
+
+.river-score-breakdown__row-value--neutral {
+  color: var(--muted);
+}
+
+.river-score-breakdown__caps-wrap {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.river-score-breakdown__caps {
+  color: var(--muted);
+}
+
 @media (min-width: 1480px) {
   .river-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -2605,12 +2720,34 @@ a {
   line-height: 1.28;
 }
 
+.river-call-panel__summary-stack {
+  display: grid;
+  gap: 0.22rem;
+  min-height: 3.15rem;
+}
+
+.river-call-panel__summary-weather {
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.28;
+}
+
 .river-call-panel__signal-line {
-  margin: -0.1rem 0 0;
+  margin: 0;
   color: var(--ink-soft);
   font-size: 0.82rem;
   font-weight: 600;
   line-height: 1.3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.78rem 1rem;
+  align-items: center;
+  min-height: 1.5rem;
 }
 
 .river-call-panel__actions--inline {
@@ -2684,9 +2821,11 @@ a {
   border: 1px solid rgba(16, 35, 45, 0.1);
   border-radius: 18px;
   background: rgba(248, 251, 252, 0.92);
-  padding: 0.85rem 0.9rem;
+  padding: 0.95rem 1rem;
   display: grid;
-  gap: 0.24rem;
+  gap: 0.42rem;
+  min-height: 11.25rem;
+  align-content: start;
   cursor: pointer;
   transition:
     border-color 140ms ease,
@@ -2729,6 +2868,10 @@ a {
   color: var(--ink);
 }
 
+.route-choice__meta {
+  min-height: 1.2rem;
+}
+
 .route-choice__score--great,
 .route-choice__score--good {
   color: #226e4d;
@@ -2747,6 +2890,30 @@ a {
   font-size: 0.81rem;
   font-weight: 600;
   line-height: 1.28;
+  display: grid;
+  gap: 0.22rem;
+  min-height: 2.9rem;
+}
+
+.route-choice__summary-main {
+  color: var(--ink);
+}
+
+.route-choice__summary-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+}
+
+.route-choice__signal {
+  color: var(--ink-soft);
+  font-size: 0.79rem;
+  font-weight: 600;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.78rem 1rem;
+  align-items: center;
+  min-height: 1.5rem;
 }
 
 @media (max-width: 980px) {
@@ -2929,12 +3096,15 @@ a {
 }
 
 .river-card--decision {
-  gap: 0.58rem;
-  padding: 0.78rem;
+  gap: 0.78rem;
+  padding: 0.95rem;
+  min-height: 20rem;
+  grid-template-rows: auto auto auto minmax(0, 1fr) auto auto;
+  align-content: start;
 }
 
 .river-card--decision .river-card__top {
-  align-items: center;
+  align-items: start;
 }
 
 .river-card__title-block {
@@ -3003,9 +3173,7 @@ a {
   font-size: 0.84rem;
   font-weight: 600;
   line-height: 1.25;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  min-height: 1.3rem;
 }
 
 .river-card__explanation {
@@ -3013,19 +3181,111 @@ a {
   color: var(--ink);
   font-size: 0.85rem;
   font-weight: 700;
-  line-height: 1.2;
-  white-space: nowrap;
+  line-height: 1.28;
+  display: grid;
+  gap: 0.22rem;
+  align-content: start;
+  min-height: 3.2rem;
+}
+
+.river-card__summary-main {
+  display: block;
+  color: var(--ink);
+}
+
+.river-card__summary-weather {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .river-card__signal-line {
-  margin: -0.08rem 0 0;
+  margin: 0;
   color: var(--ink-soft);
   font-size: 0.79rem;
   font-weight: 600;
   line-height: 1.2;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.78rem 1rem;
+  align-items: center;
+  min-height: 1.5rem;
+}
+
+.weather-indicator {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--river-deep);
+}
+
+.weather-indicator svg {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.weather-indicator--calm {
+  color: #a8712f;
+  background: rgba(252, 244, 217, 0.88);
+  border-color: rgba(168, 113, 47, 0.16);
+}
+
+.weather-indicator--wind {
+  color: #1e7397;
+  background: rgba(232, 243, 249, 0.92);
+  border-color: rgba(30, 115, 151, 0.18);
+}
+
+.weather-indicator--rain {
+  color: #226e8c;
+  background: rgba(226, 240, 247, 0.92);
+  border-color: rgba(30, 115, 151, 0.18);
+}
+
+.weather-indicator--storm {
+  color: #8f4c18;
+  background: rgba(247, 234, 214, 0.94);
+  border-color: rgba(173, 117, 44, 0.2);
+}
+
+.weather-indicator--cold {
+  color: #486f86;
+  background: rgba(236, 244, 248, 0.94);
+  border-color: rgba(72, 111, 134, 0.18);
+}
+
+.river-card__signal-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.38rem;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+
+.river-card__signal-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--river-deep);
+}
+
+.river-card__signal-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.river-card__signal-empty {
+  color: var(--muted);
 }
 
 .river-card--decision .river-link {

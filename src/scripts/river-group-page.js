@@ -28,6 +28,9 @@ const groupMap = root.querySelector('[data-group-map]');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
+const BULLET = ' \u2022 ';
+const DEG_F = '\u00B0F';
+
 let lastSuccessAt = null;
 let currentResult = null;
 let selectedSlug = null;
@@ -55,11 +58,19 @@ function ratingToneKey(rating) {
 }
 
 function confidenceLabelText(confidence) {
-  return confidence?.label ? `${confidence.label} confidence` : 'Checking confidence';
+  return confidence?.label ? `${confidence.label} confidence` : 'Loading confidence';
 }
 
 function routeLengthText(route) {
   return route.distanceLabel || '';
+}
+
+function metaLine(route) {
+  const parts = [confidenceLabelText(route.confidence)];
+  if (routeLengthText(route)) {
+    parts.push(routeLengthText(route));
+  }
+  return parts.join(BULLET);
 }
 
 function levelText(route) {
@@ -114,6 +125,157 @@ function weatherSummary(route) {
   return 'Light wind';
 }
 
+function summaryParts(route) {
+  return {
+    main: `${levelText(route)}${BULLET}${trendText(route)}`,
+    weather: weatherSummary(route),
+  };
+}
+
+function signalIconMarkup(kind) {
+  switch (kind) {
+    case 'gauge':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 15c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+          <path d="M3 19c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"></path>
+          <path d="M12 9v8"></path>
+        </svg>
+      `;
+  }
+}
+
+function signalRowMarkup(route) {
+  const items = [
+    { kind: 'gauge', value: formatGaugeValue(route.gauge?.current, route.gaugeUnit).replace(/^Gauge:\s*/, '') },
+    { kind: 'wind', value: windData(route).replace(/^Wind:\s*/, '') },
+    { kind: 'temp', value: temperatureData(route).replace(/^Temp:\s*/, '') },
+  ].filter((item) => item.value && !item.value.toLowerCase().includes('unclear') && item.value !== '--');
+
+  if (items.length === 0) {
+    return '<span class="river-card__signal-empty">Conditions loading</span>';
+  }
+
+  return items
+    .map(
+      (item) => `
+        <span class="river-card__signal-item">
+          <span class="river-card__signal-icon river-card__signal-icon--${item.kind}">
+            ${signalIconMarkup(item.kind)}
+          </span>
+          <span>${item.value}</span>
+        </span>
+      `
+    )
+    .join('');
+}
+
+function weatherVisualState(route) {
+  const weather = route.weather;
+  const rainChance = weather?.next12hPrecipProbabilityMax;
+  const precipStartsInHours = weather?.next12hPrecipStartsInHours;
+  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? null;
+  const temperature = weather?.temperatureF ?? null;
+  const coldSevere = typeof temperature === 'number' && temperature <= 35;
+  const coldNoticeable = typeof temperature === 'number' && temperature <= 40;
+
+  if (weather?.next12hStormRisk) return 'storm';
+  if (coldSevere) return 'cold';
+  if (
+    typeof rainChance === 'number' &&
+    rainChance >= 60 &&
+    (precipStartsInHours === null || precipStartsInHours === undefined || precipStartsInHours <= 12)
+  ) {
+    return 'rain';
+  }
+  if (coldNoticeable) return 'cold';
+  if (typeof wind === 'number' && wind >= 15) return 'wind';
+  return 'calm';
+}
+
+function weatherVisualLabel(state) {
+  switch (state) {
+    case 'storm':
+      return 'Storm risk';
+    case 'rain':
+      return 'Rain incoming';
+    case 'cold':
+      return 'Cold weather';
+    case 'wind':
+      return 'Windy';
+    default:
+      return 'Calm weather';
+  }
+}
+
+function weatherVisualMarkup(state) {
+  const label = weatherVisualLabel(state);
+
+  switch (state) {
+    case 'storm':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z"></path>
+        </svg>
+      `;
+    case 'rain':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="M9 18.5l-.8 2"></path>
+          <path d="M13 18.5l-.8 2"></path>
+          <path d="M17 18.5l-.8 2"></path>
+        </svg>
+      `;
+    case 'cold':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M12 3v18"></path>
+          <path d="M5.5 6.5 18.5 17.5"></path>
+          <path d="M5.5 17.5 18.5 6.5"></path>
+          <path d="M4 12h16"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2.5v3"></path>
+          <path d="M12 18.5v3"></path>
+          <path d="m4.9 4.9 2.1 2.1"></path>
+          <path d="m17 17 2.1 2.1"></path>
+          <path d="M2.5 12h3"></path>
+          <path d="M18.5 12h3"></path>
+          <path d="m4.9 19.1 2.1-2.1"></path>
+          <path d="m17 7 2.1-2.1"></path>
+        </svg>
+      `;
+  }
+}
+
 function formatGaugeValue(value, unit) {
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     return 'Gauge: unavailable';
@@ -135,15 +297,12 @@ function windData(route) {
 function temperatureData(route) {
   const temp = route.weather?.temperatureF;
   if (typeof temp !== 'number' || !Number.isFinite(temp)) return 'Temp: unclear';
-  return `Temp: ${Math.round(temp)}°F`;
+  return `Temp: ${Math.round(temp)}${DEG_F}`;
 }
 
 function summaryLine(route) {
-  return `${levelText(route)} • ${trendText(route)} • ${weatherSummary(route)}`;
-}
-
-function dataLine(route) {
-  return [formatGaugeValue(route.gauge?.current, route.gaugeUnit), windData(route), temperatureData(route)].join(' • ');
+  const parts = summaryParts(route);
+  return `${parts.main}${BULLET}${parts.weather}`;
 }
 
 function midpointForRoute(route) {
@@ -170,13 +329,18 @@ function midpointForRoute(route) {
 }
 
 function routePopupMarkup(route) {
+  const meta = [`Score ${route.score}`, route.rating, confidenceLabelText(route.confidence)];
+  if (routeLengthText(route)) {
+    meta.push(routeLengthText(route));
+  }
+
   return `
     <article class="score-map-popup">
       <p class="score-map-popup__state">${escapeHtml(route.state)} | ${escapeHtml(route.region)}</p>
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       <p class="score-map-popup__summary">${escapeHtml(summaryLine(route))}</p>
-      <p class="score-map-popup__meta">Score ${route.score} - ${escapeHtml(route.rating)} - ${escapeHtml(confidenceLabelText(route.confidence))}${routeLengthText(route) ? ` - ${escapeHtml(routeLengthText(route))}` : ''}</p>
+      <p class="score-map-popup__meta">${escapeHtml(meta.join(' - '))}</p>
     </article>
   `;
 }
@@ -288,9 +452,9 @@ async function renderGroupMap(routes) {
     };
     const source = mapRuntime.getSource(sourceId);
 
-    if (source) {
+    if (source && typeof source.setData === 'function') {
       source.setData(data);
-    } else {
+    } else if (!source) {
       mapRuntime.addSource(sourceId, {
         type: 'geojson',
         data,
@@ -339,14 +503,6 @@ async function renderGroupMap(routes) {
       groupMapStatus.textContent = 'Route map unavailable right now.';
     }
   }
-}
-
-function summaryLine(route) {
-  return `${levelText(route)} - ${trendText(route)} - ${weatherSummary(route)}`;
-}
-
-function dataLine(route) {
-  return [formatGaugeValue(route.gauge?.current, route.gaugeUnit), windData(route), temperatureData(route)].join(' - ');
 }
 
 function setBanner(kind, title, detail) {
@@ -403,24 +559,32 @@ function renderSelectedRoute(route) {
   setText('selected-rating', route.rating);
   setText('selected-reach', route.reach);
   setText('selected-status', decisionLabel(route.rating));
-  setText(
-    'selected-confidence',
-    routeLengthText(route)
-      ? `${confidenceLabelText(route.confidence)} â€¢ ${routeLengthText(route)}`
-      : confidenceLabelText(route.confidence)
-  );
-  setText(
-    'selected-confidence',
-    routeLengthText(route)
-      ? `${confidenceLabelText(route.confidence)} - ${routeLengthText(route)}`
-      : confidenceLabelText(route.confidence)
-  );
-  setText('selected-summary', summaryLine(route));
-  setText('selected-signal', dataLine(route));
+  setText('selected-confidence', metaLine(route));
+  const parts = summaryParts(route);
+  setText('selected-summary-main', parts.main);
+  setText('selected-summary-weather', parts.weather);
+
+  const summaryWeatherRow = root.querySelector('[data-field="selected-summary-weather-row"]');
+  if (summaryWeatherRow instanceof HTMLElement) {
+    summaryWeatherRow.hidden = !parts.weather;
+  }
+
+  const signalLine = root.querySelector('[data-field="selected-signal"]');
+  if (signalLine instanceof HTMLElement) {
+    signalLine.innerHTML = signalRowMarkup(route);
+  }
+
+  const selectedWeatherIcon = root.querySelector('[data-field="selected-weather-icon"]');
+  if (selectedWeatherIcon instanceof HTMLElement) {
+    const state = weatherVisualState(route);
+    selectedWeatherIcon.className = `weather-indicator weather-indicator--${state}`;
+    selectedWeatherIcon.innerHTML = weatherVisualMarkup(state);
+    selectedWeatherIcon.setAttribute('title', weatherVisualLabel(state));
+  }
 
   if (selectedLink instanceof HTMLAnchorElement) {
     selectedLink.href = `/rivers/${route.slug}/`;
-    selectedLink.textContent = 'View river';
+    selectedLink.textContent = 'View route';
   }
 }
 
@@ -430,49 +594,6 @@ function renderRouteList(routes) {
   routeList.innerHTML = routes
     .map((route) => {
       const active = route.slug === selectedSlug;
-      return `
-        <button
-          class="route-choice${active ? ' route-choice--active' : ''}"
-          type="button"
-          data-group-route-button
-          data-route-slug="${route.slug}"
-        >
-          <span class="route-choice__kind">Route</span>
-          <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
-          <strong class="route-choice__title">${route.reach}</strong>
-          <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
-            ${route.score} • ${route.rating}
-          </span>
-          <span class="route-choice__meta">${confidenceLabelText(route.confidence)}${routeLengthText(route) ? ` â€¢ ${routeLengthText(route)}` : ''}</span>
-          <span class="route-choice__summary">${summaryLine(route)}</span>
-        </button>
-      `;
-    })
-    .join('');
-
-  for (const button of Array.from(routeList.querySelectorAll('[data-group-route-button]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    button.addEventListener('click', () => {
-      selectedSlug = button.dataset.routeSlug;
-      if (!currentResult) return;
-      const route = currentResult.routes.find((candidate) => candidate.slug === selectedSlug);
-      if (!route) return;
-      renderSelectedRoute(route);
-      renderRouteList(currentResult.routes);
-      renderGroupMap(currentResult.routes);
-    });
-  }
-}
-
-function renderRouteList(routes) {
-  if (!(routeList instanceof HTMLElement)) return;
-
-  routeList.innerHTML = routes
-    .map((route) => {
-      const active = route.slug === selectedSlug;
-      const meta = routeLengthText(route)
-        ? `${confidenceLabelText(route.confidence)} - ${routeLengthText(route)}`
-        : confidenceLabelText(route.confidence);
 
       return `
         <button
@@ -485,10 +606,21 @@ function renderRouteList(routes) {
           <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
           <strong class="route-choice__title">${route.reach}</strong>
           <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
-            ${route.score} - ${route.rating}
+            ${route.score}${BULLET}${route.rating}
           </span>
-          <span class="route-choice__meta">${meta}</span>
-          <span class="route-choice__summary">${summaryLine(route)}</span>
+          <span class="route-choice__meta">${metaLine(route)}</span>
+          <span class="route-choice__summary">
+            <span class="route-choice__summary-main">${summaryParts(route).main}</span>
+            <span class="route-choice__summary-weather">
+              <span class="weather-indicator weather-indicator--${weatherVisualState(route)}" title="${weatherVisualLabel(weatherVisualState(route))}" aria-hidden="true">
+                ${weatherVisualMarkup(weatherVisualState(route))}
+              </span>
+              <span>${summaryParts(route).weather}</span>
+            </span>
+          </span>
+          <span class="route-choice__signal">
+            ${signalRowMarkup(route)}
+          </span>
         </button>
       `;
     })
@@ -584,7 +716,7 @@ async function loadGroup({ silent = false } = {}) {
     console.error('Failed to load river group page.', error);
     setBanner(
       'offline',
-      'Grouped route comparison is unavailable.',
+      'Route comparison is unavailable right now.',
       'Open an individual route page if you need a direct live call right now.'
     );
     setRefreshState('error', 'Last refresh failed. Retry now.');

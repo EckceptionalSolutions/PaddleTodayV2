@@ -8,18 +8,51 @@ const rivers = listRivers();
 const states = [...new Set(rivers.map((river) => river.state))].sort();
 const regions = [...new Set(rivers.map((river) => river.region))].sort();
 const trackedCount = rivers.length;
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const homeUrl = new URL('/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const homepageStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': websiteId,
+    name: 'Paddle Today',
+    url: homeUrl,
+    publisher: {
+      '@id': organizationId,
+    },
+    inLanguage: 'en-US',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${homeUrl}#collection`,
+    name: 'Best Rivers to Paddle Near You Today',
+    description:
+      'Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.',
+    url: homeUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+];
 ---
 
 <BaseLayout
-  title="Paddle Today | Can I paddle this river today?"
-  description="A live river-conditions MVP that answers whether a river is worth paddling today with a score, confidence, explanation, and key factors."
+  title="Paddle Today | Best Rivers to Paddle Near You Today"
+  description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
+  structuredData={homepageStructuredData}
 >
   <section class="decision-hero hero">
     <div class="decision-hero__main">
       <p class="hero__kicker">Paddle Today</p>
-      <h1>Where should I paddle today?</h1>
+      <h1>Find the best paddle near you today</h1>
       <p class="hero__lede">
-        Start with the best river near you, then compare the strongest backup options for today.
+        Live gauge data, weather, score, and confidence help you choose before you drive.
       </p>
       <div class="hero__meta">
         <span class="stat-chip">{trackedCount} routes tracked</span>
@@ -64,9 +97,9 @@ const trackedCount = rivers.length;
 
     <aside class="hero-call decision-hero__featured" aria-live="polite">
       <p class="eyebrow" data-best-near-label>Best river right now</p>
-      <p class="hero-call__state" data-featured-state>Loading today&apos;s river calls.</p>
+      <p class="hero-call__state" data-featured-state>Loading today&apos;s river scores.</p>
       <h2 class="hero-call__title" data-featured-name>Loading best river</h2>
-      <p class="hero-call__reach" data-featured-reach>Live river calls are loading.</p>
+      <p class="hero-call__reach" data-featured-reach>Today&apos;s river scores are loading.</p>
 
       <div class="hero-call__scoreline">
         <div class="score-orb score-orb--featured" aria-label="Top river score">
@@ -81,7 +114,7 @@ const trackedCount = rivers.length;
       </div>
 
       <p class="hero-call__summary muted" data-field="featured-explanation">
-        Pulling the strongest live river call.
+        Pulling the strongest river for today.
       </p>
 
       <div class="decision-hero__actions">
@@ -116,7 +149,7 @@ const trackedCount = rivers.length;
         <h2 class="section-title">Top rivers today</h2>
       </div>
       <p class="muted section-head__note" data-overall-summary>
-        The strongest live calls overall, regardless of location.
+        The strongest rivers overall, regardless of location.
       </p>
     </div>
     <div class="river-grid river-grid--decision" data-overall-grid></div>
@@ -133,7 +166,7 @@ const trackedCount = rivers.length;
     <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
       <div class="status-banner__eyebrow">Refresh failed</div>
       <div class="status-banner__body">
-        <strong data-board-fetch-title>Live river calls could not be refreshed.</strong>
+        <strong data-board-fetch-title>River scores could not be refreshed.</strong>
         <p class="muted" data-board-fetch-detail>
           The board may be stale. Retry before you drive.
         </p>
@@ -250,13 +283,6 @@ const trackedCount = rivers.length;
       </div>
     </section>
 
-    <div class="section-head section-head--stacked explore-list-head">
-      <div>
-        <p class="eyebrow">River list</p>
-        <h3 class="section-title">Browse more rivers</h3>
-      </div>
-    </div>
-
     <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
   </section>
 
@@ -280,8 +306,14 @@ const trackedCount = rivers.length;
 
       <p class="river-card__meta-line" data-field="meta-line"></p>
 
-      <p class="river-card__explanation" data-field="card-summary"></p>
-      <p class="river-card__signal-line" data-field="raw-signal"></p>
+      <p class="river-card__explanation">
+        <span class="river-card__summary-main" data-field="card-summary-main"></span>
+        <span class="river-card__summary-weather" data-field="card-summary-weather-row" hidden>
+          <span class="weather-indicator" data-field="weather-icon" aria-hidden="true"></span>
+          <span data-field="card-summary-weather"></span>
+        </span>
+      </p>
+      <div class="river-card__signal-line" data-field="raw-signal"></div>
 
       <a class="river-link river-link--wide" href="/" data-card-link>View river</a>
     </article>

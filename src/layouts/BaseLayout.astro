@@ -2,10 +2,54 @@
 type Props = {
   title: string;
   description?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
 };
 
-const { title, description = 'Live river scores, confidence, and explanations for paddlers.' } =
+const {
+  title,
+  description = 'Live river scores, confidence, and explanations for paddlers.',
+  noindex = false,
+  structuredData,
+} =
   Astro.props as Props;
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const socialImage = Astro.site
+  ? new URL('/brand/paddle-today-logo-transparent-512.png', Astro.site).href
+  : undefined;
+const siteUrl = Astro.site ? Astro.site.href : `${Astro.url.origin}/`;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const defaultStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: 'Paddle Today',
+    url: new URL('/', siteUrl).href,
+    logo: socialImage,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    name: title,
+    description,
+    url: canonicalUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+];
+const extraStructuredData = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStructuredData]);
 ---
 
 <!doctype html>
@@ -15,6 +59,19 @@ const { title, description = 'Live river scores, confidence, and explanations fo
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Paddle Today" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    <script type="application/ld+json" set:html={structuredDataJson}></script>
     <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="shortcut icon" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="apple-touch-icon" href="/brand/paddle-today-logo-transparent-512.png" />
@@ -31,18 +88,18 @@ const { title, description = 'Live river scores, confidence, and explanations fo
           />
           <div class="brand__copy brand__copy--with-wordmark">
             <span class="brand__eyebrow">Paddle Today</span>
-            <span class="brand__title">Know if it is worth paddling today.</span>
+            <span class="brand__title">Find the best paddle near you today.</span>
           </div>
         </a>
 
         <div class="site-header__meta">
           <nav class="site-header__nav" aria-label="Primary">
             <a class="site-header__nav-link" href="/about/">About</a>
+            <a class="site-header__nav-link" href="/contact/">Contact</a>
             <a class="site-header__nav-link" href="/request-river/">Request a river</a>
           </nav>
-          <span class="site-header__pill">Live river calls</span>
           <p class="site-header__blurb">
-            Score, confidence, and a clear reason to go, wait, or skip.
+            Live score, confidence, and weather.
           </p>
         </div>
       </header>

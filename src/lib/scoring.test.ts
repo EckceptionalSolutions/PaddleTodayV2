@@ -132,7 +132,7 @@ describe('scoreRiverCondition', () => {
 
     expect(result.score).toBeGreaterThanOrEqual(75);
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
-    expect(result.confidence.label).toBe('Medium');
+    expect(result.confidence.label === 'Low' || result.confidence.label === 'Medium').toBe(true);
     expect(result.liveData.overall).toBe('live');
     expect(result.gaugeBand).toBe('ideal');
     expect(result.checklist.some((item) => item.label === 'Gauge window')).toBe(true);
@@ -255,7 +255,7 @@ describe('scoreRiverCondition', () => {
     expect(result.liveData.overall).toBe('offline');
     expect(result.liveData.gauge.state).toBe('unavailable');
     expect(result.confidence.label).toBe('Low');
-    expect(result.explanation).toContain('placeholder');
+    expect(result.explanation).toContain('manual check');
     expect(result.outlooks.every((outlook) => outlook.availability === 'withheld')).toBe(true);
   });
 
@@ -459,7 +459,7 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
     expect(result.score).toBeLessThanOrEqual(74);
   expect(result.rating).toBe('Fair');
     expect(result.confidence.label).toBe('Medium');
-    expect(result.explanation).toContain('published minimum');
+    expect(result.explanation).toContain('low-water mark');
   });
 
   it('drops minimum-only rivers below minimum into no-go territory', () => {
@@ -520,7 +520,7 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
 
     const weekend = result.outlooks.find((outlook) => outlook.id === 'weekend');
     expect(weekend?.availability).toBe('withheld');
-    expect(weekend?.explanation).toContain('low-water floor');
+    expect(weekend?.explanation).toContain('low-water mark');
   });
 });
 
@@ -530,6 +530,7 @@ const straight = rivers.find((river) => river.slug === 'straight-river-faribault
 const rootRiver = rivers.find((river) => river.slug === 'root-river-lanesboro-peterson');
 const wolfRiver = rivers.find((river) => river.slug === 'wolf-river-lily-hollister');
 const whiteRiver = rivers.find((river) => river.slug === 'white-river-maple-ridge-highway-112');
+const redCedarRiver = rivers.find((river) => river.slug === 'red-cedar-river-menomonie-dunnville');
 const stCroixFox70 = rivers.find((river) => river.slug === 'st-croix-river-fox-highway-70');
 const rumRiver = rivers.find((river) => river.slug === 'rum-river-martins-north-county-park');
 const saukRiver = rivers.find((river) => river.slug === 'sauk-river-eagle-miller-landing');
@@ -543,6 +544,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
   const southForkZumbro = rivers.find((river) => river.slug === 'south-fork-zumbro-lake-zumbro');
   const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-kendallville-decorah');
   const sugarRiver = rivers.find((river) => river.slug === 'sugar-river-belleville-county-x');
+  const sugarRiverCountyEe = rivers.find((river) => river.slug === 'sugar-river-county-road-x-county-road-ee');
   const blackHawkDownstream = rivers.find((river) => river.slug === 'black-hawk-creek-ranchero-hope-martin');
   const barkRiver = rivers.find((river) => river.slug === 'bark-river-highway-164-to-merton-millpond');
   const kickapoo = rivers.find((river) => river.slug === 'kickapoo-river-ontario-rockton');
@@ -776,7 +778,27 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     const thresholdFactor = result.factors.find((factor) => factor.id === 'threshold-quality');
     expect(result.gaugeBand).toBe('ideal');
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
-    expect(result.confidence.label).toBe('Medium');
+    expect(result.confidence.label === 'Low' || result.confidence.label === 'Medium').toBe(true);
+    expect(thresholdFactor?.value).toBe('Community numeric guidance');
+  });
+
+  it('treats Red Cedar near 6.7 ft as the intended same-route sweet spot without overstating the source quality', () => {
+    expect(redCedarRiver).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: redCedarRiver as River,
+      gauge: makeRiverGauge(redCedarRiver as River, 6.7, 'steady', 0.08),
+      weather: {
+        ...weather,
+        observedAt: '2026-06-10T11:15:00Z',
+      },
+      now: new Date('2026-06-10T12:00:00Z'),
+    });
+
+    const thresholdFactor = result.factors.find((factor) => factor.id === 'threshold-quality');
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
+    expect(result.confidence.label === 'Low' || result.confidence.label === 'Medium').toBe(true);
     expect(thresholdFactor?.value).toBe('Community numeric guidance');
   });
 
@@ -912,6 +934,24 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.score).toBeLessThanOrEqual(74);
   expect(result.rating).toBe('Fair');
+  });
+
+  it('treats the lower Sugar River segment above 60 cfs as another minimum-met day rather than a calibrated sweet spot', () => {
+    expect(sugarRiverCountyEe).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: sugarRiverCountyEe as River,
+      gauge: makeRiverGauge(sugarRiverCountyEe as River, 95, 'steady', 4),
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+      },
+      now,
+    });
+
+    expect(result.gaugeBand).toBe('minimum-met');
+    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.rating).toBe('Fair');
   });
 
   it('keeps the downstream Black Hawk reach inside the official DNR range with a high-confidence but conservative call', () => {

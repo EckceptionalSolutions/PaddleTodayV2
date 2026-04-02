@@ -149,6 +149,31 @@ Remaining gap:
 - This is still mostly community-sourced calibration, not an official manager-published paddling threshold.
 - Official landing and parking authority is weaker than on the strongest seeded routes.
 
+## Red Cedar River: Menomonie to Dunnville
+
+Working thresholds:
+
+- sweet spot: `6.4` to `7.0` ft
+- low bound: `5.8` ft
+- high bound: `8.2` ft
+
+Evidence used:
+
+- MilesPaddled gives the key same-route clue for this exact Menomonie to Dunnville segment and describes about `6.4` to `7.0` ft at Menomonie as the best range for keeping some character in the riffles.
+- Wisconsin DNR boat-access records strongly support both landings, which raises access confidence even though the flow band itself is not official.
+- The route is long but easy, so the main trip-day risks are low water, post-storm wood, and weather exposure rather than technical whitewater consequence.
+
+Interpretation:
+
+- The app treats `6.4` to `7.0` ft as the center of the best same-route evidence we have today.
+- Below about `5.8` ft the route is too likely to feel scratchy or slow to recommend broadly.
+- The upper side stays conservative because the same route notes warn that more water can wash out the riffles into a faster, less character-rich day before we have an official upper band.
+
+Remaining gap:
+
+- This is still mostly community-sourced calibration, not an official manager-published paddling threshold.
+- The next upgrade would be a second source that confirms where the “good easy day” range ends on the high side.
+
 ## St. Croix River: Fox Landing to Highway 70
 
 Working thresholds:
@@ -428,6 +453,30 @@ Remaining gap:
 
 - The current model does not know where "pleasant moderate flow" becomes "too pushy" for this reach.
 - A better source for high-side guidance would let this river move from minimum-only status into a real two-sided band.
+
+## Sugar River: County Road X to County Road EE
+
+Working thresholds:
+
+- published minimum: `60` cfs
+- upper target: not calibrated yet
+
+Evidence used:
+
+- MilesPaddled gives the only usable numeric guidance for this exact lower Sugar segment and recommends avoiding very low flow on the Verona gauge.
+- The same route notes describe the stretch as mellow, wooded, and full-day in feel rather than technical, which supports another low-water-first model.
+- Capitol Water Trails maps both bridge accesses, which is enough to use the segment operationally even though local parking authority is lighter than a formal access-manager page.
+
+Interpretation:
+
+- The app treats this as another `minimum-only` Sugar River route using the same Verona floor as the upstream reach.
+- Above `60` cfs, the product can say the route is in play, but not that it is sitting in a defendable sweet spot.
+- Because this route is longer than the Belleville segment, weather, food, and day length matter a little more once the water is merely adequate.
+
+Remaining gap:
+
+- The current model still does not know where a "pleasant moderate flow" becomes "too pushy" for this reach.
+- Better local access authority and a stronger high-side source would let this route move from minimum-only status into a true two-sided band.
 
 ## Kickapoo River: Ontario to Rockton
 

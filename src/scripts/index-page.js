@@ -388,6 +388,211 @@ function routeLengthLabel(item) {
   return item.cardRoute.river.distanceLabel || '';
 }
 
+function rawSignalLine(item) {
+  return item.cardRoute.summary?.rawSignalLine ?? item.cardRoute.summary?.gaugeNow ?? '';
+}
+
+function parseRawSignalLine(rawSignal) {
+  if (typeof rawSignal !== 'string' || !rawSignal.trim()) {
+    return [];
+  }
+
+  return rawSignal
+    .split('•')
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .map((part) => {
+      if (/^Gauge:/i.test(part)) {
+        return { kind: 'gauge', value: part.replace(/^Gauge:\s*/i, '') };
+      }
+      if (/^Wind:/i.test(part)) {
+        return { kind: 'wind', value: part.replace(/^Wind:\s*/i, '') };
+      }
+      if (/^Temp:/i.test(part)) {
+        return { kind: 'temp', value: part.replace(/^Temp:\s*/i, '') };
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function parseTemperature(rawSignal) {
+  const match = typeof rawSignal === 'string' ? rawSignal.match(/Temp:\s*(-?\d+)\u00B0F/i) : null;
+  if (!match) {
+    return null;
+  }
+
+  const value = Number.parseInt(match[1], 10);
+  return Number.isFinite(value) ? value : null;
+}
+
+function signalIconMarkup(kind) {
+  switch (kind) {
+    case 'gauge':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 15c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+          <path d="M3 19c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"></path>
+          <path d="M12 9v8"></path>
+        </svg>
+      `;
+  }
+}
+
+function signalRowMarkup(item) {
+  const items = parseRawSignalLine(rawSignalLine(item));
+
+  if (items.length === 0) {
+    return '<span class="river-card__signal-empty">Conditions loading</span>';
+  }
+
+  return items
+    .map(
+      (item) => `
+        <span class="river-card__signal-item">
+          <span class="river-card__signal-icon river-card__signal-icon--${item.kind}">
+            ${signalIconMarkup(item.kind)}
+          </span>
+          <span>${item.value}</span>
+        </span>
+      `
+    )
+    .join('');
+}
+
+function summaryParts(text) {
+  const parts = typeof text === 'string'
+    ? text
+        .split('•')
+        .map((part) => part.trim())
+        .filter(Boolean)
+    : [];
+
+  if (parts.length >= 3) {
+    return {
+      main: `${parts[0]} • ${parts[1]}`,
+      weather: parts.slice(2).join(' • '),
+    };
+  }
+
+  return {
+    main: parts.join(' • '),
+    weather: '',
+  };
+}
+
+function weatherVisualState(item) {
+  const summary = cardSummary(item).toLowerCase();
+  const temperature = parseTemperature(rawSignalLine(item));
+  const coldSevere = typeof temperature === 'number' && temperature <= 35;
+  const coldNoticeable = typeof temperature === 'number' && temperature <= 40;
+
+  if (summary.includes('storm')) {
+    return 'storm';
+  }
+
+  if (coldSevere) {
+    return 'cold';
+  }
+
+  if (summary.includes('rain')) {
+    return 'rain';
+  }
+
+  if (coldNoticeable) {
+    return 'cold';
+  }
+
+  if (summary.includes('windy')) {
+    return 'wind';
+  }
+
+  return 'calm';
+}
+
+function weatherVisualLabel(state) {
+  switch (state) {
+    case 'storm':
+      return 'Storm risk';
+    case 'rain':
+      return 'Rain incoming';
+    case 'cold':
+      return 'Cold weather';
+    case 'wind':
+      return 'Windy';
+    default:
+      return 'Calm weather';
+  }
+}
+
+function weatherVisualMarkup(state) {
+  const label = weatherVisualLabel(state);
+
+  switch (state) {
+    case 'storm':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z"></path>
+        </svg>
+      `;
+    case 'rain':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="M9 18.5l-.8 2"></path>
+          <path d="M13 18.5l-.8 2"></path>
+          <path d="M17 18.5l-.8 2"></path>
+        </svg>
+      `;
+    case 'cold':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M12 3v18"></path>
+          <path d="M5.5 6.5 18.5 17.5"></path>
+          <path d="M5.5 17.5 18.5 6.5"></path>
+          <path d="M4 12h16"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2.5v3"></path>
+          <path d="M12 18.5v3"></path>
+          <path d="m4.9 4.9 2.1 2.1"></path>
+          <path d="m17 17 2.1 2.1"></path>
+          <path d="M2.5 12h3"></path>
+          <path d="M18.5 12h3"></path>
+          <path d="m4.9 19.1 2.1-2.1"></path>
+          <path d="m17 7 2.1-2.1"></path>
+        </svg>
+      `;
+  }
+}
+
 function regionStateText(item) {
   return `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`.toUpperCase();
 }
@@ -406,9 +611,6 @@ function metaLineText(item, showDistance) {
 }
 function cardSummary(item) {
   return item.cardRoute.summary?.shortExplanation ?? item.cardRoute.explanation;
-}
-function rawSignalLine(item) {
-  return item.cardRoute.summary?.rawSignalLine ?? item.cardRoute.summary?.gaugeNow ?? '';
 }
 
 function cardLinkLabel(item) {
@@ -440,8 +642,27 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', item.cardRoute.rating);
   setText(card, 'meta-line', metaLineText(item, showDistance));
-  setText(card, 'card-summary', cardSummary(item));
-  setText(card, 'raw-signal', rawSignalLine(item));
+  const summary = summaryParts(cardSummary(item));
+  setText(card, 'card-summary-main', summary.main);
+  setText(card, 'card-summary-weather', summary.weather);
+
+  const weatherRow = card.querySelector('[data-field="card-summary-weather-row"]');
+  if (weatherRow instanceof HTMLElement) {
+    weatherRow.hidden = !summary.weather;
+  }
+
+  const signalRow = card.querySelector('[data-field="raw-signal"]');
+  if (signalRow instanceof HTMLElement) {
+    signalRow.innerHTML = signalRowMarkup(item);
+  }
+
+  const weatherIcon = card.querySelector('[data-field="weather-icon"]');
+  if (weatherIcon instanceof HTMLElement) {
+    const state = weatherVisualState(item);
+    weatherIcon.className = `weather-indicator weather-indicator--${state}`;
+    weatherIcon.innerHTML = weatherVisualMarkup(state);
+    weatherIcon.setAttribute('title', weatherVisualLabel(state));
+  }
 
   const orb = card.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {

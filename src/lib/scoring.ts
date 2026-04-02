@@ -58,9 +58,15 @@ export function scoreRiverCondition(args: {
     river: args.river,
     weather: args.weather,
     riverQuality,
-    weatherAdjustment: weatherAssessment.points,
+    riverQualityExplanation: `${gaugeAssessment.detail} ${trendAssessment.detail}`.trim(),
+    windAdjustment: weatherAssessment.windPoints,
     temperatureAdjustment: temperatureAssessment.points,
+    rainAdjustment: weatherAssessment.rainPoints,
     comfortAdjustment: comfortAssessment.points,
+    windExplanation: weatherAssessment.windDetail,
+    temperatureExplanation: temperatureAssessment.detail,
+    rainExplanation: weatherAssessment.rainDetail,
+    comfortExplanation: comfortAssessment.detail,
     rawTripScore,
   });
   const score = scoreBreakdown.finalScore;
@@ -210,9 +216,15 @@ function scoreWithoutGauge(args: {
     river: args.river,
     weather: args.weather,
     riverQuality,
-    weatherAdjustment: weatherAssessment.points,
+    riverQualityExplanation: 'River quality is held down because the direct gauge is unavailable.',
+    windAdjustment: weatherAssessment.windPoints,
     temperatureAdjustment: temperatureAssessment.points,
+    rainAdjustment: weatherAssessment.rainPoints,
     comfortAdjustment: comfortAssessment.points,
+    windExplanation: weatherAssessment.windDetail,
+    temperatureExplanation: temperatureAssessment.detail,
+    rainExplanation: weatherAssessment.rainDetail,
+    comfortExplanation: comfortAssessment.detail,
     rawTripScore,
   });
   const score = scoreBreakdown.finalScore;
@@ -282,7 +294,7 @@ function scoreWithoutGauge(args: {
       {
         status: 'skip',
         label: 'Gauge check',
-        detail: 'The direct gauge is unavailable right now, so this should be treated as a manual-check river rather than a trusted launch call.',
+        detail: 'The direct gauge is unavailable right now, so double-check this river before you drive.',
       },
       {
         status: 'watch',
@@ -329,18 +341,18 @@ function assessGauge(river: River, gauge: GaugeReading): {
       return {
         points,
         impact: 'negative',
-        detail: `Below the published minimum of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}. Expect scraping, dragging, or not enough water for a worthwhile run.`,
+        detail: `Below the known low-water mark of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}. Expect scraping, dragging, or a very thin run.`,
         band: 'too-low',
-        bandDetail: 'Below the published minimum. This is outside the known workable band.',
+        bandDetail: 'Below the known low-water mark. This is outside the usual paddling range.',
       };
     }
 
     return {
       points: 60,
       impact: 'warning',
-      detail: `Above the published minimum of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}, but the app does not yet have a defendable upper target or high-water threshold for this reach.`,
+      detail: `Above the known low-water mark of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}, but there is not enough guidance yet to say what the upper end should be for this reach.`,
       band: 'minimum-met',
-      bandDetail: 'Above the published minimum, but upper-range guidance is still incomplete.',
+      bandDetail: 'Above the low-water mark, but the upper end is still uncertain.',
     };
   }
 
@@ -486,7 +498,7 @@ function assessTrend(
       return {
         points: 2,
         impact: 'neutral',
-        detail: `${formattedDelta}. The river is above its published minimum and not moving sharply.`,
+        detail: `${formattedDelta}. The river is above its low-water mark and not changing sharply.`,
       };
     }
 
@@ -695,53 +707,63 @@ function computeRiverQuality(
 
 function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null): {
   points: number;
+  windPoints: number;
+  rainPoints: number;
   impact: ScoreImpact;
   detail: string;
+  windDetail: string;
+  rainDetail: string;
 } {
   if (!weather) {
     return {
       points: 0,
+      windPoints: 0,
+      rainPoints: 0,
       impact: 'warning',
       detail: 'Weather data is unavailable, so the score leans more heavily on the river reading.',
+      windDetail: 'Wind data is unavailable.',
+      rainDetail: 'Rain timing and storm risk are unavailable.',
     };
   }
 
-  let points = 0;
-  const notes: string[] = [];
+  let rawWindPoints = 0;
+  let rawRainPoints = 0;
+  const windNotes: string[] = [];
+  const rainNotes: string[] = [];
   let impact: ScoreImpact = 'neutral';
   const windSensitivity = windSensitivityForRiver(river);
   const rainSensitivity = rainSensitivityForRiver(river);
 
   if (weather.next12hStormRisk) {
-    points -= Math.round(8 * rainSensitivity);
+    rawRainPoints -= Math.round(8 * rainSensitivity);
     impact = 'negative';
-    notes.push('Thunderstorm risk shows up in the next 12 hours.');
+    rainNotes.push('Storm risk is showing up in the next 12 hours.');
   }
 
   const maxWind = weather.next12hWindMphMax ?? 0;
   const windPenalty = maxWind > 20 ? -10 : maxWind >= 15 ? -6 : maxWind > 10 ? -3 : 0;
-  points += Math.round(windPenalty * windSensitivity);
+  rawWindPoints += Math.round(windPenalty * windSensitivity);
   if (windPenalty <= -10) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    notes.push(`Winds may gust into the ${Math.round(maxWind)} mph range.`);
+    windNotes.push(`Strong wind is expected, with gusts near ${Math.round(maxWind)} mph.`);
   } else if (windPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    notes.push('Wind is noticeable but not automatically a deal-breaker.');
+    windNotes.push(`Wind looks noticeable at about ${Math.round(maxWind)} mph.`);
   } else {
-    notes.push('Wind looks manageable.');
+    windNotes.push('Wind looks manageable.');
   }
 
   const precipProbability = weather.next12hPrecipProbabilityMax ?? 0;
   const rainPenalty = precipProbability > 60 ? -6 : precipProbability >= 30 ? -3 : 0;
-  points += Math.round(rainPenalty * rainSensitivity);
+  rawRainPoints += Math.round(rainPenalty * rainSensitivity);
   if (rainPenalty <= -6) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    notes.push('Rain odds are high enough to add uncertainty.');
+    rainNotes.push('Rain odds are high enough to change the trip call.');
   } else if (rainPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    notes.push('Some rain is possible, but it does not dominate the call.');
+    rainNotes.push('Some rain is possible later today.');
   } else {
-    notes.push('No major rain signal is showing up right now.');
+    rainNotes.push('No major rain signal is showing up right now.');
   }
 
   const precipTimingPenalty =
@@ -750,21 +772,27 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
         ? -5
         : weather.next12hPrecipStartsInHours <= 12
           ? -2
-          : 0
+        : 0
       : 0;
-  points += Math.round(precipTimingPenalty * rainSensitivity);
+  rawRainPoints += Math.round(precipTimingPenalty * rainSensitivity);
   if (precipTimingPenalty <= -5) {
     impact = 'negative';
-    notes.push('Rain looks imminent in the next few hours.');
+    rainNotes.push('Rain looks imminent in the next few hours.');
   } else if (precipTimingPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    notes.push('Rain is likely later today.');
+    rainNotes.push('Rain is likely later today.');
   }
 
+  const normalized = normalizeWeatherBreakdown(rawWindPoints, rawRainPoints);
+
   return {
-    points: clamp(points, -25, 0),
+    points: normalized.total,
+    windPoints: normalized.windPoints,
+    rainPoints: normalized.rainPoints,
     impact,
-    detail: notes.join(' '),
+    detail: `${windNotes.join(' ')} ${rainNotes.join(' ')}`.trim(),
+    windDetail: windNotes.join(' '),
+    rainDetail: rainNotes.join(' '),
   };
 }
 
@@ -875,9 +903,15 @@ function buildScoreBreakdown(args: {
   river: River;
   weather: WeatherSnapshot | null;
   riverQuality: number;
-  weatherAdjustment: number;
+  riverQualityExplanation: string;
+  windAdjustment: number;
   temperatureAdjustment: number;
+  rainAdjustment: number;
   comfortAdjustment: number;
+  windExplanation: string;
+  temperatureExplanation: string;
+  rainExplanation: string;
+  comfortExplanation: string;
   rawTripScore: number;
 }): RiverScoreResult['scoreBreakdown'] {
   let finalScore = Math.round(args.rawTripScore);
@@ -911,12 +945,42 @@ function buildScoreBreakdown(args: {
 
   return {
     riverQuality: args.riverQuality,
-    weatherAdjustment: args.weatherAdjustment,
+    windAdjustment: args.windAdjustment,
     temperatureAdjustment: args.temperatureAdjustment,
+    rainAdjustment: args.rainAdjustment,
     comfortAdjustment: args.comfortAdjustment,
     rawTripScore: Math.round(args.rawTripScore),
     finalScore,
     capReasons,
+    riverQualityExplanation: args.riverQualityExplanation,
+    windExplanation: args.windExplanation,
+    temperatureExplanation: args.temperatureExplanation,
+    rainExplanation: args.rainExplanation,
+    comfortExplanation: args.comfortExplanation,
+  };
+}
+
+function normalizeWeatherBreakdown(windPoints: number, rainPoints: number): {
+  windPoints: number;
+  rainPoints: number;
+  total: number;
+} {
+  const total = windPoints + rainPoints;
+  if (total >= -25) {
+    return {
+      windPoints,
+      rainPoints,
+      total,
+    };
+  }
+
+  const scale = -25 / total;
+  const scaledWindPoints = Math.round(windPoints * scale);
+
+  return {
+    windPoints: scaledWindPoints,
+    rainPoints: -25 - scaledWindPoints,
+    total: -25,
   };
 }
 
@@ -984,7 +1048,7 @@ function computeConfidence(args: {
     (typeof args.river.profile.tooLow === 'number' || typeof args.river.profile.idealMin === 'number')
   ) {
     score += 0.08;
-    reasons.push('A low-water floor is defined.');
+    reasons.push('A low-water mark is defined.');
     score -= 0.03;
     warnings.push('Upper range is still estimated.');
   }
@@ -1166,7 +1230,7 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       score: null,
       rating: null,
       confidence: null,
-      explanation: 'Tomorrow is withheld because the direct gauge is unavailable right now.',
+      explanation: 'Tomorrow is hidden because the direct gauge is unavailable right now.',
     },
     {
       id: 'weekend',
@@ -1202,7 +1266,7 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is withheld because forecast coverage for that window is unavailable.`,
+      explanation: `${label} is hidden because forecast coverage for that window is unavailable.`,
     };
   }
 
@@ -1214,7 +1278,7 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is withheld because the live river read is offline.`,
+      explanation: `${label} is hidden because the live river read is offline.`,
     };
   }
 
@@ -1226,7 +1290,7 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is withheld because this reach only has a defendable low-water floor, not a calibrated two-sided band.`,
+      explanation: `${label} is hidden because this reach only has a low-water mark, not a full working range.`,
     };
   }
 
@@ -1238,7 +1302,7 @@ function buildOutlook(args: {
       score: null,
       rating: null,
       confidence: null,
-      explanation: `${label} is withheld because today's confidence is only ${args.confidence.score}/100.`,
+      explanation: `${label} is hidden because today's confidence is only ${args.confidence.score}/100.`,
     };
   }
 
@@ -1328,7 +1392,7 @@ function outlookExplanation(
         ? `Gauge is still rising, which tends to improve low days and worsen high days.`
         : `Gauge is falling, which tends to improve high days and worsen low days.`;
 
-  return `${trendText} ${weatherText} ${windowId === 'weekend' ? 'Weekend calls stay more conservative than same-day calls.' : 'Tomorrow is a directional read, not a guaranteed launch promise.'}`;
+  return `${trendText} ${weatherText} ${windowId === 'weekend' ? 'Weekend outlooks stay a little more conservative.' : 'Tomorrow is an early read, not a promise.'}`;
 }
 
 function weatherWindowSummary(window: ForecastWindow): string {
@@ -1428,7 +1492,7 @@ function buildExplanation(args: {
     args.gaugeAssessment.band === 'ideal'
       ? `The gauge is inside the preferred window at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
       : args.gaugeAssessment.band === 'minimum-met'
-        ? `The gauge is above the published minimum at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but high-side guidance is still incomplete.`
+        ? `The gauge is above the low-water mark at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but the upper end is still uncertain.`
       : args.gaugeAssessment.band === 'low-shoulder' || args.gaugeAssessment.band === 'too-low'
         ? `The gauge is still on the low side at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
         : args.gaugeAssessment.band === 'high-shoulder' || args.gaugeAssessment.band === 'too-high'
@@ -1530,10 +1594,10 @@ function thresholdModelImpact(model: River['profile']['thresholdModel']): ScoreI
 
 function thresholdModelDetail(river: River): string {
   if (river.profile.thresholdModel === 'minimum-only') {
-    return 'This reach currently has a defendable low-water floor, but not a calibrated upper target or high-water cutoff yet.';
+    return 'This reach has a known low-water mark, but not a full working range yet.';
   }
 
-  return 'This reach has a calibrated preferred band plus hard low and high bounds.';
+  return 'This reach has a preferred range plus low and high bounds.';
 }
 
 function sourceStrengthDetail(river: River): string {
@@ -1543,11 +1607,11 @@ function sourceStrengthDetail(river: River): string {
     case 'official':
       return `Threshold guidance comes from an official published source. Current numeric thresholds are anchored by ${sourceLabel}.`;
     case 'mixed':
-      return `Thresholds are calibrated from multiple source types rather than a single official range. Current threshold guidance is anchored by ${sourceLabel} and supporting evidence notes.`;
+      return `Thresholds are built from multiple source types rather than one official range. Current guidance is anchored by ${sourceLabel} and supporting notes.`;
     case 'community':
-      return `Thresholds currently lean on community trip reports. Current threshold guidance is anchored by ${sourceLabel}, so keep more margin than the raw score alone implies.`;
+      return `Thresholds currently lean on community trip reports. Current guidance is anchored by ${sourceLabel}, so leave yourself extra margin.`;
     default:
-      return `Thresholds are derived from partial evidence rather than a published range. Current threshold guidance is anchored by ${sourceLabel}.`;
+      return `Thresholds are built from partial evidence rather than a published range. Current guidance is anchored by ${sourceLabel}.`;
   }
 }
 
@@ -1598,7 +1662,7 @@ function buildLiveDataStatus(args: {
   if (gauge.state === 'unavailable') {
     return {
       overall: 'offline',
-      summary: 'Direct gauge data is unavailable, so this is a placeholder rather than a real live river call.',
+      summary: 'Direct gauge data is unavailable, so this river needs a manual check today.',
       gauge,
       weather,
     };
@@ -1642,7 +1706,7 @@ function buildLiveDataStatus(args: {
 
   return {
     overall: 'live',
-    summary: 'Gauge and weather reads are current enough for a same-day launch call.',
+    summary: 'Gauge and weather reads are current enough for a solid trip-day read.',
     gauge,
     weather,
   };

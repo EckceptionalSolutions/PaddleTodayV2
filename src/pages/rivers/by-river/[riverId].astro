@@ -16,12 +16,35 @@ export function getStaticPaths() {
 const { group } = Astro.props;
 const stateSummary = group.states.join(', ');
 const regionSummary = group.regions.join(', ');
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const homeUrl = new URL('/', siteUrl).href;
+const groupUrl = new URL(`/rivers/by-river/${group.riverId}/`, siteUrl).href;
+const groupStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${groupUrl}#breadcrumbs`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: homeUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: group.name,
+      item: groupUrl,
+    },
+  ],
+};
 ---
 
 <BaseLayout
-  title={`${group.name} | Paddle Today`}
-  description={`${group.name}: compare scored routes on the same river and open the best route call for today.`}
+  title={`${group.name} Routes Today | Paddle Today`}
+  description={`Compare scored routes on ${group.name} and see which stretch looks best today.`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(groupStructuredData)}></script>
   <article class="river-group-page" data-river-group-page data-river-id={group.riverId}>
     <a class="back-link" href="/">All river calls</a>
 
@@ -30,15 +53,15 @@ const regionSummary = group.regions.join(', ');
         <p class="eyebrow">{stateSummary} | {regionSummary}</p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Compare {group.routeCount} route calls on this river.
+          Compare {group.routeCount} routes on this river.
         </p>
         <p class="muted river-group-page__summary" data-group-detail>
-          One river can hold very different launch calls. Compare the score, confidence, and summary line before you open full trip details.
+          One river can paddle very differently from stretch to stretch. Compare the score, confidence, and quick summary before opening the full route page.
         </p>
 
         <div class="hero__meta river-group-page__meta">
           <span class="stat-chip">{group.routeCount} routes</span>
-          <span class="stat-chip">Each route has its own launch call</span>
+          <span class="stat-chip">Each route is scored separately</span>
         </div>
       </div>
 
@@ -46,29 +69,35 @@ const regionSummary = group.regions.join(', ');
         <p class="eyebrow">Selected route</p>
         <div class="score-orb score-orb--featured" aria-label="Selected route score loading">
           <span class="score-orb__score" data-field="selected-score">--</span>
-          <span class="score-orb__rating" data-field="selected-rating">Checking</span>
+          <span class="score-orb__rating" data-field="selected-rating">Loading</span>
         </div>
         <p class="river-call-panel__statement" data-field="selected-reach">
-          Loading the selected route.
+          Loading route details.
         </p>
         <div class="river-call-panel__reliability river-call-panel__reliability--compact">
-          <span class="pill" data-field="selected-status">Checking</span>
+          <span class="pill" data-field="selected-status">Loading</span>
           <p class="muted river-call-panel__reliability-note" data-field="selected-confidence">
-            Checking confidence.
+            Loading confidence.
           </p>
         </div>
-        <p class="river-call-panel__summary-line" data-field="selected-summary">
-          Summary line will appear once the grouped scores load.
-        </p>
-        <p class="river-call-panel__signal-line" data-field="selected-signal">
-          Data line will appear once the grouped scores load.
-        </p>
+        <div class="river-call-panel__summary-stack">
+          <p class="river-call-panel__summary-line" data-field="selected-summary-main">
+            Loading summary.
+          </p>
+          <p class="river-call-panel__summary-weather" data-field="selected-summary-weather-row" hidden>
+            <span class="weather-indicator" data-field="selected-weather-icon" aria-hidden="true"></span>
+            <span data-field="selected-summary-weather">Loading weather.</span>
+          </p>
+        </div>
+        <div class="river-call-panel__signal-line" data-field="selected-signal">
+          Loading conditions.
+        </div>
         <div class="river-call-panel__actions river-call-panel__actions--inline">
           <button class="filter-chip" type="button" data-group-refresh>
             Refresh river
           </button>
           <a class="river-link river-link--wide" href="/" data-group-selected-link>
-            View river
+            View route
           </a>
         </div>
         <p class="muted river-call-panel__refresh-note" data-group-refresh-note>
@@ -80,9 +109,9 @@ const regionSummary = group.regions.join(', ');
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
       <div class="status-banner__eyebrow">Route comparison</div>
       <div class="status-banner__body">
-        <strong data-group-banner-title>Checking route calls.</strong>
+        <strong data-group-banner-title>Loading route scores.</strong>
         <p class="muted" data-group-banner-detail>
-          Loading live route comparison for this river.
+          Pulling the latest scores for this river.
         </p>
       </div>
     </section>
@@ -97,7 +126,7 @@ const regionSummary = group.regions.join(', ');
           <h2 class="section-title">Where these routes sit</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          All route starts and finishes on one supporting map.
+          Starts and finishes for each route.
         </p>
       </div>
 
@@ -119,7 +148,7 @@ const regionSummary = group.regions.join(', ');
           <h2 class="section-title">Compare routes on this river</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Same river, different launch calls.
+          Same river, different stretches.
         </p>
       </div>
 
@@ -134,9 +163,16 @@ const regionSummary = group.regions.join(', ');
             <span class="route-choice__kind">Route</span>
             <span class="route-choice__eyebrow">{route.state} | {route.region}</span>
             <strong class="route-choice__title">{route.reach}</strong>
-            <span class="route-choice__score">-- • Checking</span>
-            <span class="route-choice__meta">Checking confidence • -- mi</span>
-            <span class="route-choice__summary">Loading summary line.</span>
+            <span class="route-choice__score">-- &bull; Loading</span>
+            <span class="route-choice__meta">Loading confidence &bull; -- mi</span>
+            <span class="route-choice__summary">
+              <span class="route-choice__summary-main">Loading summary.</span>
+              <span class="route-choice__summary-weather" hidden>
+                <span class="weather-indicator" aria-hidden="true"></span>
+                <span>Loading weather.</span>
+              </span>
+            </span>
+            <span class="route-choice__signal">Loading conditions.</span>
           </button>
         ))}
       </div>

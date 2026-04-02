@@ -1,20 +1,45 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const websiteId = new URL('/#website', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const aboutUrl = new URL('/about/', siteUrl).href;
+const aboutStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'AboutPage',
+  '@id': `${aboutUrl}#about-page`,
+  name: 'About Paddle Today',
+  description:
+    'Learn how Paddle Today scores rivers, explains confidence, and chooses which rivers are reliable enough to track live.',
+  url: aboutUrl,
+  isPartOf: {
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
+  },
+};
 ---
 
 <BaseLayout
-  title="About | Paddle Today"
-  description="How Paddle Today scores rivers, handles confidence, and why coverage starts with rivers that have the strongest live data."
+  title="About Paddle Today | How River Scores Work"
+  description="Learn how Paddle Today scores rivers, explains confidence, and chooses which rivers are reliable enough to track live."
+  structuredData={aboutStructuredData}
 >
   <section class="info-hero">
     <p class="eyebrow">About Paddle Today</p>
-    <h1>River calls built around usefulness, not volume.</h1>
+    <h1>Helping more people feel confident about paddling.</h1>
     <p class="muted">
-      Paddle Today is a work in progress built around one question: is this river worth paddling today? The goal is to turn messy live data into a clear, explainable call you can act on.
+      Paddle Today started from a simple idea: figuring out where to paddle should feel easier, clearer, and less intimidating. The goal is to help more people get on the water with a straightforward read before they pack the car.
     </p>
     <div class="info-hero__actions">
       <a class="river-link river-link--inline" href="/request-river/">Request a river</a>
+      <a class="river-link river-link--inline river-link--ghost" href="/contact/">Contact us</a>
     </div>
+    <p class="muted">
+      If you have questions, want a river added, or have an idea that would make the site more useful, <a href="/contact/">get in touch</a>.
+    </p>
   </section>
 
   <section class="info-grid" aria-label="How Paddle Today works">
@@ -22,7 +47,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">Method</p>
       <h2>How the call is made</h2>
       <p class="muted">
-        Each river call combines current gauge value, recent trend, weather risk, seasonality, and river-specific threshold notes. The result is a score, a confidence level, and a short explanation in plain language.
+        Each river combines current gauge value, recent trend, weather risk, seasonality, and route notes. The result is a score, a confidence level, and a short plain-language summary.
       </p>
     </article>
 
@@ -30,7 +55,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">Confidence</p>
       <h2>Why some rivers score better than others</h2>
       <p class="muted">
-        Confidence depends on the freshness and quality of the inputs. Direct gauges, stronger published ranges, and current weather reads lead to stronger calls. Stale or thin evidence lowers confidence.
+        Confidence depends on the freshness and quality of the inputs. Direct gauges, stronger published ranges, and current weather reads lead to stronger scores. Stale or thin evidence lowers confidence.
       </p>
     </article>
 
@@ -38,7 +63,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="eyebrow">Coverage</p>
       <h2>Why coverage starts small</h2>
       <p class="muted">
-        We start with rivers that have direct gauges and enough usable guidance to score them without guessing too much. Coverage grows as the evidence gets better. The goal is better calls, not bigger lists.
+        This is a new project, so we are starting with the highest-quality sources first. Right now the focus is the Midwest, especially Minnesota, Wisconsin, and Iowa, where we can match good gauge coverage with usable route guidance. Coverage will expand from there as the source quality holds up.
       </p>
     </article>
   </section>

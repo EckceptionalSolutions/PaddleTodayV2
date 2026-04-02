@@ -34,7 +34,7 @@ const formatThresholdValue = (value: number | undefined) => {
 
   return `${value.toFixed(2).replace(/\\.00$/, '')} ${river.gaugeSource.unit}`;
 };
-const targetBandLabel = river.profile.thresholdModel === 'minimum-only' ? 'Target band' : 'Target band';
+const targetBandLabel = river.profile.thresholdModel === 'minimum-only' ? 'Working range' : 'Target band';
 const targetBandValue =
   river.profile.thresholdModel === 'two-sided' &&
   typeof river.profile.idealMin === 'number' &&
@@ -107,12 +107,54 @@ const siblingRoutes = listRivers()
   .filter((candidate) => candidate.riverId === river.riverId && candidate.slug !== river.slug)
   .sort((left, right) => left.reach.localeCompare(right.reach));
 const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverId}/` : null;
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const homeUrl = new URL('/', siteUrl).href;
+const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
+const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
+const breadcrumbItems = [
+  {
+    '@type': 'ListItem',
+    position: 1,
+    name: 'Home',
+    item: homeUrl,
+  },
+  ...(riverHubUrl
+    ? [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: river.name,
+          item: riverHubUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: `${river.name}: ${river.reach}`,
+          item: routeUrl,
+        },
+      ]
+    : [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: `${river.name}: ${river.reach}`,
+          item: routeUrl,
+        },
+      ]),
+];
+const routeStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${routeUrl}#breadcrumbs`,
+  itemListElement: breadcrumbItems,
+};
 ---
 
 <BaseLayout
-  title={`${river.name} | Paddle Today`}
-  description={`${river.name}: live score, confidence, and a plain-language explanation of gauge, trend, weather, and seasonality.`}
+  title={`${river.name} Today | ${river.reach} | Paddle Today`}
+  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, confidence, and a clear paddle-day call before you drive.`}
 >
+  <script type="application/ld+json" set:html={JSON.stringify(routeStructuredData)}></script>
   <article
     class="river-detail"
     data-river-detail
@@ -155,7 +197,7 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
         </div>
 
         <p class="river-detail__summary" data-field="explanation">
-          Checking today's river call.
+          Loading today&apos;s river score.
         </p>
 
         <div class="river-detail__meta-row">
@@ -168,18 +210,18 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
       </div>
 
       <aside class="river-call-panel river-call-panel--sticky">
-        <p class="eyebrow">Today's launch call</p>
+        <p class="eyebrow">Today&apos;s score</p>
         <div class="score-orb score-orb--featured" aria-label="Live score loading">
           <span class="score-orb__score" data-field="score">--</span>
           <span class="score-orb__rating" data-field="rating">Checking</span>
         </div>
         <p class="river-call-panel__statement" data-field="decision-line">
-          Checking the current launch window.
+          Loading the current river read.
         </p>
         <div class="river-call-panel__reliability">
           <span class="pill" data-field="rail-reliability">Checking reads</span>
           <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
-            Checking freshness and source quality.
+            Loading source and freshness details.
           </p>
         </div>
         <dl class="river-call-panel__meta">
@@ -194,7 +236,7 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
         </dl>
         <div class="river-call-panel__actions">
           <button class="filter-chip" type="button" data-detail-refresh>
-            Refresh river call
+            Refresh river
           </button>
           <span class="muted river-call-panel__refresh-note" data-detail-refresh-note>
             Auto-refreshes every 5 minutes.
@@ -216,7 +258,7 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
       <div class="status-banner__body">
         <strong data-detail-fetch-title>Live inputs could not be refreshed.</strong>
         <p class="muted" data-detail-fetch-detail>
-          This river call may be stale. Retry before you drive.
+          This river score may be stale. Retry before you drive.
         </p>
       </div>
     </section>
@@ -257,7 +299,7 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
     <section class="river-detail__panel river-why-score">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
-        Why this score
+        River conditions
       </p>
 
       <div class="river-detail__quick-grid river-detail__quick-grid--compact river-why-score__grid">
@@ -433,38 +475,107 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
     <section class="river-detail__panel river-score-breakdown">
       <p class="eyebrow section-label">
         <FeatureIcon name="gauge" size={16} />
-        Score breakdown
+        Why this score
       </p>
 
-      <div class="river-detail__quick-grid river-detail__quick-grid--compact">
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">River quality</span>
-          <strong data-field="breakdown-river-quality">Checking</strong>
-          <small>Gauge and trend only</small>
-        </article>
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">Weather adjustment</span>
-          <strong data-field="breakdown-weather-adjustment">Checking</strong>
-          <small>Wind, rain, and timing</small>
-        </article>
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">Temperature adjustment</span>
-          <strong data-field="breakdown-temperature-adjustment">Checking</strong>
-          <small>Air temperature and season</small>
-        </article>
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">Comfort adjustment</span>
-          <strong data-field="breakdown-comfort-adjustment">Checking</strong>
-          <small>Difficulty, season, and perfect-day bonus</small>
+      <div class="river-score-breakdown__hero">
+        <div>
+          <h2 class="river-subtitle river-subtitle--compact">How today&apos;s score comes together</h2>
+          <p class="muted river-score-breakdown__summary" data-field="breakdown-summary">
+            Checking how today&apos;s trip score is built.
+          </p>
+        </div>
+
+        <article class="snapshot-card river-score-breakdown__final">
+          <span class="snapshot-card__label">Final score</span>
+          <strong data-field="breakdown-final-score">Checking</strong>
+          <small data-field="breakdown-final-rating">Checking</small>
         </article>
       </div>
 
-      <p class="muted river-score-breakdown__summary" data-field="breakdown-summary">
-        Checking how today&apos;s trip score is built.
-      </p>
-      <ul class="compact-list river-score-breakdown__caps" data-score-cap-reasons>
-        <li>Checking score caps.</li>
-      </ul>
+      <div class="river-score-breakdown__groups">
+        <section class="river-score-breakdown__group">
+          <h3 class="river-score-breakdown__group-title">River conditions</h3>
+          <div class="river-score-breakdown__rows">
+            <article class="river-score-breakdown__row" data-field="breakdown-river-row" title="Gauge and recent trend set the base river quality.">
+              <div class="river-score-breakdown__row-copy">
+                <span class="river-score-breakdown__row-label">River quality</span>
+                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-river-quality-detail">
+                  Gauge and trend only.
+                </p>
+              </div>
+              <strong class="river-score-breakdown__row-value river-score-breakdown__row-value--positive" data-field="breakdown-river-quality">
+                Checking
+              </strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="river-score-breakdown__group">
+          <h3 class="river-score-breakdown__group-title">Weather</h3>
+          <div class="river-score-breakdown__rows">
+            <article class="river-score-breakdown__row" title="Strong wind makes paddling harder.">
+              <div class="river-score-breakdown__row-copy">
+                <span class="river-score-breakdown__row-label">Wind</span>
+                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-wind-detail">
+                  Checking wind effect.
+                </p>
+              </div>
+              <strong class="river-score-breakdown__row-value" data-field="breakdown-wind-adjustment">
+                Checking
+              </strong>
+            </article>
+
+            <article class="river-score-breakdown__row" title="Cold air lowers comfort and increases risk.">
+              <div class="river-score-breakdown__row-copy">
+                <span class="river-score-breakdown__row-label">Temperature</span>
+                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-temperature-detail">
+                  Checking temperature effect.
+                </p>
+              </div>
+              <strong class="river-score-breakdown__row-value" data-field="breakdown-temperature-adjustment">
+                Checking
+              </strong>
+            </article>
+
+            <article class="river-score-breakdown__row" title="Rain timing can quickly change the launch window.">
+              <div class="river-score-breakdown__row-copy">
+                <span class="river-score-breakdown__row-label">Rain timing</span>
+                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-rain-detail">
+                  Checking rain effect.
+                </p>
+              </div>
+              <strong class="river-score-breakdown__row-value" data-field="breakdown-rain-adjustment">
+                Checking
+              </strong>
+            </article>
+          </div>
+        </section>
+
+        <section class="river-score-breakdown__group" data-breakdown-other-group hidden>
+          <h3 class="river-score-breakdown__group-title">Other</h3>
+          <div class="river-score-breakdown__rows">
+            <article class="river-score-breakdown__row" title="Difficulty, season, and perfect-day bonuses can nudge the score.">
+              <div class="river-score-breakdown__row-copy">
+                <span class="river-score-breakdown__row-label">Other trip factors</span>
+                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-comfort-detail">
+                  Checking other adjustments.
+                </p>
+              </div>
+              <strong class="river-score-breakdown__row-value" data-field="breakdown-comfort-adjustment">
+                Checking
+              </strong>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <section class="river-score-breakdown__caps-wrap" data-score-cap-wrap hidden>
+        <p class="eyebrow section-label">Score caps</p>
+        <ul class="compact-list river-score-breakdown__caps" data-score-cap-reasons>
+          <li>Checking score caps.</li>
+        </ul>
+      </section>
     </section>
 
     <section class="river-detail__panel river-launch-plan">
@@ -718,12 +829,12 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Confidence</span>
-            <strong>Why this confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+            <strong>Why confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
           </span>
         </summary>
         <div class="river-accordion__body">
           <p class="muted confidence-detail__intro">
-            Confidence reflects how direct the gauge is, how clear the range is, and how fresh the live inputs are.
+            Confidence comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
           </p>
 
           <div class="confidence-detail__groups">
@@ -774,10 +885,13 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Inputs</span>
-            <strong>Gauge thresholds and timestamps</strong>
+            <strong>Gauge, thresholds, and timing</strong>
           </span>
         </summary>
         <div class="river-accordion__body">
+          <p class="muted confidence-detail__intro">
+            These are the source inputs behind today&apos;s call.
+          </p>
           <table class="detail-table">
             <tbody>
               <tr>
@@ -785,16 +899,16 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
                 <td>{river.gaugeSource.siteName}</td>
               </tr>
               <tr>
-                <td>Flow band</td>
-                <td data-field="flow-band">Checking</td>
-              </tr>
-              <tr>
-                <td>Gauge now</td>
+                <td>Current gauge</td>
                 <td data-field="gauge-now">Checking</td>
               </tr>
               <tr>
-                <td>Threshold model</td>
-                <td>{thresholdModelLabel}</td>
+                <td>24h trend</td>
+                <td data-field="trend">Checking</td>
+              </tr>
+              <tr>
+                <td>Current band</td>
+                <td data-field="flow-band">Checking</td>
               </tr>
               <tr>
                 <td>{targetBandLabel}</td>
@@ -813,24 +927,16 @@ const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverI
                 <td>{thresholdQualityLabel}</td>
               </tr>
               <tr>
-                <td>Confidence note</td>
-                <td>{river.profile.confidenceNotes}</td>
-              </tr>
-              <tr>
-                <td>Observed</td>
+                <td>Gauge observed</td>
                 <td data-field="observed-at">Checking</td>
               </tr>
               <tr>
-                <td>Last scored</td>
+                <td>Score updated</td>
                 <td data-field="generated-at">Checking</td>
               </tr>
               <tr>
-                <td>24h trend</td>
-                <td data-field="trend">Checking</td>
-              </tr>
-              <tr>
                 <td>Threshold source</td>
-                <td>{river.profile.thresholdSource.label} (see source links below)</td>
+                <td>{river.profile.thresholdSource.label}</td>
               </tr>
             </tbody>
           </table>

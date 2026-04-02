@@ -367,10 +367,10 @@ function renderLaunchReadiness(result) {
 
   const summaryText =
     verdict === 'go'
-      ? 'Launch window looks open right now.'
+      ? 'Conditions look good right now.'
       : verdict === 'watch'
         ? 'Conditions are workable, but something still needs a second look.'
-        : 'Today is not a clean launch call.';
+        : 'Today does not look like a clean go.';
   const firstWarning =
     result.checklist.find((item) => item.status !== 'go')?.detail ??
     result.liveData.summary;
@@ -381,7 +381,7 @@ function renderLaunchReadiness(result) {
   const checklistByLabel = new Map(result.checklist.map((item) => [item.label, item]));
   const items = [
     {
-      label: 'Launch call',
+      label: 'River score',
       value: `${decisionLabel(result.rating)} - ${result.score}`,
       detail: decisionStatement(result.rating),
       status: verdict,
@@ -478,27 +478,62 @@ function signedPoints(value) {
   return value > 0 ? `+${value}` : `${value}`;
 }
 
+function applyBreakdownTone(field, value) {
+  const element = setText(field, signedPoints(value));
+  if (!(element instanceof HTMLElement)) {
+    return;
+  }
+
+  element.classList.remove(
+    'river-score-breakdown__row-value--positive',
+    'river-score-breakdown__row-value--negative',
+    'river-score-breakdown__row-value--neutral'
+  );
+  element.classList.add(
+    value > 0
+      ? 'river-score-breakdown__row-value--positive'
+      : value < 0
+        ? 'river-score-breakdown__row-value--negative'
+        : 'river-score-breakdown__row-value--neutral'
+  );
+}
+
 function renderScoreBreakdown(result) {
   const breakdown = result.scoreBreakdown;
   if (!breakdown) {
     return;
   }
 
-  setText('breakdown-river-quality', `${breakdown.riverQuality}`);
-  setText('breakdown-weather-adjustment', signedPoints(breakdown.weatherAdjustment));
-  setText('breakdown-temperature-adjustment', signedPoints(breakdown.temperatureAdjustment));
-  setText('breakdown-comfort-adjustment', signedPoints(breakdown.comfortAdjustment));
+  applyBreakdownTone('breakdown-river-quality', breakdown.riverQuality);
+  applyBreakdownTone('breakdown-wind-adjustment', breakdown.windAdjustment);
+  applyBreakdownTone('breakdown-temperature-adjustment', breakdown.temperatureAdjustment);
+  applyBreakdownTone('breakdown-rain-adjustment', breakdown.rainAdjustment);
+  applyBreakdownTone('breakdown-comfort-adjustment', breakdown.comfortAdjustment);
+  setText('breakdown-final-score', `${breakdown.finalScore}`);
+  setText('breakdown-final-rating', result.rating);
+  setText('breakdown-river-quality-detail', breakdown.riverQualityExplanation);
+  setText('breakdown-wind-detail', breakdown.windExplanation);
+  setText('breakdown-temperature-detail', breakdown.temperatureExplanation);
+  setText('breakdown-rain-detail', breakdown.rainExplanation);
+  setText('breakdown-comfort-detail', breakdown.comfortExplanation);
   setText(
     'breakdown-summary',
-    `River quality ${breakdown.riverQuality} + weather ${signedPoints(breakdown.weatherAdjustment)} + temperature ${signedPoints(breakdown.temperatureAdjustment)} + comfort ${signedPoints(breakdown.comfortAdjustment)} = ${breakdown.finalScore}.`
+    `River quality starts at ${breakdown.riverQuality}. Wind, temperature, and rain then move the trip score to ${breakdown.finalScore} (${result.rating}).`
   );
 
+  const otherGroup = root.querySelector('[data-breakdown-other-group]');
+  if (otherGroup instanceof HTMLElement) {
+    otherGroup.hidden = breakdown.comfortAdjustment === 0;
+  }
+
   const capList = root.querySelector('[data-score-cap-reasons]');
+  const capWrap = root.querySelector('[data-score-cap-wrap]');
   if (capList instanceof HTMLElement) {
     const reasons = Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [];
-    capList.innerHTML = reasons.length
-      ? reasons.map((reason) => `<li>${reason}</li>`).join('')
-      : '<li>No soft cap applied today.</li>';
+    if (capWrap instanceof HTMLElement) {
+      capWrap.hidden = reasons.length === 0;
+    }
+    capList.innerHTML = reasons.map((reason) => `<li>${reason}</li>`).join('');
   }
 }
 
@@ -1324,7 +1359,7 @@ async function loadDetail({ silent = false } = {}) {
 
     const confidence = setText(
       'confidence',
-      `Confidence ${result.confidence.label} (${result.confidence.score}/100)`
+      `${result.confidence.label} confidence`
     );
     if (confidence instanceof HTMLElement) {
       confidence.classList.remove('confidence-pill--high', 'confidence-pill--medium', 'confidence-pill--low');

@@ -160,6 +160,38 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'red-cedar-river-menomonie-dunnville': {
+    putIn: {
+      name: 'Riverside Park Canoe Launch (Menomonie)',
+      latitude: 44.87257917,
+      longitude: -91.94084048,
+    },
+    takeOut: {
+      name: 'Dunnville Bottoms Boat Landing (County Road Y)',
+      latitude: 44.71636558,
+      longitude: -91.89691839,
+    },
+    logistics: {
+      distanceLabel: '14.75 mi',
+      shuttle:
+        'Best shuttle option is the Red Cedar State Trail bike return if your group wants to avoid a second car. A driving shuttle is still straightforward and usually simpler on cold or rainy days.',
+      permits:
+        'No route-specific paddling permit is known. If you bike the state trail shuttle, check Wisconsin DNR for any current trail pass or closure rules.',
+      camping:
+        'Treat this as a day trip. Camping legality along the lower Red Cedar is too ownership-dependent to assume from the landings alone.',
+      summary:
+        'Use Riverside Park in Menomonie as the put-in and Dunnville Bottoms as the take-out. This is a long but friendly downstream Red Cedar day when the gauge keeps enough water in the riffles.',
+      accessCaveats: [
+        'Both ends are backed by Wisconsin DNR access records, which is stronger than most community-seeded routes.',
+        'Do not let the easy character make you lazy about cold water, weather, or post-storm wood checks on a 15-mile day.',
+      ],
+      watchFor: [
+        'Low water that turns the riffly upper miles into a slower scrape-and-drag day.',
+        'Fresh strainers or wood after storms, even though the river is otherwise beginner-friendly.',
+        'Fatigue, wind, and weather exposure over a nearly 15-mile outing if your pace slips.',
+      ],
+    },
+  },
   'st-croix-river-fox-highway-70': {
     putIn: {
       name: 'Fox Landing',
@@ -868,6 +900,37 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallows and grounding in low water.',
         'Muddy bottom and tight bends that sap momentum.',
         'Stay clear of the Belleville dam or spillway upstream of the put-in.',
+      ],
+    },
+  },
+  'sugar-river-county-road-x-county-road-ee': {
+    putIn: {
+      name: 'County Road X bridge access (Sugar River)',
+      latitude: 42.79994,
+      longitude: -89.48646,
+    },
+    takeOut: {
+      name: 'County Road EE bridge access (Sugar River)',
+      latitude: 42.73374,
+      longitude: -89.44287,
+    },
+    logistics: {
+      distanceLabel: '11.5 mi',
+      shuttle:
+        'Plan a car shuttle and confirm parking etiquette at both bridge accesses before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit noted. Check County Road X and County Road EE signage for any local parking limits or closures.',
+      camping: 'No established camping documented for this segment. Treat it as a day trip.',
+      summary:
+        'Use the County Road X bridge access south of Belleville and finish at County Road EE north of Albany. This is a mellow wooded float, but low water and the full 11.5-mile length make the day feel bigger than it first looks.',
+      accessCaveats: [
+        'These accesses are supported by the regional Capitol Water Trails map, but local parking rules are still best confirmed on the ground.',
+        'County bridge landings can be muddy or debris-prone after rain, especially on the take-out side.',
+      ],
+      watchFor: [
+        'Low water slowing the day down or causing repeated grounding.',
+        'Strainers or fresh deadfall on outer bends after storms.',
+        'Fatigue, food, and weather management on a longer flatwater day.',
       ],
     },
   },

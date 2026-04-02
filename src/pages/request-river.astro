@@ -2,32 +2,33 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import requestPageScript from '../scripts/request-page.js?url';
 
-const requestEmail = 'routes@paddletoday.com';
+const requestEmail = 'hello@paddletoday.com';
 ---
 
 <BaseLayout
   title="Request A River | Paddle Today"
-  description="Request a river or reach for Paddle Today to review. Submit the basics and any useful source links."
+  description="Request a river or route for Paddle Today to review. Submit the basics and any useful source links."
+  noindex={true}
 >
   <section class="info-hero">
     <p class="eyebrow" data-request-kicker>Request a river</p>
-    <h1 data-request-title>Ask us to add a river or reach.</h1>
+    <h1 data-request-title>Ask us to add a river or route.</h1>
     <p class="muted" data-request-lede>
       Send the basics and any useful source links. We use that to prioritize the next rivers we research and score.
     </p>
   </section>
 
-  <section class="request-layout">
+  <section class="request-layout request-layout--single">
     <article class="request-card">
       <p class="eyebrow">Request form</p>
       <h2 data-request-form-title>What to send</h2>
       <p class="muted" data-request-form-note>
-        A river name, state, and enough context to understand the reach. DNR, USGS, park, or club links help a lot.
+        A river name, state, and enough context to understand the route. DNR, USGS, park, or club links help a lot.
       </p>
 
       <form class="request-form" data-request-form novalidate>
         <label>
-          River or reach name *
+          River or route name *
           <input name="routeName" required placeholder="Example: St. Croix River - Taylors Falls to Osceola" />
         </label>
 
@@ -81,19 +82,6 @@ const requestEmail = 'routes@paddletoday.com';
         <p class="muted request-form__status" data-request-status aria-live="polite"></p>
       </form>
     </article>
-
-    <aside class="info-card">
-      <p class="eyebrow">What happens next</p>
-      <h2 data-request-sidebar-title>How requests are used</h2>
-      <ul class="compact-list">
-        <li>We store requests for review and triage.</li>
-        <li>Rivers with strong gauge coverage and usable source material rise fastest.</li>
-        <li>Direct gauges and clear threshold guidance still matter more than raw demand.</li>
-      </ul>
-      <p class="muted" data-request-sidebar-note>
-        You can also use this form to flag outdated access, shuttle, hazard, or threshold details on an existing river page.
-      </p>
-    </aside>
   </section>
 
   <script type="module" src={requestPageScript}></script>

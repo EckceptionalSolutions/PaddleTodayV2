@@ -6,10 +6,8 @@ const title = document.querySelector('[data-request-title]');
 const lede = document.querySelector('[data-request-lede]');
 const formTitle = document.querySelector('[data-request-form-title]');
 const formNote = document.querySelector('[data-request-form-note]');
-const sidebarTitle = document.querySelector('[data-request-sidebar-title]');
-const sidebarNote = document.querySelector('[data-request-sidebar-note]');
 
-const REQUEST_EMAIL = 'routes@paddletoday.com';
+const REQUEST_EMAIL = 'hello@paddletoday.com';
 const COOLDOWN_KEY = 'paddletoday:riverRequest:lastTs';
 const COOLDOWN_MS = 30 * 1000;
 
@@ -126,8 +124,6 @@ function applyRequestContext() {
   setText(lede, 'Use this form if you spot an outdated access note, hazard, shuttle detail, or threshold note on an existing river page.');
   setText(formTitle, 'What changed');
   setText(formNote, 'Tell us what looked wrong, what changed, and any source or local context that helps.');
-  setText(sidebarTitle, 'How updates are used');
-  setText(sidebarNote, 'Clear corrections with a source, photo, or local context are the fastest way to improve the next river call.');
   if (submitButton instanceof HTMLButtonElement) {
     submitButton.textContent = 'Send update';
   }
@@ -183,7 +179,7 @@ function fallbackToEmail(payload) {
   const body = [
     isUpdate ? 'Paddle Today river update' : 'Paddle Today river request',
     '',
-    `River/reach: ${payload.routeName}`,
+    `River/route: ${payload.routeName}`,
     `State: ${payload.state}`,
     `Put-in: ${payload.putIn || 'N/A'}`,
     `Take-out: ${payload.takeOut || 'N/A'}`,
