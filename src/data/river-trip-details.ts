@@ -256,35 +256,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'snake-river-rush-city-bridgeview-park': {
+  'snake-river-county-road-3-mora': {
     putIn: {
-      name: 'Rush City Public Access',
-      latitude: 45.7052688,
-      longitude: -93.0493927,
+      name: 'County Road 3 Public Water Access',
+      latitude: 46.0238677,
+      longitude: -93.2319185,
     },
     takeOut: {
-      name: 'Bridgeview Park / Pine City Public Access',
-      latitude: 45.8271513,
-      longitude: -92.9690928,
+      name: 'Canoe Park / Mora Public Water Access',
+      latitude: 45.8820387,
+      longitude: -93.3097238,
     },
     logistics: {
-      distanceLabel: '11 mi',
+      distanceLabel: '15 mi',
       shuttle:
-        'Two-car shuttle between Rush City and Pine City. Both ends are signed state-water-trail access points, but parking details should still be confirmed on arrival.',
+        'Simple two-car shuttle between County Road 3 and Canoe Park in Mora. This is a longer rural Snake day, so leave extra time for shuttle setup and wood scouting.',
       permits:
-        'No route-specific permit is known. Follow public-water-trail access rules and any posted local parking restrictions.',
+        'No route-specific permit is known. Follow posted local parking and access rules at both public water accesses.',
       camping:
         'No simple on-route camping assumption is safe here. Treat this as a day trip unless you separately confirm legal overnight options.',
       summary:
-        'Launch at Rush City and take out at Bridgeview Park in Pine City. This is a full Snake River day, so both level and weather matter more than on a short park-to-park float.',
+        'Launch at County Road 3 and take out at Canoe Park in Mora. This is a full Mora-area Snake day, so both level and weather matter more than on a short park-to-park float.',
       accessCaveats: [
-        'The official route map supports both endpoints, but route length and shuttle timing matter more here than on a shorter metro paddle.',
+        'This segment is more local-knowledge driven than the lower state-water-trail park-to-park Snake routes, so access and wood conditions should be confirmed before you commit.',
         'Do not assume storm cleanup has happened after recent high water. This river can pick up new wood quickly.',
       ],
       watchFor: [
         'Low-water dragging when the Pine City gauge falls toward 2.3 ft.',
         'Fresh strainers and obstructions after storms.',
-        'Fatigue and weather exposure over an 11-mile day if the pace slows.',
+        'Fatigue and weather exposure over a 15-mile day if the pace slows.',
       ],
     },
   },

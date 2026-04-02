@@ -222,7 +222,7 @@ Remaining gap:
 - The DNR ladder is an official paddling interpretation, but it is still not a route-specific custom score model.
 - Same-segment observations above `17` ft would help us tune where the easy-day character really starts to break down.
 
-## Snake River: Rush City to Bridgeview Park
+## Snake River: County Road 3 to Canoe Park (Mora)
 
 Working thresholds:
 
@@ -233,14 +233,14 @@ Working thresholds:
 Evidence used:
 
 - The official Minnesota DNR river-level feed interprets the Pine City Snake gauge as Scrapable below `2.3` ft, Low from `2.3` to `3.3`, Medium from `3.3` to `5.0`, High from `5.0` to `6.3`, and Very High above `6.3`.
-- The old route file already used the matching direct USGS gauge (`05338500`) and the official DNR water-trail map for the route.
-- The official Snake River trail map confirms the 11-mile day-trip length and both access points.
+- The old route file already used the matching direct USGS gauge (`05338500`) for this broader Mora corridor.
+- Local route notes plus the Mora Snake River Canoe Race materials support the County Road 3 to Canoe Park access pair and a roughly `15` mile day.
 
 Interpretation:
 
 - The app maps the DNR `Medium` band to the core window.
 - The `Low` band is still treated as shoulder water because the route remains runnable before it becomes fully scrapable, but the long mileage makes low water much less attractive.
-- The `High` band remains in play with caution because route length and storm debris can make a high but non-flood stage day feel worse than the raw gauge suggests.
+- The `High` band remains in play with caution because this Mora segment is long, locally seeded rather than official state-water-trail park-to-park, and still exposed to fresh wood after storms.
 
 Remaining gap:
 

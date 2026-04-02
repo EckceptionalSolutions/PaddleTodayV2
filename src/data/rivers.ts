@@ -739,18 +739,18 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'snake-river-rush-city-bridgeview-park',
-    slug: 'snake-river-rush-city-bridgeview-park',
+    id: 'snake-river-county-road-3-mora',
+    slug: 'snake-river-county-road-3-mora',
     name: 'Snake River',
-    reach: 'Rush City to Bridgeview Park',
+    reach: 'County Road 3 to Canoe Park (Mora)',
     state: 'Minnesota',
-    region: 'East Central Minnesota',
+    region: 'Mora Area',
     summary:
-      'Long easy-to-moderate Snake River day with enough mileage that the wrong water level can waste the day. The Pine City gauge now gives us a workable official ladder instead of a pure trend-only guess.',
+      'Long Mora-area Snake River day with enough mileage that the wrong water level can waste the day. The Pine City gauge still gives us a workable official ladder, but this upstream segment also depends on fresh wood and real local read-the-river judgment.',
     statusText:
       'Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this route wants to be.',
-    latitude: 45.76621,
-    longitude: -93.00924,
+    latitude: 45.9529532,
+    longitude: -93.27082115,
     gaugeSource: {
       id: 'usgs-05338500',
       provider: 'usgs',
@@ -777,9 +777,9 @@ export const rivers: River[] = [
         'Spring through early fall is the practical window. Recent storms matter more than the calendar because fresh wood and rising current can change the day fast.',
       difficulty: 'easy',
       difficultyNotes:
-        'Mostly approachable at normal levels, but 11 miles is still a real day and higher water can turn a mellow shuttle float into a stronger moving-water commitment.',
+        'Mostly approachable at normal levels, but a 15-mile Mora day is still a real effort and higher water can turn a mellow shuttle float into a stronger moving-water commitment.',
       confidenceNotes:
-        'The official DNR ladder finally gives this route a defendable numeric band on the same Pine City gauge the old route already used. Confidence is still tempered by the route\'s length and by the fact that wood and storm aftermath can change an otherwise in-range day.',
+        'The official DNR ladder gives this route a defendable numeric band on the Pine City gauge, but the Mora segment still leans more on local knowledge than a state-water-trail park-to-park float. Confidence is tempered by route length, wood, and the fact that the access pair comes from local route knowledge rather than an official DNR segment page.',
     },
     evidenceNotes: [
       {
@@ -790,15 +790,15 @@ export const rivers: River[] = [
       },
       {
         label: 'Trip length',
-        value: '11 miles',
-        note: 'This is a full day, not a park loop. Low water hurts pace and high water raises consequence over a longer stretch.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+        value: '15 miles',
+        note: 'The Mora Snake River Canoe Race uses this County Road 3 to Canoe Park corridor as a full-day route.',
+        sourceUrl: 'https://vasaloppet.us/calendar/canoe-and-kayak-race/',
       },
       {
         label: 'Access confidence',
-        value: 'Official water-trail landings',
-        note: 'Rush City and Bridgeview Park are both named public water-trail endpoints on the official Snake River map.',
-        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+        value: 'Local mapped landings',
+        note: 'County Road 3 and Canoe Park are clean named landings in the carried-over route data and race materials, but not the same official DNR park-to-park pair used on the lower Snake route.',
+        sourceUrl: 'https://vasaloppet.us/snake-river-canoe-race/',
       },
       {
         label: 'Primary caution',
@@ -823,6 +823,10 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Snake River map PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Vasaloppet Snake River Canoe Race',
+        url: 'https://vasaloppet.us/snake-river-canoe-race/',
       },
       {
         label: 'USGS 05338500 monitoring location',

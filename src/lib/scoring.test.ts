@@ -533,7 +533,7 @@ const whiteRiver = rivers.find((river) => river.slug === 'white-river-maple-ridg
 const stCroixFox70 = rivers.find((river) => river.slug === 'st-croix-river-fox-highway-70');
 const rumRiver = rivers.find((river) => river.slug === 'rum-river-martins-north-county-park');
 const saukRiver = rivers.find((river) => river.slug === 'sauk-river-eagle-miller-landing');
-const snakeRiver = rivers.find((river) => river.slug === 'snake-river-rush-city-bridgeview-park');
+const snakeRiver = rivers.find((river) => river.slug === 'snake-river-county-road-3-mora');
 const northForkCrow = rivers.find((river) => river.slug === 'north-fork-crow-river-riverside-dayton');
 const minnehahaCreek = rivers.find((river) => river.slug === 'minnehaha-creek-grays-bay-longfellow-lagoon');
 const zumbro = rivers.find((river) => river.slug === 'zumbro-river-falls');
