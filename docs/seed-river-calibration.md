@@ -172,6 +172,130 @@ Remaining gap:
 - No stronger preferred band or high-water cutoff was found for this exact route.
 - The best next upgrade would be more repeated same-segment observations or a stronger local paddling source that distinguishes merely runnable water from truly good conditions.
 
+## Rum River: Martin's Landing to North County Park
+
+Working thresholds:
+
+- low bound: `600` cfs
+- sweet spot: `1,000` to `2,000` cfs
+- high bound: `3,000` cfs
+
+Evidence used:
+
+- The official Minnesota DNR river-level feed interprets the St. Francis gauge as Scrapable below `600` cfs, Low from `600` to `1,000`, Medium from `1,000` to `2,000`, High from `2,000` to `3,000`, and Very High above `3,000`.
+- Minnesota DNR treats Martin's Landing to Rum River North County Park as a recommended paddling trip.
+- The old route file already used the same direct USGS gauge (`05286000`) and supported both access points.
+
+Interpretation:
+
+- The app maps the DNR `Medium` band to the working sweet spot.
+- `Low` becomes a low shoulder instead of an automatic no-go because the DNR scale still treats it as paddleable rather than scrapable.
+- `Very High` becomes the upper no-go edge because the route's easy scenic character breaks down before a broad audience should treat it as a good same-day recommendation.
+
+Remaining gap:
+
+- The DNR bands are official but broad, and the DNR page warns the interpretations can contain errors.
+- The route would still benefit from more repeated trip reports tied to the St. Francis gauge so we can better separate merely runnable water from truly best-quality days.
+
+## Sauk River: Eagle Park to Miller Landing
+
+Working thresholds:
+
+- low bound: `14` ft
+- sweet spot: `15` to `17` ft
+- high bound: `20` ft
+
+Evidence used:
+
+- The official Minnesota DNR river-level feed interprets the Sauk gauge as Scrapable below `14` ft, Low from `14` to `15`, Medium from `15` to `17`, High from `17` to `20`, and Very High above `20`.
+- Minnesota DNR already treats Eagle Park to Miller Landing as the recommended day trip on the lower Sauk.
+- DNR route notes explicitly say the segment is not recommended in late summer when water is low, which aligns with the low-water floor.
+
+Interpretation:
+
+- The app maps the DNR `Medium` band to the core same-day target.
+- The `Low` band stays in play as a shoulder because the official route is still fundamentally easy there, just less worthwhile.
+- The `High` band is left in play but treated cautiously because the DNR ladder is broad and the route is sold as an easy scenic trip, not a flood-stage challenge run.
+
+Remaining gap:
+
+- The DNR ladder is an official paddling interpretation, but it is still not a route-specific custom score model.
+- Same-segment observations above `17` ft would help us tune where the easy-day character really starts to break down.
+
+## Snake River: Rush City to Bridgeview Park
+
+Working thresholds:
+
+- low bound: `2.3` ft
+- sweet spot: `3.3` to `5.0` ft
+- high bound: `6.3` ft
+
+Evidence used:
+
+- The official Minnesota DNR river-level feed interprets the Pine City Snake gauge as Scrapable below `2.3` ft, Low from `2.3` to `3.3`, Medium from `3.3` to `5.0`, High from `5.0` to `6.3`, and Very High above `6.3`.
+- The old route file already used the matching direct USGS gauge (`05338500`) and the official DNR water-trail map for the route.
+- The official Snake River trail map confirms the 11-mile day-trip length and both access points.
+
+Interpretation:
+
+- The app maps the DNR `Medium` band to the core window.
+- The `Low` band is still treated as shoulder water because the route remains runnable before it becomes fully scrapable, but the long mileage makes low water much less attractive.
+- The `High` band remains in play with caution because route length and storm debris can make a high but non-flood stage day feel worse than the raw gauge suggests.
+
+Remaining gap:
+
+- The DNR ladder is broad and still subject to human interpretation.
+- This route would benefit from more same-segment observations about how quickly wood, obstructions, and fatigue change the day once the river leaves the medium band.
+
+## North Fork Crow River: Riverside County Park to Dayton
+
+Working thresholds:
+
+- low bound: `345` cfs
+- sweet spot: `500` to `1,500` cfs
+- high bound: `1,750` cfs
+
+Evidence used:
+
+- The official Minnesota DNR river-level feed interprets the lower North Fork Crow ladder near Rockford as Scrapable below `345` cfs, Low from `345` to `500`, Medium from `500` to `1,500`, High from `1,500` to `1,750`, and Very High above `1,750`.
+- The old route file already used the lower Crow/Dayton USGS gauge family and had authoritative access support from MN DNR and local park managers.
+- The official DNR water-trail map confirms the route length and both access points.
+
+Interpretation:
+
+- The app maps the DNR `Medium` band to the sweet spot for this lower-river corridor.
+- The `Low` band stays in play as a shoulder because the route remains launchable, but a 15-mile day suffers quickly when the river gets too scrapy.
+- The `High` band remains in play with caution because the route is long, wooded, and less forgiving after recent storms.
+
+Remaining gap:
+
+- The DNR ladder is still a broad corridor interpretation, not a custom route-only calibration tied exactly to the Dayton take-out.
+- More same-segment observations would help separate merely runnable days from truly best-quality days on this long route.
+
+## Minnehaha Creek: Gray's Bay to Longfellow Lagoon
+
+Working thresholds:
+
+- official paddling band: `75` to `150` cfs
+
+Evidence used:
+
+- MCWD explicitly says ideal paddling conditions are when the Minnehaha Creek at Hiawatha Avenue gauge reads between `75` and `150` cfs.
+- MCWD also says below `75` cfs conditions are poor and above `150` cfs conditions are dangerous.
+- The same official page and map provide a full official landing list from Gray's Bay headwaters to Longfellow Lagoon, which is a better product fit than treating one vague upper-creek retail lot as the only finish.
+- The live USGS Hiawatha gauge (`05289800`) is available and matches the official MCWD guidance.
+
+Interpretation:
+
+- The app treats the official `75` to `150` cfs band as the entire preferred window.
+- Below `75` is too low and above `150` is too high; there is no reason to invent a softer shoulder when MCWD already gives a direct go/no-go style flow rule.
+- Confidence is still moderated by the creek itself, because bridges, wood, portages, and urban landing complexity can make a nominally good flow day feel worse than a broad scenic river.
+
+Remaining gap:
+
+- The route would benefit from stronger official landing-by-landing access detail at the Knollwood end.
+- Same-segment observations within the `75` to `150` band would help tune whether the whole published window truly feels equally good in practice.
+
 ## Black Hawk Creek: Franck Park to Ranchero Road
 
 Working thresholds:

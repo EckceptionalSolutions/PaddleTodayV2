@@ -192,6 +192,311 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'rum-river-martins-north-county-park': {
+    putIn: {
+      name: "Martin's Landing trailer access",
+      latitude: 45.488325,
+      longitude: -93.266746,
+    },
+    takeOut: {
+      name: 'Rum River North County Park access',
+      latitude: 45.394587,
+      longitude: -93.353557,
+    },
+    logistics: {
+      distanceLabel: '10.9 mi',
+      shuttle:
+        'Standard two-car shuttle. Confirm parking rules at Martin\'s Landing and at Rum River North County Park before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access, parking, and boating rules at both public landings.',
+      camping:
+        'Treat this as a day trip. Corridor camping rules vary by ownership and are not simple enough to assume from the landings alone.',
+      summary:
+        'Put in at Martin\'s Landing and take out at Rum River North County Park. This is a straightforward scenic shuttle day when the St. Francis gauge is comfortably above scrape level.',
+      accessCaveats: [
+        'The take-out is a county park, so local park hours or parking rules can matter more than on a roadside access.',
+        'Do not assume flood-stage debris cleanup has already happened after recent storms just because the route is usually easy.',
+      ],
+      watchFor: [
+        'Low-water scraping and slower pace when the gauge falls toward the 600 cfs floor.',
+        'Fresh strainers and debris after heavy rain or spring runoff.',
+        'Cold-water exposure outside midsummer, even on a mellow current day.',
+      ],
+    },
+  },
+  'sauk-river-eagle-miller-landing': {
+    putIn: {
+      name: 'Eagle Park carry-in access',
+      latitude: 45.4754595,
+      longitude: -94.3502588,
+    },
+    takeOut: {
+      name: 'Miller Landing carry-in access',
+      latitude: 45.5517091,
+      longitude: -94.2647146,
+    },
+    logistics: {
+      distanceLabel: '8.6 mi',
+      shuttle:
+        'Standard self-shuttle works best. Miller Landing has posted county-park hours, so confirm you can leave and retrieve vehicles inside that window.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR day trip. Follow posted local rules at Eagle Park and Miller Landing.',
+      camping:
+        'Treat this as a day trip unless you separately confirm legal overnight options away from the landing parks.',
+      summary:
+        'Use Eagle Park in Rockville as the put-in and Miller Landing in Waite Park as the take-out. This is a clean lower-Sauk shuttle when the gauge is not stuck in the late-summer low band.',
+      accessCaveats: [
+        'Miller Landing is a managed county park with posted hours and local rules that still deserve a same-day check.',
+        'Low water and summer vegetation can make an easy route feel much longer and less fun than the score alone suggests.',
+      ],
+      watchFor: [
+        'Shallow stretches and thick vegetation when the gauge slides toward 14 ft.',
+        'Storm debris and strainers after recent rain.',
+        'Cold-water risk outside midsummer, even on an otherwise easy route.',
+      ],
+    },
+  },
+  'snake-river-rush-city-bridgeview-park': {
+    putIn: {
+      name: 'Rush City Public Access',
+      latitude: 45.7052688,
+      longitude: -93.0493927,
+    },
+    takeOut: {
+      name: 'Bridgeview Park / Pine City Public Access',
+      latitude: 45.8271513,
+      longitude: -92.9690928,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      shuttle:
+        'Two-car shuttle between Rush City and Pine City. Both ends are signed state-water-trail access points, but parking details should still be confirmed on arrival.',
+      permits:
+        'No route-specific permit is known. Follow public-water-trail access rules and any posted local parking restrictions.',
+      camping:
+        'No simple on-route camping assumption is safe here. Treat this as a day trip unless you separately confirm legal overnight options.',
+      summary:
+        'Launch at Rush City and take out at Bridgeview Park in Pine City. This is a full Snake River day, so both level and weather matter more than on a short park-to-park float.',
+      accessCaveats: [
+        'The official route map supports both endpoints, but route length and shuttle timing matter more here than on a shorter metro paddle.',
+        'Do not assume storm cleanup has happened after recent high water. This river can pick up new wood quickly.',
+      ],
+      watchFor: [
+        'Low-water dragging when the Pine City gauge falls toward 2.3 ft.',
+        'Fresh strainers and obstructions after storms.',
+        'Fatigue and weather exposure over an 11-mile day if the pace slows.',
+      ],
+    },
+  },
+  'north-fork-crow-river-riverside-dayton': {
+    putIn: {
+      name: 'Riverside County Park carry-in access',
+      latitude: 45.1644165,
+      longitude: -93.6413049,
+    },
+    takeOut: {
+      name: 'Mississippi/Crow rivers trailer access',
+      latitude: 45.2453021,
+      longitude: -93.5212957,
+    },
+    logistics: {
+      distanceLabel: '15.3 mi',
+      shuttle:
+        'Standard two-car shuttle. Confirm any county-park or landing parking rules before leaving vehicles for a full day or overnight.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted park, landing, and boating rules at both ends.',
+      camping:
+        'Riverside County Park has a reservable backcountry canoe campsite, but do not assume the trip needs or includes camping unless you book it separately.',
+      summary:
+        'Launch at Riverside County Park near Hanover and take out at the Dayton-area Crow/Mississippi access. This is a long lower-river shuttle day where level still matters because low water drags the pace down quickly.',
+      accessCaveats: [
+        'This route is long enough that shuttle timing, parking rules, and daylight matter more than on a quick half-day paddle.',
+        'Use posted rules at both landings rather than assuming old forum or trip-report parking details are still current.',
+      ],
+      watchFor: [
+        'Low-water dragging and a slower-than-expected pace when the river falls toward 345 cfs.',
+        'Fresh wood, strainers, and debris after storms or rising water.',
+        'Fatigue, cold-water exposure, and wind on a 15-mile day even if the gauge looks okay.',
+      ],
+    },
+  },
+  'minnehaha-creek-grays-bay-longfellow-lagoon': {
+    putIn: {
+      id: 'headwaters',
+      name: "Gray's Bay headwaters",
+      latitude: 44.953252,
+      longitude: -93.487488,
+    },
+    takeOut: {
+      id: 'longfellow-lagoon',
+      name: 'Longfellow Lagoon',
+      latitude: 44.961125473,
+      longitude: -93.215049079,
+    },
+    logistics: {
+      distanceLabel: '21.3 mi',
+      shuttle:
+        'Use the official access list to build a shorter one-way segment or run the whole creek with a long urban shuttle. The planner is the right way to use this corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow local park, trail, and landing rules anywhere you stage vehicles along the creek.',
+      camping:
+        'No camping is part of this route. Treat Minnehaha as a day-trip corridor with many shorter segment options.',
+      summary:
+        'The official MCWD access list turns Minnehaha into a choose-your-segment corridor. Use the planner below instead of assuming one default put-in and take-out.',
+      accessCaveats: [
+        'Several official access points are parks or roadside landings rather than formal ramps. Confirm parking, legal access, and any current closures on the ground.',
+        'Required portages around dams and lake transitions matter as much as the gauge on this creek.',
+      ],
+      watchFor: [
+        'Low bridges, wood, rocks, and fast current after rain, especially when flows rise toward or above 150 cfs.',
+        'Required portages around the Edina Mills dam, the 54th Street dam, and the Lake Nokomis transition.',
+        'Urban access complexity. Use only the designated MCWD landing points rather than random bank openings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'headwaters',
+        name: "Gray's Bay headwaters",
+        latitude: 44.953252,
+        longitude: -93.487488,
+        mileFromStart: 0,
+        segmentKind: 'lake',
+        note: 'Official creek start below Gray\'s Bay Dam.',
+      },
+      {
+        id: 'jidana-park',
+        name: 'Jidana Park',
+        latitude: 44.941860141,
+        longitude: -93.477039156,
+        mileFromStart: 0.8,
+        segmentKind: 'lake',
+        note: 'Small early access if you want to skip the first headwaters mile.',
+      },
+      {
+        id: 'minnetonka-civic-center',
+        name: 'Minnetonka Civic Center',
+        mileFromStart: 1.6,
+        segmentKind: 'lake',
+        note: 'Official civic-center access on the upper creek.',
+      },
+      {
+        id: 'burwell-park',
+        name: 'Burwell Park',
+        mileFromStart: 2.4,
+        segmentKind: 'lake',
+        note: 'Official upper-creek park access.',
+      },
+      {
+        id: 'big-willow-park',
+        name: 'Big Willow Park',
+        mileFromStart: 3.2,
+        segmentKind: 'lake',
+        note: 'Upper-creek park access before the more road-adjacent segment options.',
+      },
+      {
+        id: 'hopkins-crossroad',
+        name: 'Hopkins Crossroad',
+        mileFromStart: 4.2,
+        segmentKind: 'lake',
+        note: 'Useful upper-creek split point if you want a shorter western segment.',
+      },
+      {
+        id: 'minnetonka-boulevard-bridge',
+        name: 'Minnetonka Boulevard Bridge',
+        latitude: 44.9452789,
+        longitude: -93.4055478,
+        mileFromStart: 5.4,
+        segmentKind: 'lake',
+        note: 'Roadside access as the creek starts to feel less like the upper headwaters lakes.',
+      },
+      {
+        id: 'knollwood-target',
+        name: 'Knollwood Target',
+        latitude: 44.9473441,
+        longitude: -93.389443823,
+        mileFromStart: 6.8,
+        segmentKind: 'transition',
+        note: 'Official parking access, but less clean as a landing than Creekside Park farther downstream.',
+      },
+      {
+        id: 'creekside-park',
+        name: 'Creekside Park',
+        latitude: 44.930522365,
+        longitude: -93.373441764,
+        mileFromStart: 8,
+        segmentKind: 'transition',
+        note: 'Cleaner designated park take-out than the retail Knollwood lot.',
+      },
+      {
+        id: 'louisiana-avenue',
+        name: 'Louisiana Avenue',
+        latitude: 44.92872352,
+        longitude: -93.364853081,
+        mileFromStart: 8.9,
+        segmentKind: 'transition',
+        note: 'Shorter-day option just downstream of Creekside Park.',
+      },
+      {
+        id: 'browndale-avenue',
+        name: 'Browndale Avenue',
+        mileFromStart: 11.6,
+        segmentKind: 'transition',
+        note: 'Official access near the required Edina Mills dam portage.',
+      },
+      {
+        id: 'utley-park',
+        name: 'Utley Park',
+        mileFromStart: 11.7,
+        segmentKind: 'transition',
+        note: 'Useful mid-creek access immediately below the Edina Mills portage area.',
+      },
+      {
+        id: 'arden-park',
+        name: 'Arden Park / W 54th Street',
+        latitude: 44.905593159,
+        longitude: -93.333884296,
+        mileFromStart: 12.7,
+        segmentKind: 'transition',
+        note: 'Official access near another required portage around the 54th Street dam.',
+      },
+      {
+        id: 'lynnhurst-park',
+        name: 'Lynnhurst Park',
+        latitude: 44.911466826,
+        longitude: -93.29882246,
+        mileFromStart: 15.7,
+        segmentKind: 'transition',
+        note: 'Popular middle-to-lower creek park access.',
+      },
+      {
+        id: 'lake-nokomis',
+        name: 'Lake Nokomis',
+        latitude: 44.915882352,
+        longitude: -93.242957411,
+        mileFromStart: 19.4,
+        segmentKind: 'creek',
+        note: 'A portage is required to enter Lake Nokomis.',
+      },
+      {
+        id: 'lake-hiawatha',
+        name: 'Lake Hiawatha',
+        latitude: 44.918693381,
+        longitude: -93.232164201,
+        mileFromStart: 20.1,
+        segmentKind: 'creek',
+        note: 'Lower-creek access after the Nokomis transition.',
+      },
+      {
+        id: 'longfellow-lagoon',
+        name: 'Longfellow Lagoon',
+        latitude: 44.961125473,
+        longitude: -93.215049079,
+        mileFromStart: 21.3,
+        segmentKind: 'creek',
+        note: 'Official route end before Minnehaha Falls.',
+      },
+    ],
+  },
   'zumbro-river-falls': {
     putIn: {
       name: 'Green Bridge (Zumbro River)',

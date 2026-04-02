@@ -553,6 +553,468 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'rum-river-martins-north-county-park',
+    slug: 'rum-river-martins-north-county-park',
+    name: 'Rum River',
+    reach: "Martin's Landing to North County Park",
+    state: 'Minnesota',
+    region: 'Twin Cities North Metro',
+    summary:
+      'Classic easy Rum day with enough current to feel like a river, not just a slow drift. The main decision is whether the St. Francis gauge is above scrape level without pushing into floody debris conditions.',
+    statusText:
+      'Treat the DNR medium band as the best window here. Below about 600 cfs gets too scrapy, and above 3,000 cfs turns this into a high-water day rather than a casual yes.',
+    latitude: 45.44146,
+    longitude: -93.31015,
+    gaugeSource: {
+      id: 'usgs-05286000',
+      provider: 'usgs',
+      siteId: '05286000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Rum River near St. Francis, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 2000,
+      tooLow: 600,
+      tooHigh: 3000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Rum River near St. Francis',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the main window. Summer can still work well, but very low water slows the day down fast and post-rain debris still matters.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Generally beginner-friendly with wider, deeper current than the smallest creeks, but flood debris and cold shoulder-season water still deserve respect.',
+      confidenceNotes:
+        'The route and gauge are both officially supported, and the DNR river-level page provides a real paddling ladder for the St. Francis gauge. Confidence is still not absolute because DNR flags these interpretations as human-reviewed guidance rather than infallible route-specific truth.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '600 / 1,000 / 2,000 / 3,000 cfs',
+        note: 'MN DNR interprets this gauge as Scrapable below 600 cfs, Low from 600 to 1,000, Medium from 1,000 to 2,000, High from 2,000 to 3,000, and Very High above 3,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route character',
+        value: 'Easy scenic day',
+        note: 'MN DNR treats Martin\'s Landing to Rum River North County Park as a recommended paddling trip with few rapids and a wider, deeper lower-river feel.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/recommended/rum.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Martin\'s Landing and Rum River North County Park are both documented public endpoints for this corridor.',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Flood debris',
+        note: 'Rising post-rain water can add debris and make an easy scenic route feel less forgiving.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR recommended Rum trip',
+        url: 'https://www.dnr.state.mn.us/watertrails/recommended/rum.html',
+      },
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'USGS 05286000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05286000/',
+      },
+      {
+        label: 'Anoka County Rum River North County Park',
+        url: 'https://www.anokacountymn.gov/Facilities/Facility/Details/Rum-River-North-County-Park-15',
+      },
+    ],
+  },
+  {
+    id: 'sauk-river-eagle-miller-landing',
+    slug: 'sauk-river-eagle-miller-landing',
+    name: 'Sauk River',
+    reach: 'Eagle Park to Miller Landing',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Friendly lower Sauk day with easy current, tree cover, and a cleaner decision than many borderline small rivers. Low water and vegetation are the main quality killers before it becomes a true no-go.',
+    statusText:
+      'Treat 15 to 17 ft as the best zone. Below 14 ft drifts toward scrapey late-summer conditions, and above 20 ft deserves a much more cautious flood-style read.',
+    latitude: 45.51358,
+    longitude: -94.30749,
+    gaugeSource: {
+      id: 'usgs-05270500',
+      provider: 'usgs',
+      siteId: '05270500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River near St. Cloud, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the core window. By late summer, low water and vegetation can drag quality down before the route fully stops working.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Approachable for newer paddlers at sane levels, but wood, strainers, and cold-water exposure still matter more than the easy label alone implies.',
+      confidenceNotes:
+        'The route itself is a Minnesota DNR recommended day trip and the DNR river-level system publishes a real interpreted ladder for the matching Sauk gauge. Confidence stays a bit below absolute because the ladder is a broad paddling interpretation, not a custom route-only score model.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets this gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '8.6 miles',
+        note: 'MN DNR treats Eagle Park to Miller Landing as the recommended lower Sauk day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'Low-water caution',
+        value: 'Late summer can get scrapy',
+        note: 'MN DNR explicitly says this segment is not recommended in late summer when the water is low and vegetation gets thick.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Eagle Park and Miller Landing both have authoritative local manager pages backing the access points.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+      {
+        label: 'City of Rockville Eagle Park',
+        url: 'https://www.rockvillecity.org/eaglepark',
+      },
+      {
+        label: 'Stearns County Miller Landing',
+        url: 'https://www.stearnscountymn.gov/393/Miller-Landing',
+      },
+    ],
+  },
+  {
+    id: 'snake-river-rush-city-bridgeview-park',
+    slug: 'snake-river-rush-city-bridgeview-park',
+    name: 'Snake River',
+    reach: 'Rush City to Bridgeview Park',
+    state: 'Minnesota',
+    region: 'East Central Minnesota',
+    summary:
+      'Long easy-to-moderate Snake River day with enough mileage that the wrong water level can waste the day. The Pine City gauge now gives us a workable official ladder instead of a pure trend-only guess.',
+    statusText:
+      'Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this route wants to be.',
+    latitude: 45.76621,
+    longitude: -93.00924,
+    gaugeSource: {
+      id: 'usgs-05338500',
+      provider: 'usgs',
+      siteId: '05338500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Snake River near Pine City, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.3,
+      idealMax: 5,
+      tooLow: 2.3,
+      tooHigh: 6.3,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Snake River near Pine City',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the practical window. Recent storms matter more than the calendar because fresh wood and rising current can change the day fast.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly approachable at normal levels, but 11 miles is still a real day and higher water can turn a mellow shuttle float into a stronger moving-water commitment.',
+      confidenceNotes:
+        'The official DNR ladder finally gives this route a defendable numeric band on the same Pine City gauge the old route already used. Confidence is still tempered by the route\'s length and by the fact that wood and storm aftermath can change an otherwise in-range day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2.3 / 3.3 / 5.0 / 6.3 ft',
+        note: 'MN DNR interprets this gauge as Scrapable below 2.3 ft, Low from 2.3 to 3.3, Medium from 3.3 to 5.0, High from 5.0 to 6.3, and Very High above 6.3.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Trip length',
+        value: '11 miles',
+        note: 'This is a full day, not a park loop. Low water hurts pace and high water raises consequence over a longer stretch.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Official water-trail landings',
+        note: 'Rush City and Bridgeview Park are both named public water-trail endpoints on the official Snake River map.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Storm debris',
+        note: 'After storms or high water, expect new strainers and obstructions that the gauge alone cannot fully price in.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/snakeriver/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Snake River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/index.html',
+      },
+      {
+        label: 'MN DNR Snake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Snake River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'USGS 05338500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05338500/',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-crow-river-riverside-dayton',
+    slug: 'north-fork-crow-river-riverside-dayton',
+    name: 'North Fork Crow River',
+    reach: 'Riverside County Park to Dayton',
+    state: 'Minnesota',
+    region: 'Twin Cities Northwest Metro',
+    summary:
+      'Long lower North Fork Crow run with enough mileage that level still matters even though the river is not especially technical. The Dayton end is well-supported, and the DNR ladder finally gives this corridor a real launchability band.',
+    statusText:
+      'Treat 500 to 1,500 cfs as the best zone on the lower North Fork Crow. Below 345 cfs gets too scrapy for a long day, and above 1,750 cfs is no longer a broad-audience same-day recommendation.',
+    latitude: 45.20486,
+    longitude: -93.5813,
+    gaugeSource: {
+      id: 'usgs-05280400',
+      provider: 'usgs',
+      siteId: '05280400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow River below State Hwy 101 at Dayton, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1500,
+      tooLow: 345,
+      tooHigh: 1750,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for North Fork Crow River near Rockford',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the main window. Summer can still work, but low water drags down a 15-mile day quickly and flood debris still matters after storms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Not especially technical at sane levels, but 15-plus miles, wood, and a lower-river shuttle make this more of a committed river day than a casual park float.',
+      confidenceNotes:
+        'This route now has both official access support and an official DNR paddling ladder for the lower North Fork Crow corridor. Confidence stays below absolute because the DNR ladder is broad and the route is long enough that strainers, fatigue, and storm debris still matter beyond the raw number.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '345 / 500–1,500 / 1,750 cfs',
+        note: 'MN DNR interprets the lower North Fork Crow gauge as Scrapable below 345 cfs, Low from 345 to 500, Medium from 500 to 1,500, High from 1,500 to 1,750, and Very High above 1,750.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Trip length',
+        value: '15.3 miles',
+        note: 'This is a long lower-river day. Low water and fatigue matter more here than on a short metro paddle.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow2.pdf',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Both Riverside County Park and the Dayton/Crow-Mississippi access are backed by DNR access-guide material and local manager pages.',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Wood after rain',
+        note: 'Treat storms and recent high water as a stronger caution signal than the gauge alone, especially on a long route with fewer quick exit options.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow2.pdf',
+      },
+      {
+        label: 'USGS 05280400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05280400/',
+      },
+      {
+        label: 'MN DNR Crow access guide',
+        url: 'https://www.dnr.state.mn.us/areas/fisheries/saukrapids/crow_river_access.html',
+      },
+    ],
+  },
+  {
+    id: 'minnehaha-creek-grays-bay-longfellow-lagoon',
+    slug: 'minnehaha-creek-grays-bay-longfellow-lagoon',
+    name: 'Minnehaha Creek',
+    reach: "Gray's Bay to Longfellow Lagoon",
+    state: 'Minnesota',
+    region: 'Twin Cities West Metro',
+    summary:
+      'Urban Minnehaha Creek corridor with many designated landings, but it only works when the Hiawatha gauge is inside the MCWD paddling band. Low water means scraping and portaging; high water turns bridges, rapids, and bends into a bad decision fast.',
+    statusText:
+      'MCWD recommends paddling only between 75 and 150 cfs at Hiawatha. Below that gets scrape-heavy, and above that the creek becomes difficult to navigate safely under bridges and through faster features.',
+    latitude: 44.9572,
+    longitude: -93.3513,
+    gaugeSource: {
+      id: 'usgs-05289800',
+      provider: 'usgs',
+      siteId: '05289800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Minnehaha Creek at Hiawatha Ave. in Minneapolis, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 75,
+      idealMax: 150,
+      tooLow: 75,
+      tooHigh: 150,
+      thresholdSource: {
+        label: 'Minnehaha Creek Watershed District paddling guidance',
+        url: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      windSensitivity: 0.8,
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Warm-season paddling only. This creek is flow-sensitive, bridge-heavy, and much less forgiving after rain or in cold shoulder-season water.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Technically approachable at proper flows, but urban obstacles, low bridges, portages, and fast post-rain current make this more than a blind beginner yes.',
+      confidenceNotes:
+        'MCWD publishes an official paddling band and explicitly ties it to the live USGS Hiawatha gauge, which makes this a stronger route than most old-repo candidates. Confidence is still capped by the creek itself, because bridge clearance, wood, and urban obstacles can change the day even inside the official flow range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official band',
+        value: '75 to 150 cfs',
+        note: 'MCWD says ideal paddling conditions are when the Hiawatha gauge reads between 75 and 150 cfs.',
+        sourceUrl: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+      {
+        label: 'Below range',
+        value: 'Poor',
+        note: 'MCWD says below 75 cfs you may need to portage over portions of the creek.',
+        sourceUrl: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+      {
+        label: 'Above range',
+        value: 'Dangerous',
+        note: 'MCWD says above 150 cfs it becomes difficult to navigate through fast-moving rapids and under bridges.',
+        sourceUrl: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+      {
+        label: 'Trip length',
+        value: '21.3 miles',
+        note: 'MCWD treats the entire creek from Gray\'s Bay headwaters to Longfellow Lagoon as about 6 to 9 hours, with shorter official sub-segments in between.',
+        sourceUrl: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MCWD Paddle Minnehaha Creek',
+        url: 'https://minnehahacreek.org/explore/watershed-places/paddle-minnehaha-creek/',
+      },
+      {
+        label: 'MCWD paddling map PDF',
+        url: 'https://minnehahacreek.org/wp-content/uploads/2023/04/MCWD-Creek-Map-2018-FINAL-tagged.pdf',
+      },
+      {
+        label: 'USGS 05289800 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05289800/',
+      },
+      {
+        label: "MCWD Gray's Bay Dam operations",
+        url: 'https://minnehahacreek.org/explore/grays-bay-dam/grays-bay-dam-operations/',
+      },
+    ],
+  },
+  {
     id: 'zumbro-river-falls',
     slug: 'zumbro-river-falls',
     name: 'Zumbro River',
