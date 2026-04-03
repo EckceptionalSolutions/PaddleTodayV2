@@ -88,6 +88,7 @@ const weather: WeatherSnapshot = {
   next12hWindMphMax: 10,
   next12hStormRisk: false,
   weatherCode: 1,
+  todayHourly: [],
   tomorrow: {
     label: 'Tomorrow',
     startDate: '2026-05-11',

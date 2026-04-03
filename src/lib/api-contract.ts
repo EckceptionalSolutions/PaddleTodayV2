@@ -10,6 +10,7 @@ import type {
   ScoreBreakdown,
   WeatherSnapshot,
 } from './types';
+import type { RiverHistoryDaySummary, RiverHistoryResult, RiverHistorySnapshot } from './history';
 
 export interface RiverSummaryApiItem {
   river: {
@@ -107,6 +108,17 @@ export interface RiverGroupApiResult {
     regionSummary: string;
   };
   routes: RiverDetailApiResult[];
+}
+
+export interface RiverHistoryApiResult {
+  river: {
+    slug: string;
+    name: string;
+    reach: string;
+  };
+  latestSnapshotAt: string | null;
+  days: RiverHistoryDaySummary[];
+  todayHourly: RiverHistorySnapshot[];
 }
 
 export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryApiItem {
@@ -253,6 +265,26 @@ export function serializeRiverGroupResult(args: {
       regionSummary: regions.join(', '),
     },
     routes: args.routes.map(serializeDetailResult),
+  };
+}
+
+export function serializeRiverHistoryResult(args: {
+  river: {
+    slug: string;
+    name: string;
+    reach: string;
+  };
+  history: RiverHistoryResult;
+}): RiverHistoryApiResult {
+  return {
+    river: {
+      slug: args.river.slug,
+      name: args.river.name,
+      reach: args.river.reach,
+    },
+    latestSnapshotAt: args.history.latestSnapshotAt,
+    days: args.history.days,
+    todayHourly: args.history.todayHourly,
   };
 }
 

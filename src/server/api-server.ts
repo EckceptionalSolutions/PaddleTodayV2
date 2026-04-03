@@ -2,8 +2,14 @@ import { createServer, type ServerResponse } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
-import { serializeDetailResult, serializeRiverGroupResult, serializeSummaryResult } from '../lib/api-contract';
-import { getAllRiverScores, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
+import {
+  serializeDetailResult,
+  serializeRiverGroupResult,
+  serializeRiverHistoryResult,
+  serializeSummaryResult,
+} from '../lib/api-contract';
+import { captureHistorySnapshotForResults, getRiverHistory } from '../lib/history';
+import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
@@ -33,6 +39,7 @@ const server = createServer(async (request, response) => {
 
   const isRiverRequestPath =
     requestUrl.pathname === '/api/river-request' || requestUrl.pathname === '/api/route-request';
+  const isHistorySnapshotPath = requestUrl.pathname === '/api/history/snapshot';
 
   if (isRiverRequestPath && request.method === 'OPTIONS') {
     return sendEmpty(response, 204, {
@@ -46,6 +53,20 @@ const server = createServer(async (request, response) => {
 
   if (isRiverRequestPath && request.method === 'POST') {
     return handleRiverRequest(request, response, requestId, includeBody);
+  }
+
+  if (isHistorySnapshotPath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept, authorization, x-history-token',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isHistorySnapshotPath && request.method === 'POST') {
+    return handleHistorySnapshot(request, response, requestId, includeBody);
   }
 
   if (request.method !== 'GET' && request.method !== 'HEAD') {
@@ -109,6 +130,34 @@ const server = createServer(async (request, response) => {
         requestId,
         generatedAt: new Date().toISOString(),
         result: serializeDetailResult(result),
+      }, includeBody);
+    }
+
+    const historyMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/history\.json$/);
+    if (historyMatch) {
+      const slug = decodeURIComponent(historyMatch[1] || '');
+      const river = getRiverBySlug(slug);
+
+      if (!river) {
+        return sendJson(response, 404, {
+          requestId,
+          error: 'not_found',
+        }, includeBody);
+      }
+
+      const days = Number(requestUrl.searchParams.get('days') || '7');
+      const history = await getRiverHistory({
+        slug,
+        days: Number.isFinite(days) ? days : 7,
+      });
+
+      return sendJson(response, 200, {
+        requestId,
+        generatedAt: new Date().toISOString(),
+        result: serializeRiverHistoryResult({
+          river,
+          history,
+        }),
       }, includeBody);
     }
 
@@ -410,6 +459,47 @@ async function handleRiverRequest(
       'no-store'
     );
   }
+}
+
+async function handleHistorySnapshot(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  const configuredToken = clean(process.env.HISTORY_SNAPSHOT_TOKEN, 240);
+  const providedToken =
+    clean(request.headers['x-history-token'], 240) ||
+    clean(request.headers.authorization?.replace(/^Bearer\s+/i, ''), 240);
+
+  if (configuredToken && providedToken !== configuredToken) {
+    return sendJson(
+      response,
+      401,
+      {
+        requestId,
+        error: 'unauthorized',
+        message: 'Missing or invalid history snapshot token.',
+      },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  const results = await getAllRiverScores();
+  const captured = await captureHistorySnapshotForResults({ results });
+
+  return sendJson(
+    response,
+    200,
+    {
+      requestId,
+      ok: true,
+      captured,
+    },
+    includeBody,
+    'no-store'
+  );
 }
 
 async function readJsonBody(request: Parameters<typeof createServer>[0]) {

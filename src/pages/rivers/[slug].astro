@@ -527,6 +527,51 @@ const routeStructuredData = {
             </section>
           </div>
         </section>
+
+        <section class="river-visual-panel river-history-panel">
+          <div class="river-why-panel__section-head">
+            <div>
+              <p class="eyebrow section-label">
+                <FeatureIcon name="gauge" size={16} />
+                Score history
+              </p>
+              <h3 class="river-subtitle river-subtitle--compact">Last 7 days</h3>
+            </div>
+            <p class="muted river-why-panel__section-note" data-field="history-status">
+              Loading recent route scores.
+            </p>
+          </div>
+
+          <div class="river-detail__quick-grid river-detail__quick-grid--compact river-history-panel__stats">
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">7-day average</span>
+              <strong data-field="history-average">--</strong>
+              <small data-field="history-average-detail">Waiting on score history.</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Latest daily score</span>
+              <strong data-field="history-latest">--</strong>
+              <small data-field="history-latest-detail">Waiting on score history.</small>
+            </article>
+            <article class="snapshot-card">
+              <span class="snapshot-card__label">Today's samples</span>
+              <strong data-field="history-samples">--</strong>
+              <small data-field="history-samples-detail">Waiting on score history.</small>
+            </article>
+          </div>
+
+          <div class="history-chart" data-history-chart-wrap>
+            <div class="history-chart__bars" data-history-bars aria-live="polite">
+              <article class="history-bar">
+                <span class="history-bar__value">--</span>
+                <div class="history-bar__track">
+                  <span class="history-bar__fill" style="height: 0%;"></span>
+                </div>
+                <span class="history-bar__label">---</span>
+              </article>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
 

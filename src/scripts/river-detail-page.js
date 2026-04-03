@@ -45,6 +45,7 @@ const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
+const historyBars = root.querySelector('[data-history-bars]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -188,6 +189,27 @@ function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
+}
+
+function formatHistoryDate(dateString) {
+  const parsed = new Date(`${dateString}T12:00:00`);
+  if (!Number.isFinite(parsed.getTime())) {
+    return dateString;
+  }
+
+  return parsed.toLocaleDateString([], {
+    month: 'short',
+    day: 'numeric',
+  });
+}
+
+function formatHistoryDayLabel(dateString) {
+  const parsed = new Date(`${dateString}T12:00:00`);
+  if (!Number.isFinite(parsed.getTime())) {
+    return dateString;
+  }
+
+  return parsed.toLocaleDateString([], { weekday: 'short' });
 }
 
 function formatGaugeValue(value, unit) {
@@ -1677,6 +1699,88 @@ function renderWeatherVisual(weather) {
   renderHourlyWeather(weather);
 }
 
+function renderHistory(history) {
+  if (!(historyBars instanceof HTMLElement)) {
+    return;
+  }
+
+  if (!history || !Array.isArray(history.days) || history.days.length === 0) {
+    setText('history-status', 'History will show up after the first daily snapshots are captured.');
+    setText('history-average', '--');
+    setText('history-average-detail', 'No stored daily scores yet.');
+    setText('history-latest', '--');
+    setText('history-latest-detail', 'No stored daily scores yet.');
+    setText('history-samples', history?.todayHourly?.length ? String(history.todayHourly.length) : '--');
+    setText(
+      'history-samples-detail',
+      history?.todayHourly?.length ? 'Hourly reads have started for today.' : 'No snapshots captured yet today.'
+    );
+    historyBars.innerHTML = `
+      <p class="history-chart__empty muted">
+        Run the hourly history snapshot job to start building a score trend.
+      </p>
+    `;
+    return;
+  }
+
+  const days = history.days.slice(-7);
+  const sevenDayAverage = Math.round(days.reduce((sum, day) => sum + day.avgScore, 0) / days.length);
+  const latestDay = days.at(-1);
+  const sampleCount = Array.isArray(history.todayHourly) ? history.todayHourly.length : 0;
+
+  setText('history-status', `${days.length} day trend based on stored daily averages.`);
+  setText('history-average', String(sevenDayAverage));
+  setText(
+    'history-average-detail',
+    `Range ${Math.min(...days.map((day) => day.minScore))}-${Math.max(...days.map((day) => day.maxScore))} over the last week.`
+  );
+  setText('history-latest', latestDay ? `${latestDay.latestScore}` : '--');
+  setText(
+    'history-latest-detail',
+    latestDay ? `${latestDay.latestRating} on ${formatHistoryDate(latestDay.date)}` : 'No daily history yet.'
+  );
+  setText('history-samples', String(sampleCount));
+  setText(
+    'history-samples-detail',
+    sampleCount > 0 ? `${sampleCount} hourly read${sampleCount === 1 ? '' : 's'} captured today.` : 'No hourly reads stored yet today.'
+  );
+
+  historyBars.innerHTML = days
+    .map((day) => {
+      const fill = Math.max(6, Math.min(100, day.avgScore));
+      const tone = ratingToneKey(day.latestRating);
+      return `
+        <article class="history-bar history-bar--${tone}" title="${formatHistoryDate(day.date)}: avg ${day.avgScore}, latest ${day.latestScore}">
+          <span class="history-bar__value">${day.avgScore}</span>
+          <div class="history-bar__track">
+            <span class="history-bar__fill" style="height: ${fill}%;"></span>
+          </div>
+          <span class="history-bar__label">${formatHistoryDayLabel(day.date)}</span>
+        </article>
+      `;
+    })
+    .join('');
+}
+
+async function loadHistory() {
+  try {
+    const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/history.json?days=7`, {
+      headers: { accept: 'application/json' },
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`API request failed for /api/rivers/${slug}/history.json: HTTP ${response.status}`);
+    }
+
+    const payload = await response.json();
+    renderHistory(payload?.result ?? null);
+  } catch (error) {
+    console.error('Failed to load river history.', error);
+    renderHistory(null);
+  }
+}
+
 async function loadDetail({ silent = false } = {}) {
   if (!silent) {
     setDetailRefreshState('loading');
@@ -1771,6 +1875,7 @@ async function loadDetail({ silent = false } = {}) {
     renderOutlooks(result.outlooks);
     renderConfidenceDetail(result.confidence);
     renderScoreBreakdown(result);
+    loadHistory();
     lastDetailSuccessAt = Date.now();
     hasLoadedDetailOnce = true;
     setDetailFetchBannerState('hidden');
@@ -1821,6 +1926,7 @@ async function loadDetail({ silent = false } = {}) {
     setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
     setText('weather-window', 'Best short-route window unavailable right now.');
     renderHourlyWeather(null);
+    renderHistory(null);
     if (detailStatusBanner instanceof HTMLElement) {
       renderDetailBanner({
         liveData: {
