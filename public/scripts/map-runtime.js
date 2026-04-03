@@ -75,7 +75,21 @@ export function markerClassForRating(rating, confidenceLabel) {
   ].join(' ');
 }
 
-export function bindMarkerPopup(marker, markerNode) {
+export function bindMarkerPopup(marker, markerNode, options = {}) {
+  const applySelectedState = (selected) => {
+    markerNode.classList.toggle('score-map-marker--selected', selected);
+    markerNode.setAttribute('aria-pressed', selected ? 'true' : 'false');
+    if (typeof options.onSelectedChange === 'function') {
+      options.onSelectedChange(selected);
+    }
+  };
+
+  const popup = marker.getPopup();
+  if (popup) {
+    popup.on('open', () => applySelectedState(true));
+    popup.on('close', () => applySelectedState(false));
+  }
+
   markerNode.addEventListener('keydown', (event) => {
     if (!(event instanceof KeyboardEvent)) {
       return;
@@ -86,11 +100,15 @@ export function bindMarkerPopup(marker, markerNode) {
     }
 
     event.preventDefault();
-    const popup = marker.getPopup();
-    if (!popup) {
+    const currentPopup = marker.getPopup();
+    if (!currentPopup) {
       return;
     }
 
     marker.togglePopup();
+  });
+
+  markerNode.addEventListener('click', () => {
+    applySelectedState(true);
   });
 }

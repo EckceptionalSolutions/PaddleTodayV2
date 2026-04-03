@@ -44,6 +44,7 @@ const accessDirectionsApple = root.querySelector('[data-access-directions-apple]
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
+const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -678,6 +679,274 @@ function weatherConditionLabel(code) {
   if ([71, 73, 75, 77, 85, 86].includes(code)) return 'Snow';
   if ([95, 96, 99].includes(code)) return 'Thunderstorm';
   return 'Mixed weather';
+}
+
+function weatherConditionShortLabel(code) {
+  if (code === null || code === undefined) return 'Mixed';
+  if (code === 0) return 'Clear';
+  if ([1, 2, 3].includes(code)) return 'Clouds';
+  if ([45, 48].includes(code)) return 'Fog';
+  if ([51, 53, 55, 56, 57].includes(code)) return 'Drizzle';
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return 'Rain';
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return 'Snow';
+  if ([95, 96, 99].includes(code)) return 'Storm';
+  return 'Mixed';
+}
+
+function weatherConditionTone(code) {
+  if (code === null || code === undefined) return 'mixed';
+  if ([95, 96, 99].includes(code)) return 'storm';
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return 'rain';
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return 'cold';
+  if (code === 0) return 'clear';
+  return 'mixed';
+}
+
+function formatTemperature(value) {
+  return typeof value === 'number' ? `${Math.round(value)}\u00B0F` : '--';
+}
+
+function formatWind(value) {
+  return typeof value === 'number' ? `${Math.round(value)} mph` : '--';
+}
+
+function formatRainChance(value) {
+  return typeof value === 'number' ? `${Math.round(value)}% rain` : 'Rain n/a';
+}
+
+function findFirstRainHour(weather) {
+  if (!weather || !Array.isArray(weather.todayHourly)) {
+    return null;
+  }
+
+  return weather.todayHourly.find((point) => {
+    const chance = point.precipProbability ?? 0;
+    const accumulation = point.precipitationIn ?? 0;
+    return chance >= 40 || accumulation >= 0.01;
+  }) ?? null;
+}
+
+function rainTimingLabel(weather) {
+  if (!weather) {
+    return 'Unavailable';
+  }
+
+  const chance = weather.next12hPrecipProbabilityMax;
+  if (typeof chance !== 'number') {
+    return 'Unavailable';
+  }
+
+  const firstRainHour = findFirstRainHour(weather);
+  if (firstRainHour) {
+    return `${Math.round(chance)}% next 12h - around ${firstRainHour.label}`;
+  }
+
+  if (chance < 25) {
+    return `${Math.round(chance)}% next 12h - mostly dry`;
+  }
+
+  return `${Math.round(chance)}% next 12h - later today`;
+}
+
+function weatherHourlyNote(weather) {
+  if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length === 0) {
+    return 'Hourly forecast is unavailable right now.';
+  }
+
+  const bestWindow = pickBestShortRouteWindow(weather);
+  if (bestWindow && bestWindow.score >= 6) {
+    return `The best stretch looks to be ${bestWindow.start.label} to ${bestWindow.end.label}.`;
+  }
+
+  const firstRainHour = findFirstRainHour(weather);
+  if (firstRainHour) {
+    return `If you are trying to sneak in a short route, conditions look steadier before ${firstRainHour.label}.`;
+  }
+
+  return 'The next several hours look steadier than the all-day summary suggests.';
+}
+
+function scoreHourlyPoint(point) {
+  let score = 5;
+
+  if ([95, 96, 99].includes(point.weatherCode ?? -1)) {
+    score -= 6;
+  }
+
+  const rainChance = point.precipProbability ?? 0;
+  const precipitation = point.precipitationIn ?? 0;
+  if (rainChance >= 70 || precipitation >= 0.05) {
+    score -= 4;
+  } else if (rainChance >= 40 || precipitation >= 0.01) {
+    score -= 2;
+  }
+
+  const wind = point.windMph ?? 0;
+  if (wind >= 22) {
+    score -= 4;
+  } else if (wind >= 18) {
+    score -= 2;
+  } else if (wind >= 14) {
+    score -= 1;
+  }
+
+  const temp = point.temperatureF;
+  if (typeof temp === 'number') {
+    if (temp < 35) {
+      score -= 3;
+    } else if (temp < 45) {
+      score -= 2;
+    } else if (temp < 55) {
+      score -= 1;
+    } else if (temp >= 65 && temp <= 82) {
+      score += 1;
+    }
+  }
+
+  return score;
+}
+
+function pickBestShortRouteWindow(weather) {
+  if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length < 2) {
+    return null;
+  }
+
+  const points = weather.todayHourly;
+  let bestWindow = null;
+
+  for (let startIndex = 0; startIndex < points.length - 1; startIndex += 1) {
+    for (let length = 2; length <= 3; length += 1) {
+      const endIndex = startIndex + length - 1;
+      if (endIndex >= points.length) {
+        continue;
+      }
+
+      const window = points.slice(startIndex, endIndex + 1);
+      let score = 0;
+      let hasStorm = false;
+      let hasHeavyRain = false;
+
+      for (const point of window) {
+        score += scoreHourlyPoint(point);
+        hasStorm ||= [95, 96, 99].includes(point.weatherCode ?? -1);
+        hasHeavyRain ||= (point.precipProbability ?? 0) >= 70 || (point.precipitationIn ?? 0) >= 0.05;
+      }
+
+      if (hasStorm) {
+        score -= 6;
+      }
+      if (hasHeavyRain) {
+        score -= 3;
+      }
+
+      score += length === 3 ? 1 : 0;
+      score -= startIndex * 0.6;
+
+      if (!bestWindow || score > bestWindow.score) {
+        bestWindow = {
+          start: window[0],
+          end: window[window.length - 1],
+          score,
+        };
+      }
+    }
+  }
+
+  return bestWindow;
+}
+
+function bestShortRouteWindow(weather) {
+  if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length === 0) {
+    return 'A short-route weather window is unavailable right now.';
+  }
+
+  const bestWindow = pickBestShortRouteWindow(weather);
+  if (bestWindow && bestWindow.score >= 6) {
+    return `Best short-route window: ${bestWindow.start.label} to ${bestWindow.end.label}`;
+  }
+
+  const firstRainHour = findFirstRainHour(weather);
+  if (firstRainHour) {
+    return `Weather gets less friendly around ${firstRainHour.label}.`;
+  }
+
+  return 'Short-route conditions look fairly steady through the next several hours.';
+}
+
+function weatherNowSummary(weather) {
+  if (!weather) {
+    return 'Unavailable';
+  }
+
+  const parts = [];
+  if (typeof weather.temperatureF === 'number') {
+    parts.push(`${Math.round(weather.temperatureF)}\u00B0F now`);
+  }
+
+  const firstRainHour = findFirstRainHour(weather);
+  if (firstRainHour) {
+    parts.push(`rain around ${firstRainHour.label}`);
+  } else if ((weather.next12hPrecipProbabilityMax ?? 0) < 25) {
+    parts.push('mostly dry');
+  } else {
+    parts.push('rain later today');
+  }
+
+  return parts.join(' \u2022 ');
+}
+
+function renderHourlyWeather(weather) {
+  if (!(weatherHourlyGrid instanceof HTMLElement)) {
+    return;
+  }
+
+  weatherHourlyGrid.replaceChildren();
+
+  if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length === 0) {
+    const empty = document.createElement('p');
+    empty.className = 'weather-hourly__empty muted';
+    empty.textContent = 'Hourly forecast is unavailable right now.';
+    weatherHourlyGrid.append(empty);
+    return;
+  }
+
+  const fragment = document.createDocumentFragment();
+  const bestWindow = pickBestShortRouteWindow(weather);
+
+  for (const point of weather.todayHourly) {
+    const article = document.createElement('article');
+    article.className = `weather-hour weather-hour--${weatherConditionTone(point.weatherCode)}`;
+    const inBestWindow =
+      bestWindow &&
+      point.time >= bestWindow.start.time &&
+      point.time <= bestWindow.end.time &&
+      bestWindow.score >= 6;
+
+    if (inBestWindow) {
+      article.classList.add('weather-hour--best');
+    }
+
+    const time = document.createElement('span');
+    time.className = 'weather-hour__time';
+    time.textContent = point.label;
+
+    const temp = document.createElement('strong');
+    temp.className = 'weather-hour__temp';
+    temp.textContent = formatTemperature(point.temperatureF);
+
+    const condition = document.createElement('span');
+    condition.className = 'weather-hour__condition';
+    condition.textContent = weatherConditionShortLabel(point.weatherCode);
+
+    const meta = document.createElement('span');
+    meta.className = 'weather-hour__meta';
+    meta.textContent = `${formatRainChance(point.precipProbability)} \u00B7 ${formatWind(point.windMph)}`;
+
+    article.append(time, temp, condition, meta);
+    fragment.append(article);
+  }
+
+  weatherHourlyGrid.append(fragment);
 }
 
 function hasCoordinates(point) {
@@ -1387,24 +1656,25 @@ function renderWeatherVisual(weather) {
     setText('weather-wind', 'Unavailable');
     setText('weather-rain-risk', 'Unavailable');
     setText('weather-storm-risk', 'Unavailable');
+    setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
+    setText('weather-window', 'Best short-route window unavailable right now.');
+    renderHourlyWeather(null);
     return;
   }
 
   setText('weather-condition', weatherConditionLabel(weather.weatherCode));
-  setText('weather-temp', weather.temperatureF !== null ? `${Math.round(weather.temperatureF)} F` : 'Unavailable');
+  setText('weather-temp', weather.temperatureF !== null ? `${Math.round(weather.temperatureF)}\u00B0F` : 'Unavailable');
   setText(
     'weather-wind',
     weather.windMph !== null
       ? `${Math.round(weather.windMph)} mph${weather.gustMph !== null ? ` gust ${Math.round(weather.gustMph)}` : ''}`
       : 'Unavailable'
   );
-  setText(
-    'weather-rain-risk',
-    weather.next12hPrecipProbabilityMax !== null
-      ? `${Math.round(weather.next12hPrecipProbabilityMax)}% next 12h`
-      : 'Unavailable'
-  );
+  setText('weather-rain-risk', rainTimingLabel(weather));
   setText('weather-storm-risk', weather.next12hStormRisk ? 'Storm signal present' : 'No storm signal');
+  setText('weather-hourly-note', weatherHourlyNote(weather));
+  setText('weather-window', bestShortRouteWindow(weather));
+  renderHourlyWeather(weather);
 }
 
 async function loadDetail({ silent = false } = {}) {
@@ -1486,9 +1756,7 @@ async function loadDetail({ silent = false } = {}) {
     );
     setText(
       'weather-now',
-      result.weather
-        ? `${Math.round(result.weather.windMph ?? 0)} mph wind, ${Math.round(result.weather.next12hPrecipProbabilityMax ?? 0)}% rain risk`
-        : 'Unavailable'
+      result.weather ? weatherNowSummary(result.weather) : 'Unavailable'
     );
     setText('weather-freshness', result.liveData.weather.detail);
 
@@ -1521,7 +1789,7 @@ async function loadDetail({ silent = false } = {}) {
 
     setText(
       'explanation',
-      'Live reads are unavailable right now. Use the source links below to verify this river.'
+      'Live reads are unavailable right now. Check the original sources below before you drive.'
     );
     setText('decision-line', 'Check the source directly because live data is unavailable.');
 
@@ -1543,13 +1811,16 @@ async function loadDetail({ silent = false } = {}) {
     setText('trend', 'Unavailable');
     setText('weather-now', 'Unavailable');
     setText('weather-freshness', 'No live weather reading is available.');
-    setText('chart-caption', 'Gauge chart unavailable because live data could not be loaded.');
+    setText('chart-caption', 'Gauge chart unavailable because the live read could not be loaded.');
     setText('chart-trend-note', 'Trend direction is unavailable because the live chart data could not be loaded.');
     setText('weather-condition', 'Weather unavailable');
     setText('weather-temp', 'Unavailable');
     setText('weather-wind', 'Unavailable');
     setText('weather-rain-risk', 'Unavailable');
     setText('weather-storm-risk', 'Unavailable');
+    setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
+    setText('weather-window', 'Best short-route window unavailable right now.');
+    renderHourlyWeather(null);
     if (detailStatusBanner instanceof HTMLElement) {
       renderDetailBanner({
         liveData: {

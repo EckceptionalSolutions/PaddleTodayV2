@@ -316,8 +316,11 @@ function trendExplanation(result: RiverScoreResult): string {
 function weatherExplanation(result: RiverScoreResult): string {
   const weather = result.weather;
   if (!weather) return 'weather mixed';
-  if (weather.next12hStormRisk || (weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
-    return 'rain incoming';
+  if (weather.next12hStormRisk) {
+    return 'storm risk';
+  }
+  if ((weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
+    return 'rain later';
   }
   if ((weather.next12hWindMphMax ?? 0) >= 14) {
     return 'windy';

@@ -1,5 +1,5 @@
 import { fetchJson } from './http';
-import type { ForecastWindow, WeatherSnapshot } from './types';
+import type { ForecastWindow, HourlyWeatherPoint, WeatherSnapshot } from './types';
 
 type OpenMeteoResponse = {
   current?: {
@@ -16,6 +16,7 @@ type OpenMeteoResponse = {
     precipitation?: number[];
     weather_code?: number[];
     wind_speed_10m?: number[];
+    temperature_2m?: number[];
   };
   daily?: {
     time?: string[];
@@ -33,7 +34,7 @@ export async function fetchWeatherSnapshot(latitude: number, longitude: number):
   url.searchParams.set('latitude', String(latitude));
   url.searchParams.set('longitude', String(longitude));
   url.searchParams.set('current', 'temperature_2m,precipitation,wind_speed_10m,wind_gusts_10m,weather_code');
-  url.searchParams.set('hourly', 'precipitation_probability,precipitation,weather_code,wind_speed_10m');
+  url.searchParams.set('hourly', 'temperature_2m,precipitation_probability,precipitation,weather_code,wind_speed_10m');
   url.searchParams.set(
     'daily',
     'precipitation_probability_max,precipitation_sum,weather_code,wind_speed_10m_max,temperature_2m_max,temperature_2m_min'
@@ -55,10 +56,17 @@ export async function fetchWeatherSnapshot(latitude: number, longitude: number):
     return null;
   }
 
-  const precipitationProbabilities = numericSeries(data.hourly?.precipitation_probability);
-  const hourlyPrecipitation = numericSeries(data.hourly?.precipitation);
-  const hourlyWeatherCodes = numericSeries(data.hourly?.weather_code);
-  const hourlyWind = numericSeries(data.hourly?.wind_speed_10m);
+  const precipitationProbabilitiesRaw = Array.isArray(data.hourly?.precipitation_probability)
+    ? data.hourly.precipitation_probability
+    : [];
+  const hourlyPrecipitationRaw = Array.isArray(data.hourly?.precipitation) ? data.hourly.precipitation : [];
+  const hourlyWeatherCodesRaw = Array.isArray(data.hourly?.weather_code) ? data.hourly.weather_code : [];
+  const hourlyWindRaw = Array.isArray(data.hourly?.wind_speed_10m) ? data.hourly.wind_speed_10m : [];
+  const hourlyTemperatureRaw = Array.isArray(data.hourly?.temperature_2m) ? data.hourly.temperature_2m : [];
+  const precipitationProbabilities = numericSeries(precipitationProbabilitiesRaw);
+  const hourlyPrecipitation = numericSeries(hourlyPrecipitationRaw);
+  const hourlyWeatherCodes = numericSeries(hourlyWeatherCodesRaw);
+  const hourlyWind = numericSeries(hourlyWindRaw);
   const hourlyTimes = Array.isArray(data.hourly?.time) ? data.hourly.time : [];
   const daily = indexDaily(data.daily);
   const currentDate = current.time ? String(current.time).slice(0, 10) : null;
@@ -74,12 +82,21 @@ export async function fetchWeatherSnapshot(latitude: number, longitude: number):
     next12hPrecipStartsInHours: firstPrecipSignalHours({
       currentTime: typeof current.time === 'string' ? current.time : null,
       hourlyTimes,
-      hourlyPrecipitation,
-      precipitationProbabilities,
+      hourlyPrecipitation: hourlyPrecipitationRaw,
+      precipitationProbabilities: precipitationProbabilitiesRaw,
     }),
     next12hWindMphMax: maxValue(hourlyWind),
     next12hStormRisk: hourlyWeatherCodes.some((code) => isStormCode(code)),
     weatherCode: toNullableNumber(current.weather_code),
+    todayHourly: buildTodayHourly({
+      currentTime: typeof current.time === 'string' ? current.time : null,
+      hourlyTimes,
+      hourlyTemperature: hourlyTemperatureRaw,
+      hourlyWind: hourlyWindRaw,
+      hourlyWeatherCodes: hourlyWeatherCodesRaw,
+      precipitationProbabilities: precipitationProbabilitiesRaw,
+      hourlyPrecipitation: hourlyPrecipitationRaw,
+    }),
     tomorrow: currentDate ? buildTomorrowWindow(daily, currentDate) : null,
     weekend: currentDate ? buildWeekendWindow(daily, currentDate) : null,
   };
@@ -269,4 +286,57 @@ function firstPrecipSignalHours(args: {
   }
 
   return null;
+}
+
+function buildTodayHourly(args: {
+  currentTime: string | null;
+  hourlyTimes: string[];
+  hourlyTemperature: number[];
+  hourlyWind: number[];
+  hourlyWeatherCodes: number[];
+  precipitationProbabilities: number[];
+  hourlyPrecipitation: number[];
+}): HourlyWeatherPoint[] {
+  if (!args.currentTime) {
+    return [];
+  }
+
+  const current = new Date(args.currentTime);
+  if (!Number.isFinite(current.getTime())) {
+    return [];
+  }
+
+  const currentDate = args.currentTime.slice(0, 10);
+  const result: HourlyWeatherPoint[] = [];
+
+  for (let index = 0; index < args.hourlyTimes.length; index += 1) {
+    const time = args.hourlyTimes[index];
+    if (typeof time !== 'string' || !time.startsWith(currentDate)) {
+      continue;
+    }
+
+    const timestamp = new Date(time);
+    if (!Number.isFinite(timestamp.getTime()) || timestamp.getTime() < current.getTime()) {
+      continue;
+    }
+
+    result.push({
+      time,
+      label: timestamp.toLocaleTimeString([], {
+        hour: 'numeric',
+        minute: '2-digit',
+      }),
+      temperatureF: nthNumber(args.hourlyTemperature, index),
+      windMph: nthNumber(args.hourlyWind, index),
+      precipProbability: nthNumber(args.precipitationProbabilities, index),
+      precipitationIn: nthNumber(args.hourlyPrecipitation, index),
+      weatherCode: nthNumber(args.hourlyWeatherCodes, index),
+    });
+
+    if (result.length >= 8) {
+      break;
+    }
+  }
+
+  return result;
 }

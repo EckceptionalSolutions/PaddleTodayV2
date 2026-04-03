@@ -234,7 +234,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly approachable current, but shallow riffles, sweepers, and cold shoulder-season water still make this more than a blind yes.',
       confidenceNotes:
-        'The route itself is strongly supported by MN DNR, but the numeric scoring band is still a cautious manual calibration anchored by one same-segment trip report at 300 cfs and nearby Root River evidence rather than an official published sweet spot.',
+        'MN DNR strongly supports the route itself, but the numeric range still comes from one same-segment trip report at 300 cfs plus nearby Root River guidance instead of a published official paddling range.',
     },
     evidenceNotes: [
       {
@@ -257,7 +257,7 @@ export const rivers: River[] = [
       {
         label: 'Threshold confidence',
         value: 'Mixed',
-        note: 'The route and gauge are direct, but the working band is still a conservative manual calibration rather than an official manager-published paddling range.',
+        note: 'The route and gauge are direct, but the usable range is still an estimate rather than an official paddling range.',
       },
     ],
     sourceLinks: [
@@ -593,7 +593,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Intermediate day trip with multiple channels, boulder gardens, and level-dependent rapids. A workable gauge does not erase the need for route-finding and wind judgment.',
       confidenceNotes:
-        'The direct gauge and verified access points are solid, but the numeric threshold is still community-derived and mostly useful as a low-water floor. The app stays conservative above the minimum because a broader preferred band is not yet well calibrated.',
+        'The direct gauge and verified access points are solid, but the numeric threshold still mostly works as a low-water floor. The app stays conservative above the minimum because there is not yet a clear preferred upper range.',
     },
     evidenceNotes: [
       {
@@ -1591,7 +1591,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally beginner-friendly at sensible levels, but this is still a long moving-water day with strainers and flood-current consequences.',
       confidenceNotes:
-        'This reach has a community-sourced low-water mark, but not a published upper range. County and Iowa DNR sources support the segment itself, but not the full scoring range.',
+        'This reach has a useful low-water mark, but not a published upper range. County and Iowa DNR sources support the segment itself, but not the full scoring range.',
     },
     evidenceNotes: [
       {
@@ -1645,8 +1645,8 @@ export const rivers: River[] = [
     region: 'South-Central Wisconsin',
     summary:
       'Mostly mellow Sugar River day trip where low water is the main thing to watch. Above that, the route is straightforward, but the high end is still fuzzy.',
-    statusText:
-      'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this reach.',
+      statusText:
+        'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this reach.',
     latitude: 42.86083,
     longitude: -89.53419,
     gaugeSource: {
@@ -1674,7 +1674,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally mellow current, but distance, muddy shallows, and long flat stretches still matter if you launch too low.',
       confidenceNotes:
-        'The clearest number here is a community-sourced low-water mark. The route itself is straightforward, but there is still no published upper range for this reach.',
+        'The clearest number here is a low-water mark from paddler reports. The route itself is straightforward, but there is still no published upper range for this reach.',
     },
     evidenceNotes: [
       {
@@ -1754,7 +1754,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly mellow current, but 11.5 miles plus deadfall and muddy bridge landings still make the day feel bigger than the label suggests.',
       confidenceNotes:
-        'The clearest number here is the same community-sourced Verona low-water mark used on the upstream Sugar reach. Access points are mapped, but the route still lacks a published upper range.',
+        'The clearest number here is the same Verona low-water mark used on the upstream Sugar reach. Access points are mapped, but the route still lacks a published upper range.',
     },
     evidenceNotes: [
       {
@@ -1890,7 +1890,7 @@ export const rivers: River[] = [
     summary:
       'Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river.',
     statusText:
-      'Treat 55 cfs at Delafield as the low-water floor. Above that can be in play, but the app does not yet have a defendable upper target or high-water cutoff for this reach.',
+      'Treat 55 cfs at Delafield as the low-water floor. Above that can work, but there is not yet a clear upper target or high-water cutoff for this reach.',
     latitude: 43.1642,
     longitude: -88.28469,
     gaugeSource: {
@@ -1918,7 +1918,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Short but not casual. Tight bends, wood, and roadside access friction matter almost as much as the gauge.',
       confidenceNotes:
-        'The app only has a defendable low-water floor here. That is enough to avoid obviously bad days, but not enough to promise a clean upper-range sweet spot.',
+        'The app only has a clear low-water floor here. That is enough to avoid obviously bad days, but not enough to promise a reliable upper range.',
     },
     evidenceNotes: [
       {
@@ -1942,7 +1942,7 @@ export const rivers: River[] = [
       {
         label: 'Decision style',
         value: 'Minimum-only',
-        note: 'This is a low-water-floor call today, not a fully calibrated sweet-spot river.',
+        note: 'Today this score mainly answers whether the river is clearly above its low-water floor.',
       },
     ],
     sourceLinks: [
@@ -1966,7 +1966,7 @@ export const rivers: River[] = [
     summary:
       'Classic Driftless day trip where low water quickly turns the route into a scrape-and-walk slog. The score should mainly answer whether the Ontario gauge is clearly above the low-water floor.',
     statusText:
-      'Treat 60 cfs at Ontario as the low-water floor. Above that can be worthwhile, but the app does not yet have a defendable high-water cutoff for this reach.',
+      'Treat 60 cfs at Ontario as the low-water floor. Above that can be worthwhile, but there is not yet a clear high-water cutoff for this reach.',
     latitude: 43.68004,
     longitude: -90.59497,
     gaugeSource: {
@@ -1994,7 +1994,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly approachable moving water, but shallow riffles, strainers, and fast-changing rain conditions make this more than a lazy float.',
       confidenceNotes:
-        'The app has a defendable low-water floor from community trip guidance, but not a calibrated high-water cutoff. Treat rising water and flood context cautiously even when the river is above minimum.',
+        'The app has a clear low-water floor from trip guidance, but not a clear high-water cutoff. Treat rising water and flood context cautiously even when the river is above minimum.',
     },
     evidenceNotes: [
       {
@@ -2006,13 +2006,13 @@ export const rivers: River[] = [
       {
         label: 'Community sweet spot',
         value: 'About 70 to 100 cfs',
-        note: 'Existing route notes describe this as a good range, but it is still community guidance rather than an official manager-published threshold.',
+        note: 'Existing route notes describe this as a good range, but it is still paddler guidance rather than an official published threshold.',
         sourceUrl: 'https://milespaddled.com/kickapoo-river-i/',
       },
       {
         label: 'High-water caution',
         value: 'Avoid flood conditions',
-        note: 'The route is rain-sensitive and can turn pushy quickly. The app is intentionally not pretending the upper band is calibrated yet.',
+        note: 'The route is rain-sensitive and can turn pushy quickly. Treat higher water cautiously because the upper range is still not well defined.',
         sourceUrl: 'https://waterdata.usgs.gov/nwis/uv/?site_no=05407468&PARAmeter_cd=00065,00060',
       },
       {
@@ -2085,7 +2085,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly approachable moving water at normal levels, but isolation, mud, and storm-changed wood still matter.',
       confidenceNotes:
-        'The same Zumbro Falls gauge context carries downriver, but the exact sweet spot is still partly community-derived. Confidence is best when the gauge is stable and recent rain is quiet.',
+        'The same Zumbro Falls gauge context carries downriver, but the preferred range still leans partly on paddler reports. Confidence is best when the gauge is stable and recent rain is quiet.',
     },
     evidenceNotes: [
       {
@@ -2226,10 +2226,10 @@ export const rivers: River[] = [
     reach: 'Trout Run Park to Lower Dam',
     state: 'Iowa',
     region: 'Northeast Iowa',
-    summary:
-      'Long Decorah-area Upper Iowa day where the main decision is still low water. This stays scenic and approachable above its floor, but the app is not pretending it has a calibrated high-side sweet spot yet.',
+      summary:
+      'Long Decorah-area Upper Iowa day where the main decision is still low water. This stays scenic and approachable above its floor, but the high side of the range is still not well defined.',
     statusText:
-      'Treat 150 cfs near Decorah as the low-water floor. Above that can be in play, but the app does not yet have a defendable upper target or high-water cutoff for this reach.',
+      'Treat 150 cfs near Decorah as the low-water floor. Above that can work, but there is not yet a clear upper target or high-water cutoff for this reach.',
     latitude: 43.31574,
     longitude: -91.70093,
     gaugeSource: {
@@ -2257,7 +2257,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally beginner-friendly at workable levels, but distance, riffles, and the dam portage still make this a real day rather than a park float.',
       confidenceNotes:
-        'The only defendable numeric threshold here is a community-sourced low-water floor. The route itself is friendly, but the app does not yet have a published upper target or high-water cutoff for this full Decorah reach.',
+        'The only clear numeric threshold here is a low-water floor from paddler reports. The route itself is friendly, but there is still no published upper target or high-water cutoff for this full Decorah reach.',
     },
     evidenceNotes: [
       {

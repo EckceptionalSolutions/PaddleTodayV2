@@ -492,7 +492,7 @@ const routeStructuredData = {
 
               <article class="weather-tile">
                 <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Rain risk</span>
+                <span class="weather-tile__label">Rain timing</span>
                 <strong data-field="weather-rain-risk">Loading</strong>
               </article>
 
@@ -502,6 +502,29 @@ const routeStructuredData = {
                 <strong data-field="weather-storm-risk">Loading</strong>
               </article>
             </div>
+
+            <section class="weather-hourly">
+              <div class="weather-hourly__head">
+                <div>
+                  <p class="eyebrow section-label">Today by hour</p>
+                  <h4 class="river-subtitle river-subtitle--compact">Short-route forecast</h4>
+                </div>
+                <p class="muted weather-hourly__note" data-field="weather-hourly-note">
+                  Checking the next several hours.
+                </p>
+              </div>
+              <div class="weather-hourly__window" data-field="weather-window">
+                Checking the best short-route window.
+              </div>
+              <div class="weather-hourly__grid" data-weather-hourly aria-live="polite">
+                <article class="weather-hour">
+                  <span class="weather-hour__time">--</span>
+                  <strong class="weather-hour__temp">--</strong>
+                  <span class="weather-hour__condition">Loading</span>
+                  <span class="weather-hour__meta">--</span>
+                </article>
+              </div>
+            </section>
           </div>
         </section>
       </div>
@@ -906,10 +929,13 @@ const routeStructuredData = {
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Notes</span>
-            <strong>Calibration and known caveats</strong>
+            <strong>What to know before you go</strong>
           </span>
         </summary>
         <div class="river-accordion__body">
+          <p class="muted confidence-detail__intro">
+            These notes call out the access details, route quirks, and source caveats most likely to matter on the ground.
+          </p>
           <ul class="factor-list">
             {river.evidenceNotes.map((note) => (
               <li class="factor-item impact-neutral">
@@ -935,10 +961,13 @@ const routeStructuredData = {
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Sources</span>
-            <strong>Open the original gauge and planning sources</strong>
+            <strong>Check the original sources</strong>
           </span>
         </summary>
         <div class="river-accordion__body">
+          <p class="muted confidence-detail__intro">
+            Use these links to verify the gauge, route details, and access notes before you drive.
+          </p>
           <ul class="source-list">
             {river.sourceLinks.map((source) => (
               <li>

@@ -339,7 +339,7 @@ function routePopupMarkup(route) {
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       <p class="score-map-popup__summary">${escapeHtml(summaryLine(route))}</p>
-      <p class="score-map-popup__meta">${escapeHtml(meta.join(' - '))}</p>
+      <p class="score-map-popup__meta">${escapeHtml(meta.join(' • '))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
@@ -423,6 +423,9 @@ async function renderGroupMap(routes) {
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassForRating(route.rating, route.confidence.label);
+      if (route.slug === selectedSlug) {
+        markerNode.classList.add('score-map-marker--selected');
+      }
       markerNode.innerHTML = `<span>${route.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
@@ -435,11 +438,19 @@ async function renderGroupMap(routes) {
       })
         .setLngLat([midpoint.longitude, midpoint.latitude])
         .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '280px' }).setHTML(routePopupMarkup(route))
+          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '288px' }).setHTML(routePopupMarkup(route))
         )
         .addTo(mapRuntime);
 
-      bindMarkerPopup(marker, markerNode);
+      bindMarkerPopup(marker, markerNode, {
+        onSelectedChange(selected) {
+          if (!selected || route.slug === selectedSlug || !currentResult) {
+            return;
+          }
+          selectedSlug = route.slug;
+          renderRouteList(currentResult.routes);
+        },
+      });
       mapMarkers.push(marker);
       bounds.extend([midpoint.longitude, midpoint.latitude]);
       hasBounds = true;
@@ -482,8 +493,11 @@ async function renderGroupMap(routes) {
     }
 
     if (hasBounds) {
+      const compact = window.matchMedia('(max-width: 720px)').matches;
       mapRuntime.fitBounds(bounds, {
-        padding: { top: 46, right: 46, bottom: 46, left: 46 },
+        padding: compact
+          ? { top: 22, right: 22, bottom: 22, left: 22 }
+          : { top: 46, right: 46, bottom: 46, left: 46 },
         maxZoom: 10.6,
         duration: 600,
       });

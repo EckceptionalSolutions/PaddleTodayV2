@@ -144,6 +144,16 @@ export interface ForecastWindow {
   temperatureLowF: number | null;
 }
 
+export interface HourlyWeatherPoint {
+  time: string;
+  label: string;
+  temperatureF: number | null;
+  windMph: number | null;
+  precipProbability: number | null;
+  precipitationIn: number | null;
+  weatherCode: number | null;
+}
+
 export interface WeatherSnapshot {
   observedAt: string | null;
   temperatureF: number | null;
@@ -156,6 +166,7 @@ export interface WeatherSnapshot {
   next12hWindMphMax: number | null;
   next12hStormRisk: boolean;
   weatherCode: number | null;
+  todayHourly: HourlyWeatherPoint[];
   tomorrow: ForecastWindow | null;
   weekend: ForecastWindow | null;
 }

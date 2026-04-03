@@ -537,13 +537,13 @@ function weatherVisualLabel(state) {
     case 'storm':
       return 'Storm risk';
     case 'rain':
-      return 'Rain incoming';
+      return 'Rain later';
     case 'cold':
       return 'Cold weather';
     case 'wind':
       return 'Windy';
     default:
-      return 'Calm weather';
+      return 'Mostly dry';
   }
 }
 
@@ -1088,7 +1088,7 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
       <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
-      <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceLabel(item))}</p>
+      <p class="score-map-popup__meta">Score ${item.cardRoute.score} • ${escapeHtml(item.cardRoute.rating)} • ${escapeHtml(confidenceLabel(item))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
@@ -1165,8 +1165,11 @@ async function renderSummaryMap(items) {
     }
 
     if (hasBounds) {
+      const compact = window.matchMedia('(max-width: 720px)').matches;
       mapRuntime.fitBounds(bounds, {
-        padding: { top: 52, right: 52, bottom: 52, left: 52 },
+        padding: compact
+          ? { top: 22, right: 22, bottom: 22, left: 22 }
+          : { top: 52, right: 52, bottom: 52, left: 52 },
         maxZoom: 8.2,
         duration: 700,
       });
