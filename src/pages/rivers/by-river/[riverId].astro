@@ -63,47 +63,15 @@ const groupStructuredData = {
           <span class="stat-chip">{group.routeCount} routes</span>
           <span class="stat-chip">Each route is scored separately</span>
         </div>
-      </div>
-
-      <aside class="river-call-panel river-call-panel--group">
-        <p class="eyebrow">Selected route</p>
-        <div class="score-orb score-orb--featured" aria-label="Selected route score loading">
-          <span class="score-orb__score" data-field="selected-score">--</span>
-          <span class="score-orb__rating" data-field="selected-rating">Loading</span>
-        </div>
-        <p class="river-call-panel__statement" data-field="selected-reach">
-          Loading route details.
-        </p>
-        <div class="river-call-panel__reliability river-call-panel__reliability--compact">
-          <span class="pill" data-field="selected-status">Loading</span>
-          <p class="muted river-call-panel__reliability-note" data-field="selected-confidence">
-            Loading confidence.
-          </p>
-        </div>
-        <div class="river-call-panel__summary-stack">
-          <p class="river-call-panel__summary-line" data-field="selected-summary-main">
-            Loading summary.
-          </p>
-          <p class="river-call-panel__summary-weather" data-field="selected-summary-weather-row" hidden>
-            <span class="weather-indicator" data-field="selected-weather-icon" aria-hidden="true"></span>
-            <span data-field="selected-summary-weather">Loading weather.</span>
-          </p>
-        </div>
-        <div class="river-call-panel__signal-line" data-field="selected-signal">
-          Loading conditions.
-        </div>
-        <div class="river-call-panel__actions river-call-panel__actions--inline">
+        <div class="river-group-page__actions">
           <button class="filter-chip" type="button" data-group-refresh>
             Refresh river
           </button>
-          <a class="river-link river-link--wide" href="/" data-group-selected-link>
-            View route
-          </a>
+          <p class="muted river-group-page__refresh-note" data-group-refresh-note>
+            Auto-refreshes every 5 minutes.
+          </p>
         </div>
-        <p class="muted river-call-panel__refresh-note" data-group-refresh-note>
-          Auto-refreshes every 5 minutes.
-        </p>
-      </aside>
+      </div>
     </section>
 
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
@@ -154,10 +122,11 @@ const groupStructuredData = {
 
       <div class="river-group-page__route-list" data-group-route-list>
         {group.routes.map((route) => (
-          <button
+          <article
             class="route-choice"
-            type="button"
-            data-group-route-button
+            tabindex="0"
+            role="button"
+            data-group-route-card
             data-route-slug={route.slug}
           >
             <span class="route-choice__kind">Route</span>
@@ -173,7 +142,13 @@ const groupStructuredData = {
               </span>
             </span>
             <span class="route-choice__signal">Loading conditions.</span>
-          </button>
+            <div class="route-choice__footer">
+              <span class="route-choice__selection">Show on map</span>
+              <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>
+                View route
+              </a>
+            </div>
+          </article>
         ))}
       </div>
     </section>

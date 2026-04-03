@@ -42,6 +42,8 @@ const accessTakeOutLink = root.querySelector('[data-access-takeout-link]');
 const accessDirectionsGoogle = root.querySelector('[data-access-directions-google]');
 const accessDirectionsApple = root.querySelector('[data-access-directions-apple]');
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
+const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
+const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -96,6 +98,72 @@ function setText(field, value) {
     element.textContent = value;
   }
   return elements[0] ?? null;
+}
+
+function setActiveDetailSection(sectionId) {
+  for (const link of sectionNavLinks) {
+    if (!(link instanceof HTMLElement)) continue;
+    link.classList.toggle('river-detail__section-link--active', link.dataset.detailNavLink === sectionId);
+    link.setAttribute('aria-current', link.dataset.detailNavLink === sectionId ? 'true' : 'false');
+  }
+}
+
+function setupDetailSectionNav() {
+  if (sectionNavLinks.length === 0 || detailSections.length === 0) {
+    return;
+  }
+
+  for (const link of sectionNavLinks) {
+    if (!(link instanceof HTMLAnchorElement) || link.dataset.navBound === 'true') continue;
+    link.dataset.navBound = 'true';
+    link.addEventListener('click', () => {
+      const targetId = link.dataset.detailNavLink;
+      if (targetId) {
+        setActiveDetailSection(targetId);
+      }
+    });
+  }
+
+  const sectionsById = new Map(
+    detailSections
+      .map((section) => [section.getAttribute('data-detail-section'), section])
+      .filter(([id, section]) => typeof id === 'string' && section instanceof HTMLElement)
+  );
+
+  const hashId = window.location.hash.replace(/^#/, '');
+  if (hashId && sectionsById.has(hashId)) {
+    setActiveDetailSection(hashId);
+  } else {
+    const firstId = detailSections[0]?.getAttribute('data-detail-section');
+    if (firstId) {
+      setActiveDetailSection(firstId);
+    }
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      const visibleSections = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((left, right) => right.intersectionRatio - left.intersectionRatio);
+
+      if (visibleSections.length === 0) {
+        return;
+      }
+
+      const activeId = visibleSections[0].target.getAttribute('data-detail-section');
+      if (activeId) {
+        setActiveDetailSection(activeId);
+      }
+    },
+    {
+      rootMargin: '-18% 0px -55% 0px',
+      threshold: [0.15, 0.35, 0.6],
+    }
+  );
+
+  for (const section of detailSections) {
+    observer.observe(section);
+  }
 }
 
 function decisionLabel(rating) {
@@ -518,7 +586,7 @@ function renderScoreBreakdown(result) {
   setText('breakdown-comfort-detail', breakdown.comfortExplanation);
   setText(
     'breakdown-summary',
-    `River quality starts at ${breakdown.riverQuality}. Wind, temperature, and rain then move the trip score to ${breakdown.finalScore} (${result.rating}).`
+    `River quality starts at ${breakdown.riverQuality}. Weather shifts it to ${breakdown.finalScore} today.`
   );
 
   const otherGroup = root.querySelector('[data-breakdown-other-group]');
@@ -533,8 +601,30 @@ function renderScoreBreakdown(result) {
     if (capWrap instanceof HTMLElement) {
       capWrap.hidden = reasons.length === 0;
     }
-    capList.innerHTML = reasons.map((reason) => `<li>${reason}</li>`).join('');
+    capList.innerHTML = reasons.map((reason) => `<li>${friendlyCapReason(reason)}</li>`).join('');
   }
+}
+
+function friendlyCapReason(reason) {
+  const normalized = String(reason || '').trim();
+
+  if (/Near-freezing air caps today at 70\./i.test(normalized)) {
+    return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
+  }
+
+  if (/High wind caps today at 75\./i.test(normalized)) {
+    return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
+  }
+
+  if (/Imminent heavy rain caps today at 65\./i.test(normalized)) {
+    return 'Rain is expected soon, so today stays in the cautious range.';
+  }
+
+  if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {
+    return 'This route only has a reliable low-water floor, so the score stops short of a top call.';
+  }
+
+  return normalized;
 }
 
 function renderChecklist(checklist) {
@@ -1559,6 +1649,7 @@ initializeAccessPlanner();
 renderActiveAccessContext();
 updateChartButtonStates();
 renderDetailMap(null);
+setupDetailSectionNav();
 if (detailRefreshButton instanceof HTMLButtonElement) {
   detailRefreshButton.addEventListener('click', () => {
     loadDetail();

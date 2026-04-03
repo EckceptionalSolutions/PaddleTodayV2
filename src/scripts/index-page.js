@@ -45,6 +45,11 @@ const filterSearch = document.querySelector('[data-filter-search]');
 const filterState = document.querySelector('[data-filter-state]');
 const filterRegion = document.querySelector('[data-filter-region]');
 const sortSelect = document.querySelector('[data-sort-select]');
+const explorePagination = document.querySelector('[data-explore-pagination]');
+const explorePaginationSummary = document.querySelector('[data-explore-pagination-summary]');
+const explorePageLabel = document.querySelector('[data-explore-page]');
+const explorePrevButton = document.querySelector('[data-explore-prev]');
+const exploreNextButton = document.querySelector('[data-explore-next]');
 const locationIndicator = document.querySelector('[data-location-indicator]');
 const locationIndicatorLabel = document.querySelector('[data-location-indicator-label]');
 
@@ -85,6 +90,9 @@ let mapRuntime = null;
 let mapMarkers = [];
 let userLocation = null;
 let userLocationState = 'idle';
+let currentExplorePage = 1;
+
+const EXPLORE_PAGE_SIZE = 9;
 
 function setText(scope, field, value) {
   const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
@@ -691,6 +699,52 @@ function renderCardGrid(container, items, options = {}) {
   container.appendChild(fragment);
 }
 
+function paginateItems(items, pageSize, page) {
+  const totalItems = items.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const safePage = Math.min(Math.max(page, 1), totalPages);
+  const startIndex = totalItems === 0 ? 0 : (safePage - 1) * pageSize;
+  const endIndex = Math.min(startIndex + pageSize, totalItems);
+
+  return {
+    totalItems,
+    totalPages,
+    currentPage: safePage,
+    startIndex,
+    endIndex,
+    items: items.slice(startIndex, endIndex),
+  };
+}
+
+function updateExplorePagination(pagination) {
+  if (!(explorePagination instanceof HTMLElement)) {
+    return;
+  }
+
+  const shouldShow = pagination.totalItems > EXPLORE_PAGE_SIZE;
+  explorePagination.hidden = !shouldShow;
+
+  if (explorePaginationSummary instanceof HTMLElement) {
+    if (pagination.totalItems === 0) {
+      explorePaginationSummary.textContent = 'No rivers match these filters.';
+    } else {
+      explorePaginationSummary.textContent = `Showing ${pagination.startIndex + 1}-${pagination.endIndex} of ${pagination.totalItems} rivers`;
+    }
+  }
+
+  if (explorePageLabel instanceof HTMLElement) {
+    explorePageLabel.textContent = `Page ${pagination.currentPage} of ${pagination.totalPages}`;
+  }
+
+  if (explorePrevButton instanceof HTMLButtonElement) {
+    explorePrevButton.disabled = pagination.currentPage <= 1;
+  }
+
+  if (exploreNextButton instanceof HTMLButtonElement) {
+    exploreNextButton.disabled = pagination.currentPage >= pagination.totalPages;
+  }
+}
+
 function updateFeaturedHero(nearbyItems, overallItems) {
   const nearbyReady = userLocationState === 'ready' && nearbyItems.length > 0;
   const item = nearbyReady ? nearbyItems[0] : overallItems[0] ?? null;
@@ -1035,7 +1089,7 @@ function popupMarkup(item) {
       ${reachMarkup}
       <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
       <p class="score-map-popup__meta">Score ${item.cardRoute.score} - ${escapeHtml(item.cardRoute.rating)} - ${escapeHtml(confidenceLabel(item))}</p>
-      <a class="score-map-popup__link" href="${item.link}">${cardLinkLabel(item)}</a>
+      <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
 }
@@ -1100,7 +1154,7 @@ async function renderSummaryMap(items) {
       })
         .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
         .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: false, maxWidth: '280px' }).setHTML(popupMarkup(item))
+          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '280px' }).setHTML(popupMarkup(item))
         )
         .addTo(mapRuntime);
 
@@ -1206,7 +1260,10 @@ function renderHomepage(results) {
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
   renderSummaryMap(exploreItems);
-  renderCardGrid(exploreGrid, exploreItems, {
+  const explorePaginationState = paginateItems(exploreItems, EXPLORE_PAGE_SIZE, currentExplorePage);
+  currentExplorePage = explorePaginationState.currentPage;
+  updateExplorePagination(explorePaginationState);
+  renderCardGrid(exploreGrid, explorePaginationState.items, {
     showDistance: userLocationState === 'ready' && userLocation,
   });
 }
@@ -1250,6 +1307,7 @@ function setUserLocation(location) {
   if (locationInput instanceof HTMLInputElement) {
     locationInput.value = location.label;
   }
+  currentExplorePage = 1;
   if (latestResults.length > 0) {
     renderHomepage(latestResults);
   } else {
@@ -1264,6 +1322,7 @@ function clearUserLocation() {
   if (locationInput instanceof HTMLInputElement) {
     locationInput.value = '';
   }
+  currentExplorePage = 1;
   if (latestResults.length > 0) {
     renderHomepage(latestResults);
   } else {
@@ -1360,6 +1419,7 @@ function setupFilters() {
       const key = button.dataset.filterToggle;
       if (!key) return;
       activeFilters[key] = !activeFilters[key];
+      currentExplorePage = 1;
       renderHomepage(latestResults);
     });
   }
@@ -1368,6 +1428,7 @@ function setupFilters() {
     filterSearch.dataset.filterBound = 'true';
     filterSearch.addEventListener('input', () => {
       activeFilters.search = filterSearch.value.trim();
+      currentExplorePage = 1;
       renderHomepage(latestResults);
     });
   }
@@ -1376,6 +1437,7 @@ function setupFilters() {
     filterState.dataset.filterBound = 'true';
     filterState.addEventListener('change', () => {
       activeFilters.state = filterState.value;
+      currentExplorePage = 1;
       renderHomepage(latestResults);
     });
   }
@@ -1384,6 +1446,7 @@ function setupFilters() {
     filterRegion.dataset.filterBound = 'true';
     filterRegion.addEventListener('change', () => {
       activeFilters.region = filterRegion.value;
+      currentExplorePage = 1;
       renderHomepage(latestResults);
     });
   }
@@ -1392,6 +1455,7 @@ function setupFilters() {
     sortSelect.dataset.filterBound = 'true';
     sortSelect.addEventListener('change', () => {
       activeFilters.sort = sortSelect.value;
+      currentExplorePage = 1;
       if ((activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest') && !userLocation) {
         requestUserLocation();
       } else {
@@ -1521,6 +1585,20 @@ maybeUseGrantedLocation();
 if (boardRefreshButton instanceof HTMLButtonElement) {
   boardRefreshButton.addEventListener('click', () => {
     loadBoard();
+  });
+}
+
+if (explorePrevButton instanceof HTMLButtonElement) {
+  explorePrevButton.addEventListener('click', () => {
+    currentExplorePage = Math.max(1, currentExplorePage - 1);
+    renderHomepage(latestResults);
+  });
+}
+
+if (exploreNextButton instanceof HTMLButtonElement) {
+  exploreNextButton.addEventListener('click', () => {
+    currentExplorePage += 1;
+    renderHomepage(latestResults);
   });
 }
 

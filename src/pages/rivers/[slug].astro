@@ -179,7 +179,30 @@ const routeStructuredData = {
       </p>
     ) : null}
 
-    <section class="river-detail__hero">
+    <div class="river-detail__layout">
+      <nav class="river-detail__section-nav" aria-label="River page sections">
+        <div class="river-detail__section-nav-inner">
+          <p class="river-detail__section-nav-label">On this page</p>
+          <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
+            Today&apos;s Score
+          </a>
+          <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="river-conditions">
+            River Conditions
+          </a>
+          <a class="river-detail__section-link" href="#quick-facts" data-detail-nav-link="quick-facts">
+            Quick Facts
+          </a>
+          <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="access-plan">
+            Access Plan
+          </a>
+          <a class="river-detail__section-link" href="#sources" data-detail-nav-link="sources">
+            Sources
+          </a>
+        </div>
+      </nav>
+
+      <div class="river-detail__content">
+    <section class="river-detail__hero" id="todays-score" data-detail-section="todays-score">
       <div class="river-detail__hero-main">
         <div class="river-detail__hero-top">
           <p class="eyebrow">{river.state} | {river.region}</p>
@@ -218,6 +241,48 @@ const routeStructuredData = {
         <p class="river-call-panel__statement" data-field="decision-line">
           Loading the current river read.
         </p>
+        <details class="river-score-tooltip">
+          <summary class="river-score-tooltip__summary">
+            <span>Why this score</span>
+          </summary>
+          <div class="river-score-tooltip__panel">
+            <p class="muted river-score-tooltip__intro" data-field="breakdown-summary">
+              Checking how today&apos;s score comes together.
+            </p>
+
+            <div class="river-score-tooltip__rows">
+              <article class="river-score-tooltip__row">
+                <span class="river-score-tooltip__label">River quality</span>
+                <strong class="river-score-tooltip__value river-score-breakdown__row-value--positive" data-field="breakdown-river-quality">
+                  Checking
+                </strong>
+              </article>
+              <article class="river-score-tooltip__row">
+                <span class="river-score-tooltip__label">Wind</span>
+                <strong class="river-score-tooltip__value" data-field="breakdown-wind-adjustment">Checking</strong>
+              </article>
+              <article class="river-score-tooltip__row">
+                <span class="river-score-tooltip__label">Temperature</span>
+                <strong class="river-score-tooltip__value" data-field="breakdown-temperature-adjustment">Checking</strong>
+              </article>
+              <article class="river-score-tooltip__row">
+                <span class="river-score-tooltip__label">Rain timing</span>
+                <strong class="river-score-tooltip__value" data-field="breakdown-rain-adjustment">Checking</strong>
+              </article>
+              <article class="river-score-tooltip__row" data-breakdown-other-group hidden>
+                <span class="river-score-tooltip__label">Other</span>
+                <strong class="river-score-tooltip__value" data-field="breakdown-comfort-adjustment">Checking</strong>
+              </article>
+            </div>
+
+            <div class="river-score-tooltip__caps" data-score-cap-wrap hidden>
+              <p class="river-score-tooltip__caps-label">What limited today&apos;s score</p>
+              <ul class="compact-list river-score-tooltip__caps-list" data-score-cap-reasons>
+                <li>Checking what limited today&apos;s score.</li>
+              </ul>
+            </div>
+          </div>
+        </details>
         <div class="river-call-panel__reliability">
           <span class="pill" data-field="rail-reliability">Checking reads</span>
           <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
@@ -296,7 +361,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-why-score">
+    <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         River conditions
@@ -442,7 +507,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-quick-facts">
+    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         Quick facts
@@ -472,113 +537,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-score-breakdown">
-      <p class="eyebrow section-label">
-        <FeatureIcon name="gauge" size={16} />
-        Why this score
-      </p>
-
-      <div class="river-score-breakdown__hero">
-        <div>
-          <h2 class="river-subtitle river-subtitle--compact">How today&apos;s score comes together</h2>
-          <p class="muted river-score-breakdown__summary" data-field="breakdown-summary">
-            Checking how today&apos;s trip score is built.
-          </p>
-        </div>
-
-        <article class="snapshot-card river-score-breakdown__final">
-          <span class="snapshot-card__label">Final score</span>
-          <strong data-field="breakdown-final-score">Checking</strong>
-          <small data-field="breakdown-final-rating">Checking</small>
-        </article>
-      </div>
-
-      <div class="river-score-breakdown__groups">
-        <section class="river-score-breakdown__group">
-          <h3 class="river-score-breakdown__group-title">River conditions</h3>
-          <div class="river-score-breakdown__rows">
-            <article class="river-score-breakdown__row" data-field="breakdown-river-row" title="Gauge and recent trend set the base river quality.">
-              <div class="river-score-breakdown__row-copy">
-                <span class="river-score-breakdown__row-label">River quality</span>
-                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-river-quality-detail">
-                  Gauge and trend only.
-                </p>
-              </div>
-              <strong class="river-score-breakdown__row-value river-score-breakdown__row-value--positive" data-field="breakdown-river-quality">
-                Checking
-              </strong>
-            </article>
-          </div>
-        </section>
-
-        <section class="river-score-breakdown__group">
-          <h3 class="river-score-breakdown__group-title">Weather</h3>
-          <div class="river-score-breakdown__rows">
-            <article class="river-score-breakdown__row" title="Strong wind makes paddling harder.">
-              <div class="river-score-breakdown__row-copy">
-                <span class="river-score-breakdown__row-label">Wind</span>
-                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-wind-detail">
-                  Checking wind effect.
-                </p>
-              </div>
-              <strong class="river-score-breakdown__row-value" data-field="breakdown-wind-adjustment">
-                Checking
-              </strong>
-            </article>
-
-            <article class="river-score-breakdown__row" title="Cold air lowers comfort and increases risk.">
-              <div class="river-score-breakdown__row-copy">
-                <span class="river-score-breakdown__row-label">Temperature</span>
-                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-temperature-detail">
-                  Checking temperature effect.
-                </p>
-              </div>
-              <strong class="river-score-breakdown__row-value" data-field="breakdown-temperature-adjustment">
-                Checking
-              </strong>
-            </article>
-
-            <article class="river-score-breakdown__row" title="Rain timing can quickly change the launch window.">
-              <div class="river-score-breakdown__row-copy">
-                <span class="river-score-breakdown__row-label">Rain timing</span>
-                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-rain-detail">
-                  Checking rain effect.
-                </p>
-              </div>
-              <strong class="river-score-breakdown__row-value" data-field="breakdown-rain-adjustment">
-                Checking
-              </strong>
-            </article>
-          </div>
-        </section>
-
-        <section class="river-score-breakdown__group" data-breakdown-other-group hidden>
-          <h3 class="river-score-breakdown__group-title">Other</h3>
-          <div class="river-score-breakdown__rows">
-            <article class="river-score-breakdown__row" title="Difficulty, season, and perfect-day bonuses can nudge the score.">
-              <div class="river-score-breakdown__row-copy">
-                <span class="river-score-breakdown__row-label">Other trip factors</span>
-                <p class="muted river-score-breakdown__row-detail" data-field="breakdown-comfort-detail">
-                  Checking other adjustments.
-                </p>
-              </div>
-              <strong class="river-score-breakdown__row-value" data-field="breakdown-comfort-adjustment">
-                Checking
-              </strong>
-            </article>
-          </div>
-        </section>
-      </div>
-
-      <section class="river-score-breakdown__caps-wrap" data-score-cap-wrap hidden>
-        <p class="eyebrow section-label">Score caps</p>
-        <ul class="compact-list river-score-breakdown__caps" data-score-cap-reasons>
-          <li>Checking score caps.</li>
-        </ul>
-      </section>
-    </section>
-
-    <section class="river-detail__panel river-launch-plan">
+    <section class="river-detail__panel river-launch-plan" id="access-plan" data-detail-section="access-plan">
       <p class="eyebrow section-label">
         <FeatureIcon name="map" size={16} />
         Access plan
@@ -824,7 +783,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-accordion-group">
+    <section class="river-detail__panel river-accordion-group" id="sources" data-detail-section="sources">
       <details class="river-accordion">
         <summary class="river-accordion__summary">
           <span>
@@ -1013,6 +972,8 @@ const routeStructuredData = {
         </div>
       </div>
     </section>
+      </div>
+    </div>
     <script type="module" src={riverDetailPageScript}></script>
   </article>
 </BaseLayout>

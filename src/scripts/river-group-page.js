@@ -23,7 +23,6 @@ const bannerTitle = root.querySelector('[data-group-banner-title]');
 const bannerDetail = root.querySelector('[data-group-banner-detail]');
 const refreshButton = root.querySelector('[data-group-refresh]');
 const refreshNote = root.querySelector('[data-group-refresh-note]');
-const selectedLink = root.querySelector('[data-group-selected-link]');
 const groupMap = root.querySelector('[data-group-map]');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
 
@@ -341,6 +340,7 @@ function routePopupMarkup(route) {
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
       <p class="score-map-popup__summary">${escapeHtml(summaryLine(route))}</p>
       <p class="score-map-popup__meta">${escapeHtml(meta.join(' - '))}</p>
+      <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;
 }
@@ -435,7 +435,7 @@ async function renderGroupMap(routes) {
       })
         .setLngLat([midpoint.longitude, midpoint.latitude])
         .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: false, maxWidth: '280px' }).setHTML(routePopupMarkup(route))
+          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '280px' }).setHTML(routePopupMarkup(route))
         )
         .addTo(mapRuntime);
 
@@ -546,60 +546,21 @@ function setRefreshState(state, detail = '') {
   }
 }
 
-function renderSelectedRoute(route) {
-  if (!route) return;
-
-  const orb = root.querySelector('.score-orb');
-  if (orb instanceof HTMLElement) {
-    orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
-    orb.classList.add(`score-orb--${ratingToneKey(route.rating)}`);
-  }
-
-  setText('selected-score', String(route.score));
-  setText('selected-rating', route.rating);
-  setText('selected-reach', route.reach);
-  setText('selected-status', decisionLabel(route.rating));
-  setText('selected-confidence', metaLine(route));
-  const parts = summaryParts(route);
-  setText('selected-summary-main', parts.main);
-  setText('selected-summary-weather', parts.weather);
-
-  const summaryWeatherRow = root.querySelector('[data-field="selected-summary-weather-row"]');
-  if (summaryWeatherRow instanceof HTMLElement) {
-    summaryWeatherRow.hidden = !parts.weather;
-  }
-
-  const signalLine = root.querySelector('[data-field="selected-signal"]');
-  if (signalLine instanceof HTMLElement) {
-    signalLine.innerHTML = signalRowMarkup(route);
-  }
-
-  const selectedWeatherIcon = root.querySelector('[data-field="selected-weather-icon"]');
-  if (selectedWeatherIcon instanceof HTMLElement) {
-    const state = weatherVisualState(route);
-    selectedWeatherIcon.className = `weather-indicator weather-indicator--${state}`;
-    selectedWeatherIcon.innerHTML = weatherVisualMarkup(state);
-    selectedWeatherIcon.setAttribute('title', weatherVisualLabel(state));
-  }
-
-  if (selectedLink instanceof HTMLAnchorElement) {
-    selectedLink.href = `/rivers/${route.slug}/`;
-    selectedLink.textContent = 'View route';
-  }
-}
-
 function renderRouteList(routes) {
   if (!(routeList instanceof HTMLElement)) return;
 
   routeList.innerHTML = routes
     .map((route) => {
       const active = route.slug === selectedSlug;
+      const weatherState = weatherVisualState(route);
+      const summary = summaryParts(route);
 
       return `
-        <button
+        <article
           class="route-choice${active ? ' route-choice--active' : ''}"
-          type="button"
-          data-group-route-button
+          tabindex="0"
+          role="button"
+          data-group-route-card
           data-route-slug="${route.slug}"
         >
           <span class="route-choice__kind">Route</span>
@@ -610,32 +571,56 @@ function renderRouteList(routes) {
           </span>
           <span class="route-choice__meta">${metaLine(route)}</span>
           <span class="route-choice__summary">
-            <span class="route-choice__summary-main">${summaryParts(route).main}</span>
+            <span class="route-choice__summary-main">${summary.main}</span>
             <span class="route-choice__summary-weather">
-              <span class="weather-indicator weather-indicator--${weatherVisualState(route)}" title="${weatherVisualLabel(weatherVisualState(route))}" aria-hidden="true">
-                ${weatherVisualMarkup(weatherVisualState(route))}
+              <span class="weather-indicator weather-indicator--${weatherState}" title="${weatherVisualLabel(weatherState)}" aria-hidden="true">
+                ${weatherVisualMarkup(weatherState)}
               </span>
-              <span>${summaryParts(route).weather}</span>
+              <span>${summary.weather}</span>
             </span>
           </span>
           <span class="route-choice__signal">
             ${signalRowMarkup(route)}
           </span>
-        </button>
+          <div class="route-choice__footer">
+            <span class="route-choice__selection">${active ? 'Shown on map' : 'Show on map'}</span>
+            <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
+          </div>
+        </article>
       `;
     })
     .join('');
 
-  for (const button of Array.from(routeList.querySelectorAll('[data-group-route-button]'))) {
-    if (!(button instanceof HTMLButtonElement)) continue;
-    button.addEventListener('click', () => {
-      selectedSlug = button.dataset.routeSlug;
+  for (const card of Array.from(routeList.querySelectorAll('[data-group-route-card]'))) {
+    if (!(card instanceof HTMLElement)) continue;
+
+    const selectRoute = () => {
+      selectedSlug = card.dataset.routeSlug;
       if (!currentResult) return;
       const route = currentResult.routes.find((candidate) => candidate.slug === selectedSlug);
       if (!route) return;
-      renderSelectedRoute(route);
       renderRouteList(currentResult.routes);
       renderGroupMap(currentResult.routes);
+    };
+
+    card.addEventListener('click', (event) => {
+      if ((event.target instanceof HTMLElement) && event.target.closest('a')) {
+        return;
+      }
+      selectRoute();
+    });
+
+    card.addEventListener('keydown', (event) => {
+      if (!(event instanceof KeyboardEvent)) {
+        return;
+      }
+
+      if (event.key !== 'Enter' && event.key !== ' ') {
+        return;
+      }
+
+      event.preventDefault();
+      selectRoute();
     });
   }
 }
@@ -696,8 +681,6 @@ async function loadGroup({ silent = false } = {}) {
       selectedSlug = routes[0].slug;
     }
 
-    const selectedRoute = routes.find((route) => route.slug === selectedSlug) ?? routes[0];
-    renderSelectedRoute(selectedRoute);
     renderRouteList(routes);
     renderGroupMap(routes);
 

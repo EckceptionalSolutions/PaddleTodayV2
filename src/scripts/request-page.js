@@ -1,6 +1,7 @@
 const form = document.querySelector('[data-request-form]');
 const status = document.querySelector('[data-request-status]');
 const submitButton = document.querySelector('[data-request-submit]');
+const emailLink = document.querySelector('[data-request-email-link]');
 const kicker = document.querySelector('[data-request-kicker]');
 const title = document.querySelector('[data-request-title]');
 const lede = document.querySelector('[data-request-lede]');
@@ -14,6 +15,8 @@ const COOLDOWN_MS = 30 * 1000;
 applyRequestContext();
 
 if (form instanceof HTMLFormElement) {
+  attachValidationListeners(form);
+
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -34,13 +37,9 @@ if (form instanceof HTMLFormElement) {
     const replyEmail = String(formData.get('replyEmail') || '').trim();
     const company = String(formData.get('company') || '').trim();
 
-    if (!routeName || !state || !notes) {
-      setStatus('Please fill in the required fields.');
-      return;
-    }
-
-    if (notes.length < 12 || routeName.length < 3) {
-      setStatus('Please add a bit more detail before sending.');
+    const validationError = validateForm({ routeName, state, notes, replyEmail });
+    if (validationError) {
+      setStatus(validationError);
       return;
     }
 
@@ -147,6 +146,110 @@ function setSubmitting(isSubmitting) {
   }
 }
 
+function attachValidationListeners(formElement) {
+  const fields = ['routeName', 'state', 'notes', 'replyEmail']
+    .map((name) => formElement.elements.namedItem(name))
+    .filter((field) => field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement);
+
+  for (const field of fields) {
+    field.addEventListener('input', () => {
+      clearFieldError(field);
+    });
+    field.addEventListener('blur', () => {
+      validateSingleField(field);
+    });
+  }
+}
+
+function validateForm({ routeName, state, notes, replyEmail }) {
+  let firstInvalidField = null;
+
+  const setFirstInvalid = (field) => {
+    if (!firstInvalidField) {
+      firstInvalidField = field;
+    }
+  };
+
+  const routeField = getField('routeName');
+  const stateField = getField('state');
+  const notesField = getField('notes');
+  const emailField = getField('replyEmail');
+
+  if (routeField) {
+    const message = routeName.length >= 3 ? '' : 'Add a river or route name.';
+    setFieldError(routeField, message);
+    if (message) setFirstInvalid(routeField);
+  }
+
+  if (stateField) {
+    const message = state ? '' : 'Add a state.';
+    setFieldError(stateField, message);
+    if (message) setFirstInvalid(stateField);
+  }
+
+  if (notesField) {
+    const message = notes.length >= 12 ? '' : 'Add at least 12 characters of detail.';
+    setFieldError(notesField, message);
+    if (message) setFirstInvalid(notesField);
+  }
+
+  if (emailField) {
+    const message =
+      !replyEmail || emailField.validity.valid ? '' : 'Enter a valid email address or leave it blank.';
+    setFieldError(emailField, message);
+    if (message) setFirstInvalid(emailField);
+  }
+
+  if (firstInvalidField) {
+    firstInvalidField.reportValidity();
+    firstInvalidField.focus();
+    return firstInvalidField.validationMessage || 'Please check the highlighted fields.';
+  }
+
+  return '';
+}
+
+function validateSingleField(field) {
+  if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {
+    return true;
+  }
+
+  const value = field.value.trim();
+  let message = '';
+
+  if (field.name === 'routeName') {
+    message = value.length >= 3 ? '' : 'Add a river or route name.';
+  } else if (field.name === 'state') {
+    message = value ? '' : 'Add a state.';
+  } else if (field.name === 'notes') {
+    message = value.length >= 12 ? '' : 'Add at least 12 characters of detail.';
+  } else if (field.name === 'replyEmail') {
+    message = !value || field.validity.valid ? '' : 'Enter a valid email address or leave it blank.';
+  }
+
+  setFieldError(field, message);
+  return !message;
+}
+
+function getField(name) {
+  if (!(form instanceof HTMLFormElement)) {
+    return null;
+  }
+
+  const field = form.elements.namedItem(name);
+  return field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement ? field : null;
+}
+
+function setFieldError(field, message) {
+  field.setCustomValidity(message);
+  field.toggleAttribute('aria-invalid', Boolean(message));
+}
+
+function clearFieldError(field) {
+  field.setCustomValidity('');
+  field.removeAttribute('aria-invalid');
+}
+
 function defaultSubmitLabel() {
   const params = new URLSearchParams(window.location.search);
   return String(params.get('mode') || '').trim().toLowerCase() === 'update' ? 'Send update' : 'Send request';
@@ -193,6 +296,8 @@ function fallbackToEmail(payload) {
   ].join('\n');
 
   const href = `mailto:${encodeURIComponent(REQUEST_EMAIL)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  window.location.href = href;
-  setStatus(`Could not reach the request API. Opening your email app for ${REQUEST_EMAIL}.`);
+  if (emailLink instanceof HTMLAnchorElement) {
+    emailLink.href = href;
+  }
+  setStatus(`Could not reach the request API. Use the email link below to send this request to ${REQUEST_EMAIL}.`);
 }

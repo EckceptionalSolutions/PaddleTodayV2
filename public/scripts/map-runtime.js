@@ -76,22 +76,21 @@ export function markerClassForRating(rating, confidenceLabel) {
 }
 
 export function bindMarkerPopup(marker, markerNode) {
-  const open = () => {
-    const popup = marker.getPopup();
-    if (popup && !popup.isOpen()) {
-      marker.togglePopup();
+  markerNode.addEventListener('keydown', (event) => {
+    if (!(event instanceof KeyboardEvent)) {
+      return;
     }
-  };
 
-  const close = () => {
-    const popup = marker.getPopup();
-    if (popup && popup.isOpen()) {
-      marker.togglePopup();
+    if (event.key !== 'Enter' && event.key !== ' ') {
+      return;
     }
-  };
 
-  markerNode.addEventListener('mouseenter', open);
-  markerNode.addEventListener('focus', open);
-  markerNode.addEventListener('mouseleave', close);
-  markerNode.addEventListener('blur', close);
+    event.preventDefault();
+    const popup = marker.getPopup();
+    if (!popup) {
+      return;
+    }
+
+    marker.togglePopup();
+  });
 }

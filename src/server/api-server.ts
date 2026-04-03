@@ -1,5 +1,6 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
+import { mkdir, writeFile } from 'node:fs/promises';
 import { extname, resolve } from 'node:path';
 import { serializeDetailResult, serializeRiverGroupResult, serializeSummaryResult } from '../lib/api-contract';
 import { getAllRiverScores, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
@@ -351,20 +352,23 @@ async function handleRiverRequest(
 
     const containerSas = parseContainerSas(process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL || '');
     const prefix = clean(process.env.ROUTE_REQUESTS_BLOB_PREFIX || 'route-requests', 120).replace(/^\/+|\/+$/g, '');
+    const stamp = Date.now();
+    const rand = Math.random().toString(16).slice(2, 10);
 
     if (!containerSas) {
-      console.error('[river-request] missing ROUTE_REQUESTS_CONTAINER_SAS_URL');
+      const localDir = resolve(process.cwd(), '.local', prefix || 'route-requests');
+      const localFile = resolve(localDir, `${stamp}-${rand}.json`);
+      await mkdir(localDir, { recursive: true });
+      await writeFile(localFile, JSON.stringify(payload, null, 2), 'utf8');
       return sendJson(
         response,
-        500,
-        { requestId, error: 'storage_not_configured', message: 'Storage is not configured.' },
+        202,
+        { requestId, ok: true, stored: true, storage: 'local' },
         includeBody,
         'no-store'
       );
     }
 
-    const stamp = Date.now();
-    const rand = Math.random().toString(16).slice(2, 10);
     const blobName = `${prefix}/${stamp}-${rand}.json`;
     const blobUrl = putBlobUrl(containerSas, blobName);
     const payloadText = JSON.stringify(payload, null, 2);

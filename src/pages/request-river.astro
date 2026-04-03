@@ -29,7 +29,12 @@ const requestEmail = 'hello@paddletoday.com';
       <form class="request-form" data-request-form novalidate>
         <label>
           River or route name *
-          <input name="routeName" required placeholder="Example: St. Croix River - Taylors Falls to Osceola" />
+          <input
+            name="routeName"
+            required
+            minlength="3"
+            placeholder="Example: St. Croix River - Taylors Falls to Osceola"
+          />
         </label>
 
         <label>
@@ -59,6 +64,7 @@ const requestEmail = 'hello@paddletoday.com';
             name="notes"
             rows="5"
             required
+            minlength="12"
             aria-describedby="request-notes-hint"
             placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, local demand, or anything else useful."
           ></textarea>
@@ -76,7 +82,7 @@ const requestEmail = 'hello@paddletoday.com';
 
         <div class="request-form__actions">
           <button class="filter-chip" type="submit" data-request-submit>Send request</button>
-          <a class="river-link river-link--inline" href={`mailto:${requestEmail}`}>Email instead</a>
+          <a class="river-link river-link--inline" href={`mailto:${requestEmail}`} data-request-email-link>Email instead</a>
         </div>
 
         <p class="muted request-form__status" data-request-status aria-live="polite"></p>
