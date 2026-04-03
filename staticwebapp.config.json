@@ -6,17 +6,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/snake-river-rush-city-bridgeview-park/",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/snake-river-rush-city-to-bridgeview-park",
-      "redirect": "/rivers/snake-river-county-road-3-mora/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/snake-river-rush-city-to-bridgeview-park/",
       "redirect": "/rivers/snake-river-county-road-3-mora/",
       "statusCode": 301
     },
@@ -26,17 +16,7 @@
       "statusCode": 301
     },
     {
-      "route": "/rivers/minnehaha-creek-grays-bay-knollwood/",
-      "redirect": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon/",
-      "statusCode": 301
-    },
-    {
       "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood",
-      "redirect": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon/",
-      "statusCode": 301
-    },
-    {
-      "route": "/rivers/minnehaha-creek-grays-bay-to-target-knollwood/",
       "redirect": "/rivers/minnehaha-creek-grays-bay-longfellow-lagoon/",
       "statusCode": 301
     }
