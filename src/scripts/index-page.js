@@ -34,6 +34,7 @@ const featuredSummary = document.querySelector('[data-field="featured-explanatio
 const featuredToggle = document.querySelector('[data-featured-toggle]');
 const featuredCondition = document.querySelector('[data-featured-condition]');
 const nearbySection = document.querySelector('.decision-section--nearby');
+const homeFreshness = document.querySelector('[data-home-freshness]');
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
@@ -100,6 +101,7 @@ let userLocationState = 'idle';
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
+let lastBoardGeneratedAt = null;
 
 const EXPLORE_PAGE_SIZE = 9;
 const SUMMARY_CACHE_KEY = 'river-summary:v1';
@@ -622,6 +624,38 @@ function clampText(text, maxLength) {
   }
 
   return `${normalized.slice(0, maxLength).replace(/[ ,;:.!?-]+$/, '')}…`;
+}
+
+function formatGeneratedFreshness(isoString) {
+  if (typeof isoString !== 'string' || !isoString) {
+    return 'Checking latest refresh…';
+  }
+
+  const timestamp = new Date(isoString).getTime();
+  if (!Number.isFinite(timestamp)) {
+    return 'Checking latest refresh…';
+  }
+
+  return `${freshnessLabel(timestamp)}.`;
+}
+
+function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
+  if (!(homeFreshness instanceof HTMLElement)) {
+    return;
+  }
+
+  const base = formatGeneratedFreshness(generatedAt);
+  if (refreshing && generatedAt) {
+    homeFreshness.textContent = `${base} Refreshing now…`;
+    return;
+  }
+
+  if (fallback && generatedAt) {
+    homeFreshness.textContent = `${base} Showing latest available data.`;
+    return;
+  }
+
+  homeFreshness.textContent = base;
 }
 
 function updateFeaturedSummaryToggle(text) {
@@ -1381,8 +1415,10 @@ function hydrateBoardFromCache() {
   latestResults = rivers;
   hasLoadedBoardOnce = true;
   lastBoardSuccessAt = cached.fetchedAt;
+  lastBoardGeneratedAt = typeof cached.payload?.generatedAt === 'string' ? cached.payload.generatedAt : null;
   setBoardFetchBannerState('hidden');
   renderHomepage(latestResults);
+  updateHomeFreshness({ generatedAt: lastBoardGeneratedAt, refreshing: true });
 
   if (boardRefreshNote instanceof HTMLElement) {
     boardRefreshNote.textContent = `${freshnessLabel(cached.fetchedAt)}. Refreshing…`;
@@ -1669,6 +1705,10 @@ async function loadBoard({ silent = false } = {}) {
   }
 
   try {
+    if (silent && (lastBoardGeneratedAt || hasLoadedBoardOnce)) {
+      updateHomeFreshness({ generatedAt: lastBoardGeneratedAt, refreshing: true });
+    }
+
     const response = await fetch('/api/rivers/summary.json', {
       headers: { accept: 'application/json' },
       cache: 'no-store',
@@ -1680,12 +1720,14 @@ async function loadBoard({ silent = false } = {}) {
 
     const payload = await response.json();
     latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
+    lastBoardGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
     writeCachedPayload(SUMMARY_CACHE_KEY, payload);
     hasLoadedBoardOnce = true;
     lastBoardSuccessAt = Date.now();
     setBoardFetchBannerState('hidden');
     setBoardRefreshState('ready');
     renderHomepage(latestResults);
+    updateHomeFreshness({ generatedAt: lastBoardGeneratedAt });
   } catch (error) {
     console.error('Failed to load river scores on summary page.', error);
 
@@ -1695,6 +1737,7 @@ async function loadBoard({ silent = false } = {}) {
         'error',
         `${freshnessLabel(lastBoardSuccessAt)}. Showing latest available data.`
       );
+      updateHomeFreshness({ generatedAt: lastBoardGeneratedAt, fallback: true });
       return;
     }
 
@@ -1716,6 +1759,7 @@ async function loadBoard({ silent = false } = {}) {
     if (overallSummary instanceof HTMLElement) {
       overallSummary.textContent = 'Top river calls are unavailable until the river board loads.';
     }
+    updateHomeFreshness();
   }
 }
 

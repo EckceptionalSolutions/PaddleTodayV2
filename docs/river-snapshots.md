@@ -44,7 +44,7 @@ Local files are written under:
 
 ## Production storage
 
-Add these App Service settings:
+Add these App Service settings when the API should read stored snapshots or support manual refreshes:
 
 - `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 - `RIVER_SNAPSHOT_BLOB_PREFIX`
@@ -72,20 +72,35 @@ The scheduled workflow is:
 
 - `.github/workflows/river-snapshots.yml`
 
-It runs every 30 minutes and calls the live refresh endpoint.
+It runs every 30 minutes and builds snapshots directly in GitHub Actions, then writes them to Blob Storage.
 
-Configure these GitHub repository secrets:
+Configure this GitHub repository secret:
 
-- `SNAPSHOT_REFRESH_URL`
-- `SNAPSHOT_REFRESH_TOKEN`
+- `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 
-Recommended URL:
+Optional GitHub repository variable:
 
-- `https://<your-api-host>/api/snapshots/refresh`
+- `RIVER_SNAPSHOT_BLOB_PREFIX`
 
-Example:
+Recommended variable value:
 
-- `https://paddletodayapi.azurewebsites.net/api/snapshots/refresh`
+- `river-snapshots`
+
+This avoids long-running HTTP refresh requests, which can hit gateway timeouts.
+
+## Manual refresh endpoint
+
+The API still exposes:
+
+- `POST /api/snapshots/refresh`
+
+When `SNAPSHOT_REFRESH_TOKEN` is set, the request must send the same token in:
+
+- `x-history-token`
+
+If `SNAPSHOT_REFRESH_TOKEN` is not set, the endpoint falls back to:
+
+- `HISTORY_SNAPSHOT_TOKEN`
 
 ## Recommended production model
 
