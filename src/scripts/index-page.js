@@ -5,7 +5,7 @@ import {
   escapeHtml,
   markerClassForRating,
 } from '/scripts/map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const GEOLOCATION_TIMEOUT_MS = 10000;

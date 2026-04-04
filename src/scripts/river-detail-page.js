@@ -4,7 +4,7 @@
   ensureMapLibre,
   escapeHtml,
 } from '/scripts/map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
