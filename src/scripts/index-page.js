@@ -5,6 +5,7 @@ import {
   escapeHtml,
   markerClassForRating,
 } from '/scripts/map-runtime.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const GEOLOCATION_TIMEOUT_MS = 10000;
@@ -101,6 +102,7 @@ let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 
 const EXPLORE_PAGE_SIZE = 9;
+const SUMMARY_CACHE_KEY = 'river-summary:v1';
 
 function setText(scope, field, value) {
   const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
@@ -1369,6 +1371,26 @@ function setBoardFetchBannerState(kind, detail) {
   }
 }
 
+function hydrateBoardFromCache() {
+  const cached = readCachedPayload(SUMMARY_CACHE_KEY);
+  const rivers = Array.isArray(cached?.payload?.rivers) ? cached.payload.rivers : null;
+  if (!rivers || rivers.length === 0) {
+    return false;
+  }
+
+  latestResults = rivers;
+  hasLoadedBoardOnce = true;
+  lastBoardSuccessAt = cached.fetchedAt;
+  setBoardFetchBannerState('hidden');
+  renderHomepage(latestResults);
+
+  if (boardRefreshNote instanceof HTMLElement) {
+    boardRefreshNote.textContent = `${freshnessLabel(cached.fetchedAt)}. Refreshing…`;
+  }
+
+  return true;
+}
+
 function renderHomepage(results) {
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
   const nearbyBaseItems = sortItems(buildDisplayItems(results, results, 'near-you'), 'near-you');
@@ -1658,6 +1680,7 @@ async function loadBoard({ silent = false } = {}) {
 
     const payload = await response.json();
     latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
+    writeCachedPayload(SUMMARY_CACHE_KEY, payload);
     hasLoadedBoardOnce = true;
     lastBoardSuccessAt = Date.now();
     setBoardFetchBannerState('hidden');
@@ -1668,7 +1691,10 @@ async function loadBoard({ silent = false } = {}) {
 
     if (hasLoadedBoardOnce) {
       setBoardFetchBannerState('hidden');
-      setBoardRefreshState('error', 'Last refresh failed. Showing the last good board.');
+      setBoardRefreshState(
+        'error',
+        `${freshnessLabel(lastBoardSuccessAt)}. Showing latest available data.`
+      );
       return;
     }
 
@@ -1744,7 +1770,8 @@ window.addEventListener('resize', () => {
   syncExploreShellHeight();
 });
 
-loadBoard();
+const hydratedBoard = hydrateBoardFromCache();
+loadBoard({ silent: hydratedBoard });
 window.setInterval(() => {
   loadBoard({ silent: true });
 }, AUTO_REFRESH_MS);

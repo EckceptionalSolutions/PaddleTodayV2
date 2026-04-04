@@ -1,0 +1,48 @@
+name: Paddle Today River Snapshots
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: river-snapshots
+  cancel-in-progress: false
+
+jobs:
+  refresh_snapshots:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Trigger river snapshot refresh
+        env:
+          SNAPSHOT_REFRESH_URL: ${{ secrets.SNAPSHOT_REFRESH_URL }}
+          SNAPSHOT_REFRESH_TOKEN: ${{ secrets.SNAPSHOT_REFRESH_TOKEN }}
+        run: |
+          if [ -z "$SNAPSHOT_REFRESH_URL" ]; then
+            echo "SNAPSHOT_REFRESH_URL is not configured."
+            exit 1
+          fi
+
+          echo "Posting river snapshot refresh to $SNAPSHOT_REFRESH_URL"
+
+          if [ -n "$SNAPSHOT_REFRESH_TOKEN" ]; then
+            response=$(curl --silent --show-error --write-out "\n%{http_code}" \
+              -X POST "$SNAPSHOT_REFRESH_URL" \
+              -H "accept: application/json" \
+              -H "x-history-token: $SNAPSHOT_REFRESH_TOKEN")
+          else
+            response=$(curl --silent --show-error --write-out "\n%{http_code}" \
+              -X POST "$SNAPSHOT_REFRESH_URL" \
+              -H "accept: application/json")
+          fi
+
+          body=$(printf '%s' "$response" | sed '$d')
+          status=$(printf '%s' "$response" | tail -n 1)
+
+          echo "$body"
+
+          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
+            echo "River snapshot refresh failed with HTTP $status"
+            exit 1
+          fi

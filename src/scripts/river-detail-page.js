@@ -4,6 +4,7 @@
   ensureMapLibre,
   escapeHtml,
 } from '/scripts/map-runtime.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -94,6 +95,8 @@ const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 let lastDetailSuccessAt = null;
 let hasLoadedDetailOnce = false;
+const detailCacheKey = `river-detail:${slug}:v1`;
+const historyCacheKey = `river-history:${slug}:7:v1`;
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -1901,6 +1904,131 @@ function renderWeatherVisual(weather) {
   renderHourlyWeather(weather);
 }
 
+function renderDetailResult(result) {
+  latestResult = result;
+
+  const ratingKey = ratingToneKey(result.rating);
+  const decision = decisionLabel(result.rating);
+
+  root.classList.remove('river-detail--great', 'river-detail--good', 'river-detail--marginal', 'river-detail--no-go');
+  root.classList.add(`river-detail--${ratingKey}`);
+
+  setText('score', String(result.score));
+  setText('rating', ratingLabel(result.rating));
+  setText('explanation', result.explanation);
+  setText('decision-line', decisionStatement(result.rating));
+
+  const orb = root.querySelector('.score-orb');
+  if (orb instanceof HTMLElement) {
+    orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
+    orb.classList.add(`score-orb--${ratingKey}`);
+  }
+
+  const decisionPill = setText('decision', decision);
+  decorateDecision(decisionPill, result.rating);
+
+  const confidence = setText('confidence', `${result.confidence.label} confidence`);
+  if (confidence instanceof HTMLElement) {
+    confidence.classList.remove('confidence-pill--high', 'confidence-pill--medium', 'confidence-pill--low');
+    confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
+  }
+
+  const dataStatus = setText('data-status', `Reads ${result.liveData.overall}`);
+  if (dataStatus instanceof HTMLElement) {
+    dataStatus.classList.remove('data-status-pill--live', 'data-status-pill--degraded', 'data-status-pill--offline');
+    dataStatus.classList.add(`data-status-pill--${result.liveData.overall}`);
+  }
+
+  setText('flow-band', result.gaugeBandLabel);
+  setText(
+    'gauge-now',
+    result.gauge
+      ? result.gauge.gaugeHeightNow != null
+        ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
+        : formatGaugeMetric(result.gauge.current, result.gauge.unit)
+      : 'No reading'
+  );
+  setText(
+    'discharge-now',
+    result.gauge ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading') : 'No reading'
+  );
+  setText(
+    'observed-at',
+    result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'No reading'
+  );
+  setText(
+    'generated-at',
+    result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'No reading'
+  );
+  setText('gauge-freshness', result.liveData.gauge.detail);
+  setText(
+    'trend',
+    result.gauge?.trend
+      ? `${String(result.gauge.trend).slice(0, 1).toUpperCase()}${String(result.gauge.trend).slice(1)}`
+      : 'No reading'
+  );
+  setText('trend-summary', trendSummaryValue(result.gauge));
+  setText(
+    'flow-change-24h',
+    result.gauge?.delta24h !== null && result.gauge
+      ? `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(result.gauge.delta24h, result.gauge.unit)}`
+      : 'No reading'
+  );
+  setText('recent-rain-24h', formatRainTotal(result.weather?.recentRain24hIn, 'No reading'));
+  setText('recent-rain-72h', formatRainTotal(result.weather?.recentRain72hIn, 'No reading'));
+  setText('weather-freshness', result.liveData.weather.detail);
+  setText('weather-air-temp', result.weather?.temperatureF != null ? `${Math.round(result.weather.temperatureF)}°F` : 'No reading');
+  setText('weather-water-temp', result.gauge?.waterTempF != null ? `${Math.round(result.gauge.waterTempF)}°F` : 'No reading');
+  setText('weather-wind', result.weather?.windMph != null ? `${Math.round(result.weather.windMph)} mph` : 'No reading');
+  setText('weather-gusts', result.weather?.gustMph != null ? `${Math.round(result.weather.gustMph)} mph` : 'No reading');
+  setText('gauge-source', result.gauge?.gaugeSource ?? 'No reading');
+  setText('weather-source', result.weather?.weatherSource ?? 'No reading');
+  setText('rainfall-source', result.weather?.rainfallSource ?? 'No reading');
+  setFieldGroupHidden('level', false);
+  setFieldGroupHidden('trend', false);
+
+  renderDetailBanner(result);
+  renderLaunchReadiness(result);
+  renderGaugeChart(result);
+  renderWeatherVisual(result.weather);
+  renderDetailMap(result);
+  renderFactors(result.factors);
+  renderChecklist(result.checklist);
+  renderOutlooks(result.outlooks);
+  renderConfidenceDetail(result.confidence);
+  renderScoreBreakdown(result);
+}
+
+function hydrateDetailFromCache() {
+  const cached = readCachedPayload(detailCacheKey);
+  const result = cached?.payload?.result;
+  if (!result) {
+    return false;
+  }
+
+  renderDetailResult(result);
+  hasLoadedDetailOnce = true;
+  lastDetailSuccessAt = cached.fetchedAt;
+  setDetailFetchBannerState('hidden');
+
+  if (detailRefreshNote instanceof HTMLElement) {
+    detailRefreshNote.textContent = `${freshnessLabel(cached.fetchedAt)}. Refreshing…`;
+  }
+
+  return true;
+}
+
+function hydrateHistoryFromCache() {
+  const cached = readCachedPayload(historyCacheKey);
+  const result = cached?.payload?.result;
+  if (!result) {
+    return false;
+  }
+
+  renderHistory(result);
+  return true;
+}
+
 function renderHistory(history) {
   if (!(historyBars instanceof HTMLElement)) {
     return;
@@ -1949,10 +2077,13 @@ async function loadHistory() {
     }
 
     const payload = await response.json();
+    writeCachedPayload(historyCacheKey, payload);
     renderHistory(payload?.result ?? null);
   } catch (error) {
     console.error('Failed to load river history.', error);
-    renderHistory(null);
+    if (!readCachedPayload(historyCacheKey)) {
+      renderHistory(null);
+    }
   }
 }
 
@@ -1976,100 +2107,8 @@ async function loadDetail({ silent = false } = {}) {
     const payload = await response.json();
     const result = payload?.result;
     if (!result) return;
-    latestResult = result;
-
-    const ratingKey = ratingToneKey(result.rating);
-    const decision = decisionLabel(result.rating);
-
-    setText('score', String(result.score));
-    setText('rating', ratingLabel(result.rating));
-    setText('explanation', result.explanation);
-    setText('decision-line', decisionStatement(result.rating));
-
-    root.classList.add(`river-detail--${ratingKey}`);
-
-    const orb = root.querySelector('.score-orb');
-    if (orb instanceof HTMLElement) {
-      orb.classList.add(`score-orb--${ratingKey}`);
-    }
-
-    const decisionPill = setText('decision', decision);
-    decorateDecision(decisionPill, result.rating);
-
-    const confidence = setText(
-      'confidence',
-      `${result.confidence.label} confidence`
-    );
-    if (confidence instanceof HTMLElement) {
-      confidence.classList.remove('confidence-pill--high', 'confidence-pill--medium', 'confidence-pill--low');
-      confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
-    }
-
-    const dataStatus = setText('data-status', `Reads ${result.liveData.overall}`);
-    if (dataStatus instanceof HTMLElement) {
-      dataStatus.classList.remove('data-status-pill--live', 'data-status-pill--degraded', 'data-status-pill--offline');
-      dataStatus.classList.add(`data-status-pill--${result.liveData.overall}`);
-    }
-
-    setText('flow-band', result.gaugeBandLabel);
-    setText(
-      'gauge-now',
-      result.gauge
-        ? result.gauge.gaugeHeightNow != null
-          ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
-          : formatGaugeMetric(result.gauge.current, result.gauge.unit)
-        : 'No reading'
-    );
-    setText(
-      'discharge-now',
-      result.gauge ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading') : 'No reading'
-    );
-    setText(
-      'observed-at',
-      result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'No reading'
-    );
-    setText(
-      'generated-at',
-      result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'No reading'
-    );
-    setText('gauge-freshness', result.liveData.gauge.detail);
-    setText(
-      'trend',
-      result.gauge?.trend
-        ? `${String(result.gauge.trend).slice(0, 1).toUpperCase()}${String(result.gauge.trend).slice(1)}`
-        : 'No reading'
-    );
-    setText('trend-summary', trendSummaryValue(result.gauge));
-    setText(
-      'flow-change-24h',
-      result.gauge?.delta24h !== null && result.gauge
-        ? `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(result.gauge.delta24h, result.gauge.unit)}`
-        : 'No reading'
-    );
-    setText('recent-rain-24h', formatRainTotal(result.weather?.recentRain24hIn, 'No reading'));
-    setText('recent-rain-72h', formatRainTotal(result.weather?.recentRain72hIn, 'No reading'));
-    setText('weather-freshness', result.liveData.weather.detail);
-    setText('weather-air-temp', result.weather?.temperatureF != null ? `${Math.round(result.weather.temperatureF)}°F` : 'No reading');
-    setText('weather-water-temp', result.gauge?.waterTempF != null ? `${Math.round(result.gauge.waterTempF)}°F` : 'No reading');
-    setText('weather-wind', result.weather?.windMph != null ? `${Math.round(result.weather.windMph)} mph` : 'No reading');
-    setText('weather-gusts', result.weather?.gustMph != null ? `${Math.round(result.weather.gustMph)} mph` : 'No reading');
-    setText('gauge-source', result.gauge?.gaugeSource ?? 'No reading');
-    setText('weather-source', result.weather?.weatherSource ?? 'No reading');
-    setText('rainfall-source', result.weather?.rainfallSource ?? 'No reading');
-    setFieldGroupHidden('level', false);
-    setFieldGroupHidden('trend', false);
-
-    renderDetailBanner(result);
-    renderLaunchReadiness(result);
-    renderGaugeChart(result);
-    renderWeatherVisual(result.weather);
-    renderDetailMap(result);
-
-    renderFactors(result.factors);
-    renderChecklist(result.checklist);
-    renderOutlooks(result.outlooks);
-    renderConfidenceDetail(result.confidence);
-    renderScoreBreakdown(result);
+    writeCachedPayload(detailCacheKey, payload);
+    renderDetailResult(result);
     loadHistory();
     lastDetailSuccessAt = Date.now();
     hasLoadedDetailOnce = true;
@@ -2077,15 +2116,20 @@ async function loadDetail({ silent = false } = {}) {
     setDetailRefreshState('ready');
   } catch (error) {
     console.error('Failed to load river score on detail page.', error);
+    if (hasLoadedDetailOnce) {
+      setDetailFetchBannerState('hidden');
+      setDetailRefreshState(
+        'error',
+        `${freshnessLabel(lastDetailSuccessAt)}. Showing latest available data.`
+      );
+      return;
+    }
+
     setDetailFetchBannerState(
-      hasLoadedDetailOnce ? 'refresh' : 'initial',
+      'initial',
       'This river call could not refresh. Retry the page, then verify the source if the problem continues.'
     );
     setDetailRefreshState('error', 'Last refresh failed. Retry now.');
-
-    if (hasLoadedDetailOnce) {
-      return;
-    }
 
     setText(
       'explanation',
@@ -2247,7 +2291,9 @@ if (detailRefreshButton instanceof HTMLButtonElement) {
     loadDetail();
   });
 }
-loadDetail();
+const hydratedDetail = hydrateDetailFromCache();
+hydrateHistoryFromCache();
+loadDetail({ silent: hydratedDetail });
 window.setInterval(() => {
   loadDetail({ silent: true });
 }, AUTO_REFRESH_MS);

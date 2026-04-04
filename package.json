@@ -13,6 +13,7 @@
     "serve": "tsx src/server/api-server.ts --static dist --port 4321",
     "serve:local": "tsx src/server/api-server.ts --static dist --port 4323",
     "history:snapshot": "tsx src/server/history-snapshot.ts",
+    "snapshots:refresh": "tsx src/server/river-snapshot.ts",
     "start": "tsx src/server/api-server.ts --static dist",
     "test": "vitest run"
   },

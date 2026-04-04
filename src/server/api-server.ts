@@ -9,6 +9,12 @@ import {
   serializeSummaryResult,
 } from '../lib/api-contract';
 import { captureHistorySnapshotForResults, getRiverHistory } from '../lib/history';
+import {
+  captureRiverSnapshots,
+  getStoredRiverDetailSnapshot,
+  getStoredRiverGroupSnapshot,
+  getStoredRiverSummarySnapshot,
+} from '../lib/river-snapshots';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
 
@@ -40,6 +46,7 @@ const server = createServer(async (request, response) => {
   const isRiverRequestPath =
     requestUrl.pathname === '/api/river-request' || requestUrl.pathname === '/api/route-request';
   const isHistorySnapshotPath = requestUrl.pathname === '/api/history/snapshot';
+  const isRiverSnapshotPath = requestUrl.pathname === '/api/snapshots/refresh';
 
   if (isRiverRequestPath && request.method === 'OPTIONS') {
     return sendEmpty(response, 204, {
@@ -67,6 +74,20 @@ const server = createServer(async (request, response) => {
 
   if (isHistorySnapshotPath && request.method === 'POST') {
     return handleHistorySnapshot(request, response, requestId, includeBody);
+  }
+
+  if (isRiverSnapshotPath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept, authorization, x-history-token',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isRiverSnapshotPath && request.method === 'POST') {
+    return handleRiverSnapshotRefresh(request, response, requestId, includeBody);
   }
 
   if (request.method !== 'GET' && request.method !== 'HEAD') {
@@ -105,10 +126,24 @@ const server = createServer(async (request, response) => {
     }
 
     if (requestUrl.pathname === '/api/rivers/summary.json') {
-      const rivers = (await getAllRiverScores()).map(serializeSummaryResult);
+      const snapshot = await getStoredRiverSummarySnapshot().catch(() => null);
+      if (snapshot) {
+        return sendJson(response, 200, {
+          requestId,
+          generatedAt: snapshot.generatedAt,
+          riverCount: snapshot.riverCount,
+          rivers: snapshot.rivers,
+        }, includeBody);
+      }
+
+      const generatedAt = new Date().toISOString();
+      const rivers = (await getAllRiverScores()).map((result) => serializeSummaryResult({
+        ...result,
+        generatedAt,
+      }));
       return sendJson(response, 200, {
         requestId,
-        generatedAt: new Date().toISOString(),
+        generatedAt,
         riverCount: rivers.length,
         rivers,
       }, includeBody);
@@ -117,6 +152,15 @@ const server = createServer(async (request, response) => {
     const detailMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\.json$/);
     if (detailMatch) {
       const slug = decodeURIComponent(detailMatch[1] || '');
+      const snapshot = await getStoredRiverDetailSnapshot(slug).catch(() => null);
+      if (snapshot) {
+        return sendJson(response, 200, {
+          requestId,
+          generatedAt: snapshot.generatedAt,
+          result: snapshot.result,
+        }, includeBody);
+      }
+
       const result = await getRiverScore(slug);
 
       if (!result) {
@@ -126,10 +170,14 @@ const server = createServer(async (request, response) => {
         }, includeBody);
       }
 
+      const generatedAt = new Date().toISOString();
       return sendJson(response, 200, {
         requestId,
-        generatedAt: new Date().toISOString(),
-        result: serializeDetailResult(result),
+        generatedAt,
+        result: serializeDetailResult({
+          ...result,
+          generatedAt,
+        }),
       }, includeBody);
     }
 
@@ -164,6 +212,15 @@ const server = createServer(async (request, response) => {
     const groupMatch = requestUrl.pathname.match(/^\/api\/river-groups\/([^/]+)\.json$/);
     if (groupMatch) {
       const riverId = decodeURIComponent(groupMatch[1] || '');
+      const snapshot = await getStoredRiverGroupSnapshot(riverId).catch(() => null);
+      if (snapshot) {
+        return sendJson(response, 200, {
+          requestId,
+          generatedAt: snapshot.generatedAt,
+          result: snapshot.result,
+        }, includeBody);
+      }
+
       const results = await getRiverGroupScores(riverId);
 
       if (!results) {
@@ -173,12 +230,16 @@ const server = createServer(async (request, response) => {
         }, includeBody);
       }
 
+      const generatedAt = new Date().toISOString();
       return sendJson(response, 200, {
         requestId,
-        generatedAt: new Date().toISOString(),
+        generatedAt,
         result: serializeRiverGroupResult({
           riverId,
-          routes: results,
+          routes: results.map((route) => ({
+            ...route,
+            generatedAt,
+          })),
         }),
       }, includeBody);
     }
@@ -467,12 +528,7 @@ async function handleHistorySnapshot(
   requestId: string,
   includeBody: boolean
 ) {
-  const configuredToken = clean(process.env.HISTORY_SNAPSHOT_TOKEN, 240);
-  const providedToken =
-    clean(request.headers['x-history-token'], 240) ||
-    clean(request.headers.authorization?.replace(/^Bearer\s+/i, ''), 240);
-
-  if (configuredToken && providedToken !== configuredToken) {
+  if (!requestHasRefreshToken(request, process.env.HISTORY_SNAPSHOT_TOKEN)) {
     return sendJson(
       response,
       401,
@@ -502,6 +558,43 @@ async function handleHistorySnapshot(
   );
 }
 
+async function handleRiverSnapshotRefresh(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  const configuredToken = clean(process.env.SNAPSHOT_REFRESH_TOKEN || process.env.HISTORY_SNAPSHOT_TOKEN, 240);
+  if (!requestHasRefreshToken(request, configuredToken)) {
+    return sendJson(
+      response,
+      401,
+      {
+        requestId,
+        error: 'unauthorized',
+        message: 'Missing or invalid snapshot refresh token.',
+      },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  const results = await getAllRiverScores();
+  const captured = await captureRiverSnapshots({ results });
+
+  return sendJson(
+    response,
+    200,
+    {
+      requestId,
+      ok: true,
+      captured,
+    },
+    includeBody,
+    'no-store'
+  );
+}
+
 async function readJsonBody(request: Parameters<typeof createServer>[0]) {
   const chunks: Buffer[] = [];
 
@@ -515,6 +608,21 @@ async function readJsonBody(request: Parameters<typeof createServer>[0]) {
   }
 
   return JSON.parse(raw);
+}
+
+function requestHasRefreshToken(
+  request: Parameters<typeof createServer>[0],
+  configuredToken: string
+) {
+  const providedToken =
+    clean(request.headers['x-history-token'], 240) ||
+    clean(request.headers.authorization?.replace(/^Bearer\s+/i, ''), 240);
+
+  if (!configuredToken) {
+    return true;
+  }
+
+  return providedToken === configuredToken;
 }
 
 function clean(value: unknown, max = 5000) {
