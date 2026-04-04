@@ -321,22 +321,6 @@ function levelExplanation(result: RiverScoreResult): string {
   }
 }
 
-function levelChip(result: RiverScoreResult): string {
-  switch (result.gaugeBand) {
-    case 'ideal':
-      return 'Ideal';
-    case 'high-shoulder':
-    case 'too-high':
-      return 'High';
-    case 'low-shoulder':
-    case 'minimum-met':
-    case 'too-low':
-      return 'Low';
-    default:
-      return 'Unclear';
-  }
-}
-
 function trendExplanation(result: RiverScoreResult): string {
   const trend = result.gauge?.trend ?? 'unknown';
   if (trend === 'steady') return 'Stable';
@@ -351,29 +335,19 @@ function weatherExplanation(result: RiverScoreResult): string {
   if (weather.next12hStormRisk) {
     return 'storm risk';
   }
-  if ((weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
+  if (weather.rainTimingLabel === 'Imminent' || weather.rainTimingLabel === 'Next few hours') {
+    return 'rain soon';
+  }
+  if (weather.rainTimingLabel === 'Later today' || (weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
     return 'rain later';
   }
-  if ((weather.next12hWindMphMax ?? 0) >= 14) {
+  if ((weather.gustMph ?? 0) >= 22 || (weather.next12hWindMphMax ?? 0) >= 14) {
     return 'windy';
   }
-  return 'light wind';
-}
-
-function weatherSignal(result: RiverScoreResult): string {
-  const weather = result.weather;
-  if (!weather) return 'Weather mixed';
-  if (weather.next12hStormRisk || (weather.next12hPrecipProbabilityMax ?? 0) >= 40) {
-    return 'Rain incoming';
+  if (typeof weather.conditionLabel === 'string' && weather.conditionLabel.trim()) {
+    return weather.conditionLabel.trim().toLowerCase();
   }
-  if ((weather.next12hPrecipProbabilityMax ?? 0) <= 15) return 'No rain';
-  return 'Light rain';
-}
-
-function decisionLabel(rating: ScoreRating): string {
-  if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Fair') return 'Watch closely';
-  return 'Skip today';
+  return 'mostly dry';
 }
 
 function gaugeValueText(result: RiverScoreResult): string {
@@ -409,7 +383,7 @@ function windSignal(result: RiverScoreResult): string {
   const weather = result.weather;
   if (!weather) return 'Wind: Unknown';
 
-  const wind = weather.next12hWindMphMax ?? weather.windMph;
+  const wind = weather.windMph ?? weather.next12hWindMphMax;
   if (typeof wind === 'number' && Number.isFinite(wind)) {
     return `Wind: ${Math.round(wind)} mph`;
   }

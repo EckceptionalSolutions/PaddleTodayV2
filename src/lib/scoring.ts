@@ -46,7 +46,7 @@ export function scoreRiverCondition(args: {
   const gaugeAssessment = assessGauge(args.river, args.gauge);
   const trendAssessment = assessTrend(args.river, args.gauge, gaugeAssessment.band);
   const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
-  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.weather, now);
+  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.gauge, args.weather, now);
   const comfortAssessment = assessComfortAdjustment(args.river, args.weather, now);
   const riverQuality = computeRiverQuality(args.river, gaugeAssessment, trendAssessment);
   const rawTripScore =
@@ -204,7 +204,7 @@ function scoreWithoutGauge(args: {
   now: Date;
 }): RiverScoreResult {
   const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
-  const temperatureAssessment = assessTemperatureAdjustment(args.river, args.weather, args.now);
+  const temperatureAssessment = assessTemperatureAdjustment(args.river, null, args.weather, args.now);
   const comfortAssessment = assessComfortAdjustment(args.river, args.weather, args.now);
   const riverQuality = 30;
   const rawTripScore =
@@ -740,15 +740,31 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
     rainNotes.push('Storm risk is showing up in the next 12 hours.');
   }
 
-  const maxWind = weather.next12hWindMphMax ?? 0;
-  const windPenalty = maxWind > 20 ? -10 : maxWind >= 15 ? -6 : maxWind > 10 ? -3 : 0;
+  const sustainedWind = weather.next12hWindMphMax ?? weather.windMph ?? 0;
+  const gustWind = weather.gustMph ?? weather.todayHourly[0]?.windGustMph ?? null;
+  const windPenalty =
+    sustainedWind > 20 || (gustWind ?? 0) >= 30
+      ? -10
+      : sustainedWind >= 15 || (gustWind ?? 0) >= 24
+        ? -6
+        : sustainedWind > 10 || (gustWind ?? 0) >= 16
+          ? -3
+          : 0;
   rawWindPoints += Math.round(windPenalty * windSensitivity);
   if (windPenalty <= -10) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    windNotes.push(`Strong wind is expected, with gusts near ${Math.round(maxWind)} mph.`);
+    windNotes.push(
+      gustWind
+        ? `Strong wind is expected, around ${Math.round(sustainedWind)} mph with gusts near ${Math.round(gustWind)} mph.`
+        : `Strong wind is expected, around ${Math.round(sustainedWind)} mph.`
+    );
   } else if (windPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
-    windNotes.push(`Wind looks noticeable at about ${Math.round(maxWind)} mph.`);
+    windNotes.push(
+      gustWind
+        ? `Wind looks noticeable at about ${Math.round(sustainedWind)} mph, with gusts near ${Math.round(gustWind)} mph.`
+        : `Wind looks noticeable at about ${Math.round(sustainedWind)} mph.`
+    );
   } else {
     windNotes.push('Wind looks manageable.');
   }
@@ -767,13 +783,19 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
   }
 
   const precipTimingPenalty =
-    typeof weather.next12hPrecipStartsInHours === 'number'
-      ? weather.next12hPrecipStartsInHours <= 3
-        ? -5
-        : weather.next12hPrecipStartsInHours <= 12
+    weather.rainTimingLabel === 'Imminent'
+      ? -5
+      : weather.rainTimingLabel === 'Next few hours'
+        ? -4
+        : weather.rainTimingLabel === 'Later today'
           ? -2
-        : 0
-      : 0;
+          : typeof weather.next12hPrecipStartsInHours === 'number'
+            ? weather.next12hPrecipStartsInHours <= 3
+              ? -5
+              : weather.next12hPrecipStartsInHours <= 12
+                ? -2
+                : 0
+            : 0;
   rawRainPoints += Math.round(precipTimingPenalty * rainSensitivity);
   if (precipTimingPenalty <= -5) {
     impact = 'negative';
@@ -781,6 +803,31 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
   } else if (precipTimingPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
     rainNotes.push('Rain is likely later today.');
+  }
+
+  const recentRain24h = weather.recentRain24hIn ?? 0;
+  const recentRain72h = weather.recentRain72hIn ?? 0;
+  const recentRainPenalty =
+    recentRain24h >= 1
+      ? -6
+      : recentRain24h >= 0.5
+        ? -4
+        : recentRain24h >= 0.2
+          ? -2
+          : recentRain72h >= 2
+            ? -4
+            : recentRain72h >= 1
+              ? -2
+              : 0;
+  rawRainPoints += Math.round(recentRainPenalty * rainSensitivity);
+  if (recentRainPenalty <= -4) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    rainNotes.push(
+      `Recent rainfall is still running through this watershed (${formatRainInches(recentRain24h)} in the last 24h, ${formatRainInches(recentRain72h)} in the last 72h).`
+    );
+  } else if (recentRainPenalty < 0) {
+    impact = impact === 'negative' ? 'negative' : 'warning';
+    rainNotes.push(`Some recent rainfall is still in play (${formatRainInches(recentRain24h)} in the last 24h).`);
   }
 
   const normalized = normalizeWeatherBreakdown(rawWindPoints, rawRainPoints);
@@ -796,7 +843,12 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
   };
 }
 
-function assessTemperatureAdjustment(river: River, weather: WeatherSnapshot | null, now: Date): {
+function assessTemperatureAdjustment(
+  river: River,
+  gauge: GaugeReading | null,
+  weather: WeatherSnapshot | null,
+  now: Date
+): {
   points: number;
   impact: ScoreImpact;
   detail: string;
@@ -813,9 +865,15 @@ function assessTemperatureAdjustment(river: River, weather: WeatherSnapshot | nu
   const coldSeasonMultiplier = [4, 5, 10, 11].includes(month) ? 1.25 : 1;
   const tempSensitivity = tempSensitivityForRiver(river);
   const temp = weather.temperatureF;
-  const basePenalty =
+  const airPenalty =
     temp < 35 ? -12 : temp < 50 ? -6 : temp < 65 ? -2 : temp <= 85 ? 0 : temp <= 92 ? -4 : -8;
-  const points = Math.round(basePenalty * coldSeasonMultiplier * tempSensitivity);
+  const waterTemp = gauge?.waterTempF ?? null;
+  const waterPenalty = typeof waterTemp === 'number' ? (waterTemp < 45 ? -4 : waterTemp < 55 ? -2 : 0) : 0;
+  const points = Math.round((airPenalty + waterPenalty) * coldSeasonMultiplier * tempSensitivity);
+  const waterDetail =
+    typeof waterTemp === 'number'
+      ? ` Water temperature is about ${Math.round(waterTemp)}°F.`
+      : '';
 
   return {
     points,
@@ -894,7 +952,10 @@ function pleasantDayBonus(args: {
   const calmWind = (args.weather.next12hWindMphMax ?? args.weather.windMph ?? Infinity) <= 10;
   const dry = (args.weather.next12hPrecipProbabilityMax ?? Infinity) < 20;
   const noStorms = !args.weather.next12hStormRisk;
-  const fairSky = args.weather.weatherCode === null || [0, 1, 2].includes(args.weather.weatherCode);
+  const fairSky =
+    (args.weather.weatherCode !== null && [0, 1, 2].includes(args.weather.weatherCode)) ||
+    (typeof args.weather.conditionLabel === 'string' &&
+      !/(rain|storm|snow|showers|thunder)/i.test(args.weather.conditionLabel));
 
   return comfortableTemp && calmWind && dry && noStorms && fairSky ? 8 : 0;
 }
@@ -922,15 +983,16 @@ function buildScoreBreakdown(args: {
     capReasons.push('Near-freezing air caps today at 70.');
   }
 
-  if ((args.weather?.next12hWindMphMax ?? 0) > 20) {
+  if ((args.weather?.gustMph ?? 0) >= 30 || (args.weather?.next12hWindMphMax ?? 0) > 20) {
     finalScore = Math.min(finalScore, 75);
     capReasons.push('High wind caps today at 75.');
   }
 
   if (
-    (args.weather?.next12hPrecipProbabilityMax ?? 0) > 60 &&
-    typeof args.weather?.next12hPrecipStartsInHours === 'number' &&
-    args.weather.next12hPrecipStartsInHours <= 3
+    ((args.weather?.next12hPrecipProbabilityMax ?? 0) > 60 &&
+      typeof args.weather?.next12hPrecipStartsInHours === 'number' &&
+      args.weather.next12hPrecipStartsInHours <= 3) ||
+    args.weather?.rainTimingLabel === 'Imminent'
   ) {
     finalScore = Math.min(finalScore, 65);
     capReasons.push('Imminent heavy rain caps today at 65.');
@@ -1430,11 +1492,18 @@ function checklistStatusForWeather(weather: WeatherSnapshot | null): ChecklistSt
     return 'watch';
   }
 
-  if (weather.next12hStormRisk || (weather.next12hWindMphMax ?? 0) >= 20) {
+  if (weather.next12hStormRisk || (weather.gustMph ?? 0) >= 30 || (weather.next12hWindMphMax ?? 0) >= 20) {
     return 'skip';
   }
 
-  if ((weather.next12hPrecipProbabilityMax ?? 0) >= 40 || (weather.next12hWindMphMax ?? 0) >= 14) {
+  if (
+    weather.rainTimingLabel === 'Imminent' ||
+    weather.rainTimingLabel === 'Next few hours' ||
+    (weather.recentRain24hIn ?? 0) >= 0.5 ||
+    (weather.next12hPrecipProbabilityMax ?? 0) >= 40 ||
+    (weather.gustMph ?? 0) >= 20 ||
+    (weather.next12hWindMphMax ?? 0) >= 14
+  ) {
     return 'watch';
   }
 
@@ -1530,12 +1599,24 @@ function weatherLabel(weather: WeatherSnapshot | null): string {
 
   const parts: string[] = [];
 
+  if (typeof weather.conditionLabel === 'string' && weather.conditionLabel.trim()) {
+    parts.push(weather.conditionLabel.trim());
+  }
+
   if (typeof weather.windMph === 'number') {
     parts.push(`${Math.round(weather.windMph)} mph wind`);
   }
 
-  if (typeof weather.next12hPrecipProbabilityMax === 'number') {
+  if (typeof weather.gustMph === 'number' && weather.gustMph >= 18) {
+    parts.push(`gusts ${Math.round(weather.gustMph)} mph`);
+  }
+
+  if (typeof weather.next12hPrecipProbabilityMax === 'number' && weather.next12hPrecipProbabilityMax > 0) {
     parts.push(`${Math.round(weather.next12hPrecipProbabilityMax)}% rain risk`);
+  }
+
+  if (typeof weather.recentRain24hIn === 'number' && weather.recentRain24hIn >= 0.2) {
+    parts.push(`${formatRainInches(weather.recentRain24hIn)} recent rain`);
   }
 
   if (weather.next12hStormRisk) {
@@ -1621,6 +1702,14 @@ function formatGauge(value: number, unit: GaugeUnit): string {
   }
 
   return value.toFixed(2).replace(/\.00$/, '');
+}
+
+function formatRainInches(value: number | null): string {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return '--';
+  }
+
+  return value < 0.1 ? value.toFixed(2) : value.toFixed(1);
 }
 
 function clamp(value: number, min: number, max: number): number {

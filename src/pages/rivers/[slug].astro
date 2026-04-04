@@ -367,21 +367,31 @@ const routeStructuredData = {
         River conditions
       </p>
 
-      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-why-score__grid">
-        <article class="snapshot-card">
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-why-score__grid river-detail__conditions-grid">
+        <article class="snapshot-card snapshot-card--primary" data-card-field="level">
           <span class="snapshot-card__label">Level</span>
           <strong data-field="gauge-now">Checking</strong>
           <small data-field="flow-band">Checking</small>
         </article>
-        <article class="snapshot-card">
+        <article class="snapshot-card snapshot-card--primary" data-card-field="trend">
           <span class="snapshot-card__label">Trend</span>
-          <strong data-field="trend">Checking</strong>
+          <strong data-field="trend-summary">Checking</strong>
           <small data-field="gauge-freshness">Checking</small>
         </article>
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">Weather</span>
-          <strong data-field="weather-now">Checking</strong>
-          <small data-field="weather-freshness">Checking</small>
+        <article class="snapshot-card snapshot-card--secondary" data-card-field="temperature">
+          <span class="snapshot-card__label">Temperature</span>
+          <strong data-field="weather-air-temp-summary">Loading</strong>
+          <small data-field="weather-water-temp-detail">Water: No reading</small>
+        </article>
+        <article class="snapshot-card snapshot-card--secondary" data-card-field="wind">
+          <span class="snapshot-card__label">Wind</span>
+          <strong data-field="weather-wind-summary">Loading</strong>
+          <small data-field="weather-gusts-detail">Gusts: No reading</small>
+        </article>
+        <article class="snapshot-card snapshot-card--secondary" data-card-field="rain">
+          <span class="snapshot-card__label">Rain</span>
+          <strong data-field="weather-rain-risk">Loading</strong>
+          <small data-field="weather-rain-summary">Recent rain: Checking</small>
         </article>
       </div>
 
@@ -396,7 +406,7 @@ const routeStructuredData = {
               <h3 class="river-subtitle river-subtitle--compact">Recent trend</h3>
             </div>
             <p class="muted river-why-panel__section-note" data-field="chart-caption">
-              Checking recent gauge samples.
+              Checking preferred range.
             </p>
           </div>
 
@@ -478,30 +488,27 @@ const routeStructuredData = {
 
           <div class="weather-visual">
             <div class="weather-visual__grid">
-              <article class="weather-tile">
-                <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Temperature</span>
-                <strong data-field="weather-temp">Loading</strong>
-              </article>
+                <article class="weather-tile" data-card-field="weather-condition">
+                  <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
+                  <span class="weather-tile__label">Temperature</span>
+                  <strong data-field="weather-air-temp-summary">Loading</strong>
+                  <small data-field="weather-water-temp-detail">Water: No reading</small>
+                </article>
 
-              <article class="weather-tile">
-                <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Wind</span>
-                <strong data-field="weather-wind">Loading</strong>
-              </article>
+                <article class="weather-tile" data-card-field="weather-wind">
+                  <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
+                  <span class="weather-tile__label">Wind</span>
+                  <strong data-field="weather-wind-summary">Loading</strong>
+                  <small data-field="weather-gusts-detail">Gusts: No reading</small>
+                </article>
 
-              <article class="weather-tile">
-                <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Rain timing</span>
-                <strong data-field="weather-rain-risk">Loading</strong>
-              </article>
-
-              <article class="weather-tile">
-                <FeatureIcon name="storm" size={18} class="weather-tile__icon" />
-                <span class="weather-tile__label">Storm signal</span>
-                <strong data-field="weather-storm-risk">Loading</strong>
-              </article>
-            </div>
+                <article class="weather-tile" data-card-field="weather-rain">
+                  <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
+                  <span class="weather-tile__label">Rain</span>
+                  <strong data-field="weather-rain-risk">Loading</strong>
+                  <small data-field="weather-rain-summary">Recent rain: Checking</small>
+                </article>
+              </div>
 
             <section class="weather-hourly">
               <div class="weather-hourly__head">
@@ -528,7 +535,7 @@ const routeStructuredData = {
           </div>
         </section>
 
-        <section class="river-visual-panel river-history-panel">
+        <section class="river-visual-panel river-history-panel" data-history-panel hidden>
           <div class="river-why-panel__section-head">
             <div>
               <p class="eyebrow section-label">
@@ -540,24 +547,6 @@ const routeStructuredData = {
             <p class="muted river-why-panel__section-note" data-field="history-status">
               Loading recent route scores.
             </p>
-          </div>
-
-          <div class="river-detail__quick-grid river-detail__quick-grid--compact river-history-panel__stats">
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">7-day average</span>
-              <strong data-field="history-average">--</strong>
-              <small data-field="history-average-detail">Waiting on score history.</small>
-            </article>
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">Latest daily score</span>
-              <strong data-field="history-latest">--</strong>
-              <small data-field="history-latest-detail">Waiting on score history.</small>
-            </article>
-            <article class="snapshot-card">
-              <span class="snapshot-card__label">Today's samples</span>
-              <strong data-field="history-samples">--</strong>
-              <small data-field="history-samples-detail">Waiting on score history.</small>
-            </article>
           </div>
 
           <div class="history-chart" data-history-chart-wrap>
@@ -930,12 +919,48 @@ const routeStructuredData = {
                 <td data-field="gauge-now">Checking</td>
               </tr>
               <tr>
+                <td>Current discharge</td>
+                <td data-field="discharge-now">Checking</td>
+              </tr>
+              <tr>
                 <td>24h trend</td>
                 <td data-field="trend">Checking</td>
               </tr>
               <tr>
+                <td>24h change</td>
+                <td data-field="flow-change-24h">Checking</td>
+              </tr>
+              <tr>
                 <td>Current band</td>
                 <td data-field="flow-band">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain last 24h</td>
+                <td data-field="recent-rain-24h">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain last 72h</td>
+                <td data-field="recent-rain-72h">Checking</td>
+              </tr>
+              <tr>
+                <td>Air temp</td>
+                <td data-field="weather-air-temp">Checking</td>
+              </tr>
+              <tr>
+                <td>Water temp</td>
+                <td data-field="weather-water-temp">Checking</td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+                <td data-field="weather-wind">Checking</td>
+              </tr>
+              <tr>
+                <td>Gusts</td>
+                <td data-field="weather-gusts">Checking</td>
+              </tr>
+              <tr>
+                <td>Rain timing</td>
+                <td data-field="weather-rain-risk">Checking</td>
               </tr>
               <tr>
                 <td>{targetBandLabel}</td>
@@ -964,6 +989,18 @@ const routeStructuredData = {
               <tr>
                 <td>Threshold source</td>
                 <td>{river.profile.thresholdSource.label}</td>
+              </tr>
+              <tr>
+                <td>Gauge source</td>
+                <td data-field="gauge-source">Checking</td>
+              </tr>
+              <tr>
+                <td>Weather source</td>
+                <td data-field="weather-source">Checking</td>
+              </tr>
+              <tr>
+                <td>Rainfall source</td>
+                <td data-field="rainfall-source">Checking</td>
               </tr>
             </tbody>
           </table>

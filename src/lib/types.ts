@@ -129,6 +129,12 @@ export interface GaugeReading {
   delta24h: number | null;
   changePercent24h: number | null;
   recentSamples: GaugeSample[];
+  gaugeHeightNow: number | null;
+  dischargeNow: number | null;
+  waterTempF: number | null;
+  waterTempObservedAt: string | null;
+  gaugeSource: string;
+  waterTempSource: string | null;
 }
 
 export interface ForecastWindow {
@@ -149,9 +155,11 @@ export interface HourlyWeatherPoint {
   label: string;
   temperatureF: number | null;
   windMph: number | null;
+  windGustMph: number | null;
   precipProbability: number | null;
   precipitationIn: number | null;
   weatherCode: number | null;
+  conditionLabel: string | null;
 }
 
 export interface WeatherSnapshot {
@@ -166,9 +174,17 @@ export interface WeatherSnapshot {
   next12hWindMphMax: number | null;
   next12hStormRisk: boolean;
   weatherCode: number | null;
+  conditionLabel: string | null;
   todayHourly: HourlyWeatherPoint[];
   tomorrow: ForecastWindow | null;
   weekend: ForecastWindow | null;
+  recentRain24hIn: number | null;
+  recentRain72hIn: number | null;
+  precipitationProbabilityNow: number | null;
+  rainTimingLabel: 'None' | 'Later today' | 'Next few hours' | 'Imminent';
+  weatherSource: string;
+  rainfallSource: string | null;
+  waterTempSource: string | null;
 }
 
 export interface ScoreBreakdown {

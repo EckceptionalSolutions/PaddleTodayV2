@@ -59,40 +59,29 @@ const homepageStructuredData = [
         <span class="stat-chip">Direct gauges first</span>
         <span class="stat-chip">Score + confidence + reason</span>
       </div>
-
-      <section class="location-panel" aria-label="Set your location">
-        <div class="location-panel__header">
-          <div>
-            <p class="eyebrow">Your location</p>
-            <h2 class="section-title section-title--compact">Set your location to get better recommendations</h2>
-          </div>
-          <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
-            Use my location
-          </button>
-        </div>
-
-        <p class="location-panel__benefit">Nearby rivers rank better when location is set.</p>
-
-        <form class="location-panel__form" data-location-form>
-          <label class="filter-search location-panel__search">
-            <span class="sr-only">Enter a city or ZIP code</span>
-            <input
-              class="filter-search__input"
-              type="search"
-              placeholder="Enter a city or ZIP code"
-              data-location-input
-            />
-          </label>
-          <button class="filter-chip" type="submit">Set location</button>
-          <button class="filter-chip" type="button" data-location-clear hidden>
-            Clear
-          </button>
-        </form>
-
-        <p class="muted location-panel__status" data-location-status>
-          Use your location or enter a city or ZIP code to tailor today&apos;s board.
-        </p>
-      </section>
+      <div class="hero-principles" aria-label="How Paddle Today works">
+        <article class="hero-principle hero-principle--compact">
+          <p class="hero-principle__label section-label">
+            <FeatureIcon name="gauge" size={16} />
+            Live gauge
+          </p>
+          <strong>Current level and recent trend</strong>
+        </article>
+        <article class="hero-principle hero-principle--compact">
+          <p class="hero-principle__label section-label">
+            <FeatureIcon name="rain" size={16} />
+            Trip-day weather
+          </p>
+          <strong>Wind, rain timing, and temperature</strong>
+        </article>
+        <article class="hero-principle hero-principle--compact">
+          <p class="hero-principle__label section-label">
+            <FeatureIcon name="compass" size={16} />
+            Clear confidence
+          </p>
+          <strong>Why today looks strong or weak</strong>
+        </article>
+      </div>
     </div>
 
     <aside class="hero-call decision-hero__featured" aria-live="polite">
@@ -136,6 +125,39 @@ const homepageStructuredData = [
         Add your location to rank rivers by today&apos;s score and practical driving distance.
       </p>
     </div>
+    <section class="location-panel" id="home-location" aria-label="Set your location" data-nearby-location-panel hidden>
+      <div class="location-panel__header">
+        <div>
+          <p class="eyebrow">Your location</p>
+          <h3 class="section-title section-title--compact">Set your location to unlock nearby ranking</h3>
+        </div>
+        <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
+          Use my location
+        </button>
+      </div>
+
+      <p class="location-panel__benefit">Nearby rivers rank better when location is set.</p>
+
+      <form class="location-panel__form" data-location-form>
+        <label class="filter-search location-panel__search">
+          <span class="sr-only">Enter a city or ZIP code</span>
+          <input
+            class="filter-search__input"
+            type="search"
+            placeholder="Enter a city or ZIP code"
+            data-location-input
+          />
+        </label>
+        <button class="filter-chip" type="submit">Set location</button>
+        <button class="filter-chip" type="button" data-location-clear hidden>
+          Clear
+        </button>
+      </form>
+
+      <p class="muted location-panel__status" data-location-status>
+        Use your location or enter a city or ZIP code to tailor today&apos;s board.
+      </p>
+    </section>
     <div class="river-grid river-grid--decision" data-nearby-grid></div>
     <p class="muted decision-section__empty" data-nearby-empty hidden>
       No rivers match your nearby settings yet.

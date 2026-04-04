@@ -1,6 +1,7 @@
 type FetchJsonOptions = {
   timeoutMs?: number;
   retries?: number;
+  headers?: Record<string, string>;
 };
 
 export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}): Promise<T> {
@@ -18,6 +19,7 @@ export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}):
         signal: controller.signal,
         headers: {
           accept: 'application/json',
+          ...(options.headers ?? {}),
         },
       });
 

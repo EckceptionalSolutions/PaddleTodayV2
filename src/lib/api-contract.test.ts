@@ -88,6 +88,7 @@ const weather: WeatherSnapshot = {
   next12hWindMphMax: 10,
   next12hStormRisk: false,
   weatherCode: 1,
+  conditionLabel: 'Mostly sunny',
   todayHourly: [],
   tomorrow: {
     label: 'Tomorrow',
@@ -113,6 +114,13 @@ const weather: WeatherSnapshot = {
     temperatureHighF: 72,
     temperatureLowF: 49,
   },
+  recentRain24hIn: 0.05,
+  recentRain72hIn: 0.2,
+  precipitationProbabilityNow: 5,
+  rainTimingLabel: 'None',
+  weatherSource: 'NWS forecast + station observation',
+  rainfallSource: 'NOAA MRMS QPE',
+  waterTempSource: null,
 };
 
 const gauge: GaugeReading = {
@@ -133,6 +141,12 @@ const gauge: GaugeReading = {
       value: 520,
     },
   ],
+  gaugeHeightNow: 4.22,
+  dischargeNow: 520,
+  waterTempF: 58,
+  waterTempObservedAt: '2026-05-10T11:00:00Z',
+  gaugeSource: 'USGS Water Data',
+  waterTempSource: 'USGS Water Data',
 };
 
 describe('api-contract serializers', () => {
@@ -152,8 +166,8 @@ describe('api-contract serializers', () => {
       { label: 'Official', tone: 'official' },
     ]);
     expect(summary.summary.cardText).toContain('Ideal window');
-    expect(summary.summary.shortExplanation).toBe('Perfect level • Stable • light wind');
-    expect(summary.summary.rawSignalLine).toBe('Gauge: 520 cfs • Wind: 10 mph • Temp: 67°F');
+    expect(summary.summary.shortExplanation).toBe('Perfect level • Stable • mostly sunny');
+    expect(summary.summary.rawSignalLine).toBe('Gauge: 520 cfs • Wind: 8 mph • Temp: 67°F');
     expect(summary.summary.gaugeNow).toBe('520 cfs');
     expect(summary.liveData.gaugeDetail).toContain('Latest gauge reading');
     expect(summary.liveData.weatherDetail).toContain('Latest weather reading');

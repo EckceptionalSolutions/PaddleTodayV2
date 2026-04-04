@@ -57,6 +57,7 @@ const weather: WeatherSnapshot = {
   next12hWindMphMax: 10,
   next12hStormRisk: false,
   weatherCode: 1,
+  conditionLabel: 'Mostly sunny',
   todayHourly: [],
   tomorrow: {
     label: 'Tomorrow',
@@ -82,6 +83,13 @@ const weather: WeatherSnapshot = {
     temperatureHighF: 72,
     temperatureLowF: 50,
   },
+  recentRain24hIn: 0.05,
+  recentRain72hIn: 0.2,
+  precipitationProbabilityNow: 8,
+  rainTimingLabel: 'None',
+  weatherSource: 'NWS forecast + station observation',
+  rainfallSource: 'NOAA MRMS QPE',
+  waterTempSource: null,
 };
 
 function makeGauge(current: number, trend: GaugeReading['trend'], delta24h: number): GaugeReading {
@@ -94,6 +102,12 @@ function makeGauge(current: number, trend: GaugeReading['trend'], delta24h: numb
     delta24h,
     changePercent24h: 5,
     recentSamples: [],
+    gaugeHeightNow: null,
+    dischargeNow: current,
+    waterTempF: 58,
+    waterTempObservedAt: '2026-05-10T11:00:00Z',
+    gaugeSource: 'USGS Water Data',
+    waterTempSource: 'USGS Water Data',
   };
 }
 
@@ -112,6 +126,12 @@ function makeRiverGauge(
     delta24h,
     changePercent24h: 5,
     recentSamples: [],
+    gaugeHeightNow: river.gaugeSource.unit === 'ft' ? current : null,
+    dischargeNow: river.gaugeSource.unit === 'cfs' ? current : null,
+    waterTempF: 58,
+    waterTempObservedAt: '2026-05-10T11:00:00Z',
+    gaugeSource: 'USGS Water Data',
+    waterTempSource: 'USGS Water Data',
   };
 }
 

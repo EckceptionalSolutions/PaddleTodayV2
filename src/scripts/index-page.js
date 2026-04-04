@@ -16,6 +16,7 @@ const AVERAGE_DRIVE_MPH = 50;
 const nearbyGrid = document.querySelector('[data-nearby-grid]');
 const nearbySummary = document.querySelector('[data-nearby-summary]');
 const nearbyEmpty = document.querySelector('[data-nearby-empty]');
+const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const overallGrid = document.querySelector('[data-overall-grid]');
 const overallSummary = document.querySelector('[data-overall-summary]');
 const exploreGrid = document.querySelector('[data-explore-grid]');
@@ -814,10 +815,19 @@ function renderNearbySection(nearbyItems, overallItems) {
   }
 
   if (userLocationState !== 'ready' || !userLocation) {
-    nearbySummary.textContent = 'Set your location to rank rivers by score and practical drive time. Until then, this list mirrors the strongest overall calls.';
-    renderCardGrid(nearbyGrid, overallItems.slice(0, 3), { compact: true, showDistance: false });
+    nearbySummary.textContent = 'Set your location to unlock distance-based ranking.';
+    if (nearbyLocationPanel instanceof HTMLElement) {
+      nearbyLocationPanel.hidden = false;
+    }
+    if (nearbyGrid instanceof HTMLElement) {
+      nearbyGrid.innerHTML = '';
+    }
     nearbyEmpty.hidden = true;
     return;
+  }
+
+  if (nearbyLocationPanel instanceof HTMLElement) {
+    nearbyLocationPanel.hidden = true;
   }
 
   if (nearbyItems.length === 0) {

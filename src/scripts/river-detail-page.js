@@ -46,6 +46,7 @@ const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const historyBars = root.querySelector('[data-history-bars]');
+const historyPanel = root.querySelector('[data-history-panel]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -100,6 +101,15 @@ function setText(field, value) {
     element.textContent = value;
   }
   return elements[0] ?? null;
+}
+
+function setFieldGroupHidden(field, hidden) {
+  const elements = Array.from(root.querySelectorAll(`[data-card-field="${field}"]`));
+  for (const element of elements) {
+    if (element instanceof HTMLElement) {
+      element.hidden = hidden;
+    }
+  }
 }
 
 function setActiveDetailSection(sectionId) {
@@ -690,8 +700,10 @@ function renderOutlooks(outlooks) {
     .join('');
 }
 
-function weatherConditionLabel(code) {
-  if (code === null || code === undefined) return 'Condition unavailable';
+function weatherConditionLabel(condition) {
+  if (typeof condition === 'string' && condition.trim()) return condition.trim();
+  const code = Number.isFinite(condition) ? condition : null;
+  if (code === null) return 'Condition unavailable';
   if (code === 0) return 'Clear';
   if ([1, 2].includes(code)) return 'Mostly clear';
   if (code === 3) return 'Overcast';
@@ -703,8 +715,19 @@ function weatherConditionLabel(code) {
   return 'Mixed weather';
 }
 
-function weatherConditionShortLabel(code) {
-  if (code === null || code === undefined) return 'Mixed';
+function weatherConditionShortLabel(condition) {
+  if (typeof condition === 'string' && condition.trim()) {
+    const label = condition.trim();
+    if (/storm|thunder/i.test(label)) return 'Storm';
+    if (/snow|flurr/i.test(label)) return 'Snow';
+    if (/rain|shower/i.test(label)) return 'Rain';
+    if (/fog/i.test(label)) return 'Fog';
+    if (/cloud/i.test(label)) return 'Clouds';
+    if (/sun|clear/i.test(label)) return 'Clear';
+    return label;
+  }
+  const code = Number.isFinite(condition) ? condition : null;
+  if (code === null) return 'Mixed';
   if (code === 0) return 'Clear';
   if ([1, 2, 3].includes(code)) return 'Clouds';
   if ([45, 48].includes(code)) return 'Fog';
@@ -715,8 +738,17 @@ function weatherConditionShortLabel(code) {
   return 'Mixed';
 }
 
-function weatherConditionTone(code) {
-  if (code === null || code === undefined) return 'mixed';
+function weatherConditionTone(condition) {
+  if (typeof condition === 'string' && condition.trim()) {
+    const label = condition.trim();
+    if (/storm|thunder/i.test(label)) return 'storm';
+    if (/snow|flurr/i.test(label)) return 'cold';
+    if (/rain|shower/i.test(label)) return 'rain';
+    if (/clear|sun/i.test(label)) return 'clear';
+    return 'mixed';
+  }
+  const code = Number.isFinite(condition) ? condition : null;
+  if (code === null) return 'mixed';
   if ([95, 96, 99].includes(code)) return 'storm';
   if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return 'rain';
   if ([71, 73, 75, 77, 85, 86].includes(code)) return 'cold';
@@ -732,8 +764,93 @@ function formatWind(value) {
   return typeof value === 'number' ? `${Math.round(value)} mph` : '--';
 }
 
+function formatRainTotal(value, fallback = 'Unavailable') {
+  return typeof value === 'number' ? `${value < 0.1 ? value.toFixed(2) : value.toFixed(1)} in` : fallback;
+}
+
+function formatGaugeMetric(value, unit, fallback = 'Unavailable') {
+  if (typeof value !== 'number') {
+    return fallback;
+  }
+
+  if (unit === 'ft') {
+    return `${value.toFixed(2).replace(/\.00$/, '')} ft`;
+  }
+
+  return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
+}
+
 function formatRainChance(value) {
   return typeof value === 'number' ? `${Math.round(value)}% rain` : 'Rain n/a';
+}
+
+function titleCaseWord(value) {
+  if (typeof value !== 'string' || value.length === 0) {
+    return '';
+  }
+
+  return `${value.slice(0, 1).toUpperCase()}${value.slice(1)}`;
+}
+
+function trendSummaryValue(gauge) {
+  if (!gauge) {
+    return 'No reading';
+  }
+
+  const trend = titleCaseWord(gauge.trend || 'unknown');
+  if (typeof gauge.delta24h !== 'number') {
+    return trend;
+  }
+
+  return `${trend} • ${gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(gauge.delta24h, gauge.unit)} last 24h`;
+}
+
+function temperatureSummary(weather) {
+  if (typeof weather?.temperatureF === 'number') {
+    return `Air: ${Math.round(weather.temperatureF)}°F`;
+  }
+
+  return 'Air: No reading';
+}
+
+function waterTemperatureSummary(gauge) {
+  if (typeof gauge?.waterTempF === 'number') {
+    return `Water: ${Math.round(gauge.waterTempF)}°F`;
+  }
+
+  return 'Water: No reading';
+}
+
+function windDescriptor(mph) {
+  if (typeof mph !== 'number') {
+    return 'Wind';
+  }
+
+  if (mph < 6) return 'Light wind';
+  if (mph < 12) return 'Light wind';
+  if (mph < 18) return 'Moderate wind';
+  if (mph < 25) return 'Windy';
+  return 'Strong wind';
+}
+
+function windSummary(weather) {
+  const wind = typeof weather?.windMph === 'number' ? weather.windMph : null;
+  const gust = typeof weather?.gustMph === 'number' ? weather.gustMph : null;
+  const reference = wind ?? gust;
+
+  if (typeof reference !== 'number') {
+    return 'No reading';
+  }
+
+  return `${windDescriptor(reference)} (~${Math.round(reference)} mph)`;
+}
+
+function gustSummary(weather) {
+  if (typeof weather?.gustMph === 'number') {
+    return `Gusts ${Math.round(weather.gustMph)} mph`;
+  }
+
+  return 'Gusts: No reading';
 }
 
 function findFirstRainHour(weather) {
@@ -750,24 +867,78 @@ function findFirstRainHour(weather) {
 
 function rainTimingLabel(weather) {
   if (!weather) {
-    return 'Unavailable';
-  }
-
-  const chance = weather.next12hPrecipProbabilityMax;
-  if (typeof chance !== 'number') {
-    return 'Unavailable';
+    return 'No reading';
   }
 
   const firstRainHour = findFirstRainHour(weather);
+  const chance = weather.next12hPrecipProbabilityMax;
+  const timing = weather.rainTimingLabel ?? 'None';
+  const rainChanceText = typeof chance === 'number' ? `${Math.round(chance)}% rain next 12h` : null;
+
+  if (weather.next12hStormRisk) {
+    return rainChanceText ? `Storm risk (${rainChanceText})` : 'Storm risk';
+  }
+
+  if (timing === 'None') {
+    return rainChanceText ? `Mostly dry (${rainChanceText})` : 'Mostly dry';
+  }
   if (firstRainHour) {
-    return `${Math.round(chance)}% next 12h - around ${firstRainHour.label}`;
+    if (timing === 'Imminent') {
+      return rainChanceText ? `Rain now (${rainChanceText})` : 'Rain now';
+    }
+    if (timing === 'Next few hours') {
+      return rainChanceText ? `Rain in the next few hours (${rainChanceText})` : 'Rain in the next few hours';
+    }
+    return rainChanceText ? `Rain later today (${rainChanceText})` : `Rain around ${firstRainHour.label}`;
+  }
+  if (timing === 'Imminent') {
+    return rainChanceText ? `Rain now (${rainChanceText})` : 'Rain now';
+  }
+  if (timing === 'Next few hours') {
+    return rainChanceText ? `Rain in the next few hours (${rainChanceText})` : 'Rain in the next few hours';
+  }
+  return rainChanceText ? `Rain later today (${rainChanceText})` : 'Rain later today';
+}
+
+function recentRainSummary(weather) {
+  const recent24 = formatRainTotal(weather?.recentRain24hIn, 'No reading');
+  const recent72 = formatRainTotal(weather?.recentRain72hIn, 'No reading');
+
+  if (recent24 === 'No reading' && recent72 === 'No reading') {
+    return 'Recent rain: No reading';
   }
 
-  if (chance < 25) {
-    return `${Math.round(chance)}% next 12h - mostly dry`;
+  return `Recent rain: ${recent24} / ${recent72}`;
+}
+
+function describeHistoryBand(score) {
+  const tens = Math.max(0, Math.min(90, Math.floor(score / 10) * 10));
+  const ones = score - tens;
+
+  if (tens >= 100) {
+    return 'around 100';
   }
 
-  return `${Math.round(chance)}% next 12h - later today`;
+  if (ones <= 2) return `low ${tens}s`;
+  if (ones <= 6) return `mid-${tens}s`;
+  return `high ${tens}s`;
+}
+
+function historyTrendSummary(days) {
+  const average = Math.round(days.reduce((sum, day) => sum + day.avgScore, 0) / days.length);
+  const first = days[0]?.avgScore ?? average;
+  const latest = days.at(-1)?.avgScore ?? average;
+  const delta = latest - first;
+
+  if (Math.abs(delta) <= 4) {
+    return `Holding steady this week (${describeHistoryBand(average)}).`;
+  }
+
+  if (delta > 0) {
+    return `Improving this week (${describeHistoryBand(average)}).`;
+  }
+
+  return `Sliding this week (${describeHistoryBand(average)}).`;
 }
 
 function weatherHourlyNote(weather) {
@@ -791,7 +962,7 @@ function weatherHourlyNote(weather) {
 function scoreHourlyPoint(point) {
   let score = 5;
 
-  if ([95, 96, 99].includes(point.weatherCode ?? -1)) {
+  if (weatherConditionTone(point.conditionLabel ?? point.weatherCode) === 'storm') {
     score -= 6;
   }
 
@@ -804,11 +975,12 @@ function scoreHourlyPoint(point) {
   }
 
   const wind = point.windMph ?? 0;
-  if (wind >= 22) {
+  const gust = point.windGustMph ?? 0;
+  if (wind >= 22 || gust >= 30) {
     score -= 4;
-  } else if (wind >= 18) {
+  } else if (wind >= 18 || gust >= 24) {
     score -= 2;
-  } else if (wind >= 14) {
+  } else if (wind >= 14 || gust >= 18) {
     score -= 1;
   }
 
@@ -850,7 +1022,7 @@ function pickBestShortRouteWindow(weather) {
 
       for (const point of window) {
         score += scoreHourlyPoint(point);
-        hasStorm ||= [95, 96, 99].includes(point.weatherCode ?? -1);
+        hasStorm ||= weatherConditionTone(point.conditionLabel ?? point.weatherCode) === 'storm';
         hasHeavyRain ||= (point.precipProbability ?? 0) >= 70 || (point.precipitationIn ?? 0) >= 0.05;
       }
 
@@ -901,6 +1073,9 @@ function weatherNowSummary(weather) {
   }
 
   const parts = [];
+  if (typeof weather.conditionLabel === 'string' && weather.conditionLabel.trim()) {
+    parts.push(weather.conditionLabel.trim());
+  }
   if (typeof weather.temperatureF === 'number') {
     parts.push(`${Math.round(weather.temperatureF)}\u00B0F now`);
   }
@@ -937,7 +1112,7 @@ function renderHourlyWeather(weather) {
 
   for (const point of weather.todayHourly) {
     const article = document.createElement('article');
-    article.className = `weather-hour weather-hour--${weatherConditionTone(point.weatherCode)}`;
+    article.className = `weather-hour weather-hour--${weatherConditionTone(point.conditionLabel ?? point.weatherCode)}`;
     const inBestWindow =
       bestWindow &&
       point.time >= bestWindow.start.time &&
@@ -958,11 +1133,11 @@ function renderHourlyWeather(weather) {
 
     const condition = document.createElement('span');
     condition.className = 'weather-hour__condition';
-    condition.textContent = weatherConditionShortLabel(point.weatherCode);
+    condition.textContent = weatherConditionShortLabel(point.conditionLabel ?? point.weatherCode);
 
     const meta = document.createElement('span');
     meta.className = 'weather-hour__meta';
-    meta.textContent = `${formatRainChance(point.precipProbability)} \u00B7 ${formatWind(point.windMph)}`;
+    meta.textContent = `${formatRainChance(point.precipProbability)} \u00B7 ${formatWind(point.windMph)}${point.windGustMph ? ` \u00B7 gust ${Math.round(point.windGustMph)} mph` : ''}`;
 
     article.append(time, temp, condition, meta);
     fragment.append(article);
@@ -1536,7 +1711,7 @@ function renderGaugeChart(result) {
   }
 
   if (activeSamples.length < 2) {
-    setText('chart-caption', 'Not enough recent USGS history is available to draw a trend chart yet.');
+    setText('chart-caption', 'Preferred range not available yet.');
     setText('chart-trend-note', 'Trend direction is unavailable because the recent sample window is too thin.');
     rangeEl.setAttribute('visibility', 'hidden');
     thresholdEl.setAttribute('visibility', 'hidden');
@@ -1565,7 +1740,7 @@ function renderGaugeChart(result) {
   );
 
   if (!Number.isFinite(minValue) || !Number.isFinite(maxValue)) {
-    setText('chart-caption', 'Recent gauge history is unavailable right now.');
+    setText('chart-caption', 'Preferred range not available right now.');
     setText('chart-trend-note', 'Trend direction is unavailable because the current gauge history could not be read.');
     return;
   }
@@ -1632,7 +1807,7 @@ function renderGaugeChart(result) {
     thresholdEl.setAttribute('visibility', 'hidden');
     setText(
       'chart-caption',
-      `The shaded band marks the preferred ${formatGaugeValue(result.river.profile.idealMin, result.gauge.unit)} to ${formatGaugeValue(result.river.profile.idealMax, result.gauge.unit)} window across the last ${chartWindowLabel(currentChartWindowHours)}.`
+      `Preferred range: ${formatGaugeValue(result.river.profile.idealMin, result.gauge.unit)}-${formatGaugeValue(result.river.profile.idealMax, result.gauge.unit)}`
     );
     return;
   }
@@ -1647,14 +1822,14 @@ function renderGaugeChart(result) {
     rangeEl.setAttribute('visibility', 'hidden');
     setText(
       'chart-caption',
-      `The dashed line marks the published low-water floor at ${formatGaugeValue(result.river.profile.tooLow, result.gauge.unit)}. Upper-range guidance is still incomplete.`
+      `Low-water floor: ${formatGaugeValue(result.river.profile.tooLow, result.gauge.unit)}`
     );
     return;
   }
 
   rangeEl.setAttribute('visibility', 'hidden');
   thresholdEl.setAttribute('visibility', 'hidden');
-  setText('chart-caption', 'Recent gauge movement is available, but threshold overlays are not calibrated yet.');
+  setText('chart-caption', 'Threshold overlay not available.');
 }
 
 function bindChartControls() {
@@ -1673,29 +1848,56 @@ function bindChartControls() {
 
 function renderWeatherVisual(weather) {
   if (!weather) {
-    setText('weather-condition', 'Weather unavailable');
-    setText('weather-temp', 'Unavailable');
-    setText('weather-wind', 'Unavailable');
-    setText('weather-rain-risk', 'Unavailable');
-    setText('weather-storm-risk', 'Unavailable');
+    setText('weather-condition', 'No current weather read');
+    setText('weather-air-temp-summary', 'Air: No reading');
+    setText('weather-water-temp-detail', 'Water: No reading');
+    setText('weather-wind-summary', 'No reading');
+    setText('weather-gusts-detail', 'Gusts: No reading');
+    setText('weather-rain-risk', 'No reading');
+    setText('weather-rain-summary', 'Recent rain: No reading');
     setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
     setText('weather-window', 'Best short-route window unavailable right now.');
+    setFieldGroupHidden('temperature', true);
+    setFieldGroupHidden('weather-condition', true);
+    setFieldGroupHidden('wind', true);
+    setFieldGroupHidden('weather-wind', true);
+    setFieldGroupHidden('rain', true);
+    setFieldGroupHidden('weather-rain', true);
     renderHourlyWeather(null);
     return;
   }
 
-  setText('weather-condition', weatherConditionLabel(weather.weatherCode));
-  setText('weather-temp', weather.temperatureF !== null ? `${Math.round(weather.temperatureF)}\u00B0F` : 'Unavailable');
-  setText(
-    'weather-wind',
-    weather.windMph !== null
-      ? `${Math.round(weather.windMph)} mph${weather.gustMph !== null ? ` gust ${Math.round(weather.gustMph)}` : ''}`
-      : 'Unavailable'
-  );
+  setText('weather-condition', weatherConditionLabel(weather.conditionLabel ?? weather.weatherCode));
+  setText('weather-air-temp-summary', temperatureSummary(weather));
+  setText('weather-water-temp-detail', waterTemperatureSummary(latestResult?.gauge ?? null));
+  setText('weather-wind-summary', windSummary(weather));
+  setText('weather-gusts-detail', gustSummary(weather));
   setText('weather-rain-risk', rainTimingLabel(weather));
-  setText('weather-storm-risk', weather.next12hStormRisk ? 'Storm signal present' : 'No storm signal');
+  setText('weather-rain-summary', recentRainSummary(weather));
   setText('weather-hourly-note', weatherHourlyNote(weather));
   setText('weather-window', bestShortRouteWindow(weather));
+  setFieldGroupHidden(
+    'temperature',
+    weather.temperatureF == null && latestResult?.gauge?.waterTempF == null
+  );
+  setFieldGroupHidden(
+    'weather-condition',
+    weather.temperatureF == null && latestResult?.gauge?.waterTempF == null
+  );
+  setFieldGroupHidden('wind', weather.windMph == null && weather.gustMph == null);
+  setFieldGroupHidden('weather-wind', weather.windMph == null && weather.gustMph == null);
+  setFieldGroupHidden(
+    'rain',
+    weather.next12hPrecipProbabilityMax == null &&
+      weather.recentRain24hIn == null &&
+      weather.recentRain72hIn == null
+  );
+  setFieldGroupHidden(
+    'weather-rain',
+    weather.next12hPrecipProbabilityMax == null &&
+      weather.recentRain24hIn == null &&
+      weather.recentRain72hIn == null
+  );
   renderHourlyWeather(weather);
 }
 
@@ -1704,46 +1906,19 @@ function renderHistory(history) {
     return;
   }
 
-  if (!history || !Array.isArray(history.days) || history.days.length === 0) {
-    setText('history-status', 'History will show up after the first daily snapshots are captured.');
-    setText('history-average', '--');
-    setText('history-average-detail', 'No stored daily scores yet.');
-    setText('history-latest', '--');
-    setText('history-latest-detail', 'No stored daily scores yet.');
-    setText('history-samples', history?.todayHourly?.length ? String(history.todayHourly.length) : '--');
-    setText(
-      'history-samples-detail',
-      history?.todayHourly?.length ? 'Hourly reads have started for today.' : 'No snapshots captured yet today.'
-    );
-    historyBars.innerHTML = `
-      <p class="history-chart__empty muted">
-        Run the hourly history snapshot job to start building a score trend.
-      </p>
-    `;
+  if (!(historyPanel instanceof HTMLElement)) {
     return;
   }
 
-  const days = history.days.slice(-7);
-  const sevenDayAverage = Math.round(days.reduce((sum, day) => sum + day.avgScore, 0) / days.length);
-  const latestDay = days.at(-1);
-  const sampleCount = Array.isArray(history.todayHourly) ? history.todayHourly.length : 0;
+  if (!history || !Array.isArray(history.days) || history.days.length < 4) {
+    historyPanel.hidden = true;
+    historyBars.innerHTML = '';
+    return;
+  }
 
-  setText('history-status', `${days.length} day trend based on stored daily averages.`);
-  setText('history-average', String(sevenDayAverage));
-  setText(
-    'history-average-detail',
-    `Range ${Math.min(...days.map((day) => day.minScore))}-${Math.max(...days.map((day) => day.maxScore))} over the last week.`
-  );
-  setText('history-latest', latestDay ? `${latestDay.latestScore}` : '--');
-  setText(
-    'history-latest-detail',
-    latestDay ? `${latestDay.latestRating} on ${formatHistoryDate(latestDay.date)}` : 'No daily history yet.'
-  );
-  setText('history-samples', String(sampleCount));
-  setText(
-    'history-samples-detail',
-    sampleCount > 0 ? `${sampleCount} hourly read${sampleCount === 1 ? '' : 's'} captured today.` : 'No hourly reads stored yet today.'
-  );
+  historyPanel.hidden = false;
+  const days = history.days.slice(-7);
+  setText('history-status', historyTrendSummary(days));
 
   historyBars.innerHTML = days
     .map((day) => {
@@ -1840,29 +2015,49 @@ async function loadDetail({ silent = false } = {}) {
     setText(
       'gauge-now',
       result.gauge
-        ? `${result.gauge.current.toFixed(result.gauge.unit === 'ft' ? 2 : 0)} ${result.gauge.unit}`
-        : 'Unavailable'
+        ? result.gauge.gaugeHeightNow != null
+          ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
+          : formatGaugeMetric(result.gauge.current, result.gauge.unit)
+        : 'No reading'
+    );
+    setText(
+      'discharge-now',
+      result.gauge ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading') : 'No reading'
     );
     setText(
       'observed-at',
-      result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'Unavailable'
+      result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'No reading'
     );
     setText(
       'generated-at',
-      result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'Unavailable'
+      result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'No reading'
     );
     setText('gauge-freshness', result.liveData.gauge.detail);
     setText(
       'trend',
-      result.gauge?.delta24h !== null && result.gauge
-        ? `${result.gauge.trend} (${result.gauge.delta24h >= 0 ? '+' : ''}${result.gauge.delta24h.toFixed(result.gauge.unit === 'ft' ? 2 : 0)} ${result.gauge.unit})`
-        : 'Unavailable'
+      result.gauge?.trend
+        ? `${String(result.gauge.trend).slice(0, 1).toUpperCase()}${String(result.gauge.trend).slice(1)}`
+        : 'No reading'
     );
+    setText('trend-summary', trendSummaryValue(result.gauge));
     setText(
-      'weather-now',
-      result.weather ? weatherNowSummary(result.weather) : 'Unavailable'
+      'flow-change-24h',
+      result.gauge?.delta24h !== null && result.gauge
+        ? `${result.gauge.delta24h >= 0 ? '+' : ''}${formatGaugeMetric(result.gauge.delta24h, result.gauge.unit)}`
+        : 'No reading'
     );
+    setText('recent-rain-24h', formatRainTotal(result.weather?.recentRain24hIn, 'No reading'));
+    setText('recent-rain-72h', formatRainTotal(result.weather?.recentRain72hIn, 'No reading'));
     setText('weather-freshness', result.liveData.weather.detail);
+    setText('weather-air-temp', result.weather?.temperatureF != null ? `${Math.round(result.weather.temperatureF)}°F` : 'No reading');
+    setText('weather-water-temp', result.gauge?.waterTempF != null ? `${Math.round(result.gauge.waterTempF)}°F` : 'No reading');
+    setText('weather-wind', result.weather?.windMph != null ? `${Math.round(result.weather.windMph)} mph` : 'No reading');
+    setText('weather-gusts', result.weather?.gustMph != null ? `${Math.round(result.weather.gustMph)} mph` : 'No reading');
+    setText('gauge-source', result.gauge?.gaugeSource ?? 'No reading');
+    setText('weather-source', result.weather?.weatherSource ?? 'No reading');
+    setText('rainfall-source', result.weather?.rainfallSource ?? 'No reading');
+    setFieldGroupHidden('level', false);
+    setFieldGroupHidden('trend', false);
 
     renderDetailBanner(result);
     renderLaunchReadiness(result);
@@ -1908,23 +2103,43 @@ async function loadDetail({ silent = false } = {}) {
       dataStatus.classList.add('data-status-pill--offline');
     }
 
-    setText('flow-band', 'Unavailable');
-    setText('gauge-now', 'Unavailable');
-    setText('observed-at', 'Unavailable');
-    setText('generated-at', 'Unavailable');
+    setText('flow-band', 'No reading');
+    setText('gauge-now', 'No reading');
+    setText('discharge-now', 'No reading');
+    setText('observed-at', 'No reading');
+    setText('generated-at', 'No reading');
     setText('gauge-freshness', 'No live gauge reading is available.');
-    setText('trend', 'Unavailable');
-    setText('weather-now', 'Unavailable');
+    setText('trend', 'No reading');
+    setText('trend-summary', 'No reading');
+    setText('flow-change-24h', 'No reading');
+    setText('recent-rain-24h', 'No reading');
+    setText('recent-rain-72h', 'No reading');
     setText('weather-freshness', 'No live weather reading is available.');
     setText('chart-caption', 'Gauge chart unavailable because the live read could not be loaded.');
     setText('chart-trend-note', 'Trend direction is unavailable because the live chart data could not be loaded.');
-    setText('weather-condition', 'Weather unavailable');
-    setText('weather-temp', 'Unavailable');
-    setText('weather-wind', 'Unavailable');
-    setText('weather-rain-risk', 'Unavailable');
-    setText('weather-storm-risk', 'Unavailable');
+    setText('weather-condition', 'No current weather read');
+    setText('weather-air-temp', 'No reading');
+    setText('weather-air-temp-summary', 'Air: No reading');
+    setText('weather-water-temp', 'No reading');
+    setText('weather-water-temp-detail', 'Water: No reading');
+    setText('weather-wind', 'No reading');
+    setText('weather-wind-summary', 'No reading');
+    setText('weather-gusts', 'No reading');
+    setText('weather-gusts-detail', 'Gusts: No reading');
+    setText('weather-rain-risk', 'No reading');
+    setText('weather-rain-summary', 'Recent rain: No reading');
+    setText('weather-forecast', 'No reading');
     setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
     setText('weather-window', 'Best short-route window unavailable right now.');
+    setText('gauge-source', 'No reading');
+    setText('weather-source', 'No reading');
+    setText('rainfall-source', 'No reading');
+    setFieldGroupHidden('temperature', true);
+    setFieldGroupHidden('weather-condition', true);
+    setFieldGroupHidden('wind', true);
+    setFieldGroupHidden('weather-wind', true);
+    setFieldGroupHidden('rain', true);
+    setFieldGroupHidden('weather-rain', true);
     renderHourlyWeather(null);
     renderHistory(null);
     if (detailStatusBanner instanceof HTMLElement) {
