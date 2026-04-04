@@ -102,9 +102,14 @@ const homepageStructuredData = [
         </div>
       </div>
 
+      <p class="hero-call__condition" data-featured-condition hidden></p>
+
       <p class="hero-call__summary muted" data-field="featured-explanation">
         Pulling the strongest river for today.
       </p>
+      <button class="hero-call__toggle" type="button" data-featured-toggle hidden aria-expanded="false">
+        More
+      </button>
 
       <div class="decision-hero__actions">
         <a class="river-link river-link--inline" href="/" data-featured-link>View river</a>
@@ -115,7 +120,7 @@ const homepageStructuredData = [
     </aside>
   </section>
 
-  <section class="decision-section">
+  <section class="decision-section decision-section--nearby">
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Near you</p>
@@ -148,10 +153,12 @@ const homepageStructuredData = [
             data-location-input
           />
         </label>
-        <button class="filter-chip" type="submit">Set location</button>
-        <button class="filter-chip" type="button" data-location-clear hidden>
-          Clear
-        </button>
+        <div class="location-panel__actions">
+          <button class="filter-chip filter-chip--primary" type="submit">Set location</button>
+          <button class="filter-chip" type="button" data-location-clear hidden>
+            Clear
+          </button>
+        </div>
       </form>
 
       <p class="muted location-panel__status" data-location-status>
@@ -305,7 +312,9 @@ const homepageStructuredData = [
       </div>
     </section>
 
-    <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
+    <div class="explore-grid-shell" data-explore-shell>
+      <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
+    </div>
 
     <div class="explore-pagination" data-explore-pagination hidden>
       <p class="muted explore-pagination__summary" data-explore-pagination-summary>

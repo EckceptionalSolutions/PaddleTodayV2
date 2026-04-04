@@ -20,6 +20,7 @@ const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]
 const overallGrid = document.querySelector('[data-overall-grid]');
 const overallSummary = document.querySelector('[data-overall-summary]');
 const exploreGrid = document.querySelector('[data-explore-grid]');
+const exploreShell = document.querySelector('[data-explore-shell]');
 const cardTemplate = document.querySelector('[data-river-card-template]');
 
 const featuredPanel = document.querySelector('.hero-call');
@@ -28,6 +29,10 @@ const featuredState = document.querySelector('[data-featured-state]');
 const featuredName = document.querySelector('[data-featured-name]');
 const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredLink = document.querySelector('[data-featured-link]');
+const featuredSummary = document.querySelector('[data-field="featured-explanation"]');
+const featuredToggle = document.querySelector('[data-featured-toggle]');
+const featuredCondition = document.querySelector('[data-featured-condition]');
+const nearbySection = document.querySelector('.decision-section--nearby');
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
@@ -92,6 +97,8 @@ let mapMarkers = [];
 let userLocation = null;
 let userLocationState = 'idle';
 let currentExplorePage = 1;
+let exploreLockedHeight = 0;
+let exploreLayoutKey = '';
 
 const EXPLORE_PAGE_SIZE = 9;
 
@@ -602,6 +609,49 @@ function weatherVisualMarkup(state) {
   }
 }
 
+function clampText(text, maxLength) {
+  if (typeof text !== 'string') {
+    return '';
+  }
+
+  const normalized = text.replace(/\s+/g, ' ').trim();
+  if (normalized.length <= maxLength) {
+    return normalized;
+  }
+
+  return `${normalized.slice(0, maxLength).replace(/[ ,;:.!?-]+$/, '')}…`;
+}
+
+function updateFeaturedSummaryToggle(text) {
+  if (!(featuredSummary instanceof HTMLElement) || !(featuredToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const normalized = typeof text === 'string' ? text.replace(/\s+/g, ' ').trim() : '';
+  const shouldShow = normalized.length > 165;
+
+  featuredSummary.classList.remove('hero-call__summary--expanded');
+  featuredToggle.hidden = !shouldShow;
+  featuredToggle.setAttribute('aria-expanded', 'false');
+  featuredToggle.textContent = 'More';
+}
+
+function featuredConditionMarkup(item) {
+  const summary = summaryParts(cardSummary(item));
+  const conditionText = [summary.main, summary.weather].filter(Boolean).join(' • ');
+  if (!conditionText) {
+    return '';
+  }
+
+  const state = weatherVisualState(item);
+  return `
+    <span class="hero-call__condition-icon weather-indicator weather-indicator--${state}">
+      ${weatherVisualMarkup(state)}
+    </span>
+    <span class="hero-call__condition-text">${escapeHtml(conditionText)}</span>
+  `;
+}
+
 function regionStateText(item) {
   return `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`.toUpperCase();
 }
@@ -700,6 +750,52 @@ function renderCardGrid(container, items, options = {}) {
   container.appendChild(fragment);
 }
 
+function currentExploreLayoutKey() {
+  if (window.innerWidth <= 760) return 'mobile';
+  if (window.innerWidth <= 1100) return 'tablet';
+  if (window.innerWidth >= 1480) return 'wide';
+  return 'desktop';
+}
+
+function syncExploreShellHeight() {
+  if (!(exploreShell instanceof HTMLElement) || !(exploreGrid instanceof HTMLElement)) {
+    return;
+  }
+
+  const layoutKey = currentExploreLayoutKey();
+  if (layoutKey !== exploreLayoutKey) {
+    exploreLayoutKey = layoutKey;
+    exploreLockedHeight = 0;
+  }
+
+  const cards = Array.from(exploreGrid.children).filter((node) => node instanceof HTMLElement);
+  if (cards.length === 0) {
+    if (exploreLockedHeight > 0) {
+      exploreShell.style.minHeight = `${Math.ceil(exploreLockedHeight)}px`;
+    } else {
+      exploreShell.style.removeProperty('min-height');
+    }
+    return;
+  }
+
+  const styles = getComputedStyle(exploreGrid);
+  const rowGap = Number.parseFloat(styles.rowGap || styles.gap || '0') || 0;
+  const rows = new Map();
+
+  for (const card of cards) {
+    const top = Math.round(card.offsetTop);
+    const height = card.getBoundingClientRect().height;
+    rows.set(top, Math.max(rows.get(top) ?? 0, height));
+  }
+
+  const rowHeights = Array.from(rows.values());
+  const measuredHeight =
+    rowHeights.reduce((total, height) => total + height, 0) + Math.max(0, rowHeights.length - 1) * rowGap;
+
+  exploreLockedHeight = Math.max(exploreLockedHeight, measuredHeight);
+  exploreShell.style.minHeight = `${Math.ceil(exploreLockedHeight)}px`;
+}
+
 function paginateItems(items, pageSize, page) {
   const totalItems = items.length;
   const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
@@ -760,6 +856,11 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     setText(document, 'featured-confidence', 'Confidence unavailable');
     setText(document, 'featured-distance', 'Distance unavailable');
     setText(document, 'featured-explanation', 'Reload the board or open a river page to verify the latest sources.');
+    updateFeaturedSummaryToggle('Reload the board or open a river page to verify the latest sources.');
+    if (featuredCondition instanceof HTMLElement) {
+      featuredCondition.hidden = true;
+      featuredCondition.innerHTML = '';
+    }
     if (featuredLink instanceof HTMLAnchorElement) {
       featuredLink.href = '#top-rivers-today';
     }
@@ -795,7 +896,14 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     'featured-distance',
     nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Best overall'
   );
-  setText(document, 'featured-explanation', item.cardRoute.explanation);
+  const featuredExplanation = item.cardRoute.explanation || item.cardRoute.summary?.shortExplanation || '';
+  setText(document, 'featured-explanation', featuredExplanation);
+  updateFeaturedSummaryToggle(featuredExplanation);
+  if (featuredCondition instanceof HTMLElement) {
+    const markup = featuredConditionMarkup(item);
+    featuredCondition.hidden = !markup;
+    featuredCondition.innerHTML = markup;
+  }
 
   const orb = featuredPanel?.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
@@ -814,6 +922,10 @@ function renderNearbySection(nearbyItems, overallItems) {
     return;
   }
 
+  if (nearbySection instanceof HTMLElement) {
+    nearbySection.classList.remove('decision-section--active');
+  }
+
   if (userLocationState !== 'ready' || !userLocation) {
     nearbySummary.textContent = 'Set your location to unlock distance-based ranking.';
     if (nearbyLocationPanel instanceof HTMLElement) {
@@ -828,6 +940,10 @@ function renderNearbySection(nearbyItems, overallItems) {
 
   if (nearbyLocationPanel instanceof HTMLElement) {
     nearbyLocationPanel.hidden = true;
+  }
+
+  if (nearbySection instanceof HTMLElement) {
+    nearbySection.classList.add('decision-section--active');
   }
 
   if (nearbyItems.length === 0) {
@@ -1279,6 +1395,7 @@ function renderHomepage(results) {
   renderCardGrid(exploreGrid, explorePaginationState.items, {
     showDistance: userLocationState === 'ready' && userLocation,
   });
+  syncExploreShellHeight();
 }
 
 function saveLocation(location) {
@@ -1614,6 +1731,18 @@ if (exploreNextButton instanceof HTMLButtonElement) {
     renderHomepage(latestResults);
   });
 }
+
+if (featuredToggle instanceof HTMLButtonElement && featuredSummary instanceof HTMLElement) {
+  featuredToggle.addEventListener('click', () => {
+    const expanded = featuredSummary.classList.toggle('hero-call__summary--expanded');
+    featuredToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    featuredToggle.textContent = expanded ? 'Less' : 'More';
+  });
+}
+
+window.addEventListener('resize', () => {
+  syncExploreShellHeight();
+});
 
 loadBoard();
 window.setInterval(() => {
