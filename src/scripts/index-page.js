@@ -19,8 +19,11 @@ const recommendationSummary = document.querySelector('[data-recommendation-summa
 const recommendationTitle = document.querySelector('[data-recommendation-title]');
 const recommendationEmpty = document.querySelector('[data-recommendation-empty]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
+const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
+const exploreContent = document.querySelector('[data-explore-content]');
+const exploreToggle = document.querySelector('[data-explore-toggle]');
 const cardTemplate = document.querySelector('[data-river-card-template]');
 const recommendationTemplate = document.querySelector('[data-recommendation-card-template]');
 
@@ -36,6 +39,7 @@ const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredSignal = document.querySelector('[data-field="featured-signal"]');
 const featuredReasons = document.querySelector('[data-featured-reasons]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
+const exploreSection = document.querySelector('.decision-section--explore');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
 const homeSnapshot = document.querySelector('[data-home-snapshot]');
@@ -78,6 +82,9 @@ const locationStatus = null;
 
 const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
+const summaryMapShell = document.querySelector('[data-summary-map-shell]');
+const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
+const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const statusWeight = {
   live: 2,
@@ -112,6 +119,8 @@ let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
+let summaryMapCollapsed = phoneBreakpoint.matches;
+let exploreCollapsed = phoneBreakpoint.matches;
 
 const EXPLORE_PAGE_SIZE = 9;
 const SUMMARY_CACHE_KEY = 'river-summary:v1';
@@ -1217,6 +1226,11 @@ function syncExploreShellHeight() {
     return;
   }
 
+  if (phoneBreakpoint.matches && exploreCollapsed) {
+    exploreShell.style.removeProperty('min-height');
+    return;
+  }
+
   const layoutKey = currentExploreLayoutKey();
   if (layoutKey !== exploreLayoutKey) {
     exploreLayoutKey = layoutKey;
@@ -1443,6 +1457,10 @@ function renderRecommendationSection(nearbyItems, overallItems) {
 
   const nearbyReady = userLocationState === 'ready' && userLocation && nearbyItems.length > 0;
   const recommendationItems = buildRecommendationItems(nearbyItems, overallItems);
+
+  if (nearbyLocationPanel instanceof HTMLElement) {
+    nearbyLocationPanel.hidden = false;
+  }
 
   if (recommendationSection instanceof HTMLElement) {
     recommendationSection.classList.toggle('decision-section--active', nearbyReady);
@@ -1754,6 +1772,85 @@ function popupMarkup(item) {
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
+}
+
+function updateSummaryMapToggle() {
+  if (!(summaryMapShell instanceof HTMLElement) || !(summaryMapToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const compact = phoneBreakpoint.matches;
+  if (!compact) {
+    summaryMapCollapsed = false;
+  }
+
+  summaryMapToggle.hidden = !compact;
+  summaryMapShell.classList.toggle('summary-map-shell--collapsed', compact && summaryMapCollapsed);
+  summaryMapToggle.setAttribute('aria-expanded', compact && summaryMapCollapsed ? 'false' : 'true');
+  summaryMapToggle.textContent = compact && summaryMapCollapsed ? 'Show map' : 'Hide map';
+
+  if (!(compact && summaryMapCollapsed) && mapRuntime) {
+    window.setTimeout(() => {
+      mapRuntime?.resize();
+    }, 30);
+  }
+}
+
+function updateExploreToggle() {
+  if (!(exploreContent instanceof HTMLElement) || !(exploreToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const compact = phoneBreakpoint.matches;
+  if (!compact) {
+    exploreCollapsed = false;
+  }
+
+  exploreToggle.hidden = !compact;
+  exploreContent.hidden = compact && exploreCollapsed;
+  exploreToggle.setAttribute('aria-expanded', compact && exploreCollapsed ? 'false' : 'true');
+  exploreToggle.textContent = compact && exploreCollapsed ? 'Show full board' : 'Hide full board';
+
+  if (exploreSection instanceof HTMLElement) {
+    exploreSection.classList.toggle('decision-section--collapsed', compact && exploreCollapsed);
+  }
+
+  if (!(compact && exploreCollapsed) && mapRuntime) {
+    window.setTimeout(() => {
+      mapRuntime?.resize();
+    }, 30);
+  }
+}
+
+function expandMobileSectionsForTarget(targetId) {
+  if (!phoneBreakpoint.matches) {
+    return;
+  }
+
+  if (targetId === 'explore' || targetId === 'explore-map') {
+    exploreCollapsed = false;
+    updateExploreToggle();
+  }
+
+  if (targetId === 'explore-map') {
+    summaryMapCollapsed = false;
+    updateSummaryMapToggle();
+  }
+}
+
+function scrollToHomeTarget(targetId) {
+  const target = document.getElementById(targetId);
+  if (!(target instanceof HTMLElement)) {
+    return;
+  }
+
+  expandMobileSectionsForTarget(targetId);
+  window.setTimeout(() => {
+    target.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }, 45);
 }
 
 async function renderSummaryMap(items) {
@@ -2327,11 +2424,48 @@ if (featuredToggle instanceof HTMLButtonElement && featuredSummary instanceof HT
   });
 }
 
+if (summaryMapToggle instanceof HTMLButtonElement) {
+  summaryMapToggle.addEventListener('click', () => {
+    summaryMapCollapsed = !summaryMapCollapsed;
+    updateSummaryMapToggle();
+  });
+}
+
 window.addEventListener('resize', () => {
+  syncExploreShellHeight();
+  updateSummaryMapToggle();
+});
+
+phoneBreakpoint.addEventListener('change', () => {
+  updateExploreToggle();
+  updateSummaryMapToggle();
   syncExploreShellHeight();
 });
 
+if (exploreToggle instanceof HTMLButtonElement) {
+  exploreToggle.addEventListener('click', () => {
+    exploreCollapsed = !exploreCollapsed;
+    updateExploreToggle();
+    syncExploreShellHeight();
+  });
+}
+
+for (const button of homeJumpButtons) {
+  if (!(button instanceof HTMLButtonElement)) {
+    continue;
+  }
+
+  button.addEventListener('click', () => {
+    const targetId = button.dataset.homeJumpTarget;
+    if (targetId) {
+      scrollToHomeTarget(targetId);
+    }
+  });
+}
+
 const hydratedBoard = hydrateBoardFromCache();
+updateExploreToggle();
+updateSummaryMapToggle();
 loadBoard({ silent: hydratedBoard });
 window.setInterval(() => {
   loadBoard({ silent: true });

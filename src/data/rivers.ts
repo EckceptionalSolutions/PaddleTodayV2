@@ -2351,8 +2351,14 @@ export const rivers: River[] = [
       {
         label: 'Route shape',
         value: '13.75 river miles',
-        note: 'This is a full but approachable day with easy current, limestone scenery, and a riffly finish near Dundas.',
+        note: 'MN DNR Map 1 explicitly names Two Rivers Park carry-in access and Dundas City Park as the recommended day-trip endpoints for this run.',
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf',
+      },
+      {
+        label: 'Supplemental high-water context',
+        value: '10.5 to 12 ft sweet spot; 14+ ft gets edgy',
+        note: 'A Cannon outfitter using the Northfield gauge treats roughly 10.5 to 12 feet as the preferred range, with 13 to 14 feet getting harder and 14+ feet trending toward shutdown decisions. This is useful upper-flow context, but it is still stage-based and not route-specific enough to replace the app threshold model.',
+        sourceUrl: 'https://www.farmsteadoutdooradventures.com/our-company-1',
       },
       {
         label: 'Primary caution',
@@ -2367,12 +2373,24 @@ export const rivers: River[] = [
         url: 'https://www.dnr.state.mn.us/watertrails/recommended/cannon.html',
       },
       {
+        label: 'MN DNR Cannon River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/cannonriver/segments-maps.html',
+      },
+      {
+        label: 'City of Faribault park addresses PDF',
+        url: 'https://www.ci.faribault.mn.us/DocumentCenter/View/3108/List-of-Parks',
+      },
+      {
         label: 'MN DNR Cannon / Straight canoe route map PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf',
       },
       {
         label: 'USGS 05355024 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05355024/',
+      },
+      {
+        label: 'Farmstead Outdoor Adventures Cannon gauge guide',
+        url: 'https://www.farmsteadoutdooradventures.com/our-company-1',
       },
       {
         label: 'MilesPaddled Cannon River I',
@@ -2440,6 +2458,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
       },
       {
+        label: 'Supplemental upper-flow context',
+        value: '400 to 600 cfs still works; 600+ gets less attractive',
+        note: 'Wisconsin River Trips treats the Newburg segment as best around 200 to 400 cfs, still navigable at 400 to 600 cfs, and increasingly less appealing above 600 cfs. This improves the upper-flow story, but it remains community guidance rather than an official route standard.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+      },
+      {
+        label: 'Adjacent downstream caution',
+        value: '801+ cfs may be too high for an enjoyable day',
+        note: 'On the adjacent Waubeka segment ending at Waubedonia Park, Wisconsin River Trips treats roughly 801 cfs and above at Cedarburg as potentially too high for an enjoyable paddle. This is useful cautionary context, but not a direct threshold for the Newburg to Waubedonia route.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/waubeka',
+      },
+      {
         label: 'Access quality',
         value: 'Public park put-in and county-park take-out',
         note: 'The route starts at Fireman\'s Park in Newburg and ends at Waubedonia Park, which has a public boat/canoe/kayak launch.',
@@ -2458,6 +2488,14 @@ export const rivers: River[] = [
       {
         label: 'USGS 04086600 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee River Newburg',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee River Waubeka',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/waubeka',
       },
       {
         label: 'MilesPaddled Milwaukee River I',
@@ -2527,8 +2565,8 @@ export const rivers: River[] = [
       {
         label: 'Public access confirmed',
         value: 'State-park put-in and county access take-out',
-        note: 'Jones County conservation programming explicitly stages this route from Wapsipinicon State Park to Newport Mills Access when river levels are suitable.',
-        sourceUrl: 'https://www.mycountyparks.com/county/jones/park/central-park/events/20918/Paddling-the-Wapsi.aspx?DisplayMode=PrinterFriendly',
+        note: 'Jones County maintains a dedicated Newport Mills Access page with hours and directions, and county programming explicitly uses this exact Wapsipinicon State Park to Newport Mills shuttle.',
+        sourceUrl: 'https://www.mycountyparks.com/County/Jones/Park/Newport-Mills-Access',
       },
     ],
     sourceLinks: [
@@ -2537,8 +2575,12 @@ export const rivers: River[] = [
         url: 'https://www.iowadnr.gov/places-go/state-parks/all-parks/wapsipinicon-state-park',
       },
       {
-        label: 'Jones County parks listing',
-        url: 'https://www.mycountyparks.com/County/Jones/Parks',
+        label: 'Jones County Newport Mills Access',
+        url: 'https://www.mycountyparks.com/County/Jones/Park/Newport-Mills-Access',
+      },
+      {
+        label: 'Jones County Wapsipinicon State Park boat ramp',
+        url: 'https://www.mycountyparks.com/County/Jones/Park/Wapsipinicon-State-Park-Anamosa-Boat-Ramp',
       },
       {
         label: 'Jones County Paddling the Wapsi event route note',
@@ -2614,6 +2656,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://milespaddled.com/kinnickinnic-river/',
       },
       {
+        label: 'Launch support',
+        value: 'Official Glen Park corridor launch shown on city map',
+        note: 'River Falls city mapping for the Kinni Trail System shows a canoe and kayak launch in the Glen Park corridor, which strengthens the below-dam put-in story beyond community trip notes alone.',
+        sourceUrl: 'https://rfcity.org/DocumentCenter/View/63',
+      },
+      {
+        label: 'Supplemental high-water caution',
+        value: '250+ cfs may get pushy',
+        note: 'Wisconsin River Trips treats roughly 250 cfs and above at River Falls as the point where this lower Kinni run may become too pushy and murky for a typical day.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/kinnickinnic-river',
+      },
+      {
         label: 'Take-out friction',
         value: 'Steep carry and park admission',
         note: 'The state-park finish uses the official concrete take-out but requires a steep carry back to the parking area and a Wisconsin state-park pass.',
@@ -2626,16 +2680,36 @@ export const rivers: River[] = [
         url: 'https://www.rfcity.org/facilities/facility/details/Glen-Park-4',
       },
       {
+        label: 'City of River Falls mapping portal',
+        url: 'https://rfcity.org/248/City-Mapping',
+      },
+      {
+        label: 'City of River Falls Kinni Trail System map',
+        url: 'https://rfcity.org/DocumentCenter/View/63',
+      },
+      {
         label: 'Wisconsin DNR Kinnickinnic State Park',
         url: 'https://dnr.wisconsin.gov/topic/parks/kinnickinnic',
+      },
+      {
+        label: 'Wisconsin DNR Kinnickinnic State Park map',
+        url: 'https://widnr.widen.net/s/dzprmf7qbw/kinnickinnic_map',
       },
       {
         label: 'Wisconsin DNR Kinnickinnic River Gorge and Delta SNA',
         url: 'https://dnr.wisconsin.gov/topic/statenaturalareas/KinnickinnicRiverGorgeandDelta',
       },
       {
+        label: 'Wisconsin DNR Kinnickinnic River Fishery Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/FisheriesAreas/kinnickinnic.html',
+      },
+      {
         label: 'USGS 05342000 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05342000/',
+      },
+      {
+        label: 'Wisconsin River Trips Kinnickinnic segment notes',
+        url: 'https://www.wisconsinrivertrips.com/segments/kinnickinnic-river',
       },
       {
         label: 'MilesPaddled Kinnickinnic River',

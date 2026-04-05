@@ -48,7 +48,7 @@ const homepageStructuredData = [
   structuredData={homepageStructuredData}
 >
   <section class="decision-hero hero">
-    <div class="decision-hero__main">
+    <div class="decision-hero__intro">
       <p class="hero__kicker">Paddle Today</p>
       <h1>Find the best paddle near you today</h1>
       <p class="hero__lede">
@@ -56,35 +56,6 @@ const homepageStructuredData = [
       </p>
       <p class="hero__snapshot" data-home-snapshot>
         Checking today&apos;s snapshot...
-      </p>
-      <p class="hero__freshness">
-        <span>Data refreshes every 30 minutes.</span>
-        <span data-home-freshness>Checking latest refresh…</span>
-      </p>
-      <ul class="hero__call-mix" data-home-call-mix>
-        <li class="hero__call-mix-item hero__call-mix-item--good">
-          <strong data-home-good-count>--</strong>
-          <span>Good</span>
-        </li>
-        <li class="hero__call-mix-item hero__call-mix-item--mixed">
-          <strong data-home-mixed-count>--</strong>
-          <span>Mixed</span>
-        </li>
-        <li class="hero__call-mix-item hero__call-mix-item--no-go">
-          <strong data-home-no-go-count>--</strong>
-          <span>No-go</span>
-        </li>
-      </ul>
-      <p class="hero__overview-label">Routes overview</p>
-      <p class="hero__project-label">Project status</p>
-      <div class="hero__meta">
-        <span class="stat-chip">{trackedCount} routes tracked</span>
-        <span class="stat-chip">Direct gauges first</span>
-      </div>
-      <p class="hero__note muted">
-        Paddle Today is still growing. We&apos;re focusing on the highest-quality Midwest routes first.
-        <a href="/request-river/">Request a route</a>
-        if there&apos;s one you want to see next.
       </p>
     </div>
 
@@ -127,7 +98,50 @@ const homepageStructuredData = [
         </a>
       </div>
     </aside>
+
+    <div class="decision-hero__support">
+      <p class="hero__overview-label">Routes overview</p>
+      <ul class="hero__call-mix" data-home-call-mix>
+        <li class="hero__call-mix-item hero__call-mix-item--good">
+          <strong data-home-good-count>--</strong>
+          <span>Good</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--mixed">
+          <strong data-home-mixed-count>--</strong>
+          <span>Mixed</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--no-go">
+          <strong data-home-no-go-count>--</strong>
+          <span>No-go</span>
+        </li>
+      </ul>
+      <p class="hero__project-label">Project status</p>
+      <div class="hero__meta">
+        <span class="stat-chip">{trackedCount} routes tracked</span>
+        <span class="stat-chip">Direct gauges first</span>
+      </div>
+      <p class="hero__note muted">
+        Paddle Today is still growing. We&apos;re focusing on the highest-quality Midwest routes first.
+        <a href="/request-river/">Request a route</a>
+        if there&apos;s one you want to see next.
+      </p>
+    </div>
   </section>
+
+  <nav class="home-mobile-jump" aria-label="Jump to homepage sections">
+    <button class="home-mobile-jump__link" type="button" data-home-jump-target="best-options">
+      Best picks
+    </button>
+    <button class="home-mobile-jump__link" type="button" data-home-jump-target="home-location">
+      Nearby
+    </button>
+    <button class="home-mobile-jump__link" type="button" data-home-jump-target="explore">
+      Board
+    </button>
+    <button class="home-mobile-jump__link" type="button" data-home-jump-target="explore-map">
+      Map
+    </button>
+  </nav>
 
   <section class="decision-section decision-section--recommended" id="best-options">
     <div class="section-head section-head--stacked">
@@ -188,146 +202,166 @@ const homepageStructuredData = [
       <p class="muted section-head__note">
         Filters, map, and live reads live here once you want to compare beyond the top recommendations.
       </p>
+      <button
+        class="filter-chip home-explore-toggle"
+        type="button"
+        data-explore-toggle
+        hidden
+        aria-expanded="true"
+      >
+        Hide full board
+      </button>
     </div>
 
-    <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Refresh failed</div>
-      <div class="status-banner__body">
-        <strong data-board-fetch-title>River scores could not be refreshed.</strong>
-        <p class="muted" data-board-fetch-detail>
-          The board may be stale. Retry before you drive.
-        </p>
-      </div>
-    </section>
-
-    <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Read quality</div>
-      <div class="status-banner__body">
-        <strong data-board-banner-title>Checking live reads.</strong>
-        <p class="muted" data-board-banner-detail>
-          Pulling the latest gauge and weather data.
-        </p>
-      </div>
-    </section>
-
-    <section class="board-filters board-filters--full" aria-label="River board filters">
-      <div class="board-filters__meta board-filters__meta--top">
-        <p class="muted board-filters__summary" data-filter-summary>
-          Loading rivers.
-        </p>
-        <p class="muted board-filters__summary" data-board-refresh-note>
-          Showing the latest stored board.
-        </p>
-      </div>
-
-      <div class="board-filters__controls">
-        <label class="filter-select filter-select--sort">
-          <span class="sr-only">Sort the board</span>
-          <select class="filter-select__input" data-sort-select>
-            <option value="best-now">Best overall</option>
-            <option value="near-you">Best near me</option>
-            <option value="nearest">Nearest only</option>
-            <option value="highest-confidence">Highest confidence</option>
-            <option value="lowest-risk">Lowest risk</option>
-            <option value="a-z">A-Z</option>
-          </select>
-        </label>
-        <span class="location-indicator" data-location-indicator hidden aria-live="polite">
-          <span class="location-indicator__spinner" aria-hidden="true"></span>
-          <span data-location-indicator-label>Finding nearest rivers...</span>
-        </span>
-        <label class="filter-search">
-          <span class="sr-only">Search rivers</span>
-          <input
-            class="filter-search__input"
-            type="search"
-            placeholder="Search a river or route"
-            data-filter-search
-          />
-        </label>
-        <label class="filter-select">
-          <span class="sr-only">Filter by state</span>
-          <select class="filter-select__input" data-filter-state>
-            <option value="">All states</option>
-            {states.map((state) => (
-              <option value={state}>{state}</option>
-            ))}
-          </select>
-        </label>
-        <label class="filter-select">
-          <span class="sr-only">Filter by region</span>
-          <select class="filter-select__input" data-filter-region>
-            <option value="">All regions</option>
-            {regions.map((region) => (
-              <option value={region}>{region}</option>
-            ))}
-          </select>
-        </label>
-        <button class="filter-chip" type="button" data-filter-toggle="paddleable">
-          Paddleable only
-        </button>
-        <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
-          High confidence only
-        </button>
-        <button class="filter-chip" type="button" data-board-refresh>
-          Refresh board
-        </button>
-      </div>
-    </section>
-
-    <section class="summary-map-shell" data-summary-map-shell>
-      <div class="summary-map-copy">
-        <p class="eyebrow section-label">
-          <FeatureIcon name="map" size={16} />
-          Score map
-        </p>
-        <h2 class="section-title">Scan the board on a map</h2>
-        <p class="muted">
-          Use the filters first, then compare how the current board looks across the region. The number is the score and the ring reflects confidence.
-        </p>
-
-        <div class="summary-map-legend" aria-label="Score map legend">
-          <span class="summary-map-legend__item">
-            <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-            Strong
-          </span>
-          <span class="summary-map-legend__item">
-            <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-            Fair
-          </span>
-          <span class="summary-map-legend__item">
-            <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-            No-go
-          </span>
+    <div class="decision-section__body" data-explore-content>
+      <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
+        <div class="status-banner__eyebrow">Refresh failed</div>
+        <div class="status-banner__body">
+          <strong data-board-fetch-title>River scores could not be refreshed.</strong>
+          <p class="muted" data-board-fetch-detail>
+            The board may be stale. Retry before you drive.
+          </p>
         </div>
+      </section>
+
+      <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
+        <div class="status-banner__eyebrow">Read quality</div>
+        <div class="status-banner__body">
+          <strong data-board-banner-title>Checking live reads.</strong>
+          <p class="muted" data-board-banner-detail>
+            Pulling the latest gauge and weather data.
+          </p>
+        </div>
+      </section>
+
+      <section class="board-filters board-filters--full" aria-label="River board filters">
+        <div class="board-filters__meta board-filters__meta--top">
+          <p class="muted board-filters__summary" data-filter-summary>
+            Loading rivers.
+          </p>
+          <p class="muted board-filters__summary" data-board-refresh-note>
+            Showing the latest stored board.
+          </p>
+        </div>
+
+        <div class="board-filters__controls">
+          <label class="filter-select filter-select--sort">
+            <span class="sr-only">Sort the board</span>
+            <select class="filter-select__input" data-sort-select>
+              <option value="best-now">Best overall</option>
+              <option value="near-you">Best near me</option>
+              <option value="nearest">Nearest only</option>
+              <option value="highest-confidence">Highest confidence</option>
+              <option value="lowest-risk">Lowest risk</option>
+              <option value="a-z">A-Z</option>
+            </select>
+          </label>
+          <span class="location-indicator" data-location-indicator hidden aria-live="polite">
+            <span class="location-indicator__spinner" aria-hidden="true"></span>
+            <span data-location-indicator-label>Finding nearest rivers...</span>
+          </span>
+          <label class="filter-search">
+            <span class="sr-only">Search rivers</span>
+            <input
+              class="filter-search__input"
+              type="search"
+              placeholder="Search a river or route"
+              data-filter-search
+            />
+          </label>
+          <label class="filter-select">
+            <span class="sr-only">Filter by state</span>
+            <select class="filter-select__input" data-filter-state>
+              <option value="">All states</option>
+              {states.map((state) => (
+                <option value={state}>{state}</option>
+              ))}
+            </select>
+          </label>
+          <label class="filter-select">
+            <span class="sr-only">Filter by region</span>
+            <select class="filter-select__input" data-filter-region>
+              <option value="">All regions</option>
+              {regions.map((region) => (
+                <option value={region}>{region}</option>
+              ))}
+            </select>
+          </label>
+          <button class="filter-chip" type="button" data-filter-toggle="paddleable">
+            Paddleable only
+          </button>
+          <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
+            High confidence only
+          </button>
+          <button class="filter-chip" type="button" data-board-refresh>
+            Refresh board
+          </button>
+        </div>
+      </section>
+
+      <section class="summary-map-shell" id="explore-map" data-summary-map-shell>
+        <div class="summary-map-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="map" size={16} />
+            Score map
+          </p>
+          <h2 class="section-title">Scan the board on a map</h2>
+          <p class="muted">
+            Use the filters first, then compare how the current board looks across the region. The number is the score and the ring reflects confidence.
+          </p>
+          <button
+            class="filter-chip summary-map__toggle"
+            type="button"
+            data-summary-map-toggle
+            hidden
+            aria-expanded="true"
+          >
+            Hide map
+          </button>
+
+          <div class="summary-map-legend" aria-label="Score map legend">
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+              Strong
+            </span>
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
+              Fair
+            </span>
+            <span class="summary-map-legend__item">
+              <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
+              No-go
+            </span>
+          </div>
+        </div>
+
+        <div class="summary-map-frame">
+          <div class="summary-map" data-summary-map aria-label="River score map"></div>
+          <p class="summary-map__status muted" data-summary-map-status>
+            Loading map.
+          </p>
+        </div>
+      </section>
+
+      <div class="explore-grid-shell" data-explore-shell>
+        <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
       </div>
 
-      <div class="summary-map-frame">
-        <div class="summary-map" data-summary-map aria-label="River score map"></div>
-        <p class="summary-map__status muted" data-summary-map-status>
-          Loading map.
+      <div class="explore-pagination" data-explore-pagination hidden>
+        <p class="muted explore-pagination__summary" data-explore-pagination-summary>
+          Showing 1-9 of 9 rivers
         </p>
-      </div>
-    </section>
-
-    <div class="explore-grid-shell" data-explore-shell>
-      <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
-    </div>
-
-    <div class="explore-pagination" data-explore-pagination hidden>
-      <p class="muted explore-pagination__summary" data-explore-pagination-summary>
-        Showing 1-9 of 9 rivers
-      </p>
-      <div class="explore-pagination__controls">
-        <button class="filter-chip" type="button" data-explore-prev>
-          Previous
-        </button>
-        <span class="explore-pagination__page" data-explore-page>
-          Page 1 of 1
-        </span>
-        <button class="filter-chip" type="button" data-explore-next>
-          Next
-        </button>
+        <div class="explore-pagination__controls">
+          <button class="filter-chip" type="button" data-explore-prev>
+            Previous
+          </button>
+          <span class="explore-pagination__page" data-explore-page>
+            Page 1 of 1
+          </span>
+          <button class="filter-chip" type="button" data-explore-next>
+            Next
+          </button>
+        </div>
       </div>
     </div>
 

@@ -18,6 +18,8 @@ if (!slug) {
 
 const detailMap = root.querySelector('[data-detail-map]');
 const detailMapStatus = root.querySelector('[data-detail-map-status]');
+const detailMapShell = root.querySelector('[data-detail-map-shell]');
+const detailMapToggle = root.querySelector('[data-detail-map-toggle]');
 const chartButtons = Array.from(root.querySelectorAll('[data-chart-window]'));
 const detailStatusBanner = root.querySelector('[data-detail-status-banner]');
 const detailFetchBanner = root.querySelector('[data-detail-fetch-banner]');
@@ -97,6 +99,8 @@ let lastDetailSuccessAt = null;
 let hasLoadedDetailOnce = false;
 const detailCacheKey = `river-detail:${slug}:v1`;
 const historyCacheKey = `river-history:${slug}:7:v1`;
+const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
+let detailMapCollapsed = phoneBreakpoint.matches;
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -2127,6 +2131,28 @@ function renderHistory(history) {
   `;
 }
 
+function updateDetailMapToggle() {
+  if (!(detailMapShell instanceof HTMLElement) || !(detailMapToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const compact = phoneBreakpoint.matches;
+  if (!compact) {
+    detailMapCollapsed = false;
+  }
+
+  detailMapToggle.hidden = !compact;
+  detailMapShell.classList.toggle('river-launch-plan__map-shell--collapsed', compact && detailMapCollapsed);
+  detailMapToggle.setAttribute('aria-expanded', compact && detailMapCollapsed ? 'false' : 'true');
+  detailMapToggle.textContent = compact && detailMapCollapsed ? 'Show map' : 'Hide map';
+
+  if (!(compact && detailMapCollapsed) && detailMapRuntime) {
+    window.setTimeout(() => {
+      detailMapRuntime?.resize();
+    }, 30);
+  }
+}
+
 async function loadHistory() {
   try {
     const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/history.json?days=7`, {
@@ -2353,8 +2379,21 @@ if (detailRefreshButton instanceof HTMLButtonElement) {
     loadDetail();
   });
 }
+if (detailMapToggle instanceof HTMLButtonElement) {
+  detailMapToggle.addEventListener('click', () => {
+    detailMapCollapsed = !detailMapCollapsed;
+    updateDetailMapToggle();
+  });
+}
+window.addEventListener('resize', () => {
+  updateDetailMapToggle();
+});
+phoneBreakpoint.addEventListener('change', () => {
+  updateDetailMapToggle();
+});
 const hydratedDetail = hydrateDetailFromCache();
 hydrateHistoryFromCache();
+updateDetailMapToggle();
 loadDetail({ silent: hydratedDetail });
 window.setInterval(() => {
   loadDetail({ silent: true });

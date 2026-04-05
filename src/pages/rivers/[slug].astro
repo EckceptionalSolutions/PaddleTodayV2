@@ -180,7 +180,7 @@ const routeStructuredData = {
     ) : null}
 
     <div class="river-detail__layout">
-      <nav class="river-detail__section-nav" aria-label="River page sections">
+      <nav class="river-detail__section-nav river-detail__section-nav--desktop" aria-label="River page sections">
         <div class="river-detail__section-nav-inner">
           <p class="river-detail__section-nav-label">On this page</p>
           <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
@@ -317,6 +317,27 @@ const routeStructuredData = {
         </a>
       </aside>
     </section>
+
+    <nav class="river-detail__section-nav river-detail__section-nav--mobile" aria-label="River page sections">
+      <div class="river-detail__section-nav-inner">
+        <p class="river-detail__section-nav-label">Jump to</p>
+        <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
+          Today&apos;s Score
+        </a>
+        <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="river-conditions">
+          River Conditions
+        </a>
+        <a class="river-detail__section-link" href="#quick-facts" data-detail-nav-link="quick-facts">
+          Quick Facts
+        </a>
+        <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="access-plan">
+          Access Plan
+        </a>
+        <a class="river-detail__section-link" href="#sources" data-detail-nav-link="sources">
+          Sources
+        </a>
+      </div>
+    </nav>
 
     <section class="status-banner status-banner--offline status-banner--hidden" data-detail-fetch-banner aria-live="polite">
       <div class="status-banner__eyebrow">Refresh failed</div>
@@ -825,11 +846,22 @@ const routeStructuredData = {
           </div>
         </div>
 
-        <div class="detail-map-frame detail-map-frame--launch-plan">
-          <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
-          <p class="detail-map__status muted" data-detail-map-status>
-            Loading access map.
-          </p>
+        <div class="river-launch-plan__map-shell" data-detail-map-shell>
+          <button
+            class="filter-chip river-launch-plan__map-toggle"
+            type="button"
+            data-detail-map-toggle
+            hidden
+            aria-expanded="true"
+          >
+            Hide map
+          </button>
+          <div class="detail-map-frame detail-map-frame--launch-plan">
+            <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
+            <p class="detail-map__status muted" data-detail-map-status>
+              Loading access map.
+            </p>
+          </div>
         </div>
       </div>
     </section>

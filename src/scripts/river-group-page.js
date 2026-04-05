@@ -25,6 +25,8 @@ const refreshButton = root.querySelector('[data-group-refresh]');
 const refreshNote = root.querySelector('[data-group-refresh-note]');
 const groupMap = root.querySelector('[data-group-map]');
 const groupMapStatus = root.querySelector('[data-group-map-status]');
+const groupMapToggle = root.querySelector('[data-group-map-toggle]');
+const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const BULLET = ' \u2022 ';
@@ -35,6 +37,7 @@ let currentResult = null;
 let selectedSlug = null;
 let mapRuntime = null;
 let mapMarkers = [];
+let groupMapCollapsed = phoneBreakpoint.matches;
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -412,6 +415,33 @@ function routePopupMarkup(route) {
   `;
 }
 
+function updateGroupMapToggle() {
+  if (!(groupMap instanceof HTMLElement) || !(groupMapToggle instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  const compact = phoneBreakpoint.matches;
+  if (!compact) {
+    groupMapCollapsed = false;
+  }
+
+  const mapShell = groupMap.closest('.river-group-page__map-shell');
+  if (!(mapShell instanceof HTMLElement)) {
+    return;
+  }
+
+  groupMapToggle.hidden = !compact;
+  mapShell.classList.toggle('river-group-page__map-shell--collapsed', compact && groupMapCollapsed);
+  groupMapToggle.setAttribute('aria-expanded', compact && groupMapCollapsed ? 'false' : 'true');
+  groupMapToggle.textContent = compact && groupMapCollapsed ? 'Show map' : 'Hide map';
+
+  if (!(compact && groupMapCollapsed) && mapRuntime) {
+    window.setTimeout(() => {
+      mapRuntime?.resize();
+    }, 30);
+  }
+}
+
 async function renderGroupMap(routes) {
   if (!(groupMap instanceof HTMLElement)) {
     return;
@@ -787,6 +817,18 @@ if (refreshButton instanceof HTMLButtonElement) {
   });
 }
 
+if (groupMapToggle instanceof HTMLButtonElement) {
+  groupMapToggle.addEventListener('click', () => {
+    groupMapCollapsed = !groupMapCollapsed;
+    updateGroupMapToggle();
+  });
+}
+
+phoneBreakpoint.addEventListener('change', () => {
+  updateGroupMapToggle();
+});
+
+updateGroupMapToggle();
 loadGroup();
 window.setInterval(() => {
   loadGroup({ silent: true });
