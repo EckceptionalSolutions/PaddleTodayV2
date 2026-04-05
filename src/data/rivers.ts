@@ -292,6 +292,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'root-river-rushford-houston',
+    slug: 'root-river-rushford-houston',
+    name: 'Root River',
+    reach: 'Rushford to Houston',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Longer Driftless day with mostly gentle current, wooded banks, and one main decision first: is the Houston gauge comfortably above late-low-water conditions without recent rain turning easy miles into a debris check?',
+    statusText:
+      'Treat about 300 cfs at Houston as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the Houston gauge does not have a published paddling range.',
+    latitude: 43.77405,
+    longitude: -91.7022,
+    gaugeSource: {
+      id: 'usgs-05385000',
+      provider: 'usgs',
+      siteId: '05385000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Root River near Houston, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Conservative low-water floor from Root River near Houston official gauge context',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05385000/',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the normal window. Summer can still work, but lower water slows the day down fast and post-rain wood matters more than the easy rating suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly friendly current and flatwater miles, but this is still a 15-mile day with sweepers, low-water riffles, and cold shoulder-season water.',
+      confidenceNotes:
+        'The route and gauge are both official and direct. The weak point is numeric threshold quality: the app only claims a conservative low-water floor because there is not yet a published paddling range for the Houston gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route context',
+        value: '15.1 river miles',
+        note: 'MN DNR recommends Rushford to Houston as a full-day Root River trip, with Rushford carry-in access at river mile 33.8 and Houston carry-in access at river mile 18.7.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'Access support',
+        value: 'Rushford carry-in to Houston carry-in',
+        note: 'The Root River Map 2 PDF names both water-trail endpoints, and the state-trail map gives parking guidance at the Rushford Historic Depot lot and Houston Nature Center lot.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle to moderate flow',
+        note: 'MN DNR describes this stretch as having gentle to moderate flow, with flat water greeting paddlers along much of the route, while noting that water level can vary substantially with rainfall.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'Official low-flow context',
+        value: 'Q90 = 270 cfs at Houston',
+        note: 'MN DNR drought guidance uses 270 cfs at the Root River near Houston as the annual Q90 low-flow benchmark for the watershed. That is not a paddling threshold, but it does support keeping the app low-water floor conservative and close to the obvious low-flow zone.',
+        sourceUrl: 'https://files.dnr.state.mn.us/natural_resources/climate/drought/drought_permit_suspension.pdf',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '300 cfs',
+        note: 'This is a cautious app floor, not a published paddling threshold. It is intentionally set just above obvious late-low-water conditions because the Houston gauge has route support but no official numeric paddling ladder.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Root River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/index.html',
+      },
+      {
+        label: 'MN DNR Root River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Root River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf',
+      },
+      {
+        label: 'MN DNR Root River and Harmony-Preston Valley State Trail map',
+        url: 'https://files.dnr.state.mn.us/maps/state_trails/rootriver_harmonypreston.pdf',
+      },
+      {
+        label: 'Rushford Peterson Valley visitor info',
+        url: 'https://rushfordpetersonvalley.com/visit-the-valley/',
+      },
+      {
+        label: 'Houston Nature Center',
+        url: 'https://www.houstonnaturecenter.com/',
+      },
+      {
+        label: 'Houston Nature Center Root River Trail access',
+        url: 'https://www.houstonnaturecenter.com/root-river-trail/',
+      },
+      {
+        label: 'MN DNR drought low-flow Q90 guidance PDF',
+        url: 'https://files.dnr.state.mn.us/natural_resources/climate/drought/drought_permit_suspension.pdf',
+      },
+      {
+        label: 'USGS 05385000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05385000/',
+      },
+    ],
+  },
+  {
     id: 'wolf-river-lily-hollister',
     slug: 'wolf-river-lily-hollister',
     name: 'Wolf River',
@@ -730,6 +840,113 @@ export const rivers: River[] = [
       {
         label: 'Anoka County Rum River North County Park',
         url: 'https://www.anokacountymn.gov/Facilities/Facility/Details/Rum-River-North-County-Park-15',
+      },
+    ],
+  },
+  {
+    id: 'rum-river-walbo-cambridge-west',
+    slug: 'rum-river-walbo-cambridge-west',
+    name: 'Rum River',
+    reach: 'Walbo Access to Cambridge West Park',
+    state: 'Minnesota',
+    region: 'East Central Minnesota',
+    summary:
+      'Wide, winding middle-Rum day with wooded banks, moderate current, and a cleaner beginner/intermediate feel than many smaller rivers. The product question is mostly whether the river is clearly above skinny conditions, not whether it has a narrow ideal band.',
+    statusText:
+      'Treat the St. Francis gauge as a downstream proxy, not a perfect reach gauge. If that proxy is below about 600 cfs, this middle Rum route is too close to scrape territory for a confident easy-day recommendation.',
+    latitude: 45.57573,
+    longitude: -93.27928,
+    gaugeSource: {
+      id: 'usgs-05286000',
+      provider: 'usgs',
+      siteId: '05286000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Rum River near St. Francis, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 600,
+      thresholdSource: {
+        label: 'MN DNR St. Francis gauge interpretation used as a downstream proxy for the middle Rum',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the main window. Summer is still viable on this wider middle-river segment, but low water, log jams, and fresh debris still matter.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a friendly moving-water day for beginning or intermediate paddlers, but it is still long enough that low water, wood, and fatigue deserve respect.',
+      confidenceNotes:
+        'The route itself is very well supported by MN DNR. Confidence is reduced because the live gauge is a downstream proxy at St. Francis rather than a current gauge on the Walbo-to-Cambridge reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route context',
+        value: '15.8 river miles',
+        note: 'MN DNR recommends Walbo to Cambridge West as a full day on the middle Rum, from Walbo carry-in access at river mile 56.8 to Cambridge West Park at river mile 41.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'Segment character',
+        value: 'Moderate flows, few rapids',
+        note: 'MN DNR describes Map 2 as wider, deeper, and slower than the upper Rum, suitable for beginning and intermediate canoeists when usual middle-river hazards are respected.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'Proxy low-water floor',
+        value: '600 cfs at St. Francis',
+        note: 'MN DNR interprets the active St. Francis gauge as scrapable below 600 cfs. The app uses that same-river downstream reading as a conservative low-water proxy because the historical Cambridge gauge is not a good live product gauge.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Why the gauge is a proxy',
+        value: 'Cambridge USGS site is discontinued',
+        note: 'USGS lists Rum River at Cambridge (05285000) as a discontinued discharge station with record only from 1909 to 1914. That is why the app relies on the active same-river St. Francis gauge for live decision support instead of pretending Cambridge has a current direct gauge.',
+        sourceUrl: 'https://mn.water.usgs.gov/infodata/ann-repts/annrpt99/discontinued.pdf',
+      },
+      {
+        label: 'Access flexibility',
+        value: 'Highway 14 shorten option',
+        note: 'DNR notes you can shorten the route by starting or ending at the Highway 14 carry-in access if you do not want the full Walbo-to-Cambridge day.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Rum River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/index.html',
+      },
+      {
+        label: 'MN DNR Rum River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rum River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/rum2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'USGS discontinued Minnesota gaging stations PDF',
+        url: 'https://mn.water.usgs.gov/infodata/ann-repts/annrpt99/discontinued.pdf',
+      },
+      {
+        label: 'Cambridge parks overview',
+        url: 'https://www.ci.cambridge.mn.us/amenities-fun/parks',
+      },
+      {
+        label: 'Isanti County parks overview',
+        url: 'https://www.co.isanti.mn.us/184/Parks-Recreation',
+      },
+      {
+        label: 'USGS 05286000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05286000/',
       },
     ],
   },

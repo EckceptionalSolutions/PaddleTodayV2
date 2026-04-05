@@ -46,6 +46,7 @@ const homeSnapshot = document.querySelector('[data-home-snapshot]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
 const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
+const homeTrackedCount = document.querySelector('[data-home-tracked-count]');
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
@@ -813,9 +814,10 @@ function updateHomeSnapshot(overallItems) {
 }
 
 function updateHeroCallMix(results) {
+  const totalCount = Array.isArray(results) ? results.length : 0;
   const goodCount = results.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
-  const mixedCount = results.filter((result) => result.rating === 'Fair').length;
   const noGoCount = results.filter((result) => result.rating === 'No-go').length;
+  const mixedCount = Math.max(0, totalCount - goodCount - noGoCount);
 
   if (homeGoodCount instanceof HTMLElement) {
     homeGoodCount.textContent = String(goodCount);
@@ -827,6 +829,10 @@ function updateHeroCallMix(results) {
 
   if (homeNoGoCount instanceof HTMLElement) {
     homeNoGoCount.textContent = String(noGoCount);
+  }
+
+  if (homeTrackedCount instanceof HTMLElement) {
+    homeTrackedCount.textContent = `${totalCount} routes tracked`;
   }
 }
 

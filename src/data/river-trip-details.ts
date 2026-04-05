@@ -96,6 +96,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'root-river-rushford-houston': {
+    putIn: {
+      name: 'Rushford carry-in access (Historic Depot area)',
+      latitude: 43.78358,
+      longitude: -91.83403,
+    },
+    takeOut: {
+      name: 'Houston carry-in access (Houston Nature Center area)',
+      latitude: 43.7645,
+      longitude: -91.57037,
+    },
+    logistics: {
+      distanceLabel: '15.1 mi',
+      shuttle:
+        'Two-car shuttle is simplest. A bike shuttle on the Root River State Trail is realistic if your group wants it, with parking guidance at the Rushford Historic Depot and Houston Nature Center lots.',
+      permits:
+        'No route-specific paddling permit is known. State-trail use is straightforward for walking or biking the shuttle, but still follow posted local parking and trail rules.',
+      camping:
+        'Houston Nature Center / Trailhead Park offers tent camping and hot showers, which makes the take-out especially useful if you want to turn this into an overnight-plus-day-paddle plan. Otherwise treat it as a long day trip.',
+      summary:
+        'Launch at the Rushford carry-in and finish at the Houston carry-in near the Houston Nature Center. The route is friendly at workable flow, but it is long enough that low-water slowdowns and fresh wood can change the day substantially.',
+      accessCaveats: [
+        'The best-known parking is at the Rushford Historic Depot lot and the Houston Nature Center lot, so expect a short walk or carry rather than a pure drive-to-water launch at both ends.',
+        'Houston Nature Center confirms ample parking at the trailhead, but still check local event activity before counting on the lot feeling empty.',
+        'Look at the Houston exit before launching if you have not used it before, because town-side trail and parking landmarks are easier to recognize from shore than from mid-river.',
+      ],
+      watchFor: [
+        'Low-water riffles and slower progress when the Houston gauge is near the floor.',
+        'Fresh sweepers, strainers, or debris after rain.',
+        'Long-mileage fatigue and cold-water exposure outside midsummer.',
+      ],
+    },
+  },
   'wolf-river-lily-hollister': {
     putIn: {
       name: 'Hwy 52 access (Lily)',
@@ -253,6 +286,38 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low-water scraping and slower pace when the gauge falls toward the 600 cfs floor.',
         'Fresh strainers and debris after heavy rain or spring runoff.',
         'Cold-water exposure outside midsummer, even on a mellow current day.',
+      ],
+    },
+  },
+  'rum-river-walbo-cambridge-west': {
+    putIn: {
+      name: 'Walbo carry-in access',
+      latitude: 45.579123,
+      longitude: -93.322856,
+    },
+    takeOut: {
+      name: 'Cambridge West Park carry-in access',
+      latitude: 45.572343,
+      longitude: -93.235711,
+    },
+    logistics: {
+      distanceLabel: '15.8 mi',
+      shuttle:
+        'Standard two-car shuttle is simplest. The route can also be shortened at Highway 14 if your group wants a shorter day.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access, park, and parking rules at Walbo and Cambridge West Park.',
+      camping:
+        'Watercraft campsites are listed along this reach, including Dayton, High Meadows, and Cambridge West Park. Treat overnight use as separate trip planning and confirm current rules before relying on it.',
+      summary:
+        'Put in at Walbo and take out at Cambridge West Park for a long but friendly middle-Rum day. This is one of the cleaner beginner/intermediate river shuttles in central Minnesota when the downstream proxy gauge is clearly above scrape territory.',
+      accessCaveats: [
+        'Cambridge West Park is a managed park endpoint, so parking rules and park-hours details still deserve a same-day check.',
+        'Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still downstream of this reach rather than on it.',
+      ],
+      watchFor: [
+        'Downed trees, snags, and occasional log jams after storms.',
+        'Low-water dragging or slower pace when the proxy gauge is near the floor.',
+        'Long-day fatigue on a route that looks mellow on paper but still covers nearly 16 river miles.',
       ],
     },
   },
