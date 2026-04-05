@@ -1060,4 +1060,133 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'cannon-river-faribault-dundas': {
+    putIn: {
+      name: 'Two Rivers Park canoe landing',
+      latitude: 44.31067,
+      longitude: -93.27087,
+    },
+    takeOut: {
+      name: 'Highway 1 Canoe Landing (Dundas)',
+      latitude: 44.43033,
+      longitude: -93.20531,
+    },
+    logistics: {
+      distanceLabel: '13.75 mi',
+      shuttle:
+        'Car shuttle is simplest. A bike shuttle is possible when trail conditions line up, but confirm routing before you commit to highway shoulders.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted parking or landing rules at Two Rivers Park and the Highway 1 landing.',
+      camping:
+        'Treat this as a day trip unless you have already confirmed a legal overnight option elsewhere on the Cannon corridor.',
+      summary:
+        'Launch at Two Rivers Park in Faribault and finish at the Highway 1 Canoe Landing in Dundas. The reach is friendly at workable flow, but it is long enough that low-water riffles and post-rain debris still change the decision.',
+      accessCaveats: [
+        'The Two Rivers landing is more hidden and less polished than the park lot suggests, so walk it before unloading boats.',
+        'The Highway 1 take-out below the bridge is marked but easy to miss from upstream if you have not looked at it first.',
+        'Parking at the Dundas take-out is limited, so settle the shuttle plan before launching.',
+      ],
+      watchFor: [
+        'Low-water riffles and occasional scraping near the floor.',
+        'Snags, log piles, and fresh debris after higher water.',
+        'Longer-mileage fatigue on hot or windy days.',
+      ],
+    },
+  },
+  'milwaukee-river-newburg-fredonia': {
+    putIn: {
+      name: "Fireman's Park (Newburg)",
+      latitude: 43.43373,
+      longitude: -88.04926,
+    },
+    takeOut: {
+      name: 'Waubedonia Park (Fredonia)',
+      latitude: 43.46838,
+      longitude: -87.97313,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      shuttle:
+        'The standard shuttle is a little over 6 road miles. Car shuttle is simplest, though a bike shuttle is workable if your group wants it.',
+      permits:
+        'No route-specific permit is identified. Follow posted park and parking rules at Fireman\'s Park and Waubedonia Park.',
+      camping:
+        'Waubedonia Park has seasonal camping by reservation. Otherwise treat this as a day trip.',
+      summary:
+        'Put in at Fireman\'s Park in Newburg and take out at Waubedonia Park in Fredonia. This is a flow-sensitive easy river where being clearly above the low-water floor matters more than hunting for a perfect sweet spot.',
+      accessCaveats: [
+        'The Fireman\'s Park parking lot sits on the opposite side of the bridge from the river access, so expect a short carry along the paved path and under the bridge.',
+        'Waubedonia is the cleaner endpoint and has an official launch, but still confirm park hours and parking rules before leaving a vehicle.',
+      ],
+      watchFor: [
+        'Scraping or short wades when Cedarburg drops toward the minimum floor.',
+        'Mild riffles and shallow gravel runs that still need boat control.',
+        'Fresh wood after storms and cold water outside summer.',
+      ],
+    },
+  },
+  'wapsipinicon-river-state-park-newport-mills': {
+    putIn: {
+      name: 'Wapsipinicon State Park boat launch',
+      latitude: 42.09819,
+      longitude: -91.28755,
+    },
+    takeOut: {
+      name: 'Newport Mills Access',
+      latitude: 42.04515,
+      longitude: -91.20014,
+    },
+    logistics: {
+      distanceLabel: '9 mi',
+      shuttle:
+        'Plan an 11.5-mile vehicle shuttle. Bike shuttle is possible, but it mixes gravel roads with a short highway shoulder section.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa DNR and county access rules at both endpoints.',
+      camping:
+        'Treat this as a day trip unless you have already confirmed a legal overnight plan and sandbar conditions.',
+      summary:
+        'Start at the Wapsipinicon State Park launch near Anamosa and take out at Newport Mills Access. The main quality call is low water: below the Anamosa floor, expect repeated scraping in riffles.',
+      accessCaveats: [
+        'The state-park launch sits close enough to the Anamosa dam that you should scout the launch area and keep all dam awareness fresh before unloading.',
+        'Newport Mills is a simple rural access, so confirm parking condition and turnaround space before committing to the shuttle.',
+      ],
+      watchFor: [
+        'Frequent scraping below about 4.77 ft at Anamosa.',
+        'Riffles around bridge remnants and rock outcrops.',
+        'Wind on the wider bends and fresh strainers after storms.',
+      ],
+    },
+  },
+  'kinnickinnic-river-glen-park-state-park': {
+    putIn: {
+      name: 'Glen Park (River Falls)',
+      latitude: 44.85075,
+      longitude: -92.63882,
+    },
+    takeOut: {
+      name: 'St. Croix River beach / concrete take-out at Kinnickinnic State Park',
+      latitude: 44.83254,
+      longitude: -92.76374,
+    },
+    logistics: {
+      distanceLabel: '10 mi',
+      shuttle:
+        'Car shuttle is simplest. The road shuttle is about 10.5 miles, and the state-park finish is much easier if you bring a boat cart for the carry out.',
+      permits:
+        'If you park inside Kinnickinnic State Park, expect Wisconsin state-park admission rules to apply. Follow posted rules at both Glen Park and the park take-out.',
+      camping:
+        'Camping is available at Kinnickinnic State Park by reservation, but this route is best treated as a hard day trip unless you already have a campsite plan.',
+      summary:
+        'Put in below the second River Falls dam at Glen Park and finish at the state-park beach where the Kinnickinnic meets the St. Croix. This is a beautiful but committed swiftwater day, not a casual scenic float.',
+      accessCaveats: [
+        'The Glen Park launch is reached by a footpath and staircase down the bluff, not by a polished ramp, so expect a real carry to the river.',
+        'The official state-park take-out is followed by a steep carry back up to the main parking area. Bring a cart or plan for the climb before you launch.',
+      ],
+      watchFor: [
+        'Scraping and boat abuse below about 175 cfs at River Falls.',
+        'Continuous riffles and class II features for miles below the put-in.',
+        'Anglers, strainers after storms, and cold water outside peak summer.',
+      ],
+    },
+  },
 };

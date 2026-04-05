@@ -2295,4 +2295,352 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'cannon-river-faribault-dundas',
+    slug: 'cannon-river-faribault-dundas',
+    name: 'Cannon River',
+    reach: 'Faribault to Dundas',
+    state: 'Minnesota',
+    region: 'Southern Minnesota',
+    summary:
+      'Classic southern-Minnesota day trip with mostly easy current, good scenery, and one clear question first: is there enough water to avoid a scrape-heavy slog without storm damage pushing the day out of bounds?',
+    statusText:
+      'Treat about 202 cfs at Northfield as the low-water floor. Around 1,050 cfs has a strong trip-report endorsement, but the app does not claim a tighter sweet spot yet.',
+    latitude: 44.31067,
+    longitude: -93.27087,
+    gaugeSource: {
+      id: 'usgs-05355024',
+      provider: 'usgs',
+      siteId: '05355024',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cannon River at Northfield, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 202,
+      thresholdSource: {
+        label: 'MilesPaddled Cannon River I + MN DNR medium-flow context',
+        url: 'https://milespaddled.com/cannon-river-i/',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal window. Summer still works, but low-water riffles and post-rain wood change the quality quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly beginner-friendly moving water, but the long mileage, occasional riffles, and storm-changed wood still deserve respect.',
+      confidenceNotes:
+        'The route itself is well documented and the Northfield gauge is direct. The strongest hard number is a defensible low-water floor, not a precise preferred upper band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published low-water floor',
+        value: '202 cfs',
+        note: 'MilesPaddled points to MN DNR flow context showing 202 to 2,730 cfs as Medium at Northfield, which is a defensible floor for avoiding an obviously too-thin day.',
+        sourceUrl: 'https://milespaddled.com/cannon-river-i/',
+      },
+      {
+        label: 'Strong trip-report day',
+        value: '1,050 cfs',
+        note: 'MilesPaddled calls 1,050 cfs at Northfield a very recommendable level for this Faribault to Dundas run.',
+        sourceUrl: 'https://milespaddled.com/cannon-river-i/',
+      },
+      {
+        label: 'Route shape',
+        value: '13.75 river miles',
+        note: 'This is a full but approachable day with easy current, limestone scenery, and a riffly finish near Dundas.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Wood and post-rain debris',
+        note: 'The river is usually friendly, but the route report calls out snag and log-pile evidence after higher water.',
+        sourceUrl: 'https://milespaddled.com/cannon-river-i/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR recommended Cannon River paddling trips',
+        url: 'https://www.dnr.state.mn.us/watertrails/recommended/cannon.html',
+      },
+      {
+        label: 'MN DNR Cannon / Straight canoe route map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf',
+      },
+      {
+        label: 'USGS 05355024 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05355024/',
+      },
+      {
+        label: 'MilesPaddled Cannon River I',
+        url: 'https://milespaddled.com/cannon-river-i/',
+      },
+    ],
+  },
+  {
+    id: 'milwaukee-river-newburg-fredonia',
+    slug: 'milwaukee-river-newburg-fredonia',
+    name: 'Milwaukee River',
+    reach: "Fireman's Park to Waubedonia Park",
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      'Flow-sensitive southeast-Wisconsin day trip with mostly easy current and intermittent riffles. The main product question is whether Cedarburg is clearly above the scrape line, not whether the route has a narrow perfect band.',
+    statusText:
+      'Treat about 390 cfs at Cedarburg as the low-water floor. Around 550 cfs was described as close to perfect, but the app still stays conservative above the minimum because the upper range is thinly sourced.',
+    latitude: 43.43373,
+    longitude: -88.04926,
+    gaugeSource: {
+      id: 'usgs-04086600',
+      provider: 'usgs',
+      siteId: '04086600',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Milwaukee River near Cedarburg, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 390,
+      thresholdSource: {
+        label: 'MilesPaddled Milwaukee River I minimum-flow note',
+        url: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7],
+      seasonNotes:
+        'Best from spring into early summer when the river is less likely to slip back into scrape mode. Summer can still work after rain, but the floor matters.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly straightforward current with intermittent riffles. Low water, not technical whitewater, is the main route-quality problem.',
+      confidenceNotes:
+        'The access points and gauge are solid, and the low-water floor is specific. The remaining gap is a well-supported upper target rather than the basic go/no-go floor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published minimum',
+        value: '390 cfs',
+        note: 'MilesPaddled treats the Cedarburg gauge reading from this trip as the recommended minimum level for Newburg to Fredonia.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      {
+        label: 'Better target day',
+        value: '550 cfs upstream / 390 cfs Cedarburg',
+        note: 'The same trip report says Waubedonia staff described those conditions as just past too low and close to perfect timing.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      {
+        label: 'Trip style',
+        value: '11-mile easy day',
+        note: 'Expect swift current with mild riffles rather than a technical rapids run.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      {
+        label: 'Access quality',
+        value: 'Public park put-in and county-park take-out',
+        note: 'The route starts at Fireman\'s Park in Newburg and ends at Waubedonia Park, which has a public boat/canoe/kayak launch.',
+        sourceUrl: 'https://www.ozaukeecounty.gov/Facilities/Facility/Details/Waubedonia-Park-9',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Village of Newburg parks',
+        url: 'https://newburgwi.gov/our-parks/',
+      },
+      {
+        label: 'Ozaukee County Waubedonia Park',
+        url: 'https://www.ozaukeecounty.gov/Facilities/Facility/Details/Waubedonia-Park-9',
+      },
+      {
+        label: 'USGS 04086600 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+      {
+        label: 'MilesPaddled Milwaukee River I',
+        url: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+    ],
+  },
+  {
+    id: 'wapsipinicon-river-state-park-newport-mills',
+    slug: 'wapsipinicon-river-state-park-newport-mills',
+    name: 'Wapsipinicon River',
+    reach: 'Wapsipinicon State Park to Newport Mills',
+    state: 'Iowa',
+    region: 'Eastern Iowa',
+    summary:
+      'Scenic Jones County day trip with bluff scenery, some riffles, and a very clear quality question: is the Anamosa gauge safely above the scrape floor?',
+    statusText:
+      'Treat 4.77 ft at Anamosa as the bare low-water floor. Around 5.0 to 5.25 ft looks like the better target, but the app stays conservative above the minimum because a high-water ceiling is not yet well sourced.',
+    latitude: 42.09819,
+    longitude: -91.28755,
+    gaugeSource: {
+      id: 'usgs-05421740',
+      provider: 'usgs',
+      siteId: '05421740',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wapsipinicon River at Anamosa, IA',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 4.77,
+      thresholdSource: {
+        label: 'MilesPaddled Wapsipinicon River minimum-flow note',
+        url: 'https://milespaddled.com/wapsipinicon-river/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This stretch stays pretty through summer, but lower water quickly turns riffles into scraping.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Quietwater with some riffles. The route is friendly for newer paddlers when levels are workable, but it is still a 9-mile moving-water day.',
+      confidenceNotes:
+        'The direct gauge and public access are solid. The best numeric support today is a low-water floor plus an ideal note from one detailed trip report, not a published upper range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published minimum',
+        value: '4.77 ft',
+        note: 'MilesPaddled treats the trip-day Anamosa reading as the lowest recommended level and advises against going below it.',
+        sourceUrl: 'https://milespaddled.com/wapsipinicon-river/',
+      },
+      {
+        label: 'Better target',
+        value: '5.0 to 5.25 ft',
+        note: 'The same source says 5.0 to 5.25 ft would be the more ideal band for avoiding frequent scraping.',
+        sourceUrl: 'https://milespaddled.com/wapsipinicon-river/',
+      },
+      {
+        label: 'Route shape',
+        value: '9 miles with some riffles',
+        note: 'This is an easy scenic day trip, not a flat impoundment float. Expect riffles and bluff scenery almost immediately below the park.',
+        sourceUrl: 'https://milespaddled.com/wapsipinicon-river/',
+      },
+      {
+        label: 'Public access confirmed',
+        value: 'State-park put-in and county access take-out',
+        note: 'Jones County conservation programming explicitly stages this route from Wapsipinicon State Park to Newport Mills Access when river levels are suitable.',
+        sourceUrl: 'https://www.mycountyparks.com/county/jones/park/central-park/events/20918/Paddling-the-Wapsi.aspx?DisplayMode=PrinterFriendly',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Iowa DNR Wapsipinicon State Park',
+        url: 'https://www.iowadnr.gov/places-go/state-parks/all-parks/wapsipinicon-state-park',
+      },
+      {
+        label: 'Jones County parks listing',
+        url: 'https://www.mycountyparks.com/County/Jones/Parks',
+      },
+      {
+        label: 'Jones County Paddling the Wapsi event route note',
+        url: 'https://www.mycountyparks.com/county/jones/park/central-park/events/20918/Paddling-the-Wapsi.aspx?DisplayMode=PrinterFriendly',
+      },
+      {
+        label: 'USGS 05421740 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05421740/',
+      },
+      {
+        label: 'MilesPaddled Wapsipinicon River',
+        url: 'https://milespaddled.com/wapsipinicon-river/',
+      },
+    ],
+  },
+  {
+    id: 'kinnickinnic-river-glen-park-state-park',
+    slug: 'kinnickinnic-river-glen-park-state-park',
+    name: 'Kinnickinnic River',
+    reach: 'Glen Park to Kinnickinnic State Park',
+    state: 'Wisconsin',
+    region: 'Western Wisconsin',
+    summary:
+      'Clear, fast, bluff-lined Class II day paddle where the main call is whether the River Falls gauge is clearly above a scrape-heavy floor and whether your group is ready for sustained swiftwater plus a steep carry out.',
+    statusText:
+      'Treat about 175 cfs at River Falls as the practical low-water floor. The river was still runnable at 125 cfs, but scrape-heavy enough that the app stays conservative below 175.',
+    latitude: 44.85075,
+    longitude: -92.63882,
+    gaugeSource: {
+      id: 'usgs-05342000',
+      provider: 'usgs',
+      siteId: '05342000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kinnickinnic River near River Falls, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 175,
+      thresholdSource: {
+        label: 'MilesPaddled Kinnickinnic River minimum-flow note',
+        url: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the main season. Cold water and fast post-rain changes matter more here than on the average easy float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Continuous swiftwater, shallow class II features, anglers, and the steep state-park carry keep this well above a casual beginner run.',
+      confidenceNotes:
+        'The route and direct gauge are strong, and the low-water story is specific. The main remaining gap is a reliable upper range for when fast water stops being a fun Class II day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Scrape-heavy trip day',
+        value: '125 cfs',
+        note: 'MilesPaddled ran the full River Falls to state-park route at 125 cfs and described it as doable but scrape-prone.',
+        sourceUrl: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+      {
+        label: 'Practical minimum',
+        value: '~175 cfs',
+        note: 'The same source says about 175 cfs is the better minimum for a fun run that is less damaging to boats.',
+        sourceUrl: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+      {
+        label: 'Difficulty',
+        value: 'Class II swiftwater',
+        note: 'The route stays lively for miles below River Falls before easing near the St. Croix.',
+        sourceUrl: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+      {
+        label: 'Take-out friction',
+        value: 'Steep carry and park admission',
+        note: 'The state-park finish uses the official concrete take-out but requires a steep carry back to the parking area and a Wisconsin state-park pass.',
+        sourceUrl: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of River Falls Glen Park',
+        url: 'https://www.rfcity.org/facilities/facility/details/Glen-Park-4',
+      },
+      {
+        label: 'Wisconsin DNR Kinnickinnic State Park',
+        url: 'https://dnr.wisconsin.gov/topic/parks/kinnickinnic',
+      },
+      {
+        label: 'Wisconsin DNR Kinnickinnic River Gorge and Delta SNA',
+        url: 'https://dnr.wisconsin.gov/topic/statenaturalareas/KinnickinnicRiverGorgeandDelta',
+      },
+      {
+        label: 'USGS 05342000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05342000/',
+      },
+      {
+        label: 'MilesPaddled Kinnickinnic River',
+        url: 'https://milespaddled.com/kinnickinnic-river/',
+      },
+    ],
+  },
 ];
