@@ -50,49 +50,54 @@ const homepageStructuredData = [
   <section class="decision-hero hero">
     <div class="decision-hero__main">
       <p class="hero__kicker">Paddle Today</p>
-      <h1>Find the best paddle near you today</h1>
+      <h1>Here&apos;s where to paddle today</h1>
       <p class="hero__lede">
-        Live gauge data, weather, score, and confidence help you choose before you drive.
+        Start with the best options. Check the details if you want.
+      </p>
+      <p class="hero__snapshot" data-home-snapshot>
+        Checking today&apos;s snapshot...
       </p>
       <p class="hero__freshness">
         <span>Data refreshes every 30 minutes.</span>
         <span data-home-freshness>Checking latest refresh…</span>
       </p>
+      <ul class="hero__call-mix" data-home-call-mix>
+        <li class="hero__call-mix-item hero__call-mix-item--good">
+          <strong data-home-good-count>--</strong>
+          <span>Good</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--mixed">
+          <strong data-home-mixed-count>--</strong>
+          <span>Mixed</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--no-go">
+          <strong data-home-no-go-count>--</strong>
+          <span>No-go</span>
+        </li>
+      </ul>
+      <div class="hero__actions">
+        <a class="river-link river-link--inline" href="#best-options">See best options</a>
+        <button class="river-link river-link--inline river-link--ghost" type="button" data-location-use>
+          Use my location
+        </button>
+      </div>
       <div class="hero__meta">
         <span class="stat-chip">{trackedCount} routes tracked</span>
         <span class="stat-chip">Direct gauges first</span>
-        <span class="stat-chip">Score + confidence + reason</span>
       </div>
-      <div class="hero-principles" aria-label="How Paddle Today works">
-        <article class="hero-principle hero-principle--compact">
-          <p class="hero-principle__label section-label">
-            <FeatureIcon name="gauge" size={16} />
-            Live gauge
-          </p>
-          <strong>Current level and recent trend</strong>
-        </article>
-        <article class="hero-principle hero-principle--compact">
-          <p class="hero-principle__label section-label">
-            <FeatureIcon name="rain" size={16} />
-            Trip-day weather
-          </p>
-          <strong>Wind, rain timing, and temperature</strong>
-        </article>
-        <article class="hero-principle hero-principle--compact">
-          <p class="hero-principle__label section-label">
-            <FeatureIcon name="compass" size={16} />
-            Clear confidence
-          </p>
-          <strong>Why today looks strong or weak</strong>
-        </article>
-      </div>
+      <p class="hero__note muted">
+        Paddle Today is still growing. We&apos;re adding the highest-quality routes first.
+        <a href="/request-river/">Request a route</a>
+        if there&apos;s one you want to see next.
+      </p>
     </div>
 
     <aside class="hero-call decision-hero__featured" aria-live="polite">
-      <p class="eyebrow" data-best-near-label>Best river right now</p>
-      <p class="hero-call__state" data-featured-state>Loading today&apos;s river scores.</p>
+      <p class="eyebrow" data-best-near-label>Today&apos;s clearest call</p>
+      <p class="hero-call__state" data-featured-state>Loading stored river snapshot.</p>
       <h2 class="hero-call__title" data-featured-name>Loading best river</h2>
       <p class="hero-call__reach" data-featured-reach>Today&apos;s river scores are loading.</p>
+      <p class="hero-call__verdict" data-field="featured-verdict">Loading verdict</p>
 
       <div class="hero-call__scoreline">
         <div class="score-orb score-orb--featured" aria-label="Top river score">
@@ -100,52 +105,55 @@ const homepageStructuredData = [
           <span class="score-orb__rating" data-field="featured-rating">Loading</span>
         </div>
 
-        <div class="hero-call__meta">
+        <div class="hero-call__score-meta">
+          <div class="hero-call__meta">
           <span class="pill" data-field="featured-confidence">Confidence loading</span>
           <span class="pill" data-field="featured-distance">Distance loading</span>
+          </div>
         </div>
       </div>
 
-      <p class="hero-call__condition" data-featured-condition hidden></p>
+      <p class="hero-call__reason" data-field="featured-reason">Loading summary</p>
+      <p class="hero-call__signal-line" data-field="featured-signal">Loading live reads</p>
+      <ul class="hero-call__reasons" data-featured-reasons></ul>
 
       <p class="hero-call__summary muted" data-field="featured-explanation">
         Pulling the strongest river for today.
       </p>
       <button class="hero-call__toggle" type="button" data-featured-toggle hidden aria-expanded="false">
-        More
+        Details
       </button>
 
       <div class="decision-hero__actions">
         <a class="river-link river-link--inline" href="/" data-featured-link>View river</a>
-        <a class="river-link river-link--inline river-link--ghost" href="#top-rivers-today">
-          See top rivers today
+        <a class="river-link river-link--inline river-link--ghost" href="#explore">
+          Browse full board
         </a>
       </div>
     </aside>
   </section>
 
-  <section class="decision-section decision-section--nearby">
+  <section class="decision-section decision-section--recommended" id="best-options">
     <div class="section-head section-head--stacked">
       <div>
-        <p class="eyebrow">Near you</p>
-        <h2 class="section-title">Best rivers near you today</h2>
+        <p class="eyebrow">Recommended</p>
+        <h2 class="section-title" data-recommendation-title>Best paddling options today</h2>
       </div>
-      <p class="muted section-head__note" data-nearby-summary>
-        Add your location to rank rivers by today&apos;s score and practical driving distance.
+      <p class="muted section-head__note" data-recommendation-summary>
+        Start here for the fastest answer, then open the full board if you want to compare more rivers.
       </p>
     </div>
     <section class="location-panel" id="home-location" aria-label="Set your location" data-nearby-location-panel hidden>
       <div class="location-panel__header">
         <div>
-          <p class="eyebrow">Your location</p>
-          <h3 class="section-title section-title--compact">Set your location to unlock nearby ranking</h3>
+          <p class="eyebrow">Nearby first</p>
+          <h3 class="section-title section-title--compact">Sort by drive time</h3>
         </div>
         <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
           Use my location
         </button>
       </div>
-
-      <p class="location-panel__benefit">Nearby rivers rank better when location is set.</p>
+      <p class="location-panel__selected" data-location-selected hidden></p>
 
       <form class="location-panel__form" data-location-form>
         <label class="filter-search location-panel__search">
@@ -158,42 +166,32 @@ const homepageStructuredData = [
           />
         </label>
         <div class="location-panel__actions">
-          <button class="filter-chip filter-chip--primary" type="submit">Set location</button>
+          <button class="filter-chip filter-chip--primary" type="submit">Use city</button>
+          <button class="filter-chip" type="button" data-location-change hidden>
+            Change
+          </button>
           <button class="filter-chip" type="button" data-location-clear hidden>
             Clear
           </button>
         </div>
       </form>
 
-      <p class="muted location-panel__status" data-location-status>
-        Use your location or enter a city or ZIP code to tailor today&apos;s board.
-      </p>
     </section>
-    <div class="river-grid river-grid--decision" data-nearby-grid></div>
-    <p class="muted decision-section__empty" data-nearby-empty hidden>
-      No rivers match your nearby settings yet.
+    <div class="recommendation-grid" data-recommendation-grid></div>
+    <p class="muted decision-section__empty" data-recommendation-empty hidden>
+      No recommended rivers are available right now.
     </p>
-  </section>
-
-  <section class="decision-section" id="top-rivers-today">
-    <div class="section-head section-head--stacked">
-      <div>
-        <p class="eyebrow">Overall</p>
-        <h2 class="section-title">Top rivers today</h2>
-      </div>
-      <p class="muted section-head__note" data-overall-summary>
-        The strongest rivers overall, regardless of location.
-      </p>
-    </div>
-    <div class="river-grid river-grid--decision" data-overall-grid></div>
   </section>
 
   <section class="decision-section decision-section--explore" id="explore">
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Explore</p>
-        <h2 class="section-title">Browse more rivers</h2>
+        <h2 class="section-title">Full river board</h2>
       </div>
+      <p class="muted section-head__note">
+        Filters, map, and live reads live here once you want to compare beyond the top recommendations.
+      </p>
     </div>
 
     <section class="status-banner status-banner--offline status-banner--hidden" data-board-fetch-banner aria-live="polite">
@@ -222,7 +220,7 @@ const homepageStructuredData = [
           Loading rivers.
         </p>
         <p class="muted board-filters__summary" data-board-refresh-note>
-          Auto-refreshes every 5 minutes.
+          Showing the latest stored board.
         </p>
       </div>
 
@@ -287,9 +285,9 @@ const homepageStructuredData = [
           <FeatureIcon name="map" size={16} />
           Score map
         </p>
-        <h2 class="section-title">River map</h2>
+        <h2 class="section-title">Scan the board on a map</h2>
         <p class="muted">
-          Each point uses the stored route midpoint. The number is the score. The ring shows confidence.
+          Use the filters first, then compare how the current board looks across the region. The number is the score and the ring reflects confidence.
         </p>
 
         <div class="summary-map-legend" aria-label="Score map legend">
@@ -336,7 +334,47 @@ const homepageStructuredData = [
         </button>
       </div>
     </div>
+
   </section>
+
+  <template data-recommendation-card-template>
+    <article class="recommendation-card">
+      <div class="recommendation-card__eyebrow-row">
+        <p class="recommendation-card__slot" data-field="recommendation-slot"></p>
+        <span class="river-card__kind" data-field="recommendation-kind"></span>
+      </div>
+
+      <div class="recommendation-card__top">
+        <div class="recommendation-card__title-block">
+          <p class="recommendation-card__state" data-field="recommendation-state"></p>
+          <h3 class="recommendation-card__title" data-field="recommendation-name"></h3>
+          <p class="recommendation-card__subtitle" data-field="recommendation-route"></p>
+        </div>
+      </div>
+
+      <p class="recommendation-card__verdict" data-field="recommendation-verdict"></p>
+      <div class="recommendation-card__scoreline">
+        <div class="score-orb" aria-label="Recommended river score">
+          <span class="score-orb__score" data-field="recommendation-score"></span>
+          <span class="score-orb__rating" data-field="recommendation-rating"></span>
+        </div>
+        <p class="recommendation-card__meta" data-field="recommendation-meta"></p>
+      </div>
+      <p class="recommendation-card__summary" data-field="recommendation-summary"></p>
+      <p class="recommendation-card__signal" data-field="recommendation-signal"></p>
+      <ul class="recommendation-card__reasons" data-field="recommendation-reasons"></ul>
+
+      <details class="recommendation-card__details">
+        <summary>Details</summary>
+        <div class="recommendation-card__details-body">
+          <p class="recommendation-card__detail-copy" data-field="recommendation-full"></p>
+          <div class="recommendation-card__sources" data-field="recommendation-sources"></div>
+        </div>
+      </details>
+
+      <a class="river-link river-link--wide" href="/" data-field="recommendation-link">View river</a>
+    </article>
+  </template>
 
   <template data-river-card-template>
     <article class="river-card river-card--decision">
@@ -350,21 +388,17 @@ const homepageStructuredData = [
           <h3 class="river-card__title" data-field="name"></h3>
           <p class="river-card__subtitle" data-field="route-label"></p>
         </div>
+      </div>
+
+      <p class="river-card__verdict" data-field="card-verdict"></p>
+      <div class="river-card__scoreline">
         <div class="score-orb" aria-label="River score">
           <span class="score-orb__score" data-field="score"></span>
           <span class="score-orb__rating" data-field="rating"></span>
         </div>
+        <p class="river-card__meta-line" data-field="meta-line"></p>
       </div>
-
-      <p class="river-card__meta-line" data-field="meta-line"></p>
-
-      <p class="river-card__explanation">
-        <span class="river-card__summary-main" data-field="card-summary-main"></span>
-        <span class="river-card__summary-weather" data-field="card-summary-weather-row" hidden>
-          <span class="weather-indicator" data-field="weather-icon" aria-hidden="true"></span>
-          <span data-field="card-summary-weather"></span>
-        </span>
-      </p>
+      <p class="river-card__explanation" data-field="card-summary-main"></p>
       <div class="river-card__signal-line" data-field="raw-signal"></div>
 
       <a class="river-link river-link--wide" href="/" data-card-link>View river</a>

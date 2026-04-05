@@ -14,15 +14,15 @@ const NEARBY_TRAVEL_MINUTES = 90;
 const DAY_TRIP_TRAVEL_MINUTES = 180;
 const AVERAGE_DRIVE_MPH = 50;
 
-const nearbyGrid = document.querySelector('[data-nearby-grid]');
-const nearbySummary = document.querySelector('[data-nearby-summary]');
-const nearbyEmpty = document.querySelector('[data-nearby-empty]');
+const recommendationGrid = document.querySelector('[data-recommendation-grid]');
+const recommendationSummary = document.querySelector('[data-recommendation-summary]');
+const recommendationTitle = document.querySelector('[data-recommendation-title]');
+const recommendationEmpty = document.querySelector('[data-recommendation-empty]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
-const overallGrid = document.querySelector('[data-overall-grid]');
-const overallSummary = document.querySelector('[data-overall-summary]');
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
 const cardTemplate = document.querySelector('[data-river-card-template]');
+const recommendationTemplate = document.querySelector('[data-recommendation-card-template]');
 
 const featuredPanel = document.querySelector('.hero-call');
 const featuredLabel = document.querySelector('[data-best-near-label]');
@@ -32,9 +32,15 @@ const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredLink = document.querySelector('[data-featured-link]');
 const featuredSummary = document.querySelector('[data-field="featured-explanation"]');
 const featuredToggle = document.querySelector('[data-featured-toggle]');
-const featuredCondition = document.querySelector('[data-featured-condition]');
-const nearbySection = document.querySelector('.decision-section--nearby');
+const featuredReason = document.querySelector('[data-field="featured-reason"]');
+const featuredSignal = document.querySelector('[data-field="featured-signal"]');
+const featuredReasons = document.querySelector('[data-featured-reasons]');
+const recommendationSection = document.querySelector('.decision-section--recommended');
 const homeFreshness = document.querySelector('[data-home-freshness]');
+const homeSnapshot = document.querySelector('[data-home-snapshot]');
+const homeGoodCount = document.querySelector('[data-home-good-count]');
+const homeMixedCount = document.querySelector('[data-home-mixed-count]');
+const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
@@ -61,11 +67,13 @@ const exploreNextButton = document.querySelector('[data-explore-next]');
 const locationIndicator = document.querySelector('[data-location-indicator]');
 const locationIndicatorLabel = document.querySelector('[data-location-indicator-label]');
 
-const locationUseButton = document.querySelector('[data-location-use]');
+const locationUseButtons = Array.from(document.querySelectorAll('[data-location-use]'));
 const locationForm = document.querySelector('[data-location-form]');
 const locationInput = document.querySelector('[data-location-input]');
 const locationClearButton = document.querySelector('[data-location-clear]');
-const locationStatus = document.querySelector('[data-location-status]');
+const locationChangeButton = document.querySelector('[data-location-change]');
+const locationSelected = document.querySelector('[data-location-selected]');
+const locationStatus = null;
 
 const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
@@ -98,6 +106,7 @@ let mapRuntime = null;
 let mapMarkers = [];
 let userLocation = null;
 let userLocationState = 'idle';
+let locationEditing = false;
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
@@ -658,6 +667,155 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
   homeFreshness.textContent = base;
 }
 
+function formatOptionCount(count) {
+  if (count <= 0) {
+    return 'No good options today';
+  }
+
+  if (count === 1) {
+    return '1 good option today';
+  }
+
+  return `${count} good options today`;
+}
+
+function regionInsight(items) {
+  if (items.length < 2) {
+    return null;
+  }
+
+  const metroCount = items.filter((item) => /metro/i.test(item.cardRoute.river.region)).length;
+  if (metroCount === 0) {
+    return { text: 'strongest picks outside the metro', weight: 0.72 };
+  }
+
+  const keywordBuckets = new Map([
+    ['north', 0],
+    ['south', 0],
+    ['west', 0],
+    ['east', 0],
+  ]);
+
+  for (const item of items) {
+    const region = item.cardRoute.river.region.toLowerCase();
+    for (const key of keywordBuckets.keys()) {
+      if (region.includes(key)) {
+        keywordBuckets.set(key, (keywordBuckets.get(key) ?? 0) + 1);
+      }
+    }
+  }
+
+  const bestBucket = [...keywordBuckets.entries()].sort((left, right) => right[1] - left[1])[0];
+  if (bestBucket && bestBucket[1] >= Math.max(2, Math.ceil(items.length * 0.6))) {
+    return { text: `best options ${bestBucket[0]} today`, weight: 0.68 };
+  }
+
+  const uniqueRegions = new Set(items.map((item) => item.cardRoute.river.region)).size;
+  if (uniqueRegions >= 3 && items.length >= 4) {
+    return { text: 'good rivers scattered today', weight: 0.52 };
+  }
+
+  return null;
+}
+
+function chooseDailySnapshotInsight(overallItems) {
+  const goodItems = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating));
+  if (goodItems.length === 0) {
+    return 'mixed conditions overall';
+  }
+
+  const candidates = [];
+  const highConfidenceCount = goodItems.filter((item) => item.cardRoute.confidence.label === 'High').length;
+  const lowConfidenceCount = goodItems.filter((item) => item.cardRoute.confidence.label === 'Low').length;
+  const nearbyCount = goodItems.filter((item) => Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30).length;
+  const stableCount = goodItems.filter(
+    (item) => item.cardRoute.gauge?.trend === 'steady' || item.cardRoute.gaugeBand === 'ideal'
+  ).length;
+  const risingCount = goodItems.filter((item) => item.cardRoute.gauge?.trend === 'rising').length;
+  const fallingCount = goodItems.filter((item) => item.cardRoute.gauge?.trend === 'falling').length;
+  const changingCount = risingCount + fallingCount;
+  const weatherSensitiveCount = goodItems.filter((item) => {
+    const weather = item.cardRoute.weather;
+    const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
+    const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
+    return Boolean(weather?.next12hStormRisk) || wind >= 15 || rainChance >= 60;
+  }).length;
+
+  if (stableCount >= Math.max(2, Math.ceil(goodItems.length * 0.65))) {
+    candidates.push({ text: 'mostly stable conditions', weight: 0.84 });
+  }
+
+  if (changingCount >= Math.max(2, Math.ceil(goodItems.length * 0.55))) {
+    candidates.push({
+      text: fallingCount > risingCount ? 'conditions trending down' : 'mixed stability across rivers',
+      weight: fallingCount > risingCount ? 0.83 : 0.74,
+    });
+  }
+
+  if (highConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.7))) {
+    candidates.push({ text: 'high confidence across top picks', weight: 0.88 });
+  }
+
+  if (lowConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
+    candidates.push({ text: "today's calls are less reliable", weight: 0.7 });
+  }
+
+  if (weatherSensitiveCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
+    candidates.push({ text: 'a few weather-sensitive picks', weight: 0.78 });
+  }
+
+  if (userLocationState === 'ready' && userLocation) {
+    if (nearbyCount === 0 && goodItems.length >= 2) {
+      candidates.push({ text: 'best picks are a drive', weight: 0.94 });
+    } else if (nearbyCount === 1 && goodItems.length >= 3) {
+      candidates.push({ text: 'only 1 nearby, others are a drive', weight: 0.93 });
+    } else if (nearbyCount >= Math.max(2, Math.ceil(goodItems.length * 0.5))) {
+      candidates.push({ text: 'best picks are close by', weight: 0.82 });
+    }
+  }
+
+  const regional = regionInsight(goodItems);
+  if (regional) {
+    candidates.push(regional);
+  }
+
+  if (candidates.length === 0) {
+    return 'mixed conditions overall';
+  }
+
+  candidates.sort((left, right) => right.weight - left.weight);
+  return candidates[0].text;
+}
+
+function updateHomeSnapshot(overallItems) {
+  if (!(homeSnapshot instanceof HTMLElement)) {
+    return;
+  }
+
+  const goodItems = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating));
+  const countLabel = formatOptionCount(goodItems.length);
+  const insight = chooseDailySnapshotInsight(overallItems);
+  homeSnapshot.textContent = `${countLabel} • ${insight}`;
+}
+
+function updateHeroCallMix(overallItems) {
+  const goodCount = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating)).length;
+  const mixedCount = overallItems.filter((item) => item.cardRoute.rating === 'Fair').length;
+  const noGoCount = overallItems.filter((item) => item.cardRoute.rating === 'No-go').length;
+
+  if (homeGoodCount instanceof HTMLElement) {
+    homeGoodCount.textContent = String(goodCount);
+  }
+
+  if (homeMixedCount instanceof HTMLElement) {
+    homeMixedCount.textContent = String(mixedCount);
+  }
+
+  if (homeNoGoCount instanceof HTMLElement) {
+    homeNoGoCount.textContent = String(noGoCount);
+  }
+}
+
 function updateFeaturedSummaryToggle(text) {
   if (!(featuredSummary instanceof HTMLElement) || !(featuredToggle instanceof HTMLButtonElement)) {
     return;
@@ -669,7 +827,7 @@ function updateFeaturedSummaryToggle(text) {
   featuredSummary.classList.remove('hero-call__summary--expanded');
   featuredToggle.hidden = !shouldShow;
   featuredToggle.setAttribute('aria-expanded', 'false');
-  featuredToggle.textContent = 'More';
+  featuredToggle.textContent = 'Details';
 }
 
 function featuredConditionMarkup(item) {
@@ -712,6 +870,276 @@ function cardLinkLabel(item) {
   return isGroupedItem(item) ? 'Compare routes' : 'View river';
 }
 
+function summaryMentionsWeather(text) {
+  const lowered = typeof text === 'string' ? text.toLowerCase() : '';
+  return lowered.includes('rain') || lowered.includes('storm') || lowered.includes('wind');
+}
+
+function summaryMentionsFlowShift(text) {
+  const lowered = typeof text === 'string' ? text.toLowerCase() : '';
+  return lowered.includes('rising') || lowered.includes('falling') || lowered.includes('changing flow');
+}
+
+function recommendationSlotLabel(index, nearbyReady) {
+  if (nearbyReady) {
+    if (index === 0) return 'Top pick';
+    if (index === 1) return 'Closest backup';
+    return 'Worth the drive';
+  }
+
+  if (index === 0) return 'Top pick';
+  if (index === 1) return 'Most dependable';
+  return 'Another option';
+}
+
+function simpleSentence(text, fallback) {
+  const normalized = typeof text === 'string' ? text.trim() : '';
+  if (!normalized) {
+    return fallback;
+  }
+
+  const lowered = normalized.toLowerCase();
+  if (lowered.includes('perfect level')) return 'Flow is in the preferred range.';
+  if (lowered.includes('slightly low')) return 'Flow is a little low but still workable.';
+  if (lowered.includes('too low')) return 'Flow looks too low to be worth the drive.';
+  if (lowered.includes('stable')) return 'Flow looks steady right now.';
+  if (lowered.includes('rising')) return 'Flow is rising, so conditions may change later today.';
+  if (lowered.includes('falling')) return 'Flow is dropping, so quality could fade later today.';
+  if (lowered.includes('rain soon') || lowered.includes('rain incoming')) return 'Rain could change the river later today.';
+  if (lowered.includes('rain later')) return 'Rain looks later, not immediate.';
+  if (lowered.includes('mostly dry')) return 'Weather looks mostly cooperative.';
+  if (lowered.includes('windy')) return 'Wind will be part of the trip today.';
+  if (lowered.includes('cold')) return 'Cold air keeps the day less comfortable.';
+
+  const sentence = normalized.charAt(0).toUpperCase() + normalized.slice(1);
+  return sentence.endsWith('.') ? sentence : `${sentence}.`;
+}
+
+function recommendationReasons(item) {
+  const summary = summaryParts(cardSummary(item));
+  const reasons = [];
+
+  if (summary.main) {
+    const mainParts = summary.main
+      .split('â€¢')
+      .map((part) => part.trim())
+      .filter(Boolean);
+    for (const part of mainParts.slice(1)) {
+      reasons.push(simpleSentence(part, 'Conditions look workable right now.'));
+    }
+  }
+
+  if (summary.weather) {
+    reasons.push(simpleSentence(summary.weather, 'Weather remains part of today\'s call.'));
+  }
+
+  return Array.from(new Set(reasons)).slice(0, 2);
+}
+
+function recommendationVerdict(item) {
+  if (item.cardRoute.rating === 'Strong') return 'Great today';
+  if (item.cardRoute.rating === 'Good') return 'Solid option';
+  if (item.cardRoute.rating === 'Fair') return 'Mixed call';
+  return 'Skip today';
+}
+
+function recommendationTagLabels(item, index, nearbyReady) {
+  const tags = [];
+  const summary = cardSummary(item).toLowerCase();
+
+  if (item.cardRoute.confidence.label === 'High') {
+    tags.push('High confidence');
+  }
+
+  if (nearbyReady && Number.isFinite(item.travelMinutes)) {
+    if (item.travelMinutes <= 30) tags.push('Short drive');
+    else if (item.travelMinutes <= 90) tags.push('Nearby');
+    else tags.push('Worth the drive');
+  }
+
+  if (summary.includes('stable')) {
+    tags.push('Stable flow');
+  } else if (summary.includes('rising')) {
+    tags.push('Rising flow');
+  }
+
+  if (summary.includes('rain') || summary.includes('storm') || summary.includes('windy')) {
+    tags.push('Weather watch');
+  }
+
+  return Array.from(new Set(tags)).slice(0, 2);
+}
+
+function recommendationSummaryText(item, nearbyReady) {
+  const summary = summaryParts(cardSummary(item));
+  const mainParts = typeof summary.main === 'string'
+    ? summary.main
+        .split('â€¢')
+        .map((part) => part.trim().toLowerCase())
+        .filter(Boolean)
+    : [];
+  const weather = typeof summary.weather === 'string' ? summary.weather.toLowerCase() : '';
+  const hasWeatherRisk = weather.includes('rain') || weather.includes('storm') || weather.includes('wind');
+  const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
+  const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
+  const shortDrive = nearbyReady && Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30;
+
+  if (item.cardRoute.rating === 'No-go') {
+    if (hasStableFlow && hasWeatherRisk) {
+      return 'Good flow, but weather lowers today’s call.';
+    }
+    if (shortDrive) {
+      return 'Close by, but conditions are too uncertain right now.';
+    }
+    return 'Conditions stack up against this one today.';
+  }
+
+  if (item.cardRoute.rating === 'Fair') {
+    if (hasWeatherRisk) {
+      return 'Workable flow, but weather makes this less reliable today.';
+    }
+    if (hasChangingFlow) {
+      return 'Usable now, but changing flow makes this a weaker pick.';
+    }
+    return 'Possible today, but there are cleaner calls on the board.';
+  }
+
+  if (shortDrive && hasStableFlow) {
+    return 'Stable flow and a short drive make this the best nearby option.';
+  }
+
+  if (!shortDrive && nearbyReady && (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')) {
+    return 'Worth the drive if you want the strongest nearby conditions.';
+  }
+
+  if (item.cardRoute.rating === 'Strong') {
+    return 'Strong conditions make this the clearest call today.';
+  }
+
+  if (item.cardRoute.rating === 'Good') {
+    return 'Solid conditions put this near the top today.';
+  }
+
+  return 'This is worth checking, but stronger calls are ahead of it.';
+}
+
+function supportingReasonList(item, nearbyReady) {
+  const summary = summaryParts(cardSummary(item));
+  const summaryText = recommendationSummaryText(item, nearbyReady);
+  const mainParts = typeof summary.main === 'string'
+    ? summary.main
+        .split('Ã¢â‚¬Â¢')
+        .map((part) => part.trim())
+        .filter(Boolean)
+    : [];
+
+  if (summary.weather && !summaryMentionsWeather(summaryText)) {
+    return [simpleSentence(summary.weather, 'Weather remains part of today\'s call.')];
+  }
+
+  if (mainParts[1] && !summaryMentionsFlowShift(summaryText)) {
+    return [simpleSentence(mainParts[1], 'Flow may change later today.')];
+  }
+
+  return [];
+}
+
+function renderTagMarkup(labels) {
+  return labels
+    .map((label) => `<span class="recommendation-tag">${escapeHtml(label)}</span>`)
+    .join('');
+}
+
+function renderSourceBadges(item) {
+  const sources = Array.isArray(item.cardRoute.sources) ? item.cardRoute.sources : [];
+  return sources
+    .map((source) => `<span class="recommendation-source recommendation-source--${source.tone}">${escapeHtml(source.label)}</span>`)
+    .join('');
+}
+
+function createRecommendationCard(item, index, nearbyReady) {
+  if (!(recommendationTemplate instanceof HTMLTemplateElement)) {
+    return document.createElement('div');
+  }
+
+  const fragment = recommendationTemplate.content.cloneNode(true);
+  const card = fragment.querySelector('.recommendation-card');
+  if (!(card instanceof HTMLElement)) {
+    return document.createElement('div');
+  }
+
+  const ratingKey = ratingToneKey(item.cardRoute.rating);
+  card.classList.add(`recommendation-card--${ratingKey}`);
+  card.classList.add(item.kind === 'group' ? 'recommendation-card--group' : 'recommendation-card--route');
+
+  setText(card, 'recommendation-slot', recommendationSlotLabel(index, nearbyReady));
+  setText(card, 'recommendation-kind', item.kind === 'group' ? 'River' : 'Route');
+  setText(card, 'recommendation-state', regionStateText(item));
+  setText(card, 'recommendation-name', item.cardRoute.river.name);
+  setText(card, 'recommendation-route', routeLabelForItem(item));
+  setText(card, 'recommendation-summary', recommendationSummaryText(item, nearbyReady));
+  setText(card, 'recommendation-score', String(item.cardRoute.score));
+  setText(card, 'recommendation-rating', item.cardRoute.rating);
+  setText(card, 'recommendation-verdict', recommendationVerdict(item, index, nearbyReady));
+  setText(card, 'recommendation-meta', metaLineText(item, nearbyReady));
+
+  const reasons = card.querySelector('[data-field="recommendation-reasons"]');
+  if (reasons instanceof HTMLElement) {
+    reasons.innerHTML = supportingReasonList(item, nearbyReady)
+      .map((reason) => `<li>${escapeHtml(reason)}</li>`)
+      .join('');
+    reasons.hidden = reasons.innerHTML === '';
+  }
+
+  const orb = card.querySelector('.score-orb');
+  if (orb instanceof HTMLElement) {
+    orb.classList.add(`score-orb--${ratingKey}`);
+  }
+
+  const signal = card.querySelector('[data-field="recommendation-signal"]');
+  if (signal instanceof HTMLElement) {
+    signal.innerHTML = signalRowMarkup(item);
+  }
+
+  const detailCopy = card.querySelector('[data-field="recommendation-full"]');
+  if (detailCopy instanceof HTMLElement) {
+    detailCopy.textContent = item.cardRoute.explanation || item.cardRoute.summary?.shortExplanation || '';
+  }
+
+  const sources = card.querySelector('[data-field="recommendation-sources"]');
+  if (sources instanceof HTMLElement) {
+    sources.innerHTML = renderSourceBadges(item);
+  }
+
+  const details = card.querySelector('.recommendation-card__details');
+  if (details instanceof HTMLElement) {
+    const hasDetailCopy = (detailCopy instanceof HTMLElement) && detailCopy.textContent.trim().length > 0;
+    const hasSources = (sources instanceof HTMLElement) && sources.innerHTML.trim().length > 0;
+    details.hidden = !hasDetailCopy && !hasSources;
+  }
+
+  const link = card.querySelector('[data-field="recommendation-link"]');
+  if (link instanceof HTMLAnchorElement) {
+    link.href = item.link;
+    link.textContent = cardLinkLabel(item);
+  }
+
+  return card;
+}
+
+function renderRecommendationGrid(items, nearbyReady) {
+  if (!(recommendationGrid instanceof HTMLElement)) {
+    return;
+  }
+
+  recommendationGrid.innerHTML = '';
+  const fragment = document.createDocumentFragment();
+  items.forEach((item, index) => {
+    fragment.appendChild(createRecommendationCard(item, index, nearbyReady));
+  });
+  recommendationGrid.appendChild(fragment);
+}
+
 function createCard(item, { showDistance = false, compact = false } = {}) {
   if (!(cardTemplate instanceof HTMLTemplateElement)) {
     return document.createElement('div');
@@ -736,27 +1164,13 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', item.cardRoute.rating);
+  setText(card, 'card-verdict', recommendationVerdict(item));
   setText(card, 'meta-line', metaLineText(item, showDistance));
-  const summary = summaryParts(cardSummary(item));
-  setText(card, 'card-summary-main', summary.main);
-  setText(card, 'card-summary-weather', summary.weather);
-
-  const weatherRow = card.querySelector('[data-field="card-summary-weather-row"]');
-  if (weatherRow instanceof HTMLElement) {
-    weatherRow.hidden = !summary.weather;
-  }
+  setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
 
   const signalRow = card.querySelector('[data-field="raw-signal"]');
   if (signalRow instanceof HTMLElement) {
     signalRow.innerHTML = signalRowMarkup(item);
-  }
-
-  const weatherIcon = card.querySelector('[data-field="weather-icon"]');
-  if (weatherIcon instanceof HTMLElement) {
-    const state = weatherVisualState(item);
-    weatherIcon.className = `weather-indicator weather-indicator--${state}`;
-    weatherIcon.innerHTML = weatherVisualMarkup(state);
-    weatherIcon.setAttribute('title', weatherVisualLabel(state));
   }
 
   const orb = card.querySelector('.score-orb');
@@ -883,22 +1297,24 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   const item = nearbyReady ? nearbyItems[0] : overallItems[0] ?? null;
 
   if (!item) {
-    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Best river right now';
+    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s clearest call';
     if (featuredState instanceof HTMLElement) featuredState.textContent = 'Live river calls unavailable';
     if (featuredName instanceof HTMLElement) featuredName.textContent = 'Check sources';
     if (featuredReach instanceof HTMLElement) featuredReach.textContent = 'Live calls could not be loaded.';
     setText(document, 'featured-score', '--');
     setText(document, 'featured-rating', 'Unavailable');
+    setText(document, 'featured-verdict', 'Check back soon');
+    setText(document, 'featured-reason', 'Reload the board to see the current recommendation.');
     setText(document, 'featured-confidence', 'Confidence unavailable');
     setText(document, 'featured-distance', 'Distance unavailable');
+    setText(document, 'featured-signal', 'Live reads unavailable');
     setText(document, 'featured-explanation', 'Reload the board or open a river page to verify the latest sources.');
     updateFeaturedSummaryToggle('Reload the board or open a river page to verify the latest sources.');
-    if (featuredCondition instanceof HTMLElement) {
-      featuredCondition.hidden = true;
-      featuredCondition.innerHTML = '';
+    if (featuredReasons instanceof HTMLElement) {
+      featuredReasons.innerHTML = '';
     }
     if (featuredLink instanceof HTMLAnchorElement) {
-      featuredLink.href = '#top-rivers-today';
+      featuredLink.href = '#explore';
     }
     return;
   }
@@ -910,12 +1326,20 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
 
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = nearbyReady ? 'Best river near you today' : 'Best river right now';
+    featuredLabel.textContent = nearbyReady ? 'Best nearby option' : 'Top statewide answer';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.textContent = nearbyReady
       ? `${item.distanceBucket} • ${item.cardRoute.river.state}`
       : `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`;
+  }
+  if (featuredState instanceof HTMLElement && nearbyReady) {
+    featuredState.textContent = `${item.distanceBucket} - built around drive time`;
+  }
+  if (featuredState instanceof HTMLElement) {
+    featuredState.textContent = nearbyReady
+      ? `${item.cardRoute.river.state} - ranked with drive time`
+      : regionStateText(item).replace(' • ', ' - ');
   }
   if (featuredName instanceof HTMLElement) {
     featuredName.textContent = item.cardRoute.river.name;
@@ -926,19 +1350,25 @@ function updateFeaturedHero(nearbyItems, overallItems) {
 
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
+  setText(document, 'featured-verdict', recommendationVerdict(item));
+  setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
   setText(document, 'featured-confidence', confidenceLabel(item));
   setText(
     document,
     'featured-distance',
     nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Best overall'
   );
+  if (featuredSignal instanceof HTMLElement) {
+    featuredSignal.innerHTML = signalRowMarkup(item);
+  }
   const featuredExplanation = item.cardRoute.explanation || item.cardRoute.summary?.shortExplanation || '';
   setText(document, 'featured-explanation', featuredExplanation);
   updateFeaturedSummaryToggle(featuredExplanation);
-  if (featuredCondition instanceof HTMLElement) {
-    const markup = featuredConditionMarkup(item);
-    featuredCondition.hidden = !markup;
-    featuredCondition.innerHTML = markup;
+  if (featuredReasons instanceof HTMLElement) {
+    featuredReasons.innerHTML = supportingReasonList(item, nearbyReady)
+      .map((reason) => `<li>${escapeHtml(reason)}</li>`)
+      .join('');
+    featuredReasons.hidden = featuredReasons.innerHTML === '';
   }
 
   const orb = featuredPanel?.querySelector('.score-orb');
@@ -953,59 +1383,82 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
 }
 
-function renderNearbySection(nearbyItems, overallItems) {
-  if (!(nearbySummary instanceof HTMLElement) || !(nearbyEmpty instanceof HTMLElement)) {
-    return;
-  }
+function buildRecommendationItems(nearbyItems, overallItems) {
+  const picks = [];
+  const seen = new Set();
+  const nearbyReady = userLocationState === 'ready' && userLocation && nearbyItems.length > 0;
 
-  if (nearbySection instanceof HTMLElement) {
-    nearbySection.classList.remove('decision-section--active');
-  }
-
-  if (userLocationState !== 'ready' || !userLocation) {
-    nearbySummary.textContent = 'Set your location to unlock distance-based ranking.';
-    if (nearbyLocationPanel instanceof HTMLElement) {
-      nearbyLocationPanel.hidden = false;
+  const addPick = (item) => {
+    if (!item || seen.has(item.key) || picks.length >= 3) {
+      return;
     }
-    if (nearbyGrid instanceof HTMLElement) {
-      nearbyGrid.innerHTML = '';
-    }
-    nearbyEmpty.hidden = true;
-    return;
+    seen.add(item.key);
+    picks.push(item);
+  };
+
+  if (nearbyReady) {
+    const nearbyWindow = nearbyItems.filter((item) => item.travelMinutes <= NEARBY_TRAVEL_MINUTES);
+    const nearbyPool = nearbyWindow.length > 0 ? nearbyWindow : nearbyItems;
+    addPick(nearbyPool[0]);
+    addPick(nearbyPool.find((item) => item.cardRoute.rating !== 'No-go' && !seen.has(item.key)) || nearbyPool[1]);
+    addPick(
+      overallItems.find(
+        (item) =>
+          !seen.has(item.key) &&
+          (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')
+      ) || overallItems.find((item) => !seen.has(item.key))
+    );
+  } else {
+    addPick(overallItems[0]);
+    addPick(
+      overallItems.find((item) => !seen.has(item.key) && item.cardRoute.confidence.label === 'High') ||
+        overallItems[1]
+    );
+    addPick(
+      overallItems.find((item) => !seen.has(item.key) && isGroupedItem(item)) ||
+        overallItems.find((item) => !seen.has(item.key))
+    );
   }
 
-  if (nearbyLocationPanel instanceof HTMLElement) {
-    nearbyLocationPanel.hidden = true;
+  for (const item of [...overallItems, ...nearbyItems]) {
+    addPick(item);
   }
 
-  if (nearbySection instanceof HTMLElement) {
-    nearbySection.classList.add('decision-section--active');
-  }
-
-  if (nearbyItems.length === 0) {
-    nearbySummary.textContent = 'No rivers landed inside the nearby travel window. Try the overall list or widen your search below.';
-    if (nearbyGrid instanceof HTMLElement) nearbyGrid.innerHTML = '';
-    nearbyEmpty.hidden = false;
-    return;
-  }
-
-  const withinWindow = nearbyItems.filter((item) => item.travelMinutes <= NEARBY_TRAVEL_MINUTES);
-  const nearbyDisplay = (withinWindow.length ? withinWindow : nearbyItems).slice(0, 4);
-  nearbySummary.textContent =
-    withinWindow.length > 0
-      ? `Ranked by score with a distance penalty. Rivers within about ${NEARBY_TRAVEL_MINUTES} minutes rise to the top.`
-      : 'No rivers landed within about 90 minutes, so this shows the strongest day-trip options instead.';
-
-  nearbyEmpty.hidden = true;
-  renderCardGrid(nearbyGrid, nearbyDisplay, { compact: true, showDistance: true });
+  return picks;
 }
 
-function renderOverallSection(items) {
-  if (overallSummary instanceof HTMLElement) {
-    overallSummary.textContent = 'The strongest live river calls overall, sorted by raw score.';
+function renderRecommendationSection(nearbyItems, overallItems) {
+  if (
+    !(recommendationSummary instanceof HTMLElement) ||
+    !(recommendationTitle instanceof HTMLElement) ||
+    !(recommendationEmpty instanceof HTMLElement)
+  ) {
+    return;
   }
 
-  renderCardGrid(overallGrid, items.slice(0, 6), { compact: true, showDistance: userLocationState === 'ready' });
+  const nearbyReady = userLocationState === 'ready' && userLocation && nearbyItems.length > 0;
+  const recommendationItems = buildRecommendationItems(nearbyItems, overallItems);
+
+  if (recommendationSection instanceof HTMLElement) {
+    recommendationSection.classList.toggle('decision-section--active', nearbyReady);
+  }
+
+  recommendationTitle.textContent = nearbyReady
+    ? 'Your best paddling options right now'
+    : 'Best paddling options today';
+
+  recommendationSummary.textContent = nearbyReady
+    ? 'Best nearby picks, ranked by today\'s call first and drive time second.'
+    : 'Best statewide picks right now. Add your city if you want nearby options first.';
+
+  if (recommendationItems.length === 0) {
+    recommendationEmpty.hidden = false;
+    renderRecommendationGrid([], nearbyReady);
+    return;
+  }
+
+  recommendationEmpty.hidden = true;
+  renderRecommendationGrid(recommendationItems, nearbyReady);
 }
 
 function matchesRouteFilters(result) {
@@ -1097,18 +1550,18 @@ function updateLocationIndicator() {
   locationIndicator.dataset.state = 'idle';
 }
 
-function updateLocationStatus() {
+function legacyUpdateLocationStatus() {
   if (!(locationStatus instanceof HTMLElement)) {
     return;
   }
 
   if (userLocationState === 'pending') {
-    locationStatus.textContent = 'Finding your location so nearby rivers can rank better.';
+    locationStatus.textContent = 'Finding drive times.';
     return;
   }
 
   if (userLocation) {
-    locationStatus.textContent = `Using ${userLocation.label}. Nearby rivers now rank by score and drive time.`;
+    locationStatus.textContent = 'Drive-time ranking is on.';
     if (locationClearButton instanceof HTMLButtonElement) {
       locationClearButton.hidden = false;
     }
@@ -1120,16 +1573,56 @@ function updateLocationStatus() {
   }
 
   if (userLocationState === 'denied') {
-    locationStatus.textContent = 'Location access was denied. Enter a city or ZIP code to improve the ranking.';
+    locationStatus.textContent = 'Enter a city or ZIP code to rank nearby picks.';
     return;
   }
 
   if (userLocationState === 'unavailable') {
-    locationStatus.textContent = 'Location is unavailable in this browser. Enter a city or ZIP code to improve the ranking.';
+    locationStatus.textContent = 'Enter a city or ZIP code to rank nearby picks.';
     return;
   }
 
-  locationStatus.textContent = "Use your location or enter a city or ZIP code to get better river recommendations.";
+  locationStatus.textContent = 'Add your city to move nearby picks higher.';
+}
+
+function updateLocationStatus() {
+  if (locationSelected instanceof HTMLElement) {
+    if (userLocationState === 'pending') {
+      locationSelected.hidden = false;
+      locationSelected.textContent = 'Finding your current location...';
+    } else if (userLocation) {
+      locationSelected.hidden = false;
+      locationSelected.textContent =
+        userLocation.source === 'geolocation' ? 'Using current location' : userLocation.label;
+    } else {
+      locationSelected.hidden = true;
+      locationSelected.textContent = '';
+    }
+  }
+
+  if (locationClearButton instanceof HTMLButtonElement) {
+    locationClearButton.hidden = !userLocation;
+  }
+
+  if (locationChangeButton instanceof HTMLButtonElement) {
+    locationChangeButton.hidden = !userLocation || locationEditing;
+  }
+
+  const searchField = locationInput instanceof HTMLInputElement
+    ? locationInput.closest('.location-panel__search')
+    : null;
+  if (searchField instanceof HTMLElement) {
+    searchField.hidden = Boolean(userLocation && !locationEditing);
+  }
+
+  const submitButton = locationForm?.querySelector('button[type="submit"]');
+  if (submitButton instanceof HTMLButtonElement) {
+    submitButton.hidden = Boolean(userLocation && !locationEditing);
+  }
+
+  if (locationForm instanceof HTMLFormElement) {
+    locationForm.classList.toggle('location-panel__form--compact', Boolean(userLocation && !locationEditing));
+  }
 }
 
 function updateFilterSummary(exploreItems) {
@@ -1239,9 +1732,10 @@ function markerClassFor(item) {
 }
 
 function popupMarkup(item) {
+  const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
   const reachMarkup = isGroupedItem(item)
     ? `<p class="score-map-popup__reach">${escapeHtml(routeCountLabel(item))}</p>
-      <p class="score-map-popup__meta">${escapeHtml(representativeRouteLabel(item))}</p>`
+      <p class="score-map-popup__support">${escapeHtml(representativeRouteLabel(item))}</p>`
     : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
 
   return `
@@ -1249,8 +1743,9 @@ function popupMarkup(item) {
       <p class="score-map-popup__state">${escapeHtml(item.cardRoute.river.state)} | ${escapeHtml(item.cardRoute.river.region)}</p>
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
-      <p class="score-map-popup__summary">${escapeHtml(item.cardRoute.explanation)}</p>
-      <p class="score-map-popup__meta">Score ${item.cardRoute.score} • ${escapeHtml(item.cardRoute.rating)} • ${escapeHtml(confidenceLabel(item))}</p>
+      <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
+      <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
+      <p class="score-map-popup__meta">${escapeHtml(metaLineText(item, nearbyReady))} • Score ${item.cardRoute.score}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
@@ -1361,7 +1856,7 @@ function setBoardRefreshState(state, detail = '') {
 
   if (boardRefreshNote instanceof HTMLElement) {
     if (state === 'loading') {
-      boardRefreshNote.textContent = 'Refreshing live reads.';
+      boardRefreshNote.textContent = 'Checking for a newer stored board.';
       return;
     }
 
@@ -1374,11 +1869,11 @@ function setBoardRefreshState(state, detail = '') {
       boardRefreshNote.textContent = `Last refresh ${new Date(lastBoardSuccessAt).toLocaleTimeString([], {
         hour: 'numeric',
         minute: '2-digit',
-      })} • Auto-refreshes every 5 minutes`;
+      })} - Snapshot refreshes every 30 minutes`;
       return;
     }
 
-    boardRefreshNote.textContent = 'Auto-refreshes every 5 minutes.';
+    boardRefreshNote.textContent = 'Snapshot refreshes every 30 minutes.';
   }
 }
 
@@ -1432,9 +1927,10 @@ function renderHomepage(results) {
   const nearbyBaseItems = sortItems(buildDisplayItems(results, results, 'near-you'), 'near-you');
   const nearbyItems = nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
 
+  updateHomeSnapshot(overallItems);
+  updateHeroCallMix(overallItems);
   updateFeaturedHero(nearbyItems, overallItems);
-  renderNearbySection(nearbyItems, overallItems);
-  renderOverallSection(overallItems);
+  renderRecommendationSection(nearbyItems, overallItems);
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
@@ -1485,6 +1981,7 @@ function loadStoredLocation() {
 function setUserLocation(location) {
   userLocation = location;
   userLocationState = 'ready';
+  locationEditing = false;
   saveLocation(location);
   if (activeFilters.sort === 'best-now') {
     activeFilters.sort = 'near-you';
@@ -1506,6 +2003,7 @@ function setUserLocation(location) {
 function clearUserLocation() {
   userLocation = null;
   userLocationState = 'idle';
+  locationEditing = false;
   localStorage.removeItem(STORAGE_KEY);
   if (locationInput instanceof HTMLInputElement) {
     locationInput.value = '';
@@ -1654,8 +2152,12 @@ function setupFilters() {
 }
 
 function setupLocationControls() {
-  if (locationUseButton instanceof HTMLButtonElement) {
-    locationUseButton.addEventListener('click', () => {
+  for (const button of locationUseButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.locationBound === 'true') {
+      continue;
+    }
+    button.dataset.locationBound = 'true';
+    button.addEventListener('click', () => {
       requestUserLocation();
     });
   }
@@ -1663,6 +2165,17 @@ function setupLocationControls() {
   if (locationClearButton instanceof HTMLButtonElement) {
     locationClearButton.addEventListener('click', () => {
       clearUserLocation();
+    });
+  }
+
+  if (locationChangeButton instanceof HTMLButtonElement) {
+    locationChangeButton.addEventListener('click', () => {
+      locationEditing = true;
+      updateLocationStatus();
+      if (locationInput instanceof HTMLInputElement) {
+        locationInput.focus();
+        locationInput.select();
+      }
     });
   }
 
@@ -1682,8 +2195,9 @@ function setupLocationControls() {
       try {
         const match = await geocodeManualLocation(query);
         if (!match) {
-          if (locationStatus instanceof HTMLElement) {
-            locationStatus.textContent = 'That city or ZIP was not found. Try a nearby town or a different ZIP code.';
+          if (locationSelected instanceof HTMLElement) {
+            locationSelected.hidden = false;
+            locationSelected.textContent = 'That city or ZIP was not found.';
           }
           return;
         }
@@ -1691,8 +2205,9 @@ function setupLocationControls() {
         setUserLocation(match);
       } catch (error) {
         console.error('Manual location lookup failed.', error);
-        if (locationStatus instanceof HTMLElement) {
-          locationStatus.textContent = 'That location could not be looked up right now. Try again.';
+        if (locationSelected instanceof HTMLElement) {
+          locationSelected.hidden = false;
+          locationSelected.textContent = 'That place could not be looked up right now.';
         }
       }
     });
@@ -1753,11 +2268,8 @@ async function loadBoard({ silent = false } = {}) {
     if (summaryDetail instanceof HTMLElement) {
       summaryDetail.textContent = 'Current gauge and weather reads could not load.';
     }
-    if (nearbySummary instanceof HTMLElement) {
-      nearbySummary.textContent = 'Nearby calls are unavailable until the river board loads.';
-    }
-    if (overallSummary instanceof HTMLElement) {
-      overallSummary.textContent = 'Top river calls are unavailable until the river board loads.';
+    if (recommendationSummary instanceof HTMLElement) {
+      recommendationSummary.textContent = 'Recommendations are unavailable until the board loads again.';
     }
     updateHomeFreshness();
   }
@@ -1806,7 +2318,7 @@ if (featuredToggle instanceof HTMLButtonElement && featuredSummary instanceof HT
   featuredToggle.addEventListener('click', () => {
     const expanded = featuredSummary.classList.toggle('hero-call__summary--expanded');
     featuredToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    featuredToggle.textContent = expanded ? 'Less' : 'More';
+    featuredToggle.textContent = expanded ? 'Less' : 'Details';
   });
 }
 

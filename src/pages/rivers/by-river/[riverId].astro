@@ -42,7 +42,7 @@ const groupStructuredData = {
 
 <BaseLayout
   title={`${group.name} Routes Today | Paddle Today`}
-  description={`Compare scored routes on ${group.name} and see which stretch looks best today.`}
+  description={`See which ${group.name} route looks best today, then compare the other stretches if you want a second option.`}
 >
   <script type="application/ld+json" set:html={JSON.stringify(groupStructuredData)}></script>
   <article class="river-group-page" data-river-group-page data-river-id={group.riverId}>
@@ -53,10 +53,10 @@ const groupStructuredData = {
         <p class="eyebrow">{stateSummary} | {regionSummary}</p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Compare {group.routeCount} routes on this river.
+          Start with the best route on this river today.
         </p>
         <p class="muted river-group-page__summary" data-group-detail>
-          One river can paddle very differently from stretch to stretch. Compare the score, confidence, and quick summary before opening the full route page.
+          These stretches can paddle very differently. Start with the clearest call, then compare the backups if you want another option.
         </p>
 
         <div class="hero__meta river-group-page__meta">
@@ -75,7 +75,7 @@ const groupStructuredData = {
     </section>
 
     <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Route comparison</div>
+      <div class="status-banner__eyebrow">Route calls</div>
       <div class="status-banner__body">
         <strong data-group-banner-title>Loading route scores.</strong>
         <p class="muted" data-group-banner-detail>
@@ -111,12 +111,12 @@ const groupStructuredData = {
         <div>
           <p class="eyebrow section-label">
             <FeatureIcon name="compass" size={16} />
-            Route switcher
+            Best route options
           </p>
-          <h2 class="section-title">Compare routes on this river</h2>
+          <h2 class="section-title">Pick the best stretch for today</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Same river, different stretches.
+          Same river, different calls.
         </p>
       </div>
 
@@ -132,16 +132,14 @@ const groupStructuredData = {
             <span class="route-choice__kind">Route</span>
             <span class="route-choice__eyebrow">{route.state} | {route.region}</span>
             <strong class="route-choice__title">{route.reach}</strong>
-            <span class="route-choice__score">-- &bull; Loading</span>
-            <span class="route-choice__meta">Loading confidence &bull; -- mi</span>
-            <span class="route-choice__summary">
-              <span class="route-choice__summary-main">Loading summary.</span>
-              <span class="route-choice__summary-weather" hidden>
-                <span class="weather-indicator" aria-hidden="true"></span>
-                <span>Loading weather.</span>
-              </span>
-            </span>
+            <span class="route-choice__verdict">Loading verdict</span>
+            <div class="route-choice__scoreline">
+              <span class="route-choice__score">--</span>
+              <span class="route-choice__meta">Loading confidence &bull; -- mi</span>
+            </div>
+            <span class="route-choice__summary">Loading summary.</span>
             <span class="route-choice__signal">Loading conditions.</span>
+            <span class="route-choice__note" hidden></span>
             <div class="route-choice__footer">
               <span class="route-choice__selection">Show on map</span>
               <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>

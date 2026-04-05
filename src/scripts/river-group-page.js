@@ -45,8 +45,9 @@ function setText(field, value) {
 }
 
 function decisionLabel(rating) {
-  if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Fair') return 'Watch closely';
+  if (rating === 'Strong') return 'Great today';
+  if (rating === 'Good') return 'Solid option';
+  if (rating === 'Fair') return 'Mixed call';
   return 'Skip today';
 }
 
@@ -129,6 +130,72 @@ function summaryParts(route) {
     main: `${levelText(route)}${BULLET}${trendText(route)}`,
     weather: weatherSummary(route),
   };
+}
+
+function decisionSummary(route) {
+  const summary = summaryParts(route);
+  const mainParts = typeof summary.main === 'string'
+    ? summary.main
+        .split(BULLET)
+        .map((part) => part.trim().toLowerCase())
+        .filter(Boolean)
+    : [];
+  const weather = typeof summary.weather === 'string' ? summary.weather.toLowerCase() : '';
+  const hasWeatherRisk = weather.includes('rain') || weather.includes('storm') || weather.includes('wind');
+  const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
+  const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
+
+  if (route.rating === 'No-go') {
+    if (hasStableFlow && hasWeatherRisk) {
+      return 'Good flow, but weather lowers today’s call.';
+    }
+    return 'Conditions stack up against this route today.';
+  }
+
+  if (route.rating === 'Fair') {
+    if (hasWeatherRisk) {
+      return 'Workable flow, but weather makes this less reliable today.';
+    }
+    if (hasChangingFlow) {
+      return 'Usable now, but changing flow makes this a weaker pick.';
+    }
+    return 'Possible today, but cleaner calls are on this river.';
+  }
+
+  if (route.rating === 'Strong') {
+    return 'Strong conditions make this the clearest route today.';
+  }
+
+  if (route.rating === 'Good') {
+    if (hasWeatherRisk) {
+      return 'Solid flow, but weather adds some caution later today.';
+    }
+    return 'Solid conditions make this one of the better routes today.';
+  }
+
+  return 'Check the full route if you want more detail.';
+}
+
+function supportingNote(route) {
+  const summary = summaryParts(route);
+  const summaryText = decisionSummary(route).toLowerCase();
+  const mainParts = typeof summary.main === 'string'
+    ? summary.main
+        .split(BULLET)
+        .map((part) => part.trim())
+        .filter(Boolean)
+    : [];
+  const weather = typeof summary.weather === 'string' ? summary.weather : '';
+
+  if (weather && !summaryText.includes('weather') && !summaryText.includes('rain') && !summaryText.includes('storm') && !summaryText.includes('wind')) {
+    return weather;
+  }
+
+  if (mainParts[1] && !summaryText.includes('rising') && !summaryText.includes('falling') && !summaryText.includes('changing flow')) {
+    return mainParts[1];
+  }
+
+  return '';
 }
 
 function signalIconMarkup(kind) {
@@ -300,8 +367,7 @@ function temperatureData(route) {
 }
 
 function summaryLine(route) {
-  const parts = summaryParts(route);
-  return `${parts.main}${BULLET}${parts.weather}`;
+  return decisionSummary(route);
 }
 
 function midpointForRoute(route) {
@@ -328,7 +394,7 @@ function midpointForRoute(route) {
 }
 
 function routePopupMarkup(route) {
-  const meta = [`Score ${route.score}`, route.rating, confidenceLabelText(route.confidence)];
+  const meta = [confidenceLabelText(route.confidence), `Score ${route.score}`];
   if (routeLengthText(route)) {
     meta.push(routeLengthText(route));
   }
@@ -338,7 +404,8 @@ function routePopupMarkup(route) {
       <p class="score-map-popup__state">${escapeHtml(route.state)} | ${escapeHtml(route.region)}</p>
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
-      <p class="score-map-popup__summary">${escapeHtml(summaryLine(route))}</p>
+      <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating))}</p>
+      <p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>
       <p class="score-map-popup__meta">${escapeHtml(meta.join(' • '))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
@@ -566,8 +633,6 @@ function renderRouteList(routes) {
   routeList.innerHTML = routes
     .map((route) => {
       const active = route.slug === selectedSlug;
-      const weatherState = weatherVisualState(route);
-      const summary = summaryParts(route);
 
       return `
         <article
@@ -580,22 +645,18 @@ function renderRouteList(routes) {
           <span class="route-choice__kind">Route</span>
           <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
           <strong class="route-choice__title">${route.reach}</strong>
-          <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
-            ${route.score}${BULLET}${route.rating}
-          </span>
-          <span class="route-choice__meta">${metaLine(route)}</span>
-          <span class="route-choice__summary">
-            <span class="route-choice__summary-main">${summary.main}</span>
-            <span class="route-choice__summary-weather">
-              <span class="weather-indicator weather-indicator--${weatherState}" title="${weatherVisualLabel(weatherState)}" aria-hidden="true">
-                ${weatherVisualMarkup(weatherState)}
-              </span>
-              <span>${summary.weather}</span>
+          <span class="route-choice__verdict">${decisionLabel(route.rating)}</span>
+          <div class="route-choice__scoreline">
+            <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
+              ${route.score}
             </span>
-          </span>
+            <span class="route-choice__meta">${metaLine(route)}</span>
+          </div>
+          <span class="route-choice__summary">${decisionSummary(route)}</span>
           <span class="route-choice__signal">
             ${signalRowMarkup(route)}
           </span>
+          ${supportingNote(route) ? `<span class="route-choice__note">${escapeHtml(supportingNote(route))}</span>` : ''}
           <div class="route-choice__footer">
             <span class="route-choice__selection">${active ? 'Shown on map' : 'Show on map'}</span>
             <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
