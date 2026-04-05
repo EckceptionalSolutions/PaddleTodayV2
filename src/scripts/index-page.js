@@ -37,6 +37,7 @@ const featuredSignal = document.querySelector('[data-field="featured-signal"]');
 const featuredReasons = document.querySelector('[data-featured-reasons]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const homeFreshness = document.querySelector('[data-home-freshness]');
+const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
 const homeSnapshot = document.querySelector('[data-home-snapshot]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
@@ -651,6 +652,10 @@ function formatGeneratedFreshness(isoString) {
 function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
   if (!(homeFreshness instanceof HTMLElement)) {
     return;
+  }
+
+  if (homeFreshnessWrap instanceof HTMLElement) {
+    homeFreshnessWrap.hidden = false;
   }
 
   const base = formatGeneratedFreshness(generatedAt);
