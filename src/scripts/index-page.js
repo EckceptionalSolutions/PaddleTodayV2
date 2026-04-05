@@ -803,10 +803,10 @@ function updateHomeSnapshot(overallItems) {
   homeSnapshot.textContent = `${countLabel} • ${insight}`;
 }
 
-function updateHeroCallMix(overallItems) {
-  const goodCount = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating)).length;
-  const mixedCount = overallItems.filter((item) => item.cardRoute.rating === 'Fair').length;
-  const noGoCount = overallItems.filter((item) => item.cardRoute.rating === 'No-go').length;
+function updateHeroCallMix(results) {
+  const goodCount = results.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
+  const mixedCount = results.filter((result) => result.rating === 'Fair').length;
+  const noGoCount = results.filter((result) => result.rating === 'No-go').length;
 
   if (homeGoodCount instanceof HTMLElement) {
     homeGoodCount.textContent = String(goodCount);
@@ -1933,7 +1933,7 @@ function renderHomepage(results) {
   const nearbyItems = nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
 
   updateHomeSnapshot(overallItems);
-  updateHeroCallMix(overallItems);
+  updateHeroCallMix(results);
   updateFeaturedHero(nearbyItems, overallItems);
   renderRecommendationSection(nearbyItems, overallItems);
 

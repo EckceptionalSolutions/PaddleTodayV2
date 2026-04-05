@@ -41,7 +41,7 @@ npm run history:snapshot
 
 ### Production storage
 
-Add these App Service settings:
+Add these App Service settings for the API/runtime:
 
 - `RIVER_HISTORY_CONTAINER_SAS_URL`
 - `RIVER_HISTORY_BLOB_PREFIX`
@@ -65,21 +65,20 @@ The scheduled workflow is:
 
 - `.github/workflows/history-snapshots.yml`
 
-It runs hourly and calls the live snapshot endpoint.
+It runs hourly and writes history snapshots directly to the configured history blob container.
 
-Configure these GitHub repository secrets:
+Configure these GitHub repository settings:
 
-- `HISTORY_SNAPSHOT_URL`
-- `HISTORY_SNAPSHOT_TOKEN`
+- secret: `RIVER_HISTORY_CONTAINER_SAS_URL`
+- variable: `RIVER_HISTORY_BLOB_PREFIX`
+- variable: `HISTORY_TIME_ZONE`
 
-Recommended URL:
+Recommended values:
 
-- `https://<your-api-host>/api/history/snapshot`
+- `RIVER_HISTORY_BLOB_PREFIX=river-history`
+- `HISTORY_TIME_ZONE=America/Chicago`
 
-Examples:
-
-- `https://paddletoday-api.azurewebsites.net/api/history/snapshot`
-- `https://api.paddletoday.com/api/history/snapshot`
+The old `POST /api/history/snapshot` endpoint can still be used manually, but it is no longer the recommended scheduled path.
 
 ## Route history API
 

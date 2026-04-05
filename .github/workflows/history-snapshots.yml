@@ -14,35 +14,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Trigger route history snapshot
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Capture route history snapshots
         env:
-          HISTORY_SNAPSHOT_URL: ${{ secrets.HISTORY_SNAPSHOT_URL }}
-          HISTORY_SNAPSHOT_TOKEN: ${{ secrets.HISTORY_SNAPSHOT_TOKEN }}
+          RIVER_HISTORY_CONTAINER_SAS_URL: ${{ secrets.RIVER_HISTORY_CONTAINER_SAS_URL }}
+          RIVER_HISTORY_BLOB_PREFIX: ${{ vars.RIVER_HISTORY_BLOB_PREFIX || 'river-history' }}
+          HISTORY_TIME_ZONE: ${{ vars.HISTORY_TIME_ZONE || 'America/Chicago' }}
         run: |
-          if [ -z "$HISTORY_SNAPSHOT_URL" ]; then
-            echo "HISTORY_SNAPSHOT_URL is not configured."
+          if [ -z "$RIVER_HISTORY_CONTAINER_SAS_URL" ]; then
+            echo "RIVER_HISTORY_CONTAINER_SAS_URL is not configured."
             exit 1
           fi
 
-          echo "Posting hourly route snapshot to $HISTORY_SNAPSHOT_URL"
-
-          if [ -n "$HISTORY_SNAPSHOT_TOKEN" ]; then
-            response=$(curl --silent --show-error --write-out "\n%{http_code}" \
-              -X POST "$HISTORY_SNAPSHOT_URL" \
-              -H "accept: application/json" \
-              -H "x-history-token: $HISTORY_SNAPSHOT_TOKEN")
-          else
-            response=$(curl --silent --show-error --write-out "\n%{http_code}" \
-              -X POST "$HISTORY_SNAPSHOT_URL" \
-              -H "accept: application/json")
-          fi
-
-          body=$(printf '%s' "$response" | sed '$d')
-          status=$(printf '%s' "$response" | tail -n 1)
-
-          echo "$body"
-
-          if [ "$status" -lt 200 ] || [ "$status" -ge 300 ]; then
-            echo "Snapshot capture failed with HTTP $status"
-            exit 1
-          fi
+          npm run history:snapshot
