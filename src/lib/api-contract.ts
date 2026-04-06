@@ -1,125 +1,19 @@
 import type {
-  ConfidenceLabel,
-  GaugeReading,
-  LiveDataOverall,
-  RiverAccessPoint,
-  RiverOutlook,
   RiverScoreResult,
-  ScoreFactor,
-  ScoreRating,
-  ScoreBreakdown,
-  WeatherSnapshot,
 } from './types';
-import type { RiverHistoryDaySummary, RiverHistoryResult, RiverHistorySnapshot } from './history';
-
-export interface RiverSummaryApiItem {
-  river: {
-    riverId?: string;
-    slug: string;
-    name: string;
-    reach: string;
-    state: string;
-    region: string;
-    latitude: number;
-    longitude: number;
-    distanceLabel: string;
-  };
-  sources: Array<{
-    label: string;
-    tone: 'usgs' | 'official' | 'mixed' | 'community' | 'derived' | 'minimum';
-  }>;
-  score: number;
-  rating: ScoreRating;
-  gaugeBandLabel: string;
-  explanation: string;
-  confidence: {
-    score: number;
-    label: ConfidenceLabel;
-  };
-  liveData: {
-    overall: LiveDataOverall;
-    summary: string;
-    gaugeState: RiverScoreResult['liveData']['gauge']['state'];
-    gaugeDetail: string;
-    weatherState: RiverScoreResult['liveData']['weather']['state'];
-    weatherDetail: string;
-  };
-  summary: {
-    cardText: string;
-    shortExplanation: string;
-    rawSignalLine: string;
-    gaugeNow: string;
-    confidenceText: string;
-    freshnessText: string;
-    primaryFactor: string;
-    secondaryFactor: string;
-  };
-  generatedAt: string;
-}
-
-export interface RiverDetailApiResult {
-  river: {
-    riverId?: string;
-    slug: string;
-    name: string;
-    reach: string;
-    state: string;
-    region: string;
-    latitude: number;
-    longitude: number;
-    distanceLabel: string;
-    gaugeSource: {
-      unit: RiverScoreResult['river']['gaugeSource']['unit'];
-    };
-    profile: {
-      thresholdModel: RiverScoreResult['river']['profile']['thresholdModel'];
-      thresholdSourceStrength: RiverScoreResult['river']['profile']['thresholdSourceStrength'];
-      idealMin?: number;
-      idealMax?: number;
-      tooLow?: number;
-      tooHigh?: number;
-      difficulty: RiverScoreResult['river']['profile']['difficulty'];
-    };
-    putIn?: RiverAccessPoint;
-    takeOut?: RiverAccessPoint;
-  };
-  score: number;
-  rating: ScoreRating;
-  gaugeBand: RiverScoreResult['gaugeBand'];
-  gaugeBandLabel: string;
-  explanation: string;
-  scoreBreakdown: ScoreBreakdown;
-  confidence: RiverScoreResult['confidence'];
-  liveData: RiverScoreResult['liveData'];
-  factors: ScoreFactor[];
-  checklist: RiverScoreResult['checklist'];
-  outlooks: RiverOutlook[];
-  gauge: GaugeReading | null;
-  weather: WeatherSnapshot | null;
-  generatedAt: string;
-}
-
-export interface RiverGroupApiResult {
-  group: {
-    riverId: string;
-    name: string;
-    routeCount: number;
-    stateSummary: string;
-    regionSummary: string;
-  };
-  routes: RiverDetailApiResult[];
-}
-
-export interface RiverHistoryApiResult {
-  river: {
-    slug: string;
-    name: string;
-    reach: string;
-  };
-  latestSnapshotAt: string | null;
-  days: RiverHistoryDaySummary[];
-  todayHourly: RiverHistorySnapshot[];
-}
+import type { RiverHistoryResult } from './history';
+import type {
+  RiverDetailApiResult,
+  RiverGroupApiResult,
+  RiverHistoryApiResult,
+  RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
+export type {
+  RiverDetailApiResult,
+  RiverGroupApiResult,
+  RiverHistoryApiResult,
+  RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
 
 export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryApiItem {
   const thresholdModelFactor = result.factors.find((factor) => factor.id === 'threshold-model');
@@ -332,6 +226,9 @@ function trendExplanation(result: RiverScoreResult): string {
 function weatherExplanation(result: RiverScoreResult): string {
   const weather = result.weather;
   if (!weather) return 'weather mixed';
+  if (coldWeatherDrivenCall(result)) {
+    return weather.temperatureF != null && weather.temperatureF <= 35 ? 'very cold' : 'cold';
+  }
   if (weather.next12hStormRisk) {
     return 'storm risk';
   }
@@ -348,6 +245,21 @@ function weatherExplanation(result: RiverScoreResult): string {
     return weather.conditionLabel.trim().toLowerCase();
   }
   return 'mostly dry';
+}
+
+function coldWeatherDrivenCall(result: RiverScoreResult): boolean {
+  const weather = result.weather;
+  const temp = weather?.temperatureF;
+  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
+  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
+
+  return (
+    typeof temp === 'number' &&
+    temp <= 40 &&
+    ['ideal', 'minimum-met', 'low-shoulder'].includes(result.gaugeBand) &&
+    !weather?.next12hStormRisk &&
+    (rainChance < 70 || wind < 20)
+  );
 }
 
 function gaugeValueText(result: RiverScoreResult): string {

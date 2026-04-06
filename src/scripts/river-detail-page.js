@@ -191,14 +191,46 @@ function decisionLabel(rating) {
   return 'Skip today';
 }
 
+function confidenceDisplayLabel(label) {
+  if (label === 'High') return 'Well-supported';
+  if (label === 'Medium') return 'Some uncertainty';
+  if (label === 'Low') return 'Cautious call';
+  return 'Support unclear';
+}
+
 function ratingLabel(rating) {
   return rating;
 }
 
-function decisionStatement(rating) {
+function coldWeatherDrivenResult(result) {
+  const weather = result?.weather;
+  const temp = weather?.temperatureF;
+  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
+  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
+
+  return (
+    typeof temp === 'number' &&
+    temp <= 40 &&
+    ['ideal', 'minimum-met', 'low-shoulder'].includes(result?.gaugeBand) &&
+    !weather?.next12hStormRisk &&
+    (rainChance < 70 || wind < 20)
+  );
+}
+
+function decisionStatement(result) {
+  const rating = result?.rating;
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
+  if (rating === 'Good' && coldWeatherDrivenResult(result)) {
+    return 'River conditions are solid, but cold weather still matters today.';
+  }
   if (rating === 'Good') return 'Launch window looks workable right now.';
+  if (rating === 'Fair' && coldWeatherDrivenResult(result)) {
+    return 'Runnable, but harsh weather makes this a tougher day.';
+  }
   if (rating === 'Fair') return 'Usable, but it needs a closer look before you drive.';
+  if (coldWeatherDrivenResult(result)) {
+    return 'River is in shape, but harsh weather pulls the call down.';
+  }
   return 'Today looks like a pass unless you have fresher local intel.';
 }
 
@@ -559,7 +591,7 @@ function renderFactors(factors) {
 function renderConfidenceDetail(confidence) {
   const labelEl = setText('confidence-detail-label', confidence?.label ?? 'checking');
   if (labelEl instanceof HTMLElement) {
-    labelEl.textContent = confidence?.label?.toLowerCase() ?? 'checking';
+    labelEl.textContent = confidence?.label ? confidenceDisplayLabel(confidence.label).toLowerCase() : 'checking';
   }
 
   const reasonsList = root.querySelector('[data-confidence-reasons]');
@@ -570,7 +602,7 @@ function renderConfidenceDetail(confidence) {
     const reasons = Array.isArray(confidence?.reasons) ? confidence.reasons : [];
     reasonsList.innerHTML = reasons.length
       ? reasons.map((note) => `<li>${note}</li>`).join('')
-      : '<li>Confidence reasons are unavailable.</li>';
+      : '<li>Support reasons are unavailable.</li>';
   }
 
   if (warningsList instanceof HTMLElement && warningsGroup instanceof HTMLElement) {
@@ -1570,13 +1602,13 @@ async function renderDetailMap(result = null) {
         .setPopup(
           new maplibregl.Popup({
             offset: 18,
-            closeButton: false,
+            closeButton: true,
             maxWidth: '280px',
           }).setHTML(detailMapPopupMarkup(point.kind, point, result))
         )
         .addTo(detailMapRuntime);
 
-      bindMarkerPopup(marker, markerNode);
+      bindMarkerPopup(marker, markerNode, { map: detailMapRuntime });
       detailMapMarkers.push(marker);
       bounds.extend([point.longitude, point.latitude]);
     }
@@ -1924,7 +1956,7 @@ function renderDetailResult(result) {
   setText('score', String(result.score));
   setText('rating', ratingLabel(result.rating));
   setText('explanation', result.explanation);
-  setText('decision-line', decisionStatement(result.rating));
+  setText('decision-line', decisionStatement(result));
 
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
@@ -1935,7 +1967,7 @@ function renderDetailResult(result) {
   const decisionPill = setText('decision', decision);
   decorateDecision(decisionPill, result.rating);
 
-  const confidence = setText('confidence', `${result.confidence.label} confidence`);
+  const confidence = setText('confidence', confidenceDisplayLabel(result.confidence.label));
   if (confidence instanceof HTMLElement) {
     confidence.classList.remove('confidence-pill--high', 'confidence-pill--medium', 'confidence-pill--low');
     confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
@@ -2362,7 +2394,7 @@ async function loadDetail({ silent = false } = {}) {
     renderConfidenceDetail({
       label: 'Low',
       reasons: [],
-      warnings: ['Confidence is unavailable because live data could not be loaded.'],
+      warnings: ['Support level is unavailable because live data could not be loaded.'],
     });
   }
 }

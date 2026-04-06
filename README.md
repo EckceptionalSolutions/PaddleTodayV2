@@ -82,6 +82,26 @@ If the Astro dev server is already using `4321`, run `npm run preview:local` ins
 
 For deployment-style startup after a build, run `npm run start`. The Node server respects `PORT` or `CANOE_API_PORT`.
 
+## Mobile app
+
+The repo now includes an Expo / React Native MVP app in `apps/mobile`.
+
+Shared mobile-safe code is intentionally small:
+
+- `packages/api-contract`: portable API response types
+- `packages/api-client`: thin fetch client for the existing PaddleToday JSON endpoints
+
+Mobile commands:
+
+```sh
+npm run mobile:start
+npm run mobile:android
+npm run mobile:ios
+npm run mobile:typecheck
+```
+
+Set `EXPO_PUBLIC_API_BASE_URL` in `apps/mobile/.env.local` when you want the app to point at a specific local or deployed API origin. If you do not set it, the mobile app falls back to the Expo dev host with port `4322`.
+
 ## Azure deployment
 
 Recommended first production shape:

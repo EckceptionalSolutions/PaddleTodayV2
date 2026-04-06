@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "api": "tsx src/server/api-server.ts --port 4322",
     "api:watch": "tsx watch src/server/api-server.ts --port 4322",
@@ -15,7 +19,11 @@
     "history:snapshot": "tsx src/server/history-snapshot.ts",
     "snapshots:refresh": "tsx src/server/river-snapshot.ts",
     "start": "tsx src/server/api-server.ts --static dist",
-    "test": "vitest run"
+    "test": "vitest run",
+    "mobile:start": "npm run start --workspace @paddletoday/mobile",
+    "mobile:android": "npm run android --workspace @paddletoday/mobile",
+    "mobile:ios": "npm run ios --workspace @paddletoday/mobile",
+    "mobile:typecheck": "npm run typecheck --workspace @paddletoday/mobile"
   },
   "dependencies": {
     "astro": "^5.17.3",

@@ -177,6 +177,7 @@ export function scoreRiverCondition(args: {
       river: args.river,
       rating,
       gauge: args.gauge,
+      weather: args.weather,
       gaugeAssessment,
       trendAssessment,
       weatherAssessment,
@@ -1540,6 +1541,7 @@ function buildExplanation(args: {
   river: River;
   rating: ScoreRating;
   gauge: GaugeReading;
+  weather: WeatherSnapshot | null;
   gaugeAssessment: { band: string };
   trendAssessment: { detail: string };
   weatherAssessment: { detail: string };
@@ -1548,8 +1550,21 @@ function buildExplanation(args: {
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
 }): string {
+  const coldWeatherDriven =
+    args.rating === 'No-go' &&
+    typeof args.weather?.temperatureF === 'number' &&
+    args.weather.temperatureF <= 40 &&
+    ['ideal', 'minimum-met', 'low-shoulder'].includes(args.gaugeAssessment.band) &&
+    !args.weather?.next12hStormRisk &&
+    (
+      (args.weather?.next12hPrecipProbabilityMax ?? 0) < 70 ||
+      (args.weather?.next12hWindMphMax ?? args.weather?.windMph ?? 0) < 20
+    );
+
   const lead =
-    args.rating === 'Strong'
+    coldWeatherDriven
+      ? `${args.river.name} is in shape, but harsh weather makes it a harder sell today.`
+      : args.rating === 'Strong'
       ? `${args.river.name} looks good today.`
       : args.rating === 'Good'
         ? `${args.river.name} is workable today.`

@@ -225,7 +225,7 @@ const routeStructuredData = {
 
         <div class="river-detail__meta-row">
           <span class="pill" data-field="decision">Checking</span>
-          <span class="pill" data-field="confidence">Checking confidence</span>
+          <span class="pill" data-field="confidence">Checking support</span>
           <span class="pill" data-field="data-status">Checking reads</span>
           <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
           <span class="pill">{river.statusText}</span>
@@ -870,27 +870,27 @@ const routeStructuredData = {
       <details class="river-accordion">
         <summary class="river-accordion__summary">
           <span>
-            <span class="eyebrow section-label">Confidence</span>
-            <strong>Why confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+            <span class="eyebrow section-label">Support level</span>
+            <strong>Why this call is {` `}<span data-field="confidence-detail-label">checking</span></strong>
           </span>
         </summary>
         <div class="river-accordion__body">
           <p class="muted confidence-detail__intro">
-            Confidence comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
+            Support level comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
           </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
               <span class="eyebrow section-label">Why</span>
               <ul class="confidence-rationale" data-confidence-reasons>
-                <li>Checking confidence reasons.</li>
+                <li>Checking support reasons.</li>
               </ul>
             </section>
 
             <section class="confidence-detail__group" data-confidence-warnings-group hidden>
               <span class="eyebrow section-label">Watch for</span>
               <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
-                <li>Checking confidence warnings.</li>
+                <li>Checking support warnings.</li>
               </ul>
             </section>
           </div>
@@ -906,7 +906,7 @@ const routeStructuredData = {
         </summary>
         <div class="river-accordion__body">
           <p class="muted">
-            Conservative directional reads only. Withheld when confidence is too weak.
+            Conservative directional reads only. Withheld when support is too weak.
           </p>
           <div class="outlook-grid" data-outlooks>
             <article class="outlook-card">

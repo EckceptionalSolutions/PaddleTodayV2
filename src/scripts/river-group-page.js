@@ -54,6 +54,13 @@ function decisionLabel(rating) {
   return 'Skip today';
 }
 
+function confidenceDisplayLabel(label) {
+  if (label === 'High') return 'Well-supported';
+  if (label === 'Medium') return 'Some uncertainty';
+  if (label === 'Low') return 'Cautious call';
+  return 'Support unclear';
+}
+
 function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';
@@ -61,7 +68,22 @@ function ratingToneKey(rating) {
 }
 
 function confidenceLabelText(confidence) {
-  return confidence?.label ? `${confidence.label} confidence` : 'Loading confidence';
+  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading support';
+}
+
+function coldWeatherDrivenRoute(route) {
+  const weather = route.weather;
+  const temp = weather?.temperatureF;
+  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
+  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
+
+  return (
+    typeof temp === 'number' &&
+    temp <= 40 &&
+    ['ideal', 'minimum-met', 'low-shoulder'].includes(route.gaugeBand) &&
+    !weather?.next12hStormRisk &&
+    (rainChance < 70 || wind < 20)
+  );
 }
 
 function routeLengthText(route) {
@@ -114,6 +136,7 @@ function weatherSummary(route) {
   const rainChance = weather.next12hPrecipProbabilityMax;
   const precipStartsInHours = weather.next12hPrecipStartsInHours;
   const wind = weather.next12hWindMphMax ?? weather.windMph ?? null;
+  if (coldWeatherDrivenRoute(route)) return 'Cold';
 
   if (weather.next12hStormRisk) return 'Storm risk';
   if (
@@ -145,10 +168,14 @@ function decisionSummary(route) {
     : [];
   const weather = typeof summary.weather === 'string' ? summary.weather.toLowerCase() : '';
   const hasWeatherRisk = weather.includes('rain') || weather.includes('storm') || weather.includes('wind');
+  const hasColdWeather = weather.includes('cold');
   const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
   const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
 
   if (route.rating === 'No-go') {
+    if (coldWeatherDrivenRoute(route) || (hasStableFlow && hasColdWeather)) {
+      return 'River is in shape, but harsh weather lowers today’s call.';
+    }
     if (hasStableFlow && hasWeatherRisk) {
       return 'Good flow, but weather lowers today’s call.';
     }
@@ -156,6 +183,9 @@ function decisionSummary(route) {
   }
 
   if (route.rating === 'Fair') {
+    if (coldWeatherDrivenRoute(route) || hasColdWeather) {
+      return 'Runnable, but harsh weather makes this a tougher trip today.';
+    }
     if (hasWeatherRisk) {
       return 'Workable flow, but weather makes this less reliable today.';
     }
@@ -170,6 +200,9 @@ function decisionSummary(route) {
   }
 
   if (route.rating === 'Good') {
+    if (hasColdWeather) {
+      return 'Solid river conditions, but cold weather still matters today.';
+    }
     if (hasWeatherRisk) {
       return 'Solid flow, but weather adds some caution later today.';
     }
@@ -190,7 +223,14 @@ function supportingNote(route) {
     : [];
   const weather = typeof summary.weather === 'string' ? summary.weather : '';
 
-  if (weather && !summaryText.includes('weather') && !summaryText.includes('rain') && !summaryText.includes('storm') && !summaryText.includes('wind')) {
+  if (
+    weather &&
+    !summaryText.includes('weather') &&
+    !summaryText.includes('rain') &&
+    !summaryText.includes('storm') &&
+    !summaryText.includes('wind') &&
+    !summaryText.includes('cold')
+  ) {
     return weather;
   }
 
@@ -526,7 +566,7 @@ async function renderGroupMap(routes) {
       markerNode.innerHTML = `<span>${route.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${route.reach}: score ${route.score}, confidence ${route.confidence.label}`
+        `${route.reach}: score ${route.score}, ${confidenceDisplayLabel(route.confidence.label).toLowerCase()}`
       );
 
       const marker = new maplibregl.Marker({
@@ -540,6 +580,7 @@ async function renderGroupMap(routes) {
         .addTo(mapRuntime);
 
       bindMarkerPopup(marker, markerNode, {
+        map: mapRuntime,
         onSelectedChange(selected) {
           if (!selected || route.slug === selectedSlug || !currentResult) {
             return;

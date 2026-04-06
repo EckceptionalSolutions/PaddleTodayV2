@@ -768,11 +768,11 @@ function chooseDailySnapshotInsight(overallItems) {
   }
 
   if (highConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.7))) {
-    candidates.push({ text: 'high confidence across top picks', weight: 0.88 });
+    candidates.push({ text: 'well-supported top picks', weight: 0.88 });
   }
 
   if (lowConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
-    candidates.push({ text: "today's calls are less reliable", weight: 0.7 });
+    candidates.push({ text: "today's calls need more judgment", weight: 0.7 });
   }
 
   if (weatherSensitiveCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
@@ -869,8 +869,28 @@ function featuredConditionMarkup(item) {
 function regionStateText(item) {
   return `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`.toUpperCase();
 }
+function confidenceDisplayLabel(label) {
+  if (label === 'High') return 'Well-supported';
+  if (label === 'Medium') return 'Some uncertainty';
+  if (label === 'Low') return 'Cautious call';
+  return 'Support unclear';
+}
 function confidenceLabel(item) {
-  return `${item.cardRoute.confidence.label} confidence`;
+  return confidenceDisplayLabel(item.cardRoute.confidence.label);
+}
+function coldWeatherDrivenCall(item) {
+  const weather = item.cardRoute.weather;
+  const temp = weather?.temperatureF;
+  const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
+  const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
+
+  return (
+    typeof temp === 'number' &&
+    temp <= 40 &&
+    ['ideal', 'minimum-met', 'low-shoulder'].includes(item.cardRoute.gaugeBand) &&
+    !weather?.next12hStormRisk &&
+    (rainChance < 70 || wind < 20)
+  );
 }
 function metaLineText(item, showDistance) {
   const parts = [confidenceLabel(item)];
@@ -892,7 +912,7 @@ function cardLinkLabel(item) {
 
 function summaryMentionsWeather(text) {
   const lowered = typeof text === 'string' ? text.toLowerCase() : '';
-  return lowered.includes('rain') || lowered.includes('storm') || lowered.includes('wind');
+  return lowered.includes('rain') || lowered.includes('storm') || lowered.includes('wind') || lowered.includes('cold');
 }
 
 function summaryMentionsFlowShift(text) {
@@ -968,7 +988,7 @@ function recommendationTagLabels(item, index, nearbyReady) {
   const summary = cardSummary(item).toLowerCase();
 
   if (item.cardRoute.confidence.label === 'High') {
-    tags.push('High confidence');
+    tags.push('Well-supported');
   }
 
   if (nearbyReady && Number.isFinite(item.travelMinutes)) {
@@ -985,6 +1005,8 @@ function recommendationTagLabels(item, index, nearbyReady) {
 
   if (summary.includes('rain') || summary.includes('storm') || summary.includes('windy')) {
     tags.push('Weather watch');
+  } else if (coldWeatherDrivenCall(item)) {
+    tags.push('Cold-weather only');
   }
 
   return Array.from(new Set(tags)).slice(0, 2);
@@ -1000,11 +1022,15 @@ function recommendationSummaryText(item, nearbyReady) {
     : [];
   const weather = typeof summary.weather === 'string' ? summary.weather.toLowerCase() : '';
   const hasWeatherRisk = weather.includes('rain') || weather.includes('storm') || weather.includes('wind');
+  const hasColdWeather = weather.includes('cold');
   const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
   const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
   const shortDrive = nearbyReady && Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30;
 
   if (item.cardRoute.rating === 'No-go') {
+    if (coldWeatherDrivenCall(item) || (hasStableFlow && hasColdWeather)) {
+      return 'River is in shape, but harsh weather lowers today’s call.';
+    }
     if (hasStableFlow && hasWeatherRisk) {
       return 'Good flow, but weather lowers today’s call.';
     }
@@ -1015,6 +1041,9 @@ function recommendationSummaryText(item, nearbyReady) {
   }
 
   if (item.cardRoute.rating === 'Fair') {
+    if (coldWeatherDrivenCall(item) || hasColdWeather) {
+      return 'Runnable, but harsh weather makes this a tougher trip today.';
+    }
     if (hasWeatherRisk) {
       return 'Workable flow, but weather makes this less reliable today.';
     }
@@ -1037,6 +1066,9 @@ function recommendationSummaryText(item, nearbyReady) {
   }
 
   if (item.cardRoute.rating === 'Good') {
+    if (hasColdWeather) {
+      return 'Solid river conditions, but cold weather still matters today.';
+    }
     return 'Solid conditions put this near the top today.';
   }
 
@@ -1330,7 +1362,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     setText(document, 'featured-rating', 'Unavailable');
     setText(document, 'featured-verdict', 'Check back soon');
     setText(document, 'featured-reason', 'Reload the board to see the current recommendation.');
-    setText(document, 'featured-confidence', 'Confidence unavailable');
+    setText(document, 'featured-confidence', 'Support unavailable');
     setText(document, 'featured-distance', 'Distance unavailable');
     setText(document, 'featured-signal', 'Live reads unavailable');
     setText(document, 'featured-explanation', 'Reload the board or open a river page to verify the latest sources.');
@@ -1665,7 +1697,7 @@ function updateFilterSummary(exploreItems) {
       : activeFilters.sort === 'nearest'
         ? 'nearest route'
         : activeFilters.sort === 'highest-confidence'
-          ? 'highest confidence'
+        ? 'best supported'
           : activeFilters.sort === 'lowest-risk'
             ? 'lowest risk'
             : activeFilters.sort === 'a-z'
@@ -1910,7 +1942,7 @@ async function renderSummaryMap(items) {
       markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${item.cardRoute.river.name}: score ${item.cardRoute.score}, confidence ${item.cardRoute.confidence.label}`
+        `${item.cardRoute.river.name}: score ${item.cardRoute.score}, ${confidenceDisplayLabel(item.cardRoute.confidence.label).toLowerCase()}`
       );
 
       const marker = new maplibregl.Marker({
@@ -1923,7 +1955,7 @@ async function renderSummaryMap(items) {
         )
         .addTo(mapRuntime);
 
-      bindMarkerPopup(marker, markerNode);
+      bindMarkerPopup(marker, markerNode, { map: mapRuntime });
       mapMarkers.push(marker);
       bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
       hasBounds = true;

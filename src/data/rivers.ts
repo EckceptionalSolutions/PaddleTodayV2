@@ -250,6 +250,12 @@ export const rivers: River[] = [
         sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
       },
       {
+        label: 'Trail-town amenities',
+        value: 'Lanesboro and Peterson both support launches and parking',
+        note: 'The official DNR Guide to Trail Towns says Lanesboro has a trail center, parking, campground, and public restrooms at the trailhead, while Peterson has a canoe launch plus public restrooms, parking, and a campground in town.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/state_trails/harmony_preston/guide_to_towns.pdf',
+      },
+      {
         label: 'Primary caution',
         value: 'Low water and post-rain debris',
         note: 'Low water means scraping and channel-picking. After rain, current and wood risk rise before a simple score fully captures it.',
@@ -284,6 +290,10 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Root River Peterson Public Water Access',
         url: 'https://www.dnr.state.mn.us/water_access/site.html?id=WAS00265',
+      },
+      {
+        label: 'MN DNR Guide to Trail Towns PDF',
+        url: 'https://files.dnr.state.mn.us/destinations/state_trails/harmony_preston/guide_to_towns.pdf',
       },
       {
         label: 'USGS 05384000 monitoring location',
@@ -345,6 +355,12 @@ export const rivers: River[] = [
         sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root2.pdf',
       },
       {
+        label: 'Trailhead amenities',
+        value: 'Parking, restrooms, campground support',
+        note: 'The official Guide to Trail Towns says both Rushford and Houston offer canoe launch access plus parking and public restrooms, with campground support in each town.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/state_trails/harmony_preston/guide_to_towns.pdf',
+      },
+      {
         label: 'Route character',
         value: 'Gentle to moderate flow',
         note: 'MN DNR describes this stretch as having gentle to moderate flow, with flat water greeting paddlers along much of the route, while noting that water level can vary substantially with rainfall.',
@@ -380,6 +396,10 @@ export const rivers: River[] = [
         url: 'https://files.dnr.state.mn.us/maps/state_trails/rootriver_harmonypreston.pdf',
       },
       {
+        label: 'MN DNR Guide to Trail Towns PDF',
+        url: 'https://files.dnr.state.mn.us/destinations/state_trails/harmony_preston/guide_to_towns.pdf',
+      },
+      {
         label: 'Rushford Peterson Valley visitor info',
         url: 'https://rushfordpetersonvalley.com/visit-the-valley/',
       },
@@ -398,6 +418,223 @@ export const rivers: River[] = [
       {
         label: 'USGS 05385000 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05385000/',
+      },
+    ],
+  },
+  {
+    id: 'root-river-parsley-moens',
+    slug: 'root-river-parsley-moens',
+    name: 'Root River',
+    reach: "Parsley Bridge to Moen's Bridge",
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred band without recent rain turning a pretty easy run into a wood-and-current check?',
+    statusText:
+      'Treat 8.25 ft at Pilot Mound as a conservative minimum, not a hard published cutoff. Around 8.7 ft was described as a strong day, but the app stays minimum-only because the source trail does not define true low and high shoulders.',
+    latitude: 43.7993,
+    longitude: -92.0855,
+    gaugeSource: {
+      id: 'usgs-05383950',
+      provider: 'usgs',
+      siteId: '05383950',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Root River near Pilot Mound, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 8.25,
+      thresholdSource: {
+        label: 'MilesPaddled Root River North Branch guidebook range note',
+        url: 'https://milespaddled.com/root-river-north-branch/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the normal window. This upper North Branch reach gets shallow sooner than the bigger lower Root routes, and fresh rain can change wood and current faster than the easy rating suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly beginner-friendly moving water with riffles and steering, but low-water scraping, sweepers, and cold shoulder-season water still matter.',
+      confidenceNotes:
+        'The route and gauge are both strong, but the numeric model is intentionally conservative. The best published benchmark is the lower edge of a preferred stage band from community guidance, not a manager-published paddling ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route context',
+        value: '13.3 river miles',
+        note: 'MN DNR recommends Parsley Bridge to Moen\'s Bridge as a full-day North Branch Root trip, from Parsley Bridge carry-in access at river mile 78.4 to Moen\'s Bridge carry-in access at river mile 65.3.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'Published preferred band',
+        value: '8.25 to 9.25 ft at Pilot Mound',
+        note: 'MilesPaddled cites an older guidebook preferred range for the North Branch and reports a trip day of 8.7 ft / 550 cfs as close to ideal.',
+        sourceUrl: 'https://milespaddled.com/root-river-north-branch/',
+      },
+      {
+        label: 'Access support',
+        value: 'DNR carry-in accesses at both ends',
+        note: 'DNR Map 1 names Parsley Bridge carry-in access at river mile 78.6 and Moen\'s Bridge carry-in access at river mile 65.3, with a toilet facility and river-level gauge at Moen\'s Bridge.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle to moderate flow with riffles',
+        note: 'MN DNR describes the Root River as having a gentle to moderate flow with some riffles, while warning that levels vary substantially with rainfall.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf',
+      },
+      {
+        label: 'On-route campsite support',
+        value: 'Pilot Mound campsites',
+        note: 'DNR Map 1 lists Pilot Mound campsites on this reach with picnic tables and pit toilets, which supports treating this as a possible overnight corridor even though the product fit is still mainly day-trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '8.25 ft',
+        note: 'The app uses the lower edge of the published preferred band as a cautious floor because the source trail does not define a separate hard minimum below it.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Root River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/index.html',
+      },
+      {
+        label: 'MN DNR Root River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Root River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf',
+      },
+      {
+        label: 'MN DNR Root River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'USGS 05383950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05383950/',
+      },
+      {
+        label: 'MilesPaddled Root River North Branch',
+        url: 'https://milespaddled.com/root-river-north-branch/',
+      },
+    ],
+  },
+  {
+    id: 'root-river-moens-whalan',
+    slug: 'root-river-moens-whalan',
+    name: 'Root River',
+    reach: "Moen's Bridge to Whalan",
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Classic bluff-country Root day where the branches gather, the valley opens up, and the decision stays practical: is Lanesboro comfortably above late-low-water conditions without recent rain turning an easy family-style trip into a debris check?',
+    statusText:
+      'Treat about 300 cfs at Lanesboro as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the gauge story is still stronger on the low side than on the high side.',
+    latitude: 43.7692,
+    longitude: -91.9748,
+    gaugeSource: {
+      id: 'usgs-05384000',
+      provider: 'usgs',
+      siteId: '05384000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Root River near Lanesboro, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Conservative low-water floor from same-gauge Root River community guidance',
+        url: 'https://milespaddled.com/root-river-i/',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the normal window. This is a friendlier Root day than many tiny creeks, but low water still slows the trip down and fresh rain still raises debris and current risk before the score fully captures it.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly approachable moving water with some riffles, but long mileage, shallow spots, and cold shoulder-season conditions keep it from being a blind yes.',
+      confidenceNotes:
+        'The route itself is very strong, and the gauge is on the route. Numeric confidence is lower because the best same-gauge benchmark comes from a nearby downstream trip report rather than a published paddling ladder for Moen\'s Bridge to Whalan itself.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route context',
+        value: '15.8 river miles',
+        note: 'MN DNR recommends Moen\'s Bridge to Whalan as a full-day Root trip, from Moen\'s Bridge carry-in access at river mile 65.3 to Whalan carry-in access at river mile 49.3.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'Access support',
+        value: 'Moen\'s carry-in; Whalan parking 500 feet away',
+        note: 'DNR Map 1 names Moen\'s Bridge carry-in access at river mile 65.3 with a toilet facility and says the Whalan carry-in access at river mile 49.5 has parking 500 feet away.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'South Branch joins above Whalan; gentle to moderate flow',
+        note: 'The Root River map says the South Branch joins above Whalan and that the Root has gentle to moderate flow with some riffles while varying substantially with rainfall.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf',
+      },
+      {
+        label: 'Known river hazard',
+        value: 'Old bridge debris near Whalan',
+        note: 'DNR Map 1 flags underwater old bridge debris near river mile 49.9 just above the Whalan finish, which is useful route-specific caution beyond the generic low-water and wood notes.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'Same-gauge low benchmark',
+        value: '300 cfs = recommended, but low',
+        note: 'MilesPaddled treats 300 cfs at the Lanesboro gauge as recommended but low on the nearby Lanesboro to Peterson route. The app uses that exact same-gauge reading as a cautious floor here rather than claiming a tighter target band.',
+        sourceUrl: 'https://milespaddled.com/root-river-i/',
+      },
+      {
+        label: 'Whalan logistics',
+        value: 'Street parking in town',
+        note: 'MN DNR state-trail guidance says parking in Whalan is on city streets, which is useful context for the take-out plan even though the river access itself is separate from the trailhead page.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state_trails/root_river/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Root River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/index.html',
+      },
+      {
+        label: 'MN DNR Root River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/rootriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Root River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root.pdf',
+      },
+      {
+        label: 'MN DNR Root River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/root1.pdf',
+      },
+      {
+        label: 'MN DNR Root River State Trail page',
+        url: 'https://www.dnr.state.mn.us/state_trails/root_river/index.html',
+      },
+      {
+        label: 'USGS 05384000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05384000/',
+      },
+      {
+        label: 'MilesPaddled Root River I',
+        url: 'https://milespaddled.com/root-river-i/',
       },
     ],
   },
@@ -665,6 +902,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'namekagon-river-big-bend-trego',
+    slug: 'namekagon-river-big-bend-trego',
+    name: 'Namekagon River',
+    reach: 'Big Bend Landing to Trego Town Park',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above the scrape zone without current conditions hinting at a high-water day?',
+    statusText:
+      'Treat about 150 cfs at Leonards as the practical floor. NPS calls 150 to 230 cfs normal and 650+ cfs high, but the app stays conservative and uses this route as a minimum-only call because that gauge is an upstream same-river reference rather than an exact reach gauge.',
+    latitude: 45.92135,
+    longitude: -91.78778,
+    gaugeSource: {
+      id: 'usgs-05331833',
+      provider: 'usgs',
+      siteId: '05331833',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Namekagon River at Leonards, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 150,
+      thresholdSource: {
+        label: 'NPS Namekagon current-conditions normal level at Leonards',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'low',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the main window. This middle Namekagon trip is usually floatable through the season, but lower rainfall can turn the islanded Trego approach into a scrape-and-pick-your-channel finish.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly friendly for newer paddlers, with only occasional rock gardens and one quicker stretch near Highway 63. Low water and busy tubing traffic are more likely to degrade the day than technical difficulty.',
+      confidenceNotes:
+        'The route, access points, and flow context are all supported by the National Park Service. Confidence is still capped below absolute because the live gauge sits upstream at Leonards, so the app only claims a conservative minimum rather than a route-specific sweet spot.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official trip detail',
+        value: '7.7 miles; 2 to 4 hours',
+        note: 'NPS lists Big Bend to Trego as an easy middle-Namekagon trip with occasional riffles and rock gardens.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm',
+      },
+      {
+        label: 'Official level context',
+        value: '150 to 230 cfs normal; 650+ cfs high',
+        note: 'The NPS current-conditions dataset uses the Leonards gauge as the Namekagon river-level reference and publishes 150 to 230 cfs as Normal Level with High Level above 650 cfs.',
+        sourceUrl:
+          'https://www.nps.gov/common/uploads/sortable_dataset/sacn/A0AA7297-9A93-D166-BA7CC72680163EB0/A0AA7297-9A93-D166-BA7CC72680163EB0.json',
+      },
+      {
+        label: 'Route character',
+        value: 'Easy with occasional rock gardens',
+        note: 'NPS says the first half is lazy and sandy, the stretch near Earl Park is more scenic and popular, and quicker current appears as the river approaches Highway 63 in Trego.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm',
+      },
+      {
+        label: 'Low-water caution',
+        value: 'Scraping possible near the islands below Highway 63',
+        note: 'NPS says this stretch is generally floatable throughout the season, but low-rainfall periods can require scraping or walking, especially after Highway 63 near the islands.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm',
+      },
+      {
+        label: 'Access quality',
+        value: 'NPS landings and town-park finish',
+        note: 'NPS Section Map 2 names Big Bend Landing and Trego Town Park Landing, and the Town of Trego confirms its campground sits on the Namekagon River at the take-out area.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/maps.htm',
+      },
+      {
+        label: 'Useful amenities',
+        value: '4 campsites; potable water at Earl Park Landing',
+        note: 'NPS lists four campsites on this trip, including group-site support and potable water at Earl Park Landing.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Big Bend to Trego trip page',
+        url: 'https://www.nps.gov/sacn/planyourvisit/bigbend-trego.htm',
+      },
+      {
+        label: 'NPS current conditions',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+      },
+      {
+        label: 'NPS Namekagon current-conditions dataset JSON',
+        url: 'https://www.nps.gov/common/uploads/sortable_dataset/sacn/A0AA7297-9A93-D166-BA7CC72680163EB0/A0AA7297-9A93-D166-BA7CC72680163EB0.json',
+      },
+      {
+        label: 'NPS Namekagon Section Map 2 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-2_Namekagon_Hayward-Landing-to-Trego-Namekagon_2024_508.pdf',
+      },
+      {
+        label: 'NPS Namekagon River overview',
+        url: 'https://www.nps.gov/sacn/planyourvisit/namekagon-river.htm',
+      },
+      {
+        label: 'USGS 05331833 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331833/',
+      },
+      {
+        label: 'Town of Trego park and campground',
+        url: 'https://townoftregowi.com/parks-recreation',
+      },
+    ],
+  },
+  {
     id: 'st-croix-river-fox-highway-70',
     slug: 'st-croix-river-fox-highway-70',
     name: 'St. Croix River',
@@ -914,6 +1261,12 @@ export const rivers: River[] = [
         note: 'DNR notes you can shorten the route by starting or ending at the Highway 14 carry-in access if you do not want the full Walbo-to-Cambridge day.',
         sourceUrl: 'https://www.dnr.state.mn.us/watertrails/rumriver/segments-maps.html',
       },
+      {
+        label: 'Cambridge endpoint detail',
+        value: 'West Park parking; 5 a.m. to 10 p.m.',
+        note: 'The official Spirit River Nature Area map shows West Park at the Cambridge endpoint and lists the park-hours window as 5 a.m. to 10 p.m.',
+        sourceUrl: 'https://www.ci.cambridge.mn.us/home/showpublisheddocument/128/636898412699200000',
+      },
     ],
     sourceLinks: [
       {
@@ -939,6 +1292,10 @@ export const rivers: River[] = [
       {
         label: 'Cambridge parks overview',
         url: 'https://www.ci.cambridge.mn.us/amenities-fun/parks',
+      },
+      {
+        label: 'Cambridge Spirit River Nature Area map PDF',
+        url: 'https://www.ci.cambridge.mn.us/home/showpublisheddocument/128/636898412699200000',
       },
       {
         label: 'Isanti County parks overview',
@@ -1824,6 +2181,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://www.winneshiekwild.com/park-trail/upper-iowa-river',
       },
       {
+        label: 'Kendallville staging',
+        value: 'County park access and campground',
+        note: 'The Winneshiek County paddlers guide lists Kendallville Park Access and campground support, which strengthens the upstream endpoint as a real staging access rather than just a dropped pin.',
+        sourceUrl: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+      },
+      {
+        label: 'Decorah take-out support',
+        value: 'City-park canoe access shown',
+        note: 'Decorah park materials show canoe access in the Ice Cave park corridor at the city finish, which is stronger than treating the take-out as an undocumented local landing.',
+        sourceUrl: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
+      },
+      {
         label: 'Flood caution',
         value: 'Rain matters quickly',
         note: 'Fast rises and fresh wood after storms lower confidence because the high end is still not well defined.',
@@ -1850,6 +2219,14 @@ export const rivers: River[] = [
       {
         label: 'Iowa DNR Water Trails',
         url: 'https://www.iowadnr.gov/Places-to-Go/Water-Trails',
+      },
+      {
+        label: 'Winneshiek County Upper Iowa paddlers guide PDF',
+        url: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+      },
+      {
+        label: 'Decorah parks trail guide PDF',
+        url: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
       },
     ],
   },
@@ -2233,6 +2610,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://waterdata.usgs.gov/nwis/uv/?site_no=05407468&PARAmeter_cd=00065,00060',
       },
       {
+        label: 'Landing management',
+        value: 'Landing 12 requires a KVR parking permit',
+        note: 'Kickapoo Valley Reserve says vehicles parked at river access sites including Landing 12 must display a KVR day-use, annual, camping, or vehicle-parking permit.',
+        sourceUrl: 'https://kvr.state.wi.us/Recreation/Hunt-Fish-Trap',
+      },
+      {
+        label: 'Access map support',
+        value: 'Official Upper Kickapoo access map available',
+        note: 'Kickapoo Valley Reserve publishes an Upper Kickapoo River Access and Campsite Map, which materially strengthens Landing 12 as an official managed access rather than a vague legacy take-out.',
+        sourceUrl: 'https://kvr.state.wi.us/Recreation/Maps',
+      },
+      {
         label: 'Difficulty',
         value: 'Moderate',
         note: 'Shallow riffles and occasional Class I current keep this from being a pure easy float even when the gauge is workable.',
@@ -2258,6 +2647,18 @@ export const rivers: River[] = [
       {
         label: 'Wisconsin DNR boat access inventory',
         url: 'https://dnr.wisconsin.gov/topic/lands/boataccess',
+      },
+      {
+        label: 'Kickapoo Valley Reserve Hunt Fish Trap',
+        url: 'https://kvr.state.wi.us/Recreation/Hunt-Fish-Trap',
+      },
+      {
+        label: 'Kickapoo Valley Reserve Maps',
+        url: 'https://kvr.state.wi.us/Recreation/Maps',
+      },
+      {
+        label: 'Village of Ontario',
+        url: 'https://ontariowi.com/',
       },
     ],
   },
@@ -2496,6 +2897,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://milespaddled.com/upper-iowa-river-vi/',
       },
       {
+        label: 'Trout Run launch support',
+        value: 'Decorah park-system canoe access',
+        note: 'Decorah park materials show canoe access in the Trout Run / Ice Cave corridor, which materially improves confidence in the city-side launch.',
+        sourceUrl: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
+      },
+      {
+        label: 'Lower Dam access support',
+        value: 'Popular public access below Decorah',
+        note: 'Iowa DNR Fish Iowa treats Lower Dam as a popular public access roughly 11 miles northeast of Decorah, which is stronger endpoint support than the old route notes alone.',
+        sourceUrl: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RUI03',
+      },
+      {
         label: 'Difficulty',
         value: 'Easy',
         note: 'Comfortable for newer paddlers at workable levels if they are prepared for the mileage and portage.',
@@ -2509,6 +2922,18 @@ export const rivers: River[] = [
       {
         label: 'USGS 05387500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/05387500/',
+      },
+      {
+        label: 'Iowa DNR Fish Iowa Upper Iowa above Decorah',
+        url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RUI96',
+      },
+      {
+        label: 'Iowa DNR Fish Iowa Upper Iowa below Decorah',
+        url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RUI03',
+      },
+      {
+        label: 'Decorah parks trail guide PDF',
+        url: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
       },
     ],
   },
@@ -2717,6 +3142,125 @@ export const rivers: River[] = [
       {
         label: 'MilesPaddled Milwaukee River I',
         url: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+    ],
+  },
+  {
+    id: 'milwaukee-river-waubedonia-veterans',
+    slug: 'milwaukee-river-waubedonia-veterans',
+    name: 'Milwaukee River',
+    reach: 'Waubedonia Park to Veterans Memorial Park',
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      'Longer lower-Milwaukee day with mostly easy current, a few livelier upper stretches, and a simple main question first: is Cedarburg comfortably above the skinny-water floor without levels climbing high enough to turn a mellow day into a murkier faster river run?',
+    statusText:
+      'Treat about 390 cfs at Cedarburg as a conservative floor. This route can work below the high-water zone, but the source trail is still much stronger on the low side than on a polished ideal band.',
+    latitude: 43.39525,
+    longitude: -87.96133,
+    gaugeSource: {
+      id: 'usgs-04086600',
+      provider: 'usgs',
+      siteId: '04086600',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Milwaukee River near Cedarburg, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 390,
+      thresholdSource: {
+        label: 'Conservative same-gauge floor from Milwaukee River community trip reports',
+        url: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the main window. Summer still works, but this longer lower-river shuttle loses quality quickly when the gauge slips toward scrape range or when fresh rain muddies the river and speeds it up.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly straightforward moving water, but one longer day, intermittent riffles, and an upper ledge-like feature keep it from being a pure flatwater float.',
+      confidenceNotes:
+        'The access points and direct gauge are solid. The weakest part is still the threshold model: the app can defend a same-gauge low-water floor and some high-water caution, but not a clean ideal band for this exact reach yet.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: '13.25 river miles',
+        note: 'MilesPaddled documents Waubedonia Park to Veterans Memorial Park as a 13.25-mile downstream Milwaukee River shuttle.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-vi/',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '390 cfs',
+        note: 'The app carries forward the same Cedarburg-gauge minimum used on the immediately upstream Newburg to Waubedonia route. That same-gauge floor is a safer low-side call than pretending this lower route has its own clean published minimum.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      {
+        label: 'High-water reference day',
+        value: '760 cfs = high',
+        note: 'MilesPaddled reports this Waubedonia-to-Grafton run at about 760 cfs on the Cedarburg gauge and describes the river as high that day.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-vi/',
+      },
+      {
+        label: 'Supplemental downstream context',
+        value: '101 to 200 cfs low side; 801+ cfs maybe too high',
+        note: 'Wisconsin River Trips treats the Thiensville stretch of the same river and same gauge as low but navigable around 101 to 200 cfs, average at 201 to 300 cfs, and potentially too high for enjoyable paddling above about 801 cfs. That is useful context, but not a route-specific standard for this whole Waubedonia-to-Grafton corridor.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/thiensville',
+      },
+      {
+        label: 'Route character',
+        value: 'Light rapids upstream; more suburban and flowage paddling near Grafton',
+        note: 'Wisconsin River Trips’ Milwaukee overview breaks this corridor into a livelier Waubedonia-to-Ehlers section and a slower Grafton Canoe Launch-to-Veterans section with only minor rapids in the upper stretch.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river',
+      },
+      {
+        label: 'Access quality',
+        value: 'County-park launch to village canoe/kayak park',
+        note: 'Waubedonia Park has a public boat/canoe/kayak launch, and Veterans Memorial Park has a village canoe/kayak launch plus adjacent parking.',
+        sourceUrl: 'https://www.villageofgraftonwi.gov/267/Veterans-Memorial-Park',
+      },
+      {
+        label: 'Official park operations',
+        value: 'Waubedonia 6 a.m. to 9 p.m.; public launch at no cost',
+        note: 'Ozaukee County says Waubedonia is open to day visitors from 6 a.m. to 9 p.m. and that boats, canoes, and kayaks are welcome at the public launch at no cost.',
+        sourceUrl: 'https://www.ozaukeecounty.gov/670/Waubedonia-Park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Ozaukee County Waubedonia Park page',
+        url: 'https://www.ozaukeecounty.gov/670/Waubedonia-Park',
+      },
+      {
+        label: 'Ozaukee County Waubedonia Park',
+        url: 'https://www.ozaukeecounty.gov/Facilities/Facility/Details/Waubedonia-Park-9',
+      },
+      {
+        label: 'Village of Grafton Veterans Memorial Park',
+        url: 'https://www.villageofgraftonwi.gov/267/Veterans-Memorial-Park',
+      },
+      {
+        label: 'USGS 04086600 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee overview',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river',
+      },
+      {
+        label: 'Wisconsin River Trips Milwaukee River Thiensville',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/thiensville',
+      },
+      {
+        label: 'MilesPaddled Milwaukee River I',
+        url: 'https://milespaddled.com/milwaukee-river-i/',
+      },
+      {
+        label: 'MilesPaddled Milwaukee River VI',
+        url: 'https://milespaddled.com/milwaukee-river-vi/',
       },
     ],
   },

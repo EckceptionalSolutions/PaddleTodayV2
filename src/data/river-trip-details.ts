@@ -82,11 +82,11 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special paddling permit is known for this state water-trail day trip. Confirm any local parking rules at both Hwy 16 accesses.',
       camping:
-        'Treat this as a day trip unless you separately book local lodging or campground options in Lanesboro or Peterson.',
+        'Official trail-town guidance says both Lanesboro and Peterson offer campground support, so this can work as either a straight day trip or a lower-friction overnight base.',
       summary:
         'Put in at the Hwy 16 access in Lanesboro and take out at the Hwy 16 access in Peterson. This is one of the cleaner Root River shuttle days, but low-water riffles and changing access details still deserve a same-day check.',
       accessCaveats: [
-        'Both endpoints are supported by MN DNR public water access records, but parking details and any local restrictions are still best confirmed on arrival.',
+        'Both endpoints are supported by MN DNR public water access records, and trail-town guidance adds parking and restroom support in both Lanesboro and Peterson, but same-day signage still deserves a check.',
         'Do not assume every roadside pull-off near the bridge is valid long-term parking without checking signage.',
       ],
       watchFor: [
@@ -114,7 +114,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. State-trail use is straightforward for walking or biking the shuttle, but still follow posted local parking and trail rules.',
       camping:
-        'Houston Nature Center / Trailhead Park offers tent camping and hot showers, which makes the take-out especially useful if you want to turn this into an overnight-plus-day-paddle plan. Otherwise treat it as a long day trip.',
+        'Houston Nature Center / Trailhead Park offers tent camping and hot showers, and official trail-town guidance also points to campground support in both Rushford and Houston. Otherwise treat this as a long day trip.',
       summary:
         'Launch at the Rushford carry-in and finish at the Houston carry-in near the Houston Nature Center. The route is friendly at workable flow, but it is long enough that low-water slowdowns and fresh wood can change the day substantially.',
       accessCaveats: [
@@ -126,6 +126,72 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low-water riffles and slower progress when the Houston gauge is near the floor.',
         'Fresh sweepers, strainers, or debris after rain.',
         'Long-mileage fatigue and cold-water exposure outside midsummer.',
+      ],
+    },
+  },
+  'root-river-parsley-moens': {
+    putIn: {
+      name: 'Parsley Bridge carry-in access',
+      latitude: 43.81641,
+      longitude: -92.13924,
+    },
+    takeOut: {
+      name: "Moen's Bridge carry-in access",
+      latitude: 43.78218,
+      longitude: -92.03188,
+    },
+    logistics: {
+      distanceLabel: '13.25 mi',
+      shuttle:
+        'Two-car shuttle is simplest. The road shuttle is around 10 miles on hillier Driftless roads, so it is less bike-friendly than the lower Root corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted bridge-access and parking rules at both carry-in points.',
+      camping:
+        'Pilot Mound campsites sit along this stretch if you are intentionally turning it into an overnight, but for most paddlers this is a full scenic day trip.',
+      summary:
+        'Launch at Parsley Bridge and finish at Moen\'s Bridge for an upper-North-Branch Root day with riffles, bluffs, and a more secluded feel than the bigger lower Root routes.',
+      accessCaveats: [
+        'Both endpoints are bridge carry-ins rather than polished ramp launches, so expect a short carry and verify where parking is actually acceptable before unloading boats.',
+        'Moen\'s Bridge is the cleaner endpoint and the DNR map notes a toilet facility there, but it is still best to look at the take-out before launching.',
+        'Do not assume shoulder parking at Parsley is generous or obvious without checking the site in person.',
+      ],
+      watchFor: [
+        'Shallow riffles and scrape risk when Pilot Mound is near the floor.',
+        'Fresh wood or sweepers on blind bends after rain.',
+        'Longer shuttle friction and cold-water exposure outside midsummer.',
+      ],
+    },
+  },
+  'root-river-moens-whalan': {
+    putIn: {
+      name: "Moen's Bridge carry-in access",
+      latitude: 43.782576,
+      longitude: -92.0317899,
+    },
+    takeOut: {
+      name: 'Whalan carry-in access',
+      latitude: 43.7558,
+      longitude: -91.9179,
+    },
+    logistics: {
+      distanceLabel: '15.8 mi',
+      shuttle:
+        'Two-car shuttle is simplest. A bike shuttle is more realistic here than on the upper Chatfield reach because the Root River State Trail and local roads help, but it is still a real full-day setup.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted parking and access rules at Moen\'s Bridge and in Whalan.',
+      camping:
+        'Treat this as a day trip unless you are intentionally using DNR campsites like Power Plant or other planned overnight stops on the Root corridor.',
+      summary:
+        'Put in at Moen\'s Bridge and take out at Whalan for one of the cleaner long Root River shuttles: scenic bluff country, approachable current, and enough mileage that low water or fresh debris can still change the day substantially.',
+      accessCaveats: [
+        'Moen\'s Bridge is a carry-in access, not a drive-to-water ramp, so expect a short carry and verify parking before unloading.',
+        'The DNR Root map says Whalan parking is 500 feet from the carry-in access, and state-trail guidance says town parking is on city streets, so settle the vehicle plan before you launch.',
+        'Look at the Whalan finish before launching if you have not used it before, because the take-out is easy to treat like a casual town stop when it is really a specific carry-in access.',
+      ],
+      watchFor: [
+        'Shallow riffles and slower pace when Lanesboro is near the floor.',
+        'Old bridge debris near Whalan and fresh wood after storms.',
+        'Long-mileage fatigue on a route that stays easy but not short.',
       ],
     },
   },
@@ -225,6 +291,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'namekagon-river-big-bend-trego': {
+    putIn: {
+      name: 'Big Bend Landing',
+      latitude: 45.9320719,
+      longitude: -91.7516647,
+    },
+    takeOut: {
+      name: 'Trego Town Park Landing',
+      latitude: 45.9106187,
+      longitude: -91.8238907,
+    },
+    logistics: {
+      distanceLabel: '7.7 mi',
+      shuttle:
+        'Short paved-road shuttle in the Trego area. Several local outfitters run Big Bend, Earl, and Trego shuttles, but a simple two-car setup is easy if you are self-supporting.',
+      permits:
+        'No day-trip permit is noted. Follow St. Croix National Scenic Riverway rules at landings and any posted town-park or campground rules at the Trego finish.',
+      camping:
+        'NPS lists four campsites along this trip, including group-site support and potable water at Earl Park Landing. Trego Town Park Campground is also at the take-out corridor if you want to turn this into a low-friction overnight.',
+      summary:
+        'Put in at Big Bend Landing and take out at Trego Town Park Landing. Expect a mellow wooded first half, a prettier busier stretch past Earl Park, and a slower braided finish toward Trego that gets scratchier first when the river is low.',
+      accessCaveats: [
+        'Do not confuse the Trego Town Park finish with the permanently closed Lakeside Road picnic area and parking lot called out on the NPS maps page.',
+        'Trego Town Park is part of an active campground corridor, so summer parking and launch space can feel busier than a quiet roadside landing.',
+        'This route is beginner-friendly by Riverway standards, but the take-out still deserves a same-day look if your group has not used the Trego landing before.',
+      ],
+      watchFor: [
+        'Occasional rock gardens and one quicker stretch near Highway 63.',
+        'Scraping or channel-picking around the islands below Highway 63 in lower water.',
+        'Tubing traffic and landing congestion around Earl Park and Trego on hot summer weekends.',
+      ],
+    },
+  },
   'st-croix-river-fox-highway-70': {
     putIn: {
       name: 'Fox Landing',
@@ -311,7 +410,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       summary:
         'Put in at Walbo and take out at Cambridge West Park for a long but friendly middle-Rum day. This is one of the cleaner beginner/intermediate river shuttles in central Minnesota when the downstream proxy gauge is clearly above scrape territory.',
       accessCaveats: [
-        'Cambridge West Park is a managed park endpoint, so parking rules and park-hours details still deserve a same-day check.',
+        'Cambridge West Park is a managed park endpoint, and the official Cambridge park map shows a 5 a.m. to 10 p.m. park-hours window, so plan vehicle timing accordingly.',
+        'Becklin Homestead WMA / County Park can work as a mid-route stop or alternate logistics point, but seasonal managed-hunt restrictions still deserve a same-day check.',
         'Do not over-read the St. Francis gauge. It is a useful same-river proxy, but it is still downstream of this reach rather than on it.',
       ],
       watchFor: [
@@ -857,13 +957,13 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       distanceLabel: '16.5 mi',
       shuttle:
         'Arrange a car shuttle between Kendallville and Decorah or use an outfitter.',
-      permits: 'No permit is known for a basic day paddle. Confirm local park or access rules.',
+      permits: 'No permit is known for a basic day paddle. Follow county-park and city-park access rules at Kendallville and the Decorah finish.',
       camping:
         'Kendallville is a convenient campground staging point. Other overnight options exist along the corridor if you plan ahead.',
       summary:
         'This is a long Driftless day with county-park staging at Kendallville and a Decorah finish. Low water hurts trip quality well before it becomes unsafe.',
       accessCaveats: [
-        'Kendallville is a good staging access, but confirm the Decorah take-out landing and parking details before you launch.',
+        'Kendallville is a strong staging access with county campground support, and Decorah park materials show canoe access at the city finish, but parking layout still deserves a same-day look.',
         'This is a long day for beginners, so consider splitting it if your group is new.',
       ],
       watchFor: [
@@ -1075,14 +1175,14 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       shuttle:
         'Two-car shuttle is standard between Ontario and Rockton. Both endpoints appear in the Wisconsin DNR boat-access inventory, but it is still worth confirming parking and landing rules before you leave a vehicle.',
       permits:
-        'No route-specific permit is identified. Standard Wisconsin paddling rules appear to apply, but site-specific parking fees, hours, or seasonal closures are not fully confirmed.',
+        'Kickapoo Valley Reserve requires a day-use, annual, camping, or vehicle-parking permit for vehicles left at Landing 12. Standard Wisconsin paddling rules otherwise apply.',
       camping:
         'Camping was not confirmed for this exact reach during the route audit. Treat it as a day trip unless you independently confirm a legal overnight option.',
       summary:
         'Put in at the Village of Ontario public canoe landing and take out at Landing 12 near Rockton. This is a classic Driftless day with riffles and occasional Class I, but it becomes a scrape-heavy grind quickly if you launch below the published low-water floor.',
       accessCaveats: [
-        'Both landings are publicly managed carry-in accesses, but the old route work did not fully confirm day-of-use rules, hours, or parking fees.',
-        'Landing 12 is tied to Kickapoo Valley Reserve management in the old source set, so confirm any local landing guidance before you leave a shuttle vehicle.',
+        'Both landings are publicly managed carry-in accesses, and Landing 12 is clearly under Kickapoo Valley Reserve management rather than a vague roadside take-out.',
+        'Use current KVR maps and permit guidance before leaving a vehicle at Landing 12, because that matters more here than on a casual town-park shuttle.',
         'This is a longer shuttle than the seed-set average, so settle pickup timing before you put on.',
       ],
       watchFor: [
@@ -1108,14 +1208,14 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       shuttle:
         'Expect about a 9.7-mile vehicle or bike shuttle. Miles Paddled treats this as a real full-day reach, so set the pickup plan and turnaround time before launching.',
       permits:
-        'No permit is noted for standard day paddling. Confirm Trout Run Park signage and any Lower Dam road or landing restrictions on arrival.',
+        'No permit is noted for standard day paddling. Follow city-park rules at Trout Run and any posted county or state access rules at Lower Dam.',
       camping:
         'No developed on-route camping is documented for this segment. Plan lodging or camping separately rather than assuming a legal overnight stop.',
       summary:
         'Launch at Trout Run Park and finish at the Lower Dam access below Decorah. This is a scenic beginner-friendly Upper Iowa day, but the 13-mile length, low-water scraping risk, and the marked dam portage still make it a real commitment.',
       accessCaveats: [
-        'Locate the Trout Run Park launch near Trout Run\'s confluence before unloading because the park area is larger than a single roadside landing.',
-        'The Lower Dam road and take-out are more primitive than the city-side put-in, and the old route notes describe the road as narrow in places.',
+        'Decorah park materials show canoe access in the Trout Run corridor, but the park is still big enough that you should locate the launch before unloading.',
+        'Iowa DNR treats Lower Dam as a real public access, but it is still more primitive than the city-side put-in and deserves a same-day look.',
         'Treat this as a full-day shuttle-and-portage plan, not a casual quick float.',
       ],
       watchFor: [
@@ -1187,6 +1287,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Scraping or short wades when Cedarburg drops toward the minimum floor.',
         'Mild riffles and shallow gravel runs that still need boat control.',
         'Fresh wood after storms and cold water outside summer.',
+      ],
+    },
+  },
+  'milwaukee-river-waubedonia-veterans': {
+    putIn: {
+      name: 'Waubedonia Park (Fredonia)',
+      latitude: 43.46838,
+      longitude: -87.97317,
+    },
+    takeOut: {
+      name: 'Veterans Memorial Park (Grafton)',
+      latitude: 43.32211,
+      longitude: -87.94948,
+    },
+    logistics: {
+      distanceLabel: '13.25 mi',
+      shuttle:
+        'Plan a straightforward two-car shuttle of roughly 12 road miles. A bike shuttle is possible, but it is long enough that most groups will prefer the simpler car setup.',
+      permits:
+        'No route-specific permit is identified. Follow posted park, launch, and parking rules at Waubedonia Park and Veterans Memorial Park.',
+      camping:
+        'Waubedonia Park offers seasonal rustic camping by reservation. Otherwise treat this as a day trip with no assumed legal riverbank camping.',
+      summary:
+        'Start at Waubedonia Park and finish at Veterans Memorial Park for a longer lower-Milwaukee day with a mix of light rapids up top and slower suburban river miles near Grafton.',
+      accessCaveats: [
+        'Waubedonia is a clean county-park launch, and the county says the park is open to day visitors from 6 a.m. to 9 p.m., but campground activity and event use can still change how easy the parking feels.',
+        'Veterans Memorial Park is a village launch with adjacent parking rather than a large isolated landing, so expect more neighborhood context and less room to spread out gear.',
+        'This route is long enough that a slightly too-low river can quietly turn into a slow frustrating day, so do not treat the gauge as an afterthought.',
+      ],
+      watchFor: [
+        'Scraping or shallow riffles when Cedarburg falls toward the floor.',
+        'One ledge-like upper-river feature plus scattered light rapids that deserve a quick look if levels are high.',
+        'Murky faster current after rain and boat traffic closer to Grafton.',
       ],
     },
   },
