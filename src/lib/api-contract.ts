@@ -1,5 +1,6 @@
 import type {
   RiverScoreResult,
+  ForecastWindow,
 } from './types';
 import type { RiverHistoryResult } from './history';
 import type {
@@ -7,12 +8,14 @@ import type {
   RiverGroupApiResult,
   RiverHistoryApiResult,
   RiverSummaryApiItem,
+  WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
 export type {
   RiverDetailApiResult,
   RiverGroupApiResult,
   RiverHistoryApiResult,
   RiverSummaryApiItem,
+  WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
 
 export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryApiItem {
@@ -61,6 +64,50 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
         difficultyFactor?.value === 'Hard'
           ? 'Hard difficulty'
           : thresholdEvidenceFactor?.value ?? 'Evidence unavailable',
+    },
+    generatedAt: result.generatedAt,
+  };
+}
+
+export function serializeWeekendSummaryResult(result: RiverScoreResult): WeekendSummaryApiItem | null {
+  const weekend = result.outlooks.find((outlook) => outlook.id === 'weekend');
+  if (!weekend || weekend.availability !== 'available' || weekend.score == null || weekend.rating == null || !weekend.confidence) {
+    return null;
+  }
+
+  return {
+    river: {
+      riverId: result.river.riverId,
+      slug: result.river.slug,
+      name: result.river.name,
+      reach: result.river.reach,
+      state: result.river.state,
+      region: result.river.region,
+      latitude: result.river.latitude,
+      longitude: result.river.longitude,
+      distanceLabel: result.river.logistics?.distanceLabel ?? '',
+    },
+    current: {
+      score: result.score,
+      rating: result.rating,
+      gaugeBandLabel: result.gaugeBandLabel,
+    },
+    weekend: {
+      label: weekend.label,
+      score: weekend.score,
+      rating: weekend.rating,
+      confidence: weekend.confidence,
+      explanation: weekend.explanation,
+      summary: weekendSummaryText(result, weekend.rating),
+      signalLine: weekendSignalLine(result),
+    },
+    liveData: {
+      overall: result.liveData.overall,
+      summary: result.liveData.summary,
+      gaugeState: result.liveData.gauge.state,
+      gaugeDetail: result.liveData.gauge.detail,
+      weatherState: result.liveData.weather.state,
+      weatherDetail: result.liveData.weather.detail,
     },
     generatedAt: result.generatedAt,
   };
@@ -331,4 +378,87 @@ function compactFreshnessText(result: RiverScoreResult): string {
         : 'Weather offline';
 
   return `${gaugeState}. ${weatherState}.`;
+}
+
+function weekendSummaryText(result: RiverScoreResult, rating: WeekendSummaryApiItem['weekend']['rating']): string {
+  const weekendWindow = result.weather?.weekend;
+  const weatherRisk = weekendWeatherRisk(weekendWindow);
+  const favorableTrend =
+    (result.gauge?.trend === 'rising' && ['too-low', 'low-shoulder', 'minimum-met'].includes(result.gaugeBand)) ||
+    (result.gauge?.trend === 'falling' && ['too-high', 'high-shoulder'].includes(result.gaugeBand));
+  const poorFlow = result.gaugeBand === 'too-low' || result.gaugeBand === 'too-high';
+
+  if (rating === 'Strong') {
+    if (favorableTrend) {
+      return 'Flow trend and forecast both line up well for the weekend.';
+    }
+    if (!weatherRisk) {
+      return 'Current river shape and forecast both line up well.';
+    }
+    return 'River shape is strong enough, but keep an eye on the forecast.';
+  }
+
+  if (rating === 'Good') {
+    if (favorableTrend) {
+      return 'Flow could improve by the weekend if the trend holds.';
+    }
+    if (weatherRisk) {
+      return 'River shape is workable, but forecast risk still matters.';
+    }
+    return 'Worth keeping on the shortlist if the forecast holds.';
+  }
+
+  if (rating === 'Fair') {
+    if (poorFlow) {
+      return 'Needs more gauge movement before this becomes a cleaner weekend call.';
+    }
+    if (weatherRisk) {
+      return 'Possible, but weather could still spoil this weekend call.';
+    }
+    return 'Possible, but this still looks shaky for the weekend.';
+  }
+
+  if (poorFlow) {
+    return 'Flow still looks out of range for a confident weekend call.';
+  }
+  if (weatherRisk) {
+    return 'Forecast risk is too high for a strong weekend recommendation.';
+  }
+  return 'Not shaping up as a strong weekend bet yet.';
+}
+
+function weekendSignalLine(result: RiverScoreResult): string {
+  const weekend = result.weather?.weekend;
+  const parts = [`Gauge: ${gaugeValueText(result)}`];
+
+  if (typeof weekend?.precipProbabilityMax === 'number') {
+    parts.push(`Weekend rain: ${Math.round(weekend.precipProbabilityMax)}% max`);
+  }
+
+  if (typeof weekend?.windMphMax === 'number') {
+    parts.push(`Wind: up to ${Math.round(weekend.windMphMax)} mph`);
+  }
+
+  if (typeof weekend?.temperatureHighF === 'number' || typeof weekend?.temperatureLowF === 'number') {
+    const high = typeof weekend.temperatureHighF === 'number' ? Math.round(weekend.temperatureHighF) : null;
+    const low = typeof weekend.temperatureLowF === 'number' ? Math.round(weekend.temperatureLowF) : null;
+    if (high != null && low != null) {
+      parts.push(`Temps: ${low}°-${high}°F`);
+    } else if (high != null) {
+      parts.push(`High: ${high}°F`);
+    } else if (low != null) {
+      parts.push(`Low: ${low}°F`);
+    }
+  }
+
+  return parts.join(' • ');
+}
+
+function weekendWeatherRisk(window: ForecastWindow | null | undefined): boolean {
+  return Boolean(
+    window &&
+      (window.stormRisk ||
+        (window.precipProbabilityMax ?? 0) >= 60 ||
+        (window.windMphMax ?? 0) >= 18)
+  );
 }

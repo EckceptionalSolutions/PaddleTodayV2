@@ -1,0 +1,167 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import weekendPageScript from '../scripts/weekend-page.js?url';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const weekendUrl = new URL('/weekend/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${weekendUrl}#collection`,
+    name: 'Best Bets This Weekend',
+    description: 'Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast support.',
+    url: weekendUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+];
+---
+
+<BaseLayout
+  title="Paddle Today | Best Bets This Weekend"
+  description="Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast support."
+  structuredData={structuredData}
+>
+  <section class="decision-hero hero weekend-hero">
+    <div class="decision-hero__intro">
+      <p class="hero__kicker">Weekend planning</p>
+      <h1>Best bets this weekend</h1>
+      <p class="hero__lede">
+        Early read from current river shape and the weekend forecast. Forecasts can still shift before launch day.
+      </p>
+      <p class="hero__snapshot" data-weekend-snapshot>
+        Checking weekend outlooks...
+      </p>
+      <p class="hero__planning">
+        Looking for a launch-day answer instead?
+        <a href="/" class="hero__planning-link">Back to today&apos;s board</a>
+      </p>
+    </div>
+
+    <aside class="hero-call decision-hero__featured weekend-hero__featured" aria-live="polite">
+      <p class="eyebrow" data-weekend-featured-label>Best weekend bet</p>
+      <p class="hero-call__state" data-weekend-featured-state>Loading weekend read.</p>
+      <h2 class="hero-call__title" data-weekend-featured-name>Checking the board</h2>
+      <p class="hero-call__reach" data-weekend-featured-reach>Weekend support is loading.</p>
+      <p class="hero-call__verdict" data-weekend-featured-verdict>Checking outlook</p>
+
+      <div class="hero-call__scoreline">
+        <div class="score-orb score-orb--featured" aria-label="Weekend score">
+          <span class="score-orb__score" data-weekend-featured-score>--</span>
+          <span class="score-orb__rating" data-weekend-featured-rating>Loading</span>
+        </div>
+
+        <div class="hero-call__score-meta">
+          <div class="hero-call__meta">
+            <span class="pill" data-weekend-featured-confidence>Support loading</span>
+            <span class="pill" data-weekend-featured-current>Today loading</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="hero-call__reason" data-weekend-featured-reason>Loading summary</p>
+      <p class="hero-call__signal-line" data-weekend-featured-signal>Loading forecast signals</p>
+      <ul class="hero-call__reasons" data-weekend-featured-reasons></ul>
+
+      <p class="hero-call__summary muted" data-weekend-featured-explanation>
+        Pulling the strongest weekend bet from the latest stored snapshot.
+      </p>
+      <button class="hero-call__toggle" type="button" data-weekend-featured-toggle hidden aria-expanded="false">
+        Details
+      </button>
+
+      <div class="decision-hero__actions">
+        <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View river</a>
+        <a class="river-link river-link--inline river-link--ghost" href="/">
+          Today&apos;s board
+        </a>
+      </div>
+    </aside>
+
+    <div class="decision-hero__support">
+      <p class="hero__overview-label">Weekend overview</p>
+      <ul class="hero__call-mix" data-weekend-call-mix>
+        <li class="hero__call-mix-item hero__call-mix-item--good">
+          <strong data-weekend-strong-count>--</strong>
+          <span>Strong</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--mixed">
+          <strong data-weekend-good-count>--</strong>
+          <span>Good</span>
+        </li>
+        <li class="hero__call-mix-item hero__call-mix-item--no-go">
+          <strong data-weekend-withheld-count>--</strong>
+          <span>Withheld</span>
+        </li>
+      </ul>
+      <p class="hero__project-label">Planning note</p>
+      <p class="hero__note muted">
+        Weekend calls stay conservative. Reaches are withheld when the current river read or the forecast support is too weak to extend the call.
+      </p>
+    </div>
+  </section>
+
+  <section class="decision-section decision-section--recommended weekend-page__section">
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">Weekend shortlist</p>
+        <h2 class="section-title">Best projected options</h2>
+      </div>
+      <p class="muted section-head__note">
+        Use this as a planning read for Saturday and Sunday, then re-check the live board before you drive.
+      </p>
+    </div>
+
+    <div class="recommendation-grid weekend-page__grid" data-weekend-grid></div>
+    <p class="muted decision-section__empty" data-weekend-empty hidden>
+      No supported weekend picks yet. Forecast support is still too weak to make confident weekend calls.
+    </p>
+  </section>
+
+  <template data-weekend-card-template>
+    <article class="recommendation-card recommendation-card--weekend">
+      <div class="recommendation-card__eyebrow-row">
+        <p class="recommendation-card__slot" data-field="weekend-slot"></p>
+        <span class="river-card__kind">Weekend</span>
+      </div>
+
+      <div class="recommendation-card__top">
+        <div class="recommendation-card__title-block">
+          <p class="recommendation-card__state" data-field="weekend-state"></p>
+          <h3 class="recommendation-card__title" data-field="weekend-name"></h3>
+          <p class="recommendation-card__subtitle" data-field="weekend-route"></p>
+        </div>
+      </div>
+
+      <p class="recommendation-card__verdict" data-field="weekend-verdict"></p>
+      <div class="recommendation-card__scoreline">
+        <div class="score-orb" aria-label="Weekend projected score">
+          <span class="score-orb__score" data-field="weekend-score"></span>
+          <span class="score-orb__rating" data-field="weekend-rating"></span>
+        </div>
+        <p class="recommendation-card__meta" data-field="weekend-meta"></p>
+      </div>
+      <p class="recommendation-card__summary" data-field="weekend-summary"></p>
+      <p class="recommendation-card__signal" data-field="weekend-signal"></p>
+      <ul class="recommendation-card__reasons" data-field="weekend-reasons"></ul>
+
+      <details class="recommendation-card__details">
+        <summary>Details</summary>
+        <div class="recommendation-card__details-body">
+          <p class="recommendation-card__detail-copy" data-field="weekend-full"></p>
+        </div>
+      </details>
+
+      <a class="river-link river-link--wide" href="/" data-field="weekend-link">View river</a>
+    </article>
+  </template>
+
+  <script type="module" src={weekendPageScript}></script>
+</BaseLayout>

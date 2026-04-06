@@ -1950,6 +1950,7 @@ a {
   gap: 1rem;
 }
 
+
 .river-detail__hero-top {
   display: grid;
   gap: 0.2rem;
@@ -5019,6 +5020,7 @@ a {
     gap: 0.68rem;
   }
 
+
   .river-detail__title {
     font-size: 1.45rem;
   }
@@ -5778,10 +5780,6 @@ a {
   display: none;
 }
 
-.home-explore-toggle {
-  align-self: start;
-}
-
 @media (max-width: 760px) {
   .home-mobile-jump {
     position: sticky;
@@ -5842,14 +5840,6 @@ a {
   .decision-section__body {
     gap: 0.72rem;
   }
-
-  .decision-section--collapsed .section-head__note {
-    margin-bottom: 0.1rem;
-  }
-
-  .decision-section--collapsed .home-explore-toggle {
-    margin-top: 0.05rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -5866,5 +5856,41 @@ a {
 
   .recommendation-card {
     flex-basis: min(91vw, 24rem);
+  }
+}
+
+.hero__planning {
+  margin: 0;
+  font-size: 0.96rem;
+  color: var(--muted);
+}
+
+.hero__planning-link {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.hero__planning-link:hover,
+.hero__planning-link:focus-visible {
+  text-decoration: underline;
+}
+
+.weekend-page__section {
+  margin-top: 1.1rem;
+}
+
+.recommendation-card--weekend .river-card__kind {
+  background: rgba(187, 156, 82, 0.12);
+  color: rgba(111, 84, 27, 0.95);
+}
+
+@media (max-width: 760px) {
+  .hero__planning {
+    font-size: 0.9rem;
+  }
+
+  .weekend-page__section {
+    margin-top: 0.7rem;
   }
 }

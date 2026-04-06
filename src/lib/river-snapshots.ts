@@ -4,9 +4,11 @@ import {
   serializeDetailResult,
   serializeRiverGroupResult,
   serializeSummaryResult,
+  serializeWeekendSummaryResult,
   type RiverDetailApiResult,
   type RiverGroupApiResult,
   type RiverSummaryApiItem,
+  type WeekendSummaryApiItem,
 } from './api-contract';
 import { listRiverGroups } from './rivers';
 import type { RiverScoreResult } from './types';
@@ -29,6 +31,14 @@ export interface RiverDetailSnapshot {
   result: RiverDetailApiResult;
 }
 
+export interface WeekendSummarySnapshot {
+  generatedAt: string;
+  label: string;
+  riverCount: number;
+  withheldCount: number;
+  rivers: WeekendSummaryApiItem[];
+}
+
 export interface RiverGroupSnapshot {
   generatedAt: string;
   result: RiverGroupApiResult;
@@ -46,10 +56,14 @@ export async function captureRiverSnapshots(args: {
   const generatedAt = args.generatedAt ?? new Date().toISOString();
   const storage = snapshotStorage();
   const summary = buildSummarySnapshot(args.results, generatedAt);
+  const weekendSummary = buildWeekendSummarySnapshot(args.results, generatedAt);
   const detailSnapshots = buildDetailSnapshots(args.results, generatedAt);
   const groupSnapshots = buildGroupSnapshots(args.results, generatedAt);
 
-  await storage.writeJson(summaryBlobName(), summary);
+  await Promise.all([
+    storage.writeJson(summaryBlobName(), summary),
+    storage.writeJson(weekendSummaryBlobName(), weekendSummary),
+  ]);
   await Promise.all([
     ...detailSnapshots.map(({ slug, payload }) => storage.writeJson(detailBlobName(slug), payload)),
     ...groupSnapshots.map(({ riverId, payload }) => storage.writeJson(groupBlobName(riverId), payload)),
@@ -71,6 +85,10 @@ export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverD
   return snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug));
 }
 
+export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummarySnapshot | null> {
+  return snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName());
+}
+
 export async function getStoredRiverGroupSnapshot(riverId: string): Promise<RiverGroupSnapshot | null> {
   return snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId));
 }
@@ -83,6 +101,39 @@ function buildSummarySnapshot(results: RiverScoreResult[], generatedAt: string):
       ...result,
       generatedAt,
     })),
+  };
+}
+
+function buildWeekendSummarySnapshot(results: RiverScoreResult[], generatedAt: string): WeekendSummarySnapshot {
+  const rivers = results
+    .map((result) =>
+      serializeWeekendSummaryResult({
+        ...result,
+        generatedAt,
+      })
+    )
+    .filter(Boolean)
+    .sort((left, right) => {
+      if (left.weekend.score !== right.weekend.score) {
+        return right.weekend.score - left.weekend.score;
+      }
+
+      const confidenceWeight = { High: 3, Medium: 2, Low: 1 };
+      const leftConfidence = confidenceWeight[left.weekend.confidence] ?? 0;
+      const rightConfidence = confidenceWeight[right.weekend.confidence] ?? 0;
+      if (leftConfidence !== rightConfidence) {
+        return rightConfidence - leftConfidence;
+      }
+
+      return right.current.score - left.current.score;
+    });
+
+  return {
+    generatedAt,
+    label: rivers[0]?.weekend.label ?? 'Weekend',
+    riverCount: rivers.length,
+    withheldCount: Math.max(0, results.length - rivers.length),
+    rivers,
   };
 }
 
@@ -139,6 +190,10 @@ function buildGroupSnapshots(results: RiverScoreResult[], generatedAt: string) {
 
 function summaryBlobName() {
   return `${snapshotPrefix()}/summary.json`;
+}
+
+function weekendSummaryBlobName() {
+  return `${snapshotPrefix()}/weekend-summary.json`;
 }
 
 function detailBlobName(slug: string) {

@@ -234,6 +234,7 @@ function decisionStatement(result) {
   return 'Today looks like a pass unless you have fresher local intel.';
 }
 
+
 function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';

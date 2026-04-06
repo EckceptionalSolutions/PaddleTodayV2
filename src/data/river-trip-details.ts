@@ -54,8 +54,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       summary:
         "Put in at Krogh's Landing and take out at Two Rivers Landing/Park in Faribault. Use the Faribault gauge as a starting point, but verify access and parking locally.",
       accessCaveats: [
-        "Krogh's Landing still lacks a strong official access page for parking details, so verify conditions locally.",
-        'Two Rivers Landing/Park works as the Faribault finish, but park rules and parking details should still be checked on arrival.',
+        "The DNR map does explicitly name Krogh's Landing as a carry-in access, but it still lacks a clean standalone parking page, so verify conditions locally.",
+        'Two Rivers Park is city-managed and the official Faribault park amenities sheet marks it with public access and a canoe landing, but park rules and parking details should still be checked on arrival.',
       ],
       watchFor: [
         'Shallow riffles and scrape risk when the river is low.',
@@ -932,8 +932,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       summary:
         'Use the 90th Street NW access as the put-in and Lake Zumbro County Park as the take-out. The route is short, but wind on the reservoir finish still changes the day.',
       accessCaveats: [
-        'The 90th Street NW put-in is based on bridge/location context rather than a clearly documented public canoe launch listing.',
-        'Lake Zumbro County Park has a county-documented canoe/kayak launch, but confirm day-use parking rules on arrival.',
+        'The 90th Street NW put-in is still based on bridge/location context rather than a clearly documented public canoe launch listing, but MnDOT does at least anchor the exact footbridge location as Frank\'s Ford Bridge.',
+        'Lake Zumbro County Park has a county-documented separate canoe/kayak launch, but confirm day-use parking rules on arrival.',
       ],
       watchFor: [
         'Rapid rises after rain on the Zumbro system.',
@@ -1053,12 +1053,12 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       shuttle:
         'Plan a car shuttle and confirm parking rules at both endpoints.',
       permits:
-        'No paddling permit noted. Check Belleville Community Park and County Road X signage for parking rules or hours.',
+        'No paddling permit noted. Village of Belleville parks are open 6 a.m. to 10 p.m.; check Community Park and County Road X signage for any more specific parking rules.',
       camping: 'No established camping documented for this segment. Treat it as a day trip.',
       summary:
         'Put in at Belleville Community Park and take out at County Road X. This is a mellow but full-feeling day, and low water makes it substantially less fun.',
       accessCaveats: [
-        'Access and parking rules at Belleville Community Park and County Road X are still best confirmed on the ground.',
+        'Belleville Community Park is subject to official village park hours and vehicle rules, but the exact river-launch pattern and County Road X parking setup are still best confirmed on the ground.',
         'The low-water floor matters more than a precise sweet spot on this reach.',
       ],
       watchFor: [
@@ -1089,7 +1089,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       summary:
         'Use the County Road X bridge access south of Belleville and finish at County Road EE north of Albany. This is a mellow wooded float, but low water and the full 11.5-mile length make the day feel bigger than it first looks.',
       accessCaveats: [
-        'These accesses are supported by the regional Capitol Water Trails map, but local parking rules are still best confirmed on the ground.',
+        'These accesses are supported by the regional Capitol Water Trails map, and Wisconsin DNR confirms downstream public parking and a boat launch in the Albany Wildlife Area corridor, but the exact County Road EE bridge landing still deserves a same-day check.',
         'County bridge landings can be muddy or debris-prone after rain, especially on the take-out side.',
       ],
       watchFor: [

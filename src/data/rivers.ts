@@ -152,6 +152,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://files.dnr.state.mn.us/waters/surfacewater_section/stream_hydro/2021data/sfr101721table.pdf',
       },
       {
+        label: 'Access support',
+        value: 'Kroghs carry-in; city-managed Faribault finish',
+        note: 'The MN DNR map explicitly names Kroghs Landing carry-in access at river mile 10.1, and the City of Faribault park amenities list confirms Two Rivers Park as a city park with river/public-access amenities.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cannon1_straight.pdf',
+      },
+      {
+        label: 'Faribault take-out support',
+        value: 'Two Rivers Park has public access and canoe landing',
+        note: 'The City of Faribault parks amenities sheet marks Two Rivers Park with both Public Access and Canoe Landing, which is stronger downstream endpoint support than the earlier route seed had.',
+        sourceUrl: 'https://www.ci.faribault.mn.us/DocumentCenter/View/2494/Parks--Amenities',
+      },
+      {
         label: 'Rain sensitivity',
         value: 'High',
         note: 'Fast-changing small river. Trend matters almost as much as the current reading.',
@@ -186,6 +198,14 @@ export const rivers: River[] = [
       {
         label: 'USGS 05353800 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/05353800/',
+      },
+      {
+        label: 'City of Faribault parks and amenities PDF',
+        url: 'https://www.ci.faribault.mn.us/DocumentCenter/View/2494/Parks--Amenities',
+      },
+      {
+        label: 'City of Faribault Straight River master plan PDF',
+        url: 'https://www.ci.faribault.mn.us/DocumentCenter/View/2824',
       },
       {
         label: 'MilesPaddled Straight River',
@@ -2099,6 +2119,18 @@ export const rivers: River[] = [
         sourceUrl: 'https://www.olmstedcounty.gov/residents/parks-and-trails/parks/lake-zumbro-park',
       },
       {
+        label: 'Take-out quality',
+        value: 'Separate canoe/kayak launch',
+        note: 'Olmsted County says Lake Zumbro Park has a separate canoe and kayak launch on a sandy bank apart from the motorized launch, which makes the downstream endpoint stronger than the put-in side of this route.',
+        sourceUrl: 'https://www.olmstedcounty.gov/residents/parks-and-trails/parks/lake-zumbro-park',
+      },
+      {
+        label: 'Put-in locator',
+        value: "Frank's Ford Bridge / Bridge L6322",
+        note: 'MnDOT historic-bridge records provide a real authoritative anchor for the 90th Street NW footbridge location, even though they do not by themselves establish canoe-launch parking rules.',
+        sourceUrl: 'https://dot.state.mn.us/historicbridges/L6322.html',
+      },
+      {
         label: 'Difficulty',
         value: 'Easy at the right level',
         note: 'This is a reasonable beginner day only when the river stays inside the working band and is not rising quickly.',
@@ -2120,6 +2152,10 @@ export const rivers: River[] = [
       {
         label: 'Olmsted County Lake Zumbro Park',
         url: 'https://www.olmstedcounty.gov/residents/parks-and-trails/parks/lake-zumbro-park',
+      },
+      {
+        label: "MnDOT Frank's Ford Bridge",
+        url: 'https://dot.state.mn.us/historicbridges/L6322.html',
       },
       {
         label: 'MilesPaddled South Fork Zumbro',
@@ -2290,6 +2326,12 @@ export const rivers: River[] = [
         sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
       },
       {
+        label: 'Official park operations',
+        value: 'Belleville parks open 6 a.m. to 10 p.m.',
+        note: 'Village of Belleville park rules say parks are open from 6 a.m. to 10 p.m. and restrict motor vehicles to roads, drives, and parking areas, which is useful operational context for the put-in even though it is not a dedicated launch page.',
+        sourceUrl: 'https://www.bellevillewi.gov/print/pdf/node/4481',
+      },
+      {
         label: 'Difficulty',
         value: 'Easy',
         note: 'A good easy-day candidate once the river is clearly above its low-water mark.',
@@ -2307,6 +2349,10 @@ export const rivers: River[] = [
       {
         label: 'USGS 05436500 downstream monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05436500/',
+      },
+      {
+        label: 'Village of Belleville parks FAQ PDF',
+        url: 'https://www.bellevillewi.gov/print/pdf/node/4481',
       },
     ],
   },
@@ -2370,6 +2416,12 @@ export const rivers: River[] = [
         sourceUrl: 'http://www.capitolwatertrails.org/maps/sugarR_6/map6_big_Color.gif',
       },
       {
+        label: 'Downstream public-access corridor',
+        value: 'Albany Wildlife Area has parking and a boat launch',
+        note: 'Wisconsin DNR says Albany Wildlife Area offers a parking lot and a boat launch on the Sugar River corridor, which improves downstream public-access confidence near Albany even though it does not by itself prove the exact County Road EE bridge landing.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/albany',
+      },
+      {
         label: 'Gauge context',
         value: 'Verona gauge only',
         note: 'The Verona gauge gives a useful low-water mark, but there is still not enough high-water guidance for this exact lower Sugar segment.',
@@ -2388,6 +2440,10 @@ export const rivers: River[] = [
       {
         label: 'USGS 05435950 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+      },
+      {
+        label: 'Wisconsin DNR Albany Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/albany',
       },
     ],
   },

@@ -203,6 +203,43 @@ export interface RiverSummaryApiItem {
   generatedAt: string;
 }
 
+export interface WeekendSummaryApiItem {
+  river: {
+    riverId?: string;
+    slug: string;
+    name: string;
+    reach: string;
+    state: string;
+    region: string;
+    latitude: number;
+    longitude: number;
+    distanceLabel: string;
+  };
+  current: {
+    score: number;
+    rating: ScoreRating;
+    gaugeBandLabel: string;
+  };
+  weekend: {
+    label: string;
+    score: number;
+    rating: ScoreRating;
+    confidence: ConfidenceLabel;
+    explanation: string;
+    summary: string;
+    signalLine: string;
+  };
+  liveData: {
+    overall: LiveDataOverall;
+    summary: string;
+    gaugeState: LiveDataState;
+    gaugeDetail: string;
+    weatherState: LiveDataState;
+    weatherDetail: string;
+  };
+  generatedAt: string;
+}
+
 export interface RiverDetailApiResult {
   river: {
     riverId?: string;
@@ -303,6 +340,15 @@ export interface RiverSummaryResponse {
   generatedAt: string;
   riverCount: number;
   rivers: RiverSummaryApiItem[];
+}
+
+export interface WeekendSummaryResponse {
+  requestId: string;
+  generatedAt: string;
+  label: string;
+  riverCount: number;
+  withheldCount: number;
+  rivers: WeekendSummaryApiItem[];
 }
 
 export interface RiverDetailResponse {

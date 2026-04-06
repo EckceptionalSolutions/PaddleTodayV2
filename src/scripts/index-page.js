@@ -23,7 +23,6 @@ const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-ta
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
 const exploreContent = document.querySelector('[data-explore-content]');
-const exploreToggle = document.querySelector('[data-explore-toggle]');
 const cardTemplate = document.querySelector('[data-river-card-template]');
 const recommendationTemplate = document.querySelector('[data-recommendation-card-template]');
 
@@ -121,7 +120,6 @@ let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
-let exploreCollapsed = phoneBreakpoint.matches;
 
 const EXPLORE_PAGE_SIZE = 9;
 const SUMMARY_CACHE_KEY = 'river-summary:v1';
@@ -1264,11 +1262,6 @@ function syncExploreShellHeight() {
     return;
   }
 
-  if (phoneBreakpoint.matches && exploreCollapsed) {
-    exploreShell.style.removeProperty('min-height');
-    return;
-  }
-
   const layoutKey = currentExploreLayoutKey();
   if (layoutKey !== exploreLayoutKey) {
     exploreLayoutKey = layoutKey;
@@ -1834,40 +1827,15 @@ function updateSummaryMapToggle() {
   }
 }
 
-function updateExploreToggle() {
-  if (!(exploreContent instanceof HTMLElement) || !(exploreToggle instanceof HTMLButtonElement)) {
-    return;
-  }
-
-  const compact = phoneBreakpoint.matches;
-  if (!compact) {
-    exploreCollapsed = false;
-  }
-
-  exploreToggle.hidden = !compact;
-  exploreContent.hidden = compact && exploreCollapsed;
-  exploreToggle.setAttribute('aria-expanded', compact && exploreCollapsed ? 'false' : 'true');
-  exploreToggle.textContent = compact && exploreCollapsed ? 'Show full board' : 'Hide full board';
-
-  if (exploreSection instanceof HTMLElement) {
-    exploreSection.classList.toggle('decision-section--collapsed', compact && exploreCollapsed);
-  }
-
-  if (!(compact && exploreCollapsed) && mapRuntime) {
-    window.setTimeout(() => {
-      mapRuntime?.resize();
-    }, 30);
-  }
-}
-
 function expandMobileSectionsForTarget(targetId) {
   if (!phoneBreakpoint.matches) {
     return;
   }
 
   if (targetId === 'explore' || targetId === 'explore-map') {
-    exploreCollapsed = false;
-    updateExploreToggle();
+    if (exploreContent instanceof HTMLElement) {
+      exploreContent.hidden = false;
+    }
   }
 
   if (targetId === 'explore-map') {
@@ -2475,18 +2443,9 @@ window.addEventListener('resize', () => {
 });
 
 phoneBreakpoint.addEventListener('change', () => {
-  updateExploreToggle();
   updateSummaryMapToggle();
   syncExploreShellHeight();
 });
-
-if (exploreToggle instanceof HTMLButtonElement) {
-  exploreToggle.addEventListener('click', () => {
-    exploreCollapsed = !exploreCollapsed;
-    updateExploreToggle();
-    syncExploreShellHeight();
-  });
-}
 
 for (const button of homeJumpButtons) {
   if (!(button instanceof HTMLButtonElement)) {
@@ -2502,7 +2461,6 @@ for (const button of homeJumpButtons) {
 }
 
 const hydratedBoard = hydrateBoardFromCache();
-updateExploreToggle();
 updateSummaryMapToggle();
 loadBoard({ silent: hydratedBoard });
 window.setInterval(() => {

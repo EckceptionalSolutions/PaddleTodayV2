@@ -7,6 +7,7 @@ import {
   serializeRiverGroupResult,
   serializeRiverHistoryResult,
   serializeSummaryResult,
+  serializeWeekendSummaryResult,
 } from '../lib/api-contract';
 import { captureHistorySnapshotForResults, getRiverHistory } from '../lib/history';
 import {
@@ -14,6 +15,7 @@ import {
   getStoredRiverDetailSnapshot,
   getStoredRiverGroupSnapshot,
   getStoredRiverSummarySnapshot,
+  getStoredWeekendSummarySnapshot,
 } from '../lib/river-snapshots';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
@@ -145,6 +147,38 @@ const server = createServer(async (request, response) => {
         requestId,
         generatedAt,
         riverCount: rivers.length,
+        rivers,
+      }, includeBody);
+    }
+
+    if (requestUrl.pathname === '/api/weekend/summary.json') {
+      const snapshot = await getStoredWeekendSummarySnapshot().catch(() => null);
+      if (snapshot) {
+        return sendJson(response, 200, {
+          requestId,
+          generatedAt: snapshot.generatedAt,
+          label: snapshot.label,
+          riverCount: snapshot.riverCount,
+          withheldCount: snapshot.withheldCount,
+          rivers: snapshot.rivers,
+        }, includeBody);
+      }
+
+      const generatedAt = new Date().toISOString();
+      const results = await getAllRiverScores();
+      const rivers = results
+        .map((result) => serializeWeekendSummaryResult({
+          ...result,
+          generatedAt,
+        }))
+        .filter(Boolean);
+
+      return sendJson(response, 200, {
+        requestId,
+        generatedAt,
+        label: rivers[0]?.weekend.label ?? 'Weekend',
+        riverCount: rivers.length,
+        withheldCount: Math.max(0, results.length - rivers.length),
         rivers,
       }, includeBody);
     }

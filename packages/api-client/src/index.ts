@@ -3,6 +3,7 @@ import type {
   RiverDetailResponse,
   RiverHistoryResponse,
   RiverSummaryResponse,
+  WeekendSummaryResponse,
 } from '@paddletoday/api-contract';
 
 export class PaddleTodayApiError extends Error {
@@ -29,6 +30,7 @@ export interface RiverHistoryRequestOptions extends RequestOptions {
 
 export interface PaddleTodayApiClient {
   getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
+  getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
 }
@@ -74,6 +76,9 @@ export function createPaddleTodayApiClient(args: {
   return {
     getSummary(options) {
       return requestJson<RiverSummaryResponse>('/api/rivers/summary.json', options);
+    },
+    getWeekendSummary(options) {
+      return requestJson<WeekendSummaryResponse>('/api/weekend/summary.json', options);
     },
     getRiverDetail(slug, options) {
       return requestJson<RiverDetailResponse>(
