@@ -1,0 +1,67 @@
+name: Paddle Today River Alerts
+
+on:
+  schedule:
+    - cron: '5,35 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: river-alerts
+  cancel-in-progress: false
+
+jobs:
+  evaluate_alerts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Evaluate river alerts
+        env:
+          SITE_URL: ${{ vars.SITE_URL || 'https://paddletoday.com' }}
+          RIVER_SNAPSHOT_CONTAINER_SAS_URL: ${{ secrets.RIVER_SNAPSHOT_CONTAINER_SAS_URL }}
+          RIVER_SNAPSHOT_BLOB_PREFIX: ${{ vars.RIVER_SNAPSHOT_BLOB_PREFIX || 'river-snapshots' }}
+          RIVER_ALERTS_CONTAINER_SAS_URL: ${{ secrets.RIVER_ALERTS_CONTAINER_SAS_URL }}
+          RIVER_ALERTS_BLOB_PREFIX: ${{ vars.RIVER_ALERTS_BLOB_PREFIX || 'river-alerts' }}
+          ALERTS_EMAIL_PROVIDER: sendgrid
+          ALERTS_FROM_EMAIL: ${{ vars.ALERTS_FROM_EMAIL }}
+          ALERTS_REPLY_TO_EMAIL: ${{ vars.ALERTS_REPLY_TO_EMAIL }}
+          ALERTS_SIGNING_SECRET: ${{ secrets.ALERTS_SIGNING_SECRET }}
+          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: |
+          if [ -z "$RIVER_SNAPSHOT_CONTAINER_SAS_URL" ]; then
+            echo "RIVER_SNAPSHOT_CONTAINER_SAS_URL is not configured."
+            exit 1
+          fi
+
+          if [ -z "$RIVER_ALERTS_CONTAINER_SAS_URL" ]; then
+            echo "RIVER_ALERTS_CONTAINER_SAS_URL is not configured."
+            exit 1
+          fi
+
+          if [ -z "$SENDGRID_API_KEY" ]; then
+            echo "SENDGRID_API_KEY is not configured."
+            exit 1
+          fi
+
+          if [ -z "$ALERTS_FROM_EMAIL" ]; then
+            echo "ALERTS_FROM_EMAIL is not configured."
+            exit 1
+          fi
+
+          if [ -z "$ALERTS_SIGNING_SECRET" ]; then
+            echo "ALERTS_SIGNING_SECRET is not configured."
+            exit 1
+          fi
+
+          npm run alerts:evaluate

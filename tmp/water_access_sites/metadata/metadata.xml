@@ -1,0 +1,525 @@
+<metadata>
+  <idinfo>
+    <citation>
+      <citeinfo>
+        <origin>Minnesota Department of Natural Resources (DNR)</origin>
+        <pubdate>20140923</pubdate>
+        <title>Public Water Access Sites in Minnesota</title>
+        <pubinfo>
+          <publish>Minnesota Department of Natural Resources (DNR)</publish>
+        </pubinfo>
+        <onlink>http://gisdata.mn.gov/dataset/struc-water-access-sites</onlink>
+      </citeinfo>
+    </citation>
+    <descript>
+      <abstract>This geodatabase contains authoritative GIS data for MNDNR Parks and Trails-administered public water access sites. It also contains information about free public water access sites administered by other organizations. 
+
+This geodatabase was derived from master data within the Parks and Trails Enterprise Information System. This information was validated and deemed current and authoritative at the time it was last updated, which occurs periodically as determined by the subject matter expert.</abstract>
+      <purpose>This dataset serves as an authoritative GIS resource for public water access sites in Minnesota that are administered by MNDNR Division of Parks and Trails as well as many that are administered by other organizations.</purpose>
+      <supplinf>
+        </supplinf>
+    </descript>
+    <timeperd>
+      <timeinfo>
+        <sngdate>
+          <caldate>20260331</caldate>
+        </sngdate>
+      </timeinfo>
+      <current>Time Period of Content date indicates the date which the user can be confident of accuracy and completeness of the dataset.</current>
+    </timeperd>
+    <status>
+      <progress>Complete</progress>
+      <update>As needed</update>
+    </status>
+    <spdom>
+      <bounding>
+        <westbc>-97.23</westbc>
+        <eastbc>-89.53</eastbc>
+        <northbc>49.37</northbc>
+        <southbc>43.5</southbc>
+      </bounding>
+    </spdom>
+    <keywords>
+      <theme>
+        <themekey>inlandWaters, Facilities, Transportation, Water, structure, public water access, boat launch</themekey>
+        <themekt>ISO 19115 Topic Category</themekt>
+      </theme>
+      <place>
+        <placekey>Minnesota, MN</placekey>
+      </place>
+    </keywords>
+    <accconst>
+      </accconst>
+    <useconst>Disclaimer: The public water access dataset is a work in progress and errors may exist. Information in this dataset is deemed reliable, but this is not guaranteed.</useconst>
+    <browse>
+      <browsen>https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/metadata/preview.jpg</browsen>
+    </browse>
+    <crossref>
+      <citeinfo>
+        <title>
+          </title>
+      </citeinfo>
+    </crossref>
+    <ptcontac>
+      <cntinfo>
+        <cntperp>
+          <cntorg>Minnesota DNR - Parks and Trails</cntorg>
+          <cntper>Nancy Stewart</cntper>
+        </cntperp>
+        <cntpos>Water Recreation Consultant</cntpos>
+        <cntaddr>
+          <addrtype>Mailling and Physical</addrtype>
+          <address>500 Lafayette Rd</address>
+          <city>Saint Paul</city>
+          <state>MN</state>
+          <postal>55155</postal>
+        </cntaddr>
+        <cntvoice>651-259-5616</cntvoice>
+        <cntemail>nancy.stewart@state.mn.us</cntemail>
+      </cntinfo>
+    </ptcontac>
+  </idinfo>
+  <dataqual>
+    <logic>Data integrity has been verified by divisional staff.</logic>
+    <complete>Data are deemed complete over the current extent as of the date of publication.</complete>
+    <posacc>
+      <horizpa>
+        <horizpar>Data were collected using either GPS or heads-up digitization. </horizpar>
+      </horizpa>
+      <vertacc>
+        <vertaccr>NA.</vertaccr>
+      </vertacc>
+    </posacc>
+    <lineage>
+      <procstep>
+        <procdesc>This geodatabase was derived from master data within the Parks and Trails Enterpise Information System. </procdesc>
+      </procstep>
+    </lineage>
+    <attracc>
+      <attraccr>Attribute data have been quality-checked and verified as accurate and consistent by Divisional staff.</attraccr>
+    </attracc>
+  </dataqual>
+  <spref>
+    <horizsys>
+      <planar>
+        <gridsys>
+          <gridsysn>Universal Transverse Mercator</gridsysn>
+          <utm>
+            <utmzone>15</utmzone>
+          </utm>
+        </gridsys>
+        <planci>
+          <plandu>meters</plandu>
+        </planci>
+      </planar>
+      <geodetic>
+        <horizdn>NAD83</horizdn>
+        <ellips>GRS80</ellips>
+      </geodetic>
+    </horizsys>
+  </spref>
+  <eainfo>
+    <detailed>
+      <enttyp>
+        <enttypl>water_access_sites</enttypl>
+        <enttypd>Attribute table. Field names refer to the actual names of fields in the table; displayed field names (aliases) are defined in the field definition where applicable.</enttypd>
+      </enttyp>
+      <attr>
+        <attrlabl>OBJECTID</attrlabl>
+        <attrdef>System-defined unique identifier.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>Shape</attrlabl>
+        <attrdef>Feature geometry.</attrdef>
+        <attrdefs>ESRI</attrdefs>
+      </attr>
+      <attr>
+        <attrlabl>STABLE_PROD_GUID</attrlabl>
+        <attrdef>Unchanging unique identifier for use in Parks and Trails Enterprise Information System.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>SHAPE_COLLECTION_METHOD</attrlabl>
+        <attrdef>Method by which point location data was collected.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>1</edomv>
+            <edomvd>Heads-Up Digitizing</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>Global Positioning System</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>3</edomv>
+            <edomvd>Unknown</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ACCESS_NAME</attrlabl>
+        <attrdef>Name of Water Access Site.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ADMINISTRATOR</attrlabl>
+        <attrdef>Name of Organization (or MN DNR Parks and Trails Management Unit) that administers the Water Access  Site.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>COUNTY_NAME</attrlabl>
+        <attrdef>County a Water Access Site is associated with for management purposes.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>DIRECTIONS</attrlabl>
+        <attrdef>Directions to the Water Access Site; usually from the nearest major road.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>LAUNCH_TYPE</attrlabl>
+        <attrdef>Manner in which boats are launched at the Water Access  Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>1</edomv>
+            <edomvd>Carry-In</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>Trailer Launch</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>3</edomv>
+            <edomvd>Unknown</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>RAMP_SURFACE</attrlabl>
+        <attrdef>Surface type at the launch location at the Water Acccess Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>Gravel</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>6</edomv>
+            <edomvd>Concrete Plank</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>7</edomv>
+            <edomvd>Concrete Slab</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>8</edomv>
+            <edomvd>Concrete Slab/Plank</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>9</edomv>
+            <edomvd>Natural</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>10</edomv>
+            <edomvd>Steps</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NUMBER_OF_RAMPS</attrlabl>
+        <attrdef>Number of boat ramps at the Water Access Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of ramps unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No ramps exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of ramps</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NUMBER_OF_DOCKS</attrlabl>
+        <attrdef>Number of boat docks at the Water Access Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of docks unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No docks exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of docks</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NUMBER_OF_PARKING_LOTS</attrlabl>
+        <attrdef>Number of parking lots at the Water Access Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of parking lots unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No parking lots exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of parking lots</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>PARKING_LOT_SURFACE</attrlabl>
+        <attrdef>Surface of the primary (if more than one) parking lot at the Water Access Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>1</edomv>
+            <edomvd>Natural</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>2</edomv>
+            <edomvd>Grass Over Gravel</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>3</edomv>
+            <edomvd>Gravel</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>4</edomv>
+            <edomvd>Asphalt</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>CAR_PARKING_SPACES_NON_ADA</attrlabl>
+        <attrdef>Number of car-only parking spaces at the Water Access Site that are not compliant with the Americans with Disabilities Act (ADA).</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of spaces unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No spaces exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of spaces</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>TRAILER_PARKING_SPACES_NON_ADA</attrlabl>
+        <attrdef>Number of car-with-trailer parking spaces at the Water Access Site that are not compliant with the Americans with Disabilities Act (ADA).</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of spaces unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No spaces exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of spaces</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>ACCESSIBLE_PARKING_SPACES</attrlabl>
+        <attrdef>Number of parking spaces at the Water Access Site that are compliant with the Americans with Disabilities Act (ADA).</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of spaces unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No spaces exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of spaces</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>NUMBER_OF_TOILETS</attrlabl>
+        <attrdef>Number of restrooms at the Water Access Site.</attrdef>
+        <attrdomv>
+          <edom>
+            <edomv>&lt;null&gt;</edomv>
+            <edomvd>Number of toilets unknown</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>0</edomv>
+            <edomvd>No toilets exist</edomvd>
+          </edom>
+        </attrdomv>
+        <attrdomv>
+          <edom>
+            <edomv>[Positive integer]</edomv>
+            <edomvd>Number of toilets</edomvd>
+          </edom>
+        </attrdomv>
+      </attr>
+      <attr>
+        <attrlabl>DOWNSTREAM_RIVERBANK_SIDE</attrlabl>
+        <attrdef>Site location facing downstream (for Water Access Sites on MN State Water Trails only).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>RIVER_MILE</attrlabl>
+        <attrdef>River mile of site (for Water Access Sites on MN State Water Trails only).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>STATE_WATER_TRAIL</attrlabl>
+        <attrdef>State Water Trail accessed by the site (for Water Access Sites on MN State Water Trails only).</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>DOW_LAKE_ID</attrlabl>
+        <attrdef>MN DNR Division of Ecological and Water Resources' Lake ID of the lake that is accessed by the Water Access Site (for those Water Access Sites that are located on lakes). Original data source: Division of Ecological and Water Resources.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>LAKE_NAME</attrlabl>
+        <attrdef>Name of the lake associated with Water Access Site (for those Water Access Sites that are located on lakes). Original data source: MN DNR Division of Ecological and Water Resources.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ALTERNATE_LAKE_NAME</attrlabl>
+        <attrdef>Alternative name of lake associated with Water Access Site (for those Water Access Sites that are located on lakes). Original data source: MN DNR Division of Ecological and Water Resources.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>SHORELINE_PERIMETER_MILES</attrlabl>
+        <attrdef>Shoreline perimeter miles including island shoreline; rounded to the nearest mile. Data were not calculated by GIS. Original data source: MN DNR Division of Ecological and Water Resources.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>WATER_BODY_ACRES</attrlabl>
+        <attrdef>Surface area of waterbody in acres; rounded to the nearest acre. Data were not calculated by GIS. Original data source: MN DNR Division of Ecological and Water Resources.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>UNIQUE_SWAS_ID</attrlabl>
+        <attrdef>Unique identifier. This ID is distinct from the LAM Program Project Code.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>LAM_PROGRAM_PROJECT_CODE</attrlabl>
+        <attrdef>Program Project Code assigned to State Water Access Site by DNR Division of Lands and Minerals. This field is populated for State-owned lands only; no code exists for sites owned by other organizations.</attrdef>
+      </attr>
+      <attr>
+        <attrlabl>ALERTS</attrlabl>
+        <attrdef>Time-sensitive public visitor message pertaining to this site (such as construction, closures, etc.).</attrdef>
+      </attr>
+    </detailed>
+    <overview>
+      <eadetcit>None.</eadetcit>
+      <eaover>Detailed attribute definitions appear in the Table Detail section of this metadata record. 
+</eaover>
+    </overview>
+  </eainfo>
+  <distinfo>
+    <resdesc>struc_water_access_sites</resdesc>
+    <distliab>The Minnesota Department of Natural Resources General Geographic Data License Agreement is online: http://www.dnr.state.mn.us/sitetools/data_software_license.html</distliab>
+    <stdorder>
+      <ordering>Please visit the download page for this dataset on the Minnesota Geospatial Commons website using the web link below (Online Linkage).</ordering>
+    </stdorder>
+    <distrib>
+      <cntinfo>
+        <cntperp>
+          <cntorg>Minnesota DNR - GIS</cntorg>
+          <cntper>Zeb Thomas</cntper>
+        </cntperp>
+        <cntpos>GIS Data Systems Coordinator</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>500 Lafayette Rd</address>
+          <city>Saint Paul</city>
+          <state>MN</state>
+          <postal>55155</postal>
+        </cntaddr>
+        <cntvoice>651-259-5637</cntvoice>
+        <cntemail>zeb.thomas@state.mn.us</cntemail>
+      </cntinfo>
+    </distrib>
+  </distinfo>
+  <metainfo>
+    <metd>20250627</metd>
+    <metstdn>Minnesota Geographic Metadata Guidelines</metstdn>
+    <metstdv>1.2</metstdv>
+    <metextns>
+      <onlink>http://www.mngeo.state.mn.us/committee/standards/mgmg/metadata.htm</onlink>
+    </metextns>
+    <metc>
+      <cntinfo>
+        <cntperp>
+          <cntorg>Minnesota DNR - Parks and Trails, Information Systems Team</cntorg>
+          <cntper>John Lawton</cntper>
+        </cntperp>
+        <cntpos>IT Specialist</cntpos>
+        <cntaddr>
+          <addrtype>mailing and physical</addrtype>
+          <address>500 Lafayette Rd</address>
+          <city>Saint Paul</city>
+          <state>MN</state>
+          <postal>55155</postal>
+        </cntaddr>
+        <cntvoice>651-259-5580</cntvoice>
+        <cntemail>john.lawton@state.mn.us</cntemail>
+      </cntinfo>
+    </metc>
+  </metainfo>
+</metadata>

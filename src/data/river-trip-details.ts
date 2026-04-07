@@ -64,6 +64,38 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'blue-earth-river-rapidan-county-road-90': {
+    putIn: {
+      name: 'Rapidan Dam Park carry-in access',
+      latitude: 44.12135,
+      longitude: -94.08935,
+    },
+    takeOut: {
+      name: 'County Road 90 bridge access',
+      latitude: 44.1938889,
+      longitude: -94.1130556,
+    },
+    logistics: {
+      distanceLabel: '9.1 mi',
+      shuttle:
+        'Car shuttle is simplest. The Red Jacket Trail also creates a bike-paddle option if you plan it carefully.',
+      permits:
+        'No special water-trail permit is known for a day paddle. Follow Blue Earth County park rules at Rapidan and verify roadside parking conditions at County Road 90 on arrival.',
+      camping:
+        'Rapidan Dam Park offers primitive camping, so this can work as an overnight staging base even though the route itself is a day trip.',
+      summary:
+        'Put in at Rapidan Dam Park and take out at County Road 90 for the DNR-recommended hard Blue Earth run. The Rapidan gauge gives this route a real level ladder, but the rapids and dam context still deserve experienced judgment.',
+      accessCaveats: [
+        'Rapidan Dam Park is the stronger endpoint because Blue Earth County directly manages the canoe launch and campground there.',
+        'County Road 90 is clearly documented by MN DNR as the take-out, but it still lacks the cleaner standalone access page you get on the best county-park finishes, so confirm landing and parking conditions on site.',
+      ],
+      watchFor: [
+        'Rapidan Dam hazard and any signed portage or exclusion zones near the put-in corridor.',
+        'Class I rapids and a stronger current than the easy day-trip rivers in the app.',
+        'Fast rises, waves, and fresh debris after rain.',
+      ],
+    },
+  },
   'root-river-lanesboro-peterson': {
     putIn: {
       name: 'Highway 16 / Lanesboro access',
@@ -450,6 +482,102 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow stretches and thick vegetation when the gauge slides toward 14 ft.',
         'Storm debris and strainers after recent rain.',
         'Cold-water risk outside midsummer, even on an otherwise easy route.',
+      ],
+    },
+  },
+  'snake-river-canary-cross-lake': {
+    putIn: {
+      name: 'Snake River #1 / Canary Road public water access',
+      latitude: 45.7959352,
+      longitude: -93.0796766,
+    },
+    takeOut: {
+      name: 'Snake River / Cross Lake public water access (Pine City)',
+      latitude: 45.8405577,
+      longitude: -92.9418935,
+    },
+    logistics: {
+      distanceLabel: '10.2 mi',
+      shuttle:
+        'Short Pine City-area car shuttle. A bike shuttle is possible, but only if you are comfortable with the roads and have already checked parking at both ends.',
+      permits:
+        'No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-water-access and local parking rules at both landings.',
+      camping:
+        'Treat this as a day trip, but the Snake River Campground in Chengwatana State Forest is a useful nearby overnight option if you want to stage the trip.',
+      summary:
+        'Put in at the Canary Road carry-in and take out at the Cross Lake / Pine City landing. This is the DNR-recommended lower Snake day, and the Pine City gauge gives it one of the cleaner official go-no-go stories in the app.',
+      accessCaveats: [
+        'Both endpoints are now backed by Minnesota public-water-access records, which is a much better trust story than the earlier approximate-coordinate version.',
+        'Pine City recreation materials are useful for parking context at the take-out, but same-day signage still wins if anything looks different on arrival.',
+      ],
+      watchFor: [
+        'Fast fluctuations after rain or snowmelt.',
+        'Low-water trouble below Cross Lake when the Pine City gauge sinks toward 2.3 ft.',
+        'Fresh wood or strainers after storms, especially on bends and in faster current.',
+      ],
+    },
+  },
+  'minnesota-river-judson-land-of-memories': {
+    putIn: {
+      name: 'Judson public water access',
+      latitude: 44.2010236,
+      longitude: -94.1947673,
+    },
+    takeOut: {
+      name: 'Land of Memories Park public water access',
+      latitude: 44.1624934,
+      longitude: -94.0414558,
+    },
+    logistics: {
+      distanceLabel: '11.1 mi',
+      shuttle:
+        'Car shuttle is the practical choice. Stage the take-out vehicle at Land of Memories Park before launching so you are not finishing a long windy day with extra logistics.',
+      permits:
+        'No special paddling permit is known. Follow posted access and parking rules at the Judson landing and at Land of Memories Park.',
+      camping:
+        'Land of Memories Park campground makes this an easy overnight staging option even though the route itself is a day trip.',
+      summary:
+        'Launch at Judson and finish at Land of Memories Park for the DNR-recommended Mankato-area Minnesota River day. The gauge gives a real official flow ladder, but wind and sandbars still matter a lot on this bigger river.',
+      accessCaveats: [
+        'Both endpoints now have state-backed public-water-access records, which is the main thing this route was missing before.',
+        'Land of Memories is a city park with a real boat landing, but same-day parking and ramp conditions should still be checked before you commit to the shuttle.',
+      ],
+      watchFor: [
+        'Wind and waves on the wider open reaches.',
+        'Sandbars and shallower braided sections when flow falls toward the low band.',
+        'Floating debris, muddy banks, and busier landing activity near the Mankato finish.',
+      ],
+    },
+  },
+  'minnesota-river-henderson-belle-plaine': {
+    putIn: {
+      name: 'Henderson Station public water access',
+      latitude: 44.5244176,
+      longitude: -93.8862799,
+    },
+    takeOut: {
+      name: 'Belle Plaine public water access',
+      latitude: 44.6340972,
+      longitude: -93.7653127,
+    },
+    logistics: {
+      distanceLabel: '17.4 mi',
+      shuttle:
+        'Long two-car shuttle. Stage the take-out vehicle at Belle Plaine before launching because this is already a full lower-river day without adding end-of-day driving stress.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and parking rules at Henderson Station and Belle Plaine.',
+      camping:
+        'Treat this as a day trip unless you separately confirm a legal overnight plan. Much of the shoreland is private, and the DNR map explicitly tells paddlers to stop only at designated sites.',
+      summary:
+        'Launch at Henderson Station and finish at Belle Plaine for the DNR lower Minnesota day trip. The Jordan gauge gives this route a real official ladder, but wind, pace, and big-river judgment still matter.',
+      accessCaveats: [
+        'Henderson Station is a carry-in with a walk from the gate to the river, not a drive-to-ramp launch.',
+        'Belle Plaine is a proper trailer access at County Road 25, but same-day ramp and parking conditions should still be checked before you commit to a long shuttle.',
+      ],
+      watchFor: [
+        'Wind and wave exposure on open lower-river reaches.',
+        'A slower-than-expected pace on a 17.4-mile day if the Jordan gauge slips toward the low band.',
+        'Floating debris, overhanging trees, and muddy or sandy banks at landings and breaks.',
       ],
     },
   },

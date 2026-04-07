@@ -96,6 +96,10 @@ const structuredData = [
           <strong data-weekend-good-count>--</strong>
           <span>Good</span>
         </li>
+        <li class="hero__call-mix-item hero__call-mix-item--mixed">
+          <strong data-weekend-fair-count>--</strong>
+          <span>Fair</span>
+        </li>
         <li class="hero__call-mix-item hero__call-mix-item--no-go">
           <strong data-weekend-withheld-count>--</strong>
           <span>Withheld</span>
@@ -123,6 +127,20 @@ const structuredData = [
     <p class="muted decision-section__empty" data-weekend-empty hidden>
       No supported weekend picks yet. Forecast support is still too weak to make confident weekend calls.
     </p>
+  </section>
+
+  <section class="decision-section weekend-page__section" data-weekend-watch-section hidden>
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">Worth watching</p>
+        <h2 class="section-title">Possible weekend options</h2>
+      </div>
+      <p class="muted section-head__note">
+        These reaches are not strong weekend bets yet, but they are the first places to re-check if the forecast improves.
+      </p>
+    </div>
+
+    <div class="recommendation-grid weekend-page__grid" data-weekend-watch-grid></div>
   </section>
 
   <template data-weekend-card-template>

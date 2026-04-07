@@ -50,6 +50,11 @@ const detailSections = Array.from(root.querySelectorAll('[data-detail-section]')
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const historyBars = root.querySelector('[data-history-bars]');
 const historyPanel = root.querySelector('[data-history-panel]');
+const alertForm = root.querySelector('[data-alert-form]');
+const alertEmailInput = root.querySelector('[data-alert-email]');
+const alertCompanyInput = root.querySelector('[data-alert-company]');
+const alertStatus = root.querySelector('[data-alert-status]');
+const alertSubmitButtons = Array.from(root.querySelectorAll('[data-alert-submit]'));
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -300,6 +305,20 @@ function decorateBanner(element, overall) {
 function setHidden(element, hidden) {
   if (!(element instanceof HTMLElement)) return;
   element.classList.toggle('status-banner--hidden', hidden);
+}
+
+function setAlertStatus(message, tone = 'muted') {
+  if (!(alertStatus instanceof HTMLElement)) {
+    return;
+  }
+
+  alertStatus.textContent = message;
+  alertStatus.classList.remove('river-alerts__status--success', 'river-alerts__status--error');
+  if (tone === 'success') {
+    alertStatus.classList.add('river-alerts__status--success');
+  } else if (tone === 'error') {
+    alertStatus.classList.add('river-alerts__status--error');
+  }
 }
 
 function setDetailRefreshState(state, detail = '') {
@@ -2400,6 +2419,79 @@ async function loadDetail({ silent = false } = {}) {
   }
 }
 
+function bindAlertForm() {
+  if (!(alertForm instanceof HTMLFormElement) || !(alertEmailInput instanceof HTMLInputElement)) {
+    return;
+  }
+
+  alertForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const submitter = event.submitter;
+    const threshold =
+      submitter instanceof HTMLButtonElement ? submitter.dataset.alertSubmit : null;
+
+    if (threshold !== 'good' && threshold !== 'strong') {
+      setAlertStatus('Choose which alert you want first.', 'error');
+      return;
+    }
+
+    const email = alertEmailInput.value.trim();
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setAlertStatus('Enter a valid email address.', 'error');
+      alertEmailInput.focus();
+      return;
+    }
+
+    for (const button of alertSubmitButtons) {
+      if (button instanceof HTMLButtonElement) {
+        button.disabled = true;
+      }
+    }
+    setAlertStatus(`Saving your ${threshold === 'good' ? 'Good' : 'Strong'} alert…`);
+
+    try {
+      const response = await fetch('/api/alerts', {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          riverSlug: slug,
+          threshold,
+          company:
+            alertCompanyInput instanceof HTMLInputElement ? alertCompanyInput.value.trim() : '',
+        }),
+      });
+
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok) {
+        throw new Error(payload?.message || 'Could not save this alert.');
+      }
+
+      setAlertStatus(
+        payload?.duplicate
+          ? `You’re already set for ${threshold === 'good' ? 'Good' : 'Strong'} alerts on this route.`
+          : `We’ll email you when this route reaches ${threshold === 'good' ? 'Good' : 'Strong'}. Every alert email includes an unsubscribe link.`,
+        'success'
+      );
+    } catch (error) {
+      console.error('Failed to create river alert.', error);
+      setAlertStatus(
+        error instanceof Error ? error.message : 'Could not save this alert right now.',
+        'error'
+      );
+    } finally {
+      for (const button of alertSubmitButtons) {
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = false;
+        }
+      }
+    }
+  });
+}
+
 bindChartControls();
 bindCopyCoordinateButtons();
 initializeAccessPlanner();
@@ -2407,6 +2499,7 @@ renderActiveAccessContext();
 updateChartButtonStates();
 renderDetailMap(null);
 setupDetailSectionNav();
+bindAlertForm();
 if (detailRefreshButton instanceof HTMLButtonElement) {
   detailRefreshButton.addEventListener('click', () => {
     loadDetail();

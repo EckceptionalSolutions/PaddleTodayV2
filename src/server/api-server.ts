@@ -9,6 +9,14 @@ import {
   serializeSummaryResult,
   serializeWeekendSummaryResult,
 } from '../lib/api-contract';
+import { verifyRiverAlertActionToken } from '../lib/alert-links';
+import {
+  createRiverThresholdAlert,
+  getRiverAlertById,
+  updateRiverAlert,
+  type RiverAlertThreshold,
+  type RiverAlertState,
+} from '../lib/alerts';
 import { captureHistorySnapshotForResults, getRiverHistory } from '../lib/history';
 import {
   captureRiverSnapshots,
@@ -47,6 +55,8 @@ const server = createServer(async (request, response) => {
 
   const isRiverRequestPath =
     requestUrl.pathname === '/api/river-request' || requestUrl.pathname === '/api/route-request';
+  const isAlertsPath = requestUrl.pathname === '/api/alerts';
+  const isAlertUnsubscribePath = requestUrl.pathname === '/api/alerts/unsubscribe';
   const isHistorySnapshotPath = requestUrl.pathname === '/api/history/snapshot';
   const isRiverSnapshotPath = requestUrl.pathname === '/api/snapshots/refresh';
 
@@ -62,6 +72,34 @@ const server = createServer(async (request, response) => {
 
   if (isRiverRequestPath && request.method === 'POST') {
     return handleRiverRequest(request, response, requestId, includeBody);
+  }
+
+  if (isAlertsPath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isAlertsPath && request.method === 'POST') {
+    return handleRiverAlertCreate(request, response, requestId, includeBody);
+  }
+
+  if (isAlertUnsubscribePath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isAlertUnsubscribePath && request.method === 'POST') {
+    return handleRiverAlertUnsubscribe(request, response, requestId, includeBody);
   }
 
   if (isHistorySnapshotPath && request.method === 'OPTIONS') {
@@ -556,6 +594,226 @@ async function handleRiverRequest(
   }
 }
 
+async function handleRiverAlertCreate(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  const ip = getIp(request);
+  if (isRateLimited(ip)) {
+    return sendJson(
+      response,
+      429,
+      {
+        requestId,
+        error: 'too_many_requests',
+        message: 'Too many requests. Please try again later.',
+      },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  try {
+    const body = await readJsonBody(request);
+    const email = clean(body?.email, 240).toLowerCase();
+    const riverSlug = clean(body?.riverSlug, 160);
+    const threshold = clean(body?.threshold, 32).toLowerCase() as RiverAlertThreshold;
+    const honeypot = clean(body?.company, 240);
+
+    if (honeypot) {
+      return sendJson(response, 202, { requestId, ok: true, stored: false }, includeBody, 'no-store');
+    }
+
+    if (!email || !riverSlug || !isAlertThreshold(threshold)) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'missing_required_fields', message: 'Missing required alert fields.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (!isValidEmail(email)) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'invalid_email', message: 'Enter a valid email address.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const river = getRiverBySlug(riverSlug);
+    if (!river) {
+      return sendJson(
+        response,
+        404,
+        { requestId, error: 'not_found', message: 'That river route could not be found.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const snapshot = await getStoredRiverDetailSnapshot(river.slug).catch(() => null);
+    const initialState = snapshot && meetsAlertThreshold(snapshot.result.rating, threshold)
+      ? 'at_or_above_threshold'
+      : 'below_threshold';
+
+    const created = await createRiverThresholdAlert({
+      email,
+      riverId: river.riverId,
+      riverSlug: river.slug,
+      riverName: river.name,
+      riverReach: river.reach,
+      threshold,
+      initialState,
+    });
+
+    console.log('[alerts] created', {
+      requestId,
+      alertId: created.alert.id,
+      riverSlug: river.slug,
+      threshold,
+      duplicate: created.duplicate,
+      reactivated: created.reactivated,
+    });
+
+    return sendJson(
+      response,
+      created.duplicate ? 200 : 202,
+      {
+        requestId,
+        ok: true,
+        duplicate: created.duplicate,
+        reactivated: created.reactivated,
+        alert: {
+          id: created.alert.id,
+          threshold: created.alert.threshold,
+          riverSlug: created.alert.riverSlug,
+          lastState: created.alert.lastState,
+        },
+      },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[alerts] create failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'alert_create_failed', message: 'Could not save this alert right now.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleRiverAlertUnsubscribe(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  try {
+    const body = await readJsonBody(request);
+    const alertId = clean(body?.alertId, 240);
+    const token = clean(body?.token, 400);
+
+    if (!alertId || !token) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'missing_required_fields', message: 'Missing alert unsubscribe link details.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const alert = await getRiverAlertById(alertId);
+    if (!alert) {
+      return sendJson(
+        response,
+        404,
+        { requestId, error: 'not_found', message: 'This alert no longer exists.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (!verifyRiverAlertActionToken(alert, token, 'unsubscribe')) {
+      return sendJson(
+        response,
+        401,
+        { requestId, error: 'invalid_alert_link', message: 'This alert link is invalid or expired.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (!alert.isActive) {
+      return sendJson(
+        response,
+        200,
+        {
+          requestId,
+          ok: true,
+          alreadyInactive: true,
+          alert: {
+            id: alert.id,
+            riverSlug: alert.riverSlug,
+            riverName: alert.riverName,
+            threshold: alert.threshold,
+          },
+        },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    await updateRiverAlert(alert.id, {
+      isActive: false,
+      updatedAt: new Date().toISOString(),
+    });
+
+    console.log('[alerts] unsubscribed', {
+      requestId,
+      alertId: alert.id,
+      riverSlug: alert.riverSlug,
+      threshold: alert.threshold,
+    });
+
+    return sendJson(
+      response,
+      200,
+      {
+        requestId,
+        ok: true,
+        unsubscribed: true,
+        alert: {
+          id: alert.id,
+          riverSlug: alert.riverSlug,
+          riverName: alert.riverName,
+          threshold: alert.threshold,
+        },
+      },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[alerts] unsubscribe failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'alert_unsubscribe_failed', message: 'Could not update this alert right now.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
 async function handleHistorySnapshot(
   request: Parameters<typeof createServer>[0],
   response: ServerResponse,
@@ -679,6 +937,25 @@ function isRateLimited(ip: string) {
   recent.push(now);
   rateByIp.set(ip, recent);
   return recent.length > RATE_MAX;
+}
+
+function isAlertThreshold(value: string): value is RiverAlertThreshold {
+  return value === 'good' || value === 'strong';
+}
+
+function meetsAlertThreshold(rating: string, threshold: RiverAlertThreshold): RiverAlertState {
+  return ratingRank(rating) >= (threshold === 'strong' ? 3 : 2) ? 'at_or_above_threshold' : 'below_threshold';
+}
+
+function ratingRank(rating: string) {
+  if (rating === 'Strong') return 3;
+  if (rating === 'Good') return 2;
+  if (rating === 'Fair') return 1;
+  return 0;
+}
+
+function isValidEmail(value: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 function parseContainerSas(urlRaw: string) {

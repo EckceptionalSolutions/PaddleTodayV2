@@ -214,6 +214,103 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'blue-earth-river-rapidan-county-road-90',
+    slug: 'blue-earth-river-rapidan-county-road-90',
+    name: 'Blue Earth River',
+    reach: 'Rapidan Dam Park to County Road 90',
+    state: 'Minnesota',
+    region: 'Mankato Area',
+    summary:
+      'Hard Blue Earth day below Rapidan where both the gauge and the route character matter. The official DNR ladder gives this stretch real level guidance, but high water and rapids can still turn it into the wrong day fast.',
+    statusText:
+      'Treat 4.0 to 6.0 ft at Rapidan as the target band. Below 2.0 ft gets too scrapy, and above 15.0 ft is out of bounds for this stretch.',
+    latitude: 44.12135,
+    longitude: -94.08935,
+    gaugeSource: {
+      id: 'usgs-05320000',
+      provider: 'usgs',
+      siteId: '05320000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Blue Earth River near Rapidan, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4,
+      idealMax: 6,
+      tooLow: 2,
+      tooHigh: 15,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Blue Earth River near Rapidan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. Recent rainfall matters more than the calendar because this stretch gets pushy fast when it rises.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is for experienced paddlers, not a casual float. Class I current, dam context, and fast post-rain changes all matter.',
+      confidenceNotes:
+        'Confidence is stronger than average because the route itself is a DNR-recommended day trip and the DNR river-level system publishes a real interpreted ladder for the Rapidan reading. Confidence is still tempered by the route being a genuinely hard stretch and by the County Road 90 take-out lacking a stronger standalone manager page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2.0 / 4.0 / 6.0 / 15.0 ft',
+        note: 'MN DNR interprets this gauge as Scrapable below 2.0 ft, Low from 2.0 to 4.0, Medium from 4.0 to 6.0, High from 6.0 to 15.0, and Very High above 15.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '9.1 river miles',
+        note: 'MN DNR treats Rapidan Dam Park to County Road 90 as the recommended Blue Earth day trip and explicitly marks it for experienced paddlers.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Rapids, dam context, post-rain push',
+        note: 'MN DNR warns about Rapidan Dam, Class I rapids, and rainfall-driven fast water and waves on this corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
+      },
+      {
+        label: 'Put-in support',
+        value: 'County park launch and camping',
+        note: 'Blue Earth County manages Rapidan Dam Park and identifies a canoe launch, campground, and posted park operations there.',
+        sourceUrl: 'https://www.blueearthcountymn.gov/facilities/facility/details/6',
+      },
+      {
+        label: 'Difficulty',
+        value: 'Hard',
+        note: 'Worth adding because the route is complete and well supported, but it is not the same kind of beginner-friendly product citizen as the easy Cannon or Root reaches.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Blue Earth River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Blue Earth River GeoPDF',
+        url: 'https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Blue%20Earth%20GEO.pdf',
+      },
+      {
+        label: 'Blue Earth County Rapidan Dam Park',
+        url: 'https://www.blueearthcountymn.gov/facilities/facility/details/6',
+      },
+      {
+        label: 'USGS 05320000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05320000/',
+      },
+    ],
+  },
+  {
     id: 'root-river-lanesboro-peterson',
     slug: 'root-river-lanesboro-peterson',
     name: 'Root River',
@@ -1419,6 +1516,320 @@ export const rivers: River[] = [
       {
         label: 'Stearns County Miller Landing',
         url: 'https://www.stearnscountymn.gov/393/Miller-Landing',
+      },
+    ],
+  },
+  {
+    id: 'snake-river-canary-cross-lake',
+    slug: 'snake-river-canary-cross-lake',
+    name: 'Snake River',
+    reach: 'Canary Road to Cross Lake / Pine City',
+    state: 'Minnesota',
+    region: 'Pine City Area',
+    summary:
+      'Clean lower Snake day with one of the better official flow stories in the app. The Pine City gauge and the DNR-recommended route pair make this a stronger decision than many small-river adds, but quick level swings and low water below Cross Lake still matter.',
+    statusText:
+      'Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow all-levels day this route wants to be.',
+    latitude: 45.7959352,
+    longitude: -93.0796766,
+    gaugeSource: {
+      id: 'usgs-05338500',
+      provider: 'usgs',
+      siteId: '05338500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Snake River near Pine City, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.3,
+      idealMax: 5,
+      tooLow: 2.3,
+      tooHigh: 6.3,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Snake River near Pine City',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the practical window. The Snake rises and falls quickly, so recent weather matters almost as much as the raw reading.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Usually approachable for most paddlers at sane levels, but wood and fast post-rain changes still deserve real attention.',
+      confidenceNotes:
+        'Confidence is strong because MN DNR officially recommends this exact trip, the Pine City gauge has a real DNR interpretation ladder, and both endpoints are now backed by the state public-water-access dataset rather than guessed coordinates.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2.3 / 3.3 / 5.0 / 6.3 ft',
+        note: 'MN DNR interprets this gauge as Scrapable below 2.3 ft, Low from 2.3 to 3.3, Medium from 3.3 to 5.0, High from 5.0 to 6.3, and Very High above 6.3.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '10.2 river miles',
+        note: 'MN DNR treats Canary Road access to Cross Lake/Pine City as the recommended Snake River day trip for this lower corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+      },
+      {
+        label: 'Endpoint authority',
+        value: 'DNR access records for both landings',
+        note: 'Minnesota public-water-access data identifies the exact Snake River #1 Canary Road carry-in at river mile 22.1 and the Snake River Cross Lake landing in Pine City at river mile 11.9.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'Low-water caveat',
+        value: 'Below Cross Lake can stop working',
+        note: 'MN DNR notes that canoeing the stretch below Cross Lake may not be possible during low water, which reinforces the official low-end ladder.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/snakeriver/index.html',
+      },
+      {
+        label: 'Take-out context',
+        value: 'Pine City landing with trailer parking',
+        note: 'Pine City recreation materials describe the Snake River landing across Highway 61 from Voyageur Park as a landscaped access with parking for vehicles and trailers.',
+        sourceUrl: 'https://pinecitymn.gov/recreation',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Snake River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/index.html',
+      },
+      {
+        label: 'MN DNR Snake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Snake River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'City of Pine City recreation',
+        url: 'https://pinecitymn.gov/recreation',
+      },
+      {
+        label: 'USGS 05338500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05338500/',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-judson-land-of-memories',
+    slug: 'minnesota-river-judson-land-of-memories',
+    name: 'Minnesota River',
+    reach: 'Judson Access to Land of Memories Park',
+    state: 'Minnesota',
+    region: 'Mankato Area',
+    summary:
+      'Big-river Minnesota day with a better trust story than the old partial draft ever had. The route is not technical, but level, wind, sandbars, and open-water feel matter more here than on the smaller easy rivers.',
+    statusText:
+      'Treat 4,550 to 17,900 cfs at Mankato as the best working band. Below 566.9 cfs gets too skinny and sandy, and above 22,500 cfs is beyond the range this route should be pitched for.',
+    latitude: 44.2010236,
+    longitude: -94.1947673,
+    gaugeSource: {
+      id: 'usgs-05325000',
+      provider: 'usgs',
+      siteId: '05325000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Minnesota River at Mankato, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4550,
+      idealMax: 17900,
+      tooLow: 566.9,
+      tooHigh: 22500,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Mankato',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. Because this is a larger river, wind and exposed sandbars can matter as much as the raw gauge number on a given day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The current is usually manageable, but distance, open-water feel, wind, and motorboat-style landings make it a bigger day than a small-river easy label suggests.',
+      confidenceNotes:
+        'Confidence is strong because the route is an exact DNR-recommended trip, the Mankato gauge has an official DNR ladder, and both endpoints are backed by Minnesota public-water-access records. Confidence is still a little tempered by the larger-river judgment calls that gauges cannot fully price in, especially wind and sandbar exposure.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '566.9 / 4,550 / 17,900 / 22,500 cfs',
+        note: 'MN DNR interprets this gauge as Scrapable below 566.9 cfs, Low from 566.9 to 4,550, Medium from 4,550 to 17,900, High from 17,900 to 22,500, and Very High above 22,500.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '11.1 river miles',
+        note: 'MN DNR treats Judson Access to Land of Memories Park as the recommended day trip on this Mankato-area Minnesota River segment.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'Endpoint authority',
+        value: 'State access records on both ends',
+        note: 'Minnesota public-water-access data identifies Judson Public Water Access at river mile 116.0 and Land of Memories Park Public Water Access at river mile 105.0.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Sandbars, wind, larger-river exposure',
+        note: 'MN DNR highlights many sandbars on this stretch and warns paddlers not to underestimate wind and waves on larger open-water corridors.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'Take-out support',
+        value: 'City park with boat landing',
+        note: 'Mankato describes Land of Memories Park as having a boat landing for Minnesota River access, along with campground and park amenities.',
+        sourceUrl: 'https://www.mankatomn.gov/about-mankato/parks-trails-and-recreation/community-parks/land-of-memories-park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'City of Mankato Land of Memories Park',
+        url: 'https://www.mankatomn.gov/about-mankato/parks-trails-and-recreation/community-parks/land-of-memories-park',
+      },
+      {
+        label: 'USGS 05325000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05325000/',
+      },
+    ],
+  },
+  {
+    id: 'minnesota-river-henderson-belle-plaine',
+    slug: 'minnesota-river-henderson-belle-plaine',
+    name: 'Minnesota River',
+    reach: 'Henderson Station to Belle Plaine',
+    state: 'Minnesota',
+    region: 'Lower Minnesota Valley',
+    summary:
+      'Long lower Minnesota shuttle with a much better trust story than the old draft. It is not technical whitewater, but mileage, wind, and big-river pacing matter enough that a clean gauge read alone does not make it automatic.',
+    statusText:
+      'Treat 9.0 to 12.0 ft at Jordan as the best working band. Below 4.0 ft drags the pace down, and above 16.0 ft is beyond the level this route should be sold for.',
+    latitude: 44.5244176,
+    longitude: -93.8862799,
+    gaugeSource: {
+      id: 'usgs-05330000',
+      provider: 'usgs',
+      siteId: '05330000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Minnesota River near Jordan, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 9,
+      idealMax: 12,
+      tooLow: 4,
+      tooHigh: 16,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River near Jordan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. This is a long open lower-river day, so wind and pace matter almost as much as the gauge.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The water is usually straightforward, but 17.4 miles on the Minnesota River is still a serious day because of distance, wind exposure, and big-river landings.',
+      confidenceNotes:
+        'Confidence is solid because MN DNR recommends this exact trip, both endpoints are backed by Minnesota public-water-access records, and the Jordan USGS gauge has an official DNR ladder. Confidence is still slightly tempered because the gauge sits downstream at Thompson Ferry rather than exactly on the Henderson-to-Belle Plaine reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 9.0 / 12.0 / 16.0 ft',
+        note: 'MN DNR interprets the Jordan gauge as Scrapable below 4.0 ft, Low from 4.0 to 9.0, Medium from 9.0 to 12.0, High from 12.0 to 16.0, and Very High above 16.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '17.4 river miles',
+        note: 'MN DNR Map 6 lists Henderson Station carry-in access to Belle Plaine trailer access as the day-trip segment for this lower Minnesota corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Endpoint authority',
+        value: 'State access records on both ends',
+        note: 'Minnesota public-water-access data identifies Henderson Station Public Water Access at river mile 68.0 and Belle Plaine Public Water Access at river mile 50.4.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'Put-in support',
+        value: 'County river-access park',
+        note: 'Le Sueur County confirms Henderson Station River Access & Park has parking along the gravel entrance road and a walk-in launch point for canoes and kayaks into the Minnesota River.',
+        sourceUrl: 'https://www.lesueurcounty.gov/Facilities/Facility/Details/Henderson-Station-River-Access-Park-6',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Long day, wind, private shoreland',
+        note: 'MN DNR Map 6 tells paddlers to expect 2 to 3 river miles per hour, respect private shoreland, and not underestimate wind, waves, or obstacles.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'Le Sueur County Henderson Station River Access & Park',
+        url: 'https://www.lesueurcounty.gov/Facilities/Facility/Details/Henderson-Station-River-Access-Park-6',
+      },
+      {
+        label: 'USGS 05330000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05330000/',
       },
     ],
   },

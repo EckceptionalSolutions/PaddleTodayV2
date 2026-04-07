@@ -308,6 +308,38 @@ const routeStructuredData = {
             Auto-refreshes every 5 minutes.
           </span>
         </div>
+        <section class="river-alerts" aria-label="River email alerts">
+          <p class="eyebrow">River alerts</p>
+          <h2 class="river-alerts__title">Email me when this route turns good</h2>
+            <p class="muted river-alerts__copy">
+              Threshold alerts only. We email you when this route climbs into Good or Strong, and every email includes an unsubscribe link.
+            </p>
+          <form class="river-alerts__form" data-alert-form novalidate>
+            <label class="river-alerts__field">
+              <span class="sr-only">Email address for river alerts</span>
+              <input
+                class="river-alerts__input"
+                type="email"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                data-alert-email
+              />
+            </label>
+            <div class="river-alerts__actions">
+              <button class="filter-chip filter-chip--primary" type="submit" data-alert-submit="good">
+                Notify at Good
+              </button>
+              <button class="filter-chip" type="submit" data-alert-submit="strong">
+                Notify at Strong
+              </button>
+            </div>
+            <input type="text" name="company" tabindex="-1" autocomplete="off" hidden data-alert-company />
+            <p class="river-alerts__status muted" data-alert-status aria-live="polite">
+              No spam. We only email on a new threshold crossing.
+            </p>
+          </form>
+        </section>
         <a
           class="river-link river-link--wide"
           href={river.profile.thresholdSource.url}

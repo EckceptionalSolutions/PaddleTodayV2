@@ -18,6 +18,7 @@
     "serve:local": "tsx src/server/api-server.ts --static dist --port 4323",
     "history:snapshot": "tsx src/server/history-snapshot.ts",
     "snapshots:refresh": "tsx src/server/river-snapshot.ts",
+    "alerts:evaluate": "tsx src/server/alerts-evaluate.ts",
     "start": "tsx src/server/api-server.ts --static dist",
     "test": "vitest run",
     "mobile:start": "npm run start --workspace @paddletoday/mobile",
