@@ -50,11 +50,16 @@ const detailSections = Array.from(root.querySelectorAll('[data-detail-section]')
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const historyBars = root.querySelector('[data-history-bars]');
 const historyPanel = root.querySelector('[data-history-panel]');
+const alertDialog = root.querySelector('[data-alert-dialog]');
+const alertOpenButton = root.querySelector('[data-alert-open]');
 const alertForm = root.querySelector('[data-alert-form]');
 const alertEmailInput = root.querySelector('[data-alert-email]');
 const alertCompanyInput = root.querySelector('[data-alert-company]');
 const alertStatus = root.querySelector('[data-alert-status]');
 const alertSubmitButtons = Array.from(root.querySelectorAll('[data-alert-submit]'));
+const shareCopyButton = root.querySelector('[data-share-copy]');
+const routeActionStatus = root.querySelector('[data-route-action-status]');
+const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -62,7 +67,6 @@ const activeTakeOutNote = root.querySelector('[data-field="active-takeout-note"]
 const activeFactPutIn = root.querySelector('[data-field="active-fact-putin"]');
 const activeFactTakeOut = root.querySelector('[data-field="active-fact-takeout"]');
 const activeFactDistance = root.querySelector('[data-field="active-fact-distance"]');
-const activeFactMapMode = root.querySelector('[data-field="active-fact-map-mode"]');
 const activePutInCopy = root.querySelector('[data-field="active-putin-copy"]');
 const activeTakeOutCopy = root.querySelector('[data-field="active-takeout-copy"]');
 const riverContext = {
@@ -318,6 +322,28 @@ function setAlertStatus(message, tone = 'muted') {
     alertStatus.classList.add('river-alerts__status--success');
   } else if (tone === 'error') {
     alertStatus.classList.add('river-alerts__status--error');
+  }
+}
+
+function setRouteActionStatus(message, tone = 'muted') {
+  if (!(routeActionStatus instanceof HTMLElement)) {
+    return;
+  }
+
+  routeActionStatus.textContent = message;
+  routeActionStatus.classList.remove('route-action-bar__status--success', 'route-action-bar__status--error');
+  if (tone === 'success') {
+    routeActionStatus.classList.add('route-action-bar__status--success');
+  } else if (tone === 'error') {
+    routeActionStatus.classList.add('route-action-bar__status--error');
+  }
+}
+
+function closeRouteActionMenus() {
+  for (const menu of routeActionMenus) {
+    if (menu instanceof HTMLDetailsElement) {
+      menu.open = false;
+    }
   }
 }
 
@@ -1305,7 +1331,6 @@ function renderActiveAccessContext() {
   setElementText(activeFactPutIn, context.putIn?.name || 'Check source links');
   setElementText(activeFactTakeOut, context.takeOut?.name || 'Check source links');
   setElementText(activeFactDistance, context.distanceLabel || 'Check source links');
-  setElementText(activeFactMapMode, context.mapMode || 'Access points');
 
   setCopyButtonState(activePutInCopy, context.putIn, 'Put-in');
   setCopyButtonState(activeTakeOutCopy, context.takeOut, 'Take-out');
@@ -1781,10 +1806,10 @@ function renderGaugeChart(result) {
     return;
   }
 
-  const xLeft = 62;
-  const xRight = 392;
-  const yTop = 24;
-  const yBottom = 178;
+  const xLeft = 58;
+  const xRight = 394;
+  const yTop = 22;
+  const yBottom = 176;
 
   const thresholdValues = [
     result.river.profile.idealMin,
@@ -2476,9 +2501,19 @@ function bindAlertForm() {
           : `We’ll email you when this route reaches ${threshold === 'good' ? 'Good' : 'Strong'}. Every alert email includes an unsubscribe link.`,
         'success'
       );
+      setRouteActionStatus(
+        payload?.duplicate
+          ? `You already have a ${threshold === 'good' ? 'Good' : 'Strong'} alert on this route.`
+          : `Saved a ${threshold === 'good' ? 'Good' : 'Strong'} alert for this route.`,
+        'success'
+      );
     } catch (error) {
       console.error('Failed to create river alert.', error);
       setAlertStatus(
+        error instanceof Error ? error.message : 'Could not save this alert right now.',
+        'error'
+      );
+      setRouteActionStatus(
         error instanceof Error ? error.message : 'Could not save this alert right now.',
         'error'
       );
@@ -2492,6 +2527,70 @@ function bindAlertForm() {
   });
 }
 
+function bindRouteActions() {
+  if (alertOpenButton instanceof HTMLButtonElement && alertDialog instanceof HTMLDialogElement) {
+    alertOpenButton.addEventListener('click', () => {
+      closeRouteActionMenus();
+      if (!alertDialog.open) {
+        alertDialog.showModal();
+      }
+      if (alertEmailInput instanceof HTMLInputElement) {
+        window.setTimeout(() => {
+          alertEmailInput.focus();
+        }, 20);
+      }
+    });
+
+    alertDialog.addEventListener('click', (event) => {
+      if (event.target === alertDialog) {
+        alertDialog.close();
+      }
+    });
+  }
+
+  if (shareCopyButton instanceof HTMLButtonElement) {
+    shareCopyButton.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(window.location.href);
+        setRouteActionStatus('Copied route link.', 'success');
+        closeRouteActionMenus();
+      } catch (error) {
+        console.error('Failed to copy route link.', error);
+        setRouteActionStatus('Could not copy this route link right now.', 'error');
+      }
+    });
+  }
+
+  if (routeActionMenus.length > 0) {
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Node) || root.contains(target) === false) {
+        closeRouteActionMenus();
+        return;
+      }
+
+      const clickedInsideMenu = routeActionMenus.some((menu) => menu.contains(target));
+      if (!clickedInsideMenu) {
+        closeRouteActionMenus();
+      }
+    });
+
+    for (const menu of routeActionMenus) {
+      if (!(menu instanceof HTMLDetailsElement)) continue;
+      menu.addEventListener('toggle', () => {
+        if (!menu.open) {
+          return;
+        }
+        for (const sibling of routeActionMenus) {
+          if (sibling instanceof HTMLDetailsElement && sibling !== menu) {
+            sibling.open = false;
+          }
+        }
+      });
+    }
+  }
+}
+
 bindChartControls();
 bindCopyCoordinateButtons();
 initializeAccessPlanner();
@@ -2500,6 +2599,7 @@ updateChartButtonStates();
 renderDetailMap(null);
 setupDetailSectionNav();
 bindAlertForm();
+bindRouteActions();
 if (detailRefreshButton instanceof HTMLButtonElement) {
   detailRefreshButton.addEventListener('click', () => {
     loadDetail();

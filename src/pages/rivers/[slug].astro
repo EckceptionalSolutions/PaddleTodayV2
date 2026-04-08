@@ -21,8 +21,6 @@ const thresholdQualityLabel =
         ? 'Community guidance'
         : 'Derived guidance';
 const thresholdQualityClass = `threshold-pill--${river.profile.thresholdSourceStrength}`;
-const thresholdModelLabel =
-  river.profile.thresholdModel === 'minimum-only' ? 'Minimum-only' : 'Two-sided';
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -80,6 +78,16 @@ const campingHeadline =
   logistics?.camping.toLowerCase().includes('day trip')
     ? 'Day trip'
     : 'Options nearby';
+const seasonMonthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const seasonMonths = river.profile.seasonMonths ?? [];
+const firstSeasonMonth = seasonMonths.length > 0 ? seasonMonthLabels[seasonMonths[0] - 1] : null;
+const lastSeasonMonth = seasonMonths.length > 0 ? seasonMonthLabels[seasonMonths[seasonMonths.length - 1] - 1] : null;
+const seasonHeadline =
+  firstSeasonMonth && lastSeasonMonth
+    ? firstSeasonMonth === lastSeasonMonth
+      ? firstSeasonMonth
+      : `${firstSeasonMonth}-${lastSeasonMonth}`
+    : 'Check seasonal notes';
 const primaryAccessCaveat = logistics?.accessCaveats?.[0] ?? 'Check parking, launch, and access rules on the ground.';
 const secondaryAccessCaveat = logistics?.accessCaveats?.[1] ?? primaryAccessCaveat;
 const thresholdBadgeLabel =
@@ -308,12 +316,151 @@ const routeStructuredData = {
             Auto-refreshes every 5 minutes.
           </span>
         </div>
-        <section class="river-alerts" aria-label="River email alerts">
-          <p class="eyebrow">River alerts</p>
-          <h2 class="river-alerts__title">Email me when this route turns good</h2>
-            <p class="muted river-alerts__copy">
-              Threshold alerts only. We email you when this route climbs into Good or Strong, and every email includes an unsubscribe link.
-            </p>
+        <a
+          class="river-link river-link--wide"
+          href={river.profile.thresholdSource.url}
+          target="_blank"
+          rel="noreferrer"
+        >
+          View threshold source
+        </a>
+      </aside>
+      </section>
+
+      <section class="route-action-bar" aria-label="Route actions">
+        <div class="route-action-bar__row">
+          <button class="route-action-button route-action-button--primary route-action-button--bar-primary" type="button" data-alert-open>
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 22a2.6 2.6 0 0 1-2.43-1.69h4.86A2.6 2.6 0 0 1 12 22Zm7-3.25H5v-1.5l1.65-1.48v-4.11a5.35 5.35 0 0 1 4.1-5.23V5.6a1.25 1.25 0 1 1 2.5 0v.83a5.35 5.35 0 0 1 4.1 5.23v4.11L19 17.25v1.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="route-action-button__label">Get alerts</span>
+          </button>
+
+          <button class="route-action-button route-action-button--save route-action-button--disabled" type="button" disabled aria-disabled="true" aria-label="Save route coming soon" title="Save route coming soon">
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 20.4 4.95 16.3V4.9A1.9 1.9 0 0 1 6.85 3h10.3a1.9 1.9 0 0 1 1.9 1.9v11.4L12 20.4Zm0-2.3 4.15-2.42V5H7v10.68L12 18.1Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="route-action-button__label route-action-button__label--desktop">Save</span>
+          </button>
+
+          <details class="route-action-menu route-action-menu--share" data-route-action-menu>
+            <summary class="route-action-button route-action-button--menu" aria-label="Share route">
+              <span class="route-action-button__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M16 8a3 3 0 1 0-2.82-4h-.36a3 3 0 1 0 0 6h.36A3 3 0 0 0 16 8Zm-8 7a3 3 0 1 0 2.82 4h.36a3 3 0 1 0 0-6h-.36A3 3 0 0 0 8 15Zm7.16-4.18-6.32 3.14.89 1.79 6.32-3.14-.89-1.79Zm-5.43-2.57 6.13 3.51.99-1.73-6.13-3.51-.99 1.73Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span class="route-action-button__label route-action-button__label--desktop">Share</span>
+            </summary>
+            <div class="route-action-menu__panel">
+              <a
+                class="route-action-menu__item route-action-button--x"
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${river.name} - ${river.reach}`)}&url=${encodeURIComponent(routeUrl)}`}
+                target="_blank"
+                rel="noreferrer"
+                data-share-x
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M17.94 3H21l-6.7 7.66L22.18 21h-6.2l-4.86-6.35L5.56 21H2.5l7.17-8.19L2.18 3h6.36l4.4 5.77L17.94 3Zm-1.09 16.12h1.7L7.61 4.79H5.79l11.06 14.33Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>X</span>
+              </a>
+              <a
+                class="route-action-menu__item route-action-button--facebook"
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(routeUrl)}`}
+                target="_blank"
+                rel="noreferrer"
+                data-share-facebook
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M13.52 21v-7.8h2.62l.39-3.05h-3.01V8.2c0-.88.24-1.49 1.5-1.49h1.6V4a21.8 21.8 0 0 0-2.34-.12c-2.31 0-3.89 1.41-3.89 4v2.27H7.77v3.05h2.62V21h3.13Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Facebook</span>
+              </a>
+              <button class="route-action-menu__item" type="button" data-share-copy>
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M14.7 6.3a3.75 3.75 0 0 1 5.3 5.3l-2.4 2.4a3.75 3.75 0 0 1-5.3 0l-.35-.35 1.41-1.41.35.35a1.75 1.75 0 0 0 2.48 0l2.4-2.4a1.75 1.75 0 1 0-2.48-2.48l-1.55 1.55-1.41-1.41 1.55-1.55Zm-5.4 11.4a3.75 3.75 0 0 1-5.3-5.3l2.4-2.4a3.75 3.75 0 0 1 5.3 0l.35.35-1.41 1.41-.35-.35a1.75 1.75 0 0 0-2.48 0l-2.4 2.4a1.75 1.75 0 0 0 2.48 2.48l1.55-1.55 1.41 1.41-1.55 1.55Zm6.46-8.57 1.41 1.41-8.48 8.48-1.41-1.41 8.48-8.48Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Copy link</span>
+              </button>
+            </div>
+          </details>
+
+          <details class="route-action-menu route-action-menu--more" data-route-action-menu>
+            <summary class="route-action-button route-action-button--menu" aria-label="More route actions">
+              <span class="route-action-button__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M5 10.5A1.5 1.5 0 1 1 5 13.5A1.5 1.5 0 0 1 5 10.5Zm7 0A1.5 1.5 0 1 1 12 13.5A1.5 1.5 0 0 1 12 10.5Zm7 0A1.5 1.5 0 1 1 19 13.5A1.5 1.5 0 0 1 19 10.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span class="route-action-button__label route-action-button__label--desktop">More</span>
+            </summary>
+            <div class="route-action-menu__panel route-action-menu__panel--wide">
+              <button class="route-action-menu__item route-action-menu__item--disabled" type="button" disabled aria-disabled="true">
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M12 2.75A2.25 2.25 0 0 1 14.25 5v5.13l2.91 1.68A2.25 2.25 0 0 1 18 14.6v4.4A2.25 2.25 0 0 1 15.75 21h-7.5A2.25 2.25 0 0 1 6 18.75V14.6a2.25 2.25 0 0 1 .84-1.79l2.91-1.68V5A2.25 2.25 0 0 1 12 2.75Zm0 1.5a.75.75 0 0 0-.75.75v6l-3.66 2.12a.75.75 0 0 0-.09.06v5.57c0 .41.34.75.75.75h7.5c.41 0 .75-.34.75-.75v-5.57a.75.75 0 0 0-.09-.06L12.75 11V5a.75.75 0 0 0-.75-.75Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Download offline</span>
+              </button>
+            </div>
+          </details>
+        </div>
+
+        <p class="route-action-bar__status muted" data-route-action-status aria-live="polite">
+          Alerts only send on a new Good or Strong crossing.
+        </p>
+      </section>
+
+      <dialog class="route-alert-dialog" data-alert-dialog aria-label="River alert signup">
+        <form method="dialog" class="route-alert-dialog__shell">
+          <button class="route-alert-dialog__close" type="submit" value="cancel" aria-label="Close alert dialog">
+            Close
+          </button>
+        </form>
+
+        <div class="route-alert-dialog__body">
+          <p class="eyebrow">Route alerts</p>
+          <h2 class="river-alerts__title">Email me when this route improves</h2>
+          <p class="muted river-alerts__copy">
+            Threshold alerts only. We email you when this route climbs into Good or Strong, and every email includes an unsubscribe link.
+          </p>
+
           <form class="river-alerts__form" data-alert-form novalidate>
             <label class="river-alerts__field">
               <span class="sr-only">Email address for river alerts</span>
@@ -339,20 +486,11 @@ const routeStructuredData = {
               No spam. We only email on a new threshold crossing.
             </p>
           </form>
-        </section>
-        <a
-          class="river-link river-link--wide"
-          href={river.profile.thresholdSource.url}
-          target="_blank"
-          rel="noreferrer"
-        >
-          View threshold source
-        </a>
-      </aside>
-    </section>
+        </div>
+      </dialog>
 
-    <nav class="river-detail__section-nav river-detail__section-nav--mobile" aria-label="River page sections">
-      <div class="river-detail__section-nav-inner">
+      <nav class="river-detail__section-nav river-detail__section-nav--mobile" aria-label="River page sections">
+        <div class="river-detail__section-nav-inner">
         <p class="river-detail__section-nav-label">Jump to</p>
         <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
           Today&apos;s Score
@@ -450,7 +588,7 @@ const routeStructuredData = {
       </div>
 
       <div class="river-why-panel__visuals">
-        <section class="river-visual-panel">
+        <section class="river-visual-panel river-visual-panel--gauge">
           <div class="river-why-panel__section-head">
             <div>
               <p class="eyebrow section-label">
@@ -497,14 +635,14 @@ const routeStructuredData = {
               <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
 
               <g class="gauge-chart__grid">
-                <line x1="62" y1="30" x2="392" y2="30" />
-                <line x1="62" y1="96" x2="392" y2="96" />
-                <line x1="62" y1="162" x2="392" y2="162" />
+                <line x1="58" y1="28" x2="394" y2="28" />
+                <line x1="58" y1="96" x2="394" y2="96" />
+                <line x1="58" y1="164" x2="394" y2="164" />
               </g>
 
               <g class="gauge-chart__axis">
-                <line x1="62" y1="18" x2="62" y2="178" />
-                <line x1="62" y1="178" x2="392" y2="178" />
+                <line x1="58" y1="20" x2="58" y2="176" />
+                <line x1="58" y1="176" x2="394" y2="176" />
               </g>
 
               <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
@@ -514,21 +652,21 @@ const routeStructuredData = {
               <circle data-chart-dot cx="392" cy="90" r="4" />
 
               <g class="gauge-chart__labels gauge-chart__labels--y">
-                <text x="12" y="33" data-chart-y-max>--</text>
+                <text x="12" y="31" data-chart-y-max>--</text>
                 <text x="12" y="99" data-chart-y-mid>--</text>
-                <text x="12" y="165" data-chart-y-min>--</text>
+                <text x="12" y="167" data-chart-y-min>--</text>
               </g>
 
               <g class="gauge-chart__labels gauge-chart__labels--x">
-                <text x="62" y="198" data-chart-x-start>--</text>
-                <text x="202" y="198" data-chart-x-mid>--</text>
-                <text x="332" y="198" data-chart-x-end>--</text>
+                <text x="58" y="194" data-chart-x-start>--</text>
+                <text x="204" y="194" data-chart-x-mid>--</text>
+                <text x="332" y="194" data-chart-x-end>--</text>
               </g>
             </svg>
           </div>
         </section>
 
-        <section class="river-visual-panel">
+        <section class="river-visual-panel river-visual-panel--weather">
           <div class="river-why-panel__section-head">
             <div>
               <p class="eyebrow section-label">
@@ -589,7 +727,7 @@ const routeStructuredData = {
           </div>
         </section>
 
-        <section class="river-visual-panel river-history-panel" data-history-panel hidden>
+        <section class="river-visual-panel river-visual-panel--history river-history-panel" data-history-panel hidden>
           <div class="river-why-panel__section-head">
             <div>
               <p class="eyebrow section-label">
@@ -630,14 +768,24 @@ const routeStructuredData = {
           <small>{river.profile.difficultyNotes}</small>
         </article>
         <article class="snapshot-card">
-          <span class="snapshot-card__label">Threshold quality</span>
-          <strong>{thresholdQualityLabel}</strong>
-          <small>{thresholdModelLabel}</small>
-        </article>
-        <article class="snapshot-card">
           <span class="snapshot-card__label">Shuttle</span>
           <strong>{shuttleHeadline}</strong>
           <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Permits</span>
+          <strong>{permitsHeadline}</strong>
+          <small>{logistics?.permits ?? 'Check local access rules.'}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Camping</span>
+          <strong>{campingHeadline}</strong>
+          <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
+        </article>
+        <article class="snapshot-card">
+          <span class="snapshot-card__label">Best season</span>
+          <strong>{seasonHeadline}</strong>
+          <small>{river.profile.seasonNotes}</small>
         </article>
       </div>
     </section>
@@ -710,29 +858,6 @@ const routeStructuredData = {
             </a>
           </div>
         </div>
-
-        <div class="river-logistics__grid river-logistics__grid--compact">
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Trip length</span>
-            <strong>{logistics?.distanceLabel ?? 'Check sources'}</strong>
-            <small>{river.reach}</small>
-          </article>
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Shuttle</span>
-            <strong>{shuttleHeadline}</strong>
-            <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
-          </article>
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Permits</span>
-            <strong>{permitsHeadline}</strong>
-            <small>{logistics?.permits ?? 'Check local access rules.'}</small>
-          </article>
-          <article class="snapshot-card">
-            <span class="snapshot-card__label">Camping</span>
-            <strong>{campingHeadline}</strong>
-            <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
-          </article>
-        </div>
       </div>
 
       {hasAccessPlanner ? (
@@ -796,87 +921,46 @@ const routeStructuredData = {
       ) : null}
 
       <div class="river-launch-plan__body">
-        <div class="river-launch-plan__stack">
-          <div class="river-access-grid">
-            <article class="river-access-card river-access-card--put-in">
-              <span class="river-access-card__eyebrow">Start</span>
-              <h3 class="river-logistics__title">Put-in</h3>
-              <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
-              {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
-                <button
-                  class="river-inline-button"
-                  type="button"
-                  data-copy-coords
-                  data-copy-label="Put-in"
-                  data-copy-value={`${putIn.latitude}, ${putIn.longitude}`}
-                  data-default-label="Copy coordinates"
-                  data-field="active-putin-copy"
-                >
-                  Copy coordinates
-                </button>
-              ) : null}
-              <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
-            </article>
+        <div class="river-access-grid">
+          <article class="river-access-card river-access-card--put-in">
+            <span class="river-access-card__eyebrow">Start</span>
+            <h3 class="river-logistics__title">Put-in</h3>
+            <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
+            {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
+              <button
+                class="river-inline-button"
+                type="button"
+                data-copy-coords
+                data-copy-label="Put-in"
+                data-copy-value={`${putIn.latitude}, ${putIn.longitude}`}
+                data-default-label="Copy coordinates"
+                data-field="active-putin-copy"
+              >
+                Copy coordinates
+              </button>
+            ) : null}
+            <p class="muted" data-field="active-putin-note">{primaryAccessCaveat}</p>
+          </article>
 
-            <article class="river-access-card river-access-card--take-out">
-              <span class="river-access-card__eyebrow">Finish</span>
-              <h3 class="river-logistics__title">Take-out</h3>
-              <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
-              {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
-                <button
-                  class="river-inline-button"
-                  type="button"
-                  data-copy-coords
-                  data-copy-label="Take-out"
-                  data-copy-value={`${takeOut.latitude}, ${takeOut.longitude}`}
-                  data-default-label="Copy coordinates"
-                  data-field="active-takeout-copy"
-                >
-                  Copy coordinates
-                </button>
-              ) : null}
-              <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
-            </article>
-          </div>
-
-          <dl class="detail-map__facts detail-map__facts--launch-plan">
-            <div>
-              <dt>Put-in</dt>
-              <dd data-field="active-fact-putin">{putIn?.name ?? 'Check source links'}</dd>
-            </div>
-            <div>
-              <dt>Take-out</dt>
-              <dd data-field="active-fact-takeout">{takeOut?.name ?? 'Check source links'}</dd>
-            </div>
-            <div>
-              <dt>Trip length</dt>
-              <dd data-field="active-fact-distance">{logistics?.distanceLabel ?? 'Check source links'}</dd>
-            </div>
-            <div>
-              <dt>Map mode</dt>
-              <dd data-field="active-fact-map-mode">Access points</dd>
-            </div>
-          </dl>
-
-          <div class="river-logistics__columns river-logistics__columns--tight">
-            <section class="river-logistics__notes">
-              <h3 class="river-logistics__title">Access caveats</h3>
-              <ul class="compact-list">
-                {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
-                  <li>{note}</li>
-                ))}
-              </ul>
-            </section>
-
-            <section class="river-logistics__notes">
-              <h3 class="river-logistics__title">Watch for</h3>
-              <ul class="compact-list">
-                {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
-                  <li>{note}</li>
-                ))}
-              </ul>
-            </section>
-          </div>
+          <article class="river-access-card river-access-card--take-out">
+            <span class="river-access-card__eyebrow">Finish</span>
+            <h3 class="river-logistics__title">Take-out</h3>
+            <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
+            {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
+              <button
+                class="river-inline-button"
+                type="button"
+                data-copy-coords
+                data-copy-label="Take-out"
+                data-copy-value={`${takeOut.latitude}, ${takeOut.longitude}`}
+                data-default-label="Copy coordinates"
+                data-field="active-takeout-copy"
+              >
+                Copy coordinates
+              </button>
+            ) : null}
+            <p class="muted" data-field="active-takeout-note">{secondaryAccessCaveat}</p>
+          </article>
         </div>
 
         <div class="river-launch-plan__map-shell" data-detail-map-shell>
@@ -895,6 +979,33 @@ const routeStructuredData = {
               Loading access map.
             </p>
           </div>
+        </div>
+
+        <div class="river-launch-plan__support">
+          <dl class="detail-map__facts detail-map__facts--launch-plan">
+            <div>
+              <dt>Trip length</dt>
+              <dd data-field="active-fact-distance">{logistics?.distanceLabel ?? 'Check source links'}</dd>
+            </div>
+          </dl>
+
+          <section class="river-logistics__notes">
+            <h3 class="river-logistics__title">Access caveats</h3>
+            <ul class="compact-list">
+              {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </section>
+
+          <section class="river-logistics__notes">
+            <h3 class="river-logistics__title">Watch for</h3>
+            <ul class="compact-list">
+              {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          </section>
         </div>
       </div>
     </section>

@@ -533,6 +533,24 @@ function summaryParts(text) {
   };
 }
 
+function hasStrongerBoardCall(item) {
+  if (!item?.cardRoute) {
+    return false;
+  }
+
+  return latestResults.some((candidate) => {
+    if (
+      !candidate ||
+      candidate.river.slug === item.cardRoute.river.slug ||
+      candidate.river.riverId === item.cardRoute.river.riverId
+    ) {
+      return false;
+    }
+
+    return compareResults(candidate, item.cardRoute) < 0;
+  });
+}
+
 function weatherVisualState(item) {
   const summary = cardSummary(item).toLowerCase();
   const temperature = parseTemperature(rawSignalLine(item));
@@ -1047,6 +1065,9 @@ function recommendationSummaryText(item, nearbyReady) {
     }
     if (hasChangingFlow) {
       return 'Usable now, but changing flow makes this a weaker pick.';
+    }
+    if (!hasStrongerBoardCall(item)) {
+      return 'This is the strongest call on the board, but it still needs judgment.';
     }
     return 'Possible today, but there are cleaner calls on the board.';
   }

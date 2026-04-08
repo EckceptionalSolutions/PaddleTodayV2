@@ -38,6 +38,11 @@ let selectedSlug = null;
 let mapRuntime = null;
 let mapMarkers = [];
 let groupMapCollapsed = phoneBreakpoint.matches;
+const confidenceWeight = {
+  High: 3,
+  Medium: 2,
+  Low: 1,
+};
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -65,6 +70,35 @@ function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
+}
+
+function compareRoutes(left, right) {
+  if ((left?.score ?? 0) !== (right?.score ?? 0)) {
+    return (right?.score ?? 0) - (left?.score ?? 0);
+  }
+
+  const leftConfidence = confidenceWeight[left?.confidence?.label] ?? 0;
+  const rightConfidence = confidenceWeight[right?.confidence?.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
+  }
+
+  return String(left?.reach ?? '').localeCompare(String(right?.reach ?? ''));
+}
+
+function hasStrongerRouteOnRiver(route) {
+  const routes = currentResult?.routes;
+  if (!Array.isArray(routes)) {
+    return false;
+  }
+
+  return routes.some((candidate) => {
+    if (!candidate || candidate.slug === route.slug) {
+      return false;
+    }
+
+    return compareRoutes(candidate, route) < 0;
+  });
 }
 
 function confidenceLabelText(confidence) {
@@ -191,6 +225,9 @@ function decisionSummary(route) {
     }
     if (hasChangingFlow) {
       return 'Usable now, but changing flow makes this a weaker pick.';
+    }
+    if (!hasStrongerRouteOnRiver(route)) {
+      return 'This is the strongest route on this river, but it still needs judgment.';
     }
     return 'Possible today, but cleaner calls are on this river.';
   }
