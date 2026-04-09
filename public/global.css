@@ -1058,6 +1058,11 @@ a {
   white-space: nowrap;
 }
 
+.river-card__warning[hidden],
+.pill--warning[hidden] {
+  display: none !important;
+}
+
 .river-card__warning::before,
 .pill--warning::before {
   content: "\26A0";
