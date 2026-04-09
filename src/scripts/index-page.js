@@ -972,7 +972,10 @@ function liveReadWarning(result) {
     };
   }
 
-  return null;
+  return {
+    short: 'Limited reads',
+    detail: result.liveData.summary || 'Some live inputs are stale or partial for this route right now.',
+  };
 }
 function cardSummary(item) {
   return item.cardRoute.summary?.shortExplanation ?? item.cardRoute.explanation;

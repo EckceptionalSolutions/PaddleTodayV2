@@ -52,7 +52,7 @@ const homepageStructuredData = [
       <p class="hero__kicker">Paddle Today</p>
       <h1>Find the best paddle near you today</h1>
       <p class="hero__lede">
-        Find the strongest options first, backed by live gauge and weather data.
+        Find the strongest options first, using live gauge and weather data where support is strongest.
       </p>
       <p class="hero__snapshot" data-home-snapshot>
         Checking today&apos;s snapshot...
@@ -126,7 +126,7 @@ const homepageStructuredData = [
       <p class="hero__project-label">Project status</p>
       <div class="hero__meta">
         <span class="stat-chip" data-home-tracked-count>{trackedCount} routes tracked</span>
-        <span class="stat-chip">Direct gauges first</span>
+        <span class="stat-chip">Best live support first</span>
       </div>
       <p class="hero__note muted">
         Paddle Today is still growing. We&apos;re focusing on the highest-quality Midwest routes first.
@@ -251,7 +251,7 @@ const homepageStructuredData = [
               <option value="near-you">Best by drive time</option>
               <option value="nearest">Closest first</option>
               <option value="highest-confidence">Highest support</option>
-              <option value="lowest-risk">Most dependable</option>
+              <option value="lowest-risk">Lowest-risk first</option>
               <option value="a-z">A-Z</option>
             </select>
           </label>
@@ -287,29 +287,33 @@ const homepageStructuredData = [
             </select>
           </label>
             <button
-              class="filter-chip"
+              class="filter-chip filter-chip--subtle"
               type="button"
               data-filter-toggle="paddleable"
               title="Keep only Strong and Good calls."
             >
               Strong + Good only
             </button>
-          <button
-            class="filter-chip"
-            type="button"
-            data-filter-toggle="high-confidence"
-            title="Keep only routes with the strongest live-data support."
-          >
-            High-support only
-          </button>
-          <button class="filter-chip" type="button" data-board-refresh>
-            Refresh board
-          </button>
-        </div>
-        <p class="muted board-filters__hint">
-          Strong + Good only keeps the clearest calls. High-support only keeps routes with the strongest live-data support.
-        </p>
-      </section>
+            <button
+              class="filter-chip filter-chip--subtle"
+              type="button"
+              data-filter-toggle="high-confidence"
+              title="Keep only routes with the strongest live-data support."
+            >
+              High-support only
+            </button>
+            <button class="filter-chip filter-chip--quiet" type="button" data-board-refresh>
+              Refresh board
+            </button>
+          </div>
+          <details class="board-filters__hint">
+            <summary>What do these mean?</summary>
+            <div class="muted board-filters__hint-body">
+              <span>Strong + Good only = clearest calls.</span>
+              <span>High-support only = strongest live-data support.</span>
+            </div>
+          </details>
+        </section>
 
       <section class="summary-map-shell" id="explore-map" data-summary-map-shell>
         <div class="summary-map-copy">

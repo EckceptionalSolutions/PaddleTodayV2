@@ -14,12 +14,12 @@ export function getStaticPaths() {
 const { river } = Astro.props;
 const thresholdSupportLabel =
   river.profile.thresholdSourceStrength === 'official'
-    ? 'Official guidance'
+    ? 'Backed by official guidance'
     : river.profile.thresholdSourceStrength === 'mixed'
-      ? 'Mixed guidance'
+      ? 'Backed by official and local guidance'
       : river.profile.thresholdSourceStrength === 'community'
-        ? 'Community guidance'
-        : 'Derived guidance';
+        ? 'Based on local route guidance'
+        : 'Built from Paddle Today calibration';
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -326,7 +326,7 @@ const routeStructuredData = {
           target="_blank"
           rel="noreferrer"
         >
-          View threshold source
+          See source behind this call
         </a>
       </aside>
       </section>
@@ -343,18 +343,6 @@ const routeStructuredData = {
               </svg>
             </span>
             <span class="route-action-button__label">Get alerts</span>
-          </button>
-
-          <button class="route-action-button route-action-button--save route-action-button--disabled" type="button" disabled aria-disabled="true" aria-label="Save route coming soon" title="Save route coming soon">
-            <span class="route-action-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path
-                  d="M12 20.4 4.95 16.3V4.9A1.9 1.9 0 0 1 6.85 3h10.3a1.9 1.9 0 0 1 1.9 1.9v11.4L12 20.4Zm0-2.3 4.15-2.42V5H7v10.68L12 18.1Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <span class="route-action-button__label route-action-button__label--desktop">Save soon</span>
           </button>
 
           <details class="route-action-menu route-action-menu--share" data-route-action-menu>
@@ -1149,7 +1137,7 @@ const routeStructuredData = {
                 <td>{highThresholdValue}</td>
               </tr>
               <tr>
-                <td>Threshold support</td>
+                <td>Support behind the range</td>
                 <td>{thresholdSupportLabel}</td>
               </tr>
               <tr>
@@ -1161,7 +1149,7 @@ const routeStructuredData = {
                   <td data-field="generated-at">Checking</td>
                 </tr>
               <tr>
-                <td>Threshold source</td>
+                <td>Main source behind this call</td>
                 <td>{river.profile.thresholdSource.label}</td>
               </tr>
               <tr>
