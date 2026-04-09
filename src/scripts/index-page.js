@@ -87,7 +87,6 @@ const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
-const summaryMapResultsToggle = document.querySelector('[data-summary-map-results-toggle]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const statusWeight = {
@@ -119,7 +118,6 @@ let mapMarkers = [];
 let mapMarkersByKey = new Map();
 let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
-let summaryMapResultsExpanded = false;
 let lastSummaryMapItems = [];
 let userLocation = null;
 let userLocationState = 'idle';
@@ -1963,18 +1961,11 @@ function renderSummaryMapResults(items) {
 
   if (items.length === 0) {
     summaryMapResults.innerHTML = '<p class="muted summary-map-results__empty">Adjust the filters to bring rivers back onto the map.</p>';
-    if (summaryMapResultsToggle instanceof HTMLButtonElement) {
-      summaryMapResultsToggle.hidden = true;
-    }
     return;
   }
 
-  const defaultVisibleCount = 6;
-  const hasMore = items.length > defaultVisibleCount;
-  const visibleItems = summaryMapResultsExpanded ? items : items.slice(0, defaultVisibleCount);
-
   const fragment = document.createDocumentFragment();
-  for (const item of visibleItems) {
+  for (const item of items) {
     const button = document.createElement('button');
     button.type = 'button';
     button.className = 'summary-map-result';
@@ -1995,21 +1986,10 @@ function renderSummaryMapResults(items) {
   }
 
   summaryMapResults.appendChild(fragment);
-  if (summaryMapResultsToggle instanceof HTMLButtonElement) {
-    summaryMapResultsToggle.hidden = !hasMore;
-    summaryMapResultsToggle.textContent = summaryMapResultsExpanded ? 'Show fewer' : `Show all ${items.length}`;
-  }
   const activeKey = items.some((item) => item.key === selectedSummaryMapKey)
     ? selectedSummaryMapKey
     : (items[0]?.key || null);
   updateSummaryMapSelection(activeKey);
-}
-
-if (summaryMapResultsToggle instanceof HTMLButtonElement) {
-  summaryMapResultsToggle.addEventListener('click', () => {
-    summaryMapResultsExpanded = !summaryMapResultsExpanded;
-    renderSummaryMapResults(lastSummaryMapItems);
-  });
 }
 
 function updateSummaryMapToggle() {
@@ -2072,7 +2052,6 @@ async function renderSummaryMap(items) {
   }
 
   const renderVersion = ++summaryMapRenderVersion;
-  summaryMapResultsExpanded = false;
 
   if (summaryMapStatus instanceof HTMLElement) {
     summaryMapStatus.textContent = 'Loading map markers.';
