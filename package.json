@@ -27,10 +27,12 @@
     "mobile:typecheck": "npm run typecheck --workspace @paddletoday/mobile"
   },
   "dependencies": {
+    "@azure/communication-email": "^1.1.0",
     "astro": "^5.17.3",
     "tsx": "^4.21.0"
   },
   "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.60.1",
     "typescript": "^5.9.3",
     "vitest": "^4.1.2"
   }

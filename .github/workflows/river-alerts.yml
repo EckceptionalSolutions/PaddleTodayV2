@@ -33,11 +33,11 @@ jobs:
           RIVER_SNAPSHOT_BLOB_PREFIX: ${{ vars.RIVER_SNAPSHOT_BLOB_PREFIX || 'river-snapshots' }}
           RIVER_ALERTS_CONTAINER_SAS_URL: ${{ secrets.RIVER_ALERTS_CONTAINER_SAS_URL }}
           RIVER_ALERTS_BLOB_PREFIX: ${{ vars.RIVER_ALERTS_BLOB_PREFIX || 'river-alerts' }}
-          ALERTS_EMAIL_PROVIDER: sendgrid
+          ALERTS_EMAIL_PROVIDER: azure
           ALERTS_FROM_EMAIL: ${{ vars.ALERTS_FROM_EMAIL }}
           ALERTS_REPLY_TO_EMAIL: ${{ vars.ALERTS_REPLY_TO_EMAIL }}
           ALERTS_SIGNING_SECRET: ${{ secrets.ALERTS_SIGNING_SECRET }}
-          SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+          ACS_EMAIL_CONNECTION_STRING: ${{ secrets.ACS_EMAIL_CONNECTION_STRING }}
         run: |
           if [ -z "$RIVER_SNAPSHOT_CONTAINER_SAS_URL" ]; then
             echo "RIVER_SNAPSHOT_CONTAINER_SAS_URL is not configured."
@@ -49,8 +49,8 @@ jobs:
             exit 1
           fi
 
-          if [ -z "$SENDGRID_API_KEY" ]; then
-            echo "SENDGRID_API_KEY is not configured."
+          if [ -z "$ACS_EMAIL_CONNECTION_STRING" ]; then
+            echo "ACS_EMAIL_CONNECTION_STRING is not configured."
             exit 1
           fi
 

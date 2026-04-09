@@ -119,6 +119,9 @@ const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
+const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
+const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, support level, access details, and today's paddle-day call before you drive.`;
+const routeShareText = `Check today's paddle-day call for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, support level, and access details.`;
 const breadcrumbItems = [
   {
     '@type': 'ListItem',
@@ -161,6 +164,14 @@ const routeStructuredData = {
 <BaseLayout
   title={`${river.name} Today | ${river.reach} | Paddle Today`}
   description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, confidence, and a clear paddle-day call before you drive.`}
+  socialTitle={routeShareTitle}
+  socialDescription={routeShareDescription}
+  socialImage="/brand/paddle-today-share-card-1200x630.png"
+  socialImageAlt="Paddle Today route share preview"
+  socialImageWidth={1200}
+  socialImageHeight={630}
+  ogType="article"
+  twitterCard="summary_large_image"
 >
   <script type="application/ld+json" set:html={JSON.stringify(routeStructuredData)}></script>
   <article
@@ -368,7 +379,7 @@ const routeStructuredData = {
             <div class="route-action-menu__panel">
               <a
                 class="route-action-menu__item route-action-button--x"
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(`${river.name} - ${river.reach}`)}&url=${encodeURIComponent(routeUrl)}`}
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(routeShareText)}&url=${encodeURIComponent(routeUrl)}`}
                 target="_blank"
                 rel="noreferrer"
                 data-share-x

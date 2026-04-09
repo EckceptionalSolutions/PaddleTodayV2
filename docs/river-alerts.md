@@ -51,19 +51,25 @@ Stored files:
 
 ## Email delivery
 
-The scheduled workflow sends email with SendGrid.
+The scheduled workflow sends email with Azure Communication Services Email.
 
 GitHub secrets and variables:
 
 - secret: `RIVER_SNAPSHOT_CONTAINER_SAS_URL`
 - secret: `RIVER_ALERTS_CONTAINER_SAS_URL`
 - secret: `ALERTS_SIGNING_SECRET`
-- secret: `SENDGRID_API_KEY`
+- secret: `ACS_EMAIL_CONNECTION_STRING`
 - variable: `RIVER_SNAPSHOT_BLOB_PREFIX`
 - variable: `RIVER_ALERTS_BLOB_PREFIX`
 - variable: `ALERTS_FROM_EMAIL`
 - variable: `ALERTS_REPLY_TO_EMAIL` (optional)
 - variable: `SITE_URL` (optional, defaults to `https://paddletoday.com`)
+
+App/API runtime env if you also want runtime delivery parity:
+
+- `ACS_EMAIL_CONNECTION_STRING`
+- `ALERTS_FROM_EMAIL`
+- `ALERTS_REPLY_TO_EMAIL` (optional)
 
 ## Local testing
 
@@ -83,7 +89,7 @@ Run the evaluator locally:
 npm run alerts:evaluate
 ```
 
-Without `SENDGRID_API_KEY`, email delivery falls back to logging so local testing does not require live email credentials.
+Without `ACS_EMAIL_CONNECTION_STRING`, email delivery falls back to logging so local testing does not require live email credentials.
 
 ## Unsubscribe flow
 

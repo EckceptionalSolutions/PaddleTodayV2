@@ -112,6 +112,7 @@ let hasLoadedBoardOnce = false;
 let lastBoardSuccessAt = null;
 let mapRuntime = null;
 let mapMarkers = [];
+let summaryMapRenderVersion = 0;
 let userLocation = null;
 let userLocationState = 'idle';
 let locationEditing = false;
@@ -1885,6 +1886,8 @@ async function renderSummaryMap(items) {
     return;
   }
 
+  const renderVersion = ++summaryMapRenderVersion;
+
   if (summaryMapStatus instanceof HTMLElement) {
     summaryMapStatus.textContent = 'Loading map markers.';
   }
@@ -1892,6 +1895,9 @@ async function renderSummaryMap(items) {
   try {
     const maplibregl = await ensureMapLibre();
     if (!maplibregl) {
+      return;
+    }
+    if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
 
@@ -1914,6 +1920,9 @@ async function renderSummaryMap(items) {
         }
         mapRuntime.once('load', resolve);
       });
+    }
+    if (renderVersion !== summaryMapRenderVersion) {
+      return;
     }
 
     for (const marker of mapMarkers) {
@@ -1951,6 +1960,9 @@ async function renderSummaryMap(items) {
     }
 
     if (hasBounds) {
+      if (renderVersion !== summaryMapRenderVersion) {
+        return;
+      }
       const compact = window.matchMedia('(max-width: 720px)').matches;
       mapRuntime.fitBounds(bounds, {
         padding: compact
@@ -1966,6 +1978,9 @@ async function renderSummaryMap(items) {
       return;
     }
 
+    if (renderVersion !== summaryMapRenderVersion) {
+      return;
+    }
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = 'No rivers match the current filters.';
     }

@@ -1,3 +1,4 @@
+import { EmailClient } from '@azure/communication-email';
 import type { RiverAlertThreshold, RiverThresholdAlert } from './alerts';
 import { riverAlertManageUrl } from './alert-links';
 import type { RiverDetailSnapshot } from './river-snapshots';
@@ -7,8 +8,10 @@ export interface AlertEmailPayload {
   snapshot: RiverDetailSnapshot;
 }
 
+let azureEmailClient: EmailClient | null = null;
+
 export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
-  provider: 'log' | 'sendgrid';
+  provider: 'azure' | 'log';
   id: string;
   subject: string;
 }> {
@@ -30,74 +33,64 @@ export async function sendRiverAlertEmail(args: AlertEmailPayload): Promise<{
     };
   }
 
-  const apiKey = process.env.SENDGRID_API_KEY;
+  const connectionString = process.env.ACS_EMAIL_CONNECTION_STRING;
   const from = process.env.ALERTS_FROM_EMAIL;
-  if (!apiKey || !from) {
-    throw new Error('Missing SENDGRID_API_KEY or ALERTS_FROM_EMAIL for river alerts email delivery.');
+  if (!connectionString || !from) {
+    throw new Error('Missing ACS_EMAIL_CONNECTION_STRING or ALERTS_FROM_EMAIL for river alerts email delivery.');
   }
 
   const payload = {
-    from: {
-      email: from,
+    senderAddress: from,
+    content: {
+      subject,
+      plainText: text,
+      html,
     },
-    personalizations: [
-      {
-        to: [{ email: args.alert.email }],
-      },
-    ],
-    subject,
+    recipients: {
+      to: [{ address: args.alert.email }],
+    },
     ...(process.env.ALERTS_REPLY_TO_EMAIL
       ? {
-          reply_to: {
-            email: process.env.ALERTS_REPLY_TO_EMAIL,
-          },
+          replyTo: [{ address: process.env.ALERTS_REPLY_TO_EMAIL }],
         }
       : {}),
-    content: [
-      {
-        type: 'text/plain',
-        value: text,
-      },
-      {
-        type: 'text/html',
-        value: html,
-      },
-    ],
   };
 
-  const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
-    method: 'POST',
-    headers: {
-      authorization: `Bearer ${apiKey}`,
-      'content-type': 'application/json',
-    },
-    body: JSON.stringify(payload),
+  const client = getAzureEmailClient(connectionString);
+  const poller = await client.beginSend(payload, {
+    updateIntervalInMs: 1000,
   });
+  const response = await poller.pollUntilDone();
 
-  if (!response.ok) {
-    const body = await response.text().catch(() => '');
-    throw new Error(`SendGrid email delivery failed: HTTP ${response.status} ${body}`.trim());
+  if (!response.id) {
+    throw new Error('Azure Communication Services email delivery failed: missing operation id.');
   }
 
-  const messageId = response.headers.get('x-message-id') || response.headers.get('X-Message-Id');
   return {
-    provider: 'sendgrid',
-    id: messageId || `sendgrid_${Date.now()}`,
+    provider: 'azure',
+    id: response.id,
     subject,
   };
 }
 
-function configuredProvider(): 'log' | 'sendgrid' {
+function configuredProvider(): 'azure' | 'log' {
   const explicit = String(process.env.ALERTS_EMAIL_PROVIDER || '')
     .trim()
     .toLowerCase();
-  if (explicit === 'sendgrid') {
-    return 'sendgrid';
+  if (explicit === 'azure' || explicit === 'acs' || explicit === 'azure-communication-services') {
+    return 'azure';
   }
   if (explicit === 'log') {
     return 'log';
   }
-  return process.env.SENDGRID_API_KEY ? 'sendgrid' : 'log';
+  return process.env.ACS_EMAIL_CONNECTION_STRING ? 'azure' : 'log';
+}
+
+function getAzureEmailClient(connectionString: string) {
+  if (!azureEmailClient) {
+    azureEmailClient = new EmailClient(connectionString);
+  }
+  return azureEmailClient;
 }
 
 function subjectForAlert(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {

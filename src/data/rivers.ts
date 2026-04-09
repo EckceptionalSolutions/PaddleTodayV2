@@ -1834,6 +1834,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'mississippi-river-east-river-flats-hidden-falls',
+    slug: 'mississippi-river-east-river-flats-hidden-falls',
+    name: 'Mississippi River',
+    reach: 'East River Flats to Hidden Falls Regional Park',
+    state: 'Minnesota',
+    region: 'Twin Cities',
+    summary:
+      'Short urban Mississippi day with a much stronger trust story than most metro additions. The route itself is officially recommended by DNR, but swift current, large wakes, and Lock and Dam 1 logistics matter more here than the mileage suggests.',
+    statusText:
+      'Treat 6,000 to 30,000 cfs at St. Paul as the best working band. Below 2,000 cfs gets too low for this route model, and above 40,000 cfs is beyond the level this route should be sold for.',
+    latitude: 44.9703514,
+    longitude: -93.2350599,
+    gaugeSource: {
+      id: 'usgs-05331000',
+      provider: 'usgs',
+      siteId: '05331000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Mississippi River at St. Paul, MN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6000,
+      idealMax: 30000,
+      tooLow: 2000,
+      tooHigh: 40000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at St. Paul',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical season. Recent rain matters, but this route is more likely to be ruled by commercial traffic, lock status, and wind exposure than by tiny day-to-day gauge wiggles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not technical whitewater, but it is not a casual flatwater float either. Swift current, barge wakes, urban boat traffic, and lock or portage logistics demand solid boat handling and decision-making.',
+      confidenceNotes:
+        'Confidence is strong because MN DNR recommends this exact trip, the St. Paul gauge has an official DNR ladder, Hidden Falls has a clearly documented public boat launch, and NPS has current lock and portage guidance. Confidence is still slightly tempered because the gauge is downstream of the route and East River Flats launch details are thinner than the take-out side.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2,000 / 6,000 / 30,000 / 40,000 cfs',
+        note: 'MN DNR interprets the St. Paul reading as Scrapable below 2,000 cfs, Low from 2,000 to 6,000, Medium from 6,000 to 30,000, High from 30,000 to 40,000, and Very High above 40,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '5 river miles / about 2 hours',
+        note: 'MN DNR explicitly recommends East River Flats Park to Hidden Falls Park as the first of its two Mississippi River recommended paddling trips.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/recommended/miss1.html',
+      },
+      {
+        label: 'Route character',
+        value: 'Swift current, large wakes, navigational lock',
+        note: 'DNR says this stretch requires a moderate degree of paddling skill because of swift current and large wakes from large boats and barges, and tells paddlers to follow navigational lock procedures.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/recommended/miss1.html',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Hidden Falls boat launch and posted hours',
+        note: 'Saint Paul identifies Hidden Falls Regional Park as a Mississippi River boat-launch site with north-entrance access, sunrise-to-10 p.m. hours, and closures possible during flooding or other conditions.',
+        sourceUrl: 'https://www.stpaul.gov/facilities/hidden-falls-regional-park',
+      },
+      {
+        label: 'Lock and Dam 1 backup plan',
+        value: 'Use lock when open; portage is 1.40 miles',
+        note: 'NPS advises using Lock and Dam 1 when operational because the portage is long. The current portage was updated in September 2025, is about 1.40 miles, and is not yet signed.',
+        sourceUrl: 'https://www.nps.gov/miss/planyourvisit/navigating-portages-locks-and-dams.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/index.html',
+      },
+      {
+        label: 'MN DNR recommended paddling trip: East River Flats to Hidden Falls',
+        url: 'https://www.dnr.state.mn.us/watertrails/recommended/miss1.html',
+      },
+      {
+        label: 'MN DNR Mississippi River map 10 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi10.pdf',
+      },
+      {
+        label: 'Minneapolis Parks East River Flats Park',
+        url: 'https://www.minneapolisparks.org/parks-destinations/parks-lakes/east_river_flats_park/',
+      },
+      {
+        label: 'Saint Paul Hidden Falls Regional Park',
+        url: 'https://www.stpaul.gov/facilities/hidden-falls-regional-park',
+      },
+      {
+        label: 'NPS navigating portages, locks, and dams',
+        url: 'https://www.nps.gov/miss/planyourvisit/navigating-portages-locks-and-dams.htm',
+      },
+      {
+        label: 'USGS 05331000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331000/',
+      },
+    ],
+  },
+  {
     id: 'snake-river-county-road-3-mora',
     slug: 'snake-river-county-road-3-mora',
     name: 'Snake River',

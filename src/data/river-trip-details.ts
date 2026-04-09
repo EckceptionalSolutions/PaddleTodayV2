@@ -581,6 +581,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'mississippi-river-east-river-flats-hidden-falls': {
+    putIn: {
+      name: 'East River Flats Park',
+      latitude: 44.9703514,
+      longitude: -93.2350599,
+    },
+    takeOut: {
+      name: 'Hidden Falls Regional Park boat launch',
+      latitude: 44.9040285,
+      longitude: -93.1907475,
+    },
+    logistics: {
+      distanceLabel: '5 mi',
+      shuttle:
+        'Short Twin Cities car shuttle. Stage the take-out vehicle at Hidden Falls first so the day does not end with lock logistics, city traffic, and a second vehicle problem all at once.',
+      permits:
+        'No route-specific paddling permit is known, but you need to follow posted park rules and current lock or portage guidance. Check same-day closures before committing.',
+      camping:
+        'Not an overnight route. Treat this as a skill-forward urban day trip, not a camp float.',
+      summary:
+        'Launch at East River Flats and finish at Hidden Falls for the official DNR Twin Cities Mississippi trip. The route is short on paper, but the real decisions are current, wakes, wind, and Lock and Dam 1 handling.',
+      accessCaveats: [
+        'DNR explicitly names East River Flats Park as the launch, but the launch logistics there are still less clearly documented than the Hidden Falls take-out. Check the access on arrival instead of assuming a trailer-style ramp.',
+        'Hidden Falls has posted park hours and can close roads or amenities during flooding, restoration, or other conditions.',
+      ],
+      watchFor: [
+        'Swift current and large wakes from larger river traffic.',
+        'Lock and Dam 1 procedure when the lock is operating.',
+        'A 1.40-mile unsigned portage if the lock is unavailable.',
+        'Wind, floating debris, and muddy landings after recent weather.',
+      ],
+    },
+  },
   'snake-river-county-road-3-mora': {
     putIn: {
       name: 'County Road 3 Public Water Access',
