@@ -2101,10 +2101,30 @@ a {
   gap: 1rem;
 }
 
+.river-detail__hero-warning {
+  justify-self: end;
+  margin-bottom: -0.35rem;
+}
 
 .river-detail__hero-top {
   display: grid;
   gap: 0.2rem;
+}
+
+.river-detail__jump-pill {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.river-detail__jump-pill:hover {
+  border-color: rgba(173, 117, 44, 0.26);
+  background: rgba(250, 242, 230, 0.94);
+  color: #8c5f21;
+}
+
+.river-detail__jump-pill:focus-visible {
+  outline: 2px solid rgba(173, 117, 44, 0.22);
+  outline-offset: 2px;
 }
 
 .river-detail__quick-grid {
@@ -5770,8 +5790,13 @@ a {
     gap: 0.42rem;
   }
 
-  .river-detail__meta-row .pill:nth-child(n + 5) {
+  .river-detail__meta-row .pill:nth-child(n + 5),
+  .river-detail__meta-row .river-detail__jump-pill:nth-child(n + 5) {
     display: none;
+  }
+
+  .river-detail__hero-warning {
+    margin-bottom: -0.18rem;
   }
 
   .river-call-panel {
@@ -6334,8 +6359,13 @@ a {
     gap: 0.36rem;
   }
 
-  .river-detail__meta-row .pill:nth-child(n + 5) {
+  .river-detail__meta-row .pill:nth-child(n + 5),
+  .river-detail__meta-row .river-detail__jump-pill:nth-child(n + 5) {
     display: none;
+  }
+
+  .river-detail__hero-warning {
+    margin-bottom: -0.08rem;
   }
 
   .river-call-panel {

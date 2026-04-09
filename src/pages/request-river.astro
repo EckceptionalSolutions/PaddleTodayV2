@@ -14,7 +14,7 @@ const requestEmail = 'hello@paddletoday.com';
     <p class="eyebrow" data-request-kicker>Request a river</p>
     <h1 data-request-title>Ask us to add a river or route.</h1>
     <p class="muted" data-request-lede>
-      Send the basics and any useful source links. We use that to prioritize the next rivers we research and score.
+      Send the basics and any useful source links. The fastest requests to add are the ones with a clear put-in, take-out, and matching USGS gauge.
     </p>
   </section>
 
@@ -23,7 +23,10 @@ const requestEmail = 'hello@paddletoday.com';
       <p class="eyebrow">Request form</p>
       <h2 data-request-form-title>What to send</h2>
       <p class="muted" data-request-form-note>
-        A river name, state, and enough context to understand the route. DNR, USGS, park, or club links help a lot.
+        A river name, state, and enough context to understand the route. If you can give us the put-in, take-out, and a USGS gauge link, it is usually very easy for us to review and add.
+      </p>
+      <p class="muted">
+        Best-case request: route name, state, put-in, take-out, and the exact USGS gauge that should drive the call. DNR, park, or club links help too.
       </p>
 
       <form class="request-form" data-request-form novalidate>
@@ -54,7 +57,7 @@ const requestEmail = 'hello@paddletoday.com';
 
         <label>
           Known links
-          <textarea name="sources" rows="3" placeholder="Paste one or more DNR, USGS, park, club, or outfitter URLs"></textarea>
+          <textarea name="sources" rows="3" placeholder="Paste one or more USGS, DNR, park, club, or outfitter URLs"></textarea>
         </label>
 
         <label>
@@ -66,7 +69,7 @@ const requestEmail = 'hello@paddletoday.com';
             required
             minlength="12"
             aria-describedby="request-notes-hint"
-            placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, local demand, or anything else useful."
+            placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, which USGS gauge applies, local demand, or anything else useful."
           ></textarea>
         </label>
 

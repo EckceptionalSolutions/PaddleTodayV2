@@ -47,6 +47,7 @@ const accessDirectionsApple = root.querySelector('[data-access-directions-apple]
 const accessOpenStreetMap = root.querySelector('[data-access-openstreetmap]');
 const sectionNavLinks = Array.from(root.querySelectorAll('[data-detail-nav-link]'));
 const detailSections = Array.from(root.querySelectorAll('[data-detail-section]'));
+const detailJumpLinks = Array.from(root.querySelectorAll('[data-detail-jump]'));
 const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const historyBars = root.querySelector('[data-history-bars]');
 const historyPanel = root.querySelector('[data-history-panel]');
@@ -61,6 +62,8 @@ const shareCopyButton = root.querySelector('[data-share-copy]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
+const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
+const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -223,6 +226,49 @@ function setupDetailSectionNav() {
 
   for (const section of detailSections) {
     observer.observe(section);
+  }
+}
+
+function setupDetailJumpLinks() {
+  if (detailJumpLinks.length === 0 || detailSections.length === 0) {
+    return;
+  }
+
+  const sectionsById = new Map(
+    detailSections
+      .map((section) => [section.getAttribute('data-detail-section'), section])
+      .filter(([id, section]) => typeof id === 'string' && section instanceof HTMLElement)
+  );
+
+  for (const link of detailJumpLinks) {
+    if (!(link instanceof HTMLAnchorElement) || link.dataset.jumpBound === 'true') continue;
+    link.dataset.jumpBound = 'true';
+    link.addEventListener('click', (event) => {
+      const sectionId = link.dataset.detailJump;
+      if (!sectionId) {
+        return;
+      }
+
+      const targetSection = sectionsById.get(sectionId);
+      if (!(targetSection instanceof HTMLElement)) {
+        return;
+      }
+
+      event.preventDefault();
+
+      if (link.dataset.detailExpand === 'confidence' && confidenceExplainer instanceof HTMLDetailsElement) {
+        confidenceExplainer.open = true;
+      }
+
+      setActiveDetailSection(sectionId);
+      if (window.location.hash !== `#${sectionId}`) {
+        window.history.replaceState(null, '', `#${sectionId}`);
+      }
+
+      window.requestAnimationFrame(() => {
+        scrollToDetailSection(targetSection);
+      });
+    });
   }
 }
 
@@ -2081,6 +2127,9 @@ function renderDetailResult(result) {
     liveWarningPill.title = liveWarning?.detail || '';
     liveWarningPill.setAttribute('aria-label', liveWarning?.detail || '');
   }
+  if (liveWarningWrap instanceof HTMLElement) {
+    liveWarningWrap.hidden = !liveWarning;
+  }
 
   setText('flow-band', result.gaugeBandLabel);
   setText(
@@ -2378,6 +2427,9 @@ async function loadDetail({ silent = false } = {}) {
         'Direct live reads are unavailable for this route right now.'
       );
     }
+    if (liveWarningWrap instanceof HTMLElement) {
+      liveWarningWrap.hidden = false;
+    }
 
     setText('flow-band', 'No reading');
     setText('gauge-now', 'No reading');
@@ -2665,6 +2717,7 @@ renderActiveAccessContext();
 updateChartButtonStates();
 renderDetailMap(null);
 setupDetailSectionNav();
+setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
 if (detailRefreshButton instanceof HTMLButtonElement) {

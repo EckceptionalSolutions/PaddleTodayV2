@@ -223,6 +223,10 @@ const routeStructuredData = {
       <div class="river-detail__content">
     <section class="river-detail__hero" id="todays-score" data-detail-section="todays-score">
       <div class="river-detail__hero-main">
+        <div class="river-detail__hero-warning" data-live-warning-wrap hidden>
+          <span class="pill pill--warning" data-field="live-warning" hidden></span>
+        </div>
+
         <div class="river-detail__hero-top">
           <p class="eyebrow">{river.state} | {river.region}</p>
           <h1 class="river-detail__title">{river.name}</h1>
@@ -244,9 +248,16 @@ const routeStructuredData = {
 
         <div class="river-detail__meta-row">
           <span class="pill" data-field="decision">Checking</span>
-          <span class="pill" data-field="confidence">Checking support</span>
+          <a
+            class="pill river-detail__jump-pill"
+            href="#sources"
+            data-field="confidence"
+            data-detail-jump="sources"
+            data-detail-expand="confidence"
+          >
+            Checking support
+          </a>
           <span class="pill" data-field="data-status">Checking reads</span>
-          <span class="pill pill--warning" data-field="live-warning" hidden></span>
           <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
           <span class="pill">{river.statusText}</span>
         </div>
@@ -1023,7 +1034,7 @@ const routeStructuredData = {
     </section>
 
     <section class="river-detail__panel river-accordion-group" id="sources" data-detail-section="sources">
-      <details class="river-accordion">
+      <details class="river-accordion" data-confidence-explainer>
         <summary class="river-accordion__summary">
           <span>
             <span class="eyebrow section-label">Support level</span>

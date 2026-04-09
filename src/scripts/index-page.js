@@ -725,6 +725,14 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
   homeFreshness.textContent = base;
 }
 
+function formatBoardRefreshCopy(timestamp) {
+  if (typeof timestamp === 'number' && Number.isFinite(timestamp)) {
+    return `Snapshot refreshes every 30 minutes. ${freshnessLabel(timestamp)}.`;
+  }
+
+  return 'Snapshot refreshes every 30 minutes.';
+}
+
 function formatOptionCount(count) {
   if (count <= 0) {
     return 'No good options today';
@@ -2180,7 +2188,7 @@ function setBoardRefreshState(state, detail = '') {
 
   if (boardRefreshNote instanceof HTMLElement) {
     if (state === 'loading') {
-      boardRefreshNote.textContent = 'Checking for a newer stored board.';
+      boardRefreshNote.textContent = 'Snapshot refreshes every 30 minutes. Checking for a newer board.';
       return;
     }
 
@@ -2190,14 +2198,11 @@ function setBoardRefreshState(state, detail = '') {
     }
 
     if (lastBoardSuccessAt) {
-      boardRefreshNote.textContent = `Last refresh ${new Date(lastBoardSuccessAt).toLocaleTimeString([], {
-        hour: 'numeric',
-        minute: '2-digit',
-      })} - Snapshot refreshes every 30 minutes`;
+      boardRefreshNote.textContent = formatBoardRefreshCopy(lastBoardSuccessAt);
       return;
     }
 
-    boardRefreshNote.textContent = 'Snapshot refreshes every 30 minutes.';
+    boardRefreshNote.textContent = formatBoardRefreshCopy();
   }
 }
 
@@ -2240,7 +2245,7 @@ function hydrateBoardFromCache() {
   updateHomeFreshness({ generatedAt: lastBoardGeneratedAt, refreshing: true });
 
   if (boardRefreshNote instanceof HTMLElement) {
-    boardRefreshNote.textContent = `${freshnessLabel(cached.fetchedAt)}. Refreshing…`;
+    boardRefreshNote.textContent = `${formatBoardRefreshCopy(cached.fetchedAt)} Refreshing now...`;
   }
 
   return true;
