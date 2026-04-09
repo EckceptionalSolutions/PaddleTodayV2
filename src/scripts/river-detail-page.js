@@ -60,6 +60,7 @@ const alertSubmitButtons = Array.from(root.querySelectorAll('[data-alert-submit]
 const shareCopyButton = root.querySelector('[data-share-copy]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
+const routeActionBar = root.querySelector('.route-action-bar');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
 const activeTakeOutName = root.querySelector('[data-field="active-takeout-name"]');
 const activePutInNote = root.querySelector('[data-field="active-putin-note"]');
@@ -136,6 +137,27 @@ function setActiveDetailSection(sectionId) {
   }
 }
 
+function detailScrollOffset() {
+  const actionBarHeight =
+    routeActionBar instanceof HTMLElement && routeActionBar.getBoundingClientRect().height > 0
+      ? routeActionBar.getBoundingClientRect().height
+      : 0;
+
+  return actionBarHeight + 22;
+}
+
+function scrollToDetailSection(section) {
+  if (!(section instanceof HTMLElement)) {
+    return;
+  }
+
+  const top = section.getBoundingClientRect().top + window.scrollY - detailScrollOffset();
+  window.scrollTo({
+    top: Math.max(0, top),
+    behavior: 'smooth',
+  });
+}
+
 function setupDetailSectionNav() {
   if (sectionNavLinks.length === 0 || detailSections.length === 0) {
     return;
@@ -144,11 +166,18 @@ function setupDetailSectionNav() {
   for (const link of sectionNavLinks) {
     if (!(link instanceof HTMLAnchorElement) || link.dataset.navBound === 'true') continue;
     link.dataset.navBound = 'true';
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
       const targetId = link.dataset.detailNavLink;
-      if (targetId) {
-        setActiveDetailSection(targetId);
+      if (!targetId) return;
+      const targetSection = sectionsById.get(targetId);
+      if (!(targetSection instanceof HTMLElement)) return;
+
+      event.preventDefault();
+      setActiveDetailSection(targetId);
+      if (window.location.hash !== `#${targetId}`) {
+        window.history.replaceState(null, '', `#${targetId}`);
       }
+      scrollToDetailSection(targetSection);
     });
   }
 
@@ -161,6 +190,9 @@ function setupDetailSectionNav() {
   const hashId = window.location.hash.replace(/^#/, '');
   if (hashId && sectionsById.has(hashId)) {
     setActiveDetailSection(hashId);
+    window.setTimeout(() => {
+      scrollToDetailSection(sectionsById.get(hashId));
+    }, 40);
   } else {
     const firstId = detailSections[0]?.getAttribute('data-detail-section');
     if (firstId) {
@@ -205,6 +237,24 @@ function confidenceDisplayLabel(label) {
   if (label === 'Medium') return 'Some uncertainty';
   if (label === 'Low') return 'Cautious call';
   return 'Support unclear';
+}
+
+function liveWarningLabel(liveData) {
+  if (!liveData || liveData.overall === 'live') {
+    return null;
+  }
+
+  if (liveData.overall === 'offline') {
+    return {
+      short: 'Warning: live feed issue',
+      detail: liveData.summary || 'Direct live reads are unavailable for this route right now.',
+    };
+  }
+
+  return {
+    short: 'Warning: live reads limited',
+    detail: liveData.summary || 'Some live inputs are stale or partial for this route right now.',
+  };
 }
 
 function ratingLabel(rating) {
@@ -2024,6 +2074,14 @@ function renderDetailResult(result) {
     dataStatus.classList.add(`data-status-pill--${result.liveData.overall}`);
   }
 
+  const liveWarning = liveWarningLabel(result.liveData);
+  const liveWarningPill = setText('live-warning', liveWarning?.short || '');
+  if (liveWarningPill instanceof HTMLElement) {
+    liveWarningPill.hidden = !liveWarning;
+    liveWarningPill.title = liveWarning?.detail || '';
+    liveWarningPill.setAttribute('aria-label', liveWarning?.detail || '');
+  }
+
   setText('flow-band', result.gaugeBandLabel);
   setText(
     'gauge-now',
@@ -2310,6 +2368,15 @@ async function loadDetail({ silent = false } = {}) {
     const dataStatus = setText('data-status', 'Reads offline');
     if (dataStatus instanceof HTMLElement) {
       dataStatus.classList.add('data-status-pill--offline');
+    }
+    const liveWarningPill = setText('live-warning', 'Warning: live feed issue');
+    if (liveWarningPill instanceof HTMLElement) {
+      liveWarningPill.hidden = false;
+      liveWarningPill.title = 'Direct live reads are unavailable for this route right now.';
+      liveWarningPill.setAttribute(
+        'aria-label',
+        'Direct live reads are unavailable for this route right now.'
+      );
     }
 
     setText('flow-band', 'No reading');

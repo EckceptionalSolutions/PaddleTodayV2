@@ -246,6 +246,7 @@ const routeStructuredData = {
           <span class="pill" data-field="decision">Checking</span>
           <span class="pill" data-field="confidence">Checking support</span>
           <span class="pill" data-field="data-status">Checking reads</span>
+          <span class="pill pill--warning" data-field="live-warning" hidden></span>
           <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
           <span class="pill">{river.statusText}</span>
         </div>
@@ -769,7 +770,7 @@ const routeStructuredData = {
 
       <div class="river-detail__quick-grid river-detail__quick-grid--compact">
         <article class="snapshot-card">
-          <span class="snapshot-card__label">Trip length</span>
+          <span class="snapshot-card__label">On-water distance</span>
           <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
           <small>{river.reach}</small>
         </article>
@@ -907,12 +908,12 @@ const routeStructuredData = {
 
           <div class="river-detail__quick-grid river-detail__quick-grid--compact river-access-planner__metrics">
             <article class="snapshot-card">
-              <span class="snapshot-card__label">Segment length</span>
+              <span class="snapshot-card__label">On-water distance</span>
               <strong data-access-distance>{logistics?.distanceLabel ?? '15.2 mi'}</strong>
               <small data-access-shape>Lake to creek</small>
             </article>
             <article class="snapshot-card">
-              <span class="snapshot-card__label">Paddle time</span>
+              <span class="snapshot-card__label">On-water time</span>
               <strong data-access-time>About 5 to 7 hr</strong>
               <small data-access-stage>Full route option</small>
             </article>
@@ -995,7 +996,7 @@ const routeStructuredData = {
         <div class="river-launch-plan__support">
           <dl class="detail-map__facts detail-map__facts--launch-plan">
             <div>
-              <dt>Trip length</dt>
+              <dt>On-water distance</dt>
               <dd data-field="active-fact-distance">{logistics?.distanceLabel ?? 'Check source links'}</dd>
             </div>
           </dl>

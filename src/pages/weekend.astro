@@ -33,6 +33,9 @@ const structuredData = [
     <div class="decision-hero__intro">
       <p class="hero__kicker">Weekend planning</p>
       <h1>Best bets this weekend</h1>
+      <p class="hero__dates" data-weekend-dates>
+        Saturday and Sunday dates are loading.
+      </p>
       <p class="hero__lede">
         Early read from current river shape and the weekend forecast. Forecasts can still shift before launch day.
       </p>
@@ -79,9 +82,6 @@ const structuredData = [
 
       <div class="decision-hero__actions">
         <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View river</a>
-        <a class="river-link river-link--inline river-link--ghost" href="/">
-          Today&apos;s board
-        </a>
       </div>
     </aside>
 
@@ -107,7 +107,7 @@ const structuredData = [
       </ul>
       <p class="hero__project-label">Planning note</p>
       <p class="hero__note muted">
-        Weekend calls stay conservative. Reaches are withheld when the current river read or the forecast support is too weak to extend the call.
+        Weekend calls stay conservative. Routes are withheld when the current river read or the forecast support is too weak to extend the call.
       </p>
     </div>
   </section>
@@ -124,9 +124,12 @@ const structuredData = [
     </div>
 
     <div class="recommendation-grid weekend-page__grid" data-weekend-grid></div>
-    <p class="muted decision-section__empty" data-weekend-empty hidden>
-      No supported weekend picks yet. Forecast support is still too weak to make confident weekend calls.
-    </p>
+    <div class="weekend-empty-state decision-section__empty" data-weekend-empty hidden>
+      <p class="weekend-empty-state__title" data-weekend-empty-title>No supported weekend picks yet</p>
+      <p class="muted weekend-empty-state__copy" data-weekend-empty-copy>
+        Forecast support is still too weak to make confident weekend calls.
+      </p>
+    </div>
   </section>
 
   <section class="decision-section weekend-page__section" data-weekend-watch-section hidden>
@@ -136,7 +139,7 @@ const structuredData = [
         <h2 class="section-title">Possible weekend options</h2>
       </div>
       <p class="muted section-head__note">
-        These reaches are not strong weekend bets yet, but they are the first places to re-check if the forecast improves.
+        These routes are not strong weekend bets yet, but they are the first places to re-check if the forecast improves.
       </p>
     </div>
 

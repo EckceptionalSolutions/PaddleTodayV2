@@ -5,11 +5,14 @@ const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
 
 const snapshotLine = document.querySelector('[data-weekend-snapshot]');
+const weekendDates = document.querySelector('[data-weekend-dates]');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
 const cardTemplate = document.querySelector('[data-weekend-card-template]');
 const weekendGrid = document.querySelector('[data-weekend-grid]');
 const weekendEmpty = document.querySelector('[data-weekend-empty]');
+const weekendEmptyTitle = document.querySelector('[data-weekend-empty-title]');
+const weekendEmptyCopy = document.querySelector('[data-weekend-empty-copy]');
 const weekendWatchSection = document.querySelector('[data-weekend-watch-section]');
 const weekendWatchGrid = document.querySelector('[data-weekend-watch-grid]');
 
@@ -105,6 +108,20 @@ function watchSlotLabel(index) {
   return 'Keep an eye on this';
 }
 
+function weekendDateRangeText(label) {
+  if (typeof label !== 'string') {
+    return 'Dates loading';
+  }
+
+  const trimmed = label.trim();
+  const match = trimmed.match(/\(([^)]+)\)/);
+  if (match?.[1]) {
+    return match[1];
+  }
+
+  return trimmed.replace(/^weekend\s*/i, '').trim() || 'Dates loading';
+}
+
 function updateFreshness({ generatedAt = lastGeneratedAt, refreshing = false, fallback = false } = {}) {
   if (!(homeFreshness instanceof HTMLElement)) {
     return;
@@ -147,15 +164,15 @@ function updateSnapshotLine(payload) {
     if (worthWatching.length > 0) {
       const watchLabel =
         worthWatching.length === 1
-          ? '1 reach worth watching'
-          : `${worthWatching.length} reaches worth watching`;
+          ? '1 route worth watching'
+          : `${worthWatching.length} routes worth watching`;
       snapshotLine.textContent = `No strong weekend bets yet • ${watchLabel}`;
       return;
     }
 
     snapshotLine.textContent =
       withheld > 0
-        ? `No supported weekend picks yet • ${withheld} reaches withheld for weak support`
+        ? `No supported weekend picks yet • ${withheld} routes withheld for weak support`
         : 'No supported weekend picks yet • forecast support is still building';
     return;
   }
@@ -207,7 +224,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(
       featuredReach,
       worthWatchingCount > 0
-        ? 'A few reaches are worth re-checking, but none clear the bar for a real weekend recommendation yet.'
+        ? 'A few routes are worth re-checking, but none clear the bar for a real weekend recommendation yet.'
         : 'Forecast support is still too thin to surface a confident shortlist.'
     );
     setText(featuredVerdict, worthWatchingCount > 0 ? 'Worth watching only' : 'Weekend calls withheld');
@@ -224,7 +241,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(
       featuredSignal,
       worthWatchingCount > 0
-        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'reach is' : 'reaches are'} worth re-checking`
+        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'route is' : 'routes are'} worth re-checking`
         : 'Forecast support still building'
     );
     setText(
@@ -351,6 +368,33 @@ function renderGrid(items) {
   }
 }
 
+function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false } = {}) {
+  if (!(weekendEmpty instanceof HTMLElement)) {
+    return;
+  }
+
+  if (worthWatchingCount > 0) {
+    weekendEmpty.hidden = false;
+    setText(weekendEmptyTitle, 'No strong weekend bets yet');
+    setText(
+      weekendEmptyCopy,
+      worthWatchingCount === 1
+        ? '1 route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
+        : `${worthWatchingCount} routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
+    );
+    return;
+  }
+
+  weekendEmpty.hidden = false;
+  setText(weekendEmptyTitle, hasWithheld ? 'Weekend calls are still withheld' : 'No supported weekend picks yet');
+  setText(
+    weekendEmptyCopy,
+    hasWithheld
+      ? 'Current river shape and forecast support are still too thin to surface a confident weekend pick.'
+      : 'Forecast support is still too weak to make confident weekend calls.'
+  );
+}
+
 function renderWatchGrid(items) {
   if (!(weekendWatchSection instanceof HTMLElement) || !(weekendWatchGrid instanceof HTMLElement)) {
     return;
@@ -375,6 +419,7 @@ function renderWeekend(payload) {
   const { bestBets, worthWatching } = splitWeekendItems(items);
   latestWeekendItems = items;
   lastGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
+  setText(weekendDates, weekendDateRangeText(payload?.label));
   updateFreshness({ generatedAt: lastGeneratedAt });
   updateSnapshotLine(payload);
   updateOverviewCounts(payload);
@@ -385,16 +430,11 @@ function renderWeekend(payload) {
   if (weekendEmpty instanceof HTMLElement) {
     if (bestBets.length > 0) {
       weekendEmpty.hidden = true;
-    } else if (worthWatching.length > 0) {
-      weekendEmpty.hidden = false;
-      weekendEmpty.textContent =
-        worthWatching.length === 1
-          ? 'No strong weekend bets yet. 1 reach is worth re-checking, but none clear the bar for a weekend recommendation.'
-          : `No strong weekend bets yet. ${worthWatching.length} reaches are worth re-checking, but none clear the bar for a weekend recommendation.`;
     } else {
-      weekendEmpty.hidden = false;
-      weekendEmpty.textContent =
-        'No supported weekend picks yet. Forecast support is still too weak to make confident weekend calls.';
+      updateWeekendEmptyState({
+        worthWatchingCount: worthWatching.length,
+        hasWithheld: (payload?.withheldCount ?? 0) > 0,
+      });
     }
   }
 }

@@ -84,6 +84,9 @@ const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
+const summaryMapResults = document.querySelector('[data-summary-map-results]');
+const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
+const summaryMapResultsToggle = document.querySelector('[data-summary-map-results-toggle]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 
 const statusWeight = {
@@ -112,7 +115,11 @@ let hasLoadedBoardOnce = false;
 let lastBoardSuccessAt = null;
 let mapRuntime = null;
 let mapMarkers = [];
+let mapMarkersByKey = new Map();
 let summaryMapRenderVersion = 0;
+let selectedSummaryMapKey = null;
+let summaryMapResultsExpanded = false;
+let lastSummaryMapItems = [];
 let userLocation = null;
 let userLocationState = 'idle';
 let locationEditing = false;
@@ -245,16 +252,16 @@ function formatTravelLabel(minutes) {
   }
 
   if (minutes < 60) {
-    return `${minutes} min away`;
+    return `${minutes} min drive`;
   }
 
   const hours = Math.floor(minutes / 60);
   const remainingMinutes = minutes % 60;
   if (remainingMinutes === 0) {
-    return `${hours}h away`;
+    return `${hours}h drive`;
   }
 
-  return `${hours}h ${remainingMinutes}m away`;
+  return `${hours}h ${remainingMinutes}m drive`;
 }
 
 function distanceBucketLabel(minutes) {
@@ -424,7 +431,26 @@ function featuredRouteLabelForItem(item) {
 }
 
 function routeLengthLabel(item) {
-  return item.cardRoute.river.distanceLabel || '';
+  const distanceLabel = item.cardRoute.river.distanceLabel;
+  if (!distanceLabel) {
+    return '';
+  }
+
+  return `${distanceLabel} on-water`;
+}
+
+function shortRouteLengthLabel(item) {
+  const distanceValue = item.cardRoute.river.distanceMiles;
+  if (Number.isFinite(distanceValue)) {
+    return `${distanceValue.toFixed(1)} mi route`;
+  }
+
+  const distanceLabel = item.cardRoute.river.distanceLabel;
+  if (!distanceLabel) {
+    return '';
+  }
+
+  return `${distanceLabel} route`;
 }
 
 function rawSignalLine(item) {
@@ -919,6 +945,21 @@ function metaLineText(item, showDistance) {
   }
   return parts.join(' • ');
 }
+
+function liveReadWarning(result) {
+  if (!result?.liveData || result.liveData.overall === 'live') {
+    return null;
+  }
+
+  if (result.liveData.overall === 'offline') {
+    return {
+      short: 'Feed issue',
+      detail: result.liveData.summary || 'Direct live reads are unavailable for this route right now.',
+    };
+  }
+
+  return null;
+}
 function cardSummary(item) {
   return item.cardRoute.summary?.shortExplanation ?? item.cardRoute.explanation;
 }
@@ -1239,6 +1280,15 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'card-verdict', recommendationVerdict(item));
   setText(card, 'meta-line', metaLineText(item, showDistance));
   setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
+
+  const warning = card.querySelector('[data-field="card-warning"]');
+  const liveWarning = liveReadWarning(item.cardRoute);
+  if (warning instanceof HTMLElement) {
+    warning.hidden = !liveWarning;
+    warning.textContent = liveWarning?.short || '';
+    warning.title = liveWarning?.detail || '';
+    warning.setAttribute('aria-label', liveWarning?.detail || '');
+  }
 
   const signalRow = card.querySelector('[data-field="raw-signal"]');
   if (signalRow instanceof HTMLElement) {
@@ -1712,7 +1762,7 @@ function updateFilterSummary(exploreItems) {
       : activeFilters.sort === 'nearest'
         ? 'nearest route'
         : activeFilters.sort === 'highest-confidence'
-        ? 'best supported'
+        ? 'well-supported'
           : activeFilters.sort === 'lowest-risk'
             ? 'lowest risk'
             : activeFilters.sort === 'a-z'
@@ -1775,10 +1825,10 @@ function updateBoardStatusBanner(items) {
   if (offlineCount > 0) {
     boardStatusBanner.classList.add('status-banner--offline');
     if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${offlineCount} rivers need another look.`;
+      boardBannerTitle.textContent = `${offlineCount} rivers have live-feed issues.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = `${degradedCount} limited • ${liveCount} live`;
+      boardBannerDetail.textContent = 'Look for the warning icon on affected cards before you drive.';
     }
     return;
   }
@@ -1786,20 +1836,20 @@ function updateBoardStatusBanner(items) {
   if (degradedCount > 0) {
     boardStatusBanner.classList.add('status-banner--degraded');
     if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${degradedCount} rivers are limited.`;
+      boardBannerTitle.textContent = `${degradedCount} rivers have limited live reads.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
-      boardBannerDetail.textContent = `${liveCount} rivers are fully live`;
+      boardBannerDetail.textContent = 'Those cards are still usable, but some live inputs are stale or partial.';
     }
     return;
   }
 
   boardStatusBanner.classList.add('status-banner--live');
   if (boardBannerTitle instanceof HTMLElement) {
-    boardBannerTitle.textContent = 'The board is up to date.';
+    boardBannerTitle.textContent = 'Live reads are healthy across the board.';
   }
   if (boardBannerDetail instanceof HTMLElement) {
-    boardBannerDetail.textContent = `${liveCount} rivers are live`;
+    boardBannerDetail.textContent = `${liveCount} rivers are fully live`;
   }
 }
 
@@ -1825,6 +1875,117 @@ function popupMarkup(item) {
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
+}
+
+function updateSummaryMapSelection(key) {
+  selectedSummaryMapKey = key || null;
+
+  if (summaryMapResults instanceof HTMLElement) {
+    const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
+    for (const row of rows) {
+      if (!(row instanceof HTMLButtonElement)) continue;
+      const active = row.dataset.summaryMapItem === selectedSummaryMapKey;
+      row.classList.toggle('summary-map-result--active', active);
+      row.setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+  }
+}
+
+function closeSummaryMapPopups(exceptKey = null) {
+  for (const [key, marker] of mapMarkersByKey.entries()) {
+    if (!marker || key === exceptKey) {
+      continue;
+    }
+
+    const popup = marker.getPopup?.();
+    if (popup && typeof popup.isOpen === 'function' && popup.isOpen()) {
+      popup.remove();
+    }
+  }
+}
+
+function openSummaryMapItem(key) {
+  const marker = mapMarkersByKey.get(key);
+  if (!marker) {
+    return;
+  }
+
+  updateSummaryMapSelection(key);
+  closeSummaryMapPopups(key);
+  const popup = marker.getPopup?.();
+  if (popup && typeof popup.isOpen === 'function' && !popup.isOpen()) {
+    marker.togglePopup();
+  }
+}
+
+function renderSummaryMapResults(items) {
+  if (!(summaryMapResults instanceof HTMLElement)) {
+    return;
+  }
+
+  lastSummaryMapItems = items;
+
+  if (summaryMapResultsNote instanceof HTMLElement) {
+    if (items.length === 0) {
+      summaryMapResultsNote.textContent = 'No rivers match these filters.';
+    } else if (items.length === 1) {
+      summaryMapResultsNote.textContent = '1 river on the map';
+    } else {
+      summaryMapResultsNote.textContent = `${items.length} rivers on the map`;
+    }
+  }
+
+  summaryMapResults.innerHTML = '';
+
+  if (items.length === 0) {
+    summaryMapResults.innerHTML = '<p class="muted summary-map-results__empty">Adjust the filters to bring rivers back onto the map.</p>';
+    if (summaryMapResultsToggle instanceof HTMLButtonElement) {
+      summaryMapResultsToggle.hidden = true;
+    }
+    return;
+  }
+
+  const defaultVisibleCount = 6;
+  const hasMore = items.length > defaultVisibleCount;
+  const visibleItems = summaryMapResultsExpanded ? items : items.slice(0, defaultVisibleCount);
+
+  const fragment = document.createDocumentFragment();
+  for (const item of visibleItems) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'summary-map-result';
+    button.dataset.summaryMapItem = item.key;
+    button.setAttribute('aria-pressed', selectedSummaryMapKey === item.key ? 'true' : 'false');
+    button.innerHTML = `
+      <span class="summary-map-result__score score-map-marker ${markerClassFor(item)}"><span>${item.cardRoute.score}</span></span>
+      <span class="summary-map-result__body">
+        <strong class="summary-map-result__name">${escapeHtml(item.cardRoute.river.name)}</strong>
+        <span class="summary-map-result__route">${escapeHtml(routeLabelForItem(item))}</span>
+        <span class="summary-map-result__meta">${escapeHtml(confidenceLabel(item))} • ${escapeHtml(shortRouteLengthLabel(item))}</span>
+      </span>
+    `;
+    button.addEventListener('click', () => {
+      openSummaryMapItem(item.key);
+    });
+    fragment.appendChild(button);
+  }
+
+  summaryMapResults.appendChild(fragment);
+  if (summaryMapResultsToggle instanceof HTMLButtonElement) {
+    summaryMapResultsToggle.hidden = !hasMore;
+    summaryMapResultsToggle.textContent = summaryMapResultsExpanded ? 'Show fewer' : `Show all ${items.length}`;
+  }
+  const activeKey = items.some((item) => item.key === selectedSummaryMapKey)
+    ? selectedSummaryMapKey
+    : (items[0]?.key || null);
+  updateSummaryMapSelection(activeKey);
+}
+
+if (summaryMapResultsToggle instanceof HTMLButtonElement) {
+  summaryMapResultsToggle.addEventListener('click', () => {
+    summaryMapResultsExpanded = !summaryMapResultsExpanded;
+    renderSummaryMapResults(lastSummaryMapItems);
+  });
 }
 
 function updateSummaryMapToggle() {
@@ -1887,6 +2048,7 @@ async function renderSummaryMap(items) {
   }
 
   const renderVersion = ++summaryMapRenderVersion;
+  summaryMapResultsExpanded = false;
 
   if (summaryMapStatus instanceof HTMLElement) {
     summaryMapStatus.textContent = 'Loading map markers.';
@@ -1929,6 +2091,7 @@ async function renderSummaryMap(items) {
       marker.remove();
     }
     mapMarkers = [];
+    mapMarkersByKey = new Map();
 
     const bounds = new maplibregl.LngLatBounds();
     let hasBounds = false;
@@ -1953,11 +2116,23 @@ async function renderSummaryMap(items) {
         )
         .addTo(mapRuntime);
 
-      bindMarkerPopup(marker, markerNode, { map: mapRuntime });
+      bindMarkerPopup(marker, markerNode, {
+        map: mapRuntime,
+        onSelectedChange(selected) {
+          if (selected) {
+            updateSummaryMapSelection(item.key);
+          } else if (selectedSummaryMapKey === item.key) {
+            updateSummaryMapSelection(null);
+          }
+        },
+      });
       mapMarkers.push(marker);
+      mapMarkersByKey.set(item.key, marker);
       bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
       hasBounds = true;
     }
+
+    renderSummaryMapResults(items);
 
     if (hasBounds) {
       if (renderVersion !== summaryMapRenderVersion) {
@@ -1972,6 +2147,9 @@ async function renderSummaryMap(items) {
         duration: 700,
       });
       mapRuntime.resize();
+      if (!selectedSummaryMapKey && items[0]) {
+        updateSummaryMapSelection(items[0].key);
+      }
       if (summaryMapStatus instanceof HTMLElement) {
         summaryMapStatus.textContent = 'Map is up to date.';
       }
@@ -1981,11 +2159,13 @@ async function renderSummaryMap(items) {
     if (renderVersion !== summaryMapRenderVersion) {
       return;
     }
+    renderSummaryMapResults([]);
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = 'No rivers match the current filters.';
     }
   } catch (error) {
     console.error('Failed to load summary map.', error);
+    renderSummaryMapResults([]);
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = 'Map unavailable right now. Use the river list below.';
     }

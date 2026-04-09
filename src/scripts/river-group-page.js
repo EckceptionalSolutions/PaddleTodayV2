@@ -121,7 +121,7 @@ function coldWeatherDrivenRoute(route) {
 }
 
 function routeLengthText(route) {
-  return route.distanceLabel || '';
+  return route.distanceLabel ? `${route.distanceLabel} on-water` : '';
 }
 
 function metaLine(route) {
@@ -519,7 +519,7 @@ function updateGroupMapToggle() {
   }
 }
 
-async function renderGroupMap(routes) {
+async function renderGroupMap(routes, { preserveViewport = false } = {}) {
   if (!(groupMap instanceof HTMLElement)) {
     return;
   }
@@ -667,7 +667,7 @@ async function renderGroupMap(routes) {
       });
     }
 
-    if (hasBounds) {
+    if (hasBounds && !preserveViewport) {
       const compact = window.matchMedia('(max-width: 720px)').matches;
       mapRuntime.fitBounds(bounds, {
         padding: compact
@@ -783,7 +783,7 @@ function renderRouteList(routes) {
       const route = currentResult.routes.find((candidate) => candidate.slug === selectedSlug);
       if (!route) return;
       renderRouteList(currentResult.routes);
-      renderGroupMap(currentResult.routes);
+      renderGroupMap(currentResult.routes, { preserveViewport: true });
     };
 
     card.addEventListener('click', (event) => {

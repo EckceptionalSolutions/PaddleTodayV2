@@ -220,7 +220,7 @@ const homepageStructuredData = [
       </section>
 
       <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
-        <div class="status-banner__eyebrow">Read quality</div>
+        <div class="status-banner__eyebrow">Live read status</div>
         <div class="status-banner__body">
           <strong data-board-banner-title>Checking live reads.</strong>
           <p class="muted" data-board-banner-detail>
@@ -246,7 +246,7 @@ const homepageStructuredData = [
               <option value="best-now">Best overall</option>
               <option value="near-you">Best near me</option>
               <option value="nearest">Nearest only</option>
-              <option value="highest-confidence">Best supported</option>
+              <option value="highest-confidence">Well-supported</option>
               <option value="lowest-risk">Lowest risk</option>
               <option value="a-z">A-Z</option>
             </select>
@@ -286,7 +286,7 @@ const homepageStructuredData = [
             Paddleable only
           </button>
           <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
-            Best-supported only
+            Well-supported only
           </button>
           <button class="filter-chip" type="button" data-board-refresh>
             Refresh board
@@ -300,10 +300,17 @@ const homepageStructuredData = [
             <FeatureIcon name="map" size={16} />
             Score map
           </p>
-          <h2 class="section-title">Scan the board on a map</h2>
-          <p class="muted">
-            Use the filters first, then compare how the current board looks across the region. The number is the score and the ring shows how well-supported the call is.
-          </p>
+          <h2 class="section-title">Map view</h2>
+          <div class="summary-map-results-head">
+            <p class="summary-map-results__title">Shown on map</p>
+            <p class="muted summary-map-results__note" data-summary-map-results-note>
+              Loading rivers.
+            </p>
+          </div>
+          <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
+          <button class="filter-chip summary-map-results__toggle" type="button" data-summary-map-results-toggle hidden>
+            Show more
+          </button>
           <button
             class="filter-chip summary-map__toggle"
             type="button"
@@ -313,28 +320,29 @@ const homepageStructuredData = [
           >
             Hide map
           </button>
-
-          <div class="summary-map-legend" aria-label="Score map legend">
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-              Strong
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-              Fair
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-              No-go
-            </span>
-          </div>
         </div>
 
         <div class="summary-map-frame">
           <div class="summary-map" data-summary-map aria-label="River score map"></div>
-          <p class="summary-map__status muted" data-summary-map-status>
-            Loading map.
-          </p>
+          <div class="summary-map-footer">
+            <p class="summary-map__status muted" data-summary-map-status>
+              Loading map.
+            </p>
+            <div class="summary-map-legend" aria-label="Score map legend">
+              <span class="summary-map-legend__item">
+                <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+                Strong
+              </span>
+              <span class="summary-map-legend__item">
+                <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
+                Fair
+              </span>
+              <span class="summary-map-legend__item">
+                <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
+                No-go
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -413,6 +421,7 @@ const homepageStructuredData = [
           <h3 class="river-card__title" data-field="name"></h3>
           <p class="river-card__subtitle" data-field="route-label"></p>
         </div>
+        <span class="river-card__warning" data-field="card-warning" hidden></span>
       </div>
 
       <p class="river-card__verdict" data-field="card-verdict"></p>
