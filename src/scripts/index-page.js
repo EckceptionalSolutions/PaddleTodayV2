@@ -42,6 +42,7 @@ const exploreSection = document.querySelector('.decision-section--explore');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
 const homeSnapshot = document.querySelector('[data-home-snapshot]');
+const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
 const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
@@ -866,9 +867,14 @@ function updateHomeSnapshot(overallItems) {
 
 function updateHeroCallMix(results) {
   const totalCount = Array.isArray(results) ? results.length : 0;
-  const goodCount = results.filter((result) => ['Strong', 'Good'].includes(result.rating)).length;
+  const strongCount = results.filter((result) => result.rating === 'Strong').length;
+  const goodCount = results.filter((result) => result.rating === 'Good').length;
   const noGoCount = results.filter((result) => result.rating === 'No-go').length;
-  const mixedCount = Math.max(0, totalCount - goodCount - noGoCount);
+  const mixedCount = Math.max(0, totalCount - strongCount - goodCount - noGoCount);
+
+  if (homeStrongCount instanceof HTMLElement) {
+    homeStrongCount.textContent = String(strongCount);
+  }
 
   if (homeGoodCount instanceof HTMLElement) {
     homeGoodCount.textContent = String(goodCount);
@@ -994,7 +1000,7 @@ function recommendationSlotLabel(index, nearbyReady) {
   }
 
   if (index === 0) return 'Top pick';
-  if (index === 1) return 'Most dependable';
+  if (index === 1) return 'Lowest-risk pick';
   return 'Another option';
 }
 
@@ -1295,6 +1301,13 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
     warning.hidden = !liveWarning;
     warning.textContent = liveWarning?.short || '';
     warning.title = liveWarning?.detail || '';
+    if (liveWarning?.detail) {
+      warning.dataset.tooltip = liveWarning.detail;
+      warning.tabIndex = 0;
+    } else {
+      delete warning.dataset.tooltip;
+      warning.tabIndex = -1;
+    }
     warning.setAttribute('aria-label', liveWarning?.detail || '');
   }
 
@@ -1486,7 +1499,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(
     document,
     'featured-distance',
-    nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Best overall'
+    nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Top pick today'
   );
   if (featuredSignal instanceof HTMLElement) {
     featuredSignal.innerHTML = signalRowMarkup(item);
@@ -1766,16 +1779,16 @@ function updateFilterSummary(exploreItems) {
 
   const sortLabel =
     activeFilters.sort === 'near-you'
-      ? 'best near you'
+      ? 'best by drive time'
       : activeFilters.sort === 'nearest'
-        ? 'nearest route'
+        ? 'closest first'
         : activeFilters.sort === 'highest-confidence'
-        ? 'well-supported'
+        ? 'highest support'
           : activeFilters.sort === 'lowest-risk'
-            ? 'lowest risk'
+            ? 'lowest-risk calls'
             : activeFilters.sort === 'a-z'
               ? 'A-Z'
-              : 'best overall';
+              : 'top picks today';
 
   if (exploreItems.length === 0) {
     filterSummary.textContent = 'No rivers match these filters.';

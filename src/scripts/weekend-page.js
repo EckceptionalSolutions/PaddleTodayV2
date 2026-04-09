@@ -68,10 +68,10 @@ function confidenceDisplayLabel(label) {
 }
 
 function weekendVerdict(item) {
-  if (item.weekend.rating === 'Strong') return 'Best bet';
-  if (item.weekend.rating === 'Good') return 'Solid weekend bet';
-  if (item.weekend.rating === 'Fair') return 'Worth watching';
-  return 'Unlikely weekend bet';
+  if (item.weekend.rating === 'Strong') return 'Top weekend pick';
+  if (item.weekend.rating === 'Good') return 'Good weekend pick';
+  if (item.weekend.rating === 'Fair') return 'Fair to re-check';
+  return 'Weekend call withheld';
 }
 
 function regionStateText(item) {
@@ -97,15 +97,14 @@ function supportingReason(item) {
 
 function slotLabel(index) {
   if (index === 0) return 'Top weekend pick';
-  if (index === 1) return 'Worth planning around';
-  if (index === 2) return 'Another good bet';
-  return 'Also worth watching';
+  if (index === 1) return 'Another good pick';
+  if (index === 2) return 'Good backup';
+  return 'Another pick';
 }
 
 function watchSlotLabel(index) {
-  if (index === 0) return 'Worth watching';
-  if (index === 1) return 'Re-check later';
-  return 'Keep an eye on this';
+  if (index === 0) return 'Fair route';
+  return 'Also fair';
 }
 
 function weekendDateRangeText(label) {
@@ -164,9 +163,9 @@ function updateSnapshotLine(payload) {
     if (worthWatching.length > 0) {
       const watchLabel =
         worthWatching.length === 1
-          ? '1 route worth watching'
-          : `${worthWatching.length} routes worth watching`;
-      snapshotLine.textContent = `No strong weekend bets yet • ${watchLabel}`;
+          ? '1 fair route worth re-checking'
+          : `${worthWatching.length} fair routes worth re-checking`;
+      snapshotLine.textContent = `No weekend picks yet • ${watchLabel}`;
       return;
     }
 
@@ -177,7 +176,7 @@ function updateSnapshotLine(payload) {
     return;
   }
 
-  const countLabel = count === 1 ? '1 weekend bet' : `${count} weekend bets`;
+  const countLabel = count === 1 ? '1 weekend pick' : `${count} weekend picks`;
   const insight = withheld > 0 ? `${withheld} withheld until support improves` : bestLabel;
   snapshotLine.textContent = `${countLabel} • ${insight}`;
 }
@@ -215,19 +214,19 @@ function updateFeaturedSummaryToggle(text) {
 
 function renderFeatured(item, worthWatchingCount = 0) {
   if (!item) {
-    setText(featuredLabel, 'Best weekend bet');
+    setText(featuredLabel, 'Top weekend pick');
     setText(featuredState, 'Conservative planning mode');
     setText(
       featuredName,
-      worthWatchingCount > 0 ? 'No strong weekend bets yet' : 'No supported weekend picks yet'
+      worthWatchingCount > 0 ? 'No weekend picks yet' : 'No supported weekend picks yet'
     );
     setText(
       featuredReach,
       worthWatchingCount > 0
-        ? 'A few routes are worth re-checking, but none clear the bar for a real weekend recommendation yet.'
+        ? 'A few fair routes are worth re-checking, but none are strong enough to recommend yet.'
         : 'Forecast support is still too thin to surface a confident shortlist.'
     );
-    setText(featuredVerdict, worthWatchingCount > 0 ? 'Worth watching only' : 'Weekend calls withheld');
+    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Weekend calls withheld');
     setText(featuredScore, '--');
     setText(featuredRating, 'Withheld');
     setText(featuredConfidence, 'Support building');
@@ -235,13 +234,13 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(
       featuredReason,
       worthWatchingCount > 0
-        ? 'The forecast is warm enough to watch, but still too risky to call any route a real weekend bet.'
+        ? 'The forecast is warm enough to watch, but still too risky to recommend a route yet.'
         : 'Weekend calls stay hidden until the forecast and river shape line up well enough to trust.'
     );
     setText(
       featuredSignal,
       worthWatchingCount > 0
-        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'route is' : 'routes are'} worth re-checking`
+        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'fair route is' : 'fair routes are'} worth re-checking`
         : 'Forecast support still building'
     );
     setText(
@@ -272,7 +271,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
     featuredPanel.classList.add(`hero-call--${tone}`);
   }
 
-  setText(featuredLabel, 'Best weekend bet');
+  setText(featuredLabel, 'Top weekend pick');
   setText(featuredState, item.weekend.label);
   setText(featuredName, item.river.name);
   setText(featuredReach, item.river.reach);
@@ -375,12 +374,12 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
 
   if (worthWatchingCount > 0) {
     weekendEmpty.hidden = false;
-    setText(weekendEmptyTitle, 'No strong weekend bets yet');
-    setText(
-      weekendEmptyCopy,
-      worthWatchingCount === 1
-        ? '1 route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
-        : `${worthWatchingCount} routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
+      setText(weekendEmptyTitle, 'No weekend picks yet');
+      setText(
+        weekendEmptyCopy,
+        worthWatchingCount === 1
+          ? '1 fair route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
+        : `${worthWatchingCount} fair routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
     );
     return;
   }

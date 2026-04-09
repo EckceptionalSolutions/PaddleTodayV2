@@ -104,15 +104,19 @@ const homepageStructuredData = [
     </aside>
 
     <div class="decision-hero__support">
-      <p class="hero__overview-label">Routes overview</p>
+      <p class="hero__overview-label">Board mix</p>
       <ul class="hero__call-mix" data-home-call-mix>
+        <li class="hero__call-mix-item hero__call-mix-item--strong">
+          <strong data-home-strong-count>--</strong>
+          <span>Strong</span>
+        </li>
         <li class="hero__call-mix-item hero__call-mix-item--good">
           <strong data-home-good-count>--</strong>
           <span>Good</span>
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--mixed">
           <strong data-home-mixed-count>--</strong>
-          <span>Mixed</span>
+          <span>Fair</span>
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--no-go">
           <strong data-home-no-go-count>--</strong>
@@ -243,11 +247,11 @@ const homepageStructuredData = [
           <label class="filter-select filter-select--sort">
             <span class="sr-only">Sort the board</span>
             <select class="filter-select__input" data-sort-select>
-              <option value="best-now">Best overall</option>
-              <option value="near-you">Best near me</option>
-              <option value="nearest">Nearest only</option>
-              <option value="highest-confidence">Well-supported</option>
-              <option value="lowest-risk">Lowest risk</option>
+              <option value="best-now">Top picks today</option>
+              <option value="near-you">Best by drive time</option>
+              <option value="nearest">Closest first</option>
+              <option value="highest-confidence">Highest support</option>
+              <option value="lowest-risk">Most dependable</option>
               <option value="a-z">A-Z</option>
             </select>
           </label>
@@ -282,16 +286,29 @@ const homepageStructuredData = [
               ))}
             </select>
           </label>
-          <button class="filter-chip" type="button" data-filter-toggle="paddleable">
-            Paddleable only
-          </button>
-          <button class="filter-chip" type="button" data-filter-toggle="high-confidence">
-            Well-supported only
+            <button
+              class="filter-chip"
+              type="button"
+              data-filter-toggle="paddleable"
+              title="Keep only Strong and Good calls."
+            >
+              Strong + Good only
+            </button>
+          <button
+            class="filter-chip"
+            type="button"
+            data-filter-toggle="high-confidence"
+            title="Keep only routes with the strongest live-data support."
+          >
+            High-support only
           </button>
           <button class="filter-chip" type="button" data-board-refresh>
             Refresh board
           </button>
         </div>
+        <p class="muted board-filters__hint">
+          Strong + Good only keeps the clearest calls. High-support only keeps routes with the strongest live-data support.
+        </p>
       </section>
 
       <section class="summary-map-shell" id="explore-map" data-summary-map-shell>

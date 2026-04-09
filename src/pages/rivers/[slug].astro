@@ -12,7 +12,7 @@ export function getStaticPaths() {
 }
 
 const { river } = Astro.props;
-const thresholdQualityLabel =
+const thresholdSupportLabel =
   river.profile.thresholdSourceStrength === 'official'
     ? 'Official guidance'
     : river.profile.thresholdSourceStrength === 'mixed'
@@ -20,7 +20,6 @@ const thresholdQualityLabel =
       : river.profile.thresholdSourceStrength === 'community'
         ? 'Community guidance'
         : 'Derived guidance';
-const thresholdQualityClass = `threshold-pill--${river.profile.thresholdSourceStrength}`;
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -90,14 +89,6 @@ const seasonHeadline =
     : 'Check seasonal notes';
 const primaryAccessCaveat = logistics?.accessCaveats?.[0] ?? 'Check parking, launch, and access rules on the ground.';
 const secondaryAccessCaveat = logistics?.accessCaveats?.[1] ?? primaryAccessCaveat;
-const thresholdBadgeLabel =
-  river.profile.thresholdSourceStrength === 'official'
-    ? 'Official'
-    : river.profile.thresholdSourceStrength === 'mixed'
-      ? 'Mixed'
-      : river.profile.thresholdModel === 'minimum-only'
-        ? 'Minimum'
-        : 'Community';
 const reportChangeHref =
   `/request-river/?mode=update&routeName=${encodeURIComponent(`${river.name} - ${river.reach}`)}&state=${encodeURIComponent(river.state)}` +
   `${putIn?.name ? `&putIn=${encodeURIComponent(putIn.name)}` : ''}` +
@@ -190,11 +181,11 @@ const routeStructuredData = {
     data-take-out-latitude={takeOut?.latitude}
     data-take-out-longitude={takeOut?.longitude}
   >
-    <a class="back-link" href="/">All river calls</a>
+    <a class="back-link" href="/">Back to today&apos;s board</a>
 
     {riverHubHref ? (
       <p class="river-detail__group-link">
-        <a href={riverHubHref}>See all {siblingRoutes.length + 1} reaches on {river.name}</a>
+        <a href={riverHubHref}>See all {siblingRoutes.length + 1} routes on {river.name}</a>
       </p>
     ) : null}
 
@@ -214,8 +205,8 @@ const routeStructuredData = {
           <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="access-plan">
             Access Plan
           </a>
-          <a class="river-detail__section-link" href="#sources" data-detail-nav-link="sources">
-            Sources
+          <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="why-this-call">
+            Why this call
           </a>
         </div>
       </nav>
@@ -231,15 +222,6 @@ const routeStructuredData = {
           <p class="eyebrow">{river.state} | {river.region}</p>
           <h1 class="river-detail__title">{river.name}</h1>
           <p class="river-detail__reach">{river.reach}</p>
-          <div class="river-card__badges river-card__badges--detail">
-            <span class="source-badge source-badge--usgs">USGS</span>
-            <span class={`source-badge source-badge--${river.profile.thresholdSourceStrength}`}>
-              {thresholdBadgeLabel}
-            </span>
-            {river.profile.thresholdModel === 'minimum-only' ? (
-              <span class="source-badge source-badge--minimum">Low floor</span>
-            ) : null}
-          </div>
         </div>
 
         <p class="river-detail__summary" data-field="explanation">
@@ -250,15 +232,14 @@ const routeStructuredData = {
           <span class="pill" data-field="decision">Checking</span>
           <a
             class="pill river-detail__jump-pill"
-            href="#sources"
+            href="#why-this-call"
             data-field="confidence"
-            data-detail-jump="sources"
+            data-detail-jump="why-this-call"
             data-detail-expand="confidence"
           >
             Checking support
           </a>
           <span class="pill" data-field="data-status">Checking reads</span>
-          <span class={`pill ${thresholdQualityClass}`}>{thresholdQualityLabel}</span>
           <span class="pill">{river.statusText}</span>
         </div>
 
@@ -321,16 +302,16 @@ const routeStructuredData = {
             Loading source and freshness details.
           </p>
         </div>
-        <dl class="river-call-panel__meta">
-          <div>
-            <dt>Observed</dt>
-            <dd data-field="observed-at">Checking</dd>
-          </div>
-          <div>
-            <dt>Last scored</dt>
-            <dd data-field="generated-at">Checking</dd>
-          </div>
-        </dl>
+          <dl class="river-call-panel__meta">
+            <div>
+            <dt>Latest live read</dt>
+              <dd data-field="observed-at">Checking</dd>
+            </div>
+            <div>
+            <dt>Paddle Today updated</dt>
+              <dd data-field="generated-at">Checking</dd>
+            </div>
+          </dl>
         <div class="river-call-panel__actions">
           <button class="filter-chip" type="button" data-detail-refresh>
             Refresh river
@@ -373,7 +354,7 @@ const routeStructuredData = {
                 />
               </svg>
             </span>
-            <span class="route-action-button__label route-action-button__label--desktop">Save</span>
+            <span class="route-action-button__label route-action-button__label--desktop">Save soon</span>
           </button>
 
           <details class="route-action-menu route-action-menu--share" data-route-action-menu>
@@ -527,8 +508,8 @@ const routeStructuredData = {
         <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="access-plan">
           Access Plan
         </a>
-        <a class="river-detail__section-link" href="#sources" data-detail-nav-link="sources">
-          Sources
+        <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="why-this-call">
+          Why this call
         </a>
       </div>
     </nav>
@@ -1033,18 +1014,18 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-accordion-group" id="sources" data-detail-section="sources">
-      <details class="river-accordion" data-confidence-explainer>
-        <summary class="river-accordion__summary">
-          <span>
-            <span class="eyebrow section-label">Support level</span>
-            <strong>Why this call is {` `}<span data-field="confidence-detail-label">checking</span></strong>
-          </span>
-        </summary>
-        <div class="river-accordion__body">
-          <p class="muted confidence-detail__intro">
-            Support level comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
-          </p>
+    <section class="river-detail__panel river-accordion-group" id="why-this-call" data-detail-section="why-this-call">
+        <details class="river-accordion" data-confidence-explainer>
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Why this call</span>
+              <strong>Today&apos;s call is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+            </span>
+          </summary>
+          <div class="river-accordion__body">
+            <p class="muted confidence-detail__intro">
+              This trust read comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
+            </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
@@ -1090,17 +1071,17 @@ const routeStructuredData = {
         </div>
       </details>
 
-      <details class="river-accordion">
-        <summary class="river-accordion__summary">
-          <span>
-            <span class="eyebrow section-label">Inputs</span>
-            <strong>Gauge, thresholds, and timing</strong>
-          </span>
-        </summary>
-        <div class="river-accordion__body">
-          <p class="muted confidence-detail__intro">
-            These are the source inputs behind today&apos;s call.
-          </p>
+        <details class="river-accordion">
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Data behind the call</span>
+              <strong>Gauge, thresholds, and timing</strong>
+            </span>
+          </summary>
+          <div class="river-accordion__body">
+            <p class="muted confidence-detail__intro">
+              These are the live inputs and threshold notes behind today&apos;s call.
+            </p>
           <table class="detail-table">
             <tbody>
               <tr>
@@ -1168,17 +1149,17 @@ const routeStructuredData = {
                 <td>{highThresholdValue}</td>
               </tr>
               <tr>
-                <td>Threshold quality</td>
-                <td>{thresholdQualityLabel}</td>
+                <td>Threshold support</td>
+                <td>{thresholdSupportLabel}</td>
               </tr>
               <tr>
                 <td>Gauge observed</td>
                 <td data-field="observed-at">Checking</td>
               </tr>
-              <tr>
-                <td>Score updated</td>
-                <td data-field="generated-at">Checking</td>
-              </tr>
+                <tr>
+                  <td>Paddle Today updated</td>
+                  <td data-field="generated-at">Checking</td>
+                </tr>
               <tr>
                 <td>Threshold source</td>
                 <td>{river.profile.thresholdSource.label}</td>
@@ -1232,13 +1213,13 @@ const routeStructuredData = {
         </div>
       </details>
 
-      <details class="river-accordion">
-        <summary class="river-accordion__summary">
-          <span>
-            <span class="eyebrow section-label">Sources</span>
-            <strong>Check the original sources</strong>
-          </span>
-        </summary>
+        <details class="river-accordion">
+          <summary class="river-accordion__summary">
+            <span>
+              <span class="eyebrow section-label">Verify it yourself</span>
+              <strong>Check the original sources</strong>
+            </span>
+          </summary>
         <div class="river-accordion__body">
           <p class="muted confidence-detail__intro">
             Use these links to verify the gauge, route details, and access notes before you drive.

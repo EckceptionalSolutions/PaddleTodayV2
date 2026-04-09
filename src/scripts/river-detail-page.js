@@ -2125,6 +2125,13 @@ function renderDetailResult(result) {
   if (liveWarningPill instanceof HTMLElement) {
     liveWarningPill.hidden = !liveWarning;
     liveWarningPill.title = liveWarning?.detail || '';
+    if (liveWarning?.detail) {
+      liveWarningPill.dataset.tooltip = liveWarning.detail;
+      liveWarningPill.tabIndex = 0;
+    } else {
+      delete liveWarningPill.dataset.tooltip;
+      liveWarningPill.tabIndex = -1;
+    }
     liveWarningPill.setAttribute('aria-label', liveWarning?.detail || '');
   }
   if (liveWarningWrap instanceof HTMLElement) {
@@ -2422,6 +2429,8 @@ async function loadDetail({ silent = false } = {}) {
     if (liveWarningPill instanceof HTMLElement) {
       liveWarningPill.hidden = false;
       liveWarningPill.title = 'Direct live reads are unavailable for this route right now.';
+      liveWarningPill.dataset.tooltip = 'Direct live reads are unavailable for this route right now.';
+      liveWarningPill.tabIndex = 0;
       liveWarningPill.setAttribute(
         'aria-label',
         'Direct live reads are unavailable for this route right now.'
