@@ -33,6 +33,11 @@
     "tsx": "^4.21.0"
   },
   "devDependencies": {
+    "@rollup/rollup-win32-x64-msvc": "^4.60.1",
+    "@tailwindcss/oxide-win32-x64-msvc": "^4.2.2",
+    "@tailwindcss/vite": "^4.2.2",
+    "lightningcss-win32-x64-msvc": "^1.32.0",
+    "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.2"
   }

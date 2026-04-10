@@ -10,11 +10,66 @@ import { confidenceDisplayLabel, liveDataWarning } from '/scripts/ui-taxonomy.js
 import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
+const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
 const GEOLOCATION_TIMEOUT_MS = 10000;
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const NEARBY_TRAVEL_MINUTES = 90;
 const DAY_TRIP_TRAVEL_MINUTES = 180;
 const AVERAGE_DRIVE_MPH = 50;
+const DEFAULT_RADIUS_MILES = 100;
+const RADIUS_OPTIONS = [25, 50, 75, 100, 150, 200];
+const US_STATE_ABBREVIATIONS = {
+  Alabama: 'AL',
+  Alaska: 'AK',
+  Arizona: 'AZ',
+  Arkansas: 'AR',
+  California: 'CA',
+  Colorado: 'CO',
+  Connecticut: 'CT',
+  Delaware: 'DE',
+  Florida: 'FL',
+  Georgia: 'GA',
+  Hawaii: 'HI',
+  Idaho: 'ID',
+  Illinois: 'IL',
+  Indiana: 'IN',
+  Iowa: 'IA',
+  Kansas: 'KS',
+  Kentucky: 'KY',
+  Louisiana: 'LA',
+  Maine: 'ME',
+  Maryland: 'MD',
+  Massachusetts: 'MA',
+  Michigan: 'MI',
+  Minnesota: 'MN',
+  Mississippi: 'MS',
+  Missouri: 'MO',
+  Montana: 'MT',
+  Nebraska: 'NE',
+  Nevada: 'NV',
+  'New Hampshire': 'NH',
+  'New Jersey': 'NJ',
+  'New Mexico': 'NM',
+  'New York': 'NY',
+  'North Carolina': 'NC',
+  'North Dakota': 'ND',
+  Ohio: 'OH',
+  Oklahoma: 'OK',
+  Oregon: 'OR',
+  Pennsylvania: 'PA',
+  'Rhode Island': 'RI',
+  'South Carolina': 'SC',
+  'South Dakota': 'SD',
+  Tennessee: 'TN',
+  Texas: 'TX',
+  Utah: 'UT',
+  Vermont: 'VT',
+  Virginia: 'VA',
+  Washington: 'WA',
+  'West Virginia': 'WV',
+  Wisconsin: 'WI',
+  Wyoming: 'WY',
+};
 
 const recommendationGrid = document.querySelector('[data-recommendation-grid]');
 const recommendationSummary = document.querySelector('[data-recommendation-summary]');
@@ -23,7 +78,13 @@ const recommendationEmpty = document.querySelector('[data-recommendation-empty]'
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
 const homeLocationSummary = document.querySelector('[data-home-location-summary]');
-const homeLocationCta = document.querySelector('[data-home-location-cta]');
+const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
+const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
+const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
+const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
+const homeHeadline = document.querySelector('[data-home-headline]');
+const homeLocationEmpty = document.querySelector('[data-home-location-empty]');
+const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
 const exploreContent = document.querySelector('[data-explore-content]');
@@ -41,16 +102,18 @@ const featuredToggle = document.querySelector('[data-featured-toggle]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredSignal = document.querySelector('[data-field="featured-signal"]');
 const featuredReasons = document.querySelector('[data-featured-reasons]');
+const featuredMapShell = document.querySelector('[data-featured-map-shell]');
+const featuredMap = document.querySelector('[data-featured-map]');
+const featuredMapStatus = document.querySelector('[data-featured-map-status]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const exploreSection = document.querySelector('.decision-section--explore');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
-const homeSnapshot = document.querySelector('[data-home-snapshot]');
 const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
 const homeNoGoCount = document.querySelector('[data-home-no-go-count]');
-const homeTrackedCount = document.querySelector('[data-home-tracked-count]');
+const homeTrackedCounts = Array.from(document.querySelectorAll('[data-home-tracked-count]'));
 
 const summaryHeadline = document.querySelector('[data-summary-headline]');
 const summaryDetail = document.querySelector('[data-summary-detail]');
@@ -81,7 +144,7 @@ const locationUseButtons = Array.from(document.querySelectorAll('[data-location-
 const locationForm = document.querySelector('[data-location-form]');
 const locationInput = document.querySelector('[data-location-input]');
 const locationClearButton = document.querySelector('[data-location-clear]');
-const locationChangeButton = document.querySelector('[data-location-change]');
+const locationEditTrigger = document.querySelector('[data-location-edit-trigger]');
 const locationSelected = document.querySelector('[data-location-selected]');
 const locationStatus = null;
 
@@ -108,6 +171,7 @@ const confidenceWeight = {
 const activeFilters = {
   paddleable: false,
   highConfidence: false,
+  rating: '',
   search: '',
   state: '',
   region: '',
@@ -123,9 +187,13 @@ let mapMarkersByKey = new Map();
 let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
 let lastSummaryMapItems = [];
+let featuredMapRuntime = null;
+let featuredMapMarker = null;
+let featuredMapRenderVersion = 0;
 let userLocation = null;
 let userLocationState = 'idle';
 let locationEditing = false;
+let selectedRadiusMiles = DEFAULT_RADIUS_MILES;
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
@@ -142,6 +210,22 @@ function setText(scope, field, value) {
     node.textContent = value;
   }
   return nodes[0] ?? null;
+}
+
+function normalizeRadiusMiles(value) {
+  const numeric = Number(value);
+  return RADIUS_OPTIONS.includes(numeric) ? numeric : DEFAULT_RADIUS_MILES;
+}
+
+function radiusIndexForMiles(value) {
+  const normalized = normalizeRadiusMiles(value);
+  const index = RADIUS_OPTIONS.indexOf(normalized);
+  return index >= 0 ? index : RADIUS_OPTIONS.indexOf(DEFAULT_RADIUS_MILES);
+}
+
+function radiusMilesForIndex(value) {
+  const index = Number(value);
+  return RADIUS_OPTIONS[index] ?? DEFAULT_RADIUS_MILES;
 }
 
 function ratingToneKey(rating) {
@@ -232,6 +316,18 @@ function distanceForResult(result) {
     result.river.latitude,
     result.river.longitude
   );
+}
+
+function resultWithinSelectedRadius(result) {
+  if (!userLocation) {
+    return false;
+  }
+
+  return distanceForResult(result) <= selectedRadiusMiles;
+}
+
+function itemWithinSelectedRadius(item) {
+  return Number.isFinite(item?.distanceMiles) && item.distanceMiles <= selectedRadiusMiles;
 }
 
 function estimateTravelMinutes(distance) {
@@ -745,126 +841,6 @@ function formatBoardRefreshCopy(timestamp) {
   return 'Snapshot refreshes every 30 minutes.';
 }
 
-function formatOptionCount(count) {
-  if (count <= 0) {
-    return 'No good options today';
-  }
-
-  if (count === 1) {
-    return '1 good option today';
-  }
-
-  return `${count} good options today`;
-}
-
-function regionInsight(items) {
-  if (items.length < 2) {
-    return null;
-  }
-
-  const metroCount = items.filter((item) => /metro/i.test(item.cardRoute.river.region)).length;
-  if (metroCount === 0) {
-    return null;
-  }
-
-  const keywordBuckets = new Map([
-    ['north', 0],
-    ['south', 0],
-    ['west', 0],
-    ['east', 0],
-  ]);
-
-  for (const item of items) {
-    const region = item.cardRoute.river.region.toLowerCase();
-    for (const key of keywordBuckets.keys()) {
-      if (region.includes(key)) {
-        keywordBuckets.set(key, (keywordBuckets.get(key) ?? 0) + 1);
-      }
-    }
-  }
-
-  const bestBucket = [...keywordBuckets.entries()].sort((left, right) => right[1] - left[1])[0];
-  if (bestBucket && bestBucket[1] >= Math.max(2, Math.ceil(items.length * 0.6))) {
-    return { text: `best options ${bestBucket[0]} today`, weight: 0.68 };
-  }
-
-  const uniqueRegions = new Set(items.map((item) => item.cardRoute.river.region)).size;
-  if (uniqueRegions >= 3 && items.length >= 4) {
-    return { text: 'good rivers scattered today', weight: 0.52 };
-  }
-
-  return null;
-}
-
-function chooseDailySnapshotInsight(overallItems) {
-  const goodItems = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating));
-  if (goodItems.length === 0) {
-    return 'mixed conditions overall';
-  }
-
-  const candidates = [];
-  const highConfidenceCount = goodItems.filter((item) => item.cardRoute.confidence.label === 'High').length;
-  const lowConfidenceCount = goodItems.filter((item) => item.cardRoute.confidence.label === 'Low').length;
-  const nearbyCount = goodItems.filter((item) => Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30).length;
-  const stableCount = goodItems.filter(
-    (item) => item.cardRoute.gauge?.trend === 'steady' || item.cardRoute.gaugeBand === 'ideal'
-  ).length;
-  const risingCount = goodItems.filter((item) => item.cardRoute.gauge?.trend === 'rising').length;
-  const fallingCount = goodItems.filter((item) => item.cardRoute.gauge?.trend === 'falling').length;
-  const changingCount = risingCount + fallingCount;
-  const weatherSensitiveCount = goodItems.filter((item) => {
-    const weather = item.cardRoute.weather;
-    const wind = weather?.next12hWindMphMax ?? weather?.windMph ?? 0;
-    const rainChance = weather?.next12hPrecipProbabilityMax ?? 0;
-    return Boolean(weather?.next12hStormRisk) || wind >= 15 || rainChance >= 60;
-  }).length;
-
-  if (stableCount >= Math.max(2, Math.ceil(goodItems.length * 0.65))) {
-    candidates.push({ text: 'mostly stable conditions', weight: 0.84 });
-  }
-
-  if (changingCount >= Math.max(2, Math.ceil(goodItems.length * 0.55))) {
-    candidates.push({
-      text: fallingCount > risingCount ? 'conditions trending down' : 'mixed stability across rivers',
-      weight: fallingCount > risingCount ? 0.83 : 0.74,
-    });
-  }
-
-  if (highConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.7))) {
-    candidates.push({ text: 'well-supported top picks', weight: 0.88 });
-  }
-
-  if (lowConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
-    candidates.push({ text: 'more routes need a source check', weight: 0.7 });
-  }
-
-  if (weatherSensitiveCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
-    candidates.push({ text: 'a few weather-sensitive picks', weight: 0.78 });
-  }
-
-  if (userLocationState === 'ready' && userLocation) {
-    if (nearbyCount === 0 && goodItems.length >= 2) {
-      candidates.push({ text: 'best picks are a drive', weight: 0.94 });
-    } else if (nearbyCount === 1 && goodItems.length >= 3) {
-      candidates.push({ text: 'only 1 nearby, others are a drive', weight: 0.93 });
-    } else if (nearbyCount >= Math.max(2, Math.ceil(goodItems.length * 0.5))) {
-      candidates.push({ text: 'best picks are close by', weight: 0.82 });
-    }
-  }
-
-  const regional = regionInsight(goodItems);
-  if (regional) {
-    candidates.push(regional);
-  }
-
-  if (candidates.length === 0) {
-    return 'mixed conditions overall';
-  }
-
-  candidates.sort((left, right) => right.weight - left.weight);
-  return candidates[0].text;
-}
-
 function updateHomeSnapshot(overallItems) {
   if (!(homeSnapshot instanceof HTMLElement)) {
     return;
@@ -899,8 +875,9 @@ function updateHeroCallMix(results) {
     homeNoGoCount.textContent = String(noGoCount);
   }
 
-  if (homeTrackedCount instanceof HTMLElement) {
-    homeTrackedCount.textContent = `${totalCount} routes tracked`;
+  for (const countNode of homeTrackedCounts) {
+    if (!(countNode instanceof HTMLElement)) continue;
+    countNode.textContent = `${totalCount} routes tracked`;
   }
 }
 
@@ -916,6 +893,96 @@ function updateFeaturedSummaryToggle(text) {
   featuredToggle.hidden = !shouldShow;
   featuredToggle.setAttribute('aria-expanded', 'false');
   featuredToggle.textContent = 'Details';
+}
+
+async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
+  if (!(featuredMapShell instanceof HTMLElement) || !(featuredMap instanceof HTMLElement)) {
+    return;
+  }
+
+  const renderVersion = ++featuredMapRenderVersion;
+  featuredMapShell.hidden = !visible;
+
+  if (featuredMapStatus instanceof HTMLElement) {
+    featuredMapStatus.textContent = status;
+  }
+
+  if (
+    !visible ||
+    !item ||
+    !Number.isFinite(item.cardRoute.river.latitude) ||
+    !Number.isFinite(item.cardRoute.river.longitude)
+  ) {
+    if (featuredMapMarker) {
+      featuredMapMarker.remove();
+      featuredMapMarker = null;
+    }
+    return;
+  }
+
+  try {
+    const maplibregl = await ensureMapLibre();
+    if (!maplibregl || renderVersion !== featuredMapRenderVersion) {
+      return;
+    }
+
+    if (!featuredMapRuntime) {
+      featuredMapRuntime = new maplibregl.Map({
+        container: featuredMap,
+        style: MAP_STYLE_URL,
+        center: [item.cardRoute.river.longitude, item.cardRoute.river.latitude],
+        zoom: 8.8,
+        minZoom: 3.4,
+        maxZoom: 12,
+        attributionControl: false,
+        interactive: false,
+      });
+
+      await new Promise((resolve) => {
+        if (featuredMapRuntime.loaded()) {
+          resolve();
+          return;
+        }
+        featuredMapRuntime.once('load', resolve);
+      });
+    }
+
+    if (renderVersion !== featuredMapRenderVersion) {
+      return;
+    }
+
+    if (featuredMapMarker) {
+      featuredMapMarker.remove();
+      featuredMapMarker = null;
+    }
+
+    const markerNode = document.createElement('div');
+    markerNode.className = markerClassFor(item);
+    markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+    markerNode.setAttribute('aria-hidden', 'true');
+
+    featuredMapMarker = new maplibregl.Marker({
+      element: markerNode,
+      anchor: 'center',
+    })
+      .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
+      .addTo(featuredMapRuntime);
+
+    featuredMapRuntime.jumpTo({
+      center: [item.cardRoute.river.longitude, item.cardRoute.river.latitude],
+      zoom: 8.8,
+    });
+    featuredMapRuntime.resize();
+
+    if (featuredMapStatus instanceof HTMLElement) {
+      featuredMapStatus.textContent = regionStateText(item);
+    }
+  } catch (error) {
+    console.error('Failed to load featured map.', error);
+    if (featuredMapStatus instanceof HTMLElement) {
+      featuredMapStatus.textContent = 'Map unavailable right now.';
+    }
+  }
 }
 
 function featuredConditionMarkup(item) {
@@ -955,13 +1022,14 @@ function coldWeatherDrivenCall(item) {
   );
 }
 function metaLineText(item, showDistance) {
-  const parts = [confidenceLabel(item)];
+  const parts = [];
   if (showDistance && Number.isFinite(item.travelMinutes)) {
     parts.push(formatTravelLabel(item.travelMinutes));
   }
   if (routeLengthLabel(item)) {
     parts.push(routeLengthLabel(item));
   }
+  parts.push(confidenceLabel(item));
   return parts.join(' • ');
 }
 
@@ -1050,7 +1118,7 @@ function recommendationVerdict(item) {
   if (item.cardRoute.rating === 'Strong') return 'Great today';
   if (item.cardRoute.rating === 'Good') return 'Solid option';
   if (item.cardRoute.rating === 'Fair') return 'Possible';
-  return 'Skip today';
+  return 'Consider with caution';
 }
 
 function recommendationTagLabels(item, index, nearbyReady) {
@@ -1154,7 +1222,10 @@ function supportingReasonList(item, nearbyReady) {
 
 function renderTagMarkup(labels) {
   return labels
-    .map((label) => `<span class="recommendation-tag">${escapeHtml(label)}</span>`)
+    .map((label) => {
+      const slug = label.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      return `<span class="recommendation-tag recommendation-tag--${escapeHtml(slug)}">${escapeHtml(label)}</span>`;
+    })
     .join('');
 }
 
@@ -1179,8 +1250,11 @@ function createRecommendationCard(item, index, nearbyReady) {
   const ratingKey = ratingToneKey(item.cardRoute.rating);
   card.classList.add(`recommendation-card--${ratingKey}`);
   card.classList.add(item.kind === 'group' ? 'recommendation-card--group' : 'recommendation-card--route');
+  if (index === 0) {
+    card.classList.add('recommendation-card--featured');
+  }
 
-  setText(card, 'recommendation-slot', recommendationSlotLabel(index, nearbyReady));
+  setText(card, 'recommendation-slot', index === 0 ? "Today's Best" : recommendationSlotLabel(index, nearbyReady));
   setText(card, 'recommendation-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'recommendation-state', regionStateText(item));
   setText(card, 'recommendation-route', routeLabelForItem(item));
@@ -1189,6 +1263,7 @@ function createRecommendationCard(item, index, nearbyReady) {
   setText(card, 'recommendation-rating', item.cardRoute.rating);
   setText(card, 'recommendation-verdict', recommendationVerdict(item, index, nearbyReady));
   setText(card, 'recommendation-meta', metaLineText(item, nearbyReady));
+  setText(card, 'recommendation-live-label', index === 0 ? 'Live conditions right now' : '');
 
   const reasons = card.querySelector('[data-field="recommendation-reasons"]');
   if (reasons instanceof HTMLElement) {
@@ -1206,6 +1281,17 @@ function createRecommendationCard(item, index, nearbyReady) {
   const signal = card.querySelector('[data-field="recommendation-signal"]');
   if (signal instanceof HTMLElement) {
     signal.innerHTML = signalRowMarkup(item);
+  }
+
+  const tags = card.querySelector('[data-field="recommendation-tags"]');
+  if (tags instanceof HTMLElement) {
+    tags.innerHTML = renderTagMarkup(recommendationTagLabels(item, index, nearbyReady));
+    tags.hidden = tags.innerHTML.trim().length === 0;
+  }
+
+  const liveLabel = card.querySelector('[data-field="recommendation-live-label"]');
+  if (liveLabel instanceof HTMLElement) {
+    liveLabel.hidden = index !== 0;
   }
 
   const detailCopy = card.querySelector('[data-field="recommendation-full"]');
@@ -1427,46 +1513,83 @@ function updateExplorePagination(pagination) {
 }
 
 function updateFeaturedHero(nearbyItems, overallItems) {
-  const nearbyReady = userLocationState === 'ready' && nearbyItems.length > 0;
-  const item = nearbyReady ? nearbyItems[0] : overallItems[0] ?? null;
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+  const nearbyReady = locationReady && nearbyItems.length > 0;
+  const item = nearbyReady ? nearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   if (!item) {
-    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s clearest route';
-    if (featuredState instanceof HTMLElement) featuredState.textContent = 'Live board unavailable';
-    if (featuredName instanceof HTMLAnchorElement) {
-      featuredName.textContent = 'Check sources';
-      featuredName.href = '#explore';
+    renderFeaturedMap(null, { visible: false, status: '' });
+    if (featuredPanel instanceof HTMLElement) {
+      featuredPanel.classList.toggle('home-featured--locked', !locationReady);
+      featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     }
-    if (featuredReach instanceof HTMLElement) featuredReach.textContent = 'Live board could not be loaded.';
+    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s best';
+    if (featuredState instanceof HTMLElement) {
+      featuredState.hidden = locationReady;
+      featuredState.textContent = 'Set your location to reveal the strongest paddle near you.';
+    }
+    if (featuredName instanceof HTMLAnchorElement) {
+      featuredName.textContent = locationReady ? 'No routes in range' : 'Today\'s best';
+      featuredName.href = locationReady ? '#best-options' : '#home-location';
+    }
+    if (featuredReach instanceof HTMLElement) {
+      featuredReach.textContent = locationReady
+        ? `No tracked routes currently land inside ${selectedRadiusMiles} miles.`
+        : 'Set your location to unlock a personalized top pick.';
+    }
     setText(document, 'featured-score', '--');
-    setText(document, 'featured-rating', 'Unavailable');
-    setText(document, 'featured-verdict', 'Check back soon');
-    setText(document, 'featured-reason', 'Reload the board to see the current recommendation.');
-    setText(document, 'featured-confidence', 'Support unavailable');
-    setText(document, 'featured-distance', 'Distance unavailable');
-    setText(document, 'featured-signal', 'Live reads unavailable');
-    setText(document, 'featured-explanation', 'Reload the board or open a river page to verify the latest sources.');
-    updateFeaturedSummaryToggle('Reload the board or open a river page to verify the latest sources.');
+    setText(document, 'featured-rating', locationReady ? 'Out of range' : 'Locked');
+    setText(document, 'featured-verdict', locationReady ? 'Nothing in range yet' : 'Set your location');
+    setText(
+      document,
+      'featured-reason',
+      locationReady
+        ? `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
+        : 'Drive times and route ranking appear after you choose a location.'
+    );
+    setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support pending');
+    setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add location for drive time');
+    setText(
+      document,
+      'featured-signal',
+      locationReady
+        ? 'Widen the radius slider to reveal more nearby options.'
+        : 'Gauge, weather, and support details will appear here.'
+    );
+    setText(
+      document,
+      'featured-explanation',
+      locationReady
+        ? `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
+        : 'Set your location to unlock the full summary and drive-time-aware recommendation.'
+    );
+    updateFeaturedSummaryToggle(
+      locationReady
+        ? `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
+        : 'Set your location to unlock the full summary and drive-time-aware recommendation.'
+    );
     if (featuredReasons instanceof HTMLElement) {
       featuredReasons.innerHTML = '';
       featuredReasons.hidden = true;
     }
     if (featuredLink instanceof HTMLAnchorElement) {
-      featuredLink.href = '#explore';
+      featuredLink.href = locationReady ? '#explore' : '#home-location';
+      featuredLink.textContent = locationReady ? 'Browse full board' : 'Set location first';
     }
     return;
   }
+  renderFeaturedMap(item, { visible: nearbyReady, status: regionStateText(item) });
   const ratingKey = ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
+    featuredPanel.classList.toggle('home-featured--locked', !locationReady);
     featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = nearbyReady ? 'Best by drive time' : 'Top pick today';
+    featuredLabel.textContent = 'Today\'s best';
   }
   if (featuredState instanceof HTMLElement) {
-    featuredState.textContent = nearbyReady
-      ? `Using ${shortLocationLabel()} for drive time`
-      : 'Ranked across all tracked routes';
+    featuredState.hidden = true;
+    featuredState.textContent = '';
   }
   if (featuredName instanceof HTMLAnchorElement) {
     featuredName.textContent = item.cardRoute.river.name;
@@ -1506,13 +1629,13 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = item.link;
-    featuredLink.textContent = cardLinkLabel(item);
+    featuredLink.textContent = 'View river';
   }
 }
-function buildRecommendationItems(nearbyItems, overallItems) {
+function buildRecommendationItems(nearbyItems, overallItems, locationReady = false) {
   const picks = [];
   const seen = new Set();
-  const nearbyReady = userLocationState === 'ready' && userLocation && nearbyItems.length > 0;
+  const nearbyReady = locationReady && nearbyItems.length > 0;
 
   const addPick = (item) => {
     if (!item || seen.has(item.key) || picks.length >= 3) {
@@ -1523,16 +1646,15 @@ function buildRecommendationItems(nearbyItems, overallItems) {
   };
 
   if (nearbyReady) {
-    const nearbyWindow = nearbyItems.filter((item) => item.travelMinutes <= NEARBY_TRAVEL_MINUTES);
-    const nearbyPool = nearbyWindow.length > 0 ? nearbyWindow : nearbyItems;
+    const nearbyPool = nearbyItems;
     addPick(nearbyPool[0]);
     addPick(nearbyPool.find((item) => item.cardRoute.rating !== 'No-go' && !seen.has(item.key)) || nearbyPool[1]);
     addPick(
-      overallItems.find(
+      nearbyPool.find(
         (item) =>
           !seen.has(item.key) &&
           (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')
-      ) || overallItems.find((item) => !seen.has(item.key))
+      ) || nearbyPool.find((item) => !seen.has(item.key))
     );
   } else {
     addPick(overallItems[0]);
@@ -1546,7 +1668,9 @@ function buildRecommendationItems(nearbyItems, overallItems) {
     );
   }
 
-  for (const item of [...overallItems, ...nearbyItems]) {
+  const fallbackPool = nearbyReady ? nearbyItems : [...overallItems, ...nearbyItems];
+
+  for (const item of fallbackPool) {
     addPick(item);
   }
 
@@ -1562,37 +1686,54 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     return;
   }
 
-  const nearbyReady = userLocationState === 'ready' && userLocation && nearbyItems.length > 0;
-  const recommendationItems = buildRecommendationItems(nearbyItems, overallItems);
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+  const nearbyReady = locationReady && nearbyItems.length > 0;
+  const recommendationItems = buildRecommendationItems(nearbyItems, overallItems, locationReady);
 
   if (nearbyLocationPanel instanceof HTMLElement) {
     nearbyLocationPanel.hidden = false;
   }
 
   if (recommendationSection instanceof HTMLElement) {
-    recommendationSection.classList.toggle('decision-section--active', nearbyReady);
+    recommendationSection.classList.toggle('decision-section--active', locationReady);
+    recommendationSection.classList.toggle('home-recommendations--needs-location', !locationReady);
+  }
+
+  if (homeHeadline instanceof HTMLElement) {
+    homeHeadline.textContent = 'Find the best paddle near you today';
+  }
+
+  if (homeLocationEmpty instanceof HTMLElement) {
+    homeLocationEmpty.hidden = locationReady;
   }
 
   recommendationTitle.textContent = nearbyReady
     ? 'Best routes near you'
-    : 'Top routes today';
+    : 'Best routes near you';
 
-  recommendationSummary.textContent = nearbyReady
-    ? `Ranked for today first, then drive time from ${shortLocationLabel()}.`
-    : 'Top picks across all tracked routes. Add your city or ZIP code to rank nearby options.';
+  recommendationSummary.textContent = locationReady
+    ? `Ranked by drive time within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+    : 'Set your location above to personalize these picks and add drive times.';
 
   if (recommendationItems.length === 0) {
+    recommendationEmpty.textContent = locationReady
+      ? `No recommended routes are currently available within ${selectedRadiusMiles} miles.`
+      : 'No recommended rivers are available right now.';
     recommendationEmpty.hidden = false;
-    renderRecommendationGrid([], nearbyReady);
+    renderRecommendationGrid([], locationReady);
     return;
   }
 
   recommendationEmpty.hidden = true;
-  renderRecommendationGrid(recommendationItems, nearbyReady);
+  renderRecommendationGrid(recommendationItems, locationReady);
 }
 
 function matchesRouteFilters(result) {
   if (activeFilters.paddleable && !['Strong', 'Good'].includes(result.rating)) {
+    return false;
+  }
+
+  if (activeFilters.rating && result.rating !== activeFilters.rating) {
     return false;
   }
 
@@ -1640,6 +1781,14 @@ function updateFilterButtonStates() {
     const key = button.dataset.filterToggle;
     const active = key ? Boolean(activeFilters[key]) : false;
     button.classList.toggle('filter-chip--active', active);
+    button.setAttribute('aria-pressed', active ? 'true' : 'false');
+  }
+
+  for (const button of glanceFilterButtons) {
+    if (!(button instanceof HTMLElement)) continue;
+    const rating = button.dataset.glanceFilter || '';
+    const active = activeFilters.rating === rating;
+    button.classList.toggle('hero__call-mix-button--active', active);
     button.setAttribute('aria-pressed', active ? 'true' : 'false');
   }
 }
@@ -1716,32 +1865,69 @@ function legacyUpdateLocationStatus() {
 }
 
 function updateLocationStatus() {
+  const locationReady = Boolean(userLocation && userLocationState === 'ready');
+
   if (homeLocationSummary instanceof HTMLElement) {
     if (userLocationState === 'pending') {
-      homeLocationSummary.textContent = 'Finding your location so nearby routes can be ranked by drive time.';
-    } else if (userLocation) {
-      homeLocationSummary.textContent = `Using ${shortLocationLabel()} to rank nearby routes by drive time.`;
+      homeLocationSummary.textContent = 'Finding your location...';
+    } else if (locationReady) {
+      homeLocationSummary.textContent = shortLocationLabel();
     } else if (userLocationState === 'denied' || userLocationState === 'unavailable') {
-      homeLocationSummary.textContent = 'Location is not set. Enter a city or ZIP code to rank nearby routes by drive time.';
+      homeLocationSummary.textContent = 'Set your location';
     } else {
-      homeLocationSummary.textContent = 'Showing top picks across all tracked routes.';
+      homeLocationSummary.textContent = 'Set your location';
     }
   }
 
-  if (homeLocationCta instanceof HTMLAnchorElement) {
-    homeLocationCta.textContent = userLocation ? 'Change location' : 'Set city or ZIP';
+  if (homeLocationSortSummary instanceof HTMLElement) {
+    if (userLocationState === 'pending') {
+      homeLocationSortSummary.hidden = false;
+      homeLocationSortSummary.textContent = 'Finding nearby routes...';
+    } else if (locationReady && locationEditing) {
+      homeLocationSortSummary.hidden = false;
+      homeLocationSortSummary.textContent = 'Enter a new city or ZIP to compare another area.';
+    } else if (locationReady) {
+      homeLocationSortSummary.hidden = true;
+      homeLocationSortSummary.textContent = '';
+    } else {
+      homeLocationSortSummary.hidden = false;
+      homeLocationSortSummary.textContent = 'Use GPS or enter a city to personalize nearby routes.';
+    }
+  }
+
+  if (homeRadiusPanel instanceof HTMLElement) {
+    homeRadiusPanel.hidden = !locationReady;
+  }
+
+  if (homeRadiusSummary instanceof HTMLElement) {
+    homeRadiusSummary.textContent = `Showing routes within ${selectedRadiusMiles} miles`;
+  }
+
+  if (homeRadiusSlider instanceof HTMLInputElement) {
+    homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
+  }
+
+  if (nearbyLocationPanel instanceof HTMLElement) {
+    nearbyLocationPanel.classList.toggle('home-location-bar--set', locationReady);
+    nearbyLocationPanel.classList.toggle('home-location-bar--editing', locationEditing);
+    nearbyLocationPanel.classList.toggle('home-location-bar--pending', userLocationState === 'pending');
+  }
+
+  if (locationEditTrigger instanceof HTMLButtonElement) {
+    locationEditTrigger.setAttribute(
+      'aria-label',
+      locationReady ? `Change location from ${shortLocationLabel()}` : 'Set your location'
+    );
+    locationEditTrigger.setAttribute('aria-expanded', locationReady && locationEditing ? 'true' : 'false');
   }
 
   if (locationSelected instanceof HTMLElement) {
     if (userLocationState === 'pending') {
       locationSelected.hidden = false;
       locationSelected.textContent = 'Finding your current location...';
-    } else if (userLocation) {
+    } else if (locationReady) {
       locationSelected.hidden = false;
-      locationSelected.textContent =
-        userLocation.source === 'geolocation'
-          ? 'Using your current location for drive time.'
-          : `Using ${userLocation.label} for drive time.`;
+      locationSelected.textContent = `Drive times active \u2022 ${selectedRadiusMiles} mi radius`;
     } else if (userLocationState === 'denied') {
       locationSelected.hidden = false;
       locationSelected.textContent = 'Location access was blocked. Enter a city or ZIP code instead.';
@@ -1749,8 +1935,8 @@ function updateLocationStatus() {
       locationSelected.hidden = false;
       locationSelected.textContent = 'Location lookup is unavailable. Enter a city or ZIP code instead.';
     } else {
-      locationSelected.hidden = true;
-      locationSelected.textContent = '';
+      locationSelected.hidden = false;
+      locationSelected.textContent = 'Search or use GPS for personalized recommendations.';
     }
   }
 
@@ -1758,24 +1944,20 @@ function updateLocationStatus() {
     locationClearButton.hidden = !userLocation;
   }
 
-  if (locationChangeButton instanceof HTMLButtonElement) {
-    locationChangeButton.hidden = !userLocation || locationEditing;
-  }
-
   const searchField = locationInput instanceof HTMLInputElement
     ? locationInput.closest('.location-panel__search')
     : null;
   if (searchField instanceof HTMLElement) {
-    searchField.hidden = Boolean(userLocation && !locationEditing);
+    searchField.hidden = locationReady && !locationEditing;
   }
 
   const submitButton = locationForm?.querySelector('button[type="submit"]');
   if (submitButton instanceof HTMLButtonElement) {
-    submitButton.hidden = Boolean(userLocation && !locationEditing);
+    submitButton.hidden = true;
   }
 
   if (locationForm instanceof HTMLFormElement) {
-    locationForm.classList.toggle('location-panel__form--compact', Boolean(userLocation && !locationEditing));
+    locationForm.classList.toggle('location-panel__form--compact', false);
   }
 }
 
@@ -1802,7 +1984,8 @@ function updateFilterSummary(exploreItems) {
     return;
   }
 
-  filterSummary.textContent = `Showing ${exploreItems.length} rivers • ${sortLabel}`;
+  const ratingLabel = activeFilters.rating ? ` • ${activeFilters.rating} only` : '';
+  filterSummary.textContent = `Showing ${exploreItems.length} rivers • ${sortLabel}${ratingLabel}`;
 }
 
 function updateSummaryStatus(items, routeResults) {
@@ -2253,12 +2436,15 @@ function hydrateBoardFromCache() {
 }
 
 function renderHomepage(results) {
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
   const nearbyBaseItems = sortItems(buildDisplayItems(results, results, 'near-you'), 'near-you');
-  const nearbyItems = nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
+  const nearbyItems = locationReady
+    ? nearbyBaseItems.filter(itemWithinSelectedRadius)
+    : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
+  const summaryResults = locationReady ? results.filter(resultWithinSelectedRadius) : results;
 
-  updateHomeSnapshot(overallItems);
-  updateHeroCallMix(results);
+  updateHeroCallMix(summaryResults);
   updateFeaturedHero(nearbyItems, overallItems);
   renderRecommendationSection(nearbyItems, overallItems);
 
@@ -2286,6 +2472,10 @@ function saveLocation(location) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(location));
 }
 
+function saveRadiusMiles(radiusMiles) {
+  localStorage.setItem(STORAGE_RADIUS_KEY, String(normalizeRadiusMiles(radiusMiles)));
+}
+
 function loadStoredLocation() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -2306,6 +2496,20 @@ function loadStoredLocation() {
   }
 
   return null;
+}
+
+function loadStoredRadiusMiles() {
+  try {
+    const raw = localStorage.getItem(STORAGE_RADIUS_KEY);
+    if (!raw) {
+      return DEFAULT_RADIUS_MILES;
+    }
+
+    return normalizeRadiusMiles(Number(raw));
+  } catch (error) {
+    console.warn('Failed to parse stored radius.', error);
+    return DEFAULT_RADIUS_MILES;
+  }
 }
 
 function setUserLocation(location) {
@@ -2330,6 +2534,20 @@ function setUserLocation(location) {
   }
 }
 
+function setRadiusMiles(radiusMiles, { persist = true, rerender = true } = {}) {
+  selectedRadiusMiles = normalizeRadiusMiles(radiusMiles);
+
+  if (persist) {
+    saveRadiusMiles(selectedRadiusMiles);
+  }
+
+  updateLocationStatus();
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
 function clearUserLocation() {
   userLocation = null;
   userLocationState = 'idle';
@@ -2344,6 +2562,16 @@ function clearUserLocation() {
   } else {
     updateLocationStatus();
   }
+}
+
+function formatLocationLabel(name, admin1, country = '') {
+  const labelName = typeof name === 'string' ? name.trim() : '';
+  if (!labelName) {
+    return country || 'your current location';
+  }
+
+  const admin = US_STATE_ABBREVIATIONS[admin1] || admin1 || country || '';
+  return admin ? `${labelName}, ${admin}` : labelName;
 }
 
 async function geocodeManualLocation(query) {
@@ -2364,23 +2592,45 @@ async function geocodeManualLocation(query) {
     return null;
   }
 
-  const admin = match.admin1 || match.country || '';
   return {
     latitude: match.latitude,
     longitude: match.longitude,
-    label: admin ? `${match.name}, ${admin}` : match.name,
+    label: formatLocationLabel(match.name, match.admin1, match.country),
     source: 'manual',
   };
 }
 
+async function reverseGeocodeLocation(latitude, longitude) {
+  const response = await fetch(
+    `https://geocoding-api.open-meteo.com/v1/reverse?latitude=${encodeURIComponent(latitude)}&longitude=${encodeURIComponent(longitude)}&language=en&format=json&count=1`,
+    {
+      headers: { accept: 'application/json' },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error(`Reverse geocoding failed: HTTP ${response.status}`);
+  }
+
+  const payload = await response.json();
+  const match = Array.isArray(payload?.results) ? payload.results[0] : null;
+  if (!match) {
+    return null;
+  }
+
+  return formatLocationLabel(match.name, match.admin1, match.country);
+}
+
 function requestUserLocation() {
   if (!navigator.geolocation) {
+    locationEditing = false;
     userLocationState = 'unavailable';
     updateLocationStatus();
     renderHomepage(latestResults);
     return;
   }
 
+  locationEditing = false;
   userLocationState = 'pending';
   updateLocationStatus();
   updateLocationIndicator();
@@ -2389,11 +2639,22 @@ function requestUserLocation() {
   }
 
   navigator.geolocation.getCurrentPosition(
-    (position) => {
+    async (position) => {
+      let label = 'your current location';
+
+      try {
+        const geocodedLabel = await reverseGeocodeLocation(position.coords.latitude, position.coords.longitude);
+        if (geocodedLabel) {
+          label = geocodedLabel;
+        }
+      } catch (error) {
+        console.warn('Reverse geocoding current location failed.', error);
+      }
+
       setUserLocation({
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-        label: 'your current location',
+        label,
         source: 'geolocation',
       });
     },
@@ -2428,6 +2689,18 @@ async function maybeUseGrantedLocation() {
 }
 
 function setupFilters() {
+  for (const button of glanceFilterButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      const rating = button.dataset.glanceFilter || '';
+      activeFilters.rating = activeFilters.rating === rating ? '' : rating;
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+      scrollToHomeTarget('explore-map');
+    });
+  }
+
   for (const button of filterButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') continue;
     button.dataset.filterBound = 'true';
@@ -2481,6 +2754,38 @@ function setupFilters() {
   }
 }
 
+async function submitManualLocation(query, statusTarget = locationSelected || homeLocationSortSummary) {
+  const trimmedQuery = typeof query === 'string' ? query.trim() : '';
+  if (!trimmedQuery) {
+    updateLocationStatus();
+    return;
+  }
+
+  if (statusTarget instanceof HTMLElement) {
+    statusTarget.hidden = false;
+    statusTarget.textContent = 'Looking up that location...';
+  }
+
+  try {
+    const match = await geocodeManualLocation(trimmedQuery);
+    if (!match) {
+      if (statusTarget instanceof HTMLElement) {
+        statusTarget.hidden = false;
+        statusTarget.textContent = 'That city or ZIP was not found.';
+      }
+      return;
+    }
+
+    setUserLocation(match);
+  } catch (error) {
+    console.error('Manual location lookup failed.', error);
+    if (statusTarget instanceof HTMLElement) {
+      statusTarget.hidden = false;
+      statusTarget.textContent = 'That place could not be looked up right now.';
+    }
+  }
+}
+
 function setupLocationControls() {
   for (const button of locationUseButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.locationBound === 'true') {
@@ -2498,13 +2803,24 @@ function setupLocationControls() {
     });
   }
 
-  if (locationChangeButton instanceof HTMLButtonElement) {
-    locationChangeButton.addEventListener('click', () => {
-      locationEditing = true;
+  if (locationEditTrigger instanceof HTMLButtonElement) {
+    locationEditTrigger.addEventListener('click', () => {
+      if (userLocationState === 'pending') {
+        return;
+      }
+
+      const locationReady = Boolean(userLocation && userLocationState === 'ready');
+      if (!locationReady) {
+        locationInput?.focus();
+        return;
+      }
+
+      locationEditing = !locationEditing;
       updateLocationStatus();
-      if (locationInput instanceof HTMLInputElement) {
-        locationInput.focus();
-        locationInput.select();
+
+      if (locationEditing) {
+        locationInput?.focus();
+        locationInput?.select();
       }
     });
   }
@@ -2513,35 +2829,17 @@ function setupLocationControls() {
     locationForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const query = locationInput instanceof HTMLInputElement ? locationInput.value.trim() : '';
-      if (!query) {
-        updateLocationStatus();
-        return;
-      }
-
-      if (locationStatus instanceof HTMLElement) {
-        locationStatus.textContent = 'Looking up that location.';
-      }
-
-      try {
-        const match = await geocodeManualLocation(query);
-        if (!match) {
-          if (locationSelected instanceof HTMLElement) {
-            locationSelected.hidden = false;
-            locationSelected.textContent = 'That city or ZIP was not found.';
-          }
-          return;
-        }
-
-        setUserLocation(match);
-      } catch (error) {
-        console.error('Manual location lookup failed.', error);
-        if (locationSelected instanceof HTMLElement) {
-          locationSelected.hidden = false;
-          locationSelected.textContent = 'That place could not be looked up right now.';
-        }
-      }
+      await submitManualLocation(query);
     });
   }
+
+  if (homeRadiusSlider instanceof HTMLInputElement && homeRadiusSlider.dataset.radiusBound !== 'true') {
+    homeRadiusSlider.dataset.radiusBound = 'true';
+    homeRadiusSlider.addEventListener('input', () => {
+      setRadiusMiles(radiusMilesForIndex(homeRadiusSlider.value));
+    });
+  }
+
 }
 
 async function loadBoard({ silent = false } = {}) {
@@ -2624,6 +2922,7 @@ setupFilters();
 setupLocationControls();
 
 const storedLocation = loadStoredLocation();
+selectedRadiusMiles = loadStoredRadiusMiles();
 if (storedLocation) {
   userLocation = storedLocation;
   userLocationState = 'ready';

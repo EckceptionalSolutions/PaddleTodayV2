@@ -56,6 +56,15 @@ const ariaProps = title
     <path stroke="currentColor" d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z" />
     <path stroke="currentColor" d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z" />
   </svg>
+) : name === 'crosshair' ? (
+  <svg {...common} {...ariaProps}>
+    <circle cx="12" cy="12" r="7.5" stroke="currentColor" />
+    <circle cx="12" cy="12" r="2.2" stroke="currentColor" />
+    <path stroke="currentColor" d="M12 2.5v3" />
+    <path stroke="currentColor" d="M12 18.5v3" />
+    <path stroke="currentColor" d="M2.5 12h3" />
+    <path stroke="currentColor" d="M18.5 12h3" />
+  </svg>
 ) : name === 'compass' ? (
   <svg {...common} {...ariaProps}>
     <circle cx="12" cy="12" r="9" stroke="currentColor" />
