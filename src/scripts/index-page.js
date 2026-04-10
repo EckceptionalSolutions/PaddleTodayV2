@@ -6,6 +6,8 @@ import {
   markerClassForRating,
 } from '/scripts/map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
+import { confidenceDisplayLabel, liveDataWarning } from '/scripts/ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const GEOLOCATION_TIMEOUT_MS = 10000;
@@ -127,6 +129,7 @@ let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
+const boardRequestGuard = createRequestGuard();
 
 const EXPLORE_PAGE_SIZE = 9;
 const SUMMARY_CACHE_KEY = 'river-summary:v1';
@@ -924,12 +927,6 @@ function featuredConditionMarkup(item) {
 function regionStateText(item) {
   return `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`.toUpperCase();
 }
-function confidenceDisplayLabel(label) {
-  if (label === 'High') return 'Well-supported';
-  if (label === 'Medium') return 'Some uncertainty';
-  if (label === 'Low') return 'Cautious call';
-  return 'Support unclear';
-}
 function confidenceLabel(item) {
   return confidenceDisplayLabel(item.cardRoute.confidence.label);
 }
@@ -959,21 +956,10 @@ function metaLineText(item, showDistance) {
 }
 
 function liveReadWarning(result) {
-  if (!result?.liveData || result.liveData.overall === 'live') {
-    return null;
-  }
-
-  if (result.liveData.overall === 'offline') {
-    return {
-      short: 'Feed issue',
-      detail: result.liveData.summary || 'Direct live reads are unavailable for this route right now.',
-    };
-  }
-
-  return {
-    short: 'Limited reads',
-    detail: result.liveData.summary || 'Some live inputs are stale or partial for this route right now.',
-  };
+  return liveDataWarning(result?.liveData, {
+    offlineShort: 'Feed issue',
+    degradedShort: 'Limited reads',
+  });
 }
 function cardSummary(item) {
   return item.cardRoute.summary?.shortExplanation ?? item.cardRoute.explanation;
@@ -2539,6 +2525,8 @@ function setupLocationControls() {
 }
 
 async function loadBoard({ silent = false } = {}) {
+  const { requestId, controller } = boardRequestGuard.begin();
+
   if (!silent) {
     setBoardRefreshState('loading');
   }
@@ -2551,6 +2539,7 @@ async function loadBoard({ silent = false } = {}) {
     const response = await fetch('/api/rivers/summary.json', {
       headers: { accept: 'application/json' },
       cache: 'no-store',
+      signal: controller.signal,
     });
 
     if (!response.ok) {
@@ -2558,6 +2547,9 @@ async function loadBoard({ silent = false } = {}) {
     }
 
     const payload = await response.json();
+    if (!boardRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     latestResults = Array.isArray(payload?.rivers) ? payload.rivers : [];
     lastBoardGeneratedAt = typeof payload?.generatedAt === 'string' ? payload.generatedAt : null;
     writeCachedPayload(SUMMARY_CACHE_KEY, payload);
@@ -2568,6 +2560,13 @@ async function loadBoard({ silent = false } = {}) {
     renderHomepage(latestResults);
     updateHomeFreshness({ generatedAt: lastBoardGeneratedAt });
   } catch (error) {
+    if (isAbortError(error)) {
+      return;
+    }
+
+    if (!boardRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     console.error('Failed to load river scores on summary page.', error);
 
     if (hasLoadedBoardOnce) {
@@ -2596,6 +2595,8 @@ async function loadBoard({ silent = false } = {}) {
       recommendationSummary.textContent = 'Recommendations are unavailable until the board loads again.';
     }
     updateHomeFreshness();
+  } finally {
+    boardRequestGuard.finish(controller);
   }
 }
 

@@ -1,3 +1,5 @@
+@import url("/styles/warnings.css");
+
 :root {
   color-scheme: light;
   --bg: #f6f1e8;
@@ -853,11 +855,6 @@ a {
   padding-right: 0.15rem;
 }
 
-.summary-map-results__toggle {
-  justify-self: start;
-  margin-top: -0.05rem;
-}
-
 .summary-map-result {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -1038,86 +1035,6 @@ a {
   transform: translateY(-1px) scale(1.06);
   box-shadow: 0 0 0 5px rgba(30, 115, 151, 0.14), 0 12px 26px rgba(16, 35, 45, 0.2);
   z-index: 2;
-}
-
-.river-card__warning {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  width: fit-content;
-  position: relative;
-  min-height: 1.7rem;
-  padding: 0.2rem 0.5rem;
-  border-radius: 999px;
-  border: 1px solid rgba(187, 88, 64, 0.2);
-  background: rgba(252, 244, 242, 0.92);
-  color: var(--bad);
-  font-size: 0.72rem;
-  font-weight: 700;
-  line-height: 1.1;
-  white-space: nowrap;
-}
-
-.river-card__warning[hidden],
-.pill--warning[hidden] {
-  display: none !important;
-}
-
-.river-card__warning::before,
-.pill--warning::before {
-  content: "\26A0";
-  font-size: 0.82rem;
-  line-height: 1;
-}
-
-.pill--warning {
-  border-color: rgba(187, 88, 64, 0.22);
-  background: rgba(252, 244, 242, 0.92);
-  color: var(--bad);
-  position: relative;
-}
-
-.river-card__warning[data-tooltip],
-.pill--warning[data-tooltip] {
-  cursor: help;
-}
-
-.river-card__warning[data-tooltip]::after,
-.pill--warning[data-tooltip]::after {
-  content: attr(data-tooltip);
-  position: absolute;
-  left: 50%;
-  bottom: calc(100% + 0.6rem);
-  transform: translate(-50%, 0.2rem);
-  width: min(19rem, 42vw);
-  padding: 0.58rem 0.72rem;
-  border-radius: 14px;
-  border: 1px solid rgba(16, 35, 45, 0.12);
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(249, 250, 251, 0.96)),
-    rgba(255, 255, 255, 0.96);
-  box-shadow: 0 16px 32px rgba(16, 35, 45, 0.16);
-  color: var(--ink);
-  font-size: 0.78rem;
-  font-weight: 600;
-  line-height: 1.4;
-  text-transform: none;
-  letter-spacing: normal;
-  white-space: normal;
-  opacity: 0;
-  pointer-events: none;
-  z-index: 14;
-  transition:
-    opacity 140ms ease,
-    transform 140ms ease;
-}
-
-.river-card__warning[data-tooltip]:hover::after,
-.river-card__warning[data-tooltip]:focus-visible::after,
-.pill--warning[data-tooltip]:hover::after,
-.pill--warning[data-tooltip]:focus-visible::after {
-  opacity: 1;
-  transform: translate(-50%, 0);
 }
 
 .score-map-marker--pending {

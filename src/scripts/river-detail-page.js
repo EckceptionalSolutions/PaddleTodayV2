@@ -5,6 +5,8 @@
   escapeHtml,
 } from '/scripts/map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
+import { confidenceDisplayLabel, liveDataWarning } from '/scripts/ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -114,6 +116,8 @@ const detailCacheKey = `river-detail:${slug}:v1`;
 const historyCacheKey = `river-history:${slug}:7:v1`;
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 let detailMapCollapsed = phoneBreakpoint.matches;
+const detailRequestGuard = createRequestGuard();
+const historyRequestGuard = createRequestGuard();
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -278,29 +282,11 @@ function decisionLabel(rating) {
   return 'Skip today';
 }
 
-function confidenceDisplayLabel(label) {
-  if (label === 'High') return 'Well-supported';
-  if (label === 'Medium') return 'Some uncertainty';
-  if (label === 'Low') return 'Cautious call';
-  return 'Support unclear';
-}
-
 function liveWarningLabel(liveData) {
-  if (!liveData || liveData.overall === 'live') {
-    return null;
-  }
-
-  if (liveData.overall === 'offline') {
-    return {
-      short: 'Warning: live feed issue',
-      detail: liveData.summary || 'Direct live reads are unavailable for this route right now.',
-    };
-  }
-
-  return {
-    short: 'Warning: live reads limited',
-    detail: liveData.summary || 'Some live inputs are stale or partial for this route right now.',
-  };
+  return liveDataWarning(liveData, {
+    offlineShort: 'Warning: live feed issue',
+    degradedShort: 'Warning: live reads limited',
+  });
 }
 
 function ratingLabel(rating) {
@@ -2345,10 +2331,13 @@ function updateDetailMapToggle() {
 }
 
 async function loadHistory() {
+  const { requestId, controller } = historyRequestGuard.begin();
+
   try {
     const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/history.json?days=7`, {
       headers: { accept: 'application/json' },
       cache: 'no-store',
+      signal: controller.signal,
     });
 
     if (!response.ok) {
@@ -2356,17 +2345,31 @@ async function loadHistory() {
     }
 
     const payload = await response.json();
+    if (!historyRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     writeCachedPayload(historyCacheKey, payload);
     renderHistory(payload?.result ?? null);
   } catch (error) {
+    if (isAbortError(error)) {
+      return;
+    }
+
+    if (!historyRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     console.error('Failed to load river history.', error);
     if (!readCachedPayload(historyCacheKey)) {
       renderHistory(null);
     }
+  } finally {
+    historyRequestGuard.finish(controller);
   }
 }
 
 async function loadDetail({ silent = false } = {}) {
+  const { requestId, controller } = detailRequestGuard.begin();
+
   if (!silent) {
     setDetailRefreshState('loading');
   }
@@ -2377,6 +2380,7 @@ async function loadDetail({ silent = false } = {}) {
         accept: 'application/json',
       },
       cache: 'no-store',
+      signal: controller.signal,
     });
 
     if (!response.ok) {
@@ -2386,6 +2390,9 @@ async function loadDetail({ silent = false } = {}) {
     const payload = await response.json();
     const result = payload?.result;
     if (!result) return;
+    if (!detailRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     writeCachedPayload(detailCacheKey, payload);
     renderDetailResult(result);
     loadHistory();
@@ -2394,6 +2401,13 @@ async function loadDetail({ silent = false } = {}) {
     setDetailFetchBannerState('hidden');
     setDetailRefreshState('ready');
   } catch (error) {
+    if (isAbortError(error)) {
+      return;
+    }
+
+    if (!detailRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     console.error('Failed to load river score on detail page.', error);
     if (hasLoadedDetailOnce) {
       setDetailFetchBannerState('hidden');
@@ -2569,6 +2583,8 @@ async function loadDetail({ silent = false } = {}) {
       reasons: [],
       warnings: ['Support level is unavailable because live data could not be loaded.'],
     });
+  } finally {
+    detailRequestGuard.finish(controller);
   }
 }
 

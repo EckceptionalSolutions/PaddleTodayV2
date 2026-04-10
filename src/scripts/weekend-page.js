@@ -1,5 +1,7 @@
 import { escapeHtml } from '/scripts/map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
+import { confidenceDisplayLabel } from '/scripts/ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
@@ -40,6 +42,7 @@ const withheldCount = document.querySelector('[data-weekend-withheld-count]');
 
 let lastGeneratedAt = null;
 let latestWeekendItems = [];
+const weekendRequestGuard = createRequestGuard();
 
 function splitWeekendItems(items) {
   return {
@@ -58,13 +61,6 @@ function ratingToneKey(rating) {
   if (rating === 'Strong') return 'great';
   if (rating === 'Fair') return 'marginal';
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
-}
-
-function confidenceDisplayLabel(label) {
-  if (label === 'High') return 'Well-supported';
-  if (label === 'Medium') return 'Some uncertainty';
-  if (label === 'Low') return 'Cautious call';
-  return 'Support unclear';
 }
 
 function weekendVerdict(item) {
@@ -450,6 +446,8 @@ function hydrateFromCache() {
 }
 
 async function loadWeekend({ silent = false } = {}) {
+  const { requestId, controller } = weekendRequestGuard.begin();
+
   try {
     if (silent && lastGeneratedAt) {
       updateFreshness({ generatedAt: lastGeneratedAt, refreshing: true });
@@ -458,6 +456,7 @@ async function loadWeekend({ silent = false } = {}) {
     const response = await fetch('/api/weekend/summary.json', {
       headers: { accept: 'application/json' },
       cache: 'no-store',
+      signal: controller.signal,
     });
 
     if (!response.ok) {
@@ -465,9 +464,19 @@ async function loadWeekend({ silent = false } = {}) {
     }
 
     const payload = await response.json();
+    if (!weekendRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     writeCachedPayload(WEEKEND_CACHE_KEY, payload);
     renderWeekend(payload);
   } catch (error) {
+    if (isAbortError(error)) {
+      return;
+    }
+
+    if (!weekendRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     console.error('Failed to load weekend river scores.', error);
 
     if (latestWeekendItems.length > 0) {
@@ -478,6 +487,8 @@ async function loadWeekend({ silent = false } = {}) {
     updateSnapshotLine({ riverCount: 0, withheldCount: 0 });
     renderFeatured(null);
     renderGrid([]);
+  } finally {
+    weekendRequestGuard.finish(controller);
   }
 }
 

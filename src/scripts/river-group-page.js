@@ -5,6 +5,8 @@ import {
   escapeHtml,
   markerClassForRating,
 } from '/scripts/map-runtime.js';
+import { confidenceDisplayLabel } from '/scripts/ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -38,6 +40,7 @@ let selectedSlug = null;
 let mapRuntime = null;
 let mapMarkers = [];
 let groupMapCollapsed = phoneBreakpoint.matches;
+const groupRequestGuard = createRequestGuard();
 const confidenceWeight = {
   High: 3,
   Medium: 2,
@@ -57,13 +60,6 @@ function decisionLabel(rating) {
   if (rating === 'Good') return 'Solid option';
   if (rating === 'Fair') return 'Mixed call';
   return 'Skip today';
-}
-
-function confidenceDisplayLabel(label) {
-  if (label === 'High') return 'Well-supported';
-  if (label === 'Medium') return 'Some uncertainty';
-  if (label === 'Low') return 'Cautious call';
-  return 'Support unclear';
 }
 
 function ratingToneKey(rating) {
@@ -833,6 +829,8 @@ function normalizeRoutes(routes) {
 }
 
 async function loadGroup({ silent = false } = {}) {
+  const { requestId, controller } = groupRequestGuard.begin();
+
   if (!silent) {
     setRefreshState('loading');
   }
@@ -841,6 +839,7 @@ async function loadGroup({ silent = false } = {}) {
     const response = await fetch(`/api/river-groups/${encodeURIComponent(riverId)}.json`, {
       headers: { accept: 'application/json' },
       cache: 'no-store',
+      signal: controller.signal,
     });
 
     if (!response.ok) {
@@ -850,6 +849,9 @@ async function loadGroup({ silent = false } = {}) {
     const payload = await response.json();
     const result = payload?.result;
     const routes = Array.isArray(result?.routes) ? normalizeRoutes(result.routes) : [];
+    if (!groupRequestGuard.isCurrent(requestId)) {
+      return;
+    }
 
     if (!routes.length) {
       throw new Error(`River group ${riverId} returned no routes.`);
@@ -879,6 +881,13 @@ async function loadGroup({ silent = false } = {}) {
     lastSuccessAt = Date.now();
     setRefreshState('ready');
   } catch (error) {
+    if (isAbortError(error)) {
+      return;
+    }
+
+    if (!groupRequestGuard.isCurrent(requestId)) {
+      return;
+    }
     console.error('Failed to load river group page.', error);
     setBanner(
       'offline',
@@ -886,6 +895,8 @@ async function loadGroup({ silent = false } = {}) {
       'Open an individual route page if you need a direct live call right now.'
     );
     setRefreshState('error', 'Last refresh failed. Retry now.');
+  } finally {
+    groupRequestGuard.finish(controller);
   }
 }
 
