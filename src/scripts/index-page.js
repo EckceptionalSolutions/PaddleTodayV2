@@ -22,6 +22,8 @@ const recommendationTitle = document.querySelector('[data-recommendation-title]'
 const recommendationEmpty = document.querySelector('[data-recommendation-empty]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
+const homeLocationSummary = document.querySelector('[data-home-location-summary]');
+const homeLocationCta = document.querySelector('[data-home-location-cta]');
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
 const exploreContent = document.querySelector('[data-explore-content]');
@@ -31,7 +33,7 @@ const recommendationTemplate = document.querySelector('[data-recommendation-card
 const featuredPanel = document.querySelector('.hero-call');
 const featuredLabel = document.querySelector('[data-best-near-label]');
 const featuredState = document.querySelector('[data-featured-state]');
-const featuredName = document.querySelector('[data-featured-name]');
+const featuredName = document.querySelector('[data-field="featured-title-link"]');
 const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredLink = document.querySelector('[data-featured-link]');
 const featuredSummary = document.querySelector('[data-field="featured-explanation"]');
@@ -426,10 +428,18 @@ function routeLabelForItem(item) {
 
 function featuredRouteLabelForItem(item) {
   if (isGroupedItem(item)) {
-    return `${routeCountLabel(item)} - ${representativeRouteLabel(item)}`;
+    return `${routeCountLabel(item)} • ${representativeRouteLabel(item)}`;
   }
 
   return routeLabelForItem(item);
+}
+
+function shortLocationLabel() {
+  if (!userLocation?.label) {
+    return 'your area';
+  }
+
+  return userLocation.label;
 }
 
 function routeLengthLabel(item) {
@@ -754,7 +764,7 @@ function regionInsight(items) {
 
   const metroCount = items.filter((item) => /metro/i.test(item.cardRoute.river.region)).length;
   if (metroCount === 0) {
-    return { text: 'strongest picks outside the metro', weight: 0.72 };
+    return null;
   }
 
   const keywordBuckets = new Map([
@@ -825,7 +835,7 @@ function chooseDailySnapshotInsight(overallItems) {
   }
 
   if (lowConfidenceCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
-    candidates.push({ text: "today's calls need more judgment", weight: 0.7 });
+    candidates.push({ text: 'more routes need a source check', weight: 0.7 });
   }
 
   if (weatherSensitiveCount >= Math.max(2, Math.ceil(goodItems.length * 0.4))) {
@@ -982,13 +992,13 @@ function summaryMentionsFlowShift(text) {
 function recommendationSlotLabel(index, nearbyReady) {
   if (nearbyReady) {
     if (index === 0) return 'Top pick';
-    if (index === 1) return 'Closest backup';
+    if (index === 1) return 'Nearby pick';
     return 'Worth the drive';
   }
 
   if (index === 0) return 'Top pick';
-  if (index === 1) return 'Lowest-risk pick';
-  return 'Another option';
+  if (index === 1) return 'Steady pick';
+  return 'Also consider';
 }
 
 function simpleSentence(text, fallback) {
@@ -1002,10 +1012,11 @@ function simpleSentence(text, fallback) {
   if (lowered.includes('slightly low')) return 'Flow is a little low but still workable.';
   if (lowered.includes('too low')) return 'Flow looks too low to be worth the drive.';
   if (lowered.includes('stable')) return 'Flow looks steady right now.';
-  if (lowered.includes('rising')) return 'Flow is rising, so conditions may change later today.';
-  if (lowered.includes('falling')) return 'Flow is dropping, so quality could fade later today.';
-  if (lowered.includes('rain soon') || lowered.includes('rain incoming')) return 'Rain could change the river later today.';
-  if (lowered.includes('rain later')) return 'Rain looks later, not immediate.';
+  if (lowered.includes('rising')) return 'Flow is rising; re-check the gauge before you launch.';
+  if (lowered.includes('falling')) return 'Flow is dropping; re-check the gauge before you launch.';
+  if (lowered.includes('rain soon') || lowered.includes('rain incoming') || lowered.includes('rain later')) {
+    return 'Rain may change conditions later today.';
+  }
   if (lowered.includes('mostly dry')) return 'Weather looks mostly cooperative.';
   if (lowered.includes('windy')) return 'Wind will be part of the trip today.';
   if (lowered.includes('cold')) return 'Cold air keeps the day less comfortable.';
@@ -1029,7 +1040,7 @@ function recommendationReasons(item) {
   }
 
   if (summary.weather) {
-    reasons.push(simpleSentence(summary.weather, 'Weather remains part of today\'s call.'));
+    reasons.push(simpleSentence(summary.weather, 'Weather needs a closer look today.'));
   }
 
   return Array.from(new Set(reasons)).slice(0, 2);
@@ -1038,7 +1049,7 @@ function recommendationReasons(item) {
 function recommendationVerdict(item) {
   if (item.cardRoute.rating === 'Strong') return 'Great today';
   if (item.cardRoute.rating === 'Good') return 'Solid option';
-  if (item.cardRoute.rating === 'Fair') return 'Mixed call';
+  if (item.cardRoute.rating === 'Fair') return 'Possible';
   return 'Skip today';
 }
 
@@ -1088,10 +1099,10 @@ function recommendationSummaryText(item, nearbyReady) {
 
   if (item.cardRoute.rating === 'No-go') {
     if (coldWeatherDrivenCall(item) || (hasStableFlow && hasColdWeather)) {
-      return 'River is in shape, but harsh weather lowers today’s call.';
+      return 'River level looks usable, but weather makes it a skip for most paddlers today.';
     }
     if (hasStableFlow && hasWeatherRisk) {
-      return 'Good flow, but weather lowers today’s call.';
+      return 'River level looks usable, but today’s weather makes it a skip.';
     }
     if (shortDrive) {
       return 'Close by, but conditions are too uncertain right now.';
@@ -1101,22 +1112,22 @@ function recommendationSummaryText(item, nearbyReady) {
 
   if (item.cardRoute.rating === 'Fair') {
     if (coldWeatherDrivenCall(item) || hasColdWeather) {
-      return 'Runnable, but harsh weather makes this a tougher trip today.';
+      return 'Possible today, but cold weather raises the bar.';
     }
     if (hasWeatherRisk) {
-      return 'Workable flow, but weather makes this less reliable today.';
+      return 'Possible today, but weather risk is the main caution.';
     }
     if (hasChangingFlow) {
-      return 'Usable now, but changing flow makes this a weaker pick.';
+      return 'Possible now; re-check the gauge before you launch.';
     }
     if (!hasStrongerBoardCall(item)) {
-      return 'This is the strongest call on the board, but it still needs judgment.';
+      return 'This is the highest-ranked route on the board, but it is still only Fair.';
     }
-    return 'Possible today, but there are cleaner calls on the board.';
+    return 'Possible today, but stronger routes are available.';
   }
 
   if (shortDrive && hasStableFlow) {
-    return 'Stable flow and a short drive make this the best nearby option.';
+    return 'Stable flow and a short drive make this one of the clearest nearby picks.';
   }
 
   if (!shortDrive && nearbyReady && (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')) {
@@ -1124,37 +1135,20 @@ function recommendationSummaryText(item, nearbyReady) {
   }
 
   if (item.cardRoute.rating === 'Strong') {
-    return 'Strong conditions make this the clearest call today.';
+    return 'Best-looking route on the board today.';
   }
 
   if (item.cardRoute.rating === 'Good') {
     if (hasColdWeather) {
-      return 'Solid river conditions, but cold weather still matters today.';
+      return 'Good river level; cold weather still deserves a re-check.';
     }
     return 'Solid conditions put this near the top today.';
   }
 
-  return 'This is worth checking, but stronger calls are ahead of it.';
+  return 'This is worth checking, but stronger routes are ahead of it.';
 }
 
 function supportingReasonList(item, nearbyReady) {
-  const summary = summaryParts(cardSummary(item));
-  const summaryText = recommendationSummaryText(item, nearbyReady);
-  const mainParts = typeof summary.main === 'string'
-    ? summary.main
-        .split('Ã¢â‚¬Â¢')
-        .map((part) => part.trim())
-        .filter(Boolean)
-    : [];
-
-  if (summary.weather && !summaryMentionsWeather(summaryText)) {
-    return [simpleSentence(summary.weather, 'Weather remains part of today\'s call.')];
-  }
-
-  if (mainParts[1] && !summaryMentionsFlowShift(summaryText)) {
-    return [simpleSentence(mainParts[1], 'Flow may change later today.')];
-  }
-
   return [];
 }
 
@@ -1189,7 +1183,6 @@ function createRecommendationCard(item, index, nearbyReady) {
   setText(card, 'recommendation-slot', recommendationSlotLabel(index, nearbyReady));
   setText(card, 'recommendation-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'recommendation-state', regionStateText(item));
-  setText(card, 'recommendation-name', item.cardRoute.river.name);
   setText(card, 'recommendation-route', routeLabelForItem(item));
   setText(card, 'recommendation-summary', recommendationSummaryText(item, nearbyReady));
   setText(card, 'recommendation-score', String(item.cardRoute.score));
@@ -1238,6 +1231,12 @@ function createRecommendationCard(item, index, nearbyReady) {
     link.textContent = cardLinkLabel(item);
   }
 
+  const titleLink = card.querySelector('[data-field="recommendation-title-link"]');
+  if (titleLink instanceof HTMLAnchorElement) {
+    titleLink.href = item.link;
+    titleLink.textContent = item.cardRoute.river.name;
+  }
+
   return card;
 }
 
@@ -1274,7 +1273,6 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
 
   setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'state', regionStateText(item));
-  setText(card, 'name', item.cardRoute.river.name);
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', item.cardRoute.rating);
@@ -1312,6 +1310,12 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   if (link instanceof HTMLAnchorElement) {
     link.href = item.link;
     link.textContent = cardLinkLabel(item);
+  }
+
+  const titleLink = card.querySelector('[data-field="card-title-link"]');
+  if (titleLink instanceof HTMLAnchorElement) {
+    titleLink.href = item.link;
+    titleLink.textContent = item.cardRoute.river.name;
   }
 
   return card;
@@ -1425,12 +1429,14 @@ function updateExplorePagination(pagination) {
 function updateFeaturedHero(nearbyItems, overallItems) {
   const nearbyReady = userLocationState === 'ready' && nearbyItems.length > 0;
   const item = nearbyReady ? nearbyItems[0] : overallItems[0] ?? null;
-
   if (!item) {
-    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s clearest call';
-    if (featuredState instanceof HTMLElement) featuredState.textContent = 'Live river calls unavailable';
-    if (featuredName instanceof HTMLElement) featuredName.textContent = 'Check sources';
-    if (featuredReach instanceof HTMLElement) featuredReach.textContent = 'Live calls could not be loaded.';
+    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s clearest route';
+    if (featuredState instanceof HTMLElement) featuredState.textContent = 'Live board unavailable';
+    if (featuredName instanceof HTMLAnchorElement) {
+      featuredName.textContent = 'Check sources';
+      featuredName.href = '#explore';
+    }
+    if (featuredReach instanceof HTMLElement) featuredReach.textContent = 'Live board could not be loaded.';
     setText(document, 'featured-score', '--');
     setText(document, 'featured-rating', 'Unavailable');
     setText(document, 'featured-verdict', 'Check back soon');
@@ -1442,42 +1448,33 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     updateFeaturedSummaryToggle('Reload the board or open a river page to verify the latest sources.');
     if (featuredReasons instanceof HTMLElement) {
       featuredReasons.innerHTML = '';
+      featuredReasons.hidden = true;
     }
     if (featuredLink instanceof HTMLAnchorElement) {
       featuredLink.href = '#explore';
     }
     return;
   }
-
   const ratingKey = ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
     featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
-
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = nearbyReady ? 'Best nearby option' : 'Top statewide answer';
+    featuredLabel.textContent = nearbyReady ? 'Best by drive time' : 'Top pick today';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.textContent = nearbyReady
-      ? `${item.distanceBucket} • ${item.cardRoute.river.state}`
-      : `${item.cardRoute.river.state} • ${item.cardRoute.river.region}`;
+      ? `Using ${shortLocationLabel()} for drive time`
+      : 'Ranked across all tracked routes';
   }
-  if (featuredState instanceof HTMLElement && nearbyReady) {
-    featuredState.textContent = `${item.distanceBucket} - built around drive time`;
-  }
-  if (featuredState instanceof HTMLElement) {
-    featuredState.textContent = nearbyReady
-      ? `${item.cardRoute.river.state} - ranked with drive time`
-      : regionStateText(item).replace(' • ', ' - ');
-  }
-  if (featuredName instanceof HTMLElement) {
+  if (featuredName instanceof HTMLAnchorElement) {
     featuredName.textContent = item.cardRoute.river.name;
+    featuredName.href = item.link;
   }
   if (featuredReach instanceof HTMLElement) {
     featuredReach.textContent = featuredRouteLabelForItem(item);
   }
-
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
   setText(document, 'featured-verdict', recommendationVerdict(item));
@@ -1486,7 +1483,11 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(
     document,
     'featured-distance',
-    nearbyReady && Number.isFinite(item.travelMinutes) ? formatTravelLabel(item.travelMinutes) : 'Top pick today'
+    nearbyReady && Number.isFinite(item.travelMinutes)
+      ? formatTravelLabel(item.travelMinutes)
+      : userLocationState === 'pending'
+        ? 'Finding drive time'
+        : 'Add location for drive time'
   );
   if (featuredSignal instanceof HTMLElement) {
     featuredSignal.innerHTML = signalRowMarkup(item);
@@ -1495,24 +1496,19 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(document, 'featured-explanation', featuredExplanation);
   updateFeaturedSummaryToggle(featuredExplanation);
   if (featuredReasons instanceof HTMLElement) {
-    featuredReasons.innerHTML = supportingReasonList(item, nearbyReady)
-      .map((reason) => `<li>${escapeHtml(reason)}</li>`)
-      .join('');
-    featuredReasons.hidden = featuredReasons.innerHTML === '';
+    featuredReasons.innerHTML = '';
+    featuredReasons.hidden = true;
   }
-
   const orb = featuredPanel?.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
     orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
     orb.classList.add(`score-orb--${ratingKey}`);
   }
-
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = item.link;
     featuredLink.textContent = cardLinkLabel(item);
   }
 }
-
 function buildRecommendationItems(nearbyItems, overallItems) {
   const picks = [];
   const seen = new Set();
@@ -1578,12 +1574,12 @@ function renderRecommendationSection(nearbyItems, overallItems) {
   }
 
   recommendationTitle.textContent = nearbyReady
-    ? 'Your best paddling options right now'
-    : 'Best paddling options today';
+    ? 'Best routes near you'
+    : 'Top routes today';
 
   recommendationSummary.textContent = nearbyReady
-    ? 'Best nearby picks, ranked by today\'s call first and drive time second.'
-    : 'Best statewide picks right now. Add your city if you want nearby options first.';
+    ? `Ranked for today first, then drive time from ${shortLocationLabel()}.`
+    : 'Top picks across all tracked routes. Add your city or ZIP code to rank nearby options.';
 
   if (recommendationItems.length === 0) {
     recommendationEmpty.hidden = false;
@@ -1720,6 +1716,22 @@ function legacyUpdateLocationStatus() {
 }
 
 function updateLocationStatus() {
+  if (homeLocationSummary instanceof HTMLElement) {
+    if (userLocationState === 'pending') {
+      homeLocationSummary.textContent = 'Finding your location so nearby routes can be ranked by drive time.';
+    } else if (userLocation) {
+      homeLocationSummary.textContent = `Using ${shortLocationLabel()} to rank nearby routes by drive time.`;
+    } else if (userLocationState === 'denied' || userLocationState === 'unavailable') {
+      homeLocationSummary.textContent = 'Location is not set. Enter a city or ZIP code to rank nearby routes by drive time.';
+    } else {
+      homeLocationSummary.textContent = 'Showing top picks across all tracked routes.';
+    }
+  }
+
+  if (homeLocationCta instanceof HTMLAnchorElement) {
+    homeLocationCta.textContent = userLocation ? 'Change location' : 'Set city or ZIP';
+  }
+
   if (locationSelected instanceof HTMLElement) {
     if (userLocationState === 'pending') {
       locationSelected.hidden = false;
@@ -1727,7 +1739,15 @@ function updateLocationStatus() {
     } else if (userLocation) {
       locationSelected.hidden = false;
       locationSelected.textContent =
-        userLocation.source === 'geolocation' ? 'Using current location' : userLocation.label;
+        userLocation.source === 'geolocation'
+          ? 'Using your current location for drive time.'
+          : `Using ${userLocation.label} for drive time.`;
+    } else if (userLocationState === 'denied') {
+      locationSelected.hidden = false;
+      locationSelected.textContent = 'Location access was blocked. Enter a city or ZIP code instead.';
+    } else if (userLocationState === 'unavailable') {
+      locationSelected.hidden = false;
+      locationSelected.textContent = 'Location lookup is unavailable. Enter a city or ZIP code instead.';
     } else {
       locationSelected.hidden = true;
       locationSelected.textContent = '';
@@ -1772,7 +1792,7 @@ function updateFilterSummary(exploreItems) {
         : activeFilters.sort === 'highest-confidence'
         ? 'highest support'
           : activeFilters.sort === 'lowest-risk'
-            ? 'lowest-risk calls'
+            ? 'lowest-risk routes'
             : activeFilters.sort === 'a-z'
               ? 'A-Z'
               : 'top picks today';
@@ -2202,8 +2222,8 @@ function setBoardFetchBannerState(kind, detail) {
   if (boardFetchTitle instanceof HTMLElement) {
     boardFetchTitle.textContent =
       kind === 'initial'
-        ? 'Live river calls could not be loaded.'
-        : 'Live river calls could not be refreshed.';
+        ? 'Live board could not be loaded.'
+        : 'Live board could not be refreshed.';
   }
   if (boardFetchDetail instanceof HTMLElement) {
     boardFetchDetail.textContent = detail;
@@ -2581,7 +2601,7 @@ async function loadBoard({ silent = false } = {}) {
 
     setBoardFetchBannerState(
       'initial',
-      'Live river calls could not load. Retry the board, then open a river page if you need to verify the sources.'
+      'Live board could not load. Retry the board, then open a river page if you need to verify the sources.'
     );
     setBoardRefreshState('error', 'Last refresh failed. Retry now.');
 
@@ -2683,3 +2703,4 @@ loadBoard({ silent: hydratedBoard });
 window.setInterval(() => {
   loadBoard({ silent: true });
 }, AUTO_REFRESH_MS);
+

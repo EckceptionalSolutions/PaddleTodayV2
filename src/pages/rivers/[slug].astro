@@ -111,8 +111,8 @@ const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
-const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, support level, access details, and today's paddle-day call before you drive.`;
-const routeShareText = `Check today's paddle-day call for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, support level, and access details.`;
+const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, support level, access details, and today's paddle score before you drive.`;
+const routeShareText = `Check today's paddle score for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, support level, and access details.`;
 const breadcrumbItems = [
   {
     '@type': 'ListItem',
@@ -154,7 +154,7 @@ const routeStructuredData = {
 
 <BaseLayout
   title={`${river.name} Today | ${river.reach} | Paddle Today`}
-  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, confidence, and a clear paddle-day call before you drive.`}
+  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, support level, and a clear paddling recommendation before you drive.`}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
   socialImage="/brand/paddle-today-share-card-1200x630.png"
@@ -206,7 +206,7 @@ const routeStructuredData = {
             Access Plan
           </a>
           <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="why-this-call">
-            Why this call
+            Why this score
           </a>
         </div>
       </nav>
@@ -326,7 +326,7 @@ const routeStructuredData = {
           target="_blank"
           rel="noreferrer"
         >
-          See source behind this call
+          See source behind this score
         </a>
       </aside>
       </section>
@@ -497,7 +497,7 @@ const routeStructuredData = {
           Access Plan
         </a>
         <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="why-this-call">
-          Why this call
+          Why this score
         </a>
       </div>
     </nav>
@@ -1006,8 +1006,8 @@ const routeStructuredData = {
         <details class="river-accordion" data-confidence-explainer>
           <summary class="river-accordion__summary">
             <span>
-              <span class="eyebrow section-label">Why this call</span>
-              <strong>Today&apos;s call is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+              <span class="eyebrow section-label">Why this score</span>
+              <strong>Today&apos;s support level is {` `}<span data-field="confidence-detail-label">checking</span></strong>
             </span>
           </summary>
           <div class="river-accordion__body">
@@ -1062,13 +1062,13 @@ const routeStructuredData = {
         <details class="river-accordion">
           <summary class="river-accordion__summary">
             <span>
-              <span class="eyebrow section-label">Data behind the call</span>
+              <span class="eyebrow section-label">Data behind the score</span>
               <strong>Gauge, thresholds, and timing</strong>
             </span>
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-              These are the live inputs and threshold notes behind today&apos;s call.
+              These are the live inputs and threshold notes behind today&apos;s score.
             </p>
           <table class="detail-table">
             <tbody>
@@ -1149,7 +1149,7 @@ const routeStructuredData = {
                   <td data-field="generated-at">Checking</td>
                 </tr>
               <tr>
-                <td>Main source behind this call</td>
+                <td>Main source behind this score</td>
                 <td>{river.profile.thresholdSource.label}</td>
               </tr>
               <tr>

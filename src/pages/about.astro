@@ -11,7 +11,7 @@ const aboutStructuredData = {
   '@id': `${aboutUrl}#about-page`,
   name: 'About Paddle Today',
   description:
-    'Learn how Paddle Today scores rivers, explains confidence, and chooses which rivers are reliable enough to track live.',
+    'Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution.',
   url: aboutUrl,
   isPartOf: {
     '@id': websiteId,
@@ -23,61 +23,105 @@ const aboutStructuredData = {
 ---
 
 <BaseLayout
-  title="About Paddle Today | How River Scores Work"
-  description="Learn how Paddle Today scores rivers, explains confidence, and chooses which rivers are reliable enough to track live."
+  title="About Paddle Today | How Route Scores Work"
+  description="Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution."
   structuredData={aboutStructuredData}
 >
   <section class="info-hero">
     <p class="eyebrow">About Paddle Today</p>
-    <h1>Helping more people feel confident about paddling.</h1>
+    <h1>How Paddle Today makes a recommendation</h1>
     <p class="muted">
-      Paddle Today started from a simple idea: figuring out where to paddle should feel easier, clearer, and less intimidating. The goal is to help more people get on the water with a straightforward read before they pack the car.
+      Paddle Today is a planning tool for choosing where to paddle today. It combines river level, recent trend, weather, route notes, and data freshness into one ranked board so you can start with the strongest options instead of checking every source manually.
+    </p>
+    <p class="muted">
+      The score is not a safety guarantee. It is a shortcut for deciding what deserves a closer look before you drive.
     </p>
     <div class="info-hero__actions">
-      <a class="river-link river-link--inline" href="/request-river/">Request a river</a>
-      <a class="river-link river-link--inline river-link--ghost" href="/contact/">Contact us</a>
+      <a class="river-link river-link--inline" href="/">See today's board</a>
+      <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a river</a>
     </div>
-    <p class="muted">
-      If you have questions, want a river added, or have an idea that would make the site more useful, <a href="/contact/">get in touch</a>.
-    </p>
   </section>
 
-  <section class="info-grid" aria-label="How Paddle Today works">
+  <section class="info-grid" aria-label="How to read Paddle Today scores">
     <article class="info-card">
-      <p class="eyebrow">Method</p>
-      <h2>How the call is made</h2>
+      <p class="eyebrow">Score</p>
+      <h2>What the rating means</h2>
+      <ul class="compact-list">
+        <li><strong>Strong:</strong> river level, trend, weather, and data support all line up well.</li>
+        <li><strong>Good:</strong> a solid option, but one factor may deserve a re-check.</li>
+        <li><strong>Fair:</strong> possible for the right paddler, but there is a clear caution.</li>
+        <li><strong>No-go:</strong> not recommended for most paddlers today.</li>
+      </ul>
+    </article>
+
+    <article class="info-card">
+      <p class="eyebrow">Inputs</p>
+      <h2>Where the data comes from</h2>
       <p class="muted">
-        Each river combines current gauge value, recent trend, weather risk, seasonality, and route notes. The result is a score, a confidence level, and a short plain-language summary.
+        The board uses USGS gauge readings where available, weather forecasts, route distance and access notes, and published or curated river-level guidance. Each route page links back to the important source material so you can verify before you launch.
       </p>
     </article>
 
     <article class="info-card">
-      <p class="eyebrow">Confidence</p>
-      <h2>Why some rivers score better than others</h2>
+      <p class="eyebrow">Support</p>
+      <h2>What data support means</h2>
       <p class="muted">
-        Confidence depends on the freshness and quality of the inputs. Direct gauges, stronger published ranges, and current weather reads lead to stronger scores. Stale or thin evidence lowers confidence.
+        A well-supported route has a fresh, relevant gauge and clearer threshold guidance. Some uncertainty means the gauge may be indirect, the guidance may be thinner, or the latest read needs a closer source check.
+      </p>
+    </article>
+  </section>
+
+  <section class="info-grid" aria-label="What to verify before paddling">
+    <article class="info-card">
+      <p class="eyebrow">Weather</p>
+      <h2>Why weather can lower a score</h2>
+      <p class="muted">
+        Cold air, wind, storms, and incoming rain can make a technically usable river a poor choice for many paddlers. When that happens, the route can still be possible, but the site intentionally ranks it lower.
+      </p>
+    </article>
+
+    <article class="info-card">
+      <p class="eyebrow">Limits</p>
+      <h2>What can still change</h2>
+      <p class="muted">
+        Fast rain, debris, ice, access closures, parking rules, and local hazards can change faster than the board refreshes. Treat the recommendation as a first pass, then verify the source links and conditions on the ground.
       </p>
     </article>
 
     <article class="info-card">
       <p class="eyebrow">Coverage</p>
-      <h2>Why coverage starts small</h2>
+      <h2>Why some routes are missing</h2>
       <p class="muted">
-        This is a new project, so we are starting with the highest-quality sources first. Right now the focus is the Midwest, especially Minnesota, Wisconsin, and Iowa, where we can match good gauge coverage with usable route guidance. Coverage will expand from there as the source quality holds up.
+        Paddle Today only works well when a route has enough source data to make a useful read. If you can share a put-in, take-out, and relevant USGS gauge, that route is much easier to add.
       </p>
     </article>
   </section>
 
   <section class="info-panel">
-    <p class="eyebrow">Ground rules</p>
-    <h2>Always verify before you launch.</h2>
+    <p class="eyebrow">Common sources</p>
+    <h2>The site leans on public data and route-specific references.</h2>
     <p class="muted">
-      River levels, weather, access, and hazards can change quickly. Paddle Today is a planning tool, not a substitute for local judgment, source verification, or on-the-ground scouting.
+      Not every route uses every source. The route page is still the source of truth for that specific recommendation, but these are the sources Paddle Today uses most often:
     </p>
     <ul class="compact-list">
-      <li>Check the original gauge and source links on the river page.</li>
-      <li>Recheck weather, wind, and storms before you drive.</li>
-      <li>Confirm put-in, take-out, parking, and land-access rules locally.</li>
+      <li><strong>USGS Water Data:</strong> live gauge readings, recent trend, and gauge freshness.</li>
+      <li><strong>National Weather Service:</strong> hourly forecast, wind, temperature, storm risk, and nearby station observations.</li>
+      <li><strong>NOAA MRMS QPE:</strong> recent radar-estimated rainfall around the route.</li>
+      <li><strong>State DNR pages:</strong> Minnesota, Wisconsin, and Iowa route maps, river-level notes, public-water-access records, and water-trail guidance.</li>
+      <li><strong>Local city and county pages:</strong> put-in/take-out access, park hours, parking rules, launch details, and closure context.</li>
+      <li><strong>Trip reports and paddling references:</strong> sources such as MilesPaddled when official river-level thresholds are incomplete.</li>
+      <li><strong>Map sources:</strong> OpenStreetMap, OpenFreeMap, and MapLibre for map display and access context.</li>
+    </ul>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">How to use it</p>
+    <h2>Start with the board, then verify the route.</h2>
+    <ul class="compact-list">
+      <li>Use the top picks to find the best-looking routes first.</li>
+      <li>Set a city or ZIP code if drive time matters.</li>
+      <li>Open the route page and check the gauge, weather, access notes, and source links.</li>
+      <li>Re-check conditions before driving, especially after rain or during cold-weather shoulder season.</li>
     </ul>
   </section>
 </BaseLayout>

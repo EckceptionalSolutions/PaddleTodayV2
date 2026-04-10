@@ -58,7 +58,7 @@ function setText(field, value) {
 function decisionLabel(rating) {
   if (rating === 'Strong') return 'Great today';
   if (rating === 'Good') return 'Solid option';
-  if (rating === 'Fair') return 'Mixed call';
+  if (rating === 'Fair') return 'Possible';
   return 'Skip today';
 }
 
@@ -204,40 +204,40 @@ function decisionSummary(route) {
 
   if (route.rating === 'No-go') {
     if (coldWeatherDrivenRoute(route) || (hasStableFlow && hasColdWeather)) {
-      return 'River is in shape, but harsh weather lowers today’s call.';
+      return 'River level looks usable, but weather makes it a skip for most paddlers today.';
     }
     if (hasStableFlow && hasWeatherRisk) {
-      return 'Good flow, but weather lowers today’s call.';
+      return 'River level looks usable, but today’s weather makes it a skip.';
     }
     return 'Conditions stack up against this route today.';
   }
 
   if (route.rating === 'Fair') {
     if (coldWeatherDrivenRoute(route) || hasColdWeather) {
-      return 'Runnable, but harsh weather makes this a tougher trip today.';
+      return 'Possible today, but cold weather raises the bar.';
     }
     if (hasWeatherRisk) {
-      return 'Workable flow, but weather makes this less reliable today.';
+      return 'Possible today, but weather risk is the main caution.';
     }
     if (hasChangingFlow) {
-      return 'Usable now, but changing flow makes this a weaker pick.';
+      return 'Possible now; re-check the gauge before you launch.';
     }
     if (!hasStrongerRouteOnRiver(route)) {
-      return 'This is the strongest route on this river, but it still needs judgment.';
+      return 'This is the highest-ranked route on this river, but it is still only Fair.';
     }
-    return 'Possible today, but cleaner calls are on this river.';
+    return 'Possible today, but stronger routes are available on this river.';
   }
 
   if (route.rating === 'Strong') {
-    return 'Strong conditions make this the clearest route today.';
+    return 'Best-looking route on this river today.';
   }
 
   if (route.rating === 'Good') {
     if (hasColdWeather) {
-      return 'Solid river conditions, but cold weather still matters today.';
+      return 'Good river level; cold weather still deserves a re-check.';
     }
     if (hasWeatherRisk) {
-      return 'Solid flow, but weather adds some caution later today.';
+      return 'Good river level; weather still deserves a re-check.';
     }
     return 'Solid conditions make this one of the better routes today.';
   }
@@ -762,7 +762,7 @@ function renderRouteList(routes) {
           </span>
           ${supportingNote(route) ? `<span class="route-choice__note">${escapeHtml(supportingNote(route))}</span>` : ''}
           <div class="route-choice__footer">
-            <span class="route-choice__selection">${active ? 'Shown on map' : 'Show on map'}</span>
+            <span class="route-choice__selection">${active ? 'Selected on map' : 'Click card to show on map'}</span>
             <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
           </div>
         </article>
@@ -848,7 +848,7 @@ async function loadGroup({ silent = false } = {}) {
 
     const payload = await response.json();
     const result = payload?.result;
-    const routes = Array.isArray(result?.routes) ? normalizeRoutes(result.routes) : [];
+    const routes = Array.isArray(result?.routes) ? normalizeRoutes(result.routes).sort(compareRoutes) : [];
     if (!groupRequestGuard.isCurrent(requestId)) {
       return;
     }
@@ -872,7 +872,7 @@ async function loadGroup({ silent = false } = {}) {
     const liveCount = routes.filter((route) => route.liveData?.overall === 'live').length;
     setBanner(
       liveCount === routes.length ? 'live' : 'degraded',
-      `${routes.length} route calls are ready for ${result.group.name}.`,
+      `${routes.length} route recommendations are ready for ${result.group.name}.`,
       liveCount === routes.length
         ? 'All compared routes are using current enough reads right now.'
         : 'At least one route is using stale or partial reads. Open the route page before you drive.'
@@ -892,7 +892,7 @@ async function loadGroup({ silent = false } = {}) {
     setBanner(
       'offline',
       'Route comparison is unavailable right now.',
-      'Open an individual route page if you need a direct live call right now.'
+      'Open an individual route page if you need direct live route data right now.'
     );
     setRefreshState('error', 'Last refresh failed. Retry now.');
   } finally {

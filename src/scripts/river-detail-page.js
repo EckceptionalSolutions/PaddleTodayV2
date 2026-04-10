@@ -314,15 +314,15 @@ function decisionStatement(result) {
   if (rating === 'Good' && coldWeatherDrivenResult(result)) {
     return 'River conditions are solid, but cold weather still matters today.';
   }
-  if (rating === 'Good') return 'Launch window looks workable right now.';
+  if (rating === 'Good') return 'River and weather look workable right now.';
   if (rating === 'Fair' && coldWeatherDrivenResult(result)) {
-    return 'Runnable, but harsh weather makes this a tougher day.';
+    return 'Possible today, but cold weather raises the bar.';
   }
-  if (rating === 'Fair') return 'Usable, but it needs a closer look before you drive.';
+  if (rating === 'Fair') return 'Possible today, but verify the main caution before you drive.';
   if (coldWeatherDrivenResult(result)) {
-    return 'River is in shape, but harsh weather pulls the call down.';
+    return 'River level looks usable, but weather makes it a skip for most paddlers today.';
   }
-  return 'Today looks like a pass unless you have fresher local intel.';
+  return 'Today looks like a pass unless you have verified local information.';
 }
 
 
@@ -432,7 +432,7 @@ function closeRouteActionMenus() {
 function setDetailRefreshState(state, detail = '') {
   if (detailRefreshButton instanceof HTMLButtonElement) {
     detailRefreshButton.disabled = state === 'loading';
-    detailRefreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh river call';
+    detailRefreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh route data';
   }
 
   if (detailRefreshNote instanceof HTMLElement) {
@@ -555,7 +555,7 @@ function renderDetailBanner(result) {
   setText('reliability-weather-detail', result.liveData.weather.detail);
 
   if (result.liveData.overall === 'offline') {
-    titleEl.textContent = 'This river call is offline.';
+    titleEl.textContent = 'Live route data is offline.';
     detailEl.textContent =
       'The direct gauge could not be read. Check the source directly before deciding.';
     if (railReliability instanceof HTMLElement) {
@@ -575,7 +575,7 @@ function renderDetailBanner(result) {
   }
 
   if (result.liveData.overall === 'degraded') {
-    titleEl.textContent = 'This river call is limited.';
+    titleEl.textContent = 'Live route data is limited.';
     detailEl.textContent =
       `${result.liveData.summary} Recheck the source before a longer drive.`;
     if (railReliability instanceof HTMLElement) {
@@ -604,7 +604,7 @@ function renderDetailBanner(result) {
   }
 
   titleEl.textContent = 'Reads are current.';
-  detailEl.textContent = 'Gauge and weather are fresh enough to make the call.';
+  detailEl.textContent = 'Gauge and weather are fresh enough for today\'s recommendation.';
   if (railReliability instanceof HTMLElement) {
     railReliability.textContent = 'Reads live';
     railReliability.classList.add('data-status-pill--live');
@@ -825,7 +825,7 @@ function friendlyCapReason(reason) {
   }
 
   if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {
-    return 'This route only has a reliable low-water floor, so the score stops short of a top call.';
+    return 'This route only has a reliable low-water floor, so the score stops short of the top range.';
   }
 
   return normalized;
@@ -1534,7 +1534,7 @@ function initializeAccessPlanner() {
     setElementText(accessTime, `About ${formatDuration(paceFast)} to ${formatDuration(paceEasy)}`);
     setElementText(accessStage, stageLabel);
     setElementText(accessShuttle, shuttleText);
-    setElementText(accessNote, noteText || 'Use this to shorten the day without changing the river call.');
+    setElementText(accessNote, noteText || 'Use this to shorten the day without changing the route recommendation.');
     setElementText(accessSummary, summaryText);
 
     activeAccessContext = {
@@ -1592,7 +1592,7 @@ function detailMapPopupMarkup(kind, point, result) {
   const kindLabel = kind === 'putIn' ? 'Put-in' : 'Take-out';
   const summary =
     typeof result?.score === 'number' && result?.rating
-      ? `Today's call is ${result.score} - ${result.rating}. Confirm parking and access rules before you launch.`
+      ? `Today's score is ${result.score} - ${result.rating}. Confirm parking and access rules before you launch.`
       : 'Access reference only. Confirm parking and access rules before you launch.';
   const query = encodeURIComponent(`${point.latitude},${point.longitude}`);
 
@@ -2420,7 +2420,7 @@ async function loadDetail({ silent = false } = {}) {
 
     setDetailFetchBannerState(
       'initial',
-      'This river call could not refresh. Retry the page, then verify the source if the problem continues.'
+      'This route data could not refresh. Retry the page, then verify the source if the problem continues.'
     );
     setDetailRefreshState('error', 'Last refresh failed. Retry now.');
 

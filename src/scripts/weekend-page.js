@@ -67,7 +67,7 @@ function weekendVerdict(item) {
   if (item.weekend.rating === 'Strong') return 'Top weekend pick';
   if (item.weekend.rating === 'Good') return 'Good weekend pick';
   if (item.weekend.rating === 'Fair') return 'Fair to re-check';
-  return 'Weekend call withheld';
+  return 'No weekend pick';
 }
 
 function regionStateText(item) {
@@ -85,7 +85,7 @@ function supportingReason(item) {
 
   const lowered = item.weekend.explanation.toLowerCase();
   if (lowered.includes('conservative')) {
-    return 'Weekend calls stay a little more conservative than today.';
+    return 'Weekend picks stay a little more conservative than today.';
   }
 
   return '';
@@ -222,7 +222,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
         ? 'A few fair routes are worth re-checking, but none are strong enough to recommend yet.'
         : 'Forecast support is still too thin to surface a confident shortlist.'
     );
-    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Weekend calls withheld');
+    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Weekend picks withheld');
     setText(featuredScore, '--');
     setText(featuredRating, 'Withheld');
     setText(featuredConfidence, 'Support building');
@@ -231,7 +231,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
       featuredReason,
       worthWatchingCount > 0
         ? 'The forecast is warm enough to watch, but still too risky to recommend a route yet.'
-        : 'Weekend calls stay hidden until the forecast and river shape line up well enough to trust.'
+        : 'Weekend picks stay hidden until the forecast and river shape line up well enough to trust.'
     );
     setText(
       featuredSignal,
@@ -243,7 +243,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
       featuredExplanation,
       worthWatchingCount > 0
         ? 'This page is intentionally conservative. Warm temperatures alone are not enough for a weekend recommendation when the weekend rain or storm signal is still this strong.'
-        : 'This page is intentionally conservative. Weekend picks only appear when the current gauge read is good enough and the weekend forecast is strong enough to extend the call.'
+        : 'This page is intentionally conservative. Weekend picks only appear when the current gauge read is good enough and the weekend forecast is strong enough.'
     );
 
     if (featuredReasons instanceof HTMLElement) {
@@ -381,12 +381,12 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
   }
 
   weekendEmpty.hidden = false;
-  setText(weekendEmptyTitle, hasWithheld ? 'Weekend calls are still withheld' : 'No supported weekend picks yet');
+  setText(weekendEmptyTitle, hasWithheld ? 'Weekend picks are still withheld' : 'No supported weekend picks yet');
   setText(
     weekendEmptyCopy,
     hasWithheld
       ? 'Current river shape and forecast support are still too thin to surface a confident weekend pick.'
-      : 'Forecast support is still too weak to make confident weekend calls.'
+      : 'Forecast support is still too weak to recommend weekend picks.'
   );
 }
 

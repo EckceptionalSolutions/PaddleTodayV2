@@ -28,7 +28,7 @@ const homepageStructuredData = [
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     '@id': `${homeUrl}#collection`,
-    name: 'Best Rivers to Paddle Near You Today',
+    name: 'Best Rivers to Paddle Today',
     description:
       'Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.',
     url: homeUrl,
@@ -43,30 +43,36 @@ const homepageStructuredData = [
 ---
 
 <BaseLayout
-  title="Paddle Today | Best Rivers to Paddle Near You Today"
+  title="Paddle Today | Best Rivers to Paddle Today"
   description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
   structuredData={homepageStructuredData}
 >
   <section class="decision-hero hero">
     <div class="decision-hero__intro">
       <p class="hero__kicker">Paddle Today</p>
-      <h1>Find the best paddle near you today</h1>
+      <h1>Find the best paddle today</h1>
       <p class="hero__lede">
-        Find the strongest options first, using live gauge and weather data where support is strongest.
+        Start with the clearest routes first. Add your city or ZIP code if you want nearby options ranked by drive time.
       </p>
       <p class="hero__snapshot" data-home-snapshot>
         Checking today&apos;s snapshot...
       </p>
+      <p class="hero__location">
+        <span data-home-location-summary>Showing top picks across all tracked routes.</span>
+        <a href="#home-location" class="hero__location-link" data-home-location-cta>Set city or ZIP</a>
+      </p>
       <p class="hero__planning">
         Planning ahead for the weekend?
-        <a href="/weekend/" class="hero__planning-link">See our best bets</a>
+        <a href="/weekend/" class="hero__planning-link">See our best picks</a>
       </p>
     </div>
 
     <aside class="hero-call decision-hero__featured" aria-live="polite">
       <p class="eyebrow" data-best-near-label>Today&apos;s clearest call</p>
       <p class="hero-call__state" data-featured-state>Loading stored river snapshot.</p>
-      <h2 class="hero-call__title" data-featured-name>Loading best river</h2>
+      <h2 class="hero-call__title">
+        <a class="title-link title-link--hero" href="/" data-field="featured-title-link">Loading best river</a>
+      </h2>
       <p class="hero-call__reach" data-featured-reach>Today&apos;s river scores are loading.</p>
       <p class="hero-call__verdict" data-field="featured-verdict">Loading verdict</p>
 
@@ -104,7 +110,7 @@ const homepageStructuredData = [
     </aside>
 
     <div class="decision-hero__support">
-      <p class="hero__overview-label">Board mix</p>
+      <p class="hero__overview-label">Today at a glance</p>
       <ul class="hero__call-mix" data-home-call-mix>
         <li class="hero__call-mix-item hero__call-mix-item--strong">
           <strong data-home-strong-count>--</strong>
@@ -136,6 +142,43 @@ const homepageStructuredData = [
     </div>
   </section>
 
+  <section class="location-panel location-panel--hero" id="home-location" aria-label="Set your location" data-nearby-location-panel>
+    <div class="location-panel__header">
+      <div>
+        <p class="eyebrow">Location</p>
+        <h2 class="section-title section-title--compact">Set your location</h2>
+      </div>
+      <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
+        Use my location
+      </button>
+    </div>
+    <p class="location-panel__intro muted">
+      Use your current location or enter a city or ZIP code to rank routes by drive time.
+    </p>
+    <p class="location-panel__selected" data-location-selected hidden></p>
+
+    <form class="location-panel__form" data-location-form>
+      <label class="filter-search location-panel__search">
+        <span class="sr-only">Enter a city or ZIP code</span>
+        <input
+          class="filter-search__input"
+          type="search"
+          placeholder="Enter a city or ZIP code"
+          data-location-input
+        />
+      </label>
+      <div class="location-panel__actions">
+        <button class="filter-chip filter-chip--primary" type="submit">Use city</button>
+        <button class="filter-chip" type="button" data-location-change hidden>
+          Change
+        </button>
+        <button class="filter-chip" type="button" data-location-clear hidden>
+          Clear
+        </button>
+      </div>
+    </form>
+  </section>
+
   <nav class="home-mobile-jump" aria-label="Jump to homepage sections">
     <button class="home-mobile-jump__link" type="button" data-home-jump-target="best-options">
       Best picks
@@ -161,40 +204,6 @@ const homepageStructuredData = [
         Start here for the fastest answer, then open the full board if you want to compare more rivers.
       </p>
     </div>
-    <section class="location-panel" id="home-location" aria-label="Set your location" data-nearby-location-panel hidden>
-      <div class="location-panel__header">
-        <div>
-          <p class="eyebrow">Nearby first</p>
-          <h3 class="section-title section-title--compact">Sort by drive time</h3>
-        </div>
-        <button class="river-link river-link--inline location-panel__cta" type="button" data-location-use>
-          Use my location
-        </button>
-      </div>
-      <p class="location-panel__selected" data-location-selected hidden></p>
-
-      <form class="location-panel__form" data-location-form>
-        <label class="filter-search location-panel__search">
-          <span class="sr-only">Enter a city or ZIP code</span>
-          <input
-            class="filter-search__input"
-            type="search"
-            placeholder="Enter a city or ZIP code"
-            data-location-input
-          />
-        </label>
-        <div class="location-panel__actions">
-          <button class="filter-chip filter-chip--primary" type="submit">Use city</button>
-          <button class="filter-chip" type="button" data-location-change hidden>
-            Change
-          </button>
-          <button class="filter-chip" type="button" data-location-clear hidden>
-            Clear
-          </button>
-        </div>
-      </form>
-
-    </section>
     <div class="recommendation-grid" data-recommendation-grid></div>
     <p class="muted decision-section__empty" data-recommendation-empty hidden>
       No recommended rivers are available right now.
@@ -205,10 +214,10 @@ const homepageStructuredData = [
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Explore</p>
-        <h2 class="section-title">Full river board</h2>
+        <h2 class="section-title">All tracked routes</h2>
       </div>
-      <p class="muted section-head__note">
-        Filters, map, and live reads live here once you want to compare beyond the top recommendations.
+        <p class="muted section-head__note">
+        Use the filters, map, and route list here when you want to compare more than the top picks.
       </p>
     </div>
 
@@ -365,7 +374,7 @@ const homepageStructuredData = [
       </section>
 
       <div class="explore-grid-shell" data-explore-shell>
-        <div class="river-grid" aria-label="Explore river calls" data-explore-grid></div>
+        <div class="river-grid" aria-label="Explore routes today" data-explore-grid></div>
       </div>
 
       <div class="explore-pagination" data-explore-pagination hidden>
@@ -398,7 +407,9 @@ const homepageStructuredData = [
       <div class="recommendation-card__top">
         <div class="recommendation-card__title-block">
           <p class="recommendation-card__state" data-field="recommendation-state"></p>
-          <h3 class="recommendation-card__title" data-field="recommendation-name"></h3>
+          <h3 class="recommendation-card__title">
+            <a class="title-link" href="/" data-field="recommendation-title-link"></a>
+          </h3>
           <p class="recommendation-card__subtitle" data-field="recommendation-route"></p>
         </div>
       </div>
@@ -436,7 +447,9 @@ const homepageStructuredData = [
 
       <div class="river-card__top">
         <div class="river-card__title-block">
-          <h3 class="river-card__title" data-field="name"></h3>
+          <h3 class="river-card__title">
+            <a class="title-link" href="/" data-field="card-title-link"></a>
+          </h3>
           <p class="river-card__subtitle" data-field="route-label"></p>
         </div>
         <span class="river-card__warning" data-field="card-warning" hidden></span>
