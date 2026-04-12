@@ -4,9 +4,11 @@ import {
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
-} from '/scripts/map-runtime.js';
-import { confidenceDisplayLabel } from '/scripts/ui-taxonomy.js';
-import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
+} from './map-runtime.js';
+import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
+import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
+import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -120,10 +122,38 @@ function routeLengthText(route) {
   return route.distanceLabel ? `${route.distanceLabel} on-water` : '';
 }
 
+function routeDifficultyText(route) {
+  return route.difficulty
+    ? `${String(route.difficulty).slice(0, 1).toUpperCase()}${String(route.difficulty).slice(1)} difficulty`
+    : '';
+}
+
+function favoriteButtonMarkup(route) {
+  return buildFavoriteButtonMarkup(
+    {
+      slug: route.slug,
+      name: route.name,
+      reach: route.reach,
+      state: route.state,
+      region: route.region,
+      url: `/rivers/${route.slug}/`,
+    },
+    {
+      className: 'favorite-toggle favorite-toggle--card favorite-toggle--inline',
+    }
+  );
+}
+
 function metaLine(route) {
   const parts = [confidenceLabelText(route.confidence)];
   if (routeLengthText(route)) {
     parts.push(routeLengthText(route));
+  }
+  if (routeDifficultyText(route)) {
+    parts.push(routeDifficultyText(route));
+  }
+  if (route.estimatedPaddleTime) {
+    parts.push(route.estimatedPaddleTime);
   }
   return parts.join(BULLET);
 }
@@ -763,7 +793,10 @@ function renderRouteList(routes) {
           ${supportingNote(route) ? `<span class="route-choice__note">${escapeHtml(supportingNote(route))}</span>` : ''}
           <div class="route-choice__footer">
             <span class="route-choice__selection">${active ? 'Selected on map' : 'Click card to show on map'}</span>
-            <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
+            <div class="route-choice__actions">
+              ${favoriteButtonMarkup(route)}
+              <a class="river-link river-link--inline route-choice__link" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
+            </div>
           </div>
         </article>
       `;
@@ -783,7 +816,7 @@ function renderRouteList(routes) {
     };
 
     card.addEventListener('click', (event) => {
-      if ((event.target instanceof HTMLElement) && event.target.closest('a')) {
+      if ((event.target instanceof HTMLElement) && event.target.closest('a, button')) {
         return;
       }
       selectRoute();
@@ -798,10 +831,16 @@ function renderRouteList(routes) {
         return;
       }
 
+      if ((event.target instanceof HTMLElement) && event.target.closest('a, button')) {
+        return;
+      }
+
       event.preventDefault();
       selectRoute();
     });
   }
+
+  refreshFavoriteButtons(routeList);
 }
 
 function normalizeRoutes(routes) {
@@ -814,6 +853,8 @@ function normalizeRoutes(routes) {
     latitude: route.river.latitude,
     longitude: route.river.longitude,
     distanceLabel: route.river.distanceLabel,
+    estimatedPaddleTime: route.river.estimatedPaddleTime,
+    difficulty: route.river.profile.difficulty,
     gaugeUnit: route.river.gaugeSource?.unit,
     score: route.score,
     rating: route.rating,
@@ -917,6 +958,7 @@ phoneBreakpoint.addEventListener('change', () => {
   updateGroupMapToggle();
 });
 
+bindFavoriteButtons(document);
 updateGroupMapToggle();
 loadGroup();
 window.setInterval(() => {

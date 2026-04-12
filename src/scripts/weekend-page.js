@@ -1,7 +1,8 @@
-import { escapeHtml } from '/scripts/map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
-import { confidenceDisplayLabel } from '/scripts/ui-taxonomy.js';
-import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
+import { escapeHtml } from './map-runtime.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
+import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
@@ -71,11 +72,47 @@ function weekendVerdict(item) {
 }
 
 function regionStateText(item) {
-  return `${item.river.state} • ${item.river.region}`.toUpperCase();
+  return `${item.river.state} \u2022 ${item.river.region}`.toUpperCase();
+}
+
+function difficultyLabel(item) {
+  const difficulty = item?.river?.difficulty;
+  if (!difficulty) {
+    return '';
+  }
+
+  return `${String(difficulty).slice(0, 1).toUpperCase()}${String(difficulty).slice(1)} difficulty`;
+}
+
+function favoriteRecord(item) {
+  if (!item?.river?.slug) {
+    return null;
+  }
+
+  return {
+    slug: item.river.slug,
+    name: item.river.name,
+    reach: item.river.reach,
+    state: item.river.state,
+    region: item.river.region,
+    url: `/rivers/${encodeURIComponent(item.river.slug)}/`,
+  };
 }
 
 function weekendMetaText(item) {
-  return `${confidenceDisplayLabel(item.weekend.confidence)} • Today: ${item.current.rating}`;
+  const parts = [
+    confidenceDisplayLabel(item.weekend.confidence),
+    `Today: ${item.current.rating}`,
+  ];
+
+  if (difficultyLabel(item)) {
+    parts.push(difficultyLabel(item));
+  }
+  if (item?.river?.estimatedPaddleTime) {
+    parts.push(item.river.estimatedPaddleTime);
+  }
+
+  return parts.join(' \u2022 ');
 }
 
 function supportingReason(item) {
@@ -343,6 +380,8 @@ function createWeekendCard(item, index, options = {}) {
     link.textContent = 'View river';
   }
 
+  decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecord(item));
+
   return card;
 }
 
@@ -357,6 +396,7 @@ function renderGrid(items) {
     fragment.appendChild(createWeekendCard(item, index));
   });
   weekendGrid.appendChild(fragment);
+  refreshFavoriteButtons(weekendGrid);
 
   if (weekendEmpty instanceof HTMLElement) {
     weekendEmpty.hidden = items.length > 0;
@@ -407,6 +447,7 @@ function renderWatchGrid(items) {
     fragment.appendChild(createWeekendCard(item, index, { slotLabel: watchSlotLabel(index) }));
   });
   weekendWatchGrid.appendChild(fragment);
+  refreshFavoriteButtons(weekendWatchGrid);
 }
 
 function renderWeekend(payload) {
@@ -500,6 +541,7 @@ if (featuredToggle instanceof HTMLButtonElement && featuredExplanation instanceo
   });
 }
 
+bindFavoriteButtons(document);
 const hydrated = hydrateFromCache();
 loadWeekend({ silent: hydrated });
 window.setInterval(() => {

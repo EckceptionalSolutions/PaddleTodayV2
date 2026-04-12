@@ -3,10 +3,11 @@
   bindMarkerPopup,
   ensureMapLibre,
   escapeHtml,
-} from '/scripts/map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
-import { confidenceDisplayLabel, liveDataWarning } from '/scripts/ui-taxonomy.js';
-import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
+} from './map-runtime.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { bindFavoriteButtons } from './favorites-ui.js';
+import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const root = document.querySelector('[data-river-detail]');
 if (!(root instanceof HTMLElement)) {
@@ -22,6 +23,9 @@ const detailMap = root.querySelector('[data-detail-map]');
 const detailMapStatus = root.querySelector('[data-detail-map-status]');
 const detailMapShell = root.querySelector('[data-detail-map-shell]');
 const detailMapToggle = root.querySelector('[data-detail-map-toggle]');
+const detailHeroMap = root.querySelector('[data-detail-hero-map]');
+const detailHeroMapStatus = root.querySelector('[data-detail-hero-map-status]');
+const detailHeroMapShell = root.querySelector('[data-detail-hero-map-shell]');
 const chartButtons = Array.from(root.querySelectorAll('[data-chart-window]'));
 const detailStatusBanner = root.querySelector('[data-detail-status-banner]');
 const detailFetchBanner = root.querySelector('[data-detail-fetch-banner]');
@@ -97,6 +101,8 @@ const riverContext = {
 
 let detailMapRuntime = null;
 let detailMapMarkers = [];
+let detailHeroMapRuntime = null;
+let detailHeroMapMarkers = [];
 let currentChartWindowHours = 72;
 let latestResult = null;
 let plannerAccessPoints = [];
@@ -1321,6 +1327,79 @@ function hasCoordinates(point) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
 }
 
+function activeAccessPoints() {
+  const accessContext = activeAccessContext;
+  return [
+    hasCoordinates(accessContext.putIn) ? { ...accessContext.putIn, kind: 'putIn' } : null,
+    hasCoordinates(accessContext.takeOut) ? { ...accessContext.takeOut, kind: 'takeOut' } : null,
+  ].filter(Boolean);
+}
+
+function buildAccessRouteLine(points) {
+  return {
+    type: 'Feature',
+    properties: {},
+    geometry: {
+      type: 'LineString',
+      coordinates: points.map((point) => [point.longitude, point.latitude]),
+    },
+  };
+}
+
+function syncAccessRouteLine(mapRuntime, sourceId, layerId, points, result, paint = {}) {
+  if (!mapRuntime) {
+    return;
+  }
+
+  if (points.length > 1) {
+    const routeLine = buildAccessRouteLine(points);
+    if (mapRuntime.getSource(sourceId)) {
+      mapRuntime.getSource(sourceId).setData(routeLine);
+    } else {
+      mapRuntime.addSource(sourceId, {
+        type: 'geojson',
+        data: routeLine,
+      });
+      mapRuntime.addLayer({
+        id: layerId,
+        type: 'line',
+        source: sourceId,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': routeLineColor(result),
+          'line-width': paint.lineWidth ?? 4,
+          'line-opacity': paint.lineOpacity ?? 0.88,
+        },
+      });
+    }
+    mapRuntime.setPaintProperty(layerId, 'line-color', routeLineColor(result));
+    if (typeof paint.lineWidth === 'number') {
+      mapRuntime.setPaintProperty(layerId, 'line-width', paint.lineWidth);
+    }
+    if (typeof paint.lineOpacity === 'number') {
+      mapRuntime.setPaintProperty(layerId, 'line-opacity', paint.lineOpacity);
+    }
+    return;
+  }
+
+  if (mapRuntime.getLayer(layerId)) {
+    mapRuntime.removeLayer(layerId);
+  }
+  if (mapRuntime.getSource(sourceId)) {
+    mapRuntime.removeSource(sourceId);
+  }
+}
+
+function clearDetailMarkers(markers) {
+  for (const marker of markers) {
+    marker.remove();
+  }
+  return [];
+}
+
 function mapQueryUrl(point) {
   if (!hasCoordinates(point)) {
     return null;
@@ -1546,7 +1625,7 @@ function initializeAccessPlanner() {
       mapMode: hasCoordinates(start) && hasCoordinates(end) ? 'Selected segment' : 'Selected segment (partial map)',
     };
     renderActiveAccessContext();
-    renderDetailMap(latestResult);
+    renderAccessMaps(latestResult);
   };
 
   accessPutInSelect.addEventListener('change', () => {
@@ -1614,16 +1693,133 @@ function detailMapPopupMarkup(kind, point, result) {
   `;
 }
 
+function heroMapStatusText(points) {
+  const accessContext = activeAccessContext;
+  const distanceLabel = accessContext.distanceLabel || 'Mapped segment';
+
+  if (accessContext.mapMode === 'Selected segment') {
+    return `${distanceLabel} between the selected put-in and take-out.`;
+  }
+
+  if (accessContext.mapMode === 'Selected segment (partial map)') {
+    return points.length > 1
+      ? `${distanceLabel} for the selected segment. Some intermediate landings still need confirmed coordinates.`
+      : 'Selected segment map is limited because only one chosen landing has confirmed coordinates right now.';
+  }
+
+  return points.length > 1
+    ? `${distanceLabel} between the stored put-in and take-out.`
+    : 'One mapped access point is available for this route right now.';
+}
+
+async function renderDetailHeroMap(result = null) {
+  if (!(detailHeroMap instanceof HTMLElement) || !(detailHeroMapShell instanceof HTMLElement)) {
+    return;
+  }
+
+  const points = activeAccessPoints();
+  detailHeroMapShell.hidden = points.length === 0;
+
+  if (!points.length) {
+    if (detailHeroMapStatus instanceof HTMLElement) {
+      detailHeroMapStatus.textContent = 'Route snapshot unavailable because endpoint coordinates are incomplete.';
+    }
+    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+    return;
+  }
+
+  if (detailHeroMapStatus instanceof HTMLElement && !detailHeroMapRuntime) {
+    detailHeroMapStatus.textContent = 'Loading mapped route.';
+  }
+
+  try {
+    const maplibregl = await ensureMapLibre();
+    if (!maplibregl) {
+      return;
+    }
+
+    if (!detailHeroMapRuntime) {
+      const startingPoint = points[0];
+      detailHeroMapRuntime = new maplibregl.Map({
+        container: detailHeroMap,
+        style: MAP_STYLE_URL,
+        center: [startingPoint.longitude, startingPoint.latitude],
+        zoom: 10.6,
+        minZoom: 5,
+        maxZoom: 13,
+        attributionControl: false,
+        interactive: false,
+      });
+
+      await new Promise((resolve) => {
+        if (detailHeroMapRuntime.loaded()) {
+          resolve();
+          return;
+        }
+        detailHeroMapRuntime.once('load', resolve);
+      });
+    }
+
+    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+    syncAccessRouteLine(
+      detailHeroMapRuntime,
+      'detail-hero-route-line',
+      'detail-hero-route-line',
+      points,
+      result,
+      { lineWidth: 3, lineOpacity: 0.8 }
+    );
+
+    const bounds = new maplibregl.LngLatBounds();
+    for (const point of points) {
+      const markerNode = document.createElement('div');
+      markerNode.className = `detail-access-marker detail-access-marker--${point.kind === 'putIn' ? 'putin' : 'takeout'}`;
+      markerNode.innerHTML = `<span>${point.kind === 'putIn' ? 'IN' : 'OUT'}</span>`;
+      markerNode.setAttribute('aria-hidden', 'true');
+
+      const marker = new maplibregl.Marker({
+        element: markerNode,
+        anchor: 'center',
+      })
+        .setLngLat([point.longitude, point.latitude])
+        .addTo(detailHeroMapRuntime);
+
+      detailHeroMapMarkers.push(marker);
+      bounds.extend([point.longitude, point.latitude]);
+    }
+
+    if (points.length > 1) {
+      detailHeroMapRuntime.fitBounds(bounds, {
+        padding: { top: 34, right: 34, bottom: 34, left: 34 },
+        maxZoom: 11.2,
+        duration: 0,
+      });
+    } else {
+      detailHeroMapRuntime.jumpTo({
+        center: [points[0].longitude, points[0].latitude],
+        zoom: 10.8,
+      });
+    }
+    detailHeroMapRuntime.resize();
+
+    if (detailHeroMapStatus instanceof HTMLElement) {
+      detailHeroMapStatus.textContent = heroMapStatusText(points);
+    }
+  } catch (error) {
+    console.error('Failed to load hero detail map.', error);
+    if (detailHeroMapStatus instanceof HTMLElement) {
+      detailHeroMapStatus.textContent = 'Route snapshot unavailable right now.';
+    }
+  }
+}
+
 async function renderDetailMap(result = null) {
   if (!(detailMap instanceof HTMLElement)) {
     return;
   }
 
   const accessContext = activeAccessContext;
-  const points = [
-    hasCoordinates(accessContext.putIn) ? { ...accessContext.putIn, kind: 'putIn' } : null,
-    hasCoordinates(accessContext.takeOut) ? { ...accessContext.takeOut, kind: 'takeOut' } : null,
-  ].filter(Boolean);
+  const points = activeAccessPoints();
 
   if (!points.length) {
     if (detailMapStatus instanceof HTMLElement) {
@@ -1670,48 +1866,8 @@ async function renderDetailMap(result = null) {
       });
     }
 
-    for (const marker of detailMapMarkers) {
-      marker.remove();
-    }
-    detailMapMarkers = [];
-
-    const routeLine = {
-      type: 'Feature',
-      properties: {},
-      geometry: {
-        type: 'LineString',
-        coordinates: points.map((point) => [point.longitude, point.latitude]),
-      },
-    };
-
-    if (points.length > 1) {
-      if (detailMapRuntime.getSource('detail-route-line')) {
-        detailMapRuntime.getSource('detail-route-line').setData(routeLine);
-      } else {
-        detailMapRuntime.addSource('detail-route-line', {
-          type: 'geojson',
-          data: routeLine,
-        });
-        detailMapRuntime.addLayer({
-          id: 'detail-route-line',
-          type: 'line',
-          source: 'detail-route-line',
-          layout: {
-            'line-cap': 'round',
-            'line-join': 'round',
-          },
-          paint: {
-            'line-color': routeLineColor(result),
-            'line-width': 4,
-            'line-opacity': 0.88,
-          },
-        });
-      }
-      detailMapRuntime.setPaintProperty('detail-route-line', 'line-color', routeLineColor(result));
-    } else if (detailMapRuntime.getLayer('detail-route-line')) {
-      detailMapRuntime.removeLayer('detail-route-line');
-      detailMapRuntime.removeSource('detail-route-line');
-    }
+    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+    syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of points) {
@@ -1777,6 +1933,11 @@ async function renderDetailMap(result = null) {
       detailMapStatus.textContent = 'Map unavailable right now. Use the access links above for location context.';
     }
   }
+}
+
+function renderAccessMaps(result = null) {
+  renderDetailHeroMap(result);
+  renderDetailMap(result);
 }
 
 function parseChartSamples(result) {
@@ -2176,7 +2337,7 @@ function renderDetailResult(result) {
   renderLaunchReadiness(result);
   renderGaugeChart(result);
   renderWeatherVisual(result.weather);
-  renderDetailMap(result);
+  renderAccessMaps(result);
   renderFactors(result.factors);
   renderChecklist(result.checklist);
   renderOutlooks(result.outlooks);
@@ -2547,7 +2708,7 @@ async function loadDetail({ silent = false } = {}) {
         },
       });
     }
-    renderDetailMap(null);
+    renderAccessMaps(null);
     renderChecklist([
       {
         status: 'skip',
@@ -2740,11 +2901,16 @@ bindCopyCoordinateButtons();
 initializeAccessPlanner();
 renderActiveAccessContext();
 updateChartButtonStates();
-renderDetailMap(null);
+renderAccessMaps(null);
 setupDetailSectionNav();
 setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
+bindFavoriteButtons(document, {
+  onToggle({ saved }) {
+    setRouteActionStatus(saved ? 'Saved this route to Favorites.' : 'Removed this route from Favorites.', 'success');
+  },
+});
 if (detailRefreshButton instanceof HTMLButtonElement) {
   detailRefreshButton.addEventListener('click', () => {
     loadDetail();

@@ -4,10 +4,11 @@ import {
   ensureMapLibre,
   escapeHtml,
   markerClassForRating,
-} from '/scripts/map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from '/scripts/client-cache.js';
-import { confidenceDisplayLabel, liveDataWarning } from '/scripts/ui-taxonomy.js';
-import { createRequestGuard, isAbortError } from '/scripts/request-guard.js';
+} from './map-runtime.js';
+import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
+import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
+import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -202,7 +203,7 @@ let summaryMapCollapsed = phoneBreakpoint.matches;
 const boardRequestGuard = createRequestGuard();
 
 const EXPLORE_PAGE_SIZE = 9;
-const SUMMARY_CACHE_KEY = 'river-summary:v1';
+const SUMMARY_CACHE_KEY = 'river-summary:v2';
 
 function setText(scope, field, value) {
   const nodes = Array.from(scope.querySelectorAll(`[data-field="${field}"]`));
@@ -372,6 +373,15 @@ function distanceBucketLabel(minutes) {
   if (minutes <= 30) return 'Within 30 minutes';
   if (minutes <= 90) return 'Within 90 minutes';
   return 'Day trip';
+}
+
+function isViableRecommendationItem(item) {
+  return item?.cardRoute?.rating && item.cardRoute.rating !== 'No-go';
+}
+
+function recommendationPoolForNearby(items) {
+  const viableItems = items.filter(isViableRecommendationItem);
+  return viableItems.length > 0 ? viableItems : items;
 }
 
 function pickRepresentativeRoute(routes, mode) {
@@ -559,6 +569,155 @@ function shortRouteLengthLabel(item) {
   }
 
   return `${distanceLabel} route`;
+}
+
+function routeDifficultyLabel(item) {
+  const difficulty = item?.cardRoute?.river?.difficulty;
+  if (!difficulty) {
+    return '';
+  }
+
+  return `${String(difficulty).slice(0, 1).toUpperCase()}${String(difficulty).slice(1)} difficulty`;
+}
+
+function routeEstimatedTimeLabel(item) {
+  return item?.cardRoute?.river?.estimatedPaddleTime ?? '';
+}
+
+function favoriteRecordForItem(item) {
+  if (!item?.cardRoute || isGroupedItem(item)) {
+    return null;
+  }
+
+  return {
+    slug: item.cardRoute.river.slug,
+    name: item.cardRoute.river.name,
+    reach: item.cardRoute.river.reach,
+    state: item.cardRoute.river.state,
+    region: item.cardRoute.river.region,
+    url: `/rivers/${encodeURIComponent(item.cardRoute.river.slug)}/`,
+  };
+}
+
+function queryWithin(scope, selector) {
+  if (!scope || typeof scope.querySelector !== 'function') {
+    return null;
+  }
+
+  return scope.querySelector(selector);
+}
+
+function setScopedText(scope, selector, value) {
+  const element = queryWithin(scope, selector);
+  if (element instanceof HTMLElement) {
+    element.textContent = value;
+    return element;
+  }
+
+  return null;
+}
+
+function signedPoints(value) {
+  if (typeof value !== 'number' || !Number.isFinite(value)) {
+    return 'Unavailable';
+  }
+
+  return value > 0 ? `+${value}` : `${value}`;
+}
+
+function breakdownValueToneClass(value) {
+  if (value > 0) return 'river-score-breakdown__row-value--positive';
+  if (value < 0) return 'river-score-breakdown__row-value--negative';
+  return 'river-score-breakdown__row-value--neutral';
+}
+
+function friendlyCapReason(reason) {
+  const normalized = String(reason || '').trim();
+
+  if (/Near-freezing air caps today at 70\./i.test(normalized)) {
+    return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
+  }
+
+  if (/High wind caps today at 75\./i.test(normalized)) {
+    return 'Strong wind puts a ceiling on today, even if the gauge is in range.';
+  }
+
+  if (/Imminent heavy rain caps today at 65\./i.test(normalized)) {
+    return 'Rain is expected soon, so today stays in the cautious range.';
+  }
+
+  if (/Minimum-only guidance caps the trip score at 74\./i.test(normalized)) {
+    return 'This route only has a reliable low-water floor, so the score stops short of the top range.';
+  }
+
+  return normalized;
+}
+
+function renderScoreBreakdownDisclosure(scope, breakdown) {
+  const disclosure = queryWithin(scope, '[data-score-breakdown]');
+  if (!(disclosure instanceof HTMLElement)) {
+    return;
+  }
+
+  const rows = queryWithin(scope, '[data-score-breakdown-rows]');
+  const capsWrap = queryWithin(scope, '[data-score-breakdown-caps-wrap]');
+  const caps = queryWithin(scope, '[data-score-breakdown-caps]');
+
+  if (!breakdown) {
+    disclosure.hidden = true;
+    if (disclosure instanceof HTMLDetailsElement) {
+      disclosure.open = false;
+    }
+    if (rows instanceof HTMLElement) {
+      rows.innerHTML = '';
+    }
+    if (caps instanceof HTMLElement) {
+      caps.innerHTML = '';
+    }
+    if (capsWrap instanceof HTMLElement) {
+      capsWrap.hidden = true;
+    }
+    return;
+  }
+
+  disclosure.hidden = false;
+  setScopedText(
+    scope,
+    '[data-score-breakdown-summary]',
+    `River quality starts at ${breakdown.riverQuality}. Weather shifts it to ${breakdown.finalScore} today.`
+  );
+
+  if (rows instanceof HTMLElement) {
+    const rowItems = [
+      { label: 'River quality', value: breakdown.riverQuality },
+      { label: 'Wind', value: breakdown.windAdjustment },
+      { label: 'Temperature', value: breakdown.temperatureAdjustment },
+      { label: 'Rain timing', value: breakdown.rainAdjustment },
+    ];
+
+    if (breakdown.comfortAdjustment !== 0) {
+      rowItems.push({ label: 'Other', value: breakdown.comfortAdjustment });
+    }
+
+    rows.innerHTML = rowItems
+      .map(
+        (row) => `
+          <article class="river-score-tooltip__row">
+            <span class="river-score-tooltip__label">${escapeHtml(row.label)}</span>
+            <strong class="river-score-tooltip__value ${breakdownValueToneClass(row.value)}">${escapeHtml(signedPoints(row.value))}</strong>
+          </article>
+        `
+      )
+      .join('');
+  }
+
+  const reasons = Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [];
+  if (caps instanceof HTMLElement) {
+    caps.innerHTML = reasons.map((reason) => `<li>${escapeHtml(friendlyCapReason(reason))}</li>`).join('');
+  }
+  if (capsWrap instanceof HTMLElement) {
+    capsWrap.hidden = reasons.length === 0;
+  }
 }
 
 function rawSignalLine(item) {
@@ -1029,8 +1188,14 @@ function metaLineText(item, showDistance) {
   if (routeLengthLabel(item)) {
     parts.push(routeLengthLabel(item));
   }
+  if (!isGroupedItem(item) && routeDifficultyLabel(item)) {
+    parts.push(routeDifficultyLabel(item));
+  }
+  if (!isGroupedItem(item) && routeEstimatedTimeLabel(item)) {
+    parts.push(routeEstimatedTimeLabel(item));
+  }
   parts.push(confidenceLabel(item));
-  return parts.join(' • ');
+  return parts.join(' \u2022 ');
 }
 
 function liveReadWarning(result) {
@@ -1264,6 +1429,7 @@ function createRecommendationCard(item, index, nearbyReady) {
   setText(card, 'recommendation-verdict', recommendationVerdict(item, index, nearbyReady));
   setText(card, 'recommendation-meta', metaLineText(item, nearbyReady));
   setText(card, 'recommendation-live-label', index === 0 ? 'Live conditions right now' : '');
+  renderScoreBreakdownDisclosure(card, item.cardRoute.scoreBreakdown);
 
   const reasons = card.querySelector('[data-field="recommendation-reasons"]');
   if (reasons instanceof HTMLElement) {
@@ -1323,6 +1489,8 @@ function createRecommendationCard(item, index, nearbyReady) {
     titleLink.textContent = item.cardRoute.river.name;
   }
 
+  decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecordForItem(item));
+
   return card;
 }
 
@@ -1337,6 +1505,7 @@ function renderRecommendationGrid(items, nearbyReady) {
     fragment.appendChild(createRecommendationCard(item, index, nearbyReady));
   });
   recommendationGrid.appendChild(fragment);
+  refreshFavoriteButtons(recommendationGrid);
 }
 
 function createCard(item, { showDistance = false, compact = false } = {}) {
@@ -1404,6 +1573,8 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
     titleLink.textContent = item.cardRoute.river.name;
   }
 
+  decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecordForItem(item));
+
   return card;
 }
 
@@ -1418,6 +1589,7 @@ function renderCardGrid(container, items, options = {}) {
     fragment.appendChild(createCard(item, options));
   }
   container.appendChild(fragment);
+  refreshFavoriteButtons(container);
 }
 
 function currentExploreLayoutKey() {
@@ -1514,8 +1686,9 @@ function updateExplorePagination(pagination) {
 
 function updateFeaturedHero(nearbyItems, overallItems) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
-  const nearbyReady = locationReady && nearbyItems.length > 0;
-  const item = nearbyReady ? nearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
+  const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
+  const nearbyReady = locationReady && preferredNearbyItems.length > 0;
+  const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
     if (featuredPanel instanceof HTMLElement) {
@@ -1575,6 +1748,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredLink.href = locationReady ? '#explore' : '#home-location';
       featuredLink.textContent = locationReady ? 'Browse full board' : 'Set location first';
     }
+    renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
   }
   renderFeaturedMap(item, { visible: nearbyReady, status: regionStateText(item) });
@@ -1602,6 +1776,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(document, 'featured-rating', item.cardRoute.rating);
   setText(document, 'featured-verdict', recommendationVerdict(item));
   setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
+  renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-confidence', confidenceLabel(item));
   setText(
     document,
@@ -1635,7 +1810,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
 function buildRecommendationItems(nearbyItems, overallItems, locationReady = false) {
   const picks = [];
   const seen = new Set();
-  const nearbyReady = locationReady && nearbyItems.length > 0;
+  const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
+  const nearbyReady = locationReady && preferredNearbyItems.length > 0;
 
   const addPick = (item) => {
     if (!item || seen.has(item.key) || picks.length >= 3) {
@@ -1646,7 +1822,7 @@ function buildRecommendationItems(nearbyItems, overallItems, locationReady = fal
   };
 
   if (nearbyReady) {
-    const nearbyPool = nearbyItems;
+    const nearbyPool = preferredNearbyItems;
     addPick(nearbyPool[0]);
     addPick(nearbyPool.find((item) => item.cardRoute.rating !== 'No-go' && !seen.has(item.key)) || nearbyPool[1]);
     addPick(
@@ -2997,6 +3173,7 @@ for (const button of homeJumpButtons) {
 }
 
 const hydratedBoard = hydrateBoardFromCache();
+bindFavoriteButtons(document);
 updateSummaryMapToggle();
 loadBoard({ silent: hydratedBoard });
 window.setInterval(() => {

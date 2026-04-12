@@ -14,6 +14,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '11.75 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 15 min',
       shuttle:
         "MilesPaddled describes a bike shuttle using the Cannon Valley Trail. Car shuttle is simplest.",
       permits:
@@ -45,6 +46,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
       shuttle:
         'Car shuttle is straightforward. A bike shuttle may be possible using the Straight River Trail for part of the route.',
       permits:
@@ -77,6 +79,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '9.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 15 min',
       shuttle:
         'Car shuttle is simplest. The Red Jacket Trail also creates a bike-paddle option if you plan it carefully.',
       permits:
@@ -109,6 +112,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '13.5 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr 15 min',
       shuttle:
         'Bike shuttle on the Root River State Trail is a strong option. Two-car shuttle on local roads is straightforward if you want a simpler setup.',
       permits:
@@ -141,6 +145,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15.1 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
       shuttle:
         'Two-car shuttle is simplest. A bike shuttle on the Root River State Trail is realistic if your group wants it, with parking guidance at the Rushford Historic Depot and Houston Nature Center lots.',
       permits:
@@ -174,6 +179,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '13.25 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr',
       shuttle:
         'Two-car shuttle is simplest. The road shuttle is around 10 miles on hillier Driftless roads, so it is less bike-friendly than the lower Root corridor.',
       permits:
@@ -207,6 +213,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15.8 mi',
+      estimatedPaddleTime: 'About 5 hr 15 min to 7 hr 15 min',
       shuttle:
         'Two-car shuttle is simplest. A bike shuttle is more realistic here than on the upper Chatfield reach because the Root River State Trail and local roads help, but it is still a real full-day setup.',
       permits:
@@ -240,6 +247,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '6.5 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr',
       shuttle:
         'Vehicle shuttle is easiest. A bike shuttle on the Wolf River State Trail is possible if your group wants it.',
       permits:
@@ -272,6 +280,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
       shuttle:
         'Expect a long-ish vehicle shuttle. MilesPaddled describes it as steep and better by car than bike.',
       permits:
@@ -304,6 +313,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '14.75 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
       shuttle:
         'Best shuttle option is the Red Cedar State Trail bike return if your group wants to avoid a second car. A driving shuttle is still straightforward and usually simpler on cold or rainy days.',
       permits:
@@ -336,6 +346,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '7.7 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 30 min',
       shuttle:
         'Short paved-road shuttle in the Trego area. Several local outfitters run Big Bend, Earl, and Trego shuttles, but a simple two-car setup is easy if you are self-supporting.',
       permits:
@@ -369,6 +380,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '9.75 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
       shuttle:
         'Plan a longer shuttle and budget time for the steep approach near Fox Landing. Low-clearance vehicles should be cautious on the rougher road section.',
       permits:
@@ -401,6 +413,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10.9 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr',
       shuttle:
         'Standard two-car shuttle. Confirm parking rules at Martin\'s Landing and at Rum River North County Park before leaving vehicles.',
       permits:
@@ -433,6 +446,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15.8 mi',
+      estimatedPaddleTime: 'About 5 hr 15 min to 7 hr 15 min',
       shuttle:
         'Standard two-car shuttle is simplest. The route can also be shortened at Highway 14 if your group wants a shorter day.',
       permits:
@@ -466,6 +480,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '8.6 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min to 4 hr',
       shuttle:
         'Standard self-shuttle works best. Miller Landing has posted county-park hours, so confirm you can leave and retrieve vehicles inside that window.',
       permits:
@@ -498,6 +513,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10.2 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 4 hr 45 min',
       shuttle:
         'Short Pine City-area car shuttle. A bike shuttle is possible, but only if you are comfortable with the roads and have already checked parking at both ends.',
       permits:
@@ -530,6 +546,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '11.1 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr',
       shuttle:
         'Car shuttle is the practical choice. Stage the take-out vehicle at Land of Memories Park before launching so you are not finishing a long windy day with extra logistics.',
       permits:
@@ -562,6 +579,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '17.4 mi',
+      estimatedPaddleTime: 'About 5 hr 45 min to 8 hr',
       shuttle:
         'Long two-car shuttle. Stage the take-out vehicle at Belle Plaine before launching because this is already a full lower-river day without adding end-of-day driving stress.',
       permits:
@@ -594,6 +612,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '5 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 15 min',
       shuttle:
         'Short Twin Cities car shuttle. Stage the take-out vehicle at Hidden Falls first so the day does not end with lock logistics, city traffic, and a second vehicle problem all at once.',
       permits:
@@ -627,6 +646,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
       shuttle:
         'Simple two-car shuttle between County Road 3 and Canoe Park in Mora. This is a longer rural Snake day, so leave extra time for shuttle setup and wood scouting.',
       permits:
@@ -659,6 +679,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15.3 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr',
       shuttle:
         'Standard two-car shuttle. Confirm any county-park or landing parking rules before leaving vehicles for a full day or overnight.',
       permits:
@@ -693,6 +714,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '21.3 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr 45 min',
       shuttle:
         'Use the official access list to build a shorter one-way segment or run the whole creek with a long urban shuttle. The planner is the right way to use this corridor.',
       permits:
@@ -868,6 +890,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '9.7 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
       shuttle:
         'Two-car shuttle works best. If you use a paid shuttle, confirm pickup and parking rules locally.',
       permits:
@@ -900,6 +923,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '7.5 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 30 min',
       shuttle:
         'Car shuttle is recommended between Franck Park and Ranchero Road / Katoski Greenbelt.',
       permits: 'None noted by Iowa DNR for a standard day paddle on this reach.',
@@ -932,6 +956,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '15.2 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr',
       shuttle:
         'Self-shuttle is typical, and multiple intermediate landings make shorter one-way options possible.',
       permits: 'No paddling permit noted. Check local park rules at launch and take-out.',
@@ -1054,6 +1079,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '7.2 river mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 15 min',
       shuttle:
         'Plan a car shuttle. Exact driving distance varies by route taken, so confirm your pickup plan before launching.',
       permits:
@@ -1086,6 +1112,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '5 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 15 min',
       shuttle:
         'Two-car shuttle is simplest. A bike shuttle is possible, but expect a mix of gravel and pavement.',
       permits: 'No permit noted for this reach.',
@@ -1116,6 +1143,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '16.5 mi',
+      estimatedPaddleTime: 'About 5 hr 30 min to 7 hr 30 min',
       shuttle:
         'Arrange a car shuttle between Kendallville and Decorah or use an outfitter.',
       permits: 'No permit is known for a basic day paddle. Follow county-park and city-park access rules at Kendallville and the Decorah finish.',
@@ -1147,6 +1175,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10.75 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
       shuttle:
         'Car shuttle is recommended. A bike shuttle is possible, but it is longer and rougher than the more polished river-town shuttles upstream.',
       permits:
@@ -1179,6 +1208,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '12 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
       shuttle:
         'Two-car shuttle is the practical choice. Do not assume a bike shuttle is pleasant on these rural roads without checking shoulders and traffic first.',
       permits:
@@ -1211,6 +1241,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10.25 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 4 hr 45 min',
       shuttle:
         'Plan a car shuttle and confirm parking rules at both endpoints.',
       permits:
@@ -1242,6 +1273,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '11.5 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr 15 min',
       shuttle:
         'Plan a car shuttle and confirm parking etiquette at both bridge accesses before leaving a vehicle.',
       permits:
@@ -1273,6 +1305,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '6 mi',
+      estimatedPaddleTime: 'About 2 hr to 2 hr 45 min',
       shuttle:
         'Short car shuttle is easiest. Bike shuttle is possible but requires multiple bridge crossings and city traffic awareness.',
       permits: 'None noted for standard day paddling on this reach.',
@@ -1303,6 +1336,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '4 mi',
+      estimatedPaddleTime: 'About 1 hr 15 min to 1 hr 45 min',
       shuttle:
         'Short car shuttle is simplest. Bike shuttle is possible if you are comfortable with local roads.',
       permits: 'None known for a standard day paddle.',
@@ -1333,6 +1367,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '12.5 mi',
+      estimatedPaddleTime: 'About 4 hr 15 min to 5 hr 45 min',
       shuttle:
         'Two-car shuttle is standard between Ontario and Rockton. Both endpoints appear in the Wisconsin DNR boat-access inventory, but it is still worth confirming parking and landing rules before you leave a vehicle.',
       permits:
@@ -1366,6 +1401,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '13 mi',
+      estimatedPaddleTime: 'About 4 hr 15 min to 6 hr',
       shuttle:
         'Expect about a 9.7-mile vehicle or bike shuttle. Miles Paddled treats this as a real full-day reach, so set the pickup plan and turnaround time before launching.',
       permits:
@@ -1399,6 +1435,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '13.75 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr 15 min',
       shuttle:
         'Car shuttle is simplest. A bike shuttle is possible when trail conditions line up, but confirm routing before you commit to highway shoulders.',
       permits:
@@ -1432,6 +1469,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr',
       shuttle:
         'The standard shuttle is a little over 6 road miles. Car shuttle is simplest, though a bike shuttle is workable if your group wants it.',
       permits:
@@ -1464,6 +1502,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '13.25 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr',
       shuttle:
         'Plan a straightforward two-car shuttle of roughly 12 road miles. A bike shuttle is possible, but it is long enough that most groups will prefer the simpler car setup.',
       permits:
@@ -1497,6 +1536,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
       shuttle:
         'Plan an 11.5-mile vehicle shuttle. Bike shuttle is possible, but it mixes gravel roads with a short highway shoulder section.',
       permits:
@@ -1529,6 +1569,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     logistics: {
       distanceLabel: '10 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
       shuttle:
         'Car shuttle is simplest. The road shuttle is about 10.5 miles, and the state-park finish is much easier if you bring a boat cart for the carry out.',
       permits:

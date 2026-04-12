@@ -13,6 +13,7 @@ vi.mock('./weather', () => ({
 }));
 
 import { getAllRiverScores } from './rivers';
+import { listRivers } from './rivers';
 
 describe('getAllRiverScores', () => {
   it('preserves riverId so homepage grouping can collapse multi-route rivers', async () => {
@@ -25,5 +26,18 @@ describe('getAllRiverScores', () => {
 
     const zumbroRoutes = scores.filter((result) => result.river.riverId === 'zumbro-river');
     expect(zumbroRoutes.length).toBeGreaterThan(1);
+  });
+
+  it('provides estimated paddle time for every seeded route', () => {
+    const rivers = listRivers();
+
+    expect(rivers.length).toBeGreaterThan(0);
+    expect(
+      rivers.every(
+        (river) =>
+          typeof river.logistics?.estimatedPaddleTime === 'string' &&
+          river.logistics.estimatedPaddleTime.trim().length > 0
+      )
+    ).toBe(true);
   });
 });

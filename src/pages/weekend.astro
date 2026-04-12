@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FavoriteButton from '../components/FavoriteButton.astro';
 import weekendPageScript from '../scripts/weekend-page.js?url';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
@@ -149,8 +150,11 @@ const structuredData = [
   <template data-weekend-card-template>
     <article class="recommendation-card recommendation-card--weekend">
       <div class="recommendation-card__eyebrow-row">
-        <p class="recommendation-card__slot" data-field="weekend-slot"></p>
-        <span class="river-card__kind">Weekend</span>
+        <div class="recommendation-card__eyebrow-meta">
+          <p class="recommendation-card__slot" data-field="weekend-slot"></p>
+          <span class="river-card__kind">Weekend</span>
+        </div>
+        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
       </div>
 
       <div class="recommendation-card__top">

@@ -169,6 +169,8 @@ export interface RiverSummaryApiItem {
     latitude: number;
     longitude: number;
     distanceLabel: string;
+    estimatedPaddleTime: string;
+    difficulty: 'easy' | 'moderate' | 'hard';
   };
   sources: Array<{
     label: string;
@@ -200,6 +202,7 @@ export interface RiverSummaryApiItem {
     primaryFactor: string;
     secondaryFactor: string;
   };
+  scoreBreakdown?: ScoreBreakdown;
   generatedAt: string;
 }
 
@@ -214,6 +217,8 @@ export interface WeekendSummaryApiItem {
     latitude: number;
     longitude: number;
     distanceLabel: string;
+    estimatedPaddleTime: string;
+    difficulty: 'easy' | 'moderate' | 'hard';
   };
   current: {
     score: number;
@@ -251,6 +256,7 @@ export interface RiverDetailApiResult {
     latitude: number;
     longitude: number;
     distanceLabel: string;
+    estimatedPaddleTime: string;
     gaugeSource: {
       unit: GaugeUnit;
     };

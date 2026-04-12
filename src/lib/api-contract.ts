@@ -34,6 +34,8 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       latitude: result.river.latitude,
       longitude: result.river.longitude,
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
+      estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
+      difficulty: result.river.profile.difficulty,
     },
     sources: summarySourceBadges(result),
     score: result.score,
@@ -65,6 +67,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
           ? 'Hard difficulty'
           : thresholdEvidenceFactor?.value ?? 'Evidence unavailable',
     },
+    scoreBreakdown: result.scoreBreakdown,
     generatedAt: result.generatedAt,
   };
 }
@@ -86,6 +89,8 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       latitude: result.river.latitude,
       longitude: result.river.longitude,
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
+      estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
+      difficulty: result.river.profile.difficulty,
     },
     current: {
       score: result.score,
@@ -157,6 +162,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       latitude: result.river.latitude,
       longitude: result.river.longitude,
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
+      estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       gaugeSource: {
         unit: result.river.gaugeSource.unit,
       },

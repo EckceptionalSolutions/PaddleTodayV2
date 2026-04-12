@@ -78,6 +78,7 @@ export interface RiverRouteAccessPoint extends RiverAccessPoint {
 
 export interface RiverTripLogistics {
   distanceLabel: string;
+  estimatedPaddleTime: string;
   shuttle: string;
   permits: string;
   camping: string;

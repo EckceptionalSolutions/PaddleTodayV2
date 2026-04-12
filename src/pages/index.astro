@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
+import FavoriteButton from '../components/FavoriteButton.astro';
 import { listRivers } from '../lib/rivers';
 import indexPageScript from '../scripts/index-page.js?url';
 import '../styles/tailwind.css';
@@ -169,6 +170,22 @@ const homepageStructuredData = [
               </div>
             </div>
           </div>
+
+          <details class="river-score-tooltip home-score-breakdown hero-call__score-breakdown" data-score-breakdown hidden>
+            <summary class="river-score-tooltip__summary">
+              <span>Why this score</span>
+            </summary>
+            <div class="river-score-tooltip__panel">
+              <p class="muted river-score-tooltip__intro" data-score-breakdown-summary>
+                Checking how today&apos;s score comes together.
+              </p>
+              <div class="river-score-tooltip__rows" data-score-breakdown-rows></div>
+              <div class="river-score-tooltip__caps" data-score-breakdown-caps-wrap hidden>
+                <p class="river-score-tooltip__caps-label">What limited today&apos;s score</p>
+                <ul class="compact-list river-score-tooltip__caps-list" data-score-breakdown-caps></ul>
+              </div>
+            </div>
+          </details>
 
           <div class="grid gap-2" data-featured-map-shell hidden>
             <div class="summary-map !min-h-[11.5rem] rounded-[22px]" data-featured-map aria-label="Map showing the featured route location"></div>
@@ -358,8 +375,11 @@ const homepageStructuredData = [
   <template data-recommendation-card-template>
     <article class="recommendation-card">
       <div class="recommendation-card__eyebrow-row">
-        <p class="recommendation-card__slot" data-field="recommendation-slot"></p>
-        <span class="river-card__kind" data-field="recommendation-kind"></span>
+        <div class="recommendation-card__eyebrow-meta">
+          <p class="recommendation-card__slot" data-field="recommendation-slot"></p>
+          <span class="river-card__kind" data-field="recommendation-kind"></span>
+        </div>
+        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
       </div>
 
       <div class="recommendation-card__top">
@@ -380,6 +400,21 @@ const homepageStructuredData = [
         </div>
         <p class="recommendation-card__meta" data-field="recommendation-meta"></p>
       </div>
+      <details class="river-score-tooltip home-score-breakdown recommendation-card__score-breakdown" data-score-breakdown hidden>
+        <summary class="river-score-tooltip__summary">
+          <span>Why this score</span>
+        </summary>
+        <div class="river-score-tooltip__panel">
+          <p class="muted river-score-tooltip__intro" data-score-breakdown-summary>
+            Checking how this score comes together.
+          </p>
+          <div class="river-score-tooltip__rows" data-score-breakdown-rows></div>
+          <div class="river-score-tooltip__caps" data-score-breakdown-caps-wrap hidden>
+            <p class="river-score-tooltip__caps-label">What limited today&apos;s score</p>
+            <ul class="compact-list river-score-tooltip__caps-list" data-score-breakdown-caps></ul>
+          </div>
+        </div>
+      </details>
       <p class="recommendation-card__summary" data-field="recommendation-summary"></p>
       <div class="recommendation-card__tags" data-field="recommendation-tags" hidden></div>
       <p class="recommendation-card__live-label" data-field="recommendation-live-label" hidden>Live conditions</p>
@@ -402,8 +437,11 @@ const homepageStructuredData = [
   <template data-river-card-template>
     <article class="river-card river-card--decision">
       <div class="river-card__eyebrow-row">
-        <span class="river-card__kind" data-field="card-kind"></span>
-        <p class="river-card__state" data-field="state"></p>
+        <div class="river-card__eyebrow-meta">
+          <span class="river-card__kind" data-field="card-kind"></span>
+          <p class="river-card__state" data-field="state"></p>
+        </div>
+        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
       </div>
 
       <div class="river-card__top">

@@ -1,0 +1,38 @@
+---
+import { FAVORITE_STAR_PATH } from '../lib/favorites-icon.js';
+
+const {
+  className = 'favorite-toggle favorite-toggle--card',
+  hidden = false,
+  slug,
+  name,
+  reach,
+  state,
+  region,
+  url,
+  unsavedLabel = 'Save',
+  savedLabel = 'Saved',
+} = Astro.props;
+---
+
+<button
+  class={className}
+  type="button"
+  data-favorite-button
+  data-favorite-slug={slug}
+  data-favorite-name={name}
+  data-favorite-reach={reach}
+  data-favorite-state={state}
+  data-favorite-region={region}
+  data-favorite-url={url}
+  data-unsaved-label={unsavedLabel}
+  data-saved-label={savedLabel}
+  hidden={hidden}
+>
+  <span class="favorite-toggle__icon" aria-hidden="true">
+    <svg viewBox="0 0 24 24" focusable="false">
+      <path d={FAVORITE_STAR_PATH} />
+    </svg>
+  </span>
+  <span class="favorite-toggle__label" data-favorite-label>{unsavedLabel}</span>
+</button>

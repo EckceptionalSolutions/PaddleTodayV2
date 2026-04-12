@@ -10,7 +10,7 @@ import {
   type RiverSummaryApiItem,
   type WeekendSummaryApiItem,
 } from './api-contract';
-import { listRiverGroups } from './rivers';
+import { getRiverBySlug, listRiverGroups } from './rivers';
 import type { RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
@@ -78,19 +78,89 @@ export async function captureRiverSnapshots(args: {
 }
 
 export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnapshot | null> {
-  return snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName());
+  const snapshot = await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName());
+  if (!snapshot) {
+    return null;
+  }
+
+  return {
+    ...snapshot,
+    rivers: snapshot.rivers.map(normalizeSummarySnapshotItem),
+  };
 }
 
 export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverDetailSnapshot | null> {
-  return snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug));
+  const snapshot = await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug));
+  if (!snapshot) {
+    return null;
+  }
+
+  return {
+    ...snapshot,
+    result: normalizeDetailSnapshotResult(snapshot.result),
+  };
 }
 
 export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummarySnapshot | null> {
-  return snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName());
+  const snapshot = await snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName());
+  if (!snapshot) {
+    return null;
+  }
+
+  return {
+    ...snapshot,
+    rivers: snapshot.rivers.map(normalizeWeekendSnapshotItem),
+  };
 }
 
 export async function getStoredRiverGroupSnapshot(riverId: string): Promise<RiverGroupSnapshot | null> {
-  return snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId));
+  const snapshot = await snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId));
+  if (!snapshot) {
+    return null;
+  }
+
+  return {
+    ...snapshot,
+    result: {
+      ...snapshot.result,
+      routes: snapshot.result.routes.map(normalizeDetailSnapshotResult),
+    },
+  };
+}
+
+function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryApiItem {
+  const river = getRiverBySlug(item.river.slug);
+  return {
+    ...item,
+    river: {
+      ...item.river,
+      estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
+      difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
+    },
+  };
+}
+
+function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSummaryApiItem {
+  const river = getRiverBySlug(item.river.slug);
+  return {
+    ...item,
+    river: {
+      ...item.river,
+      estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
+      difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
+    },
+  };
+}
+
+function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetailApiResult {
+  const river = getRiverBySlug(result.river.slug);
+  return {
+    ...result,
+    river: {
+      ...result.river,
+      estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
+    },
+  };
 }
 
 function buildSummarySnapshot(results: RiverScoreResult[], generatedAt: string): RiverSummarySnapshot {

@@ -53,6 +53,7 @@ const baseRiver: River = {
   },
   logistics: {
     distanceLabel: '6 miles',
+    estimatedPaddleTime: 'About 2 hr to 3 hr',
     shuttle: 'Simple car shuttle',
     permits: 'None noted',
     camping: 'No camping',
@@ -150,7 +151,7 @@ const gauge: GaugeReading = {
 };
 
 describe('api-contract serializers', () => {
-  it('keeps summary payload lean and homepage-focused', () => {
+  it('keeps summary payload homepage-focused while including score breakdown', () => {
     const scored = scoreRiverCondition({
       river: baseRiver,
       gauge,
@@ -161,6 +162,8 @@ describe('api-contract serializers', () => {
     const summary = serializeSummaryResult(scored);
 
     expect(summary.river.slug).toBe(baseRiver.slug);
+    expect(summary.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
+    expect(summary.river.difficulty).toBe('moderate');
     expect(summary.sources).toEqual([
       { label: 'USGS', tone: 'usgs' },
       { label: 'Official', tone: 'official' },
@@ -169,6 +172,8 @@ describe('api-contract serializers', () => {
     expect(summary.summary.shortExplanation).toBe('Perfect level • Stable • mostly sunny');
     expect(summary.summary.rawSignalLine).toBe('Gauge: 520 cfs • Wind: 8 mph • Temp: 67°F');
     expect(summary.summary.gaugeNow).toBe('520 cfs');
+    expect(summary.scoreBreakdown?.finalScore).toBe(scored.score);
+    expect(summary.scoreBreakdown?.riverQuality).toBeGreaterThan(0);
     expect(summary.liveData.gaugeDetail).toContain('Latest gauge reading');
     expect(summary.liveData.weatherDetail).toContain('Latest weather reading');
     expect('factors' in summary).toBe(false);
@@ -187,6 +192,7 @@ describe('api-contract serializers', () => {
 
     const detail = serializeDetailResult(scored);
 
+    expect(detail.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
     expect(detail.river.profile.idealMin).toBe(300);
     expect(detail.river.profile.tooHigh).toBe(900);
     expect(detail.gauge?.recentSamples).toHaveLength(2);

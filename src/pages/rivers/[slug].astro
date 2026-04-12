@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
+import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers } from '../../lib/rivers';
 import riverDetailPageScript from '../../scripts/river-detail-page.js?url';
 
@@ -243,6 +244,18 @@ const routeStructuredData = {
           <span class="pill">{river.statusText}</span>
         </div>
 
+        <div class="river-detail__hero-map-shell" data-detail-hero-map-shell>
+          <div class="river-detail__hero-map-frame">
+            <div class="river-detail__hero-map" data-detail-hero-map aria-label={`${river.name} route snapshot map`}></div>
+            <div class="river-detail__hero-map-copy">
+              <p class="river-detail__hero-map-label">Route snapshot</p>
+              <p class="river-detail__hero-map-status muted" data-detail-hero-map-status>
+                Loading mapped route.
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <aside class="river-call-panel river-call-panel--sticky">
@@ -343,6 +356,27 @@ const routeStructuredData = {
               </svg>
             </span>
             <span class="route-action-button__label">Get alerts</span>
+          </button>
+
+          <button
+            class="route-action-button route-action-button--save"
+            type="button"
+            data-favorite-button
+            data-favorite-slug={river.slug}
+            data-favorite-name={river.name}
+            data-favorite-reach={river.reach}
+            data-favorite-state={river.state}
+            data-favorite-region={river.region}
+            data-favorite-url={`/rivers/${river.slug}/`}
+            data-unsaved-label="Save"
+            data-saved-label="Saved"
+          >
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d={FAVORITE_STAR_PATH} />
+              </svg>
+            </span>
+            <span class="route-action-button__label route-action-button__label--desktop" data-favorite-label>Save</span>
           </button>
 
           <details class="route-action-menu route-action-menu--share" data-route-action-menu>
