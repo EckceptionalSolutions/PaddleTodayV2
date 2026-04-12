@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import unsubscribeScript from '../../scripts/alerts-unsubscribe-page.js?url';
 ---
 
 <BaseLayout
@@ -39,5 +38,7 @@ import unsubscribeScript from '../../scripts/alerts-unsubscribe-page.js?url';
     </div>
   </section>
 
-  <script type="module" src={unsubscribeScript}></script>
+<script>
+  import '../../scripts/alerts-unsubscribe-page.js';
+</script>
 </BaseLayout>

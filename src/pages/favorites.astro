@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
-import favoritesPageScript from '../scripts/favorites-page.js?url';
 ---
 
 <BaseLayout
@@ -107,5 +106,7 @@ import favoritesPageScript from '../scripts/favorites-page.js?url';
     </article>
   </template>
 
-  <script type="module" src={favoritesPageScript}></script>
+  <script>
+    import '../scripts/favorites-page.js';
+  </script>
 </BaseLayout>

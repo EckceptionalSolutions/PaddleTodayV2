@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
-import weekendPageScript from '../scripts/weekend-page.js?url';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const weekendUrl = new URL('/weekend/', siteUrl).href;
@@ -188,5 +187,7 @@ const structuredData = [
     </article>
   </template>
 
-  <script type="module" src={weekendPageScript}></script>
+  <script>
+    import '../scripts/weekend-page.js';
+  </script>
 </BaseLayout>

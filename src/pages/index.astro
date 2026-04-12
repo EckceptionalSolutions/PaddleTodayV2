@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
 import { listRivers } from '../lib/rivers';
-import indexPageScript from '../scripts/index-page.js?url';
 
 const rivers = listRivers();
 const states = [...new Set(rivers.map((river) => river.state))].sort();
@@ -468,6 +467,8 @@ const homepageStructuredData = [
     </article>
   </template>
 
-  <script type="module" src={indexPageScript}></script>
+  <script>
+    import '../scripts/index-page.js';
+  </script>
 </BaseLayout>
 

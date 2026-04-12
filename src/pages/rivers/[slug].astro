@@ -4,7 +4,6 @@ import FeatureIcon from '../../components/FeatureIcon.astro';
 import { getApprovedRoutePhotos } from '../../data/route-gallery';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers } from '../../lib/rivers';
-import riverDetailPageScript from '../../scripts/river-detail-page.js?url';
 
 export function getStaticPaths() {
   return listRivers().map((river) => ({
@@ -1503,6 +1502,8 @@ const routeStructuredData = {
     </section>
       </div>
     </div>
-    <script type="module" src={riverDetailPageScript}></script>
+    <script>
+      import '../../scripts/river-detail-page.js';
+    </script>
   </article>
 </BaseLayout>

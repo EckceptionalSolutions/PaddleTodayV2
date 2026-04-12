@@ -3,7 +3,6 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../../components/FeatureIcon.astro';
 import FavoriteButton from '../../../components/FavoriteButton.astro';
 import { listRiverGroups } from '../../../lib/rivers';
-import riverGroupPageScript from '../../../scripts/river-group-page.js?url';
 
 export function getStaticPaths() {
   return listRiverGroups()
@@ -173,5 +172,7 @@ const groupStructuredData = {
     </section>
   </article>
 
-  <script type="module" src={riverGroupPageScript}></script>
+  <script>
+    import '../../../scripts/river-group-page.js';
+  </script>
 </BaseLayout>

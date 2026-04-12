@@ -1,6 +1,4 @@
 ---
-import siteShellScript from '../scripts/site-shell.js?url';
-
 type Props = {
   title: string;
   description?: string;
@@ -141,6 +139,8 @@ const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStr
         <slot />
       </main>
     </div>
-    <script type="module" src={siteShellScript}></script>
+    <script>
+      import '../scripts/site-shell.js';
+    </script>
   </body>
 </html>
