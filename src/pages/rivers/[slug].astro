@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
+import { getApprovedRoutePhotos } from '../../data/route-gallery';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers } from '../../lib/rivers';
 import riverDetailPageScript from '../../scripts/river-detail-page.js?url';
@@ -114,6 +115,8 @@ const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, support level, access details, and today's paddle score before you drive.`;
 const routeShareText = `Check today's paddle score for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, support level, and access details.`;
+const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
+const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
 const breadcrumbItems = [
   {
     '@type': 'ListItem',
@@ -197,6 +200,9 @@ const routeStructuredData = {
           <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
             Today&apos;s Score
           </a>
+          <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="route-gallery">
+            Gallery
+          </a>
           <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="river-conditions">
             River Conditions
           </a>
@@ -220,9 +226,11 @@ const routeStructuredData = {
         </div>
 
         <div class="river-detail__hero-top">
-          <p class="eyebrow">{river.state} | {river.region}</p>
-          <h1 class="river-detail__title">{river.name}</h1>
-          <p class="river-detail__reach">{river.reach}</p>
+          <div class="river-detail__hero-title-block">
+            <p class="eyebrow">{river.state} | {river.region}</p>
+            <h1 class="river-detail__title">{river.name}</h1>
+            <p class="river-detail__reach">{river.reach}</p>
+          </div>
         </div>
 
         <p class="river-detail__summary" data-field="explanation">
@@ -257,8 +265,107 @@ const routeStructuredData = {
         </div>
 
       </div>
+      <div class="river-detail__hero-side river-detail__hero-side--sticky">
+      <section class="route-action-bar route-action-bar--rail" aria-label="Route actions">
+        <div class="route-action-bar__row">
+          <button class="route-action-button route-action-button--primary" type="button" data-alert-open>
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 22a2.6 2.6 0 0 1-2.43-1.69h4.86A2.6 2.6 0 0 1 12 22Zm7-3.25H5v-1.5l1.65-1.48v-4.11a5.35 5.35 0 0 1 4.1-5.23V5.6a1.25 1.25 0 1 1 2.5 0v.83a5.35 5.35 0 0 1 4.1 5.23v4.11L19 17.25v1.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="route-action-button__label">Alerts</span>
+          </button>
 
-      <aside class="river-call-panel river-call-panel--sticky">
+          <button
+            class="route-action-button route-action-button--save"
+            type="button"
+            data-favorite-button
+            data-favorite-slug={river.slug}
+            data-favorite-name={river.name}
+            data-favorite-reach={river.reach}
+            data-favorite-state={river.state}
+            data-favorite-region={river.region}
+            data-favorite-url={`/rivers/${river.slug}/`}
+            data-unsaved-label="Save"
+            data-saved-label="Saved"
+          >
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path d={FAVORITE_STAR_PATH} />
+              </svg>
+            </span>
+            <span class="route-action-button__label route-action-button__label--desktop" data-favorite-label>Save</span>
+          </button>
+
+          <details class="route-action-menu route-action-menu--share" data-route-action-menu>
+            <summary class="route-action-button route-action-button--menu" aria-label="Share route">
+              <span class="route-action-button__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false">
+                  <path
+                    d="M14 4h6v6h-1.8V7.07l-7.01 7.01-1.27-1.27 7.01-7.01H14V4Zm-8 2h5v1.8H6.9v9.3h9.3V13H18v5a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </span>
+              <span class="route-action-button__label route-action-button__label--desktop">Share</span>
+            </summary>
+            <div class="route-action-menu__panel">
+              <a
+                class="route-action-menu__item route-action-button--x"
+                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(routeShareText)}&url=${encodeURIComponent(routeUrl)}`}
+                target="_blank"
+                rel="noreferrer"
+                data-share-x
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M17.94 3H21l-6.7 7.66L22.18 21h-6.2l-4.86-6.35L5.56 21H2.5l7.17-8.19L2.18 3h6.36l4.4 5.77L17.94 3Zm-1.09 16.12h1.7L7.61 4.79H5.79l11.06 14.33Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>X</span>
+              </a>
+              <a
+                class="route-action-menu__item route-action-button--facebook"
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(routeUrl)}`}
+                target="_blank"
+                rel="noreferrer"
+                data-share-facebook
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M13.52 21v-7.8h2.62l.39-3.05h-3.01V8.2c0-.88.24-1.49 1.5-1.49h1.6V4a21.8 21.8 0 0 0-2.34-.12c-2.31 0-3.89 1.41-3.89 4v2.27H7.77v3.05h2.62V21h3.13Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Facebook</span>
+              </a>
+              <button class="route-action-menu__item" type="button" data-share-copy>
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M14.7 6.3a3.75 3.75 0 0 1 5.3 5.3l-2.4 2.4a3.75 3.75 0 0 1-5.3 0l-.35-.35 1.41-1.41.35.35a1.75 1.75 0 0 0 2.48 0l2.4-2.4a1.75 1.75 0 1 0-2.48-2.48l-1.55 1.55-1.41-1.41 1.55-1.55Zm-5.4 11.4a3.75 3.75 0 0 1-5.3-5.3l2.4-2.4a3.75 3.75 0 0 1 5.3 0l.35.35-1.41 1.41-.35-.35a1.75 1.75 0 0 0-2.48 0l-2.4 2.4a1.75 1.75 0 0 0 2.48 2.48l1.55-1.55 1.41 1.41-1.55 1.55Zm6.46-8.57 1.41 1.41-8.48 8.48-1.41-1.41 8.48-8.48Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Copy link</span>
+              </button>
+            </div>
+          </details>
+
+        </div>
+
+      </section>
+      <aside class="river-call-panel">
         <p class="eyebrow">Today&apos;s score</p>
         <div class="score-orb score-orb--featured" aria-label="Live score loading">
           <span class="score-orb__score" data-field="score">--</span>
@@ -342,135 +449,7 @@ const routeStructuredData = {
           See source behind this score
         </a>
       </aside>
-      </section>
-
-      <section class="route-action-bar" aria-label="Route actions">
-        <div class="route-action-bar__row">
-          <button class="route-action-button route-action-button--primary route-action-button--bar-primary" type="button" data-alert-open>
-            <span class="route-action-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path
-                  d="M12 22a2.6 2.6 0 0 1-2.43-1.69h4.86A2.6 2.6 0 0 1 12 22Zm7-3.25H5v-1.5l1.65-1.48v-4.11a5.35 5.35 0 0 1 4.1-5.23V5.6a1.25 1.25 0 1 1 2.5 0v.83a5.35 5.35 0 0 1 4.1 5.23v4.11L19 17.25v1.5Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </span>
-            <span class="route-action-button__label">Get alerts</span>
-          </button>
-
-          <button
-            class="route-action-button route-action-button--save"
-            type="button"
-            data-favorite-button
-            data-favorite-slug={river.slug}
-            data-favorite-name={river.name}
-            data-favorite-reach={river.reach}
-            data-favorite-state={river.state}
-            data-favorite-region={river.region}
-            data-favorite-url={`/rivers/${river.slug}/`}
-            data-unsaved-label="Save"
-            data-saved-label="Saved"
-          >
-            <span class="route-action-button__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d={FAVORITE_STAR_PATH} />
-              </svg>
-            </span>
-            <span class="route-action-button__label route-action-button__label--desktop" data-favorite-label>Save</span>
-          </button>
-
-          <details class="route-action-menu route-action-menu--share" data-route-action-menu>
-            <summary class="route-action-button route-action-button--menu" aria-label="Share route">
-              <span class="route-action-button__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    d="M16 8a3 3 0 1 0-2.82-4h-.36a3 3 0 1 0 0 6h.36A3 3 0 0 0 16 8Zm-8 7a3 3 0 1 0 2.82 4h.36a3 3 0 1 0 0-6h-.36A3 3 0 0 0 8 15Zm7.16-4.18-6.32 3.14.89 1.79 6.32-3.14-.89-1.79Zm-5.43-2.57 6.13 3.51.99-1.73-6.13-3.51-.99 1.73Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span class="route-action-button__label route-action-button__label--desktop">Share</span>
-            </summary>
-            <div class="route-action-menu__panel">
-              <a
-                class="route-action-menu__item route-action-button--x"
-                href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(routeShareText)}&url=${encodeURIComponent(routeUrl)}`}
-                target="_blank"
-                rel="noreferrer"
-                data-share-x
-              >
-                <span class="route-action-button__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path
-                      d="M17.94 3H21l-6.7 7.66L22.18 21h-6.2l-4.86-6.35L5.56 21H2.5l7.17-8.19L2.18 3h6.36l4.4 5.77L17.94 3Zm-1.09 16.12h1.7L7.61 4.79H5.79l11.06 14.33Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <span>X</span>
-              </a>
-              <a
-                class="route-action-menu__item route-action-button--facebook"
-                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(routeUrl)}`}
-                target="_blank"
-                rel="noreferrer"
-                data-share-facebook
-              >
-                <span class="route-action-button__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path
-                      d="M13.52 21v-7.8h2.62l.39-3.05h-3.01V8.2c0-.88.24-1.49 1.5-1.49h1.6V4a21.8 21.8 0 0 0-2.34-.12c-2.31 0-3.89 1.41-3.89 4v2.27H7.77v3.05h2.62V21h3.13Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <span>Facebook</span>
-              </a>
-              <button class="route-action-menu__item" type="button" data-share-copy>
-                <span class="route-action-button__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path
-                      d="M14.7 6.3a3.75 3.75 0 0 1 5.3 5.3l-2.4 2.4a3.75 3.75 0 0 1-5.3 0l-.35-.35 1.41-1.41.35.35a1.75 1.75 0 0 0 2.48 0l2.4-2.4a1.75 1.75 0 1 0-2.48-2.48l-1.55 1.55-1.41-1.41 1.55-1.55Zm-5.4 11.4a3.75 3.75 0 0 1-5.3-5.3l2.4-2.4a3.75 3.75 0 0 1 5.3 0l.35.35-1.41 1.41-.35-.35a1.75 1.75 0 0 0-2.48 0l-2.4 2.4a1.75 1.75 0 0 0 2.48 2.48l1.55-1.55 1.41 1.41-1.55 1.55Zm6.46-8.57 1.41 1.41-8.48 8.48-1.41-1.41 8.48-8.48Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <span>Copy link</span>
-              </button>
-            </div>
-          </details>
-
-          <details class="route-action-menu route-action-menu--more" data-route-action-menu>
-            <summary class="route-action-button route-action-button--menu" aria-label="More route actions">
-              <span class="route-action-button__icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" focusable="false">
-                  <path
-                    d="M5 10.5A1.5 1.5 0 1 1 5 13.5A1.5 1.5 0 0 1 5 10.5Zm7 0A1.5 1.5 0 1 1 12 13.5A1.5 1.5 0 0 1 12 10.5Zm7 0A1.5 1.5 0 1 1 19 13.5A1.5 1.5 0 0 1 19 10.5Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </span>
-              <span class="route-action-button__label route-action-button__label--desktop">More</span>
-            </summary>
-            <div class="route-action-menu__panel route-action-menu__panel--wide">
-              <button class="route-action-menu__item route-action-menu__item--disabled" type="button" disabled aria-disabled="true">
-                <span class="route-action-button__icon" aria-hidden="true">
-                  <svg viewBox="0 0 24 24" focusable="false">
-                    <path
-                      d="M12 2.75A2.25 2.25 0 0 1 14.25 5v5.13l2.91 1.68A2.25 2.25 0 0 1 18 14.6v4.4A2.25 2.25 0 0 1 15.75 21h-7.5A2.25 2.25 0 0 1 6 18.75V14.6a2.25 2.25 0 0 1 .84-1.79l2.91-1.68V5A2.25 2.25 0 0 1 12 2.75Zm0 1.5a.75.75 0 0 0-.75.75v6l-3.66 2.12a.75.75 0 0 0-.09.06v5.57c0 .41.34.75.75.75h7.5c.41 0 .75-.34.75-.75v-5.57a.75.75 0 0 0-.09-.06L12.75 11V5a.75.75 0 0 0-.75-.75Z"
-                      fill="currentColor"
-                    />
-                  </svg>
-                </span>
-                <span>Download offline</span>
-              </button>
-            </div>
-          </details>
-        </div>
-
-        <p class="route-action-bar__status muted" data-route-action-status aria-live="polite">
-          Alerts only send on a new Good or Strong crossing.
-        </p>
+      </div>
       </section>
 
       <dialog class="route-alert-dialog" data-alert-dialog aria-label="River alert signup">
@@ -520,6 +499,9 @@ const routeStructuredData = {
         <p class="river-detail__section-nav-label">Jump to</p>
         <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="todays-score">
           Today&apos;s Score
+        </a>
+        <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="route-gallery">
+          Gallery
         </a>
         <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="river-conditions">
           River Conditions
@@ -576,6 +558,90 @@ const routeStructuredData = {
             Waiting on enough data to give the next step.
           </p>
         </article>
+      </div>
+    </section>
+
+    <section
+      class="river-detail__panel route-gallery"
+      id="route-gallery"
+      data-detail-section="route-gallery"
+      data-route-gallery
+      data-approved-photos={approvedRoutePhotosJson}
+    >
+      <div class="route-gallery__intro">
+        <div class="route-gallery__intro-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="camera" size={16} />
+            Route gallery
+          </p>
+          <h2 class="section-title">See this route on the water</h2>
+          <p class="muted route-gallery__lede">
+            Photos here help show the real look of the put-in, take-out, and on-water feel for this route.
+          </p>
+        </div>
+      </div>
+
+      <div class="route-gallery__layout">
+        <div class="route-gallery__viewer">
+          {approvedRoutePhotos.length > 0 ? (
+            <>
+              <figure class="route-gallery__figure">
+                <img
+                  class="route-gallery__image"
+                  src={approvedRoutePhotos[0].src}
+                  alt={approvedRoutePhotos[0].alt}
+                  loading="eager"
+                  data-route-gallery-image
+                />
+                <figcaption class="route-gallery__caption">
+                  <div class="route-gallery__caption-copy">
+                    <strong data-route-gallery-caption>{approvedRoutePhotos[0].caption}</strong>
+                    <span class="muted" data-route-gallery-credit>
+                      {approvedRoutePhotos[0].credit ? `Photo by ${approvedRoutePhotos[0].credit}` : 'Approved community photo'}
+                    </span>
+                  </div>
+                  <span class="route-gallery__caption-tag" data-route-gallery-taken hidden={!approvedRoutePhotos[0].takenLabel}>
+                    {approvedRoutePhotos[0].takenLabel ?? ''}
+                  </span>
+                </figcaption>
+              </figure>
+
+              {approvedRoutePhotos.length > 1 ? (
+                <div class="route-gallery__thumbs" data-route-gallery-thumbs aria-label="Approved route photos">
+                  {approvedRoutePhotos.map((photo, index) => (
+                    <button
+                      class:list={['route-gallery__thumb', index === 0 && 'route-gallery__thumb--active']}
+                      type="button"
+                      data-route-gallery-thumb
+                      data-route-gallery-index={index}
+                      aria-pressed={index === 0 ? 'true' : 'false'}
+                    >
+                      <img src={photo.src} alt="" loading="lazy" />
+                      <span>{photo.caption}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <div class="route-gallery__empty">
+              <div class="route-gallery__empty-art" aria-hidden="true">
+                <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
+                <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
+                <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="route-gallery__empty-copy">
+                <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
+                <p class="muted">
+                  Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
+                </p>
+                <div class="route-gallery__cta-row">
+                  <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
 
@@ -1255,6 +1321,141 @@ const routeStructuredData = {
           </ul>
         </div>
       </details>
+    </section>
+
+    <section class="river-detail__panel river-report-panel">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="camera" size={16} />
+        Share your trip
+      </p>
+      <div class="river-report-panel__content route-contribute" id="share-trip">
+        <div class="route-contribute__intro">
+          <h2 class="river-subtitle river-subtitle--compact">Send a trip report or route photos</h2>
+          <p class="muted">
+            Share what this route looked like, how it paddled, and anything useful the next paddler should know.
+          </p>
+          <ul class="compact-list route-gallery__tips">
+            <li>Photos should show access, on-water character, hazards, or what the route actually looked like.</li>
+            <li>Trip reports are most useful when they mention level, pace, strainers, obstructions, or access changes.</li>
+            <li>Contributors should only upload photos they took or have permission to share.</li>
+          </ul>
+        </div>
+
+        <div class="route-contribute__form-shell">
+          <section class="route-gallery__pending" data-route-gallery-pending hidden>
+            <div class="route-gallery__pending-head">
+              <div>
+                <p class="route-gallery__pending-kicker">Pending upload</p>
+                <h3 class="route-gallery__pending-title" data-route-gallery-pending-title>Selected for upload</h3>
+              </div>
+              <p class="muted route-gallery__pending-note" data-route-gallery-pending-note>
+                These previews are only visible in this browser.
+              </p>
+            </div>
+            <div class="route-gallery__pending-grid" data-route-gallery-pending-grid></div>
+          </section>
+
+          <form class="request-form route-photo-form" data-route-photo-form novalidate>
+            <div class="route-photo-form__grid">
+              <label>
+                Your name *
+                <input name="contributorName" maxlength="120" autocomplete="name" placeholder="Full name or paddling handle" data-route-photo-name />
+              </label>
+
+              <label>
+                Your email *
+                <input
+                  name="contributorEmail"
+                  type="email"
+                  maxlength="160"
+                  autocomplete="email"
+                  placeholder="you@example.com"
+                  data-route-photo-email
+                />
+              </label>
+            </div>
+
+            <div class="route-photo-form__grid route-photo-form__grid--meta">
+              <label>
+                Trip date
+                <input name="tripDate" type="date" data-route-trip-date />
+              </label>
+
+              <label>
+                How did it feel?
+                <select name="tripSentiment" data-route-trip-sentiment>
+                  <option value="">Select one</option>
+                  <option value="great">Great day</option>
+                  <option value="good">Good but watchable</option>
+                  <option value="mixed">Mixed</option>
+                  <option value="rough">Rough / sketchy</option>
+                </select>
+              </label>
+            </div>
+
+            <label>
+              Trip review
+              <span class="request-form__hint">Share how it paddled, what the access looked like, and anything others should know.</span>
+              <textarea
+                name="tripReport"
+                rows="5"
+                maxlength="1800"
+                placeholder="Example: Water was moving well, put-in parking was easy, one new strainer on river right about halfway down, and the take-out stairs were slick."
+                data-route-trip-report
+              ></textarea>
+            </label>
+
+            <label>
+              Photos
+              <span class="request-form__hint">Optional. Up to 4 JPG, PNG, or WebP images. Maximum 4 MB each.</span>
+              <input
+                type="file"
+                name="photos"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+                data-route-photo-files
+              />
+            </label>
+
+            <p class="muted route-photo-form__selection" data-route-photo-selection>
+              No files selected yet.
+            </p>
+
+            <label>
+              Photo or trip notes
+              <span class="request-form__hint">Optional extra context for the upload or review.</span>
+              <textarea
+                name="notes"
+                rows="4"
+                maxlength="1200"
+                placeholder="Example: These photos are from the put-in and the bridge bend. Medium spring flow, taken April 12."
+                data-route-photo-notes
+              ></textarea>
+            </label>
+
+            <label class="route-photo-form__checkbox">
+              <input type="checkbox" name="rightsConfirmed" data-route-photo-rights />
+              <span>I took these photos or have clear permission to share them.</span>
+            </label>
+
+            <label class="route-photo-form__checkbox">
+              <input type="checkbox" name="reviewConsent" data-route-photo-consent />
+              <span>Paddle Today can review this submission and contact me if more context is needed before publishing.</span>
+            </label>
+
+            <label class="request-form__hp" aria-hidden="true">
+              Leave this blank
+              <input name="company" tabindex="-1" autocomplete="off" data-route-photo-company />
+            </label>
+
+            <div class="request-form__actions">
+              <button class="filter-chip" type="submit" data-route-photo-submit>Send for review</button>
+            </div>
+
+            <p class="muted request-form__status route-photo-form__status" data-route-photo-status aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
     </section>
 
     <section class="river-detail__panel river-report-panel">

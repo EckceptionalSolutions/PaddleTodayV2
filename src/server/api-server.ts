@@ -55,6 +55,7 @@ const server = createServer(async (request, response) => {
 
   const isRiverRequestPath =
     requestUrl.pathname === '/api/river-request' || requestUrl.pathname === '/api/route-request';
+  const isRoutePhotoSubmissionPath = requestUrl.pathname === '/api/route-photo-submissions';
   const isAlertsPath = requestUrl.pathname === '/api/alerts';
   const isAlertUnsubscribePath = requestUrl.pathname === '/api/alerts/unsubscribe';
   const isHistorySnapshotPath = requestUrl.pathname === '/api/history/snapshot';
@@ -72,6 +73,20 @@ const server = createServer(async (request, response) => {
 
   if (isRiverRequestPath && request.method === 'POST') {
     return handleRiverRequest(request, response, requestId, includeBody);
+  }
+
+  if (isRoutePhotoSubmissionPath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isRoutePhotoSubmissionPath && request.method === 'POST') {
+    return handleRoutePhotoSubmission(request, response, requestId, includeBody);
   }
 
   if (isAlertsPath && request.method === 'OPTIONS') {
@@ -594,6 +609,213 @@ async function handleRiverRequest(
   }
 }
 
+async function handleRoutePhotoSubmission(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  const ip = getIp(request);
+  if (isRateLimited(ip)) {
+    return sendJson(
+      response,
+      429,
+      {
+        requestId,
+        error: 'too_many_requests',
+        message: 'Too many requests. Please try again later.',
+      },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  try {
+    const body = await readJsonBody(request);
+    const riverSlug = clean(body?.riverSlug, 160);
+    const contributorName = clean(body?.contributorName, 120);
+    const contributorEmail = clean(body?.contributorEmail, 160).toLowerCase();
+    const tripDate = clean(body?.tripDate, 40);
+    const tripSentiment = clean(body?.tripSentiment, 40);
+    const tripReport = clean(body?.tripReport, 1800);
+    const notes = clean(body?.notes, 1200);
+    const rightsConfirmed = body?.rightsConfirmed === true;
+    const reviewConsent = body?.reviewConsent === true;
+    const honeypot = clean(body?.company, 240);
+    const files = Array.isArray(body?.files) ? body.files : [];
+
+    if (honeypot) {
+      return sendJson(response, 202, { requestId, ok: true, stored: false }, includeBody, 'no-store');
+    }
+
+    if (!riverSlug || !contributorName || !contributorEmail || !reviewConsent) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'missing_required_fields', message: 'Missing required contribution fields.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (!isValidEmail(contributorEmail)) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'invalid_email', message: 'Enter a valid email address.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (files.length > 4) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'too_many_files', message: 'Upload up to 4 photos at a time.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const hasPhotos = files.length > 0;
+    if (!hasPhotos && tripReport.length < 12) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'not_enough_detail', message: 'Add a trip review or upload at least one photo.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    if (hasPhotos && !rightsConfirmed) {
+      return sendJson(
+        response,
+        400,
+        { requestId, error: 'rights_required', message: 'Confirm that the uploaded photos are yours or shared with permission.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const river = getRiverBySlug(riverSlug);
+    if (!river) {
+      return sendJson(
+        response,
+        404,
+        { requestId, error: 'not_found', message: 'That river route could not be found.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const stamp = Date.now();
+    const rand = Math.random().toString(16).slice(2, 10);
+    const localDir = resolve(
+      process.cwd(),
+      '.local',
+      'route-photo-submissions',
+      sanitizeFileSegment(riverSlug, 'route'),
+      `${stamp}-${rand}`
+    );
+    await mkdir(localDir, { recursive: true });
+
+    const decodedFiles = [];
+
+    for (let index = 0; index < files.length; index += 1) {
+      const file = files[index];
+      const originalName = clean(file?.name, 240) || `photo-${index + 1}`;
+      const decoded = decodeImageDataUrl(clean(file?.dataUrl, 8_000_000));
+      const byteSize = Number(file?.size);
+
+      if (!decoded || !isSupportedPhotoMime(decoded.mimeType)) {
+        return sendJson(
+          response,
+          400,
+          { requestId, error: 'invalid_photo_type', message: 'Photos must be JPG, PNG, or WebP.' },
+          includeBody,
+          'no-store'
+        );
+      }
+
+      if (!Number.isFinite(byteSize) || byteSize <= 0 || byteSize > 4 * 1024 * 1024 || decoded.buffer.length > 4 * 1024 * 1024) {
+        return sendJson(
+          response,
+          400,
+          { requestId, error: 'file_too_large', message: 'Each photo must be 4 MB or smaller.' },
+          includeBody,
+          'no-store'
+        );
+      }
+
+      const extension = extensionForPhotoMime(decoded.mimeType);
+      const fileName = `${String(index + 1).padStart(2, '0')}-${sanitizeFileSegment(originalName, 'photo')}${extension}`;
+      decodedFiles.push({
+        fileName,
+        originalName,
+        mimeType: decoded.mimeType,
+        size: byteSize,
+        buffer: decoded.buffer,
+      });
+    }
+
+    for (const file of decodedFiles) {
+      const filePath = resolve(localDir, file.fileName);
+      await writeFile(filePath, file.buffer);
+    }
+
+    const payload = {
+      submittedAt: new Date().toISOString(),
+      river: {
+        slug: river.slug,
+        name: river.name,
+        reach: river.reach,
+        state: river.state,
+        region: river.region,
+      },
+      contributor: {
+        name: contributorName,
+        email: contributorEmail,
+      },
+      trip: {
+        date: tripDate,
+        sentiment: tripSentiment,
+        report: tripReport,
+      },
+      notes,
+      rightsConfirmed,
+      reviewConsent,
+      files: decodedFiles.map(({ buffer: _buffer, ...file }) => file),
+      meta: {
+        ip,
+        ua: clean(request.headers['user-agent'], 240),
+        referer: clean(request.headers.referer, 500),
+      },
+    };
+
+    const localFile = resolve(localDir, 'submission.json');
+    await writeFile(localFile, JSON.stringify(payload, null, 2), 'utf8');
+
+    return sendJson(
+      response,
+      202,
+      { requestId, ok: true, stored: true, storage: 'local' },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[route-photo-submission] request failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Failed to store photo submission.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
 async function handleRiverAlertCreate(
   request: Parameters<typeof createServer>[0],
   response: ServerResponse,
@@ -919,6 +1141,48 @@ function requestHasRefreshToken(
 
 function clean(value: unknown, max = 5000) {
   return String(value || '').trim().slice(0, max);
+}
+
+function sanitizeFileSegment(value: string, fallback = 'file') {
+  const normalized = clean(value, 120)
+    .toLowerCase()
+    .replace(/\.[a-z0-9]{2,5}$/i, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+
+  return normalized || fallback;
+}
+
+function isSupportedPhotoMime(value: string) {
+  return value === 'image/jpeg' || value === 'image/png' || value === 'image/webp';
+}
+
+function extensionForPhotoMime(value: string) {
+  switch (value) {
+    case 'image/png':
+      return '.png';
+    case 'image/webp':
+      return '.webp';
+    case 'image/jpeg':
+    default:
+      return '.jpg';
+  }
+}
+
+function decodeImageDataUrl(value: string) {
+  const match = value.match(/^data:(image\/(?:jpeg|png|webp));base64,([a-z0-9+/=]+)$/i);
+  if (!match) {
+    return null;
+  }
+
+  try {
+    return {
+      mimeType: match[1].toLowerCase(),
+      buffer: Buffer.from(match[2], 'base64'),
+    };
+  } catch {
+    return null;
+  }
 }
 
 function getIp(request: Parameters<typeof createServer>[0]) {

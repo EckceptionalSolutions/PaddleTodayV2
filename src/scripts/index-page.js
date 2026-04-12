@@ -202,7 +202,7 @@ let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
 const boardRequestGuard = createRequestGuard();
 
-const EXPLORE_PAGE_SIZE = 9;
+const EXPLORE_PAGE_SIZE = 12;
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
 
 function setText(scope, field, value) {

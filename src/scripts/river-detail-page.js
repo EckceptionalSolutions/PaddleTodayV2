@@ -68,6 +68,30 @@ const shareCopyButton = root.querySelector('[data-share-copy]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
+const routeGallery = root.querySelector('[data-route-gallery]');
+const routeGalleryImage = root.querySelector('[data-route-gallery-image]');
+const routeGalleryCaption = root.querySelector('[data-route-gallery-caption]');
+const routeGalleryCredit = root.querySelector('[data-route-gallery-credit]');
+const routeGalleryTaken = root.querySelector('[data-route-gallery-taken]');
+const routeGalleryThumbs = Array.from(root.querySelectorAll('[data-route-gallery-thumb]'));
+const routeGalleryPending = root.querySelector('[data-route-gallery-pending]');
+const routeGalleryPendingGrid = root.querySelector('[data-route-gallery-pending-grid]');
+const routeGalleryPendingTitle = root.querySelector('[data-route-gallery-pending-title]');
+const routeGalleryPendingNote = root.querySelector('[data-route-gallery-pending-note]');
+const routePhotoForm = root.querySelector('[data-route-photo-form]');
+const routePhotoFilesInput = root.querySelector('[data-route-photo-files]');
+const routePhotoSelection = root.querySelector('[data-route-photo-selection]');
+const routePhotoNameInput = root.querySelector('[data-route-photo-name]');
+const routePhotoEmailInput = root.querySelector('[data-route-photo-email]');
+const routeTripDateInput = root.querySelector('[data-route-trip-date]');
+const routeTripSentimentInput = root.querySelector('[data-route-trip-sentiment]');
+const routeTripReportInput = root.querySelector('[data-route-trip-report]');
+const routePhotoNotesInput = root.querySelector('[data-route-photo-notes]');
+const routePhotoRightsInput = root.querySelector('[data-route-photo-rights]');
+const routePhotoConsentInput = root.querySelector('[data-route-photo-consent]');
+const routePhotoCompanyInput = root.querySelector('[data-route-photo-company]');
+const routePhotoSubmitButton = root.querySelector('[data-route-photo-submit]');
+const routePhotoStatus = root.querySelector('[data-route-photo-status]');
 const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
 const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
@@ -116,14 +140,22 @@ let activeAccessContext = {
 };
 const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading'];
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
+const ROUTE_PHOTO_COOLDOWN_MS = 30 * 1000;
+const ROUTE_PHOTO_MAX_FILES = 4;
+const ROUTE_PHOTO_MAX_BYTES = 4 * 1024 * 1024;
+const ROUTE_PHOTO_ALLOWED_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 let lastDetailSuccessAt = null;
 let hasLoadedDetailOnce = false;
 const detailCacheKey = `river-detail:${slug}:v1`;
 const historyCacheKey = `river-history:${slug}:7:v1`;
+const routePhotoCooldownKey = `route-photo:${slug}:last-submitted`;
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 let detailMapCollapsed = phoneBreakpoint.matches;
 const detailRequestGuard = createRequestGuard();
 const historyRequestGuard = createRequestGuard();
+const approvedRoutePhotos = parseApprovedRoutePhotos(routeGallery instanceof HTMLElement ? routeGallery.dataset.approvedPhotos : '[]');
+let selectedRoutePhotoFiles = [];
+let submittedRoutePhotoPreviews = [];
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -148,6 +180,406 @@ function setActiveDetailSection(sectionId) {
     link.classList.toggle('river-detail__section-link--active', link.dataset.detailNavLink === sectionId);
     link.setAttribute('aria-current', link.dataset.detailNavLink === sectionId ? 'true' : 'false');
   }
+}
+
+function parseApprovedRoutePhotos(raw) {
+  try {
+    const parsed = JSON.parse(raw || '[]');
+    if (!Array.isArray(parsed)) {
+      return [];
+    }
+
+    return parsed
+      .map((photo, index) => ({
+        id: typeof photo?.id === 'string' ? photo.id : `photo-${index + 1}`,
+        src: typeof photo?.src === 'string' ? photo.src : '',
+        alt: typeof photo?.alt === 'string' ? photo.alt : '',
+        caption: typeof photo?.caption === 'string' ? photo.caption : '',
+        credit: typeof photo?.credit === 'string' ? photo.credit : '',
+        takenLabel: typeof photo?.takenLabel === 'string' ? photo.takenLabel : '',
+      }))
+      .filter((photo) => photo.src);
+  } catch {
+    return [];
+  }
+}
+
+function updateApprovedRoutePhoto(index) {
+  if (!(routeGalleryImage instanceof HTMLImageElement)) {
+    return;
+  }
+
+  const photo = approvedRoutePhotos[index];
+  if (!photo) {
+    return;
+  }
+
+  routeGalleryImage.src = photo.src;
+  routeGalleryImage.alt = photo.alt || photo.caption || `${riverContext.name} route photo`;
+
+  if (routeGalleryCaption instanceof HTMLElement) {
+    routeGalleryCaption.textContent = photo.caption || 'Approved community photo';
+  }
+
+  if (routeGalleryCredit instanceof HTMLElement) {
+    routeGalleryCredit.textContent = photo.credit ? `Photo by ${photo.credit}` : 'Approved community photo';
+  }
+
+  if (routeGalleryTaken instanceof HTMLElement) {
+    routeGalleryTaken.textContent = photo.takenLabel || '';
+    routeGalleryTaken.hidden = !photo.takenLabel;
+  }
+
+  for (const thumb of routeGalleryThumbs) {
+    if (!(thumb instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const isActive = Number(thumb.dataset.routeGalleryIndex) === index;
+    thumb.classList.toggle('route-gallery__thumb--active', isActive);
+    thumb.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  }
+}
+
+function bindApprovedRouteGallery() {
+  if (approvedRoutePhotos.length === 0 || routeGalleryThumbs.length === 0) {
+    return;
+  }
+
+  for (const thumb of routeGalleryThumbs) {
+    if (!(thumb instanceof HTMLButtonElement) || thumb.dataset.galleryBound === 'true') {
+      continue;
+    }
+
+    thumb.dataset.galleryBound = 'true';
+    thumb.addEventListener('click', () => {
+      const index = Number(thumb.dataset.routeGalleryIndex);
+      if (Number.isFinite(index)) {
+        updateApprovedRoutePhoto(index);
+      }
+    });
+  }
+}
+
+function revokeRoutePhotoPreviews(previews) {
+  for (const preview of previews) {
+    if (preview?.previewUrl) {
+      URL.revokeObjectURL(preview.previewUrl);
+    }
+  }
+}
+
+function clearRoutePhotoPreviews() {
+  revokeRoutePhotoPreviews(selectedRoutePhotoFiles);
+  selectedRoutePhotoFiles = [];
+}
+
+function clearSubmittedRoutePhotoPreviews() {
+  revokeRoutePhotoPreviews(submittedRoutePhotoPreviews);
+  submittedRoutePhotoPreviews = [];
+}
+
+function summarizeSelectedRoutePhotos() {
+  if (!(routePhotoSelection instanceof HTMLElement)) {
+    return;
+  }
+
+  if (selectedRoutePhotoFiles.length === 0) {
+    routePhotoSelection.textContent = 'No files selected yet.';
+    return;
+  }
+
+  const totalMb = selectedRoutePhotoFiles.reduce((sum, item) => sum + item.file.size, 0) / (1024 * 1024);
+  routePhotoSelection.textContent = `${selectedRoutePhotoFiles.length} photo${selectedRoutePhotoFiles.length === 1 ? '' : 's'} selected • ${totalMb.toFixed(1)} MB total`;
+}
+
+function renderRoutePhotoPendingGrid(mode = 'selected') {
+  if (!(routeGalleryPending instanceof HTMLElement) || !(routeGalleryPendingGrid instanceof HTMLElement)) {
+    return;
+  }
+
+  const previews =
+    selectedRoutePhotoFiles.length > 0
+      ? selectedRoutePhotoFiles.map(({ file, previewUrl }) => ({
+          name: file.name,
+          size: file.size,
+          previewUrl,
+        }))
+      : submittedRoutePhotoPreviews;
+  const hasPhotos = previews.length > 0;
+  routeGalleryPending.hidden = !hasPhotos;
+  if (!hasPhotos) {
+    routeGalleryPendingGrid.innerHTML = '';
+    return;
+  }
+
+  if (routeGalleryPendingTitle instanceof HTMLElement) {
+    routeGalleryPendingTitle.textContent = mode === 'submitted' ? 'Pending your review' : 'Selected for upload';
+  }
+
+  if (routeGalleryPendingNote instanceof HTMLElement) {
+    routeGalleryPendingNote.textContent =
+      mode === 'submitted'
+        ? 'Sent to your review queue. These previews are only visible in this browser.'
+        : 'Check these previews before you send them. Nothing is public yet.';
+  }
+
+  routeGalleryPendingGrid.innerHTML = selectedRoutePhotoFiles
+    .length > 0
+    ? selectedRoutePhotoFiles
+    .map(
+      ({ file, previewUrl }) => `
+        <article class="route-gallery__pending-card">
+          <div class="route-gallery__pending-media">
+            <img src="${escapeHtml(previewUrl)}" alt="${escapeHtml(file.name)} preview" loading="lazy" />
+          </div>
+          <div class="route-gallery__pending-meta">
+            <strong>${escapeHtml(file.name)}</strong>
+            <span>${Math.max(1, Math.round(file.size / 1024))} KB</span>
+          </div>
+        </article>
+      `
+    )
+    .join('')
+    : previews
+        .map(
+          ({ name, size, previewUrl }) => `
+            <article class="route-gallery__pending-card">
+              <div class="route-gallery__pending-media">
+                <img src="${escapeHtml(previewUrl)}" alt="${escapeHtml(name)} preview" loading="lazy" />
+              </div>
+              <div class="route-gallery__pending-meta">
+                <strong>${escapeHtml(name)}</strong>
+                <span>${Math.max(1, Math.round(size / 1024))} KB</span>
+              </div>
+            </article>
+          `
+        )
+        .join('');
+}
+
+function setRoutePhotoStatus(message, tone = '') {
+  if (!(routePhotoStatus instanceof HTMLElement)) {
+    return;
+  }
+
+  routePhotoStatus.textContent = message;
+  routePhotoStatus.classList.toggle('route-photo-form__status--success', tone === 'success');
+  routePhotoStatus.classList.toggle('route-photo-form__status--error', tone === 'error');
+}
+
+function setRoutePhotoSubmitting(isSubmitting) {
+  if (!(routePhotoSubmitButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  routePhotoSubmitButton.disabled = isSubmitting;
+  routePhotoSubmitButton.textContent = isSubmitting ? 'Uploading...' : 'Upload for review';
+}
+
+function validateRoutePhotoSelection(fileList) {
+  if (!Array.isArray(fileList) || fileList.length === 0) {
+    return '';
+  }
+
+  if (fileList.length > ROUTE_PHOTO_MAX_FILES) {
+    return `Upload up to ${ROUTE_PHOTO_MAX_FILES} photos at a time.`;
+  }
+
+  for (const file of fileList) {
+    if (!(file instanceof File)) {
+      return 'One of the selected files could not be read.';
+    }
+
+    if (!ROUTE_PHOTO_ALLOWED_TYPES.has(file.type)) {
+      return 'Photos must be JPG, PNG, or WebP.';
+    }
+
+    if (file.size > ROUTE_PHOTO_MAX_BYTES) {
+      return 'Each photo must be 4 MB or smaller.';
+    }
+  }
+
+  return '';
+}
+
+function syncSelectedRoutePhotos() {
+  if (!(routePhotoFilesInput instanceof HTMLInputElement)) {
+    return;
+  }
+
+  clearRoutePhotoPreviews();
+  clearSubmittedRoutePhotoPreviews();
+  const files = Array.from(routePhotoFilesInput.files || []);
+  const validationError = validateRoutePhotoSelection(files);
+  if (validationError) {
+    summarizeSelectedRoutePhotos();
+    renderRoutePhotoPendingGrid('selected');
+    setRoutePhotoStatus(validationError, 'error');
+    return;
+  }
+
+  selectedRoutePhotoFiles = files.map((file) => ({
+    file,
+    previewUrl: URL.createObjectURL(file),
+  }));
+  summarizeSelectedRoutePhotos();
+  renderRoutePhotoPendingGrid('selected');
+  setRoutePhotoStatus(`${selectedRoutePhotoFiles.length} photo${selectedRoutePhotoFiles.length === 1 ? '' : 's'} ready to upload.`, '');
+}
+
+function readFileAsDataUrl(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+    reader.onerror = () => reject(new Error(`Could not read ${file.name}.`));
+    reader.readAsDataURL(file);
+  });
+}
+
+function bindRoutePhotoForm() {
+  if (
+    !(routePhotoForm instanceof HTMLFormElement) ||
+    !(routePhotoFilesInput instanceof HTMLInputElement) ||
+    !(routePhotoNameInput instanceof HTMLInputElement) ||
+    !(routePhotoEmailInput instanceof HTMLInputElement) ||
+    !(routePhotoRightsInput instanceof HTMLInputElement) ||
+    !(routePhotoConsentInput instanceof HTMLInputElement)
+  ) {
+    return;
+  }
+
+  routePhotoFilesInput.addEventListener('change', () => {
+    syncSelectedRoutePhotos();
+  });
+
+  routePhotoForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const nowTs = Date.now();
+    const lastTs = Number(window.localStorage.getItem(routePhotoCooldownKey) || '0');
+    if (Number.isFinite(lastTs) && nowTs - lastTs < ROUTE_PHOTO_COOLDOWN_MS) {
+      setRoutePhotoStatus('Please wait a few seconds before uploading more photos.', 'error');
+      return;
+    }
+
+    const validationError = validateRoutePhotoSelection(selectedRoutePhotoFiles.map((item) => item.file));
+    if (validationError) {
+      setRoutePhotoStatus(validationError, 'error');
+      if (routePhotoFilesInput instanceof HTMLInputElement) {
+        routePhotoFilesInput.focus();
+      }
+      return;
+    }
+
+    const contributorName = routePhotoNameInput.value.trim();
+    const contributorEmail = routePhotoEmailInput.value.trim();
+    const tripDate = routeTripDateInput instanceof HTMLInputElement ? routeTripDateInput.value.trim() : '';
+    const tripSentiment = routeTripSentimentInput instanceof HTMLSelectElement ? routeTripSentimentInput.value.trim() : '';
+    const tripReport = routeTripReportInput instanceof HTMLTextAreaElement ? routeTripReportInput.value.trim() : '';
+    const notes = routePhotoNotesInput instanceof HTMLTextAreaElement ? routePhotoNotesInput.value.trim() : '';
+    const hasPhotos = selectedRoutePhotoFiles.length > 0;
+
+    if (contributorName.length < 2) {
+      setRoutePhotoStatus('Add the contributor name.', 'error');
+      routePhotoNameInput.focus();
+      return;
+    }
+
+    if (!contributorEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contributorEmail)) {
+      setRoutePhotoStatus('Enter a valid email address.', 'error');
+      routePhotoEmailInput.focus();
+      return;
+    }
+
+    if (!hasPhotos && tripReport.length < 12) {
+      setRoutePhotoStatus('Add a trip review or upload at least one photo.', 'error');
+      if (routeTripReportInput instanceof HTMLTextAreaElement) {
+        routeTripReportInput.focus();
+      }
+      return;
+    }
+
+    if (hasPhotos && !routePhotoRightsInput.checked) {
+      setRoutePhotoStatus('Confirm you took the photos or have permission to share them.', 'error');
+      routePhotoRightsInput.focus();
+      return;
+    }
+
+    if (!routePhotoConsentInput.checked) {
+      setRoutePhotoStatus('Confirm that Paddle Today can review and contact you about these photos.', 'error');
+      routePhotoConsentInput.focus();
+      return;
+    }
+
+    setRoutePhotoSubmitting(true);
+    setRoutePhotoStatus(`Uploading ${selectedRoutePhotoFiles.length} photo${selectedRoutePhotoFiles.length === 1 ? '' : 's'} for review...`);
+
+    try {
+      const files = await Promise.all(
+        selectedRoutePhotoFiles.map(async ({ file }) => ({
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          lastModified: file.lastModified,
+          dataUrl: await readFileAsDataUrl(file),
+        }))
+      );
+
+      const response = await fetch('/api/route-photo-submissions', {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          riverSlug: slug,
+          contributorName,
+          contributorEmail,
+          tripDate,
+          tripSentiment,
+          tripReport,
+          notes,
+          rightsConfirmed: routePhotoRightsInput.checked,
+          reviewConsent: routePhotoConsentInput.checked,
+          company: routePhotoCompanyInput instanceof HTMLInputElement ? routePhotoCompanyInput.value.trim() : '',
+          files,
+        }),
+      });
+
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || payload?.ok !== true) {
+        throw new Error(payload?.message || 'Could not store this photo submission.');
+      }
+
+      window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
+      clearSubmittedRoutePhotoPreviews();
+      submittedRoutePhotoPreviews = selectedRoutePhotoFiles.map(({ file, previewUrl }) => ({
+        name: file.name,
+        size: file.size,
+        previewUrl,
+      }));
+      selectedRoutePhotoFiles = [];
+      routePhotoForm.reset();
+      summarizeSelectedRoutePhotos();
+      renderRoutePhotoPendingGrid('submitted');
+      setRoutePhotoStatus(
+        hasPhotos
+          ? 'Submission received. Photos and trip notes are now in your local review queue and still private.'
+          : 'Trip report received. It is now in your local review queue and still private.',
+        'success'
+      );
+      setRouteActionStatus('Trip submission sent for review.', 'success');
+    } catch (error) {
+      console.error('Failed to submit route photos.', error);
+      setRoutePhotoStatus(
+        error instanceof Error ? error.message : 'Could not upload these photos right now.',
+        'error'
+      );
+    } finally {
+      setRoutePhotoSubmitting(false);
+    }
+  });
 }
 
 function detailScrollOffset() {
@@ -2902,10 +3334,13 @@ initializeAccessPlanner();
 renderActiveAccessContext();
 updateChartButtonStates();
 renderAccessMaps(null);
+updateApprovedRoutePhoto(0);
+bindApprovedRouteGallery();
 setupDetailSectionNav();
 setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
+bindRoutePhotoForm();
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
     setRouteActionStatus(saved ? 'Saved this route to Favorites.' : 'Removed this route from Favorites.', 'success');
@@ -2927,6 +3362,10 @@ window.addEventListener('resize', () => {
 });
 phoneBreakpoint.addEventListener('change', () => {
   updateDetailMapToggle();
+});
+window.addEventListener('beforeunload', () => {
+  clearRoutePhotoPreviews();
+  clearSubmittedRoutePhotoPreviews();
 });
 const hydratedDetail = hydrateDetailFromCache();
 hydrateHistoryFromCache();
