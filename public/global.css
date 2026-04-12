@@ -7825,23 +7825,41 @@ a {
   grid-template-columns: 1fr;
   gap: 0.85rem;
   align-items: start;
-  padding: 1.08rem;
+  padding: 1.25rem;
   border: 1px solid rgba(30, 115, 151, 0.22);
-  border-radius: 24px;
+  border-radius: 30px;
   background:
     linear-gradient(135deg, rgba(239, 248, 250, 0.97), rgba(255, 255, 255, 0.96) 58%, rgba(239, 249, 243, 0.96)),
     var(--panel-strong);
   box-shadow:
-    0 16px 36px rgba(16, 35, 45, 0.1),
+    0 24px 60px rgba(16, 35, 45, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(24px);
 }
 
 .home-location-bar__current {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: 0.62rem;
-  align-items: center;
+  gap: 0.875rem;
+  align-items: start;
   min-width: 0;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 20px;
+  background: transparent;
+  text-align: left;
+  appearance: none;
+  transition: background-color 160ms ease, box-shadow 160ms ease;
+}
+
+.home-location-bar__current:hover {
+  background: rgba(240, 249, 255, 0.35);
+}
+
+.home-location-bar__current:focus-visible {
+  outline: 2px solid rgba(125, 211, 252, 0.9);
+  outline-offset: 4px;
 }
 
 .home-location-bar__icon {
@@ -7854,6 +7872,15 @@ a {
   background: rgba(255, 255, 255, 0.82);
   color: var(--river-deep);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+.home-location-bar__current > span[aria-hidden='true'] {
+  margin-top: 0.125rem;
+}
+
+.home-location-bar__text {
+  display: grid;
+  gap: 0.25rem;
 }
 
 .home-location-bar__value,
@@ -7873,7 +7900,7 @@ a {
   justify-self: stretch;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 0.75rem;
+  gap: 0.875rem;
   align-items: center;
 }
 
@@ -7884,11 +7911,21 @@ a {
 
 .home-location-bar__actions {
   margin-left: 0;
-  gap: 0.58rem;
+  gap: 0.625rem;
   display: flex;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: center;
+}
+
+.home-location-bar__search-input {
+  width: 100%;
+  min-height: 3rem;
+  padding-inline: 1rem;
+  border-color: rgba(226, 232, 240, 0.8);
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  box-shadow: 0 1px 3px rgba(16, 35, 45, 0.08);
 }
 
 .home-location-bar__helper {
@@ -7919,14 +7956,15 @@ a {
 }
 
 .home-location-bar__use {
-  min-height: 3rem;
-  padding-inline: 1.12rem;
+  min-height: 2.25rem;
+  padding-inline: 0.875rem;
   border-color: rgba(16, 74, 104, 0.36);
   background:
     linear-gradient(180deg, rgba(30, 115, 151, 0.98), rgba(16, 74, 104, 0.94)),
     var(--river-deep);
   color: #fff;
   font-weight: 900;
+  font-size: 0.82rem;
   box-shadow: 0 14px 28px rgba(16, 74, 104, 0.22);
 }
 
@@ -7937,6 +7975,12 @@ a {
 
 .home-location-bar .filter-chip {
   min-height: 2.62rem;
+}
+
+.home-location-bar__clear {
+  min-height: 2.25rem;
+  padding-inline: 0.875rem;
+  font-size: 0.82rem;
 }
 
 .home-location-bar__helper::before {
@@ -7957,12 +8001,13 @@ a {
 .home-radius-panel {
   display: grid;
   gap: 0.62rem;
-  padding: 0.82rem 0.92rem 0.9rem;
-  border-radius: 18px;
+  padding: 1rem;
+  border-radius: 22px;
   border: 1px solid rgba(30, 115, 151, 0.14);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(245, 250, 251, 0.72)),
     rgba(255, 255, 255, 0.74);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
 }
 
 .home-radius-panel[hidden] {
@@ -7973,8 +8018,8 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.4rem 0.7rem;
-  align-items: baseline;
+  gap: 0.4rem 1rem;
+  align-items: center;
 }
 
 .home-radius-panel__summary,
@@ -7998,6 +8043,31 @@ a {
 
 .home-radius-panel__slider-wrap {
   display: block;
+}
+
+.home-radius-panel__scale {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  align-items: start;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.home-radius-panel__scale span:first-child {
+  justify-self: start;
+  text-align: left;
+}
+
+.home-radius-panel__scale span:last-child {
+  justify-self: end;
+  text-align: right;
+}
+
+.home-radius-panel__scale span:not(:first-child):not(:last-child) {
+  justify-self: center;
+  text-align: center;
 }
 
 .home-radius-panel__slider {
@@ -8136,26 +8206,27 @@ a {
 .home-hero {
   display: grid;
   grid-template-columns: minmax(0, 1.04fr) minmax(20rem, 0.96fr);
-  gap: 1.05rem;
+  gap: 2.5rem;
   align-items: start;
-  padding: clamp(1.2rem, 2.8vw, 2rem);
+  margin-top: 0.75rem;
+  padding: 1.5rem;
 }
 
 .home-hero__intro {
   display: grid;
-  gap: 0.88rem;
+  gap: 1.75rem;
   min-width: 0;
 }
 
 .home-hero__copy {
   display: grid;
-  gap: 0.82rem;
-  max-width: 60rem;
+  gap: 1.25rem;
+  max-width: 48rem;
 }
 
 .home-hero__rail {
   display: grid;
-  gap: 0.75rem;
+  gap: 1.25rem;
   align-content: start;
   min-width: 0;
 }
@@ -8179,15 +8250,43 @@ a {
 .home-featured {
   position: relative;
   min-height: 100%;
+  padding: 1.5rem;
+  border: 1.5px solid rgba(253, 230, 133, 0.7);
+  background: linear-gradient(160deg, rgba(255, 251, 241, 0.98), rgba(255, 255, 255, 0.96) 58%, rgba(247, 242, 231, 0.92));
+  box-shadow: 0 28px 70px rgba(120, 94, 42, 0.1);
 }
 
 .home-featured__body {
   display: grid;
-  gap: 0.6rem;
+  gap: 1.25rem;
   transition:
     filter 180ms ease,
     opacity 180ms ease,
     transform 180ms ease;
+}
+
+.home-featured__map-shell {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.home-featured__map {
+  min-height: 11.5rem;
+  border-radius: 22px;
+}
+
+.home-featured__map-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-featured__link {
+  min-height: 3.25rem;
+  font-size: 1rem;
 }
 
 .home-featured__lock {
@@ -8272,6 +8371,50 @@ a {
 .home-recommendations {
   min-width: 0;
   position: relative;
+  margin-top: 1rem;
+}
+
+@media (min-width: 48rem) {
+  .home-hero {
+    margin-top: 1rem;
+    gap: 3rem;
+    padding: 2.25rem;
+  }
+
+  .home-hero__intro {
+    gap: 2rem;
+  }
+
+  .home-hero__rail {
+    padding-top: 0.5rem;
+  }
+
+  .home-location-bar {
+    padding: 1.5rem;
+  }
+
+  .home-location-bar__form {
+    gap: 1rem;
+  }
+
+  .home-featured {
+    padding: 1.75rem;
+  }
+
+  .home-recommendations {
+    margin-top: 1.25rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .home-hero {
+    gap: 3.5rem;
+    padding: 2.5rem;
+  }
+
+  .home-recommendations {
+    margin-top: 1.5rem;
+  }
 }
 
 .home-recommendations__shell {

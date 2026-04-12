@@ -4,7 +4,6 @@ import FeatureIcon from '../components/FeatureIcon.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
 import { listRivers } from '../lib/rivers';
 import indexPageScript from '../scripts/index-page.js?url';
-import '../styles/tailwind.css';
 
 const rivers = listRivers();
 const states = [...new Set(rivers.map((river) => river.state))].sort();
@@ -49,22 +48,22 @@ const homepageStructuredData = [
   description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
   structuredData={homepageStructuredData}
 >
-  <section class="home-hero hero mt-3 gap-10 p-6 md:mt-4 md:gap-12 md:p-9 xl:gap-14 xl:p-10">
-    <div class="home-hero__intro gap-7 md:gap-8">
-      <div class="home-hero__copy max-w-3xl gap-5">
+  <section class="home-hero hero">
+    <div class="home-hero__intro">
+      <div class="home-hero__copy">
         <p class="hero__kicker">Paddle Today</p>
         <h1 data-home-headline>Find the best paddle near you today</h1>
         <p class="hero__lede">Set a location to rank nearby routes by drive time, river level, and weather.</p>
       </div>
 
-      <section class="home-location-bar home-hero__location rounded-[30px] border border-sky-200/70 bg-white/84 p-5 md:p-6 shadow-[0_24px_60px_rgba(16,35,45,0.10)] backdrop-blur-xl" id="home-location" aria-label="Set your location" data-nearby-location-panel>
+      <section class="home-location-bar home-hero__location" id="home-location" aria-label="Set your location" data-nearby-location-panel>
         <button
-          class="home-location-bar__current items-start gap-3.5 w-full appearance-none rounded-[20px] border-0 bg-transparent p-0 text-left transition hover:bg-sky-50/35 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-sky-300"
+          class="home-location-bar__current"
           type="button"
           data-location-edit-trigger
         >
-          <span class="mt-0.5 text-lg leading-none text-sky-800/80" aria-hidden="true">📍</span>
-          <div class="grid gap-1">
+          <span class="home-location-bar__icon" aria-hidden="true">&#x1F4CD;</span>
+          <div class="home-location-bar__text">
             <p class="home-location-bar__value" data-home-location-summary>Set your location to see drive times</p>
             <p class="home-location-bar__helper" data-home-location-sort-summary>
               Use GPS or enter a city to personalize nearby routes.
@@ -72,27 +71,27 @@ const homepageStructuredData = [
           </div>
         </button>
 
-        <form class="location-panel__form home-location-bar__form gap-3.5 md:gap-4" data-location-form>
+        <form class="location-panel__form home-location-bar__form" data-location-form>
           <label class="filter-search location-panel__search home-location-bar__search">
             <span class="sr-only">Enter a city or ZIP code</span>
             <input
-              class="filter-search__input h-12 w-full rounded-full border border-slate-200/80 bg-white/90 px-4 text-[0.95rem] shadow-sm"
+              class="filter-search__input home-location-bar__search-input"
               type="search"
               placeholder="City or ZIP code"
               data-location-input
             />
           </label>
-          <div class="location-panel__actions home-location-bar__actions gap-2.5">
-            <button class="river-link river-link--inline home-location-bar__use !min-h-9 !px-3.5 !text-[0.82rem]" type="button" data-location-use>
+          <div class="location-panel__actions home-location-bar__actions">
+            <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use>
               <FeatureIcon name="crosshair" size={17} />
               Use my location
             </button>
-            <button class="filter-chip home-location-bar__clear !min-h-9 !px-3.5 !text-[0.82rem]" type="button" data-location-clear hidden>Clear</button>
+            <button class="filter-chip home-location-bar__clear" type="button" data-location-clear hidden>Clear</button>
           </div>
         </form>
 
-        <div class="home-radius-panel rounded-[22px] border border-sky-100/80 bg-white/72 px-4 py-4 shadow-[inset_0_1px_0_rgba(255,255,255,0.82)]" data-home-radius-panel hidden>
-          <div class="home-radius-panel__head items-center gap-4">
+        <div class="home-radius-panel" data-home-radius-panel hidden>
+          <div class="home-radius-panel__head">
             <p class="home-radius-panel__summary" data-home-radius-summary>Showing routes within 100 miles</p>
           </div>
 
@@ -109,13 +108,13 @@ const homepageStructuredData = [
             />
           </label>
 
-          <div class="grid grid-cols-6 items-start text-[0.72rem] font-semibold tracking-[0.06em] text-slate-500" aria-hidden="true">
-            <span class="justify-self-start text-left">25 mi</span>
-            <span class="justify-self-center text-center">50 mi</span>
-            <span class="justify-self-center text-center">75 mi</span>
-            <span class="justify-self-center text-center">100 mi</span>
-            <span class="justify-self-center text-center">150 mi</span>
-            <span class="justify-self-end text-right">200 mi</span>
+          <div class="home-radius-panel__scale" aria-hidden="true">
+            <span>25 mi</span>
+            <span>50 mi</span>
+            <span>75 mi</span>
+            <span>100 mi</span>
+            <span>150 mi</span>
+            <span>200 mi</span>
           </div>
 
           <div class="home-radius-pills" aria-label="Route mix within selected radius">
@@ -140,14 +139,14 @@ const homepageStructuredData = [
       </section>
     </div>
 
-    <aside class="home-hero__rail gap-5 md:pt-2" aria-label="Today&apos;s best">
-      <section class="hero-call home-featured home-featured--locked border-[1.5px] border-amber-200/70 bg-[linear-gradient(160deg,rgba(255,251,241,0.98),rgba(255,255,255,0.96)_58%,rgba(247,242,231,0.92))] p-6 md:p-7 shadow-[0_28px_70px_rgba(120,94,42,0.10)]" data-home-featured>
+    <aside class="home-hero__rail" aria-label="Today&apos;s best">
+      <section class="hero-call home-featured home-featured--locked" data-home-featured>
         <div class="home-featured__lock">
           <p class="home-featured__lock-label">Today&apos;s best</p>
           <p class="home-featured__lock-copy">Set your location to reveal the strongest paddle near you.</p>
         </div>
 
-        <div class="home-featured__body gap-5">
+        <div class="home-featured__body">
           <p class="eyebrow" data-best-near-label>Today&apos;s best</p>
           <p class="hero-call__state" data-featured-state>Set your location to reveal the strongest paddle near you.</p>
           <h2 class="hero-call__title">
@@ -187,22 +186,22 @@ const homepageStructuredData = [
             </div>
           </details>
 
-          <div class="grid gap-2" data-featured-map-shell hidden>
-            <div class="summary-map !min-h-[11.5rem] rounded-[22px]" data-featured-map aria-label="Map showing the featured route location"></div>
-            <p class="text-[0.72rem] font-semibold uppercase tracking-[0.1em] text-slate-500" data-featured-map-status>Route location</p>
+          <div class="home-featured__map-shell" data-featured-map-shell hidden>
+            <div class="summary-map home-featured__map" data-featured-map aria-label="Map showing the featured route location"></div>
+            <p class="home-featured__map-status" data-featured-map-status>Route location</p>
           </div>
 
           <p class="hero-call__signal-line" data-field="featured-signal">Gauge, weather, and support details will appear here.</p>
           <p class="hero-call__summary muted" data-field="featured-explanation">Location unlocks the full summary and drive-time-aware recommendation.</p>
           <button class="hero-call__toggle" type="button" data-featured-toggle hidden>Details</button>
           <ul class="hero-call__reasons" data-featured-reasons hidden></ul>
-          <a class="river-link river-link--inline river-link--wide river-link--primary home-featured__link !min-h-[3.25rem] !text-base" href="#best-options" data-featured-link>Set location first</a>
+          <a class="river-link river-link--inline river-link--wide river-link--primary home-featured__link" href="#best-options" data-featured-link>Set location first</a>
         </div>
       </section>
     </aside>
   </section>
 
-  <section class="decision-section decision-section--recommended home-recommendations mt-4 md:mt-5 xl:mt-6" id="best-options">
+  <section class="decision-section decision-section--recommended home-recommendations" id="best-options">
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Recommended</p>
@@ -471,3 +470,4 @@ const homepageStructuredData = [
 
   <script type="module" src={indexPageScript}></script>
 </BaseLayout>
+
