@@ -5964,24 +5964,33 @@ a {
   font-weight: 600;
 }
 
+.favorites-page {
+  gap: 0.65rem;
+}
+
 .favorites-page__head {
-  margin-bottom: 0.2rem;
+  margin-bottom: 0;
 }
 
 .favorites-page__device-note {
-  margin: 0 0 0.8rem;
+  margin: 0;
+  font-size: 0.82rem;
 }
 
 .favorites-page__map-shell {
-  margin-bottom: 1rem;
+  margin: 0.1rem 0 0.3rem;
 }
 
 .favorites-page__map-copy {
-  gap: 0.72rem;
+  gap: 0.56rem;
 }
 
 .favorites-page__map-title {
   margin-bottom: 0;
+}
+
+.favorites-page__map-lede {
+  margin: 0;
 }
 
 .favorites-page__map-note {
@@ -6002,7 +6011,7 @@ a {
 .favorites-page__grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.9rem;
+  gap: 0.8rem;
 }
 
 .favorites-page__empty-title,
@@ -6011,7 +6020,7 @@ a {
 }
 
 .favorites-page__empty {
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 
 .favorites-card__saved-at {
