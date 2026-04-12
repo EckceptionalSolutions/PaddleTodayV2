@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import unsubscribeScript from '../../scripts/alerts-unsubscribe-page.js?url';
+---
+
+<BaseLayout
+  title="Paddle Today | Unsubscribe Alert"
+  description="Turn off a Paddle Today river alert."
+  noindex={true}
+>
+  <section class="decision-section alert-manage">
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">River alerts</p>
+        <h1 class="section-title">Turn off this alert</h1>
+      </div>
+      <p class="muted section-head__note" data-alert-manage-subtitle>
+        Checking this alert link...
+      </p>
+    </div>
+
+    <div class="alert-manage__panel">
+      <p class="alert-manage__route" data-alert-manage-route>River alert</p>
+      <p class="alert-manage__threshold muted" data-alert-manage-threshold>
+        We only send when a route newly crosses into your chosen threshold.
+      </p>
+      <p class="alert-manage__status muted" data-alert-manage-status aria-live="polite">
+        Loading alert details...
+      </p>
+
+      <div class="alert-manage__actions">
+        <button class="river-link river-link--inline" type="button" data-alert-manage-submit>
+          Unsubscribe
+        </button>
+        <a class="river-link river-link--inline river-link--ghost" href="/" data-alert-manage-cancel>
+          Back to home
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script type="module" src={unsubscribeScript}></script>
+</BaseLayout>

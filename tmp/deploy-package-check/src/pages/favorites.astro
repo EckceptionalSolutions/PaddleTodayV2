@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FavoriteButton from '../components/FavoriteButton.astro';
+import favoritesPageScript from '../scripts/favorites-page.js?url';
+---
+
+<BaseLayout
+  title="Paddle Today | Favorite Routes"
+  description="See your saved Paddle Today routes on this device and check how they look right now."
+>
+  <section class="decision-section favorites-page" data-favorites-page>
+    <div class="section-head section-head--stacked favorites-page__head">
+      <div>
+        <p class="eyebrow">Saved routes</p>
+        <h1 class="section-title">Favorite routes</h1>
+      </div>
+      <p class="muted section-head__note" data-favorites-summary>
+        Checking saved routes on this device.
+      </p>
+    </div>
+
+    <p class="favorites-page__device-note muted">
+      Favorites are stored in this browser only for now.
+    </p>
+
+    <section class="summary-map-shell favorites-page__map-shell" data-favorites-map-shell hidden>
+      <div class="summary-map-copy favorites-page__map-copy">
+        <div class="summary-map-results-head">
+          <p class="eyebrow">Map view</p>
+          <h2 class="section-title favorites-page__map-title">Saved route map</h2>
+        </div>
+        <p class="summary-map-copy__lede favorites-page__map-lede">
+          Scan where your saved routes sit and open any marker for the current score snapshot.
+        </p>
+        <p class="muted favorites-page__map-note" data-favorites-map-copy>
+          Loading current favorite route locations.
+        </p>
+      </div>
+
+      <div class="summary-map-frame favorites-page__map-frame">
+        <div class="summary-map favorites-page__map" data-favorites-map aria-label="Map showing saved favorite routes"></div>
+        <div class="summary-map-footer">
+          <div class="summary-map-legend" aria-hidden="true">
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+              Best
+            </span>
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__marker summary-map-legend__marker--marginal">70</span>
+              Fair
+            </span>
+            <span class="summary-map-legend__item">
+              <span class="summary-map-legend__marker summary-map-legend__marker--low-confidence">?</span>
+              Lower confidence
+            </span>
+          </div>
+          <p class="muted summary-map__status favorites-page__map-status" data-favorites-map-status>
+            Loading favorite map.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="favorites-page__empty decision-placeholder" data-favorites-empty hidden>
+      <p class="favorites-page__empty-title">No favorite routes yet.</p>
+      <p class="muted favorites-page__empty-copy">
+        Save a route from a route page or route card and it will show up here.
+      </p>
+      <a class="river-link river-link--inline" href="/">Back to today&apos;s board</a>
+    </div>
+
+    <div class="favorites-page__grid" data-favorites-grid hidden></div>
+  </section>
+
+  <template data-favorites-card-template>
+    <article class="river-card river-card--decision river-card--route favorites-card" data-favorite-card>
+      <div class="river-card__eyebrow-row">
+        <div class="river-card__eyebrow-meta">
+          <span class="river-card__kind">Route</span>
+          <p class="river-card__state" data-field="favorite-state"></p>
+        </div>
+        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
+      </div>
+
+      <div class="river-card__top">
+        <div class="river-card__title-block">
+          <h2 class="river-card__title">
+            <a class="title-link" href="/" data-field="favorite-title-link"></a>
+          </h2>
+          <p class="river-card__subtitle" data-field="favorite-route"></p>
+        </div>
+      </div>
+
+      <p class="river-card__verdict" data-field="favorite-verdict"></p>
+      <div class="river-card__scoreline">
+        <div class="score-orb" aria-label="Favorite route score">
+          <span class="score-orb__score" data-field="favorite-score"></span>
+          <span class="score-orb__rating" data-field="favorite-rating"></span>
+        </div>
+        <p class="river-card__meta-line" data-field="favorite-meta"></p>
+      </div>
+      <p class="river-card__explanation" data-field="favorite-summary"></p>
+      <div class="river-card__signal-line" data-field="favorite-signal"></div>
+      <p class="favorites-card__saved-at muted" data-field="favorite-saved-at"></p>
+
+      <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>
+    </article>
+  </template>
+
+  <script type="module" src={favoritesPageScript}></script>
+</BaseLayout>

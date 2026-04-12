@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FeatureIcon from '../../../components/FeatureIcon.astro';
+import FavoriteButton from '../../../components/FavoriteButton.astro';
+import { listRiverGroups } from '../../../lib/rivers';
+import riverGroupPageScript from '../../../scripts/river-group-page.js?url';
+
+export function getStaticPaths() {
+  return listRiverGroups()
+    .filter((group) => group.routeCount > 1)
+    .map((group) => ({
+      params: { riverId: group.riverId },
+      props: { group },
+    }));
+}
+
+const { group } = Astro.props;
+const stateSummary = group.states.join(', ');
+const regionSummary = group.regions.join(', ');
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const homeUrl = new URL('/', siteUrl).href;
+const groupUrl = new URL(`/rivers/by-river/${group.riverId}/`, siteUrl).href;
+const groupStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  '@id': `${groupUrl}#breadcrumbs`,
+  itemListElement: [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Home',
+      item: homeUrl,
+    },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: group.name,
+      item: groupUrl,
+    },
+  ],
+};
+---
+
+<BaseLayout
+  title={`${group.name} Routes Today | Paddle Today`}
+  description={`See which ${group.name} route looks best today, then compare the other stretches if you want a second option.`}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(groupStructuredData)}></script>
+  <article class="river-group-page" data-river-group-page data-river-id={group.riverId}>
+    <a class="back-link" href="/">Back to today&apos;s board</a>
+
+    <section class="river-group-page__hero">
+      <div class="river-group-page__hero-main">
+        <p class="eyebrow">{stateSummary} | {regionSummary}</p>
+        <h1 class="river-group-page__title">{group.name}</h1>
+        <p class="river-group-page__lede" data-group-headline>
+          Start with the best route on this river today.
+        </p>
+        <p class="muted river-group-page__summary" data-group-detail>
+          Start with the top-rated route, then compare the others if you want a backup.
+        </p>
+
+        <div class="hero__meta river-group-page__meta">
+          <span class="stat-chip">{group.routeCount} routes</span>
+          <span class="stat-chip">Each route is scored separately</span>
+        </div>
+        <div class="river-group-page__actions">
+          <button class="filter-chip" type="button" data-group-refresh>
+            Refresh river
+          </button>
+          <p class="muted river-group-page__refresh-note" data-group-refresh-note>
+            Auto-refreshes every 5 minutes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-banner status-banner--loading status-banner--compact" data-group-status-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Route calls</div>
+      <div class="status-banner__body">
+        <strong data-group-banner-title>Loading route scores.</strong>
+        <p class="muted" data-group-banner-detail>
+          Pulling the latest scores for this river.
+        </p>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel river-group-page__panel--map">
+      <div class="river-group-page__section-head river-group-page__section-head--map">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="map" size={16} />
+            Route map
+          </p>
+          <h2 class="section-title">Where these routes sit</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Starts and finishes for each route.
+        </p>
+        <button
+          class="filter-chip river-group-page__map-toggle"
+          type="button"
+          data-group-map-toggle
+          hidden
+          aria-expanded="true"
+        >
+          Hide map
+        </button>
+      </div>
+
+      <div class="river-group-page__map-shell">
+        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
+        <p class="muted river-group-page__map-status" data-group-map-status>
+          Loading route map.
+        </p>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            Best route options
+          </p>
+          <h2 class="section-title">Pick the best stretch for today</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Same river, different calls.
+        </p>
+      </div>
+
+      <div class="river-group-page__route-list" data-group-route-list>
+        {group.routes.map((route) => (
+          <article
+            class="route-choice"
+            tabindex="0"
+            role="button"
+            data-group-route-card
+            data-route-slug={route.slug}
+          >
+            <span class="route-choice__kind">Route</span>
+            <span class="route-choice__eyebrow">{route.state} | {route.region}</span>
+            <strong class="route-choice__title">{route.reach}</strong>
+            <span class="route-choice__verdict">Loading verdict</span>
+            <div class="route-choice__scoreline">
+              <span class="route-choice__score">--</span>
+              <span class="route-choice__meta">Loading support &bull; -- mi</span>
+            </div>
+            <span class="route-choice__summary">Loading summary.</span>
+            <span class="route-choice__signal">Loading conditions.</span>
+            <span class="route-choice__note" hidden></span>
+            <div class="route-choice__footer">
+              <span class="route-choice__selection">Show on map</span>
+              <div class="route-choice__actions">
+                <FavoriteButton
+                  className="favorite-toggle favorite-toggle--card favorite-toggle--inline"
+                  slug={route.slug}
+                  name={group.name}
+                  reach={route.reach}
+                  state={route.state}
+                  region={route.region}
+                  url={`/rivers/${route.slug}/`}
+                />
+                <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>
+                  View route
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  </article>
+
+  <script type="module" src={riverGroupPageScript}></script>
+</BaseLayout>

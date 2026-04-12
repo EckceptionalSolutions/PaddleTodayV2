@@ -1,0 +1,146 @@
+---
+import siteShellScript from '../scripts/site-shell.js?url';
+
+type Props = {
+  title: string;
+  description?: string;
+  noindex?: boolean;
+  structuredData?: Record<string, unknown> | Array<Record<string, unknown>>;
+  socialTitle?: string;
+  socialDescription?: string;
+  socialImage?: string;
+  socialImageAlt?: string;
+  socialImageWidth?: number;
+  socialImageHeight?: number;
+  ogType?: string;
+  twitterCard?: 'summary' | 'summary_large_image';
+};
+
+const {
+  title,
+  description = 'Live river scores, confidence, and explanations for paddlers.',
+  noindex = false,
+  structuredData,
+  socialTitle = title,
+  socialDescription = description,
+  socialImage: socialImageProp,
+  socialImageAlt = 'Paddle Today social preview',
+  socialImageWidth,
+  socialImageHeight,
+  ogType = 'website',
+  twitterCard = 'summary_large_image',
+} =
+  Astro.props as Props;
+const canonicalUrl = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const socialImage = socialImageProp
+  ? Astro.site
+    ? new URL(socialImageProp, Astro.site).href
+    : socialImageProp
+  : Astro.site
+    ? new URL('/brand/paddle-today-share-card-1200x630.png', Astro.site).href
+    : undefined;
+const siteUrl = Astro.site ? Astro.site.href : `${Astro.url.origin}/`;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const defaultStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: 'Paddle Today',
+    url: new URL('/', siteUrl).href,
+    logo: socialImage,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    name: title,
+    description,
+    url: canonicalUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+];
+const extraStructuredData = structuredData
+  ? Array.isArray(structuredData)
+    ? structuredData
+    : [structuredData]
+  : [];
+const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStructuredData]);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:site_name" content="Paddle Today" />
+    <meta property="og:title" content={socialTitle} />
+    <meta property="og:description" content={socialDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content={socialImageAlt} />}
+    {socialImageWidth && <meta property="og:image:width" content={String(socialImageWidth)} />}
+    {socialImageHeight && <meta property="og:image:height" content={String(socialImageHeight)} />}
+    <meta name="twitter:card" content={twitterCard} />
+    <meta name="twitter:title" content={socialTitle} />
+    <meta name="twitter:description" content={socialDescription} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
+    {socialImage && <meta name="twitter:image:alt" content={socialImageAlt} />}
+    <script type="application/ld+json" set:html={structuredDataJson}></script>
+    <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="shortcut icon" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="apple-touch-icon" href="/brand/paddle-today-logo-transparent-512.png" />
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="/">
+          <img
+            class="brand__logo"
+            src="/brand/paddle-today-logo-transparent-512.png"
+            alt="Paddle Today"
+          />
+          <div class="brand__copy brand__copy--with-wordmark">
+            <span class="brand__eyebrow">Paddle Today</span>
+            <span class="brand__title">Find the best paddle near you today.</span>
+          </div>
+        </a>
+
+        <div class="site-header__meta">
+          <nav class="site-header__nav" aria-label="Primary">
+            <a class="site-header__nav-link" href="/about/">About</a>
+            <a class="site-header__nav-link" href="/contact/">Contact</a>
+            <a class="site-header__nav-link" href="/favorites/" data-site-favorites-link hidden>
+              Favorites <span data-site-favorites-count></span>
+            </a>
+            <a class="site-header__nav-link" href="/request-river/">Request a river</a>
+          </nav>
+          <p class="site-header__blurb">
+            Live score, support level, and weather.
+          </p>
+          <p class="site-header__freshness" data-home-freshness-wrap hidden>
+            <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>
+            <span class="site-header__freshness-item site-header__freshness-item--updated" data-home-freshness>Checking latest refresh…</span>
+          </p>
+        </div>
+      </header>
+
+      <main class="main-shell">
+        <slot />
+      </main>
+    </div>
+    <script type="module" src={siteShellScript}></script>
+  </body>
+</html>

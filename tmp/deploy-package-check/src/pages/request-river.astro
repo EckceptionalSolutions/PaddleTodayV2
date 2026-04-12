@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import requestPageScript from '../scripts/request-page.js?url';
+
+const requestEmail = 'hello@paddletoday.com';
+---
+
+<BaseLayout
+  title="Request A River | Paddle Today"
+  description="Request a river or route for Paddle Today to review. Submit the basics and any useful source links."
+  noindex={true}
+>
+  <section class="info-hero">
+    <p class="eyebrow" data-request-kicker>Request a river</p>
+    <h1 data-request-title>Ask us to add a river or route.</h1>
+    <p class="muted" data-request-lede>
+      Send the basics and any useful source links. The fastest requests to add are the ones with a clear put-in, take-out, and matching USGS gauge.
+    </p>
+  </section>
+
+  <section class="request-layout request-layout--single">
+    <article class="request-card">
+      <p class="eyebrow">Request form</p>
+      <h2 data-request-form-title>What to send</h2>
+      <p class="muted" data-request-form-note>
+        A river name, state, and enough context to understand the route. If you can give us the put-in, take-out, and a USGS gauge link, it is usually very easy for us to review and add.
+      </p>
+      <p class="muted">
+        Best-case request: route name, state, put-in, take-out, and the exact USGS gauge that should drive the call. DNR, park, or club links help too.
+      </p>
+
+      <form class="request-form" data-request-form novalidate>
+        <label>
+          River or route name *
+          <input
+            name="routeName"
+            required
+            minlength="3"
+            placeholder="Example: St. Croix River - Taylors Falls to Osceola"
+          />
+        </label>
+
+        <label>
+          State *
+          <input name="state" required placeholder="MN, WI, IA, etc." maxlength="32" autocomplete="address-level1" />
+        </label>
+
+        <label>
+          Put-in name
+          <input name="putIn" placeholder="Launch or access name" />
+        </label>
+
+        <label>
+          Take-out name
+          <input name="takeOut" placeholder="Exit or access name" />
+        </label>
+
+        <label>
+          Known links
+          <span class="request-form__hint">Example USGS gauge link: https://waterdata.usgs.gov/monitoring-location/05372995/</span>
+          <textarea name="sources" rows="3" placeholder="Paste one or more USGS, DNR, park, club, or outfitter URLs"></textarea>
+        </label>
+
+        <label>
+          Additional information *
+          <span class="request-form__hint" id="request-notes-hint">Minimum 12 characters. Include anything that helps.</span>
+          <textarea
+            name="notes"
+            rows="5"
+            required
+            minlength="12"
+            aria-describedby="request-notes-hint"
+            placeholder="Distance, difficulty, hazards, shuttle notes, gauge context, which USGS gauge applies, local demand, or anything else useful."
+          ></textarea>
+        </label>
+
+        <label>
+          Your email (optional)
+          <input name="replyEmail" type="email" placeholder="you@example.com" autocomplete="email" />
+        </label>
+
+        <label class="request-form__hp" aria-hidden="true">
+          Leave this blank
+          <input name="company" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <div class="request-form__actions">
+          <button class="filter-chip" type="submit" data-request-submit>Send request</button>
+          <a class="river-link river-link--inline" href={`mailto:${requestEmail}`} data-request-email-link>Email instead</a>
+        </div>
+
+        <p class="muted request-form__status" data-request-status aria-live="polite"></p>
+      </form>
+    </article>
+  </section>
+
+  <script type="module" src={requestPageScript}></script>
+</BaseLayout>

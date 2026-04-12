@@ -34,9 +34,12 @@ jobs:
           mkdir deploy-package
           cp package.json deploy-package/package.json
           cp package-lock.json deploy-package/package-lock.json
+          cp astro.config.mjs deploy-package/astro.config.mjs
           cp -R dist deploy-package/dist
           cp -R public deploy-package/public
+          cp -R scripts deploy-package/scripts
           cp -R src deploy-package/src
+          cp -R packages deploy-package/packages
           cp tsconfig.json deploy-package/tsconfig.json
 
       - name: Deploy API to Azure App Service

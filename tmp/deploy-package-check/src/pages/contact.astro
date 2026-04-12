@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const websiteId = new URL('/#website', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const contactUrl = new URL('/contact/', siteUrl).href;
+const contactStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${contactUrl}#contact-page`,
+  name: 'Contact Paddle Today',
+  description: 'Contact Paddle Today with questions, river requests, updates, and feature ideas.',
+  url: contactUrl,
+  isPartOf: {
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
+  },
+};
+---
+
+<BaseLayout
+  title="Contact Paddle Today"
+  description="Contact Paddle Today with questions, river requests, updates, and feature ideas."
+  structuredData={contactStructuredData}
+>
+  <section class="info-hero">
+    <p class="eyebrow">Contact</p>
+    <h1>Get in touch.</h1>
+    <p class="muted">
+      Questions, river ideas, feature requests, corrections, and general feedback are all welcome.
+    </p>
+    <div class="info-hero__actions">
+      <a class="river-link river-link--inline" href="mailto:hello@paddletoday.com">Email hello@paddletoday.com</a>
+      <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a river</a>
+    </div>
+  </section>
+
+  <section class="info-grid" aria-label="Contact options">
+    <article class="info-card">
+      <p class="eyebrow">Questions</p>
+      <h2>General help</h2>
+      <p class="muted">
+        If something is confusing, unclear, or missing, send a note. We want the site to be easy to use for new paddlers and experienced paddlers alike.
+      </p>
+    </article>
+
+    <article class="info-card">
+      <p class="eyebrow">Rivers</p>
+      <h2>Requests and updates</h2>
+      <p class="muted">
+        Send river suggestions, access changes, hazard updates, or anything else that would improve the current coverage.
+      </p>
+    </article>
+
+    <article class="info-card">
+      <p class="eyebrow">Ideas</p>
+      <h2>Feature requests</h2>
+      <p class="muted">
+        If there is something that would make trip planning faster or clearer, we want to hear about it.
+      </p>
+    </article>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Email</p>
+    <h2>hello@paddletoday.com</h2>
+    <p class="muted">
+      Email is the best way to reach us right now. If your message is about a specific river or route, include the name, state, and any useful links so we can review it faster.
+    </p>
+  </section>
+</BaseLayout>
