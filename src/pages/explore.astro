@@ -19,9 +19,6 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
         <p class="eyebrow">Explore</p>
         <h1 class="section-title">Browse all tracked routes</h1>
       </div>
-      <p class="muted section-head__note">
-        Use the full board when you want deeper comparison, broader filters, and map-first route browsing.
-      </p>
     </div>
 
     <div class="decision-section__body" data-explore-content>
@@ -42,19 +39,7 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
       </section>
 
       <section class="explore-workspace" aria-labelledby="explore-workspace-heading">
-        <div class="explore-workspace__head">
-          <div class="explore-workspace__copy">
-            <p class="eyebrow">Route workspace</p>
-            <h2 class="section-title" id="explore-workspace-heading">Compare matching routes on the map and in the board</h2>
-            <p class="muted explore-workspace__lede">
-              Start with the map for region-level scanning, then use the board to compare the exact route, score, and trip details.
-            </p>
-          </div>
-          <div class="explore-workspace__meta">
-            <p class="muted board-filters__summary" data-filter-summary>Loading routes.</p>
-            <p class="muted board-filters__summary" data-board-refresh-note>Showing the latest stored board.</p>
-          </div>
-        </div>
+        <h2 class="sr-only" id="explore-workspace-heading">Route workspace</h2>
 
         <section class="board-filters board-filters--full board-filters--embedded" aria-label="Route workspace controls">
           <div class="board-filters__workspace">
@@ -89,8 +74,7 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
 
             <section class="board-filters__group board-filters__group--controls" aria-labelledby="explore-controls-heading">
               <div class="board-filters__group-head">
-                <p class="eyebrow">Filters</p>
-                <h3 class="board-filters__group-title" id="explore-controls-heading">Browse and narrow the route board</h3>
+                <h3 class="board-filters__group-title" id="explore-controls-heading">Filters</h3>
               </div>
 
               <div class="board-filters__controls">
@@ -162,13 +146,6 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
               </div>
             </section>
           </div>
-          <details class="board-filters__hint">
-            <summary>What do these mean?</summary>
-            <div class="muted board-filters__hint-body">
-              <span>Strong + Good only = clearest recommendations.</span>
-              <span>Drive distance uses your saved location.</span>
-            </div>
-          </details>
         </section>
 
         <div class="explore-workspace__filters" data-filter-pills aria-live="polite"></div>
@@ -198,6 +175,11 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
                 <button class="filter-chip" type="button" data-explore-next>Next</button>
               </div>
             </div>
+
+            <section class="home-board-inline" aria-label="Route requests">
+              <p class="home-board-inline__copy">Don&apos;t see your favorite river?</p>
+              <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
+            </section>
           </div>
         </div>
       </section>

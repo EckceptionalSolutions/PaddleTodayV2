@@ -452,6 +452,21 @@ function fullHomePreferenceSummaryTextClean() {
   return `${difficultySummary} / ${paddleSummary}`;
 }
 
+function joinWithBullet(parts) {
+  return parts.filter(Boolean).join(' / ');
+}
+
+function splitBulletParts(text) {
+  if (typeof text !== 'string') {
+    return [];
+  }
+
+  return text
+    .split(/\s+(?:\/|[^\w\s]{1,4})\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
 function homeRefineSummaryMarkup() {
   const labels = [];
 
@@ -835,7 +850,7 @@ function routeLabelForItem(item) {
 
 function featuredRouteLabelForItem(item) {
   if (isGroupedItem(item)) {
-    return `${routeCountLabel(item)} â€¢ ${representativeRouteLabel(item)}`;
+    return joinWithBullet([routeCountLabel(item), representativeRouteLabel(item)]);
   }
 
   return routeLabelForItem(item);
@@ -1045,10 +1060,7 @@ function parseRawSignalLine(rawSignal) {
     return [];
   }
 
-  return rawSignal
-    .split('â€¢')
-    .map((part) => part.trim())
-    .filter(Boolean)
+  return splitBulletParts(rawSignal)
     .map((part) => {
       if (/^Gauge:/i.test(part)) {
         return { kind: 'gauge', value: part.replace(/^Gauge:\s*/i, '') };
@@ -1123,22 +1135,17 @@ function signalRowMarkup(item) {
 }
 
 function summaryParts(text) {
-  const parts = typeof text === 'string'
-    ? text
-        .split('â€¢')
-        .map((part) => part.trim())
-        .filter(Boolean)
-    : [];
+  const parts = splitBulletParts(text);
 
   if (parts.length >= 3) {
     return {
-      main: `${parts[0]} â€¢ ${parts[1]}`,
-      weather: parts.slice(2).join(' â€¢ '),
+      main: joinWithBullet(parts.slice(0, 2)),
+      weather: joinWithBullet(parts.slice(2)),
     };
   }
 
   return {
-    main: parts.join(' â€¢ '),
+    main: joinWithBullet(parts),
     weather: '',
   };
 }
@@ -1324,7 +1331,7 @@ function updateHomeSnapshot(overallItems) {
   const goodItems = overallItems.filter((item) => ['Strong', 'Good'].includes(item.cardRoute.rating));
   const countLabel = formatOptionCount(goodItems.length);
   const insight = chooseDailySnapshotInsight(overallItems);
-  homeSnapshot.textContent = `${countLabel} â€¢ ${insight}`;
+  homeSnapshot.textContent = joinWithBullet([countLabel, insight]);
 }
 
 function updateHeroCallMix(results) {
@@ -1390,7 +1397,7 @@ function featuredMapCaptionText(item) {
   const takeOut = accessPoints.find((point) => point.kind === 'takeOut');
 
   if (putIn && takeOut) {
-    return `Put-in: ${putIn.name} â€¢ Take-out: ${takeOut.name}`;
+    return `${putIn.name} / ${takeOut.name}`;
   }
 
   const point = accessPoints[0];
@@ -1572,13 +1579,12 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
     featuredMapRuntime.resize();
 
     if (featuredMapStatus instanceof HTMLElement) {
-      featuredMapStatus.textContent = accessPoints.length > 1 ? 'Put-in and take-out' : regionStateText(item);
+      featuredMapStatus.textContent = regionStateText(item);
       featuredMapStatus.hidden = false;
     }
     if (featuredMapCaption instanceof HTMLElement) {
-      const caption = featuredMapCaptionText(item);
-      featuredMapCaption.textContent = caption;
-      featuredMapCaption.hidden = !caption;
+      featuredMapCaption.textContent = '';
+      featuredMapCaption.hidden = true;
     }
   } catch (error) {
     console.error('Failed to load featured map.', error);
@@ -1598,7 +1604,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
 function featuredConditionMarkup(item) {
   const summary = summaryParts(cardSummary(item));
-  const conditionText = [summary.main, summary.weather].filter(Boolean).join(' â€¢ ');
+  const conditionText = joinWithBullet([summary.main, summary.weather]);
   if (!conditionText) {
     return '';
   }
@@ -1613,7 +1619,7 @@ function featuredConditionMarkup(item) {
 }
 
 function regionStateText(item) {
-  return `${item.cardRoute.river.state} â€¢ ${item.cardRoute.river.region}`.toUpperCase();
+  return joinWithBullet([item.cardRoute.river.state, item.cardRoute.river.region]).toUpperCase();
 }
 function confidenceLabel(item) {
   return confidenceDisplayLabel(item.cardRoute.confidence.label);
@@ -2639,7 +2645,7 @@ function updateLocationStatus() {
   if (homeFilterToggleLabel instanceof HTMLElement) {
       homeFilterToggleLabel.textContent = !phoneBreakpoint.matches && filtersOpen
         ? 'Hide step 2'
-        : 'Step 2: Refine preferences';
+        : 'Step 2 - Set Preferences';
   }
 
   if (homeFilterToggleCount instanceof HTMLElement) {
@@ -2900,7 +2906,7 @@ function updateSummaryStatus(items, routeResults) {
 
   if (items.length === 0) {
     summaryHeadline.textContent = 'No routes match the current filters.';
-    summaryDetail.textContent = 'Clear a filter to bring rivers back.';
+    summaryDetail.textContent = 'Clear a filter to bring routes back.';
     return;
   }
 
@@ -2915,16 +2921,16 @@ function updateSummaryStatus(items, routeResults) {
   summaryHeadline.textContent = `Updated ${generatedAt}`;
 
   if (offlineCount > 0) {
-    summaryDetail.textContent = `${offlineCount} offline â€¢ ${degradedCount} limited â€¢ ${liveCount} live`;
+    summaryDetail.textContent = joinWithBullet([`${offlineCount} offline`, `${degradedCount} limited`, `${liveCount} live`]);
     return;
   }
 
   if (degradedCount > 0) {
-    summaryDetail.textContent = `${degradedCount} limited â€¢ ${liveCount} live`;
+    summaryDetail.textContent = joinWithBullet([`${degradedCount} limited`, `${liveCount} live`]);
     return;
   }
 
-  summaryDetail.textContent = `${liveCount} rivers live`;
+  summaryDetail.textContent = `${liveCount} routes live`;
 }
 
 function updateBoardStatusBanner(items) {
@@ -2983,7 +2989,7 @@ function popupMarkup(item) {
       ${reachMarkup}
       <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
-      <p class="score-map-popup__meta">${escapeHtml(metaLineText(item, nearbyReady))} â€¢ Score ${item.cardRoute.score}</p>
+      <p class="score-map-popup__meta">${escapeHtml(joinWithBullet([metaLineText(item, nearbyReady), `Score ${item.cardRoute.score}`]))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
@@ -3080,7 +3086,7 @@ function renderSummaryMapResults(items) {
       <span class="summary-map-result__body">
         <strong class="summary-map-result__name">${escapeHtml(item.cardRoute.river.name)}</strong>
         <span class="summary-map-result__route">${escapeHtml(routeLabelForItem(item))}</span>
-        <span class="summary-map-result__meta">${escapeHtml(confidenceLabel(item))} â€¢ ${escapeHtml(shortRouteLengthLabel(item))}</span>
+        <span class="summary-map-result__meta">${escapeHtml(joinWithBullet([confidenceLabel(item), shortRouteLengthLabel(item)]))}</span>
       </span>
     `;
     button.addEventListener('click', () => {
