@@ -1,4 +1,4 @@
-import {
+﻿import {
   MAP_STYLE_URL,
   bindMarkerPopup,
   ensureMapLibre,
@@ -1268,6 +1268,21 @@ function weatherVisualMarkup(state) {
   }
 }
 
+function weatherBadgeMarkup(item, badgeClass) {
+  const state = weatherVisualState(item);
+  const label = weatherVisualLabel(state);
+  const className = typeof badgeClass === 'string' && badgeClass.trim() ? ` ${badgeClass.trim()}` : '';
+
+  return `
+    <span class="card-weather-badge card-weather-badge--${state}${className}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">
+        ${weatherVisualMarkup(state)}
+      </span>
+      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
+    </span>
+  `;
+}
+
 function updateFeaturedWeather(item) {
   if (!(featuredWeather instanceof HTMLElement) || !(featuredWeatherIcon instanceof HTMLElement)) {
     return;
@@ -1276,12 +1291,14 @@ function updateFeaturedWeather(item) {
   if (!item?.cardRoute) {
     featuredWeather.hidden = true;
     featuredWeatherIcon.innerHTML = '';
+    featuredWeatherIcon.className = 'home-featured__weather-icon';
     setText(document, 'featured-weather-label', 'Forecast pending');
     return;
   }
 
   const state = weatherVisualState(item);
   featuredWeather.hidden = false;
+  featuredWeatherIcon.className = `home-featured__weather-icon weather-indicator weather-indicator--${state}`;
   featuredWeatherIcon.innerHTML = weatherVisualMarkup(state);
   setText(document, 'featured-weather-label', weatherVisualLabel(state));
 }
@@ -1296,17 +1313,17 @@ function clampText(text, maxLength) {
     return normalized;
   }
 
-  return `${normalized.slice(0, maxLength).replace(/[ ,;:.!?-]+$/, '')}â€¦`;
+  return `${normalized.slice(0, maxLength).replace(/[ ,;:.!?-]+$/, '')}...`;
 }
 
 function formatGeneratedFreshness(isoString) {
   if (typeof isoString !== 'string' || !isoString) {
-    return 'Checking latest refreshâ€¦';
+    return 'Checking latest refresh...';
   }
 
   const timestamp = new Date(isoString).getTime();
   if (!Number.isFinite(timestamp)) {
-    return 'Checking latest refreshâ€¦';
+    return 'Checking latest refresh...';
   }
 
   return `${freshnessLabel(timestamp)}.`;
@@ -1323,7 +1340,7 @@ function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = 
 
   const base = formatGeneratedFreshness(generatedAt);
   if (refreshing && generatedAt) {
-    homeFreshness.textContent = `${base} Refreshing nowâ€¦`;
+    homeFreshness.textContent = `${base} Refreshing now...`;
     return;
   }
 
@@ -1742,7 +1759,7 @@ function recommendationReasons(item) {
 
   if (summary.main) {
     const mainParts = summary.main
-      .split('Ã¢â‚¬Â¢')
+      .split(/\s*(?:\u2022|\/)\s*/g)
       .map((part) => part.trim())
       .filter(Boolean);
     for (const part of mainParts.slice(1)) {
@@ -1784,12 +1801,6 @@ function recommendationTagLabels(item, index, nearbyReady) {
     tags.push('Rising flow');
   }
 
-  if (summary.includes('rain') || summary.includes('storm') || summary.includes('windy')) {
-    tags.push('Weather watch');
-  } else if (coldWeatherDrivenCall(item)) {
-    tags.push('Cold-weather only');
-  }
-
   return Array.from(new Set(tags)).slice(0, 2);
 }
 
@@ -1797,7 +1808,7 @@ function recommendationSummaryText(item, nearbyReady) {
   const summary = summaryParts(cardSummary(item));
   const mainParts = typeof summary.main === 'string'
     ? summary.main
-        .split('Ã¢â‚¬Â¢')
+        .split(/\s*(?:\u2022|\/)\s*/g)
         .map((part) => part.trim().toLowerCase())
         .filter(Boolean)
     : [];
@@ -1813,7 +1824,7 @@ function recommendationSummaryText(item, nearbyReady) {
       return 'River level looks usable, but weather makes it a skip for most paddlers today.';
     }
     if (hasStableFlow && hasWeatherRisk) {
-      return 'River level looks usable, but todayâ€™s weather makes it a skip.';
+      return "River level looks usable, but today's weather makes it a skip.";
     }
     if (shortDrive) {
       return 'Close by, but conditions are too uncertain right now.';
@@ -1933,6 +1944,12 @@ function createRecommendationCard(item, index, nearbyReady) {
     tags.hidden = tags.innerHTML.trim().length === 0;
   }
 
+  const weather = card.querySelector('[data-field="recommendation-weather"]');
+  if (weather instanceof HTMLElement) {
+    weather.innerHTML = weatherBadgeMarkup(item, 'card-weather-badge--compact');
+    weather.hidden = false;
+  }
+
   const liveLabel = card.querySelector('[data-field="recommendation-live-label"]');
   if (liveLabel instanceof HTMLElement) {
     liveLabel.hidden = index !== 0;
@@ -2032,6 +2049,12 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   const signalRow = card.querySelector('[data-field="raw-signal"]');
   if (signalRow instanceof HTMLElement) {
     signalRow.innerHTML = signalRowMarkup(item);
+  }
+
+  const weather = card.querySelector('[data-field="card-weather"]');
+  if (weather instanceof HTMLElement) {
+    weather.innerHTML = weatherBadgeMarkup(item);
+    weather.hidden = false;
   }
 
   const orb = card.querySelector('.score-orb');
@@ -2798,8 +2821,8 @@ function updateFilterSummary(exploreItems) {
     userLocationState === 'ready' && userLocation && (activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest')
       ? ` from ${shortLocationLabel()}`
       : '';
-  const ratingLabel = activeFilters.rating ? ` • ${activeFilters.rating} only` : '';
-  filterSummary.textContent = `Showing ${exploreItems.length} routes • ${sortLabel}${locationLabel}${ratingLabel}`;
+  const ratingLabel = activeFilters.rating ? ` / ${activeFilters.rating} only` : '';
+  filterSummary.textContent = `Showing ${exploreItems.length} routes / ${sortLabel}${locationLabel}${ratingLabel}`;
   updateExploreFilterPills();
 }
 
@@ -3249,7 +3272,7 @@ async function renderSummaryMap(items) {
       })
         .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
         .setPopup(
-          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '280px' }).setHTML(popupMarkup(item))
+          new maplibregl.Popup({ offset: 18, closeButton: true, closeOnClick: true, maxWidth: '248px' }).setHTML(popupMarkup(item))
         )
         .addTo(mapRuntime);
 
@@ -4174,6 +4197,7 @@ export function initSummaryBoard() {
     loadBoard({ silent: true });
   }, AUTO_REFRESH_MS);
 }
+
 
 
 

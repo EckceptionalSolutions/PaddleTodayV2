@@ -28,7 +28,10 @@ import FavoriteButton from './FavoriteButton.astro';
         <span class="score-orb__score" data-field="score"></span>
         <span class="score-orb__rating" data-field="rating"></span>
       </div>
-      <p class="river-card__meta-line" data-field="meta-line"></p>
+      <div class="river-card__score-copy">
+        <p class="river-card__meta-line" data-field="meta-line"></p>
+        <div class="river-card__weather" data-field="card-weather" hidden></div>
+      </div>
     </div>
     <p class="river-card__explanation" data-field="card-summary-main"></p>
     <div class="river-card__signal-line" data-field="raw-signal"></div>
