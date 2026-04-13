@@ -2,6 +2,8 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import FavoriteButton from '../components/FavoriteButton.astro';
+import SummaryMapPanel from '../components/SummaryMapPanel.astro';
+import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
 import { listRivers } from '../lib/rivers';
 
 const rivers = listRivers();
@@ -62,7 +64,7 @@ const homepageStructuredData = [
           </span>
           <div>
             <p class="home-hero__trust-title">Live river levels</p>
-            <p class="home-hero__trust-copy">Gauge and weather checks stay tied to each nearby pick.</p>
+            <p class="home-hero__trust-copy">Gauge and weather stay tied to each pick.</p>
           </div>
         </article>
         <article class="home-hero__trust-item">
@@ -71,7 +73,7 @@ const homepageStructuredData = [
           </span>
           <div>
             <p class="home-hero__trust-title">Drive-aware picks</p>
-            <p class="home-hero__trust-copy">Routes rank by score, distance, and how far you actually have to drive.</p>
+            <p class="home-hero__trust-copy">Routes rank by score and real drive time.</p>
           </div>
         </article>
         <article class="home-hero__trust-item">
@@ -80,12 +82,13 @@ const homepageStructuredData = [
           </span>
           <div>
             <p class="home-hero__trust-title">Fits your day</p>
-            <p class="home-hero__trust-copy">Refine by difficulty and paddle time without leaving the homepage.</p>
+            <p class="home-hero__trust-copy">Refine by difficulty and paddle time.</p>
           </div>
         </article>
       </div>
 
       <section class="home-location-bar home-hero__location" id="home-location" aria-label="Set your location" data-nearby-location-panel>
+        <p class="home-location-bar__step">Step 1</p>
         <button
           class="home-location-bar__current"
           type="button"
@@ -95,7 +98,7 @@ const homepageStructuredData = [
           <div class="home-location-bar__text">
             <p class="home-location-bar__value" data-home-location-summary>Set your location to see drive times</p>
             <p class="home-location-bar__helper" data-home-location-sort-summary>
-              Use GPS or enter a city to personalize nearby routes.
+              Choose a location to unlock nearby picks and drive times.
             </p>
           </div>
         </button>
@@ -121,8 +124,12 @@ const homepageStructuredData = [
 
         <div class="home-location-bar__refine" data-home-refine-row hidden>
           <div class="home-location-bar__refine-copy">
+            <p class="home-location-bar__step home-location-bar__step--refine">Step 2</p>
             <p class="home-location-bar__refine-radius" data-home-radius-summary>Showing routes within 100 miles</p>
-            <p class="home-location-bar__refine-summary muted" data-home-refine-summary>Any difficulty • Any paddle time</p>
+            <div class="home-location-bar__refine-summary" data-home-refine-summary>
+              <span class="home-location-bar__refine-pill">Any difficulty</span>
+              <span class="home-location-bar__refine-pill">Any time</span>
+            </div>
           </div>
           <div class="home-location-bar__refine-actions">
             <span class="home-location-bar__refine-count" data-home-match-count>Showing 0 routes</span>
@@ -275,12 +282,13 @@ const homepageStructuredData = [
 
         <div class="home-featured__body">
           <div class="home-featured__header">
-            <p class="eyebrow" data-best-near-label>Today&apos;s best</p>
+            <p class="eyebrow home-featured__answer-label" data-best-near-label>Today&apos;s best</p>
             <p class="hero-call__state" data-featured-state>Set your location to reveal the strongest paddle near you.</p>
             <h2 class="hero-call__title">
               <a class="title-link title-link--hero" href="#best-options" data-field="featured-title-link">Today&apos;s best</a>
             </h2>
             <p class="hero-call__reach" data-featured-reach>We&apos;ll show the strongest nearby route once drive times are active.</p>
+            <p class="home-featured__bridge" data-featured-bridge>Primary answer for your current setup.</p>
           </div>
 
           <div class="hero-call__scoreline">
@@ -295,6 +303,10 @@ const homepageStructuredData = [
               <div class="hero-call__meta">
                 <span class="pill" data-field="featured-confidence">Support pending</span>
                 <span class="pill" data-field="featured-distance">Add location for drive time</span>
+              </div>
+              <div class="hero-call__meta hero-call__meta--route-facts">
+                <span class="pill pill--quiet" data-field="featured-difficulty">Difficulty pending</span>
+                <span class="pill pill--quiet" data-field="featured-paddle-time">Paddle time pending</span>
               </div>
             </div>
           </div>
@@ -317,16 +329,17 @@ const homepageStructuredData = [
 
           <div class="home-featured__map-shell" data-featured-map-shell hidden>
             <div class="summary-map home-featured__map" data-featured-map aria-label="Map showing the featured route location"></div>
-            <p class="home-featured__map-status" data-featured-map-status>Route location</p>
+            <div class="home-featured__map-meta">
+              <p class="home-featured__map-status" data-featured-map-status>Route location</p>
+              <p class="home-featured__map-caption" data-featured-map-caption hidden></p>
+            </div>
           </div>
 
           <p class="hero-call__signal-line" data-field="featured-signal">Gauge, weather, and support details will appear here.</p>
-          <p class="hero-call__summary muted" data-field="featured-explanation">Location unlocks the full summary and drive-time-aware recommendation.</p>
-          <button class="hero-call__toggle" type="button" data-featured-toggle hidden>Details</button>
           <ul class="hero-call__reasons" data-featured-reasons hidden></ul>
           <div class="home-featured__actions">
             <a class="river-link river-link--inline river-link--wide river-link--primary home-featured__link" href="#best-options" data-featured-link>Set location first</a>
-            <a class="river-link river-link--inline river-link--wide home-featured__link home-featured__link--secondary" href="#best-options">
+            <a class="home-featured__jump-link" href="#best-options">
               See other top picks
             </a>
           </div>
@@ -337,14 +350,14 @@ const homepageStructuredData = [
 
   <section class="decision-section decision-section--recommended home-recommendations" id="best-options">
     <div class="section-head section-head--stacked">
-      <div>
-        <p class="eyebrow">Recommended</p>
-        <h2 class="section-title" data-recommendation-title>Best routes near you</h2>
-      </div>
-      <div class="section-head__actions home-recommendations__actions">
-        <p class="muted section-head__note home-recommendations__intro-note" data-recommendation-summary>
-          Set your location to see personalized best routes near you.
-        </p>
+        <div>
+          <p class="eyebrow">Recommended</p>
+          <h2 class="section-title" data-recommendation-title>Best routes near you</h2>
+        </div>
+        <div class="section-head__actions home-recommendations__actions">
+          <p class="muted section-head__note home-recommendations__intro-note" data-recommendation-summary>
+          Set your location above to unlock the best match and compare nearby routes.
+          </p>
         <div class="section-head__controls home-recommendations__controls">
           <span class="home-recommendations__count" data-recommendation-count>Showing 0 routes</span>
           <label class="filter-select filter-select--sort home-recommendations__sort">
@@ -381,16 +394,43 @@ const homepageStructuredData = [
       </div>
     </div>
 
-    <div class="home-recommendations__shell">
-      <div class="home-location-empty" data-home-location-empty>
-        <p class="home-location-empty__headline">Set your location to reveal the strongest paddle near you.</p>
-      </div>
+      <div class="home-recommendations__shell">
+        <div class="home-location-empty" data-home-location-empty>
+          <p class="home-location-empty__headline">Set your location to reveal the best match and compare nearby routes on the map.</p>
+        </div>
 
       <div class="recommendation-grid recommendation-grid--home" data-recommendation-grid></div>
     </div>
 
+    <div class="home-recommendations__map-block" data-home-nearby-map-section hidden>
+      <div class="section-head section-head--stacked home-recommendations__map-head">
+        <div>
+          <p class="eyebrow">See all matches</p>
+          <h3 class="section-title">Compare every route that fits your setup</h3>
+        </div>
+        <div class="section-head__actions home-nearby-map__actions">
+          <p class="muted section-head__note">
+            Start with the top picks above, then use the map and compare list to scan every nearby match.
+          </p>
+          <a class="river-link river-link--inline river-link--ghost" href="/explore/">Browse all routes</a>
+        </div>
+      </div>
+
+      <SummaryMapPanel
+        id="explore-map"
+        mode="nearby"
+        eyebrow="Nearby route map"
+        title="Compare the routes that fit your setup"
+        lede="Use the map to scan every nearby match, then open the full browse page when you want deeper filters."
+        resultsTitle="Matching routes"
+        note="Loading routes."
+        status="Loading nearby routes."
+        ariaLabel="Map showing nearby matching routes"
+      />
+    </div>
+
     <p class="muted decision-section__empty" data-recommendation-empty hidden>
-      No recommended rivers are available right now.
+      No recommended routes are available right now.
     </p>
   </section>
 
@@ -398,61 +438,6 @@ const homepageStructuredData = [
     <section class="home-board-inline" aria-label="Route requests">
       <p class="home-board-inline__copy">Don&apos;t see your favorite river?</p>
       <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
-    </section>
-  </section>
-
-  <section class="decision-section home-nearby-map" id="explore-map" data-home-nearby-map-section hidden>
-    <div class="section-head section-head--stacked">
-      <div>
-        <p class="eyebrow">Nearby map</p>
-        <h2 class="section-title">See your matching routes on the map</h2>
-      </div>
-      <div class="section-head__actions home-nearby-map__actions">
-        <p class="muted section-head__note">
-          Every route here matches your current location, radius, difficulty, and paddle-time preferences.
-        </p>
-        <a class="river-link river-link--inline river-link--ghost" href="/explore/">Browse all routes</a>
-      </div>
-    </div>
-
-    <section class="summary-map-shell summary-map-shell--nearby" data-summary-map-shell data-summary-map-mode="nearby">
-      <div class="summary-map-copy">
-        <p class="eyebrow section-label">
-          <FeatureIcon name="map" size={16} />
-          Nearby route map
-        </p>
-        <h2 class="section-title">Compare the routes that fit your setup</h2>
-        <p class="muted summary-map-copy__lede">
-          Use the map to scan every nearby match, then open the full browse page when you want deeper filters.
-        </p>
-        <div class="summary-map-results-head">
-          <p class="summary-map-results__title">Matching routes</p>
-          <p class="muted summary-map-results__note" data-summary-map-results-note>Loading routes.</p>
-        </div>
-        <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
-        <button class="filter-chip summary-map__toggle" type="button" data-summary-map-toggle hidden aria-expanded="true">Hide map</button>
-      </div>
-
-      <div class="summary-map-frame">
-        <div class="summary-map" data-summary-map aria-label="Map showing nearby matching routes"></div>
-        <div class="summary-map-footer">
-          <p class="summary-map__status muted" data-summary-map-status>Loading nearby routes.</p>
-          <div class="summary-map-legend" aria-label="Score map legend">
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
-              Strong
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-              Fair
-            </span>
-            <span class="summary-map-legend__item">
-              <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
-              No-go
-            </span>
-          </div>
-        </div>
-      </div>
     </section>
   </section>
 
@@ -521,43 +506,11 @@ const homepageStructuredData = [
   </template>
 
   <!-- Template hydrated by index-page.js for the full board cards. -->
-  <template data-river-card-template>
-    <article class="river-card river-card--decision">
-      <div class="river-card__eyebrow-row">
-        <div class="river-card__eyebrow-meta">
-          <span class="river-card__kind" data-field="card-kind"></span>
-          <p class="river-card__state" data-field="state"></p>
-        </div>
-        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
-      </div>
-
-      <div class="river-card__top">
-        <div class="river-card__title-block">
-          <h3 class="river-card__title">
-            <a class="title-link" href="/" data-field="card-title-link"></a>
-          </h3>
-          <p class="river-card__subtitle" data-field="route-label"></p>
-        </div>
-        <span class="river-card__warning" data-field="card-warning" hidden></span>
-      </div>
-
-      <p class="river-card__verdict" data-field="card-verdict"></p>
-      <div class="river-card__scoreline">
-        <div class="score-orb" aria-label="River score">
-          <span class="score-orb__score" data-field="score"></span>
-          <span class="score-orb__rating" data-field="rating"></span>
-        </div>
-        <p class="river-card__meta-line" data-field="meta-line"></p>
-      </div>
-      <p class="river-card__explanation" data-field="card-summary-main"></p>
-      <div class="river-card__signal-line" data-field="raw-signal"></div>
-
-      <a class="river-link river-link--wide" href="/" data-card-link>View river</a>
-    </article>
-  </template>
+  <RouteBoardCardTemplate />
 
   <script>
     import '../scripts/index-page.js';
   </script>
 </BaseLayout>
+
 

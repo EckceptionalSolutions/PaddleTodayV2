@@ -1,0 +1,38 @@
+---
+import FavoriteButton from './FavoriteButton.astro';
+---
+
+<template data-river-card-template>
+  <article class="river-card river-card--decision">
+    <div class="river-card__eyebrow-row">
+      <div class="river-card__eyebrow-meta">
+        <span class="river-card__kind" data-field="card-kind"></span>
+        <p class="river-card__state" data-field="state"></p>
+      </div>
+      <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
+    </div>
+
+    <div class="river-card__top">
+      <div class="river-card__title-block">
+        <h3 class="river-card__title">
+          <a class="title-link" href="/" data-field="card-title-link"></a>
+        </h3>
+        <p class="river-card__subtitle" data-field="route-label"></p>
+      </div>
+      <span class="river-card__warning" data-field="card-warning" hidden></span>
+    </div>
+
+    <p class="river-card__verdict" data-field="card-verdict"></p>
+    <div class="river-card__scoreline">
+      <div class="score-orb" aria-label="Route score">
+        <span class="score-orb__score" data-field="score"></span>
+        <span class="score-orb__rating" data-field="rating"></span>
+      </div>
+      <p class="river-card__meta-line" data-field="meta-line"></p>
+    </div>
+    <p class="river-card__explanation" data-field="card-summary-main"></p>
+    <div class="river-card__signal-line" data-field="raw-signal"></div>
+
+    <a class="river-link river-link--wide" href="/" data-card-link>View route</a>
+  </article>
+</template>

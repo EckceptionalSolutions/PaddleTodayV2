@@ -1,0 +1,57 @@
+---
+import FeatureIcon from './FeatureIcon.astro';
+
+const {
+  id,
+  mode = 'explore',
+  eyebrow = 'Score map',
+  title,
+  lede = '',
+  resultsTitle = 'Shown on map',
+  note = 'Loading routes.',
+  status = 'Loading map.',
+  ariaLabel = 'Route score map',
+} = Astro.props;
+
+const shellClass = mode === 'nearby'
+  ? 'summary-map-shell summary-map-shell--nearby'
+  : 'summary-map-shell';
+---
+
+<section class={shellClass} id={id} data-summary-map-shell data-summary-map-mode={mode}>
+  <div class="summary-map-copy">
+    <p class="eyebrow section-label">
+      <FeatureIcon name="map" size={16} />
+      {eyebrow}
+    </p>
+    <h2 class="section-title">{title}</h2>
+    {lede && <p class="muted summary-map-copy__lede">{lede}</p>}
+    <div class="summary-map-results-head">
+      <p class="summary-map-results__title">{resultsTitle}</p>
+      <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
+    </div>
+    <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
+    <button class="filter-chip summary-map__toggle" type="button" data-summary-map-toggle hidden aria-expanded="true">Hide map</button>
+  </div>
+
+  <div class="summary-map-frame">
+    <div class="summary-map" data-summary-map aria-label={ariaLabel}></div>
+    <div class="summary-map-footer">
+      <p class="summary-map__status muted" data-summary-map-status>{status}</p>
+      <div class="summary-map-legend" aria-label="Score map legend">
+        <span class="summary-map-legend__item">
+          <span class="summary-map-legend__marker summary-map-legend__marker--great">90</span>
+          Strong
+        </span>
+        <span class="summary-map-legend__item">
+          <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
+          Fair
+        </span>
+        <span class="summary-map-legend__item">
+          <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
+          No-go
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
