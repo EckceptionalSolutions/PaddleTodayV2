@@ -117,21 +117,22 @@ const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStr
         </a>
 
         <div class="site-header__meta">
-          <nav class="site-header__nav" aria-label="Primary">
-            <a class="site-header__nav-link" href="/about/">About</a>
-            <a class="site-header__nav-link" href="/contact/">Contact</a>
-            <a class="site-header__nav-link" href="/explore/">Browse routes</a>
-            <a class="site-header__nav-link" href="/favorites/" data-site-favorites-link hidden>
-              Favorites <span data-site-favorites-count></span>
-            </a>
-            <a class="site-header__nav-link" href="/request-river/">Request a river</a>
-          </nav>
+          <div class="site-header__topline">
+            <nav class="site-header__nav" aria-label="Primary">
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/">Today</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">Browse Routes</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" data-site-favorites-link hidden>
+                Favorites <span data-site-favorites-count></span>
+              </a>
+            </nav>
+            <a class="site-header__action" href="/request-river/">Request a Route</a>
+          </div>
           <p class="site-header__blurb">
             Live score, support level, and weather.
           </p>
           <p class="site-header__freshness" data-home-freshness-wrap hidden>
             <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>
-            <span class="site-header__freshness-item site-header__freshness-item--updated" data-home-freshness>Checking latest refresh…</span>
+            <span class="site-header__freshness-item site-header__freshness-item--updated" data-home-freshness>Checking latest refresh...</span>
           </p>
         </div>
       </header>
@@ -139,6 +140,13 @@ const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStr
       <main class="main-shell">
         <slot />
       </main>
+
+      <footer class="site-footer">
+        <nav class="site-footer__nav" aria-label="Footer">
+          <a class="site-footer__link" href="/about/">About</a>
+          <a class="site-footer__link" href="/contact/">Contact</a>
+        </nav>
+      </footer>
     </div>
     <script>
       import '../scripts/site-shell.js';
