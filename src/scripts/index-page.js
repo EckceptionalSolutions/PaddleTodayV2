@@ -106,6 +106,7 @@ const homeFilterCloseButton = document.querySelector('[data-home-filter-close]')
 const homeRouteMix = document.querySelector('[data-home-route-mix]');
 const homeHeadline = document.querySelector('[data-home-headline]');
 const homeLocationEmpty = document.querySelector('[data-home-location-empty]');
+const homeNearbyMapSection = document.querySelector('[data-home-nearby-map-section]');
 const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
@@ -177,6 +178,7 @@ const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
+const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
 
 const statusWeight = {
   live: 2,
@@ -2183,8 +2185,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredReasons.hidden = true;
     }
     if (featuredLink instanceof HTMLAnchorElement) {
-      featuredLink.href = locationReady ? '#explore' : '#home-location';
-      featuredLink.textContent = locationReady ? 'Browse full board' : 'Set location first';
+      featuredLink.href = locationReady ? '/explore/' : '#home-location';
+      featuredLink.textContent = locationReady ? 'Browse all routes' : 'Set location first';
     }
     renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
@@ -2604,6 +2606,10 @@ function updateLocationStatus() {
     homeRouteMix.hidden = !locationReady;
   }
 
+  if (homeNearbyMapSection instanceof HTMLElement) {
+    homeNearbyMapSection.hidden = !locationReady;
+  }
+
   if (nearbyLocationPanel instanceof HTMLElement) {
     nearbyLocationPanel.classList.toggle('home-location-bar--set', locationReady);
     nearbyLocationPanel.classList.toggle('home-location-bar--editing', locationEditing);
@@ -2830,6 +2836,16 @@ function updateSummaryMapSelection(key) {
   }
 }
 
+function isNearbySummaryMapMode() {
+  return summaryMapMode === 'nearby';
+}
+
+function summaryMapItemNoun(count) {
+  const singular = isNearbySummaryMapMode() ? 'route' : 'river';
+  const plural = isNearbySummaryMapMode() ? 'routes' : 'rivers';
+  return count === 1 ? singular : plural;
+}
+
 function closeSummaryMapPopups(exceptKey = null) {
   for (const [key, marker] of mapMarkersByKey.entries()) {
     if (!marker || key === exceptKey) {
@@ -2866,18 +2882,22 @@ function renderSummaryMapResults(items) {
 
   if (summaryMapResultsNote instanceof HTMLElement) {
     if (items.length === 0) {
-      summaryMapResultsNote.textContent = 'No rivers match these filters.';
+      summaryMapResultsNote.textContent = isNearbySummaryMapMode()
+        ? 'No routes match your current preferences.'
+        : 'No rivers match these filters.';
     } else if (items.length === 1) {
-      summaryMapResultsNote.textContent = '1 river on the map';
+      summaryMapResultsNote.textContent = `1 ${summaryMapItemNoun(1)} on the map`;
     } else {
-      summaryMapResultsNote.textContent = `${items.length} rivers on the map`;
+      summaryMapResultsNote.textContent = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
     }
   }
 
   summaryMapResults.innerHTML = '';
 
   if (items.length === 0) {
-    summaryMapResults.innerHTML = '<p class="muted summary-map-results__empty">Adjust the filters to bring rivers back onto the map.</p>';
+    summaryMapResults.innerHTML = isNearbySummaryMapMode()
+      ? '<p class="muted summary-map-results__empty">Adjust your nearby preferences to bring routes back onto the map.</p>'
+      : '<p class="muted summary-map-results__empty">Adjust the filters to bring rivers back onto the map.</p>';
     return;
   }
 
@@ -2971,7 +2991,7 @@ async function renderSummaryMap(items) {
   const renderVersion = ++summaryMapRenderVersion;
 
   if (summaryMapStatus instanceof HTMLElement) {
-    summaryMapStatus.textContent = 'Loading map markers.';
+    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby routes.' : 'Loading map markers.';
   }
 
   try {
@@ -3071,7 +3091,7 @@ async function renderSummaryMap(items) {
         updateSummaryMapSelection(items[0].key);
       }
       if (summaryMapStatus instanceof HTMLElement) {
-        summaryMapStatus.textContent = 'Map is up to date.';
+        summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
       }
       return;
     }
@@ -3081,13 +3101,17 @@ async function renderSummaryMap(items) {
     }
     renderSummaryMapResults([]);
     if (summaryMapStatus instanceof HTMLElement) {
-      summaryMapStatus.textContent = 'No rivers match the current filters.';
+      summaryMapStatus.textContent = isNearbySummaryMapMode()
+        ? 'No nearby routes match the current preferences.'
+        : 'No rivers match the current filters.';
     }
   } catch (error) {
     console.error('Failed to load summary map.', error);
     renderSummaryMapResults([]);
     if (summaryMapStatus instanceof HTMLElement) {
-      summaryMapStatus.textContent = 'Map unavailable right now. Use the river list below.';
+      summaryMapStatus.textContent = isNearbySummaryMapMode()
+        ? 'Map unavailable right now. Use the nearby route cards above.'
+        : 'Map unavailable right now. Use the river list below.';
     }
   }
 }
@@ -3186,6 +3210,9 @@ function renderHomepage(results) {
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
   const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
+  const summaryMapItems = isNearbySummaryMapMode()
+    ? (locationReady ? nearbyItems : [])
+    : exploreItems;
 
   updateFilterButtonStates();
   updateLocationIndicator();
@@ -3193,7 +3220,7 @@ function renderHomepage(results) {
   updateFilterSummary(exploreItems);
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
-  renderSummaryMap(exploreItems);
+  renderSummaryMap(summaryMapItems);
   const explorePaginationState = paginateItems(exploreItems, EXPLORE_PAGE_SIZE, currentExplorePage);
   currentExplorePage = explorePaginationState.currentPage;
   updateExplorePagination(explorePaginationState);

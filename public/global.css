@@ -8964,6 +8964,33 @@ a {
   gap: 0.8rem;
 }
 
+.home-nearby-map[hidden] {
+  display: none;
+}
+
+.home-nearby-map {
+  margin-top: 1rem;
+}
+
+.home-nearby-map__actions {
+  width: 100%;
+  display: grid;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.summary-map-shell--nearby .summary-map-copy__lede {
+  max-width: 28ch;
+}
+
+.explore-page {
+  margin-top: 1rem;
+}
+
+.explore-page .home-location-bar--explore {
+  margin-bottom: 1.15rem;
+}
+
 .home-overview .home-board-inline {
   justify-content: space-between;
 }
