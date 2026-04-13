@@ -80,6 +80,33 @@ const ariaProps = title
     <circle cx="12" cy="13.5" r="3.5" stroke="currentColor" />
     <path stroke="currentColor" d="M17.5 11h.01" />
   </svg>
+) : name === 'car' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M5 15.5V11l1.8-4h10.4L19 11v4.5" />
+    <path stroke="currentColor" d="M3.5 15.5h17" />
+    <circle cx="7.5" cy="16.5" r="1.8" stroke="currentColor" />
+    <circle cx="16.5" cy="16.5" r="1.8" stroke="currentColor" />
+    <path stroke="currentColor" d="M8.2 7h7.6" />
+  </svg>
+) : name === 'mountain' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M3 19h18L14.6 8.5 11 13l-2.4-3L3 19Z" />
+    <path stroke="currentColor" d="m13.2 10.2 1.7-2.2L21 19" />
+  </svg>
+) : name === 'clock' ? (
+  <svg {...common} {...ariaProps}>
+    <circle cx="12" cy="12" r="8.5" stroke="currentColor" />
+    <path stroke="currentColor" d="M12 7.5v5l3 2" />
+  </svg>
+) : name === 'sliders' ? (
+  <svg {...common} {...ariaProps}>
+    <path stroke="currentColor" d="M4 6h16" />
+    <path stroke="currentColor" d="M4 12h16" />
+    <path stroke="currentColor" d="M4 18h16" />
+    <circle cx="9" cy="6" r="1.8" stroke="currentColor" />
+    <circle cx="15" cy="12" r="1.8" stroke="currentColor" />
+    <circle cx="11" cy="18" r="1.8" stroke="currentColor" />
+  </svg>
 ) : (
   <svg {...common} {...ariaProps}>
     <path stroke="currentColor" d="M12 2v20" />

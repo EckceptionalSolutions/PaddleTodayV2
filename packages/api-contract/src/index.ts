@@ -171,6 +171,8 @@ export interface RiverSummaryApiItem {
     distanceLabel: string;
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
+    putIn?: RiverAccessPoint;
+    takeOut?: RiverAccessPoint;
   };
   sources: Array<{
     label: string;

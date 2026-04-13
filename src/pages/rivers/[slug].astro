@@ -226,12 +226,12 @@ const routeStructuredData = {
           </div>
         </div>
 
-        <p class="river-detail__summary" data-field="explanation">
-          Loading today&apos;s river score.
+        <p class="river-detail__summary" data-field="explanation" data-skeleton>
+          Pulling the latest gauge and weather for this route. Usually under 10 seconds.
         </p>
 
         <div class="river-detail__meta-row">
-          <span class="pill" data-field="decision">Checking</span>
+          <span class="pill" data-field="decision">Checking live data</span>
           <a
             class="pill river-detail__jump-pill"
             href="#why-this-call"
@@ -239,9 +239,9 @@ const routeStructuredData = {
             data-detail-jump="why-this-call"
             data-detail-expand="confidence"
           >
-            Checking support
+            Loading support
           </a>
-          <span class="pill" data-field="data-status">Checking reads</span>
+          <span class="pill" data-field="data-status">Loading sources</span>
           <span class="pill">{river.statusText}</span>
         </div>
 
@@ -250,8 +250,8 @@ const routeStructuredData = {
             <div class="river-detail__hero-map" data-detail-hero-map aria-label={`${river.name} route snapshot map`}></div>
             <div class="river-detail__hero-map-copy">
               <p class="river-detail__hero-map-label">Route snapshot</p>
-              <p class="river-detail__hero-map-status muted" data-detail-hero-map-status>
-                Loading mapped route.
+              <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton>
+                Pulling route snapshot. Usually under 5 seconds.
               </p>
             </div>
           </div>
@@ -410,9 +410,9 @@ const routeStructuredData = {
           </div>
         </details>
         <div class="river-call-panel__reliability">
-          <span class="pill" data-field="rail-reliability">Checking reads</span>
+          <span class="pill" data-field="rail-reliability">Loading sources</span>
           <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
-            Loading source and freshness details.
+            Loading last known route score and checking live sources.
           </p>
         </div>
           <dl class="river-call-panel__meta">
@@ -430,7 +430,7 @@ const routeStructuredData = {
             Refresh river
           </button>
           <span class="muted river-call-panel__refresh-note" data-detail-refresh-note>
-            Auto-refreshes every 5 minutes.
+            Pulling gauge and weather data now.
           </span>
         </div>
         <a
@@ -513,6 +513,11 @@ const routeStructuredData = {
           This river score may be stale. Retry before you drive.
         </p>
       </div>
+      <div class="status-banner__actions" data-detail-fetch-actions hidden>
+        <button class="filter-chip" type="button" data-detail-fetch-retry>
+          Retry now
+        </button>
+      </div>
     </section>
 
     <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
@@ -520,7 +525,7 @@ const routeStructuredData = {
       <div class="status-banner__body">
         <strong data-detail-banner-title>Checking live inputs.</strong>
         <p class="muted" data-detail-banner-detail>
-          Loading the latest river read.
+          Pulling the latest USGS gauge and weather. Usually under 10 seconds.
         </p>
       </div>
       <div class="status-banner__grid" data-detail-reliability-grid>
@@ -1071,8 +1076,8 @@ const routeStructuredData = {
           </button>
           <div class="detail-map-frame detail-map-frame--launch-plan">
             <div class="detail-map" data-detail-map aria-label={`${river.name} access map`}></div>
-            <p class="detail-map__status muted" data-detail-map-status>
-              Loading access map.
+            <p class="detail-map__status muted" data-detail-map-status data-skeleton>
+              Pulling access map tiles. Usually under 5 seconds.
             </p>
           </div>
         </div>

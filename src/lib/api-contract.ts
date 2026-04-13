@@ -36,6 +36,8 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
+      putIn: result.river.putIn,
+      takeOut: result.river.takeOut,
     },
     sources: summarySourceBadges(result),
     score: result.score,

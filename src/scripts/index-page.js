@@ -12,6 +12,8 @@ import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
+const STORAGE_HOME_DIFFICULTY_KEY = 'paddletoday:home-difficulty-filter';
+const STORAGE_HOME_PADDLE_TIME_KEY = 'paddletoday:home-paddle-time-filter';
 const GEOLOCATION_TIMEOUT_MS = 10000;
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const NEARBY_TRAVEL_MINUTES = 90;
@@ -19,6 +21,9 @@ const DAY_TRIP_TRAVEL_MINUTES = 180;
 const AVERAGE_DRIVE_MPH = 50;
 const DEFAULT_RADIUS_MILES = 100;
 const RADIUS_OPTIONS = [25, 50, 75, 100, 150, 200];
+const HOME_DIFFICULTY_OPTIONS = ['easy', 'moderate', 'hard'];
+const HOME_PADDLE_TIME_OPTIONS = ['up-to-3', '3-to-5', '5-to-7', '7-plus'];
+const HOME_NEARBY_SORT_OPTIONS = ['best-score', 'closest', 'shortest-paddle', 'easiest'];
 const US_STATE_ABBREVIATIONS = {
   Alabama: 'AL',
   Alaska: 'AK',
@@ -76,13 +81,29 @@ const recommendationGrid = document.querySelector('[data-recommendation-grid]');
 const recommendationSummary = document.querySelector('[data-recommendation-summary]');
 const recommendationTitle = document.querySelector('[data-recommendation-title]');
 const recommendationEmpty = document.querySelector('[data-recommendation-empty]');
+const recommendationCount = document.querySelector('[data-recommendation-count]');
+const nearbySortSelect = document.querySelector('[data-nearby-sort-select]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
 const homeLocationSummary = document.querySelector('[data-home-location-summary]');
 const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
+const homeRefineRow = document.querySelector('[data-home-refine-row]');
+const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
 const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
 const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
+const homeMatchCount = document.querySelector('[data-home-match-count]');
+const homeLiveCount = document.querySelector('[data-home-live-count]');
+const homeDifficultyButtons = Array.from(document.querySelectorAll('[data-home-difficulty-button]'));
+const homePaddleTimeButtons = Array.from(document.querySelectorAll('[data-home-paddle-time-button]'));
+const homePresetButtons = Array.from(document.querySelectorAll('[data-home-preset]'));
+const homeResetButtons = Array.from(document.querySelectorAll('[data-home-reset-filters]'));
+const homeFilterToggle = document.querySelector('[data-home-filter-toggle]');
+const homeFilterToggleLabel = document.querySelector('[data-home-filter-toggle-label]');
+const homeFilterToggleCount = document.querySelector('[data-home-filter-toggle-count]');
+const homeFilterBackdrop = document.querySelector('[data-home-filter-backdrop]');
+const homeFilterCloseButton = document.querySelector('[data-home-filter-close]');
+const homeRouteMix = document.querySelector('[data-home-route-mix]');
 const homeHeadline = document.querySelector('[data-home-headline]');
 const homeLocationEmpty = document.querySelector('[data-home-location-empty]');
 const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
@@ -189,12 +210,16 @@ let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
 let lastSummaryMapItems = [];
 let featuredMapRuntime = null;
-let featuredMapMarker = null;
+let featuredMapMarkers = [];
 let featuredMapRenderVersion = 0;
 let userLocation = null;
 let userLocationState = 'idle';
 let locationEditing = false;
 let selectedRadiusMiles = DEFAULT_RADIUS_MILES;
+let selectedHomeDifficulties = ['any'];
+let selectedHomePaddleTimes = ['any'];
+let nearbySortMode = 'best-score';
+let homeFilterSheetOpen = false;
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
@@ -227,6 +252,216 @@ function radiusIndexForMiles(value) {
 function radiusMilesForIndex(value) {
   const index = Number(value);
   return RADIUS_OPTIONS[index] ?? DEFAULT_RADIUS_MILES;
+}
+
+function titleCase(value) {
+  if (typeof value !== 'string' || value.length === 0) {
+    return '';
+  }
+
+  return `${value.slice(0, 1).toUpperCase()}${value.slice(1)}`;
+}
+
+function normalizeChoiceSet(value, allowedValues) {
+  const rawValues = Array.isArray(value)
+    ? value
+    : typeof value === 'string'
+      ? (() => {
+          try {
+            const parsed = JSON.parse(value);
+            return Array.isArray(parsed) ? parsed : [value];
+          } catch {
+            return [value];
+          }
+        })()
+      : [];
+
+  const normalized = [...new Set(rawValues.filter((entry) => allowedValues.includes(entry)))];
+  return normalized.length > 0 ? normalized : ['any'];
+}
+
+function normalizeHomeDifficultyFilters(value) {
+  return normalizeChoiceSet(value, ['any', ...HOME_DIFFICULTY_OPTIONS]);
+}
+
+function normalizeHomePaddleTimeFilters(value) {
+  return normalizeChoiceSet(value, ['any', ...HOME_PADDLE_TIME_OPTIONS]);
+}
+
+function isChoiceSetAny(values) {
+  return values.includes('any');
+}
+
+function toggleChoiceValue(values, value, allowedValues) {
+  const normalized = normalizeChoiceSet(values, ['any', ...allowedValues]);
+
+  if (value === 'any') {
+    return ['any'];
+  }
+
+  const next = normalized.filter((entry) => entry !== 'any');
+  const exists = next.includes(value);
+  const updated = exists ? next.filter((entry) => entry !== value) : [...next, value];
+
+  if (updated.length === 0) {
+    return ['any'];
+  }
+
+  return allowedValues.filter((entry) => updated.includes(entry));
+}
+
+function paddleTimePreferenceLabel(value) {
+  if (value === 'up-to-3') return 'up to 3 hr';
+  if (value === '3-to-5') return '3 to 5 hr';
+  if (value === '5-to-7') return '5 to 7 hr';
+  if (value === '7-plus') return '7+ hr';
+  return 'no preference';
+}
+
+function difficultyPreferenceLabel(value) {
+  if (value === 'easy') return 'easy only';
+  if (value === 'moderate') return 'moderate only';
+  if (value === 'hard') return 'hard only';
+  return 'any difficulty';
+}
+
+function formatHomeChoiceSummary(values, formatter, fallbackLabel) {
+  if (isChoiceSetAny(values)) {
+    return fallbackLabel;
+  }
+
+  const labels = values.map(formatter).filter(Boolean);
+  if (labels.length === 0) {
+    return fallbackLabel;
+  }
+  if (labels.length === 1) {
+    return labels[0];
+  }
+  if (labels.length === 2) {
+    return `${labels[0]} + ${labels[1]}`;
+  }
+  return `${labels.slice(0, -1).join(', ')}, and ${labels[labels.length - 1]}`;
+}
+
+function parseEstimatedPaddleTimeRange(label) {
+  if (typeof label !== 'string' || label.trim().length === 0) {
+    return null;
+  }
+
+  const matches = Array.from(label.matchAll(/(\d+)\s*hr(?:\s*(\d+)\s*min)?/gi))
+    .map((match) => Number(match[1]) * 60 + Number(match[2] || 0))
+    .filter((value) => Number.isFinite(value));
+
+  if (matches.length === 0) {
+    return null;
+  }
+
+  return {
+    minMinutes: matches[0],
+    maxMinutes: matches[matches.length - 1],
+  };
+}
+
+function paddleTimeBucketForLabel(label) {
+  const range = parseEstimatedPaddleTimeRange(label);
+  if (!range) {
+    return 'unknown';
+  }
+
+  const midpointMinutes = (range.minMinutes + range.maxMinutes) / 2;
+  if (midpointMinutes < 180) {
+    return 'up-to-3';
+  }
+  if (midpointMinutes < 300) {
+    return '3-to-5';
+  }
+  if (midpointMinutes < 420) {
+    return '5-to-7';
+  }
+  return '7-plus';
+}
+
+function estimatedPaddleMinutesForItem(item) {
+  const range = parseEstimatedPaddleTimeRange(item?.cardRoute?.river?.estimatedPaddleTime ?? '');
+  if (!range) {
+    return Number.POSITIVE_INFINITY;
+  }
+
+  return (range.minMinutes + range.maxMinutes) / 2;
+}
+
+function routeDifficultyRank(item) {
+  const difficulty = item?.cardRoute?.river?.difficulty;
+  if (difficulty === 'easy') return 0;
+  if (difficulty === 'moderate') return 1;
+  if (difficulty === 'hard') return 2;
+  return 3;
+}
+
+function homePreferenceSummaryParts() {
+  const parts = [];
+  if (!isChoiceSetAny(selectedHomeDifficulties)) {
+    parts.push(formatHomeChoiceSummary(selectedHomeDifficulties, titleCase, 'Any difficulty'));
+  }
+  if (!isChoiceSetAny(selectedHomePaddleTimes)) {
+    const coversFullDay = selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus');
+    parts.push(
+      coversFullDay
+        ? '5+ hr'
+        : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'No preference')
+    );
+  }
+  return parts;
+}
+
+function homePreferenceSummaryText() {
+  const parts = homePreferenceSummaryParts();
+  return parts.length > 0 ? parts.join(' • ') : '';
+}
+
+function fullHomePreferenceSummaryText() {
+  const difficultySummary = isChoiceSetAny(selectedHomeDifficulties)
+    ? 'Any difficulty'
+    : formatHomeChoiceSummary(selectedHomeDifficulties, titleCase, 'Any difficulty');
+
+  const paddleSummary = isChoiceSetAny(selectedHomePaddleTimes)
+    ? 'Any paddle time'
+    : (
+        selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')
+          ? '5+ hr'
+          : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any paddle time')
+      );
+
+  return `${difficultySummary} â€¢ ${paddleSummary}`;
+}
+
+function homeActivePreferenceCount() {
+  let count = 0;
+  if (selectedRadiusMiles !== DEFAULT_RADIUS_MILES) count += 1;
+  if (!isChoiceSetAny(selectedHomeDifficulties)) count += 1;
+  if (!isChoiceSetAny(selectedHomePaddleTimes)) count += 1;
+  return count;
+}
+
+function homePreferenceSummaryTextClean() {
+  const parts = homePreferenceSummaryParts();
+  return parts.length > 0 ? parts.join(' / ') : '';
+}
+
+function fullHomePreferenceSummaryTextClean() {
+  const difficultySummary = isChoiceSetAny(selectedHomeDifficulties)
+    ? 'Any difficulty'
+    : formatHomeChoiceSummary(selectedHomeDifficulties, titleCase, 'Any difficulty');
+
+  const paddleSummary = isChoiceSetAny(selectedHomePaddleTimes)
+    ? 'Any paddle time'
+    : (
+        selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')
+          ? '5+ hr'
+          : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any paddle time')
+      );
+
+  return `${difficultySummary} / ${paddleSummary}`;
 }
 
 function ratingToneKey(rating) {
@@ -382,6 +617,62 @@ function isViableRecommendationItem(item) {
 function recommendationPoolForNearby(items) {
   const viableItems = items.filter(isViableRecommendationItem);
   return viableItems.length > 0 ? viableItems : items;
+}
+
+function sortNearbyResultsForDisplay(items) {
+  const copy = [...items];
+
+  if (nearbySortMode === 'closest') {
+    return copy.sort((left, right) => {
+      if (left.travelMinutes !== right.travelMinutes) {
+        return left.travelMinutes - right.travelMinutes;
+      }
+      return right.cardRoute.score - left.cardRoute.score;
+    });
+  }
+
+  if (nearbySortMode === 'shortest-paddle') {
+    return copy.sort((left, right) => {
+      const leftMinutes = estimatedPaddleMinutesForItem(left);
+      const rightMinutes = estimatedPaddleMinutesForItem(right);
+      if (leftMinutes !== rightMinutes) {
+        return leftMinutes - rightMinutes;
+      }
+      return right.cardRoute.score - left.cardRoute.score;
+    });
+  }
+
+  if (nearbySortMode === 'easiest') {
+    return copy.sort((left, right) => {
+      const leftDifficulty = routeDifficultyRank(left);
+      const rightDifficulty = routeDifficultyRank(right);
+      if (leftDifficulty !== rightDifficulty) {
+        return leftDifficulty - rightDifficulty;
+      }
+      if (right.cardRoute.score !== left.cardRoute.score) {
+        return right.cardRoute.score - left.cardRoute.score;
+      }
+      return left.travelMinutes - right.travelMinutes;
+    });
+  }
+
+  return copy.sort((left, right) => {
+    if (right.cardRoute.score !== left.cardRoute.score) {
+      return right.cardRoute.score - left.cardRoute.score;
+    }
+    if (left.travelMinutes !== right.travelMinutes) {
+      return left.travelMinutes - right.travelMinutes;
+    }
+    return compareConfidence(left.cardRoute, right.cardRoute);
+  });
+}
+
+function formatRouteCountLabel(count, { withVerb = false } = {}) {
+  const amount = Number.isFinite(count) ? count : 0;
+  if (withVerb) {
+    return amount === 1 ? '1 route matches your filters' : `${amount} routes match your filters`;
+  }
+  return amount === 1 ? 'Showing 1 route' : `Showing ${amount} routes`;
 }
 
 function pickRepresentativeRoute(routes, mode) {
@@ -582,6 +873,21 @@ function routeDifficultyLabel(item) {
 
 function routeEstimatedTimeLabel(item) {
   return item?.cardRoute?.river?.estimatedPaddleTime ?? '';
+}
+
+function matchesHomeNearbyFilters(result) {
+  if (!isChoiceSetAny(selectedHomeDifficulties) && !selectedHomeDifficulties.includes(result?.river?.difficulty)) {
+    return false;
+  }
+
+  if (!isChoiceSetAny(selectedHomePaddleTimes)) {
+    const bucket = paddleTimeBucketForLabel(result?.river?.estimatedPaddleTime ?? '');
+    if (!selectedHomePaddleTimes.includes(bucket)) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function favoriteRecordForItem(item) {
@@ -1054,6 +1360,82 @@ function updateFeaturedSummaryToggle(text) {
   featuredToggle.textContent = 'Details';
 }
 
+function clearFeaturedMapMarkers() {
+  for (const marker of featuredMapMarkers) {
+    marker.remove();
+  }
+  featuredMapMarkers = [];
+}
+
+function featuredRouteLineColor(rating) {
+  if (rating === 'Strong' || rating === 'Good') return '#2c8a54';
+  if (rating === 'Fair') return '#ad752c';
+  if (rating === 'No-go') return '#bb5840';
+  return '#1e7397';
+}
+
+function featuredMapAccessPoints(item) {
+  const putIn = item?.cardRoute?.river?.putIn;
+  const takeOut = item?.cardRoute?.river?.takeOut;
+  return [
+    Number.isFinite(putIn?.latitude) && Number.isFinite(putIn?.longitude) ? { ...putIn, kind: 'putIn' } : null,
+    Number.isFinite(takeOut?.latitude) && Number.isFinite(takeOut?.longitude) ? { ...takeOut, kind: 'takeOut' } : null,
+  ].filter(Boolean);
+}
+
+function syncFeaturedRouteLine(points, rating) {
+  if (!featuredMapRuntime) {
+    return;
+  }
+
+  const sourceId = 'featured-route-line';
+  const layerId = 'featured-route-line';
+
+  if (points.length > 1) {
+    const routeLine = {
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'LineString',
+        coordinates: points.map((point) => [point.longitude, point.latitude]),
+      },
+    };
+
+    if (featuredMapRuntime.getSource(sourceId)) {
+      featuredMapRuntime.getSource(sourceId).setData(routeLine);
+    } else {
+      featuredMapRuntime.addSource(sourceId, {
+        type: 'geojson',
+        data: routeLine,
+      });
+      featuredMapRuntime.addLayer({
+        id: layerId,
+        type: 'line',
+        source: sourceId,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': featuredRouteLineColor(rating),
+          'line-width': 3,
+          'line-opacity': 0.82,
+        },
+      });
+    }
+
+    featuredMapRuntime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(rating));
+    return;
+  }
+
+  if (featuredMapRuntime.getLayer(layerId)) {
+    featuredMapRuntime.removeLayer(layerId);
+  }
+  if (featuredMapRuntime.getSource(sourceId)) {
+    featuredMapRuntime.removeSource(sourceId);
+  }
+}
+
 async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
   if (!(featuredMapShell instanceof HTMLElement) || !(featuredMap instanceof HTMLElement)) {
     return;
@@ -1064,18 +1446,22 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
   if (featuredMapStatus instanceof HTMLElement) {
     featuredMapStatus.textContent = status;
+    featuredMapStatus.hidden = !status;
   }
 
-  if (
-    !visible ||
-    !item ||
-    !Number.isFinite(item.cardRoute.river.latitude) ||
-    !Number.isFinite(item.cardRoute.river.longitude)
-  ) {
-    if (featuredMapMarker) {
-      featuredMapMarker.remove();
-      featuredMapMarker = null;
-    }
+  if (!visible || !item) {
+    clearFeaturedMapMarkers();
+    syncFeaturedRouteLine([], item?.cardRoute?.rating);
+    return;
+  }
+
+  const accessPoints = featuredMapAccessPoints(item);
+  const hasCenterPoint =
+    Number.isFinite(item.cardRoute.river.latitude) && Number.isFinite(item.cardRoute.river.longitude);
+
+  if (!hasCenterPoint && accessPoints.length === 0) {
+    clearFeaturedMapMarkers();
+    syncFeaturedRouteLine([], item.cardRoute.rating);
     return;
   }
 
@@ -1086,10 +1472,11 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
     }
 
     if (!featuredMapRuntime) {
+      const startingPoint = accessPoints[0] ?? item.cardRoute.river;
       featuredMapRuntime = new maplibregl.Map({
         container: featuredMap,
         style: MAP_STYLE_URL,
-        center: [item.cardRoute.river.longitude, item.cardRoute.river.latitude],
+        center: [startingPoint.longitude, startingPoint.latitude],
         zoom: 8.8,
         minZoom: 3.4,
         maxZoom: 12,
@@ -1110,36 +1497,74 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
       return;
     }
 
-    if (featuredMapMarker) {
-      featuredMapMarker.remove();
-      featuredMapMarker = null;
+    clearFeaturedMapMarkers();
+    syncFeaturedRouteLine(accessPoints, item.cardRoute.rating);
+
+    if (accessPoints.length > 0) {
+      const bounds = new maplibregl.LngLatBounds();
+      for (const point of accessPoints) {
+        const markerNode = document.createElement('div');
+        markerNode.className = `detail-access-marker detail-access-marker--${point.kind === 'putIn' ? 'putin' : 'takeout'}`;
+        markerNode.innerHTML = `<span>${point.kind === 'putIn' ? 'IN' : 'OUT'}</span>`;
+        markerNode.setAttribute('aria-hidden', 'true');
+
+        const marker = new maplibregl.Marker({
+          element: markerNode,
+          anchor: 'center',
+        })
+          .setLngLat([point.longitude, point.latitude])
+          .addTo(featuredMapRuntime);
+
+        featuredMapMarkers.push(marker);
+        bounds.extend([point.longitude, point.latitude]);
+      }
+
+      if (accessPoints.length > 1) {
+        featuredMapRuntime.fitBounds(bounds, {
+          padding: { top: 26, right: 26, bottom: 26, left: 26 },
+          maxZoom: 10.9,
+          duration: 0,
+        });
+      } else {
+        featuredMapRuntime.jumpTo({
+          center: [accessPoints[0].longitude, accessPoints[0].latitude],
+          zoom: 10.2,
+        });
+      }
+    } else {
+      const markerNode = document.createElement('div');
+      markerNode.className = markerClassFor(item);
+      markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
+      markerNode.setAttribute('aria-hidden', 'true');
+
+      const marker = new maplibregl.Marker({
+        element: markerNode,
+        anchor: 'center',
+      })
+        .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
+        .addTo(featuredMapRuntime);
+
+      featuredMapMarkers.push(marker);
+      featuredMapRuntime.jumpTo({
+        center: [item.cardRoute.river.longitude, item.cardRoute.river.latitude],
+        zoom: 8.8,
+      });
     }
 
-    const markerNode = document.createElement('div');
-    markerNode.className = markerClassFor(item);
-    markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
-    markerNode.setAttribute('aria-hidden', 'true');
-
-    featuredMapMarker = new maplibregl.Marker({
-      element: markerNode,
-      anchor: 'center',
-    })
-      .setLngLat([item.cardRoute.river.longitude, item.cardRoute.river.latitude])
-      .addTo(featuredMapRuntime);
-
-    featuredMapRuntime.jumpTo({
-      center: [item.cardRoute.river.longitude, item.cardRoute.river.latitude],
-      zoom: 8.8,
-    });
     featuredMapRuntime.resize();
 
     if (featuredMapStatus instanceof HTMLElement) {
-      featuredMapStatus.textContent = regionStateText(item);
+      featuredMapStatus.textContent = accessPoints.length > 1 ? 'Put-in and take-out' : regionStateText(item);
+      featuredMapStatus.hidden = false;
     }
   } catch (error) {
     console.error('Failed to load featured map.', error);
+    clearFeaturedMapMarkers();
+    syncFeaturedRouteLine([], item.cardRoute.rating);
+    featuredMapShell.hidden = true;
     if (featuredMapStatus instanceof HTMLElement) {
-      featuredMapStatus.textContent = 'Map unavailable right now.';
+      featuredMapStatus.textContent = '';
+      featuredMapStatus.hidden = true;
     }
   }
 }
@@ -1689,13 +2114,16 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
+  const activePreferenceText = homePreferenceSummaryTextClean();
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
     if (featuredPanel instanceof HTMLElement) {
       featuredPanel.classList.toggle('home-featured--locked', !locationReady);
       featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     }
-    if (featuredLabel instanceof HTMLElement) featuredLabel.textContent = 'Today\'s best';
+    if (featuredLabel instanceof HTMLElement) {
+      featuredLabel.textContent = locationReady ? 'Best match near you' : 'Today\'s best';
+    }
     if (featuredState instanceof HTMLElement) {
       featuredState.hidden = locationReady;
       featuredState.textContent = 'Set your location to reveal the strongest paddle near you.';
@@ -1706,7 +2134,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredReach instanceof HTMLElement) {
       featuredReach.textContent = locationReady
-        ? `No tracked routes currently land inside ${selectedRadiusMiles} miles.`
+        ? activePreferenceText
+          ? `No nearby routes match ${activePreferenceText}.`
+          : `No tracked routes currently land inside ${selectedRadiusMiles} miles.`
         : 'Set your location to unlock a personalized top pick.';
     }
     setText(document, 'featured-score', '--');
@@ -1716,7 +2146,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       document,
       'featured-reason',
       locationReady
-        ? `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
+        ? activePreferenceText
+          ? 'Try widening the radius or relaxing the difficulty or paddle-time filters.'
+          : `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
         : 'Drive times and route ranking appear after you choose a location.'
     );
     setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support pending');
@@ -1725,19 +2157,25 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       document,
       'featured-signal',
       locationReady
-        ? 'Widen the radius slider to reveal more nearby options.'
+        ? activePreferenceText
+          ? 'Adjust the nearby filters or radius to bring more routes back into the mix.'
+          : 'Widen the radius slider to reveal more nearby options.'
         : 'Gauge, weather, and support details will appear here.'
     );
     setText(
       document,
       'featured-explanation',
       locationReady
-        ? `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
+        ? activePreferenceText
+          ? `No routes currently match ${activePreferenceText} within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+          : `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
         : 'Set your location to unlock the full summary and drive-time-aware recommendation.'
     );
     updateFeaturedSummaryToggle(
       locationReady
-        ? `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
+        ? activePreferenceText
+          ? `No routes currently match ${activePreferenceText} within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+          : `There are no tracked routes inside ${selectedRadiusMiles} miles right now. Increase the radius or browse the full board below.`
         : 'Set your location to unlock the full summary and drive-time-aware recommendation.'
     );
     if (featuredReasons instanceof HTMLElement) {
@@ -1759,7 +2197,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = 'Today\'s best';
+    featuredLabel.textContent = activePreferenceText ? 'Best match for your setup' : 'Best match near you';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.hidden = true;
@@ -1808,11 +2246,15 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
 }
 function buildRecommendationItems(nearbyItems, overallItems, locationReady = false) {
-  const picks = [];
-  const seen = new Set();
   const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
 
+  if (nearbyReady) {
+    return sortNearbyResultsForDisplay(preferredNearbyItems).slice(0, 3);
+  }
+
+  const picks = [];
+  const seen = new Set();
   const addPick = (item) => {
     if (!item || seen.has(item.key) || picks.length >= 3) {
       return;
@@ -1821,32 +2263,17 @@ function buildRecommendationItems(nearbyItems, overallItems, locationReady = fal
     picks.push(item);
   };
 
-  if (nearbyReady) {
-    const nearbyPool = preferredNearbyItems;
-    addPick(nearbyPool[0]);
-    addPick(nearbyPool.find((item) => item.cardRoute.rating !== 'No-go' && !seen.has(item.key)) || nearbyPool[1]);
-    addPick(
-      nearbyPool.find(
-        (item) =>
-          !seen.has(item.key) &&
-          (item.cardRoute.rating === 'Strong' || item.cardRoute.rating === 'Good')
-      ) || nearbyPool.find((item) => !seen.has(item.key))
-    );
-  } else {
-    addPick(overallItems[0]);
-    addPick(
-      overallItems.find((item) => !seen.has(item.key) && item.cardRoute.confidence.label === 'High') ||
-        overallItems[1]
-    );
-    addPick(
-      overallItems.find((item) => !seen.has(item.key) && isGroupedItem(item)) ||
-        overallItems.find((item) => !seen.has(item.key))
-    );
-  }
+  addPick(overallItems[0]);
+  addPick(
+    overallItems.find((item) => !seen.has(item.key) && item.cardRoute.confidence.label === 'High') ||
+      overallItems[1]
+  );
+  addPick(
+    overallItems.find((item) => !seen.has(item.key) && isGroupedItem(item)) ||
+      overallItems.find((item) => !seen.has(item.key))
+  );
 
-  const fallbackPool = nearbyReady ? nearbyItems : [...overallItems, ...nearbyItems];
-
-  for (const item of fallbackPool) {
+  for (const item of overallItems) {
     addPick(item);
   }
 
@@ -1863,8 +2290,10 @@ function renderRecommendationSection(nearbyItems, overallItems) {
   }
 
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
-  const nearbyReady = locationReady && nearbyItems.length > 0;
+  const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
+  const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const recommendationItems = buildRecommendationItems(nearbyItems, overallItems, locationReady);
+  const activePreferenceText = homePreferenceSummaryTextClean();
 
   if (nearbyLocationPanel instanceof HTMLElement) {
     nearbyLocationPanel.hidden = false;
@@ -1883,17 +2312,25 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     homeLocationEmpty.hidden = locationReady;
   }
 
-  recommendationTitle.textContent = nearbyReady
-    ? 'Best routes near you'
-    : 'Best routes near you';
+  recommendationTitle.textContent = 'Best routes near you';
 
   recommendationSummary.textContent = locationReady
-    ? `Ranked by drive time within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+    ? activePreferenceText
+      ? `Ranked by drive time within ${selectedRadiusMiles} miles of ${shortLocationLabel()} • ${activePreferenceText}.`
+      : `Ranked by drive time within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
     : 'Set your location above to personalize these picks and add drive times.';
+
+  if (recommendationCount instanceof HTMLElement) {
+    recommendationCount.textContent = locationReady
+      ? formatRouteCountLabel(preferredNearbyItems.length)
+      : 'Showing 0 routes';
+  }
 
   if (recommendationItems.length === 0) {
     recommendationEmpty.textContent = locationReady
-      ? `No recommended routes are currently available within ${selectedRadiusMiles} miles.`
+      ? activePreferenceText
+        ? `No recommended routes currently match ${activePreferenceText} within ${selectedRadiusMiles} miles.`
+        : `No recommended routes are currently available within ${selectedRadiusMiles} miles.`
       : 'No recommended rivers are available right now.';
     recommendationEmpty.hidden = false;
     renderRecommendationGrid([], locationReady);
@@ -2042,6 +2479,12 @@ function legacyUpdateLocationStatus() {
 
 function updateLocationStatus() {
   const locationReady = Boolean(userLocation && userLocationState === 'ready');
+  if (!locationReady && homeFilterSheetOpen) {
+    homeFilterSheetOpen = false;
+    document.body.classList.remove('home-filter-sheet-open');
+  }
+  const filtersOpen = locationReady && homeFilterSheetOpen;
+  const mobileSheetOpen = filtersOpen && phoneBreakpoint.matches;
 
   if (homeLocationSummary instanceof HTMLElement) {
     if (userLocationState === 'pending') {
@@ -2071,16 +2514,94 @@ function updateLocationStatus() {
     }
   }
 
+  if (homeRefineRow instanceof HTMLElement) {
+    homeRefineRow.hidden = !locationReady;
+  }
+
   if (homeRadiusPanel instanceof HTMLElement) {
-    homeRadiusPanel.hidden = !locationReady;
+    homeRadiusPanel.hidden = !filtersOpen;
+    homeRadiusPanel.classList.toggle('home-radius-panel--sheet-open', mobileSheetOpen);
   }
 
   if (homeRadiusSummary instanceof HTMLElement) {
     homeRadiusSummary.textContent = `Showing routes within ${selectedRadiusMiles} miles`;
   }
 
+  if (homeRefineSummary instanceof HTMLElement) {
+    homeRefineSummary.textContent = fullHomePreferenceSummaryTextClean();
+  }
+
   if (homeRadiusSlider instanceof HTMLInputElement) {
     homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
+  }
+
+  for (const button of homeDifficultyButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+    const value = button.dataset.value ?? 'any';
+    const isActive = value === 'any'
+      ? isChoiceSetAny(selectedHomeDifficulties)
+      : selectedHomeDifficulties.includes(value);
+    button.classList.toggle('filter-chip--active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  }
+
+  for (const button of homePaddleTimeButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+    const value = button.dataset.value ?? 'any';
+    const isActive = value === 'any'
+      ? isChoiceSetAny(selectedHomePaddleTimes)
+      : selectedHomePaddleTimes.includes(value);
+    button.classList.toggle('filter-chip--active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  }
+
+  for (const button of homePresetButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const preset = button.dataset.homePreset || button.dataset.preset;
+    const isQuickFloat =
+      preset === 'quick-float' &&
+      selectedHomeDifficulties.length === 1 &&
+      selectedHomeDifficulties[0] === 'easy' &&
+      selectedHomePaddleTimes.length === 1 &&
+      selectedHomePaddleTimes[0] === 'up-to-3';
+    const isFullDay =
+      preset === 'full-day' &&
+      selectedHomeDifficulties.join(',') === 'moderate,hard' &&
+      selectedHomePaddleTimes.join(',') === '5-to-7,7-plus';
+    const isActive = isQuickFloat || isFullDay;
+    button.classList.toggle('filter-chip--active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  }
+
+  if (homeFilterToggle instanceof HTMLButtonElement) {
+    homeFilterToggle.hidden = !locationReady;
+    homeFilterToggle.setAttribute('aria-expanded', filtersOpen ? 'true' : 'false');
+  }
+
+  if (homeFilterToggleLabel instanceof HTMLElement) {
+    homeFilterToggleLabel.textContent = !phoneBreakpoint.matches && filtersOpen
+      ? 'Hide preferences'
+      : 'Refine preferences';
+  }
+
+  if (homeFilterToggleCount instanceof HTMLElement) {
+    const activeCount = homeActivePreferenceCount();
+    homeFilterToggleCount.textContent = activeCount > 0 ? `${activeCount} active` : 'Defaults';
+  }
+
+  if (homeFilterBackdrop instanceof HTMLElement) {
+    homeFilterBackdrop.hidden = !mobileSheetOpen;
+  }
+
+  if (homeRouteMix instanceof HTMLElement) {
+    homeRouteMix.hidden = !locationReady;
   }
 
   if (nearbyLocationPanel instanceof HTMLElement) {
@@ -2134,6 +2655,37 @@ function updateLocationStatus() {
 
   if (locationForm instanceof HTMLFormElement) {
     locationForm.classList.toggle('location-panel__form--compact', false);
+  }
+
+}
+
+function setHomeFilterSheetOpen(nextOpen) {
+  homeFilterSheetOpen = Boolean(nextOpen) && userLocationState === 'ready' && Boolean(userLocation);
+  document.body.classList.toggle('home-filter-sheet-open', phoneBreakpoint.matches && homeFilterSheetOpen);
+  updateLocationStatus();
+}
+
+function updateHomeNearbyCounters(results) {
+  const count = Array.isArray(results) ? results.length : 0;
+  const showingCopy = formatRouteCountLabel(count);
+  const matchingCopy = formatRouteCountLabel(count, { withVerb: true });
+
+  if (homeMatchCount instanceof HTMLElement) {
+    homeMatchCount.textContent = showingCopy;
+  }
+  if (homeLiveCount instanceof HTMLElement) {
+    homeLiveCount.textContent = matchingCopy;
+  }
+}
+
+function setNearbySortMode(value, { rerender = true } = {}) {
+  nearbySortMode = HOME_NEARBY_SORT_OPTIONS.includes(value) ? value : 'best-score';
+  if (nearbySortSelect instanceof HTMLSelectElement) {
+    nearbySortSelect.value = nearbySortMode;
+  }
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
   }
 }
 
@@ -2614,12 +3166,19 @@ function hydrateBoardFromCache() {
 function renderHomepage(results) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
-  const nearbyBaseItems = sortItems(buildDisplayItems(results, results, 'near-you'), 'near-you');
+  const nearbyPreferenceResults = results.filter(matchesHomeNearbyFilters);
+  const nearbyBaseItems = sortItems(
+    buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you'),
+    'near-you'
+  );
   const nearbyItems = locationReady
     ? nearbyBaseItems.filter(itemWithinSelectedRadius)
     : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
-  const summaryResults = locationReady ? results.filter(resultWithinSelectedRadius) : results;
+  const summaryResults = locationReady
+    ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
+    : results;
 
+  updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(summaryResults);
   updateFeaturedHero(nearbyItems, overallItems);
   renderRecommendationSection(nearbyItems, overallItems);
@@ -2650,6 +3209,14 @@ function saveLocation(location) {
 
 function saveRadiusMiles(radiusMiles) {
   localStorage.setItem(STORAGE_RADIUS_KEY, String(normalizeRadiusMiles(radiusMiles)));
+}
+
+function saveHomeDifficultyFilter(value) {
+  localStorage.setItem(STORAGE_HOME_DIFFICULTY_KEY, JSON.stringify(normalizeHomeDifficultyFilters(value)));
+}
+
+function saveHomePaddleTimeFilter(value) {
+  localStorage.setItem(STORAGE_HOME_PADDLE_TIME_KEY, JSON.stringify(normalizeHomePaddleTimeFilters(value)));
 }
 
 function loadStoredLocation() {
@@ -2685,6 +3252,26 @@ function loadStoredRadiusMiles() {
   } catch (error) {
     console.warn('Failed to parse stored radius.', error);
     return DEFAULT_RADIUS_MILES;
+  }
+}
+
+function loadStoredHomeDifficultyFilter() {
+  try {
+    const raw = localStorage.getItem(STORAGE_HOME_DIFFICULTY_KEY);
+    return normalizeHomeDifficultyFilters(raw || 'any');
+  } catch (error) {
+    console.warn('Failed to parse stored home difficulty filter.', error);
+    return ['any'];
+  }
+}
+
+function loadStoredHomePaddleTimeFilter() {
+  try {
+    const raw = localStorage.getItem(STORAGE_HOME_PADDLE_TIME_KEY);
+    return normalizeHomePaddleTimeFilters(raw || 'any');
+  } catch (error) {
+    console.warn('Failed to parse stored home paddle-time filter.', error);
+    return ['any'];
   }
 }
 
@@ -2724,10 +3311,88 @@ function setRadiusMiles(radiusMiles, { persist = true, rerender = true } = {}) {
   }
 }
 
+function setHomeDifficultyFilter(value, { persist = true, rerender = true } = {}) {
+  selectedHomeDifficulties = normalizeHomeDifficultyFilters(value);
+
+  if (persist) {
+    saveHomeDifficultyFilter(selectedHomeDifficulties);
+  }
+
+  updateLocationStatus();
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
+function setHomePaddleTimeFilter(value, { persist = true, rerender = true } = {}) {
+  selectedHomePaddleTimes = normalizeHomePaddleTimeFilters(value);
+
+  if (persist) {
+    saveHomePaddleTimeFilter(selectedHomePaddleTimes);
+  }
+
+  updateLocationStatus();
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
+function toggleHomeDifficultyFilter(value) {
+  setHomeDifficultyFilter(toggleChoiceValue(selectedHomeDifficulties, value, HOME_DIFFICULTY_OPTIONS));
+}
+
+function toggleHomePaddleTimeFilter(value) {
+  setHomePaddleTimeFilter(toggleChoiceValue(selectedHomePaddleTimes, value, HOME_PADDLE_TIME_OPTIONS));
+}
+
+function resetHomeFilters({ includeRadius = true, rerender = true } = {}) {
+  selectedHomeDifficulties = ['any'];
+  selectedHomePaddleTimes = ['any'];
+  saveHomeDifficultyFilter(selectedHomeDifficulties);
+  saveHomePaddleTimeFilter(selectedHomePaddleTimes);
+
+  if (includeRadius) {
+    selectedRadiusMiles = DEFAULT_RADIUS_MILES;
+    saveRadiusMiles(selectedRadiusMiles);
+  }
+
+  setNearbySortMode('best-score', { rerender: false });
+  updateLocationStatus();
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
+function applyHomePreset(preset) {
+  if (preset === 'quick-float') {
+    selectedHomeDifficulties = ['easy'];
+    selectedHomePaddleTimes = ['up-to-3'];
+  } else if (preset === 'full-day') {
+    selectedHomeDifficulties = ['moderate', 'hard'];
+    selectedHomePaddleTimes = ['5-to-7', '7-plus'];
+  } else {
+    resetHomeFilters();
+    return;
+  }
+
+  saveHomeDifficultyFilter(selectedHomeDifficulties);
+  saveHomePaddleTimeFilter(selectedHomePaddleTimes);
+  updateLocationStatus();
+
+  if (latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
 function clearUserLocation() {
   userLocation = null;
   userLocationState = 'idle';
   locationEditing = false;
+  homeFilterSheetOpen = false;
+  document.body.classList.remove('home-filter-sheet-open');
   localStorage.removeItem(STORAGE_KEY);
   if (locationInput instanceof HTMLInputElement) {
     locationInput.value = '';
@@ -2928,6 +3593,13 @@ function setupFilters() {
       }
     });
   }
+
+  if (nearbySortSelect instanceof HTMLSelectElement && nearbySortSelect.dataset.filterBound !== 'true') {
+    nearbySortSelect.dataset.filterBound = 'true';
+    nearbySortSelect.addEventListener('change', () => {
+      setNearbySortMode(nearbySortSelect.value);
+    });
+  }
 }
 
 async function submitManualLocation(query, statusTarget = locationSelected || homeLocationSortSummary) {
@@ -3016,6 +3688,67 @@ function setupLocationControls() {
     });
   }
 
+  for (const button of homeDifficultyButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
+      continue;
+    }
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      toggleHomeDifficultyFilter(button.dataset.value ?? 'any');
+    });
+  }
+
+  for (const button of homePaddleTimeButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
+      continue;
+    }
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      toggleHomePaddleTimeFilter(button.dataset.value ?? 'any');
+    });
+  }
+
+  for (const button of homePresetButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
+      continue;
+    }
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      applyHomePreset(button.dataset.homePreset || button.dataset.preset || '');
+    });
+  }
+
+  for (const button of homeResetButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
+      continue;
+    }
+    button.dataset.filterBound = 'true';
+    button.addEventListener('click', () => {
+      resetHomeFilters();
+    });
+  }
+
+  if (homeFilterToggle instanceof HTMLButtonElement && homeFilterToggle.dataset.filterBound !== 'true') {
+    homeFilterToggle.dataset.filterBound = 'true';
+    homeFilterToggle.addEventListener('click', () => {
+      setHomeFilterSheetOpen(!homeFilterSheetOpen);
+    });
+  }
+
+  if (homeFilterCloseButton instanceof HTMLButtonElement && homeFilterCloseButton.dataset.filterBound !== 'true') {
+    homeFilterCloseButton.dataset.filterBound = 'true';
+    homeFilterCloseButton.addEventListener('click', () => {
+      setHomeFilterSheetOpen(false);
+    });
+  }
+
+  if (homeFilterBackdrop instanceof HTMLElement && homeFilterBackdrop.dataset.filterBound !== 'true') {
+    homeFilterBackdrop.dataset.filterBound = 'true';
+    homeFilterBackdrop.addEventListener('click', () => {
+      setHomeFilterSheetOpen(false);
+    });
+  }
+
 }
 
 async function loadBoard({ silent = false } = {}) {
@@ -3099,6 +3832,8 @@ setupLocationControls();
 
 const storedLocation = loadStoredLocation();
 selectedRadiusMiles = loadStoredRadiusMiles();
+selectedHomeDifficulties = loadStoredHomeDifficultyFilter();
+selectedHomePaddleTimes = loadStoredHomePaddleTimeFilter();
 if (storedLocation) {
   userLocation = storedLocation;
   userLocationState = 'ready';
@@ -3109,6 +3844,10 @@ if (storedLocation) {
   if (sortSelect instanceof HTMLSelectElement) {
     sortSelect.value = 'near-you';
   }
+}
+
+if (nearbySortSelect instanceof HTMLSelectElement) {
+  nearbySortSelect.value = nearbySortMode;
 }
 
 updateLocationStatus();
@@ -3155,6 +3894,8 @@ window.addEventListener('resize', () => {
 });
 
 phoneBreakpoint.addEventListener('change', () => {
+  document.body.classList.toggle('home-filter-sheet-open', phoneBreakpoint.matches && homeFilterSheetOpen);
+  updateLocationStatus();
   updateSummaryMapToggle();
   syncExploreShellHeight();
 });

@@ -4,7 +4,7 @@
   ensureMapLibre,
   escapeHtml,
 } from './map-runtime.js';
-import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
+import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
@@ -31,6 +31,8 @@ const detailStatusBanner = root.querySelector('[data-detail-status-banner]');
 const detailFetchBanner = root.querySelector('[data-detail-fetch-banner]');
 const detailFetchTitle = root.querySelector('[data-detail-fetch-title]');
 const detailFetchDetail = root.querySelector('[data-detail-fetch-detail]');
+const detailFetchActions = root.querySelector('[data-detail-fetch-actions]');
+const detailFetchRetryButton = root.querySelector('[data-detail-fetch-retry]');
 const detailRefreshButton = root.querySelector('[data-detail-refresh]');
 const detailRefreshNote = root.querySelector('[data-detail-refresh-note]');
 const readinessGrid = root.querySelector('[data-readiness-grid]');
@@ -140,6 +142,8 @@ let activeAccessContext = {
 };
 const bannerClasses = ['status-banner--live', 'status-banner--degraded', 'status-banner--offline', 'status-banner--loading'];
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
+const STALE_DETAIL_BANNER_MS = 15 * 60 * 1000;
+const MAP_LOAD_TIMEOUT_MS = 7000;
 const ROUTE_PHOTO_COOLDOWN_MS = 30 * 1000;
 const ROUTE_PHOTO_MAX_FILES = 4;
 const ROUTE_PHOTO_MAX_BYTES = 4 * 1024 * 1024;
@@ -163,6 +167,86 @@ function setText(field, value) {
     element.textContent = value;
   }
   return elements[0] ?? null;
+}
+
+function setDetailLoadingState(isLoading) {
+  root.classList.toggle('river-detail--loading', isLoading);
+}
+
+function dataAgeLabel(fetchedAt) {
+  if (typeof fetchedAt !== 'number' || !Number.isFinite(fetchedAt)) {
+    return 'Data age unavailable';
+  }
+
+  const elapsedMs = Math.max(0, Date.now() - fetchedAt);
+  const elapsedMinutes = Math.round(elapsedMs / 60000);
+  if (elapsedMinutes < 1) {
+    return 'Data just updated';
+  }
+  if (elapsedMinutes < 60) {
+    return `Data ${elapsedMinutes} min old`;
+  }
+
+  const elapsedHours = Math.round(elapsedMinutes / 60);
+  if (elapsedHours < 24) {
+    return `Data ${elapsedHours}h old`;
+  }
+
+  const elapsedDays = Math.round(elapsedHours / 24);
+  return elapsedDays === 1 ? 'Data 1 day old' : `Data ${elapsedDays} days old`;
+}
+
+function shouldShowStaleDetailBanner(fetchedAt) {
+  return typeof fetchedAt === 'number' && Number.isFinite(fetchedAt) && Date.now() - fetchedAt >= STALE_DETAIL_BANNER_MS;
+}
+
+function destroyMapRuntime(runtime) {
+  if (runtime && typeof runtime.remove === 'function') {
+    runtime.remove();
+  }
+  return null;
+}
+
+function waitForMapLoad(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
+  return new Promise((resolve, reject) => {
+    if (!runtime || typeof runtime.loaded !== 'function') {
+      reject(new Error('Map runtime missing.'));
+      return;
+    }
+
+    if (runtime.loaded()) {
+      resolve();
+      return;
+    }
+
+    let settled = false;
+    const cleanup = () => {
+      window.clearTimeout(timeoutId);
+      if (typeof runtime.off === 'function') {
+        runtime.off('load', handleLoad);
+        runtime.off('error', handleError);
+      }
+    };
+    const finish = (callback) => (value) => {
+      if (settled) {
+        return;
+      }
+      settled = true;
+      cleanup();
+      callback(value);
+    };
+    const handleLoad = finish(resolve);
+    const handleError = finish((event) => {
+      reject(event?.error instanceof Error ? event.error : new Error('Map failed to load.'));
+    });
+    const timeoutId = window.setTimeout(
+      finish(() => reject(new Error(`Map load timed out after ${Math.round(timeoutMs / 1000)} seconds.`))),
+      timeoutMs
+    );
+
+    runtime.on('load', handleLoad);
+    runtime.on('error', handleError);
+  });
 }
 
 function setFieldGroupHidden(field, hidden) {
@@ -876,29 +960,26 @@ function closeRouteActionMenus() {
 function setDetailRefreshState(state, detail = '') {
   if (detailRefreshButton instanceof HTMLButtonElement) {
     detailRefreshButton.disabled = state === 'loading';
-    detailRefreshButton.textContent = state === 'loading' ? 'Refreshing...' : 'Refresh route data';
+    detailRefreshButton.textContent = state === 'loading' ? 'Checking live data...' : 'Refresh river';
   }
 
   if (detailRefreshNote instanceof HTMLElement) {
     if (state === 'loading') {
-      detailRefreshNote.textContent = 'Refreshing gauge and weather inputs.';
+      detailRefreshNote.textContent = 'Pulling the latest USGS gauge and weather. Usually under 10 seconds.';
       return;
     }
 
     if (state === 'error') {
-      detailRefreshNote.textContent = detail || 'Last refresh failed.';
+      detailRefreshNote.textContent = detail || 'Last live refresh failed.';
       return;
     }
 
     if (lastDetailSuccessAt) {
-      detailRefreshNote.textContent = `Last refresh ${new Date(lastDetailSuccessAt).toLocaleTimeString([], {
-        hour: 'numeric',
-        minute: '2-digit',
-      })}. Auto-refreshes every 5 minutes.`;
+      detailRefreshNote.textContent = `${dataAgeLabel(lastDetailSuccessAt)}. Auto-refreshes every 5 minutes.`;
       return;
     }
 
-    detailRefreshNote.textContent = 'Auto-refreshes every 5 minutes.';
+    detailRefreshNote.textContent = 'Auto-refreshes every 5 minutes once live data lands.';
   }
 }
 
@@ -909,19 +990,27 @@ function setDetailFetchBannerState(kind, detail) {
 
   if (kind === 'hidden') {
     setHidden(detailFetchBanner, true);
+    if (detailFetchActions instanceof HTMLElement) {
+      detailFetchActions.hidden = true;
+    }
     return;
   }
 
   setHidden(detailFetchBanner, false);
-  decorateBanner(detailFetchBanner, 'offline');
+  decorateBanner(detailFetchBanner, kind === 'stale' ? 'degraded' : 'offline');
   if (detailFetchTitle instanceof HTMLElement) {
     detailFetchTitle.textContent =
       kind === 'initial'
         ? 'Live river inputs could not be loaded.'
-        : 'Live river inputs could not be refreshed.';
+        : kind === 'stale'
+          ? 'Showing last known route data.'
+          : 'Live river inputs could not be refreshed.';
   }
   if (detailFetchDetail instanceof HTMLElement) {
     detailFetchDetail.textContent = detail;
+  }
+  if (detailFetchActions instanceof HTMLElement) {
+    detailFetchActions.hidden = false;
   }
 }
 
@@ -2162,17 +2251,19 @@ async function renderDetailHeroMap(result = null) {
     if (detailHeroMapStatus instanceof HTMLElement) {
       detailHeroMapStatus.textContent = 'Route snapshot unavailable because endpoint coordinates are incomplete.';
     }
+    detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
     detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
     return;
   }
 
   if (detailHeroMapStatus instanceof HTMLElement && !detailHeroMapRuntime) {
-    detailHeroMapStatus.textContent = 'Loading mapped route.';
+    detailHeroMapStatus.textContent = 'Pulling route snapshot. Usually under 5 seconds.';
   }
 
   try {
     const maplibregl = await ensureMapLibre();
     if (!maplibregl) {
+      detailHeroMapShell.hidden = true;
       return;
     }
 
@@ -2189,13 +2280,7 @@ async function renderDetailHeroMap(result = null) {
         interactive: false,
       });
 
-      await new Promise((resolve) => {
-        if (detailHeroMapRuntime.loaded()) {
-          resolve();
-          return;
-        }
-        detailHeroMapRuntime.once('load', resolve);
-      });
+      await waitForMapLoad(detailHeroMapRuntime);
     }
 
     detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
@@ -2245,8 +2330,11 @@ async function renderDetailHeroMap(result = null) {
     }
   } catch (error) {
     console.error('Failed to load hero detail map.', error);
+    detailHeroMapRuntime = destroyMapRuntime(detailHeroMapRuntime);
+    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+    detailHeroMapShell.hidden = true;
     if (detailHeroMapStatus instanceof HTMLElement) {
-      detailHeroMapStatus.textContent = 'Route snapshot unavailable right now.';
+      detailHeroMapStatus.textContent = 'Route snapshot unavailable right now. Use the endpoint links while the map reloads.';
     }
   }
 }
@@ -2266,14 +2354,16 @@ async function renderDetailMap(result = null) {
           ? 'Selected segment map is limited because one or more intermediate landing coordinates still need confirmation.'
           : 'Access map unavailable because endpoint coordinates are incomplete.';
     }
+    detailMapRuntime = destroyMapRuntime(detailMapRuntime);
+    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
     return;
   }
 
   if (detailMapStatus instanceof HTMLElement && !detailMapRuntime) {
     detailMapStatus.textContent =
       accessContext.mapMode === 'Selected segment'
-        ? 'Loading map tiles for the selected segment.'
-        : 'Loading map tiles for the stored access points.';
+        ? 'Pulling access map tiles for the selected segment. Usually under 5 seconds.'
+        : 'Pulling access map tiles for the stored access points. Usually under 5 seconds.';
   }
 
   try {
@@ -2295,13 +2385,7 @@ async function renderDetailMap(result = null) {
       });
 
       detailMapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      await new Promise((resolve) => {
-        if (detailMapRuntime.loaded()) {
-          resolve();
-          return;
-        }
-        detailMapRuntime.once('load', resolve);
-      });
+      await waitForMapLoad(detailMapRuntime);
     }
 
     detailMapMarkers = clearDetailMarkers(detailMapMarkers);
@@ -2367,6 +2451,8 @@ async function renderDetailMap(result = null) {
     }
   } catch (error) {
     console.error('Failed to load detail map.', error);
+    detailMapRuntime = destroyMapRuntime(detailMapRuntime);
+    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
     if (detailMapStatus instanceof HTMLElement) {
       detailMapStatus.textContent = 'Map unavailable right now. Use the access links above for location context.';
     }
@@ -2672,6 +2758,7 @@ function renderWeatherVisual(weather) {
 
 function renderDetailResult(result) {
   latestResult = result;
+  setDetailLoadingState(false);
 
   const ratingKey = ratingToneKey(result.rating);
   const decision = decisionLabel(result.rating);
@@ -2683,7 +2770,6 @@ function renderDetailResult(result) {
   setText('rating', ratingLabel(result.rating));
   setText('explanation', result.explanation);
   setText('decision-line', decisionStatement(result));
-
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
     orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
@@ -2793,10 +2879,13 @@ function hydrateDetailFromCache() {
   renderDetailResult(result);
   hasLoadedDetailOnce = true;
   lastDetailSuccessAt = cached.fetchedAt;
-  setDetailFetchBannerState('hidden');
+  setDetailFetchBannerState(
+    shouldShowStaleDetailBanner(cached.fetchedAt) ? 'stale' : 'hidden',
+    `${dataAgeLabel(cached.fetchedAt)}. Refreshing live sources now.`
+  );
 
   if (detailRefreshNote instanceof HTMLElement) {
-    detailRefreshNote.textContent = `${freshnessLabel(cached.fetchedAt)}. Refreshing…`;
+    detailRefreshNote.textContent = `${dataAgeLabel(cached.fetchedAt)}. Refreshing live sources now.`;
   }
 
   return true;
@@ -3008,20 +3097,25 @@ async function loadDetail({ silent = false } = {}) {
       return;
     }
     console.error('Failed to load river score on detail page.', error);
+    setDetailLoadingState(false);
     if (hasLoadedDetailOnce) {
-      setDetailFetchBannerState('hidden');
+      const ageLabel = dataAgeLabel(lastDetailSuccessAt);
+      setDetailFetchBannerState('stale', `${ageLabel}. Showing last known values. Retry to check live data again.`);
       setDetailRefreshState(
         'error',
-        `${freshnessLabel(lastDetailSuccessAt)}. Showing latest available data.`
+        `${ageLabel}. Live refresh failed.`
       );
+      if (latestResult?.rating && typeof latestResult?.score === 'number') {
+        setText('decision-line', `Last score: ${latestResult.score} - ${latestResult.rating}. Confirm with the source before you drive.`);
+      }
       return;
     }
 
     setDetailFetchBannerState(
       'initial',
-      'This route data could not refresh. Retry the page, then verify the source if the problem continues.'
+      'Live data is unavailable right now. Retry, then verify the original source before you drive.'
     );
-    setDetailRefreshState('error', 'Last refresh failed. Retry now.');
+    setDetailRefreshState('error', 'Last live refresh failed. Retry now.');
 
     setText(
       'explanation',
@@ -3357,6 +3451,11 @@ if (detailRefreshButton instanceof HTMLButtonElement) {
     loadDetail();
   });
 }
+if (detailFetchRetryButton instanceof HTMLButtonElement) {
+  detailFetchRetryButton.addEventListener('click', () => {
+    loadDetail();
+  });
+}
 if (detailMapToggle instanceof HTMLButtonElement) {
   detailMapToggle.addEventListener('click', () => {
     detailMapCollapsed = !detailMapCollapsed;
@@ -3374,6 +3473,7 @@ window.addEventListener('beforeunload', () => {
   clearSubmittedRoutePhotoPreviews();
 });
 const hydratedDetail = hydrateDetailFromCache();
+setDetailLoadingState(!hydratedDetail);
 hydrateHistoryFromCache();
 updateDetailMapToggle();
 loadDetail({ silent: hydratedDetail });

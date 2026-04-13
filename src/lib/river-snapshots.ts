@@ -136,6 +136,8 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
       ...item.river,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
+      putIn: item.river.putIn || river?.putIn,
+      takeOut: item.river.takeOut || river?.takeOut,
     },
   };
 }

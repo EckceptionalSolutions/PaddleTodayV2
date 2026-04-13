@@ -164,6 +164,8 @@ describe('api-contract serializers', () => {
     expect(summary.river.slug).toBe(baseRiver.slug);
     expect(summary.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
     expect(summary.river.difficulty).toBe('moderate');
+    expect(summary.river.putIn?.name).toBe('North Landing');
+    expect(summary.river.takeOut?.name).toBe('South Landing');
     expect(summary.sources).toEqual([
       { label: 'USGS', tone: 'usgs' },
       { label: 'Official', tone: 'official' },
