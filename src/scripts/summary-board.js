@@ -122,6 +122,8 @@ const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredBridge = document.querySelector('[data-featured-bridge]');
 const featuredLink = document.querySelector('[data-featured-link]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
+const featuredWeather = document.querySelector('[data-featured-weather]');
+const featuredWeatherIcon = document.querySelector('[data-featured-weather-icon]');
 const featuredSignal = document.querySelector('[data-field="featured-signal"]');
 const featuredReasons = document.querySelector('[data-featured-reasons]');
 const featuredMapShell = document.querySelector('[data-featured-map-shell]');
@@ -1266,6 +1268,24 @@ function weatherVisualMarkup(state) {
   }
 }
 
+function updateFeaturedWeather(item) {
+  if (!(featuredWeather instanceof HTMLElement) || !(featuredWeatherIcon instanceof HTMLElement)) {
+    return;
+  }
+
+  if (!item?.cardRoute) {
+    featuredWeather.hidden = true;
+    featuredWeatherIcon.innerHTML = '';
+    setText(document, 'featured-weather-label', 'Forecast pending');
+    return;
+  }
+
+  const state = weatherVisualState(item);
+  featuredWeather.hidden = false;
+  featuredWeatherIcon.innerHTML = weatherVisualMarkup(state);
+  setText(document, 'featured-weather-label', weatherVisualLabel(state));
+}
+
 function clampText(text, maxLength) {
   if (typeof text !== 'string') {
     return '';
@@ -2188,11 +2208,13 @@ function updateFeaturedHero(nearbyItems, overallItems) {
           ? 'Try widening the radius or relaxing the difficulty or paddle-time filters.'
           : `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
         : 'Drive times and route ranking appear after you choose a location.'
-    );
+      );
+    setText(document, 'featured-facts-label', 'Route facts');
     setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support pending');
     setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add location for drive time');
     setText(document, 'featured-difficulty', locationReady ? 'Any difficulty' : 'Difficulty pending');
     setText(document, 'featured-paddle-time', locationReady ? 'Any paddle time' : 'Paddle time pending');
+    updateFeaturedWeather(null);
     setText(
       document,
       'featured-signal',
@@ -2242,8 +2264,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
   setText(document, 'featured-verdict', recommendationVerdict(item));
-  setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
-  renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
+    setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
+    renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
+  setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
   setText(document, 'featured-confidence', confidenceLabel(item));
   setText(
     document,
@@ -2268,6 +2291,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       ? routeEstimatedTimeLabel(item)
       : 'Paddle time varies'
   );
+  updateFeaturedWeather(item);
   if (featuredSignal instanceof HTMLElement) {
     featuredSignal.innerHTML = signalRowMarkup(item);
   }
@@ -2644,8 +2668,8 @@ function updateLocationStatus() {
 
   if (homeFilterToggleLabel instanceof HTMLElement) {
       homeFilterToggleLabel.textContent = !phoneBreakpoint.matches && filtersOpen
-        ? 'Hide step 2'
-        : 'Step 2 - Set Preferences';
+        ? 'Hide preferences'
+        : 'Set Preferences';
   }
 
   if (homeFilterToggleCount instanceof HTMLElement) {
