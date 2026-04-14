@@ -1017,7 +1017,7 @@ function renderScoreBreakdownDisclosure(scope, breakdown) {
   setScopedText(
     scope,
     '[data-score-breakdown-summary]',
-    `River quality starts at ${breakdown.riverQuality}. Weather shifts it to ${breakdown.finalScore} today.`
+    `River conditions started this at ${breakdown.riverQuality}. Weather moved it to ${breakdown.finalScore} today.`
   );
 
   if (rows instanceof HTMLElement) {
@@ -2198,14 +2198,14 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     }
     if (featuredLabel instanceof HTMLElement) {
-      featuredLabel.textContent = locationReady ? 'Best current match' : 'Today\'s best';
+      featuredLabel.textContent = locationReady ? 'Best current match' : 'Best pick right now';
     }
     if (featuredState instanceof HTMLElement) {
       featuredState.hidden = locationReady;
-      featuredState.textContent = 'Set your location to reveal the strongest paddle near you.';
+      featuredState.textContent = 'Set your location to see the best nearby paddle right now.';
     }
     if (featuredName instanceof HTMLAnchorElement) {
-      featuredName.textContent = locationReady ? 'No routes in range' : 'Today\'s best';
+      featuredName.textContent = locationReady ? 'No routes in range' : 'Best pick right now';
       featuredName.href = locationReady ? '#best-options' : '#home-location';
     }
     if (featuredReach instanceof HTMLElement) {
@@ -2217,8 +2217,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredBridge instanceof HTMLElement) {
       featuredBridge.textContent = locationReady
-        ? 'Primary answer for your current setup.'
-        : 'Set your location to unlock the primary answer.';
+        ? 'Best fit for your current setup.'
+        : 'Set your location to unlock the top pick.';
     }
     setText(document, 'featured-score', '--');
     setText(document, 'featured-rating', locationReady ? 'Out of range' : 'Locked');
@@ -2230,13 +2230,13 @@ function updateFeaturedHero(nearbyItems, overallItems) {
         ? activePreferenceText
           ? 'Try widening the radius or relaxing the difficulty or paddle-time filters.'
           : `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
-        : 'Drive times and route ranking appear after you choose a location.'
+        : 'Add a location to see drive time and nearby ranking.'
       );
     setText(document, 'featured-facts-label', 'Route facts');
-    setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support pending');
-    setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add location for drive time');
-    setText(document, 'featured-difficulty', locationReady ? 'Any difficulty' : 'Difficulty pending');
-    setText(document, 'featured-paddle-time', locationReady ? 'Any paddle time' : 'Paddle time pending');
+    setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support info coming in');
+    setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add a location for drive time');
+    setText(document, 'featured-difficulty', locationReady ? 'Any difficulty' : 'Difficulty coming soon');
+    setText(document, 'featured-paddle-time', locationReady ? 'Any paddle time' : 'Paddle time coming soon');
     updateFeaturedWeather(null);
     setText(
       document,
@@ -2245,7 +2245,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
         ? activePreferenceText
           ? 'Adjust the nearby filters or radius to bring more routes back into the mix.'
           : 'Widen the radius slider to reveal more nearby options.'
-        : 'Gauge, weather, and support details will appear here.'
+        : 'Gauge, weather, and support details will show up here.'
     );
     if (featuredReasons instanceof HTMLElement) {
       featuredReasons.innerHTML = '';
@@ -2266,7 +2266,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = activePreferenceText ? 'Best current match for your setup' : 'Best current match near you';
+    featuredLabel.textContent = activePreferenceText ? 'Best fit for your setup' : 'Best pick near you';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.hidden = true;
@@ -2281,8 +2281,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
   if (featuredBridge instanceof HTMLElement) {
     featuredBridge.textContent = activePreferenceText
-      ? 'Primary answer for your current setup.'
-      : 'Primary answer based on your location.';
+      ? 'Best fit for your current setup.'
+      : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
@@ -2298,7 +2298,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       ? formatTravelLabel(item.travelMinutes)
       : userLocationState === 'pending'
         ? 'Finding drive time'
-        : 'Add location for drive time'
+        : 'Add a location for drive time'
   );
   setText(
     document,
@@ -2399,13 +2399,13 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     homeLocationEmpty.hidden = locationReady;
   }
 
-  recommendationTitle.textContent = locationReady ? 'Compare nearby routes' : 'Best routes near you';
+  recommendationTitle.textContent = locationReady ? 'Compare nearby routes' : 'More good routes nearby';
 
   recommendationSummary.textContent = locationReady
     ? activePreferenceText
       ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
       : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
-    : 'Set your location above to unlock the best match and compare nearby routes.';
+    : 'Set your location above to compare nearby routes.';
 
   if (recommendationCount instanceof HTMLElement) {
     recommendationCount.textContent = locationReady
@@ -2418,7 +2418,7 @@ function renderRecommendationSection(nearbyItems, overallItems) {
       ? activePreferenceText
         ? `No recommended routes currently match ${activePreferenceText} within ${selectedRadiusMiles} miles.`
         : `No recommended routes are currently available within ${selectedRadiusMiles} miles.`
-      : 'No recommended rivers are available right now.';
+      : 'No recommended routes are available right now.';
     recommendationEmpty.hidden = false;
     renderRecommendationGrid([], locationReady);
     return;
@@ -2614,7 +2614,7 @@ function updateLocationStatus() {
       homeLocationSortSummary.textContent = '';
     } else {
       homeLocationSortSummary.hidden = false;
-      homeLocationSortSummary.textContent = 'Choose a location to unlock nearby picks and drive times.';
+      homeLocationSortSummary.textContent = 'Choose a location to see nearby picks and drive times.';
     }
   }
 

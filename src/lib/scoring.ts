@@ -388,7 +388,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
     return {
       points: 30 + clamp(ratio, 0, 1) * 28,
       impact: 'warning',
-      detail: `Below the ideal window but still above the hard low mark. The river is likely paddleable, but not yet in its best band of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}.`,
+      detail: `Below the preferred range, but still above the hard low mark. It's probably still paddleable, just not in its best band of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}.`,
       band: 'low-shoulder',
       bandDetail: 'Low shoulder. Likely paddleable, but still below the preferred target window.',
     };
@@ -411,12 +411,12 @@ function assessGauge(river: River, gauge: GaugeReading): {
       impact: 'positive',
       detail:
         edgeBias === 'sweet spot'
-          ? `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, near the middle of the preferred band.`
-          : `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, but closer to the ${edgeBias}.`,
+          ? `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, right near the middle.`
+          : `Inside the target window of ${formatGauge(idealMin, gauge.unit)} to ${formatGauge(idealMax, gauge.unit)} ${gauge.unit}, but sitting closer to the ${edgeBias}.`,
       band: 'ideal',
       bandDetail:
         edgeBias === 'sweet spot'
-          ? 'Ideal window, near the middle of the preferred band.'
+          ? 'Ideal window, right near the middle.'
           : `Ideal window, but closer to the ${edgeBias}.`,
     };
   }
@@ -426,7 +426,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
     return {
       points: 58 - clamp(ratio, 0, 1) * 28,
       impact: 'warning',
-      detail: 'Above the ideal window but still below the hard high threshold. The river is getting pushier than the preferred band.',
+      detail: 'Above the preferred window, but still below the hard high threshold. The current is starting to get pushier than the sweet spot.',
       band: 'high-shoulder',
       bandDetail: 'High shoulder. Still below the hard high threshold, but pushier than the preferred band.',
     };
@@ -467,7 +467,7 @@ function assessTrend(
       return {
         points: 8,
         impact: 'positive',
-        detail: `${formattedDelta}. Stable flow inside the ideal window is what we want.`,
+        detail: `${formattedDelta}. It's holding steady in the target range, which is a good sign.`,
       };
     }
 
@@ -873,7 +873,7 @@ function assessTemperatureAdjustment(
   const points = Math.round((airPenalty + waterPenalty) * coldSeasonMultiplier * tempSensitivity);
   const waterDetail =
     typeof waterTemp === 'number'
-      ? ` Water temperature is about ${Math.round(waterTemp)}°F.`
+      ? ` Water temperature is about ${Math.round(waterTemp)} degrees F.`
       : '';
 
   return {
@@ -882,9 +882,9 @@ function assessTemperatureAdjustment(
     detail:
       points < 0
         ? temp < 35
-          ? `Air temperature is near freezing at ${Math.round(temp)}°F, which lowers same-day trip quality${coldSeasonMultiplier > 1 ? ' more in the shoulder season' : ''}.`
-          : `Air temperature is ${Math.round(temp)}°F, which lowers same-day trip quality${coldSeasonMultiplier > 1 ? ' more in the shoulder season' : ''}.`
-        : `Air temperature is ${Math.round(temp)}°F and does not meaningfully lower the trip-day score.`,
+          ? `Air temperature is near freezing at ${Math.round(temp)} degrees F, which makes this a tougher same-day call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+          : `Air temperature is ${Math.round(temp)} degrees F, which makes this a weaker same-day call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+        : `Air temperature is ${Math.round(temp)} degrees F and isn't a big problem for today.`,
   };
 }
 
@@ -926,10 +926,10 @@ function assessComfortAdjustment(
     impact: points > 0 ? 'positive' : points < 0 ? 'warning' : 'neutral',
     detail:
       river.profile.difficulty === 'hard'
-        ? `${river.profile.difficultyNotes} This kind of reach needs more margin even when the gauge is in range.`
+        ? `${river.profile.difficultyNotes} This kind of reach needs more margin, even when the gauge is in range.`
         : inSeason
-          ? 'No extra trip-day comfort penalty beyond weather and flow.'
-          : 'Outside the usual season reduces trip-day quality even if the gauge is workable.',
+          ? 'No extra comfort penalty beyond the weather and flow.'
+          : 'Outside the usual season knocks the trip quality down a bit, even if the gauge is workable.',
     seasonValue,
     seasonDetail,
     seasonImpact,

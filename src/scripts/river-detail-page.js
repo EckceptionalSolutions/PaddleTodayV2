@@ -175,25 +175,25 @@ function setDetailLoadingState(isLoading) {
 
 function dataAgeLabel(fetchedAt) {
   if (typeof fetchedAt !== 'number' || !Number.isFinite(fetchedAt)) {
-    return 'Data age unavailable';
+    return 'Update time unavailable';
   }
 
   const elapsedMs = Math.max(0, Date.now() - fetchedAt);
   const elapsedMinutes = Math.round(elapsedMs / 60000);
   if (elapsedMinutes < 1) {
-    return 'Data just updated';
+    return 'Just updated';
   }
   if (elapsedMinutes < 60) {
-    return `Data ${elapsedMinutes} min old`;
+    return `Updated ${elapsedMinutes} min ago`;
   }
 
   const elapsedHours = Math.round(elapsedMinutes / 60);
   if (elapsedHours < 24) {
-    return `Data ${elapsedHours}h old`;
+    return `Updated ${elapsedHours}h ago`;
   }
 
   const elapsedDays = Math.round(elapsedHours / 24);
-  return elapsedDays === 1 ? 'Data 1 day old' : `Data ${elapsedDays} days old`;
+  return elapsedDays === 1 ? 'Updated 1 day ago' : `Updated ${elapsedDays} days ago`;
 }
 
 function shouldShowStaleDetailBanner(fetchedAt) {
@@ -398,14 +398,14 @@ function renderRoutePhotoPendingGrid(mode = 'selected') {
   }
 
   if (routeGalleryPendingTitle instanceof HTMLElement) {
-    routeGalleryPendingTitle.textContent = mode === 'submitted' ? 'Pending your review' : 'Selected for upload';
+    routeGalleryPendingTitle.textContent = mode === 'submitted' ? 'Sent in' : 'Ready to upload';
   }
 
   if (routeGalleryPendingNote instanceof HTMLElement) {
     routeGalleryPendingNote.textContent =
       mode === 'submitted'
-        ? 'Sent to your review queue. These previews are only visible in this browser.'
-        : 'Check these previews before you send them. Nothing is public yet.';
+        ? 'Sent in. These previews are only visible in this browser.'
+        : 'Check these previews before you send them in.';
   }
 
   routeGalleryPendingGrid.innerHTML = selectedRoutePhotoFiles
@@ -458,7 +458,7 @@ function setRoutePhotoSubmitting(isSubmitting) {
   }
 
   routePhotoSubmitButton.disabled = isSubmitting;
-  routePhotoSubmitButton.textContent = isSubmitting ? 'Uploading...' : 'Upload for review';
+  routePhotoSubmitButton.textContent = isSubmitting ? 'Uploading...' : 'Send it in';
 }
 
 function validateRoutePhotoSelection(fileList) {
@@ -565,7 +565,7 @@ function bindRoutePhotoForm() {
     const hasPhotos = selectedRoutePhotoFiles.length > 0;
 
     if (contributorName.length < 2) {
-      setRoutePhotoStatus('Add the contributor name.', 'error');
+      setRoutePhotoStatus('Add your name.', 'error');
       routePhotoNameInput.focus();
       return;
     }
@@ -591,13 +591,13 @@ function bindRoutePhotoForm() {
     }
 
     if (!routePhotoConsentInput.checked) {
-      setRoutePhotoStatus('Confirm that Paddle Today can review and contact you about these photos.', 'error');
+      setRoutePhotoStatus("Confirm that it's okay for Paddle Today to contact you about this submission.", 'error');
       routePhotoConsentInput.focus();
       return;
     }
 
     setRoutePhotoSubmitting(true);
-    setRoutePhotoStatus(`Uploading ${selectedRoutePhotoFiles.length} photo${selectedRoutePhotoFiles.length === 1 ? '' : 's'} for review...`);
+    setRoutePhotoStatus(`Uploading ${selectedRoutePhotoFiles.length} photo${selectedRoutePhotoFiles.length === 1 ? '' : 's'}...`);
 
     try {
       const files = await Promise.all(
@@ -649,11 +649,11 @@ function bindRoutePhotoForm() {
       renderRoutePhotoPendingGrid('submitted');
       setRoutePhotoStatus(
         hasPhotos
-          ? 'Submission received. Photos and trip notes are now in your local review queue and still private.'
-          : 'Trip report received. It is now in your local review queue and still private.',
+          ? 'Got it. Your photos and trip notes were received.'
+          : 'Got it. Your trip report was received.',
         'success'
       );
-      setRouteActionStatus('Trip submission sent for review.', 'success');
+      setRouteActionStatus('Trip submission sent.', 'success');
     } catch (error) {
       console.error('Failed to submit route photos.', error);
       setRoutePhotoStatus(
@@ -1647,7 +1647,7 @@ function historyTrendSummary(days) {
 
 function weatherHourlyNote(weather) {
   if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length === 0) {
-    return 'Hourly forecast is unavailable right now.';
+  return "Hourly forecast isn't available right now.";
   }
 
   const bestWindow = pickBestShortRouteWindow(weather);
@@ -1806,7 +1806,7 @@ function renderHourlyWeather(weather) {
   if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length === 0) {
     const empty = document.createElement('p');
     empty.className = 'weather-hourly__empty muted';
-    empty.textContent = 'Hourly forecast is unavailable right now.';
+    empty.textContent = "Hourly forecast isn't available right now.";
     weatherHourlyGrid.append(empty);
     return;
   }
@@ -2257,7 +2257,7 @@ async function renderDetailHeroMap(result = null) {
   }
 
   if (detailHeroMapStatus instanceof HTMLElement && !detailHeroMapRuntime) {
-    detailHeroMapStatus.textContent = 'Pulling route snapshot. Usually under 5 seconds.';
+    detailHeroMapStatus.textContent = 'Loading the route snapshot. This usually takes a few seconds.';
   }
 
   try {
@@ -2703,14 +2703,14 @@ function bindChartControls() {
 
 function renderWeatherVisual(weather) {
   if (!weather) {
-    setText('weather-condition', 'No current weather read');
+    setText('weather-condition', 'No current weather data');
     setText('weather-air-temp-summary', 'Air: No reading');
     setText('weather-water-temp-detail', 'Water: No reading');
     setText('weather-wind-summary', 'No reading');
     setText('weather-gusts-detail', 'Gusts: No reading');
     setText('weather-rain-risk', 'No reading');
     setText('weather-rain-summary', 'Recent rain: No reading');
-    setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
+    setText('weather-hourly-note', "Hourly forecast isn't available right now.");
     setText('weather-window', 'Best short-route window unavailable right now.');
     setFieldGroupHidden('temperature', true);
     setFieldGroupHidden('weather-condition', true);
@@ -3106,29 +3106,29 @@ async function loadDetail({ silent = false } = {}) {
         `${ageLabel}. Live refresh failed.`
       );
       if (latestResult?.rating && typeof latestResult?.score === 'number') {
-        setText('decision-line', `Last score: ${latestResult.score} - ${latestResult.rating}. Confirm with the source before you drive.`);
+        setText('decision-line', `Last score: ${latestResult.score} - ${latestResult.rating}. Check the source before you go.`);
       }
       return;
     }
 
     setDetailFetchBannerState(
       'initial',
-      'Live data is unavailable right now. Retry, then verify the original source before you drive.'
+      "Live data isn't available right now. Try again, then check the source directly before you go."
     );
     setDetailRefreshState('error', 'Last live refresh failed. Retry now.');
 
     setText(
       'explanation',
-      'Live reads are unavailable right now. Check the original sources below before you drive.'
+      "Live reads aren't available right now. Check the source links below before you go."
     );
-    setText('decision-line', 'Check the source directly because live data is unavailable.');
+    setText('decision-line', 'Live data is down right now, so check the source directly.');
 
     const decisionPill = setText('decision', 'Check sources');
     if (decisionPill instanceof HTMLElement) {
       decisionPill.classList.add('decision-pill--skip');
     }
 
-    const dataStatus = setText('data-status', 'Reads offline');
+    const dataStatus = setText('data-status', 'Live reads unavailable');
     if (dataStatus instanceof HTMLElement) {
       dataStatus.classList.add('data-status-pill--offline');
     }
@@ -3161,7 +3161,7 @@ async function loadDetail({ silent = false } = {}) {
     setText('weather-freshness', 'No live weather reading is available.');
     setText('chart-caption', 'Gauge chart unavailable because the live read could not be loaded.');
     setText('chart-trend-note', 'Trend direction is unavailable because the live chart data could not be loaded.');
-    setText('weather-condition', 'No current weather read');
+    setText('weather-condition', 'No current weather data');
     setText('weather-air-temp', 'No reading');
     setText('weather-air-temp-summary', 'Air: No reading');
     setText('weather-water-temp', 'No reading');
@@ -3173,7 +3173,7 @@ async function loadDetail({ silent = false } = {}) {
     setText('weather-rain-risk', 'No reading');
     setText('weather-rain-summary', 'Recent rain: No reading');
     setText('weather-forecast', 'No reading');
-    setText('weather-hourly-note', 'Hourly forecast is unavailable right now.');
+    setText('weather-hourly-note', "Hourly forecast isn't available right now.");
     setText('weather-window', 'Best short-route window unavailable right now.');
     setText('gauge-source', 'No reading');
     setText('weather-source', 'No reading');
@@ -3201,7 +3201,7 @@ async function loadDetail({ silent = false } = {}) {
           },
         },
         checklist: [
-          { status: 'skip', label: 'Gauge window', detail: 'The direct gauge could not be loaded.' },
+          { status: 'skip', label: 'Gauge window', detail: "We couldn't load the direct gauge." },
           { status: 'watch', label: 'Skill and access', detail: 'Use the source links and access notes below.' },
         ],
         rating: 'No-go',
@@ -3223,7 +3223,7 @@ async function loadDetail({ silent = false } = {}) {
           summary: 'Direct gauge data is unavailable, so this river needs a direct source check.',
         },
         checklist: [
-          { status: 'skip', label: 'Gauge window', detail: 'The direct gauge could not be loaded.' },
+          { status: 'skip', label: 'Gauge window', detail: "We couldn't load the direct gauge." },
           { status: 'watch', label: 'Trend check', detail: 'Trend direction is unavailable because the gauge is offline.' },
           { status: 'watch', label: 'Weather window', detail: 'Weather coverage should be verified separately.' },
           { status: 'watch', label: 'Skill and access', detail: 'Use the source links and access notes below.' },
@@ -3245,7 +3245,7 @@ async function loadDetail({ silent = false } = {}) {
       {
         status: 'skip',
         label: 'Live data',
-        detail: 'The direct gauge could not be loaded, so treat this river as unconfirmed right now.',
+        detail: "We couldn't load the direct gauge, so treat this river as unconfirmed right now.",
       },
       {
         status: 'watch',
@@ -3309,7 +3309,7 @@ function bindAlertForm() {
         button.disabled = true;
       }
     }
-    setAlertStatus(`Saving your ${threshold === 'good' ? 'Good' : 'Strong'} alert…`);
+    setAlertStatus(`Saving your ${threshold === 'good' ? 'Good' : 'Strong'} alert...`);
 
     try {
       const response = await fetch('/api/alerts', {
@@ -3334,8 +3334,8 @@ function bindAlertForm() {
 
       setAlertStatus(
         payload?.duplicate
-          ? `You’re already set for ${threshold === 'good' ? 'Good' : 'Strong'} alerts on this route.`
-          : `We’ll email you when this route reaches ${threshold === 'good' ? 'Good' : 'Strong'}. Every alert email includes an unsubscribe link.`,
+          ? `You're already set for ${threshold === 'good' ? 'Good' : 'Strong'} alerts on this route.`
+          : `We'll email you when this route reaches ${threshold === 'good' ? 'Good' : 'Strong'}. Every alert email includes an unsubscribe link.`,
         'success'
       );
       setRouteActionStatus(
@@ -3389,11 +3389,11 @@ function bindRouteActions() {
     shareCopyButton.addEventListener('click', async () => {
       try {
         await navigator.clipboard.writeText(window.location.href);
-        setRouteActionStatus('Copied route link.', 'success');
+        setRouteActionStatus('Route link copied.', 'success');
         closeRouteActionMenus();
       } catch (error) {
         console.error('Failed to copy route link.', error);
-        setRouteActionStatus('Could not copy this route link right now.', 'error');
+        setRouteActionStatus("Couldn't copy the route link right now.", 'error');
       }
     });
   }
@@ -3443,7 +3443,7 @@ bindRouteActions();
 bindRoutePhotoForm();
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
-    setRouteActionStatus(saved ? 'Saved this route to Favorites.' : 'Removed this route from Favorites.', 'success');
+    setRouteActionStatus(saved ? 'Saved to Favorites.' : 'Removed from Favorites.', 'success');
   },
 });
 if (detailRefreshButton instanceof HTMLButtonElement) {

@@ -227,7 +227,7 @@ const routeStructuredData = {
         </div>
 
         <p class="river-detail__summary" data-field="explanation" data-skeleton>
-          Pulling the latest gauge and weather for this route. Usually under 10 seconds.
+          Pulling the latest gauge and weather. This usually takes a few seconds.
         </p>
 
         <div class="river-detail__meta-row">
@@ -251,7 +251,7 @@ const routeStructuredData = {
             <div class="river-detail__hero-map-copy">
               <p class="river-detail__hero-map-label">Route snapshot</p>
               <p class="river-detail__hero-map-status muted" data-detail-hero-map-status data-skeleton>
-                Pulling route snapshot. Usually under 5 seconds.
+                Loading the route snapshot. This usually takes a few seconds.
               </p>
             </div>
           </div>
@@ -365,7 +365,7 @@ const routeStructuredData = {
           <span class="score-orb__rating" data-field="rating">Checking</span>
         </div>
         <p class="river-call-panel__statement" data-field="decision-line">
-          Loading the current river read.
+          Checking today's read.
         </p>
         <details class="river-score-tooltip">
           <summary class="river-score-tooltip__summary">
@@ -373,7 +373,7 @@ const routeStructuredData = {
           </summary>
           <div class="river-score-tooltip__panel">
             <p class="muted river-score-tooltip__intro" data-field="breakdown-summary">
-              Checking how today&apos;s score comes together.
+              Checking what's driving today's score.
             </p>
 
             <div class="river-score-tooltip__rows">
@@ -402,9 +402,9 @@ const routeStructuredData = {
             </div>
 
             <div class="river-score-tooltip__caps" data-score-cap-wrap hidden>
-              <p class="river-score-tooltip__caps-label">What limited today&apos;s score</p>
+              <p class="river-score-tooltip__caps-label">What held today's score back</p>
               <ul class="compact-list river-score-tooltip__caps-list" data-score-cap-reasons>
-                <li>Checking what limited today&apos;s score.</li>
+                <li>Checking what held today's score back.</li>
               </ul>
             </div>
           </div>
@@ -456,7 +456,7 @@ const routeStructuredData = {
           <p class="eyebrow">Route alerts</p>
           <h2 class="river-alerts__title">Email me when this route improves</h2>
           <p class="muted river-alerts__copy">
-            Threshold alerts only. We email you when this route climbs into Good or Strong, and every email includes an unsubscribe link.
+            We'll email you when this route climbs into Good or Strong. Every email includes an unsubscribe link.
           </p>
 
           <form class="river-alerts__form" data-alert-form novalidate>
@@ -481,7 +481,7 @@ const routeStructuredData = {
             </div>
             <input type="text" name="company" tabindex="-1" autocomplete="off" hidden data-alert-company />
             <p class="river-alerts__status muted" data-alert-status aria-live="polite">
-              No spam. We only email on a new threshold crossing.
+              We only email on a new threshold crossing.
             </p>
           </form>
         </div>
@@ -814,7 +814,7 @@ const routeStructuredData = {
           </p>
           <h2 class="section-title">See this route on the water</h2>
           <p class="muted route-gallery__lede">
-            Photos here help show the real look of the put-in, take-out, and on-water feel for this route.
+          Photos help show what the access looks like and what the route actually feels like on the water.
           </p>
         </div>
       </div>
@@ -1115,7 +1115,7 @@ const routeStructuredData = {
       <p class="eyebrow section-label">Understand</p>
       <h2 class="river-detail__chapter-title">See what is driving today&apos;s call.</h2>
       <p class="muted river-detail__chapter-copy">
-        The deeper evidence, support level, outlook, and source links live here when you want to verify the recommendation.
+        Want to double-check the call? This is where you'll find the support level, outlook, and source links.
       </p>
     </section>
 
@@ -1129,21 +1129,21 @@ const routeStructuredData = {
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-              This trust read comes from three things: how direct the gauge is, how clear the range is, and how fresh the live reads are.
+          Support mostly comes down to three things: how direct the gauge is, how clear the range is, and how fresh the data is.
             </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
               <span class="eyebrow section-label">Why</span>
               <ul class="confidence-rationale" data-confidence-reasons>
-                <li>Checking support reasons.</li>
+              <li>Checking support notes.</li>
               </ul>
             </section>
 
             <section class="confidence-detail__group" data-confidence-warnings-group hidden>
               <span class="eyebrow section-label">Watch for</span>
               <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
-                <li>Checking support warnings.</li>
+              <li>Checking support cautions.</li>
               </ul>
             </section>
           </div>
@@ -1159,7 +1159,7 @@ const routeStructuredData = {
         </summary>
         <div class="river-accordion__body">
           <p class="muted">
-            Conservative directional reads only. Withheld when support is too weak.
+          This is a cautious early look. If the data is too thin, we leave it out.
           </p>
           <div class="outlook-grid" data-outlooks>
             <article class="outlook-card">
@@ -1185,7 +1185,7 @@ const routeStructuredData = {
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-              These are the live inputs and threshold notes behind today&apos;s score.
+        These are the live readings and threshold notes behind today's score.
             </p>
           <table class="detail-table">
             <tbody>
@@ -1295,7 +1295,7 @@ const routeStructuredData = {
         </summary>
         <div class="river-accordion__body">
           <p class="muted confidence-detail__intro">
-            These notes call out the access details, route quirks, and source caveats most likely to matter on the ground.
+        These notes cover the access details, route quirks, and source caveats most likely to matter once you get there.
           </p>
           <ul class="factor-list">
             {river.evidenceNotes.map((note) => (
@@ -1322,12 +1322,12 @@ const routeStructuredData = {
           <summary class="river-accordion__summary">
             <span>
               <span class="eyebrow section-label">Verify it yourself</span>
-              <strong>Check the original sources</strong>
+          <strong>Check the source links</strong>
             </span>
           </summary>
         <div class="river-accordion__body">
           <p class="muted confidence-detail__intro">
-            Use these links to verify the gauge, route details, and access notes before you drive.
+        Use these links to double-check the gauge, route details, and access notes before you head out.
           </p>
           <ul class="source-list">
             {river.sourceLinks.map((source) => (
@@ -1342,9 +1342,9 @@ const routeStructuredData = {
 
     <section class="river-detail__chapter-head river-detail__chapter-head--contribute" aria-label="Contribute chapter">
       <p class="eyebrow section-label">Contribute</p>
-      <h2 class="river-detail__chapter-title">Add route knowledge for the next paddler.</h2>
+      <h2 class="river-detail__chapter-title">Help the next paddler out.</h2>
       <p class="muted river-detail__chapter-copy">
-        Share trip reports, upload photos, or flag anything on the page that needs to be corrected.
+        Share a trip report, upload photos, or flag anything here that needs fixing.
       </p>
     </section>
 
@@ -1355,14 +1355,14 @@ const routeStructuredData = {
       </p>
       <div class="river-report-panel__content route-contribute" id="share-trip">
         <div class="route-contribute__intro">
-          <h2 class="river-subtitle river-subtitle--compact">Send a trip report or route photos</h2>
+          <h2 class="river-subtitle river-subtitle--compact">Share a trip report or photos</h2>
           <p class="muted">
-            Share what this route looked like, how it paddled, and anything useful the next paddler should know.
+            Share what the route looked like, how it paddled, and anything the next person should know.
           </p>
           <ul class="compact-list route-gallery__tips">
-            <li>Photos should show access, on-water character, hazards, or what the route actually looked like.</li>
+            <li>Photos are most helpful when they show access, hazards, or what the route actually looked like.</li>
             <li>Trip reports are most useful when they mention level, pace, strainers, obstructions, or access changes.</li>
-            <li>Contributors should only upload photos they took or have permission to share.</li>
+            <li>Only upload photos you took or have permission to share.</li>
           </ul>
         </div>
 
@@ -1432,7 +1432,7 @@ const routeStructuredData = {
 
             <label>
               Photos
-              <span class="request-form__hint">Optional. Up to 4 JPG, PNG, or WebP images. Maximum 4 MB each.</span>
+                  <span class="request-form__hint">Optional. Up to 4 JPG, PNG, or WebP images, 4 MB max each.</span>
               <input
                 type="file"
                 name="photos"
@@ -1447,8 +1447,8 @@ const routeStructuredData = {
             </p>
 
             <label>
-              Photo or trip notes
-              <span class="request-form__hint">Optional extra context for the upload or review.</span>
+                Extra notes
+                <span class="request-form__hint">Optional extra context.</span>
               <textarea
                 name="notes"
                 rows="4"
@@ -1465,7 +1465,7 @@ const routeStructuredData = {
 
             <label class="route-photo-form__checkbox">
               <input type="checkbox" name="reviewConsent" data-route-photo-consent />
-              <span>Paddle Today can review this submission and contact me if more context is needed before publishing.</span>
+                  <span>It's okay to contact me if you need more detail before publishing.</span>
             </label>
 
             <label class="request-form__hp" aria-hidden="true">
@@ -1474,7 +1474,7 @@ const routeStructuredData = {
             </label>
 
             <div class="request-form__actions">
-              <button class="filter-chip" type="submit" data-route-photo-submit>Send for review</button>
+              <button class="filter-chip" type="submit" data-route-photo-submit>Send it in</button>
             </div>
 
             <p class="muted request-form__status route-photo-form__status" data-route-photo-status aria-live="polite"></p>
@@ -1490,9 +1490,9 @@ const routeStructuredData = {
       </p>
       <div class="river-report-panel__content">
         <div>
-          <h2 class="river-subtitle river-subtitle--compact">Spotted something outdated?</h2>
+          <h2 class="river-subtitle river-subtitle--compact">See something outdated?</h2>
           <p class="muted">
-            Access rules, hazards, wood, shuttle details, and threshold notes change. Send a quick correction if something on this page looks off.
+            Access rules, hazards, wood, shuttle details, and threshold notes change. Send a quick correction if something here looks off.
           </p>
         </div>
         <div class="detail-map__links">
