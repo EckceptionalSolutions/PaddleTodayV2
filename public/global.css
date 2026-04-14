@@ -8299,7 +8299,7 @@ a {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
   gap: 0.875rem;
-  align-items: start;
+  align-items: center;
   min-width: 0;
   width: 100%;
   padding: 0;
@@ -8332,13 +8332,11 @@ a {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.86);
 }
 
-.home-location-bar__current > span[aria-hidden='true'] {
-  margin-top: 0.125rem;
-}
-
 .home-location-bar__text {
   display: grid;
   gap: 0.25rem;
+  align-content: center;
+  min-height: 2.45rem;
 }
 
 .home-location-bar__value,
@@ -8445,7 +8443,7 @@ a {
   display: grid;
   gap: 0.72rem;
   align-items: start;
-  padding-top: 0.2rem;
+  padding-top: 0.55rem;
   border-top: 1px solid rgba(30, 115, 151, 0.08);
 }
 
