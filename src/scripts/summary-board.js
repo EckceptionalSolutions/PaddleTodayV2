@@ -76,6 +76,9 @@ const US_STATE_ABBREVIATIONS = {
   Wisconsin: 'WI',
   Wyoming: 'WY',
 };
+const US_STATE_NAMES_BY_ABBREVIATION = Object.fromEntries(
+  Object.entries(US_STATE_ABBREVIATIONS).map(([name, abbreviation]) => [abbreviation.toLowerCase(), name])
+);
 
 const recommendationGrid = document.querySelector('[data-recommendation-grid]');
 const recommendationSummary = document.querySelector('[data-recommendation-summary]');
@@ -157,6 +160,7 @@ const filterPills = document.querySelector('[data-filter-pills]');
 const filterButtons = Array.from(document.querySelectorAll('[data-filter-toggle]'));
 const filterSearch = document.querySelector('[data-filter-search]');
 const filterState = document.querySelector('[data-filter-state]');
+const filterRating = document.querySelector('[data-filter-rating]');
 const filterDifficulty = document.querySelector('[data-filter-difficulty]');
 const filterDistance = document.querySelector('[data-filter-distance]');
 const filterPaddleTime = document.querySelector('[data-filter-paddle-time]');
@@ -217,6 +221,7 @@ let mapMarkers = [];
 let mapMarkersByKey = new Map();
 let summaryMapRenderVersion = 0;
 let selectedSummaryMapKey = null;
+let summaryMapCardFlashTimeout = 0;
 let lastSummaryMapItems = [];
 let featuredMapRuntime = null;
 let featuredMapMarkers = [];
@@ -2490,6 +2495,9 @@ function resetExploreFilters({ rerender = true } = {}) {
   if (filterState instanceof HTMLSelectElement) {
     filterState.value = '';
   }
+  if (filterRating instanceof HTMLSelectElement) {
+    filterRating.value = '';
+  }
   if (filterDifficulty instanceof HTMLSelectElement) {
     filterDifficulty.value = '';
   }
@@ -3090,7 +3098,24 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
         behavior: 'smooth',
         block: 'nearest',
       });
+      card.classList.remove('river-card--map-jump');
+      void card.offsetWidth;
+      card.classList.add('river-card--map-jump');
     }
+  }
+
+  if (scroll) {
+    window.clearTimeout(summaryMapCardFlashTimeout);
+    summaryMapCardFlashTimeout = window.setTimeout(() => {
+      if (!(exploreGrid instanceof HTMLElement)) {
+        return;
+      }
+
+      const highlightedCards = Array.from(exploreGrid.querySelectorAll('.river-card--map-jump'));
+      for (const highlightedCard of highlightedCards) {
+        highlightedCard.classList.remove('river-card--map-jump');
+      }
+    }, 1600);
   }
 }
 
@@ -3697,9 +3722,88 @@ function formatLocationLabel(name, admin1, country = '') {
   return admin ? `${labelName}, ${admin}` : labelName;
 }
 
-async function geocodeManualLocation(query) {
+function normalizeStateQueryToken(value) {
+  const normalized = typeof value === 'string' ? value.trim().replace(/\./g, '') : '';
+  if (!normalized) {
+    return null;
+  }
+
+  const lower = normalized.toLowerCase();
+  const abbreviationMatch = US_STATE_NAMES_BY_ABBREVIATION[lower];
+  if (abbreviationMatch) {
+    return {
+      name: abbreviationMatch,
+      abbreviation: US_STATE_ABBREVIATIONS[abbreviationMatch],
+    };
+  }
+
+  const stateEntry = Object.entries(US_STATE_ABBREVIATIONS).find(([name]) => name.toLowerCase() === lower);
+  if (!stateEntry) {
+    return null;
+  }
+
+  return {
+    name: stateEntry[0],
+    abbreviation: stateEntry[1],
+  };
+}
+
+function parseManualLocationQuery(query) {
+  const raw = typeof query === 'string' ? query.trim().replace(/\s+/g, ' ') : '';
+  if (!raw) {
+    return { raw: '', city: '', state: null };
+  }
+
+  const commaParts = raw.split(',').map((part) => part.trim()).filter(Boolean);
+  if (commaParts.length > 1) {
+    const state = normalizeStateQueryToken(commaParts.at(-1));
+    if (state) {
+      return {
+        raw,
+        city: commaParts.slice(0, -1).join(', '),
+        state,
+      };
+    }
+  }
+
+  const words = raw.split(' ').filter(Boolean);
+  if (words.length > 1) {
+    for (const candidateLength of [2, 1]) {
+      if (words.length <= candidateLength) {
+        continue;
+      }
+
+      const state = normalizeStateQueryToken(words.slice(-candidateLength).join(' '));
+      if (state) {
+        return {
+          raw,
+          city: words.slice(0, -candidateLength).join(' '),
+          state,
+        };
+      }
+    }
+  }
+
+  return { raw, city: raw, state: null };
+}
+
+function matchesStateForGeocodeResult(result, state) {
+  if (!result || !state) {
+    return false;
+  }
+
+  const admin1 = typeof result.admin1 === 'string' ? result.admin1.trim() : '';
+  if (!admin1) {
+    return false;
+  }
+
+  const normalizedAdmin = admin1.toLowerCase();
+  return normalizedAdmin === state.name.toLowerCase() || normalizedAdmin === state.abbreviation.toLowerCase();
+}
+
+async function searchManualLocation(query) {
   const response = await fetch(
-    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json&countryCode=US`,
+    `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
     {
       headers: { accept: 'application/json' },
     }
@@ -3710,17 +3814,54 @@ async function geocodeManualLocation(query) {
   }
 
   const payload = await response.json();
-  const match = Array.isArray(payload?.results) ? payload.results[0] : null;
-  if (!match || typeof match.latitude !== 'number' || typeof match.longitude !== 'number') {
-    return null;
+  return Array.isArray(payload?.results) ? payload.results : [];
+}
+
+async function geocodeManualLocation(query) {
+  const parsed = parseManualLocationQuery(query);
+  const searchQueries = [];
+
+  if (parsed.city && parsed.state?.name) {
+    searchQueries.push(`${parsed.city}, ${parsed.state.name}`);
+  }
+  if (parsed.city && parsed.state?.abbreviation) {
+    searchQueries.push(`${parsed.city}, ${parsed.state.abbreviation}`);
+  }
+  if (parsed.city) {
+    searchQueries.push(parsed.city);
+  }
+  searchQueries.push(parsed.raw);
+
+  const seen = new Set();
+  for (const searchQuery of searchQueries) {
+    const normalizedQuery = searchQuery.trim().toLowerCase();
+    if (!normalizedQuery || seen.has(normalizedQuery)) {
+      continue;
+    }
+    seen.add(normalizedQuery);
+
+    const results = await searchManualLocation(searchQuery);
+    const candidates = results.filter(
+      (result) => typeof result?.latitude === 'number' && typeof result?.longitude === 'number'
+    );
+
+    if (candidates.length === 0) {
+      continue;
+    }
+
+    const match = parsed.state
+      ? candidates.find((result) => matchesStateForGeocodeResult(result, parsed.state)) ?? candidates[0]
+      : candidates[0];
+
+    return {
+      latitude: match.latitude,
+      longitude: match.longitude,
+      label: formatLocationLabel(match.name, match.admin1, match.country),
+      source: 'manual',
+    };
   }
 
-  return {
-    latitude: match.latitude,
-    longitude: match.longitude,
-    label: formatLocationLabel(match.name, match.admin1, match.country),
-    source: 'manual',
-  };
+  return null;
 }
 
 async function reverseGeocodeLocation(latitude, longitude) {
@@ -3849,6 +3990,15 @@ function setupFilters() {
     filterState.dataset.filterBound = 'true';
     filterState.addEventListener('change', () => {
       activeFilters.state = filterState.value;
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterRating instanceof HTMLSelectElement && filterRating.dataset.filterBound !== 'true') {
+    filterRating.dataset.filterBound = 'true';
+    filterRating.addEventListener('change', () => {
+      activeFilters.rating = filterRating.value;
       currentExplorePage = 1;
       renderHomepage(latestResults);
     });

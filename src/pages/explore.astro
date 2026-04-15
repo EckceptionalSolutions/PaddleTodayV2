@@ -17,7 +17,7 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Explore</p>
-        <h1 class="section-title">Browse all tracked routes</h1>
+        <h1 class="section-title">Browse all routes</h1>
       </div>
     </div>
 
@@ -50,6 +50,9 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
 
               <section class="home-location-bar home-location-bar--explore home-location-bar--embedded" aria-label="Set your location" data-nearby-location-panel>
                 <form class="location-panel__form home-location-bar__form" data-location-form>
+                  <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use aria-label="Use my location">
+                    <FeatureIcon name="crosshair" size={17} />
+                  </button>
                   <label class="filter-search location-panel__search home-location-bar__search">
                     <span class="sr-only">Enter a city or ZIP code</span>
                     <input
@@ -60,9 +63,8 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
                     />
                   </label>
                   <div class="location-panel__actions home-location-bar__actions">
-                    <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use>
-                      <FeatureIcon name="crosshair" size={17} />
-                      Use my location
+                    <button class="filter-chip filter-chip--subtle home-location-bar__search-button" type="submit">
+                      Search
                     </button>
                     <button class="filter-chip home-location-bar__clear" type="button" data-location-clear hidden>Clear</button>
                   </div>
@@ -135,9 +137,16 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
                     <option value="7-plus">7+ hr</option>
                   </select>
                 </label>
-                <button class="filter-chip filter-chip--subtle" type="button" data-filter-toggle="paddleable" title="Keep only Strong and Good recommendations.">
-                  Strong + Good only
-                </button>
+                <label class="filter-select">
+                  <span class="sr-only">Filter by Paddle Today Score</span>
+                  <select class="filter-select__input" data-filter-rating>
+                    <option value="">Paddle Today Score</option>
+                    <option value="Strong">Strong only</option>
+                    <option value="Good">Good only</option>
+                    <option value="Fair">Fair only</option>
+                    <option value="No-go">No-go only</option>
+                  </select>
+                </label>
               </div>
 
               <div class="board-filters__actions">
@@ -156,7 +165,7 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
             mode="explore"
             className="summary-map-shell--explore-workspace"
             eyebrow="Map view"
-            title="Today's best options"
+            title="Route map"
             lede="Use the map to scan the board, then compare the ranked list."
             showResults={false}
             status="Loading map."
@@ -180,13 +189,13 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
                 <button class="filter-chip" type="button" data-explore-next>Next</button>
               </div>
             </div>
-
-            <section class="home-board-inline" aria-label="Route requests">
-              <p class="home-board-inline__copy">Don&apos;t see your favorite river?</p>
-              <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
-            </section>
           </div>
         </div>
+      </section>
+
+      <section class="home-board-inline home-board-inline--wide" aria-label="Route requests">
+        <p class="home-board-inline__copy">Don&apos;t see your favorite river?</p>
+        <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
       </section>
     </div>
   </section>

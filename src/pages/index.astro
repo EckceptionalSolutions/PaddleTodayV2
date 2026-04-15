@@ -93,14 +93,16 @@ const homepageStructuredData = [
         </button>
 
         <form class="location-panel__form home-location-bar__form" data-location-form>
+          <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use aria-label="Use my location">
+            <FeatureIcon name="crosshair" size={17} />
+          </button>
           <label class="filter-search location-panel__search home-location-bar__search">
             <span class="sr-only">Enter a city or ZIP code</span>
             <input class="filter-search__input home-location-bar__search-input" type="search" placeholder="City or ZIP code" data-location-input />
           </label>
           <div class="location-panel__actions home-location-bar__actions">
-            <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use>
-              <FeatureIcon name="crosshair" size={17} />
-              Use my location
+            <button class="filter-chip filter-chip--subtle home-location-bar__search-button" type="submit">
+              Search
             </button>
             <button class="filter-chip home-location-bar__clear" type="button" data-location-clear hidden>Clear</button>
           </div>
@@ -274,6 +276,10 @@ const homepageStructuredData = [
             </div>
           </details>
 
+          <figure class="home-featured__gallery" data-featured-gallery hidden>
+            <img class="home-featured__gallery-image" data-featured-gallery-image alt="" loading="lazy" />
+          </figure>
+
           <div class="home-featured__map-shell" data-featured-map-shell hidden>
             <div class="summary-map home-featured__map" data-featured-map aria-label="Map showing the featured route location"></div>
             <div class="home-featured__map-meta">
@@ -317,7 +323,7 @@ const homepageStructuredData = [
         </div>
         <div class="section-head__actions home-recommendations__actions">
           <p class="muted section-head__note home-recommendations__intro-note" data-recommendation-summary>
-            Full board view. Add your location to personalize the map and route order.
+            Add your location any time to sort by drive time.
           </p>
           <div class="home-radius-pills home-recommendations__mix" aria-label="Route mix within selected filters" data-home-route-mix hidden>
             <span class="home-radius-pill home-radius-pill--strong">
@@ -378,6 +384,10 @@ const homepageStructuredData = [
   </section>
 
   <section class="home-overview" aria-label="Board overview">
+    <section class="home-board-inline home-board-inline--browse" aria-label="Browse all routes">
+      <p class="home-board-inline__copy">Want the full board with the bigger map and advanced filters?</p>
+      <a class="river-link river-link--inline" href="/explore/">Browse all routes</a>
+    </section>
     <section class="home-board-inline" aria-label="Route requests">
       <p class="home-board-inline__copy">Don&apos;t see a route you paddle?</p>
       <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
