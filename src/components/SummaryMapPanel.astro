@@ -4,18 +4,20 @@ import FeatureIcon from './FeatureIcon.astro';
 const {
   id,
   mode = 'explore',
+  className = '',
   eyebrow = 'Score map',
   title,
   lede = '',
+  showResults = true,
   resultsTitle = 'Shown on map',
   note = 'Loading routes.',
   status = 'Loading map.',
   ariaLabel = 'Route score map',
 } = Astro.props;
 
-const shellClass = mode === 'nearby'
-  ? 'summary-map-shell summary-map-shell--nearby'
-  : 'summary-map-shell';
+const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
+  .filter(Boolean)
+  .join(' ');
 ---
 
 <section class={shellClass} id={id} data-summary-map-shell data-summary-map-mode={mode}>
@@ -26,11 +28,15 @@ const shellClass = mode === 'nearby'
     </p>
     <h2 class="section-title">{title}</h2>
     {lede && <p class="muted summary-map-copy__lede">{lede}</p>}
-    <div class="summary-map-results-head">
-      <p class="summary-map-results__title">{resultsTitle}</p>
-      <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
-    </div>
-    <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
+    {showResults && (
+      <>
+        <div class="summary-map-results-head">
+          <p class="summary-map-results__title">{resultsTitle}</p>
+          <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
+        </div>
+        <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
+      </>
+    )}
     <button class="filter-chip summary-map__toggle" type="button" data-summary-map-toggle hidden aria-expanded="true">Hide map</button>
   </div>
 

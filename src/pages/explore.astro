@@ -154,17 +154,22 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
           <SummaryMapPanel
             id="explore-map"
             mode="explore"
-            eyebrow="Route map"
-            title="See where the best matching routes are"
-            resultsTitle="Matching routes"
-            note="Loading routes."
+            className="summary-map-shell--explore-workspace"
+            eyebrow="Map view"
+            title="Today's best options"
+            lede="Use the map to scan the board, then compare the ranked list."
+            showResults={false}
             status="Loading map."
             ariaLabel="Route score map"
           />
 
           <div class="explore-workspace__board">
+            <div class="explore-workspace__list-head">
+              <p class="eyebrow">Ranked results</p>
+              <p class="muted explore-workspace__list-note">Click a marker or a route to compare both views together.</p>
+            </div>
             <div class="explore-grid-shell" data-explore-shell>
-              <div class="river-grid" aria-label="Explore routes today" data-explore-grid></div>
+              <div class="river-grid river-grid--explore-list" aria-label="Explore routes today" data-explore-grid></div>
             </div>
 
             <div class="explore-pagination" data-explore-pagination hidden>

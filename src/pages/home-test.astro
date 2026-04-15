@@ -5,7 +5,7 @@ import SummaryMapPanel from '../components/SummaryMapPanel.astro';
 import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
-const homeUrl = new URL('/', siteUrl).href;
+const homeTestUrl = new URL('/home-test/', siteUrl).href;
 const organizationId = new URL('/#organization', siteUrl).href;
 const websiteId = new URL('/#website', siteUrl).href;
 const homepageStructuredData = [
@@ -14,7 +14,7 @@ const homepageStructuredData = [
     '@type': 'WebSite',
     '@id': websiteId,
     name: 'Paddle Today',
-    url: homeUrl,
+    url: homeTestUrl,
     publisher: {
       '@id': organizationId,
     },
@@ -23,11 +23,11 @@ const homepageStructuredData = [
   {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    '@id': `${homeUrl}#collection`,
-    name: 'Best Rivers to Paddle Today',
+    '@id': `${homeTestUrl}#collection`,
+    name: 'Best Rivers to Paddle Today Preview',
     description:
       'Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.',
-    url: homeUrl,
+    url: homeTestUrl,
     isPartOf: {
       '@id': websiteId,
     },
@@ -39,7 +39,7 @@ const homepageStructuredData = [
 ---
 
 <BaseLayout
-  title="Paddle Today | Best Rivers to Paddle Today"
+  title="Paddle Today | Home Test"
   description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
   structuredData={homepageStructuredData}
 >
