@@ -1264,11 +1264,17 @@ body.site-search-open {
 .summary-map {
   min-height: 22.5rem;
   border-radius: calc(var(--radius) - 6px);
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid rgba(16, 35, 45, 0.08);
   background:
     radial-gradient(circle at 20% 20%, rgba(30, 115, 151, 0.1), transparent 35%),
     linear-gradient(180deg, rgba(230, 240, 245, 0.85), rgba(237, 232, 223, 0.88));
+}
+
+.summary-map .maplibregl-canvas-container,
+.summary-map .maplibregl-canvas,
+.summary-map .maplibregl-map {
+  border-radius: inherit;
 }
 
 .summary-map__status {
@@ -1485,7 +1491,7 @@ body.site-search-open {
 }
 
 .maplibregl-popup {
-  z-index: 34;
+  z-index: 9999;
 }
 
 .maplibregl-popup-close-button {

@@ -223,10 +223,12 @@ function waitForMapLoad(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
     const cleanup = () => {
       window.clearTimeout(timeoutId);
       if (typeof runtime.off === 'function') {
-        runtime.off('load', handleLoad);
-        runtime.off('error', handleError);
-      }
-    };
+      runtime.off('load', handleLoad);
+      runtime.off('error', handleError);
+      runtime.off('styledata', handleLoad);
+      runtime.off('idle', handleLoad);
+        }
+      };
     const finish = (callback) => (value) => {
       if (settled) {
         return;
@@ -244,9 +246,58 @@ function waitForMapLoad(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
       timeoutMs
     );
 
-    runtime.on('load', handleLoad);
+      runtime.on('load', handleLoad);
+      runtime.on('styledata', handleLoad);
+      runtime.on('idle', handleLoad);
+      runtime.on('error', handleError);
+    });
+}
+
+function waitForMapStyle(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
+  return new Promise((resolve, reject) => {
+    if (!runtime) {
+      reject(new Error('Map runtime missing.'));
+      return;
+    }
+
+    if (typeof runtime.isStyleLoaded === 'function' && runtime.isStyleLoaded()) {
+      resolve();
+      return;
+    }
+
+    let settled = false;
+    const cleanup = () => {
+      window.clearTimeout(timeoutId);
+      if (typeof runtime.off === 'function') {
+        runtime.off('styledata', handleStyleReady);
+        runtime.off('idle', handleStyleReady);
+        runtime.off('error', handleError);
+      }
+    };
+    const finish = (callback) => (value) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      callback(value);
+    };
+    const handleStyleReady = finish(() => resolve());
+    const handleError = finish((event) => {
+      reject(event?.error instanceof Error ? event.error : new Error('Map style failed to load.'));
+    });
+    const timeoutId = window.setTimeout(
+      finish(() => reject(new Error(`Map style timed out after ${Math.round(timeoutMs / 1000)} seconds.`))),
+      timeoutMs
+    );
+
+    runtime.on('styledata', handleStyleReady);
+    runtime.on('idle', handleStyleReady);
     runtime.on('error', handleError);
   });
+}
+
+async function waitForMapReady(runtime, timeoutMs = MAP_LOAD_TIMEOUT_MS) {
+  await waitForMapLoad(runtime, timeoutMs);
+  await waitForMapStyle(runtime, timeoutMs);
 }
 
 function setFieldGroupHidden(field, hidden) {
@@ -2280,11 +2331,13 @@ async function renderDetailHeroMap(result = null) {
         interactive: false,
       });
 
-      await waitForMapLoad(detailHeroMapRuntime);
-    }
+        await waitForMapReady(detailHeroMapRuntime);
+      }
 
-    detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
-    syncAccessRouteLine(
+      await waitForMapStyle(detailHeroMapRuntime);
+
+      detailHeroMapMarkers = clearDetailMarkers(detailHeroMapMarkers);
+      syncAccessRouteLine(
       detailHeroMapRuntime,
       'detail-hero-route-line',
       'detail-hero-route-line',
@@ -2385,11 +2438,13 @@ async function renderDetailMap(result = null) {
       });
 
       detailMapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
-      await waitForMapLoad(detailMapRuntime);
-    }
+        await waitForMapReady(detailMapRuntime);
+      }
 
-    detailMapMarkers = clearDetailMarkers(detailMapMarkers);
-    syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
+      await waitForMapStyle(detailMapRuntime);
+
+      detailMapMarkers = clearDetailMarkers(detailMapMarkers);
+      syncAccessRouteLine(detailMapRuntime, 'detail-route-line', 'detail-route-line', points, result);
 
     const bounds = new maplibregl.LngLatBounds();
     for (const point of points) {

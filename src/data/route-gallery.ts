@@ -8,6 +8,66 @@ export interface RouteGalleryPhoto {
 }
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'blue-earth-river-rapidan-county-road-90': [
+    {
+      id: 'blue-earth-mankato-commons',
+      src: '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
+      alt: 'The Blue Earth River runs through a wooded Mankato-area valley under a bright sky.',
+      caption: 'Blue Earth River in the Mankato area',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'minnesota-river-judson-land-of-memories': [
+    {
+      id: 'land-of-memories-park-commons',
+      src: '/gallery/minnesota-river-judson-land-of-memories/land-of-memories-park.jpg',
+      alt: 'A winter view of Land of Memories Park in Mankato with the broad river corridor and snow-covered trees.',
+      caption: 'Land of Memories Park on the Minnesota River',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'cannon-river-welch': [
+    {
+      id: 'cannon-welch-commons',
+      src: '/gallery/cannon-river-welch/cannon-welch.jpg',
+      alt: 'The Cannon River flows through Welch Township in spring with wooded banks and a broad current.',
+      caption: 'Spring flow on the Cannon at Welch',
+      credit: 'Iulus Ascanius via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'cannon-river-faribault-dundas': [
+    {
+      id: 'cannon-northfield-dpla',
+      src: '/gallery/cannon-river-faribault-dundas/cannon-northfield.jpg',
+      alt: 'A historic view of the Cannon River near Northfield, Minnesota, with the river channel and wooded banks visible.',
+      caption: 'Historic Cannon River view near Northfield',
+      credit: 'Carleton College via DPLA/Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'root-river-lanesboro-peterson': [
+    {
+      id: 'root-peterson-nara',
+      src: '/gallery/root-river-lanesboro-peterson/root-near-peterson.jpg',
+      alt: 'The Root River winds through bluff country near Peterson with wooded slopes rising above the water.',
+      caption: 'Root River near Peterson',
+      credit: 'U.S. National Archives and Records Administration via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'root-river-rushford-houston': [
+    {
+      id: 'root-houston-commons',
+      src: '/gallery/root-river-rushford-houston/root-river-houston.jpg',
+      alt: 'The Root River near Houston reflects bright clouds with trees lining both sides of the channel.',
+      caption: 'Root River by Houston',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'st-croix-river-fox-highway-70': [
     {
       id: 'st-croix-vantage',
