@@ -44,6 +44,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'NPS asset: public domain',
     },
   ],
+  'mississippi-river-east-river-flats-hidden-falls': [
+    {
+      id: 'mississippi-minneapolis-skyline',
+      src: '/gallery/mississippi-river-east-river-flats-hidden-falls/minneapolis-skyline.jpg',
+      alt: 'The Mississippi River curves through a wooded gorge with the Minneapolis skyline visible in the distance and a rail bridge crossing the river.',
+      caption: 'Mississippi gorge view toward downtown Minneapolis',
+      credit: 'Tom Koerner/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'minnesota-river-henderson-belle-plaine': [
+    {
+      id: 'minnesota-river-valley-refuge',
+      src: '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+      alt: 'Brown marsh grasses and calm water fill a broad river-edge wetland below a wooded bluff.',
+      caption: 'Lower Minnesota River valley wetland scene',
+      credit: 'Debbie Koenigs/USFWS',
+      takenLabel: 'USFWS asset: public domain',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

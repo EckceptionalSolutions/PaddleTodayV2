@@ -98,11 +98,6 @@ const homeDifficultySelect = document.querySelector('[data-home-difficulty-selec
 const homePaddleTimeSelect = document.querySelector('[data-home-paddle-time-select]');
 const homePresetButtons = Array.from(document.querySelectorAll('[data-home-preset]'));
 const homeResetButtons = Array.from(document.querySelectorAll('[data-home-reset-filters]'));
-const homeFilterToggle = document.querySelector('[data-home-filter-toggle]');
-const homeFilterToggleLabel = document.querySelector('[data-home-filter-toggle-label]');
-const homeFilterToggleCount = document.querySelector('[data-home-filter-toggle-count]');
-const homeFilterBackdrop = document.querySelector('[data-home-filter-backdrop]');
-const homeFilterCloseButton = document.querySelector('[data-home-filter-close]');
 const homeRouteMix = document.querySelector('[data-home-route-mix]');
 const homeHeadline = document.querySelector('[data-home-headline]');
 const homeLocationEmpty = document.querySelector('[data-home-location-empty]');
@@ -112,7 +107,6 @@ const homeResultsEmpty = document.querySelector('[data-home-results-empty]');
 const homeSetupNote = document.querySelector('[data-home-setup-note]');
 const homeSetupPills = document.querySelector('[data-home-setup-pills]');
 const homeRecommendationsMapBlock = document.querySelector('.home-recommendations__map-block');
-const homeMapExpandButton = document.querySelector('[data-home-map-expand]');
 const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
@@ -238,7 +232,6 @@ let selectedRadiusMiles = DEFAULT_RADIUS_MILES;
 let selectedHomeDifficulties = ['any'];
 let selectedHomePaddleTimes = ['any'];
 let nearbySortMode = 'best-score';
-let homeFilterSheetOpen = false;
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
@@ -246,7 +239,6 @@ let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
 let initialized = false;
 let homeMapRefreshClassTimeout = 0;
-let homeMapExpanded = false;
 const boardRequestGuard = createRequestGuard();
 
 const EXPLORE_PAGE_SIZE = 12;
@@ -567,15 +559,6 @@ function isHomepageResultsRailActive() {
   return homeResultsRail instanceof HTMLElement;
 }
 
-function updateHomeMapExpandButton() {
-  if (!(homeMapExpandButton instanceof HTMLButtonElement)) {
-    return;
-  }
-
-  homeMapExpandButton.textContent = homeMapExpanded ? 'Shrink map' : 'Expand map';
-  homeMapExpandButton.setAttribute('aria-expanded', homeMapExpanded ? 'true' : 'false');
-}
-
 function updateHomeRailSelection(key) {
   if (!(homeResultsRail instanceof HTMLElement)) {
     return;
@@ -604,22 +587,6 @@ function scrollHomeResultsRailToKey(key) {
     block: 'nearest',
     inline: 'center',
   });
-}
-
-function toggleHomeMapExpanded(forceExpanded = !homeMapExpanded) {
-  if (!(homeRecommendationsMapBlock instanceof HTMLElement)) {
-    return;
-  }
-
-  homeMapExpanded = Boolean(forceExpanded);
-  homeRecommendationsMapBlock.classList.toggle('home-recommendations__map-block--expanded', homeMapExpanded);
-  updateHomeMapExpandButton();
-
-  if (mapRuntime) {
-    window.setTimeout(() => {
-      mapRuntime?.resize();
-    }, 30);
-  }
 }
 
 function ratingToneKey(rating) {
@@ -2756,12 +2723,6 @@ function updateLocationIndicator() {
 
 function updateLocationStatus() {
   const locationReady = Boolean(userLocation && userLocationState === 'ready');
-  if (!locationReady && homeFilterSheetOpen) {
-    homeFilterSheetOpen = false;
-    document.body.classList.remove('home-filter-sheet-open');
-  }
-  const filtersOpen = locationReady && homeFilterSheetOpen;
-  const mobileSheetOpen = filtersOpen && phoneBreakpoint.matches;
 
   if (homeLocationSummary instanceof HTMLElement) {
     if (userLocationState === 'pending') {
@@ -2792,12 +2753,11 @@ function updateLocationStatus() {
   }
 
   if (homeRefineRow instanceof HTMLElement) {
-    homeRefineRow.hidden = !locationReady;
+    homeRefineRow.hidden = false;
   }
 
   if (homeRadiusPanel instanceof HTMLElement) {
-    homeRadiusPanel.hidden = !filtersOpen;
-    homeRadiusPanel.classList.toggle('home-radius-panel--sheet-open', mobileSheetOpen);
+    homeRadiusPanel.hidden = false;
   }
 
   if (homeRadiusSummary instanceof HTMLElement) {
@@ -2845,26 +2805,6 @@ function updateLocationStatus() {
     const isActive = isQuickFloat || isFullDay;
     button.classList.toggle('filter-chip--active', isActive);
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  }
-
-  if (homeFilterToggle instanceof HTMLButtonElement) {
-    homeFilterToggle.hidden = !locationReady;
-    homeFilterToggle.setAttribute('aria-expanded', filtersOpen ? 'true' : 'false');
-  }
-
-  if (homeFilterToggleLabel instanceof HTMLElement) {
-      homeFilterToggleLabel.textContent = !phoneBreakpoint.matches && filtersOpen
-        ? 'Hide preferences'
-        : 'Set Preferences';
-  }
-
-  if (homeFilterToggleCount instanceof HTMLElement) {
-    const activeCount = homeActivePreferenceCount();
-    homeFilterToggleCount.textContent = activeCount > 0 ? `${activeCount} active` : 'Defaults';
-  }
-
-  if (homeFilterBackdrop instanceof HTMLElement) {
-    homeFilterBackdrop.hidden = !mobileSheetOpen;
   }
 
   if (homeRouteMix instanceof HTMLElement) {
@@ -2932,12 +2872,6 @@ function updateLocationStatus() {
     locationForm.classList.toggle('location-panel__form--compact', false);
   }
 
-}
-
-function setHomeFilterSheetOpen(nextOpen) {
-  homeFilterSheetOpen = Boolean(nextOpen) && userLocationState === 'ready' && Boolean(userLocation);
-  document.body.classList.toggle('home-filter-sheet-open', phoneBreakpoint.matches && homeFilterSheetOpen);
-  updateLocationStatus();
 }
 
 function updateHomeNearbyCounters(results) {
@@ -3826,8 +3760,6 @@ function clearUserLocation() {
   userLocation = null;
   userLocationState = 'idle';
   locationEditing = false;
-  homeFilterSheetOpen = false;
-  document.body.classList.remove('home-filter-sheet-open');
   localStorage.removeItem(STORAGE_KEY);
   if (locationInput instanceof HTMLInputElement) {
     locationInput.value = '';
@@ -4187,28 +4119,6 @@ function setupLocationControls() {
       resetHomeFilters();
     });
   }
-
-  if (homeFilterToggle instanceof HTMLButtonElement && homeFilterToggle.dataset.filterBound !== 'true') {
-    homeFilterToggle.dataset.filterBound = 'true';
-    homeFilterToggle.addEventListener('click', () => {
-      setHomeFilterSheetOpen(!homeFilterSheetOpen);
-    });
-  }
-
-  if (homeFilterCloseButton instanceof HTMLButtonElement && homeFilterCloseButton.dataset.filterBound !== 'true') {
-    homeFilterCloseButton.dataset.filterBound = 'true';
-    homeFilterCloseButton.addEventListener('click', () => {
-      setHomeFilterSheetOpen(false);
-    });
-  }
-
-  if (homeFilterBackdrop instanceof HTMLElement && homeFilterBackdrop.dataset.filterBound !== 'true') {
-    homeFilterBackdrop.dataset.filterBound = 'true';
-    homeFilterBackdrop.addEventListener('click', () => {
-      setHomeFilterSheetOpen(false);
-    });
-  }
-
 }
 
 async function loadBoard({ silent = false } = {}) {
@@ -4346,20 +4256,12 @@ export function initSummaryBoard() {
     });
   }
 
-  if (homeMapExpandButton instanceof HTMLButtonElement) {
-    homeMapExpandButton.addEventListener('click', () => {
-      toggleHomeMapExpanded();
-    });
-    updateHomeMapExpandButton();
-  }
-
   window.addEventListener('resize', () => {
     syncExploreShellHeight();
     updateSummaryMapToggle();
   });
 
   phoneBreakpoint.addEventListener('change', () => {
-    document.body.classList.toggle('home-filter-sheet-open', phoneBreakpoint.matches && homeFilterSheetOpen);
     updateLocationStatus();
     updateSummaryMapToggle();
     syncExploreShellHeight();

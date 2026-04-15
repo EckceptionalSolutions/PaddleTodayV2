@@ -48,7 +48,36 @@ const homepageStructuredData = [
       <div class="home-hero__copy">
         <p class="hero__kicker">Paddle Today</p>
         <h1 data-home-headline>Find the best paddle near you today</h1>
-        <p class="hero__lede">Start with the live map. Add your location when you want the board ranked by drive time.</p>
+      </div>
+
+      <div class="home-hero__trust home-hero__trust--support" aria-label="How Paddle Today helps">
+        <article class="home-hero__trust-item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="gauge" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">Live river reads</p>
+            <p class="home-hero__trust-copy">Each pick uses the latest gauge and weather.</p>
+          </div>
+        </article>
+        <article class="home-hero__trust-item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="car" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">Drive-time picks</p>
+            <p class="home-hero__trust-copy">Add a location any time to sort by real drive time.</p>
+          </div>
+        </article>
+        <article class="home-hero__trust-item">
+          <span class="home-hero__trust-icon" aria-hidden="true">
+            <FeatureIcon name="clock" size={16} />
+          </span>
+          <div>
+            <p class="home-hero__trust-title">Match your day</p>
+            <p class="home-hero__trust-copy">Filter by difficulty and paddle time.</p>
+          </div>
+        </article>
       </div>
 
       <section class="home-location-bar home-hero__location" id="home-location" aria-label="Set your location" data-nearby-location-panel>
@@ -77,7 +106,7 @@ const homepageStructuredData = [
           </div>
         </form>
 
-        <div class="home-location-bar__refine" data-home-refine-row hidden>
+        <div class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">Step 2 - Set Preferences</p>
             <p class="home-location-bar__refine-radius sr-only" data-home-radius-summary>Showing routes within 100 miles</p>
@@ -86,32 +115,14 @@ const homepageStructuredData = [
               <span class="home-location-bar__refine-pill">Any time</span>
             </div>
           </div>
-          <div class="home-location-bar__refine-actions">
-            <button
-              class="filter-chip filter-chip--subtle home-location-bar__filters-toggle"
-              type="button"
-              data-home-filter-toggle
-              hidden
-              aria-expanded="false"
-            >
-              <FeatureIcon name="sliders" size={16} />
-              <span data-home-filter-toggle-label>Set Preferences</span>
-              <span class="home-location-bar__filters-toggle-count" data-home-filter-toggle-count>0 routes</span>
-            </button>
-          </div>
         </div>
 
-        <div class="home-filter-sheet-backdrop" data-home-filter-backdrop hidden></div>
-
-        <div class="home-radius-panel" data-home-radius-panel hidden>
+        <div class="home-radius-panel" data-home-radius-panel>
           <div class="home-radius-panel__mobile-head">
             <div>
               <p class="home-radius-panel__eyebrow">Refine your picks</p>
               <p class="home-radius-panel__mobile-copy">Narrow things down without leaving the page.</p>
             </div>
-            <button class="filter-chip filter-chip--quiet home-radius-panel__close" type="button" data-home-filter-close>
-              Close
-            </button>
           </div>
 
           <div class="home-radius-panel__topbar">
@@ -208,35 +219,6 @@ const homepageStructuredData = [
         </div>
       </section>
 
-      <div class="home-hero__trust home-hero__trust--support" aria-label="How Paddle Today helps">
-        <article class="home-hero__trust-item">
-          <span class="home-hero__trust-icon" aria-hidden="true">
-            <FeatureIcon name="gauge" size={16} />
-          </span>
-          <div>
-            <p class="home-hero__trust-title">Live river reads</p>
-            <p class="home-hero__trust-copy">Each pick uses the latest gauge and weather.</p>
-          </div>
-        </article>
-        <article class="home-hero__trust-item">
-          <span class="home-hero__trust-icon" aria-hidden="true">
-            <FeatureIcon name="car" size={16} />
-          </span>
-          <div>
-            <p class="home-hero__trust-title">Drive-time picks</p>
-            <p class="home-hero__trust-copy">Add a location any time to sort by real drive time.</p>
-          </div>
-        </article>
-        <article class="home-hero__trust-item">
-          <span class="home-hero__trust-icon" aria-hidden="true">
-            <FeatureIcon name="clock" size={16} />
-          </span>
-          <div>
-            <p class="home-hero__trust-title">Match your day</p>
-            <p class="home-hero__trust-copy">Filter by difficulty and paddle time.</p>
-          </div>
-        </article>
-      </div>
     </div>
 
     <aside class="home-hero__rail" aria-label="Today&apos;s best route">
@@ -326,26 +308,17 @@ const homepageStructuredData = [
       <div class="section-head section-head--stacked home-recommendations__block-head">
         <div>
           <p class="eyebrow">Recommended</p>
-          <h2 class="section-title" data-recommendation-title>Compare every route that fits your filters</h2>
+          <h2
+            class="section-title"
+            data-recommendation-title
+            data-default-title="Compare every route that fits your preferences"
+            data-ready-title="Compare every route that fits your preferences"
+          >Compare every route that fits your preferences</h2>
         </div>
         <div class="section-head__actions home-recommendations__actions">
           <p class="muted section-head__note home-recommendations__intro-note" data-recommendation-summary>
             Full board view. Add your location to personalize the map and route order.
           </p>
-          <div class="section-head__controls home-recommendations__controls">
-            <label class="filter-select filter-select--sort home-recommendations__sort">
-              <span class="sr-only">Sort route results</span>
-              <select class="filter-select__input" data-nearby-sort-select>
-                <option value="best-score">Best score</option>
-                <option value="closest">Closest</option>
-                <option value="shortest-paddle">Shortest paddle</option>
-                <option value="easiest">Easiest</option>
-              </select>
-            </label>
-            <button class="filter-chip filter-chip--quiet home-recommendations__reset" type="button" data-home-reset-filters>
-              Reset filters
-            </button>
-          </div>
           <div class="home-radius-pills home-recommendations__mix" aria-label="Route mix within selected filters" data-home-route-mix hidden>
             <span class="home-radius-pill home-radius-pill--strong">
               <strong data-home-strong-count>0</strong>
@@ -372,10 +345,21 @@ const homepageStructuredData = [
           These routes update as you change location and preferences.
         </p>
         <div class="home-recommendations__setup-actions">
+          <div class="section-head__controls home-recommendations__controls">
+            <label class="filter-select filter-select--sort home-recommendations__sort">
+              <span class="sr-only">Sort route results</span>
+              <select class="filter-select__input" data-nearby-sort-select>
+                <option value="best-score">Best score</option>
+                <option value="closest">Closest</option>
+                <option value="shortest-paddle">Shortest paddle</option>
+                <option value="easiest">Easiest</option>
+              </select>
+            </label>
+            <button class="filter-chip filter-chip--quiet home-recommendations__reset" type="button" data-home-reset-filters>
+              Reset filters
+            </button>
+          </div>
           <div class="home-recommendations__setup-pills" data-home-setup-pills></div>
-          <button class="filter-chip filter-chip--quiet home-recommendations__expand" type="button" data-home-map-expand>
-            Expand map
-          </button>
         </div>
       </div>
       <SummaryMapPanel

@@ -1,4 +1,7 @@
 ---
+import FeatureIcon from '../components/FeatureIcon.astro';
+import { listRiverGroups, listRivers } from '../lib/rivers';
+
 type Props = {
   title: string;
   description?: string;
@@ -70,6 +73,29 @@ const extraStructuredData = structuredData
     : [structuredData]
   : [];
 const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStructuredData]);
+const searchRouteItems = listRivers()
+  .map((river) => ({
+    kind: 'route',
+    kindLabel: 'Route',
+    title: river.name,
+    subtitle: river.reach,
+    meta: [river.region, river.state].filter(Boolean).join(' / '),
+    href: `/rivers/${river.slug}/`,
+    searchText: [river.name, river.reach, river.region, river.state].filter(Boolean).join(' '),
+  }))
+  .sort((left, right) => left.title.localeCompare(right.title));
+const searchRiverItems = listRiverGroups()
+  .map((group) => ({
+    kind: 'river',
+    kindLabel: 'River',
+    title: group.name,
+    subtitle: `${group.routeCount} ${group.routeCount === 1 ? 'route' : 'routes'}`,
+    meta: group.states.join(' / '),
+    href: `/rivers/by-river/${group.riverId}/`,
+    searchText: [group.name, ...group.states, ...group.regions, ...group.routes.map((route) => route.reach)].filter(Boolean).join(' '),
+  }))
+  .sort((left, right) => left.title.localeCompare(right.title));
+const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);
 ---
 
 <!doctype html>
@@ -125,6 +151,10 @@ const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStr
                 Favorites <span data-site-favorites-count></span>
               </a>
             </nav>
+            <button class="site-header__search" type="button" data-site-search-open aria-haspopup="dialog" aria-controls="site-search-panel">
+              <FeatureIcon name="compass" size={15} />
+              <span>Search routes</span>
+            </button>
             <a class="site-header__action" href="/request-river/">Request a Route</a>
           </div>
           <p class="site-header__blurb">
@@ -147,7 +177,35 @@ const structuredDataJson = JSON.stringify([...defaultStructuredData, ...extraStr
           <a class="site-footer__link" href="/contact/">Contact</a>
         </nav>
       </footer>
+
+      <section class="site-search-dialog" data-site-search hidden>
+        <div class="site-search-dialog__backdrop" data-site-search-close></div>
+        <div class="site-search-dialog__panel" id="site-search-panel" role="dialog" aria-modal="true" aria-labelledby="site-search-title">
+          <div class="site-search-dialog__head">
+            <div class="site-search-dialog__title-wrap">
+              <p class="eyebrow">Search</p>
+              <h2 class="site-search-dialog__title" id="site-search-title">Find a river or route</h2>
+            </div>
+            <button class="filter-chip filter-chip--quiet site-search-dialog__dismiss" type="button" data-site-search-dismiss>Close</button>
+          </div>
+
+          <label class="site-search-dialog__field">
+            <span class="sr-only">Search routes</span>
+            <input
+              class="site-search-dialog__input"
+              type="search"
+              placeholder="Search a river, route, town, or area"
+              data-site-search-input
+              autocomplete="off"
+            />
+          </label>
+
+          <p class="muted site-search-dialog__hint" data-site-search-hint>Try Snake, Root, Faribault, or Pine City.</p>
+          <div class="site-search-dialog__results" data-site-search-results aria-live="polite"></div>
+        </div>
+      </section>
     </div>
+    <script type="application/json" data-site-search-index set:html={searchIndexJson}></script>
     <script>
       import '../scripts/site-shell.js';
     </script>
