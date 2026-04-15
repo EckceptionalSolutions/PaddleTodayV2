@@ -93,9 +93,9 @@ const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
 const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
 const homeMatchCount = document.querySelector('[data-home-match-count]');
-const homeLiveCount = document.querySelector('[data-home-live-count]');
-const homeDifficultyButtons = Array.from(document.querySelectorAll('[data-home-difficulty-button]'));
-const homePaddleTimeButtons = Array.from(document.querySelectorAll('[data-home-paddle-time-button]'));
+const homeLiveCounts = Array.from(document.querySelectorAll('[data-home-live-count]'));
+const homeDifficultySelect = document.querySelector('[data-home-difficulty-select]');
+const homePaddleTimeSelect = document.querySelector('[data-home-paddle-time-select]');
 const homePresetButtons = Array.from(document.querySelectorAll('[data-home-preset]'));
 const homeResetButtons = Array.from(document.querySelectorAll('[data-home-reset-filters]'));
 const homeFilterToggle = document.querySelector('[data-home-filter-toggle]');
@@ -107,6 +107,12 @@ const homeRouteMix = document.querySelector('[data-home-route-mix]');
 const homeHeadline = document.querySelector('[data-home-headline]');
 const homeLocationEmpty = document.querySelector('[data-home-location-empty]');
 const homeNearbyMapSection = document.querySelector('[data-home-nearby-map-section]');
+const homeResultsRail = document.querySelector('[data-home-results-rail]');
+const homeResultsEmpty = document.querySelector('[data-home-results-empty]');
+const homeSetupNote = document.querySelector('[data-home-setup-note]');
+const homeSetupPills = document.querySelector('[data-home-setup-pills]');
+const homeRecommendationsMapBlock = document.querySelector('.home-recommendations__map-block');
+const homeMapExpandButton = document.querySelector('[data-home-map-expand]');
 const glanceFilterButtons = Array.from(document.querySelectorAll('[data-glance-filter]'));
 const exploreGrid = document.querySelector('[data-explore-grid]');
 const exploreShell = document.querySelector('[data-explore-shell]');
@@ -185,6 +191,10 @@ const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
+const featuredMapAlwaysVisible =
+  featuredPanel instanceof HTMLElement && featuredPanel.dataset.featuredMapAlwaysVisible === 'true';
+const featuredUnlockedWithoutLocation =
+  featuredPanel instanceof HTMLElement && featuredPanel.dataset.featuredUnlocked === 'true';
 
 const statusWeight = {
   live: 2,
@@ -235,6 +245,8 @@ let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
 let initialized = false;
+let homeMapRefreshClassTimeout = 0;
+let homeMapExpanded = false;
 const boardRequestGuard = createRequestGuard();
 
 const EXPLORE_PAGE_SIZE = 12;
@@ -489,6 +501,125 @@ function homeRefineSummaryMarkup() {
   return labels
     .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
     .join('');
+}
+
+function homeSetupSummaryLabels() {
+  const labels = [];
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+
+  if (locationReady) {
+    labels.push(shortLocationLabel());
+    labels.push(`Within ${selectedRadiusMiles} mi`);
+  } else {
+    labels.push('All routes');
+    labels.push('Best score first');
+  }
+
+  if (isChoiceSetAny(selectedHomeDifficulties)) {
+    labels.push('Any difficulty');
+  } else {
+    labels.push(formatHomeChoiceSummary(selectedHomeDifficulties, titleCase, 'Any difficulty'));
+  }
+
+  if (isChoiceSetAny(selectedHomePaddleTimes)) {
+    labels.push('Any time');
+  } else if (selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')) {
+    labels.push('5+ hr');
+  } else {
+    labels.push(formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time'));
+  }
+
+  return labels;
+}
+
+function renderHomeSetupBar() {
+  const locationReady = userLocationState === 'ready' && Boolean(userLocation);
+
+  if (homeSetupNote instanceof HTMLElement) {
+    homeSetupNote.textContent = locationReady
+      ? "Your location and preferences shape today's best pick and the routes below."
+      : 'You are seeing the full board. Add your location to personalize the map and route order.';
+  }
+
+  if (homeSetupPills instanceof HTMLElement) {
+    homeSetupPills.innerHTML = homeSetupSummaryLabels()
+      .map((label) => `<span class="home-recommendations__setup-pill">${escapeHtml(label)}</span>`)
+      .join('');
+  }
+}
+
+function pulseHomeResultsSurface() {
+  if (!(homeRecommendationsMapBlock instanceof HTMLElement)) {
+    return;
+  }
+
+  homeRecommendationsMapBlock.classList.remove('home-recommendations__map-block--refreshing');
+  void homeRecommendationsMapBlock.offsetWidth;
+  homeRecommendationsMapBlock.classList.add('home-recommendations__map-block--refreshing');
+
+  window.clearTimeout(homeMapRefreshClassTimeout);
+  homeMapRefreshClassTimeout = window.setTimeout(() => {
+    homeRecommendationsMapBlock.classList.remove('home-recommendations__map-block--refreshing');
+  }, 260);
+}
+
+function isHomepageResultsRailActive() {
+  return homeResultsRail instanceof HTMLElement;
+}
+
+function updateHomeMapExpandButton() {
+  if (!(homeMapExpandButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  homeMapExpandButton.textContent = homeMapExpanded ? 'Shrink map' : 'Expand map';
+  homeMapExpandButton.setAttribute('aria-expanded', homeMapExpanded ? 'true' : 'false');
+}
+
+function updateHomeRailSelection(key) {
+  if (!(homeResultsRail instanceof HTMLElement)) {
+    return;
+  }
+
+  const cards = Array.from(homeResultsRail.querySelectorAll('[data-summary-key]'));
+  for (const card of cards) {
+    if (!(card instanceof HTMLElement)) continue;
+    const active = Boolean(key) && card.dataset.summaryKey === key;
+    card.classList.toggle('river-card--map-active', active);
+  }
+}
+
+function scrollHomeResultsRailToKey(key) {
+  if (!(homeResultsRail instanceof HTMLElement) || !key) {
+    return;
+  }
+
+  const card = homeResultsRail.querySelector(`[data-summary-key="${CSS.escape(key)}"]`);
+  if (!(card instanceof HTMLElement)) {
+    return;
+  }
+
+  card.scrollIntoView({
+    behavior: 'smooth',
+    block: 'nearest',
+    inline: 'center',
+  });
+}
+
+function toggleHomeMapExpanded(forceExpanded = !homeMapExpanded) {
+  if (!(homeRecommendationsMapBlock instanceof HTMLElement)) {
+    return;
+  }
+
+  homeMapExpanded = Boolean(forceExpanded);
+  homeRecommendationsMapBlock.classList.toggle('home-recommendations__map-block--expanded', homeMapExpanded);
+  updateHomeMapExpandButton();
+
+  if (mapRuntime) {
+    window.setTimeout(() => {
+      mapRuntime?.resize();
+    }, 30);
+  }
 }
 
 function ratingToneKey(rating) {
@@ -2020,7 +2151,6 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
     card.classList.add('river-card--compact');
   }
   card.classList.add(item.kind === 'group' ? 'river-card--group' : 'river-card--route');
-  card.dataset.summaryMapCard = item.key;
 
   setText(card, 'card-kind', item.kind === 'group' ? 'River' : 'Route');
   setText(card, 'state', regionStateText(item));
@@ -2077,20 +2207,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecordForItem(item));
 
-  card.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof Element)) {
-      return;
-    }
-
-    if (target.closest('a, button, input, select, textarea, label')) {
-      return;
-    }
-
-    if (summaryMapMode === 'explore') {
-      openSummaryMapItem(item.key, { scrollCard: false });
-    }
-  });
+  card.dataset.summaryKey = item.key;
 
   return card;
 }
@@ -2107,6 +2224,35 @@ function renderCardGrid(container, items, options = {}) {
   }
   container.appendChild(fragment);
   refreshFavoriteButtons(container);
+
+  if (options.syncMap && container === homeResultsRail) {
+    const cards = Array.from(container.querySelectorAll('[data-summary-key]'));
+    for (const card of cards) {
+      if (!(card instanceof HTMLElement)) continue;
+
+      card.addEventListener('click', (event) => {
+        const target = event.target;
+        if (
+          target instanceof Element &&
+          target.closest('a, button, summary, input, select, textarea, label')
+        ) {
+          return;
+        }
+
+        const key = card.dataset.summaryKey;
+        if (key) {
+          openSummaryMapItem(key);
+        }
+      });
+
+      card.addEventListener('focusin', () => {
+        const key = card.dataset.summaryKey;
+        if (key) {
+          updateSummaryMapSelection(key);
+        }
+      });
+    }
+  }
 }
 
 function currentExploreLayoutKey() {
@@ -2117,10 +2263,42 @@ function currentExploreLayoutKey() {
 }
 
 function syncExploreShellHeight() {
-  if (!(exploreShell instanceof HTMLElement)) {
+  if (!(exploreShell instanceof HTMLElement) || !(exploreGrid instanceof HTMLElement)) {
     return;
   }
-  exploreShell.style.removeProperty('min-height');
+
+  const layoutKey = currentExploreLayoutKey();
+  if (layoutKey !== exploreLayoutKey) {
+    exploreLayoutKey = layoutKey;
+    exploreLockedHeight = 0;
+  }
+
+  const cards = Array.from(exploreGrid.children).filter((node) => node instanceof HTMLElement);
+  if (cards.length === 0) {
+    if (exploreLockedHeight > 0) {
+      exploreShell.style.minHeight = `${Math.ceil(exploreLockedHeight)}px`;
+    } else {
+      exploreShell.style.removeProperty('min-height');
+    }
+    return;
+  }
+
+  const styles = getComputedStyle(exploreGrid);
+  const rowGap = Number.parseFloat(styles.rowGap || styles.gap || '0') || 0;
+  const rows = new Map();
+
+  for (const card of cards) {
+    const top = Math.round(card.offsetTop);
+    const height = card.getBoundingClientRect().height;
+    rows.set(top, Math.max(rows.get(top) ?? 0, height));
+  }
+
+  const rowHeights = Array.from(rows.values());
+  const measuredHeight =
+    rowHeights.reduce((total, height) => total + height, 0) + Math.max(0, rowHeights.length - 1) * rowGap;
+
+  exploreLockedHeight = Math.max(exploreLockedHeight, measuredHeight);
+  exploreShell.style.minHeight = `${Math.ceil(exploreLockedHeight)}px`;
 }
 
 function paginateItems(items, pageSize, page) {
@@ -2178,18 +2356,18 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
     if (featuredPanel instanceof HTMLElement) {
-      featuredPanel.classList.toggle('home-featured--locked', !locationReady);
+      featuredPanel.classList.toggle('home-featured--locked', !locationReady && !featuredUnlockedWithoutLocation);
       featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     }
     if (featuredLabel instanceof HTMLElement) {
-      featuredLabel.textContent = locationReady ? 'Best current match' : 'Best pick right now';
+      featuredLabel.textContent = 'Today\'s Best';
     }
     if (featuredState instanceof HTMLElement) {
       featuredState.hidden = locationReady;
       featuredState.textContent = 'Set your location to see the best nearby paddle right now.';
     }
     if (featuredName instanceof HTMLAnchorElement) {
-      featuredName.textContent = locationReady ? 'No routes in range' : 'Best pick right now';
+      featuredName.textContent = locationReady ? 'No routes in range' : 'Today\'s Best';
       featuredName.href = locationReady ? '#best-options' : '#home-location';
     }
     if (featuredReach instanceof HTMLElement) {
@@ -2197,12 +2375,12 @@ function updateFeaturedHero(nearbyItems, overallItems) {
         ? activePreferenceText
           ? `No nearby routes match ${activePreferenceText}.`
           : `No tracked routes currently land inside ${selectedRadiusMiles} miles.`
-        : 'Set your location to unlock a personalized top pick.';
+        : 'Set your location to unlock today\'s best nearby pick.';
     }
     if (featuredBridge instanceof HTMLElement) {
       featuredBridge.textContent = locationReady
         ? 'Best fit for your current setup.'
-        : 'Set your location to unlock the top pick.';
+        : 'Set your location to unlock today\'s best.';
     }
     setText(document, 'featured-score', '--');
     setText(document, 'featured-rating', locationReady ? 'Out of range' : 'Locked');
@@ -2242,15 +2420,15 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
   }
-  renderFeaturedMap(item, { visible: nearbyReady, status: regionStateText(item) });
+  renderFeaturedMap(item, { visible: nearbyReady || featuredMapAlwaysVisible, status: regionStateText(item) });
   const ratingKey = ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
-    featuredPanel.classList.toggle('home-featured--locked', !locationReady);
+    featuredPanel.classList.toggle('home-featured--locked', !locationReady && !featuredUnlockedWithoutLocation);
     featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-    featuredLabel.textContent = activePreferenceText ? 'Best fit for your setup' : 'Best pick near you';
+      featuredLabel.textContent = activePreferenceText ? 'Today\'s Best for your setup' : 'Today\'s Best near you';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.hidden = true;
@@ -2383,13 +2561,24 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     homeLocationEmpty.hidden = locationReady;
   }
 
-  recommendationTitle.textContent = locationReady ? 'Compare nearby routes' : 'More good routes nearby';
+  const readyTitle = recommendationTitle.dataset.readyTitle || 'Compare nearby routes';
+  const defaultTitle = recommendationTitle.dataset.defaultTitle || 'More good routes nearby';
+  const defaultSummary =
+    recommendationSummary.dataset.defaultSummary || 'Set your location above to compare nearby routes.';
+  const readySummaryTemplate = recommendationSummary.dataset.readySummary || '';
+
+  recommendationTitle.textContent = locationReady ? readyTitle : defaultTitle;
 
   recommendationSummary.textContent = locationReady
-    ? activePreferenceText
-      ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
-      : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
-    : 'Set your location above to compare nearby routes.';
+    ? readySummaryTemplate
+      ? readySummaryTemplate
+          .replace('{radius}', String(selectedRadiusMiles))
+          .replace('{location}', shortLocationLabel())
+          .replace('{preferences}', activePreferenceText || 'your current filters')
+      : activePreferenceText
+        ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
+        : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+    : defaultSummary;
 
   if (recommendationCount instanceof HTMLElement) {
     recommendationCount.textContent = locationReady
@@ -2623,29 +2812,17 @@ function updateLocationStatus() {
     homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
   }
 
-  for (const button of homeDifficultyButtons) {
-    if (!(button instanceof HTMLButtonElement)) {
-      continue;
+    if (homeDifficultySelect instanceof HTMLSelectElement) {
+      homeDifficultySelect.value = isChoiceSetAny(selectedHomeDifficulties)
+        ? 'any'
+        : (selectedHomeDifficulties[0] || 'any');
     }
-    const value = button.dataset.value ?? 'any';
-    const isActive = value === 'any'
-      ? isChoiceSetAny(selectedHomeDifficulties)
-      : selectedHomeDifficulties.includes(value);
-    button.classList.toggle('filter-chip--active', isActive);
-    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  }
 
-  for (const button of homePaddleTimeButtons) {
-    if (!(button instanceof HTMLButtonElement)) {
-      continue;
+    if (homePaddleTimeSelect instanceof HTMLSelectElement) {
+      homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
+        ? 'any'
+        : (selectedHomePaddleTimes[0] || 'any');
     }
-    const value = button.dataset.value ?? 'any';
-    const isActive = value === 'any'
-      ? isChoiceSetAny(selectedHomePaddleTimes)
-      : selectedHomePaddleTimes.includes(value);
-    button.classList.toggle('filter-chip--active', isActive);
-    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  }
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement)) {
@@ -2659,10 +2836,12 @@ function updateLocationStatus() {
       selectedHomeDifficulties[0] === 'easy' &&
       selectedHomePaddleTimes.length === 1 &&
       selectedHomePaddleTimes[0] === 'up-to-3';
-    const isFullDay =
-      preset === 'full-day' &&
-      selectedHomeDifficulties.join(',') === 'moderate,hard' &&
-      selectedHomePaddleTimes.join(',') === '5-to-7,7-plus';
+      const isFullDay =
+        preset === 'full-day' &&
+        selectedHomeDifficulties.length === 1 &&
+        selectedHomeDifficulties[0] === 'moderate' &&
+        selectedHomePaddleTimes.length === 1 &&
+        selectedHomePaddleTimes[0] === '5-to-7';
     const isActive = isQuickFloat || isFullDay;
     button.classList.toggle('filter-chip--active', isActive);
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -2689,11 +2868,7 @@ function updateLocationStatus() {
   }
 
   if (homeRouteMix instanceof HTMLElement) {
-    homeRouteMix.hidden = !locationReady;
-  }
-
-  if (homeNearbyMapSection instanceof HTMLElement) {
-    homeNearbyMapSection.hidden = !locationReady;
+    homeRouteMix.hidden = false;
   }
 
   if (nearbyLocationPanel instanceof HTMLElement) {
@@ -2773,8 +2948,9 @@ function updateHomeNearbyCounters(results) {
   if (homeMatchCount instanceof HTMLElement) {
     homeMatchCount.textContent = showingCopy;
   }
-  if (homeLiveCount instanceof HTMLElement) {
-    homeLiveCount.textContent = matchingCopy;
+  for (const node of homeLiveCounts) {
+    if (!(node instanceof HTMLElement)) continue;
+    node.textContent = matchingCopy;
   }
 }
 
@@ -3039,13 +3215,16 @@ function updateSummaryMapSelection(key) {
     }
   }
 
-  if (exploreGrid instanceof HTMLElement) {
-    const cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
-    for (const card of cards) {
-      if (!(card instanceof HTMLElement)) continue;
-      card.classList.toggle('river-card--map-active', card.dataset.summaryMapCard === selectedSummaryMapKey);
+  for (const [markerKey, marker] of mapMarkersByKey.entries()) {
+    const markerElement = marker?.getElement?.();
+    if (!(markerElement instanceof HTMLElement)) {
+      continue;
     }
+
+    markerElement.classList.toggle('score-map-marker--selected', Boolean(selectedSummaryMapKey) && markerKey === selectedSummaryMapKey);
   }
+
+  updateHomeRailSelection(selectedSummaryMapKey);
 }
 
 function isNearbySummaryMapMode() {
@@ -3071,42 +3250,19 @@ function closeSummaryMapPopups(exceptKey = null) {
   }
 }
 
-function focusSummaryMapCard(key, { scroll = true } = {}) {
-  if (!(exploreGrid instanceof HTMLElement)) {
-    return;
-  }
-
-  const cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
-  for (const card of cards) {
-    if (!(card instanceof HTMLElement)) {
-      continue;
-    }
-
-    const active = card.dataset.summaryMapCard === key;
-    card.classList.toggle('river-card--map-active', active);
-
-    if (active && scroll) {
-      card.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-      });
-    }
-  }
-}
-
-function openSummaryMapItem(key, { scrollCard = true } = {}) {
+function openSummaryMapItem(key) {
   const marker = mapMarkersByKey.get(key);
   if (!marker) {
     return;
   }
 
   updateSummaryMapSelection(key);
-  focusSummaryMapCard(key, { scroll: scrollCard });
   closeSummaryMapPopups(key);
   const popup = marker.getPopup?.();
   if (popup && typeof popup.isOpen === 'function' && !popup.isOpen()) {
     marker.togglePopup();
   }
+  scrollHomeResultsRailToKey(key);
 }
 
 function renderSummaryMapResults(items) {
@@ -3129,14 +3285,6 @@ function renderSummaryMapResults(items) {
   }
 
   summaryMapResults.innerHTML = '';
-
-  if (summaryMapResults.hidden) {
-    const activeKey = items.some((item) => item.key === selectedSummaryMapKey)
-      ? selectedSummaryMapKey
-      : (items[0]?.key || null);
-    updateSummaryMapSelection(activeKey);
-    return;
-  }
 
   if (items.length === 0) {
     summaryMapResults.innerHTML = isNearbySummaryMapMode()
@@ -3259,15 +3407,18 @@ async function renderSummaryMap(items) {
       });
 
       mapRuntime.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    }
+
+    renderSummaryMapResults(items);
+
+    if (!mapRuntime.loaded()) {
       await Promise.race([
         new Promise((resolve) => {
-          if (mapRuntime.loaded()) {
-            resolve();
-            return;
-          }
           mapRuntime.once('load', resolve);
         }),
-        new Promise((resolve) => window.setTimeout(resolve, 2500)),
+        new Promise((resolve) => {
+          window.setTimeout(resolve, 2500);
+        }),
       ]);
     }
     if (renderVersion !== summaryMapRenderVersion) {
@@ -3308,7 +3459,7 @@ async function renderSummaryMap(items) {
         onSelectedChange(selected) {
           if (selected) {
             updateSummaryMapSelection(item.key);
-            focusSummaryMapCard(item.key);
+            scrollHomeResultsRailToKey(item.key);
           } else if (selectedSummaryMapKey === item.key) {
             updateSummaryMapSelection(null);
           }
@@ -3319,8 +3470,6 @@ async function renderSummaryMap(items) {
       bounds.extend([item.cardRoute.river.longitude, item.cardRoute.river.latitude]);
       hasBounds = true;
     }
-
-    renderSummaryMapResults(items);
 
     if (hasBounds) {
       if (renderVersion !== summaryMapRenderVersion) {
@@ -3439,28 +3588,34 @@ function renderHomepage(results) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
   const nearbyPreferenceResults = results.filter(matchesHomeNearbyFilters);
-  const nearbyBaseItems = sortItems(
-    buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you'),
-    'near-you'
-  );
-  const nearbyItems = locationReady
-    ? nearbyBaseItems.filter(itemWithinSelectedRadius)
-    : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
   const summaryResults = locationReady
     ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
-    : results;
+    : nearbyPreferenceResults;
+  const nearbyItems = sortNearbyResultsForDisplay(
+    buildDisplayItems(summaryResults, summaryResults, locationReady ? 'near-you' : 'best-now')
+  );
+  const summaryItems = sortNearbyResultsForDisplay(
+    buildDisplayItems(summaryResults, summaryResults, locationReady ? 'near-you' : 'best-now')
+  );
 
   updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(summaryResults);
   updateFeaturedHero(nearbyItems, overallItems);
-  renderRecommendationSection(nearbyItems, overallItems);
+
+  if (recommendationTitle instanceof HTMLElement) {
+    recommendationTitle.textContent = 'Compare every route that fits your filters';
+  }
+
+  if (recommendationSummary instanceof HTMLElement) {
+    recommendationSummary.textContent = locationReady
+      ? `Same setup, broader view of every route below.`
+      : `Full board view. Add your location to personalize the map and route order.`;
+  }
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
   const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
-  const summaryMapItems = isNearbySummaryMapMode()
-    ? (locationReady ? nearbyItems : [])
-    : exploreItems;
+  const summaryMapItems = summaryItems;
 
   updateFilterButtonStates();
   updateLocationIndicator();
@@ -3468,13 +3623,25 @@ function renderHomepage(results) {
   updateFilterSummary(exploreItems);
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
+  renderHomeSetupBar();
   renderSummaryMap(summaryMapItems);
+  pulseHomeResultsSurface();
+
+  if (homeResultsEmpty instanceof HTMLElement) {
+    homeResultsEmpty.hidden = summaryItems.length > 0;
+  }
+  renderCardGrid(homeResultsRail, summaryItems, {
+    showDistance: locationReady,
+    compact: true,
+    syncMap: true,
+  });
+  updateHomeRailSelection(selectedSummaryMapKey);
+
   const explorePaginationState = paginateItems(exploreItems, EXPLORE_PAGE_SIZE, currentExplorePage);
   currentExplorePage = explorePaginationState.currentPage;
   updateExplorePagination(explorePaginationState);
   renderCardGrid(exploreGrid, explorePaginationState.items, {
     showDistance: userLocationState === 'ready' && userLocation,
-    compact: Boolean(exploreSection),
   });
   syncExploreShellHeight();
 }
@@ -3615,14 +3782,6 @@ function setHomePaddleTimeFilter(value, { persist = true, rerender = true } = {}
   }
 }
 
-function toggleHomeDifficultyFilter(value) {
-  setHomeDifficultyFilter(toggleChoiceValue(selectedHomeDifficulties, value, HOME_DIFFICULTY_OPTIONS));
-}
-
-function toggleHomePaddleTimeFilter(value) {
-  setHomePaddleTimeFilter(toggleChoiceValue(selectedHomePaddleTimes, value, HOME_PADDLE_TIME_OPTIONS));
-}
-
 function resetHomeFilters({ includeRadius = true, rerender = true } = {}) {
   selectedHomeDifficulties = ['any'];
   selectedHomePaddleTimes = ['any'];
@@ -3647,8 +3806,8 @@ function applyHomePreset(preset) {
     selectedHomeDifficulties = ['easy'];
     selectedHomePaddleTimes = ['up-to-3'];
   } else if (preset === 'full-day') {
-    selectedHomeDifficulties = ['moderate', 'hard'];
-    selectedHomePaddleTimes = ['5-to-7', '7-plus'];
+    selectedHomeDifficulties = ['moderate'];
+    selectedHomePaddleTimes = ['5-to-7'];
   } else {
     resetHomeFilters();
     return;
@@ -3995,25 +4154,19 @@ function setupLocationControls() {
     });
   }
 
-  for (const button of homeDifficultyButtons) {
-    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
-      continue;
+    if (homeDifficultySelect instanceof HTMLSelectElement && homeDifficultySelect.dataset.filterBound !== 'true') {
+      homeDifficultySelect.dataset.filterBound = 'true';
+      homeDifficultySelect.addEventListener('change', () => {
+        setHomeDifficultyFilter(homeDifficultySelect.value);
+      });
     }
-    button.dataset.filterBound = 'true';
-    button.addEventListener('click', () => {
-      toggleHomeDifficultyFilter(button.dataset.value ?? 'any');
-    });
-  }
 
-  for (const button of homePaddleTimeButtons) {
-    if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
-      continue;
+    if (homePaddleTimeSelect instanceof HTMLSelectElement && homePaddleTimeSelect.dataset.filterBound !== 'true') {
+      homePaddleTimeSelect.dataset.filterBound = 'true';
+      homePaddleTimeSelect.addEventListener('change', () => {
+        setHomePaddleTimeFilter(homePaddleTimeSelect.value);
+      });
     }
-    button.dataset.filterBound = 'true';
-    button.addEventListener('click', () => {
-      toggleHomePaddleTimeFilter(button.dataset.value ?? 'any');
-    });
-  }
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
@@ -4191,6 +4344,13 @@ export function initSummaryBoard() {
       summaryMapCollapsed = !summaryMapCollapsed;
       updateSummaryMapToggle();
     });
+  }
+
+  if (homeMapExpandButton instanceof HTMLButtonElement) {
+    homeMapExpandButton.addEventListener('click', () => {
+      toggleHomeMapExpanded();
+    });
+    updateHomeMapExpandButton();
   }
 
   window.addEventListener('resize', () => {
