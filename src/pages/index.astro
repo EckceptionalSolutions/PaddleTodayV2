@@ -1,38 +1,38 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import FeatureIcon from '../components/FeatureIcon.astro';
-import SummaryMapPanel from '../components/SummaryMapPanel.astro';
-import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FeatureIcon from "../components/FeatureIcon.astro";
+import SummaryMapPanel from "../components/SummaryMapPanel.astro";
+import RouteBoardCardTemplate from "../components/RouteBoardCardTemplate.astro";
 
-const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
-const homeUrl = new URL('/', siteUrl).href;
-const organizationId = new URL('/#organization', siteUrl).href;
-const websiteId = new URL('/#website', siteUrl).href;
+const siteUrl = Astro.site?.href ?? "https://paddletoday.com/";
+const homeUrl = new URL("/", siteUrl).href;
+const organizationId = new URL("/#organization", siteUrl).href;
+const websiteId = new URL("/#website", siteUrl).href;
 const homepageStructuredData = [
   {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    '@id': websiteId,
-    name: 'Paddle Today',
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": websiteId,
+    name: "Paddle Today",
     url: homeUrl,
     publisher: {
-      '@id': organizationId,
+      "@id": organizationId,
     },
-    inLanguage: 'en-US',
+    inLanguage: "en-US",
   },
   {
-    '@context': 'https://schema.org',
-    '@type': 'CollectionPage',
-    '@id': `${homeUrl}#collection`,
-    name: 'Best Rivers to Paddle Today',
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": `${homeUrl}#collection`,
+    name: "Best Rivers to Paddle Today",
     description:
-      'Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.',
+      "Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations.",
     url: homeUrl,
     isPartOf: {
-      '@id': websiteId,
+      "@id": websiteId,
     },
     about: {
-      '@id': organizationId,
+      "@id": organizationId,
     },
   },
 ];
@@ -50,14 +50,19 @@ const homepageStructuredData = [
         <h1 data-home-headline>Find the best paddle near you today</h1>
       </div>
 
-      <div class="home-hero__trust home-hero__trust--support" aria-label="How Paddle Today helps">
+      <div
+        class="home-hero__trust home-hero__trust--support"
+        aria-label="How Paddle Today helps"
+      >
         <article class="home-hero__trust-item">
           <span class="home-hero__trust-icon" aria-hidden="true">
             <FeatureIcon name="gauge" size={16} />
           </span>
           <div>
             <p class="home-hero__trust-title">Live river reads</p>
-            <p class="home-hero__trust-copy">Each pick uses the latest gauge and weather.</p>
+            <p class="home-hero__trust-copy">
+              Each pick uses the latest gauge and weather.
+            </p>
           </div>
         </article>
         <article class="home-hero__trust-item">
@@ -66,7 +71,9 @@ const homepageStructuredData = [
           </span>
           <div>
             <p class="home-hero__trust-title">Drive-time picks</p>
-            <p class="home-hero__trust-copy">Add a location any time to sort by real drive time.</p>
+            <p class="home-hero__trust-copy">
+              Add a location any time to sort by real drive time.
+            </p>
           </div>
         </article>
         <article class="home-hero__trust-item">
@@ -75,44 +82,95 @@ const homepageStructuredData = [
           </span>
           <div>
             <p class="home-hero__trust-title">Match your day</p>
-            <p class="home-hero__trust-copy">Filter by difficulty and paddle time.</p>
+            <p class="home-hero__trust-copy">
+              Filter by difficulty and paddle time.
+            </p>
           </div>
         </article>
       </div>
 
-      <section class="home-location-bar home-hero__location" id="home-location" aria-label="Set your location" data-nearby-location-panel>
+      <section
+        class="home-location-bar home-hero__location"
+        id="home-location"
+        aria-label="Set your location"
+        data-nearby-location-panel
+      >
         <p class="home-location-bar__step">Step 1 - Set location</p>
-        <button class="home-location-bar__current" type="button" data-location-edit-trigger>
-          <span class="home-location-bar__icon" aria-hidden="true">&#x1F4CD;</span>
+        <button
+          class="home-location-bar__current"
+          type="button"
+          data-location-edit-trigger
+        >
+          <span class="home-location-bar__icon" aria-hidden="true"
+            >&#x1F4CD;</span
+          >
           <div class="home-location-bar__text">
-            <p class="home-location-bar__value" data-home-location-summary>Set your location to see drive times</p>
-            <p class="home-location-bar__helper" data-home-location-sort-summary>
+            <p class="home-location-bar__value" data-home-location-summary>
+              Set your location to see drive times
+            </p>
+            <p
+              class="home-location-bar__helper"
+              data-home-location-sort-summary
+            >
               Choose a location to rank the board by drive time.
             </p>
           </div>
         </button>
 
-        <form class="location-panel__form home-location-bar__form" data-location-form>
-          <button class="river-link river-link--inline home-location-bar__use" type="button" data-location-use aria-label="Use my location">
+        <form
+          class="location-panel__form home-location-bar__form"
+          data-location-form
+        >
+          <button
+            class="river-link river-link--inline home-location-bar__use"
+            type="button"
+            data-location-use
+            aria-label="Use my location"
+          >
             <FeatureIcon name="crosshair" size={17} />
           </button>
-          <label class="filter-search location-panel__search home-location-bar__search">
+          <label
+            class="filter-search location-panel__search home-location-bar__search"
+          >
             <span class="sr-only">Enter a city or ZIP code</span>
-            <input class="filter-search__input home-location-bar__search-input" type="search" placeholder="City or ZIP code" data-location-input />
+            <input
+              class="filter-search__input home-location-bar__search-input"
+              type="search"
+              placeholder="City or ZIP code"
+              data-location-input
+            />
           </label>
           <div class="location-panel__actions home-location-bar__actions">
-            <button class="filter-chip filter-chip--subtle home-location-bar__search-button" type="submit">
+            <button
+              class="filter-chip filter-chip--subtle home-location-bar__search-button"
+              type="submit"
+            >
               Search
             </button>
-            <button class="filter-chip home-location-bar__clear" type="button" data-location-clear hidden>Clear</button>
+            <button
+              class="filter-chip home-location-bar__clear"
+              type="button"
+              data-location-clear
+              hidden>Clear</button
+            >
           </div>
         </form>
 
         <div class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
-            <p class="home-location-bar__step home-location-bar__step--refine">Step 2 - Set Preferences</p>
-            <p class="home-location-bar__refine-radius sr-only" data-home-radius-summary>Showing routes within 100 miles</p>
-            <div class="home-location-bar__refine-summary sr-only" data-home-refine-summary>
+            <p class="home-location-bar__step home-location-bar__step--refine">
+              Step 2 - Set Preferences
+            </p>
+            <p
+              class="home-location-bar__refine-radius sr-only"
+              data-home-radius-summary
+            >
+              Showing routes within 100 miles
+            </p>
+            <div
+              class="home-location-bar__refine-summary sr-only"
+              data-home-refine-summary
+            >
               <span class="home-location-bar__refine-pill">Any difficulty</span>
               <span class="home-location-bar__refine-pill">Any time</span>
             </div>
@@ -123,39 +181,76 @@ const homepageStructuredData = [
           <div class="home-radius-panel__mobile-head">
             <div>
               <p class="home-radius-panel__eyebrow">Refine your picks</p>
-              <p class="home-radius-panel__mobile-copy">Narrow things down without leaving the page.</p>
+              <p class="home-radius-panel__mobile-copy">
+                Narrow things down without leaving the page.
+              </p>
             </div>
           </div>
 
           <div class="home-radius-panel__topbar">
-            <p class="home-radius-panel__eyebrow home-radius-panel__eyebrow--desktop">Refine your picks</p>
+            <p
+              class="home-radius-panel__eyebrow home-radius-panel__eyebrow--desktop"
+            >
+              Refine your picks
+            </p>
             <div class="home-radius-panel__presets" aria-label="Filter presets">
-              <button class="filter-chip filter-chip--subtle home-radius-panel__preset" type="button" data-home-preset="quick-float">
+              <button
+                class="filter-chip filter-chip--subtle home-radius-panel__preset"
+                type="button"
+                data-home-preset="quick-float"
+              >
                 Quick float
               </button>
-              <button class="filter-chip filter-chip--subtle home-radius-panel__preset" type="button" data-home-preset="full-day">
+              <button
+                class="filter-chip filter-chip--subtle home-radius-panel__preset"
+                type="button"
+                data-home-preset="full-day"
+              >
                 Full day
               </button>
-              <button class="filter-chip filter-chip--quiet home-radius-panel__preset" type="button" data-home-reset-filters>
+              <button
+                class="filter-chip filter-chip--quiet home-radius-panel__preset"
+                type="button"
+                data-home-reset-filters
+              >
                 Clear filters
               </button>
             </div>
           </div>
 
-          <div class="home-radius-panel__filters" aria-label="Nearby route preferences">
-            <section class="home-filter-group home-filter-group--distance" aria-labelledby="home-filter-distance">
+          <div
+            class="home-radius-panel__filters"
+            aria-label="Nearby route preferences"
+          >
+            <section
+              class="home-filter-group home-filter-group--distance"
+              aria-labelledby="home-filter-distance"
+            >
               <div class="home-filter-group__head">
                 <span class="home-filter-group__icon" aria-hidden="true">
                   <FeatureIcon name="car" size={16} />
                 </span>
                 <div>
-                  <p class="home-radius-panel__field-label" id="home-filter-distance">Drive Distance</p>
+                  <p
+                    class="home-radius-panel__field-label"
+                    id="home-filter-distance"
+                  >
+                    Drive Distance
+                  </p>
                 </div>
               </div>
 
               <label class="home-radius-panel__slider-wrap">
                 <span class="sr-only">Recommendation radius in miles</span>
-                <input class="home-radius-panel__slider" type="range" min="0" max="5" step="1" value="3" data-home-radius-slider />
+                <input
+                  class="home-radius-panel__slider"
+                  type="range"
+                  min="0"
+                  max="5"
+                  step="1"
+                  value="3"
+                  data-home-radius-slider
+                />
               </label>
 
               <div class="home-radius-panel__scale" aria-hidden="true">
@@ -169,18 +264,29 @@ const homepageStructuredData = [
             </section>
 
             <div class="home-radius-panel__select-grid">
-              <section class="home-filter-group" aria-labelledby="home-filter-difficulty">
+              <section
+                class="home-filter-group"
+                aria-labelledby="home-filter-difficulty"
+              >
                 <div class="home-filter-group__head">
                   <span class="home-filter-group__icon" aria-hidden="true">
                     <FeatureIcon name="mountain" size={16} />
                   </span>
                   <div>
-                    <p class="home-radius-panel__field-label" id="home-filter-difficulty">Difficulty</p>
+                    <p
+                      class="home-radius-panel__field-label"
+                      id="home-filter-difficulty"
+                    >
+                      Difficulty
+                    </p>
                   </div>
                 </div>
                 <label class="filter-select home-radius-panel__select">
                   <span class="sr-only">Filter by difficulty</span>
-                  <select class="filter-select__input" data-home-difficulty-select>
+                  <select
+                    class="filter-select__input"
+                    data-home-difficulty-select
+                  >
                     <option value="any">Any difficulty</option>
                     <option value="easy">Easy</option>
                     <option value="moderate">Moderate</option>
@@ -189,18 +295,29 @@ const homepageStructuredData = [
                 </label>
               </section>
 
-              <section class="home-filter-group" aria-labelledby="home-filter-paddle-time">
+              <section
+                class="home-filter-group"
+                aria-labelledby="home-filter-paddle-time"
+              >
                 <div class="home-filter-group__head">
                   <span class="home-filter-group__icon" aria-hidden="true">
                     <FeatureIcon name="clock" size={16} />
                   </span>
                   <div>
-                    <p class="home-radius-panel__field-label" id="home-filter-paddle-time">Paddle Time</p>
+                    <p
+                      class="home-radius-panel__field-label"
+                      id="home-filter-paddle-time"
+                    >
+                      Paddle Time
+                    </p>
                   </div>
                 </div>
                 <label class="filter-select home-radius-panel__select">
                   <span class="sr-only">Filter by paddle time</span>
-                  <select class="filter-select__input" data-home-paddle-time-select>
+                  <select
+                    class="filter-select__input"
+                    data-home-paddle-time-select
+                  >
                     <option value="any">Any time</option>
                     <option value="up-to-3">Under 3 hr</option>
                     <option value="3-to-5">3-5 hr</option>
@@ -213,94 +330,192 @@ const homepageStructuredData = [
           </div>
 
           <div class="home-radius-panel__footer">
-            <p class="home-radius-panel__footer-copy muted" data-home-live-count>0 routes match your filters</p>
-            <button class="filter-chip filter-chip--quiet home-radius-panel__footer-reset" type="button" data-home-reset-filters>
+            <p
+              class="home-radius-panel__footer-copy muted"
+              data-home-live-count
+            >
+              0 routes match your filters
+            </p>
+            <button
+              class="filter-chip filter-chip--quiet home-radius-panel__footer-reset"
+              type="button"
+              data-home-reset-filters
+            >
               Reset filters
             </button>
           </div>
         </div>
       </section>
-
     </div>
 
-    <aside class="home-hero__rail" aria-label="Today&apos;s best route">
-      <section class="hero-call home-featured home-featured--locked" data-home-featured>
+    <aside class="home-hero__rail" aria-label="Today's best route">
+      <section
+        class="hero-call home-featured home-featured--locked"
+        data-home-featured
+      >
         <div class="home-featured__lock">
           <p class="home-featured__lock-label">Today&apos;s Best</p>
-          <p class="home-featured__lock-copy">Set your location to see the best nearby paddle right now.</p>
+          <p class="home-featured__lock-copy">
+            Set your location to see the best nearby paddle right now.
+          </p>
         </div>
 
         <div class="home-featured__body">
           <div class="home-featured__header">
-            <p class="eyebrow home-featured__answer-label" data-best-near-label>Today&apos;s Best</p>
-            <p class="hero-call__state" data-featured-state>Set your location to see the best nearby paddle right now.</p>
+            <p class="eyebrow home-featured__answer-label" data-best-near-label>
+              Today&apos;s Best
+            </p>
+            <p class="hero-call__state" data-featured-state>
+              Set your location to see the best nearby paddle right now.
+            </p>
             <h2 class="hero-call__title">
-              <a class="title-link title-link--hero" href="#best-options" data-field="featured-title-link">Today&apos;s Best</a>
+              <a
+                class="title-link title-link--hero"
+                href="#best-options"
+                data-field="featured-title-link">Today&apos;s Best</a
+              >
             </h2>
-            <p class="hero-call__reach" data-featured-reach>We&apos;ll show the strongest nearby route once drive times are active.</p>
-            <p class="home-featured__bridge" data-featured-bridge>Best fit for your current setup.</p>
+            <p class="hero-call__reach" data-featured-reach>
+              We&apos;ll show the strongest nearby route once drive times are
+              active.
+            </p>
+            <p class="home-featured__bridge" data-featured-bridge>
+              Best fit for your current setup.
+            </p>
           </div>
 
           <div class="hero-call__scoreline">
-            <div class="score-orb score-orb--featured" aria-label="Today&apos;s best score">
-              <span class="score-orb__score" data-field="featured-score">--</span>
-              <span class="score-orb__rating" data-field="featured-rating">Locked</span>
+            <div
+              class="score-orb score-orb--featured"
+              aria-label="Today's best score"
+            >
+              <span class="score-orb__score" data-field="featured-score"
+                >--</span
+              >
+              <span class="score-orb__rating" data-field="featured-rating"
+                >Locked</span
+              >
             </div>
 
             <div class="hero-call__score-meta">
-              <p class="hero-call__verdict" data-field="featured-verdict">Set your location</p>
-              <p class="hero-call__reason" data-field="featured-reason">Add a location to see drive time and nearby ranking.</p>
+              <p class="hero-call__verdict" data-field="featured-verdict">
+                Set your location
+              </p>
+              <p class="hero-call__reason" data-field="featured-reason">
+                Add a location to see drive time and nearby ranking.
+              </p>
               <div class="home-featured__weather" data-featured-weather hidden>
-                <span class="home-featured__weather-icon" data-featured-weather-icon aria-hidden="true"></span>
-                <span class="home-featured__weather-label" data-field="featured-weather-label">Forecast pending</span>
+                <span
+                  class="home-featured__weather-icon"
+                  data-featured-weather-icon
+                  aria-hidden="true"></span>
+                <span
+                  class="home-featured__weather-label"
+                  data-field="featured-weather-label">Forecast pending</span
+                >
               </div>
-              <p class="hero-call__signal-line hero-call__signal-line--featured" data-field="featured-signal">
+              <p
+                class="hero-call__signal-line hero-call__signal-line--featured"
+                data-field="featured-signal"
+              >
                 Gauge, weather, and support details will show up here.
               </p>
             </div>
           </div>
 
-          <details class="river-score-tooltip home-score-breakdown hero-call__score-breakdown" data-score-breakdown hidden>
+          <details
+            class="river-score-tooltip home-score-breakdown hero-call__score-breakdown"
+            data-score-breakdown
+            hidden
+          >
             <summary class="river-score-tooltip__summary">
               <span>Why this score</span>
             </summary>
             <div class="river-score-tooltip__panel">
-              <p class="muted river-score-tooltip__intro" data-score-breakdown-summary>
+              <p
+                class="muted river-score-tooltip__intro"
+                data-score-breakdown-summary
+              >
                 Checking what&apos;s driving today&apos;s score.
               </p>
-              <div class="river-score-tooltip__rows" data-score-breakdown-rows></div>
-              <div class="river-score-tooltip__caps" data-score-breakdown-caps-wrap hidden>
-                <p class="river-score-tooltip__caps-label">What held today&apos;s score back</p>
-                <ul class="compact-list river-score-tooltip__caps-list" data-score-breakdown-caps></ul>
+              <div class="river-score-tooltip__rows" data-score-breakdown-rows>
+              </div>
+              <div
+                class="river-score-tooltip__caps"
+                data-score-breakdown-caps-wrap
+                hidden
+              >
+                <p class="river-score-tooltip__caps-label">
+                  What held today&apos;s score back
+                </p>
+                <ul
+                  class="compact-list river-score-tooltip__caps-list"
+                  data-score-breakdown-caps
+                >
+                </ul>
               </div>
             </div>
           </details>
 
           <figure class="home-featured__gallery" data-featured-gallery hidden>
-            <img class="home-featured__gallery-image" data-featured-gallery-image alt="" loading="lazy" />
+            <img
+              class="home-featured__gallery-image"
+              data-featured-gallery-image
+              alt=""
+              loading="lazy"
+            />
           </figure>
 
           <div class="home-featured__map-shell" data-featured-map-shell hidden>
-            <div class="summary-map home-featured__map" data-featured-map aria-label="Map showing the featured route location"></div>
+            <div
+              class="summary-map home-featured__map"
+              data-featured-map
+              aria-label="Map showing the featured route location"
+            >
+            </div>
             <div class="home-featured__map-meta">
-              <p class="home-featured__map-status" data-featured-map-status>Route location</p>
-              <p class="home-featured__map-caption" data-featured-map-caption hidden></p>
+              <p class="home-featured__map-status" data-featured-map-status>
+                Route location
+              </p>
+              <p
+                class="home-featured__map-caption"
+                data-featured-map-caption
+                hidden
+              >
+              </p>
             </div>
           </div>
 
           <section class="home-featured__facts" aria-label="Featured facts">
-            <p class="home-featured__facts-label" data-field="featured-facts-label">Route facts</p>
+            <p
+              class="home-featured__facts-label"
+              data-field="featured-facts-label"
+            >
+              Route facts
+            </p>
             <div class="hero-call__meta hero-call__meta--route-facts">
-              <span class="pill" data-field="featured-confidence">Support info coming in</span>
-              <span class="pill" data-field="featured-distance">Add a location for drive time</span>
-              <span class="pill pill--quiet" data-field="featured-difficulty">Difficulty coming soon</span>
-              <span class="pill pill--quiet" data-field="featured-paddle-time">Paddle time coming soon</span>
+              <span class="pill" data-field="featured-confidence"
+                >Support info coming in</span
+              >
+              <span class="pill" data-field="featured-distance"
+                >Add a location for drive time</span
+              >
+              <span class="pill pill--quiet" data-field="featured-difficulty"
+                >Difficulty coming soon</span
+              >
+              <span class="pill pill--quiet" data-field="featured-paddle-time"
+                >Paddle time coming soon</span
+              >
             </div>
           </section>
 
           <ul class="hero-call__reasons" data-featured-reasons hidden></ul>
           <div class="home-featured__actions">
-            <a class="river-link river-link--inline river-link--wide river-link--primary home-featured__link" href="#best-options" data-featured-link>
+            <a
+              class="river-link river-link--inline river-link--wide river-link--primary home-featured__link"
+              href="#best-options"
+              data-featured-link
+            >
               Set location first
             </a>
           </div>
@@ -309,9 +524,16 @@ const homepageStructuredData = [
     </aside>
   </section>
 
-  <section class="decision-section decision-section--recommended home-recommendations" id="best-options">
-    <div class="home-recommendations__map-block home-recommendations__map-block--test">
-      <div class="section-head section-head--stacked home-recommendations__block-head">
+  <section
+    class="decision-section decision-section--recommended home-recommendations"
+    id="best-options"
+  >
+    <div
+      class="home-recommendations__map-block home-recommendations__map-block--test"
+    >
+      <div
+        class="section-head section-head--stacked home-recommendations__block-head"
+      >
         <div>
           <p class="eyebrow">Recommended</p>
           <h2
@@ -319,13 +541,23 @@ const homepageStructuredData = [
             data-recommendation-title
             data-default-title="Compare every route that fits your preferences"
             data-ready-title="Compare every route that fits your preferences"
-          >Compare every route that fits your preferences</h2>
+          >
+            Compare every route that fits your preferences
+          </h2>
         </div>
         <div class="section-head__actions home-recommendations__actions">
-          <p class="muted section-head__note home-recommendations__intro-note" data-recommendation-summary>
+          <p
+            class="muted section-head__note home-recommendations__intro-note"
+            data-recommendation-summary
+          >
             Add your location any time to sort by drive time.
           </p>
-          <div class="home-radius-pills home-recommendations__mix" aria-label="Route mix within selected filters" data-home-route-mix hidden>
+          <div
+            class="home-radius-pills home-recommendations__mix"
+            aria-label="Route mix within selected filters"
+            data-home-route-mix
+            hidden
+          >
             <span class="home-radius-pill home-radius-pill--strong">
               <strong data-home-strong-count>0</strong>
               <span>Strong</span>
@@ -352,7 +584,9 @@ const homepageStructuredData = [
         </p>
         <div class="home-recommendations__setup-actions">
           <div class="section-head__controls home-recommendations__controls">
-            <label class="filter-select filter-select--sort home-recommendations__sort">
+            <label
+              class="filter-select filter-select--sort home-recommendations__sort"
+            >
               <span class="sr-only">Sort route results</span>
               <select class="filter-select__input" data-nearby-sort-select>
                 <option value="best-score">Best score</option>
@@ -361,11 +595,16 @@ const homepageStructuredData = [
                 <option value="easiest">Easiest</option>
               </select>
             </label>
-            <button class="filter-chip filter-chip--quiet home-recommendations__reset" type="button" data-home-reset-filters>
+            <button
+              class="filter-chip filter-chip--quiet home-recommendations__reset"
+              type="button"
+              data-home-reset-filters
+            >
               Reset filters
             </button>
           </div>
-          <div class="home-recommendations__setup-pills" data-home-setup-pills></div>
+          <div class="home-recommendations__setup-pills" data-home-setup-pills>
+          </div>
         </div>
       </div>
       <SummaryMapPanel
@@ -384,19 +623,29 @@ const homepageStructuredData = [
   </section>
 
   <section class="home-overview" aria-label="Board overview">
-    <section class="home-board-inline home-board-inline--browse" aria-label="Browse all routes">
-      <p class="home-board-inline__copy">Want the full board with the bigger map and advanced filters?</p>
-      <a class="river-link river-link--inline" href="/explore/">Browse all routes</a>
-    </section>
     <section class="home-board-inline" aria-label="Route requests">
       <p class="home-board-inline__copy">Don&apos;t see a route you paddle?</p>
-      <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
+      <a
+        class="river-link river-link--inline river-link--ghost"
+        href="/request-river/">Request a route</a
+      >
+    </section>
+    <section
+      class="home-board-inline home-board-inline--browse"
+      aria-label="Browse all routes"
+    >
+      <p class="home-board-inline__copy">
+        Looking for more advanced filters or a larger map?
+      </p>
+      <a class="river-link river-link--inline" href="/explore/"
+        >Browse all routes</a
+      >
     </section>
   </section>
 
   <RouteBoardCardTemplate />
 
   <script>
-    import '../scripts/home-test-page.js';
+    import "../scripts/home-test-page.js";
   </script>
 </BaseLayout>
