@@ -288,13 +288,13 @@ function normalizeChoiceSet(value, allowedValues) {
     ? value
     : typeof value === 'string'
       ? (() => {
-          try {
-            const parsed = JSON.parse(value);
-            return Array.isArray(parsed) ? parsed : [value];
-          } catch {
-            return [value];
-          }
-        })()
+        try {
+          const parsed = JSON.parse(value);
+          return Array.isArray(parsed) ? parsed : [value];
+        } catch {
+          return [value];
+        }
+      })()
       : [];
 
   const normalized = [...new Set(rawValues.filter((entry) => allowedValues.includes(entry)))];
@@ -457,10 +457,10 @@ function fullHomePreferenceSummaryTextClean() {
   const paddleSummary = isChoiceSetAny(selectedHomePaddleTimes)
     ? 'Any time'
     : (
-        selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')
-          ? '5+ hr'
-          : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time')
-      );
+      selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')
+        ? '5+ hr'
+        : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time')
+    );
 
   return `${difficultySummary} / ${paddleSummary}`;
 }
@@ -1874,18 +1874,28 @@ function simpleSentence(text, fallback) {
 function recommendationReasons(item) {
   const summary = summaryParts(cardSummary(item));
   const reasons = [];
+  const badFlow = item?.cardRoute?.gaugeBand === 'too-low' || item?.cardRoute?.gaugeBand === 'too-high';
 
   if (summary.main) {
     const mainParts = summary.main
       .split(/\s*(?:\u2022|\/)\s*/g)
       .map((part) => part.trim())
       .filter(Boolean);
-    for (const part of mainParts.slice(1)) {
-      reasons.push(simpleSentence(part, 'Conditions look workable right now.'));
+
+    if (badFlow) {
+      if (item.cardRoute.gaugeBand === 'too-low') {
+        reasons.push('Flow is too low right now.');
+      } else if (item.cardRoute.gaugeBand === 'too-high') {
+        reasons.push('Flow is too high right now.');
+      }
+    } else {
+      for (const part of mainParts.slice(1)) {
+        reasons.push(simpleSentence(part, 'Conditions look workable right now.'));
+      }
     }
   }
 
-  if (summary.weather) {
+  if (summary.weather && !badFlow) {
     reasons.push(simpleSentence(summary.weather, 'Weather needs a closer look today.'));
   }
 
@@ -1893,7 +1903,7 @@ function recommendationReasons(item) {
 }
 
 function recommendationVerdict(item) {
-  if (item.cardRoute.rating === 'Strong') return 'Great today';
+  if (item.cardRoute.rating === 'Strong') return item.cardRoute.score >= 100 ? 'Ideal today' : 'Great today';
   if (item.cardRoute.rating === 'Good') return 'Solid option';
   if (item.cardRoute.rating === 'Fair') return 'Possible';
   return 'Consider with caution';
@@ -1926,9 +1936,9 @@ function recommendationSummaryText(item, nearbyReady) {
   const summary = summaryParts(cardSummary(item));
   const mainParts = typeof summary.main === 'string'
     ? summary.main
-        .split(/\s*(?:\u2022|\/)\s*/g)
-        .map((part) => part.trim().toLowerCase())
-        .filter(Boolean)
+      .split(/\s*(?:\u2022|\/)\s*/g)
+      .map((part) => part.trim().toLowerCase())
+      .filter(Boolean)
     : [];
   const weather = typeof summary.weather === 'string' ? summary.weather.toLowerCase() : '';
   const hasWeatherRisk = weather.includes('rain') || weather.includes('storm') || weather.includes('wind');
@@ -2433,7 +2443,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
           ? 'Try widening the radius or relaxing the difficulty or paddle-time filters.'
           : `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
         : 'Add a location to see drive time and nearby ranking.'
-      );
+    );
     setText(document, 'featured-facts-label', 'Route facts');
     setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support info coming in');
     setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add a location for drive time');
@@ -2469,7 +2479,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
   if (featuredLabel instanceof HTMLElement) {
-      featuredLabel.textContent = activePreferenceText ? 'Today\'s Best for your setup' : 'Today\'s Best near you';
+    featuredLabel.textContent = activePreferenceText ? 'Today\'s Best for your setup' : 'Today\'s Best near you';
   }
   if (featuredState instanceof HTMLElement) {
     featuredState.hidden = true;
@@ -2490,8 +2500,8 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(document, 'featured-score', String(item.cardRoute.score));
   setText(document, 'featured-rating', item.cardRoute.rating);
   setText(document, 'featured-verdict', recommendationVerdict(item));
-    setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
-    renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
+  setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
+  renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
   setText(document, 'featured-facts-label', isGroupedItem(item) ? 'River facts' : 'Route facts');
   setText(document, 'featured-confidence', confidenceLabel(item));
   setText(
@@ -2558,11 +2568,11 @@ function buildRecommendationItems(nearbyItems, overallItems, locationReady = fal
   addPick(overallItems[0]);
   addPick(
     overallItems.find((item) => !seen.has(item.key) && item.cardRoute.confidence.label === 'High') ||
-      overallItems[1]
+    overallItems[1]
   );
   addPick(
     overallItems.find((item) => !seen.has(item.key) && isGroupedItem(item)) ||
-      overallItems.find((item) => !seen.has(item.key))
+    overallItems.find((item) => !seen.has(item.key))
   );
 
   for (const item of overallItems) {
@@ -2615,9 +2625,9 @@ function renderRecommendationSection(nearbyItems, overallItems) {
   recommendationSummary.textContent = locationReady
     ? readySummaryTemplate
       ? readySummaryTemplate
-          .replace('{radius}', String(selectedRadiusMiles))
-          .replace('{location}', shortLocationLabel())
-          .replace('{preferences}', activePreferenceText || 'your current filters')
+        .replace('{radius}', String(selectedRadiusMiles))
+        .replace('{location}', shortLocationLabel())
+        .replace('{preferences}', activePreferenceText || 'your current filters')
       : activePreferenceText
         ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
         : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
@@ -2770,7 +2780,7 @@ function updateLocationIndicator() {
     locationIndicator.hidden = false;
     locationIndicator.dataset.state = 'loading';
     if (locationIndicatorLabel instanceof HTMLElement) {
-    locationIndicatorLabel.textContent = 'Finding nearest routes...';
+      locationIndicatorLabel.textContent = 'Finding nearest routes...';
     }
     return;
   }
@@ -2848,17 +2858,17 @@ function updateLocationStatus() {
     homeRadiusSlider.value = String(radiusIndexForMiles(selectedRadiusMiles));
   }
 
-    if (homeDifficultySelect instanceof HTMLSelectElement) {
-      homeDifficultySelect.value = isChoiceSetAny(selectedHomeDifficulties)
-        ? 'any'
-        : (selectedHomeDifficulties[0] || 'any');
-    }
+  if (homeDifficultySelect instanceof HTMLSelectElement) {
+    homeDifficultySelect.value = isChoiceSetAny(selectedHomeDifficulties)
+      ? 'any'
+      : (selectedHomeDifficulties[0] || 'any');
+  }
 
-    if (homePaddleTimeSelect instanceof HTMLSelectElement) {
-      homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
-        ? 'any'
-        : (selectedHomePaddleTimes[0] || 'any');
-    }
+  if (homePaddleTimeSelect instanceof HTMLSelectElement) {
+    homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
+      ? 'any'
+      : (selectedHomePaddleTimes[0] || 'any');
+  }
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement)) {
@@ -2872,12 +2882,12 @@ function updateLocationStatus() {
       selectedHomeDifficulties[0] === 'easy' &&
       selectedHomePaddleTimes.length === 1 &&
       selectedHomePaddleTimes[0] === 'up-to-3';
-      const isFullDay =
-        preset === 'full-day' &&
-        selectedHomeDifficulties.length === 1 &&
-        selectedHomeDifficulties[0] === 'moderate' &&
-        selectedHomePaddleTimes.length === 1 &&
-        selectedHomePaddleTimes[0] === '5-to-7';
+    const isFullDay =
+      preset === 'full-day' &&
+      selectedHomeDifficulties.length === 1 &&
+      selectedHomeDifficulties[0] === 'moderate' &&
+      selectedHomePaddleTimes.length === 1 &&
+      selectedHomePaddleTimes[0] === '5-to-7';
     const isActive = isQuickFloat || isFullDay;
     button.classList.toggle('filter-chip--active', isActive);
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -3626,7 +3636,7 @@ function renderHomepage(results) {
   updateFeaturedHero(nearbyItems, overallItems);
 
   if (recommendationTitle instanceof HTMLElement) {
-    recommendationTitle.textContent = 'Compare every route that fits your filters';
+    recommendationTitle.textContent = 'Compare every route that fits your preferences';
   }
 
   if (recommendationSummary instanceof HTMLElement) {
@@ -4291,19 +4301,19 @@ function setupLocationControls() {
     });
   }
 
-    if (homeDifficultySelect instanceof HTMLSelectElement && homeDifficultySelect.dataset.filterBound !== 'true') {
-      homeDifficultySelect.dataset.filterBound = 'true';
-      homeDifficultySelect.addEventListener('change', () => {
-        setHomeDifficultyFilter(homeDifficultySelect.value);
-      });
-    }
+  if (homeDifficultySelect instanceof HTMLSelectElement && homeDifficultySelect.dataset.filterBound !== 'true') {
+    homeDifficultySelect.dataset.filterBound = 'true';
+    homeDifficultySelect.addEventListener('change', () => {
+      setHomeDifficultyFilter(homeDifficultySelect.value);
+    });
+  }
 
-    if (homePaddleTimeSelect instanceof HTMLSelectElement && homePaddleTimeSelect.dataset.filterBound !== 'true') {
-      homePaddleTimeSelect.dataset.filterBound = 'true';
-      homePaddleTimeSelect.addEventListener('change', () => {
-        setHomePaddleTimeFilter(homePaddleTimeSelect.value);
-      });
-    }
+  if (homePaddleTimeSelect instanceof HTMLSelectElement && homePaddleTimeSelect.dataset.filterBound !== 'true') {
+    homePaddleTimeSelect.dataset.filterBound = 'true';
+    homePaddleTimeSelect.addEventListener('change', () => {
+      setHomePaddleTimeFilter(homePaddleTimeSelect.value);
+    });
+  }
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {

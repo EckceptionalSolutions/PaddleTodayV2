@@ -1761,18 +1761,28 @@ function simpleSentence(text, fallback) {
 function recommendationReasons(item) {
   const summary = summaryParts(cardSummary(item));
   const reasons = [];
+  const badFlow = item?.cardRoute?.gaugeBand === 'too-low' || item?.cardRoute?.gaugeBand === 'too-high';
 
   if (summary.main) {
     const mainParts = summary.main
       .split(/\s*(?:\u2022|\/)\s*/g)
       .map((part) => part.trim())
       .filter(Boolean);
-    for (const part of mainParts.slice(1)) {
-      reasons.push(simpleSentence(part, 'Conditions look workable right now.'));
+
+    if (badFlow) {
+      if (item.cardRoute.gaugeBand === 'too-low') {
+        reasons.push('Flow is too low right now.');
+      } else if (item.cardRoute.gaugeBand === 'too-high') {
+        reasons.push('Flow is too high right now.');
+      }
+    } else {
+      for (const part of mainParts.slice(1)) {
+        reasons.push(simpleSentence(part, 'Conditions look workable right now.'));
+      }
     }
   }
 
-  if (summary.weather) {
+  if (summary.weather && !badFlow) {
     reasons.push(simpleSentence(summary.weather, 'Weather needs a closer look today.'));
   }
 
@@ -1780,7 +1790,7 @@ function recommendationReasons(item) {
 }
 
 function recommendationVerdict(item) {
-  if (item.cardRoute.rating === 'Strong') return 'Great today';
+  if (item.cardRoute.rating === 'Strong') return item.cardRoute.score >= 100 ? 'Ideal today' : 'Great today';
   if (item.cardRoute.rating === 'Good') return 'Solid option';
   if (item.cardRoute.rating === 'Fair') return 'Possible';
   return 'Consider with caution';
@@ -2976,6 +2986,9 @@ function updateBoardStatusBanner(items) {
   if (!(boardStatusBanner instanceof HTMLElement)) {
     return;
   }
+
+  boardStatusBanner.classList.add('status-banner--hidden');
+  return;
 
   const liveCount = items.filter((item) => item.cardRoute.liveData.overall === 'live').length;
   const degradedCount = items.filter((item) => item.cardRoute.liveData.overall === 'degraded').length;

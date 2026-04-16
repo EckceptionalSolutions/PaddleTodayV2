@@ -198,20 +198,20 @@ function updateSnapshotLine(payload) {
         worthWatching.length === 1
           ? '1 fair route worth re-checking'
           : `${worthWatching.length} fair routes worth re-checking`;
-      snapshotLine.textContent = `No weekend picks yet • ${watchLabel}`;
+      snapshotLine.textContent = `No weekend picks yet / ${watchLabel}`;
       return;
     }
 
     snapshotLine.textContent =
       withheld > 0
-        ? `No supported weekend picks yet • ${withheld} routes withheld for weak support`
-        : 'No supported weekend picks yet • forecast support is still building';
+        ? `No weekend picks yet / ${withheld} routes still need better support`
+        : 'No weekend picks yet / forecast support is still building';
     return;
   }
 
   const countLabel = count === 1 ? '1 weekend pick' : `${count} weekend picks`;
-  const insight = withheld > 0 ? `${withheld} withheld until support improves` : bestLabel;
-  snapshotLine.textContent = `${countLabel} • ${insight}`;
+  const insight = withheld > 0 ? `${withheld} still need better support` : bestLabel;
+  snapshotLine.textContent = `${countLabel} / ${insight}`;
 }
 
 function updateOverviewCounts(payload) {
@@ -259,16 +259,16 @@ function renderFeatured(item, worthWatchingCount = 0) {
         ? 'A few fair routes are worth re-checking, but none are strong enough to recommend yet.'
         : 'Forecast support is still too thin to surface a confident shortlist.'
     );
-    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Weekend picks withheld');
+    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Not shaping up yet');
     setText(featuredScore, '--');
-    setText(featuredRating, 'Withheld');
+    setText(featuredRating, 'No-go');
     setText(featuredConfidence, 'Support building');
     setText(featuredCurrent, 'Check again later');
     setText(
       featuredReason,
       worthWatchingCount > 0
         ? 'The forecast is warm enough to watch, but still too risky to recommend a route yet.'
-        : 'Weekend picks stay hidden until the forecast and river shape line up well enough to trust.'
+        : 'Nothing is lining up well enough for a confident weekend pick yet.'
     );
     setText(
       featuredSignal,
@@ -280,7 +280,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
       featuredExplanation,
       worthWatchingCount > 0
         ? 'This page is intentionally conservative. Warm temperatures alone are not enough for a weekend recommendation when the weekend rain or storm signal is still this strong.'
-        : 'This page is intentionally conservative. Weekend picks only appear when the current gauge read is good enough and the weekend forecast is strong enough.'
+        : 'This page is intentionally conservative. Weekend picks only show up when the current gauge and forecast both look solid.'
     );
 
     if (featuredReasons instanceof HTMLElement) {
@@ -421,7 +421,7 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
   }
 
   weekendEmpty.hidden = false;
-  setText(weekendEmptyTitle, hasWithheld ? 'Weekend picks are still withheld' : 'No supported weekend picks yet');
+  setText(weekendEmptyTitle, hasWithheld ? 'No weekend picks yet' : 'No supported weekend picks yet');
   setText(
     weekendEmptyCopy,
     hasWithheld
@@ -547,3 +547,4 @@ loadWeekend({ silent: hydrated });
 window.setInterval(() => {
   loadWeekend({ silent: true });
 }, AUTO_REFRESH_MS);
+

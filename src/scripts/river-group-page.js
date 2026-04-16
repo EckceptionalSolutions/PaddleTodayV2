@@ -57,8 +57,8 @@ function setText(field, value) {
   return elements[0] ?? null;
 }
 
-function decisionLabel(rating) {
-  if (rating === 'Strong') return 'Great today';
+function decisionLabel(rating, score = null) {
+  if (rating === 'Strong') return score >= 100 ? 'Ideal today' : 'Great today';
   if (rating === 'Good') return 'Solid option';
   if (rating === 'Fair') return 'Possible';
   return 'Skip today';
@@ -510,7 +510,7 @@ function routePopupMarkup(route) {
       <p class="score-map-popup__state">${escapeHtml(route.state)} | ${escapeHtml(route.region)}</p>
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
-      <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating))}</p>
+      <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p>
       <p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>
       <p class="score-map-popup__meta">${escapeHtml(meta.join(' • '))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
@@ -779,7 +779,7 @@ function renderRouteList(routes) {
           <span class="route-choice__kind">Route</span>
           <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
           <strong class="route-choice__title">${route.reach}</strong>
-          <span class="route-choice__verdict">${decisionLabel(route.rating)}</span>
+      <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
           <div class="route-choice__scoreline">
             <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
               ${route.score}

@@ -2537,7 +2537,7 @@ body.site-search-open {
 }
 
 .river-detail [data-detail-section] {
-  scroll-margin-top: 6.5rem;
+  scroll-margin-top: 8.5rem;
 }
 
 .river-detail__layout {
@@ -8612,8 +8612,9 @@ body.site-search-open {
 }
 
 .recommendation-card--weekend .river-card__kind {
-  background: rgba(187, 156, 82, 0.12);
-  color: rgba(111, 84, 27, 0.95);
+  border-color: rgba(16, 35, 45, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--muted);
 }
 
 .site-header {
@@ -9166,10 +9167,13 @@ body.site-search-open {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: start;
+  margin-top: 0.28rem;
+  padding-inline: 0.08rem;
   color: var(--muted);
   font-size: 0.68rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
+  line-height: 1.2;
 }
 
 .home-radius-panel__scale span:first-child {
