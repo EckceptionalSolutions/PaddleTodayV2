@@ -1,0 +1,71 @@
+{
+  "ignoreDependencies": [
+    "astro",
+    "@azure/communication-email"
+  ],
+  "workspaces": {
+    ".": {
+      "ignoreDependencies": [
+        "@paddletoday/api-contract"
+      ],
+      "entry": [
+        "astro.config.mjs",
+        "vitest.config.ts",
+        "scripts/**/*.{mjs,ts}",
+        "src/**/*.astro",
+        "src/scripts/**/*.{js,mjs}",
+        "src/server/**/*.ts"
+      ],
+      "project": [
+        "astro.config.mjs",
+        "vitest.config.ts",
+        "scripts/**/*.{mjs,ts}",
+        "src/**/*.astro",
+        "src/**/*.{js,mjs,ts,tsx}"
+      ]
+    },
+    "apps/mobile": {
+      "ignoreDependencies": [
+        "@expo/vector-icons",
+        "@paddletoday/api-client",
+        "@paddletoday/api-contract",
+        "@react-native-async-storage/async-storage",
+        "@react-navigation/native",
+        "@tanstack/query-async-storage-persister",
+        "@tanstack/react-query",
+        "@tanstack/react-query-persist-client",
+        "expo-location",
+        "expo-status-bar",
+        "react-native-worklets"
+      ],
+      "entry": [
+        "app.json",
+        "app/**/*.{js,jsx,ts,tsx}"
+      ],
+      "project": [
+        "app.json",
+        "app/**/*.{js,jsx,ts,tsx}",
+        "src/**/*.{js,jsx,ts,tsx}",
+        "expo-env.d.ts"
+      ]
+    },
+    "packages/api-client": {
+      "entry": [
+        "src/index.ts",
+        "vitest.config.ts"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}",
+        "vitest.config.ts"
+      ]
+    },
+    "packages/api-contract": {
+      "entry": [
+        "src/index.ts"
+      ],
+      "project": [
+        "src/**/*.{ts,tsx}"
+      ]
+    }
+  }
+}

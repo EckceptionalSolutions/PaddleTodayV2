@@ -1,5 +1,6 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
+import { isArrayOf, isNullableNumber, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 import type { RiverScoreResult, ScoreRating } from './types';
 
 const DEFAULT_HISTORY_DIR = '.local';
@@ -47,6 +48,57 @@ type BlobContainer = {
   base: string;
   query: string;
 };
+
+function isRiverHistorySnapshot(value: unknown): value is RiverHistorySnapshot {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.slug) &&
+    isString(value.capturedAt) &&
+    isString(value.localDate) &&
+    isString(value.localHour) &&
+    isNumber(value.score) &&
+    isOneOf(value.rating, ['Strong', 'Good', 'Fair', 'No-go'] as const) &&
+    isNumber(value.riverQuality) &&
+    isNumber(value.windAdjustment) &&
+    isNumber(value.temperatureAdjustment) &&
+    isNumber(value.rainAdjustment) &&
+    isNumber(value.comfortAdjustment) &&
+    isString(value.gaugeBandLabel) &&
+    isNullableString(value.gaugeNow) &&
+    isNullableNumber(value.temperatureF) &&
+    isNullableNumber(value.windMph) &&
+    isNullableNumber(value.rainChance)
+  );
+}
+
+function isRiverHistoryDaySummary(value: unknown): value is RiverHistoryDaySummary {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.date) &&
+    isNumber(value.avgScore) &&
+    isNumber(value.minScore) &&
+    isNumber(value.maxScore) &&
+    isNumber(value.latestScore) &&
+    isOneOf(value.latestRating, ['Strong', 'Good', 'Fair', 'No-go'] as const) &&
+    isNumber(value.sampleCount) &&
+    isNullableNumber(value.morningScore) &&
+    isNullableNumber(value.afternoonScore)
+  );
+}
+
+function isRiverHistorySnapshotArray(value: unknown): value is RiverHistorySnapshot[] {
+  return isArrayOf(value, isRiverHistorySnapshot);
+}
+
+function isRiverHistoryDaySummaryArray(value: unknown): value is RiverHistoryDaySummary[] {
+  return isArrayOf(value, isRiverHistoryDaySummary);
+}
 
 export async function captureHistorySnapshotForResults(args: {
   results: RiverScoreResult[];
@@ -207,7 +259,11 @@ function historyStorage():
           throw new Error(`Failed to read history blob ${blobName}: HTTP ${response.status}`);
         }
 
-        return (await response.json()) as T;
+        const payload: unknown = await response.json();
+        if (!isRiverHistorySnapshotArray(payload) && !isRiverHistoryDaySummaryArray(payload)) {
+          throw new Error(`Invalid history blob ${blobName}`);
+        }
+        return payload as T;
       },
       async writeJson(blobName: string, value: unknown) {
         const payload = JSON.stringify(value, null, 2);
@@ -233,7 +289,11 @@ function historyStorage():
       const filePath = localPathFor(blobName);
       try {
         const payload = await readFile(filePath, 'utf8');
-        return JSON.parse(payload) as T;
+        const parsed: unknown = JSON.parse(payload);
+        if (!isRiverHistorySnapshotArray(parsed) && !isRiverHistoryDaySummaryArray(parsed)) {
+          throw new Error(`Invalid history JSON in ${blobName}`);
+        }
+        return parsed as T;
       } catch (error) {
         if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
           return null;

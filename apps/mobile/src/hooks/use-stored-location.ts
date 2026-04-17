@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
 import type { StoredLocation } from '../lib/location';
+import { isRecord, parseJson } from '../lib/storage';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 
@@ -18,17 +19,8 @@ export function useStoredLocation() {
   async function hydrateLocation() {
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
-      if (!raw) {
-        setStatus('idle');
-        return;
-      }
-
-      const parsed = JSON.parse(raw) as StoredLocation;
-      if (
-        typeof parsed?.latitude === 'number' &&
-        typeof parsed?.longitude === 'number' &&
-        typeof parsed?.label === 'string'
-      ) {
+      const parsed = parseJson(raw);
+      if (isStoredLocation(parsed)) {
         setLocation(parsed);
         setStatus('ready');
         return;
@@ -100,4 +92,13 @@ async function reverseGeocodeLabel(latitude: number, longitude: number) {
   }
 
   return 'Current location';
+}
+
+function isStoredLocation(value: unknown): value is StoredLocation {
+  return (
+    isRecord(value) &&
+    typeof value.latitude === 'number' &&
+    typeof value.longitude === 'number' &&
+    typeof value.label === 'string'
+  );
 }

@@ -1,5 +1,6 @@
 import { readFile, readdir } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { isOptionalString, isRecord, isString, safeParseJson } from './json-guards';
 
 const DEFAULT_REQUESTS_DIR = '.local';
 
@@ -25,6 +26,33 @@ type BlobContainer = {
   query: string;
 };
 
+function isRouteRequestMeta(value: unknown): value is NonNullable<RouteRequestRecord['meta']> {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return isOptionalString(value.ip) && isOptionalString(value.ua) && isOptionalString(value.referer);
+}
+
+function isRouteRequestRecord(value: unknown): value is RouteRequestRecord {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.submittedAt) &&
+    isString(value.routeName) &&
+    isString(value.state) &&
+    isString(value.putIn) &&
+    isString(value.takeOut) &&
+    isString(value.sources) &&
+    isString(value.notes) &&
+    isString(value.replyEmail) &&
+    (value.meta === undefined || isRouteRequestMeta(value.meta)) &&
+    (value._blobName === undefined || isString(value._blobName))
+  );
+}
+
 export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
   const container = parseContainerSas(process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL || '');
   const prefix = cleanPathSegment(process.env.ROUTE_REQUESTS_BLOB_PREFIX || 'route-requests');
@@ -37,14 +65,17 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
           const response = await fetch(blobUrl(container, blobName), {
             method: 'GET',
             headers: { accept: 'application/json' },
-          });
-          if (!response.ok) return null;
-          const payload = (await response.json()) as RouteRequestRecord;
-          payload._blobName = blobName;
-          return payload;
-        })
+        });
+        if (!response.ok) return null;
+        const payload: unknown = await response.json();
+        if (!isRouteRequestRecord(payload)) {
+          throw new Error(`Invalid route request blob ${blobName}`);
+        }
+        payload._blobName = blobName;
+        return payload;
+      })
     );
-    return items.filter(Boolean).sort(sortNewestFirst) as RouteRequestRecord[];
+    return items.filter((item): item is RouteRequestRecord => item !== null).sort(sortNewestFirst);
   }
 
   const localDir = resolve(process.cwd(), process.env.ROUTE_REQUESTS_DIR || DEFAULT_REQUESTS_DIR, prefix || 'route-requests');
@@ -52,7 +83,10 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
   const items = await Promise.all(
     files.map(async (filePath) => {
       try {
-        const payload = JSON.parse(await readFile(filePath, 'utf8')) as RouteRequestRecord;
+        const payload = safeParseJson(await readFile(filePath, 'utf8'), isRouteRequestRecord);
+        if (!payload) {
+          return null;
+        }
         payload._blobName = filePath;
         return payload;
       } catch {
@@ -60,7 +94,7 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
       }
     })
   );
-  return items.filter(Boolean).sort(sortNewestFirst) as RouteRequestRecord[];
+  return items.filter((item): item is RouteRequestRecord => item !== null).sort(sortNewestFirst);
 }
 
 async function listLocalJsonFiles(dir: string): Promise<string[]> {

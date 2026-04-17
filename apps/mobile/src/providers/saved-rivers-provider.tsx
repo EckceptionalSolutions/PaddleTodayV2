@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { PropsWithChildren } from 'react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { isRecord, parseJson } from '../lib/storage';
 
 const STORAGE_KEY = 'paddletoday:saved-rivers';
 
@@ -32,25 +33,9 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   async function hydrateSavedRivers() {
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
-      if (!raw) {
-        setIsHydrated(true);
-        return;
-      }
-
-      const parsed = JSON.parse(raw) as SavedRiverRecord[];
+      const parsed = parseJson(raw);
       if (Array.isArray(parsed)) {
-        setSavedRivers(
-          parsed
-            .filter(
-              (item) =>
-                item &&
-                typeof item.slug === 'string' &&
-                typeof item.name === 'string' &&
-                typeof item.reach === 'string' &&
-                typeof item.savedAt === 'string'
-            )
-            .sort((left, right) => right.savedAt.localeCompare(left.savedAt))
-        );
+        setSavedRivers(parsed.filter(isSavedRiverRecord).sort(sortSavedRiversByRecency));
       }
     } catch {
       // Leave saved rivers empty if local state is corrupt.
@@ -96,4 +81,18 @@ function buildNextSavedRivers(
   return exists
     ? current.filter((item) => item.slug !== river.slug)
     : [{ ...river, savedAt: new Date().toISOString() }, ...current];
+}
+
+function isSavedRiverRecord(value: unknown): value is SavedRiverRecord {
+  return (
+    isRecord(value) &&
+    typeof value.slug === 'string' &&
+    typeof value.name === 'string' &&
+    typeof value.reach === 'string' &&
+    typeof value.savedAt === 'string'
+  );
+}
+
+function sortSavedRiversByRecency(left: SavedRiverRecord, right: SavedRiverRecord) {
+  return right.savedAt.localeCompare(left.savedAt);
 }

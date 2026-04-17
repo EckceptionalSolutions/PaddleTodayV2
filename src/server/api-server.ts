@@ -43,6 +43,7 @@ import {
 import { listRouteRequests } from '../lib/route-requests';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
+import { parseQueryNumber, parseRiverAlertThreshold } from './request-parsers';
 
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
@@ -374,10 +375,10 @@ const server = createServer(async (request, response) => {
         }, includeBody);
       }
 
-      const days = Number(requestUrl.searchParams.get('days') || '7');
+      const days = parseQueryNumber(requestUrl.searchParams.get('days'), 7);
       const history = await getRiverHistory({
         slug,
-        days: Number.isFinite(days) ? days : 7,
+        days,
       });
 
       return sendJson(response, 200, {
@@ -1210,14 +1211,14 @@ async function handleRiverAlertCreate(
     const body = await readJsonBody(request);
     const email = clean(body?.email, 240).toLowerCase();
     const riverSlug = clean(body?.riverSlug, 160);
-    const threshold = clean(body?.threshold, 32).toLowerCase() as RiverAlertThreshold;
+    const threshold = parseRiverAlertThreshold(body?.threshold);
     const honeypot = clean(body?.company, 240);
 
     if (honeypot) {
       return sendJson(response, 202, { requestId, ok: true, stored: false }, includeBody, 'no-store');
     }
 
-    if (!email || !riverSlug || !isAlertThreshold(threshold)) {
+    if (!email || !riverSlug || !threshold) {
       return sendJson(
         response,
         400,
@@ -1570,10 +1571,6 @@ function isRateLimited(ip: string) {
   recent.push(now);
   rateByIp.set(ip, recent);
   return recent.length > RATE_MAX;
-}
-
-function isAlertThreshold(value: string): value is RiverAlertThreshold {
-  return value === 'good' || value === 'strong';
 }
 
 function meetsAlertThreshold(rating: string, threshold: RiverAlertThreshold): RiverAlertState {

@@ -6,7 +6,6 @@ import { AppProviders } from '../src/providers/app-providers';
 import { colors } from '../src/theme/tokens';
 
 export {
-  // Catch any errors thrown by the Layout component.
   ErrorBoundary,
 } from 'expo-router';
 

@@ -56,17 +56,24 @@ export function createPaddleTodayApiClient(args: {
       },
       signal: options?.signal,
     });
-    const payload = (await response.json().catch(() => null)) as T | ApiErrorResponse | null;
+    const payload = await readJsonBody(response);
 
     if (!response.ok) {
-      const errorPayload = payload as ApiErrorResponse | null;
+      const errorPayload = isApiErrorResponse(payload) ? payload : null;
       throw new PaddleTodayApiError({
         message:
-          errorPayload?.message ||
-          `PaddleToday API request failed with HTTP ${response.status}.`,
+          errorPayload?.message ??
+          buildResponseErrorMessage(response.status, payload),
         status: response.status,
         code: errorPayload?.error ?? null,
         requestId: errorPayload?.requestId ?? null,
+      });
+    }
+
+    if (!isJsonObject(payload)) {
+      throw new PaddleTodayApiError({
+        message: buildInvalidSuccessBodyMessage(response.status, payload),
+        status: response.status,
       });
     }
 
@@ -103,4 +110,48 @@ function normalizeBaseUrl(value: string) {
   }
 
   return trimmed.endsWith('/') ? trimmed : `${trimmed}/`;
+}
+
+async function readJsonBody(response: Response): Promise<unknown> {
+  const text = await response.text();
+  if (!text.trim()) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(text) as unknown;
+  } catch {
+    throw new PaddleTodayApiError({
+      message: buildInvalidSuccessBodyMessage(response.status, text),
+      status: response.status,
+    });
+  }
+}
+
+function isJsonObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isApiErrorResponse(value: unknown): value is ApiErrorResponse {
+  if (!isJsonObject(value)) {
+    return false;
+  }
+
+  return typeof value.error === 'string' && (value.message === undefined || typeof value.message === 'string');
+}
+
+function buildResponseErrorMessage(status: number, body: unknown) {
+  if (typeof body === 'string' && body.trim()) {
+    return `PaddleToday API request failed with HTTP ${status}: ${body}`;
+  }
+
+  return `PaddleToday API request failed with HTTP ${status}.`;
+}
+
+function buildInvalidSuccessBodyMessage(status: number, body: unknown) {
+  if (typeof body === 'string') {
+    return `PaddleToday API returned invalid JSON for HTTP ${status}: ${body}`;
+  }
+
+  return `PaddleToday API returned an invalid JSON payload for HTTP ${status}.`;
 }

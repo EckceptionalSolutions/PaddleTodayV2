@@ -1,10 +1,15 @@
-type FetchJsonOptions = {
+export type FetchJsonDecoder<T> = (value: unknown) => T;
+
+type FetchJsonOptions<T = unknown> = {
   timeoutMs?: number;
   retries?: number;
   headers?: Record<string, string>;
+  decoder?: FetchJsonDecoder<T>;
 };
 
-export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}): Promise<T> {
+export async function fetchJson<T>(url: string, options: FetchJsonOptions<T> & { decoder: FetchJsonDecoder<T> }): Promise<T>;
+export async function fetchJson<T = unknown>(url: string, options?: FetchJsonOptions<T>): Promise<T>;
+export async function fetchJson<T = unknown>(url: string, options: FetchJsonOptions<T> = {}): Promise<T> {
   const timeoutMs = options.timeoutMs ?? 10_000;
   const retries = Math.max(1, options.retries ?? 2);
 
@@ -37,7 +42,8 @@ export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}):
         throw new Error(`Expected JSON but received ${contentType || 'unknown content type'}`);
       }
 
-      return (await response.json()) as T;
+      const body: unknown = await response.json();
+      return decodeJson<T>(body, options.decoder);
     } catch (error) {
       lastError = error;
       if (attempt < retries) {
@@ -55,4 +61,12 @@ export async function fetchJson<T>(url: string, options: FetchJsonOptions = {}):
 async function backoff(attempt: number): Promise<void> {
   const delayMs = 250 * Math.pow(2, Math.max(0, attempt - 1));
   await new Promise((resolve) => setTimeout(resolve, delayMs));
+}
+
+function decodeJson<T>(value: unknown, decoder?: FetchJsonDecoder<T>): T {
+  if (decoder) {
+    return decoder(value);
+  }
+
+  return value as T;
 }

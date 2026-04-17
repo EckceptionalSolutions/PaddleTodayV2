@@ -1,6 +1,13 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import {
+  isArrayOf,
+  isNumber,
+  isOptionalString,
+  isRecord,
+  isString,
+} from './json-guards';
+import {
   serializeDetailResult,
   serializeRiverGroupResult,
   serializeSummaryResult,
@@ -19,6 +26,69 @@ type BlobContainer = {
   base: string;
   query: string;
 };
+
+function isRiverSummaryApiItem(value: unknown): value is RiverSummaryApiItem {
+  if (!isRecord(value) || !isRecord(value.river)) {
+    return false;
+  }
+
+  return (
+    isString(value.river.slug) &&
+    isOptionalString(value.river.estimatedPaddleTime) &&
+    isOptionalString(value.river.difficulty)
+  );
+}
+
+function isRiverDetailApiResult(value: unknown): value is RiverDetailApiResult {
+  if (!isRecord(value) || !isRecord(value.river)) {
+    return false;
+  }
+
+  return isString(value.river.slug) && isOptionalString(value.river.estimatedPaddleTime);
+}
+
+function isWeekendSummaryApiItem(value: unknown): value is WeekendSummaryApiItem {
+  if (!isRecord(value) || !isRecord(value.river) || !isRecord(value.weekend) || !isRecord(value.current)) {
+    return false;
+  }
+
+  return (
+    isString(value.river.slug) &&
+    isOptionalString(value.river.estimatedPaddleTime) &&
+    isOptionalString(value.river.difficulty) &&
+    isString(value.weekend.label) &&
+    isNumber(value.weekend.score) &&
+    isString(value.weekend.confidence) &&
+    isNumber(value.current.score)
+  );
+}
+
+function isRiverGroupApiResult(value: unknown): value is RiverGroupApiResult {
+  return isRecord(value) && isString(value.riverId) && isArrayOf(value.routes, isRiverDetailApiResult);
+}
+
+function isRiverSummarySnapshot(value: unknown): value is RiverSummarySnapshot {
+  return isRecord(value) && isString(value.generatedAt) && isNumber(value.riverCount) && isArrayOf(value.rivers, isRiverSummaryApiItem);
+}
+
+function isRiverDetailSnapshot(value: unknown): value is RiverDetailSnapshot {
+  return isRecord(value) && isString(value.generatedAt) && isRiverDetailApiResult(value.result);
+}
+
+function isWeekendSummarySnapshot(value: unknown): value is WeekendSummarySnapshot {
+  return (
+    isRecord(value) &&
+    isString(value.generatedAt) &&
+    isString(value.label) &&
+    isNumber(value.riverCount) &&
+    isNumber(value.withheldCount) &&
+    isArrayOf(value.rivers, isWeekendSummaryApiItem)
+  );
+}
+
+function isRiverGroupSnapshot(value: unknown): value is RiverGroupSnapshot {
+  return isRecord(value) && isString(value.generatedAt) && isRiverGroupApiResult(value.result);
+}
 
 export interface RiverSummarySnapshot {
   generatedAt: string;
@@ -305,11 +375,20 @@ function snapshotStorage():
           return null;
         }
 
-        if (!response.ok) {
+      if (!response.ok) {
           throw new Error(`Failed to read snapshot blob ${blobName}: HTTP ${response.status}`);
         }
 
-        return (await response.json()) as T;
+        const payload: unknown = await response.json();
+        if (
+          !isRiverSummarySnapshot(payload) &&
+          !isRiverDetailSnapshot(payload) &&
+          !isWeekendSummarySnapshot(payload) &&
+          !isRiverGroupSnapshot(payload)
+        ) {
+          throw new Error(`Invalid snapshot blob ${blobName}`);
+        }
+        return payload as T;
       },
       async writeJson(blobName: string, value: unknown) {
         const payload = JSON.stringify(value, null, 2);
@@ -335,7 +414,16 @@ function snapshotStorage():
       const filePath = localPathFor(blobName);
       try {
         const payload = await readFile(filePath, 'utf8');
-        return JSON.parse(payload) as T;
+        const parsed: unknown = JSON.parse(payload);
+        if (
+          !isRiverSummarySnapshot(parsed) &&
+          !isRiverDetailSnapshot(parsed) &&
+          !isWeekendSummarySnapshot(parsed) &&
+          !isRiverGroupSnapshot(parsed)
+        ) {
+          throw new Error(`Invalid snapshot JSON in ${blobName}`);
+        }
+        return parsed as T;
       } catch (error) {
         if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
           return null;

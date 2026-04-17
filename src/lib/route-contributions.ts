@@ -1,6 +1,15 @@
 import { randomUUID, createHmac, timingSafeEqual } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
+import {
+  isArrayOf,
+  isBoolean,
+  isOptionalString,
+  isRecord,
+  isNumber,
+  isString,
+  safeParseJson,
+} from './json-guards';
 
 const DEFAULT_CONTRIBUTIONS_DIR = '.local';
 const ROUTE_CONTRIBUTIONS_PREFIX = cleanPathSegment(process.env.ROUTE_CONTRIBUTIONS_BLOB_PREFIX || 'route-contributions');
@@ -92,6 +101,105 @@ type BinaryStorage = {
   readBytes(blobName: string): Promise<{ buffer: Buffer; contentType: string | null } | null>;
   writeBytes(blobName: string, value: Buffer, contentType: string): Promise<void>;
 };
+
+function isRouteContributionStoredFile(value: unknown): value is RouteContributionStoredFile {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.fileName) &&
+    isString(value.originalName) &&
+    isString(value.mimeType) &&
+    isNumber(value.size) &&
+    isString(value.blobName)
+  );
+}
+
+function isRouteContributionSubmission(value: unknown): value is RouteContributionSubmission {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.id) &&
+    ['pending', 'approved', 'rejected'].includes(String(value.status)) &&
+    isString(value.submittedAt) &&
+    (value.reviewedAt === null || isString(value.reviewedAt)) &&
+    (value.reviewedBy === null || isString(value.reviewedBy)) &&
+    isString(value.reviewNote) &&
+    isRecord(value.river) &&
+    isString(value.river.slug) &&
+    isString(value.river.name) &&
+    isString(value.river.reach) &&
+    isString(value.river.state) &&
+    isString(value.river.region) &&
+    isRecord(value.contributor) &&
+    isString(value.contributor.name) &&
+    isString(value.contributor.email) &&
+    isRecord(value.trip) &&
+    isString(value.trip.date) &&
+    isString(value.trip.sentiment) &&
+    isString(value.trip.report) &&
+    isString(value.notes) &&
+    isBoolean(value.rightsConfirmed) &&
+    isBoolean(value.reviewConsent) &&
+    isArrayOf(value.files, isRouteContributionStoredFile) &&
+    isRecord(value.meta) &&
+    isString(value.meta.ip) &&
+    isString(value.meta.ua) &&
+    isString(value.meta.referer)
+  );
+}
+
+function isRouteContributionIndex(value: unknown): value is RouteContributionIndex {
+  return isRecord(value) && isArrayOf(value.submissions, isRouteContributionSubmission);
+}
+
+function isApprovedCommunityPhoto(value: unknown): value is ApprovedCommunityPhoto {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.id) &&
+    isString(value.src) &&
+    isString(value.alt) &&
+    isString(value.caption) &&
+    isOptionalString(value.credit) &&
+    isOptionalString(value.takenLabel) &&
+    isString(value.approvedAt) &&
+    isString(value.sourceSubmissionId)
+  );
+}
+
+function isApprovedTripReport(value: unknown): value is ApprovedTripReport {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.id) &&
+    isString(value.approvedAt) &&
+    isString(value.sourceSubmissionId) &&
+    isString(value.contributorName) &&
+    isString(value.tripDate) &&
+    isString(value.sentiment) &&
+    isString(value.report) &&
+    isString(value.notes)
+  );
+}
+
+function isContributionStorageValue(
+  value: unknown
+): value is RouteContributionIndex | RouteContributionSubmission | ApprovedCommunityPhoto[] | ApprovedTripReport[] {
+  return (
+    isRouteContributionIndex(value) ||
+    isRouteContributionSubmission(value) ||
+    isArrayOf(value, isApprovedCommunityPhoto) ||
+    isArrayOf(value, isApprovedTripReport)
+  );
+}
 
 export async function createRouteContributionSubmission(args: {
   river: RouteContributionSubmission['river'];
@@ -366,7 +474,11 @@ function contributionsStorage(): BinaryStorage {
         const response = await fetch(blobUrl(container, blobName), { method: 'GET', headers: { accept: 'application/json' } });
         if (response.status === 404) return null;
         if (!response.ok) throw new Error(`Failed to read contribution blob ${blobName}: HTTP ${response.status}`);
-        return (await response.json()) as T;
+        const payload: unknown = await response.json();
+        if (!isContributionStorageValue(payload)) {
+          throw new Error(`Invalid contribution blob ${blobName}`);
+        }
+        return payload as T;
       },
       async writeJson(blobName: string, value: unknown) {
         const response = await fetch(blobUrl(container, blobName), {
@@ -409,7 +521,7 @@ function contributionsStorage(): BinaryStorage {
       const filePath = localPathFor(blobName);
       try {
         const payload = await readFile(filePath, 'utf8');
-        return JSON.parse(payload) as T;
+        return safeParseJson(payload, isContributionStorageValue) as T | null;
       } catch (error) {
         if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
           return null;

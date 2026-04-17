@@ -1,6 +1,7 @@
 import { randomUUID } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
+import { isArrayOf, isBoolean, isNullableString, isNumber, isOneOf, isRecord, isString } from './json-guards';
 
 const DEFAULT_ALERTS_DIR = '.local';
 
@@ -48,6 +49,55 @@ interface AlertsStore {
 
 interface AlertEventsStore {
   events: RiverAlertEvent[];
+}
+
+function isRiverThresholdAlert(value: unknown): value is RiverThresholdAlert {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.id) &&
+    isString(value.email) &&
+    value.type === 'river_threshold' &&
+    isNullableString(value.riverId) &&
+    isString(value.riverSlug) &&
+    isString(value.riverName) &&
+    isString(value.riverReach) &&
+    isOneOf(value.threshold, ['good', 'strong'] as const) &&
+    isBoolean(value.isActive) &&
+    isOneOf(value.lastState, ['below_threshold', 'at_or_above_threshold'] as const) &&
+    isNullableString(value.lastTriggeredAt) &&
+    isNullableString(value.lastEvaluatedAt) &&
+    isString(value.createdAt) &&
+    isString(value.updatedAt)
+  );
+}
+
+function isRiverAlertEvent(value: unknown): value is RiverAlertEvent {
+  if (!isRecord(value)) {
+    return false;
+  }
+
+  return (
+    isString(value.id) &&
+    isString(value.alertId) &&
+    isNullableString(value.riverId) &&
+    isString(value.riverSlug) &&
+    isNumber(value.triggeredScore) &&
+    isString(value.triggeredLabel) &&
+    isOneOf(value.threshold, ['good', 'strong'] as const) &&
+    isString(value.message) &&
+    isString(value.sentAt)
+  );
+}
+
+function isAlertsStore(value: unknown): value is AlertsStore {
+  return isRecord(value) && isArrayOf(value.alerts, isRiverThresholdAlert);
+}
+
+function isAlertEventsStore(value: unknown): value is AlertEventsStore {
+  return isRecord(value) && isArrayOf(value.events, isRiverAlertEvent);
 }
 
 export async function listRiverAlerts(args: { activeOnly?: boolean } = {}): Promise<RiverThresholdAlert[]> {
@@ -235,7 +285,11 @@ function alertsStorage():
           throw new Error(`Failed to read alerts blob ${blobName}: HTTP ${response.status}`);
         }
 
-        return (await response.json()) as T;
+        const payload: unknown = await response.json();
+        if (!isAlertsStore(payload) && !isAlertEventsStore(payload)) {
+          throw new Error(`Invalid alerts blob ${blobName}`);
+        }
+        return payload as T;
       },
       async writeJson(blobName: string, value: unknown) {
         const payload = JSON.stringify(value, null, 2);
@@ -261,7 +315,11 @@ function alertsStorage():
       const filePath = localPathFor(blobName);
       try {
         const payload = await readFile(filePath, 'utf8');
-        return JSON.parse(payload) as T;
+        const parsed: unknown = JSON.parse(payload);
+        if (!isAlertsStore(parsed) && !isAlertEventsStore(parsed)) {
+          throw new Error(`Invalid alerts JSON in ${blobName}`);
+        }
+        return parsed as T;
       } catch (error) {
         if (error && typeof error === 'object' && 'code' in error && error.code === 'ENOENT') {
           return null;
