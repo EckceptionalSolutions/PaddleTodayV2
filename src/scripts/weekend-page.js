@@ -64,6 +64,217 @@ function ratingToneKey(rating) {
   return String(rating).toLowerCase().replace(/[^a-z]+/g, '-');
 }
 
+function splitBulletParts(text) {
+  if (typeof text !== 'string') {
+    return [];
+  }
+
+  return text
+    .split(/\s+(?:\u2022|\/)\s+/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+}
+
+function parseWeekendSignalLine(rawSignal) {
+  if (typeof rawSignal !== 'string' || !rawSignal.trim()) {
+    return [];
+  }
+
+  return splitBulletParts(rawSignal)
+    .map((part) => {
+      if (/^Gauge:/i.test(part)) {
+        return { kind: 'gauge', value: part.replace(/^Gauge:\s*/i, '') };
+      }
+      if (/^Wind:/i.test(part)) {
+        return { kind: 'wind', value: part.replace(/^Wind:\s*/i, '') };
+      }
+      if (/^Temps?:/i.test(part)) {
+        return { kind: 'temp', value: part.replace(/^Temps?:\s*/i, '') };
+      }
+      if (/^High:/i.test(part)) {
+        return { kind: 'temp', value: part.replace(/^High:\s*/i, '') };
+      }
+      if (/^Low:/i.test(part)) {
+        return { kind: 'temp', value: part.replace(/^Low:\s*/i, '') };
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function parseWeekendTemperature(rawSignal) {
+  const match =
+    typeof rawSignal === 'string'
+      ? rawSignal.match(/Temps?:\s*(-?\d+)(?:\u00B0)?(?:\s*-\s*|-)(-?\d+)(?:\u00B0)?F/i) ||
+        rawSignal.match(/High:\s*(-?\d+)(?:\u00B0)?F/i) ||
+        rawSignal.match(/Low:\s*(-?\d+)(?:\u00B0)?F/i)
+      : null;
+  if (!match) {
+    return null;
+  }
+
+  const values = match.slice(1).filter(Boolean).map((value) => Number.parseInt(value, 10)).filter(Number.isFinite);
+  if (values.length === 0) {
+    return null;
+  }
+
+  return Math.min(...values);
+}
+
+function signalIconMarkup(kind) {
+  switch (kind) {
+    case 'gauge':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 15c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+          <path d="M3 19c2.2 0 2.2-3 4.4-3s2.2 3 4.4 3 2.2-3 4.4-3 2.2 3 4.4 3"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z"></path>
+          <path d="M12 9v8"></path>
+        </svg>
+      `;
+  }
+}
+
+function weekendSignalRowMarkup(item) {
+  const items = parseWeekendSignalLine(item?.weekend?.signalLine);
+  if (items.length === 0) {
+    return '<span class="river-card__signal-empty">Weekend forecast still settling.</span>';
+  }
+
+  return items
+    .map(
+      (entry) => `
+        <span class="river-card__signal-item">
+          <span class="river-card__signal-icon river-card__signal-icon--${entry.kind}">
+            ${signalIconMarkup(entry.kind)}
+          </span>
+          <span>${escapeHtml(entry.value)}</span>
+        </span>
+      `
+    )
+    .join('');
+}
+
+function weatherVisualLabel(state) {
+  switch (state) {
+    case 'storm':
+      return 'Storm risk';
+    case 'rain':
+      return 'Rain later';
+    case 'cold':
+      return 'Cold weather';
+    case 'wind':
+      return 'Windy';
+    default:
+      return 'Mostly dry';
+  }
+}
+
+function weatherVisualMarkup(state) {
+  const label = weatherVisualLabel(state);
+
+  switch (state) {
+    case 'storm':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 15.5a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 9.5a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="m12 15 2 0-1.4 3H15l-3 4 1-3h-2Z"></path>
+        </svg>
+      `;
+    case 'rain':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path>
+          <path d="M9 18.5l-.8 2"></path>
+          <path d="M13 18.5l-.8 2"></path>
+          <path d="M17 18.5l-.8 2"></path>
+        </svg>
+      `;
+    case 'cold':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M12 3v18"></path>
+          <path d="M5.5 6.5 18.5 17.5"></path>
+          <path d="M5.5 17.5 18.5 6.5"></path>
+          <path d="M4 12h16"></path>
+        </svg>
+      `;
+    case 'wind':
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path>
+          <path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path>
+          <path d="M5 17h7"></path>
+        </svg>
+      `;
+    default:
+      return `
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-label="${label}" role="img">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2.5v3"></path>
+          <path d="M12 18.5v3"></path>
+          <path d="m4.9 4.9 2.1 2.1"></path>
+          <path d="m17 17 2.1 2.1"></path>
+          <path d="M2.5 12h3"></path>
+          <path d="M18.5 12h3"></path>
+          <path d="m4.9 19.1 2.1-2.1"></path>
+          <path d="m17 7 2.1-2.1"></path>
+        </svg>
+      `;
+  }
+}
+
+function weekendWeatherVisualState(item) {
+  const combined = `${item?.weekend?.summary || ''} ${item?.weekend?.explanation || ''} ${item?.weekend?.signalLine || ''}`.toLowerCase();
+  const temperature = parseWeekendTemperature(item?.weekend?.signalLine);
+  const coldSevere = typeof temperature === 'number' && temperature <= 35;
+  const coldNoticeable = typeof temperature === 'number' && temperature <= 40;
+
+  if (combined.includes('storm')) {
+    return 'storm';
+  }
+  if (coldSevere) {
+    return 'cold';
+  }
+  if (combined.includes('rain')) {
+    return 'rain';
+  }
+  if (coldNoticeable) {
+    return 'cold';
+  }
+  if (combined.includes('wind')) {
+    return 'wind';
+  }
+  return 'calm';
+}
+
+function weekendWeatherBadgeMarkup(item) {
+  const state = weekendWeatherVisualState(item);
+  const label = weatherVisualLabel(state);
+
+  return `
+    <span class="card-weather-badge card-weather-badge--${state}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">
+        ${weatherVisualMarkup(state)}
+      </span>
+      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
+    </span>
+  `;
+}
+
 function weekendVerdict(item) {
   if (item.weekend.rating === 'Strong') return 'Top weekend pick';
   if (item.weekend.rating === 'Good') return 'Good weekend pick';
@@ -377,7 +588,7 @@ function createWeekendCard(item, index, options = {}) {
 
   const signal = card.querySelector('[data-field="raw-signal"]');
   if (signal instanceof HTMLElement) {
-    signal.textContent = item.weekend.signalLine || supportingReason(item) || 'Weekend forecast still settling.';
+    signal.innerHTML = weekendSignalRowMarkup(item);
   }
 
   const facts = card.querySelector('[data-field="card-facts"]');
@@ -389,8 +600,8 @@ function createWeekendCard(item, index, options = {}) {
 
   const weather = card.querySelector('[data-field="card-weather"]');
   if (weather instanceof HTMLElement) {
-    weather.hidden = true;
-    weather.innerHTML = '';
+    weather.hidden = false;
+    weather.innerHTML = weekendWeatherBadgeMarkup(item);
   }
 
   const orb = card.querySelector('.score-orb');
