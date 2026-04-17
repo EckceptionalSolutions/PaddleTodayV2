@@ -12,6 +12,7 @@
     "api:watch": "tsx watch src/server/api-server.ts --port 4322",
     "dev": "astro dev",
     "typecheck": "node scripts/typecheck.mjs",
+    "alert:mock-email": "tsx scripts/send-mock-river-alert.ts",
     "build": "npm run typecheck && astro build",
     "preview": "npm run build && npm run serve",
     "preview:local": "npm run build && npm run serve:local",

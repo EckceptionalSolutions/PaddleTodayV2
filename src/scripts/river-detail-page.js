@@ -71,15 +71,13 @@ const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
 const routeGallery = root.querySelector('[data-route-gallery]');
-const routeGalleryImage = root.querySelector('[data-route-gallery-image]');
-const routeGalleryCaption = root.querySelector('[data-route-gallery-caption]');
-const routeGalleryCredit = root.querySelector('[data-route-gallery-credit]');
-const routeGalleryTaken = root.querySelector('[data-route-gallery-taken]');
-const routeGalleryThumbs = Array.from(root.querySelectorAll('[data-route-gallery-thumb]'));
+const routeGalleryViewer = root.querySelector('[data-route-gallery-viewer]');
 const routeGalleryPending = root.querySelector('[data-route-gallery-pending]');
 const routeGalleryPendingGrid = root.querySelector('[data-route-gallery-pending-grid]');
 const routeGalleryPendingTitle = root.querySelector('[data-route-gallery-pending-title]');
 const routeGalleryPendingNote = root.querySelector('[data-route-gallery-pending-note]');
+const routeCommunity = root.querySelector('[data-route-community]');
+const routeCommunityList = root.querySelector('[data-route-community-list]');
 const routePhotoForm = root.querySelector('[data-route-photo-form]');
 const routePhotoFilesInput = root.querySelector('[data-route-photo-files]');
 const routePhotoSelection = root.querySelector('[data-route-photo-selection]');
@@ -157,7 +155,7 @@ const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 let detailMapCollapsed = phoneBreakpoint.matches;
 const detailRequestGuard = createRequestGuard();
 const historyRequestGuard = createRequestGuard();
-const approvedRoutePhotos = parseApprovedRoutePhotos(routeGallery instanceof HTMLElement ? routeGallery.dataset.approvedPhotos : '[]');
+let approvedRoutePhotos = parseApprovedRoutePhotos(routeGallery instanceof HTMLElement ? routeGallery.dataset.approvedPhotos : '[]');
 let selectedRoutePhotoFiles = [];
 let submittedRoutePhotoPreviews = [];
 
@@ -339,8 +337,91 @@ function parseApprovedRoutePhotos(raw) {
   }
 }
 
+function routeGalleryElements() {
+  return {
+    image: root.querySelector('[data-route-gallery-image]'),
+    caption: root.querySelector('[data-route-gallery-caption]'),
+    credit: root.querySelector('[data-route-gallery-credit]'),
+    taken: root.querySelector('[data-route-gallery-taken]'),
+    thumbs: Array.from(root.querySelectorAll('[data-route-gallery-thumb]')),
+  };
+}
+
+function renderApprovedRouteGallery() {
+  if (!(routeGalleryViewer instanceof HTMLElement)) {
+    return;
+  }
+
+  if (approvedRoutePhotos.length === 0) {
+    routeGalleryViewer.innerHTML = `
+      <div class="route-gallery__empty" data-route-gallery-empty>
+        <div class="route-gallery__empty-art" aria-hidden="true">
+          <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
+          <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
+          <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
+        </div>
+        <div class="route-gallery__empty-copy">
+          <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
+          <p class="muted">
+            Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
+          </p>
+          <div class="route-gallery__cta-row">
+            <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
+          </div>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const lead = approvedRoutePhotos[0];
+  routeGalleryViewer.innerHTML = `
+    <figure class="route-gallery__figure" data-route-gallery-figure>
+      <img
+        class="route-gallery__image"
+        src="${escapeHtml(lead.src)}"
+        alt="${escapeHtml(lead.alt || lead.caption || `${riverContext.name} route photo`)}"
+        loading="eager"
+        data-route-gallery-image
+      />
+      <figcaption class="route-gallery__caption">
+        <div class="route-gallery__caption-copy">
+          <strong data-route-gallery-caption>${escapeHtml(lead.caption || 'Approved community photo')}</strong>
+          <span class="muted" data-route-gallery-credit>${escapeHtml(lead.credit ? `Photo by ${lead.credit}` : 'Approved community photo')}</span>
+        </div>
+        <span class="route-gallery__caption-tag" data-route-gallery-taken ${lead.takenLabel ? '' : 'hidden'}>${escapeHtml(lead.takenLabel || '')}</span>
+      </figcaption>
+    </figure>
+    ${
+      approvedRoutePhotos.length > 1
+        ? `
+      <div class="route-gallery__thumbs" data-route-gallery-thumbs aria-label="Approved route photos">
+        ${approvedRoutePhotos
+          .map(
+            (photo, index) => `
+              <button
+                class="route-gallery__thumb${index === 0 ? ' route-gallery__thumb--active' : ''}"
+                type="button"
+                data-route-gallery-thumb
+                data-route-gallery-index="${index}"
+                aria-pressed="${index === 0 ? 'true' : 'false'}"
+              >
+                <img src="${escapeHtml(photo.src)}" alt="" loading="lazy" />
+                <span>${escapeHtml(photo.caption)}</span>
+              </button>
+            `
+          )
+          .join('')}
+      </div>
+    `
+        : ''
+    }
+  `;
+}
+
 function updateApprovedRoutePhoto(index) {
-  if (!(routeGalleryImage instanceof HTMLImageElement)) {
+  const { image, caption, credit, taken, thumbs } = routeGalleryElements();
+  if (!(image instanceof HTMLImageElement)) {
     return;
   }
 
@@ -349,23 +430,23 @@ function updateApprovedRoutePhoto(index) {
     return;
   }
 
-  routeGalleryImage.src = photo.src;
-  routeGalleryImage.alt = photo.alt || photo.caption || `${riverContext.name} route photo`;
+  image.src = photo.src;
+  image.alt = photo.alt || photo.caption || `${riverContext.name} route photo`;
 
-  if (routeGalleryCaption instanceof HTMLElement) {
-    routeGalleryCaption.textContent = photo.caption || 'Approved community photo';
+  if (caption instanceof HTMLElement) {
+    caption.textContent = photo.caption || 'Approved community photo';
   }
 
-  if (routeGalleryCredit instanceof HTMLElement) {
-    routeGalleryCredit.textContent = photo.credit ? `Photo by ${photo.credit}` : 'Approved community photo';
+  if (credit instanceof HTMLElement) {
+    credit.textContent = photo.credit ? `Photo by ${photo.credit}` : 'Approved community photo';
   }
 
-  if (routeGalleryTaken instanceof HTMLElement) {
-    routeGalleryTaken.textContent = photo.takenLabel || '';
-    routeGalleryTaken.hidden = !photo.takenLabel;
+  if (taken instanceof HTMLElement) {
+    taken.textContent = photo.takenLabel || '';
+    taken.hidden = !photo.takenLabel;
   }
 
-  for (const thumb of routeGalleryThumbs) {
+  for (const thumb of thumbs) {
     if (!(thumb instanceof HTMLButtonElement)) {
       continue;
     }
@@ -377,11 +458,12 @@ function updateApprovedRoutePhoto(index) {
 }
 
 function bindApprovedRouteGallery() {
-  if (approvedRoutePhotos.length === 0 || routeGalleryThumbs.length === 0) {
+  const { thumbs } = routeGalleryElements();
+  if (approvedRoutePhotos.length === 0 || thumbs.length === 0) {
     return;
   }
 
-  for (const thumb of routeGalleryThumbs) {
+  for (const thumb of thumbs) {
     if (!(thumb instanceof HTMLButtonElement) || thumb.dataset.galleryBound === 'true') {
       continue;
     }
@@ -393,6 +475,81 @@ function bindApprovedRouteGallery() {
         updateApprovedRoutePhoto(index);
       }
     });
+  }
+}
+
+function mergeApprovedRoutePhotos(photos) {
+  const deduped = [];
+  const seen = new Set();
+  for (const photo of [...photos, ...approvedRoutePhotos]) {
+    if (!photo?.src) continue;
+    const key = photo.id || photo.src;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    deduped.push(photo);
+  }
+  approvedRoutePhotos = deduped;
+  renderApprovedRouteGallery();
+  bindApprovedRouteGallery();
+  updateApprovedRoutePhoto(0);
+}
+
+function renderCommunityReports(reports) {
+  if (!(routeCommunity instanceof HTMLElement) || !(routeCommunityList instanceof HTMLElement)) {
+    return;
+  }
+
+  if (!Array.isArray(reports) || reports.length === 0) {
+    routeCommunity.hidden = true;
+    routeCommunityList.innerHTML = '';
+    return;
+  }
+
+  routeCommunity.hidden = false;
+  routeCommunityList.innerHTML = reports
+    .slice(0, 6)
+    .map((report) => {
+      const meta = [report.tripDate, report.sentiment, report.contributorName].filter(Boolean).join(' / ');
+      return `
+        <article class="route-community__card">
+          <div class="route-community__head">
+            <strong>${escapeHtml(meta || 'Recent trip report')}</strong>
+            <span class="muted">${escapeHtml(dataAgeLabel(Date.parse(report.approvedAt)))}</span>
+          </div>
+          <p>${escapeHtml(report.report || '')}</p>
+          ${
+            report.notes
+              ? `<p class="muted route-community__notes">${escapeHtml(report.notes)}</p>`
+              : ''
+          }
+        </article>
+      `;
+    })
+    .join('');
+}
+
+async function loadApprovedCommunity() {
+  try {
+    const response = await fetch(`/api/rivers/${encodeURIComponent(slug)}/community.json`, {
+      headers: {
+        accept: 'application/json',
+      },
+    });
+    if (!response.ok) {
+      return;
+    }
+    const payload = await response.json().catch(() => null);
+    if (!payload || typeof payload !== 'object') {
+      return;
+    }
+    if (Array.isArray(payload.photos) && payload.photos.length > 0) {
+      mergeApprovedRoutePhotos(payload.photos);
+    }
+    if (Array.isArray(payload.reports)) {
+      renderCommunityReports(payload.reports);
+    }
+  } catch (error) {
+    console.warn('Could not load approved community content.', error);
   }
 }
 
@@ -3489,8 +3646,10 @@ initializeAccessPlanner();
 renderActiveAccessContext();
 updateChartButtonStates();
 renderAccessMaps(null);
+renderApprovedRouteGallery();
 updateApprovedRoutePhoto(0);
 bindApprovedRouteGallery();
+loadApprovedCommunity();
 setupDetailSectionNav();
 setupDetailJumpLinks();
 bindAlertForm();

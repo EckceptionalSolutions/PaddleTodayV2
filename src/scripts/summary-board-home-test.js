@@ -20,7 +20,7 @@ const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const NEARBY_TRAVEL_MINUTES = 90;
 const DAY_TRIP_TRAVEL_MINUTES = 180;
 const AVERAGE_DRIVE_MPH = 50;
-const DEFAULT_RADIUS_MILES = 100;
+const DEFAULT_RADIUS_MILES = 50;
 const RADIUS_OPTIONS = [25, 50, 75, 100, 150, 200];
 const HOME_DIFFICULTY_OPTIONS = ['easy', 'moderate', 'hard'];
 const HOME_PADDLE_TIME_OPTIONS = ['up-to-3', '3-to-5', '5-to-7', '7-plus'];
@@ -125,11 +125,16 @@ const featuredName = document.querySelector('[data-field="featured-title-link"]'
 const featuredReach = document.querySelector('[data-featured-reach]');
 const featuredBridge = document.querySelector('[data-featured-bridge]');
 const featuredLink = document.querySelector('[data-featured-link]');
+const featuredJumpLink = document.querySelector('.home-featured__jump-link');
+const featuredConfidence = document.querySelector('[data-field="featured-confidence"]');
+const featuredDistance = document.querySelector('[data-field="featured-distance"]');
 const featuredReason = document.querySelector('[data-field="featured-reason"]');
 const featuredWeather = document.querySelector('[data-featured-weather]');
 const featuredWeatherIcon = document.querySelector('[data-featured-weather-icon]');
 const featuredSignal = document.querySelector('[data-field="featured-signal"]');
 const featuredReasons = document.querySelector('[data-featured-reasons]');
+const featuredDifficulty = document.querySelector('[data-field="featured-difficulty"]');
+const featuredPaddleTime = document.querySelector('[data-field="featured-paddle-time"]');
 const featuredMapShell = document.querySelector('[data-featured-map-shell]');
 const featuredMap = document.querySelector('[data-featured-map]');
 const featuredMapStatus = document.querySelector('[data-featured-map-status]');
@@ -273,6 +278,10 @@ function radiusIndexForMiles(value) {
 function radiusMilesForIndex(value) {
   const index = Number(value);
   return RADIUS_OPTIONS[index] ?? DEFAULT_RADIUS_MILES;
+}
+
+function nextRadiusSuggestionMiles(radiusMiles) {
+  return RADIUS_OPTIONS.find((option) => option > radiusMiles) ?? radiusMiles;
 }
 
 function titleCase(value) {
@@ -2407,6 +2416,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     renderFeaturedMap(null, { visible: false, status: '' });
     if (featuredPanel instanceof HTMLElement) {
       featuredPanel.classList.toggle('home-featured--locked', !locationReady && !featuredUnlockedWithoutLocation);
+      featuredPanel.classList.toggle('home-featured--empty', locationReady);
       featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     }
     if (featuredLabel instanceof HTMLElement) {
@@ -2422,14 +2432,12 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredReach instanceof HTMLElement) {
       featuredReach.textContent = locationReady
-        ? activePreferenceText
-          ? `No nearby routes match ${activePreferenceText}.`
-          : `No tracked routes currently land inside ${selectedRadiusMiles} miles.`
+        ? `Increase drive distance above ${selectedRadiusMiles} miles to compare more routes.`
         : 'Set your location to unlock today\'s best nearby pick.';
     }
     if (featuredBridge instanceof HTMLElement) {
       featuredBridge.textContent = locationReady
-        ? 'Best fit for your current setup.'
+        ? ''
         : 'Set your location to unlock today\'s best.';
     }
     setText(document, 'featured-score', '--');
@@ -2439,25 +2447,51 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       document,
       'featured-reason',
       locationReady
-        ? activePreferenceText
-          ? 'Try widening the radius or relaxing the difficulty or paddle-time filters.'
-          : `Try widening the radius above ${selectedRadiusMiles} miles to compare more routes.`
+        ? 'Paddle Today currently supports Midwest routes only.'
         : 'Add a location to see drive time and nearby ranking.'
     );
-    setText(document, 'featured-facts-label', 'Route facts');
-    setText(document, 'featured-confidence', locationReady ? 'Radius limited' : 'Support info coming in');
-    setText(document, 'featured-distance', locationReady ? `Try ${Math.min(200, selectedRadiusMiles + 50)} mi` : 'Add a location for drive time');
-    setText(document, 'featured-difficulty', locationReady ? 'Any difficulty' : 'Difficulty coming soon');
-    setText(document, 'featured-paddle-time', locationReady ? 'Any paddle time' : 'Paddle time coming soon');
+    setText(document, 'featured-facts-label', locationReady ? '' : 'Route facts');
+    setText(document, 'featured-confidence', locationReady ? '' : 'Support info coming in');
+    setText(
+      document,
+      'featured-distance',
+      locationReady ? `Increase to ${nextRadiusSuggestionMiles(selectedRadiusMiles)} mi` : 'Add a location for drive time'
+    );
+    setText(
+      document,
+      'featured-difficulty',
+      isChoiceSetAny(selectedHomeDifficulties)
+        ? 'Any difficulty'
+        : formatHomeChoiceSummary(selectedHomeDifficulties, titleCase, 'Any difficulty')
+    );
+    setText(
+      document,
+      'featured-paddle-time',
+      isChoiceSetAny(selectedHomePaddleTimes)
+        ? 'Any paddle time'
+        : selectedHomePaddleTimes.includes('5-to-7') && selectedHomePaddleTimes.includes('7-plus')
+          ? '5+ hr'
+          : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any paddle time')
+    );
+    if (featuredConfidence instanceof HTMLElement) {
+      featuredConfidence.hidden = locationReady;
+    }
+    if (featuredDistance instanceof HTMLElement) {
+      featuredDistance.hidden = false;
+    }
+    if (featuredDifficulty instanceof HTMLElement) {
+      featuredDifficulty.hidden = locationReady ? isChoiceSetAny(selectedHomeDifficulties) : false;
+    }
+    if (featuredPaddleTime instanceof HTMLElement) {
+      featuredPaddleTime.hidden = locationReady ? isChoiceSetAny(selectedHomePaddleTimes) : false;
+    }
     updateFeaturedWeather(null);
     updateFeaturedGallery(null);
     setText(
       document,
       'featured-signal',
       locationReady
-        ? activePreferenceText
-          ? 'Adjust the nearby filters or radius to bring more routes back into the mix.'
-          : 'Widen the radius slider to reveal more nearby options.'
+        ? ''
         : 'Gauge, weather, and support details will show up here.'
     );
     if (featuredReasons instanceof HTMLElement) {
@@ -2468,6 +2502,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredLink.href = locationReady ? '/explore/' : '#home-location';
       featuredLink.textContent = locationReady ? 'Browse all routes' : 'Set location first';
     }
+    if (featuredJumpLink instanceof HTMLElement) {
+      featuredJumpLink.hidden = locationReady;
+    }
     renderScoreBreakdownDisclosure(featuredPanel, null);
     return;
   }
@@ -2475,6 +2512,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   const ratingKey = ratingToneKey(item.cardRoute.rating);
   if (featuredPanel instanceof HTMLElement) {
     featuredPanel.classList.toggle('home-featured--locked', !locationReady && !featuredUnlockedWithoutLocation);
+    featuredPanel.classList.remove('home-featured--empty');
     featuredPanel.classList.remove('hero-call--great', 'hero-call--good', 'hero-call--marginal', 'hero-call--no-go');
     featuredPanel.classList.add(`hero-call--${ratingKey}`);
   }
@@ -2527,6 +2565,18 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       ? routeEstimatedTimeLabel(item)
       : 'Paddle time varies'
   );
+  if (featuredDifficulty instanceof HTMLElement) {
+    featuredDifficulty.hidden = false;
+  }
+  if (featuredPaddleTime instanceof HTMLElement) {
+    featuredPaddleTime.hidden = false;
+  }
+  if (featuredConfidence instanceof HTMLElement) {
+    featuredConfidence.hidden = false;
+  }
+  if (featuredDistance instanceof HTMLElement) {
+    featuredDistance.hidden = false;
+  }
   updateFeaturedWeather(item);
   updateFeaturedGallery(item);
   if (featuredSignal instanceof HTMLElement) {
@@ -2545,6 +2595,9 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = item.link;
     featuredLink.textContent = 'View river';
+  }
+  if (featuredJumpLink instanceof HTMLElement) {
+    featuredJumpLink.hidden = false;
   }
 }
 function buildRecommendationItems(nearbyItems, overallItems, locationReady = false) {

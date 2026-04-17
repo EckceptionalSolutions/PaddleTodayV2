@@ -9012,6 +9012,12 @@ body.site-search-open {
   font-size: 0.82rem;
 }
 
+.home-radius-panel__slider-stack {
+  display: grid;
+  gap: 0.38rem;
+  padding-inline: 0.52rem;
+}
+
 .home-radius-panel__slider-wrap {
   display: block;
 }
@@ -9164,11 +9170,11 @@ body.site-search-open {
 }
 
 .home-radius-panel__scale {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  display: flex;
+  justify-content: space-between;
   align-items: start;
-  margin-top: 0.28rem;
-  padding-inline: 0.08rem;
+  margin-top: 0;
+  padding-inline: 0;
   color: var(--muted);
   font-size: 0.68rem;
   font-weight: 700;
@@ -9177,17 +9183,14 @@ body.site-search-open {
 }
 
 .home-radius-panel__scale span:first-child {
-  justify-self: start;
   text-align: left;
 }
 
 .home-radius-panel__scale span:last-child {
-  justify-self: end;
   text-align: right;
 }
 
 .home-radius-panel__scale span:not(:first-child):not(:last-child) {
-  justify-self: center;
   text-align: center;
 }
 
@@ -9510,6 +9513,10 @@ body.site-search-open {
   text-transform: uppercase;
 }
 
+.home-featured__bridge:empty {
+  display: none;
+}
+
 .home-featured .hero-call__title {
   font-size: 1.78rem;
   line-height: 1.02;
@@ -9531,6 +9538,10 @@ body.site-search-open {
   max-width: 28ch;
   color: rgba(29, 50, 65, 0.92);
   line-height: 1.38;
+}
+
+.home-featured .hero-call__reason:empty {
+  display: none;
 }
 
 .home-featured__weather {
@@ -9559,6 +9570,10 @@ body.site-search-open {
 .home-featured .hero-call__signal-line--featured {
   margin-top: 0.12rem;
   padding-top: 0.08rem;
+}
+
+.home-featured .hero-call__signal-line--featured:empty {
+  display: none;
 }
 
 .home-featured__gallery {
@@ -9593,6 +9608,10 @@ body.site-search-open {
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
+}
+
+.home-featured__facts-label:empty {
+  display: none;
 }
 
 .pill--quiet {
@@ -10596,5 +10615,165 @@ body.site-search-open {
   .filter-select__input,
   .filter-chip {
     min-height: 2.1rem;
+  }
+}
+
+.admin-review__login-form,
+.admin-review__toolbar-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.admin-review__toolbar {
+  display: grid;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.admin-review__list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-submission-card {
+  display: grid;
+  gap: 0.9rem;
+  padding: 1.1rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: 0 20px 48px rgba(24, 42, 54, 0.08);
+}
+
+.admin-submission-card__head,
+.admin-submission-card__footer,
+.admin-submission-card__actions,
+.admin-submission-card__photos,
+.route-community__head {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.admin-submission-card__head,
+.admin-submission-card__footer,
+.route-community__head {
+  justify-content: space-between;
+  align-items: start;
+}
+
+.admin-submission-card__status {
+  padding: 0.28rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  text-transform: capitalize;
+  background: rgba(219, 234, 247, 0.8);
+  color: var(--accent-strong);
+}
+
+.admin-submission-card__status--approved {
+  background: rgba(228, 244, 231, 0.95);
+  color: #1d6b3f;
+}
+
+.admin-submission-card__status--rejected {
+  background: rgba(248, 231, 227, 0.95);
+  color: #9c3f2e;
+}
+
+.admin-submission-card__block {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.admin-submission-card__block h3 {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.admin-submission-card__block p {
+  margin: 0;
+}
+
+.admin-submission-card__photos {
+  flex-wrap: wrap;
+}
+
+.admin-submission-card__photo {
+  width: min(180px, 100%);
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+}
+
+.admin-submission-card__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+}
+
+.admin-submission-card__photo figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.route-community__list {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.route-community__card {
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.route-community__card p,
+.route-community__notes {
+  margin: 0.45rem 0 0;
+}
+
+@media (max-width: 760px) {
+  .admin-review__login-form,
+  .admin-review__toolbar-row,
+  .admin-submission-card__head,
+  .admin-submission-card__footer,
+  .route-community__head {
+    display: grid;
+  }
+}
+
+.admin-review__stats,
+.admin-review__request-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-review__stats {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  margin-bottom: 1rem;
+}
+
+.admin-review__section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.admin-submission-card--request {
+  box-shadow: none;
+}
+
+@media (max-width: 760px) {
+  .admin-review__section-head {
+    display: grid;
+    align-items: start;
   }
 }

@@ -815,10 +815,10 @@ const routeStructuredData = {
       </div>
 
       <div class="route-gallery__layout">
-        <div class="route-gallery__viewer">
+        <div class="route-gallery__viewer" data-route-gallery-viewer>
           {approvedRoutePhotos.length > 0 ? (
             <>
-              <figure class="route-gallery__figure">
+              <figure class="route-gallery__figure" data-route-gallery-figure>
                 <img
                   class="route-gallery__image"
                   src={approvedRoutePhotos[0].src}
@@ -857,7 +857,7 @@ const routeStructuredData = {
               ) : null}
             </>
           ) : (
-            <div class="route-gallery__empty">
+            <div class="route-gallery__empty" data-route-gallery-empty>
               <div class="route-gallery__empty-art" aria-hidden="true">
                 <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
                 <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
@@ -876,6 +876,28 @@ const routeStructuredData = {
           )}
         </div>
       </div>
+    </section>
+
+    <section
+      class="river-detail__panel route-community"
+      data-route-community
+      data-detail-section="community-reports"
+      data-detail-nav-group="today"
+      hidden
+    >
+      <div class="route-gallery__intro">
+        <div class="route-gallery__intro-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            Community reports
+          </p>
+          <h2 class="section-title">Recent notes from paddlers</h2>
+          <p class="muted route-gallery__lede">
+            Quick notes from people who paddled this route recently.
+          </p>
+        </div>
+      </div>
+      <div class="route-community__list" data-route-community-list></div>
     </section>
 
     <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">

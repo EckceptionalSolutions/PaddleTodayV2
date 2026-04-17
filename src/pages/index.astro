@@ -240,26 +240,28 @@ const homepageStructuredData = [
                 </div>
               </div>
 
-              <label class="home-radius-panel__slider-wrap">
-                <span class="sr-only">Recommendation radius in miles</span>
-                <input
-                  class="home-radius-panel__slider"
-                  type="range"
-                  min="0"
-                  max="5"
-                  step="1"
-                  value="3"
-                  data-home-radius-slider
-                />
-              </label>
+              <div class="home-radius-panel__slider-stack">
+                <label class="home-radius-panel__slider-wrap">
+                  <span class="sr-only">Recommendation radius in miles</span>
+                  <input
+                    class="home-radius-panel__slider"
+                    type="range"
+                    min="0"
+                    max="5"
+                    step="1"
+                    value="1"
+                    data-home-radius-slider
+                  />
+                </label>
 
-              <div class="home-radius-panel__scale" aria-hidden="true">
-                <span>25 mi</span>
-                <span>50 mi</span>
-                <span>75 mi</span>
-                <span>100 mi</span>
-                <span>150 mi</span>
-                <span>200 mi</span>
+                <div class="home-radius-panel__scale" aria-hidden="true">
+                  <span>25 mi</span>
+                  <span>50 mi</span>
+                  <span>75 mi</span>
+                  <span>100 mi</span>
+                  <span>150 mi</span>
+                  <span>200 mi</span>
+                </div>
               </div>
             </section>
 

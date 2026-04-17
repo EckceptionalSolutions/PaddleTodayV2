@@ -13,6 +13,7 @@ import { verifyRiverAlertActionToken } from '../lib/alert-links';
 import {
   createRiverThresholdAlert,
   getRiverAlertById,
+  listRiverAlerts,
   updateRiverAlert,
   type RiverAlertThreshold,
   type RiverAlertState,
@@ -25,6 +26,21 @@ import {
   getStoredRiverSummarySnapshot,
   getStoredWeekendSummarySnapshot,
 } from '../lib/river-snapshots';
+import {
+  adminAuthConfigured,
+  clearAdminSessionCookie,
+  createAdminSessionCookie,
+  createRouteContributionSubmission,
+  getApprovedCommunityForRoute,
+  getContributionFilePreviewUrl,
+  isAdminRequestAuthorized,
+  listRouteContributionSubmissions,
+  readApprovedCommunityPhoto,
+  readContributionSubmissionFile,
+  reviewRouteContributionSubmission,
+  verifyAdminPassword,
+} from '../lib/route-contributions';
+import { listRouteRequests } from '../lib/route-requests';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
 
@@ -60,6 +76,15 @@ const server = createServer(async (request, response) => {
   const isAlertUnsubscribePath = requestUrl.pathname === '/api/alerts/unsubscribe';
   const isHistorySnapshotPath = requestUrl.pathname === '/api/history/snapshot';
   const isRiverSnapshotPath = requestUrl.pathname === '/api/snapshots/refresh';
+  const riverCommunityMatch = requestUrl.pathname.match(/^\/api\/rivers\/([^/]+)\/community\.json$/);
+  const communityPhotoMatch = requestUrl.pathname.match(/^\/api\/community-photos\/([^/]+)\/([^/]+)\/([^/]+)$/);
+  const adminContributionFileMatch = requestUrl.pathname.match(/^\/api\/admin\/route-contributions\/files\/([^/]+)\/([^/]+)$/);
+  const adminContributionReviewMatch = requestUrl.pathname.match(/^\/api\/admin\/route-contributions\/([^/]+)\/review$/);
+  const isAdminSessionPath = requestUrl.pathname === '/api/admin/session';
+  const isAdminLogoutPath = requestUrl.pathname === '/api/admin/logout';
+  const isAdminContributionsPath = requestUrl.pathname === '/api/admin/route-contributions';
+  const isAdminRouteRequestsPath = requestUrl.pathname === '/api/admin/route-requests';
+  const isAdminStatsPath = requestUrl.pathname === '/api/admin/stats';
 
   if (isRiverRequestPath && request.method === 'OPTIONS') {
     return sendEmpty(response, 204, {
@@ -87,6 +112,75 @@ const server = createServer(async (request, response) => {
 
   if (isRoutePhotoSubmissionPath && request.method === 'POST') {
     return handleRoutePhotoSubmission(request, response, requestId, includeBody);
+  }
+
+  if (riverCommunityMatch && request.method === 'GET') {
+    return handleRouteCommunity(request, response, requestId, includeBody, decodeURIComponent(riverCommunityMatch[1]));
+  }
+
+  if (communityPhotoMatch && request.method === 'GET') {
+    return handleCommunityPhoto(
+      request,
+      response,
+      requestId,
+      decodeURIComponent(communityPhotoMatch[1]),
+      decodeURIComponent(communityPhotoMatch[2]),
+      decodeURIComponent(communityPhotoMatch[3])
+    );
+  }
+
+  if (isAdminSessionPath && request.method === 'OPTIONS') {
+    return sendEmpty(response, 204, {
+      'access-control-allow-origin': '*',
+      'access-control-allow-methods': 'GET, POST, OPTIONS',
+      'access-control-allow-headers': 'content-type, accept',
+      'access-control-max-age': '86400',
+      'cache-control': 'no-store',
+    });
+  }
+
+  if (isAdminSessionPath && request.method === 'GET') {
+    return handleAdminSessionStatus(request, response, requestId, includeBody);
+  }
+
+  if (isAdminSessionPath && request.method === 'POST') {
+    return handleAdminSessionCreate(request, response, requestId, includeBody);
+  }
+
+  if (isAdminLogoutPath && request.method === 'POST') {
+    return handleAdminLogout(response, requestId, includeBody);
+  }
+
+  if (isAdminContributionsPath && request.method === 'GET') {
+    return handleAdminContributionList(request, response, requestId, includeBody);
+  }
+
+  if (isAdminRouteRequestsPath && request.method === 'GET') {
+    return handleAdminRouteRequestList(request, response, requestId, includeBody);
+  }
+
+  if (isAdminStatsPath && request.method === 'GET') {
+    return handleAdminStats(request, response, requestId, includeBody);
+  }
+
+  if (adminContributionReviewMatch && request.method === 'POST') {
+    return handleAdminContributionReview(
+      request,
+      response,
+      requestId,
+      includeBody,
+      decodeURIComponent(adminContributionReviewMatch[1])
+    );
+  }
+
+  if (adminContributionFileMatch && request.method === 'GET') {
+    return handleAdminContributionFile(
+      request,
+      response,
+      requestId,
+      decodeURIComponent(adminContributionFileMatch[1]),
+      decodeURIComponent(adminContributionFileMatch[2])
+    );
   }
 
   if (isAlertsPath && request.method === 'OPTIONS') {
@@ -397,6 +491,15 @@ function sendStatic(response: ServerResponse, filePath: string, includeBody = tr
   }
 
   createReadStream(filePath).pipe(response);
+}
+
+function sendBinary(response: ServerResponse, status: number, payload: Buffer, contentType: string, cacheControl = 'no-store') {
+  response.writeHead(status, {
+    'content-type': contentType,
+    'content-length': payload.length,
+    'cache-control': cacheControl,
+  });
+  response.end(payload);
 }
 
 function resolveStaticFile(pathname: string, rootDir: string): string | null {
@@ -710,17 +813,6 @@ async function handleRoutePhotoSubmission(
       );
     }
 
-    const stamp = Date.now();
-    const rand = Math.random().toString(16).slice(2, 10);
-    const localDir = resolve(
-      process.cwd(),
-      '.local',
-      'route-photo-submissions',
-      sanitizeFileSegment(riverSlug, 'route'),
-      `${stamp}-${rand}`
-    );
-    await mkdir(localDir, { recursive: true });
-
     const decodedFiles = [];
 
     for (let index = 0; index < files.length; index += 1) {
@@ -760,13 +852,7 @@ async function handleRoutePhotoSubmission(
       });
     }
 
-    for (const file of decodedFiles) {
-      const filePath = resolve(localDir, file.fileName);
-      await writeFile(filePath, file.buffer);
-    }
-
-    const payload = {
-      submittedAt: new Date().toISOString(),
+    const result = await createRouteContributionSubmission({
       river: {
         slug: river.slug,
         name: river.name,
@@ -786,21 +872,18 @@ async function handleRoutePhotoSubmission(
       notes,
       rightsConfirmed,
       reviewConsent,
-      files: decodedFiles.map(({ buffer: _buffer, ...file }) => file),
+      files: decodedFiles,
       meta: {
         ip,
         ua: clean(request.headers['user-agent'], 240),
         referer: clean(request.headers.referer, 500),
       },
-    };
-
-    const localFile = resolve(localDir, 'submission.json');
-    await writeFile(localFile, JSON.stringify(payload, null, 2), 'utf8');
+    });
 
     return sendJson(
       response,
       202,
-      { requestId, ok: true, stored: true, storage: 'local' },
+      { requestId, ok: true, stored: true, storage: result.storage, submissionId: result.submission.id },
       includeBody,
       'no-store'
     );
@@ -811,6 +894,282 @@ async function handleRoutePhotoSubmission(
       502,
       { requestId, error: 'request_failed', message: 'Failed to store photo submission.' },
       includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleRouteCommunity(
+  _request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  slug: string
+) {
+  try {
+    const community = await getApprovedCommunityForRoute(slug);
+    return sendJson(response, 200, { requestId, riverSlug: slug, ...community }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[route-community] request failed', { requestId, slug, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Failed to load route community content.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleCommunityPhoto(
+  _request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  slug: string,
+  submissionId: string,
+  fileName: string
+) {
+  try {
+    const asset = await readApprovedCommunityPhoto(slug, submissionId, fileName);
+    if (!asset) {
+      return sendJson(response, 404, { requestId, error: 'not_found', message: 'Photo not found.' }, true, 'no-store');
+    }
+
+    return sendBinary(response, 200, asset.buffer, asset.contentType || contentTypeFor(fileName), 'public, max-age=3600');
+  } catch (error) {
+    console.error('[route-community] photo request failed', { requestId, slug, submissionId, fileName, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Failed to load photo.' },
+      true,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminSessionStatus(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  return sendJson(
+    response,
+    200,
+    { requestId, ok: true, authenticated: isAdminRequestAuthorized(request.headers.cookie), configured: adminAuthConfigured() },
+    includeBody,
+    'no-store'
+  );
+}
+
+async function handleAdminSessionCreate(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!adminAuthConfigured()) {
+    return sendJson(
+      response,
+      503,
+      { requestId, error: 'admin_not_configured', message: 'Admin access is not configured yet.' },
+      includeBody,
+      'no-store'
+    );
+  }
+
+  try {
+    const body = await readJsonBody(request);
+    const password = clean(body?.password, 240);
+    if (!verifyAdminPassword(password)) {
+      return sendJson(response, 401, { requestId, error: 'invalid_password', message: 'Invalid password.' }, includeBody, 'no-store');
+    }
+
+    response.setHeader('set-cookie', createAdminSessionCookie());
+    return sendJson(response, 200, { requestId, ok: true, authenticated: true }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-session] create failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not start admin session.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminLogout(response: ServerResponse, requestId: string, includeBody: boolean) {
+  response.setHeader('set-cookie', clearAdminSessionCookie());
+  return sendJson(response, 200, { requestId, ok: true, authenticated: false }, includeBody, 'no-store');
+}
+
+async function handleAdminContributionList(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const statusRaw = clean(new URL(request.url || '/', 'http://localhost').searchParams.get('status') || '', 24);
+    const status =
+      statusRaw === 'pending' || statusRaw === 'approved' || statusRaw === 'rejected'
+        ? statusRaw
+        : undefined;
+    const submissions = await listRouteContributionSubmissions({ status });
+    const payload = submissions.map((submission) => ({
+      ...submission,
+      files: submission.files.map((file) => ({
+        ...file,
+        previewUrl: getContributionFilePreviewUrl(submission.id, file.fileName),
+      })),
+    }));
+    return sendJson(response, 200, { requestId, submissions: payload }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-contributions] list failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load submissions.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminRouteRequestList(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const requests = await listRouteRequests();
+    return sendJson(response, 200, { requestId, requests }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-route-requests] list failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load route requests.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminStats(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const alerts = await listRiverAlerts();
+    const activeAlerts = alerts.filter((alert) => alert.isActive);
+    const stats = {
+      riverAlerts: {
+        total: alerts.length,
+        active: activeAlerts.length,
+        inactive: alerts.length - activeAlerts.length,
+        strong: activeAlerts.filter((alert) => alert.threshold === 'strong').length,
+        good: activeAlerts.filter((alert) => alert.threshold === 'good').length,
+        riversCovered: new Set(activeAlerts.map((alert) => alert.riverSlug)).size,
+      },
+    };
+    return sendJson(response, 200, { requestId, stats }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-stats] request failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load alert stats.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminContributionReview(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  submissionId: string
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const body = await readJsonBody(request);
+    const action = clean(body?.action, 24);
+    if (action !== 'approve' && action !== 'reject') {
+      return sendJson(response, 400, { requestId, error: 'invalid_action', message: 'Choose approve or reject.' }, includeBody, 'no-store');
+    }
+
+    const reviewer = clean(body?.reviewer, 120) || 'Admin';
+    const note = clean(body?.note, 600);
+    const submission = await reviewRouteContributionSubmission({
+      id: submissionId,
+      action,
+      reviewer,
+      note,
+    });
+    if (!submission) {
+      return sendJson(response, 404, { requestId, error: 'not_found', message: 'Submission not found.' }, includeBody, 'no-store');
+    }
+
+    return sendJson(response, 200, { requestId, ok: true, submission }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-contributions] review failed', { requestId, submissionId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not review submission.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminContributionFile(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  submissionId: string,
+  fileName: string
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, true, 'no-store');
+  }
+
+  try {
+    const asset = await readContributionSubmissionFile(submissionId, fileName);
+    if (!asset) {
+      return sendJson(response, 404, { requestId, error: 'not_found', message: 'File not found.' }, true, 'no-store');
+    }
+    return sendBinary(response, 200, asset.buffer, asset.contentType || contentTypeFor(fileName), 'no-store');
+  } catch (error) {
+    console.error('[admin-contributions] file request failed', { requestId, submissionId, fileName, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load file preview.' },
+      true,
       'no-store'
     );
   }

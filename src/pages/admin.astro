@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Review route submissions"
+  description="Approve or reject route reports and photo submissions for Paddle Today."
+>
+  <section class="info-hero admin-review" data-admin-review>
+    <p class="eyebrow">Admin</p>
+    <h1>Review route submissions</h1>
+    <p class="muted">Approve trip reports and photos before they show up on route pages.</p>
+
+    <div class="admin-review__login" data-admin-login-panel>
+      <form class="admin-review__login-form" data-admin-login-form>
+        <label>
+          Password
+          <input type="password" name="password" autocomplete="current-password" data-admin-password />
+        </label>
+        <button class="filter-chip" type="submit">Sign in</button>
+      </form>
+      <p class="muted request-form__status" data-admin-login-status aria-live="polite"></p>
+    </div>
+
+    <div class="admin-review__toolbar" data-admin-toolbar hidden>
+      <div class="admin-review__toolbar-row">
+        <label>
+          Contributions
+          <select data-admin-status-filter>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+            <option value="all">All</option>
+          </select>
+        </label>
+        <button class="river-inline-button" type="button" data-admin-refresh>Refresh</button>
+        <button class="river-inline-button" type="button" data-admin-logout>Sign out</button>
+      </div>
+      <p class="muted request-form__status" data-admin-toolbar-status aria-live="polite"></p>
+    </div>
+  </section>
+
+  <section class="admin-review__stats" data-admin-stats hidden>
+    <article class="snapshot-card">
+      <span class="snapshot-card__label">Active alerts</span>
+      <strong data-admin-alert-active>0</strong>
+      <small data-admin-alert-total>0 total alerts</small>
+    </article>
+    <article class="snapshot-card">
+      <span class="snapshot-card__label">Strong alerts</span>
+      <strong data-admin-alert-strong>0</strong>
+      <small data-admin-alert-good>0 Good alerts</small>
+    </article>
+    <article class="snapshot-card">
+      <span class="snapshot-card__label">Rivers covered</span>
+      <strong data-admin-alert-rivers>0</strong>
+      <small>Active alert coverage</small>
+    </article>
+  </section>
+
+  <section class="admin-review__list" data-admin-submission-list hidden>
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Submissions</p>
+        <h2>Trip reports and photo uploads</h2>
+      </div>
+    </div>
+    <div class="admin-review__empty" data-admin-empty hidden>
+      <h2>No submissions in this view</h2>
+      <p class="muted">Once paddlers start sending trip reports and photos, they’ll show up here.</p>
+    </div>
+  </section>
+
+  <section class="admin-review__requests" data-admin-route-requests hidden>
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Requests</p>
+        <h2>Route requests</h2>
+      </div>
+      <p class="muted request-form__status" data-admin-route-requests-status aria-live="polite"></p>
+    </div>
+    <div class="admin-review__request-list" data-admin-route-requests-list></div>
+  </section>
+
+  <script>
+    import '../scripts/admin-contributions-page.js';
+  </script>
+</BaseLayout>

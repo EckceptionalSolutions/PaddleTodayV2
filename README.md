@@ -131,8 +131,19 @@ Request intake env vars:
 
 - `ROUTE_REQUESTS_CONTAINER_SAS_URL`
 - `ROUTE_REQUESTS_BLOB_PREFIX`
+- `ROUTE_CONTRIBUTIONS_CONTAINER_SAS_URL`
+- `ROUTE_CONTRIBUTIONS_BLOB_PREFIX`
+- `PADDLETODAY_ADMIN_PASSWORD`
+- `PADDLETODAY_ADMIN_SESSION_SECRET`
 
 If request storage is not configured or the write fails, the request page falls back to opening the user's email client with a prefilled message to `routes@paddletoday.com`.
+
+Route contributions and moderation:
+
+- route pages accept trip reports and photo uploads at `/api/route-photo-submissions`
+- approved community photos and reports are loaded live from `/api/rivers/:slug/community.json`
+- admin moderation lives at `/admin/`
+- route contribution storage details are documented in [docs/route-contributions.md](./docs/route-contributions.md)
 
 ## Current seed rivers
 

@@ -18,6 +18,24 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'rice-creek-peltier-to-long-lake': [
+    {
+      id: 'rice-creek-user-photo-1',
+      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg',
+      alt: 'Rice Creek flowing under bright sun with sparkling water, grassy banks, and early spring trees along the channel.',
+      caption: 'Open bend on Rice Creek',
+      credit: 'Photo by user',
+      takenLabel: 'Taken today',
+    },
+    {
+      id: 'rice-creek-user-photo-2',
+      src: '/gallery/rice-creek-peltier-to-long-lake/rice-creek-2.jpg',
+      alt: 'Rice Creek from kayak level with calm current, grassy banks, and leafless trees arching over the water.',
+      caption: 'Kayak-level view on Rice Creek',
+      credit: 'Photo by user',
+      takenLabel: 'Taken today',
+    },
+  ],
   'minnesota-river-judson-land-of-memories': [
     {
       id: 'land-of-memories-park-commons',

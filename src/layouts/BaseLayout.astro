@@ -91,7 +91,10 @@ const searchRiverItems = listRiverGroups()
     title: group.name,
     subtitle: `${group.routeCount} ${group.routeCount === 1 ? 'route' : 'routes'}`,
     meta: group.states.join(' / '),
-    href: `/rivers/by-river/${group.riverId}/`,
+    href:
+      group.routeCount > 1
+        ? `/rivers/by-river/${group.riverId}/`
+        : `/rivers/${group.routes[0]?.slug ?? group.riverId}/`,
     searchText: [group.name, ...group.states, ...group.regions, ...group.routes.map((route) => route.reach)].filter(Boolean).join(' '),
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
