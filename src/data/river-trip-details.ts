@@ -400,6 +400,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'st-croix-river-interstate-osceola': {
+    putIn: {
+      name: 'Minnesota Interstate State Park landing',
+      latitude: 45.401,
+      longitude: -92.651,
+    },
+    takeOut: {
+      name: 'Osceola Landing',
+      latitude: 45.31996700000001,
+      longitude: -92.71514719999999,
+    },
+    logistics: {
+      distanceLabel: '6.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Straightforward two-car shuttle between Taylors Falls and Osceola. Stage the take-out first if you want the easiest finish, especially on summer weekends when Osceola can be busier.',
+      permits:
+        'No route-specific paddling permit is known, but a Minnesota state park vehicle permit is required for the Interstate landing and Riverway rules still govern camping and shoreline use.',
+      camping:
+        'Primitive shoreline camping is allowed only under Riverway rules, and a camping permit is required below Highway 8. Do not assume the landings themselves are overnight staging sites.',
+      summary:
+        'Launch from the Minnesota Interstate landing and finish at Osceola Landing for the cleanest lower St. Croix day-trip add. This is the classic easy gorge-to-bluff run, but lower water pushes you toward the main channel and away from side slough exploring.',
+      accessCaveats: [
+        'Minnesota Interstate State Park is open 8 a.m. to 10 p.m. daily and requires a vehicle permit; same-day ranger-station, kiosk, or traffic conditions still win over any saved note.',
+        'Osceola is a high-use Riverway landing with separate motorized and nonmotorized launch flow, paved parking, restrooms, and drinking water, but it can still feel busy on hot weekends.',
+      ],
+      watchFor: [
+        'Sandbars and side-slough dead ends when flow at St. Croix Falls falls below about 3,000 cfs.',
+        'Strainers, wingdams, rocks, and submerged logs even though the route has no rapids.',
+        'Motorboats, anglers, and wake exposure on the broader lower-river stretches.',
+      ],
+    },
+  },
+  'st-croix-river-osceola-william-obrien': {
+    putIn: {
+      name: 'Osceola Landing',
+      latitude: 45.31996700000001,
+      longitude: -92.71514719999999,
+    },
+    takeOut: {
+      name: "William O'Brien State Park landing",
+      latitude: 45.2181259,
+      longitude: -92.7806336,
+    },
+    logistics: {
+      distanceLabel: '8.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        "Standard lower-river car shuttle. Stage the take-out at William O'Brien before launching because the landing status can change with water and sediment conditions.",
+      permits:
+        "No special paddling permit is known for a day run, but Riverway rules still apply and a Minnesota state park vehicle permit can matter at William O'Brien.",
+      camping:
+        'Treat this as a day trip unless you separately verify a legal Riverway or park camping plan. The lower St. Croix has real overnight rules and they are not simple enough to infer from the landing names alone.',
+      summary:
+        "Put in at Osceola and finish at William O'Brien for a broad lower St. Croix float that feels simpler than the Dalles but still asks for wind and motorboat judgment. The big operational check is whether the William O'Brien take-out is usable that day.",
+      accessCaveats: [
+        "William O'Brien's river landing is a legitimate public take-out, but DNR has said it is open as water levels allow through 2026. Check same-day park updates before you commit.",
+        "William O'Brien also rents canoes and kayaks and gives weekend shuttle information in season, which is useful backup logistics but also a sign that the landing area may be busier than a quiet roadside take-out.",
+        'Osceola is better documented than many lower-river launches, but it is still a busy shared-use landing rather than a quiet paddle-only access.',
+      ],
+      watchFor: [
+        'Wind and wake exposure on the wider lower-river stretches.',
+        'Shallow bars and slower side-channel options if the upstream gauge slips toward the 2,500 cfs floor.',
+        "Finding the William O'Brien side-channel take-out cleanly if you have not used it before.",
+        "A changed or limited take-out setup at William O'Brien after low water, sediment movement, or maintenance.",
+      ],
+    },
+  },
   'rum-river-martins-north-county-park': {
     putIn: {
       name: "Martin's Landing trailer access",

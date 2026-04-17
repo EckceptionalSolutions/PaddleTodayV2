@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import FavoriteButton from '../components/FavoriteButton.astro';
+import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const weekendUrl = new URL('/weekend/', siteUrl).href;
@@ -146,46 +146,7 @@ const structuredData = [
     <div class="recommendation-grid weekend-page__grid" data-weekend-watch-grid></div>
   </section>
 
-  <template data-weekend-card-template>
-    <article class="recommendation-card recommendation-card--weekend">
-      <div class="recommendation-card__eyebrow-row">
-        <div class="recommendation-card__eyebrow-meta">
-          <p class="recommendation-card__slot" data-field="weekend-slot"></p>
-          <span class="river-card__kind">Weekend</span>
-        </div>
-        <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
-      </div>
-
-      <div class="recommendation-card__top">
-        <div class="recommendation-card__title-block">
-          <p class="recommendation-card__state" data-field="weekend-state"></p>
-          <h3 class="recommendation-card__title" data-field="weekend-name"></h3>
-          <p class="recommendation-card__subtitle" data-field="weekend-route"></p>
-        </div>
-      </div>
-
-      <p class="recommendation-card__verdict" data-field="weekend-verdict"></p>
-      <div class="recommendation-card__scoreline">
-        <div class="score-orb" aria-label="Weekend projected score">
-          <span class="score-orb__score" data-field="weekend-score"></span>
-          <span class="score-orb__rating" data-field="weekend-rating"></span>
-        </div>
-        <p class="recommendation-card__meta" data-field="weekend-meta"></p>
-      </div>
-      <p class="recommendation-card__summary" data-field="weekend-summary"></p>
-      <p class="recommendation-card__signal" data-field="weekend-signal"></p>
-      <ul class="recommendation-card__reasons" data-field="weekend-reasons"></ul>
-
-      <details class="recommendation-card__details">
-        <summary>Details</summary>
-        <div class="recommendation-card__details-body">
-          <p class="recommendation-card__detail-copy" data-field="weekend-full"></p>
-        </div>
-      </details>
-
-      <a class="river-link river-link--wide" href="/" data-field="weekend-link">View river</a>
-    </article>
-  </template>
+  <RouteBoardCardTemplate />
 
   <script>
     import '../scripts/weekend-page.js';

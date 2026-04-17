@@ -11,7 +11,7 @@ const snapshotLine = document.querySelector('[data-weekend-snapshot]');
 const weekendDates = document.querySelector('[data-weekend-dates]');
 const homeFreshness = document.querySelector('[data-home-freshness]');
 const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
-const cardTemplate = document.querySelector('[data-weekend-card-template]');
+const cardTemplate = document.querySelector('[data-river-card-template]');
 const weekendGrid = document.querySelector('[data-weekend-grid]');
 const weekendEmpty = document.querySelector('[data-weekend-empty]');
 const weekendEmptyTitle = document.querySelector('[data-weekend-empty-title]');
@@ -113,6 +113,26 @@ function weekendMetaText(item) {
   }
 
   return parts.join(' \u2022 ');
+}
+
+function weekendFactsMarkup(item) {
+  const facts = [
+    confidenceDisplayLabel(item.weekend.confidence),
+    `Today: ${item.current.rating}`,
+  ];
+
+  if (difficultyLabel(item)) {
+    facts.push(difficultyLabel(item));
+  }
+
+  if (item?.river?.estimatedPaddleTime) {
+    facts.push(item.river.estimatedPaddleTime);
+  }
+
+  return facts
+    .filter(Boolean)
+    .map((fact) => `<span class="river-card__fact">${escapeHtml(fact)}</span>`)
+    .join('');
 }
 
 function supportingReason(item) {
@@ -336,37 +356,41 @@ function createWeekendCard(item, index, options = {}) {
   }
 
   const fragment = cardTemplate.content.cloneNode(true);
-  const card = fragment.querySelector('.recommendation-card');
+  const card = fragment.querySelector('.river-card');
   if (!(card instanceof HTMLElement)) {
     return document.createElement('div');
   }
 
   const tone = ratingToneKey(item.weekend.rating);
-  card.classList.add(`recommendation-card--${tone}`);
+  card.classList.add(`river-card--${tone}`, 'river-card--route', 'river-card--weekend');
 
   const slotText = typeof options.slotLabel === 'string' ? options.slotLabel : slotLabel(index);
-  setText(card.querySelector('[data-field="weekend-slot"]'), slotText);
-  setText(card.querySelector('[data-field="weekend-state"]'), regionStateText(item));
-  setText(card.querySelector('[data-field="weekend-name"]'), item.river.name);
-  setText(card.querySelector('[data-field="weekend-route"]'), item.river.reach);
-  setText(card.querySelector('[data-field="weekend-verdict"]'), weekendVerdict(item));
-  setText(card.querySelector('[data-field="weekend-score"]'), String(item.weekend.score));
-  setText(card.querySelector('[data-field="weekend-rating"]'), item.weekend.rating);
-  setText(card.querySelector('[data-field="weekend-meta"]'), weekendMetaText(item));
-  setText(card.querySelector('[data-field="weekend-summary"]'), item.weekend.summary);
-  setText(card.querySelector('[data-field="weekend-signal"]'), item.weekend.signalLine);
-  setText(card.querySelector('[data-field="weekend-full"]'), item.weekend.explanation);
+  setText(card.querySelector('[data-field="card-kind"]'), 'Weekend');
+  setText(card.querySelector('[data-field="card-slot"]'), slotText);
+  setText(card.querySelector('[data-field="state"]'), regionStateText(item));
+  setText(card.querySelector('[data-field="route-label"]'), item.river.reach);
+  setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
+  setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
+  setText(card.querySelector('[data-field="rating"]'), item.weekend.rating);
+  setText(card.querySelector('[data-field="meta-line"]'), '');
+  setText(card.querySelector('[data-field="card-summary-main"]'), item.weekend.summary);
 
-  const reasons = card.querySelector('[data-field="weekend-reasons"]');
-  if (reasons instanceof HTMLElement) {
-    const reason = supportingReason(item);
-    reasons.innerHTML = reason ? `<li>${escapeHtml(reason)}</li>` : '';
-    reasons.hidden = !reason;
+  const signal = card.querySelector('[data-field="raw-signal"]');
+  if (signal instanceof HTMLElement) {
+    signal.textContent = item.weekend.signalLine || supportingReason(item) || 'Weekend forecast still settling.';
   }
 
-  const details = card.querySelector('.recommendation-card__details');
-  if (details instanceof HTMLElement) {
-    details.hidden = !item.weekend.explanation;
+  const facts = card.querySelector('[data-field="card-facts"]');
+  if (facts instanceof HTMLElement) {
+    const factsMarkup = weekendFactsMarkup(item);
+    facts.innerHTML = factsMarkup;
+    facts.hidden = !factsMarkup;
+  }
+
+  const weather = card.querySelector('[data-field="card-weather"]');
+  if (weather instanceof HTMLElement) {
+    weather.hidden = true;
+    weather.innerHTML = '';
   }
 
   const orb = card.querySelector('.score-orb');
@@ -374,7 +398,13 @@ function createWeekendCard(item, index, options = {}) {
     orb.classList.add(`score-orb--${tone}`);
   }
 
-  const link = card.querySelector('[data-field="weekend-link"]');
+  const titleLink = card.querySelector('[data-field="card-title-link"]');
+  if (titleLink instanceof HTMLAnchorElement) {
+    titleLink.href = `/rivers/${item.river.slug}/`;
+    titleLink.textContent = item.river.name;
+  }
+
+  const link = card.querySelector('[data-card-link]');
   if (link instanceof HTMLAnchorElement) {
     link.href = `/rivers/${item.river.slug}/`;
     link.textContent = 'View river';

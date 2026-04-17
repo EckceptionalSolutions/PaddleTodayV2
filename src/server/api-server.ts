@@ -1080,6 +1080,11 @@ async function handleAdminStats(
   try {
     const alerts = await listRiverAlerts();
     const activeAlerts = alerts.filter((alert) => alert.isActive);
+    const evaluatedActiveAlerts = activeAlerts.filter((alert) => typeof alert.lastEvaluatedAt === 'string' && alert.lastEvaluatedAt);
+    const evaluatedTimestamps = evaluatedActiveAlerts
+      .map((alert) => Date.parse(alert.lastEvaluatedAt || ''))
+      .filter((timestamp) => Number.isFinite(timestamp))
+      .sort((left, right) => left - right);
     const stats = {
       riverAlerts: {
         total: alerts.length,
@@ -1088,6 +1093,11 @@ async function handleAdminStats(
         strong: activeAlerts.filter((alert) => alert.threshold === 'strong').length,
         good: activeAlerts.filter((alert) => alert.threshold === 'good').length,
         riversCovered: new Set(activeAlerts.map((alert) => alert.riverSlug)).size,
+        neverEvaluated: activeAlerts.filter((alert) => !alert.lastEvaluatedAt).length,
+        latestEvaluationAt:
+          evaluatedTimestamps.length > 0 ? new Date(evaluatedTimestamps[evaluatedTimestamps.length - 1]).toISOString() : null,
+        stalestEvaluationAt:
+          evaluatedTimestamps.length > 0 ? new Date(evaluatedTimestamps[0]).toISOString() : null,
       },
     };
     return sendJson(response, 200, { requestId, stats }, includeBody, 'no-store');

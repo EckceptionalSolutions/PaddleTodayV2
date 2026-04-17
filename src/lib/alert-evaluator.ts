@@ -34,6 +34,7 @@ export async function evaluateRiverAlerts(args: {
 
   for (const alert of alerts) {
     stats.evaluated += 1;
+    const evaluatedAt = now.toISOString();
     const snapshot = await getStoredRiverDetailSnapshot(alert.riverSlug).catch((error) => {
       console.error('[alerts] snapshot read failed', {
         alertId: alert.id,
@@ -53,15 +54,24 @@ export async function evaluateRiverAlerts(args: {
     });
 
     if (evaluation.status === 'skip') {
+      await updateRiverAlert(alert.id, {
+        lastEvaluatedAt: evaluatedAt,
+      });
       stats.skipped += 1;
       continue;
     }
 
     if (evaluation.status === 'stay_below') {
+      await updateRiverAlert(alert.id, {
+        lastEvaluatedAt: evaluatedAt,
+      });
       continue;
     }
 
     if (evaluation.status === 'stay_above') {
+      await updateRiverAlert(alert.id, {
+        lastEvaluatedAt: evaluatedAt,
+      });
       stats.stayedAbove += 1;
       continue;
     }
@@ -69,7 +79,8 @@ export async function evaluateRiverAlerts(args: {
     if (evaluation.status === 'reset_below') {
       await updateRiverAlert(alert.id, {
         lastState: 'below_threshold',
-        updatedAt: now.toISOString(),
+        lastEvaluatedAt: evaluatedAt,
+        updatedAt: evaluatedAt,
       });
       stats.resetToBelow += 1;
       continue;
@@ -78,7 +89,7 @@ export async function evaluateRiverAlerts(args: {
     if (evaluation.status === 'cooldown') {
       await updateRiverAlert(alert.id, {
         lastState: 'at_or_above_threshold',
-        updatedAt: now.toISOString(),
+        lastEvaluatedAt: evaluatedAt,
       });
       stats.skipped += 1;
       continue;
@@ -101,8 +112,9 @@ export async function evaluateRiverAlerts(args: {
       });
       await updateRiverAlert(alert.id, {
         lastState: 'at_or_above_threshold',
-        lastTriggeredAt: now.toISOString(),
-        updatedAt: now.toISOString(),
+        lastTriggeredAt: evaluatedAt,
+        lastEvaluatedAt: evaluatedAt,
+        updatedAt: evaluatedAt,
       });
       console.log('[alerts] triggered', {
         alertId: alert.id,

@@ -1380,21 +1380,46 @@ const routeStructuredData = {
       <div class="river-report-panel__content route-contribute" id="share-trip">
         <div class="route-contribute__intro">
           <h2 class="river-subtitle river-subtitle--compact">Help build the route page</h2>
-          <p class="muted">
-            Upload photos to flesh out the gallery, send a quick route report, or do both.
-          </p>
-          <ul class="compact-list route-gallery__tips">
-            <li>Photos are most helpful when they show access, hazards, or what the route actually looked like.</li>
-            <li>Trip reports are most useful when they mention level, pace, strainers, obstructions, or access changes.</li>
-            <li>Only upload photos you took or have permission to share.</li>
-          </ul>
+          <p class="muted">Add photos or send a quick route report.</p>
+        </div>
+
+        <div class="route-contribute__tabs" role="tablist" aria-label="Contribution options">
+          <button
+            class="route-contribute__tab route-contribute__tab--active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="share-photos-panel"
+            id="share-photos-tab"
+            data-route-contribute-tab="photo"
+          >
+            Upload photos
+          </button>
+          <button
+            class="route-contribute__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="share-report-panel"
+          id="share-report-tab"
+          data-route-contribute-tab="report"
+        >
+            Send report
+          </button>
         </div>
 
         <div class="route-contribute__form-shell">
-          <section class="route-contribute__panel route-contribute__panel--photo">
+          <section
+            class="route-contribute__panel route-contribute__panel--photo"
+            role="tabpanel"
+            id="share-photos-panel"
+            aria-labelledby="share-photos-tab"
+            data-route-contribute-panel="photo"
+          >
             <div class="route-contribute__panel-head">
+              <p class="route-contribute__panel-kicker">Photos</p>
               <h3>Upload route photos</h3>
-              <p class="muted">The easiest way to help is adding access shots, hazards, or on-water photos.</p>
+              <p class="muted">Add access, hazard, or on-water photos.</p>
             </div>
 
             <section class="route-gallery__pending" data-route-gallery-pending hidden>
@@ -1438,7 +1463,7 @@ const routeStructuredData = {
 
                 <label>
                   Photos
-                  <span class="request-form__hint">Up to 4 JPG, PNG, or WebP images, 4 MB max each.</span>
+                  <span class="request-form__hint">Up to 4 images, 4 MB max each.</span>
                   <input
                     type="file"
                     name="photos"
@@ -1455,12 +1480,12 @@ const routeStructuredData = {
 
               <label>
                 Photo notes
-                <span class="request-form__hint">Optional context like flow, location in the route, or what the photo shows.</span>
+                <span class="request-form__hint">Optional. Add a little context.</span>
                 <textarea
                   name="notes"
                   rows="4"
                   maxlength="1200"
-                  placeholder="Example: Put-in parking and launch at medium spring flow. Last photo is the bridge bend about halfway through."
+                  placeholder="Example: Put-in at medium spring flow. Last photo shows the bridge bend halfway through."
                   data-route-photo-notes
                 ></textarea>
               </label>
@@ -1488,8 +1513,16 @@ const routeStructuredData = {
             </form>
           </section>
 
-          <section class="route-contribute__panel route-contribute__panel--report">
+          <section
+            class="route-contribute__panel route-contribute__panel--report"
+            role="tabpanel"
+            id="share-report-panel"
+            aria-labelledby="share-report-tab"
+            data-route-contribute-panel="report"
+            hidden
+          >
             <div class="route-contribute__panel-head">
+              <p class="route-contribute__panel-kicker">Route report</p>
               <h3>Send a route report</h3>
               <p class="muted">A few honest notes about level, pace, wood, or access changes go a long way.</p>
             </div>
@@ -1534,7 +1567,7 @@ const routeStructuredData = {
 
               <label>
                 Route report
-                <span class="request-form__hint">Share how it paddled, what the access looked like, and anything others should know.</span>
+                <span class="request-form__hint">Share how it paddled and what others should know.</span>
                 <textarea
                   name="tripReport"
                   rows="5"
@@ -1554,6 +1587,27 @@ const routeStructuredData = {
                   placeholder="Example: We paddled it in just under three hours and the wood was easy to spot."
                   data-route-report-notes
                 ></textarea>
+              </label>
+
+              <label>
+                Photos
+                <span class="request-form__hint">Optional. Add up to 4 images.</span>
+                <input
+                  type="file"
+                  name="photos"
+                  accept="image/jpeg,image/png,image/webp"
+                  multiple
+                  data-route-report-files
+                />
+              </label>
+
+              <p class="muted route-photo-form__selection" data-route-report-selection>
+                No files selected.
+              </p>
+
+              <label class="route-photo-form__checkbox">
+                <input type="checkbox" name="rightsConfirmed" data-route-report-rights />
+                <span>If you add photos, I took them or have clear permission to share them.</span>
               </label>
 
               <label class="route-photo-form__checkbox">
@@ -1586,7 +1640,7 @@ const routeStructuredData = {
         <div>
           <h2 class="river-subtitle river-subtitle--compact">See something outdated?</h2>
           <p class="muted">
-            Access rules, hazards, wood, shuttle details, and threshold notes change. Send a quick correction if something here looks off.
+            Access, hazards, wood, and shuttle details change. Send a quick correction if something looks off.
           </p>
         </div>
         <div class="detail-map__links">

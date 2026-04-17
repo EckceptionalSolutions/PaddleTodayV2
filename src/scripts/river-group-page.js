@@ -35,10 +35,11 @@ const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const BULLET = ' \u2022 ';
 const DEG_F = '\u00B0F';
+const initialSelectedSlug = new URLSearchParams(window.location.search).get('route');
 
 let lastSuccessAt = null;
 let currentResult = null;
-let selectedSlug = null;
+let selectedSlug = initialSelectedSlug || null;
 let mapRuntime = null;
 let mapMarkers = [];
 let groupMapCollapsed = phoneBreakpoint.matches;

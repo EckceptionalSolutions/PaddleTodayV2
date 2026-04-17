@@ -1217,6 +1217,238 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'st-croix-river-interstate-osceola',
+    slug: 'st-croix-river-interstate-osceola',
+    name: 'St. Croix River',
+    reach: 'Minnesota Interstate State Park Landing to Osceola Landing',
+    state: 'Minnesota',
+    region: 'Lower St. Croix',
+    summary:
+      'Classic lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway standards, but side channels, sandbars, and shared motorized traffic still matter more than the score alone suggests.',
+    statusText:
+      'Treat about 3,000 cfs at St. Croix Falls as the conservative floor. Below that, stay in the main channel and expect more sandbars and side-slough dead ends.',
+    latitude: 45.401,
+    longitude: -92.651,
+    gaugeSource: {
+      id: 'usgs-05340500',
+      provider: 'usgs',
+      siteId: '05340500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'St. Croix River at St. Croix Falls, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3000,
+      thresholdSource: {
+        label: 'NPS lower St. Croix paddling guide low-water main-channel note',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.35,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. The gauge matters, but summer wind and boat traffic can shape the day almost as much as flow on this wider lower-river corridor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Usually a friendly downstream day, but this is still a broad moving river with strainers, wingdams, sandbars, and powerboat traffic rather than a tiny sheltered creek.',
+      confidenceNotes:
+        'Confidence is strong because NPS publishes this exact Highway 8 to Osceola trip, the lower-river paddling guide gives an official low-water caution tied to the St. Croix Falls gauge, and both endpoints are publicly documented landings with stronger current access detail than most border-river routes. The app still stays conservative because the official source gives a floor-style warning rather than a polished ideal band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official trip',
+        value: '6.6 miles / 3 to 4 hours / easy',
+        note: 'NPS publishes Highway 8 to Osceola Landing as a ranger-recommended lower St. Croix paddle with easy difficulty and a 3 to 4 hour average pace.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/8toosceola.htm',
+      },
+      {
+        label: 'Low-water floor',
+        value: 'Below 3,000 cfs stay in main channel',
+        note: 'The NPS lower St. Croix paddling guide says that when flow at St. Croix Falls drops below 3,000 cfs, paddlers should stay in the main channel and avoid the side sloughs.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'No rapids, but wood, sandbars, wingdams, rocks, and motorboats',
+        note: 'NPS describes this reach as having no existing rapids, but says strainers, submerged logs, sandbars, wingdams, rocks, and shared motorized traffic occur throughout the area.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official launch details on both ends',
+        note: 'Minnesota DNR says the Interstate landing has a small concrete boat launch plus toilets, picnic tables, drinking water, and a required state-park vehicle permit, while NPS says Osceola has two launches, paved parking, restrooms, and drinking water.',
+        sourceUrl: 'https://www.dnr.state.mn.us/state_water_trail/virtual_tour/st_croix_river/snapshot.html',
+      },
+      {
+        label: 'Osceola operations',
+        value: 'Separated motorized and nonmotorized launch flow',
+        note: 'NPS says the 2023 Osceola rehab added a new motorized launch so motorized and nonmotorized traffic could be separated, along with better wayfinding, parking, restrooms, and utilities.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/osceola-landing.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS lower St. Croix paddling guide PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      {
+        label: 'NPS Highway 8 to Osceola trip page',
+        url: 'https://www.nps.gov/sacn/planyourvisit/8toosceola.htm',
+      },
+      {
+        label: 'NPS St. Croix map 8 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-8_St-Croix_Highway-8-to-Osceola-Landing_2024_508.pdf',
+      },
+      {
+        label: 'NPS Osceola Landing',
+        url: 'https://www.nps.gov/sacn/planyourvisit/osceola-landing.htm',
+      },
+      {
+        label: 'MN DNR St. Croix virtual tour',
+        url: 'https://www.dnr.state.mn.us/state_water_trail/virtual_tour/st_croix_river/snapshot.html',
+      },
+      {
+        label: 'MN DNR Interstate State Park map guide',
+        url: 'https://files.dnr.state.mn.us/maps/state_parks/spk00178.pdf',
+      },
+      {
+        label: 'NPS Saint Croix accessibility',
+        url: 'https://www.nps.gov/sacn/planyourvisit/accessibility.htm',
+      },
+      {
+        label: 'NPS Saint Croix current conditions',
+        url: 'https://www.nps.gov/sacn/planyourvisit/current-conditions.htm',
+      },
+      {
+        label: 'USGS 05340500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05340500/',
+      },
+    ],
+  },
+  {
+    id: 'st-croix-river-osceola-william-obrien',
+    slug: 'st-croix-river-osceola-william-obrien',
+    name: 'St. Croix River',
+    reach: "Osceola Landing to William O'Brien State Park Landing",
+    state: 'Minnesota',
+    region: 'Lower St. Croix',
+    summary:
+      "Popular lower St. Croix bluff run with a better public-access story than most broad-river routes. The water is usually straightforward, but wind, powerboat traffic, and William O'Brien take-out status still matter enough that this should stay a decision route, not an automatic yes.",
+    statusText:
+      "Treat about 2,500 cfs at St. Croix Falls as a conservative floor for this lower-river run. Below that, expect more shallow bars and slower side-channel options, and always verify William O'Brien access before launching.",
+    latitude: 45.31996700000001,
+    longitude: -92.71514719999999,
+    gaugeSource: {
+      id: 'usgs-05340500',
+      provider: 'usgs',
+      siteId: '05340500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'St. Croix River at St. Croix Falls, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2500,
+      thresholdSource: {
+        label: 'MilesPaddled lower St. Croix floor for the Osceola downstream corridor',
+        url: 'https://milespaddled.com/st-croix-river-ii/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'low',
+      windSensitivity: 1.45,
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main window. Wind and summer boat traffic can matter more than raw flow on this lower-river reach, especially once the river opens into broader lake-like stretches.',
+      difficulty: 'easy',
+      difficultyNotes:
+        "There are no rapids on this reach, but broad water, wakes, and a side-channel state-park take-out make it a bigger day than a tiny-flatwater beginner route.",
+      confidenceNotes:
+        "Confidence is good because Osceola and William O'Brien are both real public landings on an official lower St. Croix corridor, and current NPS and DNR materials clearly place the route and the 2026 take-out status. Confidence is still tempered because the numeric floor is community-sourced and the St. Croix Falls gauge is an upstream proxy rather than a route-specific lower-river ladder.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route geometry',
+        value: '8.8 miles on NPS distance chart',
+        note: "The NPS lower St. Croix paddling guide distance chart puts William O'Brien State Park Landing 8.8 river miles below Osceola Landing, with the take-out on a side channel behind an island.",
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      {
+        label: 'Take-out status caveat',
+        value: 'Open as water levels allow through 2026',
+        note: "Minnesota DNR said in February 2026 that the St. Croix public water access at William O'Brien State Park would remain open as water levels allow through 2026, with dredging planned in 2027.",
+        sourceUrl: 'https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park',
+      },
+      {
+        label: 'Official route character',
+        value: 'No rapids, powerboats common, take-out on side channel',
+        note: "NPS Map 9 says no rapids are found on this stretch, powerboats are common, the river becomes shallow at Arcola Sandbar, and William O'Brien Landing sits on a side channel behind an island.",
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/upload/Map_9_Osceola_to_High_Bridge_2024_legal_508_mredits.pdf',
+      },
+      {
+        label: 'Supplemental low-water floor',
+        value: '2,500 cfs recommended on the lower corridor',
+        note: 'Miles Paddled recommends about 2,500 cfs at St. Croix Falls for the downstream Osceola-to-Somerset reach, which is a defensible conservative floor for this upstream subset.',
+        sourceUrl: 'https://milespaddled.com/st-croix-river-ii/',
+      },
+      {
+        label: 'Big-river caution',
+        value: 'Powerboats common; slow-no-wake above 683.0 ft at Stillwater',
+        note: 'NPS says powerboats are common on this part of the lower St. Croix and documents a slow-no-wake rule when the Stillwater gauge reaches or exceeds 683.0 ft.',
+        sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/boating.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS lower St. Croix paddling guide PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/lower-st-croix-pg-final.pdf',
+      },
+      {
+        label: 'NPS St. Croix map 9 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Section-9_St-Croix_Osceola-Landing-to-High-Bridge_2024_508.pdf',
+      },
+      {
+        label: 'NPS Osceola Landing',
+        url: 'https://www.nps.gov/sacn/planyourvisit/osceola-landing.htm',
+      },
+      {
+        label: "MN DNR William O'Brien State Park",
+        url: 'https://www.dnr.state.mn.us/state_parks/park.html?id=spk00283#homepage',
+      },
+      {
+        label: "MN DNR William O'Brien State Park top stops",
+        url: 'https://www.dnr.state.mn.us/state_parks/william_obrien/things_to_do.html',
+      },
+      {
+        label: 'MN DNR St. Croix virtual tour',
+        url: 'https://www.dnr.state.mn.us/state_water_trail/virtual_tour/st_croix_river/snapshot.html',
+      },
+      {
+        label: 'MN DNR February 17, 2026 William O\'Brien access update',
+        url: 'https://www.dnr.state.mn.us/news/2026/02/17/minnesota-dnr-shares-reconstruction-plan-lake-alice-william-obrien-state-park',
+      },
+      {
+        label: 'NPS Saint Croix boating rules',
+        url: 'https://www.nps.gov/sacn/planyourvisit/boating.htm',
+      },
+      {
+        label: 'NPS St. Croix map 9 PDF',
+        url: 'https://www.nps.gov/sacn/planyourvisit/upload/Map_9_Osceola_to_High_Bridge_2024_legal_508_mredits.pdf',
+      },
+      {
+        label: 'MilesPaddled St. Croix River II',
+        url: 'https://milespaddled.com/st-croix-river-ii/',
+      },
+      {
+        label: 'USGS 05340500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05340500/',
+      },
+    ],
+  },
+  {
     id: 'rum-river-martins-north-county-park',
     slug: 'rum-river-martins-north-county-park',
     name: 'Rum River',

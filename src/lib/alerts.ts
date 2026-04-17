@@ -25,6 +25,7 @@ export interface RiverThresholdAlert {
   isActive: boolean;
   lastState: RiverAlertState;
   lastTriggeredAt: string | null;
+  lastEvaluatedAt: string | null;
   createdAt: string;
   updatedAt: string;
 }
@@ -118,6 +119,7 @@ export async function createRiverThresholdAlert(args: {
     isActive: true,
     lastState: args.initialState,
     lastTriggeredAt: null,
+    lastEvaluatedAt: null,
     createdAt: now,
     updatedAt: now,
   };
@@ -134,7 +136,7 @@ export async function createRiverThresholdAlert(args: {
 
 export async function updateRiverAlert(
   id: string,
-  patch: Partial<Pick<RiverThresholdAlert, 'isActive' | 'lastState' | 'lastTriggeredAt' | 'updatedAt'>>
+  patch: Partial<Pick<RiverThresholdAlert, 'isActive' | 'lastState' | 'lastTriggeredAt' | 'lastEvaluatedAt' | 'updatedAt'>>
 ): Promise<RiverThresholdAlert | null> {
   const storage = alertsStorage();
   const store = (await storage.readJson<AlertsStore>(alertsBlobName())) ?? { alerts: [] };
@@ -152,7 +154,12 @@ export async function updateRiverAlert(
   if (patch.lastTriggeredAt !== undefined) {
     alert.lastTriggeredAt = patch.lastTriggeredAt;
   }
-  alert.updatedAt = patch.updatedAt ?? new Date().toISOString();
+  if (patch.lastEvaluatedAt !== undefined) {
+    alert.lastEvaluatedAt = patch.lastEvaluatedAt;
+  }
+  if (patch.updatedAt) {
+    alert.updatedAt = patch.updatedAt;
+  }
 
   await storage.writeJson(alertsBlobName(), store);
   return alert;

@@ -20,6 +20,25 @@ const routeRequestsPanel = document.querySelector('[data-admin-route-requests]')
 const routeRequestsList = document.querySelector('[data-admin-route-requests-list]');
 const routeRequestsStatus = document.querySelector('[data-admin-route-requests-status]');
 
+function freshnessText(isoString, fallback) {
+  if (typeof isoString !== 'string' || !isoString) return fallback;
+  const parsed = Date.parse(isoString);
+  if (!Number.isFinite(parsed)) return fallback;
+
+  const diffMinutes = Math.max(0, Math.round((Date.now() - parsed) / 60000));
+  if (diffMinutes < 1) return 'Checked just now';
+  if (diffMinutes === 1) return 'Checked 1 minute ago';
+  if (diffMinutes < 60) return `Checked ${diffMinutes} minutes ago`;
+
+  const diffHours = Math.floor(diffMinutes / 60);
+  if (diffHours === 1) return 'Checked 1 hour ago';
+  if (diffHours < 24) return `Checked ${diffHours} hours ago`;
+
+  const diffDays = Math.floor(diffHours / 24);
+  if (diffDays === 1) return 'Checked 1 day ago';
+  return `Checked ${diffDays} days ago`;
+}
+
 function setStatus(node, message, tone = '') {
   if (!(node instanceof HTMLElement)) return;
   node.textContent = message;
@@ -152,6 +171,9 @@ async function loadStats() {
   setText('[data-admin-alert-strong]', stats.strong ?? 0);
   setText('[data-admin-alert-good]', `${stats.good ?? 0} Good alerts`);
   setText('[data-admin-alert-rivers]', stats.riversCovered ?? 0);
+  setText('[data-admin-alert-latest]', freshnessText(stats.latestEvaluationAt, 'Latest check unknown'));
+  setText('[data-admin-alert-never]', `${stats.neverEvaluated ?? 0} never evaluated`);
+  setText('[data-admin-alert-stalest]', freshnessText(stats.stalestEvaluationAt, 'Oldest check unknown'));
 }
 
 async function loadRouteRequests() {

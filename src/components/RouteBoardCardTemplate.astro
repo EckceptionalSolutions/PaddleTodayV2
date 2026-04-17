@@ -7,6 +7,7 @@ import FavoriteButton from './FavoriteButton.astro';
     <div class="river-card__eyebrow-row">
       <div class="river-card__eyebrow-meta">
         <span class="river-card__kind" data-field="card-kind"></span>
+        <span class="river-card__slot" data-field="card-slot"></span>
         <p class="river-card__state" data-field="state"></p>
       </div>
       <FavoriteButton className="favorite-toggle favorite-toggle--card" hidden />
@@ -31,10 +32,11 @@ import FavoriteButton from './FavoriteButton.astro';
       <div class="river-card__score-copy">
         <p class="river-card__meta-line" data-field="meta-line"></p>
         <div class="river-card__weather" data-field="card-weather" hidden></div>
+        <div class="river-card__signal-line river-card__signal-line--score" data-field="raw-signal"></div>
       </div>
     </div>
     <p class="river-card__explanation" data-field="card-summary-main"></p>
-    <div class="river-card__signal-line" data-field="raw-signal"></div>
+    <div class="river-card__facts" data-field="card-facts" hidden></div>
 
     <a class="river-link river-link--wide" href="/" data-card-link>View route</a>
   </article>

@@ -100,10 +100,16 @@ const routeReportDateInput = root.querySelector('[data-route-report-date]');
 const routeReportSentimentInput = root.querySelector('[data-route-report-sentiment]');
 const routeReportTextInput = root.querySelector('[data-route-report-text]');
 const routeReportNotesInput = root.querySelector('[data-route-report-notes]');
+const routeReportFilesInput = root.querySelector('[data-route-report-files]');
+const routeReportSelection = root.querySelector('[data-route-report-selection]');
+const routeReportRightsInput = root.querySelector('[data-route-report-rights]');
 const routeReportConsentInput = root.querySelector('[data-route-report-consent]');
 const routeReportCompanyInput = root.querySelector('[data-route-report-company]');
 const routeReportSubmitButton = root.querySelector('[data-route-report-submit]');
 const routeReportStatus = root.querySelector('[data-route-report-status]');
+const routeContributeTabList = root.querySelector('[aria-label="Contribution options"]');
+const routeContributeTabs = Array.from(root.querySelectorAll('[data-route-contribute-tab]'));
+const routeContributePanels = Array.from(root.querySelectorAll('[data-route-contribute-panel]'));
 const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
 const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
@@ -694,13 +700,13 @@ function renderRoutePhotoPendingGrid(mode = 'selected') {
   }
 
   if (routeGalleryPendingTitle instanceof HTMLElement) {
-    routeGalleryPendingTitle.textContent = mode === 'submitted' ? 'Sent in' : 'Ready to upload';
+    routeGalleryPendingTitle.textContent = mode === 'submitted' ? 'Uploaded' : 'Ready to upload';
   }
 
   if (routeGalleryPendingNote instanceof HTMLElement) {
     routeGalleryPendingNote.textContent =
       mode === 'submitted'
-        ? 'Sent in. These previews are only visible in this browser.'
+        ? ''
         : 'Check these previews before you send them in.';
   }
 
@@ -774,6 +780,20 @@ function setRouteReportSubmitting(isSubmitting) {
 
   routeReportSubmitButton.disabled = isSubmitting;
   routeReportSubmitButton.textContent = isSubmitting ? 'Sending...' : 'Send route report';
+}
+
+function summarizeReportPhotos(fileList) {
+  if (!(routeReportSelection instanceof HTMLElement)) {
+    return;
+  }
+
+  if (!Array.isArray(fileList) || fileList.length === 0) {
+    routeReportSelection.textContent = 'No files selected.';
+    return;
+  }
+
+  const totalMb = fileList.reduce((sum, file) => sum + file.size, 0) / (1024 * 1024);
+  routeReportSelection.textContent = `${fileList.length} photo${fileList.length === 1 ? '' : 's'} selected • ${totalMb.toFixed(1)} MB total`;
 }
 
 function validateRoutePhotoSelection(fileList) {
@@ -958,7 +978,7 @@ function bindRoutePhotoForm() {
       routePhotoForm.reset();
       summarizeSelectedRoutePhotos();
       renderRoutePhotoPendingGrid('submitted');
-      setRoutePhotoStatus('Got it. Your photos were received.', 'success');
+      setRoutePhotoStatus('Thank you for your submission.', 'success');
       setRouteActionStatus('Photo upload sent.', 'success');
     } catch (error) {
       console.error('Failed to submit route photos.', error);
@@ -983,6 +1003,21 @@ function bindRouteReportForm() {
     return;
   }
 
+  if (routeReportFilesInput instanceof HTMLInputElement) {
+    routeReportFilesInput.addEventListener('change', () => {
+      const files = Array.from(routeReportFilesInput.files || []);
+      const validationError = validateRoutePhotoSelection(files);
+      summarizeReportPhotos(validationError ? [] : files);
+      if (validationError) {
+        setRouteReportStatus(validationError, 'error');
+      } else if (files.length > 0) {
+        setRouteReportStatus(`${files.length} photo${files.length === 1 ? '' : 's'} ready to send with the report.`, '');
+      } else {
+        setRouteReportStatus('', '');
+      }
+    });
+  }
+
   routeReportForm.addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -999,6 +1034,7 @@ function bindRouteReportForm() {
     const tripSentiment = routeReportSentimentInput instanceof HTMLSelectElement ? routeReportSentimentInput.value.trim() : '';
     const tripReport = routeReportTextInput.value.trim();
     const notes = routeReportNotesInput instanceof HTMLTextAreaElement ? routeReportNotesInput.value.trim() : '';
+    const reportFiles = routeReportFilesInput instanceof HTMLInputElement ? Array.from(routeReportFilesInput.files || []) : [];
 
     if (contributorName.length < 2) {
       setRouteReportStatus('Add your name.', 'error');
@@ -1018,6 +1054,23 @@ function bindRouteReportForm() {
       return;
     }
 
+    const validationError = validateRoutePhotoSelection(reportFiles);
+    if (validationError) {
+      setRouteReportStatus(validationError, 'error');
+      if (routeReportFilesInput instanceof HTMLInputElement) {
+        routeReportFilesInput.focus();
+      }
+      return;
+    }
+
+    if (reportFiles.length > 0 && !(routeReportRightsInput instanceof HTMLInputElement && routeReportRightsInput.checked)) {
+      setRouteReportStatus('Confirm you took the photos or have permission to share them.', 'error');
+      if (routeReportRightsInput instanceof HTMLInputElement) {
+        routeReportRightsInput.focus();
+      }
+      return;
+    }
+
     if (!routeReportConsentInput.checked) {
       setRouteReportStatus("Confirm that it's okay for Paddle Today to contact you about this report.", 'error');
       routeReportConsentInput.focus();
@@ -1025,9 +1078,19 @@ function bindRouteReportForm() {
     }
 
     setRouteReportSubmitting(true);
-    setRouteReportStatus('Sending route report...');
+    setRouteReportStatus(reportFiles.length > 0 ? `Sending route report with ${reportFiles.length} photo${reportFiles.length === 1 ? '' : 's'}...` : 'Sending route report...');
 
     try {
+      const files = await Promise.all(
+        reportFiles.map(async (file) => ({
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          lastModified: file.lastModified,
+          dataUrl: await readFileAsDataUrl(file),
+        }))
+      );
+
       const response = await fetch('/api/route-photo-submissions', {
         method: 'POST',
         headers: {
@@ -1042,10 +1105,10 @@ function bindRouteReportForm() {
           tripSentiment,
           tripReport,
           notes,
-          rightsConfirmed: false,
+          rightsConfirmed: routeReportRightsInput instanceof HTMLInputElement ? routeReportRightsInput.checked : false,
           reviewConsent: routeReportConsentInput.checked,
           company: routeReportCompanyInput instanceof HTMLInputElement ? routeReportCompanyInput.value.trim() : '',
-          files: [],
+          files,
         }),
       });
 
@@ -1056,7 +1119,8 @@ function bindRouteReportForm() {
 
       window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
       routeReportForm.reset();
-      setRouteReportStatus('Got it. Your route report was received.', 'success');
+      summarizeReportPhotos([]);
+      setRouteReportStatus('Thank you for your submission.', 'success');
       setRouteActionStatus('Route report sent.', 'success');
     } catch (error) {
       console.error('Failed to submit route report.', error);
@@ -1068,6 +1132,70 @@ function bindRouteReportForm() {
       setRouteReportSubmitting(false);
     }
   });
+}
+
+function setActiveRouteContributeTab(tabName) {
+  for (const tab of routeContributeTabs) {
+    if (!(tab instanceof HTMLButtonElement)) continue;
+    const isActive = tab.dataset.routeContributeTab === tabName;
+    tab.classList.toggle('route-contribute__tab--active', isActive);
+    tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    tab.tabIndex = isActive ? 0 : -1;
+  }
+
+  for (const panel of routeContributePanels) {
+    if (!(panel instanceof HTMLElement)) continue;
+    panel.hidden = panel.dataset.routeContributePanel !== tabName;
+  }
+}
+
+function bindRouteContributeTabs() {
+  if (!(routeContributeTabList instanceof HTMLElement) || routeContributeTabs.length === 0 || routeContributePanels.length === 0) {
+    return;
+  }
+
+  if (routeContributeTabList.dataset.bound === 'true') {
+    setActiveRouteContributeTab('photo');
+    return;
+  }
+  routeContributeTabList.dataset.bound = 'true';
+
+  routeContributeTabList.addEventListener('click', (event) => {
+    const tab = event.target instanceof Element ? event.target.closest('[data-route-contribute-tab]') : null;
+    if (!(tab instanceof HTMLButtonElement)) return;
+    const tabName = tab.dataset.routeContributeTab;
+    if (tabName) {
+      setActiveRouteContributeTab(tabName);
+    }
+  });
+
+  routeContributeTabList.addEventListener('keydown', (event) => {
+    if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') {
+      return;
+    }
+    const activeElement = document.activeElement;
+    if (!(activeElement instanceof HTMLButtonElement) || !activeElement.matches('[data-route-contribute-tab]')) {
+      return;
+    }
+    event.preventDefault();
+    const buttons = routeContributeTabs.filter((item) => item instanceof HTMLButtonElement);
+    const currentIndex = buttons.indexOf(activeElement);
+    if (currentIndex < 0) return;
+    const nextIndex =
+      event.key === 'ArrowRight'
+        ? (currentIndex + 1) % buttons.length
+        : (currentIndex - 1 + buttons.length) % buttons.length;
+    const nextTab = buttons[nextIndex];
+    if (nextTab instanceof HTMLButtonElement) {
+      const tabName = nextTab.dataset.routeContributeTab;
+      if (tabName) {
+        setActiveRouteContributeTab(tabName);
+      }
+      nextTab.focus();
+    }
+  });
+
+  setActiveRouteContributeTab('photo');
 }
 
 function detailScrollOffset() {
@@ -3850,6 +3978,7 @@ setupDetailSectionNav();
 setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
+bindRouteContributeTabs();
 bindRoutePhotoForm();
 bindRouteReportForm();
 bindFavoriteButtons(document, {

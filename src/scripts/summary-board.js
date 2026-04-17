@@ -386,6 +386,14 @@ function parseEstimatedPaddleTimeRange(label) {
   };
 }
 
+const PADDLE_TIME_BUCKET_ORDER = ['up-to-3', '3-to-5', '5-to-7', '7-plus'];
+const PADDLE_TIME_BUCKET_TARGET_MINUTES = {
+  'up-to-3': 120,
+  '3-to-5': 240,
+  '5-to-7': 360,
+  '7-plus': 510,
+};
+
 function paddleTimeBucketForLabel(label) {
   const range = parseEstimatedPaddleTimeRange(label);
   if (!range) {
@@ -420,6 +428,77 @@ function routeDifficultyRank(item) {
   if (difficulty === 'moderate') return 1;
   if (difficulty === 'hard') return 2;
   return 3;
+}
+
+function routeDifficultyRankForResult(result) {
+  const difficulty = result?.river?.difficulty;
+  if (difficulty === 'easy') return 0;
+  if (difficulty === 'moderate') return 1;
+  if (difficulty === 'hard') return 2;
+  return 3;
+}
+
+function representativePreferenceContext(options = {}) {
+  if (!options.useHomePreferences) {
+    return {
+      active: false,
+      preferredDifficulties: [],
+      preferredPaddleTimes: [],
+      preferredDifficultyRanks: [],
+      preferredPaddleTargets: [],
+      preferredPaddleBucketIndexes: [],
+    };
+  }
+
+  const preferredDifficulties = isChoiceSetAny(selectedHomeDifficulties)
+    ? []
+    : selectedHomeDifficulties.filter(Boolean);
+  const preferredPaddleTimes = isChoiceSetAny(selectedHomePaddleTimes)
+    ? []
+    : selectedHomePaddleTimes.filter(Boolean);
+
+  return {
+    active: preferredDifficulties.length > 0 || preferredPaddleTimes.length > 0,
+    preferredDifficulties,
+    preferredPaddleTimes,
+    preferredDifficultyRanks: preferredDifficulties.map((value) => routeDifficultyRankForResult({ river: { difficulty: value } })),
+    preferredPaddleTargets: preferredPaddleTimes
+      .map((value) => PADDLE_TIME_BUCKET_TARGET_MINUTES[value])
+      .filter((value) => Number.isFinite(value)),
+    preferredPaddleBucketIndexes: preferredPaddleTimes
+      .map((value) => PADDLE_TIME_BUCKET_ORDER.indexOf(value))
+      .filter((value) => value >= 0),
+  };
+}
+
+function representativePreferenceMetrics(route, context) {
+  const estimatedRange = parseEstimatedPaddleTimeRange(route?.river?.estimatedPaddleTime ?? '');
+  const routeMinutes = estimatedRange ? (estimatedRange.minMinutes + estimatedRange.maxMinutes) / 2 : Number.POSITIVE_INFINITY;
+  const routeBucket = paddleTimeBucketForLabel(route?.river?.estimatedPaddleTime ?? '');
+  const routeBucketIndex = PADDLE_TIME_BUCKET_ORDER.indexOf(routeBucket);
+  const difficultyRank = routeDifficultyRankForResult(route);
+
+  const difficultyPenalty = context.preferredDifficultyRanks.length
+    ? Math.min(...context.preferredDifficultyRanks.map((rank) => Math.abs(rank - difficultyRank)))
+    : 0;
+
+  const paddleBucketPenalty = context.preferredPaddleBucketIndexes.length
+    ? routeBucketIndex === -1
+      ? 10
+      : Math.min(...context.preferredPaddleBucketIndexes.map((index) => Math.abs(index - routeBucketIndex)))
+    : 0;
+
+  const paddleMinutePenalty = context.preferredPaddleTargets.length
+    ? Number.isFinite(routeMinutes)
+      ? Math.min(...context.preferredPaddleTargets.map((target) => Math.abs(target - routeMinutes)))
+      : Number.POSITIVE_INFINITY
+    : 0;
+
+  return {
+    difficultyPenalty,
+    paddleBucketPenalty,
+    paddleMinutePenalty,
+  };
 }
 
 function homePreferenceSummaryParts() {
@@ -716,64 +795,110 @@ function formatRouteCountLabel(count, { withVerb = false } = {}) {
   return amount === 1 ? 'Showing 1 route' : `Showing ${amount} routes`;
 }
 
-function pickRepresentativeRoute(routes, mode) {
+function pickRepresentativeRoute(routes, mode, options = {}) {
   const copy = [...routes];
+  const preferenceContext = representativePreferenceContext(options);
+  const compareWithPreferences = (left, right, fallbackCompare) => {
+    if (!preferenceContext.active) {
+      return fallbackCompare(left, right);
+    }
+
+    const leftMetrics = representativePreferenceMetrics(left, preferenceContext);
+    const rightMetrics = representativePreferenceMetrics(right, preferenceContext);
+
+    if (leftMetrics.difficultyPenalty !== rightMetrics.difficultyPenalty) {
+      return leftMetrics.difficultyPenalty - rightMetrics.difficultyPenalty;
+    }
+
+    if (leftMetrics.paddleBucketPenalty !== rightMetrics.paddleBucketPenalty) {
+      return leftMetrics.paddleBucketPenalty - rightMetrics.paddleBucketPenalty;
+    }
+
+    if (leftMetrics.paddleMinutePenalty !== rightMetrics.paddleMinutePenalty) {
+      return leftMetrics.paddleMinutePenalty - rightMetrics.paddleMinutePenalty;
+    }
+
+    return fallbackCompare(left, right);
+  };
+
+  const selectionMode = preferenceContext.active ? 'setup' : mode;
 
   if (mode === 'near-you' && userLocation) {
-    copy.sort((left, right) => {
-      const leftMinutes = estimateTravelMinutes(distanceForResult(left));
-      const rightMinutes = estimateTravelMinutes(distanceForResult(right));
-      const leftEffective = left.score - distancePenalty(leftMinutes);
-      const rightEffective = right.score - distancePenalty(rightMinutes);
-      if (leftEffective !== rightEffective) {
-        return rightEffective - leftEffective;
-      }
-      if (leftMinutes !== rightMinutes) {
-        return leftMinutes - rightMinutes;
-      }
-      return compareResults(left, right);
-    });
-    return { route: copy[0] ?? null, mode: 'near-you' };
+    copy.sort((left, right) =>
+      compareWithPreferences(left, right, (candidateLeft, candidateRight) => {
+        const leftMinutes = estimateTravelMinutes(distanceForResult(candidateLeft));
+        const rightMinutes = estimateTravelMinutes(distanceForResult(candidateRight));
+        const leftEffective = candidateLeft.score - distancePenalty(leftMinutes);
+        const rightEffective = candidateRight.score - distancePenalty(rightMinutes);
+        if (leftEffective !== rightEffective) {
+          return rightEffective - leftEffective;
+        }
+        if (leftMinutes !== rightMinutes) {
+          return leftMinutes - rightMinutes;
+        }
+        return compareResults(candidateLeft, candidateRight);
+      })
+    );
+    return { route: copy[0] ?? null, mode: selectionMode };
   }
 
   if (mode === 'nearest' && userLocation) {
-    copy.sort((left, right) => {
-      const leftDistance = distanceForResult(left);
-      const rightDistance = distanceForResult(right);
-      if (leftDistance !== rightDistance) {
-        return leftDistance - rightDistance;
-      }
-      return compareResults(left, right);
-    });
-    return { route: copy[0] ?? null, mode: 'nearest' };
+    copy.sort((left, right) =>
+      compareWithPreferences(left, right, (candidateLeft, candidateRight) => {
+        const leftDistance = distanceForResult(candidateLeft);
+        const rightDistance = distanceForResult(candidateRight);
+        if (leftDistance !== rightDistance) {
+          return leftDistance - rightDistance;
+        }
+        return compareResults(candidateLeft, candidateRight);
+      })
+    );
+    return { route: copy[0] ?? null, mode: selectionMode === 'setup' ? 'setup' : 'nearest' };
   }
 
   if (mode === 'highest-confidence') {
-    copy.sort(compareConfidence);
-    return { route: copy[0] ?? null, mode: 'best' };
+    copy.sort((left, right) => compareWithPreferences(left, right, compareConfidence));
+    return { route: copy[0] ?? null, mode: selectionMode === 'setup' ? 'setup' : 'best' };
   }
 
   if (mode === 'lowest-risk') {
-    copy.sort(compareLowestRisk);
-    return { route: copy[0] ?? null, mode: 'best' };
+    copy.sort((left, right) => compareWithPreferences(left, right, compareLowestRisk));
+    return { route: copy[0] ?? null, mode: selectionMode === 'setup' ? 'setup' : 'best' };
   }
 
   if (mode === 'a-z') {
-    copy.sort(compareAZ);
-    return { route: copy[0] ?? null, mode: 'best' };
+    copy.sort((left, right) => compareWithPreferences(left, right, compareAZ));
+    return { route: copy[0] ?? null, mode: selectionMode === 'setup' ? 'setup' : 'best' };
   }
 
-  copy.sort(compareResults);
-  return { route: copy[0] ?? null, mode: 'best' };
+  copy.sort((left, right) => compareWithPreferences(left, right, compareResults));
+  return { route: copy[0] ?? null, mode: selectionMode === 'setup' ? 'setup' : 'best' };
 }
 
-function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-now') {
+function buildGroupedRiverLink(item) {
+  const riverId = item?.cardRoute?.river?.riverId;
+  if (!riverId) {
+    return `/rivers/${item.cardRoute.river.slug}/`;
+  }
+
+  const params = new URLSearchParams();
+  if (item?.cardRoute?.river?.slug) {
+    params.set('route', item.cardRoute.river.slug);
+  }
+
+  const query = params.toString();
+  return query.length > 0
+    ? `/rivers/by-river/${encodeURIComponent(riverId)}/?${query}`
+    : `/rivers/by-river/${encodeURIComponent(riverId)}/`;
+}
+
+function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-now', options = {}) {
   const allByRiver = groupResultsByRiverId(allResults);
   const filteredByRiver = groupResultsByRiverId(filteredResults);
   const items = [];
 
   for (const [riverId, routes] of filteredByRiver.entries()) {
-    const representative = pickRepresentativeRoute(routes, selectionMode);
+    const representative = pickRepresentativeRoute(routes, selectionMode, options);
     const cardRoute = representative.route;
     if (!cardRoute) continue;
 
@@ -786,10 +911,6 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
     items.push({
       key: cardRoute.river.riverId || cardRoute.river.slug,
       kind: totalRouteCount > 1 ? 'group' : 'route',
-      link:
-        totalRouteCount > 1 && cardRoute.river.riverId
-          ? `/rivers/by-river/${cardRoute.river.riverId}/`
-          : `/rivers/${cardRoute.river.slug}/`,
       cardRoute,
       totalRouteCount,
       paddleableRouteCount,
@@ -799,6 +920,10 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
       effectiveScore,
       distanceBucket: distanceBucketLabel(travelMinutes),
     });
+  }
+
+  for (const item of items) {
+    item.link = item.kind === 'group' ? buildGroupedRiverLink(item) : `/rivers/${item.cardRoute.river.slug}/`;
   }
 
   return items;
@@ -852,7 +977,11 @@ function routeCountLabel(item) {
 }
 
 function representativeRouteLabel(item) {
-  const prefix = item.representativeMode === 'nearest' ? 'Nearest route' : 'Best route';
+  const prefix = item.representativeMode === 'nearest'
+    ? 'Nearest route'
+    : item.representativeMode === 'setup'
+      ? 'Route for your setup'
+      : 'Best route';
   return `${prefix}: ${item.cardRoute.river.reach}`;
 }
 
@@ -1675,6 +1804,39 @@ function regionStateText(item) {
 function confidenceLabel(item) {
   return confidenceDisplayLabel(item.cardRoute.confidence.label);
 }
+
+function cardFactsMarkup(item, showDistance) {
+  const facts = [];
+
+  if (showDistance && Number.isFinite(item.travelMinutes)) {
+    facts.push(formatTravelLabel(item.travelMinutes));
+  }
+
+  facts.push(confidenceLabel(item));
+
+  if (isGroupedItem(item)) {
+    facts.push(routeCountLabel(item));
+  }
+
+  if (routeLengthLabel(item)) {
+    facts.push(routeLengthLabel(item));
+  }
+
+  if (!isGroupedItem(item) || item.representativeMode === 'setup') {
+    if (routeDifficultyLabel(item)) {
+      facts.push(routeDifficultyLabel(item));
+    }
+    if (routeEstimatedTimeLabel(item)) {
+      facts.push(routeEstimatedTimeLabel(item));
+    }
+  }
+
+  return facts
+    .filter(Boolean)
+    .map((fact) => `<span class="river-card__fact">${escapeHtml(fact)}</span>`)
+    .join('');
+}
+
 function coldWeatherDrivenCall(item) {
   const weather = item.cardRoute.weather;
   const temp = weather?.temperatureF;
@@ -2052,8 +2214,9 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'score', String(item.cardRoute.score));
   setText(card, 'rating', item.cardRoute.rating);
   setText(card, 'card-verdict', recommendationVerdict(item));
-  setText(card, 'meta-line', metaLineText(item, showDistance));
+  setText(card, 'meta-line', '');
   setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
+  setText(card, 'card-slot', '');
 
   const warning = card.querySelector('[data-field="card-warning"]');
   const liveWarning = liveReadWarning(item.cardRoute);
@@ -2074,6 +2237,13 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   const signalRow = card.querySelector('[data-field="raw-signal"]');
   if (signalRow instanceof HTMLElement) {
     signalRow.innerHTML = signalRowMarkup(item);
+  }
+
+  const facts = card.querySelector('[data-field="card-facts"]');
+  if (facts instanceof HTMLElement) {
+    const factsMarkup = cardFactsMarkup(item, showDistance);
+    facts.innerHTML = factsMarkup;
+    facts.hidden = !factsMarkup;
   }
 
   const weather = card.querySelector('[data-field="card-weather"]');
@@ -2340,14 +2510,14 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   setText(
     document,
     'featured-difficulty',
-    !isGroupedItem(item) && routeDifficultyLabel(item)
+    routeDifficultyLabel(item)
       ? routeDifficultyLabel(item)
       : 'Difficulty varies'
   );
   setText(
     document,
     'featured-paddle-time',
-    !isGroupedItem(item) && routeEstimatedTimeLabel(item)
+    routeEstimatedTimeLabel(item)
       ? routeEstimatedTimeLabel(item)
       : 'Paddle time varies'
   );
@@ -3531,7 +3701,7 @@ function renderHomepage(results) {
   const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
   const nearbyPreferenceResults = results.filter(matchesHomeNearbyFilters);
   const nearbyBaseItems = sortItems(
-    buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you'),
+    buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you', { useHomePreferences: true }),
     'near-you'
   );
   const nearbyItems = locationReady
