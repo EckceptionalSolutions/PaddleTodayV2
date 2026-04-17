@@ -33,6 +33,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <option value="all">All</option>
           </select>
         </label>
+        <label>
+          Type
+          <select data-admin-type-filter>
+            <option value="all">All</option>
+            <option value="photo">Photos only</option>
+            <option value="report">Reports only</option>
+            <option value="mixed">Photos + report</option>
+          </select>
+        </label>
         <button class="river-inline-button" type="button" data-admin-refresh>Refresh</button>
         <button class="river-inline-button" type="button" data-admin-logout>Sign out</button>
       </div>
@@ -67,7 +76,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
     <div class="admin-review__empty" data-admin-empty hidden>
       <h2>No submissions in this view</h2>
-      <p class="muted">Once paddlers start sending trip reports and photos, they’ll show up here.</p>
+      <p class="muted">Once paddlers start sending trip reports and photos, theyï¿½ll show up here.</p>
     </div>
   </section>
 

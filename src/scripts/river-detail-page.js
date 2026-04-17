@@ -78,20 +78,32 @@ const routeGalleryPendingTitle = root.querySelector('[data-route-gallery-pending
 const routeGalleryPendingNote = root.querySelector('[data-route-gallery-pending-note]');
 const routeCommunity = root.querySelector('[data-route-community]');
 const routeCommunityList = root.querySelector('[data-route-community-list]');
+const routeCommunityStats = root.querySelector('[data-route-community-stats]');
+const routeCommunityCount = root.querySelector('[data-route-community-count]');
+const routeCommunityFreshness = root.querySelector('[data-route-community-freshness]');
 const routePhotoForm = root.querySelector('[data-route-photo-form]');
 const routePhotoFilesInput = root.querySelector('[data-route-photo-files]');
 const routePhotoSelection = root.querySelector('[data-route-photo-selection]');
 const routePhotoNameInput = root.querySelector('[data-route-photo-name]');
 const routePhotoEmailInput = root.querySelector('[data-route-photo-email]');
 const routeTripDateInput = root.querySelector('[data-route-trip-date]');
-const routeTripSentimentInput = root.querySelector('[data-route-trip-sentiment]');
-const routeTripReportInput = root.querySelector('[data-route-trip-report]');
 const routePhotoNotesInput = root.querySelector('[data-route-photo-notes]');
 const routePhotoRightsInput = root.querySelector('[data-route-photo-rights]');
 const routePhotoConsentInput = root.querySelector('[data-route-photo-consent]');
 const routePhotoCompanyInput = root.querySelector('[data-route-photo-company]');
 const routePhotoSubmitButton = root.querySelector('[data-route-photo-submit]');
 const routePhotoStatus = root.querySelector('[data-route-photo-status]');
+const routeReportForm = root.querySelector('[data-route-report-form]');
+const routeReportNameInput = root.querySelector('[data-route-report-name]');
+const routeReportEmailInput = root.querySelector('[data-route-report-email]');
+const routeReportDateInput = root.querySelector('[data-route-report-date]');
+const routeReportSentimentInput = root.querySelector('[data-route-report-sentiment]');
+const routeReportTextInput = root.querySelector('[data-route-report-text]');
+const routeReportNotesInput = root.querySelector('[data-route-report-notes]');
+const routeReportConsentInput = root.querySelector('[data-route-report-consent]');
+const routeReportCompanyInput = root.querySelector('[data-route-report-company]');
+const routeReportSubmitButton = root.querySelector('[data-route-report-submit]');
+const routeReportStatus = root.querySelector('[data-route-report-status]');
 const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
 const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
@@ -419,6 +431,38 @@ function renderApprovedRouteGallery() {
   `;
 }
 
+function formatReportTripDate(raw) {
+  if (typeof raw !== 'string' || raw.trim().length === 0) {
+    return '';
+  }
+
+  const parsed = new Date(`${raw}T12:00:00`);
+  if (Number.isNaN(parsed.getTime())) {
+    return raw;
+  }
+
+  return parsed.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function reportSentimentLabel(value) {
+  switch ((value || '').trim().toLowerCase()) {
+    case 'great':
+      return 'Great day';
+    case 'good':
+      return 'Good day';
+    case 'mixed':
+      return 'Mixed day';
+    case 'rough':
+      return 'Rough day';
+    default:
+      return '';
+  }
+}
+
 function updateApprovedRoutePhoto(index) {
   const { image, caption, credit, taken, thumbs } = routeGalleryElements();
   if (!(image instanceof HTMLImageElement)) {
@@ -502,30 +546,74 @@ function renderCommunityReports(reports) {
   if (!Array.isArray(reports) || reports.length === 0) {
     routeCommunity.hidden = true;
     routeCommunityList.innerHTML = '';
+    if (routeCommunityStats instanceof HTMLElement) {
+      routeCommunityStats.hidden = true;
+    }
     return;
   }
 
+  const visibleReports = reports.slice(0, 3);
+  const olderReports = reports.slice(3);
+  const latestApprovedAt = Date.parse(reports[0]?.approvedAt || '');
+
   routeCommunity.hidden = false;
-  routeCommunityList.innerHTML = reports
-    .slice(0, 6)
+  if (routeCommunityStats instanceof HTMLElement) {
+    routeCommunityStats.hidden = false;
+  }
+  if (routeCommunityCount instanceof HTMLElement) {
+    routeCommunityCount.textContent = reports.length === 1 ? '1 recent report' : `${reports.length} recent reports`;
+  }
+  if (routeCommunityFreshness instanceof HTMLElement) {
+    routeCommunityFreshness.textContent = Number.isFinite(latestApprovedAt)
+      ? `Last report ${dataAgeLabel(latestApprovedAt).replace(/^Updated /, '')}`
+      : 'Recent community notes';
+  }
+
+  const renderCards = (items) =>
+    items
     .map((report) => {
-      const meta = [report.tripDate, report.sentiment, report.contributorName].filter(Boolean).join(' / ');
+      const metaBits = [
+        formatReportTripDate(report.tripDate),
+        reportSentimentLabel(report.sentiment),
+        report.contributorName,
+      ].filter(Boolean);
       return `
         <article class="route-community__card">
           <div class="route-community__head">
-            <strong>${escapeHtml(meta || 'Recent trip report')}</strong>
+            <strong>${escapeHtml(metaBits[0] || 'Recent paddle')}</strong>
             <span class="muted">${escapeHtml(dataAgeLabel(Date.parse(report.approvedAt)))}</span>
           </div>
+          ${
+            metaBits.length > 1
+              ? `<p class="route-community__meta muted">${escapeHtml(metaBits.slice(1).join(' / '))}</p>`
+              : ''
+          }
           <p>${escapeHtml(report.report || '')}</p>
           ${
             report.notes
-              ? `<p class="muted route-community__notes">${escapeHtml(report.notes)}</p>`
+              ? `<p class="muted route-community__notes"><strong>Extra note:</strong> ${escapeHtml(report.notes)}</p>`
               : ''
           }
         </article>
       `;
     })
     .join('');
+
+  routeCommunityList.innerHTML = `
+    ${renderCards(visibleReports)}
+    ${
+      olderReports.length > 0
+        ? `
+          <details class="route-community__older">
+            <summary class="route-community__older-summary">View ${olderReports.length} older report${olderReports.length === 1 ? '' : 's'}</summary>
+            <div class="route-community__older-list">
+              ${renderCards(olderReports)}
+            </div>
+          </details>
+        `
+        : ''
+    }
+  `;
 }
 
 async function loadApprovedCommunity() {
@@ -666,7 +754,26 @@ function setRoutePhotoSubmitting(isSubmitting) {
   }
 
   routePhotoSubmitButton.disabled = isSubmitting;
-  routePhotoSubmitButton.textContent = isSubmitting ? 'Uploading...' : 'Send it in';
+  routePhotoSubmitButton.textContent = isSubmitting ? 'Uploading...' : 'Upload photos';
+}
+
+function setRouteReportStatus(message, tone = '') {
+  if (!(routeReportStatus instanceof HTMLElement)) {
+    return;
+  }
+
+  routeReportStatus.textContent = message;
+  routeReportStatus.classList.toggle('route-photo-form__status--success', tone === 'success');
+  routeReportStatus.classList.toggle('route-photo-form__status--error', tone === 'error');
+}
+
+function setRouteReportSubmitting(isSubmitting) {
+  if (!(routeReportSubmitButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  routeReportSubmitButton.disabled = isSubmitting;
+  routeReportSubmitButton.textContent = isSubmitting ? 'Sending...' : 'Send route report';
 }
 
 function validateRoutePhotoSelection(fileList) {
@@ -767,8 +874,6 @@ function bindRoutePhotoForm() {
     const contributorName = routePhotoNameInput.value.trim();
     const contributorEmail = routePhotoEmailInput.value.trim();
     const tripDate = routeTripDateInput instanceof HTMLInputElement ? routeTripDateInput.value.trim() : '';
-    const tripSentiment = routeTripSentimentInput instanceof HTMLSelectElement ? routeTripSentimentInput.value.trim() : '';
-    const tripReport = routeTripReportInput instanceof HTMLTextAreaElement ? routeTripReportInput.value.trim() : '';
     const notes = routePhotoNotesInput instanceof HTMLTextAreaElement ? routePhotoNotesInput.value.trim() : '';
     const hasPhotos = selectedRoutePhotoFiles.length > 0;
 
@@ -784,11 +889,9 @@ function bindRoutePhotoForm() {
       return;
     }
 
-    if (!hasPhotos && tripReport.length < 12) {
-      setRoutePhotoStatus('Add a trip review or upload at least one photo.', 'error');
-      if (routeTripReportInput instanceof HTMLTextAreaElement) {
-        routeTripReportInput.focus();
-      }
+    if (!hasPhotos) {
+      setRoutePhotoStatus('Add at least one photo to upload.', 'error');
+      routePhotoFilesInput.focus();
       return;
     }
 
@@ -829,8 +932,8 @@ function bindRoutePhotoForm() {
           contributorName,
           contributorEmail,
           tripDate,
-          tripSentiment,
-          tripReport,
+          tripSentiment: '',
+          tripReport: '',
           notes,
           rightsConfirmed: routePhotoRightsInput.checked,
           reviewConsent: routePhotoConsentInput.checked,
@@ -855,13 +958,8 @@ function bindRoutePhotoForm() {
       routePhotoForm.reset();
       summarizeSelectedRoutePhotos();
       renderRoutePhotoPendingGrid('submitted');
-      setRoutePhotoStatus(
-        hasPhotos
-          ? 'Got it. Your photos and trip notes were received.'
-          : 'Got it. Your trip report was received.',
-        'success'
-      );
-      setRouteActionStatus('Trip submission sent.', 'success');
+      setRoutePhotoStatus('Got it. Your photos were received.', 'success');
+      setRouteActionStatus('Photo upload sent.', 'success');
     } catch (error) {
       console.error('Failed to submit route photos.', error);
       setRoutePhotoStatus(
@@ -870,6 +968,104 @@ function bindRoutePhotoForm() {
       );
     } finally {
       setRoutePhotoSubmitting(false);
+    }
+  });
+}
+
+function bindRouteReportForm() {
+  if (
+    !(routeReportForm instanceof HTMLFormElement) ||
+    !(routeReportNameInput instanceof HTMLInputElement) ||
+    !(routeReportEmailInput instanceof HTMLInputElement) ||
+    !(routeReportTextInput instanceof HTMLTextAreaElement) ||
+    !(routeReportConsentInput instanceof HTMLInputElement)
+  ) {
+    return;
+  }
+
+  routeReportForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const nowTs = Date.now();
+    const lastTs = Number(window.localStorage.getItem(routePhotoCooldownKey) || '0');
+    if (Number.isFinite(lastTs) && nowTs - lastTs < ROUTE_PHOTO_COOLDOWN_MS) {
+      setRouteReportStatus('Please wait a few seconds before sending another report.', 'error');
+      return;
+    }
+
+    const contributorName = routeReportNameInput.value.trim();
+    const contributorEmail = routeReportEmailInput.value.trim();
+    const tripDate = routeReportDateInput instanceof HTMLInputElement ? routeReportDateInput.value.trim() : '';
+    const tripSentiment = routeReportSentimentInput instanceof HTMLSelectElement ? routeReportSentimentInput.value.trim() : '';
+    const tripReport = routeReportTextInput.value.trim();
+    const notes = routeReportNotesInput instanceof HTMLTextAreaElement ? routeReportNotesInput.value.trim() : '';
+
+    if (contributorName.length < 2) {
+      setRouteReportStatus('Add your name.', 'error');
+      routeReportNameInput.focus();
+      return;
+    }
+
+    if (!contributorEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contributorEmail)) {
+      setRouteReportStatus('Enter a valid email address.', 'error');
+      routeReportEmailInput.focus();
+      return;
+    }
+
+    if (tripReport.length < 12) {
+      setRouteReportStatus('Add a little more detail to the route report.', 'error');
+      routeReportTextInput.focus();
+      return;
+    }
+
+    if (!routeReportConsentInput.checked) {
+      setRouteReportStatus("Confirm that it's okay for Paddle Today to contact you about this report.", 'error');
+      routeReportConsentInput.focus();
+      return;
+    }
+
+    setRouteReportSubmitting(true);
+    setRouteReportStatus('Sending route report...');
+
+    try {
+      const response = await fetch('/api/route-photo-submissions', {
+        method: 'POST',
+        headers: {
+          accept: 'application/json',
+          'content-type': 'application/json',
+        },
+        body: JSON.stringify({
+          riverSlug: slug,
+          contributorName,
+          contributorEmail,
+          tripDate,
+          tripSentiment,
+          tripReport,
+          notes,
+          rightsConfirmed: false,
+          reviewConsent: routeReportConsentInput.checked,
+          company: routeReportCompanyInput instanceof HTMLInputElement ? routeReportCompanyInput.value.trim() : '',
+          files: [],
+        }),
+      });
+
+      const payload = await response.json().catch(() => ({}));
+      if (!response.ok || payload?.ok !== true) {
+        throw new Error(payload?.message || 'Could not store this route report.');
+      }
+
+      window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
+      routeReportForm.reset();
+      setRouteReportStatus('Got it. Your route report was received.', 'success');
+      setRouteActionStatus('Route report sent.', 'success');
+    } catch (error) {
+      console.error('Failed to submit route report.', error);
+      setRouteReportStatus(
+        error instanceof Error ? error.message : 'Could not send this route report right now.',
+        'error'
+      );
+    } finally {
+      setRouteReportSubmitting(false);
     }
   });
 }
@@ -3655,6 +3851,7 @@ setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
 bindRoutePhotoForm();
+bindRouteReportForm();
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
     setRouteActionStatus(saved ? 'Saved to Favorites.' : 'Removed from Favorites.', 'success');

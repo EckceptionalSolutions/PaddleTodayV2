@@ -12,6 +12,7 @@ const toolbarStatus = root.querySelector('[data-admin-toolbar-status]');
 const refreshButton = root.querySelector('[data-admin-refresh]');
 const logoutButton = root.querySelector('[data-admin-logout]');
 const statusFilter = root.querySelector('[data-admin-status-filter]');
+const typeFilter = root.querySelector('[data-admin-type-filter]');
 const list = document.querySelector('[data-admin-submission-list]');
 const emptyState = document.querySelector('[data-admin-empty]');
 const statsPanel = document.querySelector('[data-admin-stats]');
@@ -26,12 +27,34 @@ function setStatus(node, message, tone = '') {
   node.classList.toggle('route-photo-form__status--error', tone === 'error');
 }
 
+function submissionKind(submission) {
+  const photos = Array.isArray(submission?.files) ? submission.files : [];
+  const report = typeof submission?.trip?.report === 'string' ? submission.trip.report.trim() : '';
+  if (photos.length > 0 && report.length >= 12) return 'mixed';
+  if (photos.length > 0) return 'photo';
+  return 'report';
+}
+
+function submissionKindLabel(kind) {
+  switch (kind) {
+    case 'photo':
+      return 'Photos only';
+    case 'report':
+      return 'Report only';
+    case 'mixed':
+      return 'Photos + report';
+    default:
+      return 'Submission';
+  }
+}
+
 function contributionCardMarkup(submission) {
   const photos = Array.isArray(submission.files) ? submission.files : [];
   const report = typeof submission.trip?.report === 'string' ? submission.trip.report.trim() : '';
   const notes = typeof submission.notes === 'string' ? submission.notes.trim() : '';
   const metaLine = [submission.trip?.date, submission.trip?.sentiment, submission.contributor?.email].filter(Boolean).join(' / ');
   const reviewLine = submission.reviewedAt ? `Reviewed ${new Date(submission.reviewedAt).toLocaleString()}` : 'Pending review';
+  const kind = submissionKind(submission);
 
   return `
     <article class="admin-submission-card" data-submission-id="${submission.id}">
@@ -41,7 +64,10 @@ function contributionCardMarkup(submission) {
           <h2>${submission.river?.reach || submission.river?.slug || submission.id}</h2>
           <p class="muted">${submission.contributor?.name || 'Unknown contributor'}${metaLine ? ` / ${metaLine}` : ''}</p>
         </div>
-        <div class="admin-submission-card__status admin-submission-card__status--${submission.status}">${submission.status}</div>
+        <div class="admin-submission-card__status-wrap">
+          <div class="admin-submission-card__kind">${submissionKindLabel(kind)}</div>
+          <div class="admin-submission-card__status admin-submission-card__status--${submission.status}">${submission.status}</div>
+        </div>
       </header>
 
       ${report ? `<div class="admin-submission-card__block"><h3>Trip report</h3><p>${escapeHtml(report)}</p></div>` : ''}
@@ -156,16 +182,23 @@ async function loadSubmissions() {
   }
 
   const submissions = Array.isArray(payload?.submissions) ? payload.submissions : [];
+  const selectedType = typeFilter instanceof HTMLSelectElement ? typeFilter.value : 'all';
+  const filteredSubmissions =
+    selectedType === 'all' ? submissions : submissions.filter((submission) => submissionKind(submission) === selectedType);
   list.hidden = false;
-  list.innerHTML = submissions.map(contributionCardMarkup).join('');
+  list.innerHTML = filteredSubmissions.map(contributionCardMarkup).join('');
   if (emptyState instanceof HTMLElement) {
-    emptyState.hidden = submissions.length > 0;
+    emptyState.hidden = filteredSubmissions.length > 0;
     if (!emptyState.hidden) {
       list.appendChild(emptyState);
     }
   }
   bindCardActions();
-  setStatus(toolbarStatus, `${submissions.length} submission${submissions.length === 1 ? '' : 's'} loaded.`, 'success');
+  setStatus(
+    toolbarStatus,
+    `${filteredSubmissions.length} submission${filteredSubmissions.length === 1 ? '' : 's'} loaded.`,
+    'success'
+  );
 }
 
 function bindCardActions() {
@@ -273,6 +306,12 @@ if (logoutButton instanceof HTMLButtonElement) {
 
 if (statusFilter instanceof HTMLSelectElement) {
   statusFilter.addEventListener('change', async () => {
+    await loadSubmissions();
+  });
+}
+
+if (typeFilter instanceof HTMLSelectElement) {
+  typeFilter.addEventListener('change', async () => {
     await loadSubmissions();
   });
 }

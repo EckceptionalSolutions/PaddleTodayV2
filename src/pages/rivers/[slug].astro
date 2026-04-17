@@ -160,7 +160,7 @@ const routeStructuredData = {
   description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, support level, and a clear paddling recommendation before you drive.`}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
-  socialImage="/brand/paddle-today-share-card-1200x630.png"
+  socialImage="/brand/paddle-today-share-card-v2-1200x630.png"
   socialImageAlt="Paddle Today route share preview"
   socialImageWidth={1200}
   socialImageHeight={630}
@@ -878,28 +878,6 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section
-      class="river-detail__panel route-community"
-      data-route-community
-      data-detail-section="community-reports"
-      data-detail-nav-group="today"
-      hidden
-    >
-      <div class="route-gallery__intro">
-        <div class="route-gallery__intro-copy">
-          <p class="eyebrow section-label">
-            <FeatureIcon name="compass" size={16} />
-            Community reports
-          </p>
-          <h2 class="section-title">Recent notes from paddlers</h2>
-          <p class="muted route-gallery__lede">
-            Quick notes from people who paddled this route recently.
-          </p>
-        </div>
-      </div>
-      <div class="route-community__list" data-route-community-list></div>
-    </section>
-
     <section class="river-detail__chapter-head river-detail__chapter-head--plan" aria-label="Plan chapter">
       <p class="eyebrow section-label">Plan</p>
       <h2 class="river-detail__chapter-title">Dial in the shuttle, distance, and access.</h2>
@@ -1357,6 +1335,35 @@ const routeStructuredData = {
       </details>
     </section>
 
+    <section
+      class="river-detail__panel route-community"
+      data-route-community
+      data-detail-section="community-reports"
+      data-detail-nav-group="understand"
+      hidden
+    >
+      <div class="route-gallery__intro">
+        <div class="route-gallery__intro-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            Route reports
+          </p>
+          <h2 class="section-title">Recent notes from paddlers</h2>
+          <p class="muted route-gallery__lede">
+            A few quick notes from people who were on this route recently.
+          </p>
+        </div>
+        <div class="route-gallery__stats route-community__stats" data-route-community-stats hidden>
+          <span class="pill" data-route-community-count></span>
+          <span class="pill" data-route-community-freshness></span>
+        </div>
+      </div>
+      <div class="route-community__list" data-route-community-list></div>
+      <div class="route-gallery__cta-row route-community__cta-row">
+        <a class="river-link river-link--inline" href="#share-trip">Add your route report</a>
+      </div>
+    </section>
+
     <section class="river-detail__chapter-head river-detail__chapter-head--contribute" aria-label="Contribute chapter">
       <p class="eyebrow section-label">Contribute</p>
       <h2 class="river-detail__chapter-title">Help the next paddler out.</h2>
@@ -1372,9 +1379,9 @@ const routeStructuredData = {
       </p>
       <div class="river-report-panel__content route-contribute" id="share-trip">
         <div class="route-contribute__intro">
-          <h2 class="river-subtitle river-subtitle--compact">Share a trip report or photos</h2>
+          <h2 class="river-subtitle river-subtitle--compact">Help build the route page</h2>
           <p class="muted">
-            Share what the route looked like, how it paddled, and anything the next person should know.
+            Upload photos to flesh out the gallery, send a quick route report, or do both.
           </p>
           <ul class="compact-list route-gallery__tips">
             <li>Photos are most helpful when they show access, hazards, or what the route actually looked like.</li>
@@ -1384,118 +1391,188 @@ const routeStructuredData = {
         </div>
 
         <div class="route-contribute__form-shell">
-          <section class="route-gallery__pending" data-route-gallery-pending hidden>
-            <div class="route-gallery__pending-head">
-              <div>
-                <p class="route-gallery__pending-kicker">Pending upload</p>
-                <h3 class="route-gallery__pending-title" data-route-gallery-pending-title>Selected for upload</h3>
-              </div>
-              <p class="muted route-gallery__pending-note" data-route-gallery-pending-note>
-                These previews are only visible in this browser.
-              </p>
+          <section class="route-contribute__panel route-contribute__panel--photo">
+            <div class="route-contribute__panel-head">
+              <h3>Upload route photos</h3>
+              <p class="muted">The easiest way to help is adding access shots, hazards, or on-water photos.</p>
             </div>
-            <div class="route-gallery__pending-grid" data-route-gallery-pending-grid></div>
+
+            <section class="route-gallery__pending" data-route-gallery-pending hidden>
+              <div class="route-gallery__pending-head">
+                <div>
+                  <p class="route-gallery__pending-kicker">Pending upload</p>
+                  <h3 class="route-gallery__pending-title" data-route-gallery-pending-title>Selected for upload</h3>
+                </div>
+                <p class="muted route-gallery__pending-note" data-route-gallery-pending-note>
+                  These previews are only visible in this browser.
+                </p>
+              </div>
+              <div class="route-gallery__pending-grid" data-route-gallery-pending-grid></div>
+            </section>
+
+            <form class="request-form route-photo-form" data-route-photo-form novalidate>
+              <div class="route-photo-form__grid">
+                <label>
+                  Your name *
+                  <input name="contributorName" maxlength="120" autocomplete="name" placeholder="Full name or paddling handle" data-route-photo-name />
+                </label>
+
+                <label>
+                  Your email *
+                  <input
+                    name="contributorEmail"
+                    type="email"
+                    maxlength="160"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    data-route-photo-email
+                  />
+                </label>
+              </div>
+
+              <div class="route-photo-form__grid route-photo-form__grid--meta">
+                <label>
+                  Trip date
+                  <input name="tripDate" type="date" data-route-trip-date />
+                </label>
+
+                <label>
+                  Photos
+                  <span class="request-form__hint">Up to 4 JPG, PNG, or WebP images, 4 MB max each.</span>
+                  <input
+                    type="file"
+                    name="photos"
+                    accept="image/jpeg,image/png,image/webp"
+                    multiple
+                    data-route-photo-files
+                  />
+                </label>
+              </div>
+
+              <p class="muted route-photo-form__selection" data-route-photo-selection>
+                No files selected yet.
+              </p>
+
+              <label>
+                Photo notes
+                <span class="request-form__hint">Optional context like flow, location in the route, or what the photo shows.</span>
+                <textarea
+                  name="notes"
+                  rows="4"
+                  maxlength="1200"
+                  placeholder="Example: Put-in parking and launch at medium spring flow. Last photo is the bridge bend about halfway through."
+                  data-route-photo-notes
+                ></textarea>
+              </label>
+
+              <label class="route-photo-form__checkbox">
+                <input type="checkbox" name="rightsConfirmed" data-route-photo-rights />
+                <span>I took these photos or have clear permission to share them.</span>
+              </label>
+
+              <label class="route-photo-form__checkbox">
+                <input type="checkbox" name="reviewConsent" data-route-photo-consent />
+                <span>It's okay to contact me if you need more detail before publishing.</span>
+              </label>
+
+              <label class="request-form__hp" aria-hidden="true">
+                Leave this blank
+                <input name="company" tabindex="-1" autocomplete="off" data-route-photo-company />
+              </label>
+
+              <div class="request-form__actions">
+                <button class="filter-chip" type="submit" data-route-photo-submit>Upload photos</button>
+              </div>
+
+              <p class="muted request-form__status route-photo-form__status" data-route-photo-status aria-live="polite"></p>
+            </form>
           </section>
 
-          <form class="request-form route-photo-form" data-route-photo-form novalidate>
-            <div class="route-photo-form__grid">
-              <label>
-                Your name *
-                <input name="contributorName" maxlength="120" autocomplete="name" placeholder="Full name or paddling handle" data-route-photo-name />
-              </label>
-
-              <label>
-                Your email *
-                <input
-                  name="contributorEmail"
-                  type="email"
-                  maxlength="160"
-                  autocomplete="email"
-                  placeholder="you@example.com"
-                  data-route-photo-email
-                />
-              </label>
+          <section class="route-contribute__panel route-contribute__panel--report">
+            <div class="route-contribute__panel-head">
+              <h3>Send a route report</h3>
+              <p class="muted">A few honest notes about level, pace, wood, or access changes go a long way.</p>
             </div>
 
-            <div class="route-photo-form__grid route-photo-form__grid--meta">
+            <form class="request-form route-photo-form" data-route-report-form novalidate>
+              <div class="route-photo-form__grid">
+                <label>
+                  Your name *
+                  <input name="contributorName" maxlength="120" autocomplete="name" placeholder="Full name or paddling handle" data-route-report-name />
+                </label>
+
+                <label>
+                  Your email *
+                  <input
+                    name="contributorEmail"
+                    type="email"
+                    maxlength="160"
+                    autocomplete="email"
+                    placeholder="you@example.com"
+                    data-route-report-email
+                  />
+                </label>
+              </div>
+
+              <div class="route-photo-form__grid route-photo-form__grid--meta">
+                <label>
+                  Trip date
+                  <input name="tripDate" type="date" data-route-report-date />
+                </label>
+
+                <label>
+                  How did it feel?
+                  <select name="tripSentiment" data-route-report-sentiment>
+                    <option value="">Select one</option>
+                    <option value="great">Great day</option>
+                    <option value="good">Good but watchable</option>
+                    <option value="mixed">Mixed</option>
+                    <option value="rough">Rough / sketchy</option>
+                  </select>
+                </label>
+              </div>
+
               <label>
-                Trip date
-                <input name="tripDate" type="date" data-route-trip-date />
+                Route report
+                <span class="request-form__hint">Share how it paddled, what the access looked like, and anything others should know.</span>
+                <textarea
+                  name="tripReport"
+                  rows="5"
+                  maxlength="1800"
+                  placeholder="Example: Water was moving well, put-in parking was easy, one new strainer on river right about halfway down, and the take-out stairs were slick."
+                  data-route-report-text
+                ></textarea>
               </label>
 
               <label>
-                How did it feel?
-                <select name="tripSentiment" data-route-trip-sentiment>
-                  <option value="">Select one</option>
-                  <option value="great">Great day</option>
-                  <option value="good">Good but watchable</option>
-                  <option value="mixed">Mixed</option>
-                  <option value="rough">Rough / sketchy</option>
-                </select>
-              </label>
-            </div>
-
-            <label>
-              Trip review
-              <span class="request-form__hint">Share how it paddled, what the access looked like, and anything others should know.</span>
-              <textarea
-                name="tripReport"
-                rows="5"
-                maxlength="1800"
-                placeholder="Example: Water was moving well, put-in parking was easy, one new strainer on river right about halfway down, and the take-out stairs were slick."
-                data-route-trip-report
-              ></textarea>
-            </label>
-
-            <label>
-              Photos
-                  <span class="request-form__hint">Optional. Up to 4 JPG, PNG, or WebP images, 4 MB max each.</span>
-              <input
-                type="file"
-                name="photos"
-                accept="image/jpeg,image/png,image/webp"
-                multiple
-                data-route-photo-files
-              />
-            </label>
-
-            <p class="muted route-photo-form__selection" data-route-photo-selection>
-              No files selected yet.
-            </p>
-
-            <label>
                 Extra notes
                 <span class="request-form__hint">Optional extra context.</span>
-              <textarea
-                name="notes"
-                rows="4"
-                maxlength="1200"
-                placeholder="Example: These photos are from the put-in and the bridge bend. Medium spring flow, taken April 12."
-                data-route-photo-notes
-              ></textarea>
-            </label>
+                <textarea
+                  name="notes"
+                  rows="4"
+                  maxlength="1200"
+                  placeholder="Example: We paddled it in just under three hours and the wood was easy to spot."
+                  data-route-report-notes
+                ></textarea>
+              </label>
 
-            <label class="route-photo-form__checkbox">
-              <input type="checkbox" name="rightsConfirmed" data-route-photo-rights />
-              <span>I took these photos or have clear permission to share them.</span>
-            </label>
+              <label class="route-photo-form__checkbox">
+                <input type="checkbox" name="reviewConsent" data-route-report-consent />
+                <span>It's okay to contact me if you need more detail before publishing.</span>
+              </label>
 
-            <label class="route-photo-form__checkbox">
-              <input type="checkbox" name="reviewConsent" data-route-photo-consent />
-                  <span>It's okay to contact me if you need more detail before publishing.</span>
-            </label>
+              <label class="request-form__hp" aria-hidden="true">
+                Leave this blank
+                <input name="company" tabindex="-1" autocomplete="off" data-route-report-company />
+              </label>
 
-            <label class="request-form__hp" aria-hidden="true">
-              Leave this blank
-              <input name="company" tabindex="-1" autocomplete="off" data-route-photo-company />
-            </label>
+              <div class="request-form__actions">
+                <button class="filter-chip" type="submit" data-route-report-submit>Send route report</button>
+              </div>
 
-            <div class="request-form__actions">
-              <button class="filter-chip" type="submit" data-route-photo-submit>Send it in</button>
-            </div>
-
-            <p class="muted request-form__status route-photo-form__status" data-route-photo-status aria-live="polite"></p>
-          </form>
+              <p class="muted request-form__status route-photo-form__status" data-route-report-status aria-live="polite"></p>
+            </form>
+          </section>
         </div>
       </div>
     </section>
