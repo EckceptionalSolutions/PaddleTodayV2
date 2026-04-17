@@ -36,7 +36,10 @@ import FavoriteButton from './FavoriteButton.astro';
       </div>
     </div>
     <p class="river-card__explanation" data-field="card-summary-main"></p>
-    <div class="river-card__facts" data-field="card-facts" hidden></div>
+    <section class="river-card__facts-section" data-field="card-facts-section" hidden>
+      <p class="river-card__facts-label">Route facts</p>
+      <div class="river-card__facts" data-field="card-facts"></div>
+    </section>
 
     <a class="river-link river-link--wide" href="/" data-card-link>View route</a>
   </article>

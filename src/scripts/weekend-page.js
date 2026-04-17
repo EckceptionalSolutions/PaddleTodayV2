@@ -592,10 +592,14 @@ function createWeekendCard(item, index, options = {}) {
   }
 
   const facts = card.querySelector('[data-field="card-facts"]');
+  const factsSection = card.querySelector('[data-field="card-facts-section"]');
   if (facts instanceof HTMLElement) {
     const factsMarkup = weekendFactsMarkup(item);
     facts.innerHTML = factsMarkup;
     facts.hidden = !factsMarkup;
+    if (factsSection instanceof HTMLElement) {
+      factsSection.hidden = !factsMarkup;
+    }
   }
 
   const weather = card.querySelector('[data-field="card-weather"]');
