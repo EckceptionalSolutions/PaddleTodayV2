@@ -110,6 +110,7 @@ const routeReportStatus = root.querySelector('[data-route-report-status]');
 const routeContributeTabList = root.querySelector('[aria-label="Contribution options"]');
 const routeContributeTabs = Array.from(root.querySelectorAll('[data-route-contribute-tab]'));
 const routeContributePanels = Array.from(root.querySelectorAll('[data-route-contribute-panel]'));
+const routeReportCtas = Array.from(root.querySelectorAll('[data-route-report-cta]'));
 const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
 const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
@@ -355,6 +356,16 @@ function parseApprovedRoutePhotos(raw) {
   }
 }
 
+function photoCreditLabel(value) {
+  const raw = typeof value === 'string' ? value.trim() : '';
+  if (!raw) {
+    return 'Approved community photo';
+  }
+
+  const normalized = raw.replace(/^photo\s+by\s+/i, '').trim();
+  return normalized ? `Photo by ${normalized}` : 'Approved community photo';
+}
+
 function routeGalleryElements() {
   return {
     image: root.querySelector('[data-route-gallery-image]'),
@@ -405,7 +416,7 @@ function renderApprovedRouteGallery() {
       <figcaption class="route-gallery__caption">
         <div class="route-gallery__caption-copy">
           <strong data-route-gallery-caption>${escapeHtml(lead.caption || 'Approved community photo')}</strong>
-          <span class="muted" data-route-gallery-credit>${escapeHtml(lead.credit ? `Photo by ${lead.credit}` : 'Approved community photo')}</span>
+          <span class="muted" data-route-gallery-credit>${escapeHtml(photoCreditLabel(lead.credit))}</span>
         </div>
         <span class="route-gallery__caption-tag" data-route-gallery-taken ${lead.takenLabel ? '' : 'hidden'}>${escapeHtml(lead.takenLabel || '')}</span>
       </figcaption>
@@ -488,7 +499,7 @@ function updateApprovedRoutePhoto(index) {
   }
 
   if (credit instanceof HTMLElement) {
-    credit.textContent = photo.credit ? `Photo by ${photo.credit}` : 'Approved community photo';
+    credit.textContent = photoCreditLabel(photo.credit);
   }
 
   if (taken instanceof HTMLElement) {
@@ -583,6 +594,7 @@ function renderCommunityReports(reports) {
         reportSentimentLabel(report.sentiment),
         report.contributorName,
       ].filter(Boolean);
+      const reportPhotos = Array.isArray(report.photos) ? report.photos.filter((photo) => photo?.src) : [];
       return `
         <article class="route-community__card">
           <div class="route-community__head">
@@ -597,7 +609,25 @@ function renderCommunityReports(reports) {
           <p>${escapeHtml(report.report || '')}</p>
           ${
             report.notes
-              ? `<p class="muted route-community__notes"><strong>Extra note:</strong> ${escapeHtml(report.notes)}</p>`
+              ? `<p class="muted route-community__notes">${escapeHtml(report.notes)}</p>`
+              : ''
+          }
+          ${
+            reportPhotos.length > 0
+              ? `
+                <div class="route-community__photos" aria-label="Photos from this route report">
+                  ${reportPhotos
+                    .slice(0, 3)
+                    .map(
+                      (photo) => `
+                        <a class="route-community__photo" href="${escapeHtml(photo.src)}" target="_blank" rel="noreferrer">
+                          <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || photo.caption || 'Route report photo')}" loading="lazy" />
+                        </a>
+                      `
+                    )
+                    .join('')}
+                </div>
+              `
               : ''
           }
         </article>
@@ -1196,6 +1226,25 @@ function bindRouteContributeTabs() {
   });
 
   setActiveRouteContributeTab('photo');
+}
+
+function activateRouteReportPane() {
+  setActiveRouteContributeTab('report');
+  const shareTripSection = document.getElementById('share-trip');
+  if (shareTripSection instanceof HTMLElement) {
+    scrollToDetailSection(shareTripSection);
+  }
+}
+
+function bindRouteReportCtas() {
+  for (const cta of routeReportCtas) {
+    if (!(cta instanceof HTMLAnchorElement) || cta.dataset.bound === 'true') continue;
+    cta.dataset.bound = 'true';
+    cta.addEventListener('click', (event) => {
+      event.preventDefault();
+      activateRouteReportPane();
+    });
+  }
 }
 
 function detailScrollOffset() {
@@ -3979,6 +4028,7 @@ setupDetailJumpLinks();
 bindAlertForm();
 bindRouteActions();
 bindRouteContributeTabs();
+bindRouteReportCtas();
 bindRoutePhotoForm();
 bindRouteReportForm();
 bindFavoriteButtons(document, {

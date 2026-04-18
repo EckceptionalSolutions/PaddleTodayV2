@@ -82,6 +82,7 @@ export interface ApprovedTripReport {
   sentiment: string;
   report: string;
   notes: string;
+  photos?: ApprovedCommunityPhoto[];
 }
 
 interface ApprovedCommunityStore {
@@ -186,7 +187,8 @@ function isApprovedTripReport(value: unknown): value is ApprovedTripReport {
     isString(value.tripDate) &&
     isString(value.sentiment) &&
     isString(value.report) &&
-    isString(value.notes)
+    isString(value.notes) &&
+    (value.photos === undefined || isArrayOf(value.photos, isApprovedCommunityPhoto))
   );
 }
 
@@ -318,10 +320,17 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
   const community = await getApprovedCommunityForRoute(submission.river.slug);
   const nextPhotos = [...community.photos];
   const nextReports = [...community.reports];
+  const approvedSubmissionPhotos: ApprovedCommunityPhoto[] = [];
 
   for (const file of submission.files) {
     const alreadyApproved = nextPhotos.some((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
-    if (alreadyApproved) continue;
+    if (alreadyApproved) {
+      const existing = nextPhotos.find((item) => item.sourceSubmissionId === submission.id && item.id === `${submission.id}-${file.fileName}`);
+      if (existing) {
+        approvedSubmissionPhotos.push(existing);
+      }
+      continue;
+    }
 
     const bytes = await storage.readBytes(file.blobName);
     if (!bytes) continue;
@@ -329,7 +338,7 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
     const approvedBlobName = approvedPhotoBlobName(submission.river.slug, submission.id, file.fileName);
     await storage.writeBytes(approvedBlobName, bytes.buffer, file.mimeType);
 
-    nextPhotos.push({
+    const approvedPhoto = {
       id: `${submission.id}-${file.fileName}`,
       src: communityPhotoUrl(submission.river.slug, submission.id, file.fileName),
       alt: `${submission.river.name} photo from ${submission.contributor.name}`,
@@ -338,7 +347,9 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
       takenLabel: submission.trip.date ? `Taken ${submission.trip.date}` : '',
       approvedAt,
       sourceSubmissionId: submission.id,
-    });
+    };
+    nextPhotos.push(approvedPhoto);
+    approvedSubmissionPhotos.push(approvedPhoto);
   }
 
   const reportText = submission.trip.report.trim();
@@ -352,6 +363,7 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
       sentiment: submission.trip.sentiment,
       report: reportText,
       notes: submission.notes,
+      photos: approvedSubmissionPhotos,
     });
   }
 

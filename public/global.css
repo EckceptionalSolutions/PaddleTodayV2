@@ -10958,10 +10958,6 @@ body.site-search-open {
   font-size: 0.88rem;
 }
 
-.route-community__notes strong {
-  color: var(--ink-soft);
-}
-
 .route-community__older {
   border: 1px solid rgba(16, 35, 45, 0.08);
   border-radius: 18px;
@@ -10998,7 +10994,30 @@ body.site-search-open {
 }
 
 .route-community__cta-row {
-  margin-top: 0.2rem;
+  margin-top: 0.75rem;
+}
+
+.route-community__photos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 0.8rem;
+}
+
+.route-community__photo {
+  display: block;
+  width: clamp(4.75rem, 12vw, 6rem);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  box-shadow: 0 8px 18px rgba(24, 42, 54, 0.08);
+}
+
+.route-community__photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
 }
 
 @media (max-width: 760px) {
