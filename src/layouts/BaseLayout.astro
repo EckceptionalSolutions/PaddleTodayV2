@@ -99,6 +99,14 @@ const searchRiverItems = listRiverGroups()
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);
+const pageClass =
+  Astro.url.pathname === '/'
+    ? 'page-home'
+    : `page-${Astro.url.pathname
+        .replace(/^\/+|\/+$/g, '')
+        .replace(/[^a-zA-Z0-9/_-]+/g, '')
+        .replace(/[\\/]+/g, '-')
+        .toLowerCase() || 'page'}`;
 ---
 
 <!doctype html>
@@ -130,7 +138,7 @@ const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems
     <link rel="apple-touch-icon" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="stylesheet" href="/global.css" />
   </head>
-  <body>
+  <body class={pageClass}>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand" href="/">

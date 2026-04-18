@@ -1,23 +1,23 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+﻿---
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
-const websiteId = new URL('/#website', siteUrl).href;
-const organizationId = new URL('/#organization', siteUrl).href;
-const aboutUrl = new URL('/about/', siteUrl).href;
+const siteUrl = Astro.site?.href ?? "https://paddletoday.com/";
+const websiteId = new URL("/#website", siteUrl).href;
+const organizationId = new URL("/#organization", siteUrl).href;
+const aboutUrl = new URL("/about/", siteUrl).href;
 const aboutStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'AboutPage',
-  '@id': `${aboutUrl}#about-page`,
-  name: 'About Paddle Today',
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": `${aboutUrl}#about-page`,
+  name: "About Paddle Today",
   description:
-    'Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution.',
+    "Learn how Paddle Today ranks paddling routes, checks river and weather data, and explains when a recommendation needs extra caution.",
   url: aboutUrl,
   isPartOf: {
-    '@id': websiteId,
+    "@id": websiteId,
   },
   about: {
-    '@id': organizationId,
+    "@id": organizationId,
   },
 };
 ---
@@ -29,99 +29,130 @@ const aboutStructuredData = {
 >
   <section class="info-hero">
     <p class="eyebrow">About Paddle Today</p>
-    <h1>How Paddle Today makes the call</h1>
+    <h1>About Paddle Today</h1>
     <p class="muted">
-      Paddle Today helps you figure out where to paddle today. It pulls together river level, recent trend, weather, route notes, and data freshness so you can start with the best-looking options instead of bouncing between sources.
+      Paddle Today is for river paddlers who want to find the best paddling
+      options today without bouncing between gauges, maps, forecast pages, and
+      river notes.
     </p>
     <p class="muted">
-      The score isn't a safety guarantee. It's a shortcut to help you decide what's worth a closer look before you drive.
+      River coverage starts in the Midwest and focuses first on the routes with
+      the strongest gauge stories, clearest access info, and most trustworthy
+      source material. Right now that means Minnesota, Wisconsin, and Iowa, with
+      more rivers added as the data quality supports it.
     </p>
     <div class="info-hero__actions">
       <a class="river-link river-link--inline" href="/">See today's board</a>
-      <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
+      <a
+        class="river-link river-link--inline river-link--ghost"
+        href="/request-river/">Request a route</a
+      >
     </div>
   </section>
 
-  <section class="info-grid" aria-label="How to read Paddle Today scores">
+  <section
+    class="info-grid info-grid--about-scores"
+    aria-label="How Paddle Today scores routes"
+  >
     <article class="info-card">
-      <p class="eyebrow">Score</p>
-      <h2>What the rating means</h2>
-      <ul class="compact-list">
-        <li><strong>Strong:</strong> level, trend, weather, and data support all line up well.</li>
-        <li><strong>Good:</strong> a solid option, but one thing may be worth a second look.</li>
-        <li><strong>Fair:</strong> maybe worth it for the right paddler, but there's a real caution to keep in mind.</li>
-        <li><strong>No-go:</strong> probably not worth it for most paddlers today.</li>
-      </ul>
-    </article>
-
-    <article class="info-card">
-      <p class="eyebrow">Inputs</p>
-      <h2>Where the data comes from</h2>
-      <p class="muted">
-        The board uses USGS gauge readings where available, weather forecasts, route distance and access notes, and published or curated river-level guidance. Each route page links back to the key sources so you can double-check before you launch.
+      <p class="eyebrow">Scores</p>
+      <h2>How Scoring Works</h2>
+      <p class="muted about-score-card__intro">
+        <strong>Bottom line:</strong> Water level/flow decides if a river is paddleable.
+        Weather and other factors increase or decrease the score from there.
       </p>
-    </article>
-
-    <article class="info-card">
-      <p class="eyebrow">Support</p>
-      <h2>What support level means</h2>
+      <table class="about-score-table">
+        <thead>
+          <tr>
+            <th scope="col">Score</th>
+            <th scope="col">What it usually means</th>
+            <th scope="col">Loose qualifications</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Strong</th>
+            <td>Near ideal conditions</td>
+            <td>Water in range + low weather risk + solid route support</td>
+          </tr>
+          <tr>
+            <th scope="row">Good</th>
+            <td>Solid option</td>
+            <td
+              >Workable water with one or two detractors such as light rain or
+              low temperature</td
+            >
+          </tr>
+          <tr>
+            <th scope="row">Fair</th>
+            <td>Runnable with tougher conditions or unknowns</td>
+            <td
+              >Water in range but weather, thin data, or route cautions pulling
+              it down</td
+            >
+          </tr>
+          <tr>
+            <th scope="row">No-go</th>
+            <td>Not a good call today</td>
+            <td
+              >Gauge clearly out of range or the overall risk stack is too
+              high (storms, ice, closures, obstructions, etc.)</td
+            >
+          </tr>
+        </tbody>
+      </table>
       <p class="muted">
-        A well-supported route has a fresh, relevant gauge and clearer threshold guidance. Some uncertainty usually means the gauge is indirect, the guidance is thinner, or the latest read needs a closer source check.
-      </p>
-    </article>
-  </section>
-
-  <section class="info-grid" aria-label="What to verify before paddling">
-    <article class="info-card">
-      <p class="eyebrow">Weather</p>
-      <h2>Why weather can drag a score down</h2>
-      <p class="muted">
-        Cold air, wind, storms, and incoming rain can turn a technically runnable route into a poor pick for a lot of paddlers. When that happens, the route may still be possible, but it gets ranked lower on purpose.
-      </p>
-    </article>
-
-    <article class="info-card">
-      <p class="eyebrow">Limits</p>
-      <h2>What can still change fast</h2>
-      <p class="muted">
-        Rain, debris, ice, access closures, parking rules, and local hazards can change faster than the board refreshes. Treat the recommendation as a first pass, then check the source links and what you see on the ground.
+        Everything starts with enough water to paddle. From there, the score
+        drops for storms, wind, cold air or water, incoming rain, or thin
+        support data.
       </p>
     </article>
 
     <article class="info-card">
       <p class="eyebrow">Coverage</p>
-      <h2>Why some routes aren't here yet</h2>
-      <p class="muted">
-        Paddle Today works best when there's enough source data to make a useful call. If you can share a put-in, take-out, and relevant USGS gauge, that route is much easier to add.
+      <h2>Adding new routes</h2>
+      <p class="muted about-coverage-card__intro">
+        Not every river makes sense for the site yet. To keep the
+        recommendations trustworthy, I only add routes that meet three basic
+        requirements:
       </p>
+      <ul class="compact-list about-coverage-card__list">
+        <li>
+          A reliable <strong>USGS gauge</strong> (or equivalent live reading)
+        </li>
+        <li>Known usable/preferred water levels</li>
+        <li>Clear put-in and take-out coordinates</li>
+      </ul>
     </article>
   </section>
 
   <section class="info-panel">
-    <p class="eyebrow">Common sources</p>
-    <h2>The site leans on public data and route-specific references.</h2>
-    <p class="muted">
-      Not every route uses every source. The route page is still the best place to check a specific recommendation, but these are the sources Paddle Today uses most often:
-    </p>
+    <p class="eyebrow">Data Sources</p>
+    <h2>Most of the site runs on public data and route-specific knowledge.</h2>
     <ul class="compact-list">
-      <li><strong>USGS Water Data:</strong> live gauge readings, recent trend, and gauge freshness.</li>
-      <li><strong>National Weather Service:</strong> hourly forecast, wind, temperature, storm risk, and nearby station observations.</li>
-      <li><strong>NOAA MRMS QPE:</strong> recent radar-estimated rainfall around the route.</li>
-      <li><strong>State DNR pages:</strong> Minnesota, Wisconsin, and Iowa route maps, river-level notes, public-water-access records, and water-trail guidance.</li>
-      <li><strong>Local city and county pages:</strong> put-in/take-out access, park hours, parking rules, launch details, and closure context.</li>
-      <li><strong>Trip reports and paddling references:</strong> sources such as MilesPaddled when official river-level thresholds are incomplete.</li>
-      <li><strong>Map sources:</strong> OpenStreetMap, OpenFreeMap, and MapLibre for map display and access context.</li>
+      <li><strong>USGS Water Data</strong> (live gauges + trends)</li>
+      <li>
+        <strong>National Weather Service</strong> (forecasts, wind, temps, storm risk)
+      </li>
+      <li><strong>State DNR pages</strong> (Minnesota, Wisconsin, Iowa)</li>
+      <li><strong>Local trip reports and paddling references</strong></li>
+      <li><strong>OpenStreetMap and similar</strong> for access context</li>
     </ul>
   </section>
 
   <section class="info-panel">
-    <p class="eyebrow">How to use it</p>
-    <h2>Start with the board, then double-check the route.</h2>
-    <ul class="compact-list">
-      <li>Use the top picks to find the best-looking options first.</li>
-      <li>Set a city or ZIP if drive time matters.</li>
-      <li>Open the route page and check the gauge, weather, access notes, and source links.</li>
-      <li>Check conditions again before you drive, especially after rain or during shoulder season.</li>
-    </ul>
+    <p class="eyebrow">Safety &amp; Limits</p>
+    <h2>Use this as a planning tool, not a guarantee.</h2>
+    <p class="muted">
+      A good score doesn&apos;t mean a river is automatically safe. And a low score
+      doesn&apos;t replace your judgment either. Conditions can change fast. Rain,
+      debris, strainers, ice, or access issues can turn a decent-looking day
+      into a bad one.
+    </p>
+    <p class="muted">
+      Always do your own due diligence, check the river when you get there, and
+      paddle within your skill level.
+    </p>
   </section>
 </BaseLayout>
+

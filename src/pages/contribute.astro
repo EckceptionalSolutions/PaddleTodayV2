@@ -1,0 +1,217 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { listRiverGroups } from "../lib/rivers";
+
+const riverGroups = listRiverGroups()
+  .map((group) => ({
+    riverId: group.riverId,
+    name: group.name,
+    routes: [...group.routes].sort((left, right) =>
+      left.reach.localeCompare(right.reach),
+    ),
+  }))
+  .sort((left, right) => left.name.localeCompare(right.name));
+---
+
+<BaseLayout
+  title="Contribute Photos | Paddle Today"
+  description="Help Paddle Today fill out route galleries by contributing river photos with route context and short captions."
+>
+  <section class="info-hero">
+    <p class="eyebrow">Contribute</p>
+    <h1>Help fill out the river galleries.</h1>
+    <p class="muted">
+      River photos are still the hardest thing to source. If you&apos;ve got
+      some, I&apos;d love to add them.
+    </p>
+  </section>
+
+  <section class="request-layout request-layout--single contribute-layout">
+    <article class="request-card contribute-card">
+      <p class="eyebrow">Photo upload</p>
+      <h2>Send river photos</h2>
+      <p class="muted">
+        Pick the closest route, upload your photos, and add a short caption for
+        each one.
+      </p>
+
+      <form
+        class="request-form contribute-form"
+        data-contribute-form
+        novalidate
+      >
+        <div class="route-photo-form__grid">
+          <label>
+            Your name *
+            <input
+              name="contributorName"
+              required
+              minlength="2"
+              placeholder="Full name or paddling handle"
+              data-contribute-name
+            />
+          </label>
+
+          <label>
+            Your email *
+            <input
+              name="contributorEmail"
+              type="email"
+              required
+              placeholder="you@example.com"
+              autocomplete="email"
+              data-contribute-email
+            />
+          </label>
+        </div>
+
+        <div class="route-photo-form__grid route-photo-form__grid--meta">
+          <label>
+            River / route *
+            <select name="riverSlug" required data-contribute-route>
+              <option value="">Choose a river or route</option>
+              {
+                riverGroups.map((group) => (
+                  <optgroup label={group.name}>
+                    {group.routes.map((route) => (
+                      <option value={route.slug}>{route.reach}</option>
+                    ))}
+                  </optgroup>
+                ))
+              }
+            </select>
+          </label>
+
+          <label>
+            Trip date
+            <input name="tripDate" type="date" data-contribute-trip-date />
+          </label>
+        </div>
+
+        <label>
+          Photos *
+          <span class="request-form__hint"
+            >Up to 12 JPG, PNG, or WebP images, 4 MB max each.</span
+          >
+          <input
+            name="photos"
+            type="file"
+            accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp"
+            multiple
+            data-contribute-files
+          />
+        </label>
+
+        <p class="muted route-photo-form__selection" data-contribute-selection>
+          No files selected yet.
+        </p>
+
+        <section
+          class="contribute-upload-list"
+          data-contribute-upload-list
+          hidden
+        >
+          <div class="contribute-upload-list__head">
+            <div>
+              <p class="contribute-upload-list__kicker">Selected photos</p>
+              <h3 class="contribute-upload-list__title">
+                Add a short caption to each photo
+              </h3>
+            </div>
+            <p class="muted contribute-upload-list__note">
+              Simple captions are enough: put-in, open bend, bridge tunnel,
+              hazard, take-out, and so on.
+            </p>
+          </div>
+          <div class="contribute-upload-list__grid" data-contribute-upload-grid>
+          </div>
+        </section>
+
+        <label>
+          Anything else to add?
+          <span class="request-form__hint"
+            >Optional note for the whole upload.</span
+          >
+          <textarea
+            name="notes"
+            rows="3"
+            placeholder="Anything useful about the day, flow, or where these photos were taken."
+            data-contribute-notes></textarea>
+        </label>
+
+        <label class="route-photo-form__checkbox">
+          <input
+            type="checkbox"
+            name="rightsConfirmed"
+            data-contribute-rights
+          />
+          <span
+            >I took these photos or have clear permission to share them.</span
+          >
+        </label>
+
+        <label
+          class="route-photo-form__checkbox route-photo-form__checkbox--quiet"
+        >
+          <input type="checkbox" name="reviewConsent" data-contribute-consent />
+          <span
+            >It&apos;s okay to contact me if you need more detail before
+            publishing.</span
+          >
+        </label>
+
+        <label class="request-form__hp" aria-hidden="true">
+          Leave this blank
+          <input
+            name="company"
+            tabindex="-1"
+            autocomplete="off"
+            data-contribute-company
+          />
+        </label>
+
+        <div class="request-form__actions">
+          <button class="filter-chip" type="submit" data-contribute-submit
+            >Upload photos</button
+          >
+        </div>
+
+        <p
+          class="muted request-form__status"
+          data-contribute-status
+          aria-live="polite"
+        >
+        </p>
+      </form>
+    </article>
+
+    <aside class="request-card contribute-sidebar contribute-sidebar--inline">
+      <p class="eyebrow">Other ways to help</p>
+      <h2>Other ways to Contribute</h2>
+      <div class="contribute-sidebar__links">
+        <a
+          class="river-link river-link--inline river-link--wide"
+          href="/request-river/">Request a route</a
+        >
+        <p class="muted">
+          Have a river that should be on the site? Send the basics, plus any
+          gauge or access links you know.
+        </p>
+      </div>
+      <div class="contribute-sidebar__links">
+        <a
+          class="river-link river-link--inline river-link--wide river-link--ghost"
+          href="/contact/">Send feedback</a
+        >
+        <p class="muted">
+          Found something confusing, missing, or broken? Send a note and
+          I&apos;ll take a look.
+        </p>
+      </div>
+    </aside>
+  </section>
+
+  <script>
+    import "../scripts/contribute-page.js";
+  </script>
+</BaseLayout>

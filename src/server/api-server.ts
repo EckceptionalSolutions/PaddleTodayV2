@@ -772,11 +772,11 @@ async function handleRoutePhotoSubmission(
       );
     }
 
-    if (files.length > 4) {
+    if (files.length > 12) {
       return sendJson(
         response,
         400,
-        { requestId, error: 'too_many_files', message: 'Upload up to 4 photos at a time.' },
+        { requestId, error: 'too_many_files', message: 'Upload up to 12 photos at a time.' },
         includeBody,
         'no-store'
       );
@@ -850,6 +850,7 @@ async function handleRoutePhotoSubmission(
         mimeType: decoded.mimeType,
         size: byteSize,
         buffer: decoded.buffer,
+        caption: clean(file?.caption, 240),
       });
     }
 

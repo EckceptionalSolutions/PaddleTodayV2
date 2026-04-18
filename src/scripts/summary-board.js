@@ -175,6 +175,7 @@ const explorePaginationSummary = document.querySelector('[data-explore-paginatio
 const explorePageLabel = document.querySelector('[data-explore-page]');
 const explorePrevButton = document.querySelector('[data-explore-prev]');
 const exploreNextButton = document.querySelector('[data-explore-next]');
+const exploreResultsCount = document.querySelector('[data-explore-results-count]');
 const locationIndicator = document.querySelector('[data-location-indicator]');
 const locationIndicatorLabel = document.querySelector('[data-location-indicator-label]');
 
@@ -2387,6 +2388,16 @@ function updateExplorePagination(pagination) {
 
   if (exploreNextButton instanceof HTMLButtonElement) {
     exploreNextButton.disabled = pagination.currentPage >= pagination.totalPages;
+  }
+
+  if (exploreResultsCount instanceof HTMLElement) {
+    if (pagination.totalItems === 0) {
+      exploreResultsCount.textContent = '0 routes';
+    } else if (pagination.totalItems === 1) {
+      exploreResultsCount.textContent = '1 route';
+    } else {
+      exploreResultsCount.textContent = `${pagination.totalItems} routes`;
+    }
   }
 }
 

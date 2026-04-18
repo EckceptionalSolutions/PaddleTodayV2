@@ -174,7 +174,10 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
 
           <div class="explore-workspace__board">
             <div class="explore-workspace__list-head">
-              <p class="eyebrow">Ranked results</p>
+              <div class="explore-workspace__list-head-row">
+                <p class="eyebrow">Ranked results</p>
+                <span class="explore-workspace__count" data-explore-results-count aria-live="polite">Loading routes</span>
+              </div>
               <p class="muted explore-workspace__list-note">Click a marker or a route to compare both views together.</p>
             </div>
             <div class="explore-grid-shell" data-explore-shell>

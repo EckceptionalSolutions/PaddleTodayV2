@@ -22,6 +22,7 @@ export interface RouteContributionStoredFile {
   mimeType: string;
   size: number;
   blobName: string;
+  caption?: string;
 }
 
 export interface RouteContributionSubmission {
@@ -113,7 +114,8 @@ function isRouteContributionStoredFile(value: unknown): value is RouteContributi
     isString(value.originalName) &&
     isString(value.mimeType) &&
     isNumber(value.size) &&
-    isString(value.blobName)
+    isString(value.blobName) &&
+    isOptionalString(value.caption)
   );
 }
 
@@ -216,6 +218,7 @@ export async function createRouteContributionSubmission(args: {
     mimeType: string;
     size: number;
     buffer: Buffer;
+    caption?: string;
   }>;
   meta: RouteContributionSubmission['meta'];
 }) {
@@ -233,6 +236,7 @@ export async function createRouteContributionSubmission(args: {
       mimeType: file.mimeType,
       size: file.size,
       blobName,
+      caption: file.caption?.trim() || '',
     });
   }
 
@@ -341,8 +345,12 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
     const approvedPhoto = {
       id: `${submission.id}-${file.fileName}`,
       src: communityPhotoUrl(submission.river.slug, submission.id, file.fileName),
-      alt: `${submission.river.name} photo from ${submission.contributor.name}`,
-      caption: submission.notes || submission.trip.report.slice(0, 140) || `${submission.river.name} route photo`,
+      alt: file.caption?.trim() || `${submission.river.name} photo from ${submission.contributor.name}`,
+      caption:
+        file.caption?.trim() ||
+        submission.notes ||
+        submission.trip.report.slice(0, 140) ||
+        `${submission.river.name} route photo`,
       credit: submission.contributor.name,
       takenLabel: submission.trip.date ? `Taken ${submission.trip.date}` : '',
       approvedAt,

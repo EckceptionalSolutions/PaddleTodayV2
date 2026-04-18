@@ -101,7 +101,7 @@ function contributionCardMarkup(submission) {
                 (file) => `
                   <figure class="admin-submission-card__photo">
                     <img src="${escapeAttribute(file.previewUrl)}" alt="${escapeAttribute(file.originalName || 'Submission photo')}" loading="lazy" />
-                    <figcaption>${escapeHtml(file.originalName || file.fileName || 'Photo')}</figcaption>
+                    <figcaption>${escapeHtml(file.caption || file.originalName || file.fileName || 'Photo')}</figcaption>
                   </figure>
                 `
               )
