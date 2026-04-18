@@ -501,19 +501,15 @@ function midpointForRoute(route) {
 }
 
 function routePopupMarkup(route) {
-  const meta = [confidenceLabelText(route.confidence), `Score ${route.score}`];
-  if (routeLengthText(route)) {
-    meta.push(routeLengthText(route));
-  }
-
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(route.state)} | ${escapeHtml(route.region)}</p>
       <h3>${escapeHtml(route.name)}</h3>
       <p class="score-map-popup__reach">${escapeHtml(route.reach)}</p>
-      <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p>
+      <div class="score-map-popup__scoreline">
+        <span class="score-map-popup__scorebadge">${escapeHtml(String(route.score))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(decisionLabel(route.rating, route.score))}</p>
+      </div>
       <p class="score-map-popup__summary">${escapeHtml(decisionSummary(route))}</p>
-      <p class="score-map-popup__meta">${escapeHtml(meta.join(' • '))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="/rivers/${encodeURIComponent(route.slug)}/">View route</a>
     </article>
   `;

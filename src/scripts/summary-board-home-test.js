@@ -1954,9 +1954,32 @@ function recommendationSummaryText(item, nearbyReady) {
   const hasColdWeather = weather.includes('cold');
   const hasStableFlow = mainParts.some((part) => part.includes('stable') || part.includes('perfect level'));
   const hasChangingFlow = mainParts.some((part) => part.includes('rising') || part.includes('falling'));
+  const flowBand = String(item.cardRoute.gaugeBand || '').toLowerCase();
+  const flowLooksTooLow = flowBand === 'too-low' || mainParts.some((part) => part.includes('too low') || part.includes('low water'));
+  const flowLooksTooHigh = flowBand === 'too-high' || mainParts.some((part) => part.includes('too high') || part.includes('high water'));
+  const flowOutsideSweetSpot =
+    flowLooksTooLow ||
+    flowLooksTooHigh ||
+    flowBand === 'low-shoulder' ||
+    flowBand === 'high-shoulder';
   const shortDrive = nearbyReady && Number.isFinite(item.travelMinutes) && item.travelMinutes <= 30;
 
   if (item.cardRoute.rating === 'No-go') {
+    if (flowLooksTooLow && hasWeatherRisk) {
+      return 'Water is too low today, and weather only makes the call worse.';
+    }
+    if (flowLooksTooHigh && hasWeatherRisk) {
+      return 'Water is too high today, and weather adds even more risk.';
+    }
+    if (flowLooksTooLow) {
+      return 'Water is too low for a clean run today.';
+    }
+    if (flowLooksTooHigh) {
+      return 'Water is too high for a comfortable run today.';
+    }
+    if (flowOutsideSweetSpot && hasWeatherRisk) {
+      return 'Flow is already outside the sweet spot, and weather adds more risk.';
+    }
     if (coldWeatherDrivenCall(item) || (hasStableFlow && hasColdWeather)) {
       return 'River level looks usable, but weather makes it a skip for most paddlers today.';
     }
@@ -3258,18 +3281,18 @@ function markerClassFor(item) {
 function popupMarkup(item) {
   const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
   const reachMarkup = isGroupedItem(item)
-    ? `<p class="score-map-popup__reach">${escapeHtml(routeCountLabel(item))}</p>
-      <p class="score-map-popup__support">${escapeHtml(representativeRouteLabel(item))}</p>`
+    ? `<p class="score-map-popup__reach">${escapeHtml(representativeRouteLabel(item))}</p>`
     : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
 
   return `
     <article class="score-map-popup">
-      <p class="score-map-popup__state">${escapeHtml(item.cardRoute.river.state)} | ${escapeHtml(item.cardRoute.river.region)}</p>
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
-      <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
+      <div class="score-map-popup__scoreline">
+        <span class="score-map-popup__scorebadge">${escapeHtml(String(item.cardRoute.score))}</span>
+        <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
+      </div>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
-      <p class="score-map-popup__meta">${escapeHtml(joinWithBullet([metaLineText(item, nearbyReady), `Score ${item.cardRoute.score}`]))}</p>
       <a class="score-map-popup__link score-map-popup__link--button" href="${item.link}">${cardLinkLabel(item)}</a>
     </article>
   `;
