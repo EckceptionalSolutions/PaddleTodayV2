@@ -1,8 +1,17 @@
-import type { DecisionChecklistItem, RiverAccessPoint, RiverDetailApiResult } from '@paddletoday/api-contract';
+import type {
+  ApprovedCommunityPhoto,
+  ApprovedTripReport,
+  DecisionChecklistItem,
+  RiverAccessPoint,
+  RiverAlertThreshold,
+  RiverDetailApiResult,
+} from '@paddletoday/api-contract';
+import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack, useLocalSearchParams } from 'expo-router';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
+  Image,
   Linking,
   Pressable,
   RefreshControl,
@@ -10,15 +19,18 @@ import {
   StyleProp,
   StyleSheet,
   Text,
+  TextInput,
   ViewStyle,
   View,
 } from 'react-native';
-import { useRiverDetailQuery, useRiverHistoryQuery } from '../api/queries';
+import { useCreateRiverAlertMutation, useRiverDetailQuery, useRiverHistoryQuery, useRouteCommunityQuery } from '../api/queries';
 import { HistoryBars } from '../components/history-bars';
 import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
+import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
+import { resolveApiUrl } from '../lib/api-base-url';
 import {
   detailMessageForRating,
   formatGaugeValue,
@@ -30,6 +42,7 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -38,11 +51,24 @@ export default function RiverDetailScreen() {
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
+  const communityQuery = useRouteCommunityQuery(slug);
+  const createAlertMutation = useCreateRiverAlertMutation();
+  const { email: storedEmail, setEmail } = useAlertPreferences();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
+  const [draftEmail, setDraftEmail] = useState(storedEmail);
+  const [alertStatus, setAlertStatus] = useState('Alerts only email on a new threshold crossing.');
+  const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
 
   const detail = detailQuery.data?.result ?? null;
   const history = historyQuery.data?.result ?? null;
+  const community = communityQuery.data ?? null;
   const checklist = useMemo(() => (detail ? detail.checklist.slice(0, 4) : []), [detail]);
+  const communityReports = community?.reports ?? [];
+  const communityPhotos = community?.photos ?? [];
+
+  useEffect(() => {
+    setDraftEmail(storedEmail);
+  }, [storedEmail]);
 
   if (!slug) {
     return (
@@ -75,6 +101,35 @@ export default function RiverDetailScreen() {
     return null;
   }
 
+  const riverSlug = detail.river.slug;
+
+  async function submitRiverAlert(threshold: RiverAlertThreshold) {
+    const email = draftEmail.trim().toLowerCase();
+    if (!isValidEmailAddress(email)) {
+      setAlertStatus('Enter a valid email address before turning on alerts.');
+      return;
+    }
+
+    setPendingThreshold(threshold);
+    try {
+      await setEmail(email);
+      const response = await createAlertMutation.mutateAsync({
+        email,
+        riverSlug,
+        threshold,
+      });
+      setAlertStatus(alertMutationMessage(response, threshold));
+    } catch (error) {
+      setAlertStatus(
+        error instanceof PaddleTodayApiError && error.message
+          ? error.message
+          : `Could not save the ${alertThresholdLabel(threshold)} alert right now.`
+      );
+    } finally {
+      setPendingThreshold(null);
+    }
+  }
+
   return (
     <>
       <Stack.Screen options={{ title: detail.river.name }} />
@@ -84,8 +139,8 @@ export default function RiverDetailScreen() {
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
-            refreshing={detailQuery.isRefetching || historyQuery.isRefetching}
-            onRefresh={() => Promise.all([detailQuery.refetch(), historyQuery.refetch()])}
+            refreshing={detailQuery.isRefetching || historyQuery.isRefetching || communityQuery.isRefetching}
+            onRefresh={() => Promise.all([detailQuery.refetch(), historyQuery.refetch(), communityQuery.refetch()])}
           />
         }
       >
@@ -181,6 +236,40 @@ export default function RiverDetailScreen() {
           <GaugeTrendChart detail={detail} />
         </SectionCard>
 
+        <SectionCard
+          title="Route alerts"
+          subtitle="Use email alerts when this route reaching Good or Strong would change your plan."
+        >
+          <TextInput
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="email-address"
+            placeholder="you@example.com"
+            placeholderTextColor={colors.textMuted}
+            style={styles.alertInput}
+            value={draftEmail}
+            onChangeText={setDraftEmail}
+          />
+          <View style={styles.alertButtonRow}>
+            {(['good', 'strong'] as const).map((threshold) => {
+              const isPending = pendingThreshold === threshold;
+              return (
+                <Pressable
+                  key={threshold}
+                  style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
+                  disabled={isPending}
+                  onPress={() => void submitRiverAlert(threshold)}
+                >
+                  <Text style={styles.alertButtonText}>
+                    {isPending ? 'Saving...' : `Notify at ${alertThresholdLabel(threshold)}`}
+                  </Text>
+                </Pressable>
+              );
+            })}
+          </View>
+          <Text style={styles.alertStatus}>{alertStatus}</Text>
+        </SectionCard>
+
         <SectionCard title="Trip checks" subtitle="Conclusion first, supporting checks second.">
           <View style={styles.checklist}>
             {checklist.map((item) => (
@@ -198,6 +287,38 @@ export default function RiverDetailScreen() {
           }
         >
           <HistoryBars days={history?.days ?? []} />
+        </SectionCard>
+
+        <SectionCard
+          title="Community reports"
+          subtitle={
+            communityReports.length > 0
+              ? `${communityReports.length} approved reports for route context and access reality checks.`
+              : communityQuery.isLoading
+                ? 'Loading approved paddler reports.'
+                : 'No approved reports yet.'
+          }
+        >
+          {communityPhotos.length > 0 ? (
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.communityPhotoStrip}>
+              {communityPhotos.slice(0, 6).map((photo) => (
+                <CommunityPhotoCard key={photo.id} photo={photo} />
+              ))}
+            </ScrollView>
+          ) : null}
+          {communityReports.length > 0 ? (
+            <View style={styles.communityReportList}>
+              {communityReports.slice(0, 3).map((report) => (
+                <CommunityReportCard key={report.id} report={report} />
+              ))}
+            </View>
+          ) : (
+            <Text style={styles.emptyText}>
+              {communityQuery.isError
+                ? 'Approved community notes could not be loaded right now.'
+                : 'Photos and trip reports will show up here after approval.'}
+            </Text>
+          )}
         </SectionCard>
 
         <SectionCard
@@ -381,6 +502,43 @@ function AccessCard({
   );
 }
 
+function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
+  const imageUrl = resolveApiUrl(photo.src);
+
+  return (
+    <Pressable style={styles.communityPhotoCard} onPress={() => void Linking.openURL(imageUrl)}>
+      <Image source={{ uri: imageUrl }} style={styles.communityPhotoImage} resizeMode="cover" />
+      <Text style={styles.communityPhotoCaption} numberOfLines={2}>
+        {normalizeApiText(photo.caption || 'Approved route photo')}
+      </Text>
+      <Text style={styles.communityPhotoMeta} numberOfLines={1}>
+        {photo.credit ? `Photo by ${photo.credit}` : 'Approved photo'}
+      </Text>
+    </Pressable>
+  );
+}
+
+function CommunityReportCard({ report }: { report: ApprovedTripReport }) {
+  const metaBits = [formatTripDate(report.tripDate), sentimentLabel(report.sentiment), report.contributorName].filter(Boolean);
+
+  return (
+    <View style={styles.communityReportCard}>
+      <View style={styles.communityReportHeader}>
+        <Text style={styles.communityReportTitle}>{metaBits[0] || 'Recent paddle'}</Text>
+        <Text style={styles.communityReportAge}>{ageLabel(report.approvedAt)}</Text>
+      </View>
+      {metaBits.length > 1 ? (
+        <Text style={styles.communityReportMeta}>{metaBits.slice(1).join(' / ')}</Text>
+      ) : null}
+      <Text style={styles.communityReportBody}>{normalizeApiText(report.report)}</Text>
+      {report.notes ? <Text style={styles.communityReportNotes}>{normalizeApiText(report.notes)}</Text> : null}
+      {report.photos?.length ? (
+        <Text style={styles.communityReportPhotos}>{report.photos.length} photo{report.photos.length === 1 ? '' : 's'} attached</Text>
+      ) : null}
+    </View>
+  );
+}
+
 function weatherValue(detail: RiverDetailApiResult) {
   if (!detail.weather) {
     return 'Weather unavailable';
@@ -442,6 +600,58 @@ function checklistTone(status: DecisionChecklistItem['status']) {
 
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
+}
+
+function formatTripDate(value: string) {
+  if (!value) {
+    return '';
+  }
+
+  const parsed = new Date(`${value}T12:00:00`);
+  if (!Number.isFinite(parsed.getTime())) {
+    return value;
+  }
+
+  return parsed.toLocaleDateString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function sentimentLabel(value: string) {
+  switch ((value || '').trim().toLowerCase()) {
+    case 'great':
+      return 'Great day';
+    case 'good':
+      return 'Good day';
+    case 'mixed':
+      return 'Mixed day';
+    case 'rough':
+      return 'Rough day';
+    default:
+      return '';
+  }
+}
+
+function ageLabel(value: string) {
+  const timestamp = Date.parse(value);
+  if (!Number.isFinite(timestamp)) {
+    return 'Recent';
+  }
+
+  const diffHours = Math.max(0, Math.round((Date.now() - timestamp) / (1000 * 60 * 60)));
+  if (diffHours < 24) {
+    return `${diffHours || 1}h ago`;
+  }
+
+  const diffDays = Math.round(diffHours / 24);
+  if (diffDays < 30) {
+    return `${diffDays}d ago`;
+  }
+
+  const diffMonths = Math.round(diffDays / 30);
+  return `${diffMonths}mo ago`;
 }
 
 const styles = StyleSheet.create({
@@ -649,6 +859,110 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 14,
     fontWeight: '800',
+  },
+  alertInput: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    color: colors.text,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+  },
+  alertButtonRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    flexWrap: 'wrap',
+  },
+  alertButton: {
+    flex: 1,
+    minWidth: 140,
+    backgroundColor: colors.accent,
+    borderRadius: radius.pill,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  alertButtonDisabled: {
+    opacity: 0.6,
+  },
+  alertButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  alertStatus: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  communityPhotoStrip: {
+    gap: spacing.sm,
+    paddingRight: spacing.sm,
+  },
+  communityPhotoCard: {
+    width: 156,
+    gap: 6,
+  },
+  communityPhotoImage: {
+    width: 156,
+    height: 108,
+    borderRadius: radius.md,
+    backgroundColor: colors.canvasMuted,
+  },
+  communityPhotoCaption: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  communityPhotoMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+  },
+  communityReportList: {
+    gap: spacing.md,
+  },
+  communityReportCard: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    gap: 6,
+  },
+  communityReportHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  communityReportTitle: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '800',
+    flex: 1,
+  },
+  communityReportAge: {
+    color: colors.textMuted,
+    fontSize: 12,
+  },
+  communityReportMeta: {
+    color: colors.textMuted,
+    fontSize: 13,
+  },
+  communityReportBody: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  communityReportNotes: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  communityReportPhotos: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '700',
   },
   weatherStrip: {
     gap: spacing.sm,

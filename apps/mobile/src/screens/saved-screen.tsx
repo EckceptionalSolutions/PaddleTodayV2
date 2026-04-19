@@ -1,15 +1,25 @@
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { useRiverSummaryQuery } from '../api/queries';
+import { useEffect, useState } from 'react';
+import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import type { RiverAlertThreshold } from '@paddletoday/api-contract';
+import { PaddleTodayApiError } from '@paddletoday/api-client';
+import { useCreateRiverAlertMutation, useRiverSummaryQuery } from '../api/queries';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
+import { alertMutationMessage, alertThresholdLabel, isValidEmailAddress } from '../lib/alerts';
+import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
-import { colors, spacing } from '../theme/tokens';
+import { colors, radius, spacing } from '../theme/tokens';
 
 export default function SavedScreen() {
   const router = useRouter();
   const summaryQuery = useRiverSummaryQuery();
+  const createAlertMutation = useCreateRiverAlertMutation();
+  const { email: storedEmail, isHydrated: isAlertPrefsHydrated, setEmail } = useAlertPreferences();
   const { savedRivers, isHydrated, isSaved, toggleSavedRiver } = useSavedRivers();
+  const [draftEmail, setDraftEmail] = useState(storedEmail);
+  const [activeAlertKey, setActiveAlertKey] = useState<string | null>(null);
+  const [alertMessages, setAlertMessages] = useState<Record<string, string>>({});
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const riverLookup = new Map(rivers.map((river) => [river.river.slug, river]));
@@ -17,7 +27,11 @@ export default function SavedScreen() {
     .map((savedRiver) => riverLookup.get(savedRiver.slug))
     .filter((river): river is NonNullable<typeof river> => Boolean(river));
 
-  if (!isHydrated) {
+  useEffect(() => {
+    setDraftEmail(storedEmail);
+  }, [storedEmail]);
+
+  if (!isHydrated || !isAlertPrefsHydrated) {
     return (
       <View style={styles.centerState}>
         <ActivityIndicator size="large" color={colors.accent} />
@@ -26,13 +40,76 @@ export default function SavedScreen() {
     );
   }
 
+  async function submitAlert(args: {
+    slug: string;
+    riverName: string;
+    reach: string;
+    threshold: RiverAlertThreshold;
+  }) {
+    const email = draftEmail.trim().toLowerCase();
+    if (!isValidEmailAddress(email)) {
+      setAlertMessages((current) => ({
+        ...current,
+        [args.slug]: 'Enter a valid email address before turning on alerts.',
+      }));
+      return;
+    }
+
+    const requestKey = `${args.slug}:${args.threshold}`;
+    setActiveAlertKey(requestKey);
+
+    try {
+      await setEmail(email);
+      const response = await createAlertMutation.mutateAsync({
+        email,
+        riverSlug: args.slug,
+        threshold: args.threshold,
+      });
+
+      setAlertMessages((current) => ({
+        ...current,
+        [args.slug]: alertMutationMessage(response, args.threshold),
+      }));
+    } catch (error) {
+      const message =
+        error instanceof PaddleTodayApiError && error.message
+          ? error.message
+          : `Could not save the ${alertThresholdLabel(args.threshold)} alert right now.`;
+      setAlertMessages((current) => ({
+        ...current,
+        [args.slug]: message,
+      }));
+    } finally {
+      setActiveAlertKey(null);
+    }
+  }
+
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.kicker}>Saved and alerts</Text>
       <Text style={styles.title}>Keep your repeat trips close at hand.</Text>
       <Text style={styles.subtitle}>
-        Saved rivers stay local for now. Alerts are still deferred until notification rules and backend ownership are clearer.
+        Saved rivers stay local on this device. Alerts are now live through the existing email threshold flow.
       </Text>
+
+      <SectionCard
+        title="Alert email"
+        subtitle="Use one email address here, then turn on Good or Strong alerts for any saved route."
+      >
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          keyboardType="email-address"
+          placeholder="you@example.com"
+          placeholderTextColor={colors.textMuted}
+          style={styles.input}
+          value={draftEmail}
+          onChangeText={setDraftEmail}
+        />
+        <Text style={styles.body}>
+          Alerts only email on a new threshold crossing. Push delivery can layer on later without changing this rule model.
+        </Text>
+      </SectionCard>
 
       {savedRivers.length === 0 ? (
         <SectionCard
@@ -40,7 +117,7 @@ export default function SavedScreen() {
           subtitle="Save a river from the Today board or a river detail screen to build a quicker personal shortlist."
         >
           <Text style={styles.body}>
-            The first version is intentionally simple: local saved routes first, then alerts once the app has a strong repeat-use loop.
+            Save a route from Today, Weekend, or river detail. Once it is saved, this screen becomes the repeat-use shortlist and alert surface.
           </Text>
         </SectionCard>
       ) : null}
@@ -52,20 +129,34 @@ export default function SavedScreen() {
         >
           <View style={styles.list}>
             {savedSummaries.map((river) => (
-              <RiverCard
-                key={river.river.slug}
-                river={river}
-                saved={isSaved(river.river.slug)}
-                onToggleSaved={() =>
-                  void toggleSavedRiver({
-                    slug: river.river.slug,
-                    riverId: river.river.riverId,
-                    name: river.river.name,
-                    reach: river.river.reach,
-                  })
-                }
-                onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-              />
+              <View key={river.river.slug} style={styles.savedCardWrap}>
+                <RiverCard
+                  river={river}
+                  saved={isSaved(river.river.slug)}
+                  onToggleSaved={() =>
+                    void toggleSavedRiver({
+                      slug: river.river.slug,
+                      riverId: river.river.riverId,
+                      name: river.river.name,
+                      reach: river.river.reach,
+                    })
+                  }
+                  onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+                />
+                <AlertActions
+                  pendingKey={activeAlertKey}
+                  message={alertMessages[river.river.slug]}
+                  onSubmit={(threshold) =>
+                    void submitAlert({
+                      slug: river.river.slug,
+                      riverName: river.river.name,
+                      reach: river.river.reach,
+                      threshold,
+                    })
+                  }
+                  slug={river.river.slug}
+                />
+              </View>
             ))}
           </View>
         </SectionCard>
@@ -81,34 +172,76 @@ export default function SavedScreen() {
               .filter((river) => !riverLookup.has(river.slug))
               .map((river) => (
                 <View key={river.slug} style={styles.savedFallbackCard}>
-                  <Text style={styles.savedFallbackName}>{river.name}</Text>
-                  <Text style={styles.savedFallbackReach}>{river.reach}</Text>
-                  <Text style={styles.savedFallbackNote}>
-                    Live summary data is not available for this route right now.
-                  </Text>
+                  <View style={styles.savedFallbackCopy}>
+                    <Text style={styles.savedFallbackName}>{river.name}</Text>
+                    <Text style={styles.savedFallbackReach}>{river.reach}</Text>
+                    <Text style={styles.savedFallbackNote}>
+                      Live summary data is not available for this route right now.
+                    </Text>
+                  </View>
+                  <AlertActions
+                    pendingKey={activeAlertKey}
+                    message={alertMessages[river.slug]}
+                    onSubmit={(threshold) =>
+                      void submitAlert({
+                        slug: river.slug,
+                        riverName: river.name,
+                        reach: river.reach,
+                        threshold,
+                      })
+                    }
+                    slug={river.slug}
+                  />
                 </View>
               ))}
           </View>
         </SectionCard>
       ) : null}
 
-      <SectionCard
-        title="Alert foundation"
-        subtitle="This is still a stub, but now it has a better home."
-      >
-        <View style={styles.list}>
-          <Text style={styles.bullet}>- Saved rivers give alerts a concrete target list.</Text>
-          <Text style={styles.bullet}>- Next step is defining alert rules around score, freshness, and threshold moves.</Text>
-          <Text style={styles.bullet}>- Push delivery should wait until those rules and backend ownership are explicit.</Text>
-        </View>
-      </SectionCard>
-
       {summaryQuery.isError ? (
         <Text style={styles.footnote}>
-          Live saved-river cards could not refresh. Local saved routes are still intact.
+          Live saved-river cards could not refresh. Local saved routes and alert signup still work.
         </Text>
       ) : null}
     </ScrollView>
+  );
+}
+
+function AlertActions({
+  slug,
+  pendingKey,
+  message,
+  onSubmit,
+}: {
+  slug: string;
+  pendingKey: string | null;
+  message?: string;
+  onSubmit: (threshold: RiverAlertThreshold) => void;
+}) {
+  return (
+    <View style={styles.alertPanel}>
+      <Text style={styles.alertPanelLabel}>Email alerts</Text>
+      <View style={styles.alertButtonRow}>
+        {(['good', 'strong'] as const).map((threshold) => {
+          const isPending = pendingKey === `${slug}:${threshold}`;
+          return (
+            <Pressable
+              key={threshold}
+              style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
+              disabled={isPending}
+              onPress={() => onSubmit(threshold)}
+            >
+              <Text style={styles.alertButtonText}>
+                {isPending ? 'Saving...' : `Notify at ${alertThresholdLabel(threshold)}`}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+      <Text style={styles.alertHelpText}>
+        {message ?? 'Turn on alerts when this route reaching Good or Strong would change your plan.'}
+      </Text>
+    </View>
   );
 }
 
@@ -152,10 +285,26 @@ const styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 22,
   },
+  input: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    color: colors.text,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 16,
+  },
+  savedCardWrap: {
+    gap: spacing.sm,
+  },
   savedFallbackCard: {
     backgroundColor: colors.surface,
     borderRadius: 16,
     padding: spacing.md,
+    gap: spacing.sm,
+  },
+  savedFallbackCopy: {
     gap: 4,
   },
   savedFallbackName: {
@@ -168,6 +317,46 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   savedFallbackNote: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  alertPanel: {
+    backgroundColor: colors.canvasMuted,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  alertPanelLabel: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  alertButtonRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    flexWrap: 'wrap',
+  },
+  alertButton: {
+    flex: 1,
+    minWidth: 140,
+    backgroundColor: colors.accent,
+    borderRadius: radius.pill,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    alignItems: 'center',
+  },
+  alertButtonDisabled: {
+    opacity: 0.6,
+  },
+  alertButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  alertHelpText: {
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,

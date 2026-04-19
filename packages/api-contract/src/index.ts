@@ -3,6 +3,8 @@ export type ConfidenceLabel = 'Low' | 'Medium' | 'High';
 export type LiveDataState = 'live' | 'stale' | 'unavailable';
 export type LiveDataOverall = 'live' | 'degraded' | 'offline';
 export type GaugeUnit = 'cfs' | 'ft';
+export type RiverAlertThreshold = 'good' | 'strong';
+export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type GaugeBand =
   | 'ideal'
   | 'low-shoulder'
@@ -22,6 +24,29 @@ export interface RiverAccessPoint {
   name: string;
   latitude?: number;
   longitude?: number;
+}
+
+export interface ApprovedCommunityPhoto {
+  id: string;
+  src: string;
+  alt: string;
+  caption: string;
+  credit?: string;
+  takenLabel?: string;
+  approvedAt: string;
+  sourceSubmissionId: string;
+}
+
+export interface ApprovedTripReport {
+  id: string;
+  approvedAt: string;
+  sourceSubmissionId: string;
+  contributorName: string;
+  tripDate: string;
+  sentiment: 'great' | 'good' | 'mixed' | 'rough' | string;
+  report: string;
+  notes: string;
+  photos?: ApprovedCommunityPhoto[];
 }
 
 export interface GaugeSample {
@@ -381,4 +406,31 @@ export interface ApiErrorResponse {
   requestId?: string;
   error: string;
   message?: string;
+}
+
+export interface RouteCommunityResponse {
+  requestId: string;
+  riverSlug: string;
+  photos: ApprovedCommunityPhoto[];
+  reports: ApprovedTripReport[];
+}
+
+export interface CreateRiverAlertRequest {
+  email: string;
+  riverSlug: string;
+  threshold: RiverAlertThreshold;
+  company?: string;
+}
+
+export interface CreateRiverAlertResponse {
+  requestId: string;
+  ok: true;
+  duplicate: boolean;
+  reactivated: boolean;
+  alert: {
+    id: string;
+    threshold: RiverAlertThreshold;
+    riverSlug: string;
+    lastState: RiverAlertState;
+  };
 }

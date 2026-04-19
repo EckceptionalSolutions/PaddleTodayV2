@@ -7744,10 +7744,21 @@ body.site-search-open {
     justify-items: start;
     gap: 0.45rem;
     max-width: none;
+    width: 100%;
   }
 
   .site-header__topline {
     width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+    gap: 0.55rem;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .site-header__nav {
+    grid-column: 1 / -1;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
@@ -7755,18 +7766,20 @@ body.site-search-open {
     scrollbar-width: none;
   }
 
-  .site-header__topline::-webkit-scrollbar {
+  .site-header__nav::-webkit-scrollbar {
     display: none;
   }
 
-  .site-header__nav {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+  .site-header__search {
+    width: 100%;
+    justify-content: center;
   }
 
   .site-header__action {
     flex: 0 0 auto;
     min-height: 2.5rem;
+    justify-content: center;
+    white-space: nowrap;
   }
 
   .site-header__nav-link {
@@ -7977,6 +7990,21 @@ body.site-search-open {
   .explore-workspace__body {
     grid-template-columns: 1fr;
     gap: 0.75rem;
+  }
+
+  .summary-map-shell--explore-workspace .summary-map {
+    min-height: 21rem;
+  }
+
+  .explore-workspace__list-head-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .river-grid--explore-list .river-card--compact {
+    max-width: none;
+    width: 100%;
+    justify-self: stretch;
   }
 
   .river-detail__section-nav--desktop {
@@ -8371,10 +8399,20 @@ body.site-search-open {
   .site-header__meta {
     justify-items: start;
     gap: 0.4rem;
+    width: 100%;
   }
 
   .site-header__topline {
     width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.48rem;
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .site-header__nav {
+    grid-column: 1;
     flex-wrap: nowrap;
     justify-content: flex-start;
     overflow-x: auto;
@@ -8382,13 +8420,14 @@ body.site-search-open {
     scrollbar-width: none;
   }
 
-  .site-header__topline::-webkit-scrollbar {
+  .site-header__nav::-webkit-scrollbar {
     display: none;
   }
 
-  .site-header__nav {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
+  .site-header__search,
+  .site-header__action {
+    width: 100%;
+    justify-content: center;
   }
 
   .site-header__action {
@@ -8609,6 +8648,22 @@ body.site-search-open {
 
   .explore-workspace__copy .section-title {
     font-size: 1.22rem;
+  }
+
+  .summary-map-shell--explore-workspace .summary-map {
+    min-height: 18.5rem;
+  }
+
+  .explore-workspace__list-head-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.22rem;
+  }
+
+  .river-grid--explore-list .river-card--compact {
+    max-width: none;
+    width: 100%;
+    justify-self: stretch;
   }
 
   .river-detail__section-nav--desktop {
@@ -10748,27 +10803,68 @@ body.site-search-open {
 }
 
 @media (max-width: 760px) {
+  .home-overview--top {
+    margin-top: 0.55rem;
+    margin-bottom: 0.72rem;
+  }
+
+  .home-board-inline--browse {
+    padding: 0.78rem 0.82rem;
+  }
+
   .home-location-bar {
     padding: 0.78rem;
     border-radius: 20px;
   }
 
-  .home-location-bar__form,
-  .home-location-bar__actions,
-  .home-location-bar__search {
-    width: 100%;
+  .home-hero {
+    gap: 0.82rem;
   }
 
-  .home-location-bar__form,
-  .home-location-bar__actions {
+  .home-hero__trust {
+    gap: 0.55rem;
+  }
+
+  .home-hero__trust-item {
+    padding: 0.72rem 0.78rem;
+  }
+
+  .home-location-bar__form {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.55rem;
+  }
+
+  .home-location-bar__search {
+    width: auto;
+    min-width: 0;
+  }
+
+  .home-location-bar__actions {
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.5rem;
   }
 
   .home-location-bar__actions > *,
-  .home-location-bar__clear,
+  .home-location-bar__use,
+  .home-location-bar__search-button,
+  .home-location-bar__search .filter-search__input {
+    width: auto;
+  }
+
   .home-location-bar__search .filter-search__input {
     width: 100%;
+    min-width: 0;
+  }
+
+  .home-location-bar__clear {
+    width: 100%;
+    flex-basis: 100%;
   }
 
   .home-location-bar__helper {
@@ -10815,30 +10911,31 @@ body.site-search-open {
   }
 
   .home-radius-panel__presets {
-      overflow-x: auto;
-      padding-bottom: 0.1rem;
-    }
+    overflow-x: auto;
+    padding-bottom: 0.18rem;
+    margin-inline: -0.1rem;
+  }
 
   .home-radius-panel__topbar {
-      display: grid;
-      gap: 0.6rem;
-      justify-items: start;
-    }
+    display: grid;
+    gap: 0.6rem;
+    justify-items: start;
+  }
 
   .home-radius-panel__eyebrow--desktop {
-      display: none;
-    }
+    display: none;
+  }
 
   .home-radius-panel__choice-grid {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+  }
 
   .home-radius-panel__select-grid {
-      grid-template-columns: 1fr;
-    }
+    grid-template-columns: 1fr;
+  }
 
-    .home-filter-group {
-      padding: 0.9rem;
+  .home-filter-group {
+    padding: 0.9rem;
   }
 
   .home-radius-panel__count,
@@ -10848,6 +10945,10 @@ body.site-search-open {
 
   .home-radius-panel__stops {
     font-size: 0.66rem;
+  }
+
+  .home-radius-panel__scale {
+    font-size: 0.62rem;
   }
 
   .home-radius-panel__footer {
@@ -10955,8 +11056,8 @@ body.site-search-open {
   }
 
   .summary-map-shell--home .summary-map {
-      min-height: 30rem;
-    }
+    min-height: 21.5rem;
+  }
 
   .home-results-rail__track > .river-card {
     flex-basis: min(24rem, 78vw);
@@ -11000,8 +11101,8 @@ body.site-search-open {
   }
 
   .summary-map-shell--home .summary-map {
-      min-height: 24.5rem;
-    }
+    min-height: 21rem;
+  }
 
   .home-results-rail__head {
     align-items: start;
@@ -11014,6 +11115,22 @@ body.site-search-open {
 }
 
 @media (max-width: 540px) {
+  .home-location-bar__form {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+
+  .home-location-bar__use,
+  .home-location-bar__search-button {
+    min-width: 2.7rem;
+    padding-inline: 0.72rem;
+  }
+
+  .home-radius-panel__scale span:nth-child(2),
+  .home-radius-panel__scale span:nth-child(3),
+  .home-radius-panel__scale span:nth-child(5) {
+    display: none;
+  }
+
   .route-gallery__thumbs,
   .route-gallery__pending-grid {
     grid-template-columns: 1fr;

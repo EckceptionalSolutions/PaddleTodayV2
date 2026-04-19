@@ -159,7 +159,7 @@ export default function HomeScreen() {
           <Text style={styles.bullet}>- Summary API wired to the home board.</Text>
           <Text style={styles.bullet}>- Detail and history APIs ready behind each river card.</Text>
           <Text style={styles.bullet}>- Query cache persists between launches for a faster reopen.</Text>
-          <Text style={styles.bullet}>- Saved rivers now persist locally; alerts remain deferred.</Text>
+          <Text style={styles.bullet}>- Saved rivers persist locally, and email alerts are now live from Saved or river detail.</Text>
         </View>
       ),
     });

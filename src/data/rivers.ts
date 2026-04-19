@@ -2550,6 +2550,124 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'iowa-river-sturgis-ferry-hills-access',
+    slug: 'iowa-river-sturgis-ferry-hills-access',
+    name: 'Iowa River',
+    reach: 'Sturgis Ferry Park to Hills Access',
+    state: 'Iowa',
+    region: 'Iowa City Area',
+    summary:
+      'Straightforward Johnson County water-trail day from Iowa City to Hills. The access story is strong and the Iowa City gauge is direct, but the threshold model stays conservative because there is no published paddling ladder for this reach.',
+    statusText:
+      'Treat roughly 200 cfs at Iowa City as the conservative floor. This route has handled higher official event days too, but there is not a published upper paddling band for this segment.',
+    latitude: 41.640199994977,
+    longitude: -91.538966712124,
+    gaugeSource: {
+      id: 'usgs-05454500',
+      provider: 'usgs',
+      siteId: '05454500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Iowa River at Iowa City, IA',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Johnson County Iowa River Clean Up history for the Sturgis Ferry to Hills reach',
+        url: 'https://www.johnsoncountyiowa.gov/iowa-river-clean',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. This is a broader Iowa River float than the tiny creeks in the app, so recent rain, debris, and muddy landings still matter even when the route is not technical.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Usually an approachable downstream day, but nine-plus miles, storm wood, and soft river banks keep it from being a blind beginner yes.',
+      confidenceNotes:
+        'The route itself is official and the gauge is direct. Confidence is capped mainly by threshold quality: Johnson County clearly uses this exact reach at flows from about 200 to 830 cfs, but there is still no manager-published paddling ladder for the Iowa City gauge, so the app only claims a conservative low-water floor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '9.25 miles',
+        note: 'Johnson County publishes Sturgis Ferry Park to Hills Access as the opening Johnson County segment of the Iowa River Water Trail.',
+        sourceUrl: 'https://johnsoncountyiowa.gov/sites/default/files/2021-05/Iowa_River_Water_Trail.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'City launch to county ramp',
+        note: 'Iowa City lists Sturgis Ferry Park with a boat ramp, parking, restrooms, and a 2024 renovation, while Johnson County says Hills Access has a boat ramp, parking, water, restrooms, playground, and camping.',
+        sourceUrl: 'https://www.icgov.org/Home/Components/FacilityDirectory/FacilityDirectory/82/252?npage=2',
+      },
+      {
+        label: 'Observed working levels',
+        value: 'Official events at 200 to 830 cfs',
+        note: 'Johnson County cleanup records show this exact Sturgis Ferry to Hills route running at 200, 228, 281, 420, 804, and 830 cfs. The app uses 200 cfs only as a conservative floor, not as a claimed sweet spot.',
+        sourceUrl: 'https://www.johnsoncountyiowa.gov/iowa-river-clean',
+      },
+      {
+        label: 'Route character',
+        value: 'Urban edge into bottomland forest',
+        note: 'Johnson County describes the first half as light industry and cabin-lined banks, with longer forested bottomland miles in the latter half.',
+        sourceUrl: 'https://johnsoncountyiowa.gov/sites/default/files/2021-05/Iowa_River_Water_Trail.pdf',
+      },
+      {
+        label: 'Take-out operations',
+        value: 'Seasonal campground and ramp support',
+        note: 'Johnson County says Hills Access offers a boat ramp, vault toilets, water, playground, and seasonal camping, with the campground typically open from April 15 to October 15.',
+        sourceUrl: 'https://www.johnsoncountyiowa.gov/sites/default/files/2025-02/Hills%20Campground%20and%20Access.pdf',
+      },
+      {
+        label: 'Shore-use caveat',
+        value: 'Archery / falconry use east of the river',
+        note: 'Johnson County notes that the area east of the Iowa River at Hills Access is limited to archery or falconry hunting only, which is useful context if you are exploring around the take-out.',
+        sourceUrl: 'https://www.johnsoncountyiowa.gov/conservation/public-use-areas',
+      },
+      {
+        label: 'Decision style',
+        value: 'Conservative low-floor only',
+        note: 'This route has stronger access support than threshold support. Use the gauge to avoid obvious low-water days, then judge debris, mud, and recent weather the same day.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Johnson County Iowa River Water Trail PDF',
+        url: 'https://johnsoncountyiowa.gov/sites/default/files/2021-05/Iowa_River_Water_Trail.pdf',
+      },
+      {
+        label: 'Iowa City Sturgis Ferry Park page',
+        url: 'https://www.icgov.org/Home/Components/FacilityDirectory/FacilityDirectory/82/252?npage=2',
+      },
+      {
+        label: 'Johnson County camping information',
+        url: 'https://johnsoncountyiowa.gov/conservation/camping',
+      },
+      {
+        label: 'Johnson County Hills Access PDF',
+        url: 'https://www.johnsoncountyiowa.gov/sites/default/files/2025-02/Hills%20Campground%20and%20Access.pdf',
+      },
+      {
+        label: 'Johnson County public use areas',
+        url: 'https://johnsoncountyiowa.gov/conservation/public-use-areas',
+      },
+      {
+        label: 'Johnson County conservation rules and regulations',
+        url: 'https://www.johnsoncountyiowa.gov/conservation/rules-and-regulations',
+      },
+      {
+        label: 'Johnson County Iowa River Clean Up',
+        url: 'https://www.johnsoncountyiowa.gov/iowa-river-clean',
+      },
+      {
+        label: 'USGS 05454500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05454500/',
+      },
+    ],
+  },
+  {
     id: 'black-hawk-creek-hudson-waterloo',
     slug: 'black-hawk-creek-hudson-waterloo',
     name: 'Black Hawk Creek',

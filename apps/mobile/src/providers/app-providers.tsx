@@ -4,6 +4,7 @@ import { QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import type { PropsWithChildren } from 'react';
 import { useState } from 'react';
+import { AlertPreferencesProvider } from './alert-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
 
 const queryPersister = createAsyncStoragePersister({
@@ -36,7 +37,9 @@ export function AppProviders({ children }: PropsWithChildren) {
         },
       }}
     >
-      <SavedRiversProvider>{children}</SavedRiversProvider>
+      <AlertPreferencesProvider>
+        <SavedRiversProvider>{children}</SavedRiversProvider>
+      </AlertPreferencesProvider>
     </PersistQueryClientProvider>
   );
 }

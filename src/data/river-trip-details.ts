@@ -978,6 +978,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'iowa-river-sturgis-ferry-hills-access': {
+    putIn: {
+      name: 'Sturgis Ferry Park boat ramp (Iowa City)',
+      latitude: 41.640199994977,
+      longitude: -91.538966712124,
+    },
+    takeOut: {
+      name: 'Hills Access & Campground (Johnson County Conservation)',
+      latitude: 41.5544618,
+      longitude: -91.5257829,
+    },
+    logistics: {
+      distanceLabel: '9.25 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Two-car shuttle is the practical choice. The road shuttle is simple, so stage the take-out vehicle at Hills before launching from Iowa City.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Iowa City park rules at Sturgis Ferry and Johnson County access and camping rules at Hills.',
+      camping:
+        'Hills Access offers 13 electric and 7 non-electric campsites, with the campground typically open from April 15 to October 15.',
+      summary:
+        'Launch at Sturgis Ferry Park and finish at Hills Access for the first Johnson County Iowa River Water Trail segment. Expect a more developed Iowa City start, then quieter bottomland miles before the county-ramp finish at Hills.',
+      accessCaveats: [
+        'Sturgis Ferry Park is an official city boat-ramp park, but the saved point is tied to the park address rather than a separate launch GIS record, so expect to orient inside the park on arrival.',
+        'Hills Access has stronger endpoint detail than most county take-outs, including a published coordinate, boat-ramp confirmation, campground operations information, and vault toilets.',
+        'Johnson County notes that the area east of the river at Hills is archery- or falconry-only for hunting, so treat side exploration near the take-out conservatively during hunting seasons.',
+      ],
+      watchFor: [
+        'Fresh sweepers, downed trees, or floating debris after rain.',
+        'Muddy or soft banks at breaks and at the Hills take-out.',
+        'A longer-feeling day than the difficulty label suggests if the gauge is hovering near the floor.',
+      ],
+    },
+  },
   'black-hawk-creek-hudson-waterloo': {
     putIn: {
       name: 'Franck Park (Access 15), Hudson',

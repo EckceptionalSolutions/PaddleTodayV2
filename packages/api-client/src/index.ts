@@ -1,7 +1,10 @@
 import type {
   ApiErrorResponse,
+  CreateRiverAlertRequest,
+  CreateRiverAlertResponse,
   RiverDetailResponse,
   RiverHistoryResponse,
+  RouteCommunityResponse,
   RiverSummaryResponse,
   WeekendSummaryResponse,
 } from '@paddletoday/api-contract';
@@ -24,6 +27,12 @@ export interface RequestOptions {
   signal?: AbortSignal;
 }
 
+interface JsonRequestOptions extends RequestOptions {
+  body?: unknown;
+  headers?: HeadersInit;
+  method?: 'GET' | 'POST';
+}
+
 export interface RiverHistoryRequestOptions extends RequestOptions {
   days?: number;
 }
@@ -33,6 +42,8 @@ export interface PaddleTodayApiClient {
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
+  getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
+  createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
 }
 
 export function createPaddleTodayApiClient(args: {
@@ -47,14 +58,18 @@ export function createPaddleTodayApiClient(args: {
 
   const baseUrl = normalizeBaseUrl(args.baseUrl);
 
-  async function requestJson<T>(path: string, options?: RequestOptions): Promise<T> {
+  async function requestJson<T>(path: string, options?: JsonRequestOptions): Promise<T> {
+    const hasBody = options?.body !== undefined;
     const response = await fetchImpl(new URL(path, baseUrl), {
-      method: 'GET',
+      method: options?.method ?? 'GET',
       headers: {
         accept: 'application/json',
+        ...(hasBody ? { 'content-type': 'application/json' } : {}),
         ...args.headers,
+        ...options?.headers,
       },
       signal: options?.signal,
+      body: hasBody ? JSON.stringify(options.body) : undefined,
     });
     const payload = await readJsonBody(response);
 
@@ -99,6 +114,19 @@ export function createPaddleTodayApiClient(args: {
         `/api/rivers/${encodeURIComponent(slug)}/history.json?days=${encodeURIComponent(String(days))}`,
         options
       );
+    },
+    getRouteCommunity(slug, options) {
+      return requestJson<RouteCommunityResponse>(
+        `/api/rivers/${encodeURIComponent(slug)}/community.json`,
+        options
+      );
+    },
+    createRiverAlert(input, options) {
+      return requestJson<CreateRiverAlertResponse>('/api/alerts', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
     },
   };
 }

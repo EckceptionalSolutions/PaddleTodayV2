@@ -16,6 +16,10 @@ export function resolveApiBaseUrl() {
   return `http://127.0.0.1:${DEFAULT_API_PORT}`;
 }
 
+export function resolveApiUrl(path: string) {
+  return new URL(path, `${resolveApiBaseUrl()}/`).toString();
+}
+
 function hostFromExpoLink() {
   try {
     const url = ExpoLinking.createURL('/');

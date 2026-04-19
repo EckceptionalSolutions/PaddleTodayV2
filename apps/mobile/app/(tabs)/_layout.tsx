@@ -24,6 +24,15 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="weekend"
+        options={{
+          title: 'Weekend',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="calendar-weekend-outline" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="saved"
         options={{
           title: 'Saved',
