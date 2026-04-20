@@ -601,6 +601,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'snake-river-county-road-9-snake-bit': {
+    putIn: {
+      name: 'County Road 9 bridge carry-in access',
+      latitude: 45.8395826,
+      longitude: -92.9363969,
+    },
+    takeOut: {
+      name: 'Snake Bit Access (near St. Croix/Snake River public water access)',
+      latitude: 45.8230834,
+      longitude: -92.7645675,
+    },
+    logistics: {
+      distanceLabel: '11.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
+      shuttle:
+        'Longer Pine City-to-Chengwatana shuttle. A two-car shuttle is the practical choice because the finish sits near the St. Croix confluence rather than back in town.',
+      permits:
+        'No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, state-forest, and parking rules at both ends.',
+      camping:
+        'Treat this as a day trip, but Snake River Campground and River\'s End Campground are useful nearby overnight anchors if you want to stage the shuttle.',
+      summary:
+        'Put in at County Road 9 and finish near Snake Bit at the Snake/St. Croix confluence. This lower Snake route has a strong official low-water warning, so use the Pine City gauge first and do not expect a worthwhile run when it is hugging the floor.',
+      accessCaveats: [
+        'County Road 9 is clearly named by MN DNR as a carry-in access with the gauge on the bridge, but it is still a bridge access rather than a polished park launch.',
+        'Snake Bit is clearly named on the MN DNR route map, but the saved finish coordinate is anchored by the nearby official Snake/St. Croix public-water-access record rather than a standalone Snake Bit facility page.',
+      ],
+      watchFor: [
+        'Class I rapids and scrape-heavy shallow water immediately below County Road 9.',
+        'Fresh wood, strainers, and debris after storms or rapid snowmelt.',
+        'Wind and wave exposure as you approach the St. Croix confluence.',
+      ],
+    },
+  },
   'minnesota-river-judson-land-of-memories': {
     putIn: {
       name: 'Judson public water access',
@@ -944,6 +977,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Official route end before Minnehaha Falls.',
       },
     ],
+  },
+  'cloquet-river-island-lake-bachelor-road': {
+    putIn: {
+      name: 'Island Lake Dam carry-in access',
+      latitude: 46.9912948,
+      longitude: -92.225418,
+    },
+    takeOut: {
+      name: 'Bachelor Road trailer access',
+      latitude: 46.9521455,
+      longitude: -92.3270784,
+    },
+    logistics: {
+      distanceLabel: '8.1 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr 30 min',
+      shuttle:
+        'Standard two-car shuttle below Island Lake. Stage the take-out first because cell coverage can be spotty and the dam launch is the less convenient place to solve a shuttle mistake.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted DNR access and camping rules, and respect any same-day release or site notices.',
+      camping:
+        'MN DNR says this section has numerous primitive first-come watercraft campsites, but most parties will treat Island Lake Dam to Bachelor Road as a day trip.',
+      summary:
+        'Launch below Island Lake Dam and finish at Bachelor Road for the DNR-recommended lower Cloquet day. Use the direct gauge to avoid scrape-level releases, then make the on-river call based on rapids, scouting comfort, and same-day conditions.',
+      accessCaveats: [
+        'The official DNR map clearly names both endpoints, but the saved coordinates are still arrival guidance rather than a substitute for same-day signage and map checks.',
+        'Bachelor Road is a real public trailer access on the official Cloquet water-trail map, but it is not backed here by a richer standalone facility page with parking rules and amenities.',
+        'The put-in is below a dam and the segment depends on releases, so same-day conditions can differ more than the raw number suggests.',
+      ],
+      watchFor: [
+        'Class I-II rapids that deserve scouting and occasional portaging.',
+        'Scraping and short river walks when releases hover near the 175 cfs floor.',
+        'Fresh wood, cold water, and fast current changes after storms or release shifts.',
+      ],
+    },
   },
   'zumbro-river-falls': {
     putIn: {

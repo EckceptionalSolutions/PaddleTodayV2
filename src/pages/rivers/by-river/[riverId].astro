@@ -16,6 +16,9 @@ export function getStaticPaths() {
 const { group } = Astro.props;
 const stateSummary = group.states.join(', ');
 const regionSummary = group.regions.join(', ');
+const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
+const heroLede = `Compare ${group.routeCount} scored ${group.name} ${routeLabel} before you drive.`;
+const heroDetail = `These reaches share a river, not a verdict. Gauge fit, access, and difficulty can change from one stretch to the next.`;
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const groupUrl = new URL(`/rivers/by-river/${group.riverId}/`, siteUrl).href;
@@ -53,10 +56,10 @@ const groupStructuredData = {
         <p class="eyebrow">{stateSummary} | {regionSummary}</p>
         <h1 class="river-group-page__title">{group.name}</h1>
         <p class="river-group-page__lede" data-group-headline>
-          Start with the best route on this river today.
+          {heroLede}
         </p>
         <p class="muted river-group-page__summary" data-group-detail>
-          Start with the top-rated route, then compare the others if you want a backup.
+          {heroDetail}
         </p>
 
         <div class="hero__meta river-group-page__meta">

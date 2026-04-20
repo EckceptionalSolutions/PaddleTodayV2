@@ -1858,6 +1858,109 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'snake-river-county-road-9-snake-bit',
+    slug: 'snake-river-county-road-9-snake-bit',
+    name: 'Snake River',
+    reach: 'County Road 9 carry-in access to Snake Bit Access',
+    state: 'Minnesota',
+    region: 'Pine City Area',
+    summary:
+      'Lower Snake run below Cross Lake where the main question is simple: is Pine City clearly above the official low-water floor for the rapids below County Road 9? This is a stronger trust-first add than many lower-river candidates because the route, gauge, and low-water warning are all official.',
+    statusText:
+      'Treat 2.3 ft at Pine City as the conservative floor. This route improves with more water, but the app stays minimum-only because the official source is much clearer on the low side than on a polished ideal band.',
+    latitude: 45.8395826,
+    longitude: -92.9363969,
+    gaugeSource: {
+      id: 'usgs-05338500',
+      provider: 'usgs',
+      siteId: '05338500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Snake River near Pine City, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.3,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Snake River near Pine City',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the practical window. The Snake drains quickly, so recent rain and rising trend matter almost as much as the raw reading.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Class I rapids, low-water scraping, and the long runout to the St. Croix make this more than a lazy flatwater shuttle even though it is not a technical whitewater run.',
+      confidenceNotes:
+        'Confidence is strong because MN DNR names this lower corridor directly, the Pine City gauge is on the route, and the low-water story is official. Confidence is still a little tempered by the take-out: Snake Bit is clearly named on the DNR map, but the best exact access anchor today is the nearby state public-water-access record at the Snake/St. Croix confluence rather than a standalone Snake Bit facility page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR floor',
+        value: '2.3 ft',
+        note: 'MN DNR interprets Pine City as Scrapable below 2.3 ft and Low from 2.3 to 3.3 ft. The app uses that official floor without pretending this lower rapids stretch has a cleaner ideal band.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Official route shape',
+        value: '11.7 river miles',
+        note: 'The Snake River map names County Road 9 bridge/carry-in access at river mile 11.7 and Snake Bit Access at the St. Croix confluence.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Low-water warning',
+        value: '11.7 to 10.9 not canoeable much of the year',
+        note: 'MN DNR explicitly warns that the first rapids section below County Road 9 is low-water limited much of the year, which is the main reason this route is modeled as minimum-only.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Scattered Class I rapids to the St. Croix',
+        note: 'MN DNR describes the County Road 9 to mouth corridor as scattered Class I rapids below the initial low-water-sensitive section.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Take-out anchor',
+        value: 'State access at Snake/St. Croix confluence',
+        note: 'Minnesota public-water-access data identifies the St. Croix River/Snake River access on the Snake River at the confluence, which is the best current access anchor for the Snake Bit finish area.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Snake River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/index.html',
+      },
+      {
+        label: 'MN DNR Snake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/snakeriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Snake River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/snake.pdf',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'MN DNR Chengwatana State Forest map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00012.pdf',
+      },
+      {
+        label: 'USGS 05338500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05338500/',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-judson-land-of-memories',
     slug: 'minnesota-river-judson-land-of-memories',
     name: 'Minnesota River',
@@ -2452,6 +2555,101 @@ export const rivers: River[] = [
       {
         label: "MCWD Gray's Bay Dam operations",
         url: 'https://minnehahacreek.org/explore/grays-bay-dam/grays-bay-dam-operations/',
+      },
+    ],
+  },
+  {
+    id: 'cloquet-river-island-lake-bachelor-road',
+    slug: 'cloquet-river-island-lake-bachelor-road',
+    name: 'Cloquet River',
+    reach: 'Island Lake Dam to Bachelor Road',
+    state: 'Minnesota',
+    region: 'Duluth Area',
+    summary:
+      'Official lower-Cloquet day with dam-release-dependent current, Class I-II rapids, and a cleaner trust story than most unsurfaced Minnesota route gaps. The gauge is direct and the route is official, but the app still treats this as a conservative low-floor call instead of inventing a polished sweet spot.',
+    statusText:
+      'Treat about 175 cfs as the low-water floor. Around 350 cfs and up is the stronger May-June paddling target when releases allow, but there is no published route-specific upper band.',
+    latitude: 46.9912948,
+    longitude: -92.225418,
+    gaugeSource: {
+      id: 'usgs-04021960',
+      provider: 'usgs',
+      siteId: '04021960',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cloquet River near Island Lake, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 175,
+      thresholdSource: {
+        label: 'MN DNR Cloquet River release guidance for Island Lake Dam to Bachelor Road',
+        url: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/segments-maps.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This segment depends more on Island Lake Dam release conditions than on broad seasonal norms, so same-day flow matters more than the calendar.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I current with a few Class II rapids. A workable gauge does not remove the need to scout and portage, especially for less experienced paddlers.',
+      confidenceNotes:
+        'Confidence is stronger than average because the route itself is a DNR-recommended day trip, the gauge is direct, and the low-flow guidance is official. Confidence is still capped because the DNR source gives a low-side release floor and a better May-June target, not a full upper threshold model, and Bachelor Road is better documented on official trail maps than on a standalone facility page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: '8.1 river miles',
+        note: 'MN DNR treats Island Lake Dam carry-in access to Bachelor Road access as the recommended Cloquet River day trip on Map 1.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/segments-maps.html',
+      },
+      {
+        label: 'Official low-flow guidance',
+        value: '350 cfs in May-June; 175 cfs in summer',
+        note: 'MN DNR says 350 cfs in May and June offers good paddling, while 175 cfs during the rest of the summer still usually allows floating down the rapids with some scraping and occasional river walking.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cloquet1.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Carry-in dam launch to trailer access',
+        note: 'MN DNR Map 1 names Island Lake Dam carry-in access at river mile 28.6 and Bachelor Road trailer access at river mile 20.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/cloquet1.pdf',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Class I-II rapids and release swings',
+        note: 'MN DNR says rapids are Class I-II, advises scouting before proceeding, and notes that flow depends on Island Lake Dam releases.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/segments-maps.html',
+      },
+      {
+        label: 'Camping context',
+        value: 'Primitive DNR watercraft campsites',
+        note: 'MN DNR says this stretch includes numerous primitive first-come watercraft campsites on DNR-managed property.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Cloquet River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/index.html',
+      },
+      {
+        label: 'MN DNR Cloquet River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/cloquetriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Cloquet River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/cloquet1.pdf',
+      },
+      {
+        label: 'USGS 04021960 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04021960/',
+      },
+      {
+        label: 'Minnesota Power reservoir recreation information',
+        url: 'https://www.mpland.com/Recreation/Reservoirs',
       },
     ],
   },
