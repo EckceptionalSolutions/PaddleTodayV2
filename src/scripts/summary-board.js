@@ -79,6 +79,7 @@ const US_STATE_ABBREVIATIONS = {
 const US_STATE_NAMES_BY_ABBREVIATION = Object.fromEntries(
   Object.entries(US_STATE_ABBREVIATIONS).map(([name, abbreviation]) => [abbreviation.toLowerCase(), name])
 );
+const SEARCH_FOOTPRINT_STATE_ABBREVIATIONS = new Set(['MN', 'WI', 'IA', 'IL', 'SD', 'ND']);
 
 const recommendationGrid = document.querySelector('[data-recommendation-grid]');
 const recommendationSummary = document.querySelector('[data-recommendation-summary]');
@@ -1703,6 +1704,7 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
       return;
     }
 
+    featuredMapRuntime.resize();
     clearFeaturedMapMarkers();
     syncFeaturedRouteLine(accessPoints, item.cardRoute.rating);
 
@@ -1727,8 +1729,8 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
 
       if (accessPoints.length > 1) {
         featuredMapRuntime.fitBounds(bounds, {
-          padding: { top: 26, right: 26, bottom: 26, left: 26 },
-          maxZoom: 10.9,
+          padding: { top: 34, right: 30, bottom: 34, left: 30 },
+          maxZoom: 10.4,
           duration: 0,
         });
       } else {
@@ -1756,8 +1758,6 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
         zoom: 8.8,
       });
     }
-
-    featuredMapRuntime.resize();
 
     if (featuredMapStatus instanceof HTMLElement) {
       featuredMapStatus.textContent = regionStateText(item);
@@ -4075,6 +4075,157 @@ function matchesStateForGeocodeResult(result, state) {
   return normalizedAdmin === state.name.toLowerCase() || normalizedAdmin === state.abbreviation.toLowerCase();
 }
 
+function normalizeGeocodeToken(value) {
+  return typeof value === 'string'
+    ? value
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim()
+    : '';
+}
+
+function levenshteinDistance(left, right) {
+  if (left === right) {
+    return 0;
+  }
+
+  if (!left) {
+    return right.length;
+  }
+
+  if (!right) {
+    return left.length;
+  }
+
+  const previous = new Array(right.length + 1).fill(0);
+  const current = new Array(right.length + 1).fill(0);
+
+  for (let index = 0; index <= right.length; index += 1) {
+    previous[index] = index;
+  }
+
+  for (let leftIndex = 1; leftIndex <= left.length; leftIndex += 1) {
+    current[0] = leftIndex;
+    for (let rightIndex = 1; rightIndex <= right.length; rightIndex += 1) {
+      const substitutionCost = left[leftIndex - 1] === right[rightIndex - 1] ? 0 : 1;
+      current[rightIndex] = Math.min(
+        current[rightIndex - 1] + 1,
+        previous[rightIndex] + 1,
+        previous[rightIndex - 1] + substitutionCost
+      );
+    }
+
+    for (let rightIndex = 0; rightIndex <= right.length; rightIndex += 1) {
+      previous[rightIndex] = current[rightIndex];
+    }
+  }
+
+  return previous[right.length];
+}
+
+function matchesCityForGeocodeResult(result, city) {
+  if (!result || !city) {
+    return false;
+  }
+
+  const normalizedCity = normalizeGeocodeToken(city);
+  if (!normalizedCity) {
+    return false;
+  }
+
+  const namesToCheck = [
+    result.name,
+    result.admin2,
+    result.admin3,
+    result.admin4,
+  ]
+    .map((value) => normalizeGeocodeToken(value))
+    .filter(Boolean);
+
+  return namesToCheck.some((value) => value === normalizedCity);
+}
+
+function fuzzyMatchesCityForGeocodeResult(result, city) {
+  if (!result || !city) {
+    return false;
+  }
+
+  const normalizedCity = normalizeGeocodeToken(city);
+  if (!normalizedCity || normalizedCity.length < 5) {
+    return false;
+  }
+
+  const namesToCheck = [result.name]
+    .map((value) => normalizeGeocodeToken(value))
+    .filter(Boolean);
+
+  return namesToCheck.some((value) => levenshteinDistance(value, normalizedCity) <= 1);
+}
+
+function stateAbbreviationForGeocodeResult(result) {
+  const admin1 = typeof result?.admin1 === 'string' ? result.admin1.trim() : '';
+  if (!admin1) {
+    return '';
+  }
+
+  return US_STATE_ABBREVIATIONS[admin1] || admin1.toUpperCase();
+}
+
+function geocodeCandidateScore(result, parsed) {
+  let score = 0;
+
+  if (matchesStateForGeocodeResult(result, parsed.state)) {
+    score += 1000;
+  }
+
+  if (matchesCityForGeocodeResult(result, parsed.city)) {
+    score += 400;
+  } else if (fuzzyMatchesCityForGeocodeResult(result, parsed.city)) {
+    score += 260;
+  }
+
+  if (!parsed.state && SEARCH_FOOTPRINT_STATE_ABBREVIATIONS.has(stateAbbreviationForGeocodeResult(result))) {
+    score += 140;
+  }
+
+  if (typeof result.population === 'number' && Number.isFinite(result.population)) {
+    score += Math.min(result.population / 1000, 120);
+  }
+
+  if (typeof result.feature_code === 'string') {
+    if (result.feature_code === 'PPLA') score += 20;
+    if (result.feature_code === 'PPL') score += 12;
+  }
+
+  return score;
+}
+
+function chooseBestGeocodeCandidate(candidates, parsed) {
+  if (!Array.isArray(candidates) || candidates.length === 0) {
+    return null;
+  }
+
+  const ranked = [...candidates].sort((left, right) => {
+    const scoreDelta = geocodeCandidateScore(right, parsed) - geocodeCandidateScore(left, parsed);
+    if (scoreDelta !== 0) {
+      return scoreDelta;
+    }
+
+    const leftName = typeof left?.name === 'string' ? left.name : '';
+    const rightName = typeof right?.name === 'string' ? right.name : '';
+    return leftName.localeCompare(rightName);
+  });
+
+  if (parsed.state) {
+    const stateMatches = ranked.filter((candidate) => matchesStateForGeocodeResult(candidate, parsed.state));
+    if (stateMatches.length > 0) {
+      return stateMatches[0];
+    }
+  }
+
+  return ranked[0];
+}
+
 async function searchManualLocation(query) {
   const response = await fetch(
     `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=10&language=en&format=json&countryCode=US`,
@@ -4123,9 +4274,10 @@ async function geocodeManualLocation(query) {
       continue;
     }
 
-    const match = parsed.state
-      ? candidates.find((result) => matchesStateForGeocodeResult(result, parsed.state)) ?? candidates[0]
-      : candidates[0];
+    const match = chooseBestGeocodeCandidate(candidates, parsed);
+    if (!match) {
+      continue;
+    }
 
     return {
       latitude: match.latitude,

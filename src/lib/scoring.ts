@@ -499,7 +499,7 @@ function assessTrend(
       return {
         points: 2,
         impact: 'neutral',
-        detail: `${formattedDelta}. The river is above its low-water mark and not changing sharply.`,
+        detail: `${formattedDelta}. The river is above the minimum level and not changing much.`,
       };
     }
 
@@ -507,7 +507,7 @@ function assessTrend(
       return {
         points: -4,
         impact: 'warning',
-        detail: `${formattedDelta}. The river is above its minimum, but rising water lowers confidence because upper-range guidance is still incomplete.`,
+        detail: `${formattedDelta}. The river is above the minimum level, but rising water adds uncertainty because we have less guidance on the high side.`,
       };
     }
 
@@ -515,14 +515,14 @@ function assessTrend(
       return {
         points: -3,
         impact: 'warning',
-        detail: `${formattedDelta}. The river is above its minimum for now, but falling water can quickly turn a minimum-only reach into a scrapy day.`,
+        detail: `${formattedDelta}. The river is above the minimum for now, but falling water can quickly turn this into a scrape-heavy day.`,
       };
     }
 
     return {
       points: 0,
       impact: 'neutral',
-      detail: `${formattedDelta}. The trend is visible, but incomplete upper guidance keeps this call conservative.`,
+      detail: `${formattedDelta}. The river is above the minimum level, but we still have less guidance on the high side.`,
     };
   }
 
@@ -882,9 +882,9 @@ function assessTemperatureAdjustment(
     detail:
       points < 0
         ? temp < 35
-          ? `Air temperature is near freezing at ${Math.round(temp)} degrees F, which makes this a tougher same-day call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
-          : `Air temperature is ${Math.round(temp)} degrees F, which makes this a weaker same-day call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
-        : `Air temperature is ${Math.round(temp)} degrees F and isn't a big problem for today.`,
+          ? `Air temperature is near freezing at ${Math.round(temp)} degrees F, which makes today a much tougher call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+          : `Air temperature is ${Math.round(temp)} degrees F, which makes today less appealing${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+        : `Air temperature is ${Math.round(temp)} degrees F and looks fine for today.`,
   };
 }
 
@@ -1550,6 +1550,29 @@ function buildExplanation(args: {
   confidence: ConfidenceResult;
   liveData: LiveDataStatus;
 }): string {
+  const normalizedConfidenceNotes = args.river.profile.confidenceNotes
+    .replace(/^Confidence\b[^.]*because\s+/i, '')
+    .replace(/^Confidence\b[^.]*\.\s*/i, '')
+    .replace(/\bConfidence is still slightly tempered because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is still a little tempered by\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is still tempered because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is tempered by\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence stays a bit below absolute because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence stays below absolute because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is still capped because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is still capped by\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bConfidence is capped mainly by\b/gi, 'The main limitation is')
+    .replace(/\bConfidence is capped by\b/gi, 'The main limitation is')
+    .replace(/\bConfidence is reduced because\b/gi, 'Confidence is lower because')
+    .replace(/\bConfidence is still\b/g, 'It is still')
+    .replace(/\bIt is still slightly tempered because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bIt is still a little tempered by\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bIt is still tempered because\b/gi, 'Remaining uncertainty comes from')
+    .replace(/\bIt is still capped by\b/gi, 'The main limitation is')
+    .replace(/\bConfidence stays\b/g, 'It stays')
+    .replace(/\bConfidence is reduced\b/g, 'It is reduced')
+    .trim();
+
   const coldWeatherDriven =
     args.rating === 'No-go' &&
     typeof args.weather?.temperatureF === 'number' &&
@@ -1563,7 +1586,7 @@ function buildExplanation(args: {
 
   const lead =
     coldWeatherDriven
-      ? `${args.river.name} is in shape, but harsh weather makes it a harder sell today.`
+      ? `${args.river.name} is in shape, but rough weather makes it a tougher call today.`
       : args.rating === 'Strong'
       ? `${args.river.name} looks good today.`
       : args.rating === 'Good'
@@ -1574,18 +1597,21 @@ function buildExplanation(args: {
 
   const gaugeSentence =
     args.gaugeAssessment.band === 'ideal'
-      ? `The gauge is inside the preferred window at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
+      ? `The gauge is in the recommended range at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
       : args.gaugeAssessment.band === 'minimum-met'
-        ? `The gauge is above the low-water mark at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but the upper end is still uncertain.`
+        ? `The gauge is above the minimum level at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but we have less guidance on the high side.`
       : args.gaugeAssessment.band === 'low-shoulder' || args.gaugeAssessment.band === 'too-low'
         ? `The gauge is still on the low side at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
         : args.gaugeAssessment.band === 'high-shoulder' || args.gaugeAssessment.band === 'too-high'
           ? `The gauge is on the high side at ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}.`
-          : `The gauge reading is ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but the flow band still needs manual interpretation.`;
+          : `The gauge reads ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but this route still needs a manual level check.`;
 
-  const confidenceSentence = args.river.profile.confidenceNotes
-    ? `Confidence in today's call is ${args.confidence.label.toLowerCase()}. ${args.river.profile.confidenceNotes}`
+  const confidenceSentence = normalizedConfidenceNotes
+    ? `Confidence in today's call is ${args.confidence.label.toLowerCase()}. ${normalizedConfidenceNotes}`
     : `Confidence in today's call is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
+  const trendSentence = /[.!?]$/.test(args.trendAssessment.detail)
+    ? args.trendAssessment.detail
+    : `${args.trendAssessment.detail}.`;
 
   const freshnessSentence =
     args.liveData.overall === 'live' ? '' : ` ${args.liveData.summary}`;
@@ -1594,7 +1620,7 @@ function buildExplanation(args: {
       ? ` ${args.comfortAssessment.detail}`
       : '';
 
-  return `${lead} ${gaugeSentence} ${args.trendAssessment.detail} ${args.weatherAssessment.detail} ${args.temperatureAssessment.detail}${freshnessSentence}${comfortSentence} ${confidenceSentence}`.replace(
+  return `${lead} ${gaugeSentence} ${trendSentence} ${args.weatherAssessment.detail} ${args.temperatureAssessment.detail}${freshnessSentence}${comfortSentence} ${confidenceSentence}`.replace(
     /\s+/g,
     ' '
   ).trim();

@@ -43,14 +43,17 @@ const homepageStructuredData = [
   description="Find the best river to paddle today with live gauge data, weather, score, confidence, and clear launch-day recommendations."
   structuredData={homepageStructuredData}
 >
-  <section class="home-overview home-overview--top" aria-label="Contribute photos">
+  <section
+    class="home-overview home-overview--top"
+    aria-label="Contribute photos"
+  >
     <section
       class="home-board-inline home-board-inline--browse"
       aria-label="Contribute river photos"
     >
       <p class="home-board-inline__copy">
-        River photos are still the hardest thing to source. If you&apos;ve got
-        some, I&apos;d love to add them.
+        Good river photos are hard to come by. If you have some, I’d love to
+        feature them in the route galleries.
       </p>
       <a
         class="river-link river-link--inline river-link--ghost"
@@ -438,42 +441,41 @@ const homepageStructuredData = [
               >
                 Gauge, weather, and support details will show up here.
               </p>
-            </div>
-          </div>
-
-          <details
-            class="river-score-tooltip home-score-breakdown hero-call__score-breakdown"
-            data-score-breakdown
-            hidden
-          >
-            <summary class="river-score-tooltip__summary">
-              <span>Why this score</span>
-            </summary>
-            <div class="river-score-tooltip__panel">
-              <p
-                class="muted river-score-tooltip__intro"
-                data-score-breakdown-summary
-              >
-                Checking what&apos;s driving today&apos;s score.
-              </p>
-              <div class="river-score-tooltip__rows" data-score-breakdown-rows>
-              </div>
-              <div
-                class="river-score-tooltip__caps"
-                data-score-breakdown-caps-wrap
+              <details
+                class="river-score-tooltip home-score-breakdown hero-call__score-breakdown"
+                data-score-breakdown
                 hidden
               >
-                <p class="river-score-tooltip__caps-label">
-                  What held today&apos;s score back
-                </p>
-                <ul
-                  class="compact-list river-score-tooltip__caps-list"
-                  data-score-breakdown-caps
-                >
-                </ul>
-              </div>
+                <summary class="river-score-tooltip__summary">
+                  <span>Why this score</span>
+                </summary>
+                <div class="river-score-tooltip__panel">
+                  <p
+                    class="muted river-score-tooltip__intro"
+                    data-score-breakdown-summary
+                  >
+                    Checking what&apos;s driving today&apos;s score.
+                  </p>
+                  <div class="river-score-tooltip__rows" data-score-breakdown-rows>
+                  </div>
+                  <div
+                    class="river-score-tooltip__caps"
+                    data-score-breakdown-caps-wrap
+                    hidden
+                  >
+                    <p class="river-score-tooltip__caps-label">
+                      What held today&apos;s score back
+                    </p>
+                    <ul
+                      class="compact-list river-score-tooltip__caps-list"
+                      data-score-breakdown-caps
+                    >
+                    </ul>
+                  </div>
+                </div>
+              </details>
             </div>
-          </details>
+          </div>
 
           <figure class="home-featured__gallery" data-featured-gallery hidden>
             <img

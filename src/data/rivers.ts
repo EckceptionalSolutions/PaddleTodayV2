@@ -254,7 +254,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'This is for experienced paddlers, not a casual float. Class I current, dam context, and fast post-rain changes all matter.',
       confidenceNotes:
-        'Confidence is stronger than average because the route itself is a DNR-recommended day trip and the DNR river-level system publishes a real interpreted ladder for the Rapidan reading. Confidence is still tempered by the route being a genuinely hard stretch and by the County Road 90 take-out lacking a stronger standalone manager page.',
+        'MN DNR recommends this exact trip and publishes official level guidance for the Rapidan gauge. Confidence is still tempered because this is a genuinely hard stretch and the County Road 90 take-out has limited public detail.',
     },
     evidenceNotes: [
       {
@@ -1255,7 +1255,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Usually a friendly downstream day, but this is still a broad moving river with strainers, wingdams, sandbars, and powerboat traffic rather than a tiny sheltered creek.',
       confidenceNotes:
-        'Confidence is strong because NPS publishes this exact Highway 8 to Osceola trip, the lower-river paddling guide gives an official low-water caution tied to the St. Croix Falls gauge, and both endpoints are publicly documented landings with stronger current access detail than most border-river routes. The app still stays conservative because the official source gives a floor-style warning rather than a polished ideal band.',
+        'NPS publishes this exact Highway 8 to Osceola trip, the lower-river paddling guide gives an official low-water caution tied to the St. Croix Falls gauge, and both landings are clearly documented. The app stays conservative because the official source gives a low-water warning, not a polished ideal range.',
     },
     evidenceNotes: [
       {
@@ -1367,7 +1367,7 @@ export const rivers: River[] = [
       difficultyNotes:
         "There are no rapids on this reach, but broad water, wakes, and a side-channel state-park take-out make it a bigger day than a tiny-flatwater beginner route.",
       confidenceNotes:
-        "Confidence is good because Osceola and William O'Brien are both real public landings on an official lower St. Croix corridor, and current NPS and DNR materials clearly place the route and the 2026 take-out status. Confidence is still tempered because the numeric floor is community-sourced and the St. Croix Falls gauge is an upstream proxy rather than a route-specific lower-river ladder.",
+        "Osceola and William O'Brien are both real public landings on an official lower St. Croix corridor, and current NPS and DNR materials clearly place the route and the 2026 take-out status. Remaining uncertainty comes from the community-sourced low-water floor and the St. Croix Falls gauge sitting upstream of this lower-river reach.",
     },
     evidenceNotes: [
       {
@@ -1489,7 +1489,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally beginner-friendly with wider, deeper current than the smallest creeks, but flood debris and cold shoulder-season water still deserve respect.',
       confidenceNotes:
-        'The route and gauge are both officially supported, and the DNR river-level page provides a real paddling ladder for the St. Francis gauge. Confidence is still not absolute because DNR flags these interpretations as human-reviewed guidance rather than infallible route-specific truth.',
+        'The route and gauge are both officially supported, and the DNR river-level page gives clear paddling guidance for the St. Francis gauge. Confidence is still not absolute because that guidance is broad and same-day hazards can still change the call.',
     },
     evidenceNotes: [
       {
@@ -1697,7 +1697,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Approachable for newer paddlers at sane levels, but wood, strainers, and cold-water exposure still matter more than the easy label alone implies.',
       confidenceNotes:
-        'The route itself is a Minnesota DNR recommended day trip and the DNR river-level system publishes a real interpreted ladder for the matching Sauk gauge. Confidence stays a bit below absolute because the ladder is a broad paddling interpretation, not a custom route-only score model.',
+        'MN DNR recommends this exact trip and publishes official level guidance for the matching Sauk gauge. Confidence stays a bit below absolute because that guidance is broad and does not account for every same-day hazard on this route.',
     },
     evidenceNotes: [
       {
@@ -1895,7 +1895,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Class I rapids, low-water scraping, and the long runout to the St. Croix make this more than a lazy flatwater shuttle even though it is not a technical whitewater run.',
       confidenceNotes:
-        'Confidence is strong because MN DNR names this lower corridor directly, the Pine City gauge is on the route, and the low-water story is official. Confidence is still a little tempered by the take-out: Snake Bit is clearly named on the DNR map, but the best exact access anchor today is the nearby state public-water-access record at the Snake/St. Croix confluence rather than a standalone Snake Bit facility page.',
+        'MN DNR names this lower corridor directly, the Pine City gauge is on the route, and the low-water guidance is official. Remaining uncertainty comes from the take-out: Snake Bit is clearly named on the DNR map, but public access details are clearer at the nearby Snake/St. Croix landing than at Snake Bit itself.',
     },
     evidenceNotes: [
       {
@@ -2001,7 +2001,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'The current is usually manageable, but distance, open-water feel, wind, and motorboat-style landings make it a bigger day than a small-river easy label suggests.',
       confidenceNotes:
-        'Confidence is strong because the route is an exact DNR-recommended trip, the Mankato gauge has an official DNR ladder, and both endpoints are backed by Minnesota public-water-access records. Confidence is still a little tempered by the larger-river judgment calls that gauges cannot fully price in, especially wind and sandbar exposure.',
+        'Confidence is high because MN DNR recommends this exact trip, the Mankato gauge has official level guidance, and the launch and take-out are backed by state access records. Confidence is still tempered by big-river variables like wind and sandbar exposure.',
     },
     evidenceNotes: [
       {
@@ -2103,7 +2103,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'The water is usually straightforward, but 17.4 miles on the Minnesota River is still a serious day because of distance, wind exposure, and big-river landings.',
       confidenceNotes:
-        'Confidence is solid because MN DNR recommends this exact trip, both endpoints are backed by Minnesota public-water-access records, and the Jordan USGS gauge has an official DNR ladder. Confidence is still slightly tempered because the gauge sits downstream at Thompson Ferry rather than exactly on the Henderson-to-Belle Plaine reach.',
+        'MN DNR recommends this exact trip, both ends are backed by Minnesota public-water-access records, and the Jordan USGS gauge has official DNR level guidance. Remaining uncertainty comes from the gauge sitting downstream at Thompson Ferry rather than exactly on the Henderson-to-Belle Plaine reach.',
     },
     evidenceNotes: [
       {
@@ -2209,7 +2209,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'This is not technical whitewater, but it is not a casual flatwater float either. Swift current, barge wakes, urban boat traffic, and lock or portage logistics demand solid boat handling and decision-making.',
       confidenceNotes:
-        'Confidence is strong because MN DNR recommends this exact trip, the St. Paul gauge has an official DNR ladder, Hidden Falls has a clearly documented public boat launch, and NPS has current lock and portage guidance. Confidence is still slightly tempered because the gauge is downstream of the route and East River Flats launch details are thinner than the take-out side.',
+        'Confidence is high because MN DNR recommends this exact trip, the St. Paul gauge has official level guidance, Hidden Falls has a clearly documented public launch, and NPS has current lock and portage guidance. Confidence is still tempered because the gauge is downstream of the route and East River Flats has thinner launch detail than the take-out.',
     },
     evidenceNotes: [
       {
@@ -2319,7 +2319,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly approachable at normal levels, but a 15-mile Mora day is still a real effort and higher water can turn a mellow shuttle float into a stronger moving-water commitment.',
       confidenceNotes:
-        'The official DNR ladder gives this route a defendable numeric band on the Pine City gauge, but the Mora segment still leans more on local knowledge than a state-water-trail park-to-park float. Confidence is tempered by route length, wood, and the fact that the access pair comes from local route knowledge rather than an official DNR segment page.',
+        'The Pine City gauge has official DNR level guidance, but this Mora segment still relies more on local route knowledge than the better-documented lower Snake trips. Confidence is tempered by route length, wood, and access details that are lighter than on the lower river.',
     },
     evidenceNotes: [
       {
@@ -2415,7 +2415,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Not especially technical at sane levels, but 15-plus miles, wood, and a lower-river shuttle make this more of a committed river day than a casual park float.',
       confidenceNotes:
-        'This route now has both official access support and an official DNR paddling ladder for the lower North Fork Crow corridor. Confidence stays below absolute because the DNR ladder is broad and the route is long enough that strainers, fatigue, and storm debris still matter beyond the raw number.',
+        'This route now has both official access support and official DNR level guidance for the lower North Fork Crow corridor. Remaining uncertainty comes from the route length and the fact that strainers, fatigue, and storm debris still matter beyond the raw number.',
     },
     evidenceNotes: [
       {
@@ -2511,7 +2511,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Technically approachable at proper flows, but urban obstacles, low bridges, portages, and fast post-rain current make this more than a blind beginner yes.',
       confidenceNotes:
-        'MCWD publishes an official paddling band and explicitly ties it to the live USGS Hiawatha gauge, which makes this a stronger route than most old-repo candidates. Confidence is still capped by the creek itself, because bridge clearance, wood, and urban obstacles can change the day even inside the official flow range.',
+        'MCWD publishes an official paddling band and explicitly ties it to the live USGS Hiawatha gauge, which makes this a well-supported route. The main limitation is the creek itself: bridge clearance, wood, and urban obstacles can change the day even inside the official flow range.',
     },
     evidenceNotes: [
       {
@@ -2596,7 +2596,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly Class I current with a few Class II rapids. A workable gauge does not remove the need to scout and portage, especially for less experienced paddlers.',
       confidenceNotes:
-        'Confidence is stronger than average because the route itself is a DNR-recommended day trip, the gauge is direct, and the low-flow guidance is official. Confidence is still capped because the DNR source gives a low-side release floor and a better May-June target, not a full upper threshold model, and Bachelor Road is better documented on official trail maps than on a standalone facility page.',
+        'MN DNR recommends this trip, the gauge is direct, and the low-flow guidance is official. Remaining uncertainty comes from the source giving a low-water floor and a better May-June target, not a full upper range, and from Bachelor Road having limited public access detail.',
     },
     evidenceNotes: [
       {
@@ -2785,7 +2785,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Usually an approachable downstream day, but nine-plus miles, storm wood, and soft river banks keep it from being a blind beginner yes.',
       confidenceNotes:
-        'The route itself is official and the gauge is direct. Confidence is capped mainly by threshold quality: Johnson County clearly uses this exact reach at flows from about 200 to 830 cfs, but there is still no manager-published paddling ladder for the Iowa City gauge, so the app only claims a conservative low-water floor.',
+        'The route is official and the gauge is direct. Confidence is capped mainly by level guidance: Johnson County clearly uses this exact reach at flows from about 200 to 830 cfs, but there is still no published paddling guide for the Iowa City gauge, so the app only claims a conservative low-water floor.',
     },
     evidenceNotes: [
       {

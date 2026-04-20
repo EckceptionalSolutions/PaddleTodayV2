@@ -480,7 +480,7 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
     expect(result.score).toBeLessThanOrEqual(74);
   expect(result.rating).toBe('Fair');
     expect(result.confidence.label).toBe('Medium');
-    expect(result.explanation).toContain('low-water mark');
+    expect(result.explanation).toContain('minimum level');
   });
 
   it('drops minimum-only rivers below minimum into no-go territory', () => {
