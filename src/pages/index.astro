@@ -114,7 +114,7 @@ const homepageStructuredData = [
         aria-label="Set your location"
         data-nearby-location-panel
       >
-        <p class="home-location-bar__step">Step 1 - Set location</p>
+        <p class="home-location-bar__step">Set Location</p>
         <button
           class="home-location-bar__current"
           type="button"
@@ -125,13 +125,13 @@ const homepageStructuredData = [
           >
           <div class="home-location-bar__text">
             <p class="home-location-bar__value" data-home-location-summary>
-              Set your location to see drive times
+              Enter a city or ZIP to get started
             </p>
             <p
               class="home-location-bar__helper"
               data-home-location-sort-summary
             >
-              Choose a location to rank the board by drive time.
+              Enter your location to see nearby picks and drive times.
             </p>
           </div>
         </button>
@@ -155,7 +155,7 @@ const homepageStructuredData = [
             <input
               class="filter-search__input home-location-bar__search-input"
               type="search"
-              placeholder="City or ZIP code"
+              placeholder="Search city or ZIP"
               data-location-input
             />
           </label>
@@ -178,7 +178,7 @@ const homepageStructuredData = [
         <div class="home-location-bar__refine" data-home-refine-row>
           <div class="home-location-bar__refine-copy">
             <p class="home-location-bar__step home-location-bar__step--refine">
-              Step 2 - Set Preferences
+              Preferences (optional)
             </p>
             <p
               class="home-location-bar__refine-radius sr-only"
@@ -377,7 +377,7 @@ const homepageStructuredData = [
         <div class="home-featured__lock">
           <p class="home-featured__lock-label">Today&apos;s Best</p>
           <p class="home-featured__lock-copy">
-            Set your location to see the best nearby paddle right now.
+            Enter a city or ZIP to see the best nearby paddle right now.
           </p>
         </div>
 
@@ -387,7 +387,7 @@ const homepageStructuredData = [
               Today&apos;s Best
             </p>
             <p class="hero-call__state" data-featured-state>
-              Set your location to see the best nearby paddle right now.
+              Enter a city or ZIP to see the best nearby paddle right now.
             </p>
             <h2 class="hero-call__title">
               <a
@@ -420,10 +420,10 @@ const homepageStructuredData = [
 
             <div class="hero-call__score-meta">
               <p class="hero-call__verdict" data-field="featured-verdict">
-                Set your location
+                Enter your location
               </p>
               <p class="hero-call__reason" data-field="featured-reason">
-                Add a location to see drive time and nearby ranking.
+                Enter a city or ZIP to see drive time and nearby ranking.
               </p>
               <div class="home-featured__weather" data-featured-weather hidden>
                 <span
@@ -456,7 +456,10 @@ const homepageStructuredData = [
                   >
                     Checking what&apos;s driving today&apos;s score.
                   </p>
-                  <div class="river-score-tooltip__rows" data-score-breakdown-rows>
+                  <div
+                    class="river-score-tooltip__rows"
+                    data-score-breakdown-rows
+                  >
                   </div>
                   <div
                     class="river-score-tooltip__caps"
@@ -634,7 +637,7 @@ const homepageStructuredData = [
         id="home-results-map"
         mode="explore"
         eyebrow="Route map"
-        title="Today's best options"
+        title="Today's route map"
         lede=""
         showResults={true}
         resultsTitle="Matching routes"

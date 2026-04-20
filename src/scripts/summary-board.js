@@ -2419,7 +2419,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredState instanceof HTMLElement) {
       featuredState.hidden = locationReady;
-      featuredState.textContent = 'Set your location to see the best nearby paddle right now.';
+      featuredState.textContent = 'Enter a city or ZIP to see the best nearby paddle right now.';
     }
     if (featuredName instanceof HTMLAnchorElement) {
       featuredName.textContent = locationReady ? 'No routes in range' : 'Best pick right now';
@@ -2428,16 +2428,16 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     if (featuredReach instanceof HTMLElement) {
       featuredReach.textContent = locationReady
         ? `Increase drive distance above ${selectedRadiusMiles} miles to compare more routes.`
-        : 'Set your location to unlock a personalized top pick.';
+        : 'Enter a city or ZIP to unlock a personalized top pick.';
     }
     if (featuredBridge instanceof HTMLElement) {
       featuredBridge.textContent = locationReady
         ? ''
-        : 'Set your location to unlock the top pick.';
+        : 'Enter a city or ZIP to unlock the top pick.';
     }
     setText(document, 'featured-score', '--');
     setText(document, 'featured-rating', locationReady ? 'Out of range' : 'Locked');
-    setText(document, 'featured-verdict', locationReady ? 'Nothing in range yet' : 'Set your location');
+    setText(document, 'featured-verdict', locationReady ? 'Nothing in range yet' : 'Enter your location');
     setText(
       document,
       'featured-reason',
@@ -2665,7 +2665,7 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     ? activePreferenceText
       ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
       : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
-    : 'Set your location above to compare nearby routes.';
+    : 'Enter a city or ZIP above to compare nearby routes.';
 
   if (recommendationCount instanceof HTMLElement) {
     recommendationCount.textContent = locationReady
@@ -2859,9 +2859,9 @@ function updateLocationStatus() {
     } else if (locationReady) {
       homeLocationSummary.textContent = shortLocationLabel();
     } else if (userLocationState === 'denied' || userLocationState === 'unavailable') {
-      homeLocationSummary.textContent = 'Set your location';
+      homeLocationSummary.textContent = 'Enter a city or ZIP to get started';
     } else {
-      homeLocationSummary.textContent = 'Set your location';
+      homeLocationSummary.textContent = 'Enter a city or ZIP to get started';
     }
   }
 
@@ -2877,7 +2877,7 @@ function updateLocationStatus() {
       homeLocationSortSummary.textContent = '';
     } else {
       homeLocationSortSummary.hidden = false;
-      homeLocationSortSummary.textContent = 'Choose a location to see nearby picks and drive times.';
+      homeLocationSortSummary.textContent = 'Enter your location to see nearby picks and drive times.';
     }
   }
 
@@ -3290,6 +3290,7 @@ function markerClassFor(item) {
 
 function popupMarkup(item) {
   const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
+  const ratingKey = ratingToneKey(item.cardRoute.rating);
   const reachMarkup = isGroupedItem(item)
     ? `<p class="score-map-popup__reach">${escapeHtml(representativeRouteLabel(item))}</p>`
     : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
@@ -3299,7 +3300,7 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
       <div class="score-map-popup__scoreline">
-        <span class="score-map-popup__scorebadge">${escapeHtml(String(item.cardRoute.score))}</span>
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(String(item.cardRoute.score))}</span>
         <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
       </div>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>

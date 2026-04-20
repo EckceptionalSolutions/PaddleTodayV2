@@ -3280,6 +3280,7 @@ function markerClassFor(item) {
 
 function popupMarkup(item) {
   const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
+  const ratingKey = ratingToneKey(item.cardRoute.rating);
   const reachMarkup = isGroupedItem(item)
     ? `<p class="score-map-popup__reach">${escapeHtml(representativeRouteLabel(item))}</p>`
     : `<p class="score-map-popup__reach">${escapeHtml(routeLabelForItem(item))}</p>`;
@@ -3289,7 +3290,7 @@ function popupMarkup(item) {
       <h3>${escapeHtml(item.cardRoute.river.name)}</h3>
       ${reachMarkup}
       <div class="score-map-popup__scoreline">
-        <span class="score-map-popup__scorebadge">${escapeHtml(String(item.cardRoute.score))}</span>
+        <span class="score-map-popup__scorebadge score-map-popup__scorebadge--${escapeHtml(ratingKey)}">${escapeHtml(String(item.cardRoute.score))}</span>
         <p class="score-map-popup__verdict">${escapeHtml(recommendationVerdict(item))}</p>
       </div>
       <p class="score-map-popup__summary">${escapeHtml(recommendationSummaryText(item, nearbyReady))}</p>
