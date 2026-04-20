@@ -74,6 +74,15 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Blocker: 47-mile corridor is too broad and portage-heavy for a clean route-level threshold model.
   - Retry only if: broken into smaller route units with clear endpoint and threshold support.
 
+- 2026-04-20: `Rice Creek - Peltier Lake to County Road I`
+  - Blocker: duplicate coverage. The existing `Rice Creek - Peltier Lake to Long Lake` route already carries the same official `USGS 05288580` gauge story and includes `County Road I access` as the 11-mile intermediate official exit.
+  - Retry only if: product policy changes to explicitly split already-covered routes into separately listed official subsegments instead of keeping them as intermediate exits on the parent route.
+
+- 2026-04-20: `Des Moines River - Austin Park to Keosauqua Boat Ramp`
+  - Official route support is strong: Iowa DNR names this exact 5.8-mile Segment #4, Van Buren County Conservation runs an official `Austin Park to Keosauqua Paddle`, Austin Park has an official county launch page, and Villages of Van Buren clearly treats Keosauqua Boat Ramp as a public named access.
+  - Blocker: threshold support is still too qualitative. The official route materials say the segment is beginner-friendly when water levels are normal and warn about low/high water and Red Rock release effects, but they do not provide a non-guessy numeric paddling floor or range for `USGS 05490450` or `USGS 05490500`.
+  - Retry only if: Iowa DNR, Van Buren County, USGS-adjacent manager guidance, or strong same-route mixed evidence ties this exact Austin-to-Keosauqua segment to a defensible numeric minimum or range.
+
 ## Blocked Until Date
 
 - Through 2026-11-30: `Cannon River - Cannon Falls to Miesville Ravine County Park`

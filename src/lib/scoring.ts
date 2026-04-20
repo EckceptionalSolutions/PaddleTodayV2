@@ -565,7 +565,7 @@ function assessTrend(
   return {
     points: 0,
     impact: 'neutral',
-    detail: `${formattedDelta}. The trend is not strong enough to move the call by itself.`,
+    detail: formattedDelta,
   };
 }
 
@@ -1584,8 +1584,8 @@ function buildExplanation(args: {
           : `The gauge reading is ${formatGauge(args.gauge.current, args.gauge.unit)} ${args.gauge.unit}, but the flow band still needs manual interpretation.`;
 
   const confidenceSentence = args.river.profile.confidenceNotes
-    ? `Confidence is ${args.confidence.label.toLowerCase()}. ${args.river.profile.confidenceNotes}`
-    : `Confidence is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
+    ? `Confidence in today's call is ${args.confidence.label.toLowerCase()}. ${args.river.profile.confidenceNotes}`
+    : `Confidence in today's call is ${args.confidence.label.toLowerCase()} because the available source quality and live data coverage are only moderate.`;
 
   const freshnessSentence =
     args.liveData.overall === 'live' ? '' : ` ${args.liveData.summary}`;

@@ -1792,7 +1792,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Usually approachable for most paddlers at sane levels, but wood and fast post-rain changes still deserve real attention.',
       confidenceNotes:
-        'Confidence is strong because MN DNR officially recommends this exact trip, the Pine City gauge has a real DNR interpretation ladder, and both endpoints are now backed by the state public-water-access dataset rather than guessed coordinates.',
+        "MN DNR recommends this exact trip, the Pine City gauge has official DNR level guidance, and the launch and take-out are backed by state access records.",
     },
     evidenceNotes: [
       {
