@@ -1658,6 +1658,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'milwaukee-river-lime-kiln-village-park': {
+    putIn: {
+      name: 'Lime Kiln Park canoe ramp',
+      latitude: 43.30534,
+      longitude: -87.95358,
+    },
+    takeOut: {
+      name: 'Village Park boat launch (Thiensville)',
+      latitude: 43.23164,
+      longitude: -87.97648,
+    },
+    logistics: {
+      distanceLabel: '8.75 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr',
+      shuttle:
+        'Plan a straightforward two-car shuttle of roughly 6 miles. A bike shuttle is possible on local roads and trail links, but a car shuttle is simpler for most groups.',
+      permits:
+        'No route-specific permit is identified. Follow posted park, launch, and parking rules at Lime Kiln Park and Thiensville Village Park.',
+      camping:
+        'No on-route camping is expected for this suburban Milwaukee River segment. Treat it as a day trip.',
+      summary:
+        'Put in at Lime Kiln Park in Grafton and take out at Thiensville Village Park. This is one of the more interesting lower-Milwaukee day trips because the upper mile is genuinely lively before the river widens and slows.',
+      accessCaveats: [
+        'Lime Kiln Park is an official canoe-ramp access with multiple parking lots, but the exact launch line still deserves a quick scout because paddlers can choose between a calmer dock launch and a more direct upper launch near the opening features.',
+        'Village Park is the correct official Thiensville take-out. The old Villa Grove naming from the carried-over draft was weaker than the current village boating and park pages.',
+      ],
+      watchFor: [
+        'A quick opening decision around the island at Lime Kiln Park, with riffles on one side and a Class I ledge/drop on the other.',
+        'Shallow gravel runs and extra scraping if Cedarburg falls back toward the floor.',
+        'More development, slower current, and occasional powerboat traffic in the lower half approaching Thiensville.',
+      ],
+    },
+  },
   'milwaukee-river-waubedonia-veterans': {
     putIn: {
       name: 'Waubedonia Park (Fredonia)',

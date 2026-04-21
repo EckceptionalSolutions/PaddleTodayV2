@@ -4,6 +4,10 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 ## Added
 
+- 2026-04-20: `Milwaukee River - Lime Kiln Park to Village Park`
+  - Added to PaddleTodayV2 with a route-specific conservative `minimum-only` model on `USGS 04086600`.
+  - Remaining caveat: the 260 cfs floor is a route-day recommendable level from MilesPaddled, not a stronger published ladder, so the route stays minimum-only.
+
 - 2026-04-20: `Snake River - County Road 9 carry-in access to Snake Bit Access`
   - Added to PaddleTodayV2 with an official-source-backed `minimum-only` model on `USGS 05338500`.
   - Remaining caveat: Snake Bit is clearly named on the DNR map, but the best exact access anchor today is the nearby official Snake/St. Croix public-water-access record rather than a standalone Snake Bit facility page.

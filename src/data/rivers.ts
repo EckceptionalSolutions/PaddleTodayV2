@@ -4271,6 +4271,107 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'milwaukee-river-lime-kiln-village-park',
+    slug: 'milwaukee-river-lime-kiln-village-park',
+    name: 'Milwaukee River',
+    reach: 'Lime Kiln Park to Village Park',
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      'Grafton-to-Thiensville Milwaukee run with a livelier opening than most easy river shuttles. The main decision is still water level first, but this route also deserves an honest skill check because the opening island split and Class I ledge are not beginner-flatwater features.',
+    statusText:
+      'Treat about 260 cfs at Cedarburg as a conservative floor. That level is route-specific and recommendable, but the app stays minimum-only because there is no stronger published range for this exact Lime Kiln to Thiensville segment.',
+    latitude: 43.30534,
+    longitude: -87.95358,
+    gaugeSource: {
+      id: 'usgs-04086600',
+      provider: 'usgs',
+      siteId: '04086600',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Milwaukee River near Cedarburg, WI',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 260,
+      thresholdSource: {
+        label: 'MilesPaddled Milwaukee River III route-day gauge note',
+        url: 'https://milespaddled.com/milwaukee-river-iii/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through early fall is the practical window. The route is more likely to lose quality from low water and summer weediness than from a narrow official sweet spot.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The first mile asks for more boat control than the average easy Milwaukee route because of the island split, riffles, and a Class I ledge option. The lower half then slows down and picks up more suburban and motorboat context.',
+      confidenceNotes:
+        'Confidence is solid on the route, gauge, and endpoint naming. The weak point is threshold quality: the app has a route-specific recommendable day at 260 cfs, but not a stronger published minimum-to-maximum ladder for this exact reach.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-day floor',
+        value: '260 cfs',
+        note: 'MilesPaddled ran this exact Lime Kiln Park to Thiensville route at 260 cfs on the Cedarburg gauge and recommended that level for the trip.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-iii/',
+      },
+      {
+        label: 'Route shape',
+        value: '8.75 river miles',
+        note: 'MilesPaddled documents the route as an 8.75-mile shuttle from Lime Kiln Park in Grafton to Thiensville.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-iii/',
+      },
+      {
+        label: 'Put-in authority',
+        value: 'Village park with canoe ramp',
+        note: 'Grafton officially says Lime Kiln Park includes a canoe ramp plus upper and lower parking lots, which is stronger endpoint support than the old route draft had.',
+        sourceUrl: 'https://www.villageofgraftonwi.gov/387/Lime-Kiln-Park',
+      },
+      {
+        label: 'Take-out authority',
+        value: 'Village Park boat launch and trailer parking',
+        note: 'Thiensville officially says Village Park has a boat launch and trailer parking on the Milwaukee River and serves as the local portage point around the dam.',
+        sourceUrl: 'https://www.village.thiensville.wi.us/144/Boating',
+      },
+      {
+        label: 'Route character',
+        value: 'Riffles and Class I ledge up top; slower suburban lower half',
+        note: 'MilesPaddled describes an opening island split with either riffles and a rock wall or a Class I drop, followed by a wider slower lower river with more development and powerboats.',
+        sourceUrl: 'https://milespaddled.com/milwaukee-river-iii/',
+      },
+      {
+        label: 'Operations note',
+        value: 'Village Park hours 6 a.m. to 10 p.m.',
+        note: 'The official Village Park page confirms a boat launch, two parking lots, and posted park hours, which strengthens the Thiensville finish logistics.',
+        sourceUrl: 'https://www.village.thiensville.wi.us/Facilities/Facility/Details/Village-Park-2',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Village of Grafton Lime Kiln Park',
+        url: 'https://www.villageofgraftonwi.gov/387/Lime-Kiln-Park',
+      },
+      {
+        label: 'Village of Thiensville boating',
+        url: 'https://www.village.thiensville.wi.us/144/Boating',
+      },
+      {
+        label: 'Village of Thiensville Village Park',
+        url: 'https://www.village.thiensville.wi.us/Facilities/Facility/Details/Village-Park-2',
+      },
+      {
+        label: 'USGS 04086600 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+      {
+        label: 'MilesPaddled Milwaukee River III',
+        url: 'https://milespaddled.com/milwaukee-river-iii/',
+      },
+    ],
+  },
+  {
     id: 'milwaukee-river-waubedonia-veterans',
     slug: 'milwaukee-river-waubedonia-veterans',
     name: 'Milwaukee River',

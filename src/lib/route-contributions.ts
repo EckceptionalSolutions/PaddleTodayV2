@@ -314,6 +314,8 @@ export async function reviewRouteContributionSubmission(args: {
 
   if (args.action === 'approve') {
     await approveContributionAssets(storage, submission, reviewedAt);
+  } else {
+    await removeApprovedContributionAssets(storage, submission);
   }
 
   await storage.writeJson(indexBlobName(), index);
@@ -374,6 +376,17 @@ async function approveContributionAssets(storage: BinaryStorage, submission: Rou
       photos: approvedSubmissionPhotos,
     });
   }
+
+  await Promise.all([
+    storage.writeJson(approvedPhotosBlobName(submission.river.slug), nextPhotos),
+    storage.writeJson(approvedReportsBlobName(submission.river.slug), nextReports),
+  ]);
+}
+
+async function removeApprovedContributionAssets(storage: BinaryStorage, submission: RouteContributionSubmission) {
+  const community = await getApprovedCommunityForRoute(submission.river.slug);
+  const nextPhotos = community.photos.filter((item) => item.sourceSubmissionId !== submission.id);
+  const nextReports = community.reports.filter((item) => item.sourceSubmissionId !== submission.id);
 
   await Promise.all([
     storage.writeJson(approvedPhotosBlobName(submission.river.slug), nextPhotos),

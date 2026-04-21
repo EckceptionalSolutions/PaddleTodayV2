@@ -1915,16 +1915,21 @@ function renderScoreBreakdown(result) {
   const capList = root.querySelector('[data-score-cap-reasons]');
   const capWrap = root.querySelector('[data-score-cap-wrap]');
   if (capList instanceof HTMLElement) {
-    const reasons = Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [];
+    const reasons = (Array.isArray(breakdown.capReasons) ? breakdown.capReasons : [])
+      .map((reason) => friendlyCapReason(reason))
+      .filter((reason) => reason.length > 0);
     if (capWrap instanceof HTMLElement) {
       capWrap.hidden = reasons.length === 0;
     }
-    capList.innerHTML = reasons.map((reason) => `<li>${friendlyCapReason(reason)}</li>`).join('');
+    capList.innerHTML = reasons.map((reason) => `<li>${reason}</li>`).join('');
   }
 }
 
 function friendlyCapReason(reason) {
   const normalized = String(reason || '').trim();
+  if (!normalized) {
+    return '';
+  }
 
   if (/Near-freezing air caps today at 70\./i.test(normalized)) {
     return 'Cold air keeps today from scoring higher, even if the river itself looks good.';
