@@ -192,10 +192,15 @@ const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
+const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
+const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
+const summaryMapMobileLayout =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMobileLayout || 'collapse') : 'collapse';
+const summaryMapSupportsMobileViews = summaryMapMobileLayout === 'list-map';
 const featuredMapAlwaysVisible =
   featuredPanel instanceof HTMLElement && featuredPanel.dataset.featuredMapAlwaysVisible === 'true';
 const featuredUnlockedWithoutLocation =
@@ -248,6 +253,7 @@ let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
+let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches ? 'list' : 'map';
 let initialized = false;
 let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
@@ -3329,6 +3335,23 @@ function isNearbySummaryMapMode() {
   return summaryMapMode === 'nearby';
 }
 
+function activeSummaryMapView() {
+  if (!(summaryMapSupportsMobileViews && phoneBreakpoint.matches)) {
+    return 'map';
+  }
+
+  return summaryMapMobileView === 'list' ? 'list' : 'map';
+}
+
+function setSummaryMapMobileView(nextView) {
+  if (!summaryMapSupportsMobileViews) {
+    return;
+  }
+
+  summaryMapMobileView = nextView === 'list' ? 'list' : 'map';
+  updateSummaryMapToggle();
+}
+
 function summaryMapItemNoun(count) {
   const singular = isNearbySummaryMapMode() ? 'route' : 'river';
   const plural = isNearbySummaryMapMode() ? 'routes' : 'rivers';
@@ -3352,6 +3375,10 @@ function openSummaryMapItem(key) {
   const marker = mapMarkersByKey.get(key);
   if (!marker) {
     return;
+  }
+
+  if (activeSummaryMapView() === 'list') {
+    setSummaryMapMobileView('map');
   }
 
   updateSummaryMapSelection(key);
@@ -3437,6 +3464,45 @@ function updateSummaryMapToggle() {
   }
 
   const compact = phoneBreakpoint.matches;
+  const mobileView = activeSummaryMapView();
+
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-list',
+    summaryMapSupportsMobileViews && compact && mobileView === 'list'
+  );
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-map',
+    summaryMapSupportsMobileViews && compact && mobileView === 'map'
+  );
+
+  if (summaryMapMobileSwitch instanceof HTMLElement) {
+    summaryMapMobileSwitch.hidden = !(summaryMapSupportsMobileViews && compact);
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const isActive = compact && mobileView === button.dataset.summaryMapMobileView;
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    button.classList.toggle('summary-map-mobile-switch__button--active', isActive);
+  }
+
+  if (summaryMapSupportsMobileViews) {
+    if (!compact) {
+      summaryMapMobileView = 'map';
+    }
+
+    summaryMapToggle.hidden = true;
+    if (mobileView === 'map' && mapRuntime) {
+      window.setTimeout(() => {
+        mapRuntime?.resize();
+      }, 30);
+    }
+    return;
+  }
+
   if (!compact) {
     summaryMapCollapsed = false;
   }
@@ -4548,6 +4614,16 @@ export function initSummaryBoard() {
     });
   }
 
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    button.addEventListener('click', () => {
+      setSummaryMapMobileView(button.dataset.summaryMapMobileView);
+    });
+  }
+
   window.addEventListener('resize', () => {
     syncExploreShellHeight();
     updateSummaryMapToggle();
@@ -4580,7 +4656,3 @@ export function initSummaryBoard() {
     loadBoard({ silent: true });
   }, AUTO_REFRESH_MS);
 }
-
-
-
-
