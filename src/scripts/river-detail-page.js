@@ -2290,13 +2290,45 @@ function scoreHourlyPoint(point) {
   return score;
 }
 
+function pointLocalHour(point) {
+  const timeValue = point?.time;
+  if (typeof timeValue !== 'string' || !timeValue) {
+    return null;
+  }
+
+  const date = new Date(timeValue);
+  if (Number.isNaN(date.getTime())) {
+    return null;
+  }
+
+  return date.getHours();
+}
+
+function isAfterDark(point) {
+  if (point?.isDaytime === false) {
+    return true;
+  }
+
+  if (point?.isDaytime === true) {
+    return false;
+  }
+
+  const hour = pointLocalHour(point);
+  if (hour === null) {
+    return false;
+  }
+
+  // Fallback guard when the weather payload does not include a daytime flag.
+  return hour >= 21 || hour < 6;
+}
+
 function pickBestShortRouteWindow(weather) {
   if (!weather || !Array.isArray(weather.todayHourly) || weather.todayHourly.length < 2) {
     return null;
   }
 
   const points = weather.todayHourly;
-  const sunsetIndex = points.findIndex((point) => point?.isDaytime === false);
+  const sunsetIndex = points.findIndex((point) => isAfterDark(point));
   const lastAllowedEndIndex = sunsetIndex >= 0 ? sunsetIndex - 1 : points.length - 1;
 
   if (lastAllowedEndIndex < 1) {
