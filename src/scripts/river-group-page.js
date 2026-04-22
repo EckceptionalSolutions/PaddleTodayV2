@@ -145,18 +145,21 @@ function favoriteButtonMarkup(route) {
   );
 }
 
-function metaLine(route) {
-  const parts = [confidenceLabelText(route.confidence)];
-  if (routeLengthText(route)) {
-    parts.push(routeLengthText(route));
-  }
-  if (routeDifficultyText(route)) {
-    parts.push(routeDifficultyText(route));
-  }
-  if (route.estimatedPaddleTime) {
-    parts.push(route.estimatedPaddleTime);
-  }
-  return parts.join(BULLET);
+function conditionsLine(route) {
+  return [levelText(route), trendText(route), weatherSummary(route)].filter(Boolean).join(BULLET);
+}
+
+function routeFactsMarkup(route) {
+  const facts = [
+    confidenceLabelText(route.confidence),
+    routeLengthText(route),
+    routeDifficultyText(route),
+    route.estimatedPaddleTime,
+  ].filter(Boolean);
+
+  return facts
+    .map((fact) => `<span class="route-choice__fact">${escapeHtml(fact)}</span>`)
+    .join('');
 }
 
 function levelText(route) {
@@ -776,18 +779,24 @@ function renderRouteList(routes) {
           <span class="route-choice__kind">Route</span>
           <span class="route-choice__eyebrow">${route.state} | ${route.region}</span>
           <strong class="route-choice__title">${route.reach}</strong>
-      <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
+          <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
           <div class="route-choice__scoreline">
             <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
               ${route.score}
             </span>
-            <span class="route-choice__meta">${metaLine(route)}</span>
+            <div class="route-choice__score-copy">
+              <span class="route-choice__meta">${conditionsLine(route)}</span>
+              <span class="route-choice__signal">
+                ${signalRowMarkup(route)}
+              </span>
+            </div>
           </div>
           <span class="route-choice__summary">${decisionSummary(route)}</span>
-          <span class="route-choice__signal">
-            ${signalRowMarkup(route)}
-          </span>
           ${supportingNote(route) ? `<span class="route-choice__note">${escapeHtml(supportingNote(route))}</span>` : ''}
+          <div class="route-choice__facts-section">
+            <p class="route-choice__facts-label">Route facts</p>
+            <div class="route-choice__facts">${routeFactsMarkup(route)}</div>
+          </div>
           <div class="route-choice__footer">
             <span class="route-choice__selection">${active ? 'Selected on map' : 'Click card to show on map'}</span>
             <div class="route-choice__actions">

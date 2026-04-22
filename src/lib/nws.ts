@@ -245,6 +245,7 @@ function buildHourlyForecastPoints(args: {
           hour: 'numeric',
           minute: '2-digit',
         }),
+        isDaytime: typeof period.isDaytime === 'boolean' ? period.isDaytime : null,
         temperatureF:
           typeof period.temperature === 'number' && period.temperatureUnit === 'F' ? period.temperature : null,
         windMph: parseWindSpeedMph(period.windSpeed),

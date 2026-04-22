@@ -2296,12 +2296,19 @@ function pickBestShortRouteWindow(weather) {
   }
 
   const points = weather.todayHourly;
+  const sunsetIndex = points.findIndex((point) => point?.isDaytime === false);
+  const lastAllowedEndIndex = sunsetIndex >= 0 ? sunsetIndex - 1 : points.length - 1;
+
+  if (lastAllowedEndIndex < 1) {
+    return null;
+  }
+
   let bestWindow = null;
 
   for (let startIndex = 0; startIndex < points.length - 1; startIndex += 1) {
     for (let length = 2; length <= 3; length += 1) {
       const endIndex = startIndex + length - 1;
-      if (endIndex >= points.length) {
+      if (endIndex >= points.length || endIndex > lastAllowedEndIndex) {
         continue;
       }
 
@@ -3482,14 +3489,8 @@ function hydrateDetailFromCache() {
 }
 
 function hydrateHistoryFromCache() {
-  const cached = readCachedPayload(historyCacheKey);
-  const result = cached?.payload?.result;
-  if (!result) {
-    return false;
-  }
-
-  renderHistory(result);
-  return true;
+  renderHistory(null);
+  return false;
 }
 
 function renderHistory(history) {
@@ -3501,89 +3502,8 @@ function renderHistory(history) {
     return;
   }
 
-  if (!history || !Array.isArray(history.days) || history.days.length === 0) {
-    historyPanel.hidden = true;
-    historyBars.innerHTML = '';
-    return;
-  }
-
-  historyPanel.hidden = false;
-  const days = history.days.slice(-7);
-  const historyStatus =
-    days.length >= 4
-      ? historyTrendSummary(days)
-      : days.length === 1
-        ? 'History started today.'
-        : `${days.length} days captured so far.`;
-
-  setText('history-status', historyStatus);
-  const width = 420;
-  const height = 190;
-  const left = 28;
-  const right = 18;
-  const top = 18;
-  const bottom = 42;
-  const minScore = Math.max(0, Math.min(...days.map((day) => day.avgScore)) - 8);
-  const maxScore = Math.min(100, Math.max(...days.map((day) => day.avgScore)) + 8);
-  const scoreRange = Math.max(12, maxScore - minScore);
-  const chartWidth = width - left - right;
-  const chartHeight = height - top - bottom;
-  const yTicks = [maxScore, Math.round((maxScore + minScore) / 2), minScore];
-  const points = days.map((day, index) => {
-    const x =
-      days.length === 1 ? left + chartWidth / 2 : left + (chartWidth * index) / (days.length - 1);
-    const normalized = (day.avgScore - minScore) / scoreRange;
-    const y = top + chartHeight - normalized * chartHeight;
-    return {
-      ...day,
-      x: Number(x.toFixed(2)),
-      y: Number(y.toFixed(2)),
-      label: formatHistoryDayLabel(day.date),
-      title: `${formatHistoryDate(day.date)}: avg ${day.avgScore}, latest ${day.latestScore}`,
-    };
-  });
-  const linePath = points
-    .map((point, index) => `${index === 0 ? 'M' : 'L'} ${point.x} ${point.y}`)
-    .join(' ');
-  const areaPath = `${linePath} L ${points.at(-1)?.x ?? left} ${top + chartHeight} L ${points[0]?.x ?? left} ${top + chartHeight} Z`;
-  const latestTone = ratingToneKey(days.at(-1)?.latestRating ?? 'Fair');
-
-  historyBars.innerHTML = `
-    <svg
-      class="history-chart__svg history-chart__svg--${latestTone}"
-      viewBox="0 0 ${width} ${height}"
-      role="img"
-      aria-label="Route score trend over the last ${days.length} days"
-      preserveAspectRatio="none"
-    >
-      <g class="history-chart__grid">
-        ${yTicks
-          .map((tick) => {
-            const normalized = (tick - minScore) / scoreRange;
-            const y = clamp(top + chartHeight - normalized * chartHeight, top, top + chartHeight);
-            return `
-              <line x1="${left}" y1="${y}" x2="${width - right}" y2="${y}" />
-              <text x="${left - 8}" y="${y + 4}" text-anchor="end">${tick}</text>
-            `;
-          })
-          .join('')}
-      </g>
-      <path class="history-chart__area" d="${areaPath}"></path>
-      <path class="history-chart__line" d="${linePath}"></path>
-      ${points
-        .map(
-          (point) => `
-            <g class="history-chart__point history-chart__point--${ratingToneKey(point.latestRating)}">
-              <circle cx="${point.x}" cy="${point.y}" r="5"></circle>
-              <text x="${point.x}" y="${point.y - 12}" text-anchor="middle">${point.avgScore}</text>
-              <text x="${point.x}" y="${height - 12}" text-anchor="middle">${point.label}</text>
-              <title>${point.title}</title>
-            </g>
-          `
-        )
-        .join('')}
-    </svg>
-  `;
+  historyPanel.hidden = true;
+  historyBars.innerHTML = '';
 }
 
 function updateDetailMapToggle() {
@@ -3673,7 +3593,6 @@ async function loadDetail({ silent = false } = {}) {
     }
     writeCachedPayload(detailCacheKey, payload);
     renderDetailResult(result);
-    loadHistory();
     lastDetailSuccessAt = Date.now();
     hasLoadedDetailOnce = true;
     setDetailFetchBannerState('hidden');
@@ -4075,4 +3994,3 @@ loadDetail({ silent: hydratedDetail });
 window.setInterval(() => {
   loadDetail({ silent: true });
 }, AUTO_REFRESH_MS);
-

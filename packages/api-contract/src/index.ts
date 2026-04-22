@@ -87,6 +87,7 @@ export interface ForecastWindow {
 export interface HourlyWeatherPoint {
   time: string;
   label: string;
+  isDaytime: boolean | null;
   temperatureF: number | null;
   windMph: number | null;
   windGustMph: number | null;
