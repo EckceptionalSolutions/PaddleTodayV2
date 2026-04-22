@@ -10495,6 +10495,19 @@ body.site-search-open {
   min-height: 30rem;
 }
 
+.home-featured__actions > * {
+  width: 100%;
+}
+
+.home-featured__jump-link {
+  justify-self: stretch;
+  text-align: center;
+  padding: 0.72rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 115, 151, 0.18);
+  background: rgba(255, 255, 255, 0.72);
+}
+
 .home-board-inline {
   display: flex;
   flex-wrap: wrap;
@@ -11018,12 +11031,16 @@ body.site-search-open {
 
 @media (max-width: 760px) {
   .home-overview--top {
-    margin-top: 0.55rem;
-    margin-bottom: 0.72rem;
+    margin-top: 0.4rem;
+    margin-bottom: 0.6rem;
   }
 
   .home-board-inline--browse {
-    padding: 0.78rem 0.82rem;
+    padding: 0.72rem 0.78rem;
+  }
+
+  .home-board-inline__copy {
+    font-size: 0.84rem;
   }
 
   .home-location-bar {
@@ -11035,40 +11052,84 @@ body.site-search-open {
     gap: 0.82rem;
   }
 
+  .home-hero__copy {
+    gap: 0.82rem;
+  }
+
+  .home-hero h1 {
+    max-width: 9ch;
+    font-size: clamp(1.72rem, 10.2vw, 2.3rem);
+    line-height: 0.96;
+    letter-spacing: -0.03em;
+  }
+
   .home-hero__trust {
-    gap: 0.55rem;
+    gap: 0.48rem;
   }
 
   .home-hero__trust-item {
-    padding: 0.72rem 0.78rem;
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.55rem;
+    padding: 0.68rem 0.72rem;
+  }
+
+  .home-hero__trust-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .home-hero__trust-title {
+    font-size: 0.8rem;
+  }
+
+  .home-hero__trust-copy {
+    font-size: 0.7rem;
   }
 
   .home-location-bar__form {
     width: 100%;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
     align-items: center;
     gap: 0.55rem;
   }
 
   .home-location-bar__search {
-    width: auto;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    width: 100%;
     min-width: 0;
   }
 
+  .home-location-bar__use {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
   .home-location-bar__actions {
-    width: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-    gap: 0.5rem;
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    justify-content: stretch;
+    gap: 0.42rem;
   }
 
   .home-location-bar__actions > *,
-  .home-location-bar__use,
-  .home-location-bar__search-button,
   .home-location-bar__search .filter-search__input {
-    width: auto;
+    width: 100%;
+  }
+
+  .home-location-bar__use {
+    width: 2.9rem;
+    min-width: 2.9rem;
+    justify-content: center;
+  }
+
+  .home-location-bar__search-button,
+  .home-location-bar__clear {
+    justify-content: center;
   }
 
   .home-location-bar__search .filter-search__input {
@@ -11077,8 +11138,7 @@ body.site-search-open {
   }
 
   .home-location-bar__clear {
-    width: 100%;
-    flex-basis: 100%;
+    flex-basis: auto;
   }
 
   .home-location-bar__helper {
@@ -11215,6 +11275,31 @@ body.site-search-open {
     .home-recommendations__block-head {
       padding-bottom: 0.08rem;
     }
+
+  .home-featured--locked {
+    min-height: 18.5rem;
+  }
+
+  .home-featured--locked .home-featured__body {
+    filter: blur(8px) saturate(0.82);
+    opacity: 0.34;
+    transform: scale(0.992);
+  }
+
+  .home-featured__lock {
+    align-content: center;
+    padding: 1rem 1.1rem;
+  }
+
+  .home-featured__lock-copy {
+    max-width: 20ch;
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+
+  .home-featured__actions {
+    gap: 0.55rem;
+  }
 
   .home-recommendations__setup {
     padding: 0.72rem 0.78rem;
@@ -11454,14 +11539,43 @@ body.site-search-open {
 }
 
 @media (max-width: 540px) {
+  .site-header__topline {
+    gap: 0.42rem;
+  }
+
+  .site-header__search,
+  .site-header__action {
+    min-height: 2.35rem;
+  }
+
+  .site-header__search {
+    font-size: 0.8rem;
+  }
+
   .home-location-bar__form {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr);
   }
 
   .home-location-bar__use,
   .home-location-bar__search-button {
     min-width: 2.7rem;
     padding-inline: 0.72rem;
+  }
+
+  .home-featured {
+    padding: 1rem;
+  }
+
+  .home-featured--locked {
+    min-height: 16.5rem;
+  }
+
+  .home-featured__lock-copy {
+    font-size: 0.88rem;
+  }
+
+  .home-recommendations__map-block {
+    padding: 0.82rem;
   }
 
   .home-radius-panel__scale span:nth-child(2),
