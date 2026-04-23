@@ -14399,26 +14399,27 @@ body.site-search-open {
 
   html body.page-home .site-header__topline {
     grid-template-columns: minmax(0, 1fr) auto !important;
-    gap: 0.12rem 0.18rem !important;
+    gap: 0.08rem 0.14rem !important;
     align-items: center !important;
   }
 
   html body.page-home .site-header__nav {
-    gap: 0.12rem !important;
+    gap: 0.1rem !important;
     padding-bottom: 0 !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.44rem !important;
-    padding: 0.1rem 0.36rem !important;
-    font-size: 0.53rem !important;
+    min-height: 1.34rem !important;
+    padding: 0.06rem 0.3rem !important;
+    font-size: 0.5rem !important;
     border-radius: 999px !important;
+    letter-spacing: 0.01em !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.64rem !important;
-    min-width: 1.64rem !important;
-    min-height: 1.44rem !important;
+    width: 1.48rem !important;
+    min-width: 1.48rem !important;
+    min-height: 1.34rem !important;
     padding: 0 !important;
     justify-content: center !important;
   }
@@ -14429,8 +14430,8 @@ body.site-search-open {
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.32rem 0.46rem !important;
-    border-radius: 13px !important;
+    padding: 0.26rem 0.38rem !important;
+    border-radius: 12px !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__body {
@@ -14438,46 +14439,46 @@ body.site-search-open {
   }
 
   html body.page-home .home-featured--locked .home-featured__lock {
-    gap: 0.1rem 0.34rem !important;
+    gap: 0.08rem 0.28rem !important;
     align-items: center !important;
     grid-template-columns: auto minmax(0, 1fr) !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-label {
-    padding: 0.12rem 0.28rem !important;
-    font-size: 0.49rem !important;
+    padding: 0.1rem 0.24rem !important;
+    font-size: 0.46rem !important;
     letter-spacing: 0.04em !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
-    font-size: 0.62rem !important;
-    line-height: 1.08 !important;
+    font-size: 0.58rem !important;
+    line-height: 1.04 !important;
     margin: 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
-    min-height: max(28.5rem, calc(var(--app-mobile-vh, 100svh) - 3.6rem - env(safe-area-inset-top))) !important;
+    min-height: max(28.75rem, calc(var(--app-mobile-vh, 100svh) - 3.2rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
-    margin: 0 0.14rem 0.01rem !important;
+    margin: 0 0.12rem 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(28.5rem, calc(var(--app-mobile-vh, 100svh) - 4rem - env(safe-area-inset-top))) !important;
+    min-height: max(28.75rem, calc(var(--app-mobile-vh, 100svh) - 3.48rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    margin: 0 0.1rem 0.01rem !important;
-    padding: 0.02rem 0.07rem calc(max(0.1rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
-    max-height: 2rem !important;
-    border-radius: 10px 10px 0.3rem 0.3rem !important;
+    margin: 0 0.08rem 0 !important;
+    padding: 0.01rem 0.06rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+    max-height: 1.68rem !important;
+    border-radius: 10px 10px 0.26rem 0.26rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
-    margin: -0.02rem -0.07rem 0 !important;
-    padding: 0.05rem 0.07rem 0 !important;
+    margin: -0.01rem -0.06rem 0 !important;
+    padding: 0.03rem 0.06rem 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title,
@@ -14486,25 +14487,26 @@ body.site-search-open {
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
-    min-height: 1.3rem !important;
-    padding: 0.14rem 0.38rem !important;
-    font-size: 0.55rem !important;
+    min-height: 1.08rem !important;
+    padding: 0.08rem 0.3rem !important;
+    font-size: 0.5rem !important;
+    line-height: 1 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: 0.72rem !important;
-    gap: 0.03rem !important;
+    max-height: 0.34rem !important;
+    gap: 0.02rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result {
-    padding: 0.14rem 0.2rem !important;
-    gap: 0.16rem !important;
+    padding: 0.1rem 0.16rem !important;
+    gap: 0.12rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__score {
-    width: 0.92rem !important;
-    height: 0.92rem !important;
-    font-size: 0.46rem !important;
+    width: 0.84rem !important;
+    height: 0.84rem !important;
+    font-size: 0.42rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__name,
@@ -14567,18 +14569,18 @@ body.site-search-open {
 
 @media (max-width: 760px) {
   html body.page-home .site-header {
-    gap: 0.42rem !important;
-    padding-block: 0.42rem 0.24rem !important;
+    gap: 0.32rem !important;
+    padding-block: 0.34rem 0.18rem !important;
   }
 
   html body.page-home .brand {
-    gap: 0.44rem !important;
+    gap: 0.32rem !important;
     align-items: center !important;
   }
 
   html body.page-home .brand__logo {
-    width: 2.35rem !important;
-    height: 2.35rem !important;
+    width: 2.1rem !important;
+    height: 2.1rem !important;
   }
 
   html body.page-home .brand__copy {
@@ -14591,27 +14593,27 @@ body.site-search-open {
 
   html body.page-home .site-header__topline {
     grid-template-columns: minmax(0, 1fr) auto !important;
-    gap: 0.18rem !important;
+    gap: 0.12rem !important;
     align-items: center !important;
   }
 
   html body.page-home .site-header__nav {
-    gap: 0.18rem !important;
+    gap: 0.12rem !important;
     min-width: 0 !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.6rem !important;
-    padding: 0.08rem 0.42rem !important;
+    min-height: 1.42rem !important;
+    padding: 0.06rem 0.34rem !important;
     border-radius: 999px !important;
-    font-size: 0.58rem !important;
-    letter-spacing: 0.02em !important;
+    font-size: 0.53rem !important;
+    letter-spacing: 0.01em !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.68rem !important;
-    min-width: 1.68rem !important;
-    min-height: 1.6rem !important;
+    width: 1.52rem !important;
+    min-width: 1.52rem !important;
+    min-height: 1.42rem !important;
     padding: 0 !important;
     justify-content: center !important;
     border-radius: 999px !important;
@@ -14627,8 +14629,8 @@ body.site-search-open {
 
   html body.page-home .home-featured--locked {
     min-height: 0 !important;
-    padding: 0.44rem 0.54rem !important;
-    border-radius: 16px !important;
+    padding: 0.34rem 0.42rem !important;
+    border-radius: 14px !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__body {
@@ -14640,7 +14642,7 @@ body.site-search-open {
     inset: auto !important;
     display: grid !important;
     grid-template-columns: auto minmax(0, 1fr) !important;
-    gap: 0.18rem 0.42rem !important;
+    gap: 0.12rem 0.3rem !important;
     align-items: center !important;
     justify-items: start !important;
     padding: 0 !important;
@@ -14648,48 +14650,48 @@ body.site-search-open {
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-label {
-    padding: 0.14rem 0.4rem !important;
-    font-size: 0.52rem !important;
-    letter-spacing: 0.05em !important;
+    padding: 0.12rem 0.3rem !important;
+    font-size: 0.48rem !important;
+    letter-spacing: 0.04em !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
     max-width: none !important;
     margin: 0 !important;
-    font-size: 0.68rem !important;
-    line-height: 1.14 !important;
+    font-size: 0.6rem !important;
+    line-height: 1.06 !important;
     text-shadow: none !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
-    min-height: max(29rem, calc(var(--app-mobile-vh, 100svh) - 3.2rem - env(safe-area-inset-top))) !important;
+    min-height: max(29rem, calc(var(--app-mobile-vh, 100svh) - 2.9rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
-    top: max(0.08rem, env(safe-area-inset-top)) !important;
-    margin: 0 0.1rem 0.01rem !important;
+    top: max(0.06rem, env(safe-area-inset-top)) !important;
+    margin: 0 0.08rem 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(29rem, calc(var(--app-mobile-vh, 100svh) - 3.55rem - env(safe-area-inset-top))) !important;
+    min-height: max(29rem, calc(var(--app-mobile-vh, 100svh) - 3.1rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    margin: 0 0.08rem 0.01rem !important;
-    padding: 0.01rem 0.06rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
-    max-height: 1.56rem !important;
-    border-radius: 10px 10px 0.26rem 0.26rem !important;
+    margin: 0 0.06rem 0 !important;
+    padding: 0.01rem 0.05rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+    max-height: 1.24rem !important;
+    border-radius: 10px 10px 0.24rem 0.24rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
-    margin: -0.01rem -0.06rem 0 !important;
-    padding: 0.02rem 0.06rem 0 !important;
+    margin: -0.01rem -0.05rem 0 !important;
+    padding: 0.01rem 0.05rem 0 !important;
     min-height: 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
-    width: 0.56rem !important;
+    width: 0.48rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title,
@@ -14698,69 +14700,69 @@ body.site-search-open {
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
-    min-height: 1.12rem !important;
-    padding: 0.08rem 0.34rem !important;
-    font-size: 0.52rem !important;
+    min-height: 0.96rem !important;
+    padding: 0.06rem 0.24rem !important;
+    font-size: 0.48rem !important;
     line-height: 1 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: 0.34rem !important;
-    gap: 0.02rem !important;
+    max-height: 0.16rem !important;
+    gap: 0.01rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result {
-    padding: 0.12rem 0.18rem !important;
-    gap: 0.14rem !important;
+    padding: 0.08rem 0.14rem !important;
+    gap: 0.12rem !important;
   }
 }
 
 @media (max-width: 540px) {
   html body.page-home .brand__logo {
-    width: 2.15rem !important;
-    height: 2.15rem !important;
+    width: 1.96rem !important;
+    height: 1.96rem !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.5rem !important;
-    padding-inline: 0.34rem !important;
-    font-size: 0.54rem !important;
+    min-height: 1.34rem !important;
+    padding-inline: 0.28rem !important;
+    font-size: 0.5rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.56rem !important;
-    min-width: 1.56rem !important;
-    min-height: 1.5rem !important;
+    width: 1.42rem !important;
+    min-width: 1.42rem !important;
+    min-height: 1.34rem !important;
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.38rem 0.46rem !important;
+    padding: 0.3rem 0.36rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-label {
-    font-size: 0.48rem !important;
+    font-size: 0.44rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
-    font-size: 0.62rem !important;
-    line-height: 1.1 !important;
+    font-size: 0.56rem !important;
+    line-height: 1.04 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(27rem, calc(var(--app-mobile-vh, 100svh) - 3.35rem - env(safe-area-inset-top))) !important;
+    min-height: max(27rem, calc(var(--app-mobile-vh, 100svh) - 3.05rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    max-height: 1.42rem !important;
+    max-height: 1.08rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
-    min-height: 1.04rem !important;
-    padding-inline: 0.3rem !important;
+    min-height: 0.88rem !important;
+    padding-inline: 0.22rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: 0.22rem !important;
+    max-height: 0.08rem !important;
   }
 }

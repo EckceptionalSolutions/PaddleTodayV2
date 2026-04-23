@@ -34,6 +34,7 @@ Latest local pass (2026-04-23 AM):
 - latest noon pass tightened the homepage mobile nav pills/search affordance again, compressed the locked featured card row further, and cut the initial map shortlist peek again so more map stays visible
 - latest early afternoon pass shrank the homepage mobile header again by hiding the mobile request CTA and brand tagline, compressed the locked featured prompt copy/padding again, and lowered the initial map shortlist peek again so Map mode shows even more map first
 - latest mid-afternoon pass collapsed the locked mobile "Today's Best" card all the way down to a compact prompt row, stripped the homepage mobile header down to logo + nav pills + icon-only search, and reduced the initial mobile map sheet peek again so Map mode gives more of the viewport to the map
+- latest late-afternoon pass tightened the homepage mobile header yet again with smaller logo/nav/search chrome, shortened the locked featured prompt copy, and shrank the initial mobile map sheet peek plus back control so Map mode starts even more map-first
 - Astro build and typecheck now pass locally
 - still needs visual device-level validation against the screenshot issues
 
