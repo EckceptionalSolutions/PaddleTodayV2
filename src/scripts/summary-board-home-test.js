@@ -202,6 +202,10 @@ const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell
 const summaryMapMobileLayout =
   summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMobileLayout || 'collapse') : 'collapse';
 const summaryMapSupportsMobileViews = summaryMapMobileLayout === 'list-map';
+const summaryMapItemNounSingular =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemSingular || 'river') : 'river';
+const summaryMapItemNounPlural =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemPlural || 'rivers') : 'rivers';
 const featuredMapAlwaysVisible =
   featuredPanel instanceof HTMLElement && featuredPanel.dataset.featuredMapAlwaysVisible === 'true';
 const featuredUnlockedWithoutLocation =
@@ -3368,19 +3372,35 @@ function activeSummaryMapView() {
   return summaryMapMobileView === 'list' ? 'list' : 'map';
 }
 
-function setSummaryMapMobileView(nextView) {
+function scrollSummaryMapShellIntoView() {
+  if (!(summaryMapShell instanceof HTMLElement) || !phoneBreakpoint.matches) {
+    return;
+  }
+
+  summaryMapShell.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+function setSummaryMapMobileView(nextView, options = {}) {
   if (!summaryMapSupportsMobileViews) {
     return;
   }
 
+  const { scrollIntoView = false } = options;
   summaryMapMobileView = nextView === 'list' ? 'list' : 'map';
   updateSummaryMapToggle();
+
+  if (scrollIntoView && summaryMapMobileView === 'map') {
+    window.setTimeout(() => {
+      scrollSummaryMapShellIntoView();
+    }, 45);
+  }
 }
 
 function summaryMapItemNoun(count) {
-  const singular = isNearbySummaryMapMode() ? 'route' : 'river';
-  const plural = isNearbySummaryMapMode() ? 'routes' : 'rivers';
-  return count === 1 ? singular : plural;
+  return count === 1 ? summaryMapItemNounSingular : summaryMapItemNounPlural;
 }
 
 function closeSummaryMapPopups(exceptKey = null) {
@@ -3403,7 +3423,7 @@ function openSummaryMapItem(key) {
   }
 
   if (activeSummaryMapView() === 'list') {
-    setSummaryMapMobileView('map');
+    setSummaryMapMobileView('map', { scrollIntoView: true });
   }
 
   updateSummaryMapSelection(key);
@@ -4651,7 +4671,9 @@ export function initSummaryBoard() {
     }
 
     button.addEventListener('click', () => {
-      setSummaryMapMobileView(button.dataset.summaryMapMobileView);
+      setSummaryMapMobileView(button.dataset.summaryMapMobileView, {
+        scrollIntoView: button.dataset.summaryMapMobileView === 'map',
+      });
     });
   }
 
@@ -4674,6 +4696,9 @@ export function initSummaryBoard() {
   });
 
   phoneBreakpoint.addEventListener('change', () => {
+    if (summaryMapSupportsMobileViews && phoneBreakpoint.matches) {
+      summaryMapMobileView = 'list';
+    }
     syncAppMobileViewportHeight();
     updateLocationStatus();
     updateSummaryMapToggle();

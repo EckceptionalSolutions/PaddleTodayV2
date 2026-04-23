@@ -14,6 +14,8 @@ const {
   note = 'Loading routes.',
   status = 'Loading map.',
   ariaLabel = 'Route score map',
+  itemNounSingular = 'river',
+  itemNounPlural = 'rivers',
 } = Astro.props;
 
 const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
@@ -27,6 +29,8 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
   data-summary-map-shell
   data-summary-map-mode={mode}
   data-summary-map-mobile-layout={mobileLayout}
+  data-summary-map-item-singular={itemNounSingular}
+  data-summary-map-item-plural={itemNounPlural}
 >
   {mobileLayout === 'list-map' && (
     <div class="summary-map-mobile-switch" data-summary-map-mobile-switch hidden>
@@ -66,6 +70,7 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
               class="filter-chip filter-chip--quiet summary-map-results__back"
               type="button"
               data-summary-map-mobile-back
+              hidden
             >
               Back to list
             </button>
