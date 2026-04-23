@@ -24,6 +24,12 @@ Homepage mobile received an initial pass for:
 
 This pass must still be validated and likely polished.
 
+Latest local pass (2026-04-23 AM):
+- tightened the small-screen site header and nav pills
+- compressed the locked mobile "Today's Best" card
+- reduced initial mobile map bottom-sheet height so more map stays visible
+- still needs visual device-level validation against the screenshot issues
+
 ## Priority Queue
 
 ### 1) Fix screenshot-confirmed homepage mobile issues
