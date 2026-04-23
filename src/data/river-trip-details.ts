@@ -1238,13 +1238,13 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   'kettle-river-lower-kettle-5-to-6': {
     putIn: {
       name: '#5 trailer access (Kettle River State Water Trail - Map 2)',
-      latitude: 45.9451305,
-      longitude: -92.7769513,
+      latitude: 46.0107725,
+      longitude: -92.8407339,
     },
     takeOut: {
       name: '#6 trailer access (Kettle River State Water Trail - Map 2)',
-      latitude: 45.9608,
-      longitude: -92.6992,
+      latitude: 45.9451305,
+      longitude: -92.7769513,
     },
     logistics: {
       distanceLabel: '7.2 river mi',

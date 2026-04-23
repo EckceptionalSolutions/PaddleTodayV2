@@ -89,12 +89,13 @@ const recommendationCount = document.querySelector('[data-recommendation-count]'
 const nearbySortSelect = document.querySelector('[data-nearby-sort-select]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
-const homeLocationSummary = document.querySelector('[data-home-location-summary]');
-const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
-const homeRefineRow = document.querySelector('[data-home-refine-row]');
-const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
-const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
-const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
+  const homeLocationSummary = document.querySelector('[data-home-location-summary]');
+  const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
+  const homeRefineRow = document.querySelector('[data-home-refine-row]');
+  const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
+  const homeRefineToggle = document.querySelector('[data-home-refine-toggle]');
+  const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
+  const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
 const homeMatchCount = document.querySelector('[data-home-match-count]');
 const homeLiveCounts = Array.from(document.querySelectorAll('[data-home-live-count]'));
@@ -192,10 +193,23 @@ const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
+const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
+const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
+const summaryMapMobileCountNodes = Array.from(document.querySelectorAll('[data-summary-map-mobile-count]'));
+const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mobile-back]');
+const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
+const summaryMapMobileLayout =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMobileLayout || 'collapse') : 'collapse';
+const summaryMapSupportsMobileViews = summaryMapMobileLayout === 'list-map';
+const homeSummaryMapMode = summaryMapShell instanceof HTMLElement && summaryMapShell.classList.contains('summary-map-shell--home');
+const summaryMapItemNounSingular =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemSingular || 'river') : 'river';
+const summaryMapItemNounPlural =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemPlural || 'rivers') : 'rivers';
 const featuredMapAlwaysVisible =
   featuredPanel instanceof HTMLElement && featuredPanel.dataset.featuredMapAlwaysVisible === 'true';
 const featuredUnlockedWithoutLocation =
@@ -246,9 +260,15 @@ let nearbySortMode = 'best-score';
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
-let lastBoardGeneratedAt = null;
-let summaryMapCollapsed = phoneBreakpoint.matches;
-let initialized = false;
+  let lastBoardGeneratedAt = null;
+  let summaryMapCollapsed = phoneBreakpoint.matches;
+  let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches
+    ? homeSummaryMapMode
+      ? 'map'
+      : 'list'
+    : 'map';
+  let homePreferencesExpanded = !phoneBreakpoint.matches;
+  let initialized = false;
 let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
 const boardRequestGuard = createRequestGuard();
@@ -267,6 +287,19 @@ function setText(scope, field, value) {
 function normalizeRadiusMiles(value) {
   const numeric = Number(value);
   return RADIUS_OPTIONS.includes(numeric) ? numeric : DEFAULT_RADIUS_MILES;
+}
+
+function syncAppMobileViewportHeight() {
+  if (!(document.documentElement instanceof HTMLElement)) {
+    return;
+  }
+
+  const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+  if (!Number.isFinite(viewportHeight) || viewportHeight <= 0) {
+    return;
+  }
+
+  document.documentElement.style.setProperty('--app-mobile-vh', `${Math.round(viewportHeight)}px`);
 }
 
 function radiusIndexForMiles(value) {
@@ -489,7 +522,7 @@ function splitBulletParts(text) {
     .filter(Boolean);
 }
 
-function homeRefineSummaryMarkup() {
+  function homeRefineSummaryMarkup() {
   const labels = [];
 
   if (isChoiceSetAny(selectedHomeDifficulties)) {
@@ -507,9 +540,45 @@ function homeRefineSummaryMarkup() {
   }
 
   return labels
-    .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
-    .join('');
-}
+      .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
+      .join('');
+  }
+
+  function shouldCollapseHomePreferences() {
+    return phoneBreakpoint.matches;
+  }
+
+  function syncHomePreferencesVisibility() {
+    const shouldCollapse = shouldCollapseHomePreferences();
+    const isExpanded = shouldCollapse ? homePreferencesExpanded : true;
+
+    if (homeRefineRow instanceof HTMLElement) {
+      homeRefineRow.dataset.expanded = isExpanded ? 'true' : 'false';
+    }
+
+    if (homeRadiusPanel instanceof HTMLElement) {
+      homeRadiusPanel.hidden = !isExpanded;
+    }
+
+    if (homeRefineToggle instanceof HTMLButtonElement) {
+      homeRefineToggle.hidden = !shouldCollapse;
+      homeRefineToggle.textContent = isExpanded ? 'Hide filters' : 'Show filters';
+      homeRefineToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    }
+
+    if (homeRadiusSummary instanceof HTMLElement) {
+      homeRadiusSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+    }
+
+    if (homeRefineSummary instanceof HTMLElement) {
+      homeRefineSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+    }
+  }
+
+  function setHomePreferencesExpanded(nextExpanded) {
+    homePreferencesExpanded = shouldCollapseHomePreferences() ? Boolean(nextExpanded) : true;
+    syncHomePreferencesVisibility();
+  }
 
 function homeSetupSummaryLabels() {
   const labels = [];
@@ -2914,17 +2983,15 @@ function updateLocationStatus() {
     }
   }
 
-  if (homeRefineRow instanceof HTMLElement) {
-    homeRefineRow.hidden = false;
-  }
+    if (homeRefineRow instanceof HTMLElement) {
+      homeRefineRow.hidden = false;
+    }
 
-  if (homeRadiusPanel instanceof HTMLElement) {
-    homeRadiusPanel.hidden = false;
-  }
-
-  if (homeRadiusSummary instanceof HTMLElement) {
-    homeRadiusSummary.textContent = `Showing routes within ${selectedRadiusMiles} miles`;
-  }
+    if (homeRadiusSummary instanceof HTMLElement) {
+      homeRadiusSummary.textContent = shouldCollapseHomePreferences()
+        ? `Within ${selectedRadiusMiles} mi`
+        : `Showing routes within ${selectedRadiusMiles} miles`;
+    }
 
   if (homeRefineSummary instanceof HTMLElement) {
     homeRefineSummary.innerHTML = homeRefineSummaryMarkup();
@@ -2940,11 +3007,13 @@ function updateLocationStatus() {
       : (selectedHomeDifficulties[0] || 'any');
   }
 
-  if (homePaddleTimeSelect instanceof HTMLSelectElement) {
-    homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
-      ? 'any'
-      : (selectedHomePaddleTimes[0] || 'any');
-  }
+    if (homePaddleTimeSelect instanceof HTMLSelectElement) {
+      homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
+        ? 'any'
+        : (selectedHomePaddleTimes[0] || 'any');
+    }
+
+    syncHomePreferencesVisibility();
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement)) {
@@ -3304,11 +3373,22 @@ function updateSummaryMapSelection(key) {
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
+    let activeRow = null;
     for (const row of rows) {
       if (!(row instanceof HTMLButtonElement)) continue;
       const active = row.dataset.summaryMapItem === selectedSummaryMapKey;
       row.classList.toggle('summary-map-result--active', active);
       row.setAttribute('aria-pressed', active ? 'true' : 'false');
+      if (active) {
+        activeRow = row;
+      }
+    }
+
+    if (activeRow instanceof HTMLElement) {
+      activeRow.scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+      });
     }
   }
 
@@ -3322,6 +3402,7 @@ function updateSummaryMapSelection(key) {
     markerElement.classList.toggle('score-map-marker--hovered', Boolean(hoveredSummaryMapKey) && markerKey === hoveredSummaryMapKey);
   }
 
+  updateSummaryMapMobileContext();
   updateHomeRailSelection(selectedSummaryMapKey);
 }
 
@@ -3329,10 +3410,102 @@ function isNearbySummaryMapMode() {
   return summaryMapMode === 'nearby';
 }
 
+function activeSummaryMapView() {
+  if (!(summaryMapSupportsMobileViews && phoneBreakpoint.matches)) {
+    return 'map';
+  }
+
+  return summaryMapMobileView === 'list' ? 'list' : 'map';
+}
+
+function scrollSummaryMapShellIntoView() {
+  if (!(summaryMapShell instanceof HTMLElement) || !phoneBreakpoint.matches) {
+    return;
+  }
+
+  summaryMapShell.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+function setSummaryMapMobileView(nextView, options = {}) {
+  if (!summaryMapSupportsMobileViews) {
+    return;
+  }
+
+  const { scrollIntoView = false } = options;
+  summaryMapMobileView = nextView === 'list' ? 'list' : 'map';
+  updateSummaryMapToggle();
+
+  if (scrollIntoView && summaryMapMobileView === 'map') {
+    window.setTimeout(() => {
+      scrollSummaryMapShellIntoView();
+    }, 45);
+  }
+}
+
+function summaryMapResultsNoteText(items = lastSummaryMapItems) {
+  if (items.length === 0) {
+    return isNearbySummaryMapMode()
+      ? 'No routes match your current preferences.'
+      : 'No routes match these filters.';
+  }
+
+  const countLabel = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  if (!mobileMapActive) {
+    return countLabel;
+  }
+
+  const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
+  if (selectedItem) {
+    return `${countLabel}. ${selectedItem.cardRoute.river.name} is selected below.`;
+  }
+
+  return `${countLabel}. Tap a route below to highlight it.`;
+}
+
+function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  const countLabel = String(items.length);
+
+  if (summaryMapShell instanceof HTMLElement) {
+    summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
+  }
+
+  if (summaryMapResultsTitle instanceof HTMLElement) {
+    const defaultLabel = summaryMapResultsTitle.dataset.defaultLabel || 'Matching routes';
+    const mobileMapLabel = summaryMapResultsTitle.dataset.mobileMapLabel || defaultLabel;
+    summaryMapResultsTitle.textContent = mobileMapActive ? mobileMapLabel : defaultLabel;
+  }
+
+  if (summaryMapResultsNote instanceof HTMLElement) {
+    summaryMapResultsNote.textContent = summaryMapResultsNoteText(items);
+  }
+
+  for (const countNode of summaryMapMobileCountNodes) {
+    if (!(countNode instanceof HTMLElement)) {
+      continue;
+    }
+
+    countNode.textContent = countLabel;
+    countNode.hidden = items.length === 0;
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
+    const label = view === 'map' ? 'map' : 'list';
+    button.setAttribute('aria-label', `Show route ${label}${items.length ? ` (${countLabel} available)` : ''}`);
+  }
+}
+
 function summaryMapItemNoun(count) {
-  const singular = isNearbySummaryMapMode() ? 'route' : 'river';
-  const plural = isNearbySummaryMapMode() ? 'routes' : 'rivers';
-  return count === 1 ? singular : plural;
+  return count === 1 ? summaryMapItemNounSingular : summaryMapItemNounPlural;
 }
 
 function closeSummaryMapPopups(exceptKey = null) {
@@ -3354,6 +3527,10 @@ function openSummaryMapItem(key) {
     return;
   }
 
+  if (activeSummaryMapView() === 'list') {
+    setSummaryMapMobileView('map', { scrollIntoView: true });
+  }
+
   updateSummaryMapSelection(key);
   closeSummaryMapPopups(key);
   const popup = marker.getPopup?.();
@@ -3369,18 +3546,7 @@ function renderSummaryMapResults(items) {
   }
 
   lastSummaryMapItems = items;
-
-  if (summaryMapResultsNote instanceof HTMLElement) {
-    if (items.length === 0) {
-      summaryMapResultsNote.textContent = isNearbySummaryMapMode()
-        ? 'No routes match your current preferences.'
-        : 'No routes match these filters.';
-    } else if (items.length === 1) {
-      summaryMapResultsNote.textContent = `1 ${summaryMapItemNoun(1)} on the map`;
-    } else {
-      summaryMapResultsNote.textContent = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
-    }
-  }
+  updateSummaryMapMobileContext(items);
 
   summaryMapResults.innerHTML = '';
 
@@ -3437,6 +3603,54 @@ function updateSummaryMapToggle() {
   }
 
   const compact = phoneBreakpoint.matches;
+  const mobileView = activeSummaryMapView();
+  const mobileMapActive = summaryMapSupportsMobileViews && compact && mobileView === 'map';
+
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-list',
+    summaryMapSupportsMobileViews && compact && mobileView === 'list'
+  );
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-map',
+    mobileMapActive
+  );
+  summaryMapShell.dataset.summaryMapView = mobileView;
+  summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
+
+  if (summaryMapMobileSwitch instanceof HTMLElement) {
+    summaryMapMobileSwitch.hidden = !(summaryMapSupportsMobileViews && compact);
+  }
+
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.hidden = !mobileMapActive;
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const isActive = compact && mobileView === button.dataset.summaryMapMobileView;
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    button.classList.toggle('summary-map-mobile-switch__button--active', isActive);
+  }
+
+  updateSummaryMapMobileContext();
+
+  if (summaryMapSupportsMobileViews) {
+    if (!compact) {
+      summaryMapMobileView = 'map';
+    }
+
+    summaryMapToggle.hidden = true;
+    if (mobileView === 'map' && mapRuntime) {
+      window.setTimeout(() => {
+        mapRuntime?.resize();
+      }, 30);
+    }
+    return;
+  }
+
   if (!compact) {
     summaryMapCollapsed = false;
   }
@@ -4514,11 +4728,18 @@ export function initSummaryBoard() {
     }
   }
 
-  if (nearbySortSelect instanceof HTMLSelectElement) {
-    nearbySortSelect.value = nearbySortMode;
-  }
+    if (nearbySortSelect instanceof HTMLSelectElement) {
+      nearbySortSelect.value = nearbySortMode;
+    }
 
-  updateLocationStatus();
+    if (homeRefineToggle instanceof HTMLButtonElement && homeRefineToggle.dataset.bound !== 'true') {
+      homeRefineToggle.dataset.bound = 'true';
+      homeRefineToggle.addEventListener('click', () => {
+        setHomePreferencesExpanded(!homePreferencesExpanded);
+      });
+    }
+
+    updateLocationStatus();
   maybeUseGrantedLocation();
 
   if (boardRefreshButton instanceof HTMLButtonElement) {
@@ -4548,15 +4769,50 @@ export function initSummaryBoard() {
     });
   }
 
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    button.addEventListener('click', () => {
+      setSummaryMapMobileView(button.dataset.summaryMapMobileView, {
+        scrollIntoView: button.dataset.summaryMapMobileView === 'map',
+      });
+    });
+  }
+
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.addEventListener('click', () => {
+      setSummaryMapMobileView('list');
+      recommendationSection?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
+  }
+
+  syncAppMobileViewportHeight();
+
   window.addEventListener('resize', () => {
+    syncAppMobileViewportHeight();
     syncExploreShellHeight();
     updateSummaryMapToggle();
   });
 
   phoneBreakpoint.addEventListener('change', () => {
+    if (summaryMapSupportsMobileViews && phoneBreakpoint.matches) {
+      summaryMapMobileView = homeSummaryMapMode ? 'map' : 'list';
+    }
+    homePreferencesExpanded = !phoneBreakpoint.matches;
+    syncAppMobileViewportHeight();
     updateLocationStatus();
     updateSummaryMapToggle();
     syncExploreShellHeight();
+  });
+
+  window.visualViewport?.addEventListener('resize', () => {
+    syncAppMobileViewportHeight();
+    updateSummaryMapToggle();
   });
 
   for (const button of homeJumpButtons) {
@@ -4580,7 +4836,3 @@ export function initSummaryBoard() {
     loadBoard({ silent: true });
   }, AUTO_REFRESH_MS);
 }
-
-
-
-
