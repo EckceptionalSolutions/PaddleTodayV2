@@ -28,6 +28,8 @@ Latest local pass (2026-04-23 AM):
 - tightened the small-screen site header and nav pills
 - compressed the locked mobile "Today's Best" card
 - reduced initial mobile map bottom-sheet height so more map stays visible
+- follow-up pass tightened the header further, compacted the locked card harder, and shrank the mobile map shortlist peek again
+- Astro build and typecheck now pass locally
 - still needs visual device-level validation against the screenshot issues
 
 ## Priority Queue
@@ -69,8 +71,9 @@ User-tested issues from screenshots now override generic polish work:
 - Avoid broad refactors unless needed
 
 ### 4) Restore/strengthen local validation
-- Fix current local validation blockers when practical
-- Current known blocker: build/typecheck is failing in this reinstall because the mobile workspace cannot find `tsc`
+- Keep build/typecheck green after each homepage mobile pass
+- Repo-local validation status: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-23 AM
+- Add device-level visual validation for the screenshot-confirmed homepage issues
 - Improve repo-local confidence for future UI iterations
 
 ### 5) Move to /explore/ only after homepage feels solid
