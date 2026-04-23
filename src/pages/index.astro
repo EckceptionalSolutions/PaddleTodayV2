@@ -189,19 +189,28 @@ const homepageStructuredData = [
             <div
               class="home-location-bar__refine-summary sr-only"
               data-home-refine-summary
-            >
-              <span class="home-location-bar__refine-pill">Any difficulty</span>
-              <span class="home-location-bar__refine-pill">Any time</span>
+              >
+                <span class="home-location-bar__refine-pill">Any difficulty</span>
+                <span class="home-location-bar__refine-pill">Any time</span>
+              </div>
             </div>
+            <button
+              type="button"
+              class="home-location-bar__refine-toggle filter-chip filter-chip--subtle"
+              data-home-refine-toggle
+              aria-expanded="false"
+              aria-controls="home-radius-panel"
+            >
+              Show filters
+            </button>
           </div>
-        </div>
 
-        <div class="home-radius-panel" data-home-radius-panel>
-          <div class="home-radius-panel__mobile-head">
-            <div>
-              <p class="home-radius-panel__eyebrow">Refine your picks</p>
-              <p class="home-radius-panel__mobile-copy">
-                Narrow things down without leaving the page.
+          <div class="home-radius-panel" id="home-radius-panel" data-home-radius-panel>
+            <div class="home-radius-panel__mobile-head">
+              <div>
+                <p class="home-radius-panel__eyebrow">Refine your picks</p>
+                <p class="home-radius-panel__mobile-copy">
+                  Narrow things down without leaving the page.
               </p>
             </div>
           </div>

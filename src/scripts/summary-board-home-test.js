@@ -89,12 +89,13 @@ const recommendationCount = document.querySelector('[data-recommendation-count]'
 const nearbySortSelect = document.querySelector('[data-nearby-sort-select]');
 const nearbyLocationPanel = document.querySelector('[data-nearby-location-panel]');
 const homeJumpButtons = Array.from(document.querySelectorAll('[data-home-jump-target]'));
-const homeLocationSummary = document.querySelector('[data-home-location-summary]');
-const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
-const homeRefineRow = document.querySelector('[data-home-refine-row]');
-const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
-const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
-const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
+  const homeLocationSummary = document.querySelector('[data-home-location-summary]');
+  const homeLocationSortSummary = document.querySelector('[data-home-location-sort-summary]');
+  const homeRefineRow = document.querySelector('[data-home-refine-row]');
+  const homeRefineSummary = document.querySelector('[data-home-refine-summary]');
+  const homeRefineToggle = document.querySelector('[data-home-refine-toggle]');
+  const homeRadiusPanel = document.querySelector('[data-home-radius-panel]');
+  const homeRadiusSummary = document.querySelector('[data-home-radius-summary]');
 const homeRadiusSlider = document.querySelector('[data-home-radius-slider]');
 const homeMatchCount = document.querySelector('[data-home-match-count]');
 const homeLiveCounts = Array.from(document.querySelectorAll('[data-home-live-count]'));
@@ -204,6 +205,7 @@ const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell
 const summaryMapMobileLayout =
   summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMobileLayout || 'collapse') : 'collapse';
 const summaryMapSupportsMobileViews = summaryMapMobileLayout === 'list-map';
+const homeSummaryMapMode = summaryMapShell instanceof HTMLElement && summaryMapShell.classList.contains('summary-map-shell--home');
 const summaryMapItemNounSingular =
   summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemSingular || 'river') : 'river';
 const summaryMapItemNounPlural =
@@ -258,10 +260,15 @@ let nearbySortMode = 'best-score';
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
-let lastBoardGeneratedAt = null;
-let summaryMapCollapsed = phoneBreakpoint.matches;
-let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches ? 'list' : 'map';
-let initialized = false;
+  let lastBoardGeneratedAt = null;
+  let summaryMapCollapsed = phoneBreakpoint.matches;
+  let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches
+    ? homeSummaryMapMode
+      ? 'map'
+      : 'list'
+    : 'map';
+  let homePreferencesExpanded = !phoneBreakpoint.matches;
+  let initialized = false;
 let homeMapRefreshClassTimeout = 0;
 let hoveredSummaryMapKey = null;
 const boardRequestGuard = createRequestGuard();
@@ -515,7 +522,7 @@ function splitBulletParts(text) {
     .filter(Boolean);
 }
 
-function homeRefineSummaryMarkup() {
+  function homeRefineSummaryMarkup() {
   const labels = [];
 
   if (isChoiceSetAny(selectedHomeDifficulties)) {
@@ -533,9 +540,45 @@ function homeRefineSummaryMarkup() {
   }
 
   return labels
-    .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
-    .join('');
-}
+      .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
+      .join('');
+  }
+
+  function shouldCollapseHomePreferences() {
+    return phoneBreakpoint.matches;
+  }
+
+  function syncHomePreferencesVisibility() {
+    const shouldCollapse = shouldCollapseHomePreferences();
+    const isExpanded = shouldCollapse ? homePreferencesExpanded : true;
+
+    if (homeRefineRow instanceof HTMLElement) {
+      homeRefineRow.dataset.expanded = isExpanded ? 'true' : 'false';
+    }
+
+    if (homeRadiusPanel instanceof HTMLElement) {
+      homeRadiusPanel.hidden = !isExpanded;
+    }
+
+    if (homeRefineToggle instanceof HTMLButtonElement) {
+      homeRefineToggle.hidden = !shouldCollapse;
+      homeRefineToggle.textContent = isExpanded ? 'Hide filters' : 'Show filters';
+      homeRefineToggle.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+    }
+
+    if (homeRadiusSummary instanceof HTMLElement) {
+      homeRadiusSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+    }
+
+    if (homeRefineSummary instanceof HTMLElement) {
+      homeRefineSummary.classList.toggle('sr-only', !shouldCollapse || isExpanded);
+    }
+  }
+
+  function setHomePreferencesExpanded(nextExpanded) {
+    homePreferencesExpanded = shouldCollapseHomePreferences() ? Boolean(nextExpanded) : true;
+    syncHomePreferencesVisibility();
+  }
 
 function homeSetupSummaryLabels() {
   const labels = [];
@@ -2940,17 +2983,15 @@ function updateLocationStatus() {
     }
   }
 
-  if (homeRefineRow instanceof HTMLElement) {
-    homeRefineRow.hidden = false;
-  }
+    if (homeRefineRow instanceof HTMLElement) {
+      homeRefineRow.hidden = false;
+    }
 
-  if (homeRadiusPanel instanceof HTMLElement) {
-    homeRadiusPanel.hidden = false;
-  }
-
-  if (homeRadiusSummary instanceof HTMLElement) {
-    homeRadiusSummary.textContent = `Showing routes within ${selectedRadiusMiles} miles`;
-  }
+    if (homeRadiusSummary instanceof HTMLElement) {
+      homeRadiusSummary.textContent = shouldCollapseHomePreferences()
+        ? `Within ${selectedRadiusMiles} mi`
+        : `Showing routes within ${selectedRadiusMiles} miles`;
+    }
 
   if (homeRefineSummary instanceof HTMLElement) {
     homeRefineSummary.innerHTML = homeRefineSummaryMarkup();
@@ -2966,11 +3007,13 @@ function updateLocationStatus() {
       : (selectedHomeDifficulties[0] || 'any');
   }
 
-  if (homePaddleTimeSelect instanceof HTMLSelectElement) {
-    homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
-      ? 'any'
-      : (selectedHomePaddleTimes[0] || 'any');
-  }
+    if (homePaddleTimeSelect instanceof HTMLSelectElement) {
+      homePaddleTimeSelect.value = isChoiceSetAny(selectedHomePaddleTimes)
+        ? 'any'
+        : (selectedHomePaddleTimes[0] || 'any');
+    }
+
+    syncHomePreferencesVisibility();
 
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement)) {
@@ -4685,11 +4728,18 @@ export function initSummaryBoard() {
     }
   }
 
-  if (nearbySortSelect instanceof HTMLSelectElement) {
-    nearbySortSelect.value = nearbySortMode;
-  }
+    if (nearbySortSelect instanceof HTMLSelectElement) {
+      nearbySortSelect.value = nearbySortMode;
+    }
 
-  updateLocationStatus();
+    if (homeRefineToggle instanceof HTMLButtonElement && homeRefineToggle.dataset.bound !== 'true') {
+      homeRefineToggle.dataset.bound = 'true';
+      homeRefineToggle.addEventListener('click', () => {
+        setHomePreferencesExpanded(!homePreferencesExpanded);
+      });
+    }
+
+    updateLocationStatus();
   maybeUseGrantedLocation();
 
   if (boardRefreshButton instanceof HTMLButtonElement) {
@@ -4751,8 +4801,9 @@ export function initSummaryBoard() {
 
   phoneBreakpoint.addEventListener('change', () => {
     if (summaryMapSupportsMobileViews && phoneBreakpoint.matches) {
-      summaryMapMobileView = 'list';
+      summaryMapMobileView = homeSummaryMapMode ? 'map' : 'list';
     }
+    homePreferencesExpanded = !phoneBreakpoint.matches;
     syncAppMobileViewportHeight();
     updateLocationStatus();
     updateSummaryMapToggle();

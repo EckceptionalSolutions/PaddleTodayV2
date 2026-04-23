@@ -574,6 +574,9 @@ function createWeekendCard(item, index, options = {}) {
 
   const tone = ratingToneKey(item.weekend.rating);
   card.classList.add(`river-card--${tone}`, 'river-card--route', 'river-card--weekend');
+  if (options.watchCard) {
+    card.classList.add('river-card--weekend-watch');
+  }
 
   const slotText = typeof options.slotLabel === 'string' ? options.slotLabel : slotLabel(index);
   setText(card.querySelector('[data-field="card-kind"]'), 'Weekend');
@@ -689,7 +692,7 @@ function renderWatchGrid(items) {
 
   const fragment = document.createDocumentFragment();
   items.slice(0, 6).forEach((item, index) => {
-    fragment.appendChild(createWeekendCard(item, index, { slotLabel: watchSlotLabel(index) }));
+    fragment.appendChild(createWeekendCard(item, index, { slotLabel: watchSlotLabel(index), watchCard: true }));
   });
   weekendWatchGrid.appendChild(fragment);
   refreshFavoriteButtons(weekendWatchGrid);
@@ -792,4 +795,3 @@ loadWeekend({ silent: hydrated });
 window.setInterval(() => {
   loadWeekend({ silent: true });
 }, AUTO_REFRESH_MS);
-

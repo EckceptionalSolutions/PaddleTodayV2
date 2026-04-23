@@ -11099,6 +11099,24 @@ body.site-search-open {
   min-height: 35rem;
 }
 
+@media (min-width: 761px) {
+  .page-home .summary-map-shell--home {
+    grid-template-columns: minmax(250px, 0.46fr) minmax(0, 1.54fr);
+  }
+
+  .page-home .summary-map-shell--home .summary-map-copy {
+    gap: 0.58rem;
+  }
+
+  .page-home .summary-map-shell--home .summary-map-copy__lede {
+    max-width: 24ch;
+  }
+
+  .page-home .summary-map-shell--home .summary-map {
+    min-height: 22.5rem;
+  }
+}
+
 .home-results-rail {
   display: grid;
   gap: 1rem;

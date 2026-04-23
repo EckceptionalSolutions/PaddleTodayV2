@@ -171,12 +171,17 @@ const trackedRiverCount = riverGroups.length;
             id="explore-map"
             mode="explore"
             className="summary-map-shell--explore-workspace"
+            mobileLayout="list-map"
             eyebrow="Map view"
             title="Route map"
             lede="Use the map to scan the board, then compare the ranked list."
-            showResults={false}
+            showResults={true}
+            resultsTitle="Ranked results"
+            note="Loading routes."
             status="Loading map."
             ariaLabel="Route score map"
+            itemNounSingular="route"
+            itemNounPlural="routes"
           />
 
           <div class="explore-workspace__board">
