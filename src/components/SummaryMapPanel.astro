@@ -65,7 +65,14 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
       <div class="summary-map-results-panel" data-summary-map-results-panel>
         <div class="summary-map-results-head">
           <div class="summary-map-results-head__row">
-            <p class="summary-map-results__title">{resultsTitle}</p>
+            <p
+              class="summary-map-results__title"
+              data-summary-map-results-title
+              data-default-label={resultsTitle}
+              data-mobile-map-label="Map shortlist"
+            >
+              {resultsTitle}
+            </p>
             <button
               class="filter-chip filter-chip--quiet summary-map-results__back"
               type="button"

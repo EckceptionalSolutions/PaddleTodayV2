@@ -195,6 +195,7 @@ const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
 const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
 const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mobile-back]');
+const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
@@ -3399,6 +3400,49 @@ function setSummaryMapMobileView(nextView, options = {}) {
   }
 }
 
+function summaryMapResultsNoteText(items = lastSummaryMapItems) {
+  if (items.length === 0) {
+    return isNearbySummaryMapMode()
+      ? 'No routes match your current preferences.'
+      : 'No routes match these filters.';
+  }
+
+  const countLabel = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  if (!mobileMapActive) {
+    return countLabel;
+  }
+
+  return `${countLabel}. Tap a route below to highlight it.`;
+}
+
+function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+
+  if (summaryMapShell instanceof HTMLElement) {
+    summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
+  }
+
+  if (summaryMapResultsTitle instanceof HTMLElement) {
+    const defaultLabel = summaryMapResultsTitle.dataset.defaultLabel || 'Matching routes';
+    const mobileMapLabel = summaryMapResultsTitle.dataset.mobileMapLabel || defaultLabel;
+    summaryMapResultsTitle.textContent = mobileMapActive ? mobileMapLabel : defaultLabel;
+  }
+
+  if (summaryMapResultsNote instanceof HTMLElement) {
+    summaryMapResultsNote.textContent = summaryMapResultsNoteText(items);
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
+    button.setAttribute('aria-label', view === 'map' ? 'Show route map' : 'Show route list');
+  }
+}
+
 function summaryMapItemNoun(count) {
   return count === 1 ? summaryMapItemNounSingular : summaryMapItemNounPlural;
 }
@@ -3441,18 +3485,7 @@ function renderSummaryMapResults(items) {
   }
 
   lastSummaryMapItems = items;
-
-  if (summaryMapResultsNote instanceof HTMLElement) {
-    if (items.length === 0) {
-      summaryMapResultsNote.textContent = isNearbySummaryMapMode()
-        ? 'No routes match your current preferences.'
-        : 'No routes match these filters.';
-    } else if (items.length === 1) {
-      summaryMapResultsNote.textContent = `1 ${summaryMapItemNoun(1)} on the map`;
-    } else {
-      summaryMapResultsNote.textContent = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
-    }
-  }
+  updateSummaryMapMobileContext(items);
 
   summaryMapResults.innerHTML = '';
 
@@ -3521,6 +3554,7 @@ function updateSummaryMapToggle() {
     mobileMapActive
   );
   summaryMapShell.dataset.summaryMapView = mobileView;
+  summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
 
   if (summaryMapMobileSwitch instanceof HTMLElement) {
     summaryMapMobileSwitch.hidden = !(summaryMapSupportsMobileViews && compact);
@@ -3539,6 +3573,8 @@ function updateSummaryMapToggle() {
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
     button.classList.toggle('summary-map-mobile-switch__button--active', isActive);
   }
+
+  updateSummaryMapMobileContext();
 
   if (summaryMapSupportsMobileViews) {
     if (!compact) {

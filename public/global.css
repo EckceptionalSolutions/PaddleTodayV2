@@ -11407,6 +11407,11 @@ body.site-search-open {
     font-weight: 800;
     letter-spacing: 0.04em;
     text-transform: uppercase;
+    transition:
+      background 180ms ease,
+      box-shadow 180ms ease,
+      color 180ms ease,
+      transform 180ms ease;
   }
 
   .summary-map-mobile-switch__button--active {
@@ -11428,15 +11433,17 @@ body.site-search-open {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     gap: 0;
-    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 5.5rem));
+    min-height: max(28rem, calc(var(--app-mobile-vh, 100svh) - 4.75rem - env(safe-area-inset-top)));
+    background: linear-gradient(180deg, rgba(244, 249, 251, 0.95), rgba(230, 240, 244, 0.88));
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
     position: sticky;
-    top: calc(0.5rem + env(safe-area-inset-top));
+    top: max(0.5rem, env(safe-area-inset-top));
     z-index: 4;
     width: auto;
-    margin: 0 0.78rem 0.62rem;
+    margin: 0 0.78rem 0.55rem;
+    backdrop-filter: blur(12px);
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-copy {
@@ -11459,15 +11466,17 @@ body.site-search-open {
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
     pointer-events: auto;
     margin: 0 0.78rem 0.78rem;
-    padding: 0.78rem 0.82rem calc(0.92rem + env(safe-area-inset-bottom));
+    padding: 0.82rem 0.82rem calc(max(1rem, env(safe-area-inset-bottom)) + 0.35rem);
     border: 1px solid rgba(16, 35, 45, 0.08);
-    border-radius: 24px 24px 0 0;
+    border-radius: 26px 26px 0 0;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 238, 0.94)),
       rgba(255, 255, 255, 0.94);
     box-shadow:
       0 -12px 32px rgba(16, 35, 45, 0.12),
       0 12px 32px rgba(16, 35, 45, 0.08);
+    max-height: min(31rem, calc(var(--app-mobile-vh, 100svh) - 7.25rem - env(safe-area-inset-top)));
+    overflow: hidden;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
@@ -11480,12 +11489,12 @@ body.site-search-open {
     position: sticky;
     top: 0;
     z-index: 1;
-    margin: -0.78rem -0.82rem 0;
-    padding: 0.58rem 0.82rem 0.45rem;
+    margin: -0.82rem -0.82rem 0;
+    padding: 0.72rem 0.82rem 0.5rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 245, 238, 0.95)),
       rgba(255, 255, 255, 0.96);
-    border-radius: 24px 24px 0 0;
+    border-radius: 26px 26px 0 0;
     backdrop-filter: blur(10px);
   }
 
@@ -11501,21 +11510,38 @@ body.site-search-open {
     transform: translateX(-50%);
   }
 
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head__row {
+    align-items: start;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title {
+    color: var(--river-deep);
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
+    max-width: 34ch;
+    font-size: 0.83rem;
+    line-height: 1.35;
+  }
+
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: min(24rem, calc(var(--app-mobile-vh, 100svh) - 16rem));
+    max-height: min(25rem, calc(var(--app-mobile-vh, 100svh) - 13.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)));
     padding-right: 0;
+    padding-bottom: 0.1rem;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame {
     position: relative;
-    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 8rem));
+    min-height: max(28rem, calc(var(--app-mobile-vh, 100svh) - 7rem - env(safe-area-inset-top)));
     padding: 0;
     border-inline: 0;
     border-radius: 0;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 8rem));
+    min-height: max(28rem, calc(var(--app-mobile-vh, 100svh) - 7rem - env(safe-area-inset-top)));
     border: 0;
     border-radius: 0;
   }
