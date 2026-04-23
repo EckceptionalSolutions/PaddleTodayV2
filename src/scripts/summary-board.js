@@ -5,6 +5,16 @@
   escapeHtml,
   markerClassForRating,
 } from './map-runtime.js';
+import {
+  formatMixedFilterSummary,
+  formatMixedPaginationSummary,
+  formatMixedResultCount,
+  mixedCardLinkLabel,
+  mixedResultsEmptyText,
+  mixedResultsNoMatchText,
+  mixedResultsTitle,
+  mixedSelectionPromptText,
+} from './board-copy.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
@@ -141,8 +151,8 @@ const featuredMapStatus = document.querySelector('[data-featured-map-status]');
 const featuredMapCaption = document.querySelector('[data-featured-map-caption]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const exploreSection = document.querySelector('.decision-section--explore');
-const homeFreshness = document.querySelector('[data-home-freshness]');
-const homeFreshnessWrap = document.querySelector('[data-home-freshness-wrap]');
+const homeFreshnessNodes = Array.from(document.querySelectorAll('[data-home-freshness]'));
+const homeFreshnessWraps = Array.from(document.querySelectorAll('[data-home-freshness-wrap]'));
 const homeStrongCount = document.querySelector('[data-home-strong-count]');
 const homeGoodCount = document.querySelector('[data-home-good-count]');
 const homeMixedCount = document.querySelector('[data-home-mixed-count]');
@@ -803,11 +813,7 @@ function sortNearbyResultsForDisplay(items) {
 }
 
 function formatRouteCountLabel(count, { withVerb = false } = {}) {
-  const amount = Number.isFinite(count) ? count : 0;
-  if (withVerb) {
-    return amount === 1 ? '1 route matches your filters' : `${amount} routes match your filters`;
-  }
-  return amount === 1 ? 'Showing 1 route' : `Showing ${amount} routes`;
+  return formatMixedResultCount(count, { withVerb });
 }
 
 function pickRepresentativeRoute(routes, mode, options = {}) {
@@ -1488,26 +1494,35 @@ function formatGeneratedFreshness(isoString) {
 }
 
 function updateHomeFreshness({ generatedAt = lastBoardGeneratedAt, refreshing = false, fallback = false } = {}) {
-  if (!(homeFreshness instanceof HTMLElement)) {
+  const freshnessNodes = homeFreshnessNodes.filter((node) => node instanceof HTMLElement);
+  if (freshnessNodes.length === 0) {
     return;
   }
 
-  if (homeFreshnessWrap instanceof HTMLElement) {
-    homeFreshnessWrap.hidden = false;
+  for (const wrap of homeFreshnessWraps) {
+    if (wrap instanceof HTMLElement) {
+      wrap.hidden = false;
+    }
   }
 
   const base = formatGeneratedFreshness(generatedAt);
   if (refreshing && generatedAt) {
-    homeFreshness.textContent = `${base} Refreshing now...`;
+    for (const node of freshnessNodes) {
+      node.textContent = `${base} Refreshing now...`;
+    }
     return;
   }
 
   if (fallback && generatedAt) {
-    homeFreshness.textContent = `${base} Showing latest available data.`;
+    for (const node of freshnessNodes) {
+      node.textContent = `${base} Showing latest available data.`;
+    }
     return;
   }
 
-  homeFreshness.textContent = base;
+  for (const node of freshnessNodes) {
+    node.textContent = base;
+  }
 }
 
 function formatBoardRefreshCopy(timestamp) {
@@ -1894,7 +1909,7 @@ function cardSummary(item) {
 }
 
 function cardLinkLabel(item) {
-  return isGroupedItem(item) ? 'Compare routes' : 'View river';
+  return mixedCardLinkLabel(isGroupedItem(item));
 }
 
 function summaryMentionsWeather(text) {
@@ -2385,9 +2400,9 @@ function updateExplorePagination(pagination) {
 
   if (explorePaginationSummary instanceof HTMLElement) {
     if (pagination.totalItems === 0) {
-      explorePaginationSummary.textContent = 'No routes match these filters.';
+      explorePaginationSummary.textContent = 'No results match these filters.';
     } else {
-      explorePaginationSummary.textContent = `Showing ${pagination.startIndex + 1}-${pagination.endIndex} of ${pagination.totalItems} routes`;
+      explorePaginationSummary.textContent = formatMixedPaginationSummary(pagination);
     }
   }
 
@@ -2405,11 +2420,11 @@ function updateExplorePagination(pagination) {
 
   if (exploreResultsCount instanceof HTMLElement) {
     if (pagination.totalItems === 0) {
-      exploreResultsCount.textContent = '0 routes';
+      exploreResultsCount.textContent = '0 results';
     } else if (pagination.totalItems === 1) {
-      exploreResultsCount.textContent = '1 route';
+      exploreResultsCount.textContent = '1 result';
     } else {
-      exploreResultsCount.textContent = `${pagination.totalItems} routes`;
+      exploreResultsCount.textContent = `${pagination.totalItems} results`;
     }
   }
 }
@@ -2435,12 +2450,12 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       featuredState.textContent = 'Enter a city or ZIP to see the best nearby paddle right now.';
     }
     if (featuredName instanceof HTMLAnchorElement) {
-      featuredName.textContent = locationReady ? 'No routes in range' : 'Best pick right now';
+      featuredName.textContent = locationReady ? 'No picks in range' : 'Best pick right now';
       featuredName.href = locationReady ? '#best-options' : '#home-location';
     }
     if (featuredReach instanceof HTMLElement) {
       featuredReach.textContent = locationReady
-        ? `Increase drive distance above ${selectedRadiusMiles} miles to compare more routes.`
+        ? `Increase drive distance above ${selectedRadiusMiles} miles to compare more results.`
         : 'Enter a city or ZIP to unlock a personalized top pick.';
     }
     if (featuredBridge instanceof HTMLElement) {
@@ -2507,7 +2522,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
     }
     if (featuredLink instanceof HTMLAnchorElement) {
       featuredLink.href = locationReady ? '/explore/' : '#home-location';
-      featuredLink.textContent = locationReady ? 'Browse all routes' : 'Set location first';
+      featuredLink.textContent = locationReady ? 'Browse all results' : 'Set location first';
     }
     if (featuredJumpLink instanceof HTMLElement) {
       featuredJumpLink.hidden = locationReady;
@@ -2599,7 +2614,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
   }
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = item.link;
-    featuredLink.textContent = 'View river';
+    featuredLink.textContent = mixedCardLinkLabel(isGroupedItem(item));
   }
   if (featuredJumpLink instanceof HTMLElement) {
     featuredJumpLink.hidden = false;
@@ -2672,13 +2687,13 @@ function renderRecommendationSection(nearbyItems, overallItems) {
     homeLocationEmpty.hidden = locationReady;
   }
 
-  recommendationTitle.textContent = locationReady ? 'Compare nearby routes' : 'More good routes nearby';
+  recommendationTitle.textContent = locationReady ? 'Compare nearby picks' : 'More good picks nearby';
 
   recommendationSummary.textContent = locationReady
     ? activePreferenceText
-      ? `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
-      : `Start with the best match above, then compare nearby routes within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
-    : 'Enter a city or ZIP above to compare nearby routes.';
+      ? `Start with the best match above, then compare nearby picks within ${selectedRadiusMiles} miles of ${shortLocationLabel()} that fit ${activePreferenceText}.`
+      : `Start with the best match above, then compare nearby picks within ${selectedRadiusMiles} miles of ${shortLocationLabel()}.`
+    : 'Enter a city or ZIP above to compare nearby picks.';
 
   if (recommendationCount instanceof HTMLElement) {
     recommendationCount.textContent = locationReady
@@ -2689,9 +2704,9 @@ function renderRecommendationSection(nearbyItems, overallItems) {
   if (recommendationItems.length === 0) {
     recommendationEmpty.textContent = locationReady
       ? activePreferenceText
-        ? `No recommended routes currently match ${activePreferenceText} within ${selectedRadiusMiles} miles.`
-        : `No recommended routes are currently available within ${selectedRadiusMiles} miles.`
-      : 'No recommended routes are available right now.';
+      ? `No recommended picks currently match ${activePreferenceText} within ${selectedRadiusMiles} miles.`
+      : `No recommended picks are currently available within ${selectedRadiusMiles} miles.`
+    : 'No recommended picks are available right now.';
     recommendationEmpty.hidden = false;
     renderRecommendationGrid([], locationReady);
     return;
@@ -2830,7 +2845,7 @@ function updateLocationIndicator() {
     locationIndicator.hidden = false;
     locationIndicator.dataset.state = 'loading';
     if (locationIndicatorLabel instanceof HTMLElement) {
-    locationIndicatorLabel.textContent = 'Finding nearest routes...';
+    locationIndicatorLabel.textContent = 'Finding nearest picks...';
     }
     return;
   }
@@ -2881,7 +2896,7 @@ function updateLocationStatus() {
   if (homeLocationSortSummary instanceof HTMLElement) {
     if (userLocationState === 'pending') {
       homeLocationSortSummary.hidden = false;
-      homeLocationSortSummary.textContent = 'Finding nearby routes...';
+        homeLocationSortSummary.textContent = 'Finding nearby picks...';
     } else if (locationReady && locationEditing) {
       homeLocationSortSummary.hidden = false;
       homeLocationSortSummary.textContent = 'Enter a new city or ZIP to compare another area.';
@@ -2904,7 +2919,7 @@ function updateLocationStatus() {
   }
 
   if (homeRadiusSummary instanceof HTMLElement) {
-    homeRadiusSummary.textContent = `Showing routes within ${selectedRadiusMiles} miles`;
+    homeRadiusSummary.textContent = `Showing picks within ${selectedRadiusMiles} miles`;
   }
 
   if (homeRefineSummary instanceof HTMLElement) {
@@ -3088,7 +3103,7 @@ function updateFilterSummary(exploreItems) {
 
   const sortLabel = exploreSortSummaryLabel();
   if (exploreItems.length === 0) {
-    filterSummary.textContent = 'No routes match these filters.';
+    filterSummary.textContent = 'No results match these filters.';
     updateExploreFilterPills();
     return;
   }
@@ -3098,7 +3113,7 @@ function updateFilterSummary(exploreItems) {
       ? ` from ${shortLocationLabel()}`
       : '';
   const ratingLabel = activeFilters.rating ? ` / ${activeFilters.rating} only` : '';
-  filterSummary.textContent = `Showing ${exploreItems.length} routes / ${sortLabel}${locationLabel}${ratingLabel}`;
+  filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
   updateExploreFilterPills();
 }
 
@@ -3228,8 +3243,8 @@ function updateSummaryStatus(items, routeResults) {
   }
 
   if (items.length === 0) {
-    summaryHeadline.textContent = 'No routes match the current filters.';
-    summaryDetail.textContent = 'Clear a filter to bring routes back.';
+    summaryHeadline.textContent = 'No results match the current filters.';
+    summaryDetail.textContent = 'Clear a filter to bring results back.';
     return;
   }
 
@@ -3253,7 +3268,7 @@ function updateSummaryStatus(items, routeResults) {
     return;
   }
 
-  summaryDetail.textContent = `${liveCount} routes live`;
+  summaryDetail.textContent = `${liveCount} results live`;
 }
 
 function updateBoardStatusBanner(items) {
@@ -3274,7 +3289,7 @@ function updateBoardStatusBanner(items) {
     boardStatusBanner.classList.remove('status-banner--hidden');
     boardStatusBanner.classList.add('status-banner--offline');
     if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${offlineCount} rivers have live-feed issues.`;
+      boardBannerTitle.textContent = `${offlineCount} results have live-feed issues.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
       boardBannerDetail.textContent = 'Look for the warning icon on affected cards before you drive.';
@@ -3286,7 +3301,7 @@ function updateBoardStatusBanner(items) {
     boardStatusBanner.classList.remove('status-banner--hidden');
     boardStatusBanner.classList.add('status-banner--degraded');
     if (boardBannerTitle instanceof HTMLElement) {
-      boardBannerTitle.textContent = `${degradedCount} rivers have limited live reads.`;
+      boardBannerTitle.textContent = `${degradedCount} results have limited live reads.`;
     }
     if (boardBannerDetail instanceof HTMLElement) {
       boardBannerDetail.textContent = 'Those cards are still usable, but some live inputs are stale or partial.';
@@ -3385,9 +3400,7 @@ function setSummaryMapMobileView(nextView, options = {}) {
 
 function summaryMapResultsNoteText(items = lastSummaryMapItems) {
   if (items.length === 0) {
-    return isNearbySummaryMapMode()
-      ? 'No routes match your current preferences.'
-      : 'No routes match these filters.';
+    return mixedResultsNoMatchText({ nearby: isNearbySummaryMapMode() });
   }
 
   const countLabel = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
@@ -3398,10 +3411,10 @@ function summaryMapResultsNoteText(items = lastSummaryMapItems) {
 
   const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
   if (selectedItem) {
-    return `${countLabel}. ${selectedItem.cardRoute.river.name} is selected below.`;
+    return mixedSelectionPromptText(countLabel, selectedItem.cardRoute.river.name);
   }
 
-  return `${countLabel}. Tap a route below to highlight it.`;
+  return mixedSelectionPromptText(countLabel);
 }
 
 function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
@@ -3413,7 +3426,7 @@ function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
   }
 
   if (summaryMapResultsTitle instanceof HTMLElement) {
-    const defaultLabel = summaryMapResultsTitle.dataset.defaultLabel || 'Matching routes';
+    const defaultLabel = summaryMapResultsTitle.dataset.defaultLabel || mixedResultsTitle();
     const mobileMapLabel = summaryMapResultsTitle.dataset.mobileMapLabel || defaultLabel;
     summaryMapResultsTitle.textContent = mobileMapActive ? mobileMapLabel : defaultLabel;
   }
@@ -3438,7 +3451,7 @@ function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
 
     const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
     const label = view === 'map' ? 'map' : 'list';
-    button.setAttribute('aria-label', `Show route ${label}${items.length ? ` (${countLabel} available)` : ''}`);
+    button.setAttribute('aria-label', `Show ${label} view${items.length ? ` (${countLabel} available)` : ''}`);
   }
 }
 
@@ -3531,9 +3544,9 @@ function renderSummaryMapResults(items) {
   summaryMapResults.innerHTML = '';
 
   if (items.length === 0) {
-    summaryMapResults.innerHTML = isNearbySummaryMapMode()
-      ? '<p class="muted summary-map-results__empty">Adjust your nearby preferences to bring routes back onto the map.</p>'
-      : '<p class="muted summary-map-results__empty">Adjust the filters to bring rivers back onto the map.</p>';
+    summaryMapResults.innerHTML = `<p class="muted summary-map-results__empty">${mixedResultsEmptyText({
+      nearby: isNearbySummaryMapMode(),
+    })}</p>`;
     return;
   }
 
@@ -3561,7 +3574,7 @@ function renderSummaryMapResults(items) {
   summaryMapResults.appendChild(fragment);
   const activeKey = items.some((item) => item.key === selectedSummaryMapKey)
     ? selectedSummaryMapKey
-    : (items[0]?.key || null);
+    : null;
   updateSummaryMapSelection(activeKey);
 }
 
@@ -3675,7 +3688,7 @@ async function renderSummaryMap(items) {
   const renderVersion = ++summaryMapRenderVersion;
 
   if (summaryMapStatus instanceof HTMLElement) {
-    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby routes.' : 'Loading map markers.';
+    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby picks.' : 'Loading map markers.';
   }
 
   try {
@@ -3775,8 +3788,9 @@ async function renderSummaryMap(items) {
         duration: 700,
       });
       mapRuntime.resize();
-      if (!selectedSummaryMapKey && items[0]) {
-        updateSummaryMapSelection(items[0].key);
+      if (!items.some((item) => item.key === selectedSummaryMapKey)) {
+        updateSummaryMapSelection(null);
+        closeSummaryMapPopups();
       }
       if (summaryMapStatus instanceof HTMLElement) {
         summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Nearby map is up to date.' : 'Map is up to date.';
@@ -3790,8 +3804,8 @@ async function renderSummaryMap(items) {
     renderSummaryMapResults([]);
     if (summaryMapStatus instanceof HTMLElement) {
       summaryMapStatus.textContent = isNearbySummaryMapMode()
-        ? 'No nearby routes match the current preferences.'
-        : 'No routes match the current filters.';
+        ? 'No nearby results match the current preferences.'
+        : 'No results match the current filters.';
     }
   } catch (error) {
     console.error('Failed to load summary map.', error);
