@@ -194,6 +194,7 @@ const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
 const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
+const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mobile-back]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
@@ -273,6 +274,19 @@ function setText(scope, field, value) {
 function normalizeRadiusMiles(value) {
   const numeric = Number(value);
   return RADIUS_OPTIONS.includes(numeric) ? numeric : DEFAULT_RADIUS_MILES;
+}
+
+function syncAppMobileViewportHeight() {
+  if (!(document.documentElement instanceof HTMLElement)) {
+    return;
+  }
+
+  const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
+  if (!Number.isFinite(viewportHeight) || viewportHeight <= 0) {
+    return;
+  }
+
+  document.documentElement.style.setProperty('--app-mobile-vh', `${Math.round(viewportHeight)}px`);
 }
 
 function radiusIndexForMiles(value) {
@@ -3310,11 +3324,22 @@ function updateSummaryMapSelection(key) {
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
+    let activeRow = null;
     for (const row of rows) {
       if (!(row instanceof HTMLButtonElement)) continue;
       const active = row.dataset.summaryMapItem === selectedSummaryMapKey;
       row.classList.toggle('summary-map-result--active', active);
       row.setAttribute('aria-pressed', active ? 'true' : 'false');
+      if (active) {
+        activeRow = row;
+      }
+    }
+
+    if (activeRow instanceof HTMLElement) {
+      activeRow.scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+      });
     }
   }
 
@@ -3465,6 +3490,7 @@ function updateSummaryMapToggle() {
 
   const compact = phoneBreakpoint.matches;
   const mobileView = activeSummaryMapView();
+  const mobileMapActive = summaryMapSupportsMobileViews && compact && mobileView === 'map';
 
   summaryMapShell.classList.toggle(
     'summary-map-shell--mobile-list',
@@ -3472,11 +3498,16 @@ function updateSummaryMapToggle() {
   );
   summaryMapShell.classList.toggle(
     'summary-map-shell--mobile-map',
-    summaryMapSupportsMobileViews && compact && mobileView === 'map'
+    mobileMapActive
   );
+  summaryMapShell.dataset.summaryMapView = mobileView;
 
   if (summaryMapMobileSwitch instanceof HTMLElement) {
     summaryMapMobileSwitch.hidden = !(summaryMapSupportsMobileViews && compact);
+  }
+
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.hidden = !mobileMapActive;
   }
 
   for (const button of summaryMapMobileViewButtons) {
@@ -4624,15 +4655,34 @@ export function initSummaryBoard() {
     });
   }
 
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.addEventListener('click', () => {
+      setSummaryMapMobileView('list');
+      recommendationSection?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    });
+  }
+
+  syncAppMobileViewportHeight();
+
   window.addEventListener('resize', () => {
+    syncAppMobileViewportHeight();
     syncExploreShellHeight();
     updateSummaryMapToggle();
   });
 
   phoneBreakpoint.addEventListener('change', () => {
+    syncAppMobileViewportHeight();
     updateLocationStatus();
     updateSummaryMapToggle();
     syncExploreShellHeight();
+  });
+
+  window.visualViewport?.addEventListener('resize', () => {
+    syncAppMobileViewportHeight();
+    updateSummaryMapToggle();
   });
 
   for (const button of homeJumpButtons) {

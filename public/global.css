@@ -1346,6 +1346,14 @@ body.site-search-open {
   gap: 0.18rem;
 }
 
+.summary-map-results-head__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
 .summary-map-results__title {
   margin: 0;
   font-size: 0.82rem;
@@ -1366,12 +1374,20 @@ body.site-search-open {
   max-height: 22rem;
   overflow-y: auto;
   padding-right: 0.15rem;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
 }
 
 .summary-map-results-panel {
   display: grid;
   gap: 0.42rem;
   min-height: 0;
+}
+
+.summary-map-results__back {
+  display: none;
+  min-height: 2.1rem;
+  white-space: nowrap;
 }
 
 .summary-map-result {
@@ -11406,6 +11422,15 @@ body.site-search-open {
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
     gap: 0;
+    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 5.5rem));
+  }
+
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    position: sticky;
+    top: calc(0.5rem + env(safe-area-inset-top));
+    z-index: 4;
+    width: auto;
+    margin: 0 0.78rem 0.62rem;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-copy {
@@ -11439,6 +11464,12 @@ body.site-search-open {
       0 12px 32px rgba(16, 35, 45, 0.08);
   }
 
+  .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
     position: relative;
     padding-top: 0.58rem;
@@ -11457,20 +11488,20 @@ body.site-search-open {
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: min(42dvh, 24rem);
+    max-height: min(24rem, calc(var(--app-mobile-vh, 100svh) - 16rem));
     padding-right: 0;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame {
     position: relative;
-    min-height: calc(100dvh - 8.75rem);
+    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 8rem));
     padding: 0;
     border-inline: 0;
     border-radius: 0;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: calc(100dvh - 8.75rem);
+    min-height: max(26rem, calc(var(--app-mobile-vh, 100svh) - 8rem));
     border: 0;
     border-radius: 0;
   }

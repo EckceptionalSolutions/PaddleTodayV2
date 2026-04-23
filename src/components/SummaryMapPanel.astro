@@ -60,7 +60,16 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
     {showResults && (
       <div class="summary-map-results-panel" data-summary-map-results-panel>
         <div class="summary-map-results-head">
-          <p class="summary-map-results__title">{resultsTitle}</p>
+          <div class="summary-map-results-head__row">
+            <p class="summary-map-results__title">{resultsTitle}</p>
+            <button
+              class="filter-chip filter-chip--quiet summary-map-results__back"
+              type="button"
+              data-summary-map-mobile-back
+            >
+              Back to list
+            </button>
+          </div>
           <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
         </div>
         <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
