@@ -194,6 +194,7 @@ const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
 const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
 const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
+const summaryMapMobileCountNodes = Array.from(document.querySelectorAll('[data-summary-map-mobile-count]'));
 const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mobile-back]');
 const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
@@ -3358,6 +3359,7 @@ function updateSummaryMapSelection(key) {
     markerElement.classList.toggle('score-map-marker--hovered', Boolean(hoveredSummaryMapKey) && markerKey === hoveredSummaryMapKey);
   }
 
+  updateSummaryMapMobileContext();
   updateHomeRailSelection(selectedSummaryMapKey);
 }
 
@@ -3413,11 +3415,17 @@ function summaryMapResultsNoteText(items = lastSummaryMapItems) {
     return countLabel;
   }
 
+  const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
+  if (selectedItem) {
+    return `${countLabel}. ${selectedItem.cardRoute.river.name} is selected below.`;
+  }
+
   return `${countLabel}. Tap a route below to highlight it.`;
 }
 
 function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
   const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  const countLabel = String(items.length);
 
   if (summaryMapShell instanceof HTMLElement) {
     summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
@@ -3433,13 +3441,23 @@ function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
     summaryMapResultsNote.textContent = summaryMapResultsNoteText(items);
   }
 
+  for (const countNode of summaryMapMobileCountNodes) {
+    if (!(countNode instanceof HTMLElement)) {
+      continue;
+    }
+
+    countNode.textContent = countLabel;
+    countNode.hidden = items.length === 0;
+  }
+
   for (const button of summaryMapMobileViewButtons) {
     if (!(button instanceof HTMLButtonElement)) {
       continue;
     }
 
     const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
-    button.setAttribute('aria-label', view === 'map' ? 'Show route map' : 'Show route list');
+    const label = view === 'map' ? 'map' : 'list';
+    button.setAttribute('aria-label', `Show route ${label}${items.length ? ` (${countLabel} available)` : ''}`);
   }
 }
 

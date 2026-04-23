@@ -11396,6 +11396,10 @@ body.site-search-open {
   }
 
   .summary-map-mobile-switch__button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
     min-height: 2.7rem;
     padding: 0.6rem 0.9rem;
     border: 0;
@@ -11414,6 +11418,31 @@ body.site-search-open {
       transform 180ms ease;
   }
 
+  .summary-map-mobile-switch__label {
+    white-space: nowrap;
+  }
+
+  .summary-map-mobile-switch__count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.65rem;
+    min-height: 1.65rem;
+    padding: 0 0.45rem;
+    border-radius: 999px;
+    background: rgba(16, 35, 45, 0.08);
+    color: var(--ink-soft);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0;
+    text-transform: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  }
+
+  .summary-map-mobile-switch__count[hidden] {
+    display: none;
+  }
+
   .summary-map-mobile-switch__button--active {
     background:
       linear-gradient(180deg, rgba(30, 115, 151, 0.12), rgba(30, 115, 151, 0.05)),
@@ -11422,6 +11451,11 @@ body.site-search-open {
     box-shadow:
       0 10px 20px rgba(16, 35, 45, 0.08),
       inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  }
+
+  .summary-map-mobile-switch__button--active .summary-map-mobile-switch__count {
+    background: rgba(30, 115, 151, 0.14);
+    color: var(--river-deep);
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-list .summary-map-frame {
@@ -11466,9 +11500,9 @@ body.site-search-open {
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
     pointer-events: auto;
     margin: 0 0.78rem 0.78rem;
-    padding: 0.82rem 0.82rem calc(max(1rem, env(safe-area-inset-bottom)) + 0.35rem);
+    padding: 0.82rem 0.82rem calc(max(1rem, env(safe-area-inset-bottom)) + 0.6rem);
     border: 1px solid rgba(16, 35, 45, 0.08);
-    border-radius: 26px 26px 0 0;
+    border-radius: 26px 26px 1.15rem 1.15rem;
     background:
       linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 245, 238, 0.94)),
       rgba(255, 255, 255, 0.94);
@@ -11523,13 +11557,14 @@ body.site-search-open {
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
     max-width: 34ch;
     font-size: 0.83rem;
-    line-height: 1.35;
+    line-height: 1.4;
+    color: var(--ink-soft);
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
     max-height: min(25rem, calc(var(--app-mobile-vh, 100svh) - 13.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)));
     padding-right: 0;
-    padding-bottom: 0.1rem;
+    padding-bottom: 0.35rem;
   }
 
   .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame {
