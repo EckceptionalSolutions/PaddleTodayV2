@@ -189,19 +189,28 @@ const homepageStructuredData = [
             <div
               class="home-location-bar__refine-summary sr-only"
               data-home-refine-summary
-            >
-              <span class="home-location-bar__refine-pill">Any difficulty</span>
-              <span class="home-location-bar__refine-pill">Any time</span>
+              >
+                <span class="home-location-bar__refine-pill">Any difficulty</span>
+                <span class="home-location-bar__refine-pill">Any time</span>
+              </div>
             </div>
+            <button
+              type="button"
+              class="home-location-bar__refine-toggle filter-chip filter-chip--subtle"
+              data-home-refine-toggle
+              aria-expanded="false"
+              aria-controls="home-radius-panel"
+            >
+              Show filters
+            </button>
           </div>
-        </div>
 
-        <div class="home-radius-panel" data-home-radius-panel>
-          <div class="home-radius-panel__mobile-head">
-            <div>
-              <p class="home-radius-panel__eyebrow">Refine your picks</p>
-              <p class="home-radius-panel__mobile-copy">
-                Narrow things down without leaving the page.
+          <div class="home-radius-panel" id="home-radius-panel" data-home-radius-panel>
+            <div class="home-radius-panel__mobile-head">
+              <div>
+                <p class="home-radius-panel__eyebrow">Refine your picks</p>
+                <p class="home-radius-panel__mobile-copy">
+                  Narrow things down without leaving the page.
               </p>
             </div>
           </div>
@@ -377,7 +386,7 @@ const homepageStructuredData = [
         <div class="home-featured__lock">
           <p class="home-featured__lock-label">Today&apos;s Best</p>
           <p class="home-featured__lock-copy">
-            Enter a city or ZIP to see the best nearby paddle right now.
+            Add a city or ZIP to unlock the best nearby route.
           </p>
         </div>
 
@@ -636,6 +645,8 @@ const homepageStructuredData = [
       <SummaryMapPanel
         id="home-results-map"
         mode="explore"
+        className="summary-map-shell--home"
+        mobileLayout="list-map"
         eyebrow="Route map"
         title="Today's route map"
         lede=""
@@ -644,6 +655,8 @@ const homepageStructuredData = [
         note="Loading routes."
         status="Loading route map."
         ariaLabel="Map showing routes that match the current homepage filters"
+        itemNounSingular="route"
+        itemNounPlural="routes"
       />
     </div>
   </section>

@@ -3,10 +3,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import SummaryMapPanel from '../components/SummaryMapPanel.astro';
 import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
-import { listRivers } from '../lib/rivers';
+import { listRiverGroups, listRivers } from '../lib/rivers';
 
 const rivers = listRivers();
+const riverGroups = listRiverGroups();
 const states = [...new Set(rivers.map((river) => river.state))].sort();
+const trackedRouteCount = rivers.length;
+const trackedRiverCount = riverGroups.length;
 ---
 
 <BaseLayout
@@ -18,6 +21,10 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
       <div>
         <p class="eyebrow">Explore</p>
         <h1 class="section-title">Browse all routes</h1>
+      </div>
+      <div class="hero__meta">
+        <span class="stat-chip">{trackedRiverCount} tracked rivers</span>
+        <span class="stat-chip">{trackedRouteCount} tracked routes</span>
       </div>
     </div>
 
@@ -164,12 +171,17 @@ const states = [...new Set(rivers.map((river) => river.state))].sort();
             id="explore-map"
             mode="explore"
             className="summary-map-shell--explore-workspace"
+            mobileLayout="list-map"
             eyebrow="Map view"
             title="Route map"
             lede="Use the map to scan the board, then compare the ranked list."
-            showResults={false}
+            showResults={true}
+            resultsTitle="Ranked results"
+            note="Loading routes."
             status="Loading map."
             ariaLabel="Route score map"
+            itemNounSingular="route"
+            itemNounPlural="routes"
           />
 
           <div class="explore-workspace__board">

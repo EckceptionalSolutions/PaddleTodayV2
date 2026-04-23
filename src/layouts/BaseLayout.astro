@@ -158,16 +158,23 @@ const pageClass =
             <nav class="site-header__nav" aria-label="Primary">
               <a class="site-header__nav-link site-header__nav-link--primary" href="/">Today</a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/weekend/">Weekend</a>
-              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">Browse Routes</a>
+              <a class="site-header__nav-link site-header__nav-link--primary" href="/explore/">
+                <span class="site-header__nav-label site-header__nav-label--full">Browse Routes</span>
+                <span class="site-header__nav-label site-header__nav-label--short">Browse</span>
+              </a>
               <a class="site-header__nav-link site-header__nav-link--primary" href="/favorites/" data-site-favorites-link hidden>
                 Favorites <span data-site-favorites-count></span>
               </a>
             </nav>
             <button class="site-header__search" type="button" data-site-search-open aria-haspopup="dialog" aria-controls="site-search-panel">
               <FeatureIcon name="search" size={15} />
-              <span>Search Routes</span>
+              <span class="site-header__search-label site-header__search-label--full">Search Routes</span>
+              <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
-            <a class="site-header__action" href="/request-river/">Request</a>
+            <a class="site-header__action" href="/request-river/">
+              <span class="site-header__action-label site-header__action-label--full">Request</span>
+              <span class="site-header__action-label site-header__action-label--short">Request</span>
+            </a>
           </div>
           <p class="site-header__blurb">
             Live score, support level, and weather.

@@ -5,6 +5,7 @@ const {
   id,
   mode = 'explore',
   className = '',
+  mobileLayout = 'collapse',
   eyebrow = 'Score map',
   title,
   lede = '',
@@ -13,6 +14,8 @@ const {
   note = 'Loading routes.',
   status = 'Loading map.',
   ariaLabel = 'Route score map',
+  itemNounSingular = 'river',
+  itemNounPlural = 'rivers',
 } = Astro.props;
 
 const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--nearby' : 'summary-map-shell', className]
@@ -20,22 +23,71 @@ const shellClass = [mode === 'nearby' ? 'summary-map-shell summary-map-shell--ne
   .join(' ');
 ---
 
-<section class={shellClass} id={id} data-summary-map-shell data-summary-map-mode={mode}>
+<section
+  class={shellClass}
+  id={id}
+  data-summary-map-shell
+  data-summary-map-mode={mode}
+  data-summary-map-mobile-layout={mobileLayout}
+  data-summary-map-item-singular={itemNounSingular}
+  data-summary-map-item-plural={itemNounPlural}
+>
+  {mobileLayout === 'list-map' && (
+    <div class="summary-map-mobile-switch" data-summary-map-mobile-switch hidden>
+      <button
+        class="summary-map-mobile-switch__button"
+        type="button"
+        data-summary-map-mobile-view="list"
+        aria-pressed="true"
+      >
+        <span class="summary-map-mobile-switch__label">List</span>
+        <span class="summary-map-mobile-switch__count" data-summary-map-mobile-count="list">0</span>
+      </button>
+      <button
+        class="summary-map-mobile-switch__button"
+        type="button"
+        data-summary-map-mobile-view="map"
+        aria-pressed="false"
+      >
+        <span class="summary-map-mobile-switch__label">Map</span>
+        <span class="summary-map-mobile-switch__count" data-summary-map-mobile-count="map">0</span>
+      </button>
+    </div>
+  )}
   <div class="summary-map-copy">
-    <p class="eyebrow section-label">
-      <FeatureIcon name="map" size={16} />
-      {eyebrow}
-    </p>
-    <h2 class="section-title">{title}</h2>
-    {lede && <p class="muted summary-map-copy__lede">{lede}</p>}
+    <div class="summary-map-copy__intro">
+      <p class="eyebrow section-label">
+        <FeatureIcon name="map" size={16} />
+        {eyebrow}
+      </p>
+      <h2 class="section-title">{title}</h2>
+      {lede && <p class="muted summary-map-copy__lede">{lede}</p>}
+    </div>
     {showResults && (
-      <>
+      <div class="summary-map-results-panel" data-summary-map-results-panel>
         <div class="summary-map-results-head">
-          <p class="summary-map-results__title">{resultsTitle}</p>
+          <div class="summary-map-results-head__row">
+            <p
+              class="summary-map-results__title"
+              data-summary-map-results-title
+              data-default-label={resultsTitle}
+              data-mobile-map-label="Map shortlist"
+            >
+              {resultsTitle}
+            </p>
+            <button
+              class="filter-chip filter-chip--quiet summary-map-results__back"
+              type="button"
+              data-summary-map-mobile-back
+              hidden
+            >
+              Back to list
+            </button>
+          </div>
           <p class="muted summary-map-results__note" data-summary-map-results-note>{note}</p>
         </div>
         <div class="summary-map-results" data-summary-map-results aria-live="polite"></div>
-      </>
+      </div>
     )}
     <button class="filter-chip summary-map__toggle" type="button" data-summary-map-toggle hidden aria-expanded="true">Hide map</button>
   </div>

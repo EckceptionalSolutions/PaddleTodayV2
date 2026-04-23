@@ -192,10 +192,22 @@ const summaryMap = document.querySelector('[data-summary-map]');
 const summaryMapStatus = document.querySelector('[data-summary-map-status]');
 const summaryMapShell = document.querySelector('[data-summary-map-shell]');
 const summaryMapToggle = document.querySelector('[data-summary-map-toggle]');
+const summaryMapMobileSwitch = document.querySelector('[data-summary-map-mobile-switch]');
+const summaryMapMobileViewButtons = Array.from(document.querySelectorAll('[data-summary-map-mobile-view]'));
+const summaryMapMobileCountNodes = Array.from(document.querySelectorAll('[data-summary-map-mobile-count]'));
+const summaryMapMobileBackButton = document.querySelector('[data-summary-map-mobile-back]');
+const summaryMapResultsTitle = document.querySelector('[data-summary-map-results-title]');
 const summaryMapResults = document.querySelector('[data-summary-map-results]');
 const summaryMapResultsNote = document.querySelector('[data-summary-map-results-note]');
 const phoneBreakpoint = window.matchMedia('(max-width: 760px)');
 const summaryMapMode = summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMode || 'explore') : 'explore';
+const summaryMapMobileLayout =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapMobileLayout || 'collapse') : 'collapse';
+const summaryMapSupportsMobileViews = summaryMapMobileLayout === 'list-map';
+const summaryMapItemNounSingular =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemSingular || 'river') : 'river';
+const summaryMapItemNounPlural =
+  summaryMapShell instanceof HTMLElement ? (summaryMapShell.dataset.summaryMapItemPlural || 'rivers') : 'rivers';
 
 const statusWeight = {
   live: 2,
@@ -246,6 +258,7 @@ let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
 let summaryMapCollapsed = phoneBreakpoint.matches;
+let summaryMapMobileView = summaryMapSupportsMobileViews && phoneBreakpoint.matches ? 'list' : 'map';
 let initialized = false;
 const boardRequestGuard = createRequestGuard();
 
@@ -3335,10 +3348,102 @@ function isNearbySummaryMapMode() {
   return summaryMapMode === 'nearby';
 }
 
+function activeSummaryMapView() {
+  if (!(summaryMapSupportsMobileViews && phoneBreakpoint.matches)) {
+    return 'map';
+  }
+
+  return summaryMapMobileView === 'list' ? 'list' : 'map';
+}
+
+function scrollSummaryMapShellIntoView() {
+  if (!(summaryMapShell instanceof HTMLElement) || !phoneBreakpoint.matches) {
+    return;
+  }
+
+  summaryMapShell.scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+  });
+}
+
+function setSummaryMapMobileView(nextView, options = {}) {
+  if (!summaryMapSupportsMobileViews) {
+    return;
+  }
+
+  const { scrollIntoView = false } = options;
+  summaryMapMobileView = nextView === 'list' ? 'list' : 'map';
+  updateSummaryMapToggle();
+
+  if (scrollIntoView && summaryMapMobileView === 'map') {
+    window.setTimeout(() => {
+      scrollSummaryMapShellIntoView();
+    }, 45);
+  }
+}
+
+function summaryMapResultsNoteText(items = lastSummaryMapItems) {
+  if (items.length === 0) {
+    return isNearbySummaryMapMode()
+      ? 'No routes match your current preferences.'
+      : 'No routes match these filters.';
+  }
+
+  const countLabel = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  if (!mobileMapActive) {
+    return countLabel;
+  }
+
+  const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
+  if (selectedItem) {
+    return `${countLabel}. ${selectedItem.cardRoute.river.name} is selected below.`;
+  }
+
+  return `${countLabel}. Tap a route below to highlight it.`;
+}
+
+function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
+  const mobileMapActive = summaryMapSupportsMobileViews && phoneBreakpoint.matches && activeSummaryMapView() === 'map';
+  const countLabel = String(items.length);
+
+  if (summaryMapShell instanceof HTMLElement) {
+    summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
+  }
+
+  if (summaryMapResultsTitle instanceof HTMLElement) {
+    const defaultLabel = summaryMapResultsTitle.dataset.defaultLabel || 'Matching routes';
+    const mobileMapLabel = summaryMapResultsTitle.dataset.mobileMapLabel || defaultLabel;
+    summaryMapResultsTitle.textContent = mobileMapActive ? mobileMapLabel : defaultLabel;
+  }
+
+  if (summaryMapResultsNote instanceof HTMLElement) {
+    summaryMapResultsNote.textContent = summaryMapResultsNoteText(items);
+  }
+
+  for (const countNode of summaryMapMobileCountNodes) {
+    if (!(countNode instanceof HTMLElement)) {
+      continue;
+    }
+
+    countNode.textContent = countLabel;
+    countNode.hidden = items.length === 0;
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
+    const label = view === 'map' ? 'map' : 'list';
+    button.setAttribute('aria-label', `Show route ${label}${items.length ? ` (${countLabel} available)` : ''}`);
+  }
+}
+
 function summaryMapItemNoun(count) {
-  const singular = isNearbySummaryMapMode() ? 'route' : 'river';
-  const plural = isNearbySummaryMapMode() ? 'routes' : 'rivers';
-  return count === 1 ? singular : plural;
+  return count === 1 ? summaryMapItemNounSingular : summaryMapItemNounPlural;
 }
 
 function closeSummaryMapPopups(exceptKey = null) {
@@ -3359,6 +3464,8 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
     return;
   }
 
+  const shouldScrollCard = scroll && !(summaryMapSupportsMobileViews && phoneBreakpoint.matches);
+
   const cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
   for (const card of cards) {
     if (!(card instanceof HTMLElement)) {
@@ -3368,7 +3475,7 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
     const active = card.dataset.summaryMapCard === key;
     card.classList.toggle('river-card--map-active', active);
 
-    if (active && scroll) {
+    if (active && shouldScrollCard) {
       card.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
@@ -3379,7 +3486,7 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
     }
   }
 
-  if (scroll) {
+  if (shouldScrollCard) {
     window.clearTimeout(summaryMapCardFlashTimeout);
     summaryMapCardFlashTimeout = window.setTimeout(() => {
       if (!(exploreGrid instanceof HTMLElement)) {
@@ -3400,6 +3507,10 @@ function openSummaryMapItem(key, { scrollCard = true } = {}) {
     return;
   }
 
+  if (activeSummaryMapView() === 'list') {
+    setSummaryMapMobileView('map', { scrollIntoView: true });
+  }
+
   updateSummaryMapSelection(key);
   focusSummaryMapCard(key, { scroll: scrollCard });
   closeSummaryMapPopups(key);
@@ -3415,28 +3526,9 @@ function renderSummaryMapResults(items) {
   }
 
   lastSummaryMapItems = items;
-
-  if (summaryMapResultsNote instanceof HTMLElement) {
-    if (items.length === 0) {
-      summaryMapResultsNote.textContent = isNearbySummaryMapMode()
-        ? 'No routes match your current preferences.'
-        : 'No routes match these filters.';
-    } else if (items.length === 1) {
-      summaryMapResultsNote.textContent = `1 ${summaryMapItemNoun(1)} on the map`;
-    } else {
-      summaryMapResultsNote.textContent = `${items.length} ${summaryMapItemNoun(items.length)} on the map`;
-    }
-  }
+  updateSummaryMapMobileContext(items);
 
   summaryMapResults.innerHTML = '';
-
-  if (summaryMapResults.hidden) {
-    const activeKey = items.some((item) => item.key === selectedSummaryMapKey)
-      ? selectedSummaryMapKey
-      : (items[0]?.key || null);
-    updateSummaryMapSelection(activeKey);
-    return;
-  }
 
   if (items.length === 0) {
     summaryMapResults.innerHTML = isNearbySummaryMapMode()
@@ -3479,6 +3571,54 @@ function updateSummaryMapToggle() {
   }
 
   const compact = phoneBreakpoint.matches;
+  const mobileView = activeSummaryMapView();
+  const mobileMapActive = summaryMapSupportsMobileViews && compact && mobileView === 'map';
+
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-list',
+    summaryMapSupportsMobileViews && compact && mobileView === 'list'
+  );
+  summaryMapShell.classList.toggle(
+    'summary-map-shell--mobile-map',
+    mobileMapActive
+  );
+  summaryMapShell.dataset.summaryMapView = mobileView;
+  summaryMapShell.dataset.summaryMapActiveMobile = mobileMapActive ? 'map' : 'list';
+
+  if (summaryMapMobileSwitch instanceof HTMLElement) {
+    summaryMapMobileSwitch.hidden = !(summaryMapSupportsMobileViews && compact);
+  }
+
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.hidden = !mobileMapActive;
+  }
+
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    const isActive = compact && mobileView === button.dataset.summaryMapMobileView;
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    button.classList.toggle('summary-map-mobile-switch__button--active', isActive);
+  }
+
+  updateSummaryMapMobileContext();
+
+  if (summaryMapSupportsMobileViews) {
+    if (!compact) {
+      summaryMapMobileView = 'map';
+    }
+
+    summaryMapToggle.hidden = true;
+    if (mobileView === 'map' && mapRuntime) {
+      window.setTimeout(() => {
+        mapRuntime?.resize();
+      }, 30);
+    }
+    return;
+  }
+
   if (!compact) {
     summaryMapCollapsed = false;
   }
@@ -4770,6 +4910,24 @@ export function initSummaryBoard() {
     });
   }
 
+  for (const button of summaryMapMobileViewButtons) {
+    if (!(button instanceof HTMLButtonElement)) {
+      continue;
+    }
+
+    button.addEventListener('click', () => {
+      setSummaryMapMobileView(button.dataset.summaryMapMobileView, {
+        scrollIntoView: button.dataset.summaryMapMobileView === 'map',
+      });
+    });
+  }
+
+  if (summaryMapMobileBackButton instanceof HTMLButtonElement) {
+    summaryMapMobileBackButton.addEventListener('click', () => {
+      setSummaryMapMobileView('list');
+    });
+  }
+
   window.addEventListener('resize', () => {
     syncExploreShellHeight();
     updateSummaryMapToggle();
@@ -4778,6 +4936,9 @@ export function initSummaryBoard() {
   phoneBreakpoint.addEventListener('change', () => {
     document.body.classList.toggle('home-filter-sheet-open', phoneBreakpoint.matches && homeFilterSheetOpen);
     updateLocationStatus();
+    if (summaryMapSupportsMobileViews && phoneBreakpoint.matches) {
+      summaryMapMobileView = 'list';
+    }
     updateSummaryMapToggle();
     syncExploreShellHeight();
   });
@@ -4803,7 +4964,3 @@ export function initSummaryBoard() {
     loadBoard({ silent: true });
   }, AUTO_REFRESH_MS);
 }
-
-
-
-
