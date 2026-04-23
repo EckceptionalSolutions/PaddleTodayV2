@@ -30,6 +30,7 @@ Latest local pass (2026-04-23 AM):
 - reduced initial mobile map bottom-sheet height so more map stays visible
 - follow-up pass tightened the header further, compacted the locked card harder, and shrank the mobile map shortlist peek again
 - latest follow-up pass stripped the homepage mobile header down further on very small screens, hid the extra request CTA there, compacted the locked card again, and lowered the mobile map shortlist peek again
+- newest pass collapsed the locked mobile "Today's Best" card to a compact prompt row, stripped the mobile header down to logo + nav + search only, and reduced the map shortlist peek again so Map mode stays map-first
 - Astro build and typecheck now pass locally
 - still needs visual device-level validation against the screenshot issues
 
