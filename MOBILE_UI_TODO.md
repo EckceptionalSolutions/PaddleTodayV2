@@ -26,7 +26,23 @@ This pass must still be validated and likely polished.
 
 ## Priority Queue
 
-### 1) Validate homepage mobile behavior
+### 1) Fix screenshot-confirmed homepage mobile issues
+User-tested issues from screenshots now override generic polish work:
+- Header/navigation on mobile is still too busy and tall
+  - simplify the top card
+  - reduce control density
+  - make nav pills feel cleaner and less dominant
+  - reduce early-page clutter
+- Hidden "Today's Best" card is far too tall on mobile
+  - shrink it aggressively
+  - remove dead vertical space
+  - keep the locked state compact and useful
+- Map mode is still not map-first enough
+  - bottom sheet is too tall
+  - too much of the map is covered
+  - make the initial sheet state smaller so the map is actually usable
+
+### 2) Validate homepage mobile behavior
 - Confirm mobile List/Map toggle works well
 - Confirm default mobile view is List
 - Confirm switching to Map mode feels intentional and smooth
@@ -34,7 +50,7 @@ This pass must still be validated and likely polished.
 - Confirm route selection / marker selection sync behaves correctly
 - Confirm empty and sparse result states still look good
 
-### 2) Polish homepage mobile UX
+### 3) Polish homepage mobile UX
 - Tune bottom-sheet height and spacing
 - Tune safe-area / viewport-height behavior
 - Improve visual hierarchy in Map mode
