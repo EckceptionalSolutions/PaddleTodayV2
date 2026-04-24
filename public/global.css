@@ -15496,20 +15496,20 @@ body.site-search-open {
   html body.page-home .site-header {
     width: min(100% - 0.7rem, var(--max-width)) !important;
     align-items: center !important;
-    gap: 0.32rem 0.5rem !important;
-    padding: 0.28rem 0.36rem 0.12rem !important;
-    border-radius: 18px !important;
+    gap: 0.24rem 0.42rem !important;
+    padding: 0.18rem 0.28rem 0.08rem !important;
+    border-radius: 16px !important;
   }
 
   html body.page-home .site-header .brand {
     align-items: center !important;
-    gap: 0.32rem !important;
+    gap: 0.24rem !important;
     min-width: 0 !important;
   }
 
   html body.page-home .site-header .brand__logo {
-    width: 1.58rem !important;
-    height: 1.58rem !important;
+    width: 1.46rem !important;
+    height: 1.46rem !important;
   }
 
   html body.page-home .site-header .brand__copy,
@@ -15522,42 +15522,48 @@ body.site-search-open {
   html body.page-home .site-header__meta {
     width: 100% !important;
     max-width: none !important;
-    gap: 0.12rem !important;
+    gap: 0.08rem !important;
   }
 
   html body.page-home .site-header__topline {
     display: grid !important;
     grid-template-columns: minmax(0, 1fr) auto !important;
     align-items: center !important;
-    gap: 0.2rem !important;
+    gap: 0.16rem !important;
   }
 
   html body.page-home .site-header__nav {
     display: grid !important;
     grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 0.18rem !important;
+    gap: 0.14rem !important;
     min-width: 0 !important;
   }
 
   html body.page-home .site-header__nav-link {
     min-width: 0 !important;
-    min-height: 1.52rem !important;
-    padding: 0.14rem 0.34rem !important;
+    min-height: 1.4rem !important;
+    padding: 0.08rem 0.3rem !important;
     justify-content: center !important;
     border-radius: 999px !important;
-    font-size: 0.57rem !important;
+    border-color: rgba(16, 35, 45, 0.09) !important;
+    background: rgba(255, 255, 255, 0.74) !important;
+    box-shadow: none !important;
+    font-size: 0.54rem !important;
     line-height: 1.08 !important;
     letter-spacing: 0 !important;
     white-space: nowrap !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.52rem !important;
-    min-width: 1.52rem !important;
-    min-height: 1.52rem !important;
+    width: 1.4rem !important;
+    min-width: 1.4rem !important;
+    min-height: 1.4rem !important;
     padding: 0 !important;
     justify-content: center !important;
     border-radius: 999px !important;
+    border-color: rgba(16, 35, 45, 0.09) !important;
+    background: rgba(255, 255, 255, 0.74) !important;
+    box-shadow: none !important;
   }
 
   html body.page-home .site-header__search-label--full,
@@ -15567,8 +15573,8 @@ body.site-search-open {
 
   html body.page-home .home-featured--locked {
     min-height: 0 !important;
-    padding: 0.28rem 0.42rem !important;
-    border-radius: 15px !important;
+    padding: 0.2rem 0.36rem !important;
+    border-radius: 14px !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__body {
@@ -15579,59 +15585,59 @@ body.site-search-open {
     display: grid !important;
     grid-template-columns: auto minmax(0, 1fr) !important;
     align-items: center !important;
-    gap: 0.34rem !important;
+    gap: 0.26rem !important;
     padding: 0 !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-label {
     margin: 0 !important;
-    padding: 0.16rem 0.3rem !important;
+    padding: 0.14rem 0.26rem !important;
     border-radius: 999px !important;
-    font-size: 0.5rem !important;
+    font-size: 0.47rem !important;
     line-height: 1 !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
     margin: 0 !important;
-    font-size: 0.62rem !important;
-    line-height: 1.15 !important;
+    font-size: 0.57rem !important;
+    line-height: 1.08 !important;
     font-weight: 700 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
-    min-height: max(30rem, calc(var(--app-mobile-vh, 100svh) - 3.1rem - env(safe-area-inset-top))) !important;
+    min-height: max(29.4rem, calc(var(--app-mobile-vh, 100svh) - 2.75rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
-    top: max(0.2rem, env(safe-area-inset-top)) !important;
-    margin: 0 0.2rem 0 !important;
+    top: max(0.12rem, env(safe-area-inset-top)) !important;
+    margin: 0 0.16rem 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(26.2rem, calc(var(--app-mobile-vh, 100svh) - 4.55rem - env(safe-area-inset-top))) !important;
+    min-height: max(26.8rem, calc(var(--app-mobile-vh, 100svh) - 3.95rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    min-height: 4.05rem !important;
-    max-height: clamp(4.1rem, 12.6vh, 4.95rem) !important;
-    margin: 0 0.18rem 0 !important;
-    padding: 0.14rem 0.18rem calc(max(0.18rem, env(safe-area-inset-bottom)) + 0.02rem) !important;
-    border-radius: 14px 14px 0.45rem 0.45rem !important;
+    min-height: 3.48rem !important;
+    max-height: clamp(3.55rem, 10.4vh, 4.1rem) !important;
+    margin: 0 0.16rem 0 !important;
+    padding: 0.1rem 0.14rem calc(max(0.14rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+    border-radius: 13px 13px 0.45rem 0.45rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
-    margin: -0.14rem -0.18rem 0 !important;
-    padding: 0.14rem 0.18rem 0.08rem !important;
+    margin: -0.1rem -0.14rem 0 !important;
+    padding: 0.1rem 0.14rem 0.04rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
-    width: 1rem !important;
+    width: 0.84rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title {
-    font-size: 0.68rem !important;
-    line-height: 1.15 !important;
+    font-size: 0.62rem !important;
+    line-height: 1.08 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
@@ -15639,63 +15645,63 @@ body.site-search-open {
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
-    min-height: 1.12rem !important;
-    padding: 0.08rem 0.28rem !important;
-    font-size: 0.56rem !important;
+    min-height: 1rem !important;
+    padding: 0.06rem 0.24rem !important;
+    font-size: 0.52rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: clamp(1.35rem, 4.1vh, 1.95rem) !important;
+    max-height: clamp(0.94rem, 2.9vh, 1.28rem) !important;
   }
 }
 
 @media (max-width: 540px) {
   html body.page-home .site-header {
     width: min(100% - 0.6rem, var(--max-width)) !important;
-    gap: 0.28rem 0.42rem !important;
-    padding-inline: 0.3rem !important;
+    gap: 0.2rem 0.36rem !important;
+    padding-inline: 0.24rem !important;
   }
 
   html body.page-home .site-header .brand__logo {
-    width: 1.46rem !important;
-    height: 1.46rem !important;
+    width: 1.34rem !important;
+    height: 1.34rem !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.44rem !important;
-    padding-inline: 0.26rem !important;
-    font-size: 0.54rem !important;
+    min-height: 1.32rem !important;
+    padding-inline: 0.22rem !important;
+    font-size: 0.51rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.44rem !important;
-    min-width: 1.44rem !important;
-    min-height: 1.44rem !important;
+    width: 1.32rem !important;
+    min-width: 1.32rem !important;
+    min-height: 1.32rem !important;
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.24rem 0.36rem !important;
+    padding: 0.18rem 0.3rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock {
-    gap: 0.28rem !important;
+    gap: 0.22rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
-    font-size: 0.58rem !important;
+    font-size: 0.54rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(25.4rem, calc(var(--app-mobile-vh, 100svh) - 4.2rem - env(safe-area-inset-top))) !important;
+    min-height: max(25.9rem, calc(var(--app-mobile-vh, 100svh) - 3.7rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    min-height: 3.9rem !important;
-    max-height: clamp(3.95rem, 12vh, 4.7rem) !important;
+    min-height: 3.2rem !important;
+    max-height: clamp(3.25rem, 9.6vh, 3.85rem) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: clamp(1.15rem, 3.6vh, 1.6rem) !important;
+    max-height: clamp(0.86rem, 2.5vh, 1.12rem) !important;
   }
 }
