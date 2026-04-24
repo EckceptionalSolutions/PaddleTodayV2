@@ -17,6 +17,8 @@ Get mobile UI into a clearly good, trustworthy state for real users, with homepa
 
 ## Current Status
 
+Latest local pass (2026-04-24 just before noon): added one more narrow homepage-only mobile override layer at the end of `public/global.css` to force the three screenshot-confirmed fixes without touching desktop layout logic — the header is quieter and shorter with the wordmark/request chrome suppressed, the locked "Today's Best" card is reduced to a tight single-row prompt again, and mobile Map mode now keeps a smaller shortlist tray so the map owns more of the first viewport.
+
 Latest local pass (2026-04-24 late morning): added a final homepage mobile stabilization override layer to undo the unreadably tiny state — the header is still shorter but now cleaner and readable, the locked "Today's Best" card stays compact as a single short prompt row, and Map mode keeps an even smaller shortlist peek so more of the map is visible first.
 
 Latest local pass (2026-04-24 morning): converted the homepage mobile nav into a quieter segmented strip, collapsed the locked "Today's Best" card to copy-only on small screens, and trimmed the initial Map shortlist peek again so more map is visible first.
@@ -64,6 +66,7 @@ Latest local pass (2026-04-23 AM):
 - repo-local validation still passes after the latest overnight pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 2:23 AM local time
 - repo-local validation still passes after the latest pre-dawn pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 3:26 AM local time
 - repo-local validation still passes after the latest focused morning pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 7:40 AM local time
+- repo-local validation still passes after the latest just-before-noon mobile override pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 11:53 AM local time
 
 ## Priority Queue
 
