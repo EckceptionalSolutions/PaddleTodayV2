@@ -13,14 +13,14 @@ const trackedRiverCount = riverGroups.length;
 ---
 
 <BaseLayout
-  title="Browse Routes | Paddle Today"
-  description="Browse all tracked paddle routes with map-first comparison, live river scores, and deeper filters."
+  title="Browse Paddle Results | Paddle Today"
+  description="Browse tracked paddle rivers and routes with map-first comparison, live scores, and deeper filters."
 >
   <section class="decision-section decision-section--explore explore-page" id="explore">
     <div class="section-head section-head--stacked">
       <div>
         <p class="eyebrow">Explore</p>
-        <h1 class="section-title">Browse all routes</h1>
+        <h1 class="section-title">Browse all paddle results</h1>
       </div>
       <div class="hero__meta">
         <span class="stat-chip">{trackedRiverCount} tracked rivers</span>
@@ -46,9 +46,9 @@ const trackedRiverCount = riverGroups.length;
       </section>
 
       <section class="explore-workspace" aria-labelledby="explore-workspace-heading">
-        <h2 class="sr-only" id="explore-workspace-heading">Route workspace</h2>
+        <h2 class="sr-only" id="explore-workspace-heading">Explore workspace</h2>
 
-        <section class="board-filters board-filters--full board-filters--embedded" aria-label="Route workspace controls">
+        <section class="board-filters board-filters--full board-filters--embedded" aria-label="Explore workspace controls">
           <div class="board-filters__workspace">
             <section class="board-filters__group board-filters__group--location" aria-labelledby="explore-location-heading">
               <div class="board-filters__group-head">
@@ -100,11 +100,11 @@ const trackedRiverCount = riverGroups.length;
                 </label>
                 <span class="location-indicator" data-location-indicator hidden aria-live="polite">
                   <span class="location-indicator__spinner" aria-hidden="true"></span>
-                  <span data-location-indicator-label>Finding nearest routes...</span>
+                  <span data-location-indicator-label>Finding nearest picks...</span>
                 </span>
                 <label class="filter-search">
-                  <span class="sr-only">Search routes</span>
-                  <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search />
+                    <span class="sr-only">Search results</span>
+                    <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search />
                 </label>
                 <label class="filter-select">
                   <span class="sr-only">Filter by state</span>
@@ -173,31 +173,31 @@ const trackedRiverCount = riverGroups.length;
             className="summary-map-shell--explore-workspace"
             mobileLayout="list-map"
             eyebrow="Map view"
-            title="Route map"
-            lede="Use the map to scan the board, then compare the ranked list."
+            title="Result map"
+            lede="Use the map to scan the board, then compare the ranked results."
             showResults={true}
             resultsTitle="Ranked results"
-            note="Loading routes."
+            note="Loading results."
             status="Loading map."
-            ariaLabel="Route score map"
-            itemNounSingular="route"
-            itemNounPlural="routes"
+            ariaLabel="Paddle results map"
+            itemNounSingular="result"
+            itemNounPlural="results"
           />
 
           <div class="explore-workspace__board">
             <div class="explore-workspace__list-head">
               <div class="explore-workspace__list-head-row">
                 <p class="eyebrow">Ranked results</p>
-                <span class="explore-workspace__count" data-explore-results-count aria-live="polite">Loading routes</span>
+                <span class="explore-workspace__count" data-explore-results-count aria-live="polite">Loading results</span>
               </div>
-              <p class="muted explore-workspace__list-note">Click a marker or a route to compare both views together.</p>
+              <p class="muted explore-workspace__list-note">Click a marker or a result to compare both views together.</p>
             </div>
             <div class="explore-grid-shell" data-explore-shell>
-              <div class="river-grid river-grid--explore-list" aria-label="Explore routes today" data-explore-grid></div>
+              <div class="river-grid river-grid--explore-list" aria-label="Explore paddle results today" data-explore-grid></div>
             </div>
 
             <div class="explore-pagination" data-explore-pagination hidden>
-              <p class="muted explore-pagination__summary" data-explore-pagination-summary>Showing 1-12 of 12 routes</p>
+              <p class="muted explore-pagination__summary" data-explore-pagination-summary>Showing 1-12 of 12 results</p>
               <div class="explore-pagination__controls">
                 <button class="filter-chip" type="button" data-explore-prev>Previous</button>
                 <span class="explore-pagination__page" data-explore-page>Page 1 of 1</span>
@@ -209,7 +209,7 @@ const trackedRiverCount = riverGroups.length;
       </section>
 
       <section class="home-board-inline home-board-inline--wide" aria-label="Route requests">
-        <p class="home-board-inline__copy">Don&apos;t see your favorite river?</p>
+        <p class="home-board-inline__copy">Don&apos;t see a route you paddle?</p>
         <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
       </section>
     </div>

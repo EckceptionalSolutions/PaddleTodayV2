@@ -3248,24 +3248,6 @@ body.site-search-open {
   box-shadow: inset 0 0 0 1px rgba(30, 115, 151, 0.16);
 }
 
-.back-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  width: fit-content;
-  padding: 0.35rem 0.7rem;
-  border-radius: 999px;
-  border: 1px solid rgba(16, 35, 45, 0.08);
-  background: rgba(255, 255, 255, 0.72);
-  color: var(--ink-soft);
-  text-decoration: none;
-  font-size: 0.9rem;
-}
-
-.back-link::before {
-  content: "\2190";
-}
-
 .river-detail__hero {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(270px, 0.8fr);
@@ -3485,8 +3467,14 @@ body.site-search-open {
 
 .route-gallery__thumbs {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(11rem, 14rem);
   gap: 0.55rem;
+  overflow-x: auto;
+  padding: 0.1rem 0 0.28rem;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
 }
 
 .route-gallery__thumb {
@@ -3501,6 +3489,8 @@ body.site-search-open {
   text-align: left;
   cursor: pointer;
   color: var(--ink);
+  align-content: start;
+  scroll-snap-align: start;
   transition:
     transform 160ms ease,
     border-color 160ms ease,
@@ -3528,6 +3518,10 @@ body.site-search-open {
   padding: 0 0.2rem 0.08rem;
   font-size: 0.82rem;
   line-height: 1.35;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
 }
 
 .route-gallery__empty {
@@ -6165,7 +6159,10 @@ body.site-search-open {
     grid-template-columns: 1fr;
   }
 
-  .route-gallery__thumbs,
+  .route-gallery__thumbs {
+    grid-auto-columns: minmax(9.5rem, 72vw);
+  }
+
   .route-gallery__pending-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -9579,28 +9576,11 @@ body.site-search-open {
   }
 }
 
-.hero__planning {
-  margin: 0;
-  font-size: 0.96rem;
-  color: var(--muted);
-}
-
 .hero__dates {
   margin: -0.18rem 0 0;
   font-size: 0.92rem;
   font-weight: 700;
   color: var(--ink-soft);
-}
-
-.hero__planning-link {
-  color: var(--ink);
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.hero__planning-link:hover,
-.hero__planning-link:focus-visible {
-  text-decoration: underline;
 }
 
 .weekend-page__section {
@@ -12086,10 +12066,6 @@ body.site-search-open {
 }
 
 @media (max-width: 760px) {
-  .hero__planning {
-    font-size: 0.9rem;
-  }
-
   .weekend-page__section {
     margin-top: 0.7rem;
   }
@@ -12255,7 +12231,10 @@ body.site-search-open {
     display: none;
   }
 
-  .route-gallery__thumbs,
+  .route-gallery__thumbs {
+    grid-auto-columns: minmax(8.75rem, 78vw);
+  }
+
   .route-gallery__pending-grid {
     grid-template-columns: 1fr;
   }
@@ -13465,11 +13444,21 @@ body.site-search-open {
   }
 
   html body [data-river-detail] .river-detail__meta-row {
+    flex-wrap: nowrap !important;
     gap: 0.3rem !important;
+    overflow-x: auto !important;
+    padding-bottom: 0.08rem !important;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  html body [data-river-detail] .river-detail__meta-row::-webkit-scrollbar {
+    display: none;
   }
 
   html body [data-river-detail] .river-detail__meta-row .pill,
   html body [data-river-detail] .river-detail__meta-row .river-detail__jump-pill {
+    flex: 0 0 auto;
     min-height: 2rem !important;
     padding: 0.32rem 0.58rem !important;
     font-size: 0.72rem !important;
@@ -13765,7 +13754,6 @@ body.site-search-open {
     display: none !important;
   }
 
-  html body.page-weekend .hero__planning,
   html body.page-weekend .hero__dates {
     font-size: 0.8rem !important;
     line-height: 1.3 !important;
@@ -14037,9 +14025,6 @@ body.site-search-open {
     padding-left: 0.95rem !important;
   }
 
-  html body.page-about .about-coverage-card__link {
-    margin-top: 0.46rem !important;
-  }
 }
 
 @media (max-width: 760px) {

@@ -3153,7 +3153,7 @@ function updateFilterSummary(exploreItems) {
       ? ` from ${shortLocationLabel()}`
       : '';
   const ratingLabel = activeFilters.rating ? ` / ${activeFilters.rating} only` : '';
-  filterSummary.textContent = `Showing ${exploreItems.length} routes / ${sortLabel}${locationLabel}${ratingLabel}`;
+  filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
   updateExploreFilterPills();
 }
 
@@ -3466,10 +3466,10 @@ function summaryMapResultsNoteText(items = lastSummaryMapItems) {
 
   const selectedItem = items.find((item) => item.key === selectedSummaryMapKey);
   if (selectedItem) {
-    return `${countLabel}. ${selectedItem.cardRoute.river.name} is selected below.`;
+    return mixedSelectionPromptText(countLabel, selectedItem.cardRoute.river.name);
   }
 
-  return `${countLabel}. Tap a route below to highlight it.`;
+  return mixedSelectionPromptText(countLabel);
 }
 
 function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
@@ -3506,7 +3506,7 @@ function updateSummaryMapMobileContext(items = lastSummaryMapItems) {
 
     const view = button.dataset.summaryMapMobileView === 'map' ? 'map' : 'list';
     const label = view === 'map' ? 'map' : 'list';
-    button.setAttribute('aria-label', `Show route ${label}${items.length ? ` (${countLabel} available)` : ''}`);
+    button.setAttribute('aria-label', `Show ${label} view${items.length ? ` (${countLabel} available)` : ''}`);
   }
 }
 
@@ -3713,7 +3713,7 @@ async function renderSummaryMap(items) {
   const renderVersion = ++summaryMapRenderVersion;
 
   if (summaryMapStatus instanceof HTMLElement) {
-    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby routes.' : 'Loading map markers.';
+    summaryMapStatus.textContent = isNearbySummaryMapMode() ? 'Loading nearby picks.' : 'Loading map markers.';
   }
 
   try {

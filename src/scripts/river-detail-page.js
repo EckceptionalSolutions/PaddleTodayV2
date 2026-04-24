@@ -480,7 +480,8 @@ function reportSentimentLabel(value) {
   }
 }
 
-function updateApprovedRoutePhoto(index) {
+function updateApprovedRoutePhoto(index, options = {}) {
+  const { scrollThumb = false } = options;
   const { image, caption, credit, taken, thumbs } = routeGalleryElements();
   if (!(image instanceof HTMLImageElement)) {
     return;
@@ -515,6 +516,14 @@ function updateApprovedRoutePhoto(index) {
     const isActive = Number(thumb.dataset.routeGalleryIndex) === index;
     thumb.classList.toggle('route-gallery__thumb--active', isActive);
     thumb.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+    if (isActive && scrollThumb) {
+      thumb.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
   }
 }
 
@@ -533,7 +542,7 @@ function bindApprovedRouteGallery() {
     thumb.addEventListener('click', () => {
       const index = Number(thumb.dataset.routeGalleryIndex);
       if (Number.isFinite(index)) {
-        updateApprovedRoutePhoto(index);
+        updateApprovedRoutePhoto(index, { scrollThumb: true });
       }
     });
   }

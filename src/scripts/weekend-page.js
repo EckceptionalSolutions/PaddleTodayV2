@@ -557,7 +557,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
   updateFeaturedSummaryToggle(item.weekend.explanation);
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = `/rivers/${item.river.slug}/`;
-    featuredLink.textContent = 'View river';
+    featuredLink.textContent = 'View route';
   }
 }
 
@@ -625,7 +625,7 @@ function createWeekendCard(item, index, options = {}) {
   const link = card.querySelector('[data-card-link]');
   if (link instanceof HTMLAnchorElement) {
     link.href = `/rivers/${item.river.slug}/`;
-    link.textContent = 'View river';
+    link.textContent = 'View route';
   }
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecord(item));

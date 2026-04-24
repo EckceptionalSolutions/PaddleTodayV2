@@ -190,7 +190,7 @@ const homepageStructuredData = [
               class="home-location-bar__refine-radius sr-only"
               data-home-radius-summary
             >
-              Showing routes within 100 miles
+              Showing picks within 100 miles
             </p>
             <div
               class="home-location-bar__refine-summary sr-only"
@@ -370,7 +370,7 @@ const homepageStructuredData = [
               class="home-radius-panel__footer-copy muted"
               data-home-live-count
             >
-              0 routes match your filters
+              0 results match your filters
             </p>
             <button
               class="filter-chip filter-chip--quiet home-radius-panel__footer-reset"
@@ -384,7 +384,7 @@ const homepageStructuredData = [
       </section>
     </div>
 
-    <aside class="home-hero__rail" aria-label="Today's best route">
+    <aside class="home-hero__rail" aria-label="Today's best pick">
       <section
         class="hero-call home-featured home-featured--locked"
         data-home-featured
@@ -392,7 +392,7 @@ const homepageStructuredData = [
         <div class="home-featured__lock">
           <p class="home-featured__lock-label">Today&apos;s Best</p>
           <p class="home-featured__lock-copy">
-            Add a city or ZIP to unlock the best nearby route.
+            Add a city or ZIP to unlock the best nearby pick.
           </p>
         </div>
 
@@ -402,7 +402,7 @@ const homepageStructuredData = [
               Today&apos;s Best
             </p>
             <p class="hero-call__state" data-featured-state>
-              Enter a city or ZIP to see the best nearby paddle right now.
+              Enter a city or ZIP to see the best nearby pick right now.
             </p>
             <h2 class="hero-call__title">
               <a
@@ -412,7 +412,7 @@ const homepageStructuredData = [
               >
             </h2>
             <p class="hero-call__reach" data-featured-reach>
-              We&apos;ll show the strongest nearby route once drive times are
+              We&apos;ll show the strongest nearby pick once drive times are
               active.
             </p>
             <p class="home-featured__bridge" data-featured-bridge>
@@ -508,7 +508,7 @@ const homepageStructuredData = [
             <div
               class="summary-map home-featured__map"
               data-featured-map
-              aria-label="Map showing the featured route location"
+              aria-label="Map showing the featured pick location"
             >
             </div>
             <div class="home-featured__map-meta">
@@ -580,10 +580,10 @@ const homepageStructuredData = [
           <h2
             class="section-title"
             data-recommendation-title
-            data-default-title="Compare every route that fits your preferences"
-            data-ready-title="Compare every route that fits your preferences"
+            data-default-title="Compare every pick that fits your preferences"
+            data-ready-title="Compare every pick that fits your preferences"
           >
-            Compare every route that fits your preferences
+            Compare every pick that fits your preferences
           </h2>
         </div>
         <div class="section-head__actions home-recommendations__actions">
@@ -595,7 +595,7 @@ const homepageStructuredData = [
           </p>
           <div
             class="home-radius-pills home-recommendations__mix"
-            aria-label="Route mix within selected filters"
+            aria-label="Result mix within selected filters"
             data-home-route-mix
             hidden
           >
@@ -621,14 +621,14 @@ const homepageStructuredData = [
 
       <div class="home-recommendations__setup" aria-live="polite">
         <p class="home-recommendations__setup-note" data-home-setup-note>
-          These routes update as you change location and preferences.
+          These picks update as you change location and preferences.
         </p>
         <div class="home-recommendations__setup-actions">
           <div class="section-head__controls home-recommendations__controls">
             <label
               class="filter-select filter-select--sort home-recommendations__sort"
             >
-              <span class="sr-only">Sort route results</span>
+              <span class="sr-only">Sort results</span>
               <select class="filter-select__input" data-nearby-sort-select>
                 <option value="best-score">Best score</option>
                 <option value="closest">Closest</option>
@@ -653,16 +653,16 @@ const homepageStructuredData = [
         mode="explore"
         className="summary-map-shell--home"
         mobileLayout="list-map"
-        eyebrow="Route map"
-        title="Today's route map"
+        eyebrow="Map view"
+        title="Today's result map"
         lede=""
         showResults={true}
-        resultsTitle="Matching routes"
-        note="Loading routes."
-        status="Loading route map."
-        ariaLabel="Map showing routes that match the current homepage filters"
-        itemNounSingular="route"
-        itemNounPlural="routes"
+        resultsTitle="Matching results"
+        note="Loading results."
+        status="Loading result map."
+        ariaLabel="Map showing results that match the current homepage filters"
+        itemNounSingular="result"
+        itemNounPlural="results"
       />
     </div>
   </section>
