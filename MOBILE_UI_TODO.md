@@ -25,6 +25,8 @@ Latest focused pass (2026-04-24 morning): trimmed the homepage mobile header chr
 
 Latest corrective pass (2026-04-24 morning): backed the homepage mobile overrides out of the unreadably tiny state while keeping them compact — the header stays single-row but readable, the locked "Today's Best" card is still aggressively short without collapsing into microscopic text, and the mobile Map sheet peek remains smaller so the map gets more of the first viewport.
 
+Latest follow-up pass (2026-04-24 late morning): normalized the final homepage-only mobile override layer so it stops shrinking into illegible sizes — nav/search controls are still shorter but readable, the locked "Today's Best" card stays one-line compact with a tiny label pill, and the Map mode shortlist peek is trimmed again so more map stays visible first.
+
 Homepage mobile received an initial pass for:
 - List default on mobile
 - dedicated Map mode
