@@ -17,6 +17,8 @@ Get mobile UI into a clearly good, trustworthy state for real users, with homepa
 
 ## Current Status
 
+Latest local pass (2026-04-24 late morning): added a final homepage mobile stabilization override layer to undo the unreadably tiny state — the header is still shorter but now cleaner and readable, the locked "Today's Best" card stays compact as a single short prompt row, and Map mode keeps an even smaller shortlist peek so more of the map is visible first.
+
 Latest local pass (2026-04-24 morning): converted the homepage mobile nav into a quieter segmented strip, collapsed the locked "Today's Best" card to copy-only on small screens, and trimmed the initial Map shortlist peek again so more map is visible first.
 
 Latest follow-up pass (2026-04-24 early morning): hid the extra homepage mobile promo/trust chrome, tightened the homepage header pills/search again, shortened the locked "Today's Best" prompt copy, and reduced the initial mobile Map shortlist sheet further so Map mode gives more of the viewport to the map first.
