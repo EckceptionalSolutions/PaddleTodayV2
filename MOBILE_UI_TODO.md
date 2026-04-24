@@ -47,6 +47,8 @@ Latest local pass (2026-04-23 AM):
 - repo-local validation still passes after the latest late-night pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-23 at roughly 11:10 PM local time
 - targeted Playwright mobile homepage rendering ran and produced a fresh actual screenshot, but the visual assertion could not complete because no mobile baseline snapshot exists for that spec yet
 - richer local preview validation remains partially blocked in this sandbox because binding a local preview/static server is not permitted here
+- latest 2026-04-24 overnight pass tightened the homepage-only mobile override layer again: smaller logo/nav/search chrome, a slimmer locked "Today's Best" prompt row, and an even shorter initial Map shortlist sheet so more of the map is visible immediately
+- repo-local validation still passes after the latest overnight pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 2:23 AM local time
 
 ## Priority Queue
 

@@ -13187,17 +13187,18 @@ body.site-search-open {
 @media (max-width: 760px) {
   html body.page-home .site-header {
     grid-template-columns: minmax(0, 1fr) !important;
-    gap: 0.28rem !important;
-    padding: 0.34rem 0.42rem 0.12rem !important;
+    gap: 0.18rem !important;
+    padding: 0.26rem 0.38rem 0.08rem !important;
   }
 
   html body.page-home .site-header .brand {
     min-width: 0 !important;
+    gap: 0.18rem !important;
   }
 
   html body.page-home .site-header .brand__logo {
-    width: 2.8rem !important;
-    height: 2.8rem !important;
+    width: 2.3rem !important;
+    height: 2.3rem !important;
   }
 
   html body.page-home .site-header .brand__copy {
@@ -13205,36 +13206,41 @@ body.site-search-open {
   }
 
   html body.page-home .site-header__meta {
-    gap: 0.14rem !important;
+    gap: 0.08rem !important;
   }
 
   html body.page-home .site-header__topline {
     grid-template-columns: minmax(0, 1fr) auto !important;
-    gap: 0.18rem !important;
+    gap: 0.12rem !important;
     align-items: center !important;
   }
 
   html body.page-home .site-header__nav {
     grid-column: auto !important;
     min-width: 0 !important;
-    gap: 0.16rem !important;
+    gap: 0.12rem !important;
     padding-bottom: 0 !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.66rem !important;
-    padding: 0.1rem 0.42rem !important;
-    font-size: 0.59rem !important;
+    min-height: 1.52rem !important;
+    padding: 0.08rem 0.38rem !important;
+    font-size: 0.55rem !important;
+    font-weight: 700 !important;
     border-radius: 999px !important;
+    border-color: rgba(16, 35, 45, 0.06) !important;
+    background: rgba(255, 255, 255, 0.68) !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.9rem !important;
-    min-width: 1.9rem !important;
-    min-height: 1.66rem !important;
+    width: 1.72rem !important;
+    min-width: 1.72rem !important;
+    min-height: 1.52rem !important;
     padding: 0 !important;
     gap: 0 !important;
     border-radius: 999px !important;
+    border-color: rgba(16, 35, 45, 0.06) !important;
+    background: rgba(255, 255, 255, 0.74) !important;
   }
 
   html body.page-home .site-header__search-label--short,
@@ -13247,65 +13253,81 @@ body.site-search-open {
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.18rem 0.38rem !important;
-    border-radius: 14px !important;
+    padding: 0.14rem 0.34rem !important;
+    border-radius: 13px !important;
   }
 
   html body.page-home .home-featured__lock {
-    gap: 0.04rem 0.28rem !important;
+    gap: 0.02rem 0.22rem !important;
+    align-items: center !important;
   }
 
   html body.page-home .home-featured__lock-label {
-    padding: 0.09rem 0.28rem !important;
-    font-size: 0.43rem !important;
+    padding: 0.07rem 0.24rem !important;
+    font-size: 0.4rem !important;
+    line-height: 1 !important;
   }
 
   html body.page-home .home-featured__lock-copy {
-    font-size: 0.56rem !important;
-    line-height: 1.02 !important;
+    font-size: 0.52rem !important;
+    line-height: 1 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    margin: 0 0.14rem 0.03rem !important;
-    padding: 0.04rem 0.08rem calc(max(0.14rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
-    max-height: clamp(2.5rem, 5.8svh, 2.95rem) !important;
-    border-radius: 12px 12px 0.4rem 0.4rem !important;
+    margin: 0 0.12rem 0.02rem !important;
+    padding: 0.03rem 0.07rem calc(max(0.12rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+    max-height: clamp(2.2rem, 5.1svh, 2.6rem) !important;
+    border-radius: 12px 12px 0.36rem 0.36rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
-    margin: -0.04rem -0.08rem 0 !important;
-    padding: 0.08rem 0.08rem 0.02rem !important;
+    margin: -0.03rem -0.07rem 0 !important;
+    padding: 0.06rem 0.07rem 0.01rem !important;
     border-radius: 12px 12px 0 0 !important;
   }
 
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
+    width: 0.58rem !important;
+    height: 0.08rem !important;
+    top: 0.02rem !important;
+  }
+
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head__row {
-    min-height: 0.82rem !important;
+    min-height: 0.72rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title {
+    font-size: 0.42rem !important;
+    letter-spacing: 0.06em !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: clamp(1.08rem, 2.7svh, 1.36rem) !important;
-    gap: 0.04rem !important;
+    max-height: clamp(0.94rem, 2.2svh, 1.12rem) !important;
+    gap: 0.03rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result {
-    padding: 0.14rem 0.18rem !important;
-    gap: 0.18rem !important;
+    padding: 0.11rem 0.16rem !important;
+    gap: 0.16rem !important;
+    border-radius: 9px !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__score {
-    width: 0.94rem !important;
-    height: 0.94rem !important;
-    font-size: 0.42rem !important;
+    width: 0.84rem !important;
+    height: 0.84rem !important;
+    font-size: 0.38rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__name {
-    font-size: 0.54rem !important;
+    font-size: 0.5rem !important;
+    line-height: 1 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__route,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-result__meta,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__empty {
-    font-size: 0.46rem !important;
+    font-size: 0.42rem !important;
+    line-height: 1 !important;
   }
 }
 
