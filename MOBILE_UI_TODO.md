@@ -17,6 +17,8 @@ Get mobile UI into a clearly good, trustworthy state for real users, with homepa
 
 ## Current Status
 
+Latest local pass (2026-04-24 early afternoon): replaced the over-tight homepage mobile override layer at the end of `public/global.css` with a saner one — the header is still a compact single row but readable again, the locked "Today's Best" card stays short without microscopic text, and Map mode keeps a smaller shortlist tray while preserving usable controls and a visible one-card peek.
+
 Latest local pass (2026-04-24 early afternoon): added one more homepage-only mobile override layer at the end of `public/global.css` to keep the header in a single horizontal strip even when Favorites is visible, keep the locked "Today's Best" state compact but still readable, and shrink the mobile Map shortlist tray again so the map owns more of the first viewport without collapsing the tray away.
 
 Latest local pass (2026-04-24 just before noon): added one more narrow homepage-only mobile override layer at the end of `public/global.css` to force the three screenshot-confirmed fixes without touching desktop layout logic — the header is quieter and shorter with the wordmark/request chrome suppressed, the locked "Today's Best" card is reduced to a tight single-row prompt again, and mobile Map mode now keeps a smaller shortlist tray so the map owns more of the first viewport.
