@@ -40,6 +40,8 @@ Latest local pass (2026-04-23 AM):
 - Astro build and typecheck now pass locally
 - local Playwright screenshots look materially better for the three confirmed homepage mobile issues; still needs real device/user validation against the screenshot complaints
 - latest early-evening pass collapsed the homepage mobile header into a logo + tighter nav/search row, shortened the locked "Today's Best" prompt copy again, and reduced the mobile Map shortlist sheet footprint further so more map stays visible on first open
+- latest late-evening pass adds a final homepage-only mobile override layer that trims the header chrome again, keeps the locked "Today's Best" state intentionally compact, and cuts the Map shortlist peek down further while keeping the mobile layout readable
+- repo-local validation still passes after the latest pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-23 late evening
 
 ## Priority Queue
 
