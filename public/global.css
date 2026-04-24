@@ -16217,65 +16217,67 @@ body.site-search-open {
   }
 
   html body.page-home .site-header {
-    gap: 0.12rem !important;
-    padding-top: 0.42rem !important;
-    padding-bottom: 0.2rem !important;
+    gap: 0.08rem !important;
+    padding-top: 0.28rem !important;
+    padding-bottom: 0.14rem !important;
   }
 
   html body.page-home .site-header__topline {
-    gap: 0.1rem !important;
+    gap: 0.08rem !important;
   }
 
   html body.page-home .site-header__nav {
-    gap: 0.1rem !important;
+    gap: 0.06rem !important;
+    padding: 0.03rem !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.26rem !important;
-    padding: 0.06rem 0.24rem !important;
-    font-size: 0.5rem !important;
+    min-height: 1.18rem !important;
+    padding: 0.04rem 0.2rem !important;
+    font-size: 0.47rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.26rem !important;
-    min-width: 1.26rem !important;
-    min-height: 1.26rem !important;
+    width: 1.18rem !important;
+    min-width: 1.18rem !important;
+    min-height: 1.18rem !important;
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.08rem 0.18rem !important;
+    padding: 0.06rem 0.16rem !important;
     border-radius: 11px !important;
     box-shadow: none !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock {
-    gap: 0.12rem !important;
+    gap: 0.08rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
-    font-size: 0.46rem !important;
+    font-size: 0.44rem !important;
+    line-height: 1 !important;
     letter-spacing: 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
-    min-height: max(27.6rem, calc(var(--app-mobile-vh, 100svh) - 2.45rem - env(safe-area-inset-top))) !important;
+    min-height: max(27.9rem, calc(var(--app-mobile-vh, 100svh) - 2.16rem - env(safe-area-inset-top))) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    min-height: 2.18rem !important;
-    max-height: clamp(2.18rem, 6.2vh, 2.42rem) !important;
+    min-height: 1.94rem !important;
+    max-height: clamp(1.94rem, 5.4vh, 2.16rem) !important;
     margin: 0 0.08rem 0 !important;
-    padding: 0.02rem 0.08rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+    padding: 0.01rem 0.08rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
-    margin: -0.02rem -0.08rem 0 !important;
-    padding: 0.04rem 0.08rem 0 !important;
+    margin: -0.01rem -0.08rem 0 !important;
+    padding: 0.03rem 0.08rem 0 !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
-    width: 0.44rem !important;
+    width: 0.4rem !important;
     height: 0.05rem !important;
   }
 
@@ -16285,53 +16287,53 @@ body.site-search-open {
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
-    min-height: 0.74rem !important;
-    padding: 0.02rem 0.14rem !important;
-    font-size: 0.42rem !important;
+    min-height: 0.68rem !important;
+    padding: 0.01rem 0.12rem !important;
+    font-size: 0.4rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: 0.62rem !important;
+    max-height: 0.46rem !important;
   }
 }
 
 @media (max-width: 540px) {
   html body.page-home .site-header {
-    width: min(100% - 0.44rem, var(--max-width)) !important;
-    padding-inline: 0.14rem !important;
+    width: min(100% - 0.4rem, var(--max-width)) !important;
+    padding-inline: 0.12rem !important;
   }
 
   html body.page-home .site-header .brand__logo {
-    width: 0.96rem !important;
-    height: 0.96rem !important;
+    width: 0.92rem !important;
+    height: 0.92rem !important;
   }
 
   html body.page-home .site-header__nav-link {
-    min-height: 1.06rem !important;
-    padding-inline: 0.12rem !important;
-    font-size: 0.41rem !important;
+    min-height: 1rem !important;
+    padding-inline: 0.1rem !important;
+    font-size: 0.39rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.06rem !important;
-    min-width: 1.06rem !important;
-    min-height: 1.06rem !important;
+    width: 1rem !important;
+    min-width: 1rem !important;
+    min-height: 1rem !important;
   }
 
   html body.page-home .home-featured--locked {
-    padding: 0.07rem 0.16rem !important;
+    padding: 0.06rem 0.14rem !important;
   }
 
   html body.page-home .home-featured--locked .home-featured__lock-copy {
-    font-size: 0.43rem !important;
+    font-size: 0.41rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
-    min-height: 2.02rem !important;
-    max-height: clamp(2.02rem, 5.6vh, 2.2rem) !important;
+    min-height: 1.82rem !important;
+    max-height: clamp(1.82rem, 4.9vh, 2rem) !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
-    max-height: 0.52rem !important;
+    max-height: 0.4rem !important;
   }
 }

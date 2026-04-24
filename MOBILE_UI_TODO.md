@@ -21,6 +21,8 @@ Latest local pass (2026-04-24 morning): converted the homepage mobile nav into a
 
 Latest follow-up pass (2026-04-24 early morning): hid the extra homepage mobile promo/trust chrome, tightened the homepage header pills/search again, shortened the locked "Today's Best" prompt copy, and reduced the initial mobile Map shortlist sheet further so Map mode gives more of the viewport to the map first.
 
+Latest focused pass (2026-04-24 morning): trimmed the homepage mobile header chrome again with shorter top padding and smaller nav/search controls, shortened the locked "Today's Best" copy again, and reduced the initial mobile Map shortlist sheet to keep more of the map visible on first open.
+
 Homepage mobile received an initial pass for:
 - List default on mobile
 - dedicated Map mode
@@ -55,6 +57,7 @@ Latest local pass (2026-04-23 AM):
 - latest 2026-04-24 pre-dawn pass tightened the homepage header chrome one more step on very small screens, shortened the locked "Today's Best" prompt copy again, and reduced the initial Map shortlist peek further so Map mode gives even more of the viewport to the map first
 - repo-local validation still passes after the latest overnight pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 2:23 AM local time
 - repo-local validation still passes after the latest pre-dawn pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 3:26 AM local time
+- repo-local validation still passes after the latest focused morning pass: `npm run typecheck` ✅ and `npm run build` ✅ on 2026-04-24 around 7:40 AM local time
 
 ## Priority Queue
 
