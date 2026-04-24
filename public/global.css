@@ -17032,3 +17032,279 @@ body.site-search-open {
     max-height: 0.42rem !important;
   }
 }
+
+/* Latest homepage mobile pass: single-row scrolling nav, readable compact lock card, and smaller map-first tray. */
+@media (max-width: 760px) {
+  html body.page-home .home-overview--top,
+  html body.page-home .site-header__action,
+  html body.page-home .site-header__blurb,
+  html body.page-home .site-header__freshness,
+  html body.page-home .brand__copy {
+    display: none !important;
+  }
+
+  html body.page-home .site-header {
+    width: min(100% - 0.72rem, var(--max-width)) !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 0.22rem 0.42rem !important;
+    padding: 0.22rem 0.26rem 0.08rem !important;
+    border-radius: 16px !important;
+  }
+
+  html body.page-home .site-header .brand {
+    align-items: center !important;
+    gap: 0.22rem !important;
+    min-width: 0 !important;
+  }
+
+  html body.page-home .site-header .brand__logo {
+    width: 1.42rem !important;
+    height: 1.42rem !important;
+  }
+
+  html body.page-home .site-header__meta,
+  html body.page-home .site-header__topline {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  html body.page-home .site-header__topline {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    align-items: center !important;
+    gap: 0.18rem !important;
+  }
+
+  html body.page-home .site-header__nav {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 0.16rem !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 0.02rem 0.02rem 0.08rem !important;
+    scrollbar-width: none !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  html body.page-home .site-header__nav::-webkit-scrollbar {
+    display: none !important;
+  }
+
+  html body.page-home .site-header__nav-link {
+    flex: 0 0 auto !important;
+    min-width: max-content !important;
+    min-height: 1.52rem !important;
+    padding: 0.1rem 0.5rem !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    font-size: 0.6rem !important;
+    line-height: 1.05 !important;
+    font-weight: 760 !important;
+    letter-spacing: 0.01em !important;
+    white-space: nowrap !important;
+    background: rgba(255, 255, 255, 0.72) !important;
+    border-color: rgba(16, 35, 45, 0.1) !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-home .site-header__nav-link.site-header__nav-link--primary,
+  html body.page-home .site-header__nav-link[aria-current="page"],
+  html body.page-home .site-header__nav-link[href="/"] {
+    background: rgba(255, 255, 255, 0.82) !important;
+  }
+
+  html body.page-home .site-header__search {
+    width: 1.52rem !important;
+    min-width: 1.52rem !important;
+    min-height: 1.52rem !important;
+    padding: 0 !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    background: rgba(255, 255, 255, 0.74) !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-home .site-header__search-label--full,
+  html body.page-home .site-header__search-label--short {
+    display: none !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    min-height: 0 !important;
+    padding: 0.28rem 0.42rem !important;
+    border-radius: 14px !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__body {
+    display: none !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 0.12rem 0.3rem !important;
+    padding: 0 !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-label {
+    margin: 0 !important;
+    padding: 0.12rem 0.3rem !important;
+    border-radius: 999px !important;
+    font-size: 0.48rem !important;
+    line-height: 1 !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    margin: 0 !important;
+    font-size: 0.64rem !important;
+    line-height: 1.14 !important;
+    font-weight: 780 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map {
+    min-height: max(25.8rem, calc(var(--app-mobile-vh, 100svh) - 3.65rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    top: max(0.14rem, env(safe-area-inset-top)) !important;
+    margin: 0 0.14rem 0.02rem !important;
+    padding: 0.08rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__button {
+    min-height: 1.44rem !important;
+    padding: 0.12rem 0.34rem !important;
+    font-size: 0.6rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__count {
+    min-width: 0.94rem !important;
+    min-height: 0.94rem !important;
+    font-size: 0.52rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(24.8rem, calc(var(--app-mobile-vh, 100svh) - 4.2rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
+    min-height: 3.72rem !important;
+    max-height: clamp(3.82rem, 11.25vh, 4.56rem) !important;
+    margin: 0 0.14rem 0 !important;
+    padding: 0.12rem 0.14rem calc(max(0.18rem, env(safe-area-inset-bottom)) + 0.02rem) !important;
+    border-radius: 14px 14px 0.42rem 0.42rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
+    margin: -0.12rem -0.14rem 0 !important;
+    padding: 0.14rem 0.14rem 0.06rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
+    width: 1.1rem !important;
+    height: 0.08rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title {
+    font-size: 0.6rem !important;
+    line-height: 1.05 !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
+    font-size: 0.54rem !important;
+    line-height: 1.08 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
+    min-height: 1.06rem !important;
+    padding: 0.08rem 0.26rem !important;
+    font-size: 0.52rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
+    max-height: clamp(0.96rem, 2.9vh, 1.34rem) !important;
+    gap: 0.04rem !important;
+    overflow: hidden !important;
+  }
+}
+
+@media (max-width: 540px) {
+  html body.page-home .site-header {
+    width: min(100% - 0.64rem, var(--max-width)) !important;
+    gap: 0.18rem 0.34rem !important;
+    padding: 0.18rem 0.22rem 0.06rem !important;
+  }
+
+  html body.page-home .site-header .brand__logo {
+    width: 1.28rem !important;
+    height: 1.28rem !important;
+  }
+
+  html body.page-home .site-header__nav {
+    gap: 0.12rem !important;
+    padding-bottom: 0.06rem !important;
+  }
+
+  html body.page-home .site-header__nav-link,
+  html body.page-home .site-header__search {
+    min-height: 1.42rem !important;
+    font-size: 0.58rem !important;
+  }
+
+  html body.page-home .site-header__nav-link {
+    padding-inline: 0.42rem !important;
+  }
+
+  html body.page-home .site-header__search {
+    width: 1.42rem !important;
+    min-width: 1.42rem !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    padding: 0.24rem 0.36rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-label {
+    font-size: 0.46rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    font-size: 0.61rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
+    margin-inline: 0.12rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch__button {
+    min-height: 1.38rem !important;
+    padding-inline: 0.3rem !important;
+    font-size: 0.58rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(24rem, calc(var(--app-mobile-vh, 100svh) - 3.95rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
+    min-height: 3.48rem !important;
+    max-height: clamp(3.56rem, 10.4vh, 4.18rem) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
+    max-height: clamp(0.86rem, 2.45vh, 1.16rem) !important;
+  }
+}
