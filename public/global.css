@@ -15143,17 +15143,97 @@ body.site-search-open {
     max-height: clamp(2.3rem, 6.5vh, 3.1rem) !important;
   }
 }
-/* Follow-up: keep mobile map sheet visible/usable and slightly relax tiny homepage chrome. */
+/* Follow-up: homepage mobile cleanup for tighter header, shorter locked card, and more map-first sheet. */
 @media (max-width: 760px) {
+  html body.page-home .site-header {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 0.34rem 0.52rem !important;
+    align-items: center !important;
+  }
+
+  html body.page-home .site-header .brand {
+    gap: 0.34rem !important;
+    align-self: start !important;
+  }
+
+  html body.page-home .site-header .brand__logo {
+    width: 1.72rem !important;
+    height: 1.72rem !important;
+  }
+
+  html body.page-home .site-header .brand__copy,
+  html body.page-home .site-header .brand__eyebrow {
+    display: none !important;
+  }
+
+  html body.page-home .site-header__meta {
+    min-width: 0 !important;
+  }
+
+  html body.page-home .site-header__topline {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    gap: 0.26rem !important;
+    align-items: center !important;
+  }
+
+  html body.page-home .site-header__nav {
+    grid-column: auto !important;
+    min-width: 0 !important;
+    gap: 0.18rem !important;
+  }
+
+  html body.page-home .site-header__nav-link,
+  html body.page-home .site-header__search,
+  html body.page-home .site-header__action {
+    min-height: 1.72rem !important;
+    border-radius: 999px !important;
+    font-size: 0.64rem !important;
+  }
+
   html body.page-home .site-header__nav-link {
-    min-height: 1.92rem !important;
-    font-size: 0.69rem !important;
+    padding: 0.12rem 0.42rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.92rem !important;
-    min-width: 1.92rem !important;
-    min-height: 1.92rem !important;
+    width: 1.72rem !important;
+    min-width: 1.72rem !important;
+    padding: 0 !important;
+  }
+
+  html body.page-home .site-header__search svg {
+    margin: 0 !important;
+  }
+
+  html body.page-home .site-header__search-label--full,
+  html body.page-home .site-header__search-label--short,
+  html body.page-home .site-header__action {
+    display: none !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    padding: 0.34rem 0.5rem !important;
+    gap: 0.18rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock {
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    gap: 0.08rem 0.3rem !important;
+    align-items: center !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-label {
+    padding: 0.1rem 0.3rem !important;
+    font-size: 0.44rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    margin: 0 !important;
+    font-size: 0.64rem !important;
+    line-height: 1.08 !important;
+    font-weight: 800 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-mobile-switch {
@@ -15177,26 +15257,81 @@ body.site-search-open {
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
     display: grid !important;
     width: auto !important;
-    min-height: 6rem !important;
-    max-height: min(8.2rem, 22svh) !important;
+    min-height: 5.3rem !important;
+    max-height: min(6.9rem, 18svh) !important;
+    padding-bottom: calc(max(0.24rem, env(safe-area-inset-bottom)) + 0.02rem) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
+    padding-bottom: 0.12rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
+    font-size: 0.6rem !important;
+    line-height: 1.15 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
+    min-height: 1.36rem !important;
+    padding: 0.14rem 0.34rem !important;
+    font-size: 0.6rem !important;
   }
 
   html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
     display: grid !important;
-    max-height: min(3.7rem, 10svh) !important;
+    max-height: min(2.9rem, 7svh) !important;
     overflow: auto !important;
   }
 }
 
 @media (max-width: 540px) {
+  html body.page-home .site-header {
+    width: min(100% - 0.75rem, var(--max-width)) !important;
+  }
+
+  html body.page-home .brand__logo {
+    width: 1.56rem !important;
+    height: 1.56rem !important;
+  }
+
   html body.page-home .site-header__nav-link {
-    min-height: 1.8rem !important;
-    font-size: 0.65rem !important;
+    min-height: 1.62rem !important;
+    padding-inline: 0.34rem !important;
+    font-size: 0.6rem !important;
   }
 
   html body.page-home .site-header__search {
-    width: 1.8rem !important;
-    min-width: 1.8rem !important;
-    min-height: 1.8rem !important;
+    width: 1.62rem !important;
+    min-width: 1.62rem !important;
+    min-height: 1.62rem !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    padding: 0.3rem 0.46rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock {
+    gap: 0.28rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    font-size: 0.6rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(25.8rem, calc(var(--app-mobile-vh, 100svh) - 5.1rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
+    min-height: 4.9rem !important;
+    max-height: clamp(5rem, 15.5vh, 6rem) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
+    max-height: clamp(1.9rem, 5.2vh, 2.5rem) !important;
   }
 }

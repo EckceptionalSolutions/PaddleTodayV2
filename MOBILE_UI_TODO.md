@@ -39,6 +39,7 @@ Latest local pass (2026-04-23 AM):
 - latest evening pass corrected the over-tight mobile override stack: homepage header is compact but readable again, the locked "Today's Best" row stays intentionally short, and mobile Map mode now keeps a visible shortlist peek instead of collapsing the sheet away
 - Astro build and typecheck now pass locally
 - local Playwright screenshots look materially better for the three confirmed homepage mobile issues; still needs real device/user validation against the screenshot complaints
+- latest early-evening pass collapsed the homepage mobile header into a logo + tighter nav/search row, shortened the locked "Today's Best" prompt copy again, and reduced the mobile Map shortlist sheet footprint further so more map stays visible on first open
 
 ## Priority Queue
 
