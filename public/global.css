@@ -16209,3 +16209,129 @@ body.site-search-open {
     max-height: clamp(0.48rem, 1.2vh, 0.62rem) !important;
   }
 }
+
+@media (max-width: 760px) {
+  html body.page-home .home-overview--top,
+  html body.page-home .home-hero__trust--support {
+    display: none !important;
+  }
+
+  html body.page-home .site-header {
+    gap: 0.12rem !important;
+    padding-top: 0.42rem !important;
+    padding-bottom: 0.2rem !important;
+  }
+
+  html body.page-home .site-header__topline {
+    gap: 0.1rem !important;
+  }
+
+  html body.page-home .site-header__nav {
+    gap: 0.1rem !important;
+  }
+
+  html body.page-home .site-header__nav-link {
+    min-height: 1.26rem !important;
+    padding: 0.06rem 0.24rem !important;
+    font-size: 0.5rem !important;
+  }
+
+  html body.page-home .site-header__search {
+    width: 1.26rem !important;
+    min-width: 1.26rem !important;
+    min-height: 1.26rem !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    padding: 0.08rem 0.18rem !important;
+    border-radius: 11px !important;
+    box-shadow: none !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock {
+    gap: 0.12rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    font-size: 0.46rem !important;
+    letter-spacing: 0 !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-frame,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map {
+    min-height: max(27.6rem, calc(var(--app-mobile-vh, 100svh) - 2.45rem - env(safe-area-inset-top))) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
+    min-height: 2.18rem !important;
+    max-height: clamp(2.18rem, 6.2vh, 2.42rem) !important;
+    margin: 0 0.08rem 0 !important;
+    padding: 0.02rem 0.08rem calc(max(0.08rem, env(safe-area-inset-bottom)) + 0.01rem) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head {
+    margin: -0.02rem -0.08rem 0 !important;
+    padding: 0.04rem 0.08rem 0 !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-head::before {
+    width: 0.44rem !important;
+    height: 0.05rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__title,
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__note {
+    display: none !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results__back {
+    min-height: 0.74rem !important;
+    padding: 0.02rem 0.14rem !important;
+    font-size: 0.42rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
+    max-height: 0.62rem !important;
+  }
+}
+
+@media (max-width: 540px) {
+  html body.page-home .site-header {
+    width: min(100% - 0.44rem, var(--max-width)) !important;
+    padding-inline: 0.14rem !important;
+  }
+
+  html body.page-home .site-header .brand__logo {
+    width: 0.96rem !important;
+    height: 0.96rem !important;
+  }
+
+  html body.page-home .site-header__nav-link {
+    min-height: 1.06rem !important;
+    padding-inline: 0.12rem !important;
+    font-size: 0.41rem !important;
+  }
+
+  html body.page-home .site-header__search {
+    width: 1.06rem !important;
+    min-width: 1.06rem !important;
+    min-height: 1.06rem !important;
+  }
+
+  html body.page-home .home-featured--locked {
+    padding: 0.07rem 0.16rem !important;
+  }
+
+  html body.page-home .home-featured--locked .home-featured__lock-copy {
+    font-size: 0.43rem !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results-panel {
+    min-height: 2.02rem !important;
+    max-height: clamp(2.02rem, 5.6vh, 2.2rem) !important;
+  }
+
+  html body.page-home .summary-map-shell--home.summary-map-shell--mobile-map .summary-map-results {
+    max-height: 0.52rem !important;
+  }
+}

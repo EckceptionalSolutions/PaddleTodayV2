@@ -19,6 +19,8 @@ Get mobile UI into a clearly good, trustworthy state for real users, with homepa
 
 Latest local pass (2026-04-24 morning): converted the homepage mobile nav into a quieter segmented strip, collapsed the locked "Today's Best" card to copy-only on small screens, and trimmed the initial Map shortlist peek again so more map is visible first.
 
+Latest follow-up pass (2026-04-24 early morning): hid the extra homepage mobile promo/trust chrome, tightened the homepage header pills/search again, shortened the locked "Today's Best" prompt copy, and reduced the initial mobile Map shortlist sheet further so Map mode gives more of the viewport to the map first.
+
 Homepage mobile received an initial pass for:
 - List default on mobile
 - dedicated Map mode
