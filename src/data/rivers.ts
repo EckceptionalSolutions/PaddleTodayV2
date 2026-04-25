@@ -1221,10 +1221,16 @@ export const rivers: River[] = [
     slug: 'st-croix-river-interstate-osceola',
     name: 'St. Croix River',
     reach: 'Minnesota Interstate State Park Landing to Osceola Landing',
+    aliases: [
+      'Taylors Falls to Osceola Landing',
+      'Taylors Falls to Osceola',
+      'Highway 8 to Osceola Landing',
+      'Interstate State Park to Osceola Landing',
+    ],
     state: 'Minnesota',
     region: 'Lower St. Croix',
     summary:
-      'Classic lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway standards, but side channels, sandbars, and shared motorized traffic still matter more than the score alone suggests.',
+      'Classic Taylors Falls to Osceola lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway standards, but side channels, sandbars, and shared motorized traffic still matter more than the score alone suggests.',
     statusText:
       'Treat about 3,000 cfs at St. Croix Falls as the conservative floor. Below that, stay in the main channel and expect more sandbars and side-slough dead ends.',
     latitude: 45.401,
@@ -1261,7 +1267,7 @@ export const rivers: River[] = [
       {
         label: 'Official trip',
         value: '6.6 miles / 3 to 4 hours / easy',
-        note: 'NPS publishes Highway 8 to Osceola Landing as a ranger-recommended lower St. Croix paddle with easy difficulty and a 3 to 4 hour average pace.',
+        note: 'NPS publishes Highway 8 to Osceola Landing, commonly treated as the Taylors Falls to Osceola run, as a ranger-recommended lower St. Croix paddle with easy difficulty and a 3 to 4 hour average pace.',
         sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/8toosceola.htm',
       },
       {
@@ -3046,8 +3052,8 @@ export const rivers: River[] = [
       'Lower-Kettle day trip that is mostly flatwater, but still runoff-sensitive and noticeably pushier when the Sandstone gauge climbs.',
     statusText:
       'Treat this as in play when the Sandstone gauge is roughly 6 to 10 ft. Below that gets bony; above that loses margin quickly.',
-    latitude: 45.9529653,
-    longitude: -92.7380752,
+    latitude: 46.0107725,
+    longitude: -92.8407339,
     gaugeSource: {
       id: 'usgs-05336700',
       provider: 'usgs',

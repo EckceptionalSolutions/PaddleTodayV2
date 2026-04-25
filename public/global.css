@@ -11002,6 +11002,7 @@ body.site-search-open {
     border-color 180ms ease,
       background-color 180ms ease,
       transform 180ms ease;
+  overflow-anchor: none;
   }
 
 .home-recommendations__block-head {

@@ -81,7 +81,7 @@ const searchRouteItems = listRivers()
     subtitle: river.reach,
     meta: [river.region, river.state].filter(Boolean).join(' / '),
     href: `/rivers/${river.slug}/`,
-    searchText: [river.name, river.reach, river.region, river.state].filter(Boolean).join(' '),
+    searchText: [river.name, river.reach, ...(river.aliases ?? []), river.region, river.state].filter(Boolean).join(' '),
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchRiverItems = listRiverGroups()
@@ -95,7 +95,15 @@ const searchRiverItems = listRiverGroups()
       group.routeCount > 1
         ? `/rivers/by-river/${group.riverId}/`
         : `/rivers/${group.routes[0]?.slug ?? group.riverId}/`,
-    searchText: [group.name, ...group.states, ...group.regions, ...group.routes.map((route) => route.reach)].filter(Boolean).join(' '),
+    searchText: [
+      group.name,
+      ...group.states,
+      ...group.regions,
+      ...group.routes.map((route) => route.reach),
+      ...group.routes.flatMap((route) => route.aliases ?? []),
+    ]
+      .filter(Boolean)
+      .join(' '),
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);

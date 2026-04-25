@@ -421,7 +421,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       camping:
         'Primitive shoreline camping is allowed only under Riverway rules, and a camping permit is required below Highway 8. Do not assume the landings themselves are overnight staging sites.',
       summary:
-        'Launch from the Minnesota Interstate landing and finish at Osceola Landing for the cleanest lower St. Croix day-trip add. This is the classic easy gorge-to-bluff run, but lower water pushes you toward the main channel and away from side slough exploring.',
+        'Launch from the Minnesota Interstate landing in Taylors Falls and finish at Osceola Landing for the cleanest lower St. Croix day-trip add. This is the classic easy gorge-to-bluff run, but lower water pushes you toward the main channel and away from side slough exploring.',
       accessCaveats: [
         'Minnesota Interstate State Park is open 8 a.m. to 10 p.m. daily and requires a vehicle permit; same-day ranger-station, kiosk, or traffic conditions still win over any saved note.',
         'Osceola is a high-use Riverway landing with separate motorized and nonmotorized launch flow, paved parking, restrooms, and drinking water, but it can still feel busy on hot weekends.',

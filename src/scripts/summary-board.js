@@ -2752,7 +2752,8 @@ function matchesRouteFilters(result) {
   }
 
   if (activeFilters.search) {
-    const haystack = `${result.river.name} ${result.river.reach} ${result.river.state} ${result.river.region}`.toLowerCase();
+    const aliases = Array.isArray(result.river.aliases) ? result.river.aliases.join(' ') : '';
+    const haystack = `${result.river.name} ${result.river.reach} ${aliases} ${result.river.state} ${result.river.region}`.toLowerCase();
     if (!haystack.includes(activeFilters.search.toLowerCase())) {
       return false;
     }

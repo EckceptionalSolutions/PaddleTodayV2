@@ -129,6 +129,7 @@ export interface River {
   slug: string;
   name: string;
   reach: string;
+  aliases?: string[];
   state: string;
   region: string;
   summary: string;
