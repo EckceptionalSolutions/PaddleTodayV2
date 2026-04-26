@@ -17,16 +17,6 @@ These are the best remaining old-repo seeds that still look worth automation tim
 
 ### Minnesota
 
-- `Whitewater River - Elba to Hwy 74`
-  - Old file: `C:\Users\Yerff\source\repos\PaddleToday\src\content\routes\mn\whitewater-river-elba-hwy-26-to-hwy-74.md`
-  - Why still worth checking: distinct southeast Minnesota creek route with old coordinates and `USGS` support.
-  - Main gap: cleaner official endpoint authority and a trustworthy same-segment gauge story.
-
-- `Crow Wing River - Little White Dog Access to Cottingham County Park`
-  - Old file: `C:\Users\Yerff\source\repos\PaddleToday\src\content\routes\mn\crow-wing-river-little-white-dog-access-to-cottingham-county-park.md`
-  - Why still worth checking: strong endpoint support and a direct gauge story looked promising in prior research.
-  - Main gap: no defensible numeric floor has been confirmed yet.
-
 - `Mississippi River - Coon Rapids Dam Regional Park to North Mississippi Regional Park`
   - Old file: `C:\Users\Yerff\source\repos\PaddleToday\src\content\routes\mn\mississippi-river-coon-rapids-dam-east-to-north-mississippi-regional-park.md`
   - Why still worth checking: official route corridor is real and endpoint support is strong.
@@ -93,6 +83,7 @@ These are already covered in V2 or already rejected in automation memory.
 - Already in V2:
   - `Cannon River - Faribault to Dundas`
   - `Cloquet River - Island Lake Dam to Bachelor Road`
+  - `Crow Wing River - Little White Dog to Cottingham County Park`
   - `Blue Earth River - Rapidan Dam Park to County Road 90`
   - `Root River - Lanesboro to Peterson`
   - `Root River - Rushford to Houston`
@@ -105,7 +96,9 @@ These are already covered in V2 or already rejected in automation memory.
   - `St. Croix River - Highway 8 / Interstate to Osceola`
   - `St. Croix River - Osceola to William O'Brien`
   - `Straight River - Krogh's Landing to Faribault`
+  - `Sauk River - Spring Hill County Park to St. Martin`
   - `Kettle River - Lower Kettle #5 to #6`
+  - `Whitewater River - Elba to Highway 74`
   - `Rice Creek - Peltier Lake to Long Lake`
   - `Mississippi River - East River Flats to Hidden Falls`
   - `Minnesota River - Judson to Land of Memories`

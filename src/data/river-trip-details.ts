@@ -568,6 +568,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sauk-river-spring-hill-st-martin': {
+    putIn: {
+      name: 'Spring Hill County Park carry-in access',
+      latitude: 45.5338997,
+      longitude: -94.7754217,
+    },
+    takeOut: {
+      name: 'St. Martin carry-in access / County Road 12',
+      latitude: 45.51951,
+      longitude: -94.680228,
+    },
+    logistics: {
+      distanceLabel: 'About 9.1 river mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Short Stearns County self-shuttle between Spring Hill County Park and the St. Martin carry-in near County Road 12. Check county park rules before leaving a vehicle.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county-park and access rules.',
+      camping:
+        'Spring Hill County Park has DNR-noted watercraft campsite context. Treat this as a day route unless you separately confirm current Stearns County camping rules and fees.',
+      summary:
+        'Use Spring Hill County Park as the put-in and the St. Martin carry-in as the take-out. This creates a cleaner gauge-backed Sauk day than the older Spring Hill-to-Rockville multi-day draft.',
+      accessCaveats: [
+        'Stearns County confirms St. Martin Canoe Access as a one-acre county site retained as access to the Sauk River, but it is still a simple carry-in rather than a full-service park landing.',
+        'Low water and summer vegetation can make this short route slower and less pleasant than the mileage suggests.',
+      ],
+      watchFor: [
+        'Shallow riffles and vegetation as the St. Martin gauge falls toward 14 ft.',
+        'Fresh wood and strainers after storms.',
+        'Cold-water exposure in spring and fall.',
+      ],
+    },
+  },
   'snake-river-canary-cross-lake': {
     putIn: {
       name: 'Snake River #1 / Canary Road public water access',
@@ -767,6 +800,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'north-fork-crow-river-betty-mason-wildlife': {
+    putIn: {
+      name: 'Betty T. Mason County Park carry-in access',
+      latitude: 45.189062,
+      longitude: -94.1900403,
+    },
+    takeOut: {
+      name: 'Wildlife County Park carry-in access',
+      latitude: 45.1402417,
+      longitude: -94.1752588,
+    },
+    logistics: {
+      distanceLabel: '10.2 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
+      shuttle:
+        'Plan a simple two-car shuttle between the Wright County parks. Wildlife County Park also has a reservable canoe campsite if you are turning this into a longer North Fork plan.',
+      permits:
+        'No route-specific paddling permit is known. Wildlife County Park backcountry canoe camping requires a reservation and fee if used.',
+      camping:
+        'Wildlife County Park offers a backcountry canoe campsite by reservation. Treat this route as a day trip unless that campsite is booked separately.',
+      summary:
+        'Launch at Betty T. Mason County Park and take out at Wildlife County Park. This is a narrow upper North Fork Crow day where the gauge matters, but wood and tight bends still drive the practical decision.',
+      accessCaveats: [
+        'Betty T. Mason is an improved but steep carry-in access, so scout the carry before unloading.',
+        'Both endpoints are Wright County public river accesses, but park hours and camping rules still apply.',
+        'This upper reach is more obstruction-prone than the lower North Fork Crow route already in the app.',
+      ],
+      watchFor: [
+        'Underwater snags, overhanging trees, and strainers on sharp bends.',
+        'Possible unlawful fences across the river; DNR asks paddlers to report them.',
+        'Low-water scraping below the Cokato medium band and faster current above it.',
+      ],
+    },
+  },
   'north-fork-crow-river-riverside-dayton': {
     putIn: {
       name: 'Riverside County Park carry-in access',
@@ -797,6 +864,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low-water dragging and a slower-than-expected pace when the river falls toward 345 cfs.',
         'Fresh wood, strainers, and debris after storms or rising water.',
         'Fatigue, cold-water exposure, and wind on a 15-mile day even if the gauge looks okay.',
+      ],
+    },
+  },
+  'south-fork-crow-river-rick-johnson-lake-rebecca': {
+    putIn: {
+      name: 'Rick Johnson Park trailer access',
+      latitude: 44.9663195,
+      longitude: -93.8439068,
+    },
+    takeOut: {
+      name: 'Lake Rebecca Park Reserve Crow River carry-in access',
+      latitude: 45.0629739,
+      longitude: -93.7646553,
+    },
+    logistics: {
+      distanceLabel: '14.3 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr',
+      shuttle:
+        'Plan a full-day two-car shuttle from Watertown to Lake Rebecca Park Reserve. The take-out is on the North Fork side near the confluence, so review the DNR map before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Watertown park rules and Three Rivers Park District rules at Lake Rebecca.',
+      camping:
+        'Lake Rebecca has group camping elsewhere in the park reserve, but no route-specific river camping is assumed. Treat this as a day trip unless you book camping separately.',
+      summary:
+        'Start below the Watertown dam at Rick Johnson Park and finish at the Lake Rebecca Crow River carry-in. This is the DNR-recommended full-day South Fork Crow trip through Delano.',
+      accessCaveats: [
+        'The put-in is below the Watertown dam; do not launch upstream of the dam or improvise around dam infrastructure.',
+        'Lake Rebecca is a large park reserve, so identify the Crow River carry-in and parking area before committing to the shuttle.',
+        'The route starts on the South Fork and finishes on the North Fork near the confluence, which can be confusing if you only skim the map.',
+      ],
+      watchFor: [
+        'Fallen trees, submerged snags, and overhanging branches on wooded bends.',
+        'Faster current after significant rainfall even when the river is usually gentle.',
+        'Private shoreland; stop only at public landings or clearly legal sites.',
       ],
     },
   },
@@ -1265,6 +1366,72 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Debris or strainers after storms and in high water.',
         'The Class I rapid around river mile 11.',
         'Cold-water risk in shoulder seasons.',
+      ],
+    },
+  },
+  'crow-wing-river-little-white-dog-cottingham': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.58698,
+      longitude: -94.82262,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.5044417,
+      longitude: -94.8107221,
+    },
+    logistics: {
+      distanceLabel: '9.8 river mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Standard Wadena County self-shuttle. Confirm the Cottingham parking and camping setup before leaving a vehicle, especially if you are pairing the paddle with an overnight.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp.',
+      camping:
+        'MN DNR identifies primitive camping/rest-area context at both Little White Dog and Cottingham. Confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
+      summary:
+        'Launch at Little White Dog and finish at Cottingham County Park for the DNR-recommended Crow Wing day trip. The river character is friendly, but use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
+      accessCaveats: [
+        'Both endpoints are named by MN DNR and backed by Wadena County campground/access pages, but saved coordinates should still defer to on-site signage.',
+        'Cottingham and Little White Dog are county campground/access sites, so parking, camping, fees, and seasonal details should be checked before the shuttle.',
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
+        'Fresh wood, strainers, and debris after high water.',
+        'Tubing traffic on popular summer weekends in the lower part of the route.',
+      ],
+    },
+  },
+  'whitewater-river-elba-highway-74': {
+    putIn: {
+      name: 'Elba / Highway 26 and Center Street access',
+      latitude: 44.09185,
+      longitude: -92.01381,
+    },
+    takeOut: {
+      name: 'Highway 74 roadside take-out near Whitewater WMA',
+      latitude: 44.14973,
+      longitude: -92.00558,
+    },
+    logistics: {
+      distanceLabel: 'About 10.4 river mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
+      shuttle:
+        'Short road shuttle between Elba and the Highway 74 take-out. Because these are less polished roadside-style accesses, confirm legal parking and the exact take-out before launching.',
+      permits:
+        'No special paddling permit is known for the Minnesota DNR Whitewater River State Water Trail. Follow posted WMA, roadside parking, and boating rules.',
+      camping:
+        'MN DNR says there are no campsites or rest areas on the Whitewater River State Water Trail. Use off-river options such as Whitewater State Park if you need an overnight base.',
+      summary:
+        'Put in at Elba and take out where the river comes back to Highway 74. This is a narrow, wood-sensitive creek route, so the DNR gauge is only the first screen; current strainers and logjams still decide the day.',
+      accessCaveats: [
+        'The access story is still less polished than named park landings. MilesPaddled and Post Bulletin reports support the same access pair, but verify legal parking and the exact take-out before committing to the shuttle.',
+        'MN DNR notes ecological sensitivity in the Whitewater WMA, so stay on legal accesses and avoid creating informal stops.',
+      ],
+      watchFor: [
+        'Deadfall, strainers, and occasional logjam portages.',
+        'Fast current and fewer recovery options when the Beaver gauge rises into high water.',
+        'Scraping and extra dragging when the gauge drops below the medium band.',
       ],
     },
   },

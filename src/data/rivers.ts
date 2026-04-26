@@ -1800,6 +1800,114 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sauk-river-spring-hill-st-martin',
+    slug: 'sauk-river-spring-hill-st-martin',
+    name: 'Sauk River',
+    reach: 'Spring Hill County Park to St. Martin',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Upper Sauk day segment that avoids turning the Spring Hill to Rockville corridor into an overlong product route. The St. Martin DNR gauge sits at the take-out, so the level call is much cleaner than the older 39-mile draft.',
+    statusText:
+      'Treat 15 to 17 ft at St. Martin as the best zone. Below 14 ft gets scrape-prone and weedy; above 20 ft is beyond a broad-audience Sauk day-trip recommendation.',
+    latitude: 45.5338997,
+    longitude: -94.7754217,
+    gaugeSource: {
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=328',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 15,
+      idealMax: 17,
+      tooLow: 14,
+      tooHigh: 20,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Sauk River near St. Martin',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Summer low water and vegetation can make this reach a poor choice even before it becomes fully impassable.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly an approachable upper-Sauk day when the level is normal, but wood, shallow riffles, and cold-water exposure still deserve normal river judgment.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names both access points on the water-trail map and publishes official level bands for the St. Martin gauge at the lower end of this short reach. Same-day wood and vegetation remain the main non-gauge variables.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '14 / 15 / 17 / 20 ft',
+        note: 'MN DNR interprets the St. Martin gauge as Scrapable below 14 ft, Low from 14 to 15, Medium from 15 to 17, High from 17 to 20, and Very High above 20.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: 'About 9.1 river miles',
+        note: 'MN DNR Map 2 names Spring Hill County Park at river mile 56.2 and St. Martin carry-in at river mile 47.1, making this a cleaner day route than the longer Spring Hill to Rockville draft.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'Official county/DNR access points',
+        note: 'Spring Hill County Park is a Stearns County park on the Sauk, and Stearns County confirms St. Martin Canoe Access is a one-acre county site retained as Sauk River access.',
+        sourceUrl: 'https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/index.html',
+      },
+      {
+        label: 'MN DNR Sauk River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/saukriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Sauk River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/sauk2.pdf',
+      },
+      {
+        label: 'Stearns County Spring Hill County Park',
+        url: 'https://www.stearnscountymn.gov/399/Spring-Hill-County-Park',
+      },
+      {
+        label: 'Stearns County St. Martin Canoe Access',
+        url: 'https://www.stearnscountymn.gov/398/St-Martin-Canoe-Access',
+      },
+      {
+        label: 'USGS 05270500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05270500/',
+      },
+    ],
+  },
+  {
     id: 'snake-river-canary-cross-lake',
     slug: 'snake-river-canary-cross-lake',
     name: 'Snake River',
@@ -2507,6 +2615,119 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'north-fork-crow-river-betty-mason-wildlife',
+    slug: 'north-fork-crow-river-betty-mason-wildlife',
+    name: 'North Fork Crow River',
+    reach: 'Betty T. Mason River Access to Wildlife County Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Upper North Fork Crow day with a narrower, woodier feel than the lower Dayton route. It has a real DNR-recommended route and an official Cokato level ladder, but strainers, tight bends, and steep access keep it from being a blind beginner yes.',
+    statusText:
+      'Treat 300 to 600 cfs at Cokato as the best zone. Below 241 cfs gets too scrapey, and above 800 cfs is beyond the level this tight, obstruction-prone reach should be promoted for.',
+    latitude: 45.189062,
+    longitude: -94.1900403,
+    gaugeSource: {
+      id: 'mn-dnr-308',
+      provider: 'mn_dnr',
+      siteId: '308',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Crow River nr Cokato, CSAH4',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=308',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 241,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for North Fork Crow River near Cokato',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the realistic window. Summer can work when rain keeps the Cokato gauge up, but low water and wood make this upper reach work harder than the lower river.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The rapids are not the issue; the commitment comes from tight bends, strainers, steep access, occasional fences, and the need to steer well through a narrow channel.',
+      confidenceNotes:
+        'Confidence is good because MN DNR recommends this exact day trip, the Cokato gauge has official DNR level bands, and Wright County confirms both endpoints as public river accesses. Confidence is still moderated by the upper-river obstruction profile and the gauge being close corridor support rather than a put-in gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '241 / 300-600 / 800 cfs',
+        note: 'MN DNR interprets the Cokato reading as Scrapable below 241 cfs, Low from 241 to 300, Medium from 300 to 600, High from 600 to 800, and Very High above 800.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '10.2 river miles',
+        note: 'MN DNR recommends Betty T. Mason carry-in access to Wildlife County Park carry-in access as the Map 1 day trip on the North Fork Crow.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Wright County river accesses',
+        note: 'Wright County identifies Betty T. Mason County Park and Wildlife County Park as public river-access sites on the North Fork Crow River.',
+        sourceUrl: 'https://www.wrightcountymn.gov/Facilities/Facility/Details/Betty-T-Mason-River-Access-14',
+      },
+      {
+        label: 'Route character',
+        value: 'Narrow bends and wood',
+        note: 'DNR describes this upper segment as shallow and obstruction-prone, with underwater branches, overhanging trees, and possible unlawful fences across the river.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'Supplemental flow context',
+        value: '500 cfs makes canoeing fairly easy',
+        note: 'DNR fisheries access guidance for Betty Mason says 500 cfs makes for fairly easy canoeing on this access-to-Wildlife County Park corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/bettymason.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/northforkcrow1.pdf',
+      },
+      {
+        label: 'Wright County Betty T. Mason County Park',
+        url: 'https://www.wrightcountymn.gov/Facilities/Facility/Details/Betty-T-Mason-River-Access-14',
+      },
+      {
+        label: 'Wright County Wildlife County Park',
+        url: 'https://www.wrightcountymn.gov/Facilities/Facility/Details/Wildlife-County-Park-19',
+      },
+      {
+        label: 'DNR Betty Mason access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/bettymason.pdf',
+      },
+      {
+        label: 'DNR Wildlife County Park access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/wildlife.pdf',
+      },
+    ],
+  },
+  {
     id: 'north-fork-crow-river-riverside-dayton',
     slug: 'north-fork-crow-river-riverside-dayton',
     name: 'North Fork Crow River',
@@ -2612,6 +2833,107 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Crow access guide',
         url: 'https://www.dnr.state.mn.us/areas/fisheries/saukrapids/crow_river_access.html',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-crow-river-rick-johnson-lake-rebecca',
+    slug: 'south-fork-crow-river-rick-johnson-lake-rebecca',
+    name: 'South Fork Crow River',
+    reach: 'Rick Johnson Park to Lake Rebecca Park Reserve',
+    state: 'Minnesota',
+    region: 'Twin Cities West Metro',
+    summary:
+      'Long west-metro Crow River day that starts below the Watertown dam, passes Delano, and finishes at the Lake Rebecca Crow River carry-in. DNR recommends the exact trip, and the Delano DNR gauge gives it an official level ladder.',
+    statusText:
+      'Treat 200 to 600 cfs at Delano as the best zone. Below 26 cfs is scrapable, and above 800 cfs is beyond the broad-audience recommendation for this long wooded route.',
+    latitude: 44.9663195,
+    longitude: -93.8439068,
+    gaugeSource: {
+      id: 'mn-dnr-51',
+      provider: 'mn_dnr',
+      siteId: '51',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Crow River at Delano, Bridge Ave',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=51',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=19001001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 600,
+      tooLow: 26,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for South Fork Crow River at Delano',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the best fit. This reach can move quickly after significant rainfall, and a low Delano reading can turn the full-day mileage into a slow scrape.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR calls the South Fork gentle at normal levels, but this is still a 14.3-mile day with a dam-adjacent start, wooded bends, strainers, and a take-out on the North Fork side near the confluence.',
+      confidenceNotes:
+        'Confidence is high for route shape and gauge bands because MN DNR recommends this exact trip and the Bridge Avenue gauge sits on the route in Delano. Access confidence is good, with DNR naming both endpoints and Three Rivers confirming Crow River carry-in access at Lake Rebecca; Rick Johnson Park still deserves normal same-day local parking checks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '26 / 200-600 / 800 cfs',
+        note: 'MN DNR interprets the Delano reading as Scrapable below 26 cfs, Low from 26 to 200, Medium from 200 to 600, High from 600 to 800, and Very High above 800.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '14.3 river miles',
+        note: 'MN DNR recommends Rick Johnson Park trailer access to Lake Rebecca Regional Park carry-in access as the South Fork Crow day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowriversouthfork/segments-maps.html',
+      },
+      {
+        label: 'Gauge placement',
+        value: 'Bridge Avenue in Delano',
+        note: 'The DNR South Fork Crow map places the river-level gauge at Bridge Avenue in Delano, directly on the recommended route corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Crow River carry-in access',
+        note: 'Three Rivers Park District says Lake Rebecca Park Reserve offers carry-in access to the Crow River.',
+        sourceUrl: 'https://www.threeriversparks.org/location/lake-rebecca-park-reserve',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Dam start, wood, private shoreland',
+        note: 'The DNR map places the put-in below the Watertown dam and warns paddlers to watch river levels, avoid dead and overhanging trees, and stay off private property.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR South Fork Crow overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowriversouthfork/index.html',
+      },
+      {
+        label: 'MN DNR South Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowriversouthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR South Fork Crow map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/south_fork_crow.pdf',
+      },
+      {
+        label: 'Three Rivers Lake Rebecca Park Reserve',
+        url: 'https://www.threeriversparks.org/location/lake-rebecca-park-reserve',
       },
     ],
   },
@@ -3268,6 +3590,240 @@ export const rivers: River[] = [
       {
         label: 'American Whitewater Lower Kettle gauge info',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=4091',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-little-white-dog-cottingham',
+    slug: 'crow-wing-river-little-white-dog-cottingham',
+    name: 'Crow Wing River',
+    reach: 'Little White Dog to Cottingham County Park',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'DNR-recommended Crow Wing day through forested bends and small islands. The Nimrod DNR gauge is upstream but on the same lower-water-trail corridor, giving this route an official level story that the older USGS-only draft lacked.',
+    statusText:
+      'Treat 400 to 800 cfs at Nimrod as the best zone. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is outside the broad-audience recommendation.',
+    latitude: 46.58698,
+    longitude: -94.82262,
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=55',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the useful window. The Crow Wing is usually canoeable, but low late-summer water can still expose sandbars and make the day slower.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Generally beginner-friendly river character with twists, small islands, and occasional wood. Treat high water and cold shoulder-season days with more caution than the easy label suggests.',
+      confidenceNotes:
+        'MN DNR recommends this exact 9.8-mile trip and publishes official bands for the nearby Nimrod gauge. Endpoint naming is strong; saved coordinates are access-inventory/map-derived and should still defer to on-site signage.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '9.8 miles',
+        note: 'MN DNR recommends Little White Dog carry-in access to Cottingham County Park carry-in access as the Map 2 day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'Access support',
+        value: 'Named public county accesses',
+        note: 'The DNR map names Little White Dog #9 and Cottingham #11 as carry-in accesses, while Wadena County confirms Little White Dog is county-owned and Cottingham is a popular landing for tubes and canoes.',
+        sourceUrl: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County parks and Crow Wing canoe trail',
+        url: 'https://www.co.wadena.mn.us/217/Parks',
+      },
+      {
+        label: 'Wadena County parks and canoe trail map',
+        url: 'https://www.co.wadena.mn.us/DocumentCenter/View/255/County-ParksSystem-Canoe-Trail-Map-JPG?bidId=',
+      },
+      {
+        label: 'USGS 05244000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
+      },
+    ],
+  },
+  {
+    id: 'whitewater-river-elba-highway-74',
+    slug: 'whitewater-river-elba-highway-74',
+    name: 'Whitewater River',
+    reach: 'Elba to Highway 74',
+    state: 'Minnesota',
+    region: 'Southeast Minnesota',
+    summary:
+      'Narrow Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than a lazy float.',
+    statusText:
+      'Treat 692.3 to 697 ft at Beaver as the normal working band. Below 690 ft gets too thin, and above 698 ft is beyond the level this wood-sensitive route should be promoted for.',
+    latitude: 44.09185,
+    longitude: -92.01381,
+    gaugeSource: {
+      id: 'mn-dnr-265',
+      provider: 'mn_dnr',
+      siteId: '265',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Whitewater River nr Beaver, CSAH30',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=265',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=40016001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05377500',
+        provider: 'usgs',
+        siteId: '05377500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Whitewater River at Beaver, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 692.3,
+      idealMax: 697,
+      tooLow: 690,
+      tooHigh: 698,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Whitewater River near Beaver',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring and rain-supported windows are best. This narrow river can become scrape-heavy when low and much less forgiving around wood when levels jump.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Not big whitewater, but the tight channel, deadfall, strainers, and occasional logjam portages make it a moderate boat-handling day.',
+      confidenceNotes:
+        'MN DNR supports the water trail and official Beaver level bands, and DNR audio/transcript material points to the Elba-to-Highway-74 stretch as the best run. Supplemental trip reports consistently identify the same access pair, but confidence is tempered because these are roadside-style accesses without a clean standalone public landing page and wood can dominate the gauge call.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '690 / 692.3-697 / 698 ft',
+        note: 'MN DNR interprets the Beaver gauge as Scrapable below 690 ft, Low from 690 to 692.3, Medium from 692.3 to 697, High from 697 to 698, and Very High above 698.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route support',
+        value: 'Elba to Highway 74',
+        note: 'MN DNR Whitewater trail material describes the river from Elba downstream and identifies the Elba-to-Highway-74 stretch as a strong practical run.',
+        sourceUrl: 'https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/whitewater-transcript.pdf',
+      },
+      {
+        label: 'Access notes',
+        value: 'Roadside access pair',
+        note: 'MilesPaddled reports good parking at the Highway 26 / Center Street put-in and gives the same Highway 74 take-out coordinates used here; Post Bulletin trip reports also describe the County Road 26 put-in and Highway 74 / County Road 30 take-out access.',
+        sourceUrl: 'https://milespaddled.com/whitewater-river/',
+      },
+      {
+        label: 'Hazard context',
+        value: 'Not novice below Beaver/Weaver',
+        note: 'MN DNR warns the lower stretch between Beaver and Weaver is not suitable for novice paddlers because of many trees and occasional log jams.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/whitewaterriver/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Whitewater River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/whitewaterriver/index.html',
+      },
+      {
+        label: 'MN DNR Whitewater River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/whitewaterriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Whitewater audio transcript',
+        url: 'https://files.dnr.state.mn.us/destinations/water_trails/audio-tales/whitewater-transcript.pdf',
+      },
+      {
+        label: 'MN DNR Whitewater WMA',
+        url: 'https://www.dnr.state.mn.us/areas/wildlife/whitewater_wma.html',
+      },
+      {
+        label: 'MilesPaddled Whitewater River trip report',
+        url: 'https://milespaddled.com/whitewater-river/',
+      },
+      {
+        label: 'Post Bulletin Whitewater River access report',
+        url: 'https://www.postbulletin.com/sports/whitewater-river-in-name-only',
+      },
+      {
+        label: 'USGS 05377500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05377500/',
       },
     ],
   },

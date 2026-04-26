@@ -3383,12 +3383,45 @@ function trendNarrative(result, firstValue, lastValue, hours) {
   return `Dropping ${magnitude} over the last ${windowLabel} while still inside today's workable band.`;
 }
 
+function formatDnrHydrographDate(date) {
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`;
+}
+
+function buildDnrHydrographUrl(rawUrl) {
+  if (!rawUrl) {
+    return '';
+  }
+
+  try {
+    const url = new URL(rawUrl, window.location.href);
+    const end = new Date();
+    const start = new Date(end);
+    start.setDate(end.getDate() - 7);
+    url.searchParams.set('format', 'png');
+    url.searchParams.set('start', formatDnrHydrographDate(start));
+    url.searchParams.set('end', formatDnrHydrographDate(end));
+    if (!url.searchParams.has('width')) {
+      url.searchParams.set('width', '700');
+    }
+    if (!url.searchParams.has('height')) {
+      url.searchParams.set('height', '320');
+    }
+    return url.toString();
+  } catch {
+    return rawUrl;
+  }
+}
+
 function renderGaugeChart(result) {
   const parsedSamples = parseChartSamples(result);
   const activeSamples = windowedSamples(parsedSamples, currentChartWindowHours);
   const chartEl = root.querySelector('.gauge-visual__chart');
   const controlsEl = root.querySelector('.gauge-visual__controls');
   const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
+  const hydrographFigure = root.querySelector('[data-current-gauge-hydrograph-figure]');
+  const hydrographImage = root.querySelector('[data-current-gauge-hydrograph-image]');
+  const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
+  const detailLink = root.querySelector('[data-current-gauge-detail]');
   const lineEl = root.querySelector('[data-chart-line]');
   const dotEl = root.querySelector('[data-chart-dot]');
   const rangeEl = root.querySelector('[data-chart-range]');
@@ -3433,15 +3466,33 @@ function renderGaugeChart(result) {
     );
     setText('current-gauge-interpretation', result.gauge.gaugeInterpretation || 'Not published');
     setText('current-gauge-band', result.gaugeBandLabel || 'Unavailable');
-    const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
+    const hydrographUrl = buildDnrHydrographUrl(result.river?.gaugeSource?.hydrographUrl || '');
+    if (hydrographFigure instanceof HTMLElement && hydrographImage instanceof HTMLImageElement) {
+      if (hydrographUrl) {
+        hydrographImage.src = hydrographUrl;
+        hydrographFigure.hidden = false;
+      } else {
+        hydrographImage.removeAttribute('src');
+        hydrographFigure.hidden = true;
+      }
+    }
     if (hydrographLink instanceof HTMLAnchorElement) {
-      const hydrographUrl = result.river?.gaugeSource?.hydrographUrl || result.river?.gaugeSource?.detailUrl || '';
       if (hydrographUrl) {
         hydrographLink.href = hydrographUrl;
         hydrographLink.hidden = false;
       } else {
         hydrographLink.hidden = true;
         hydrographLink.removeAttribute('href');
+      }
+    }
+    if (detailLink instanceof HTMLAnchorElement) {
+      const detailUrl = result.river?.gaugeSource?.detailUrl || '';
+      if (detailUrl) {
+        detailLink.href = detailUrl;
+        detailLink.hidden = false;
+      } else {
+        detailLink.hidden = true;
+        detailLink.removeAttribute('href');
       }
     }
     return;
@@ -3455,6 +3506,20 @@ function renderGaugeChart(result) {
   }
   if (currentPanelEl instanceof HTMLElement) {
     currentPanelEl.hidden = true;
+  }
+  if (hydrographFigure instanceof HTMLElement) {
+    hydrographFigure.hidden = true;
+  }
+  if (hydrographImage instanceof HTMLImageElement) {
+    hydrographImage.removeAttribute('src');
+  }
+  if (hydrographLink instanceof HTMLAnchorElement) {
+    hydrographLink.hidden = true;
+    hydrographLink.removeAttribute('href');
+  }
+  if (detailLink instanceof HTMLAnchorElement) {
+    detailLink.hidden = true;
+    detailLink.removeAttribute('href');
   }
   setText('gauge-visual-title', 'Recent trend');
 

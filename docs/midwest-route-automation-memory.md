@@ -4,6 +4,21 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 ## Added
 
+- 2026-04-26: `Sauk River - Spring Hill County Park to St. Martin`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 328`.
+  - Supplemental research added: Stearns County confirms St. Martin Canoe Access is a one-acre county site retained as access to the Sauk River.
+  - Remaining caveat: this is a shorter, cleaner day-route replacement for the old Spring Hill-to-Rockville draft; the St. Martin take-out is a simple carry-in rather than a full-service park landing.
+
+- 2026-04-26: `Crow Wing River - Little White Dog to Cottingham County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 55` and `USGS 05244000` as a fallback source.
+  - Supplemental research added: Wadena County pages confirm Little White Dog and Cottingham as county campground/access sites, and the county canoe-trail map provides address-level context.
+  - Remaining caveat: saved access coordinates remain map/access-inventory derived and should defer to on-site signage.
+
+- 2026-04-26: `Whitewater River - Elba to Highway 74`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 265` and `USGS 05377500` as a fallback source.
+  - Supplemental research added: MilesPaddled and Post Bulletin reports support the same Highway 26/Center Street put-in and Highway 74/County Road 30 take-out pattern.
+  - Remaining caveat: the route has strong DNR water-trail and level support, but the access points are still less polished roadside-style endpoints without a clean standalone official landing page, and wood/logjam conditions can dominate the gauge call.
+
 - 2026-04-20: `Milwaukee River - Lime Kiln Park to Village Park`
   - Added to PaddleTodayV2 with a route-specific conservative `minimum-only` model on `USGS 04086600`.
   - Remaining caveat: the 260 cfs floor is a route-day recommendable level from MilesPaddled, not a stronger published ladder, so the route stays minimum-only.
