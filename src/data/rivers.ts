@@ -227,14 +227,28 @@ export const rivers: River[] = [
     latitude: 44.12135,
     longitude: -94.08935,
     gaugeSource: {
-      id: 'usgs-05320000',
-      provider: 'usgs',
-      siteId: '05320000',
+      id: 'mn-dnr-9',
+      provider: 'mn_dnr',
+      siteId: '9',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'direct',
       siteName: 'Blue Earth River near Rapidan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=9',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=30092001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05320000',
+        provider: 'usgs',
+        siteId: '05320000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Blue Earth River near Rapidan, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 4,
@@ -321,8 +335,8 @@ export const rivers: River[] = [
       'Classic Driftless day paddle with easy current and strong scenery. Flow is still the main call, but low-water scraping and post-rain debris should lower confidence before the gauge gets extreme.',
     statusText:
       'Treat about 300 cfs as the lower edge of a worthwhile day, not a perfect one. This route improves with a little more water, but rising flow and fresh rain still matter.',
-    latitude: 43.76164,
-    longitude: -91.88708,
+    latitude: 43.7368,
+    longitude: -91.9468,
     gaugeSource: {
       id: 'usgs-05384000',
       provider: 'usgs',
@@ -429,8 +443,8 @@ export const rivers: River[] = [
       'Longer Driftless day with mostly gentle current, wooded banks, and one main decision first: is the Houston gauge comfortably above late-low-water conditions without recent rain turning easy miles into a debris check?',
     statusText:
       'Treat about 300 cfs at Houston as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the Houston gauge does not have a published paddling range.',
-    latitude: 43.77405,
-    longitude: -91.7022,
+    latitude: 43.78358,
+    longitude: -91.83403,
     gaugeSource: {
       id: 'usgs-05385000',
       provider: 'usgs',
@@ -549,8 +563,8 @@ export const rivers: River[] = [
       'Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred band without recent rain turning a pretty easy run into a wood-and-current check?',
     statusText:
       'Treat 8.25 ft at Pilot Mound as a conservative minimum, not a hard published cutoff. Around 8.7 ft was described as a strong day, but the app stays minimum-only because the source trail does not define true low and high shoulders.',
-    latitude: 43.7993,
-    longitude: -92.0855,
+    latitude: 43.81641,
+    longitude: -92.13924,
     gaugeSource: {
       id: 'usgs-05383950',
       provider: 'usgs',
@@ -657,8 +671,8 @@ export const rivers: River[] = [
       'Classic bluff-country Root day where the branches gather, the valley opens up, and the decision stays practical: is Lanesboro comfortably above late-low-water conditions without recent rain turning an easy family-style trip into a debris check?',
     statusText:
       'Treat about 300 cfs at Lanesboro as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the gauge story is still stronger on the low side than on the high side.',
-    latitude: 43.7692,
-    longitude: -91.9748,
+    latitude: 43.782576,
+    longitude: -92.0317899,
     gaugeSource: {
       id: 'usgs-05384000',
       provider: 'usgs',
@@ -766,8 +780,8 @@ export const rivers: River[] = [
       'Short rocky Wolf River warm-up with class I-II rapids and multiple boulder-garden lines. This is one of the clearer gauge-driven whitewater-ish day trips in the old repo, but it still deserves a moderate-skill stance.',
     statusText:
       'Treat about 250 cfs as the low cutoff and 500 cfs as a strong target. Above that, the river is still in play, but the consequences rise faster than on an easy scenic float.',
-    latitude: 45.27752,
-    longitude: -88.83183,
+    latitude: 45.30768,
+    longitude: -88.85806,
     gaugeSource: {
       id: 'usgs-04074950',
       provider: 'usgs',
@@ -857,8 +871,8 @@ export const rivers: River[] = [
       'Fast-moving Northwoods run with nearly continuous class I-II current, clay banks, and a dam finish. This is a moving-water decision first, not a lazy scenic float.',
     statusText:
       'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
-    latitude: 46.46811,
-    longitude: -90.96808,
+    latitude: 46.43763,
+    longitude: -91.0262,
     gaugeSource: {
       id: 'usgs-04027500',
       provider: 'usgs',
@@ -939,8 +953,8 @@ export const rivers: River[] = [
       'Easy lower Red Cedar day with mild riffles, a strong access pair, and one of the better bike shuttles in the current seed set. It still needs enough water to keep the riffles fun instead of scratchy.',
     statusText:
       'Treat about 6.4 to 7.0 ft as the best same-route window we have today. Lower water gets slower and scrapier, while higher water starts to flatten the riffles into a faster wood-watch day.',
-    latitude: 44.794472375,
-    longitude: -91.918879435,
+    latitude: 44.87257917,
+    longitude: -91.94084048,
     gaugeSource: {
       id: 'usgs-05369000',
       provider: 'usgs',
@@ -1029,8 +1043,8 @@ export const rivers: River[] = [
       'Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above the scrape zone without current conditions hinting at a high-water day?',
     statusText:
       'Treat about 150 cfs at Leonards as the practical floor. NPS calls 150 to 230 cfs normal and 650+ cfs high, but the app stays conservative and uses this route as a minimum-only call because that gauge is an upstream same-river reference rather than an exact reach gauge.',
-    latitude: 45.92135,
-    longitude: -91.78778,
+    latitude: 45.9320719,
+    longitude: -91.7516647,
     gaugeSource: {
       id: 'usgs-05331833',
       provider: 'usgs',
@@ -1139,8 +1153,8 @@ export const rivers: River[] = [
       'Broad northwoods border run with current, boulder gardens, and real wind exposure. This is more practical once the Danbury gauge gets above the scrape-and-walk low end.',
     statusText:
       'Treat about 1,000 cfs as the low-water floor. Below that this route gets too scrapy to recommend widely, and above that wind and channel-reading still matter.',
-    latitude: 45.83215,
-    longitude: -92.74622,
+    latitude: 45.89030603,
+    longitude: -92.71283975,
     gaugeSource: {
       id: 'usgs-05333500',
       provider: 'usgs',
@@ -1221,10 +1235,16 @@ export const rivers: River[] = [
     slug: 'st-croix-river-interstate-osceola',
     name: 'St. Croix River',
     reach: 'Minnesota Interstate State Park Landing to Osceola Landing',
+    aliases: [
+      'Taylors Falls to Osceola Landing',
+      'Taylors Falls to Osceola',
+      'Highway 8 to Osceola Landing',
+      'Interstate State Park to Osceola Landing',
+    ],
     state: 'Minnesota',
     region: 'Lower St. Croix',
     summary:
-      'Classic lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway standards, but side channels, sandbars, and shared motorized traffic still matter more than the score alone suggests.',
+      'Classic Taylors Falls to Osceola lower St. Croix day with strong official support and a cleaner trust story than most border-river additions. It is beginner-friendly by Riverway standards, but side channels, sandbars, and shared motorized traffic still matter more than the score alone suggests.',
     statusText:
       'Treat about 3,000 cfs at St. Croix Falls as the conservative floor. Below that, stay in the main channel and expect more sandbars and side-slough dead ends.',
     latitude: 45.401,
@@ -1261,7 +1281,7 @@ export const rivers: River[] = [
       {
         label: 'Official trip',
         value: '6.6 miles / 3 to 4 hours / easy',
-        note: 'NPS publishes Highway 8 to Osceola Landing as a ranger-recommended lower St. Croix paddle with easy difficulty and a 3 to 4 hour average pace.',
+        note: 'NPS publishes Highway 8 to Osceola Landing, commonly treated as the Taylors Falls to Osceola run, as a ranger-recommended lower St. Croix paddle with easy difficulty and a 3 to 4 hour average pace.',
         sourceUrl: 'https://www.nps.gov/sacn/planyourvisit/8toosceola.htm',
       },
       {
@@ -1459,17 +1479,31 @@ export const rivers: River[] = [
       'Classic easy Rum day with enough current to feel like a river, not just a slow drift. The main decision is whether the St. Francis gauge is above scrape level without pushing into floody debris conditions.',
     statusText:
       'Treat the DNR medium band as the best window here. Below about 600 cfs gets too scrapy, and above 3,000 cfs turns this into a high-water day rather than a casual yes.',
-    latitude: 45.44146,
-    longitude: -93.31015,
+    latitude: 45.488325,
+    longitude: -93.266746,
     gaugeSource: {
-      id: 'usgs-05286000',
-      provider: 'usgs',
-      siteId: '05286000',
+      id: 'mn-dnr-211',
+      provider: 'mn_dnr',
+      siteId: '211',
       metric: 'discharge_cfs',
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Rum River near St. Francis, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=211',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21095001&var1=262&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05286000',
+        provider: 'usgs',
+        siteId: '05286000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Rum River near St. Francis, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 1000,
@@ -1550,8 +1584,8 @@ export const rivers: River[] = [
       'Wide, winding middle-Rum day with wooded banks, moderate current, and a cleaner beginner/intermediate feel than many smaller rivers. The product question is mostly whether the river is clearly above skinny conditions, not whether it has a narrow ideal band.',
     statusText:
       'Treat the St. Francis gauge as a downstream proxy, not a perfect reach gauge. If that proxy is below about 600 cfs, this middle Rum route is too close to scrape territory for a confident easy-day recommendation.',
-    latitude: 45.57573,
-    longitude: -93.27928,
+    latitude: 45.579123,
+    longitude: -93.322856,
     gaugeSource: {
       id: 'usgs-05286000',
       provider: 'usgs',
@@ -1667,17 +1701,31 @@ export const rivers: River[] = [
       'Friendly lower Sauk day with easy current, tree cover, and a cleaner decision than many borderline small rivers. Low water and vegetation are the main quality killers before it becomes a true no-go.',
     statusText:
       'Treat 15 to 17 ft as the best zone. Below 14 ft drifts toward scrapey late-summer conditions, and above 20 ft deserves a much more cautious flood-style read.',
-    latitude: 45.51358,
-    longitude: -94.30749,
+    latitude: 45.4754595,
+    longitude: -94.3502588,
     gaugeSource: {
-      id: 'usgs-05270500',
-      provider: 'usgs',
-      siteId: '05270500',
+      id: 'mn-dnr-328',
+      provider: 'mn_dnr',
+      siteId: '328',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'direct',
-      siteName: 'Sauk River near St. Cloud, MN',
+      siteName: 'Sauk River nr St. Martin, CR12',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=328',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05270500',
+        provider: 'usgs',
+        siteId: '05270500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Sauk River near St. Cloud, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 15,
@@ -1765,14 +1813,28 @@ export const rivers: River[] = [
     latitude: 45.7959352,
     longitude: -93.0796766,
     gaugeSource: {
-      id: 'usgs-05338500',
-      provider: 'usgs',
-      siteId: '05338500',
+      id: 'mn-dnr-229',
+      provider: 'mn_dnr',
+      siteId: '229',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05338500',
+        provider: 'usgs',
+        siteId: '05338500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Snake River near Pine City, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 3.3,
@@ -1871,14 +1933,28 @@ export const rivers: River[] = [
     latitude: 45.8395826,
     longitude: -92.9363969,
     gaugeSource: {
-      id: 'usgs-05338500',
-      provider: 'usgs',
-      siteId: '05338500',
+      id: 'mn-dnr-229',
+      provider: 'mn_dnr',
+      siteId: '229',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05338500',
+        provider: 'usgs',
+        siteId: '05338500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Snake River near Pine City, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'minimum-only',
       tooLow: 2.3,
@@ -2184,14 +2260,28 @@ export const rivers: River[] = [
     latitude: 44.2010236,
     longitude: -94.1947673,
     gaugeSource: {
-      id: 'usgs-05325000',
-      provider: 'usgs',
-      siteId: '05325000',
+      id: 'mn-dnr-96',
+      provider: 'mn_dnr',
+      siteId: '96',
       metric: 'discharge_cfs',
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Minnesota River at Mankato, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=96',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28042001&var1=262&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05325000',
+        provider: 'usgs',
+        siteId: '05325000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Minnesota River at Mankato, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 4550,
@@ -2286,14 +2376,28 @@ export const rivers: River[] = [
     latitude: 44.5244176,
     longitude: -93.8862799,
     gaugeSource: {
-      id: 'usgs-05330000',
-      provider: 'usgs',
-      siteId: '05330000',
+      id: 'mn-dnr-112',
+      provider: 'mn_dnr',
+      siteId: '112',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'proxy',
       siteName: 'Minnesota River near Jordan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=112',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05330000',
+        provider: 'usgs',
+        siteId: '05330000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'proxy',
+        siteName: 'Minnesota River near Jordan, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 9,
@@ -2313,7 +2417,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'The water is usually straightforward, but 17.4 miles on the Minnesota River is still a serious day because of distance, wind exposure, and big-river landings.',
       confidenceNotes:
-        'MN DNR recommends this exact trip, both ends are backed by Minnesota public-water-access records, and the Jordan USGS gauge has official DNR level guidance. Remaining uncertainty comes from the gauge sitting downstream at Thompson Ferry rather than exactly on the Henderson-to-Belle Plaine reach.',
+        'MN DNR recommends this exact trip, both ends are backed by Minnesota public-water-access records, and the Jordan gauge has official DNR level guidance. Remaining uncertainty comes from the gauge sitting downstream at Thompson Ferry rather than exactly on the Henderson-to-Belle Plaine reach.',
     },
     evidenceNotes: [
       {
@@ -2392,14 +2496,28 @@ export const rivers: River[] = [
     latitude: 44.9703514,
     longitude: -93.2350599,
     gaugeSource: {
-      id: 'usgs-05331000',
-      provider: 'usgs',
-      siteId: '05331000',
+      id: 'mn-dnr-133',
+      provider: 'mn_dnr',
+      siteId: '133',
       metric: 'discharge_cfs',
       unit: 'cfs',
       kind: 'proxy',
       siteName: 'Mississippi River at St. Paul, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=133',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20088002&var1=262&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05331000',
+        provider: 'usgs',
+        siteId: '05331000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Mississippi River at St. Paul, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 6000,
@@ -2499,17 +2617,31 @@ export const rivers: River[] = [
       'Long Mora-area Snake River day with enough mileage that the wrong water level can waste the day. The Pine City gauge still gives us a workable official ladder, but this upstream segment also depends on fresh wood and real local read-the-river judgment.',
     statusText:
       'Treat 3.3 to 5.0 ft as the best window. Below 2.3 ft gets too scrapy, and above 6.3 ft is no longer the mellow family-style day this route wants to be.',
-    latitude: 45.9529532,
-    longitude: -93.27082115,
+    latitude: 46.0238677,
+    longitude: -93.2319185,
     gaugeSource: {
-      id: 'usgs-05338500',
-      provider: 'usgs',
-      siteId: '05338500',
+      id: 'mn-dnr-229',
+      provider: 'mn_dnr',
+      siteId: '229',
       metric: 'gage_height_ft',
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05338500',
+        provider: 'usgs',
+        siteId: '05338500',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Snake River near Pine City, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 3.3,
@@ -2595,17 +2727,31 @@ export const rivers: River[] = [
       'Long lower North Fork Crow run with enough mileage that level still matters even though the river is not especially technical. The Dayton end is well-supported, and the DNR ladder finally gives this corridor a real launchability band.',
     statusText:
       'Treat 500 to 1,500 cfs as the best zone on the lower North Fork Crow. Below 345 cfs gets too scrapy for a long day, and above 1,750 cfs is no longer a broad-audience same-day recommendation.',
-    latitude: 45.20486,
-    longitude: -93.5813,
+    latitude: 45.1644165,
+    longitude: -93.6413049,
     gaugeSource: {
-      id: 'usgs-05280400',
-      provider: 'usgs',
-      siteId: '05280400',
+      id: 'mn-dnr-310',
+      provider: 'mn_dnr',
+      siteId: '310',
       metric: 'discharge_cfs',
       unit: 'cfs',
       kind: 'direct',
-      siteName: 'Crow River below State Hwy 101 at Dayton, MN',
+      siteName: 'North Fork Crow River nr Rockford, Farmington Ave',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=310',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18088001&var1=262&width=700&height=320',
     },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05280400',
+        provider: 'usgs',
+        siteId: '05280400',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow River below State Hwy 101 at Dayton, MN',
+      },
+    ],
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 500,
@@ -2690,8 +2836,8 @@ export const rivers: River[] = [
       'Urban Minnehaha Creek corridor with many designated landings, but it only works when the Hiawatha gauge is inside the MCWD paddling band. Low water means scraping and portaging; high water turns bridges, rapids, and bends into a bad decision fast.',
     statusText:
       'MCWD recommends paddling only between 75 and 150 cfs at Hiawatha. Below that gets scrape-heavy, and above that the creek becomes difficult to navigate safely under bridges and through faster features.',
-    latitude: 44.9572,
-    longitude: -93.3513,
+    latitude: 44.953252,
+    longitude: -93.487488,
     gaugeSource: {
       id: 'usgs-05289800',
       provider: 'usgs',
@@ -3086,8 +3232,8 @@ export const rivers: River[] = [
       'Tight, obstructed creek run from Hudson into Waterloo. Gauge range matters, but wood, portages, and technical maneuvering matter just as much.',
     statusText:
       'Only consider this when Hudson is inside the published 100 to 500 cfs band. Even then, this is a skilled-creek call, not a casual yes.',
-    latitude: 42.430765,
-    longitude: -92.43989,
+    latitude: 42.40404,
+    longitude: -92.46443,
     gaugeSource: {
       id: 'usgs-05463500',
       provider: 'usgs',
@@ -3168,8 +3314,8 @@ export const rivers: River[] = [
       'Lake-and-creek water trail where the official water-level band and wind across the lake chain matter more than raw mileage.',
     statusText:
       'Treat this as in play only when Rice Creek is inside the official 6.30 to 7.90 ft passable band and wind on the lake section looks manageable.',
-    latitude: 45.127788,
-    longitude: -93.134827,
+    latitude: 45.175054,
+    longitude: -93.0701588,
     gaugeSource: {
       id: 'usgs-05288580',
       provider: 'usgs',
@@ -3256,8 +3402,8 @@ export const rivers: River[] = [
       'Lower-Kettle day trip that is mostly flatwater, but still runoff-sensitive and noticeably pushier when the Sandstone gauge climbs.',
     statusText:
       'Treat this as in play when the Sandstone gauge is roughly 6 to 10 ft. Below that gets bony; above that loses margin quickly.',
-    latitude: 45.9529653,
-    longitude: -92.7380752,
+    latitude: 46.0107725,
+    longitude: -92.8407339,
     gaugeSource: {
       id: 'usgs-05336700',
       provider: 'usgs',
@@ -3346,8 +3492,8 @@ export const rivers: River[] = [
       'Short Rochester-area river call where the sweet spot is narrow and quick rain response matters more than mileage.',
     statusText:
       'Best for a straightforward day when the Rochester gauge is around 3 to 4 ft. Above that it gets pushier fast for newer paddlers.',
-    latitude: 44.1545,
-    longitude: -92.46247,
+    latitude: 44.12967,
+    longitude: -92.46227,
     gaugeSource: {
       id: 'usgs-05372995',
       provider: 'usgs',
@@ -3646,8 +3792,8 @@ export const rivers: River[] = [
       'Longer mellow Sugar River day where the main question is still water level. Stay above the Verona low end, then treat the rest of the score with a little caution.',
     statusText:
       'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this Albany reach.',
-    latitude: 42.76684,
-    longitude: -89.464665,
+    latitude: 42.79994,
+    longitude: -89.48646,
     gaugeSource: {
       id: 'usgs-05435950',
       provider: 'usgs',
@@ -3737,8 +3883,8 @@ export const rivers: River[] = [
       'Shorter Waterloo greenbelt reach with the same official Hudson gauge band as the upstream segment. Good flow is necessary, but wood and portages still decide the day.',
     statusText:
       'Only consider this when Hudson is inside the official 100 to 500 cfs band. Even in range, expect deadfalls, scoutable bends, and possible portages.',
-    latitude: 42.47437,
-    longitude: -92.39257,
+    latitude: 42.45749,
+    longitude: -92.41535,
     gaugeSource: {
       id: 'usgs-05463500',
       provider: 'usgs',
@@ -3820,8 +3966,8 @@ export const rivers: River[] = [
       'Short upper Bark run where low water and grass-choked channels ruin the day quickly. This is mainly a low-water-floor decision rather than a broad sweet-spot river.',
     statusText:
       'Treat 55 cfs at Delafield as the low-water floor. Above that can work, but there is not yet a clear upper target or high-water cutoff for this reach.',
-    latitude: 43.1642,
-    longitude: -88.28469,
+    latitude: 43.17969,
+    longitude: -88.26254,
     gaugeSource: {
       id: 'usgs-05426067',
       provider: 'usgs',
@@ -3896,8 +4042,8 @@ export const rivers: River[] = [
       'Classic Driftless day trip where low water quickly turns the route into a scrape-and-walk slog. The score should mainly answer whether the Ontario gauge is clearly above the low-water floor.',
     statusText:
       'Treat 60 cfs at Ontario as the low-water floor. Above that can be worthwhile, but there is not yet a clear high-water cutoff for this reach.',
-    latitude: 43.68004,
-    longitude: -90.59497,
+    latitude: 43.72300847,
+    longitude: -90.58704745,
     gaugeSource: {
       id: 'usgs-05407468',
       provider: 'usgs',
@@ -4008,8 +4154,8 @@ export const rivers: River[] = [
       'Lower main-stem Zumbro reach where the same Zumbro Falls gauge still matters, but isolation, storms, and access quality matter almost as much as the raw number.',
     statusText:
       'Use the same 7 to 9 ft working band as the upper main stem. It can still work below that, but flash-rain spikes and wood should lower trust quickly.',
-    latitude: 44.31202,
-    longitude: -92.13197,
+    latitude: 44.28675,
+    longitude: -92.1867,
     gaugeSource: {
       id: 'usgs-05374000',
       provider: 'usgs',
@@ -4100,8 +4246,8 @@ export const rivers: River[] = [
       'Finish-the-river Zumbro day where the gauge still matters, but the Mississippi take-out, wind, and motorboat context add a little more trip-day friction.',
     statusText:
       'Use the same 7 to 9 ft working band as the lower Zumbro. It can still be worthwhile below that, but the Mississippi finish and post-rain spikes make marginal calls less forgiving.',
-    latitude: 44.31064,
-    longitude: -92.00201,
+    latitude: 44.3372,
+    longitude: -92.07725,
     gaugeSource: {
       id: 'usgs-05374000',
       provider: 'usgs',
@@ -4183,8 +4329,8 @@ export const rivers: River[] = [
       'Long Decorah-area Upper Iowa day where the main decision is still low water. This stays scenic and approachable above its floor, but the high side of the range is still not well defined.',
     statusText:
       'Treat 150 cfs near Decorah as the low-water floor. Above that can work, but there is not yet a clear upper target or high-water cutoff for this reach.',
-    latitude: 43.31574,
-    longitude: -91.70093,
+    latitude: 43.29095,
+    longitude: -91.75879,
     gaugeSource: {
       id: 'usgs-05387500',
       provider: 'usgs',
@@ -4592,8 +4738,8 @@ export const rivers: River[] = [
       'Longer lower-Milwaukee day with mostly easy current, a few livelier upper stretches, and a simple main question first: is Cedarburg comfortably above the skinny-water floor without levels climbing high enough to turn a mellow day into a murkier faster river run?',
     statusText:
       'Treat about 390 cfs at Cedarburg as a conservative floor. This route can work below the high-water zone, but the source trail is still much stronger on the low side than on a polished ideal band.',
-    latitude: 43.39525,
-    longitude: -87.96133,
+    latitude: 43.46838,
+    longitude: -87.97317,
     gaugeSource: {
       id: 'usgs-04086600',
       provider: 'usgs',

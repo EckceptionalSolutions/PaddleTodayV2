@@ -596,3 +596,14 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Explored non-yield gauge cluster: `Watonwan River near Garden City / Madelia`. Fresh USGS sites exist on the river, but the current DNR trail materials surfaced maps and general river context rather than a comparably clean named recommended day trip near the gauge cluster.
   - Fresh-discovery takeaway: fresh USGS-backed border and southern-Minnesota clusters still exist, but the remaining misses are mostly route-package and threshold-quality problems rather than simple gauge absence.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
+
+- 2026-04-26: Conservative no-add pass at 17:28 America/Chicago.
+  - Re-read the live V2 inventory in `src/data/rivers.ts`, `src/data/river-trip-details.ts`, this memory file, and the normalized candidate ledger.
+  - No genuinely fresh Minnesota-first gauge-first evidence path surfaced beyond the queue already built earlier today, so the run stopped conservatively instead of re-litigating the same holdovers as fake discovery.
+  - The best queue remains unchanged:
+    - `likely_addable`: `Long Prairie River - Long Prairie to Browerville`, `Pomme de Terre River - Larson to Appleton`
+    - `needs_manual_coordinates`: `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, `Cottonwood River - Juenemann carry-in access to Springfield carry-in access`
+    - `threshold_weak`: `Chippewa River - Lentz Access to Watson Lion's Park`, `Des Moines River - Mayflower Park to Christianna Bridge`, `Zumbro River - Village Park to Theilman Access`, `Red River of the North - Kidder Recreation Area to Brushvale Bridge Recreation Area`
+    - `no_live_gauge`: `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access`, `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access`, `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`, `Red Lake River - Smiley Bridge to Centennial Park`, `Pine River - Rock Dam to Harvey Drake access`, `Little Fork River - Veterans Park to Highway 73 bridge`
+  - Fresh-discovery takeaway: the remaining Minnesota-first opportunities are now mostly sorted by product-fit blockers, especially DNR-only live feeds and route-specific threshold quality, not by lack of named routes.
+  - No code changes were made, so `npm test` and `npm run build` were not run on this pass.

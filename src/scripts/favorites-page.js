@@ -2,7 +2,7 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, subscribeFavorites } from './favorites-store.js';
 import { MAP_STYLE_URL, bindMarkerPopup, ensureMapLibre, escapeHtml, markerClassForRating } from './map-runtime.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
@@ -58,6 +58,68 @@ function metaLine(item) {
     parts.push(item.river.estimatedPaddleTime);
   }
   return parts.join(' \u2022 ');
+}
+
+function weatherLabel(item) {
+  const weather = item?.weather;
+  if (!weather) return 'Weather unclear';
+  const wind = weather.next12hWindMphMax ?? weather.windMph;
+  const rainChance = weather.next12hPrecipProbabilityMax;
+  const temperature = weather.temperatureF;
+
+  if (weather.next12hStormRisk) return 'Storm risk';
+  if (typeof temperature === 'number' && temperature <= 42) return 'Cold weather';
+  if (typeof rainChance === 'number' && rainChance >= 45) return 'Rain possible';
+  if (typeof wind === 'number' && wind >= 14) return 'Wind watch';
+  if (typeof weather.conditionLabel === 'string' && weather.conditionLabel.trim()) {
+    return weather.conditionLabel.trim();
+  }
+  return 'Forecast OK';
+}
+
+function weatherTone(item) {
+  const label = weatherLabel(item).toLowerCase();
+  if (label.includes('storm')) return 'storm';
+  if (label.includes('rain')) return 'rain';
+  if (label.includes('wind')) return 'wind';
+  if (label.includes('cold')) return 'cold';
+  return 'calm';
+}
+
+function weatherIconMarkup(tone) {
+  if (tone === 'wind') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path><path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path><path d="M5 17h7"></path></svg>';
+  }
+  if (tone === 'rain' || tone === 'storm') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path><path d="M10 18.5l-.8 2"></path><path d="M15 18.5l-.8 2"></path></svg>';
+  }
+  if (tone === 'cold') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M5.5 6.5 18.5 17.5"></path><path d="M5.5 17.5 18.5 6.5"></path><path d="M4 12h16"></path></svg>';
+  }
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v3"></path><path d="M12 18.5v3"></path><path d="M2.5 12h3"></path><path d="M18.5 12h3"></path></svg>';
+}
+
+function weatherBadgeMarkup(item) {
+  const tone = weatherTone(item);
+  return `
+    <span class="card-weather-badge card-weather-badge--${tone}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${tone}" aria-hidden="true">${weatherIconMarkup(tone)}</span>
+      <span class="card-weather-badge__label">${escapeHtml(weatherLabel(item))}</span>
+    </span>
+  `;
+}
+
+function routeFactsMarkup(item) {
+  const facts = [];
+  if (item?.confidence?.label) facts.push(confidenceDisplayLabel(item.confidence.label));
+  if (item?.river?.lengthMiles) facts.push(`${item.river.lengthMiles} mi on-water`);
+  if (difficultyLabel(item)) facts.push(difficultyLabel(item));
+  if (item?.river?.estimatedPaddleTime) facts.push(item.river.estimatedPaddleTime);
+
+  return facts
+    .filter(Boolean)
+    .map((fact) => `<span class="river-card__fact">${escapeHtml(fact)}</span>`)
+    .join('');
 }
 
 function savedAtLabel(savedAt) {
@@ -235,7 +297,7 @@ async function renderFavoritesMap(results = latestResults) {
       markerNode.innerHTML = `<span>${current.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${current.river.reach}: score ${current.score}, ${confidenceDisplayLabel(current.confidence.label).toLowerCase()} confidence`
+        `${current.river.reach}: score ${current.score}, ${confidenceDisplayLabel(current.confidence.label).toLowerCase()}`
       );
       if (current.river.slug === selectedFavoriteSlug) {
         markerNode.classList.add('score-map-marker--selected');
@@ -325,11 +387,26 @@ function renderFavoriteCard(favorite, current) {
     }
 
     setText(card, 'favorite-score', String(current.score));
-    setText(card, 'favorite-rating', current.rating);
+    setText(card, 'favorite-rating', ratingDisplayLabel(current.rating, { liveData: current.liveData, compact: true }));
     setText(card, 'favorite-verdict', current.gaugeBandLabel || 'Current route read');
     setText(card, 'favorite-meta', metaLine(current));
     setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');
     setText(card, 'favorite-signal', current.summary?.rawSignalLine || current.summary?.gaugeNow || 'Live signal unavailable.');
+    const weather = card.querySelector('[data-field="favorite-weather"]');
+    if (weather instanceof HTMLElement) {
+      weather.innerHTML = weatherBadgeMarkup(current);
+      weather.hidden = false;
+    }
+    const facts = card.querySelector('[data-field="favorite-facts"]');
+    const factsSection = card.querySelector('[data-field="favorite-facts-section"]');
+    if (facts instanceof HTMLElement) {
+      const factsMarkup = routeFactsMarkup(current);
+      facts.innerHTML = factsMarkup;
+      facts.hidden = !factsMarkup;
+      if (factsSection instanceof HTMLElement) {
+        factsSection.hidden = !factsMarkup;
+      }
+    }
     if (link instanceof HTMLAnchorElement) {
       link.textContent = 'View route';
     }
@@ -343,6 +420,14 @@ function renderFavoriteCard(favorite, current) {
   setText(card, 'favorite-meta', 'This route is not in the latest board snapshot');
   setText(card, 'favorite-summary', 'This saved route is not in the latest stored board, but you can still open the route page directly.');
   setText(card, 'favorite-signal', '');
+  const weather = card.querySelector('[data-field="favorite-weather"]');
+  if (weather instanceof HTMLElement) {
+    weather.hidden = true;
+  }
+  const factsSection = card.querySelector('[data-field="favorite-facts-section"]');
+  if (factsSection instanceof HTMLElement) {
+    factsSection.hidden = true;
+  }
   if (link instanceof HTMLAnchorElement) {
     link.textContent = 'Open route';
   }

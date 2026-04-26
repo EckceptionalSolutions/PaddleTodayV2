@@ -1,7 +1,7 @@
 import { escapeHtml } from './map-runtime.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
@@ -278,7 +278,7 @@ function weekendWeatherBadgeMarkup(item) {
 function weekendVerdict(item) {
   if (item.weekend.rating === 'Strong') return 'Top weekend pick';
   if (item.weekend.rating === 'Good') return 'Good weekend pick';
-  if (item.weekend.rating === 'Fair') return 'Fair to re-check';
+  if (item.weekend.rating === 'Fair') return 'Paddleable with tradeoffs';
   return 'No weekend pick';
 }
 
@@ -313,7 +313,7 @@ function favoriteRecord(item) {
 function weekendMetaText(item) {
   const parts = [
     confidenceDisplayLabel(item.weekend.confidence),
-    `Today: ${item.current.rating}`,
+    `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`,
   ];
 
   if (difficultyLabel(item)) {
@@ -329,7 +329,7 @@ function weekendMetaText(item) {
 function weekendFactsMarkup(item) {
   const facts = [
     confidenceDisplayLabel(item.weekend.confidence),
-    `Today: ${item.current.rating}`,
+    `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`,
   ];
 
   if (difficultyLabel(item)) {
@@ -348,7 +348,7 @@ function weekendFactsMarkup(item) {
 
 function supportingReason(item) {
   if (item.current.rating !== item.weekend.rating) {
-    return `Today is ${item.current.rating.toLowerCase()}, but the weekend projection improves to ${item.weekend.rating.toLowerCase()}.`;
+    return `Today is ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData }).toLowerCase()}, but the weekend projection improves to ${ratingDisplayLabel(item.weekend.rating).toLowerCase()}.`;
   }
 
   const lowered = item.weekend.explanation.toLowerCase();
@@ -367,8 +367,8 @@ function slotLabel(index) {
 }
 
 function watchSlotLabel(index) {
-  if (index === 0) return 'Fair route';
-  return 'Also fair';
+  if (index === 0) return 'Tradeoff route';
+  return 'Also has tradeoffs';
 }
 
 function weekendDateRangeText(label) {
@@ -427,21 +427,21 @@ function updateSnapshotLine(payload) {
     if (worthWatching.length > 0) {
       const watchLabel =
         worthWatching.length === 1
-          ? '1 fair route worth re-checking'
-          : `${worthWatching.length} fair routes worth re-checking`;
+          ? '1 tradeoff route worth re-checking'
+          : `${worthWatching.length} tradeoff routes worth re-checking`;
       snapshotLine.textContent = `No weekend picks yet / ${watchLabel}`;
       return;
     }
 
     snapshotLine.textContent =
       withheld > 0
-        ? `No weekend picks yet / ${withheld} routes still need better support`
-        : 'No weekend picks yet / forecast support is still building';
+        ? `No weekend picks yet / ${withheld} routes need better forecast confidence`
+        : 'No weekend picks yet / forecast confidence is still building';
     return;
   }
 
   const countLabel = count === 1 ? '1 weekend pick' : `${count} weekend picks`;
-  const insight = withheld > 0 ? `${withheld} still need better support` : bestLabel;
+  const insight = withheld > 0 ? `${withheld} need better forecast confidence` : bestLabel;
   snapshotLine.textContent = `${countLabel} / ${insight}`;
 }
 
@@ -482,18 +482,18 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(featuredState, 'Conservative planning mode');
     setText(
       featuredName,
-      worthWatchingCount > 0 ? 'No weekend picks yet' : 'No supported weekend picks yet'
+      worthWatchingCount > 0 ? 'No weekend picks yet' : 'No reliable weekend picks yet'
     );
     setText(
       featuredReach,
       worthWatchingCount > 0
-        ? 'A few fair routes are worth re-checking, but none are strong enough to recommend yet.'
-        : 'Forecast support is still too thin to surface a confident shortlist.'
+        ? 'A few tradeoff routes are worth re-checking, but none are strong enough to recommend yet.'
+        : 'Forecast confidence is still too low to surface a confident shortlist.'
     );
-    setText(featuredVerdict, worthWatchingCount > 0 ? 'Fair routes to re-check' : 'Not shaping up yet');
+    setText(featuredVerdict, worthWatchingCount > 0 ? 'Tradeoff routes to re-check' : 'Not shaping up yet');
     setText(featuredScore, '--');
-    setText(featuredRating, 'No-go');
-    setText(featuredConfidence, 'Support building');
+    setText(featuredRating, 'Not enough data');
+    setText(featuredConfidence, 'Forecast confidence building');
     setText(featuredCurrent, 'Check again later');
     setText(
       featuredReason,
@@ -504,8 +504,8 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(
       featuredSignal,
       worthWatchingCount > 0
-        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'fair route is' : 'fair routes are'} worth re-checking`
-        : 'Forecast support still building'
+        ? `${worthWatchingCount} ${worthWatchingCount === 1 ? 'tradeoff route is' : 'tradeoff routes are'} worth re-checking`
+        : 'Forecast confidence still building'
     );
     setText(
       featuredExplanation,
@@ -541,9 +541,9 @@ function renderFeatured(item, worthWatchingCount = 0) {
   setText(featuredReach, item.river.reach);
   setText(featuredVerdict, weekendVerdict(item));
   setText(featuredScore, String(item.weekend.score));
-  setText(featuredRating, item.weekend.rating);
+  setText(featuredRating, ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(featuredConfidence, confidenceDisplayLabel(item.weekend.confidence));
-  setText(featuredCurrent, `Today: ${item.current.rating}`);
+  setText(featuredCurrent, `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`);
   setText(featuredReason, item.weekend.summary);
   setText(featuredSignal, item.weekend.signalLine);
   setText(featuredExplanation, item.weekend.explanation);
@@ -557,7 +557,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
   updateFeaturedSummaryToggle(item.weekend.explanation);
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = `/rivers/${item.river.slug}/`;
-    featuredLink.textContent = 'View river';
+    featuredLink.textContent = 'View route';
   }
 }
 
@@ -585,7 +585,7 @@ function createWeekendCard(item, index, options = {}) {
   setText(card.querySelector('[data-field="route-label"]'), item.river.reach);
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
-  setText(card.querySelector('[data-field="rating"]'), item.weekend.rating);
+  setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(card.querySelector('[data-field="meta-line"]'), '');
   setText(card.querySelector('[data-field="card-summary-main"]'), item.weekend.summary);
 
@@ -625,7 +625,7 @@ function createWeekendCard(item, index, options = {}) {
   const link = card.querySelector('[data-card-link]');
   if (link instanceof HTMLAnchorElement) {
     link.href = `/rivers/${item.river.slug}/`;
-    link.textContent = 'View river';
+    link.textContent = 'View route';
   }
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecord(item));
@@ -662,19 +662,19 @@ function updateWeekendEmptyState({ worthWatchingCount = 0, hasWithheld = false }
       setText(
         weekendEmptyCopy,
         worthWatchingCount === 1
-          ? '1 fair route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
-        : `${worthWatchingCount} fair routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
+          ? '1 tradeoff route is worth re-checking if the forecast improves, but none are strong enough to recommend yet.'
+        : `${worthWatchingCount} tradeoff routes are worth re-checking if the forecast improves, but none are strong enough to recommend yet.`
     );
     return;
   }
 
   weekendEmpty.hidden = false;
-  setText(weekendEmptyTitle, hasWithheld ? 'No weekend picks yet' : 'No supported weekend picks yet');
+  setText(weekendEmptyTitle, hasWithheld ? 'No weekend picks yet' : 'No reliable weekend picks yet');
   setText(
     weekendEmptyCopy,
     hasWithheld
-      ? 'Current river shape and forecast support are still too thin to surface a confident weekend pick.'
-      : 'Forecast support is still too weak to recommend weekend picks.'
+      ? 'Current river shape and forecast confidence are still too low to surface a confident weekend pick.'
+      : 'Forecast confidence is still too low to recommend weekend picks.'
   );
 }
 

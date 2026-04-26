@@ -2,9 +2,9 @@ import { rivers } from '../data/rivers';
 import { riverTripDetails } from '../data/river-trip-details';
 import { scoreRiverCondition } from './scoring';
 import { remember } from './server-cache';
-import { fetchGaugeReading } from './usgs';
+import { fetchGaugeReading } from './gauges';
 import { fetchWeatherSnapshot } from './weather';
-import type { River, RiverScoreResult } from './types';
+import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
@@ -100,11 +100,31 @@ async function scoreRiver(river: River): Promise<RiverScoreResult> {
 
 async function getCachedGaugeReading(river: River) {
   return remember({
-    key: `gauge:${river.gaugeSource.siteId}:${river.gaugeSource.metric}`,
+    key: gaugeCacheKey(river),
     ttlMs: GAUGE_CACHE_TTL_MS,
     staleWhileErrorMs: STALE_WHILE_ERROR_MS,
-    load: () => fetchGaugeReading(river.gaugeSource),
+    load: () => fetchGaugeReadingWithFallback(river),
   });
+}
+
+async function fetchGaugeReadingWithFallback(river: River) {
+  const sources = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])];
+
+  for (const source of sources) {
+    const reading = await fetchGaugeReading(source).catch(() => null);
+    if (reading) {
+      return reading;
+    }
+  }
+
+  return null;
+}
+
+function gaugeCacheKey(river: River) {
+  const sources = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])];
+  return sources
+    .map((source) => `${source.provider}:${source.siteId}:${source.metric}`)
+    .join('|');
 }
 
 async function getCachedWeatherSnapshot(river: River) {
@@ -119,10 +139,25 @@ async function getCachedWeatherSnapshot(river: River) {
 function enrichRiver(river: River): River {
   const tripDetails = riverTripDetails[river.id];
   const enriched = tripDetails ? { ...river, ...tripDetails } : river;
+  const putInCoordinates = getValidAccessCoordinates(enriched.putIn);
+
   return {
     ...enriched,
+    latitude: putInCoordinates?.latitude ?? enriched.latitude,
+    longitude: putInCoordinates?.longitude ?? enriched.longitude,
     riverId: enriched.riverId || deriveRiverId(enriched.name),
   };
+}
+
+function getValidAccessCoordinates(accessPoint?: RiverAccessPoint) {
+  if (!accessPoint) return null;
+
+  return Number.isFinite(accessPoint.latitude) && Number.isFinite(accessPoint.longitude)
+    ? {
+        latitude: accessPoint.latitude,
+        longitude: accessPoint.longitude,
+      }
+    : null;
 }
 
 function deriveRiverId(name: string) {

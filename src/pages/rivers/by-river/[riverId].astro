@@ -49,8 +49,6 @@ const groupStructuredData = {
 >
   <script type="application/ld+json" set:html={JSON.stringify(groupStructuredData)}></script>
   <article class="river-group-page" data-river-group-page data-river-id={group.riverId}>
-    <a class="back-link" href="/">Back to today&apos;s board</a>
-
     <section class="river-group-page__hero">
       <div class="river-group-page__hero-main">
         <p class="eyebrow">{stateSummary} | {regionSummary}</p>
@@ -146,9 +144,13 @@ const groupStructuredData = {
             <strong class="route-choice__title">{route.reach}</strong>
             <span class="route-choice__verdict">Loading verdict</span>
             <div class="route-choice__scoreline">
-              <span class="route-choice__score">--</span>
+              <div class="score-orb route-choice__score-orb" aria-label="Route score">
+                <span class="score-orb__score">--</span>
+                <span class="score-orb__rating">Loading</span>
+              </div>
               <div class="route-choice__score-copy">
                 <span class="route-choice__meta">Loading conditions</span>
+                <span class="route-choice__weather" hidden></span>
                 <span class="route-choice__signal">Loading conditions.</span>
               </div>
             </div>
@@ -157,7 +159,7 @@ const groupStructuredData = {
             <div class="route-choice__facts-section">
               <p class="route-choice__facts-label">Route facts</p>
               <div class="route-choice__facts">
-                <span class="route-choice__fact">Loading support</span>
+                <span class="route-choice__fact">Loading data confidence</span>
                 <span class="route-choice__fact">-- mi on-water</span>
               </div>
             </div>

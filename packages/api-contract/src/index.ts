@@ -3,6 +3,7 @@ export type ConfidenceLabel = 'Low' | 'Medium' | 'High';
 export type LiveDataState = 'live' | 'stale' | 'unavailable';
 export type LiveDataOverall = 'live' | 'degraded' | 'offline';
 export type GaugeUnit = 'cfs' | 'ft';
+export type GaugeProvider = 'usgs' | 'mn_dnr';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type GaugeBand =
@@ -69,6 +70,7 @@ export interface GaugeReading {
   waterTempObservedAt: string | null;
   gaugeSource: string;
   waterTempSource: string | null;
+  gaugeInterpretation?: string | null;
 }
 
 export interface ForecastWindow {
@@ -286,7 +288,10 @@ export interface RiverDetailApiResult {
     distanceLabel: string;
     estimatedPaddleTime: string;
     gaugeSource: {
+      provider: GaugeProvider;
       unit: GaugeUnit;
+      detailUrl?: string;
+      hydrographUrl?: string;
     };
     profile: {
       thresholdModel: 'two-sided' | 'minimum-only';

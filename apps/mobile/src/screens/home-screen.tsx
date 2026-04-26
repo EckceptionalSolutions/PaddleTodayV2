@@ -151,15 +151,15 @@ export default function HomeScreen() {
 
     nextPanels.push({
       id: 'about',
-      label: 'Foundation',
-      title: 'What is already wired',
-      subtitle: 'This MVP stays small on purpose.',
+      label: 'How it works',
+      title: 'How Paddle Today ranks routes',
+      subtitle: 'The app keeps the first screen focused on practical launch-day decisions.',
       content: (
         <View style={styles.bulletList}>
-          <Text style={styles.bullet}>- Summary API wired to the home board.</Text>
-          <Text style={styles.bullet}>- Detail and history APIs ready behind each river card.</Text>
-          <Text style={styles.bullet}>- Query cache persists between launches for a faster reopen.</Text>
-          <Text style={styles.bullet}>- Saved rivers persist locally, and email alerts are now live from Saved or river detail.</Text>
+          <Text style={styles.bullet}>- Water level decides whether a route is in range.</Text>
+          <Text style={styles.bullet}>- Weather, trend, and route confidence move the score up or down.</Text>
+          <Text style={styles.bullet}>- Saved rivers stay on this device for quick repeat checks.</Text>
+          <Text style={styles.bullet}>- Email alerts can watch for Good or Strong route conditions.</Text>
         </View>
       ),
     });
@@ -231,7 +231,7 @@ export default function HomeScreen() {
     return (
       <View style={styles.centerState}>
         <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading today&apos;s river board</Text>
+        <Text style={styles.stateTitle}>Loading today's river board</Text>
         <Text style={styles.stateBody}>Pulling the latest snapshot-backed calls.</Text>
       </View>
     );
@@ -241,7 +241,7 @@ export default function HomeScreen() {
     return (
       <View style={styles.centerState}>
         <Text style={styles.stateTitle}>The river board did not load.</Text>
-        <Text style={styles.stateBody}>Check the local API server, then pull to retry.</Text>
+        <Text style={styles.stateBody}>Couldn't load river data. Pull to retry.</Text>
       </View>
     );
   }
@@ -259,7 +259,7 @@ export default function HomeScreen() {
       }
     >
       <View style={styles.hero}>
-        <Text style={styles.kicker}>PaddleToday mobile MVP</Text>
+        <Text style={styles.kicker}>Paddle Today</Text>
         <Text style={styles.title}>Where should I paddle today?</Text>
         <Text style={styles.subtitle}>
           Start with the clearest live options. Drill into the river only when the call deserves it.

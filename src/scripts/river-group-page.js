@@ -7,7 +7,7 @@ import {
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const root = document.querySelector('[data-river-group-page]');
@@ -61,7 +61,7 @@ function setText(field, value) {
 function decisionLabel(rating, score = null) {
   if (rating === 'Strong') return score >= 100 ? 'Ideal today' : 'Great today';
   if (rating === 'Good') return 'Solid option';
-  if (rating === 'Fair') return 'Possible';
+  if (rating === 'Fair') return 'Paddleable with tradeoffs';
   return 'Skip today';
 }
 
@@ -101,7 +101,7 @@ function hasStrongerRouteOnRiver(route) {
 }
 
 function confidenceLabelText(confidence) {
-  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading support';
+  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading data confidence';
 }
 
 function coldWeatherDrivenRoute(route) {
@@ -248,18 +248,18 @@ function decisionSummary(route) {
 
   if (route.rating === 'Fair') {
     if (coldWeatherDrivenRoute(route) || hasColdWeather) {
-      return 'Possible today, but cold weather raises the bar.';
+      return 'Paddleable today, but cold weather raises the bar.';
     }
     if (hasWeatherRisk) {
-      return 'Possible today, but weather risk is the main caution.';
+      return 'Paddleable today, but weather risk is the main caution.';
     }
     if (hasChangingFlow) {
-      return 'Possible now; re-check the gauge before you launch.';
+      return 'Paddleable now; re-check the gauge before you launch.';
     }
     if (!hasStrongerRouteOnRiver(route)) {
-      return 'This is the highest-ranked route on this river, but it is still only Fair.';
+      return 'This is the highest-ranked route on this river, but it still has tradeoffs.';
     }
-    return 'Possible today, but stronger routes are available on this river.';
+    return 'Paddleable today, but stronger routes are available on this river.';
   }
 
   if (route.rating === 'Strong') {
@@ -450,6 +450,20 @@ function weatherVisualMarkup(state) {
         </svg>
       `;
   }
+}
+
+function weatherBadgeMarkup(route) {
+  const state = weatherVisualState(route);
+  const label = weatherVisualLabel(state);
+
+  return `
+    <span class="card-weather-badge card-weather-badge--${state}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">
+        ${weatherVisualMarkup(state)}
+      </span>
+      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
+    </span>
+  `;
 }
 
 function formatGaugeValue(value, unit) {
@@ -781,11 +795,13 @@ function renderRouteList(routes) {
           <strong class="route-choice__title">${route.reach}</strong>
           <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
           <div class="route-choice__scoreline">
-            <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
-              ${route.score}
-            </span>
+            <div class="score-orb route-choice__score-orb score-orb--${ratingToneKey(route.rating)}" aria-label="Route score">
+              <span class="score-orb__score">${route.score}</span>
+              <span class="score-orb__rating">${ratingDisplayLabel(route.rating, { liveData: route.liveData, compact: true })}</span>
+            </div>
             <div class="route-choice__score-copy">
               <span class="route-choice__meta">${conditionsLine(route)}</span>
+              <span class="route-choice__weather">${weatherBadgeMarkup(route)}</span>
               <span class="route-choice__signal">
                 ${signalRowMarkup(route)}
               </span>

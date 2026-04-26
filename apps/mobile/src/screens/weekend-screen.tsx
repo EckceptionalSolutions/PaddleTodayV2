@@ -31,7 +31,7 @@ export default function WeekendScreen() {
     return (
       <View style={styles.centerState}>
         <Text style={styles.stateTitle}>Weekend outlook did not load.</Text>
-        <Text style={styles.stateBody}>Check the local API server, then pull to retry.</Text>
+        <Text style={styles.stateBody}>Couldn't load weekend data. Pull to retry.</Text>
       </View>
     );
   }

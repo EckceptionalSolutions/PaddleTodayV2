@@ -9,7 +9,7 @@ const formTitle = document.querySelector('[data-request-form-title]');
 const formNote = document.querySelector('[data-request-form-note]');
 
 const REQUEST_EMAIL = 'hello@paddletoday.com';
-const COOLDOWN_KEY = 'paddletoday:riverRequest:lastTs';
+const COOLDOWN_KEY = 'paddletoday:routeRequest:lastTs';
 const COOLDOWN_MS = 30 * 1000;
 
 applyRequestContext();
@@ -120,7 +120,7 @@ function applyRequestContext() {
 
   setText(kicker, 'Report a change');
   setText(title, 'Flag something that needs an update.');
-  setText(lede, 'Use this form if you spot an outdated access note, hazard, shuttle detail, or threshold note on an existing river page.');
+  setText(lede, 'Use this form if you spot an outdated access note, hazard, shuttle detail, or threshold note on an existing route page.');
   setText(formTitle, 'What changed');
   setText(formNote, 'Tell us what looked wrong, what changed, and any source or local context that helps.');
   if (submitButton instanceof HTMLButtonElement) {
@@ -176,7 +176,7 @@ function validateForm({ routeName, state, notes, replyEmail }) {
   const emailField = getField('replyEmail');
 
   if (routeField) {
-    const message = routeName.length >= 3 ? '' : 'Add a river or route name.';
+    const message = routeName.length >= 3 ? '' : 'Add a route or river name.';
     setFieldError(routeField, message);
     if (message) setFirstInvalid(routeField);
   }
@@ -218,7 +218,7 @@ function validateSingleField(field) {
   let message = '';
 
   if (field.name === 'routeName') {
-    message = value.length >= 3 ? '' : 'Add a river or route name.';
+    message = value.length >= 3 ? '' : 'Add a route or river name.';
   } else if (field.name === 'state') {
     message = value ? '' : 'Add a state.';
   } else if (field.name === 'notes') {
@@ -277,12 +277,12 @@ function prefillField(formElement, name, value) {
 function fallbackToEmail(payload) {
   const isUpdate = String(new URLSearchParams(window.location.search).get('mode') || '').trim().toLowerCase() === 'update';
   const subject = isUpdate
-    ? `River update: ${payload.routeName} (${payload.state})`
-    : `River request: ${payload.routeName} (${payload.state})`;
+    ? `Route update: ${payload.routeName} (${payload.state})`
+    : `Route request: ${payload.routeName} (${payload.state})`;
   const body = [
-    isUpdate ? 'Paddle Today river update' : 'Paddle Today river request',
+    isUpdate ? 'Paddle Today route update' : 'Paddle Today route request',
     '',
-    `River/route: ${payload.routeName}`,
+    `Route/river: ${payload.routeName}`,
     `State: ${payload.state}`,
     `Put-in: ${payload.putIn || 'N/A'}`,
     `Take-out: ${payload.takeOut || 'N/A'}`,

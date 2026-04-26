@@ -137,7 +137,7 @@ function renderSearchResults(query = '') {
   if (searchHint instanceof HTMLElement) {
     searchHint.textContent = trimmedQuery
       ? `${results.length} ${results.length === 1 ? 'match' : 'matches'}`
-      : 'Try Snake, Root, Faribault, or Pine City.';
+      : 'All rivers and routes. Type to narrow by river, route, town, or area.';
   }
 
   if (results.length === 0) {

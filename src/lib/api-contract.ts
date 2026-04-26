@@ -122,7 +122,7 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
 
 function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sources'] {
   const badges: RiverSummaryApiItem['sources'] = [
-    { label: 'USGS', tone: 'usgs' },
+    gaugeProviderBadge(result),
     {
       label: thresholdBadgeLabel(result),
       tone: result.river.profile.thresholdSourceStrength,
@@ -134,6 +134,14 @@ function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sou
   }
 
   return badges;
+}
+
+function gaugeProviderBadge(result: RiverScoreResult): RiverSummaryApiItem['sources'][number] {
+  if (result.river.gaugeSource.provider === 'mn_dnr') {
+    return { label: 'MN DNR', tone: 'official' };
+  }
+
+  return { label: 'USGS', tone: 'usgs' };
 }
 
 function thresholdBadgeLabel(result: RiverScoreResult): string {
@@ -166,7 +174,10 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       gaugeSource: {
+        provider: result.river.gaugeSource.provider,
         unit: result.river.gaugeSource.unit,
+        detailUrl: result.river.gaugeSource.detailUrl,
+        hydrographUrl: result.river.gaugeSource.hydrographUrl,
       },
       profile: {
         thresholdModel: result.river.profile.thresholdModel,
@@ -421,9 +432,9 @@ function weekendSummaryText(result: RiverScoreResult, rating: WeekendSummaryApiI
       return 'Needs more gauge movement before this becomes a cleaner weekend call.';
     }
     if (weatherRisk) {
-      return 'Possible, but weather could still spoil this weekend call.';
+      return 'Paddleable with tradeoffs, but weather could still spoil this weekend call.';
     }
-    return 'Possible, but this still looks shaky for the weekend.';
+    return 'Paddleable with tradeoffs, but this still looks shaky for the weekend.';
   }
 
   if (poorFlow) {

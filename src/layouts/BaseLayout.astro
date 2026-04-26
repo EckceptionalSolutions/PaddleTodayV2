@@ -81,7 +81,7 @@ const searchRouteItems = listRivers()
     subtitle: river.reach,
     meta: [river.region, river.state].filter(Boolean).join(' / '),
     href: `/rivers/${river.slug}/`,
-    searchText: [river.name, river.reach, river.region, river.state].filter(Boolean).join(' '),
+    searchText: [river.name, river.reach, ...(river.aliases ?? []), river.region, river.state].filter(Boolean).join(' '),
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchRiverItems = listRiverGroups()
@@ -95,7 +95,15 @@ const searchRiverItems = listRiverGroups()
       group.routeCount > 1
         ? `/rivers/by-river/${group.riverId}/`
         : `/rivers/${group.routes[0]?.slug ?? group.riverId}/`,
-    searchText: [group.name, ...group.states, ...group.regions, ...group.routes.map((route) => route.reach)].filter(Boolean).join(' '),
+    searchText: [
+      group.name,
+      ...group.states,
+      ...group.regions,
+      ...group.routes.map((route) => route.reach),
+      ...group.routes.flatMap((route) => route.aliases ?? []),
+    ]
+      .filter(Boolean)
+      .join(' '),
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);
@@ -168,16 +176,16 @@ const pageClass =
             </nav>
             <button class="site-header__search" type="button" data-site-search-open aria-haspopup="dialog" aria-controls="site-search-panel">
               <FeatureIcon name="search" size={15} />
-              <span class="site-header__search-label site-header__search-label--full">Search routes</span>
+              <span class="site-header__search-label site-header__search-label--full">Search Routes</span>
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
             <a class="site-header__action" href="/request-river/">
-              <span class="site-header__action-label site-header__action-label--full">Request a Route</span>
+              <span class="site-header__action-label site-header__action-label--full">Request</span>
               <span class="site-header__action-label site-header__action-label--short">Request</span>
             </a>
           </div>
           <p class="site-header__blurb">
-            Live score, support level, and weather.
+            Live score, water level, and weather.
           </p>
           <p class="site-header__freshness" data-home-freshness-wrap hidden>
             <span class="site-header__freshness-item">Data refreshes every 30 minutes.</span>

@@ -6,7 +6,7 @@
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const root = document.querySelector('[data-river-detail]');
@@ -111,6 +111,8 @@ const routeContributeTabList = root.querySelector('[aria-label="Contribution opt
 const routeContributeTabs = Array.from(root.querySelectorAll('[data-route-contribute-tab]'));
 const routeContributePanels = Array.from(root.querySelectorAll('[data-route-contribute-panel]'));
 const routeReportCtas = Array.from(root.querySelectorAll('[data-route-report-cta]'));
+const routeScoreFeedbackButtons = Array.from(root.querySelectorAll('[data-score-feedback]'));
+const routeScoreFeedbackStatus = root.querySelector('[data-score-feedback-status]');
 const liveWarningWrap = root.querySelector('[data-live-warning-wrap]');
 const confidenceExplainer = root.querySelector('[data-confidence-explainer]');
 const activePutInName = root.querySelector('[data-field="active-putin-name"]');
@@ -480,7 +482,8 @@ function reportSentimentLabel(value) {
   }
 }
 
-function updateApprovedRoutePhoto(index) {
+function updateApprovedRoutePhoto(index, options = {}) {
+  const { scrollThumb = false } = options;
   const { image, caption, credit, taken, thumbs } = routeGalleryElements();
   if (!(image instanceof HTMLImageElement)) {
     return;
@@ -515,6 +518,14 @@ function updateApprovedRoutePhoto(index) {
     const isActive = Number(thumb.dataset.routeGalleryIndex) === index;
     thumb.classList.toggle('route-gallery__thumb--active', isActive);
     thumb.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+
+    if (isActive && scrollThumb) {
+      thumb.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      });
+    }
   }
 }
 
@@ -533,7 +544,7 @@ function bindApprovedRouteGallery() {
     thumb.addEventListener('click', () => {
       const index = Number(thumb.dataset.routeGalleryIndex);
       if (Number.isFinite(index)) {
-        updateApprovedRoutePhoto(index);
+        updateApprovedRoutePhoto(index, { scrollThumb: true });
       }
     });
   }
@@ -1247,6 +1258,77 @@ function bindRouteReportCtas() {
   }
 }
 
+function scoreFeedbackLabel(value) {
+  if (value === 'too-harsh') return 'Too harsh';
+  if (value === 'about-right') return 'About right';
+  if (value === 'too-generous') return 'Too generous';
+  return 'Score feedback';
+}
+
+function scoreFeedbackTemplate(value) {
+  const label = scoreFeedbackLabel(value);
+  const scoreLine =
+    latestResult && typeof latestResult.score === 'number' && latestResult.rating
+      ? `Paddle Today showed ${latestResult.score} ${latestResult.rating}.`
+      : 'Paddle Today score was not available when I started this note.';
+  return `${label}: ${scoreLine} My on-water experience was: `;
+}
+
+function appendScoreFeedbackToReport(value) {
+  if (!(routeReportTextInput instanceof HTMLTextAreaElement)) {
+    return;
+  }
+
+  const template = scoreFeedbackTemplate(value);
+  const current = routeReportTextInput.value.trim();
+  routeReportTextInput.value = current ? `${current}\n\n${template}` : template;
+  routeReportTextInput.focus();
+  routeReportTextInput.setSelectionRange(routeReportTextInput.value.length, routeReportTextInput.value.length);
+
+  if (routeReportSentimentInput instanceof HTMLSelectElement && !routeReportSentimentInput.value) {
+    routeReportSentimentInput.value =
+      value === 'too-generous' ? 'rough' : value === 'too-harsh' ? 'good' : 'mixed';
+  }
+
+  if (routeReportNotesInput instanceof HTMLTextAreaElement && latestResult) {
+    const notes = [
+      latestResult.gauge ? `Gauge: ${formatGaugeValue(latestResult.gauge.current, latestResult.gauge.unit)}` : '',
+      latestResult.weather?.temperatureF != null ? `Air: ${Math.round(latestResult.weather.temperatureF)}F` : '',
+      latestResult.weather?.next12hWindMphMax != null
+        ? `Peak wind: ${Math.round(latestResult.weather.next12hWindMphMax)} mph`
+        : '',
+    ].filter(Boolean);
+    if (notes.length > 0 && !routeReportNotesInput.value.trim()) {
+      routeReportNotesInput.value = `Score calibration context: ${notes.join(', ')}.`;
+    }
+  }
+}
+
+function bindScoreFeedbackButtons() {
+  for (const button of routeScoreFeedbackButtons) {
+    if (!(button instanceof HTMLButtonElement) || button.dataset.bound === 'true') continue;
+    button.dataset.bound = 'true';
+    button.addEventListener('click', () => {
+      const feedback = button.dataset.scoreFeedback || '';
+      window.localStorage.setItem(
+        `route-score-feedback:${slug}`,
+        JSON.stringify({
+          feedback,
+          score: latestResult?.score ?? null,
+          rating: latestResult?.rating ?? null,
+          at: new Date().toISOString(),
+        })
+      );
+      appendScoreFeedbackToReport(feedback);
+      activateRouteReportPane();
+      if (routeScoreFeedbackStatus instanceof HTMLElement) {
+        routeScoreFeedbackStatus.textContent = `${scoreFeedbackLabel(feedback)} noted. Add a sentence about what you saw, then send the report when ready.`;
+      }
+      setRouteReportStatus('Score feedback started. Add your name, email, and any on-water detail before sending.', '');
+    });
+  }
+}
+
 function detailScrollOffset() {
   const actionBarHeight =
     routeActionBar instanceof HTMLElement && routeActionBar.getBoundingClientRect().height > 0
@@ -1385,9 +1467,24 @@ function setupDetailJumpLinks() {
   }
 }
 
-function decisionLabel(rating) {
+function hasHardSkip(result) {
+  return Boolean(
+    result &&
+      (result.liveData?.overall === 'offline' ||
+        (Array.isArray(result.checklist) && result.checklist.some((item) => item.status === 'skip')))
+  );
+}
+
+function isDataLimitedNoGo(result) {
+  return result?.rating === 'No-go' && result?.liveData?.overall === 'offline';
+}
+
+function decisionLabel(input) {
+  const rating = typeof input === 'string' ? input : input?.rating;
+  if (typeof input !== 'string' && isDataLimitedNoGo(input)) return 'Manual check needed';
+  if (typeof input !== 'string' && hasHardSkip(input)) return 'Skip today';
   if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Fair') return 'Watch closely';
+  if (rating === 'Fair') return 'Paddle with caution';
   return 'Skip today';
 }
 
@@ -1398,8 +1495,10 @@ function liveWarningLabel(liveData) {
   });
 }
 
-function ratingLabel(rating) {
-  return rating;
+function ratingLabel(resultOrRating) {
+  const rating = typeof resultOrRating === 'string' ? resultOrRating : resultOrRating?.rating;
+  const liveData = typeof resultOrRating === 'string' ? null : resultOrRating?.liveData;
+  return ratingDisplayLabel(rating, { liveData });
 }
 
 function coldWeatherDrivenResult(result) {
@@ -1419,15 +1518,21 @@ function coldWeatherDrivenResult(result) {
 
 function decisionStatement(result) {
   const rating = result?.rating;
+  if (isDataLimitedNoGo(result)) {
+    return 'Live river data is missing, so verify the gauge and access sources before treating this as a go or no-go.';
+  }
+  if (hasHardSkip(result)) {
+    return 'A hard check is failing, so treat today as a skip until you verify it directly.';
+  }
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
   if (rating === 'Good' && coldWeatherDrivenResult(result)) {
     return 'River conditions are solid, but cold weather still matters today.';
   }
   if (rating === 'Good') return 'River and weather look workable right now.';
   if (rating === 'Fair' && coldWeatherDrivenResult(result)) {
-    return 'Possible today, but cold weather raises the bar.';
+    return 'Paddleable today, but cold weather raises the bar.';
   }
-  if (rating === 'Fair') return 'Possible today, but verify the main caution before you drive.';
+  if (rating === 'Fair') return 'Paddleable today, with tradeoffs worth checking before you drive.';
   if (coldWeatherDrivenResult(result)) {
     return 'River level looks usable, but weather makes it a skip for most paddlers today.';
   }
@@ -1478,12 +1583,15 @@ function formatGaugeValue(value, unit) {
   return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
 }
 
-function decorateDecision(element, rating) {
+function decorateDecision(element, result) {
   if (!(element instanceof HTMLElement)) return;
+  const rating = typeof result === 'string' ? result : result?.rating;
 
   element.classList.remove('decision-pill--paddle', 'decision-pill--maybe', 'decision-pill--skip');
   element.classList.add(
-    rating === 'Strong' || rating === 'Good'
+    typeof result !== 'string' && hasHardSkip(result)
+      ? 'decision-pill--skip'
+      : rating === 'Strong' || rating === 'Good'
       ? 'decision-pill--paddle'
       : rating === 'Fair'
         ? 'decision-pill--maybe'
@@ -1571,6 +1679,11 @@ function setDetailFetchBannerState(kind, detail) {
 
   if (kind === 'hidden') {
     setHidden(detailFetchBanner, true);
+    detailFetchBanner.hidden = true;
+    if (detailStatusBanner instanceof HTMLElement) {
+      setHidden(detailStatusBanner, false);
+      detailStatusBanner.hidden = false;
+    }
     if (detailFetchActions instanceof HTMLElement) {
       detailFetchActions.hidden = true;
     }
@@ -1578,6 +1691,11 @@ function setDetailFetchBannerState(kind, detail) {
   }
 
   setHidden(detailFetchBanner, false);
+  detailFetchBanner.hidden = false;
+  if (detailStatusBanner instanceof HTMLElement) {
+    setHidden(detailStatusBanner, true);
+    detailStatusBanner.hidden = true;
+  }
   decorateBanner(detailFetchBanner, kind === 'stale' ? 'degraded' : 'offline');
   if (detailFetchTitle instanceof HTMLElement) {
     detailFetchTitle.textContent =
@@ -1632,6 +1750,54 @@ function weatherValue(result) {
   return `${Math.round(result.weather.next12hPrecipProbabilityMax ?? 0)}% rain - ${Math.round(result.weather.next12hWindMphMax ?? result.weather.windMph ?? 0)} mph`;
 }
 
+function ageHours(value) {
+  const timestamp = Date.parse(value || '');
+  if (!Number.isFinite(timestamp)) {
+    return null;
+  }
+
+  return Math.max(0, (Date.now() - timestamp) / (1000 * 60 * 60));
+}
+
+function effectiveLiveDataForResult(result) {
+  const observedAgeHours = ageHours(result.gauge?.observedAt);
+  const generatedAgeHours = ageHours(result.generatedAt);
+  const isGaugeStale = typeof observedAgeHours === 'number' && observedAgeHours > 6;
+  const isGeneratedStale = typeof generatedAgeHours === 'number' && generatedAgeHours > 6;
+
+  if (!isGaugeStale && !isGeneratedStale) {
+    return result.liveData;
+  }
+
+  const staleParts = [];
+  if (isGaugeStale) {
+    staleParts.push(`Gauge read is ${Math.round(observedAgeHours)}h old`);
+  }
+  if (isGeneratedStale) {
+    staleParts.push(`Paddle Today update is ${Math.round(generatedAgeHours)}h old`);
+  }
+
+  return {
+    ...result.liveData,
+    overall: result.liveData.overall === 'offline' ? 'offline' : 'degraded',
+    summary: `${staleParts.join('. ')}. Treat this route as stale until refresh succeeds.`,
+    gauge: {
+      ...result.liveData.gauge,
+      state: isGaugeStale && result.liveData.gauge.state === 'live' ? 'stale' : result.liveData.gauge.state,
+      detail: isGaugeStale
+        ? `Gauge read is ${Math.round(observedAgeHours)}h old. Recheck the source before you drive.`
+        : result.liveData.gauge.detail,
+    },
+    weather: {
+      ...result.liveData.weather,
+      state: isGeneratedStale && result.liveData.weather.state === 'live' ? 'stale' : result.liveData.weather.state,
+      detail: isGeneratedStale
+        ? `Weather and score update is ${Math.round(generatedAgeHours)}h old. Refresh before relying on the call.`
+        : result.liveData.weather.detail,
+    },
+  };
+}
+
 function accessValue(result) {
   const hasPutIn = hasCoordinates(riverContext.putIn);
   const hasTakeOut = hasCoordinates(riverContext.takeOut);
@@ -1656,19 +1822,20 @@ function renderDetailBanner(result) {
   const detailEl = root.querySelector('[data-detail-banner-detail]');
   const railReliability = setText('rail-reliability', 'Checking reads');
   const railNextStep = setText('rail-next-step', 'Checking freshness and source quality.');
-  decorateBanner(detailStatusBanner, result.liveData.overall);
-  detailStatusBanner.classList.toggle('status-banner--compact', result.liveData.overall === 'live');
+  const effectiveLiveData = effectiveLiveDataForResult(result);
+  decorateBanner(detailStatusBanner, effectiveLiveData.overall);
+  detailStatusBanner.classList.toggle('status-banner--compact', effectiveLiveData.overall === 'live');
 
   if (!(titleEl instanceof HTMLElement) || !(detailEl instanceof HTMLElement)) {
     return;
   }
 
-  setText('reliability-gauge-title', inputStateLabel(result.liveData.gauge.state, 'Gauge'));
-  setText('reliability-gauge-detail', result.liveData.gauge.detail);
-  setText('reliability-weather-title', inputStateLabel(result.liveData.weather.state, 'Weather'));
-  setText('reliability-weather-detail', result.liveData.weather.detail);
+  setText('reliability-gauge-title', inputStateLabel(effectiveLiveData.gauge.state, 'Gauge'));
+  setText('reliability-gauge-detail', effectiveLiveData.gauge.detail);
+  setText('reliability-weather-title', inputStateLabel(effectiveLiveData.weather.state, 'Weather'));
+  setText('reliability-weather-detail', effectiveLiveData.weather.detail);
 
-  if (result.liveData.overall === 'offline') {
+  if (effectiveLiveData.overall === 'offline') {
     titleEl.textContent = 'Live route data is offline.';
     detailEl.textContent =
       'The direct gauge could not be read. Check the source directly before deciding.';
@@ -1683,30 +1850,30 @@ function renderDetailBanner(result) {
     setText('reliability-action-title', 'Recheck gauge source');
     setText(
       'reliability-action-detail',
-      'Open the direct USGS gauge page before driving.'
+      'Open the direct gauge source before driving.'
     );
     return;
   }
 
-  if (result.liveData.overall === 'degraded') {
+  if (effectiveLiveData.overall === 'degraded') {
     titleEl.textContent = 'Live route data is limited.';
     detailEl.textContent =
-      `${result.liveData.summary} Recheck the source before a longer drive.`;
+      `${effectiveLiveData.summary} Recheck the source before a longer drive.`;
     if (railReliability instanceof HTMLElement) {
       railReliability.textContent = 'Use with caution';
       railReliability.classList.add('data-status-pill--degraded');
       railReliability.classList.remove('data-status-pill--live', 'data-status-pill--offline');
     }
     const actionTitle =
-      result.liveData.gauge.state === 'stale'
+      effectiveLiveData.gauge.state === 'stale'
         ? 'Refresh the gauge'
-        : result.liveData.weather.state !== 'live'
+        : effectiveLiveData.weather.state !== 'live'
           ? 'Refresh weather'
           : 'Double-check these reads';
     const actionDetail =
-      result.liveData.gauge.state === 'stale'
+      effectiveLiveData.gauge.state === 'stale'
         ? 'The gauge is older than the freshness target. Open the gauge source before you leave.'
-        : result.liveData.weather.state === 'stale'
+        : effectiveLiveData.weather.state === 'stale'
           ? 'The weather read is stale. Recheck wind, storms, and radar before launching.'
           : 'One or more reads are partial. Recheck the source pages directly.';
     if (railNextStep instanceof HTMLElement) {
@@ -1768,8 +1935,8 @@ function renderLaunchReadiness(result) {
   const items = [
     {
       label: 'River score',
-      value: `${decisionLabel(result.rating)} - ${result.score}`,
-      detail: decisionStatement(result.rating),
+      value: `${decisionLabel(result)} - ${result.score}`,
+      detail: decisionStatement(result),
       status: verdict,
     },
     {
@@ -1844,7 +2011,7 @@ function renderConfidenceDetail(confidence) {
     const reasons = Array.isArray(confidence?.reasons) ? confidence.reasons : [];
     reasonsList.innerHTML = reasons.length
       ? reasons.map((note) => `<li>${note}</li>`).join('')
-      : '<li>Support reasons are unavailable.</li>';
+      : '<li>Data confidence notes are unavailable.</li>';
   }
 
   if (warningsList instanceof HTMLElement && warningsGroup instanceof HTMLElement) {
@@ -1977,8 +2144,8 @@ function renderOutlooks(outlooks) {
     .map((outlook) => {
       const title =
         outlook.availability === 'available' && typeof outlook.score === 'number' && outlook.rating
-          ? `${outlook.score} - ${outlook.rating}`
-          : 'Withheld';
+          ? `${outlook.score} - ${ratingDisplayLabel(outlook.rating)}`
+          : 'Not enough data';
       return `
         <article class="outlook-card outlook-card--${outlook.availability === 'available' ? 'available' : 'withheld'}">
           <span class="outlook-card__label">${outlook.label}</span>
@@ -2126,13 +2293,60 @@ function windDescriptor(mph) {
 function windSummary(weather) {
   const wind = typeof weather?.windMph === 'number' ? weather.windMph : null;
   const gust = typeof weather?.gustMph === 'number' ? weather.gustMph : null;
-  const reference = wind ?? gust;
+  const maxWind = typeof weather?.next12hWindMphMax === 'number' ? weather.next12hWindMphMax : null;
+  const reference = maxWind ?? wind ?? gust;
 
   if (typeof reference !== 'number') {
     return 'No reading';
   }
 
-  return `${windDescriptor(reference)} (~${Math.round(reference)} mph)`;
+  const label = maxWind !== null ? 'next 12h max' : wind !== null ? 'current' : 'gust';
+  const gustPart = gust !== null && label !== 'gust' ? `, gusts ${Math.round(gust)} mph` : '';
+  return `${windDescriptor(reference)} (${Math.round(reference)} mph ${label}${gustPart})`;
+}
+
+function renderDecisionSummary(result) {
+  const summary = root.querySelector('[data-field="explanation"]');
+  if (!(summary instanceof HTMLElement)) {
+    return;
+  }
+
+  const sentences = String(result.explanation || '')
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean);
+  const todaysCall = decisionStatement(result);
+  const scoreLine =
+    typeof result.score === 'number' && result.rating
+      ? `${result.score} ${result.rating}`
+      : 'Score unavailable';
+  const watchouts = sentences.filter((sentence) =>
+    /wind|gust|dropping|falling|rising|cold|temperature|uncertainty|stale|re-check|check|limited|floor|minimum|low side|high side|less guidance/i.test(sentence)
+  );
+  const why = sentences.filter((sentence) => !watchouts.includes(sentence)).slice(1, 4);
+  const whyLabel =
+    hasHardSkip(result)
+      ? "Why it is not a clean go"
+      : result.rating === 'Fair'
+        ? "Why it is still paddleable"
+        : 'Why it works';
+  const confidenceNote =
+    result.river?.profile?.thresholdModel === 'minimum-only'
+      ? 'This route has a known low-water floor, not a full ideal range, so the score stays conservative.'
+      : '';
+  const beforeCommitting = result.liveData?.overall === 'live'
+    ? 'Refresh this page, scan access notes, and confirm the route still matches your skill, boat, and shuttle plan.'
+    : 'Refresh this page and open the source link before relying on this route call.';
+
+  summary.innerHTML = `
+    <div class="river-detail__decision-summary">
+      <p><strong>Today's call:</strong> ${escapeHtml(todaysCall)} <span class="river-detail__decision-score">${escapeHtml(scoreLine)}</span></p>
+      ${why.length > 0 ? `<p><strong>${whyLabel}:</strong> ${escapeHtml(why.join(' '))}</p>` : ''}
+      ${watchouts.length > 0 ? `<p><strong>What to watch:</strong> ${escapeHtml(watchouts.slice(0, 3).join(' '))}</p>` : ''}
+      ${confidenceNote ? `<p><strong>Confidence:</strong> ${escapeHtml(confidenceNote)}</p>` : ''}
+      <p><strong>Before committing:</strong> ${escapeHtml(beforeCommitting)}</p>
+    </div>
+  `;
 }
 
 function gustSummary(weather) {
@@ -3172,6 +3386,9 @@ function trendNarrative(result, firstValue, lastValue, hours) {
 function renderGaugeChart(result) {
   const parsedSamples = parseChartSamples(result);
   const activeSamples = windowedSamples(parsedSamples, currentChartWindowHours);
+  const chartEl = root.querySelector('.gauge-visual__chart');
+  const controlsEl = root.querySelector('.gauge-visual__controls');
+  const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
   const lineEl = root.querySelector('[data-chart-line]');
   const dotEl = root.querySelector('[data-chart-dot]');
   const rangeEl = root.querySelector('[data-chart-range]');
@@ -3194,11 +3411,77 @@ function renderGaugeChart(result) {
     return;
   }
 
+  const hasDnrCurrentOnlyReading =
+    result.river?.gaugeSource?.provider === 'mn_dnr' && result.gauge && activeSamples.length < 2;
+  if (hasDnrCurrentOnlyReading) {
+    if (chartEl instanceof SVGElement) {
+      chartEl.style.display = 'none';
+    }
+    if (controlsEl instanceof HTMLElement) {
+      controlsEl.hidden = true;
+    }
+    if (currentPanelEl instanceof HTMLElement) {
+      currentPanelEl.hidden = false;
+    }
+    setText('gauge-visual-title', 'Current DNR level');
+    setText('chart-caption', 'MN DNR current level is available; recent chart samples are not.');
+    setText('current-gauge-provider', result.gauge.gaugeSource || 'MN DNR River Levels');
+    setText('current-gauge-value', formatGaugeValue(result.gauge.current, result.gauge.unit));
+    setText(
+      'current-gauge-observed',
+      result.gauge.observedAt ? `Observed ${new Date(result.gauge.observedAt).toLocaleString()}` : 'Observed time unavailable'
+    );
+    setText('current-gauge-interpretation', result.gauge.gaugeInterpretation || 'Not published');
+    setText('current-gauge-band', result.gaugeBandLabel || 'Unavailable');
+    const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
+    if (hydrographLink instanceof HTMLAnchorElement) {
+      const hydrographUrl = result.river?.gaugeSource?.hydrographUrl || result.river?.gaugeSource?.detailUrl || '';
+      if (hydrographUrl) {
+        hydrographLink.href = hydrographUrl;
+        hydrographLink.hidden = false;
+      } else {
+        hydrographLink.hidden = true;
+        hydrographLink.removeAttribute('href');
+      }
+    }
+    return;
+  }
+
+  if (chartEl instanceof SVGElement) {
+    chartEl.style.display = '';
+  }
+  if (controlsEl instanceof HTMLElement) {
+    controlsEl.hidden = false;
+  }
+  if (currentPanelEl instanceof HTMLElement) {
+    currentPanelEl.hidden = true;
+  }
+  setText('gauge-visual-title', 'Recent trend');
+
   if (activeSamples.length < 2) {
-    setText('chart-caption', 'Preferred range not available yet.');
-    setText('chart-trend-note', 'Trend direction is unavailable because the recent sample window is too thin.');
+    const hasGauge = Boolean(result.gauge);
+    const sourceLabel = result.gauge?.gaugeSource || 'this gauge source';
+    setText(
+      'chart-caption',
+      hasGauge
+        ? `Recent chart samples are not available from ${sourceLabel}.`
+        : 'Preferred range not available yet.'
+    );
+    setText(
+      'chart-trend-note',
+      hasGauge
+        ? 'Trend direction is unavailable because this source did not provide a recent sample series.'
+        : 'Trend direction is unavailable because the recent sample window is too thin.'
+    );
     rangeEl.setAttribute('visibility', 'hidden');
     thresholdEl.setAttribute('visibility', 'hidden');
+    lineEl.setAttribute('visibility', 'hidden');
+    dotEl.setAttribute('visibility', 'hidden');
+    for (const labelEl of [yMaxEl, yMidEl, yMinEl, xStartEl, xMidEl, xEndEl]) {
+      if (labelEl instanceof SVGTextElement) {
+        labelEl.textContent = '--';
+      }
+    }
     return;
   }
 
@@ -3206,6 +3489,8 @@ function renderGaugeChart(result) {
   const xRight = 394;
   const yTop = 22;
   const yBottom = 176;
+  lineEl.setAttribute('visibility', 'visible');
+  dotEl.setAttribute('visibility', 'visible');
 
   const thresholdValues = [
     result.river.profile.idealMin,
@@ -3390,14 +3675,14 @@ function renderDetailResult(result) {
   setDetailLoadingState(false);
 
   const ratingKey = ratingToneKey(result.rating);
-  const decision = decisionLabel(result.rating);
+  const decision = decisionLabel(result);
 
   root.classList.remove('river-detail--great', 'river-detail--good', 'river-detail--marginal', 'river-detail--no-go');
   root.classList.add(`river-detail--${ratingKey}`);
 
   setText('score', String(result.score));
-  setText('rating', ratingLabel(result.rating));
-  setText('explanation', result.explanation);
+  setText('rating', ratingLabel(result));
+  renderDecisionSummary(result);
   setText('decision-line', decisionStatement(result));
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
@@ -3406,7 +3691,7 @@ function renderDetailResult(result) {
   }
 
   const decisionPill = setText('decision', decision);
-  decorateDecision(decisionPill, result.rating);
+  decorateDecision(decisionPill, result);
 
   const confidence = setText('confidence', confidenceDisplayLabel(result.confidence.label));
   if (confidence instanceof HTMLElement) {
@@ -3414,13 +3699,14 @@ function renderDetailResult(result) {
     confidence.classList.add(`confidence-pill--${result.confidence.label.toLowerCase()}`);
   }
 
-  const dataStatus = setText('data-status', `Reads ${result.liveData.overall}`);
+  const effectiveLiveData = effectiveLiveDataForResult(result);
+  const dataStatus = setText('data-status', `Reads ${effectiveLiveData.overall}`);
   if (dataStatus instanceof HTMLElement) {
     dataStatus.classList.remove('data-status-pill--live', 'data-status-pill--degraded', 'data-status-pill--offline');
-    dataStatus.classList.add(`data-status-pill--${result.liveData.overall}`);
+    dataStatus.classList.add(`data-status-pill--${effectiveLiveData.overall}`);
   }
 
-  const liveWarning = liveWarningLabel(result.liveData);
+  const liveWarning = liveWarningLabel(effectiveLiveData);
   const liveWarningPill = setText('live-warning', liveWarning?.short || '');
   if (liveWarningPill instanceof HTMLElement) {
     liveWarningPill.hidden = !liveWarning;
@@ -3459,7 +3745,7 @@ function renderDetailResult(result) {
     'generated-at',
     result.generatedAt ? new Date(result.generatedAt).toLocaleString() : 'No reading'
   );
-  setText('gauge-freshness', result.liveData.gauge.detail);
+  setText('gauge-freshness', effectiveLiveData.gauge.detail);
   setText(
     'trend',
     result.gauge?.trend
@@ -3475,7 +3761,7 @@ function renderDetailResult(result) {
   );
   setText('recent-rain-24h', formatRainTotal(result.weather?.recentRain24hIn, 'No reading'));
   setText('recent-rain-72h', formatRainTotal(result.weather?.recentRain72hIn, 'No reading'));
-  setText('weather-freshness', result.liveData.weather.detail);
+  setText('weather-freshness', effectiveLiveData.weather.detail);
   setText('weather-air-temp', result.weather?.temperatureF != null ? `${Math.round(result.weather.temperatureF)}°F` : 'No reading');
   setText('weather-water-temp', result.gauge?.waterTempF != null ? `${Math.round(result.gauge.waterTempF)}°F` : 'No reading');
   setText('weather-wind', result.weather?.windMph != null ? `${Math.round(result.weather.windMph)} mph` : 'No reading');
@@ -3801,7 +4087,7 @@ async function loadDetail({ silent = false } = {}) {
         score: null,
         rating: null,
         confidence: null,
-        explanation: 'Tomorrow is withheld because the live river read could not be loaded.',
+        explanation: 'Tomorrow needs live river data before we show it.',
       },
       {
         label: 'Weekend',
@@ -3809,13 +4095,13 @@ async function loadDetail({ silent = false } = {}) {
         score: null,
         rating: null,
         confidence: null,
-        explanation: 'Weekend is withheld because the live river read could not be loaded.',
+        explanation: 'Weekend needs live river data before we show it.',
       },
     ]);
     renderConfidenceDetail({
       label: 'Low',
       reasons: [],
-      warnings: ['Support level is unavailable because live data could not be loaded.'],
+      warnings: ['Data confidence is unavailable because live data could not be loaded.'],
     });
   } finally {
     detailRequestGuard.finish(controller);
@@ -3985,6 +4271,7 @@ bindAlertForm();
 bindRouteActions();
 bindRouteContributeTabs();
 bindRouteReportCtas();
+bindScoreFeedbackButtons();
 bindRoutePhotoForm();
 bindRouteReportForm();
 bindFavoriteButtons(document, {

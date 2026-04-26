@@ -50,7 +50,7 @@ import FavoriteButton from '../components/FavoriteButton.astro';
             </span>
             <span class="summary-map-legend__item">
               <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-              Fair
+              Fair: tradeoffs
             </span>
             <span class="summary-map-legend__item">
               <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
@@ -69,7 +69,10 @@ import FavoriteButton from '../components/FavoriteButton.astro';
       <p class="muted favorites-page__empty-copy">
         Save a route from a route page or route card and it will show up here.
       </p>
-      <a class="river-link river-link--inline" href="/">Back to today&apos;s board</a>
+      <div class="favorites-page__empty-actions">
+        <a class="river-link river-link--inline" href="/explore/">Browse routes</a>
+        <a class="river-link river-link--inline river-link--ghost" href="/">Find today's best pick</a>
+      </div>
     </div>
 
     <div class="favorites-page__grid" data-favorites-grid hidden></div>
@@ -100,10 +103,17 @@ import FavoriteButton from '../components/FavoriteButton.astro';
           <span class="score-orb__score" data-field="favorite-score"></span>
           <span class="score-orb__rating" data-field="favorite-rating"></span>
         </div>
-        <p class="river-card__meta-line" data-field="favorite-meta"></p>
+        <div class="river-card__score-copy">
+          <p class="river-card__meta-line" data-field="favorite-meta"></p>
+          <div class="river-card__weather" data-field="favorite-weather" hidden></div>
+          <div class="river-card__signal-line river-card__signal-line--score" data-field="favorite-signal"></div>
+        </div>
       </div>
       <p class="river-card__explanation" data-field="favorite-summary"></p>
-      <div class="river-card__signal-line" data-field="favorite-signal"></div>
+      <section class="river-card__facts-section" data-field="favorite-facts-section" hidden>
+        <p class="river-card__facts-label">Route facts</p>
+        <div class="river-card__facts" data-field="favorite-facts"></div>
+      </section>
       <p class="favorites-card__saved-at muted" data-field="favorite-saved-at"></p>
 
       <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>

@@ -12,7 +12,7 @@ const structuredData = [
     '@type': 'CollectionPage',
     '@id': `${weekendUrl}#collection`,
     name: 'Best Picks This Weekend',
-    description: 'Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast support.',
+    description: 'Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast confidence.',
     url: weekendUrl,
     isPartOf: {
       '@id': websiteId,
@@ -26,7 +26,7 @@ const structuredData = [
 
 <BaseLayout
   title="Paddle Today | Best Picks This Weekend"
-  description="Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast support."
+  description="Plan ahead with Paddle Today weekend river picks built from current river shape and the latest forecast confidence."
   structuredData={structuredData}
 >
   <section class="decision-hero hero weekend-hero">
@@ -42,17 +42,13 @@ const structuredData = [
       <p class="hero__snapshot" data-weekend-snapshot>
         Checking weekend outlooks...
       </p>
-      <p class="hero__planning">
-        Looking for a launch-day answer instead?
-        <a href="/" class="hero__planning-link">Back to today&apos;s board</a>
-      </p>
     </div>
 
     <aside class="hero-call decision-hero__featured weekend-hero__featured" aria-live="polite">
       <p class="eyebrow" data-weekend-featured-label>Top weekend pick</p>
       <p class="hero-call__state" data-weekend-featured-state>Loading weekend read.</p>
       <h2 class="hero-call__title" data-weekend-featured-name>Checking the board</h2>
-      <p class="hero-call__reach" data-weekend-featured-reach>Weekend support is loading.</p>
+      <p class="hero-call__reach" data-weekend-featured-reach>Weekend forecast confidence is loading.</p>
       <p class="hero-call__verdict" data-weekend-featured-verdict>Checking outlook</p>
 
       <div class="hero-call__scoreline">
@@ -63,7 +59,7 @@ const structuredData = [
 
         <div class="hero-call__score-meta">
           <div class="hero-call__meta">
-            <span class="pill" data-weekend-featured-confidence>Support loading</span>
+            <span class="pill" data-weekend-featured-confidence>Forecast confidence loading</span>
             <span class="pill" data-weekend-featured-current>Today loading</span>
           </div>
         </div>
@@ -81,7 +77,7 @@ const structuredData = [
       </button>
 
       <div class="decision-hero__actions">
-        <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View river</a>
+        <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View route</a>
       </div>
     </aside>
 
@@ -98,11 +94,11 @@ const structuredData = [
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--mixed">
           <strong data-weekend-fair-count>--</strong>
-          <span>Fair</span>
+          <span>Fair: tradeoffs</span>
         </li>
         <li class="hero__call-mix-item hero__call-mix-item--no-go">
           <strong data-weekend-withheld-count>--</strong>
-          <span>No-go</span>
+          <span>Not enough data</span>
         </li>
       </ul>
       <p class="hero__project-label">Planning note</p>
@@ -125,9 +121,9 @@ const structuredData = [
 
     <div class="recommendation-grid weekend-page__grid" data-weekend-grid></div>
     <div class="weekend-empty-state decision-section__empty" data-weekend-empty hidden>
-      <p class="weekend-empty-state__title" data-weekend-empty-title>No supported weekend picks yet</p>
+      <p class="weekend-empty-state__title" data-weekend-empty-title>No reliable weekend picks yet</p>
       <p class="muted weekend-empty-state__copy" data-weekend-empty-copy>
-        Forecast support is still too weak to make confident weekend calls.
+        Forecast confidence is still too low to make weekend calls.
       </p>
     </div>
   </section>
@@ -135,11 +131,11 @@ const structuredData = [
   <section class="decision-section weekend-page__section" data-weekend-watch-section hidden>
     <div class="section-head section-head--stacked">
       <div>
-        <p class="eyebrow">Fair routes</p>
+        <p class="eyebrow">Fair: tradeoffs</p>
         <h2 class="section-title">Re-check if the forecast improves</h2>
       </div>
       <p class="muted section-head__note">
-        These fair routes are the first ones to check again if the forecast improves.
+        These routes may be paddleable if the forecast improves.
       </p>
     </div>
 

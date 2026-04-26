@@ -1,6 +1,21 @@
 {
   "routes": [
     {
+      "route": "/rivers/st-croix-river-taylors-falls-osceola",
+      "redirect": "/rivers/st-croix-river-interstate-osceola/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/st-croix-river-taylors-falls-to-osceola",
+      "redirect": "/rivers/st-croix-river-interstate-osceola/",
+      "statusCode": 301
+    },
+    {
+      "route": "/rivers/st-croix-river-taylors-falls-to-osceola-landing",
+      "redirect": "/rivers/st-croix-river-interstate-osceola/",
+      "statusCode": 301
+    },
+    {
       "route": "/rivers/snake-river-rush-city-bridgeview-park",
       "redirect": "/rivers/snake-river-county-road-3-mora/",
       "statusCode": 301
