@@ -421,9 +421,9 @@ function weekendSummaryText(result: RiverScoreResult, rating: WeekendSummaryApiI
       return 'Needs more gauge movement before this becomes a cleaner weekend call.';
     }
     if (weatherRisk) {
-      return 'Possible, but weather could still spoil this weekend call.';
+      return 'Paddleable with tradeoffs, but weather could still spoil this weekend call.';
     }
-    return 'Possible, but this still looks shaky for the weekend.';
+    return 'Paddleable with tradeoffs, but this still looks shaky for the weekend.';
   }
 
   if (poorFlow) {

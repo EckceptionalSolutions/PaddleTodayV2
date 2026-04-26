@@ -1,15 +1,54 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { scoringCalibrationCases } from '../data/scoring-calibrations';
+import { rivers } from '../data/rivers';
+import { scoreRiverCondition } from '../lib/scoring';
+
+function formatSigned(value: number) {
+  return value > 0 ? `+${value}` : String(value);
+}
+
+const calibrationResults = scoringCalibrationCases.map((calibrationCase) => {
+  const river = rivers.find((item) => item.slug === calibrationCase.routeSlug);
+  if (!river) {
+    return {
+      calibrationCase,
+      river: null,
+      result: null,
+      status: 'Missing route',
+    };
+  }
+
+  const result = scoreRiverCondition({
+    river,
+    gauge: calibrationCase.gauge,
+    weather: calibrationCase.weather,
+    now: new Date(calibrationCase.now),
+  });
+
+  const inExpectedBand =
+    result.rating === calibrationCase.expected.rating &&
+    result.gaugeBand === calibrationCase.expected.gaugeBand &&
+    result.score >= calibrationCase.expected.scoreMin &&
+    result.score <= calibrationCase.expected.scoreMax;
+
+  return {
+    calibrationCase,
+    river,
+    result,
+    status: inExpectedBand ? 'In range' : 'Needs review',
+  };
+});
 ---
 
 <BaseLayout
-  title="Review route submissions"
-  description="Approve or reject route reports and photo submissions for Paddle Today."
+  title="Admin Workspace | Paddle Today"
+  description="Review submissions, route requests, alerts, and real-world scoring checks for Paddle Today."
 >
   <section class="info-hero admin-review" data-admin-review>
     <p class="eyebrow">Admin</p>
-    <h1>Review route submissions</h1>
-    <p class="muted">Approve trip reports and photos before they show up on route pages.</p>
+    <h1>Admin workspace</h1>
+    <p class="muted">Review submissions, route requests, alerts, and real-world scoring checks.</p>
 
     <div class="admin-review__login" data-admin-login-panel>
       <form class="admin-review__login-form" data-admin-login-form>
@@ -47,9 +86,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </div>
       <p class="muted request-form__status" data-admin-toolbar-status aria-live="polite"></p>
     </div>
+
+    <nav class="admin-section-nav" aria-label="Admin sections" data-admin-section-nav hidden>
+      <a href="#admin-submissions">Submissions</a>
+      <a href="#admin-requests">Requests</a>
+      <a href="#admin-alerts">Alerts</a>
+      <a href="#admin-reality-checks">Reality checks</a>
+    </nav>
   </section>
 
-  <section class="admin-review__stats" data-admin-stats hidden>
+  <section class="admin-review__stats" id="admin-alerts" data-admin-stats hidden>
     <article class="snapshot-card">
       <span class="snapshot-card__label">Active alerts</span>
       <strong data-admin-alert-active>0</strong>
@@ -70,7 +116,75 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </article>
   </section>
 
-  <section class="admin-review__list" data-admin-submission-list hidden>
+  <section class="admin-scoring-debug" id="admin-reality-checks" data-admin-scoring-debug hidden>
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Reality checks</p>
+        <h2>Real paddles vs app verdicts</h2>
+      </div>
+      <p class="muted">Use known on-water examples to tune scoring without losing real-world context.</p>
+    </div>
+
+    <div class="admin-scoring-debug__list">
+      {calibrationResults.map(({ calibrationCase, river, result, status }) => (
+        <article class={`admin-scoring-card admin-scoring-card--${status === 'In range' ? 'ok' : 'review'}`}>
+          <header class="admin-scoring-card__head">
+            <div>
+              <p class="eyebrow">{calibrationCase.paddledOn}</p>
+              <h3>{calibrationCase.label}</h3>
+              <p class="muted">{river ? `${river.name} / ${river.reach}` : calibrationCase.routeSlug}</p>
+            </div>
+            <span class="admin-scoring-card__status">{status}</span>
+          </header>
+
+          {result ? (
+            <>
+              <div class="admin-scoring-card__metrics">
+                <div>
+                  <span>Current app</span>
+                  <strong>{result.score} {result.rating}</strong>
+                </div>
+                <div>
+                  <span>Expected</span>
+                  <strong>{calibrationCase.expected.scoreMin}-{calibrationCase.expected.scoreMax} {calibrationCase.expected.rating}</strong>
+                </div>
+                <div>
+                  <span>Previous app</span>
+                  <strong>{calibrationCase.previousAppScore ? `${calibrationCase.previousAppScore.score} ${calibrationCase.previousAppScore.rating}` : 'None'}</strong>
+                </div>
+                <div>
+                  <span>Gauge band</span>
+                  <strong>{result.gaugeBandLabel}</strong>
+                </div>
+              </div>
+
+              <div class="admin-scoring-card__breakdown">
+                <span>River {result.scoreBreakdown.riverQuality}</span>
+                <span>Wind {formatSigned(result.scoreBreakdown.windAdjustment)}</span>
+                <span>Temp {formatSigned(result.scoreBreakdown.temperatureAdjustment)}</span>
+                <span>Rain {formatSigned(result.scoreBreakdown.rainAdjustment)}</span>
+                <span>Comfort {formatSigned(result.scoreBreakdown.comfortAdjustment)}</span>
+                <span>Raw {result.scoreBreakdown.rawTripScore}</span>
+              </div>
+
+              <p class="admin-scoring-card__verdict"><strong>Observed:</strong> {calibrationCase.observedVerdict}</p>
+              <ul>
+                {calibrationCase.observedNotes.map((note) => <li>{note}</li>)}
+              </ul>
+              <p class="muted">{result.scoreBreakdown.riverQualityExplanation}</p>
+              {result.scoreBreakdown.capReasons.length > 0 && (
+                <p class="muted"><strong>Caps:</strong> {result.scoreBreakdown.capReasons.join(' ')}</p>
+              )}
+            </>
+          ) : (
+            <p class="muted">This fixture cannot run until the route slug is fixed.</p>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="admin-review__list" id="admin-submissions" data-admin-submission-list hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Submissions</p>
@@ -83,7 +197,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </div>
   </section>
 
-  <section class="admin-review__requests" data-admin-route-requests hidden>
+  <section class="admin-review__requests" id="admin-requests" data-admin-route-requests hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Requests</p>

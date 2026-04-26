@@ -89,7 +89,7 @@ export default function SavedScreen() {
       <Text style={styles.kicker}>Saved and alerts</Text>
       <Text style={styles.title}>Keep your repeat trips close at hand.</Text>
       <Text style={styles.subtitle}>
-        Saved rivers stay local on this device. Alerts are now live through the existing email threshold flow.
+        Saved rivers stay on this device. Email alerts can watch for Good or Strong route conditions.
       </Text>
 
       <SectionCard
@@ -107,7 +107,7 @@ export default function SavedScreen() {
           onChangeText={setDraftEmail}
         />
         <Text style={styles.body}>
-          Alerts only email on a new threshold crossing. Push delivery can layer on later without changing this rule model.
+          Alerts only email on a new threshold crossing, so repeat updates do not keep sending for the same condition.
         </Text>
       </SectionCard>
 

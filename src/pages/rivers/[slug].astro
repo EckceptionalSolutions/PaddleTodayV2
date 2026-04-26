@@ -13,14 +13,14 @@ export function getStaticPaths() {
 }
 
 const { river } = Astro.props;
-const thresholdSupportLabel =
+const thresholdConfidenceLabel =
   river.profile.thresholdSourceStrength === 'official'
-    ? 'Backed by official guidance'
+    ? 'Official data source'
     : river.profile.thresholdSourceStrength === 'mixed'
-      ? 'Backed by official and local guidance'
+      ? 'Official and local sources'
       : river.profile.thresholdSourceStrength === 'community'
-        ? 'Based on local route guidance'
-        : 'Built from Paddle Today calibration';
+        ? 'Local route guidance'
+        : 'Partial source data';
 const formatThresholdValue = (value: number | undefined) => {
   if (typeof value !== 'number') {
     return 'Not calibrated yet';
@@ -32,13 +32,14 @@ const formatThresholdValue = (value: number | undefined) => {
 
   return `${value.toFixed(2).replace(/\\.00$/, '')} ${river.gaugeSource.unit}`;
 };
-const targetBandLabel = river.profile.thresholdModel === 'minimum-only' ? 'Working range' : 'Target band';
+const isMinimumOnlyRoute = river.profile.thresholdModel === 'minimum-only';
+const targetBandLabel = isMinimumOnlyRoute ? 'Ideal range' : 'Target band';
 const targetBandValue =
   river.profile.thresholdModel === 'two-sided' &&
   typeof river.profile.idealMin === 'number' &&
   typeof river.profile.idealMax === 'number'
     ? `${formatThresholdValue(river.profile.idealMin)} to ${formatThresholdValue(river.profile.idealMax)}`
-    : 'Not calibrated yet';
+    : 'Needs paddler reports';
 const lowThresholdValue = formatThresholdValue(river.profile.tooLow);
 const highThresholdValue = formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
@@ -112,8 +113,8 @@ const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
-const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, support level, access details, and today's paddle score before you drive.`;
-const routeShareText = `Check today's paddle score for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, support level, and access details.`;
+const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, data confidence, access details, and today's paddle score before you drive.`;
+const routeShareText = `Check today's paddle score for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, data confidence, and access details.`;
 const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
 const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
 const breadcrumbItems = [
@@ -157,7 +158,7 @@ const routeStructuredData = {
 
 <BaseLayout
   title={`${river.name} Today | ${river.reach} | Paddle Today`}
-  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, support level, and a clear paddling recommendation before you drive.`}
+  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, data confidence, and a clear paddling recommendation before you drive.`}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
   socialImage="/brand/paddle-today-share-card-v2-1200x630.png"
@@ -201,7 +202,7 @@ const routeStructuredData = {
             Plan
           </a>
           <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="understand" data-detail-nav-target="why-this-call">
-            Understand
+            Why this score
           </a>
           <a class="river-detail__section-link" href="#share-trip" data-detail-nav-link="contribute" data-detail-nav-target="share-trip">
             Contribute
@@ -224,9 +225,9 @@ const routeStructuredData = {
           </div>
         </div>
 
-        <p class="river-detail__summary" data-field="explanation" data-skeleton>
+        <div class="river-detail__summary" data-field="explanation" data-skeleton>
           Pulling the latest gauge and weather. This usually takes a few seconds.
-        </p>
+        </div>
 
         <div class="river-detail__meta-row">
           <span class="pill" data-field="decision">Checking live data</span>
@@ -237,11 +238,26 @@ const routeStructuredData = {
             data-detail-jump="why-this-call"
             data-detail-expand="confidence"
           >
-            Loading support
+            Loading data confidence
           </a>
           <span class="pill" data-field="data-status">Loading sources</span>
           <span class="pill">{river.statusText}</span>
         </div>
+
+        {isMinimumOnlyRoute ? (
+          <aside class="route-calibration-callout" aria-label="Ideal range missing">
+            <div>
+              <p class="route-calibration-callout__kicker">Ideal range missing</p>
+              <h2>We know the low-water floor, but still need paddler reports to find the best range.</h2>
+              <p>
+                If you paddle this route, tell us whether the level felt low, good, pushy, or too high. Those notes help turn a conservative floor into a useful target window.
+              </p>
+            </div>
+            <a class="river-link river-link--inline" href="#share-trip" data-route-report-cta>
+              Send a level report
+            </a>
+          </aside>
+        ) : null}
 
         <div class="river-detail__hero-map-shell" data-detail-hero-map-shell>
           <div class="river-detail__hero-map-frame">
@@ -407,6 +423,23 @@ const routeStructuredData = {
             </div>
           </div>
         </details>
+        <div class="route-score-feedback" aria-label="Score feedback">
+          <p class="route-score-feedback__prompt">Did this match your paddle?</p>
+          <div class="route-score-feedback__actions">
+            <button class="route-score-feedback__button" type="button" data-score-feedback="too-harsh">
+              Too harsh
+            </button>
+            <button class="route-score-feedback__button" type="button" data-score-feedback="about-right">
+              About right
+            </button>
+            <button class="route-score-feedback__button" type="button" data-score-feedback="too-generous">
+              Too generous
+            </button>
+          </div>
+          <p class="muted route-score-feedback__status" data-score-feedback-status aria-live="polite">
+            Opens a route report so you can add what happened on the water.
+          </p>
+        </div>
         <div class="river-call-panel__reliability">
           <span class="pill" data-field="rail-reliability">Loading sources</span>
           <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
@@ -495,7 +528,7 @@ const routeStructuredData = {
           Plan
         </a>
         <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="understand" data-detail-nav-target="why-this-call">
-          Understand
+          Why this score
         </a>
         <a class="river-detail__section-link" href="#share-trip" data-detail-nav-link="contribute" data-detail-nav-target="share-trip">
           Contribute
@@ -503,7 +536,7 @@ const routeStructuredData = {
       </div>
     </nav>
 
-    <section class="status-banner status-banner--offline status-banner--hidden" data-detail-fetch-banner aria-live="polite">
+    <section class="status-banner status-banner--offline status-banner--hidden" data-detail-fetch-banner aria-live="polite" hidden>
       <div class="status-banner__eyebrow">Refresh failed</div>
       <div class="status-banner__body">
         <strong data-detail-fetch-title>Live inputs could not be refreshed.</strong>
@@ -1106,10 +1139,10 @@ const routeStructuredData = {
     </section>
 
     <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label="Understand chapter">
-      <p class="eyebrow section-label">Understand</p>
+      <p class="eyebrow section-label">Why this score</p>
       <h2 class="river-detail__chapter-title">See what is driving today&apos;s call.</h2>
       <p class="muted river-detail__chapter-copy">
-        Want to double-check the call? This is where you'll find the support level, outlook, and source links.
+        Want to double-check the call? This is where you'll find the data confidence, outlook, and source links.
       </p>
     </section>
 
@@ -1118,26 +1151,26 @@ const routeStructuredData = {
           <summary class="river-accordion__summary">
             <span>
               <span class="eyebrow section-label">Why this score</span>
-              <strong>Today&apos;s support level is {` `}<span data-field="confidence-detail-label">checking</span></strong>
+              <strong>Today&apos;s data confidence is {` `}<span data-field="confidence-detail-label">checking</span></strong>
             </span>
           </summary>
           <div class="river-accordion__body">
             <p class="muted confidence-detail__intro">
-          Support mostly comes down to three things: how direct the gauge is, how clear the range is, and how fresh the data is.
+          Data confidence mostly comes down to three things: how direct the gauge is, how clear the range is, and how fresh the data is.
             </p>
 
           <div class="confidence-detail__groups">
             <section class="confidence-detail__group">
               <span class="eyebrow section-label">Why</span>
               <ul class="confidence-rationale" data-confidence-reasons>
-              <li>Checking support notes.</li>
+              <li>Checking data confidence notes.</li>
               </ul>
             </section>
 
             <section class="confidence-detail__group" data-confidence-warnings-group hidden>
               <span class="eyebrow section-label">Watch for</span>
               <ul class="confidence-rationale confidence-rationale--warnings" data-confidence-warnings>
-              <li>Checking support cautions.</li>
+              <li>Checking data confidence cautions.</li>
               </ul>
             </section>
           </div>
@@ -1240,7 +1273,7 @@ const routeStructuredData = {
                 <td>{targetBandValue}</td>
               </tr>
               <tr>
-                <td>Low threshold</td>
+                <td>{isMinimumOnlyRoute ? 'Known low-water floor' : 'Low threshold'}</td>
                 <td>{lowThresholdValue}</td>
               </tr>
               <tr>
@@ -1248,8 +1281,8 @@ const routeStructuredData = {
                 <td>{highThresholdValue}</td>
               </tr>
               <tr>
-                <td>Support behind the range</td>
-                <td>{thresholdSupportLabel}</td>
+                <td>Data confidence behind the range</td>
+                <td>{thresholdConfidenceLabel}</td>
               </tr>
               <tr>
                 <td>Gauge observed</td>

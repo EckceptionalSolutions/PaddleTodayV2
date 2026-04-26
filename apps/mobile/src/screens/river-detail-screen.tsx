@@ -92,7 +92,7 @@ export default function RiverDetailScreen() {
     return (
       <View style={styles.centerState}>
         <Text style={styles.stateTitle}>This river call did not load.</Text>
-        <Text style={styles.stateBody}>Check the local API server, then pull to retry.</Text>
+        <Text style={styles.stateBody}>Couldn't load river data. Pull to retry.</Text>
       </View>
     );
   }

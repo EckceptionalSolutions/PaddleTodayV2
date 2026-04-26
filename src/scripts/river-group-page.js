@@ -61,7 +61,7 @@ function setText(field, value) {
 function decisionLabel(rating, score = null) {
   if (rating === 'Strong') return score >= 100 ? 'Ideal today' : 'Great today';
   if (rating === 'Good') return 'Solid option';
-  if (rating === 'Fair') return 'Possible';
+  if (rating === 'Fair') return 'Paddleable with tradeoffs';
   return 'Skip today';
 }
 
@@ -101,7 +101,7 @@ function hasStrongerRouteOnRiver(route) {
 }
 
 function confidenceLabelText(confidence) {
-  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading support';
+  return confidence?.label ? confidenceDisplayLabel(confidence.label) : 'Loading data confidence';
 }
 
 function coldWeatherDrivenRoute(route) {
@@ -248,18 +248,18 @@ function decisionSummary(route) {
 
   if (route.rating === 'Fair') {
     if (coldWeatherDrivenRoute(route) || hasColdWeather) {
-      return 'Possible today, but cold weather raises the bar.';
+      return 'Paddleable today, but cold weather raises the bar.';
     }
     if (hasWeatherRisk) {
-      return 'Possible today, but weather risk is the main caution.';
+      return 'Paddleable today, but weather risk is the main caution.';
     }
     if (hasChangingFlow) {
-      return 'Possible now; re-check the gauge before you launch.';
+      return 'Paddleable now; re-check the gauge before you launch.';
     }
     if (!hasStrongerRouteOnRiver(route)) {
-      return 'This is the highest-ranked route on this river, but it is still only Fair.';
+      return 'This is the highest-ranked route on this river, but it still has tradeoffs.';
     }
-    return 'Possible today, but stronger routes are available on this river.';
+    return 'Paddleable today, but stronger routes are available on this river.';
   }
 
   if (route.rating === 'Strong') {

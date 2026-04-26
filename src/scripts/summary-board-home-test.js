@@ -17,7 +17,7 @@ import {
 } from './board-copy.js';
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel, liveDataWarning } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { getApprovedRoutePhotos } from '../data/route-gallery.ts';
 
@@ -1647,6 +1647,9 @@ function syncFeaturedRouteLine(points, rating) {
   if (!featuredMapRuntime) {
     return;
   }
+  if (!isFeaturedMapStyleReady()) {
+    return;
+  }
 
   const sourceId = 'featured-route-line';
   const layerId = 'featured-route-line';
@@ -1694,6 +1697,43 @@ function syncFeaturedRouteLine(points, rating) {
   if (featuredMapRuntime.getSource(sourceId)) {
     featuredMapRuntime.removeSource(sourceId);
   }
+}
+
+function isFeaturedMapStyleReady() {
+  if (!featuredMapRuntime) {
+    return false;
+  }
+
+  const mapLoaded = typeof featuredMapRuntime.loaded !== 'function' || featuredMapRuntime.loaded();
+  const styleLoaded =
+    typeof featuredMapRuntime.isStyleLoaded !== 'function' || featuredMapRuntime.isStyleLoaded();
+  return mapLoaded && styleLoaded;
+}
+
+async function waitForFeaturedMapReady() {
+  if (isFeaturedMapStyleReady()) {
+    return;
+  }
+
+  await new Promise((resolve) => {
+    let settled = false;
+    const finish = () => {
+      if (!settled && isFeaturedMapStyleReady()) {
+        settled = true;
+        resolve();
+      }
+    };
+
+    featuredMapRuntime.once('load', finish);
+    featuredMapRuntime.once('idle', finish);
+    featuredMapRuntime.once('styledata', finish);
+    window.setTimeout(() => {
+      if (!settled) {
+        settled = true;
+        resolve();
+      }
+    }, 2500);
+  });
 }
 
 async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
@@ -1748,15 +1788,14 @@ async function renderFeaturedMap(item, { visible = false, status = '' } = {}) {
         interactive: false,
       });
 
-      await new Promise((resolve) => {
-        if (featuredMapRuntime.loaded()) {
-          resolve();
-          return;
-        }
-        featuredMapRuntime.once('load', resolve);
-      });
+      await waitForFeaturedMapReady();
     }
 
+    if (renderVersion !== featuredMapRenderVersion) {
+      return;
+    }
+
+    await waitForFeaturedMapReady();
     if (renderVersion !== featuredMapRenderVersion) {
       return;
     }
@@ -1989,7 +2028,8 @@ function recommendationReasons(item) {
 function recommendationVerdict(item) {
   if (item.cardRoute.rating === 'Strong') return item.cardRoute.score >= 100 ? 'Ideal today' : 'Great today';
   if (item.cardRoute.rating === 'Good') return 'Solid option';
-  if (item.cardRoute.rating === 'Fair') return 'Possible';
+  if (item.cardRoute.rating === 'Fair') return 'Paddleable with tradeoffs';
+  if (item.cardRoute.rating === 'No-go' && item.cardRoute.liveData?.overall === 'offline') return 'Manual check needed';
   return 'Consider with caution';
 }
 
@@ -1998,7 +2038,7 @@ function recommendationTagLabels(item, index, nearbyReady) {
   const summary = cardSummary(item).toLowerCase();
 
   if (item.cardRoute.confidence.label === 'High') {
-    tags.push('Well-supported');
+    tags.push('High data confidence');
   }
 
   if (nearbyReady && Number.isFinite(item.travelMinutes)) {
@@ -2069,18 +2109,18 @@ function recommendationSummaryText(item, nearbyReady) {
 
   if (item.cardRoute.rating === 'Fair') {
     if (coldWeatherDrivenCall(item) || hasColdWeather) {
-      return 'Possible today, but cold weather raises the bar.';
+      return 'Paddleable today, but cold weather raises the bar.';
     }
     if (hasWeatherRisk) {
-      return 'Possible today, but weather risk is the main caution.';
+      return 'Paddleable today, but weather risk is the main caution.';
     }
     if (hasChangingFlow) {
-      return 'Possible now; re-check the gauge before you launch.';
+      return 'Paddleable now; re-check the gauge before you launch.';
     }
     if (!hasStrongerBoardCall(item)) {
-      return 'This is the highest-ranked route on the board, but it is still only Fair.';
+      return 'This is the highest-ranked route on the board, but it still has tradeoffs.';
     }
-    return 'Possible today, but stronger routes are available.';
+    return 'Paddleable today, but stronger routes are available.';
   }
 
   if (shortDrive && hasStableFlow) {
@@ -2191,7 +2231,7 @@ function createRecommendationCard(item, index, nearbyReady) {
   setText(card, 'recommendation-route', routeLabelForItem(item));
   setText(card, 'recommendation-summary', recommendationSummaryText(item, nearbyReady));
   setText(card, 'recommendation-score', String(item.cardRoute.score));
-  setText(card, 'recommendation-rating', item.cardRoute.rating);
+  setText(card, 'recommendation-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
   setText(card, 'recommendation-verdict', recommendationVerdict(item, index, nearbyReady));
   setText(card, 'recommendation-meta', metaLineText(item, nearbyReady));
   setText(card, 'recommendation-live-label', index === 0 ? 'Live conditions right now' : '');
@@ -2302,7 +2342,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
-  setText(card, 'rating', item.cardRoute.rating);
+  setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
   setText(card, 'card-verdict', recommendationVerdict(item));
   setText(card, 'meta-line', metaLineText(item, showDistance));
   setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
@@ -2545,11 +2585,11 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       document,
       'featured-reason',
       locationReady
-        ? 'Paddle Today currently supports Midwest routes only.'
+        ? 'Paddle Today currently covers Midwest routes only.'
         : 'Add a location to see drive time and nearby ranking.'
     );
     setText(document, 'featured-facts-label', locationReady ? '' : 'Route facts');
-    setText(document, 'featured-confidence', locationReady ? '' : 'Support info coming in');
+    setText(document, 'featured-confidence', locationReady ? '' : 'Data confidence coming in');
     setText(
       document,
       'featured-distance',
@@ -2590,7 +2630,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       'featured-signal',
       locationReady
         ? ''
-        : 'Gauge, weather, and support details will show up here.'
+        : 'Gauge, weather, and data confidence details will show up here.'
     );
     if (featuredReasons instanceof HTMLElement) {
       featuredReasons.innerHTML = '';
@@ -2634,7 +2674,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', item.cardRoute.rating);
+  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
   setText(document, 'featured-verdict', recommendationVerdict(item));
   setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
@@ -3114,7 +3154,7 @@ function updateLocationStatus() {
 function updateHomeNearbyCounters(results) {
   const count = Array.isArray(results) ? results.length : 0;
   const showingCopy = formatRouteCountLabel(count);
-  const matchingCopy = formatRouteCountLabel(count, { withVerb: true });
+  const matchingCopy = count === 1 ? '1 route matches your filters' : `${count} routes match your filters`;
 
   if (homeMatchCount instanceof HTMLElement) {
     homeMatchCount.textContent = showingCopy;
@@ -3152,7 +3192,7 @@ function updateFilterSummary(exploreItems) {
     userLocationState === 'ready' && userLocation && (activeFilters.sort === 'near-you' || activeFilters.sort === 'nearest')
       ? ` from ${shortLocationLabel()}`
       : '';
-  const ratingLabel = activeFilters.rating ? ` / ${activeFilters.rating} only` : '';
+  const ratingLabel = activeFilters.rating ? ` / ${ratingDisplayLabel(activeFilters.rating)} only` : '';
   filterSummary.textContent = formatMixedFilterSummary(exploreItems.length, { sortLabel, locationLabel, ratingLabel });
   updateExploreFilterPills();
 }
@@ -3163,7 +3203,7 @@ function exploreSortSummaryLabel() {
     : activeFilters.sort === 'nearest'
       ? 'closest first'
       : activeFilters.sort === 'highest-confidence'
-        ? 'highest support'
+        ? 'highest data confidence'
         : activeFilters.sort === 'lowest-risk'
           ? 'lowest-risk routes'
           : activeFilters.sort === 'a-z'
@@ -3187,7 +3227,7 @@ function buildExploreFilterPills() {
     });
   } else if (normalizedSortMode === 'highest-confidence') {
     pills.push({
-      label: 'Highest support',
+      label: 'Highest data confidence',
       tone: 'sort',
     });
   } else if (normalizedSortMode === 'lowest-risk') {
@@ -3876,9 +3916,19 @@ function setBoardFetchBannerState(kind, detail) {
 
   boardFetchBanner.classList.toggle('status-banner--hidden', kind === 'hidden');
   if (kind === 'hidden') {
+    boardFetchBanner.hidden = true;
+    if (boardStatusBanner instanceof HTMLElement) {
+      boardStatusBanner.classList.add('status-banner--hidden');
+      boardStatusBanner.hidden = true;
+    }
     return;
   }
 
+  boardFetchBanner.hidden = false;
+  if (boardStatusBanner instanceof HTMLElement) {
+    boardStatusBanner.classList.add('status-banner--hidden');
+    boardStatusBanner.hidden = true;
+  }
   boardFetchBanner.classList.remove('status-banner--live', 'status-banner--degraded', 'status-banner--loading');
   boardFetchBanner.classList.add('status-banner--offline');
   if (boardFetchTitle instanceof HTMLElement) {

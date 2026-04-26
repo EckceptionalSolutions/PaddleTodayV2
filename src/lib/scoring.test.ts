@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { scoreRiverCondition } from './scoring';
 import type { GaugeReading, River, WeatherSnapshot } from './types';
 import { rivers } from '../data/rivers';
+import { scoringCalibrationCases } from '../data/scoring-calibrations';
 
 const baseRiver: River = {
   id: 'test-river',
@@ -239,6 +240,48 @@ describe('scoreRiverCondition', () => {
     expect(result.score).toBeLessThan(75);
   expect(result.rating).toBe('Fair');
     expect(result.factors.find((factor) => factor.id === 'weather')?.detail).toContain('near freezing');
+  });
+
+  it('treats cool shoulder-season air as a comfort tradeoff, not a major blocker', () => {
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(500, 'steady', 0),
+        observedAt: '2026-04-25T11:00:00Z',
+        waterTempF: 59,
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-04-25T11:15:00Z',
+        temperatureF: 56,
+      },
+      now: new Date('2026-04-25T12:00:00Z'),
+    });
+
+    expect(result.scoreBreakdown.temperatureAdjustment).toBe(-1);
+    expect(result.scoreBreakdown.temperatureExplanation).toContain('cool but still workable');
+  });
+
+  it('does not penalize low-odds rain merely because it is possible later today', () => {
+    const result = scoreRiverCondition({
+      river: baseRiver,
+      gauge: {
+        ...makeGauge(500, 'steady', 0),
+        observedAt: '2026-05-10T11:00:00Z',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+        next12hPrecipProbabilityMax: 19,
+        next12hPrecipitationIn: 0,
+        next12hPrecipStartsInHours: 6,
+        rainTimingLabel: 'Later today',
+      },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    expect(result.scoreBreakdown.rainAdjustment).toBe(0);
+    expect(result.scoreBreakdown.rainExplanation).toContain('not treated as a major trip limiter');
   });
 
   it('marks stale gauge data as degraded and lowers confidence', () => {
@@ -838,8 +881,29 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-  expect(result.rating).toBe('Fair');
+    expect(result.rating).toBe('Fair');
     expect(result.score).toBeLessThanOrEqual(74);
+  });
+
+  it('keeps Taylors Falls to Osceola paddleable when the river is comfortably above its official floor', () => {
+    const calibrationCase = scoringCalibrationCases.find(
+      (item) => item.id === '2026-04-25-st-croix-interstate-osceola'
+    );
+    const river = rivers.find((item) => item.slug === calibrationCase?.routeSlug);
+    expect(calibrationCase).toBeDefined();
+    expect(river).toBeDefined();
+
+    const result = scoreRiverCondition({
+      river: river as River,
+      gauge: calibrationCase?.gauge ?? null,
+      weather: calibrationCase?.weather ?? null,
+      now: new Date(calibrationCase?.now ?? '2026-04-25T17:23:00Z'),
+    });
+
+    expect(result.gaugeBand).toBe(calibrationCase?.expected.gaugeBand);
+    expect(result.score).toBeGreaterThanOrEqual(calibrationCase?.expected.scoreMin ?? 0);
+    expect(result.score).toBeLessThanOrEqual(calibrationCase?.expected.scoreMax ?? 100);
+    expect(result.rating).toBe(calibrationCase?.expected.rating);
   });
 
   it('treats Rum River inside the official DNR medium band as a high-confidence in-range call', () => {

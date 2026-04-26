@@ -2,7 +2,7 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { decorateFavoriteButton, bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { readFavorites, subscribeFavorites } from './favorites-store.js';
 import { MAP_STYLE_URL, bindMarkerPopup, ensureMapLibre, escapeHtml, markerClassForRating } from './map-runtime.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const SUMMARY_CACHE_KEY = 'river-summary:v2';
@@ -235,7 +235,7 @@ async function renderFavoritesMap(results = latestResults) {
       markerNode.innerHTML = `<span>${current.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
-        `${current.river.reach}: score ${current.score}, ${confidenceDisplayLabel(current.confidence.label).toLowerCase()} confidence`
+        `${current.river.reach}: score ${current.score}, ${confidenceDisplayLabel(current.confidence.label).toLowerCase()}`
       );
       if (current.river.slug === selectedFavoriteSlug) {
         markerNode.classList.add('score-map-marker--selected');
@@ -325,7 +325,7 @@ function renderFavoriteCard(favorite, current) {
     }
 
     setText(card, 'favorite-score', String(current.score));
-    setText(card, 'favorite-rating', current.rating);
+    setText(card, 'favorite-rating', ratingDisplayLabel(current.rating, { liveData: current.liveData }));
     setText(card, 'favorite-verdict', current.gaugeBandLabel || 'Current route read');
     setText(card, 'favorite-meta', metaLine(current));
     setText(card, 'favorite-summary', current.summary?.shortExplanation || current.explanation || 'Current route read available.');

@@ -1,8 +1,22 @@
 export function confidenceDisplayLabel(label) {
-  if (label === 'High') return 'Well-supported';
+  if (label === 'High') return 'High data confidence';
   if (label === 'Medium') return 'Some uncertainty';
   if (label === 'Low') return 'Cautious call';
-  return 'Support unclear';
+  return 'Data confidence unclear';
+}
+
+export function ratingDisplayLabel(rating, options = {}) {
+  const { liveData = null, compact = false } = options;
+
+  if (rating === 'Fair') {
+    return compact ? 'Fair' : 'Fair: tradeoffs';
+  }
+
+  if (rating === 'No-go' && liveData?.overall === 'offline') {
+    return compact ? 'Manual check' : 'Manual check needed';
+  }
+
+  return rating || 'Checking';
 }
 
 export function liveDataWarning(liveData, options = {}) {

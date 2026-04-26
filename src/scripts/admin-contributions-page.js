@@ -19,6 +19,8 @@ const statsPanel = document.querySelector('[data-admin-stats]');
 const routeRequestsPanel = document.querySelector('[data-admin-route-requests]');
 const routeRequestsList = document.querySelector('[data-admin-route-requests-list]');
 const routeRequestsStatus = document.querySelector('[data-admin-route-requests-status]');
+const scoringDebugPanel = document.querySelector('[data-admin-scoring-debug]');
+const sectionNav = document.querySelector('[data-admin-section-nav]');
 
 function freshnessText(isoString, fallback) {
   if (typeof isoString !== 'string' || !isoString) return fallback;
@@ -276,6 +278,8 @@ async function refreshAdminState() {
   if (list instanceof HTMLElement) list.hidden = !authenticated;
   if (statsPanel instanceof HTMLElement) statsPanel.hidden = !authenticated;
   if (routeRequestsPanel instanceof HTMLElement) routeRequestsPanel.hidden = !authenticated;
+  if (scoringDebugPanel instanceof HTMLElement) scoringDebugPanel.hidden = !authenticated;
+  if (sectionNav instanceof HTMLElement) sectionNav.hidden = !authenticated;
 
   if (payload?.configured === false && loginPanel instanceof HTMLElement) {
     setStatus(loginStatus, 'Admin access is not configured yet. Set PADDLETODAY_ADMIN_PASSWORD on the server.', 'error');

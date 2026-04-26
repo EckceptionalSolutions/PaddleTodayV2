@@ -109,7 +109,7 @@ function textBody(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {
     '',
     `Current call: ${snapshot.result.rating} (${snapshot.result.score})`,
     `Summary: ${snapshot.result.explanation}`,
-    `Support level: ${supportLevelLabel(snapshot.result.confidence.label)}`,
+    `Data confidence: ${dataConfidenceLabel(snapshot.result.confidence.label)}`,
   ];
 
   if (bestWindowText(snapshot)) {
@@ -135,8 +135,8 @@ function htmlBody(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {
       <p style="margin: 0 0 12px; color: #5c7380;">${escapeHtml(snapshot.result.river.reach)}</p>
       <p style="margin: 0 0 12px;"><strong>Current call:</strong> ${escapeHtml(snapshot.result.rating)} (${snapshot.result.score})</p>
       <p style="margin: 0 0 12px;">${escapeHtml(snapshot.result.explanation)}</p>
-      <p style="margin: 0 0 12px;"><strong>Support level:</strong> ${escapeHtml(
-        supportLevelLabel(snapshot.result.confidence.label)
+      <p style="margin: 0 0 12px;"><strong>Data confidence:</strong> ${escapeHtml(
+        dataConfidenceLabel(snapshot.result.confidence.label)
       )}</p>
       ${bestWindow ? `<p style="margin: 0 0 12px;"><strong>${escapeHtml(bestWindow)}</strong></p>` : ''}
       <p style="margin: 16px 0 0;">
@@ -152,8 +152,8 @@ function htmlBody(alert: RiverThresholdAlert, snapshot: RiverDetailSnapshot) {
   `.trim();
 }
 
-function supportLevelLabel(label: string) {
-  if (label === 'High') return 'Well-supported';
+function dataConfidenceLabel(label: string) {
+  if (label === 'High') return 'High data confidence';
   if (label === 'Medium') return 'Some uncertainty';
   if (label === 'Low') return 'Cautious call';
   return label;

@@ -37,7 +37,7 @@ const trackedRiverCount = riverGroups.length;
         </div>
       </section>
 
-      <section class="status-banner status-banner--loading" data-board-status-banner aria-live="polite">
+      <section class="status-banner status-banner--loading status-banner--hidden" data-board-status-banner aria-live="polite" hidden>
         <div class="status-banner__eyebrow">Live read status</div>
         <div class="status-banner__body">
           <strong data-board-banner-title>Checking live reads.</strong>
@@ -93,7 +93,7 @@ const trackedRiverCount = riverGroups.length;
                     <option value="best-now">Top picks today</option>
                     <option value="near-you">Best by drive time</option>
                     <option value="nearest">Closest first</option>
-                    <option value="highest-confidence">Highest support</option>
+                    <option value="highest-confidence">Highest data confidence</option>
                     <option value="lowest-risk">Lowest-risk first</option>
                     <option value="a-z">A-Z</option>
                   </select>
@@ -150,7 +150,7 @@ const trackedRiverCount = riverGroups.length;
                     <option value="">Paddle Today Score</option>
                     <option value="Strong">Strong only</option>
                     <option value="Good">Good only</option>
-                    <option value="Fair">Fair only</option>
+                    <option value="Fair">Fair: tradeoffs</option>
                     <option value="No-go">No-go only</option>
                   </select>
                 </label>

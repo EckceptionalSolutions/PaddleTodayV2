@@ -348,8 +348,11 @@ function assessGauge(river: River, gauge: GaugeReading): {
       };
     }
 
+    const marginAboveMinimum = (current - minimum) / Math.max(minimum, 1);
+    const marginBonus = clamp(marginAboveMinimum * 10, 0, 8);
+
     return {
-      points: 60,
+      points: 60 + marginBonus,
       impact: 'warning',
       detail: `Above the known low-water mark of ${formatGauge(minimum, gauge.unit)} ${gauge.unit}, but there is not enough guidance yet to say what the upper end should be for this reach.`,
       band: 'minimum-met',
@@ -771,6 +774,7 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
   }
 
   const precipProbability = weather.next12hPrecipProbabilityMax ?? 0;
+  const precipAmount = weather.next12hPrecipitationIn ?? 0;
   const rainPenalty = precipProbability > 60 ? -6 : precipProbability >= 30 ? -3 : 0;
   rawRainPoints += Math.round(rainPenalty * rainSensitivity);
   if (rainPenalty <= -6) {
@@ -783,15 +787,20 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
     rainNotes.push('No major rain signal is showing up right now.');
   }
 
+  const meaningfulRainSignal = precipProbability >= 30 || precipAmount >= 0.03 || weather.next12hStormRisk;
   const precipTimingPenalty =
     weather.rainTimingLabel === 'Imminent'
       ? -5
       : weather.rainTimingLabel === 'Next few hours'
         ? -4
         : weather.rainTimingLabel === 'Later today'
-          ? -2
+          ? meaningfulRainSignal
+            ? -2
+            : 0
           : typeof weather.next12hPrecipStartsInHours === 'number'
-            ? weather.next12hPrecipStartsInHours <= 3
+            ? !meaningfulRainSignal
+              ? 0
+              : weather.next12hPrecipStartsInHours <= 3
               ? -5
               : weather.next12hPrecipStartsInHours <= 12
                 ? -2
@@ -804,6 +813,8 @@ function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null):
   } else if (precipTimingPenalty < 0) {
     impact = impact === 'negative' ? 'negative' : 'warning';
     rainNotes.push('Rain is likely later today.');
+  } else if (weather.rainTimingLabel === 'Later today' && precipProbability > 0) {
+    rainNotes.push('Low rain odds later today are not treated as a major trip limiter.');
   }
 
   const recentRain24h = weather.recentRain24hIn ?? 0;
@@ -867,7 +878,7 @@ function assessTemperatureAdjustment(
   const tempSensitivity = tempSensitivityForRiver(river);
   const temp = weather.temperatureF;
   const airPenalty =
-    temp < 35 ? -12 : temp < 50 ? -6 : temp < 65 ? -2 : temp <= 85 ? 0 : temp <= 92 ? -4 : -8;
+    temp < 35 ? -12 : temp < 50 ? -6 : temp < 65 ? -1 : temp <= 85 ? 0 : temp <= 92 ? -4 : -8;
   const waterTemp = gauge?.waterTempF ?? null;
   const waterPenalty = typeof waterTemp === 'number' ? (waterTemp < 45 ? -4 : waterTemp < 55 ? -2 : 0) : 0;
   const points = Math.round((airPenalty + waterPenalty) * coldSeasonMultiplier * tempSensitivity);
@@ -883,7 +894,9 @@ function assessTemperatureAdjustment(
       points < 0
         ? temp < 35
           ? `Air temperature is near freezing at ${Math.round(temp)} degrees F, which makes today a much tougher call${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
-          : `Air temperature is ${Math.round(temp)} degrees F, which makes today less appealing${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+          : temp >= 50 && temp < 65
+            ? `Air temperature is ${Math.round(temp)} degrees F, which is cool but still workable${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
+            : `Air temperature is ${Math.round(temp)} degrees F, which makes today less appealing${coldSeasonMultiplier > 1 ? ' in shoulder season' : ''}.`
         : `Air temperature is ${Math.round(temp)} degrees F and looks fine for today.`,
   };
 }
@@ -1111,9 +1124,9 @@ function computeConfidence(args: {
     (typeof args.river.profile.tooLow === 'number' || typeof args.river.profile.idealMin === 'number')
   ) {
     score += 0.08;
-    reasons.push('A low-water mark is defined.');
+    reasons.push('A low-water floor is defined.');
     score -= 0.03;
-    warnings.push('Upper range is still estimated.');
+    warnings.push('We know the low-water floor, but not the ideal range.');
   }
 
   if (
@@ -1302,7 +1315,7 @@ function buildOfflineOutlooks(): RiverOutlook[] {
       score: null,
       rating: null,
       confidence: null,
-      explanation: 'Weekend is withheld until the app has a current gauge read and enough confidence to extend the call.',
+      explanation: 'Weekend needs a current gauge read and enough confidence before the app extends the call.',
     },
   ];
 }
@@ -1629,7 +1642,7 @@ function buildExplanation(args: {
 function ratingFromScore(score: number): ScoreRating {
   if (score >= 90) return 'Strong';
   if (score >= 75) return 'Good';
-  if (score >= 60) return 'Fair';
+  if (score >= 50) return 'Fair';
   return 'No-go';
 }
 

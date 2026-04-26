@@ -50,7 +50,7 @@ import FavoriteButton from '../components/FavoriteButton.astro';
             </span>
             <span class="summary-map-legend__item">
               <span class="summary-map-legend__marker summary-map-legend__marker--marginal">55</span>
-              Fair
+              Fair: tradeoffs
             </span>
             <span class="summary-map-legend__item">
               <span class="score-map-marker score-map-marker--no-go score-map-marker--confidence-low">15</span>
@@ -69,6 +69,10 @@ import FavoriteButton from '../components/FavoriteButton.astro';
       <p class="muted favorites-page__empty-copy">
         Save a route from a route page or route card and it will show up here.
       </p>
+      <div class="favorites-page__empty-actions">
+        <a class="river-link river-link--inline" href="/explore/">Browse routes</a>
+        <a class="river-link river-link--inline river-link--ghost" href="/">Find today's best pick</a>
+      </div>
     </div>
 
     <div class="favorites-page__grid" data-favorites-grid hidden></div>
