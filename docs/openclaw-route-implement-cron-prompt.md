@@ -41,10 +41,12 @@ Qualification gates for adding a route:
 - no duplicate coverage of an existing V2 route
 - a live-data path the current product can actually run today
 
-Option A shipping rule:
+Shipping rule:
 - Official DNR threshold guidance is allowed and encouraged when it is the stronger route-specific interpretation.
-- But for now, only add routes that still have a working live USGS feed the current app can fetch and chart.
-- If a route depends on a DNR-only live source, or on a USGS feed that does not currently return workable live data for the app, do not add it yet.
+- High-quality official DNR live gauges are now allowed as first-class shipping sources when the current app can fetch and chart them reliably.
+- Prefer USGS when quality is equal, but do not reject a route just because the stronger operational live source is DNR.
+- Only add routes whose chosen live source the current app can actually fetch and chart reliably.
+- If a route depends on a live source the current app still cannot fetch or chart reliably, do not add it yet.
 - In that case, report it as content-ready but blocked by live-data integration.
 
 Threshold rules:
@@ -58,8 +60,8 @@ Threshold rules:
 Implementation requirements:
 If one route qualifies, implement it end to end:
 - update src/data/rivers.ts
-- if the route uses DNR-backed thresholds, verify that the live product experience still works with a current USGS feed and chart before shipping it
-- if the route depends on a non-USGS live source or a non-working USGS feed, explicitly stop and report that the route is ready in content terms but blocked by live-data integration
+- verify that the chosen live source actually works in the current product, including chart behavior, before shipping the route
+- if the chosen live source still does not fetch or chart reliably in-product, explicitly stop and report that the route is ready in content terms but blocked by live-data integration
 - update src/data/river-trip-details.ts
 - include gauge source mapping
 - include threshold model

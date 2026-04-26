@@ -79,11 +79,12 @@ A candidate can be marked likely_addable if it has all of:
 - enough source support to likely implement cleanly next run
 - a route-level live-data story that the current product can actually operate today
 
-Option A shipping rule:
+Shipping rule:
 - Official DNR threshold guidance is allowed and encouraged when it is the stronger route-specific interpretation.
-- But for now, only promote a route to likely_addable if the current app can still ship it with a working live USGS feed and chart.
-- If the route depends on a DNR-only live source or a non-working USGS live feed, do not promote it to likely_addable yet.
-- Instead, record it as research_later or a clearly blocked implementation candidate with the exact product-integration blocker.
+- High-quality official DNR live gauges are now allowed as first-class shipping sources when the current app can fetch and chart them reliably.
+- Prefer USGS when quality is equal, but do not reject a route just because the stronger operational live source is DNR.
+- Only promote a route to likely_addable if the current app can actually operate its live-data path and chart with the chosen source.
+- If the route depends on a live source the current app still cannot fetch or chart reliably, do not promote it yet. Record the exact product-integration blocker.
 
 Manual-coordinate rule:
 If a route has:
