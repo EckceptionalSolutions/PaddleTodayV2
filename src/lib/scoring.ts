@@ -19,6 +19,7 @@ import type {
 } from './types';
 
 const GAUGE_STALE_MINUTES = 180;
+const MN_DNR_GAUGE_STALE_MINUTES = 360;
 const WEATHER_STALE_MINUTES = 180;
 
 export function scoreRiverCondition(args: {
@@ -29,6 +30,7 @@ export function scoreRiverCondition(args: {
 }): RiverScoreResult {
   const now = args.now ?? new Date();
   const liveData = buildLiveDataStatus({
+    river: args.river,
     gauge: args.gauge,
     weather: args.weather,
     now,
@@ -1790,11 +1792,13 @@ function gaugeBandLabel(band: GaugeBand): string {
 }
 
 function buildLiveDataStatus(args: {
+  river: River;
   gauge: GaugeReading | null;
   weather: WeatherSnapshot | null;
   now: Date;
 }): LiveDataStatus {
-  const gauge = freshnessFromObservedAt(args.gauge?.observedAt ?? null, args.now, GAUGE_STALE_MINUTES, 'gauge');
+  const gaugeStaleMinutes = staleMinutesForGauge(args.river, args.gauge);
+  const gauge = freshnessFromObservedAt(args.gauge?.observedAt ?? null, args.now, gaugeStaleMinutes, 'gauge');
   const weather = freshnessFromObservedAt(
     args.weather?.observedAt ?? null,
     args.now,
@@ -1853,6 +1857,18 @@ function buildLiveDataStatus(args: {
     gauge,
     weather,
   };
+}
+
+function staleMinutesForGauge(river: River, gauge: GaugeReading | null): number {
+  if (gauge?.sourceId.startsWith('mn-dnr-')) {
+    return MN_DNR_GAUGE_STALE_MINUTES;
+  }
+
+  if (gauge?.sourceId.startsWith('usgs-')) {
+    return GAUGE_STALE_MINUTES;
+  }
+
+  return river.gaugeSource.provider === 'mn_dnr' ? MN_DNR_GAUGE_STALE_MINUTES : GAUGE_STALE_MINUTES;
 }
 
 function freshnessFromObservedAt(

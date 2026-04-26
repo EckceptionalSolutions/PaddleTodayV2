@@ -423,23 +423,6 @@ const routeStructuredData = {
             </div>
           </div>
         </details>
-        <div class="route-score-feedback" aria-label="Score feedback">
-          <p class="route-score-feedback__prompt">Did this match your paddle?</p>
-          <div class="route-score-feedback__actions">
-            <button class="route-score-feedback__button" type="button" data-score-feedback="too-harsh">
-              Too harsh
-            </button>
-            <button class="route-score-feedback__button" type="button" data-score-feedback="about-right">
-              About right
-            </button>
-            <button class="route-score-feedback__button" type="button" data-score-feedback="too-generous">
-              Too generous
-            </button>
-          </div>
-          <p class="muted route-score-feedback__status" data-score-feedback-status aria-live="polite">
-            Opens a route report so you can add what happened on the water.
-          </p>
-        </div>
         <div class="river-call-panel__reliability">
           <span class="pill" data-field="rail-reliability">Loading sources</span>
           <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
@@ -556,7 +539,7 @@ const routeStructuredData = {
       <div class="status-banner__body">
         <strong data-detail-banner-title>Checking live inputs.</strong>
         <p class="muted" data-detail-banner-detail>
-          Pulling the latest USGS gauge and weather. Usually under 10 seconds.
+          Pulling the latest gauge and weather. Usually under 10 seconds.
         </p>
       </div>
       <div class="status-banner__grid" data-detail-reliability-grid>
@@ -629,7 +612,7 @@ const routeStructuredData = {
                 <FeatureIcon name="gauge" size={16} />
                 Gauge
               </p>
-              <h3 class="river-subtitle river-subtitle--compact">Recent trend</h3>
+              <h3 class="river-subtitle river-subtitle--compact" data-field="gauge-visual-title">Recent trend</h3>
             </div>
             <p class="muted river-why-panel__section-note" data-field="chart-caption">
               Checking preferred range.
@@ -697,6 +680,39 @@ const routeStructuredData = {
                 <text x="332" y="194" data-chart-x-end>--</text>
               </g>
             </svg>
+
+            <div class="gauge-current-panel" data-current-gauge-panel hidden>
+              <div class="gauge-current-panel__top">
+                <div class="gauge-current-panel__main">
+                  <p class="gauge-current-panel__label" data-field="current-gauge-provider">Gauge source</p>
+                  <strong data-field="current-gauge-value">--</strong>
+                  <span data-field="current-gauge-observed">Checking timestamp</span>
+                </div>
+                <div class="gauge-current-panel__interpretation">
+                  <span>DNR interpretation</span>
+                  <strong data-field="current-gauge-interpretation">Unavailable</strong>
+                </div>
+              </div>
+              <div class="gauge-current-panel__meta">
+                <div>
+                  <span>Paddle Today band</span>
+                  <strong data-field="current-gauge-band">Checking</strong>
+                </div>
+              </div>
+              <p class="gauge-current-panel__note">
+                MN DNR provides the current paddling level here, but not chart-ready recent samples.
+              </p>
+              <a
+                class="river-link river-link--inline gauge-current-panel__link"
+                href="#"
+                target="_blank"
+                rel="noreferrer"
+                data-current-gauge-hydrograph
+                hidden
+              >
+                View DNR gauge detail
+              </a>
+            </div>
           </div>
         </section>
 

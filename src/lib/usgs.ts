@@ -18,7 +18,7 @@ type UsgsResponse = {
   };
 };
 
-export async function fetchGaugeReading(source: RiverGaugeSource): Promise<GaugeReading | null> {
+export async function fetchUsgsGaugeReading(source: RiverGaugeSource): Promise<GaugeReading | null> {
   const url = new URL('https://waterservices.usgs.gov/nwis/iv/');
   url.searchParams.set('format', 'json');
   url.searchParams.set('sites', source.siteId);

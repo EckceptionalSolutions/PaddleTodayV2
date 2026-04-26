@@ -305,6 +305,36 @@ describe('scoreRiverCondition', () => {
     expect(result.explanation).toContain('cautious estimate');
   });
 
+  it('uses a longer freshness window for MN DNR hourly river-level gauges', () => {
+    const dnrRiver: River = {
+      ...baseRiver,
+      gaugeSource: {
+        ...baseRiver.gaugeSource,
+        provider: 'mn_dnr',
+      },
+    };
+
+    const result = scoreRiverCondition({
+      river: dnrRiver,
+      gauge: {
+        ...makeGauge(480, 'unknown', 0),
+        sourceId: 'mn-dnr-1',
+        delta24h: null,
+        changePercent24h: null,
+        observedAt: '2026-05-10T07:00:00Z',
+        gaugeSource: 'MN DNR River Levels',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:30:00Z',
+      },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    expect(result.liveData.gauge.state).toBe('live');
+    expect(result.liveData.overall).toBe('live');
+  });
+
   it('marks missing gauge data as offline instead of treating it as a normal low-confidence score', () => {
     const result = scoreRiverCondition({
       river: baseRiver,

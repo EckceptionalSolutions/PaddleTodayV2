@@ -1850,7 +1850,7 @@ function renderDetailBanner(result) {
     setText('reliability-action-title', 'Recheck gauge source');
     setText(
       'reliability-action-detail',
-      'Open the direct USGS gauge page before driving.'
+      'Open the direct gauge source before driving.'
     );
     return;
   }
@@ -3386,6 +3386,9 @@ function trendNarrative(result, firstValue, lastValue, hours) {
 function renderGaugeChart(result) {
   const parsedSamples = parseChartSamples(result);
   const activeSamples = windowedSamples(parsedSamples, currentChartWindowHours);
+  const chartEl = root.querySelector('.gauge-visual__chart');
+  const controlsEl = root.querySelector('.gauge-visual__controls');
+  const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
   const lineEl = root.querySelector('[data-chart-line]');
   const dotEl = root.querySelector('[data-chart-dot]');
   const rangeEl = root.querySelector('[data-chart-range]');
@@ -3408,11 +3411,77 @@ function renderGaugeChart(result) {
     return;
   }
 
+  const hasDnrCurrentOnlyReading =
+    result.river?.gaugeSource?.provider === 'mn_dnr' && result.gauge && activeSamples.length < 2;
+  if (hasDnrCurrentOnlyReading) {
+    if (chartEl instanceof SVGElement) {
+      chartEl.style.display = 'none';
+    }
+    if (controlsEl instanceof HTMLElement) {
+      controlsEl.hidden = true;
+    }
+    if (currentPanelEl instanceof HTMLElement) {
+      currentPanelEl.hidden = false;
+    }
+    setText('gauge-visual-title', 'Current DNR level');
+    setText('chart-caption', 'MN DNR current level is available; recent chart samples are not.');
+    setText('current-gauge-provider', result.gauge.gaugeSource || 'MN DNR River Levels');
+    setText('current-gauge-value', formatGaugeValue(result.gauge.current, result.gauge.unit));
+    setText(
+      'current-gauge-observed',
+      result.gauge.observedAt ? `Observed ${new Date(result.gauge.observedAt).toLocaleString()}` : 'Observed time unavailable'
+    );
+    setText('current-gauge-interpretation', result.gauge.gaugeInterpretation || 'Not published');
+    setText('current-gauge-band', result.gaugeBandLabel || 'Unavailable');
+    const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
+    if (hydrographLink instanceof HTMLAnchorElement) {
+      const hydrographUrl = result.river?.gaugeSource?.hydrographUrl || result.river?.gaugeSource?.detailUrl || '';
+      if (hydrographUrl) {
+        hydrographLink.href = hydrographUrl;
+        hydrographLink.hidden = false;
+      } else {
+        hydrographLink.hidden = true;
+        hydrographLink.removeAttribute('href');
+      }
+    }
+    return;
+  }
+
+  if (chartEl instanceof SVGElement) {
+    chartEl.style.display = '';
+  }
+  if (controlsEl instanceof HTMLElement) {
+    controlsEl.hidden = false;
+  }
+  if (currentPanelEl instanceof HTMLElement) {
+    currentPanelEl.hidden = true;
+  }
+  setText('gauge-visual-title', 'Recent trend');
+
   if (activeSamples.length < 2) {
-    setText('chart-caption', 'Preferred range not available yet.');
-    setText('chart-trend-note', 'Trend direction is unavailable because the recent sample window is too thin.');
+    const hasGauge = Boolean(result.gauge);
+    const sourceLabel = result.gauge?.gaugeSource || 'this gauge source';
+    setText(
+      'chart-caption',
+      hasGauge
+        ? `Recent chart samples are not available from ${sourceLabel}.`
+        : 'Preferred range not available yet.'
+    );
+    setText(
+      'chart-trend-note',
+      hasGauge
+        ? 'Trend direction is unavailable because this source did not provide a recent sample series.'
+        : 'Trend direction is unavailable because the recent sample window is too thin.'
+    );
     rangeEl.setAttribute('visibility', 'hidden');
     thresholdEl.setAttribute('visibility', 'hidden');
+    lineEl.setAttribute('visibility', 'hidden');
+    dotEl.setAttribute('visibility', 'hidden');
+    for (const labelEl of [yMaxEl, yMidEl, yMinEl, xStartEl, xMidEl, xEndEl]) {
+      if (labelEl instanceof SVGTextElement) {
+        labelEl.textContent = '--';
+      }
+    }
     return;
   }
 
@@ -3420,6 +3489,8 @@ function renderGaugeChart(result) {
   const xRight = 394;
   const yTop = 22;
   const yBottom = 176;
+  lineEl.setAttribute('visibility', 'visible');
+  dotEl.setAttribute('visibility', 'visible');
 
   const thresholdValues = [
     result.river.profile.idealMin,

@@ -2,7 +2,7 @@ import { rivers } from '../data/rivers';
 import { riverTripDetails } from '../data/river-trip-details';
 import { scoreRiverCondition } from './scoring';
 import { remember } from './server-cache';
-import { fetchGaugeReading } from './usgs';
+import { fetchGaugeReading } from './gauges';
 import { fetchWeatherSnapshot } from './weather';
 import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 
@@ -100,11 +100,31 @@ async function scoreRiver(river: River): Promise<RiverScoreResult> {
 
 async function getCachedGaugeReading(river: River) {
   return remember({
-    key: `gauge:${river.gaugeSource.siteId}:${river.gaugeSource.metric}`,
+    key: gaugeCacheKey(river),
     ttlMs: GAUGE_CACHE_TTL_MS,
     staleWhileErrorMs: STALE_WHILE_ERROR_MS,
-    load: () => fetchGaugeReading(river.gaugeSource),
+    load: () => fetchGaugeReadingWithFallback(river),
   });
+}
+
+async function fetchGaugeReadingWithFallback(river: River) {
+  const sources = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])];
+
+  for (const source of sources) {
+    const reading = await fetchGaugeReading(source).catch(() => null);
+    if (reading) {
+      return reading;
+    }
+  }
+
+  return null;
+}
+
+function gaugeCacheKey(river: River) {
+  const sources = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])];
+  return sources
+    .map((source) => `${source.provider}:${source.siteId}:${source.metric}`)
+    .join('|');
 }
 
 async function getCachedWeatherSnapshot(river: River) {

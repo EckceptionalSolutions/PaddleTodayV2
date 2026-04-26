@@ -56,6 +56,7 @@ export type SourceStrength = 'official' | 'mixed' | 'community' | 'derived';
 export type RainfallSensitivity = 'low' | 'medium' | 'high';
 export type ThresholdModel = 'two-sided' | 'minimum-only';
 export type TrendDirection = 'rising' | 'steady' | 'falling' | 'unknown';
+export type GaugeProvider = 'usgs' | 'mn_dnr';
 
 export interface SourceLink {
   label: string;
@@ -64,12 +65,14 @@ export interface SourceLink {
 
 export interface RiverGaugeSource {
   id: string;
-  provider: 'usgs';
+  provider: GaugeProvider;
   siteId: string;
   metric: GaugeMetric;
   unit: GaugeUnit;
   kind: GaugeKind;
   siteName: string;
+  detailUrl?: string;
+  hydrographUrl?: string;
 }
 
 export interface RiverEvidenceNote {
@@ -137,6 +140,7 @@ export interface River {
   latitude: number;
   longitude: number;
   gaugeSource: RiverGaugeSource;
+  fallbackGaugeSources?: RiverGaugeSource[];
   profile: RiverScoringProfile;
   putIn?: RiverAccessPoint;
   takeOut?: RiverAccessPoint;
@@ -161,6 +165,7 @@ export interface GaugeReading {
   waterTempObservedAt: string | null;
   gaugeSource: string;
   waterTempSource: string | null;
+  gaugeInterpretation?: string | null;
 }
 
 export interface RiverScoreResult {
