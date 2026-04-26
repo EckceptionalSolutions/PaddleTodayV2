@@ -1,0 +1,852 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-26T23:15:00Z",
+  "notes": "2026-04-26 18:15 America/Chicago fresh Minnesota-first sweep. Reviewed 1 fresh candidate from the Red River cluster plus 2 additional non-yield clusters (Shell Rock River and Watonwan River), and avoided reopening the stale bounded holdovers. Red River - Kidder Recreation Area to Brushvale Bridge Recreation Area is a real official day trip with a nearby direct USGS gauge at Georgetown, but I did not find route-level numeric threshold guidance strong enough to ship it yet, so it stays threshold_weak. Shell Rock River did not yield a practical new route candidate on this pass because the current official recommended outing is lake-only around Albert Lea Lake rather than a clean river day trip. Watonwan River did not yield a candidate because the current DNR trail pages surface maps and river context but not a comparably clean recommended day-trip package near the fresh USGS cluster. No code changes were made on this pass.",
+  "candidates": [
+    {
+      "candidateId": "mn-whitewater-river-elba-highway-74",
+      "river": "Whitewater River",
+      "route": "Elba to Highway 74",
+      "state": "MN",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 19,
+      "blocker": "No defensible live gauge-plus-threshold story strong enough for PaddleTodayV2. The active Beaver gauge sits downstream, but current evidence still does not tie a usable paddling floor or range cleanly back to the Elba-to-Highway-74 reach.",
+      "retryCondition": "Retry only if MN DNR, USGS-adjacent guidance, or strong same-route mixed evidence ties the Elba-to-Highway-74 reach to a defensible live gauge model.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "MN DNR Whitewater water-trail materials",
+        "Official Whitewater pages referencing Beaver gauge context",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Whitewater River - Elba to Hwy 74",
+        "Whitewater River - Elba to Highway 74"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Active official Whitewater river-level site exists near Beaver, but route-to-gauge threshold fit is still weak for this upstream reach."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Route support exists, but published numeric paddling guidance does not cleanly map to this exact segment."
+      },
+      "endpoints": {
+        "putIn": "Elba",
+        "takeOut": "Highway 74",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "mn-vermilion-river-twomile-creek-access-eightmile-creek-access",
+      "river": "Vermilion River",
+      "route": "Twomile Creek Access to Eightmile Creek Access",
+      "state": "MN",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 19,
+      "blocker": "Official route naming is strong, but the best official gauge guidance found still applies to broader rapids-heavy Vermilion context rather than this easy no-rapids segment.",
+      "retryCondition": "Retry only if official manager guidance or strong same-route evidence ties this exact Twomile-to-Eightmile reach to a defensible live gauge floor or range.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "MN DNR Vermilion water-trail materials",
+        "USGS gauge below Vermilion Dam references on official pages",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Vermilion River - Twomile Creek Access to Eightmile Creek Access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Relevant official gauge exists, but current threshold guidance appears tied to broader rapids context rather than this specific easy segment."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Threshold story is still stitched and not route-specific enough."
+      },
+      "endpoints": {
+        "putIn": "Twomile Creek Access",
+        "takeOut": "Eightmile Creek Access",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "ia-maquoketa-river-dunlap-park-upper-mon-maq-access",
+      "river": "Maquoketa River",
+      "route": "Dunlap Park to Upper Mon-Maq Access",
+      "state": "IA",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "A direct live gauge exists on the North Fork Maquoketa at Fulton, but endpoint authority remains brittle and I still do not have official or strong same-route numeric paddling guidance for this exact corridor.",
+      "retryCondition": "Retry only if official county or Iowa DNR access pages for both endpoints are reachable and a defensible numeric route model appears for the Fulton gauge or another clearly matched live gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "Jones County / Iowa DNR access materials referenced in prior research",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Maquoketa River - Dunlap Park to Upper Mon-Maq Access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "North Fork Maquoketa at Fulton remains the best live gauge candidate, but route-level calibration is still missing."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "No defensible numeric paddling floor or range is tied to this exact route yet."
+      },
+      "endpoints": {
+        "putIn": "Dunlap Park",
+        "takeOut": "Upper Mon-Maq Access",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "ia-little-turkey-river-u-avenue-eldorado",
+      "river": "Little Turkey River",
+      "route": "U Avenue to Eldorado",
+      "state": "IA",
+      "status": "rejected",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "I still do not have a trustworthy current package of official route naming, public endpoint authority, and route-level numeric threshold support strong enough to clear the V2 bar.",
+      "retryCondition": "Retry only if Iowa DNR, county conservation, or strong same-route mixed evidence clearly names both endpoints and ties the route to a defensible live gauge floor or range.",
+      "retryDate": "2026-07-24",
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "Prior Little Turkey route audit notes in docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Little Turkey River - U Avenue to Eldorado"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "Old seed suggests nearby USGS support, but current reviewed evidence does not produce a shippable live gauge story."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No defensible numeric paddling model is currently documented."
+      },
+      "endpoints": {
+        "putIn": "U Avenue",
+        "takeOut": "Eldorado",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "ia-maquoketa-river-mon-maq-dam-pictured-rocks-park",
+      "river": "Maquoketa River",
+      "route": "Mon-Maq Dam to Pictured Rocks Park",
+      "state": "IA",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "The corridor still looks useful, but I still do not have a trustworthy current package of official endpoint authority and route-level threshold support for this exact route.",
+      "retryCondition": "Retry only if Iowa DNR or Jones County publishes reachable endpoint pages or map materials for both accesses and a defensible numeric live-gauge model appears for this exact corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "Jones County / Iowa DNR access materials referenced in prior research",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Maquoketa River - Mon-Maq Dam to Pictured Rocks Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "Likely same river family as the Dunlap route, but no route-specific live-gauge calibration is documented."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No defensible numeric paddling model is currently tied to this route."
+      },
+      "endpoints": {
+        "putIn": "Mon-Maq Dam",
+        "takeOut": "Pictured Rocks Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "wi-crawfish-river-county-road-i-county-road-g",
+      "river": "Crawfish River",
+      "route": "County Road I to County Road G",
+      "state": "WI",
+      "status": "rejected",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "A live USGS story likely exists somewhere on the Crawfish system, but exact bridge-access authority is still too thin and I still do not have official or strong same-route threshold evidence for this route.",
+      "retryCondition": "Retry only if county, state, or water-trail materials clearly support both bridge accesses and a defensible live gauge model emerges for this exact reach.",
+      "retryDate": "2026-07-24",
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "Prior Crawfish route audit notes in docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Crawfish River - County Road I to County Road G"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "Same-system gauge story remains plausible but not route-specific enough to ship."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No usable numeric paddling floor or range is documented for this exact reach."
+      },
+      "endpoints": {
+        "putIn": "County Road I",
+        "takeOut": "County Road G",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "wi-namekagon-river-county-road-k-landing-riverside-landing",
+      "river": "Namekagon River",
+      "route": "County Road K Landing to Riverside Landing",
+      "state": "WI",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "NPS route support is strong, but current threshold evidence is still broader Leonards-gauge guidance rather than a defensible numeric model for this more technical lower subreach.",
+      "retryCondition": "Retry only if NPS or strong same-route evidence ties the County Road K to Riverside subreach itself to a defensible numeric live-gauge model.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "NPS Namekagon maps and trip pages",
+        "NPS Leonards current-conditions dataset",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Namekagon River - County Road K Landing to Riverside Landing",
+        "Namekagon River - County Road K to Riverside Landing"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "Leonards gauge remains the broader same-river reference, not a route-specific subreach gauge."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official flow context exists, but it is not specific enough for this lower route segment."
+      },
+      "endpoints": {
+        "putIn": "County Road K Landing",
+        "takeOut": "Riverside Landing",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "wi-st-croix-river-osceola-landing-somerset-landing",
+      "river": "St. Croix River",
+      "route": "Osceola Landing to Somerset Landing",
+      "state": "WI",
+      "status": "research_later",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 18,
+      "blocker": "Official lower-St. Croix corridor support is real, but the strongest numeric support still belongs to the upstream Interstate-to-Osceola route, not this broader lake-like downstream reach.",
+      "retryCondition": "Retry only if NPS, USGS-adjacent manager guidance, or strong same-route evidence ties this exact lower-river reach to a defensible live gauge floor or range.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/midwest-route-candidate-seeds.md",
+        "NPS lower St. Croix paddling guide",
+        "NPS lower St. Croix map set",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "St. Croix River - Osceola Landing to Somerset Landing"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "Upstream St. Croix Falls gauge is useful broadly, but not specific enough yet for this exact downstream corridor."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Current threshold story would require guessy downstream reuse of upstream guidance."
+      },
+      "endpoints": {
+        "putIn": "Osceola Landing",
+        "takeOut": "Somerset Landing",
+        "coordinatesPresent": false
+      },
+      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "mn-big-fork-river-highway-6-s-highway-6-n",
+      "river": "Big Fork River",
+      "route": "Highway 6 (S) carry-in access to Highway 6 (N) carry-in access",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends the route and gives a qualitative floor at Bigfork, but this pass did not surface a defensible live USGS gauge pairing. The live level story available here is the MN DNR CSG site at the Highway 38 bridge in Bigfork rather than a usable USGS feed.",
+      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Bigfork corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Big Fork River segments and maps page",
+        "MN DNR river levels dataset for Big Fork River nr Bigfork, MN6",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Big Fork River - Highway 6 (S) to Highway 6 (N)",
+        "Big Fork River - Highway 6 South to Highway 6 North"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "MN DNR live site at the Highway 38 bridge in Bigfork gives route-relevant level context, but it is a CSG gauge rather than the USGS pairing this workflow prefers."
+      },
+      "thresholdSupport": {
+        "strength": "moderate",
+        "notes": "Official route page says some rapids will be too rocky to run if the Bigfork gauge is below 4 ft, but it does not provide the stronger route-ready ladder used on the best candidates."
+      },
+      "endpoints": {
+        "putIn": "Highway 6 (S) carry-in access",
+        "takeOut": "Highway 6 (N) carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. The route itself is a real DNR-recommended 15.7-mile day trip, but it stays out of the implementation queue because the live gauge story is DNR-only and not a defensible USGS pairing under the current triage bar."
+    },
+    {
+      "candidateId": "mn-long-prairie-river-long-prairie-browerville",
+      "river": "Long Prairie River",
+      "route": "Long Prairie to Browerville",
+      "state": "MN",
+      "status": "likely_addable",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Queue for implementation unless a cleaner higher-priority Minnesota route appears first.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Long Prairie River segments page",
+        "MN DNR river levels site for Long Prairie gauge",
+        "MN DNR public water access GIS dataset"
+      ],
+      "aliases": [
+        "Long Prairie River - Long Prairie to Browerville"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Official MN DNR gauge at Long Prairie (`Long Prairie River at Long Prairie, MN`) sits on the route start corridor and carries a full official 5-band ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official DNR ladder for site id 89: 53-200 low, 200-500 good, 500-650 high, above 650 very high. Good implementation candidate as a conservative minimum-only or banded route."
+      },
+      "endpoints": {
+        "putIn": "Long Prairie River, Long Prairie Public Water Access Site",
+        "takeOut": "Long Prairie River, Browerville Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.975537,
+          "longitude": -94.865877
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.076399,
+          "longitude": -94.858487
+        }
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. DNR segments page explicitly recommends this 13.3-mile day trip and DNR public-water-access GIS resolves both endpoints cleanly. Implementation check on 2026-04-26: route package still looks strong, but current PaddleTodayV2 live-data ingestion is USGS-only and the supporting MN DNR CSG gauge does not expose usable NWIS IV samples for this site, so adding it today would ship a dead gauge."
+    },
+    {
+      "candidateId": "mn-pomme-de-terre-river-larson-appleton",
+      "river": "Pomme de Terre River",
+      "route": "Larson to Appleton",
+      "state": "MN",
+      "status": "likely_addable",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Queue for implementation unless a cleaner higher-priority Minnesota route appears first.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Pomme de Terre River segments page",
+        "MN DNR river levels site for Appleton gauge",
+        "MN DNR public water access GIS dataset"
+      ],
+      "aliases": [
+        "Pomme de Terre River - Larson to Appleton",
+        "Larson to Appleton: Pomme de Terre River"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Official MN DNR gauge at Appleton (`Pomme De Terre River at Appleton, MN`) sits at the downstream route town and carries a full official 5-band ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official DNR ladder for site id 168: 3.5-4.5 low, 4.5-6.0 good, 6.0-7.5 high, above 7.5 very high. Strong enough for conservative implementation."
+      },
+      "endpoints": {
+        "putIn": "Pomme de Terre River, Larson Landing Public Water Access Site",
+        "takeOut": "Pomme de Terre River, Appleton Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.239322,
+          "longitude": -95.98509
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.203137,
+          "longitude": -96.020898
+        }
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. DNR segments page explicitly recommends this 6-mile beginner-friendly day trip and DNR public-water-access GIS resolves both endpoints cleanly. Implementation check on 2026-04-26: route package still looks strong, but current PaddleTodayV2 live-data ingestion is USGS-only and the supporting MN DNR CSG gauge does not expose usable NWIS IV samples for this site, so adding it today would ship a dead gauge."
+    },
+    {
+      "candidateId": "mn-chippewa-river-lentz-access-watson-lions-park",
+      "river": "Chippewa River",
+      "route": "Lentz Access to Watson Lion's Park",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Official DNR route support is strong, but the live DNR gauge is upstream at Benson and I did not find route-level evidence tight enough to prove that Benson thresholds ship cleanly for the downstream Lentz-to-Watson day trip without a stitched proxy story.",
+      "retryCondition": "Retry if MN DNR, manager guidance, or strong same-route evidence ties the Benson gauge ladder directly to the Lentz-to-Watson corridor, or if an official Watson-end access record with stronger route context surfaces.",
+      "retryDate": "2026-05-10",
+      "sourcesChecked": [
+        "MN DNR Chippewa River segments page",
+        "MN DNR river levels site for Benson gauge",
+        "MN DNR public water access GIS dataset for Lentz and Watson-area access search"
+      ],
+      "aliases": [
+        "Chippewa River - Lentz Access to Watson Lion's Park",
+        "Chippewa River - Lentz Landing to Watson Lion's Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "Only obvious official live-gauge story on the trail is Benson (`Chippewa River at Benson, US12`), upstream of this route cluster rather than on it."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official DNR ladder exists at Benson (135-482 low, 482-942 good, 942-1641 high), but current evidence does not tie that ladder directly enough to this downstream recommended trip."
+      },
+      "endpoints": {
+        "putIn": "Chippewa River, Lentz Landing Public Water Access Site",
+        "takeOut": "Watson Lion's Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. Worth keeping because DNR explicitly recommends the trip, but current gauge fit is weaker than Long Prairie or Pomme de Terre."
+    },
+    {
+      "candidateId": "mn-sauk-river-spring-hill-county-park-st-martin-carry-in-access",
+      "river": "Sauk River",
+      "route": "Spring Hill County Park to St. Martin carry-in access",
+      "state": "MN",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Route evidence is strong, but this pass did not finish authoritative coordinate lookup for both official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from county or DNR access records.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Sauk River segments and maps page",
+        "MN DNR Sauk River map 2 PDF",
+        "MN DNR river levels site for Sauk River nr St. Martin, CR12"
+      ],
+      "aliases": [
+        "Sauk River - Spring Hill County Park to St. Martin carry-in access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Official MN DNR gauge at Sauk River nr St. Martin, CR12 sits on the take-out side of the route and carries a full five-band ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder for site 328: Scrapable below 14 ft, Low 14-15 ft, Medium 15-17 ft, High 17-20 ft, Very High above 20 ft."
+      },
+      "endpoints": {
+        "putIn": "Spring Hill County Park",
+        "takeOut": "St. Martin carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. MN DNR map 2 names both endpoints clearly and the route is a practical ~9-mile day trip from RM 56.2 to RM 47.1."
+    },
+    {
+      "candidateId": "mn-north-fork-crow-river-city-of-rockford-trailer-access-riverside-county-park",
+      "river": "North Fork Crow River",
+      "route": "City of Rockford trailer access to Riverside County Park",
+      "state": "MN",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Route evidence is strong, but this pass did not finish authoritative coordinate lookup for both official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from county or city access records.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR North Fork Crow River segments and maps page",
+        "MN DNR North Fork Crow map 2 PDF",
+        "MN DNR river levels site for North Fork Crow River near Rockford"
+      ],
+      "aliases": [
+        "North Fork Crow River - City of Rockford trailer access to Riverside County Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Official MN DNR gauge at Farmington Avenue bridge / near Rockford sits just upstream of the route and already underpins the lower-river threshold story."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder for site 310 / Rockford corridor: Scrapable below 345 cfs, Low 345-500 cfs, Medium 500-1500 cfs, High 1500-1750 cfs, Very High above 1750 cfs."
+      },
+      "endpoints": {
+        "putIn": "City of Rockford trailer access",
+        "takeOut": "Riverside County Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. DNR map 2 names both endpoints clearly, the overview explicitly points paddlers downstream of Rockford for family-friendly day trips, and this route trims the existing long Riverside-to-Dayton route into a cleaner ~7.4-mile upstream companion."
+    },
+    {
+      "candidateId": "mn-cottonwood-river-juenemann-carry-in-access-springfield-carry-in-access",
+      "river": "Cottonwood River",
+      "route": "Juenemann carry-in access to Springfield carry-in access",
+      "state": "MN",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Route evidence is strong enough to preserve, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Cottonwood River overview page",
+        "MN DNR Minnesota River map 4 / Cottonwood River PDF",
+        "MN DNR river levels site for Cottonwood River nr Springfield, CR2"
+      ],
+      "aliases": [
+        "Cottonwood River - Juenemann carry-in access to Springfield carry-in access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Official MN DNR Springfield gauge sits exactly at the upstream access cluster and carries a full five-band ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder for site 42: Scrapable below 12.5 ft, Low 12.5-13 ft, Medium 13-17 ft, High 17-19 ft, Very High above 19 ft."
+      },
+      "endpoints": {
+        "putIn": "Juenemann carry-in access",
+        "takeOut": "Springfield carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. The Cottonwood corridor did not yield a longer recommended trip as cleanly as Long Prairie or Pomme de Terre, but this short official water-trail segment is a practical same-river day trip with direct gauge support and named public endpoints."
+    },
+    {
+      "candidateId": "mn-des-moines-river-mayflower-park-christianna-bridge",
+      "river": "Des Moines River",
+      "route": "Mayflower Park to Christianna Bridge",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Official DNR route support and a full DNR ladder exist, but the live gauge is downstream at Jackson and I did not find route-level evidence tight enough to prove that the Jackson thresholds ship cleanly for the upstream Mayflower-to-Christianna day trip without a stitched proxy story.",
+      "retryCondition": "Retry if MN DNR, manager guidance, or strong same-route evidence ties the Jackson gauge ladder directly to the Mayflower-to-Christianna corridor, or if a closer official live gauge appears for the Windom reach.",
+      "retryDate": "2026-05-10",
+      "sourcesChecked": [
+        "MN DNR Des Moines River segments and maps page",
+        "MN DNR Des Moines River map PDF",
+        "MN DNR river levels dataset for West Fork Des Moines River at Jackson, River St",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Des Moines River - Mayflower Park to Christianna Bridge"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "Official MN DNR gauge at Jackson (site 259) has a full five-band ladder, but it sits well downstream of this Windom-area route."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official ladder at Jackson is strong on its own (Scrapable below 75 cfs, Low 75-200 cfs, Medium 200-900 cfs, High 900-1800 cfs, Very High above 1800 cfs), but current evidence does not tie that ladder directly enough to the upstream 7-mile Mayflower-to-Christianna trip."
+      },
+      "endpoints": {
+        "putIn": "Mayflower Park",
+        "takeOut": "Christianna Bridge",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh gauge-first Minnesota discovery. MN DNR map explicitly recommends this 7-mile day trip and names both endpoints clearly. It is worth preserving, but conservative shipping still needs better route-specific gauge fit than the current downstream Jackson proxy story."
+    },
+    {
+      "candidateId": "mn-otter-tail-river-wannigan-road-riverside-park",
+      "river": "Otter Tail River",
+      "route": "Wannigan Road to Riverside Park",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 8.4-mile day trip and clearly names both endpoints, but this pass did not surface a defensible route-level live gauge pairing or numeric threshold package. The official segment page tells paddlers to check gauge levels before the trip without identifying a shippable gauge story for this exact reach.",
+      "retryCondition": "Retry only if MN DNR, USGS, or strong same-route evidence surfaces a route-matched live gauge with usable numeric guidance for the Rochert-to-Phelps-Mill corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Otter Tail River segments and maps page",
+        "MN DNR Otter Tail River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Otter Tail River - Wannigan Road to Riverside Park",
+        "Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The official recommended-trip page says to check gauge levels, but this pass did not surface a defensible live gauge pairing or route-ready ladder for the exact trip."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No route-specific numeric paddling floor or band was surfaced on this pass."
+      },
+      "endpoints": {
+        "putIn": "Wannigan Road carry-in access",
+        "takeOut": "Riverside Park carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the upstream Otter Tail cluster. The route shape is real and official, but the live-gauge story stayed too vague to clear PaddleTodayV2's trust bar."
+    },
+    {
+      "candidateId": "mn-otter-tail-river-phelps-mill-county-park-west-red-river-lake",
+      "river": "Otter Tail River",
+      "route": "Phelps Mill Park to West Red River Lake",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 11.8-mile day trip and clearly names both endpoints, but this pass still did not surface a defensible live gauge pairing or route-level numeric threshold support. The official segment page again says to check gauge levels without exposing a concrete gauge story strong enough to ship.",
+      "retryCondition": "Retry only if MN DNR, USGS, or strong same-route evidence surfaces a route-matched live gauge with usable numeric guidance for the Phelps-Mill-to-West-Red-River-Lake corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Otter Tail River segments and maps page",
+        "MN DNR Otter Tail River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Otter Tail River - Phelps Mill Park to West Red River Lake",
+        "Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The official recommended-trip page instructs paddlers to check gauge levels, but this pass did not surface a defensible live gauge pairing or route-ready ladder for the exact trip."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No route-specific numeric paddling floor or band was surfaced on this pass."
+      },
+      "endpoints": {
+        "putIn": "Phelps Mill County Park carry-in access",
+        "takeOut": "West Red River Lake trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the downstream Otter Tail cluster. The official route shape is clean, but the same live-gauge vagueness kept it out of the likely-addable queue."
+    },
+    {
+      "candidateId": "mn-zumbro-river-village-park-theilman-access",
+      "river": "Zumbro River",
+      "route": "Village Park to Theilman Access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "The live USGS gauge at Zumbro Falls is route-adjacent and the official endpoints are now clear, but the numeric threshold support is still a stitched mixed-source story from neighboring Miles Paddled reaches rather than a clean exact-route ladder for Hammond-to-Theilman itself.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent guidance, or strong same-route evidence ties the Zumbro Falls gauge directly to the Hammond/Village-Park-to-Theilman corridor, or if a fresh exact-route trip report publishes a defensible minimum/range.",
+      "retryDate": "2026-05-10",
+      "sourcesChecked": [
+        "MN DNR Zumbro River segments and maps page",
+        "MN DNR Zumbro map 2 PDF",
+        "USGS 05374000 monitoring location",
+        "Miles Paddled Zumbro River II",
+        "Miles Paddled Zumbro River III",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Zumbro River - Village Park to Theilman Access",
+        "Zumbro River - Hammond Village Park to Theilman Access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05374000 at Zumbro Falls sits upstream on the same main stem and already underpins nearby shipped Zumbro routes; this is a much cleaner same-gauge fit than the earlier vague Hammond follow-on pass."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Mixed evidence is directionally promising: Miles Paddled Zumbro River II says 7-9 ft is recommended, 12 ft is high, and 5 ft was still adequate for the Zumbro Falls-to-Hammond family, while Zumbro River III calls 5.2 ft the lowest recommended level for the downstream Millville-to-Theilman family. That is not clean exact-route support for the official Hammond-to-Theilman route, so it stays below likely-addable."
+      },
+      "endpoints": {
+        "putIn": "Village Park",
+        "takeOut": "Theilman Access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first same-gauge follow-on from the Zumbro Falls cluster. The current DNR Map 2 text clearly names Village Park at Hammond and Theilman carry-in access, which fixes the endpoint-name blocker from the earlier 16:58 pass, but the threshold package is still a neighboring-reach stitch rather than a clean route-specific model."
+    },
+    {
+      "candidateId": "mn-red-lake-river-smiley-bridge-centennial-park",
+      "river": "Red Lake River",
+      "route": "Smiley Bridge to Centennial Park",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this beginner-friendly 12.3-mile day trip and the Thief River Falls DNR gauge carries a full official ladder, but the live story surfaced on this pass is still a DNR CSG site rather than a defensible live USGS pairing the current product can ship with chart support.",
+      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Thief River Falls corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Red Lake River segments and maps page",
+        "MN DNR river levels dataset for Red Lake River at Thief River Falls, Zeh St W",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red Lake River - Smiley Bridge to Centennial Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "MN DNR site 179 at Thief River Falls sits essentially at the take-out corridor and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder at site 179: Scrapable below 1098 ft, Low 1098-1099 ft, Medium 1099-1103 ft, High 1103-1105 ft, Very High above 1105 ft."
+      },
+      "endpoints": {
+        "putIn": "Smiley Bridge carry-in access",
+        "takeOut": "Centennial Park trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first gauge discovery. Official DNR route support is clean and practical, but the route misses the current bar because the live gauge story is DNR-only rather than a working USGS pairing."
+    },
+    {
+      "candidateId": "mn-pine-river-rock-dam-harvey-drake-access",
+      "river": "Pine River",
+      "route": "Rock Dam to Harvey Drake access",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 14.4-mile day trip and the Jenkins DNR gauge carries a full official ladder, but the available live story on this pass is still a DNR CSG site rather than a defensible live USGS pairing that PaddleTodayV2 can ship today.",
+      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the lower Pine corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Pine River segments and maps page",
+        "MN DNR river levels dataset for Pine River nr Jenkins, CSAH15",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Pine River - Rock Dam to Harvey Drake access",
+        "Pine River - Rock Dam to Harvey Drake trailer landing"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "MN DNR site 316 at Pine River near Jenkins is on the same lower-river corridor and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder at site 316: Scrapable below 35 cfs, Low 35-50 cfs, Medium 50-200 cfs, High 200-500 cfs, Very High above 500 cfs."
+      },
+      "endpoints": {
+        "putIn": "Rock Dam carry-in access",
+        "takeOut": "Harvey Drake trailer landing",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first gauge discovery. Official route support is clean, and the route shape is one of the friendlier Pine options because it avoids rapids, but the gauge still fails the current USGS-first shipping bar."
+    },
+    {
+      "candidateId": "mn-little-fork-river-veterans-park-highway-73-bridge",
+      "river": "Little Fork River",
+      "route": "Veterans Park to Highway 73 bridge",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 15.2-mile experienced-paddler day trip and the Linden Grove DNR gauge carries a full official ladder, but the live story surfaced on this pass is still a DNR CSG site rather than a defensible live USGS pairing the current product can ship with chart support.",
+      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Linden Grove / Highway 73 corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Little Fork River segments and maps page",
+        "MN DNR river levels dataset for Little Fork River nr Linden Grove, TH73",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Little Fork River - Veterans Park to Highway 73 bridge"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "MN DNR site 88 at Linden Grove / Highway 73 sits exactly at the official take-out and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official ladder at site 88: Scrapable below 100 cfs, Low 100-175 cfs, Medium 175-500 cfs, High 500-1000 cfs, Very High above 1000 cfs. The route page also warns that three feet or lower at the highway-bridge gauge makes most rapids too shallow for easy passage."
+      },
+      "endpoints": {
+        "putIn": "Veterans Park (carry-in)",
+        "takeOut": "Highway 73 bridge (carry-in)",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first gauge discovery. The route is real and official, but it is also more technical than the mellow family-float adds; even apart from that, the current blocker is still the DNR-only gauge feed."
+    },
+    {
+      "candidateId": "mn-red-river-kidder-recreation-area-brushvale-bridge-recreation-area",
+      "river": "Red River of the North",
+      "route": "Kidder Recreation Area to Brushvale Bridge Recreation Area",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Official route support and a nearby direct USGS gauge exist, but I did not find route-level numeric threshold guidance strong enough to turn the Georgetown gauge into a conservative shipped model for this exact 10.4-mile day trip.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent manager guidance, River Keepers, or strong same-route evidence ties the Georgetown gauge directly to a defensible low floor or band for the Kidder-to-Brushvale corridor.",
+      "retryDate": "2026-05-10",
+      "sourcesChecked": [
+        "MN DNR Red River segments and maps page",
+        "USGS site inventory for Red River of the North near Georgetown, MN (05062130)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red River - Kidder Recreation Area to Brushvale Bridge Recreation Area",
+        "Red River of the North - Kidder to Brushvale"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05062130 (Red River of the North near Georgetown, MN) sits on the same corridor and is the cleanest live gauge story surfaced on this pass."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "MN DNR clearly recommends the route and tells paddlers to check water levels before the trip, but this pass did not surface a numeric paddling floor or band for the Kidder-to-Brushvale day trip itself."
+      },
+      "endpoints": {
+        "putIn": "Kidder Recreation Area",
+        "takeOut": "Brushvale Bridge Recreation Area",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first border-river discovery. The route itself is clean and official, with named public recreation-area endpoints and a nearby direct USGS gauge, but the threshold package is still too qualitative to clear likely_addable."
+    }
+  ]
+}

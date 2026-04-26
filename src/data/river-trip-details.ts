@@ -634,6 +634,72 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-stigmans-little-white-dog': {
+    putIn: {
+      name: "Stigman's Mound public water access",
+      latitude: 46.6404505,
+      longitude: -94.8796954,
+    },
+    takeOut: {
+      name: 'Little White Dog public water access',
+      latitude: 46.586977,
+      longitude: -94.822607,
+    },
+    logistics: {
+      distanceLabel: '6.2 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Short Wadena County car shuttle. This is an easier logistics day than the downstream Crow Wing routes, so it works well when you want a cleaner half-day decision.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county-park and public-water-access parking rules at both ends.',
+      camping:
+        'Little White Dog is a county-park camping anchor at the take-out. Treat Stigman\'s Mound itself as a launch access unless you have separately confirmed overnight rules there.',
+      summary:
+        'Launch at Stigman\'s Mound and finish at Little White Dog for the shortest cleanly supported Crow Wing add in this corridor. The Nimrod gauge is right at the put-in, so the route is easy to screen for obvious low-water days before you drive.',
+      accessCaveats: [
+        'Both endpoints are now backed by Minnesota public-water-access GIS records, which is what finally clears this route for the product.',
+        'Stigman\'s Mound is an official public access, but it is still worth checking the exact parking setup on arrival because this is not a polished city-park launch.',
+      ],
+      watchFor: [
+        'Scraping and a slower sandy-river pace when the Nimrod gauge is hovering near 300 cfs.',
+        'Fresh wood, sweepers, or stronger current after storms.',
+        'A few occasional rapids and blind bends even though this is still an easy route overall.',
+      ],
+    },
+  },
+  'crow-wing-river-little-white-dog-cottingham': {
+    putIn: {
+      name: 'Little White Dog carry-in access',
+      latitude: 46.586977,
+      longitude: -94.822607,
+    },
+    takeOut: {
+      name: 'Cottingham County Park carry-in access',
+      latitude: 46.505522,
+      longitude: -94.807381,
+    },
+    logistics: {
+      distanceLabel: '9.8 mi',
+      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
+      shuttle:
+        'A short two-car Wadena County shuttle is the practical move. Stage the take-out at Cottingham first so you are not dealing with county-park parking and a tired reset at the end of a nearly 10-mile day.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted county-park camping, parking, and public-water-access rules at both ends.',
+      camping:
+        'Both Little White Dog and Cottingham are county-park camping anchors, so this is an unusually easy route to stage as a day trip with a simple overnight before or after.',
+      summary:
+        'Launch at Little White Dog and finish at Cottingham County Park for one of the cleanest officially named Crow Wing day trips. The river is usually friendly, but you should still check the Nimrod reading before you commit to a longer sandy-river shuttle.',
+      accessCaveats: [
+        'Both endpoints are backed by Minnesota public-water-access records, which is the main trust reason this route qualifies now.',
+        'The live gauge is upstream at Nimrod rather than on the exact reach, so same-day local conditions can still differ a bit from the raw reading.',
+      ],
+      watchFor: [
+        'Scraping and slower progress when the Nimrod gauge is hovering near 300 cfs.',
+        'Fresh wood, strainers, or a faster push after storms.',
+        'A longer day than it first looks like if wind or low water slows your pace on the sandy bends.',
+      ],
+    },
+  },
   'minnesota-river-judson-land-of-memories': {
     putIn: {
       name: 'Judson public water access',

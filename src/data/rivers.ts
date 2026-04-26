@@ -1961,6 +1961,216 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-stigmans-little-white-dog',
+    slug: 'crow-wing-river-stigmans-little-white-dog',
+    name: 'Crow Wing River',
+    reach: "Stigman's Mound to Little White Dog carry-in access",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      'Shorter upper-middle Crow Wing day with a cleaner gauge story than many small Minnesota adds. The main call is simple: is the Nimrod gauge clearly above scrape level without recent rain turning an easy sandy run into more of a wood-and-current check?',
+    statusText:
+      'Treat 300 cfs at Nimrod as the conservative floor. This route starts at the gauge, so the low-water story is cleaner than on the downstream Crow Wing adds, but storms and fresh wood still matter.',
+    latitude: 46.6404505,
+    longitude: -94.8796954,
+    gaugeSource: {
+      id: 'usgs-05244000',
+      provider: 'usgs',
+      siteId: '05244000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This stretch often stays workable through the warm season, but low water slows it down quickly and storms can still move wood around fast.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly an easy scenic paddle, but it is still a moving river with occasional rapids, sweepers, and enough current that recent weather still matters.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names this exact Stigman\'s Mound to Little White Dog trip, both endpoints are now backed by official public-water-access GIS records, and the Nimrod gauge sits right at the put-in with official DNR interpretation bands. The remaining caveat is that the numeric model is still mainly a low-water floor rather than a fuller preferred range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '6.2 river miles',
+        note: 'MN DNR names Stigman\'s Mound to Little White Dog as a recommended day trip on Crow Wing Map 2, from about river mile 65.5 to 59.3.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Official low-water floor',
+        value: '300 cfs at Nimrod',
+        note: 'MN DNR interprets the Nimrod gauge as Scrapable below 300 cfs and Low from 300 to 400 cfs. The app uses that official floor without pretending the route has a better-published sweet spot than the evidence supports.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Gauge context',
+        value: 'Direct at the put-in',
+        note: 'The USGS Nimrod gauge sits at the upstream end of this route, which makes the live gauge story cleaner here than on the downstream Crow Wing segments that use the same site as a proxy.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle current with occasional rapids',
+        note: 'MN DNR describes this part of the Crow Wing as crystal clear water with a gentle path rarely interrupted by rapids, while still warning paddlers to know the locations of rapids and dams on the trail.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified in official GIS',
+        note: 'Minnesota public-water-access data includes both Crow Wing River, Stigman\'s Mound, #7 Public Water Access Site and Crow Wing River, Little White Dog, #9 Public Water Access Site with matching river miles on this route.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'USGS 05244000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-little-white-dog-cottingham',
+    slug: 'crow-wing-river-little-white-dog-cottingham',
+    name: 'Crow Wing River',
+    reach: 'Little White Dog carry-in access to Cottingham County Park',
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      'Strong northern Minnesota day trip with a real official route shape, named public endpoints, and a same-river gauge story that is conservative enough to trust. The main product question is simple: is the Nimrod reading clearly above scrape territory for this sandy lower-middle reach?',
+    statusText:
+      'Treat the Nimrod gauge as an upstream same-river proxy, not a perfect on-route gauge. Below 300 cfs is too scrape-prone for a confident recommendation; more water usually helps, but wood and current still matter after rain.',
+    latitude: 46.5462495,
+    longitude: -94.814994,
+    gaugeSource: {
+      id: 'usgs-05244000',
+      provider: 'usgs',
+      siteId: '05244000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Crow Wing River at Nimrod, MN',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod used as an upstream proxy',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This reach is usually paddleable through much of the warm season, but storms can add wood and a faster push in a hurry.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly an easy scenic paddle, but it is still a moving river with occasional rapids, downed wood risk, and a nearly 10-mile day between county-park accesses.',
+      confidenceNotes:
+        'Confidence is high because MN DNR names this exact recommended trip, both endpoints are backed by official public-access records, and the Nimrod gauge has official DNR interpretation bands. The remaining caveat is the gauge: it sits upstream at Nimrod rather than on the exact Little White Dog-to-Cottingham reach, so the app stays conservative and minimum-only.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '9.8 river miles',
+        note: 'MN DNR names Little White Dog to Cottingham County Park as a recommended day trip on the Crow Wing River map, from river mile 59.3 to 49.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Official low-water floor',
+        value: '300 cfs at Nimrod',
+        note: 'MN DNR interprets the Nimrod gauge as Scrapable below 300 cfs and Low from 300 to 400 cfs. The app uses that official low-water floor without pretending the downstream route has a cleaner polished range than the evidence supports.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Gauge context',
+        value: 'Upstream same-river proxy',
+        note: 'The live gauge sits at Nimrod upstream of the Little White Dog put-in on the same river system. That is a defensible same-river signal for this route, but it is not an exact on-route gauge, so the product stays conservative.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle current with occasional rapids',
+        note: 'MN DNR describes this part of the Crow Wing as crystal clear water with a gentle path rarely interrupted by rapids, while still warning paddlers to know the locations of rapids and dams on the trail.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified in official GIS',
+        note: 'Minnesota public-water-access data includes both Crow Wing River, Little White Dog, #9 Public Water Access Site and Crow Wing River, Cottingham Co. Park, #11 Public Water Access Site with matching river miles on this route.',
+        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Minnesota public water access dataset (GeoPackage zip)',
+        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'USGS 05244000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-judson-land-of-memories',
     slug: 'minnesota-river-judson-land-of-memories',
     name: 'Minnesota River',

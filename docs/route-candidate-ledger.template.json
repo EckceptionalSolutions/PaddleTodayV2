@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "updatedAt": "YYYY-MM-DDTHH:MM:SSZ",
+  "notes": "Use this ledger to avoid re-reviewing weak candidates and to feed implementation runs from pre-vetted routes.",
+  "candidates": [
+    {
+      "candidateId": "mn-example-river-example-putin-to-example-takeout",
+      "river": "Example River",
+      "route": "Example Put-in to Example Take-out",
+      "state": "MN",
+      "status": "likely_addable",
+      "lastReviewed": "YYYY-MM-DD",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": null,
+      "retryDate": null,
+      "sourcesChecked": [],
+      "aliases": [],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct|proxy|none",
+        "notes": ""
+      },
+      "thresholdSupport": {
+        "strength": "official|mixed|weak|none",
+        "notes": ""
+      },
+      "endpoints": {
+        "putIn": "",
+        "takeOut": "",
+        "coordinatesPresent": false
+      },
+      "notes": ""
+    }
+  ]
+}
