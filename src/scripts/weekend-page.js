@@ -541,7 +541,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
   setText(featuredReach, item.river.reach);
   setText(featuredVerdict, weekendVerdict(item));
   setText(featuredScore, String(item.weekend.score));
-  setText(featuredRating, ratingDisplayLabel(item.weekend.rating));
+  setText(featuredRating, ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(featuredConfidence, confidenceDisplayLabel(item.weekend.confidence));
   setText(featuredCurrent, `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`);
   setText(featuredReason, item.weekend.summary);
@@ -585,7 +585,7 @@ function createWeekendCard(item, index, options = {}) {
   setText(card.querySelector('[data-field="route-label"]'), item.river.reach);
   setText(card.querySelector('[data-field="card-verdict"]'), weekendVerdict(item));
   setText(card.querySelector('[data-field="score"]'), String(item.weekend.score));
-  setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating));
+  setText(card.querySelector('[data-field="rating"]'), ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(card.querySelector('[data-field="meta-line"]'), '');
   setText(card.querySelector('[data-field="card-summary-main"]'), item.weekend.summary);
 

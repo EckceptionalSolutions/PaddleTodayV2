@@ -2342,7 +2342,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
-  setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
+  setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
   setText(card, 'card-verdict', recommendationVerdict(item));
   setText(card, 'meta-line', metaLineText(item, showDistance));
   setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
@@ -2674,7 +2674,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
+  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
   setText(document, 'featured-verdict', recommendationVerdict(item));
   setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
   renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
@@ -4473,7 +4473,6 @@ function setupFilters() {
       activeFilters.rating = activeFilters.rating === rating ? '' : rating;
       currentExplorePage = 1;
       renderHomepage(latestResults);
-      scrollToHomeTarget('explore-map');
     });
   }
 

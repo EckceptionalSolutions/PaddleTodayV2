@@ -7,7 +7,7 @@ import {
 } from './map-runtime.js';
 import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-button-markup.js';
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
-import { confidenceDisplayLabel } from './ui-taxonomy.js';
+import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
 const root = document.querySelector('[data-river-group-page]');
@@ -452,6 +452,20 @@ function weatherVisualMarkup(state) {
   }
 }
 
+function weatherBadgeMarkup(route) {
+  const state = weatherVisualState(route);
+  const label = weatherVisualLabel(state);
+
+  return `
+    <span class="card-weather-badge card-weather-badge--${state}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">
+        ${weatherVisualMarkup(state)}
+      </span>
+      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
+    </span>
+  `;
+}
+
 function formatGaugeValue(value, unit) {
   if (typeof value !== 'number' || !Number.isFinite(value)) {
     return 'Gauge: unavailable';
@@ -781,11 +795,13 @@ function renderRouteList(routes) {
           <strong class="route-choice__title">${route.reach}</strong>
           <span class="route-choice__verdict">${decisionLabel(route.rating, route.score)}</span>
           <div class="route-choice__scoreline">
-            <span class="route-choice__score route-choice__score--${ratingToneKey(route.rating)}">
-              ${route.score}
-            </span>
+            <div class="score-orb route-choice__score-orb score-orb--${ratingToneKey(route.rating)}" aria-label="Route score">
+              <span class="score-orb__score">${route.score}</span>
+              <span class="score-orb__rating">${ratingDisplayLabel(route.rating, { liveData: route.liveData, compact: true })}</span>
+            </div>
             <div class="route-choice__score-copy">
               <span class="route-choice__meta">${conditionsLine(route)}</span>
+              <span class="route-choice__weather">${weatherBadgeMarkup(route)}</span>
               <span class="route-choice__signal">
                 ${signalRowMarkup(route)}
               </span>

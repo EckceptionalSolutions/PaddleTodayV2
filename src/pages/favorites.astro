@@ -103,10 +103,17 @@ import FavoriteButton from '../components/FavoriteButton.astro';
           <span class="score-orb__score" data-field="favorite-score"></span>
           <span class="score-orb__rating" data-field="favorite-rating"></span>
         </div>
-        <p class="river-card__meta-line" data-field="favorite-meta"></p>
+        <div class="river-card__score-copy">
+          <p class="river-card__meta-line" data-field="favorite-meta"></p>
+          <div class="river-card__weather" data-field="favorite-weather" hidden></div>
+          <div class="river-card__signal-line river-card__signal-line--score" data-field="favorite-signal"></div>
+        </div>
       </div>
       <p class="river-card__explanation" data-field="favorite-summary"></p>
-      <div class="river-card__signal-line" data-field="favorite-signal"></div>
+      <section class="river-card__facts-section" data-field="favorite-facts-section" hidden>
+        <p class="river-card__facts-label">Route facts</p>
+        <div class="river-card__facts" data-field="favorite-facts"></div>
+      </section>
       <p class="favorites-card__saved-at muted" data-field="favorite-saved-at"></p>
 
       <a class="river-link river-link--wide" href="/" data-field="favorite-link">View route</a>

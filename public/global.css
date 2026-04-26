@@ -6551,6 +6551,21 @@ body.site-search-open {
   min-width: 0;
 }
 
+.route-choice__score-orb {
+  width: 4.8rem;
+  min-width: 4.8rem;
+  height: 4.8rem;
+  min-height: 4.8rem;
+}
+
+.route-choice__score-orb .score-orb__score {
+  font-size: 1.55rem;
+}
+
+.route-choice__score-orb .score-orb__rating {
+  font-size: 0.56rem;
+}
+
 .route-choice__score {
   font-size: 1.15rem;
   font-weight: 800;
@@ -6561,6 +6576,11 @@ body.site-search-open {
   font-size: 0.82rem;
   color: var(--ink-soft);
   min-height: 1.2rem;
+}
+
+.route-choice__weather {
+  display: inline-flex;
+  align-items: center;
 }
 
 .route-choice__score--great {

@@ -144,9 +144,13 @@ const groupStructuredData = {
             <strong class="route-choice__title">{route.reach}</strong>
             <span class="route-choice__verdict">Loading verdict</span>
             <div class="route-choice__scoreline">
-              <span class="route-choice__score">--</span>
+              <div class="score-orb route-choice__score-orb" aria-label="Route score">
+                <span class="score-orb__score">--</span>
+                <span class="score-orb__rating">Loading</span>
+              </div>
               <div class="route-choice__score-copy">
                 <span class="route-choice__meta">Loading conditions</span>
+                <span class="route-choice__weather" hidden></span>
                 <span class="route-choice__signal">Loading conditions.</span>
               </div>
             </div>

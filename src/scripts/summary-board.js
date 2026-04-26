@@ -112,7 +112,7 @@ const homeDifficultyButtons = Array.from(document.querySelectorAll('[data-home-d
 const homePaddleTimeButtons = Array.from(document.querySelectorAll('[data-home-paddle-time-button]'));
 const homePresetButtons = Array.from(document.querySelectorAll('[data-home-preset]'));
 const homeResetButtons = Array.from(document.querySelectorAll('[data-home-reset-filters]'));
-const homeFilterToggle = document.querySelector('[data-home-filter-toggle]');
+const homeFilterToggle = document.querySelector('[data-home-filter-toggle], [data-home-refine-toggle]');
 const homeFilterToggleLabel = document.querySelector('[data-home-filter-toggle-label]');
 const homeFilterToggleCount = document.querySelector('[data-home-filter-toggle-count]');
 const homeFilterBackdrop = document.querySelector('[data-home-filter-backdrop]');
@@ -2304,7 +2304,7 @@ function createCard(item, { showDistance = false, compact = false } = {}) {
   setText(card, 'state', regionStateText(item));
   setText(card, 'route-label', routeLabelForItem(item));
   setText(card, 'score', String(item.cardRoute.score));
-  setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
+  setText(card, 'rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
   setText(card, 'card-verdict', recommendationVerdict(item));
   setText(card, 'meta-line', '');
   setText(card, 'card-summary-main', recommendationSummaryText(item, showDistance));
@@ -2598,7 +2598,7 @@ function updateFeaturedHero(nearbyItems, overallItems) {
       : 'Best fit based on your location.';
   }
   setText(document, 'featured-score', String(item.cardRoute.score));
-  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData }));
+  setText(document, 'featured-rating', ratingDisplayLabel(item.cardRoute.rating, { liveData: item.cardRoute.liveData, compact: true }));
   setText(document, 'featured-verdict', recommendationVerdict(item));
     setText(document, 'featured-reason', recommendationSummaryText(item, nearbyReady));
     renderScoreBreakdownDisclosure(featuredPanel, item.cardRoute.scoreBreakdown);
@@ -3023,8 +3023,10 @@ function updateLocationStatus() {
 
   if (homeFilterToggleLabel instanceof HTMLElement) {
       homeFilterToggleLabel.textContent = !phoneBreakpoint.matches && filtersOpen
-        ? 'Hide preferences'
-        : 'Set Preferences';
+        ? 'Hide filters'
+        : 'Show filters';
+  } else if (homeFilterToggle instanceof HTMLButtonElement) {
+    homeFilterToggle.textContent = filtersOpen ? 'Hide filters' : 'Show filters';
   }
 
   if (homeFilterToggleCount instanceof HTMLElement) {
@@ -4593,7 +4595,6 @@ function setupFilters() {
       activeFilters.rating = activeFilters.rating === rating ? '' : rating;
       currentExplorePage = 1;
       renderHomepage(latestResults);
-      scrollToHomeTarget('explore-map');
     });
   }
 
