@@ -41,6 +41,7 @@ import {
   verifyAdminPassword,
 } from '../lib/route-contributions';
 import { listRouteRequests } from '../lib/route-requests';
+import { listRouteAudits, updateRouteAudit } from '../lib/route-audits';
 import { getAllRiverScores, getRiverBySlug, getRiverGroupScores, getRiverScore, listRivers } from '../lib/rivers';
 import { getCacheStats } from '../lib/server-cache';
 import { parseQueryNumber, parseRiverAlertThreshold } from './request-parsers';
@@ -85,6 +86,8 @@ const server = createServer(async (request, response) => {
   const isAdminLogoutPath = requestUrl.pathname === '/api/admin/logout';
   const isAdminContributionsPath = requestUrl.pathname === '/api/admin/route-contributions';
   const isAdminRouteRequestsPath = requestUrl.pathname === '/api/admin/route-requests';
+  const isAdminRouteAuditsPath = requestUrl.pathname === '/api/admin/route-audits';
+  const adminRouteAuditMatch = requestUrl.pathname.match(/^\/api\/admin\/route-audits\/([^/]+)$/);
   const isAdminStatsPath = requestUrl.pathname === '/api/admin/stats';
 
   if (isRiverRequestPath && request.method === 'OPTIONS') {
@@ -158,6 +161,20 @@ const server = createServer(async (request, response) => {
 
   if (isAdminRouteRequestsPath && request.method === 'GET') {
     return handleAdminRouteRequestList(request, response, requestId, includeBody);
+  }
+
+  if (isAdminRouteAuditsPath && request.method === 'GET') {
+    return handleAdminRouteAuditList(request, response, requestId, includeBody);
+  }
+
+  if (adminRouteAuditMatch && request.method === 'POST') {
+    return handleAdminRouteAuditUpdate(
+      request,
+      response,
+      requestId,
+      includeBody,
+      decodeURIComponent(adminRouteAuditMatch[1])
+    );
   }
 
   if (isAdminStatsPath && request.method === 'GET') {
@@ -1063,6 +1080,71 @@ async function handleAdminRouteRequestList(
       response,
       502,
       { requestId, error: 'request_failed', message: 'Could not load route requests.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminRouteAuditList(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const audits = await listRouteAudits();
+    return sendJson(response, 200, { requestId, audits }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-route-audits] list failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not load route audits.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminRouteAuditUpdate(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  routeSlug: string
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  const river = getRiverBySlug(routeSlug);
+  if (!river) {
+    return sendJson(response, 404, { requestId, error: 'not_found', message: 'Route not found.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const body = await readJsonBody(request);
+    const audited = body?.audited === true;
+    const reviewer = clean(body?.reviewer, 120) || 'Admin';
+    const notes = clean(body?.notes, 1200);
+    const audit = await updateRouteAudit({
+      routeSlug: river.slug,
+      audited,
+      reviewer,
+      notes,
+    });
+    return sendJson(response, 200, { requestId, ok: true, audit }, includeBody, 'no-store');
+  } catch (error) {
+    console.error('[admin-route-audits] update failed', { requestId, routeSlug, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: 'Could not update route audit.' },
       includeBody,
       'no-store'
     );

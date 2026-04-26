@@ -39,6 +39,23 @@ const calibrationResults = scoringCalibrationCases.map((calibrationCase) => {
     status: inExpectedBand ? 'In range' : 'Needs review',
   };
 });
+
+const routeAuditGroups = Array.from(
+  rivers
+    .slice()
+    .sort((left, right) =>
+      `${left.state} ${left.region} ${left.name} ${left.reach}`.localeCompare(
+        `${right.state} ${right.region} ${right.name} ${right.reach}`
+      )
+    )
+    .reduce((groups, river) => {
+      const key = `${river.state} / ${river.region}`;
+      const items = groups.get(key) ?? [];
+      items.push(river);
+      groups.set(key, items);
+      return groups;
+    }, new Map<string, typeof rivers>())
+);
 ---
 
 <BaseLayout
@@ -91,6 +108,7 @@ const calibrationResults = scoringCalibrationCases.map((calibrationCase) => {
       <a href="#admin-submissions">Submissions</a>
       <a href="#admin-requests">Requests</a>
       <a href="#admin-alerts">Alerts</a>
+      <a href="#admin-route-audits">Route audits</a>
       <a href="#admin-reality-checks">Reality checks</a>
     </nav>
   </section>
@@ -114,6 +132,69 @@ const calibrationResults = scoringCalibrationCases.map((calibrationCase) => {
       <small>Active alert coverage</small>
       <small data-admin-alert-stalest>Oldest check unknown</small>
     </article>
+  </section>
+
+  <section class="admin-route-audits" id="admin-route-audits" data-admin-route-audits hidden>
+    <div class="admin-review__section-head">
+      <div>
+        <p class="eyebrow">Route audits</p>
+        <h2>Human quality audit checklist</h2>
+      </div>
+      <p class="muted request-form__status" data-admin-route-audits-status aria-live="polite"></p>
+    </div>
+
+    <div class="admin-route-audits__stats">
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Total routes</span>
+        <strong data-admin-route-audits-total>{rivers.length}</strong>
+        <small>Routes currently in the app</small>
+      </article>
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Audited</span>
+        <strong data-admin-route-audits-complete>0</strong>
+        <small>Marked human quality audited</small>
+      </article>
+      <article class="snapshot-card">
+        <span class="snapshot-card__label">Remaining</span>
+        <strong data-admin-route-audits-remaining>{rivers.length}</strong>
+        <small>Still needs review</small>
+      </article>
+    </div>
+
+    <div class="admin-route-audits__groups" data-admin-route-audit-list>
+      {routeAuditGroups.map(([groupLabel, groupRivers]) => (
+        <section class="admin-route-audit-group" aria-labelledby={`route-audit-${groupLabel.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`}>
+          <h3 id={`route-audit-${groupLabel.replace(/[^a-zA-Z0-9]+/g, '-').toLowerCase()}`}>{groupLabel}</h3>
+          <div class="admin-route-audit-group__list">
+            {groupRivers.map((river) => (
+              <article class="admin-route-audit-row" data-route-audit-row data-route-slug={river.slug}>
+                <label class="admin-route-audit-row__check">
+                  <input type="checkbox" data-admin-route-audit-toggle />
+                  <span aria-hidden="true"></span>
+                </label>
+                <div class="admin-route-audit-row__main">
+                  <div>
+                    <h4>{river.name}</h4>
+                    <p class="muted">{river.reach}</p>
+                  </div>
+                  <div class="admin-route-audit-row__meta">
+                    <span>{river.profile.difficulty}</span>
+                    <span>{river.profile.thresholdSourceStrength}</span>
+                    <a href={`/rivers/${river.slug}`}>Open route</a>
+                  </div>
+                </div>
+                <label class="admin-route-audit-row__notes">
+                  Notes
+                  <input type="text" maxlength="600" data-admin-route-audit-notes placeholder="Audit notes" />
+                </label>
+                <button class="river-inline-button" type="button" data-admin-route-audit-save>Save notes</button>
+                <p class="muted admin-route-audit-row__status" data-admin-route-audit-status>Not audited</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
   </section>
 
   <section class="admin-scoring-debug" id="admin-reality-checks" data-admin-scoring-debug hidden>

@@ -4,6 +4,21 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 ## Added
 
+- 2026-04-26: `Minnesota River - Franklin City Park to Mack Lake Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 107` and `USGS 05316580` as fallback source.
+  - Supplemental research added: MN DNR Map 4 recommends this exact 10.1-mile trip, names Franklin and Mack Lake as trailer accesses with campsite/rest facilities, City of Franklin confirms river-access camping, Renville County confirms Mack Lake park facilities, Explore Minnesota independently confirms the Franklin boat-ramp/campground listing, and the DNR public-water-access layer confirms both endpoints with access IDs `WAS02279` and `WAS02304`.
+  - Remaining caveat: the Morton gauge is upstream of Franklin rather than at the put-in, so the route uses a conservative proxy-gauge confidence note.
+
+- 2026-04-26: `North Fork Crow River - Betty T. Mason River Access to Wildlife County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 308`.
+  - Supplemental research added: MN DNR recommends this exact 10.2-mile day trip, Wright County confirms both endpoints as public river accesses, and DNR fisheries guidance supports 500 cfs as fairly easy canoeing context.
+  - Remaining caveat: this upper reach is tight and obstruction-prone; the Cokato gauge is strong corridor support, but wood, steep access, and occasional fences still require same-day judgment.
+
+- 2026-04-26: `South Fork Crow River - Rick Johnson Park to Lake Rebecca Park Reserve`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 51`.
+  - Supplemental research added: MN DNR recommends this exact 14.3-mile day trip, the DNR map places the Delano gauge directly on the route corridor, and Three Rivers confirms Crow River carry-in access at Lake Rebecca.
+  - Remaining caveat: the route starts on the South Fork and finishes on the North Fork side near the confluence, so the detail page calls out map review and take-out planning.
+
 - 2026-04-26: `Sauk River - Spring Hill County Park to St. Martin`
   - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 328`.
   - Supplemental research added: Stearns County confirms St. Martin Canoe Access is a one-acre county site retained as access to the Sauk River.

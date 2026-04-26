@@ -700,6 +700,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'minnesota-river-franklin-mack-lake': {
+    putIn: {
+      name: 'Franklin trailer access / city boat landing',
+      latitude: 44.5177553,
+      longitude: -94.8845377,
+    },
+    takeOut: {
+      name: 'Mack Lake Park boat landing',
+      latitude: 44.4585896,
+      longitude: -94.7930696,
+    },
+    logistics: {
+      distanceLabel: '10.1 mi',
+      estimatedPaddleTime: 'About 3 hr 30 min to 5 hr',
+      shuttle:
+        'Plan a two-car shuttle between Franklin and Mack Lake Park. This is short for the Minnesota River, but still a rural big-river shuttle with limited intermediate public exits.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Franklin rules at the put-in and Renville County park rules at Mack Lake.',
+      camping:
+        'Franklin has free primitive camping by the river access, and Mack Lake Park has rustic county campsites by reservation. Treat either as a separate camping decision, not an assumed part of the day trip.',
+      summary:
+        'Launch at the Franklin city boat landing and take out at Mack Lake Park. DNR recommends this as an easy, winding 10.1-mile Minnesota River day with camping available at both ends.',
+      accessCaveats: [
+        'Franklin and Mack Lake are real named public access points, but both are rural landings where same-day parking, mud, and flood debris should be checked before unloading.',
+        'The Morton gauge is upstream of Franklin, so use it as a conservative corridor read rather than a perfect at-the-ramp measurement.',
+        'Do not casually extend downstream past Mack Lake toward the more difficult Fort Ridgely/Minnesota Falls corridor without separate planning.',
+      ],
+      watchFor: [
+        'Wind and heat exposure on open bends even when the river is technically easy.',
+        'Flood debris, muddy landings, and changing sand or bank conditions after high water.',
+        'Private shoreland; stop only at public accesses or clearly legal sites.',
+      ],
+    },
+  },
   'minnesota-river-henderson-belle-plaine': {
     putIn: {
       name: 'Henderson Station public water access',

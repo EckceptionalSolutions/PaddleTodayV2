@@ -19,6 +19,9 @@ const statsPanel = document.querySelector('[data-admin-stats]');
 const routeRequestsPanel = document.querySelector('[data-admin-route-requests]');
 const routeRequestsList = document.querySelector('[data-admin-route-requests-list]');
 const routeRequestsStatus = document.querySelector('[data-admin-route-requests-status]');
+const routeAuditsPanel = document.querySelector('[data-admin-route-audits]');
+const routeAuditsStatus = document.querySelector('[data-admin-route-audits-status]');
+const routeAuditList = document.querySelector('[data-admin-route-audit-list]');
 const scoringDebugPanel = document.querySelector('[data-admin-scoring-debug]');
 const sectionNav = document.querySelector('[data-admin-section-nav]');
 
@@ -190,6 +193,115 @@ async function loadRouteRequests() {
   setStatus(routeRequestsStatus, `${requests.length} route request${requests.length === 1 ? '' : 's'} loaded.`, 'success');
 }
 
+async function loadRouteAudits() {
+  if (!(routeAuditsPanel instanceof HTMLElement) || !(routeAuditList instanceof HTMLElement)) return;
+  setStatus(routeAuditsStatus, 'Loading route audits...');
+  const response = await fetch('/api/admin/route-audits', { headers: { accept: 'application/json' } });
+  const payload = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(payload?.message || 'Could not load route audits.');
+  const audits = Array.isArray(payload?.audits) ? payload.audits : [];
+  const auditBySlug = new Map(audits.map((audit) => [audit.routeSlug, audit]));
+  const rows = Array.from(routeAuditList.querySelectorAll('[data-route-audit-row]'));
+
+  for (const row of rows) {
+    if (!(row instanceof HTMLElement)) continue;
+    const audit = auditBySlug.get(row.dataset.routeSlug || '');
+    applyRouteAuditState(row, audit);
+  }
+
+  routeAuditsPanel.hidden = false;
+  bindRouteAuditActions();
+  updateRouteAuditCounts();
+  setStatus(routeAuditsStatus, `${audits.filter((audit) => audit?.audited === true).length} route audits complete.`, 'success');
+}
+
+function applyRouteAuditState(row, audit) {
+  if (!(row instanceof HTMLElement)) return;
+  const audited = audit?.audited === true;
+  const toggle = row.querySelector('[data-admin-route-audit-toggle]');
+  const notesInput = row.querySelector('[data-admin-route-audit-notes]');
+  const status = row.querySelector('[data-admin-route-audit-status]');
+  row.classList.toggle('admin-route-audit-row--audited', audited);
+  row.dataset.audited = audited ? 'true' : 'false';
+  if (toggle instanceof HTMLInputElement) {
+    toggle.checked = audited;
+  }
+  if (notesInput instanceof HTMLInputElement && typeof audit?.notes === 'string') {
+    notesInput.value = audit.notes;
+  }
+  if (status instanceof HTMLElement) {
+    const auditedAt = typeof audit?.auditedAt === 'string' && audit.auditedAt ? new Date(audit.auditedAt).toLocaleDateString() : '';
+    status.textContent = audited ? `Audited${auditedAt ? ` ${auditedAt}` : ''}` : 'Not audited';
+  }
+}
+
+async function saveRouteAudit(row) {
+  if (!(row instanceof HTMLElement)) return;
+  const routeSlug = row.dataset.routeSlug;
+  if (!routeSlug) return;
+  const toggle = row.querySelector('[data-admin-route-audit-toggle]');
+  const notesInput = row.querySelector('[data-admin-route-audit-notes]');
+  const saveButton = row.querySelector('[data-admin-route-audit-save]');
+  const status = row.querySelector('[data-admin-route-audit-status]');
+  const audited = toggle instanceof HTMLInputElement ? toggle.checked : false;
+  const notes = notesInput instanceof HTMLInputElement ? notesInput.value : '';
+
+  if (saveButton instanceof HTMLButtonElement) saveButton.disabled = true;
+  setStatus(status, 'Saving...');
+  try {
+    const response = await fetch(`/api/admin/route-audits/${encodeURIComponent(routeSlug)}`, {
+      method: 'POST',
+      headers: {
+        accept: 'application/json',
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({ audited, notes, reviewer: 'Admin' }),
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      throw new Error(payload?.message || 'Could not update route audit.');
+    }
+    applyRouteAuditState(row, payload.audit);
+    updateRouteAuditCounts();
+    setStatus(routeAuditsStatus, 'Route audit saved.', 'success');
+  } catch (error) {
+    setStatus(status, error instanceof Error ? error.message : 'Could not update route audit.', 'error');
+  } finally {
+    if (saveButton instanceof HTMLButtonElement) saveButton.disabled = false;
+  }
+}
+
+function bindRouteAuditActions() {
+  if (!(routeAuditList instanceof HTMLElement)) return;
+  const rows = Array.from(routeAuditList.querySelectorAll('[data-route-audit-row]'));
+  for (const row of rows) {
+    if (!(row instanceof HTMLElement) || row.dataset.auditBound === 'true') continue;
+    row.dataset.auditBound = 'true';
+    const toggle = row.querySelector('[data-admin-route-audit-toggle]');
+    const saveButton = row.querySelector('[data-admin-route-audit-save]');
+    if (toggle instanceof HTMLInputElement) {
+      toggle.addEventListener('change', async () => {
+        await saveRouteAudit(row);
+      });
+    }
+    if (saveButton instanceof HTMLButtonElement) {
+      saveButton.addEventListener('click', async () => {
+        await saveRouteAudit(row);
+      });
+    }
+  }
+}
+
+function updateRouteAuditCounts() {
+  if (!(routeAuditList instanceof HTMLElement)) return;
+  const rows = Array.from(routeAuditList.querySelectorAll('[data-route-audit-row]'));
+  const total = rows.length;
+  const complete = rows.filter((row) => row instanceof HTMLElement && row.dataset.audited === 'true').length;
+  setText('[data-admin-route-audits-total]', total);
+  setText('[data-admin-route-audits-complete]', complete);
+  setText('[data-admin-route-audits-remaining]', Math.max(0, total - complete));
+}
+
 function setText(selector, value) {
   const node = document.querySelector(selector);
   if (node instanceof HTMLElement) node.textContent = String(value);
@@ -278,6 +390,7 @@ async function refreshAdminState() {
   if (list instanceof HTMLElement) list.hidden = !authenticated;
   if (statsPanel instanceof HTMLElement) statsPanel.hidden = !authenticated;
   if (routeRequestsPanel instanceof HTMLElement) routeRequestsPanel.hidden = !authenticated;
+  if (routeAuditsPanel instanceof HTMLElement) routeAuditsPanel.hidden = !authenticated;
   if (scoringDebugPanel instanceof HTMLElement) scoringDebugPanel.hidden = !authenticated;
   if (sectionNav instanceof HTMLElement) sectionNav.hidden = !authenticated;
 
@@ -286,7 +399,7 @@ async function refreshAdminState() {
   }
 
   if (authenticated) {
-    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests()]);
+    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits()]);
   }
 }
 
@@ -318,7 +431,7 @@ if (loginForm instanceof HTMLFormElement && passwordInput instanceof HTMLInputEl
 
 if (refreshButton instanceof HTMLButtonElement) {
   refreshButton.addEventListener('click', async () => {
-    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests()]);
+    await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits()]);
   });
 }
 

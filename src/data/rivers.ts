@@ -2261,6 +2261,156 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'minnesota-river-franklin-mack-lake',
+    slug: 'minnesota-river-franklin-mack-lake',
+    name: 'Minnesota River',
+    reach: 'Franklin City Park to Mack Lake Park',
+    state: 'Minnesota',
+    region: 'Minnesota River Valley',
+    summary:
+      'Shorter upper Minnesota River day with a cleaner beginner-friendly DNR route story than most big-river candidates. The Morton DNR gauge is upstream of the put-in, so the call is conservative, but the route itself has official access, camping, and distance support.',
+    statusText:
+      'Treat 1,330 to 3,750 cfs at Morton as the best working band. Below 307 cfs gets too shallow and slow, and above 10,900 cfs is beyond the broad-audience recommendation for this wooded valley reach.',
+    latitude: 44.5177553,
+    longitude: -94.8845377,
+    gaugeSource: {
+      id: 'mn-dnr-107',
+      provider: 'mn_dnr',
+      siteId: '107',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Minnesota River at Morton, MN19',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=107',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28012001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05316580',
+        provider: 'usgs',
+        siteId: '05316580',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Minnesota River at Morton, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1330,
+      idealMax: 3750,
+      tooLow: 307,
+      tooHigh: 10900,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River at Morton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical season. The Minnesota River has enough volume to stay paddleable longer than small creeks, but wind, heat, and flood-stage debris still matter.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this exact stretch as easy and without major rapids, but it is still a big-river day with private shoreland, possible debris, and a long enough shuttle to require planning.',
+      confidenceNotes:
+        'Confidence is good because MN DNR recommends this exact 10.1-mile route, DNR Map 4 names both endpoints as trailer accesses with camping/rest facilities, and the Morton gauge has official DNR level bands. Confidence is moderated because the Morton gauge is upstream of the put-in rather than at Franklin itself.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '307 / 1,330-3,750 / 10,900 cfs',
+        note: 'MN DNR interprets the Morton reading as Scrapable below 307 cfs, Low from 307 to 1,330, Medium from 1,330 to 3,750, High from 3,750 to 10,900, and Very High above 10,900.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Recommended trip',
+        value: '10.1 river miles',
+        note: 'MN DNR Map 4 recommends Franklin City Park to Mack Lake Park and describes it as an easy, winding stretch with few roads or man-made obstructions.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Endpoint authority',
+        value: 'Trailer accesses with campsites',
+        note: 'MN DNR Map 4 identifies Franklin trailer access with a watercraft campsite/rest area and Mack Lake Park with trailer access, watercraft campsite, and toilet.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02279 and WAS02304',
+        note: 'Minnesota public-water-access data identifies the put-in as Minnesota River, Franklin Public Water Access Site at river mile 179.4 and the take-out as Minnesota River, Renville County Park #4 Public Water Access Site at river mile 169.5.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Put-in support',
+        value: 'City river access and camping',
+        note: 'The City of Franklin says its boat landing site is adjacent to Minnesota River access and includes primitive camping, picnic area, and shelter.',
+        sourceUrl: 'https://franklinmn.us/activities/',
+      },
+      {
+        label: 'Visitor listing',
+        value: 'Boat ramp and campground',
+        note: 'Explore Minnesota lists Franklin City Campground at Second Ave E and says the primitive campsite is at the Minnesota River boat landing site with river access, picnic area, and shelter.',
+        sourceUrl: 'https://www.exploreminnesota.com/profile/city-campground/253',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Renville County park on the river',
+        note: 'Renville County says Mack Lake County Park offers rustic campsites, a shelter, restroom, and fishing access on Mack Lake or the Minnesota River.',
+        sourceUrl: 'https://www.renvillecountymn.gov/public-works/parks/mack-lake/',
+      },
+      {
+        label: 'Supplemental coordinates',
+        value: 'Franklin and Mack Lake landings',
+        note: 'DNR public-water-access coordinates align closely with the Little Crow Historic Canoe Route GPS coordinates for Franklin Boat Landing and Mack Lake Park Boat Landing.',
+        sourceUrl: 'https://www.twinvalleybsa.org/wp-content/uploads/Little-Crow-Historic-Canoe-Route.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'City of Franklin activities and camping',
+        url: 'https://franklinmn.us/activities/',
+      },
+      {
+        label: 'Explore Minnesota City Campground',
+        url: 'https://www.exploreminnesota.com/profile/city-campground/253',
+      },
+      {
+        label: 'Renville County Mack Lake County Park',
+        url: 'https://www.renvillecountymn.gov/public-works/parks/mack-lake/',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Little Crow Historic Canoe Route guide',
+        url: 'https://www.twinvalleybsa.org/wp-content/uploads/Little-Crow-Historic-Canoe-Route.pdf',
+      },
+      {
+        label: 'USGS 05316580 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05316580/',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-henderson-belle-plaine',
     slug: 'minnesota-river-henderson-belle-plaine',
     name: 'Minnesota River',
