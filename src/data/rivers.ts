@@ -441,6 +441,7 @@ export const rivers: River[] = [
       'Treat 4.0 to 6.0 ft at Rapidan as the target band. Below 2.0 ft gets too scrapy, and above 15.0 ft is out of bounds for this stretch.',
     latitude: 44.12135,
     longitude: -94.08935,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'mn-dnr-9',
       provider: 'mn_dnr',
@@ -997,6 +998,7 @@ export const rivers: River[] = [
       'Treat about 250 cfs as the low cutoff and 500 cfs as a strong target. Above that, the river is still in play, but the consequences rise faster than on an easy scenic float.',
     latitude: 45.30768,
     longitude: -88.85806,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04074950',
       provider: 'usgs',
@@ -1089,6 +1091,7 @@ export const rivers: River[] = [
       'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
     latitude: 46.43763,
     longitude: -91.0262,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04027500',
       provider: 'usgs',
@@ -3850,6 +3853,7 @@ export const rivers: River[] = [
       'Treat about 175 cfs as the low-water floor. Around 350 cfs and up is the stronger May-June paddling target when releases allow, but there is no published route-specific upper band.',
     latitude: 46.9912948,
     longitude: -92.225418,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04021960',
       provider: 'usgs',
@@ -6012,7 +6016,7 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'Northwest Wisconsin',
     summary:
-      'Classic upper Bois Brule day through clear spring-fed water, narrow wooded corridors, historic lodges, and mostly class I rapids. This is the friendlier Brule choice, but the river still needs enough water and respect for ledges, strainers, and cold Northwoods conditions.',
+      'Classic upper Bois Brule day through clear spring-fed water, narrow wooded corridors, historic lodges, and mostly class I rapids. This Stone’s Bridge-to-Winneboujou version is the friendlier Brule choice, but the river still needs enough water and respect for ledges, strainers, and cold Northwoods conditions.',
     statusText:
       'Use the Brule gauge as a direct same-segment screen. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; above 600 cfs the current becomes an intermediate judgment call.',
     latitude: 46.43415,
@@ -6070,8 +6074,8 @@ export const rivers: River[] = [
       },
       {
         label: 'Classic route confirmation',
-        value: '9.3 to 12 miles',
-        note: 'Wisconsin River Trips identifies Stone’s Bridge Landing to Winneboujou Landing as the classic upper Bois Brule segment and describes mostly class I rapids with one class II feature.',
+        value: '9.3 to 9.6 miles',
+        note: 'Wisconsin River Trips identifies Stone’s Bridge Landing to Winneboujou Landing as the classic upper Bois Brule segment, while Wisconsin Trail Guide river-mile points put Stone’s Bridge to Winneboujou at about 9.6 river miles.',
         sourceUrl: 'https://www.wisconsinrivertrips.com/segments/bois-brule',
       },
       {
@@ -6125,9 +6129,10 @@ export const rivers: River[] = [
     summary:
       'Short urban Wauwatosa-to-Milwaukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not a casual family float.',
     statusText:
-      'For broad-audience scoring, treat roughly 151 to 250 cfs at Wauwatosa as the best window. Below 100 cfs is too thin, and above 400 cfs this becomes a whitewater/high-consequence call rather than a PaddleToday-style day trip.',
+      'Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the best window, below 100 cfs as too thin, and above 400 cfs as beyond PaddleToday’s normal rec-paddling recommendation. Avoid after heavy rain, sewer-overflow alerts, or uncertain take-out access.',
     latitude: 43.05436,
     longitude: -88.02431,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04087120',
       provider: 'usgs',
@@ -6158,7 +6163,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'The route includes many class I-II rapids and a scoutable class III-style ledge near the railroad/Wisconsin Avenue corridor. Strainers, walls, shallow rock, urban water quality, and fast post-rain rises make this a skilled-paddler route.',
       confidenceNotes:
-        'Confidence is moderate: the live Wauwatosa gauge is direct, Wisconsin River Trips publishes detailed route-specific depth guidance, and American Whitewater corroborates the gauge and broader runnable range. Confidence is capped because this is a flashy urban river where water quality, strainers, and individual skill matter as much as the numeric range.',
+        'Confidence is moderate: the live Wauwatosa gauge is direct, Wisconsin River Trips publishes detailed route-specific depth guidance, and American Whitewater corroborates the gauge and broader runnable range. Confidence is capped because this is a flashy urban river where water quality, strainers, hard features, informal take-out details, and individual skill matter as much as the numeric range.',
     },
     evidenceNotes: [
       {
@@ -6197,6 +6202,18 @@ export const rivers: River[] = [
         note: 'Wisconsin River Trips recommends staying off the Menomonee during or after big rain because of urban water-quality and sewer-overflow concerns.',
         sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
       },
+      {
+        label: 'Overflow context',
+        value: 'Check MMSD after storms',
+        note: 'MMSD explains that heavy rain can trigger combined or sanitary sewer overflows into nearby waterways and publishes current overflow information. This is a route-level caution because the Menomonee is an urban river in the MMSD service area.',
+        sourceUrl: 'https://www.mmsd.com/what-we-do/wastewater-treatment/overflows',
+      },
+      {
+        label: 'Take-out quality',
+        value: 'Public space, not a polished ramp',
+        note: 'Wisconsin River Trips describes the Bluemound/Wisconsin Avenue exit as a public space where paddlers currently climb out on rocks rather than using a completed access ramp.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
     ],
     sourceLinks: [
       {
@@ -6217,6 +6234,16 @@ export const rivers: River[] = [
       {
         label: 'City of Wauwatosa Hoyt Park',
         url: 'https://www.wauwatosa.net/Home/Components/FacilityDirectory/FacilityDirectory/58/',
+        provider: 'local',
+      },
+      {
+        label: 'MMSD sewer overflow information',
+        url: 'https://www.mmsd.com/what-we-do/wastewater-treatment/overflows',
+        provider: 'local',
+      },
+      {
+        label: 'Milwaukee Urban Water Trail',
+        url: 'https://mkeurbanwatertrail.org/',
         provider: 'local',
       },
     ],
@@ -6327,6 +6354,7 @@ export const rivers: River[] = [
       'Treat about 175 cfs at River Falls as the practical low-water floor. The river was still runnable at 125 cfs, but scrape-heavy enough that the app stays conservative below 175.',
     latitude: 44.85075,
     longitude: -92.63882,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-05342000',
       provider: 'usgs',

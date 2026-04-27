@@ -37,6 +37,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
+      routeType: result.river.routeType ?? 'recreational',
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
     },
@@ -94,6 +95,7 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
+      routeType: result.river.routeType ?? 'recreational',
     },
     current: {
       score: result.score,
@@ -180,6 +182,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       longitude: result.river.longitude,
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
+      routeType: result.river.routeType ?? 'recreational',
       gaugeSource: {
         provider: result.river.gaugeSource.provider,
         unit: result.river.gaugeSource.unit,

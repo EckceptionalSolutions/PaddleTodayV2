@@ -7,6 +7,7 @@ import type {
   LiveDataStatus,
   RiverAccessPoint,
   RiverOutlook,
+  RouteType,
   ScoreBreakdown,
   ScoreFactor,
   ScoreImpact,
@@ -36,6 +37,7 @@ export type {
   RiverHistoryResponse,
   RiverHistorySnapshot,
   RiverOutlook,
+  RouteType,
   ScoreBreakdown,
   ScoreFactor,
   ScoreImpact,
@@ -151,6 +153,7 @@ export interface River {
   statusText: string;
   latitude: number;
   longitude: number;
+  routeType?: RouteType;
   gaugeSource: RiverGaugeSource;
   fallbackGaugeSources?: RiverGaugeSource[];
   profile: RiverScoringProfile;

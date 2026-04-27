@@ -207,6 +207,7 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
       ...item.river,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
+      routeType: item.river.routeType || river?.routeType || 'recreational',
       putIn: item.river.putIn || river?.putIn,
       takeOut: item.river.takeOut || river?.takeOut,
     },
@@ -221,6 +222,7 @@ function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSumma
       ...item.river,
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
+      routeType: item.river.routeType || river?.routeType || 'recreational',
     },
   };
 }
@@ -232,6 +234,7 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
     river: {
       ...result.river,
       estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
+      routeType: result.river.routeType || river?.routeType || 'recreational',
       gaugeSource:
         river && !result.river.gaugeSource.display
           ? {

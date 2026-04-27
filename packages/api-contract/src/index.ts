@@ -14,6 +14,7 @@ export type SourceProvider =
   | 'nps'
   | 'local'
   | 'manual';
+export type RouteType = 'recreational' | 'whitewater';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type GaugeBand =
@@ -229,6 +230,7 @@ export interface RiverSummaryApiItem {
     distanceLabel: string;
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
+    routeType: RouteType;
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
   };
@@ -279,6 +281,7 @@ export interface WeekendSummaryApiItem {
     distanceLabel: string;
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
+    routeType: RouteType;
   };
   current: {
     score: number;
@@ -317,6 +320,7 @@ export interface RiverDetailApiResult {
     longitude: number;
     distanceLabel: string;
     estimatedPaddleTime: string;
+    routeType: RouteType;
     gaugeSource: {
       provider: GaugeProvider;
       unit: GaugeUnit;

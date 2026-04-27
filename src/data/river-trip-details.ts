@@ -2140,7 +2140,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -91.6022,
     },
     logistics: {
-      distanceLabel: '9.3 to 12 mi',
+      distanceLabel: '9.3 to 9.6 mi',
       estimatedPaddleTime: 'About 4 hr to 5 hr, depending on level and stops',
       shuttle:
         'Use a vehicle shuttle between Stone’s Bridge on County Highway S and Winneboujou near County B. Local liveries commonly service this corridor during the paddling season.',
@@ -2149,7 +2149,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       camping:
         'Camping is allowed only at state-designated campgrounds. Treat Stone’s Bridge to Winneboujou as a day trip unless you have a separate legal campground plan.',
       summary:
-        'Launch at Stone’s Bridge Landing and take out at Winneboujou Landing for the classic upper Bois Brule day. It is the friendlier Brule run, with clear water, wooded corridors, class I rapids, and one class II feature, but low water and strainers can still change the trip.',
+        'Launch at Stone’s Bridge Landing and take out at Winneboujou Landing for the classic upper Bois Brule day. It is the friendlier Brule run, with clear water, wooded corridors, mostly class I rapids, and a shorter commitment than continuing to Bois Brule Landing, but low water and strainers can still change the trip.',
       accessCaveats: [
         'Wisconsin DNR requires launching and landing only at allowed designated canoe landings on the Brule.',
         'Stone’s Bridge is a developed landing with parking, pit toilets, water, and trailer turnaround according to Wisconsin Trail Guide.',
@@ -2186,13 +2186,13 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Put in at Hoyt Park in Wauwatosa and take out near the Bluemound/Wisconsin Avenue access in the Menomonee Valley. The route is short but busy: shallow bedrock, class I-II rapids, one stronger ledge, strainers, walls, and urban water-quality cautions all matter.',
       accessCaveats: [
         'Hoyt Park is a public park, but the exact river access is informal enough that parking, carry distance, and posted rules should be checked before unloading.',
-        'The downstream access is an urban bridge/valley access, not a polished rural landing. Confirm the exit, parking legality, and construction closures before you launch.',
+        'The downstream access is an urban bridge/valley access, not a polished rural landing. Wisconsin River Trips describes it as public space but not yet a completed ramp, so confirm the exit, parking legality, and construction closures before you launch.',
         'Do not extend downstream into industrial or harbor sections unless you have a separate route plan and confirmed take-out.',
       ],
       watchFor: [
         'Class I-II rapids plus a stronger scoutable ledge near the railroad/Wisconsin Avenue corridor.',
         'Strainers, walls, sharp rocks, bridge remnants, and fast current pushing into obstacles.',
-        'Flashy post-rain rises and urban water-quality issues. Avoid this route during or shortly after heavy rain.',
+        'Flashy post-rain rises, MMSD overflow context, and urban water-quality issues. Avoid this route during or shortly after heavy rain.',
       ],
     },
   },
