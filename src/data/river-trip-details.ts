@@ -1857,4 +1857,70 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'pomme-de-terre-river-larson-appleton': {
+    putIn: {
+      name: 'Larson Landing public water access',
+      latitude: 45.239322,
+      longitude: -95.98509,
+    },
+    takeOut: {
+      name: 'Appleton public water access',
+      latitude: 45.203137,
+      longitude: -96.020898,
+    },
+    logistics: {
+      distanceLabel: '6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Short Appleton-area car shuttle. This is an easy logistics day, so most groups will just stage the take-out first and keep it simple.',
+      permits:
+        'No special paddling permit is known. Follow posted public-water-access and local parking rules at both landings.',
+      camping:
+        'Treat this as a day trip unless you separately confirm legal overnight options nearby.',
+      summary:
+        'Launch at Larson Landing and finish at Appleton for the clearest short beginner trip on the lower Pomme de Terre. The gauge decision is straightforward, but low water, wood, and wind can still change the feel of the day.',
+      accessCaveats: [
+        'Both endpoints are backed by Minnesota public-water-access records, which is the main trust reason this route clears the bar cleanly.',
+        'Appleton is the stronger landmarked finish because the live gauge and route town line up there, but same-day landing and parking signage should still win over any saved note.',
+      ],
+      watchFor: [
+        'Dragging and scrape-heavy shallow spots when Appleton drops toward 3.5 ft.',
+        'Fresh wood or strainers after storms or fast rises.',
+        'Wind exposure on the more open lower-river bends approaching Appleton.',
+      ],
+    },
+  },
+  'long-prairie-river-long-prairie-browerville': {
+    putIn: {
+      name: 'Long Prairie public water access',
+      latitude: 45.975537,
+      longitude: -94.865877,
+    },
+    takeOut: {
+      name: 'Browerville public water access',
+      latitude: 46.076399,
+      longitude: -94.858487,
+    },
+    logistics: {
+      distanceLabel: '13.3 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr 30 min',
+      shuttle:
+        'Simple two-town car shuttle on local roads. Most groups should look at the Browerville exit first, leave a car there, and keep the rest of the day uncomplicated.',
+      permits:
+        'No special paddling permit is known. Follow posted public-water-access and local parking rules at both city carry-ins.',
+      camping:
+        'Treat this as a day trip unless you separately confirm legal camping nearby.',
+      summary:
+        'Launch in Long Prairie and finish in Browerville for a full meandering day between two clear city accesses. Gauge level is the main call; low summer water and fresh wood are the main quality changers.',
+      accessCaveats: [
+        'Both endpoints are backed by Minnesota public-water-access records, which is the key reason this route clears the endpoint bar cleanly.',
+        'These are carry-in city accesses rather than deluxe ramp facilities, so verify parking layout and carry path on arrival instead of assuming the shoreline setup from a map pin alone.',
+      ],
+      watchFor: [
+        'Dragging and scrape-heavy shallow spots when Long Prairie drops toward 53 cfs.',
+        'Tight bends, fresh wood, and blind-corner strainers after storms or fast rises.',
+        'A longer full-day pace than the shorter beginner routes in the app, especially if the current is soft.',
+      ],
+    },
+  },
 };

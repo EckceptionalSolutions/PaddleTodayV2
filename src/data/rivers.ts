@@ -5060,4 +5060,174 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'pomme-de-terre-river-larson-appleton',
+    slug: 'pomme-de-terre-river-larson-appleton',
+    name: 'Pomme de Terre River',
+    reach: 'Larson Landing to Appleton',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Short, beginner-friendly DNR day trip with a direct Appleton level story. Below the low band it turns into more dragging than paddling; above the high band it stops feeling casual.',
+    statusText:
+      'Treat the official DNR medium band as the cleanest window. Below 3.5 ft gets too scrapy, and above 7.5 ft turns this into a very high-water call.',
+    latitude: 45.239322,
+    longitude: -95.98509,
+    gaugeSource: {
+      id: 'mn-dnr-168',
+      provider: 'mn_dnr',
+      siteId: '168',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pomme De Terre River at Appleton, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=168',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=23007001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.5,
+      idealMax: 6,
+      tooLow: 3.5,
+      tooHigh: 7.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Pomme de Terre River at Appleton',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the main window. Summer can still work well, but low water slows the day down fast and post-rain rises deserve extra caution.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'MN DNR presents this as a beginner-friendly route, but it is still a real river day where wood, wind, and changing levels can matter.',
+      confidenceNotes:
+        'This route qualifies because the endpoint names are official, the Appleton gauge is direct and live in-product through the MN DNR path, and MN DNR publishes a full route-usable level ladder for the exact gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '3.5 / 4.5 / 6.0 / 7.5 ft',
+        note: 'MN DNR interprets this gauge as Low from 3.5 to 4.5 ft, Medium from 4.5 to 6.0, High from 6.0 to 7.5, and Very High above 7.5. Below 3.5 ft is below the published low band and should be treated as too low.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Route character',
+        value: 'Beginner-friendly short day trip',
+        note: 'MN DNR recommends Larson Landing to Appleton as a 6-mile beginner trip on the Pomme de Terre River water trail.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/pommedeterre/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Both Larson Landing and Appleton are resolved in the MN DNR public-water-access GIS and align with the official water-trail segment naming.',
+      },
+      {
+        label: 'Chart behavior',
+        value: 'Current DNR level panel',
+        note: 'The current product supports MN DNR gauges with a current-level fallback panel when recent chart samples are unavailable, so this route still has a working live-data presentation in-product.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Pomme de Terre River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/pommedeterre/segments-maps.html',
+      },
+      {
+        label: 'MN DNR interactive gauge detail for Appleton site 168',
+        url: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=168',
+      },
+    ],
+  },
+  {
+    id: 'long-prairie-river-long-prairie-browerville',
+    slug: 'long-prairie-river-long-prairie-browerville',
+    name: 'Long Prairie River',
+    reach: 'Long Prairie to Browerville',
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      'Official DNR full-day paddle between two town accesses. Low summer water can turn this into a draggy winding day, while high water makes the tight bends less forgiving.',
+    statusText:
+      'Treat the official DNR medium band as the cleanest window. Below 53 cfs is too scrapy, and above 650 cfs is a very high-water call for this narrow section.',
+    latitude: 45.975537,
+    longitude: -94.865877,
+    gaugeSource: {
+      id: 'mn-dnr-89',
+      provider: 'mn_dnr',
+      siteId: '89',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Long Prairie River at Long Prairie, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=89',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=14051001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 500,
+      tooLow: 53,
+      tooHigh: 650,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Long Prairie River at Long Prairie',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring and early summer are usually the cleanest window. By later summer this section can get slow and shallow enough to become frustrating or intermittently impassable.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still an approachable meandering river day, but the full-day mileage, tight bends, and changing wood conditions mean it is not a lazy float at every level.',
+      confidenceNotes:
+        'This route clears the bar because MN DNR directly recommends the exact day trip, the Long Prairie gauge is on the put-in corridor and works in-product through the MN DNR path, and the same official source publishes a full route-usable level ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '53 / 200 / 500 / 650 cfs',
+        note: 'MN DNR interprets this gauge as Low from 53 to 200 cfs, Medium from 200 to 500, High from 500 to 650, and Very High above 650. Below 53 cfs should be treated as too low.',
+        sourceUrl: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Route character',
+        value: '13.3-mile full-day winding trip',
+        note: 'MN DNR recommends Long Prairie to Browerville as a 13.3-mile day trip from the city carry-in in Long Prairie to the city carry-in in Browerville.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/longprairieriver/segments-maps.html',
+      },
+      {
+        label: 'Access confidence',
+        value: 'Verified',
+        note: 'Both the Long Prairie and Browerville public water access sites were resolved in the MN DNR public-water-access GIS and match the official water-trail recommendation.',
+      },
+      {
+        label: 'Chart behavior',
+        value: 'Current DNR level panel',
+        note: 'The current product supports MN DNR gauges with a current-level fallback panel when recent chart samples are unavailable, so this route still has a working live-data presentation in-product.',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Long Prairie River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/longprairieriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR interactive gauge detail for Long Prairie site 89',
+        url: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=89',
+      },
+    ],
+  },
 ];
