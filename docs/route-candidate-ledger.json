@@ -1,10 +1,56 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-27T01:28:00Z",
+  "updatedAt": "2026-04-27T12:48:00Z",
   "notes": [
+    "2026-04-27 08:08 America/Chicago bounded Minnesota-first gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one fresh evidence path that had not yet been logged: the unreviewed MN DNR Zumbro Map 2 recommended day trip from Zumbro Falls to Hammond. Reviewed 1 fresh candidate: Zumbro River - Zumbro Falls to Hammond was parked at threshold_weak because MN DNR explicitly recommends the exact 7-mile route, the direct USGS Zumbro Falls gauge already underpins nearby live Zumbro coverage, and the best numeric support I surfaced was still mixed-source neighboring-reach evidence (the longer Miles Paddled Zumbro River II main-stem run uses the same put-in/gauge and recommends 7-9 ft, but it does not stop at Hammond). Also logged two fresh cluster outcomes so future runs rotate away faster: Crow Wing Map 2 / Nimrod is now saturated because the DNR-recommended Little White Dog to Cottingham route is already live in V2 and the farther-downstream same-gauge subreaches still lack a defensible threshold carryover; Vermilion's Twomile-to-Eightmile corridor was deliberately not reopened because it is already parked at research_later and this pass did not surface a genuinely new official gauge/threshold source. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 07:48 America/Chicago fresh Mississippi headwaters gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first evidence path that had not yet been logged: the upstream Mississippi recommended day trips on segments 1 and 2. Reviewed 2 fresh candidates. Mississippi River - Lake Itasca to Coffee Pot Landing was parked at no_live_gauge because the route is officially recommended and clearly named, but the corridor mixes the headwaters creek with open-water hazard context and this pass did not surface a route-operable live gauge plus threshold model strong enough for conservative shipping. Mississippi River - Cass Lake to Lake Winnibigoshish was also parked at no_live_gauge because the official trip is real and clearly named, but the route depends on big-lake transitions and this pass still did not surface a route-operable live gauge / threshold package strong enough to outrank cleaner river-only candidates. Fresh-discovery takeaway: the remaining official Mississippi headwaters trip blocks are real but lower-yield for PaddleTodayV2 because the trust gap is now live-gauge operability and lake-transition complexity, not endpoint naming. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 07:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then stopped without reopening the same saturated Minnesota River Map 5 and lower Blue Earth / Watonwan clusters from 07:28 because no genuinely new evidence path had emerged in the meantime. Per the run rules, there were still no queued likely_addable candidates and no fresh new-evidence candidate strong enough to outrank the preserved needs_manual_coordinates queue, so this remained a short bounded no-add pass rather than a recycled shortlist review. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 07:28 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then did one bounded fresh Minnesota-first saturation sweep instead of reopening stale threshold holds. Explored non-yield cluster: Minnesota River Map 5 / Mankato-to-Seven-Mile and Le Sueur-to-Henderson corridor. Useful outcome: the official map still only offers broad 'easy stretches' language rather than a cleaner exact recommended day-trip package than the already-live Judson-to-Land-of-Memories and Henderson-to-Belle-Plaine routes, so this cluster remains saturated for trust-first expansion. Explored non-yield cluster: Blue Earth / Watonwan lower-confluence corridor around Garden City and Sibley Park. Useful outcome: the direct-gauge value is already captured by the live Rapidan Blue Earth route plus the parked Watonwan research_later hold, and this pass did not surface a new official named day trip with a stronger route-level live story than those existing queue items. Per the run rules, I stopped conservatively instead of padding the ledger with weaker proxy or stitched candidates. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 07:08 America/Chicago fresh metro-Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then mined one fresh official Mississippi evidence path that had not yet been logged: the second MN DNR recommended Twin Cities Mississippi trip, Hidden Falls to Harriet Island, plus direct official endpoint pages on the Saint Paul side. Reviewed 1 fresh candidate: Mississippi River - Hidden Falls to Harriet Island was preserved as needs_manual_coordinates because MN DNR explicitly recommends the exact 6.5-mile route, the St. Paul gauge already has an official DNR ladder the current app can operate, Hidden Falls is already a documented public launch in V2, and Saint Paul officially documents Harriet Island Regional Park with a public dock; the remaining blocker from this pass is authoritative endpoint coordinate cleanup for a future implementation run. Also logged the fresh gauge cluster outcome: the St. Paul Mississippi gauge family remains one of the highest-yield same-gauge metro corridors, and this new downstream DNR trip is a better trust-first use of that gauge than speculative unlisted metro subreaches. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 1 new needs_manual_coordinates candidate, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 06:48 America/Chicago fresh Mississippi Headwaters Board follow-on pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one genuinely new evidence path instead of reopening stale threshold holds: the official Mississippi DNR segment page's linked Mississippi Headwaters Board excursion maps plus direct same-corridor USGS site inventory around Palisade and Aitkin. Reviewed 2 fresh candidates and 1 fresh cluster-only follow-up. Mississippi River - Palisade to Waldeck Landing was parked at threshold_weak because the route now has a clean public-endpoint trust trail from the Mississippi Headwaters Board excursion map set and a direct corridor USGS gauge at Palisade (05220600), but I still did not surface any route-level numeric threshold guidance beyond the parent DNR segment's qualitative low-water riffle warning. Mississippi River - Waldeck to Kimball was also parked at threshold_weak because the route trust trail is real on the same MHB excursion path and the cleanest live story is the downstream Aitkin gauge family (USGS 05227500 / 05227510), but the exact subreach still lacks a defensible numeric paddling model. Explored cluster-only follow-up: Mississippi River - Kimball to Aitkin County Campground. Useful outcome: the MHB map confirms a real short public day trip near the Aitkin gauge, but the evidence pattern is the same as the other Aitkin-area subtrips\u2014good endpoint legitimacy, no shippable numeric threshold\u2014so I stopped after logging the cluster instead of padding the ledger with a third near-duplicate threshold hold. Fresh-discovery takeaway: the Mississippi DNR page still has some route-shape value when paired with the MHB excursion maps, but the remaining Aitkin/Palisade opportunities are still threshold-calibration misses rather than endpoint-discovery misses. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 06:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable route, so I did not force a weak addition or reopen stale research_later / threshold_weak / rejected holdovers without genuinely new evidence. Deliberately left unchanged: the needs_manual_coordinates queue remains the best next work (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park). The freshest threshold-only Mississippi candidates (Fort Ripley to Fletcher Creek, Royalton Sportsman's Club to Stearns County Park, Steamboat Access to Blackberry Bridge Access, Beaver Island Trail Access to Clearwater, Sandy Lake Recreation Area to Wold's Ferry Crossing, and Highway 6 to Trommald) also remain correctly parked at threshold_weak; no new evidence changed their blocker. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 06:28 America/Chicago fresh upper/central Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Mississippi evidence path that had not been logged yet instead of reopening stale threshold holds. Reviewed 2 fresh candidates and 1 fresh non-yield cluster. Mississippi River - Sandy Lake Recreation Area to Wold's Ferry Crossing was parked at threshold_weak because the route legitimacy is strong on the official DNR page, but the current page only gives qualitative low-water language ('riffles during low water') and I did not surface a defensible numeric route model tied to a route-operable live gauge for the exact corridor. Mississippi River - Highway 6 to Trommald was also parked at threshold_weak because the official recommended trip is real and practical, but the current page only says current can be quite strong after rain and does not tie the exact reach to a numeric live-gauge model strong enough for conservative shipping. Explored non-yield cluster: Mississippi River - Cass Lake to Lake Winnibigoshish. Useful outcome: the official trip is real, but the corridor is dominated by big-lake transitions and this pass did not surface a route-operable live gauge / threshold package that would outrank the fresher river-only Mississippi holds, so it was logged as cluster-only rather than as a candidate. Fresh-discovery takeaway: more of the official Mississippi page still has route-shape value, but the remaining misses are still threshold-calibration and live-story problems rather than endpoint naming problems. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 06:08 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now, and the freshest new-evidence Mississippi reviews from 05:48 AM still parked at threshold_weak rather than clearing the ship bar. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not recycled as fake fresh work. Deliberately left unchanged: the preserved needs_manual_coordinates set (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park) remains the highest-value next queue; the active threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets also remain unchanged. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 05:48 America/Chicago fresh upper/central Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used two fresh Mississippi recommended-trip clusters instead of reopening stale threshold holds. Reviewed 2 fresh candidates: Mississippi River - Steamboat Access to Blackberry Bridge Access and Mississippi River - Beaver Island Trail Access to Clearwater. Steamboat-to-Blackberry was parked at threshold_weak because the route legitimacy is strong, a direct USGS corridor gauge exists at Grand Rapids (05211000), but the current official page only gives qualitative low-water language ('small sections of riffles when the water is low') rather than a defensible numeric route model tied to that gauge. Beaver-Island-to-Clearwater was parked at threshold_weak because the route legitimacy is also strong and the St. Cloud gauge family is the cleanest live story on the broader corridor, but the current official page again stops at qualitative low/high-water language ('riffles when river levels are low' / 'fast moving water when they are high') without a route-level numeric model. Explored non-yield cluster: Mississippi River Lake Itasca to Coffee Pot Landing. Useful outcome: the official trip is real, but this pass did not surface a defensible live gauge pairing or threshold package strong enough to outrank the two fresher downstream Mississippi candidates, so it was logged as cluster-only. Fresh-discovery takeaway: upper and central Mississippi still have some unmined official day-trip value, but the current blocker pattern is still threshold calibration rather than endpoint naming or route legitimacy. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 05:28 America/Chicago fresh Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one fresh Mississippi/central-Minnesota gauge family instead of reopening stale threshold holds. Reviewed 2 fresh candidates from 2 direct-USGS gauge-adjacent recommended trips: Mississippi River - Fort Ripley to Fletcher Creek and Mississippi River - Royalton Sportsman's Club to Stearns County Park. Both were parked at threshold_weak because the route legitimacy is strong and nearby direct USGS gauges exist (05261000 near Fort Ripley; 05267000 near Royalton), but the current official Mississippi page only gives qualitative low-water language ('fairly shallow, especially late in the summer'; 'watch for rocky riffles during low water levels') rather than a defensible numeric route model tied to those gauges. Explored non-yield gauge cluster: Mississippi River at Brainerd / Highway 6 to Trommald. Useful outcome: the official trip is real, but this pass did not surface a cleaner threshold package than the same broad qualitative rain/current language, so it did not outrank the two fresher Fort Ripley/Royalton candidates. Fresh-discovery takeaway: the central-Mississippi recommendation pages still have route-shape value, but the current blocker pattern is threshold calibration, not endpoint naming or gauge absence. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 05:08 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first sweep instead of reopening stale threshold holds. Explored non-yield gauge/search cluster: Wild Rice River tributary lead from the official Red River Map 3 page. Useful outcome: the current official evidence path is still too thin for PaddleTodayV2; I did not surface a canonical Minnesota DNR Wild Rice water-trail page, named public endpoint pair, or route-operable live-gauge-plus-threshold package strong enough to log a candidate. Revisit only if a direct official Wild Rice route page, manager map, or gauge-linked manager guidance appears. Explored non-yield gauge/search cluster: Buffalo River Minnesota DNR / official-page hunt. Outcome unchanged but newly confirmed with the sitemap-first process: I still did not surface a canonical Minnesota DNR water-trail page or another official route package with named endpoints and a live-gauge story strong enough to review as a candidate. Fresh-discovery takeaway: the next Minnesota-first hit-rate gain is still more likely to come from coordinate cleanup on the preserved needs_manual_coordinates set or genuinely new official route/gauge releases than from brute-force hunting on rivers that do not currently expose canonical official route pages. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 04:48 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first saturation sweep instead of reopening stale threshold holds. Explored non-yield gauge/search cluster: Root River canonical DNR segment page. Useful outcome: the only current official Recommended day trip block is still Rushford to Houston, which is already live in V2, so the cluster remains saturated for trust-first expansion. Explored non-yield gauge/search cluster: Rum River canonical DNR segment page. Useful outcome: the only current official recommended trips are Wayside landing to Milaca (already rejected for threshold-quality reasons), Walbo to Cambridge West (already live in V2), and Martin's Landing to North County Park (already live in V2), so the cluster is saturated. Explored non-yield gauge/search cluster: Cannon River canonical DNR segment page. Useful outcome: the current official recommended trips are still Two Rivers to Dundas (already live in V2 as the Faribault/Dundas route) and Riverside Park to Miesville (already blocked by the known Miesville access closure), so this cluster is also saturated. Fresh-discovery takeaway: the obvious Root / Rum / Cannon recommendation-page value is now mined out. Future runs should keep preferring genuinely new gauge clusters, new official route/gauge releases, or coordinate cleanup on the preserved needs_manual_coordinates set over re-reading these three systems. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 04:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now, and the freshest new-evidence review (Snake River - Silver Star Road to Lower Falls Campsite) immediately parked at threshold_weak rather than clearing the ship bar. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not recycled as fake fresh work. Deliberately skipped as unchanged: the preserved needs_manual_coordinates set (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park) remains the highest-value next queue; the active threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets also remain unchanged. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 04:28 America/Chicago fresh Minnesota-first gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then spent the run on one fresh upper-Snake evidence path plus three saturation checks instead of reopening stale holdovers. Reviewed 1 fresh candidate: Snake River - Silver Star Road to Lower Falls Campsite was parked at threshold_weak because MN DNR explicitly recommends the 7.6-mile route and names both endpoints, but the only practical live story surfaced on this pass is the downstream Pine City gauge family already used on lower Snake coverage, and I did not find route-level guidance tying that lower ladder cleanly to this rockier upper segment. Explored non-yield gauge cluster: Blue Earth River at Rapidan. Useful outcome: the direct-gauge recommended day trip is already live in V2, and this pass did not surface a cleaner same-gauge follow-on than the existing Rapidan Dam Park to County Road 90 route, so the cluster remains discovery-saturated. Explored non-yield gauge cluster: Straight River at Faribault. Outcome unchanged: the strongest direct-gauge route value is already live as Krogh's Landing to Two Rivers Landing/Park, and the current DNR page still does not expose a new recommended day trip worth queueing. Explored non-yield gauge cluster: lower Snake River around Canary Road / Cross Lake / Pine City. Outcome unchanged: the strongest official same-gauge route is already live, and this pass did not surface a new short same-gauge reach that would add more value than overlap. Fresh-discovery takeaway: the obvious Blue Earth, Straight, and lower-Snake gauge families are now clearly saturated, while the upper Snake still has route-shape value but fails on route-specific gauge calibration rather than endpoint naming. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 04:08 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first sweep instead of reopening stale threshold holds. Fresh non-yield clusters checked: Rum River canonical DNR page plus the Milaca / Princeton gauge-adjacent corridor (saturated because the strongest same-gauge route value is already captured by the live Martin's Landing to Rum River North County Park route and the already-rejected Wayside Landing to Milaca City Park threshold gap), Root River canonical DNR page plus the Rushford / Houston corridor (still only broad segment families, not a fresh exact recommended day trip with a cleaner live-gauge story than the already-live or already-blocked Root set), and Cedar River canonical DNR page plus the Austin / Lansing gauge family (still collapses back to the already-rejected Riverwood Landing to State Line Road corridor, with no new shorter same-gauge day trip and no stronger threshold evidence). Per the run rules, I stopped conservatively instead of padding the ledger with weaker proxy or stitched candidates. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 03:48 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then spent the run on four bounded fresh Minnesota-first clusters instead of reopening stale holdovers: Red River Map 5 (Grand Marais Creek to Drayton), Kettle River Map 1 (Musclewood-to-#1 sanity recheck plus surrounding same-gauge corridor), Crow Wing direct-gauge family around Huntersville/Nimrod, and Minnesota River Map 5 around the Mankato/Seven Mile/Le Sueur discussion. Useful outcome: none produced a genuinely new candidate with a stronger evidence path than the existing queue. Red River Map 5 still lacks any recommended day-trip block; Kettle still stops at the already-logged threshold-weak Musclewood route; Crow Wing remains split between an already-added downstream direct-gauge route and the already-logged upper no_live_gauge hold; and Minnesota Map 5 still reads as broad segment guidance rather than a cleaner exact-trip package that would outrank the preserved lower-Minnesota and Mankato routes. Per the run rules, I stopped conservatively instead of padding the ledger with weaker proxy or stitched candidates. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 03:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now, and this run did not surface a fresh new-evidence candidate strong enough to outrank the preserved needs_manual_coordinates queue. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not reopened as fake fresh work. Deliberately skipped as unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park remain correctly parked at needs_manual_coordinates; the current threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets also remain unchanged. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 03:28 America/Chicago fresh Minnesota-first upper-Crow-Wing / saturation sanity pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then spent the run on fresh official gauge-adjacent route pages instead of reopening stale threshold holds. Reviewed 1 fresh candidate from 1 genuinely new official evidence path: Crow Wing River - Huntersville (N) carry-in access to Mary Brown Rest Area carry-in access was parked at no_live_gauge because MN DNR explicitly recommends the route and names both endpoints, but this pass did not surface a defensible live gauge-plus-threshold model for the exact upper-forest corridor; the current Nimrod gauge story is much farther downstream and would be guesswork here. Also logged two non-yield cluster checks so future runs rotate away faster: the Blue Earth River Rapidan cluster is already saturated because the only clean direct-gauge recommended day trip there is already live in V2, and the Straight River Faribault cluster is likewise saturated because the direct-gauge Krogh's Landing to Two Rivers Landing route is already live and this pass did not surface a cleaner same-gauge follow-on. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 03:08 America/Chicago fresh Minnesota-first upper-Cloquet / metro-Mississippi discovery pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then spent the run on fresh official segment pages instead of reopening stale threshold holds. Reviewed 2 fresh candidates from 2 new evidence paths: Cloquet River Map 2 yielded Indian Lake Access to Bear Lake Road, which was parked at no_live_gauge because the official page gives only qualitative heavy-rain / medium-to-heavy-flow guidance rather than a route-operable live gauge model; Mississippi River Map 9 yielded Coon Rapids Dam Regional Park to Riverfront Regional Park, which was also parked at no_live_gauge because the exact metro reach still lacks a defensible gauge-plus-threshold package despite strong official route support. Also logged one non-yield cluster: the Minnesota River Judson/Mankato gauge family did not produce a fresh candidate because the strongest official same-gauge day trips there (Judson Access to Land of Memories Park and Franklin City Park to Mack Lake Park) are already live in V2, so that cluster is saturated for now. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 needs_manual_coordinates additions, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 02:48 America/Chicago fresh Minnesota River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined two fresh Minnesota-first official segment pages instead of reopening stale threshold holds. Reviewed 2 fresh candidates from 1 genuinely new official evidence path family: Thompson Ferry Access to Carver Riverfront Park (Map 6 recommended day trip) and Kinney Access to Skalbekken County Park (Map 3 recommended day trip). Thompson Ferry to Carver was preserved as needs_manual_coordinates because MN DNR explicitly recommends the exact route, the Jordan live gauge already carries an official DNR ladder, and the remaining blocker from this pass is authoritative endpoint coordinate cleanup. Kinney to Skalbekken was parked at threshold_weak because the official route support is real, but the best practical live story still looks like an upstream Morton-proxy Minnesota River gauge plus corridor-level caution rather than a clean route-level threshold package for conservative shipping. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 1 new needs_manual_coordinates candidate, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 02:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate, so this run did not force a weak fresh review or reopen stale research_later / threshold_weak / rejected holdovers without new evidence. Deliberately skipped as unchanged: the preserved needs_manual_coordinates set (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, and Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access) remains the highest-value next queue, while the current threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets also remain unchanged. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 02:28 America/Chicago conservative no-add segment-page pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then checked two fresh official Minnesota-first gauge-adjacent segment clusters instead of reopening stale threshold holds. Explored non-yield cluster: Kettle River Map 2 (#5 trailer access to #6 trailer access). Useful outcome: the official recommended trip is already live in V2, and the page did not surface a cleaner same-gauge follow-on route than the already-logged Musclewood carry-in access to #1 trailer access threshold-weak hold, so the Kettle cluster is discovery-saturated for now. Explored non-yield cluster: Otter Tail River Map 1 / Map 2 (Wannigan Road to Riverside Park, Phelps Mill Park to West Red River Lake). Outcome unchanged: both official day trips are real, but the current pages still stop at favorable-water / late-spring guidance and do not tie a live gauge plus numeric model cleanly enough to either exact route. Net result: 0 fresh candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 02:08 America/Chicago fresh Minnesota-first St. Louis River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined the unreviewed St. Louis River Map 2 and Map 3 recommended trips instead of reopening stale Red River threshold holds. Reviewed 2 fresh candidates from 1 genuinely new official evidence path: Paupores trailer access to Brookston trailer access and Fond du Lac Reservoir to Oldenburg Falls. Both were parked at no_live_gauge because the official pages give only seasonal/qualitative flow context (general spring peak language, some high-water hazard language, and falls proximity on the reservoir trip) rather than a route-operable live gauge plus defensible threshold model for conservative shipping. Fresh cluster takeaway: upper/middle St. Louis still has real official day-trip value, but the current DNR material stops short of a shippable gauge story. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 01:48 America/Chicago conservative no-add gauge-first pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and repaired candidate ledger exactly as instructed, then did one bounded fresh Minnesota-first sweep instead of reopening stale threshold-weak or research_later holdovers. Explored non-yield gauge/search cluster: Red River of the North Map 5 (Grand Marais Creek to Drayton) from the official DNR segments page. Useful outcome: this official segment page currently has no recommended day trip block at all, only general corridor hazards and fishing/shoreline notes, so it does not presently yield a route candidate worth queueing. Explored non-yield gauge/search cluster: Shell Rock River canonical DNR page recheck. Outcome unchanged: the current official recommended outing on the Minnesota page is still lake-only around Albert Lea Lake rather than a river day trip with a route-operable live-gauge story. Fresh-discovery takeaway: the remaining obvious Minnesota DNR page value is now heavily mined, and future triage should keep favoring genuinely new official route/gauge releases or coordinate cleanup on the preserved needs_manual_coordinates set over repeated page-mining of saturated systems. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 00:48 America/Chicago fresh Minnesota-first Red River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined the official Red River segment pages instead of reopening stale threshold-weak holdovers. Reviewed 2 fresh candidates from 1 genuinely new official evidence path: County Road 25 trailer access to Halstad trailer access (Map 3 recommended day trip) and Lincoln Drive Park landing to LaFave Park trailer access (Map 4 recommended day trip). Both were parked at threshold_weak because the official pages still only say to check water levels and warn that low water may be unsuitable; they do not tie a numeric threshold model to the exact routes. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 needs_manual_coordinates additions, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 01:08 America/Chicago conservative no-add gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used the live MN DNR sitemap again to confirm canonical water-trail coverage before doing a bounded fresh Minnesota-first sweep. Explored non-yield cluster: Cedar River near Austin plus the official Riverwood Landing to State Line Road corridor; the only clean official route package there remains the already-rejected state-line segment, and this pass did not surface a stronger same-gauge day trip or fresh threshold evidence. Explored non-yield cluster: Redwood River canonical DNR trail plus the Marshall / Russell / Redwood Falls gauge family; ladder support is real, but practical lower-river opportunities still collapse into the same Redwood Lake / dam / shuttle ambiguity rather than a tighter direct-gauge day trip worth queueing. Process-only check of the canonical DNR sitemap slug set reaffirmed that the current active Minnesota queue already covers the route-shaped value presently discoverable from the official slug list. Net result: 0 fresh candidates reviewed, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 01:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now, and this run did not surface a fresh new-evidence candidate strong enough to outrank the current preserved queue. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not reopened. Deliberately skipped as unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, and Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access remain correctly parked at needs_manual_coordinates; all other current buckets also remain unchanged. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 00:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now: the former strongest direct-gauge Minnesota wins are already shipped, and the remaining active queue still sits in needs_manual_coordinates, threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not reopened because no genuinely new official route page, new threshold evidence, new endpoint coordinates, or other fresh evidence path surfaced in this run. Deliberately skipped as unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, and Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access remain correctly parked at needs_manual_coordinates; all other current buckets also remain unchanged. Net result: 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 / 2026-04-27 23:48 America/Chicago conservative no-add gauge hunt. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then did one bounded fresh Minnesota-first discovery sweep instead of reopening stale holdovers. Fresh cluster path checked: guessed official Minnesota DNR water-trail URLs for Buffalo River and Wild Rice River (/watertrails/buffalo/... and /watertrails/wildrice/...) still returned 404, so this runtime did not surface a clean official route page, map, or gauge story worth logging as a reviewed candidate. Fresh-discovery takeaway: brute-force DNR URL guessing is still a low-yield path; revisit Buffalo or Wild Rice only if a direct official page URL, sitemap lead, or other manager source appears first. Net result: 0 new candidates reviewed, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 23:28 America/Chicago conservative no-add gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then checked two fresh official Minnesota gauge-adjacent clusters instead of reopening stale threshold-weak holdovers. Explored non-yield cluster: Cedar River near Austin plus the official Riverwood Landing to State Line Road corridor; the current Cedar water-trail page still only exposes that same already-rejected segment and did not surface a cleaner same-gauge day trip with stronger trust support. Explored non-yield cluster: Redwood River official one-segment trail plus the Redwood River at Marshall / Russell / Redwood Falls gauge family; live ladders are real, but route opportunities still collapse back into the already-known lower-Redwood / Redwood Falls corridor where lake, dam, and shuttle ambiguity prevent a cleaner short day-trip candidate. Net result: 0 new candidates reviewed, 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 23:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate; the former strongest direct-gauge Minnesota adds are already shipped, and the active queue remains correctly partitioned across needs_manual_coordinates, threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not reopened because no genuinely new evidence path surfaced in this run. Deliberately skipped as unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, and Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access remain correctly parked at needs_manual_coordinates; all other current buckets also remain unchanged. Net result: 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 23:08 America/Chicago gauge-first correction pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then rechecked the Big Fork and Shell Rock Minnesota DNR clusters instead of reopening stale non-Minnesota holdovers. Reviewed 1 candidate: Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was too harshly parked at no_live_gauge under the newer shipping rule. The official DNR route page gives a conservative route-usable floor (below 4 ft at the Bigfork Highway 38 gauge, some rapids are too rocky to run), the direct live source is the MN DNR Bigfork gauge, and the current app already supports provider:'mn_dnr' current readings, so the remaining blocker is endpoint coordinate cleanup rather than live-data viability. Status corrected to needs_manual_coordinates. Also logged one non-yield cluster: Shell Rock River still did not produce a river route because the current official recommended outing on the Minnesota page remains lake-only on Albert Lea Lake. Net result: 1 candidate reviewed, 1 promotion to needs_manual_coordinates, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 22:48 America/Chicago fresh Minnesota-first gauge sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then checked two fresh Minnesota DNR trail clusters instead of reopening stale holdovers. Reviewed 1 fresh candidate from the St. Louis River upper segment page: County Road 4 bridge to County Road 95 carry-in access is a real official recommended day trip, but it stays no_live_gauge because the current official page only gives seasonal and qualitative flow guidance rather than a route-operable live gauge plus threshold package. Also logged one non-yield cluster so future runs rotate away faster: Shell Rock River did not produce a route candidate because the current official recommended outing on the Minnesota page is lake-only on Albert Lea Lake rather than a river day trip with a live-gauge story. Net result: 1 candidate reviewed, 1 new no_live_gauge hold, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 22:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate. The strongest remaining queue stays in non-shippable buckets: needs_manual_coordinates (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge), plus the existing threshold_weak, duplicate_corridor, research_later, and rejected sets. Per the run rules, stale holdovers were not re-reviewed because no genuinely new evidence path surfaced. The freshest reviewed candidate, Kettle River - Musclewood carry-in access to #1 trailer access, also remains correctly parked at threshold_weak because current guidance is only 'best when the gauge reads Medium or above,' not a clean route-level numeric ladder. Net result: 0 status changes, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 22:28 America/Chicago fresh Minnesota-first gauge-cluster sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined fresh DNR gauge/trail combinations instead of reopening stale holdovers. Reviewed 1 fresh candidate from the Kettle River cluster: Musclewood carry-in access to #1 trailer access is a real official recommended day trip, but it stays threshold_weak because the best current guidance is still a corridor-level DNR note ('best when the Willow River Long Lake Road gauge reads Medium or above') rather than a clean route-level numeric ladder. Also logged two non-yield clusters so future runs rotate away faster: Shell Rock River did not produce a route candidate because the current official recommended trip is lake-only on Albert Lea Lake, and the lower Kettle #5-to-#6 corridor is already live so it added no new queue value. Net result: 1 candidate reviewed, 1 new threshold_weak hold, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 22:08 America/Chicago fresh Minnesota-first DNR gauge reassessment. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then sanity-checked the current product reality against preserved DNR-backed holdovers. Reviewed 4 candidates from 2 fresh evidence paths: Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, and Little Fork River - Veterans Park to Highway 73 bridge are correctly parked at needs_manual_coordinates because the current app already supports provider:'mn_dnr' current readings, each route has a direct official DNR ladder plus a clearly named official recommended trip, and the remaining blocker is endpoint coordinate cleanup rather than live-data viability; Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was rechecked but left below promotion because the route page's practical floor still reads more as qualitative height context than a clean same-route implementation ladder. Also explored the St. Louis River Floodwood/Paupores/Brookston cluster: official trip support is real, but the current gauge fit still looks proxy-like and rapid-sensitive rather than cleanly implementation-ready. Net result: 4 candidates reviewed, 3 preserved as needs_manual_coordinates, no code changes, and no tests/build because no product files changed.",
+    "2026-04-26 21:48 America/Chicago fresh Minnesota-first DNR gauge reassessment. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then rechecked the current product\u2019s MN DNR live-gauge support against fresh official DNR route pages and the live DNR river-level dataset. Reviewed 4 candidates from 2 fresh evidence paths: Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, and Little Fork River - Veterans Park to Highway 73 bridge were upgraded from no_live_gauge to needs_manual_coordinates because the current app already supports provider:'mn_dnr' current readings, each route has a direct official DNR ladder plus a clearly named official recommended trip, and the remaining blocker is endpoint coordinate cleanup rather than live-data viability; Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was rechecked but left out of promotion because the route page\u2019s practical floor still appears tied to the Bigfork height context rather than a fully clean same-route implementation package. Also explored the St. Louis River Floodwood/Paupores/Brookston cluster: official trip support is real, but the current gauge fit still looks more upstream/proxy-like and rapid-sensitive than the cleaner preserve-now candidates. Net result: 4 candidates reviewed, 3 status changes, no tests or build because no product files changed.",
+    "2026-04-26 21:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate. The best remaining queue is unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, and Cottonwood River - Juenemann carry-in access to Springfield carry-in access remain needs_manual_coordinates; threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets are also unchanged. Per the run rules, stale holdovers were not re-reviewed because no genuinely new official route page, gauge guidance, threshold evidence, or endpoint coordinates surfaced. Net result: 0 status changes and no tests or build because no product files changed.",
+    "2026-04-26 21:28 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then tested a fresh Minnesota-first search path instead of reopening stale candidates. Buffalo River and Wild Rice River DNR water-trail page hunts were still low-yield from this runtime: straightforward official URL patterns returned 404, and the follow-up search did not surface a clean official route page or live-gauge package worth logging as a candidate. A quick Red River sanity recheck only reaffirmed the already-logged Kidder-to-Brushvale threshold gap. Net result: 0 fresh candidates reviewed, 0 status changes, and no tests or build because no product files changed.",
+    "2026-04-26 20:48 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then did one bounded fresh Minnesota-first discovery sweep against the current MN DNR recommended-trip index and its six linked trip pages (Cannon, North Fork Crow, Mississippi #1, Mississippi #2, Rum, St. Croix). That recommendation-page path is now effectively saturated: it only pointed back to already-live routes, already-logged duplicate corridors, or already-known blocked corridors like Cannon Falls to Miesville and Coon Rapids Dam to North Mississippi Park. No genuinely new evidence changed any candidate status, so the run stopped conservatively instead of padding the queue with stale reviews. Net result: 0 candidates reviewed, 0 status changes, and no tests or build because no product files changed.",
     "2026-04-26 19:48 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then did one fresh Minnesota-first bounded discovery sweep. Checked three fresh official clusters: Mississippi recommended trip #1 (already live as East River Flats to Hidden Falls), Mississippi recommended trip #2 (still blocked by the same missing route-level live gauge / threshold model for Coon Rapids Dam to North Mississippi Park), and the North Fork Crow recommended trip (still duplicate corridor versus the existing Riverside-to-Dayton live route plus queued Rockford-to-Riverside segment). No genuinely new evidence changed any candidate status, so the run stopped conservatively instead of padding the queue with stale or weaker reviews. Net result: no candidate statuses changed; no tests or build were run because no product files changed.",
     "2026-04-27: gauge-first pass reviewed fresh Minnesota DNR clusters on the South Fork Crow, Watonwan, and Redwood. South Fork Crow produced one needs-manual-coordinates candidate; Watonwan produced one research-later hold; Redwood stayed cluster-only because the lower route shape runs into Redwood Lake / dam logistics without a cleaner short recommended trip on this pass.",
-    "2026-04-26 20:28 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger. No queued likely_addable candidate remains, and this run did not surface a genuinely new official route page, new official gauge guidance, new threshold evidence, or new endpoint coordinates. Stopped conservatively instead of recycling stale threshold_weak / research_later / rejected holdovers as fake fresh discovery. Net result: no candidate statuses changed; no tests or build were run because no product files changed."
+    "2026-04-26 20:28 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger. No queued likely_addable candidate remains, and this run did not surface a genuinely new official route page, new official gauge guidance, new threshold evidence, or new endpoint coordinates. Stopped conservatively instead of recycling stale threshold_weak / research_later / rejected holdovers as fake fresh discovery. Net result: no candidate statuses changed; no tests or build were run because no product files changed.",
+    "2026-04-26 20:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. There are still no queued likely_addable candidates; the remaining queue is correctly split across needs_manual_coordinates, threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected. No genuinely new evidence path surfaced, so the run stopped conservatively instead of re-litigating stale holdovers. Net result: no candidate statuses changed; no tests or build were run because no product files changed.",
+    "2026-04-26 21:25 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then tested a fresh Minnesota-first search path instead of reopening stale candidates. Red Lake River, Pine River, Little Fork River, and Red River recommendation pages only reaffirmed already-logged blockers rather than creating new evidence; separate Buffalo River and Wild Rice River DNR water-trail URL hunts were a dead end from this runtime because guessed official paths returned 404 and did not expose a clean route page worth reviewing. Net result: 0 fresh candidates reviewed, 0 status changes, and no tests or build because no product files changed.",
+    "2026-04-27 00:08 America/Chicago conservative no-add sitemap-assisted gauge pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then used the live MN DNR sitemap instead of guessed URL patterns to confirm canonical water-trail slugs before doing a bounded fresh Minnesota-first sweep. Useful process discovery: https://www.dnr.state.mn.us/sitemap.xml?page=1 exposes the real water-trail slug set (bigforkriver, redwoodriver, stlouisriver, etc.), so future runs should use the sitemap first instead of brute-force DNR URL guessing. Fresh non-yield clusters checked: Big Fork River at Bigfork / Highway 38 (discovery saturated because Highway 6 South to Highway 6 North is already preserved as needs_manual_coordinates and no cleaner same-gauge follow-on surfaced), St. Louis River upper segment pages (still only County Road 4 to County Road 95, already parked at no_live_gauge with no fresh live-gauge evidence), and Redwood River canonical page recheck (canonical slug confirmed, but lower practical opportunities still collapse into Lake Redwood / dam / shuttle ambiguity rather than a clean short direct-gauge day trip). Net result: 0 fresh candidates reviewed, 0 status changes, and no tests/build because no product files changed.",
+    "2026-04-27 00:28 America/Chicago conservative no-add sitemap follow-up. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then did one more bounded Minnesota-first discovery pass using the sitemap-confirmed DNR water-trail list instead of guessed URLs. Fresh non-yield clusters checked: Buffalo River hunt (no canonical MN DNR water-trail slug surfaced from the live sitemap, so there is still no clean official route page or live-gauge path to review from this runtime), Wild Rice River hunt (same outcome; earlier guessed-URL 404s were not missing an obvious current trail page), and a sitemap-backed canonical slug sanity set covering redwoodriver / stlouisriver / bigforkriver / shellrockriver / ottertailriver / redlakeriver (process check only, confirming the current Minnesota-first queue already covers the route-shaped value currently discoverable from the official slug set). Fresh-discovery takeaway: the next useful hit-rate gain is unlikely to come from more brute-force page hunting for missing river slugs; future runs should bias toward coordinate cleanup on the preserved needs_manual_coordinates set or genuinely new official gauge/route releases. Net result: 0 fresh candidates reviewed, 0 status changes, and no tests/build because no product files changed.",
+    "2026-04-27 01:28 America/Chicago fresh Minnesota-first Red River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined the unreviewed Red River Map 2 and Map 6 segment pages instead of reopening stale threshold-weak holdovers. Reviewed 2 fresh candidates from 1 genuinely new official evidence path: North Dam to M.B. Johnson Park (Map 2 recommended day trip) and Golden Grain trailer access to Hilltop trailer access (Map 6 recommended day trip). Both were parked at threshold_weak because the official pages still only say to check water levels and warn that low water may not be suitable for boating; they do not tie a numeric threshold model to the exact routes. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 needs_manual_coordinates additions, 0 rejections, no code changes, and no tests/build because no product files changed."
   ],
   "candidates": [
     {
@@ -119,11 +165,11 @@
       "river": "Big Fork River",
       "route": "Highway 6 (S) carry-in access to Highway 6 (N) carry-in access",
       "state": "MN",
-      "status": "no_live_gauge",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "MN DNR explicitly recommends the route and gives a qualitative floor at Bigfork, but this pass did not surface a defensible live USGS gauge pairing. The live level story available here is the MN DNR CSG site at the Highway 38 bridge in Bigfork rather than a usable USGS feed.",
-      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Bigfork corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 2,
+      "blocker": "The route now clears the live-data bar, but this pass still did not finish authoritative coordinate lookup for the official Highway 6 south and Highway 6 north carry-in endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Big Fork River segments and maps page",
@@ -137,18 +183,18 @@
       "v2Slug": null,
       "gauge": {
         "quality": "direct_non_usgs",
-        "notes": "MN DNR live site at the Highway 38 bridge in Bigfork gives route-relevant level context, but it is a CSG gauge rather than the USGS pairing this workflow prefers."
+        "notes": "The Bigfork Highway 38 MN DNR gauge is the direct corridor live source, and the current app already supports provider:'mn_dnr' current readings, so the old DNR-only live-data blocker no longer holds."
       },
       "thresholdSupport": {
-        "strength": "moderate",
-        "notes": "Official route page says some rapids will be too rocky to run if the Bigfork gauge is below 4 ft, but it does not provide the stronger route-ready ladder used on the best candidates."
+        "strength": "strong",
+        "notes": "Official route page gives a conservative usable floor: some rapids will be too rocky to run if the Bigfork Highway 38 gauge is below 4 ft. That is enough for a minimum-only trust-first model even without a fuller preferred range."
       },
       "endpoints": {
         "putIn": "Highway 6 (S) carry-in access",
         "takeOut": "Highway 6 (N) carry-in access",
         "coordinatesPresent": false
       },
-      "notes": "Fresh gauge-first Minnesota discovery. The route itself is a real DNR-recommended 15.7-mile day trip, but it stays out of the implementation queue because the live gauge story is DNR-only and not a defensible USGS pairing under the current triage bar."
+      "notes": "Re-reviewed on 2026-04-27 under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route no longer belongs in no_live_gauge: the Bigfork DNR site is direct, the route page gives a conservative 4 ft floor, and the remaining blocker is endpoint coordinate cleanup only."
     },
     {
       "candidateId": "mn-chippewa-river-lentz-access-watson-lions-park",
@@ -185,6 +231,42 @@
         "coordinatesPresent": false
       },
       "notes": "Fresh gauge-first Minnesota discovery. Worth keeping because DNR explicitly recommends the trip, but current gauge fit is weaker than Long Prairie or Pomme de Terre."
+    },
+    {
+      "candidateId": "mn-cloquet-river-indian-lake-access-bear-lake-road",
+      "river": "Cloquet River",
+      "route": "Indian Lake Access to Bear Lake Road",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 10.3-mile upper-river day trip and clearly names both endpoints, but the current official page only gives broad qualitative flow guidance (medium to heavy stream flow is best; rapids may only be runnable after heavy rains) rather than a route-operable live gauge plus defensible threshold model for this exact corridor.",
+      "retryCondition": "Retry only if MN DNR, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the Indian-Lake-to-Bear-Lake-Road corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Cloquet River segments and maps page (Map 2)",
+        "MN DNR Cloquet River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Cloquet River - Indian Lake Access to Bear Lake Road",
+        "Cloquet River - Indian Lake to Bear Lake Road"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The current official page provides only qualitative flow context (best at medium to heavy flow; upper rapids may run only after heavy rains) and does not surface a concrete route-operable live gauge pairing for this upper corridor. The existing lower Cloquet Island Lake gauge story does not cleanly transfer upstream without guesswork."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "No route-specific numeric paddling floor or band was surfaced on this pass. The official page gives only qualitative runnable-flow language."
+      },
+      "endpoints": {
+        "putIn": "Indian Lake Access",
+        "takeOut": "Bear Lake Road",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the upper Cloquet Map 2 segment page. Good official route shape, but it stays out of the queue because the live-data story is still too vague and rain-sensitive to clear PaddleTodayV2's trust bar."
     },
     {
       "candidateId": "mn-cottonwood-river-juenemann-carry-in-access-springfield-carry-in-access",
@@ -258,15 +340,51 @@
       "notes": "Fresh gauge-first Minnesota discovery. MN DNR map explicitly recommends this 7-mile day trip and names both endpoints clearly. It is worth preserving, but conservative shipping still needs better route-specific gauge fit than the current downstream Jackson proxy story."
     },
     {
+      "candidateId": "mn-kettle-river-musclewood-1-trailer-access",
+      "river": "Kettle River",
+      "route": "Musclewood carry-in access to #1 trailer access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "Official DNR route support is real and the Willow River / Long Lake Road gauge is the clearest live level story on this corridor, but the current threshold guidance is still a broad corridor note ('best when the gauge reads Medium or above') rather than a clean route-level numeric model for Musclewood-to-#1.",
+      "retryCondition": "Retry if MN DNR, park manager guidance, or strong same-route evidence ties the Willow River Long Lake Road gauge bands directly to the Musclewood-to-#1 day trip, or if an exact-route minimum/range surfaces.",
+      "retryDate": "2026-05-10",
+      "sourcesChecked": [
+        "MN DNR Kettle River segments and maps page",
+        "MN DNR river levels dataset for Kettle River nr Willow River, Long Lake Rd",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Kettle River - Musclewood carry-in access to #1 trailer access",
+        "Kettle River - Musclewood to #1 trailer access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "MN DNR site 293 (Kettle River nr Willow River, Long Lake Rd) is the clearest official live gauge story surfaced for this upper/lower-transition corridor."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Current DNR wording is qualitative rather than route-ready: the page says the route is best if the Willow River Long Lake Road gauge reads 'Medium' or above, and that many rapids will be scrapeable in lower water. That is useful but still weaker than the full five-band ladders on the cleaner candidates."
+      },
+      "endpoints": {
+        "putIn": "Musclewood carry-in access",
+        "takeOut": "#1 trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first gauge-cluster discovery. The route is an official 16.5-mile recommended day trip with named endpoints and a same-corridor live DNR gauge, but the threshold package still needs cleaner route-specific calibration before it should move closer to implementation."
+    },
+    {
       "candidateId": "mn-little-fork-river-veterans-park-highway-73-bridge",
       "river": "Little Fork River",
       "route": "Veterans Park to Highway 73 bridge",
       "state": "MN",
-      "status": "no_live_gauge",
+      "status": "needs_manual_coordinates",
       "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "MN DNR explicitly recommends this 15.2-mile experienced-paddler day trip and the Linden Grove DNR gauge carries a full official ladder, but the live story surfaced on this pass is still a DNR CSG site rather than a defensible live USGS pairing the current product can ship with chart support.",
-      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Linden Grove / Highway 73 corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "reviewCount": 2,
+      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Little Fork River segments and maps page",
@@ -279,18 +397,18 @@
       "v2Slug": null,
       "gauge": {
         "quality": "direct_non_usgs",
-        "notes": "MN DNR site 88 at Linden Grove / Highway 73 sits exactly at the official take-out and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+        "notes": "Direct MN DNR site 88 at Linden Grove / Highway 73 sits exactly on the route corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
       },
       "thresholdSupport": {
         "strength": "strong",
-        "notes": "Official ladder at site 88: Scrapable below 100 cfs, Low 100-175 cfs, Medium 175-500 cfs, High 500-1000 cfs, Very High above 1000 cfs. The route page also warns that three feet or lower at the highway-bridge gauge makes most rapids too shallow for easy passage."
+        "notes": "Official ladder at site 88 remains strong: Scrapable below 100 cfs, Low 100-175 cfs, Medium 175-500 cfs, High 500-1000 cfs, Very High above 1000 cfs. The route page also says three feet or lower at the Highway 73 bridge makes most rapids too shallow for easy passage."
       },
       "endpoints": {
         "putIn": "Veterans Park (carry-in)",
         "takeOut": "Highway 73 bridge (carry-in)",
         "coordinatesPresent": false
       },
-      "notes": "Fresh Minnesota-first gauge discovery. The route is real and official, but it is also more technical than the mellow family-float adds; even apart from that, the current blocker is still the DNR-only gauge feed."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Linden Grove / Highway 73 DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
     },
     {
       "candidateId": "mn-long-prairie-river-long-prairie-browerville",
@@ -334,6 +452,115 @@
         }
       },
       "notes": "Fresh gauge-first Minnesota discovery. DNR segments page explicitly recommends this 13.3-mile day trip and DNR public-water-access GIS resolves both endpoints cleanly. Added on 2026-04-26 after confirming the current product still fetches MN DNR readings reliably for direct DNR gauges and still renders the intended current-level fallback panel when recent chart samples are unavailable."
+    },
+    {
+      "candidateId": "mn-minnesota-river-kinney-access-skalbekken-county-park",
+      "river": "Minnesota River",
+      "route": "Kinney Access to Skalbekken County Park",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "Official route support is real, but the best practical live-gauge story still looks proxy-like and rapid-sensitive rather than a clean route-level threshold package for this exact corridor.",
+      "retryCondition": "Retry if MN DNR or another manager source ties a defensible numeric ladder directly to the Kinney-to-Skalbekken reach, or if a cleaner same-corridor gauge/access story surfaces.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Minnesota River segments and maps page",
+        "MN DNR Minnesota River map 3 PDF",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Minnesota River - Kinney Access to Skalbekken County Park",
+        "Minnesota River - Kinney to Skalbekken"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "No fresh direct route-level live gauge was documented on this pass. The practical story still points toward broader Minnesota River gauge context rather than a clean same-route sensor."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "The official page clearly recommends the trip, but this run did not surface route-level numeric threshold guidance tied to the exact Kinney-to-Skalbekken corridor. The surrounding segment also includes rapids-sensitive language upstream/downstream, which makes a stitched proxy model less trustworthy."
+      },
+      "endpoints": {
+        "putIn": "Kinney Access",
+        "takeOut": "Skalbekken County Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh official Map 3 recommended day trip. Worth keeping because the route shape is real and public, but it is not yet clean enough for implementation without a better threshold story."
+    },
+    {
+      "candidateId": "mn-minnesota-river-thompson-ferry-access-carver-riverfront-park",
+      "river": "Minnesota River",
+      "route": "Thompson Ferry Access to Carver Riverfront Park",
+      "state": "MN",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "The route clears the live-data and threshold bar, but this pass did not finish authoritative endpoint coordinate lookup for Thompson Ferry Access and Carver Riverfront Park.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR, county, or city access records.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Minnesota River segments and maps page",
+        "MN DNR Minnesota River map 6 PDF",
+        "MN DNR river levels guidance for Minnesota River near Jordan",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Minnesota River - Thompson Ferry Access to Carver Riverfront Park",
+        "Minnesota River - Thompson Ferry to Carver Riverfront Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "The current best live story is the MN DNR/USGS Jordan site already used on the lower Minnesota corridor. For this exact route it is cleaner than for Henderson-to-Belle-Plaine because Thompson Ferry is effectively the gauge-adjacent put-in, and the app can already operate the DNR live path."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official DNR ladder already exists for the Jordan gauge (scrapable below 4 ft, low 4-9, medium 9-12, high 12-16, very high above 16). That is good enough for a conservative lower-Minnesota implementation once coordinates are cleaned up."
+      },
+      "endpoints": {
+        "putIn": "Thompson Ferry Access",
+        "takeOut": "Carver Riverfront Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh official Map 6 recommended day trip. DNR explicitly names both endpoints and the route length (8.1 river miles). This is a better fit for the existing Jordan gauge ladder than broader stitched lower-Minnesota corridor ideas, but this pass stopped at named-endpoint preservation rather than authoritative coordinate extraction."
+    },
+    {
+      "candidateId": "mn-mississippi-river-coon-rapids-dam-regional-park-riverfront-regional-park",
+      "river": "Mississippi River",
+      "route": "Coon Rapids Dam Regional Park to Riverfront Regional Park",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 6.1-mile metro day trip and clearly names both endpoints, but this pass did not surface a defensible live gauge pairing or route-level threshold support strong enough to ship. The official page stays qualitative about swift current, islands, and urban conditions without tying the reach to a usable numeric gauge model.",
+      "retryCondition": "Retry only if MN DNR, NPS, USGS-adjacent manager guidance, or strong same-route evidence ties this exact Coon-Rapids-to-Riverfront reach to a defensible live gauge model, even if it is only a conservative minimum-only floor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page (Map 9)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "docs/midwest-route-automation-memory.md"
+      ],
+      "aliases": [
+        "Mississippi River - Coon Rapids Dam Regional Park to Riverfront Regional Park",
+        "Mississippi River - Coon Rapids Dam to Riverfront Regional Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "A metro Mississippi live gauge almost certainly exists in the broader corridor, but this pass did not surface official manager guidance tying a specific gauge and threshold package to this exact 6.1-mile route."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Official route legitimacy is clean, but the threshold story is still qualitative rather than a route-ready numeric model."
+      },
+      "endpoints": {
+        "putIn": "Coon Rapids Dam Regional Park",
+        "takeOut": "Riverfront Regional Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh segment-page metro discovery. Useful to preserve because the route is explicit and practical, but it stays below the trust bar until the exact reach has a route-level live-gauge story."
     },
     {
       "candidateId": "mn-north-fork-crow-river-city-of-rockford-trailer-access-riverside-county-park",
@@ -484,11 +711,11 @@
       "river": "Pine River",
       "route": "Rock Dam to Harvey Drake access",
       "state": "MN",
-      "status": "no_live_gauge",
+      "status": "needs_manual_coordinates",
       "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "MN DNR explicitly recommends this 14.4-mile day trip and the Jenkins DNR gauge carries a full official ladder, but the available live story on this pass is still a DNR CSG site rather than a defensible live USGS pairing that PaddleTodayV2 can ship today.",
-      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the lower Pine corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "reviewCount": 2,
+      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Pine River segments and maps page",
@@ -502,18 +729,18 @@
       "v2Slug": null,
       "gauge": {
         "quality": "direct_non_usgs",
-        "notes": "MN DNR site 316 at Pine River near Jenkins is on the same lower-river corridor and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+        "notes": "Direct MN DNR site 316 near Jenkins sits on the same lower-Pine corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
       },
       "thresholdSupport": {
         "strength": "strong",
-        "notes": "Official ladder at site 316: Scrapable below 35 cfs, Low 35-50 cfs, Medium 50-200 cfs, High 200-500 cfs, Very High above 500 cfs."
+        "notes": "Official ladder at site 316 remains strong: Scrapable below 35 cfs, Low 35-50 cfs, Medium 50-200 cfs, High 200-500 cfs, Very High above 500 cfs."
       },
       "endpoints": {
         "putIn": "Rock Dam carry-in access",
         "takeOut": "Harvey Drake trailer landing",
         "coordinatesPresent": false
       },
-      "notes": "Fresh Minnesota-first gauge discovery. Official route support is clean, and the route shape is one of the friendlier Pine options because it avoids rapids, but the gauge still fails the current USGS-first shipping bar."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Jenkins DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
     },
     {
       "candidateId": "mn-pomme-de-terre-river-larson-appleton",
@@ -564,11 +791,11 @@
       "river": "Red Lake River",
       "route": "Smiley Bridge to Centennial Park",
       "state": "MN",
-      "status": "no_live_gauge",
+      "status": "needs_manual_coordinates",
       "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "MN DNR explicitly recommends this beginner-friendly 12.3-mile day trip and the Thief River Falls DNR gauge carries a full official ladder, but the live story surfaced on this pass is still a DNR CSG site rather than a defensible live USGS pairing the current product can ship with chart support.",
-      "retryCondition": "Retry only if a defensible live USGS gauge pairing appears for the Thief River Falls corridor or if product policy changes to accept DNR-only live gauges for route decisions.",
+      "reviewCount": 2,
+      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Red Lake River segments and maps page",
@@ -581,18 +808,18 @@
       "v2Slug": null,
       "gauge": {
         "quality": "direct_non_usgs",
-        "notes": "MN DNR site 179 at Thief River Falls sits essentially at the take-out corridor and carries a full five-band ladder, but it is a CSG gauge rather than a shippable USGS feed."
+        "notes": "Direct MN DNR site 179 at Thief River Falls sits on the route corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
       },
       "thresholdSupport": {
         "strength": "strong",
-        "notes": "Official ladder at site 179: Scrapable below 1098 ft, Low 1098-1099 ft, Medium 1099-1103 ft, High 1103-1105 ft, Very High above 1105 ft."
+        "notes": "Official ladder at site 179 remains strong: Scrapable below 1098 ft, Low 1098-1099 ft, Medium 1099-1103 ft, High 1103-1105 ft, Very High above 1105 ft."
       },
       "endpoints": {
         "putIn": "Smiley Bridge carry-in access",
         "takeOut": "Centennial Park trailer access",
         "coordinatesPresent": false
       },
-      "notes": "Fresh Minnesota-first gauge discovery. Official DNR route support is clean and practical, but the route misses the current bar because the live gauge story is DNR-only rather than a working USGS pairing."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Thief River Falls DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
     },
     {
       "candidateId": "mn-red-river-kidder-recreation-area-brushvale-bridge-recreation-area",
@@ -629,6 +856,151 @@
         "coordinatesPresent": false
       },
       "notes": "Fresh Minnesota-first border-river discovery. Re-reviewed on the 18:08 America/Chicago pass against the current official Red River DNR segments page; the route itself is still clean and official, but the page still only says to check water levels and does not tie the Georgetown USGS gauge to a numeric route model, so the threshold package remains too qualitative to clear likely_addable."
+    },
+    {
+      "candidateId": "mn-red-river-of-the-north-county-road-25-trailer-access-halstad-trailer-access",
+      "river": "Red River of the North",
+      "route": "County Road 25 trailer access to Halstad trailer access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 11.2-mile day trip and clearly names both endpoints on Map 3, but the official page only says to check water levels and warns that low water may not be suitable for boating. I did not find a numeric route model tying the Georgetown gauge to this exact County Road 25-to-Halstad trip.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties the Georgetown gauge to a conservative numeric minimum or range for the County Road 25-to-Halstad corridor.",
+      "retryDate": "2026-05-11",
+      "sourcesChecked": [
+        "MN DNR Red River of the North segments and maps page (Map 3)",
+        "MN DNR Red River overview page",
+        "USGS 05062130 near Georgetown, MN",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red River of the North - County Road 25 trailer access to Halstad trailer access",
+        "Red River - Highway 25 to Halstad"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05062130 near Georgetown is the cleanest live source on this route family and sits near the upstream half of the segment."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official support is route-specific on endpoints and mileage, but not on thresholds. The page gives only generic low-water and snag warnings, not a numeric paddling floor or band for the exact trip."
+      },
+      "endpoints": {
+        "putIn": "County Road 25 trailer access",
+        "takeOut": "Halstad trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first Red River segment-page discovery from Map 3. This is a real official Georgetown-to-Halstad day trip, but it stays below likely_addable because the threshold package is still qualitative."
+    },
+    {
+      "candidateId": "mn-red-river-of-the-north-golden-grain-trailer-access-hilltop-trailer-access",
+      "river": "Red River of the North",
+      "route": "Golden Grain trailer access to Hilltop trailer access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 9-mile far-north day trip and clearly names both endpoints on Map 6, but the official page still only says to check water levels and warns that low water may not be suitable for boating. I did not find a numeric route model tying a live gauge cleanly to this exact trip.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties a live gauge and conservative numeric floor/range directly to the Golden-Grain-to-Hilltop corridor.",
+      "retryDate": "2026-05-11",
+      "sourcesChecked": [
+        "MN DNR Red River of the North segments and maps page (Map 6)",
+        "MN DNR Red River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red River of the North - Golden Grain trailer access to Hilltop trailer access",
+        "Red River - Golden Grain to Hilltop"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The route has a plausible broader Red River live-gauge story, but this pass did not surface official manager guidance tying a specific live gauge to the exact far-north segment. The route page itself only says to check water levels before the trip."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean on endpoints and mileage, but threshold guidance is still only generic Red River low-water caution rather than a numeric route model."
+      },
+      "endpoints": {
+        "putIn": "Golden Grain trailer access",
+        "takeOut": "Hilltop trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first Red River segment-page discovery from Map 6. Worth preserving because the route itself is explicit and practical, but it stays below likely_addable until the exact reach has a route-level live-gauge story."
+    },
+    {
+      "candidateId": "mn-red-river-of-the-north-lincoln-drive-park-landing-lafave-park-trailer-access",
+      "river": "Red River of the North",
+      "route": "Lincoln Drive Park landing to LaFave Park trailer access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this short 2-mile Grand Forks / East Grand Forks day trip and clearly names both endpoints on Map 4, but this pass still did not surface a defensible route-level numeric threshold model or a cleaner exact-reach gauge story than the general Red River water-level warning.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties a live gauge and numeric floor/range directly to the Lincoln-Drive-to-LaFave reach.",
+      "retryDate": "2026-05-11",
+      "sourcesChecked": [
+        "MN DNR Red River of the North segments and maps page (Map 4)",
+        "MN DNR Red River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red River of the North - Lincoln Drive Park landing to LaFave Park trailer access",
+        "Red River - Lincoln Drive Park to LaFave Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "This urban subreach likely shares the broader Red River corridor gauge story, but this pass did not surface a cleaner exact-reach live gauge than the general statewide water-level warning."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is only generic Red River low-water caution rather than a numeric model for this exact 2-mile trip."
+      },
+      "endpoints": {
+        "putIn": "Lincoln Drive Park landing",
+        "takeOut": "LaFave Park trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first Red River segment-page discovery from Map 4. Useful to preserve because the route itself is explicit and short, but it is still below the trust bar until the exact reach has a route-level live-gauge story."
+    },
+    {
+      "candidateId": "mn-red-river-of-the-north-north-dam-mb-johnson-park",
+      "river": "Red River of the North",
+      "route": "North Dam to M.B. Johnson Park",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this short 3.1-mile Moorhead/Fargo day trip and clearly names both endpoints on Map 2, but the official page only says to check water levels and warns that low water may not be suitable for boating. I did not find a numeric route model tying any live gauge cleanly to this exact urban subreach.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties a live gauge and conservative numeric floor/range directly to the North-Dam-to-M.B.-Johnson reach.",
+      "retryDate": "2026-05-11",
+      "sourcesChecked": [
+        "MN DNR Red River of the North segments and maps page (Map 2)",
+        "MN DNR Red River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Red River of the North - North Dam to M.B. Johnson Park",
+        "Red River - North Dam to M.B. Johnson Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "A live Red River gauge almost certainly exists in the Fargo/Moorhead corridor, but this pass did not surface official manager guidance tying a specific gauge to this exact short route. The route page itself only says to check water levels before the trip."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official endpoint and mileage support is clean, but threshold guidance is only generic Red River low-water caution rather than a numeric route model."
+      },
+      "endpoints": {
+        "putIn": "North Dam",
+        "takeOut": "M.B. Johnson Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first Red River segment-page discovery from Map 2. Good official short urban route, but still below likely_addable because the gauge/threshold story stays qualitative."
     },
     {
       "candidateId": "mn-sauk-river-spring-hill-county-park-st-martin-carry-in-access",
@@ -742,6 +1114,115 @@
         "coordinatesPresent": false
       },
       "notes": "Fresh Minnesota-first recommendation-page review. Official route is clean, but it adds almost no new product value because the exact corridor is already represented as two existing lower-St. Croix routes."
+    },
+    {
+      "candidateId": "mn-st-louis-river-county-road-4-bridge-county-road-95-carry-in-access",
+      "river": "St. Louis River",
+      "route": "County Road 4 bridge to County Road 95 carry-in access",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-26",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 7.3-mile upper-river day trip and clearly names both endpoints, but this pass did not surface a defensible live gauge-plus-threshold package for the exact corridor. The official segment page gives seasonal and qualitative flow context rather than a route-operable live model.",
+      "retryCondition": "Retry only if MN DNR, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the County Road 4 to County Road 95 corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR St. Louis River segments and maps page",
+        "MN DNR St. Louis River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "St. Louis River - County Road 4 bridge to County Road 95 carry-in access",
+        "St. Louis River - County Road 4 to County Road 95"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The current official page surfaced only seasonal flow context (`stream flow usually peaks in late April and falls throughout the summer`; upper reaches may be impassable at medium to low water), not a named route-operable live gauge pairing for this exact upper corridor."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "The route page is useful qualitatively but does not publish a numeric paddling floor, range, or manager-linked live gauge model for this exact day trip."
+      },
+      "endpoints": {
+        "putIn": "County Road 4 bridge",
+        "takeOut": "County Road 95 carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the upper St. Louis segment page. The route itself looks practical and officially supported, but it stays out of the queue because the current live-data story is still too vague to clear PaddleTodayV2's trust-first bar."
+    },
+    {
+      "candidateId": "mn-st-louis-river-fond-du-lac-reservoir-oldenburg-falls",
+      "river": "St. Louis River",
+      "route": "Fond du Lac Reservoir to Oldenburg Falls",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 6-7 mile round-trip flatwater outing from Fond du Lac Reservoir to Oldenburg Falls, but the official page does not surface a route-operable live gauge or threshold model. It only says water flow may determine how close paddlers can get to the falls and warns to stay a safe distance from the dam.",
+      "retryCondition": "Retry only if park manager, DNR, hydropower, or USGS-adjacent guidance ties a live gauge or release model directly to the reservoir-to-Oldenburg-Falls outing.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR St. Louis River segments and maps page (Map 3)",
+        "MN DNR St. Louis River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "St. Louis River - Fond du Lac Reservoir to Oldenburg Falls",
+        "Fond du Lac Reservoir round trip to Oldenburg Falls"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The route depends on reservoir / dam / falls conditions, but this pass did not surface a defensible live gauge or release feed tied to how far up-route paddlers can safely go toward Oldenburg Falls."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Official guidance is route-real but qualitative: water flow affects how close paddlers can approach the falls, with no published numeric floor, range, or live-gauge mapping for the outing."
+      },
+      "endpoints": {
+        "putIn": "Fond du Lac Reservoir (Grand Portage parking lot launch)",
+        "takeOut": "Fond du Lac Reservoir / Oldenburg Falls turnaround",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the St. Louis Map 3 segment page. It is an official flatwater reservoir outing rather than a through-trip, but still worth logging because it is route-shaped and product-sized. It remains below the queue because the safe-operating story is flow-sensitive and not tied to a live gauge."
+    },
+    {
+      "candidateId": "mn-st-louis-river-paupores-brookston",
+      "river": "St. Louis River",
+      "route": "Paupores to Brookston",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 7.9-mile day trip and clearly names both endpoints on Map 2, but the current official page only gives broad seasonal/qualitative flow context and Class I-II rapid caution. I did not surface a route-operable live gauge plus defensible threshold model for this exact corridor.",
+      "retryCondition": "Retry only if MN DNR, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the Paupores-to-Brookston corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR St. Louis River segments and maps page (Map 2)",
+        "MN DNR St. Louis River overview page",
+        "docs/midwest-route-automation-memory.md",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "St. Louis River - Paupores to Brookston",
+        "St. Louis River - Paupores trailer access to Brookston trailer access"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The best nearby official live-level story still appears to be the Floodwood corridor, but the Map 2 route page itself only says stream flow usually peaks in late April and falls through summer, with generally enough water for paddling, not a concrete route-operable gauge pairing."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "The official route page provides route legitimacy and hazard context, but no numeric paddling floor or band and no manager-linked live gauge model for this exact day trip."
+      },
+      "endpoints": {
+        "putIn": "Paupores trailer access",
+        "takeOut": "Brookston trailer access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the St. Louis Map 2 segment page. This is a real official middle-river day trip, but it stays out of the queue because the current live-data story is still too vague to clear PaddleTodayV2's trust-first bar."
     },
     {
       "candidateId": "mn-vermilion-river-twomile-creek-access-eightmile-creek-access",
@@ -1006,6 +1487,513 @@
         "coordinatesPresent": false
       },
       "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "mn-crow-wing-river-huntersville-n-mary-brown-rest-area",
+      "river": "Crow Wing River",
+      "route": "Huntersville (N) carry-in access to Mary Brown Rest Area carry-in access",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 7.3-mile upper Crow Wing day trip and clearly names both endpoints, but this pass did not surface a defensible route-operable live gauge plus threshold model for the exact Huntersville-to-Mary-Brown corridor. The current Crow Wing live story in V2 is still the Nimrod gauge much farther downstream, and reusing it this far upstream would be guesswork.",
+      "retryCondition": "Retry only if MN DNR, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the Huntersville-to-Mary-Brown corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Crow Wing River segments and maps page (upper segment / recommended day trip)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "docs/midwest-route-automation-memory.md"
+      ],
+      "aliases": [
+        "Crow Wing River - Huntersville (N) to Mary Brown",
+        "Crow Wing River - Huntersville State Forest Landing to Mary Brown Rest Area"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "The strongest current Crow Wing live gauge story in product is still Nimrod, but that site is materially downstream of this upper-forest segment. This pass did not surface a cleaner same-corridor live source for Huntersville-to-Mary-Brown."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Official route legitimacy is clean, but this pass did not surface route-specific numeric threshold guidance or an official gauge-linked floor/range for this upper segment."
+      },
+      "endpoints": {
+        "putIn": "Huntersville (N) carry-in access",
+        "takeOut": "Mary Brown Rest Area carry-in access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first Crow Wing upper-segment discovery. Good official route shape through Huntersville State Forest, but it stays below the trust bar until the exact reach has a route-level live-gauge story."
+    },
+    {
+      "candidateId": "mn-snake-river-silver-star-road-lower-falls-campsite",
+      "river": "Snake River",
+      "route": "Silver Star Road to Lower Falls Campsite",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 7.6-mile upper Snake day trip and clearly names both endpoints, but the only practical live story surfaced on this pass is the downstream Pine City gauge family already used on lower Snake coverage. I did not find route-level manager guidance tying that lower gauge ladder cleanly to this rockier, portage-heavier Silver-Star-to-Lower-Falls reach.",
+      "retryCondition": "Retry only if MN DNR, USGS-adjacent manager guidance, race/outfitter evidence, or another strong same-route source ties a live gauge and conservative numeric floor/range directly to the Silver-Star-to-Lower-Falls corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Snake River segments and maps page",
+        "MN DNR Snake River overview page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Snake River - Silver Star Road to Lower Falls Campsite",
+        "Upper Snake River - Silver Star Road to Lower Falls Campsite"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The only already-proven live Snake gauge story in product is the Pine City corridor downstream. This pass did not surface a cleaner same-route live gauge on the upper forest segment."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but the route page gives only general Snake watershed language (rapid fluctuations, low-water risk below Cross Lake) rather than a route-level numeric model for this upper segment."
+      },
+      "endpoints": {
+        "putIn": "Silver Star Road access",
+        "takeOut": "Lower Falls Campsite",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the official Snake River segment page. Worth preserving because the route is explicitly recommended and distinct from the lower Pine City routes, but it stays below the trust bar until the exact upper reach has a cleaner live-gauge story."
+    },
+    {
+      "candidateId": "mn-mississippi-river-fort-ripley-fletcher-creek",
+      "river": "Mississippi River",
+      "route": "Fort Ripley to Fletcher Creek",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 9.6-mile day trip and a direct USGS gauge exists near Fort Ripley, but the current official page only gives qualitative low-water language ('river levels can be fairly shallow, especially late in the summer') rather than a defensible numeric route model tied to that gauge.",
+      "retryCondition": "Retry only if MN DNR, USGS-adjacent manager guidance, Mississippi Headwaters Board materials, or other strong same-route evidence ties USGS 05261000 to a conservative numeric minimum or range for the Fort-Ripley-to-Fletcher-Creek corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "USGS site inventory for Mississippi River near Fort Ripley, MN (05261000)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Fort Ripley to Fletcher Creek"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05261000 (Mississippi River near Fort Ripley, MN) is the cleanest live source on this corridor and sits near the upstream half of the recommended trip."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page says river levels can be fairly shallow, especially late in summer, without tying the route to a numeric gauge floor or band."
+      },
+      "endpoints": {
+        "putIn": "Fort Ripley",
+        "takeOut": "Fletcher Creek",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Mississippi recommendation-page discovery from a direct-USGS gauge family. Worth preserving because the route is explicit and practical, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-royalton-sportsmans-club-stearns-county-park",
+      "river": "Mississippi River",
+      "route": "Royalton Sportsman's Club to Stearns County Park",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 11.4-mile day trip and a direct USGS gauge exists near Royalton, but the current official page only gives qualitative low-water language ('watch for rocky riffles during low water levels') rather than a defensible numeric route model tied to that gauge.",
+      "retryCondition": "Retry only if MN DNR, USGS-adjacent manager guidance, Mississippi Headwaters Board materials, or other strong same-route evidence ties USGS 05267000 to a conservative numeric minimum or range for the Royalton-to-Stearns-County-Park corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "USGS site inventory for Mississippi River near Royalton, MN (05267000)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Royalton Sportsman's Club to Stearns County Park",
+        "Mississippi River - Royalton to Stearns County Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05267000 (Mississippi River near Royalton, MN) is the cleanest live source on this corridor and sits near the upstream half of the recommended trip."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page warns about rocky riffles during low water levels without tying the route to a numeric gauge floor or band."
+      },
+      "endpoints": {
+        "putIn": "Royalton Sportsman's Club",
+        "takeOut": "Stearns County Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Mississippi recommendation-page discovery from a direct-USGS gauge family. The route looks practical and useful, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-steamboat-access-blackberry-bridge-access",
+      "river": "Mississippi River",
+      "route": "Steamboat Access to Blackberry Bridge Access",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 8-mile day trip and a direct USGS corridor gauge exists at Grand Rapids, but the current official page only gives qualitative low-water language ('small sections of riffles when the water is low') rather than a defensible numeric route model tied to that gauge.",
+      "retryCondition": "Retry only if MN DNR, Mississippi Headwaters Board materials, USGS-adjacent manager guidance, or other strong same-route evidence ties USGS 05211000 to a conservative numeric minimum or range for the Steamboat-to-Blackberry corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "USGS site inventory for Mississippi River at Grand Rapids, MN (05211000)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Steamboat Access to Blackberry Bridge Access",
+        "Mississippi River - Steamboat Park to Blackberry Bridge"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05211000 (Mississippi River at Grand Rapids, MN) is the cleanest live source on this corridor and sits immediately downstream in the same broad recommended-trip section."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page says there are small sections of riffles when the water is low, without tying the route to a numeric gauge floor or band."
+      },
+      "endpoints": {
+        "putIn": "Steamboat Access",
+        "takeOut": "Blackberry Bridge Access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh upper-Mississippi discovery from a direct-USGS gauge family. Worth preserving because the route is explicit, easy, and product-shaped, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-beaver-island-trail-access-clearwater",
+      "river": "Mississippi River",
+      "route": "Beaver Island Trail Access to Clearwater",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 12.1-mile day trip, but the current official page only gives qualitative low/high-water language ('riffles when the river levels are low' / 'fast moving water when they are high') rather than a defensible numeric route model. The cleanest live gauge story is broader corridor context from the St. Cloud family rather than an exact-route ladder.",
+      "retryCondition": "Retry only if MN DNR, USGS-adjacent manager guidance, outfitters, or other strong same-route evidence ties a live gauge and conservative numeric floor/range directly to the Beaver-Island-to-Clearwater corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "USGS site inventory for Mississippi River at St. Cloud, MN (05270700)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Beaver Island Trail Access to Clearwater",
+        "Mississippi River - Beaver Islands to Clearwater"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "USGS 05270700 (Mississippi River at St. Cloud, MN) is the cleanest live story on the broader central corridor, but this pass did not surface official guidance tying that gauge directly to the Beaver-Island-to-Clearwater day trip."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page warns about riffles during low water and fast current during high water without a numeric route model."
+      },
+      "endpoints": {
+        "putIn": "Beaver Island Trail Access",
+        "takeOut": "Clearwater",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh central-Mississippi discovery. Useful route shape with multiple public stops along the way, but still below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-sandy-lake-recreation-area-wolds-ferry-crossing",
+      "river": "Mississippi River",
+      "route": "Sandy Lake Recreation Area to Wold's Ferry Crossing",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 9.5-mile day trip, but the current official page only gives qualitative low-water language ('riffles during low water') and this pass did not surface a defensible numeric route model tied to a route-operable live gauge for the exact corridor.",
+      "retryCondition": "Retry only if MN DNR, Mississippi Headwaters Board materials, USGS-adjacent manager guidance, or strong same-route evidence ties a live gauge and conservative numeric floor/range directly to the Sandy-Lake-to-Wold's-Ferry corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Sandy Lake Recreation Area to Wold's Ferry Crossing",
+        "Mississippi River - Sandy Lake to Wold's Ferry"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "This pass kept the search gauge-first, but I did not surface a route-operable live gauge pairing strong enough to ship. The official page gives only broad low-water and easy-paddling language, not a route-linked sensor story."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page says the section is easy with riffles during low water, without tying the route to a numeric gauge floor or band."
+      },
+      "endpoints": {
+        "putIn": "Sandy Lake Recreation Area",
+        "takeOut": "Wold's Ferry Crossing",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh upper/central Mississippi discovery from an unlogged recommended-trip block on the official Mississippi segments page. Worth preserving because the route is explicit and product-shaped, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-highway-6-trommald",
+      "river": "Mississippi River",
+      "route": "Highway 6 to Trommald",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 11.7-mile day trip, but the current official page only says the current can be quite strong after rain and this pass did not surface a defensible numeric route model tied to a route-operable live gauge for the exact corridor.",
+      "retryCondition": "Retry only if MN DNR, Mississippi Headwaters Board materials, USGS-adjacent manager guidance, or strong same-route evidence ties a live gauge and conservative numeric floor/range directly to the Highway-6-to-Trommald corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "docs/midwest-route-automation-memory.md"
+      ],
+      "aliases": [
+        "Mississippi River - Highway 6 to Trommald"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "This pass did not surface a route-operable live gauge pairing strong enough to ship. The official page gives only broad current-after-rain language, not a route-linked numeric sensor story."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route support is clean, but threshold evidence is still only qualitative: the page says there are no rapids but current can be quite strong after rain, without tying the route to a numeric gauge floor or band."
+      },
+      "endpoints": {
+        "putIn": "Highway 6",
+        "takeOut": "Trommald",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh upper/central Mississippi discovery from an unlogged recommended-trip block on the official Mississippi segments page. Practical route shape, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-palisade-waldeck-landing",
+      "river": "Mississippi River",
+      "route": "Palisade to Waldeck Landing",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "The Mississippi Headwaters Board excursion map gives a clean public-endpoint trust trail and a direct corridor USGS gauge exists at Palisade, but I still did not surface route-level numeric threshold guidance strong enough to turn that gauge into a conservative shipped model for this exact subreach.",
+      "retryCondition": "Retry only if Mississippi Headwaters Board, MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties USGS 05220600 to a conservative numeric minimum or range for the Palisade-to-Waldeck corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Mississippi Headwaters Board excursions page",
+        "USGS site inventory for Mississippi River at Palisade, MN (05220600)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Palisade to Waldeck Landing",
+        "Mississippi River - Palisade to Waldeck"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05220600 (Mississippi River at Palisade, MN) sits directly on the upstream half of this excursion corridor and is the cleanest live source surfaced on this pass."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route legitimacy is now cleaner because the Mississippi Headwaters Board excursion page names the exact trip and links driving directions for both endpoints, but threshold support still collapses back to the parent DNR segment's qualitative low-water riffle warning rather than a numeric route model."
+      },
+      "endpoints": {
+        "putIn": "Palisade",
+        "takeOut": "Waldeck Landing",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Aitkin/Palisade Mississippi follow-on from the DNR page's linked Mississippi Headwaters Board excursion maps. Worth preserving because the endpoint trust trail is stronger than on the generic segment page alone, but it stays below likely_addable until the exact reach has a route-level gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-waldeck-landing-kimball",
+      "river": "Mississippi River",
+      "route": "Waldeck Landing to Kimball",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "The Mississippi Headwaters Board excursion map gives a clean public-endpoint trust trail, but the best live story is the downstream Aitkin gauge family and I still did not surface route-level numeric threshold guidance strong enough to turn that into a conservative shipped model for this exact subreach.",
+      "retryCondition": "Retry only if Mississippi Headwaters Board, MN DNR, USGS-adjacent manager guidance, or strong same-route evidence ties the Aitkin gauge family to a conservative numeric minimum or range for the Waldeck-to-Kimball corridor.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Mississippi Headwaters Board excursions page",
+        "USGS site inventory for Mississippi River at Aitkin, MN (05227500 and 05227510)",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Waldeck Landing to Kimball",
+        "Mississippi River - Waldeck to Kimball"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy",
+        "notes": "The cleanest live story surfaced on this pass is the Aitkin gauge family downstream (USGS 05227500 / 05227510). That is closer and more defensible than broader corridor guessing, but it is still not a clean exact-route sensor story."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "Official route legitimacy is now cleaner because the Mississippi Headwaters Board excursion page names the exact trip and links driving directions for both endpoints, but threshold support still stops at the parent DNR segment's qualitative low-water riffle warning rather than a numeric route model."
+      },
+      "endpoints": {
+        "putIn": "Waldeck Landing",
+        "takeOut": "Kimball",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Aitkin-area Mississippi follow-on from the DNR page's linked Mississippi Headwaters Board excursion maps. Practical route shape, but still below likely_addable until the exact subreach has a cleaner gauge model."
+    },
+    {
+      "candidateId": "mn-mississippi-river-hidden-falls-harriet-island",
+      "river": "Mississippi River",
+      "route": "Hidden Falls to Harriet Island",
+      "state": "MN",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "The route clears the live-data and threshold bar, but this pass did not finish authoritative endpoint coordinate lookup for Hidden Falls Regional Park and Harriet Island Regional Park.",
+      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR, NPS, or Saint Paul access records.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "MN DNR recommended paddling trip: Hidden Falls to Harriet Island",
+        "MN DNR river levels guidance for Mississippi River at St. Paul",
+        "Saint Paul Hidden Falls Regional Park facility page",
+        "Saint Paul Harriet Island Regional Park facility page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Hidden Falls to Harriet Island",
+        "Mississippi River - Hidden Falls Regional Park to Harriet Island Regional Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct_non_usgs",
+        "notes": "The current best live story is the MN DNR / USGS St. Paul site already used on the shipped East River Flats to Hidden Falls route. For this downstream metro trip, that same gauge is at least as defensible because it sits closer to the take-out end and the current app already supports the DNR live path."
+      },
+      "thresholdSupport": {
+        "strength": "strong",
+        "notes": "Official DNR ladder already exists for the St. Paul gauge (scrapable below 2,000 cfs, low 2,000-6,000, medium 6,000-30,000, high 30,000-40,000, very high above 40,000). That is good enough for a conservative metro-Mississippi implementation once coordinates are cleaned up."
+      },
+      "endpoints": {
+        "putIn": "Hidden Falls Regional Park",
+        "takeOut": "Harriet Island Regional Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh metro-Mississippi discovery from the second official DNR Twin Cities recommended trip. DNR explicitly names both endpoints and mileage, Hidden Falls is already a documented public launch in V2, and Saint Paul documents Harriet Island Regional Park with a public dock. I stopped at named-endpoint preservation rather than authoritative coordinate extraction."
+    },
+    {
+      "candidateId": "mn-mississippi-river-lake-itasca-coffee-pot-landing",
+      "river": "Mississippi River",
+      "route": "Lake Itasca to Coffee Pot Landing",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 15.4-mile headwaters day trip and clearly names both endpoints, but this pass did not surface a route-operable live gauge plus defensible threshold model for the exact corridor. The official page emphasizes riffles, logjams, dense vegetation, and large-open-water hazard context without tying the route to a usable live sensor story.",
+      "retryCondition": "Retry only if MN DNR, Mississippi Headwaters Board, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the Lake-Itasca-to-Coffee-Pot corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Mississippi River - Lake Itasca to Coffee Pot Landing",
+        "Headwaters Mississippi - Lake Itasca to Coffee Pot Landing"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "This pass did not surface a route-operable live gauge paired to the exact headwaters corridor. The official route page gives route and hazard context but not a manager-linked live sensor story for this trip."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Official route support is clean, but threshold evidence is entirely qualitative: riffles, Class I rapids, vegetation and wave hazard language without a numeric floor or band."
+      },
+      "endpoints": {
+        "putIn": "Mississippi headwaters",
+        "takeOut": "Coffee Pot Landing",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Mississippi headwaters discovery from segment 1. Real official route, but lower utility for PaddleTodayV2 today because the trust gap is live-gauge operability rather than route legitimacy."
+    },
+    {
+      "candidateId": "mn-mississippi-river-cass-lake-lake-winnibigoshish",
+      "river": "Mississippi River",
+      "route": "Cass Lake to Lake Winnibigoshish",
+      "state": "MN",
+      "status": "no_live_gauge",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this 11.8-mile trip and clearly names both endpoints, but the corridor depends on big-lake transitions and this pass did not surface a route-operable live gauge plus defensible threshold model strong enough for conservative shipping.",
+      "retryCondition": "Retry only if MN DNR, Mississippi Headwaters Board, USGS, or other manager guidance ties a live gauge and usable threshold story directly to the Cass-Lake-to-Lake-Winnibigoshish corridor.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MN DNR Mississippi River segments and maps page",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "docs/midwest-route-automation-memory.md"
+      ],
+      "aliases": [
+        "Mississippi River - Cass Lake to Lake Winnibigoshish",
+        "Mississippi River - Knutson Dam Recreation Area to West Winnie Campground"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "unclear",
+        "notes": "This pass did not surface a route-operable live gauge tied to the exact river-plus-big-lake transition corridor. The official page explicitly warns that paddling across Cass and Winnibigoshish lakes is not recommended."
+      },
+      "thresholdSupport": {
+        "strength": "none",
+        "notes": "Official route support is clean, but threshold evidence is qualitative only. The page provides no numeric gauge model for this exact trip and the lake-transition hazard makes broad proxy reuse less trustworthy."
+      },
+      "endpoints": {
+        "putIn": "Knutson Dam Recreation Area",
+        "takeOut": "West Winnie Campground",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Mississippi headwaters discovery from segment 2. Useful to log so future runs rotate away; current route shape is real but lower-yield than direct-gauge river-only corridors."
+    },
+    {
+      "candidateId": "mn-zumbro-river-zumbro-falls-village-park",
+      "river": "Zumbro River",
+      "route": "Zumbro Falls to Hammond",
+      "state": "MN",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-04-27",
+      "reviewCount": 1,
+      "blocker": "MN DNR explicitly recommends this exact 7-mile main-stem day trip and the direct USGS Zumbro Falls gauge is a clean live story, but the best numeric support surfaced on this pass was still neighboring-reach mixed evidence rather than a clean exact-route ladder for the Hammond take-out.",
+      "retryCondition": "Retry if MN DNR, USGS-adjacent guidance, or strong same-route evidence ties the Zumbro Falls gauge directly to a conservative numeric floor/range for the Zumbro-Falls-to-Hammond corridor, or if a fresh exact-route trip report publishes a defensible minimum/range.",
+      "retryDate": "2026-05-27",
+      "sourcesChecked": [
+        "MN DNR Zumbro River segments and maps page",
+        "MN DNR Zumbro map 2 PDF",
+        "USGS 05374000 monitoring location",
+        "Miles Paddled Zumbro River II",
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+      ],
+      "aliases": [
+        "Zumbro River - Zumbro Falls to Hammond",
+        "Zumbro River - Zumbro Falls carry-in access to Village Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05374000 at Zumbro Falls sits directly at the put-in side of the DNR-recommended route and already underpins nearby shipped Zumbro coverage, so the live gauge pairing itself is clean."
+      },
+      "thresholdSupport": {
+        "strength": "weak",
+        "notes": "The strongest numeric evidence surfaced on this pass is still mixed-source neighboring-reach support: Miles Paddled Zumbro River II uses the same Zumbro Falls put-in/gauge and recommends 7-9 ft, with 12 ft treated as high by DNR map reference, but that trip continues well past Hammond to Millville. That is useful signal, not clean exact-route threshold guidance for the 7-mile DNR Hammond trip."
+      },
+      "endpoints": {
+        "putIn": "Zumbro Falls carry-in access",
+        "takeOut": "Village Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Minnesota-first discovery from the unreviewed Zumbro Map 2 recommended day trip. Official route legitimacy is clean: the DNR PDF explicitly recommends Zumbro Falls to Hammond at 7 river miles and the map text names Village Park at Hammond as the water access. It stays below likely_addable because the threshold package is still an exact-start / longer-finish stitch rather than a clean Hammond-specific ladder."
     }
   ]
 }
