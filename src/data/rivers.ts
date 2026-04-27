@@ -2355,6 +2355,107 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'cottonwood-river-juenemann-springfield',
+    slug: 'cottonwood-river-juenemann-springfield',
+    name: 'Cottonwood River',
+    reach: 'Juenemann Landing to Springfield',
+    state: 'Minnesota',
+    region: 'Southwest Minnesota',
+    summary:
+      'Short upper Cottonwood route with a rare direct DNR gauge at the put-in and official access records at both ends. It is a smaller, quieter south-central Minnesota add, useful mainly as a level-first local day-trip decision.',
+    statusText:
+      'Treat 13.0 to 17.0 ft at Springfield / County Road 2 as the best zone. Below 12.5 ft is scrapable, and above 19.0 ft is beyond the broad-audience recommendation for this short wooded reach.',
+    latitude: 44.2034723,
+    longitude: -95.0485134,
+    gaugeSource: {
+      id: 'mn-dnr-42',
+      provider: 'mn_dnr',
+      siteId: '42',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Cottonwood River nr Springfield, CR2',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=42',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29015001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 13,
+      idealMax: 17,
+      tooLow: 12.5,
+      tooHigh: 19,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cottonwood River near Springfield',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window, with summer depending on enough rain to keep the Springfield gauge out of the scrapable band.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes the Cottonwood as having no major rapids and being a good river for beginning paddlers, but this short upper reach still needs wood, mud, and low-water judgment.',
+      confidenceNotes:
+        'Confidence is good for the gauge and access story because the DNR gauge is at the County Road 2 / Juenemann access and both endpoints resolve in the Minnesota public-water-access layer. Confidence is slightly lower than a named DNR recommended-day-trip route because the official map names the accesses and river miles but does not promote this exact short segment as a highlighted trip.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '12.5 / 13.0-17.0 / 19.0 ft',
+        note: 'MN DNR interprets the Springfield / County Road 2 gauge as Scrapable below 12.5 ft, Low from 12.5 to 13.0, Medium from 13.0 to 17.0, High from 17.0 to 19.0, and Very High above 19.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '6.4 river miles',
+        note: 'MN DNR Map 4 lists Juenemann carry-in access at river mile 62.8 and Springfield carry-in access at river mile 56.4 on the Cottonwood River.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS01422 and WAS01421',
+        note: 'Minnesota public-water-access data identifies the put-in as Cottonwood River, Co Rd 2 Juenemann Landing and the take-out as Cottonwood River, Springfield Public Water Access Site.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'County landing support',
+        value: 'Brown County canoe access',
+        note: 'Brown County lists Jueneman Landing as one of four county Cottonwood River canoe access points, with vehicle parking and day-use from April 15 through October 15.',
+        sourceUrl: 'https://www.browncountymn.gov/231/Canoe-Landings',
+      },
+      {
+        label: 'River character',
+        value: 'No major rapids',
+        note: 'MN DNR says the Cottonwood has no major rapids and is a good river for beginning paddlers, while still warning paddlers to check water levels and avoid dead or overhanging trees.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Cottonwood River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River / Cottonwood map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Brown County canoe landings',
+        url: 'https://www.browncountymn.gov/231/Canoe-Landings',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-judson-land-of-memories',
     slug: 'minnesota-river-judson-land-of-memories',
     name: 'Minnesota River',
@@ -3084,6 +3185,140 @@ export const rivers: River[] = [
       {
         label: 'DNR Wildlife County Park access guide',
         url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/wildlife.pdf',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-crow-river-rockford-riverside',
+    slug: 'north-fork-crow-river-rockford-riverside',
+    name: 'North Fork Crow River',
+    reach: 'Rockford Access to Riverside County Park',
+    state: 'Minnesota',
+    region: 'Twin Cities Northwest Metro',
+    summary:
+      'Shorter lower North Fork Crow day that fills the gap between the upper Wright County reach and the long Riverside-to-Dayton run. The route has DNR access-guide support, official public-access records, and the same Rockford DNR level ladder as the downstream route.',
+    statusText:
+      'Treat 500 to 1,500 cfs at Rockford as the best zone. Below 345 cfs gets too shallow and slow, and above 1,750 cfs is beyond the level this route should be promoted for a broad day-trip audience.',
+    latitude: 45.0927624,
+    longitude: -93.7294189,
+    gaugeSource: {
+      id: 'mn-dnr-310',
+      provider: 'mn_dnr',
+      siteId: '310',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Crow River nr Rockford, Farmington Ave',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=310',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18088001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05280400',
+        provider: 'usgs',
+        siteId: '05280400',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Crow River below State Hwy 101 at Dayton, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1500,
+      tooLow: 345,
+      tooHigh: 1750,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for North Fork Crow River near Rockford',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The reach is shorter than the Dayton route, but low water still drags across shallow gravel and recent high water can move wood.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this section as straight and shallow with gravel, cobble, and boulder substrate. It is generally approachable at normal levels, but current, wood, and shallow spots still matter.',
+      confidenceNotes:
+        'Confidence is high for route shape and access: DNR names Rockford to Riverside County Park as an 8.5-mile day trip, both endpoints resolve in the Minnesota public-water-access layer, and Riverside has a Wright County park page. The gauge is a direct lower North Fork Crow DNR site near Rockford, but route users should still watch for fresh wood and changing shallows.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '345 / 500-1,500 / 1,750 cfs',
+        note: 'MN DNR interprets the Rockford reading as Scrapable below 345 cfs, Low from 345 to 500, Medium from 500 to 1,500, High from 1,500 to 1,750, and Very High above 1,750.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'DNR route support',
+        value: '8.5 river miles',
+        note: 'The DNR Rockford Access guide names Rockford Access to Riverside County Park as a possible day trip and describes the river as straight and shallow with few downed trees encountered in the guide survey.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS03086 and WAS01955',
+        note: 'Minnesota public-water-access data identifies the put-in as North Fork Crow River, Rockford Public Water Access Site at river mile 22.8 and the take-out as Crow River, Riverside Park Public Water Access Site at river mile 15.4.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Wright County park',
+        note: 'Wright County confirms Riverside County Park has public river access, river frontage, pit toilets, picnic area, and a reservable primitive canoe campsite.',
+        sourceUrl: 'https://www.co.wright.mn.us/facilities/facility/details/Riverside-County-Park-18',
+      },
+      {
+        label: 'Take-out launch detail',
+        value: 'Steep but launchable',
+        note: 'The DNR Riverside Access guide says Riverside County Park has a somewhat steep access, but small boats and canoes may be launched there.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/riverside.pdf',
+      },
+      {
+        label: 'Hazard context',
+        value: 'Former low-head dams removed',
+        note: 'The DNR Rockford guide notes that former low-head dam hazards at Hanover and Berning Mill were removed, but same-day wood and water-level checks still matter.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rockford Access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+      {
+        label: 'MN DNR Riverside Access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/riverside.pdf',
+      },
+      {
+        label: 'MN DNR Crow access guide',
+        url: 'https://www.dnr.state.mn.us/areas/fisheries/saukrapids/crow_river_access.html',
+      },
+      {
+        label: 'Wright County Riverside County Park',
+        url: 'https://www.co.wright.mn.us/facilities/facility/details/Riverside-County-Park-18',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05280400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05280400/',
       },
     ],
   },

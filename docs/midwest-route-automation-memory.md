@@ -4,6 +4,16 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 ## Added
 
+- 2026-04-26: `North Fork Crow River - Rockford Access to Riverside County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on direct `MN DNR 310`.
+  - Supplemental research added: MN DNR's Rockford Access guide names this exact 8.5-mile day trip, the Minnesota public-water-access layer confirms both endpoints with access IDs `WAS03086` and `WAS01955`, Wright County confirms Riverside County Park public river access and campsite facilities, and the DNR Riverside Access guide adds the practical note that the take-out is somewhat steep but launchable for small boats/canoes.
+  - Remaining caveat: this uses the same lower North Fork Crow gauge family as the existing Riverside-to-Dayton route; it is useful as a shorter day-trip option, but same-day wood and shallow-gravel checks still matter.
+
+- 2026-04-26: `Cottonwood River - Juenemann Landing to Springfield`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on direct `MN DNR 42`.
+  - Supplemental research added: MN DNR Map 4 names Juenemann carry-in access and Springfield carry-in access with river miles, the Minnesota public-water-access layer confirms both endpoints with access IDs `WAS01422` and `WAS01421`, Brown County confirms Jueneman Landing as a county Cottonwood River canoe landing with parking and seasonal day-use, and the DNR Cottonwood page supports the general beginner-friendly no-major-rapids character.
+  - Remaining caveat: this exact 6.4-mile segment is map/access-supported rather than highlighted by DNR as a recommended day trip, so notes keep it framed as a compact local level-first route.
+
 - 2026-04-26: `Long Prairie River - Long Prairie to Browerville`
   - Added to PaddleTodayV2 with an official-source-backed `two-sided` model on direct `MN DNR site 89` (`Long Prairie River at Long Prairie, MN`).
   - Qualification path was clean: MN DNR directly recommends the exact 13.3-mile day trip, the city access names were resolved in the MN DNR public-water-access GIS, and the current product already supports this DNR gauge path with the current-level fallback panel when chart samples are unavailable.
@@ -200,18 +210,6 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Official support is strong: MN DNR Sauk Map 2 clearly names both endpoints, and the route is a practical ~9-mile day trip from RM 56.2 to RM 47.1.
   - Gauge support is strong: the direct MN DNR `Sauk River nr St. Martin, CR12` site carries a full official ladder (`below 14 ft scrapable`, `14-15 low`, `15-17 medium`, `17-20 high`, `above 20 very high`).
   - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Spring Hill County Park` and `St. Martin carry-in access`.
-
-- 2026-04-26: `North Fork Crow River - City of Rockford trailer access to Riverside County Park`
-  - Fresh Minnesota-first gauge sweep found a shorter, cleaner downstream-of-Rockford day trip adjacent to the existing `Riverside County Park to Dayton` route.
-  - Official support is strong: MN DNR North Fork Crow Map 2 clearly names both endpoints, and the overview explicitly points paddlers to family-friendly routes downstream of Rockford.
-  - Gauge support is strong: the Rockford/Farmington Avenue MN DNR gauge story already has a full official ladder (`below 345 cfs scrapable`, `345-500 low`, `500-1500 medium`, `1500-1750 high`, `above 1750 very high`).
-  - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `City of Rockford trailer access` and `Riverside County Park`.
-
-- 2026-04-26: `Cottonwood River - Juenemann carry-in access to Springfield carry-in access`
-  - Fresh Minnesota-first gauge sweep found a short direct-gauge Cottonwood day trip worth preserving even though the broader Cottonwood corridor did not produce a cleaner recommended-trip package.
-  - Official support is good enough: MN DNR Map 4 clearly names both endpoints on the official water trail, and the route is a practical ~6.4-mile same-river segment.
-  - Gauge support is strong: the direct MN DNR Springfield gauge carries a full official ladder (`below 12.5 ft scrapable`, `12.5-13 low`, `13-17 medium`, `17-19 high`, `above 19 very high`).
-  - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Juenemann carry-in access` and `Springfield carry-in access`.
 
 ## Research later
 

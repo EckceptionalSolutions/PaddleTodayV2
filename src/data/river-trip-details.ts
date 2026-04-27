@@ -700,36 +700,37 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'crow-wing-river-little-white-dog-cottingham': {
+  'cottonwood-river-juenemann-springfield': {
     putIn: {
-      name: 'Little White Dog carry-in access',
-      latitude: 46.586977,
-      longitude: -94.822607,
+      name: 'Juenemann Landing / County Road 2 carry-in access',
+      latitude: 44.2034723,
+      longitude: -95.0485134,
     },
     takeOut: {
-      name: 'Cottingham County Park carry-in access',
-      latitude: 46.505522,
-      longitude: -94.807381,
+      name: 'Springfield Riverside Park carry-in access',
+      latitude: 44.2377827,
+      longitude: -94.9740406,
     },
     logistics: {
-      distanceLabel: '9.8 mi',
-      estimatedPaddleTime: 'About 3 hr 15 min to 4 hr 30 min',
+      distanceLabel: '6.4 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3 hr 15 min',
       shuttle:
-        'A short two-car Wadena County shuttle is the practical move. Stage the take-out at Cottingham first so you are not dealing with county-park parking and a tired reset at the end of a nearly 10-mile day.',
+        'Plan a short two-car shuttle from County Road 2 / Juenemann Landing to Springfield Riverside Park. This is a compact route, but rural landing conditions can still slow loading and unloading.',
       permits:
-        'No route-specific paddling permit is known. Follow posted county-park camping, parking, and public-water-access rules at both ends.',
+        'No route-specific paddling permit is known. Brown County lists its Cottonwood canoe landings as day-use April 15 through October 15; follow posted county and city access rules.',
       camping:
-        'Both Little White Dog and Cottingham are county-park camping anchors, so this is an unusually easy route to stage as a day trip with a simple overnight before or after.',
+        'No on-route camping is assumed for this short segment. Treat it as a day trip unless you separately confirm a legal overnight option.',
       summary:
-        'Launch at Little White Dog and finish at Cottingham County Park for one of the cleanest officially named Crow Wing day trips. The river is usually friendly, but you should still check the Nimrod reading before you commit to a longer sandy-river shuttle.',
+        'Launch at Juenemann Landing on County Road 2 and take out at Springfield Riverside Park. This short Cottonwood reach has the gauge at the put-in, so the level call is unusually direct.',
       accessCaveats: [
-        'Both endpoints are backed by Minnesota public-water-access records, which is the main trust reason this route qualifies now.',
-        'The live gauge is upstream at Nimrod rather than on the exact reach, so same-day local conditions can still differ a bit from the raw reading.',
+        'Juenemann is a Brown County canoe landing on County Road 2 with vehicle parking; the DNR access record does not list a restroom.',
+        'Springfield is a carry-in access in Riverside Park with restroom support in the public-access record.',
+        'DNR supports the access points and river-level ladder, but this exact short segment is not presented as a highlighted recommended day trip.',
       ],
       watchFor: [
-        'Scraping and slower progress when the Nimrod gauge is hovering near 300 cfs.',
-        'Fresh wood, strainers, or a faster push after storms.',
-        'A longer day than it first looks like if wind or low water slows your pace on the sandy bends.',
+        'Scraping and slow travel when the County Road 2 gauge drops toward the scrapable band.',
+        'Deadfall, overhanging trees, and muddy banks after higher water.',
+        'Private shoreland; stop only at public accesses or clearly legal sites.',
       ],
     },
   },
@@ -931,6 +932,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Underwater snags, overhanging trees, and strainers on sharp bends.',
         'Possible unlawful fences across the river; DNR asks paddlers to report them.',
         'Low-water scraping below the Cokato medium band and faster current above it.',
+      ],
+    },
+  },
+  'north-fork-crow-river-rockford-riverside': {
+    putIn: {
+      name: 'Rockford public water access',
+      latitude: 45.0927624,
+      longitude: -93.7294189,
+    },
+    takeOut: {
+      name: 'Riverside County Park carry-in access',
+      latitude: 45.1650523,
+      longitude: -93.6400414,
+    },
+    logistics: {
+      distanceLabel: '8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Plan a straightforward two-car shuttle from Rockford to Riverside County Park. This is the shorter, cleaner setup upstream of the longer Riverside-to-Dayton route.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rockford access rules and Wright County park rules at Riverside County Park.',
+      camping:
+        'Riverside County Park has a primitive canoe campsite by reservation. Treat camping as a separate booking, not an assumed part of this day trip.',
+      summary:
+        'Launch at the Rockford public water access and take out at Riverside County Park near Hanover. DNR describes this as an 8.5-mile possible day trip on a straight, shallow lower North Fork Crow reach.',
+      accessCaveats: [
+        'The Rockford access is a small-watercraft launch with moderate bank height and a fishing pier nearby.',
+        'Riverside County Park is a real Wright County river-access park. The DNR Riverside guide describes the access as somewhat steep but usable for small boats and canoes.',
+        'This route overlaps the same lower-river gauge family as Riverside-to-Dayton; choose this if you want a shorter day.',
+      ],
+      watchFor: [
+        'Shallow gravel, cobble, and boulder sections when the Rockford gauge falls toward the low band.',
+        'Fresh wood or debris after high water, even though the DNR guide notes few downed trees during its survey.',
+        'Changing landing mud and bank conditions at both accesses after rain.',
       ],
     },
   },

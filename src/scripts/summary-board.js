@@ -950,6 +950,36 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
   return items;
 }
 
+function buildRouteMapItems(allResults, filteredResults) {
+  const allByRiver = groupResultsByRiverId(allResults);
+
+  return filteredResults
+    .filter((result) => {
+      const latitude = result?.river?.latitude;
+      const longitude = result?.river?.longitude;
+      return Number.isFinite(latitude) && Number.isFinite(longitude);
+    })
+    .map((cardRoute) => {
+      const totalRouteCount = allByRiver.get(cardRoute.river.riverId || cardRoute.river.slug)?.length ?? 1;
+      const distanceMilesValue = distanceForResult(cardRoute);
+      const travelMinutes = estimateTravelMinutes(distanceMilesValue);
+
+      return {
+        key: cardRoute.river.slug,
+        kind: 'route',
+        cardRoute,
+        totalRouteCount,
+        paddleableRouteCount: ['Strong', 'Good'].includes(cardRoute.rating) ? 1 : 0,
+        representativeMode: 'route',
+        distanceMiles: distanceMilesValue,
+        travelMinutes,
+        effectiveScore: cardRoute.score - distancePenalty(travelMinutes),
+        distanceBucket: distanceBucketLabel(travelMinutes),
+        link: `/rivers/${cardRoute.river.slug}/`,
+      };
+    });
+}
+
 function sortItems(items, mode) {
   const copy = [...items];
 
@@ -3960,9 +3990,10 @@ function renderHomepage(results) {
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
   const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
+  const exploreMapItems = sortItems(buildRouteMapItems(results, filteredRoutes), normalizedSortMode);
   const summaryMapItems = isNearbySummaryMapMode()
     ? (locationReady ? nearbyItems : [])
-    : exploreItems;
+    : exploreMapItems;
 
   updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(summaryResults);

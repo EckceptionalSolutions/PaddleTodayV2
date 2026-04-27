@@ -1475,6 +1475,14 @@ function hasHardSkip(result) {
   );
 }
 
+function firstSkipChecklistItem(result) {
+  if (!Array.isArray(result?.checklist)) {
+    return null;
+  }
+
+  return result.checklist.find((item) => item?.status === 'skip') ?? null;
+}
+
 function isDataLimitedNoGo(result) {
   return result?.rating === 'No-go' && result?.liveData?.overall === 'offline';
 }
@@ -1522,7 +1530,14 @@ function decisionStatement(result) {
     return 'Live river data is missing, so verify the gauge and access sources before treating this as a go or no-go.';
   }
   if (hasHardSkip(result)) {
-    return 'A hard check is failing, so treat today as a skip until you verify it directly.';
+    const skipItem = firstSkipChecklistItem(result);
+    if (skipItem?.label && skipItem?.detail) {
+      return `${skipItem.label} is failing: ${skipItem.detail}`;
+    }
+    if (skipItem?.label) {
+      return `${skipItem.label} is failing, so treat today as a skip until you verify it directly.`;
+    }
+    return 'A required trip check is failing, so treat today as a skip until you verify it directly.';
   }
   if (rating === 'Strong') return 'Conditions line up especially well right now.';
   if (rating === 'Good' && coldWeatherDrivenResult(result)) {
