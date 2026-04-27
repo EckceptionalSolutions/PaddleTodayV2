@@ -335,6 +335,87 @@ describe('scoreRiverCondition', () => {
     expect(result.liveData.overall).toBe('live');
   });
 
+  it('uses MN DNR interpretation as a modest river-quality input when available', () => {
+    const dnrRiver: River = {
+      ...baseRiver,
+      gaugeSource: {
+        ...baseRiver.gaugeSource,
+        id: 'mn-dnr-1',
+        provider: 'mn_dnr',
+      },
+    };
+    const now = new Date('2026-05-10T12:00:00Z');
+    const baseGauge = {
+      ...makeGauge(500, 'steady', 0),
+      sourceId: 'mn-dnr-1',
+      observedAt: '2026-05-10T11:00:00Z',
+      gaugeSource: 'MN DNR River Levels',
+    };
+
+    const withoutInterpretation = scoreRiverCondition({
+      river: dnrRiver,
+      gauge: baseGauge,
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+      },
+      now,
+    });
+
+    const withMediumInterpretation = scoreRiverCondition({
+      river: dnrRiver,
+      gauge: {
+        ...baseGauge,
+        gaugeInterpretation: 'Medium',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+      },
+      now,
+    });
+
+    expect(withMediumInterpretation.riverQuality).toBe(withoutInterpretation.riverQuality + 4);
+    expect(withMediumInterpretation.factors.find((factor) => factor.id === 'dnr-interpretation')).toMatchObject({
+      value: 'Medium',
+      impact: 'positive',
+    });
+  });
+
+  it('penalizes a DNR Scrapable interpretation without changing the route band model', () => {
+    const dnrRiver: River = {
+      ...baseRiver,
+      gaugeSource: {
+        ...baseRiver.gaugeSource,
+        id: 'mn-dnr-1',
+        provider: 'mn_dnr',
+      },
+    };
+
+    const result = scoreRiverCondition({
+      river: dnrRiver,
+      gauge: {
+        ...makeGauge(500, 'steady', 0),
+        sourceId: 'mn-dnr-1',
+        observedAt: '2026-05-10T11:00:00Z',
+        gaugeSource: 'MN DNR River Levels',
+        gaugeInterpretation: 'Scrapable',
+      },
+      weather: {
+        ...weather,
+        observedAt: '2026-05-10T11:15:00Z',
+      },
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.factors.find((factor) => factor.id === 'dnr-interpretation')).toMatchObject({
+      value: 'Scrapable',
+      impact: 'negative',
+    });
+    expect(result.scoreBreakdown.riverQualityExplanation).toContain('extra low-water penalty');
+  });
+
   it('marks missing gauge data as offline instead of treating it as a normal low-confidence score', () => {
     const result = scoreRiverCondition({
       river: baseRiver,

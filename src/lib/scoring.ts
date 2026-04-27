@@ -47,10 +47,16 @@ export function scoreRiverCondition(args: {
 
   const gaugeAssessment = assessGauge(args.river, args.gauge);
   const trendAssessment = assessTrend(args.river, args.gauge, gaugeAssessment.band);
+  const dnrInterpretationAssessment = assessDnrInterpretation(args.river, args.gauge);
   const weatherAssessment = assessWeatherAdjustment(args.river, args.weather);
   const temperatureAssessment = assessTemperatureAdjustment(args.river, args.gauge, args.weather, now);
   const comfortAssessment = assessComfortAdjustment(args.river, args.weather, now);
-  const riverQuality = computeRiverQuality(args.river, gaugeAssessment, trendAssessment);
+  const riverQuality = computeRiverQuality(
+    args.river,
+    gaugeAssessment,
+    trendAssessment,
+    dnrInterpretationAssessment
+  );
   const rawTripScore =
     riverQuality +
     weatherAssessment.points +
@@ -60,7 +66,7 @@ export function scoreRiverCondition(args: {
     river: args.river,
     weather: args.weather,
     riverQuality,
-    riverQualityExplanation: `${gaugeAssessment.detail} ${trendAssessment.detail}`.trim(),
+    riverQualityExplanation: `${gaugeAssessment.detail} ${trendAssessment.detail} ${dnrInterpretationAssessment.detail}`.trim(),
     windAdjustment: weatherAssessment.windPoints,
     temperatureAdjustment: temperatureAssessment.points,
     rainAdjustment: weatherAssessment.rainPoints,
@@ -119,6 +125,17 @@ export function scoreRiverCondition(args: {
       detail: trendAssessment.detail,
       impact: trendAssessment.impact,
     },
+    ...(dnrInterpretationAssessment.hasInterpretation
+      ? [
+          {
+            id: 'dnr-interpretation',
+            label: 'DNR interpretation',
+            value: dnrInterpretationAssessment.value,
+            detail: dnrInterpretationAssessment.detail,
+            impact: dnrInterpretationAssessment.impact,
+          } satisfies ScoreFactor,
+        ]
+      : []),
     {
       id: 'weather',
       label: 'Weather',
@@ -574,6 +591,86 @@ function assessTrend(
   };
 }
 
+function assessDnrInterpretation(
+  river: River,
+  gauge: GaugeReading
+): {
+  points: number;
+  impact: ScoreImpact;
+  detail: string;
+  value: string;
+  hasInterpretation: boolean;
+} {
+  const label = normalizeDnrInterpretation(gauge.gaugeInterpretation);
+  const isDnrGauge = river.gaugeSource.provider === 'mn_dnr' || gauge.sourceId.startsWith('mn-dnr-');
+
+  if (!isDnrGauge || !label) {
+    return {
+      points: 0,
+      impact: 'neutral',
+      detail: '',
+      value: 'Not published',
+      hasInterpretation: false,
+    };
+  }
+
+  switch (label) {
+    case 'scrapable':
+      return {
+        points: -12,
+        impact: 'negative',
+        value: 'Scrapable',
+        detail: 'MN DNR classifies this gauge as Scrapable, so the river-quality score applies an extra low-water penalty.',
+        hasInterpretation: true,
+      };
+    case 'low':
+      return {
+        points: -5,
+        impact: 'warning',
+        value: 'Low',
+        detail: 'MN DNR classifies this gauge as Low, so the river-quality score treats low-water risk as an added caution.',
+        hasInterpretation: true,
+      };
+    case 'medium':
+      return {
+        points: 4,
+        impact: 'positive',
+        value: 'Medium',
+        detail: 'MN DNR classifies this gauge as Medium, which modestly supports the river-quality score.',
+        hasInterpretation: true,
+      };
+    case 'high':
+      return {
+        points: -6,
+        impact: 'warning',
+        value: 'High',
+        detail: 'MN DNR classifies this gauge as High, so the river-quality score adds high-water caution.',
+        hasInterpretation: true,
+      };
+    case 'very high':
+      return {
+        points: -18,
+        impact: 'negative',
+        value: 'Very High',
+        detail: 'MN DNR classifies this gauge as Very High, so the river-quality score applies a strong high-water penalty.',
+        hasInterpretation: true,
+      };
+    default:
+      return {
+        points: 0,
+        impact: 'neutral',
+        value: titleCase(label),
+        detail: `MN DNR publishes this gauge as ${titleCase(label)}, but that label is not treated as a scoring adjustment.`,
+        hasInterpretation: true,
+      };
+  }
+}
+
+function normalizeDnrInterpretation(value: string | null | undefined): string | null {
+  const normalized = value?.trim().toLowerCase().replace(/\s+/g, ' ');
+  return normalized || null;
+}
+
 function assessWeather(weather: WeatherSnapshot | null): {
   points: number;
   impact: ScoreImpact;
@@ -705,10 +802,15 @@ function assessDifficulty(river: River): {
 function computeRiverQuality(
   river: River,
   gaugeAssessment: { points: number },
-  trendAssessment: { points: number }
+  trendAssessment: { points: number },
+  dnrInterpretationAssessment: { points: number }
 ): number {
   const scoreCap = river.profile.thresholdModel === 'minimum-only' ? 74 : 100;
-  return clamp(Math.round(gaugeAssessment.points + trendAssessment.points), 0, scoreCap);
+  return clamp(
+    Math.round(gaugeAssessment.points + trendAssessment.points + dnrInterpretationAssessment.points),
+    0,
+    scoreCap
+  );
 }
 
 function assessWeatherAdjustment(river: River, weather: WeatherSnapshot | null): {

@@ -702,16 +702,43 @@ const routeStructuredData = {
               <p class="gauge-current-panel__note">
                 MN DNR provides the current paddling level here, but not chart-ready recent samples.
               </p>
-              <a
-                class="river-link river-link--inline gauge-current-panel__link"
-                href="#"
-                target="_blank"
-                rel="noreferrer"
-                data-current-gauge-hydrograph
-                hidden
-              >
-                View DNR gauge detail
-              </a>
+              <figure class="gauge-current-panel__hydrograph" data-current-gauge-hydrograph-figure hidden>
+                <div class="gauge-current-panel__hydrograph-head">
+                  <strong>Official MN DNR hydrograph</strong>
+                  <span>7 days</span>
+                </div>
+                <img
+                  alt="Official MN DNR seven-day river level hydrograph"
+                  loading="lazy"
+                  decoding="async"
+                  data-current-gauge-hydrograph-image
+                />
+                <figcaption>
+                  Displayed from MN DNR. Paddle Today does not turn this image into trend samples.
+                </figcaption>
+              </figure>
+              <div class="gauge-current-panel__links">
+                <a
+                  class="river-link river-link--inline gauge-current-panel__link"
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-current-gauge-hydrograph
+                  hidden
+                >
+                  Open DNR hydrograph
+                </a>
+                <a
+                  class="river-link river-link--inline gauge-current-panel__link"
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  data-current-gauge-detail
+                  hidden
+                >
+                  Open DNR gauge detail
+                </a>
+              </div>
             </div>
           </div>
         </section>

@@ -14,6 +14,36 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Recheck that changed the outcome: earlier passes incorrectly treated the route as blocked by live-data plumbing, but the current codebase already supports `provider: 'mn_dnr'` through `src/lib/mn-dnr.ts` and the river detail page explicitly falls back to a working current-level panel when DNR does not provide recent chart samples.
   - Remaining caveat: chart history is still not available from the DNR feed path, so users get a current reading plus official DNR interpretation rather than a recent trend line.
 
+- 2026-04-26: `Minnesota River - Franklin City Park to Mack Lake Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 107` and `USGS 05316580` as fallback source.
+  - Supplemental research added: MN DNR Map 4 recommends this exact 10.1-mile trip, names Franklin and Mack Lake as trailer accesses with campsite/rest facilities, City of Franklin confirms river-access camping, Renville County confirms Mack Lake park facilities, Explore Minnesota independently confirms the Franklin boat-ramp/campground listing, and the DNR public-water-access layer confirms both endpoints with access IDs `WAS02279` and `WAS02304`.
+  - Remaining caveat: the Morton gauge is upstream of Franklin rather than at the put-in, so the route uses a conservative proxy-gauge confidence note.
+
+- 2026-04-26: `North Fork Crow River - Betty T. Mason River Access to Wildlife County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 308`.
+  - Supplemental research added: MN DNR recommends this exact 10.2-mile day trip, Wright County confirms both endpoints as public river accesses, and DNR fisheries guidance supports 500 cfs as fairly easy canoeing context.
+  - Remaining caveat: this upper reach is tight and obstruction-prone; the Cokato gauge is strong corridor support, but wood, steep access, and occasional fences still require same-day judgment.
+
+- 2026-04-26: `South Fork Crow River - Rick Johnson Park to Lake Rebecca Park Reserve`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 51`.
+  - Supplemental research added: MN DNR recommends this exact 14.3-mile day trip, the DNR map places the Delano gauge directly on the route corridor, and Three Rivers confirms Crow River carry-in access at Lake Rebecca.
+  - Remaining caveat: the route starts on the South Fork and finishes on the North Fork side near the confluence, so the detail page calls out map review and take-out planning.
+
+- 2026-04-26: `Sauk River - Spring Hill County Park to St. Martin`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 328`.
+  - Supplemental research added: Stearns County confirms St. Martin Canoe Access is a one-acre county site retained as access to the Sauk River.
+  - Remaining caveat: this is a shorter, cleaner day-route replacement for the old Spring Hill-to-Rockville draft; the St. Martin take-out is a simple carry-in rather than a full-service park landing.
+
+- 2026-04-26: `Crow Wing River - Little White Dog to Cottingham County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 55` and `USGS 05244000` as a fallback source.
+  - Supplemental research added: Wadena County pages confirm Little White Dog and Cottingham as county campground/access sites, and the county canoe-trail map provides address-level context.
+  - Remaining caveat: saved access coordinates remain map/access-inventory derived and should defer to on-site signage.
+
+- 2026-04-26: `Whitewater River - Elba to Highway 74`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on `MN DNR 265` and `USGS 05377500` as a fallback source.
+  - Supplemental research added: MilesPaddled and Post Bulletin reports support the same Highway 26/Center Street put-in and Highway 74/County Road 30 take-out pattern.
+  - Remaining caveat: the route has strong DNR water-trail and level support, but the access points are still less polished roadside-style endpoints without a clean standalone official landing page, and wood/logjam conditions can dominate the gauge call.
+
 - 2026-04-24: `Crow Wing River - Stigman's Mound to Little White Dog carry-in access`
   - Added to PaddleTodayV2 with an official-source-backed `minimum-only` model on direct `USGS 05244000`.
   - Remaining caveat: the Nimrod evidence is strong on the low-water floor, but there is still no published route-specific preferred upper band, so the route stays minimum-only.
