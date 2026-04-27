@@ -10,6 +10,7 @@ import type {
   RiverSummaryApiItem,
   WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
+import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 export type {
   RiverDetailApiResult,
   RiverGroupApiResult,
@@ -121,11 +122,12 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
 }
 
 function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sources'] {
+  const thresholdAdapter = thresholdAdapterForSource(result.river.profile.thresholdSource);
   const badges: RiverSummaryApiItem['sources'] = [
     gaugeProviderBadge(result),
     {
       label: thresholdBadgeLabel(result),
-      tone: result.river.profile.thresholdSourceStrength,
+      tone: thresholdAdapter?.sourceBadgeTone ?? result.river.profile.thresholdSourceStrength,
     },
   ];
 
@@ -137,14 +139,19 @@ function summarySourceBadges(result: RiverScoreResult): RiverSummaryApiItem['sou
 }
 
 function gaugeProviderBadge(result: RiverScoreResult): RiverSummaryApiItem['sources'][number] {
-  if (result.river.gaugeSource.provider === 'mn_dnr') {
-    return { label: 'MN DNR', tone: 'official' };
-  }
-
-  return { label: 'USGS', tone: 'usgs' };
+  const display = gaugeDisplayForSource(result.river.gaugeSource);
+  return {
+    label: display.shortLabel,
+    tone: result.river.gaugeSource.provider === 'usgs' ? 'usgs' : 'official',
+  };
 }
 
 function thresholdBadgeLabel(result: RiverScoreResult): string {
+  const adapter = thresholdAdapterForSource(result.river.profile.thresholdSource);
+  if (adapter) {
+    return adapter.shortLabel;
+  }
+
   if (result.river.profile.thresholdSourceStrength === 'official') {
     return 'Official';
   }
@@ -178,6 +185,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
         unit: result.river.gaugeSource.unit,
         detailUrl: result.river.gaugeSource.detailUrl,
         hydrographUrl: result.river.gaugeSource.hydrographUrl,
+        display: gaugeDisplayForSource(result.river.gaugeSource),
       },
       profile: {
         thresholdModel: result.river.profile.thresholdModel,

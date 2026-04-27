@@ -17,9 +17,8 @@ import type {
   ScoreRating,
   WeatherSnapshot,
 } from './types';
+import { staleMinutesForGaugeProvider } from './source-adapters';
 
-const GAUGE_STALE_MINUTES = 180;
-const MN_DNR_GAUGE_STALE_MINUTES = 360;
 const WEATHER_STALE_MINUTES = 180;
 
 export function scoreRiverCondition(args: {
@@ -1962,15 +1961,14 @@ function buildLiveDataStatus(args: {
 }
 
 function staleMinutesForGauge(river: River, gauge: GaugeReading | null): number {
-  if (gauge?.sourceId.startsWith('mn-dnr-')) {
-    return MN_DNR_GAUGE_STALE_MINUTES;
+  const matchingSource = [river.gaugeSource, ...(river.fallbackGaugeSources ?? [])].find(
+    (source) => source.id === gauge?.sourceId
+  );
+  if (matchingSource) {
+    return staleMinutesForGaugeProvider(matchingSource.provider);
   }
 
-  if (gauge?.sourceId.startsWith('usgs-')) {
-    return GAUGE_STALE_MINUTES;
-  }
-
-  return river.gaugeSource.provider === 'mn_dnr' ? MN_DNR_GAUGE_STALE_MINUTES : GAUGE_STALE_MINUTES;
+  return staleMinutesForGaugeProvider(river.gaugeSource.provider);
 }
 
 function freshnessFromObservedAt(

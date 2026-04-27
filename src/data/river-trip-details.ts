@@ -1,6 +1,74 @@
 import type { RiverTripDetails } from '../lib/types';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
+  'big-fork-river-highway-6-south-north': {
+    putIn: {
+      name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
+      latitude: 47.953023,
+      longitude: -93.754988,
+    },
+    takeOut: {
+      name: 'Highway 6 North carry-in access',
+      latitude: 48.0346942,
+      longitude: -93.7415563,
+    },
+    logistics: {
+      distanceLabel: '15.7 mi',
+      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and stops',
+      shuttle:
+        'Plan a remote two-car shuttle on Highway 6. Treat the route as a full-day commitment, or use the first-come watercraft campsite about halfway through for an overnight plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow DNR water-trail rules and posted access or state-forest rules at both Highway 6 landings and any campsite.',
+      camping:
+        'DNR Map 1 names Easy Half watercraft campsite at river mile 81.7, about halfway through the trip, and describes it as a grassy tree-lined clearing with picnic tables. It is first-come, first-served, so bring a backup plan.',
+      summary:
+        'Launch at the southern Highway 6 carry-in near the Craigsville gauge and take out at the northern Highway 6 access. This is DNR\'s 15.7-mile recommended Big Fork day trip through remote Koochiching State Forest.',
+      accessCaveats: [
+        'Both endpoints are official public-water-access sites, but they are remote carry-in landings with limited services.',
+        'The DNR access layer labels the upstream put-in as State Hwy 6 Bridge and the downstream take-out as State Hwy 6 (S), while the DNR route page uses Highway 6 (S) to Highway 6 (N). Use river miles and coordinates to avoid confusion.',
+        'This route is long enough that daylight, weather, and a realistic bailout plan matter more than on short metro routes.',
+      ],
+      watchFor: [
+        'Rocky or impassable rapids when Big Fork levels fall toward the scrapable/low band.',
+        'A Class I rapid immediately below the put-in, plus additional Class I-II rapids, cold water, sweepers, beaver-dam potential, and remote shoreline with limited quick exits.',
+        'Do not continue into Big Falls or Little American Falls sections without separate whitewater and portage planning.',
+      ],
+    },
+  },
+  'otter-tail-river-wannigan-riverside': {
+    putIn: {
+      name: 'Wannigan Road carry-in access',
+      latitude: 46.7847573,
+      longitude: -95.6962111,
+    },
+    takeOut: {
+      name: 'Riverside Park carry-in access',
+      latitude: 46.7256798,
+      longitude: -95.696997,
+    },
+    logistics: {
+      distanceLabel: '8.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level and channel-finding',
+      shuttle:
+        'Use a short two-car shuttle between Wannigan Road north of Frazee and Riverside Park in Frazee. Both endpoints are official public-water-access records, but parking is limited.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-access and city park rules at Wannigan Road and Riverside Park.',
+      camping:
+        'No established watercraft campsite is documented for this short day trip. Plan it as a day paddle.',
+      summary:
+        'Launch at Wannigan Road and take out at Riverside Park in Frazee. MN DNR recommends this as an 8.4-mile scenic, slow-flowing trip with little development, best when late spring water keeps enough flow in the main channel.',
+      accessCaveats: [
+        'Wannigan Road is an official DNR-administered carry-in access, but the access record does not show a developed parking lot or restroom.',
+        'Riverside Park is a City of Frazee access with a small parking lot and no restroom listed in the public-access record.',
+        'The public-access record places Riverside Park at river mile 145.0, while the DNR route page lists the take-out at river mile 144.5; use the named access and coordinates for navigation.',
+      ],
+      watchFor: [
+        'Shallow main-channel picking or walking when levels are low.',
+        'Old bridge remnants, rock weirs, and faster moving water as you approach Riverside Park.',
+        'A low utility pipe just past the take-out, plus the broader Otter Tail hazards of culverts, bridge obstructions, and possible dams under bridges.',
+      ],
+    },
+  },
   'cannon-river-welch': {
     putIn: {
       name: 'Riverside Park canoe launch (Cannon Falls)',
@@ -2057,6 +2125,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Frequent scraping below about 4.77 ft at Anamosa.',
         'Riffles around bridge remnants and rock outcrops.',
         'Wind on the wider bends and fresh strainers after storms.',
+      ],
+    },
+  },
+  'bois-brule-river-stones-winneboujou': {
+    putIn: {
+      name: "Stone's Bridge Landing",
+      latitude: 46.43415,
+      longitude: -91.67486,
+    },
+    takeOut: {
+      name: 'Winneboujou Landing',
+      latitude: 46.5133,
+      longitude: -91.6022,
+    },
+    logistics: {
+      distanceLabel: '9.3 to 12 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, depending on level and stops',
+      shuttle:
+        'Use a vehicle shuttle between Stone’s Bridge on County Highway S and Winneboujou near County B. Local liveries commonly service this corridor during the paddling season.',
+      permits:
+        'No route-specific paddling permit is known, but Wisconsin DNR river rules apply: use designated landings only, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
+      camping:
+        'Camping is allowed only at state-designated campgrounds. Treat Stone’s Bridge to Winneboujou as a day trip unless you have a separate legal campground plan.',
+      summary:
+        'Launch at Stone’s Bridge Landing and take out at Winneboujou Landing for the classic upper Bois Brule day. It is the friendlier Brule run, with clear water, wooded corridors, class I rapids, and one class II feature, but low water and strainers can still change the trip.',
+      accessCaveats: [
+        'Wisconsin DNR requires launching and landing only at allowed designated canoe landings on the Brule.',
+        'Stone’s Bridge is a developed landing with parking, pit toilets, water, and trailer turnaround according to Wisconsin Trail Guide.',
+        'Winneboujou is a hand-carry landing with parking, pit toilets, water, and trailer turnaround according to Wisconsin Trail Guide.',
+      ],
+      watchFor: [
+        'Bony rapids below about 200 cfs and paddling not recommended below 125 cfs.',
+        'Falls Rapids, Big Twin, Wildcat, Station, and other class I features; scout or portage anything that exceeds group comfort.',
+        'Strainers, fallen trees, cold spring-fed water, and faster constricted current as flows rise.',
+      ],
+    },
+  },
+  'menomonee-river-hoyt-park-bluemound': {
+    putIn: {
+      name: 'Hoyt Park / TOSA Pool river access',
+      latitude: 43.05436,
+      longitude: -88.02431,
+    },
+    takeOut: {
+      name: 'Bluemound Road / Wisconsin Avenue Menomonee River access',
+      latitude: 43.03572,
+      longitude: -87.96231,
+    },
+    logistics: {
+      distanceLabel: '4.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer if scouting or portaging',
+      shuttle:
+        'Short urban vehicle shuttle. A bike shuttle can work because Milwaukee County and Oak Leaf Trail corridors parallel pieces of the route, but traffic and parking logistics deserve planning.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Hoyt Park, Wauwatosa, Milwaukee County, and City of Milwaukee parking/access rules.',
+      camping:
+        'No on-route camping. Treat this as a short urban day run only.',
+      summary:
+        'Put in at Hoyt Park in Wauwatosa and take out near the Bluemound/Wisconsin Avenue access in the Menomonee Valley. The route is short but busy: shallow bedrock, class I-II rapids, one stronger ledge, strainers, walls, and urban water-quality cautions all matter.',
+      accessCaveats: [
+        'Hoyt Park is a public park, but the exact river access is informal enough that parking, carry distance, and posted rules should be checked before unloading.',
+        'The downstream access is an urban bridge/valley access, not a polished rural landing. Confirm the exit, parking legality, and construction closures before you launch.',
+        'Do not extend downstream into industrial or harbor sections unless you have a separate route plan and confirmed take-out.',
+      ],
+      watchFor: [
+        'Class I-II rapids plus a stronger scoutable ledge near the railroad/Wisconsin Avenue corridor.',
+        'Strainers, walls, sharp rocks, bridge remnants, and fast current pushing into obstacles.',
+        'Flashy post-rain rises and urban water-quality issues. Avoid this route during or shortly after heavy rain.',
       ],
     },
   },

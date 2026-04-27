@@ -1,8 +1,8 @@
 import { fetchJson } from './http';
+import { readingSourceLabelForProvider } from './source-adapters';
 import type { GaugeReading, GaugeSample, GaugeUnit, RiverGaugeSource } from './types';
 
 const DNR_RIVER_LEVELS_URL = 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json';
-const DNR_SOURCE_LABEL = 'MN DNR River Levels';
 const DNR_RATING_LABELS: Record<number, string> = {
   0: 'Not interpreted',
   1: 'Very High',
@@ -74,7 +74,7 @@ export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<
     dischargeNow: unit === 'cfs' ? current : null,
     waterTempF: null,
     waterTempObservedAt: null,
-    gaugeSource: DNR_SOURCE_LABEL,
+    gaugeSource: readingSourceLabelForProvider(source.provider),
     waterTempSource: null,
     gaugeInterpretation: dnrRatingLabel(site.rating),
   };

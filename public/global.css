@@ -7395,6 +7395,9 @@ body.site-search-open {
   color: var(--river-deep);
 }
 
+.recommendation-source--american_whitewater,
+.recommendation-source--wisconsin_river_trips,
+.recommendation-source--wisconsin_trail_guide,
 .recommendation-source--community,
 .recommendation-source--mixed,
 .recommendation-source--minimum,

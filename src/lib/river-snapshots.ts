@@ -18,6 +18,7 @@ import {
   type WeekendSummaryApiItem,
 } from './api-contract';
 import { getRiverBySlug, listRiverGroups } from './rivers';
+import { gaugeDisplayForSource } from './source-adapters';
 import type { RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
@@ -231,6 +232,13 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
     river: {
       ...result.river,
       estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
+      gaugeSource:
+        river && !result.river.gaugeSource.display
+          ? {
+              ...result.river.gaugeSource,
+              display: gaugeDisplayForSource(river.gaugeSource),
+            }
+          : result.river.gaugeSource,
     },
   };
 }

@@ -2268,6 +2268,72 @@ function formatGaugeMetric(value, unit, fallback = 'Unavailable') {
   return `${Math.round(value).toLocaleString('en-US')} ${unit}`;
 }
 
+function gaugeSourceDisplay(result) {
+  const display = result?.river?.gaugeSource?.display;
+  if (display && typeof display === 'object') {
+    return display;
+  }
+
+  const provider = result?.river?.gaugeSource?.provider;
+  if (provider === 'mn_dnr') {
+    return {
+      provider: 'mn_dnr',
+      label: 'MN DNR River Levels',
+      shortLabel: 'MN DNR',
+      primaryMetricLabel: 'Gauge height',
+      secondaryMetricLabel: 'Discharge',
+      interpretationLabel: 'DNR interpretation',
+      supportsRecentSamples: false,
+      supportsHydrograph: true,
+    };
+  }
+
+  return {
+    provider: provider || 'usgs',
+    label: 'USGS Water Data',
+    shortLabel: 'USGS',
+    primaryMetricLabel: 'Discharge',
+    secondaryMetricLabel: 'Gauge height',
+    interpretationLabel: null,
+    supportsRecentSamples: true,
+    supportsHydrograph: false,
+  };
+}
+
+function gaugePrimaryValue(result) {
+  if (!result?.gauge) {
+    return 'No reading';
+  }
+
+  const source = result.river?.gaugeSource;
+  if (source?.unit === 'ft' || source?.metric === 'gage_height_ft') {
+    return result.gauge.gaugeHeightNow != null
+      ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
+      : formatGaugeMetric(result.gauge.current, result.gauge.unit);
+  }
+
+  if (source?.unit === 'cfs' || source?.metric === 'discharge_cfs') {
+    return result.gauge.dischargeNow != null
+      ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs')
+      : formatGaugeMetric(result.gauge.current, result.gauge.unit);
+  }
+
+  return formatGaugeMetric(result.gauge.current, result.gauge.unit);
+}
+
+function gaugeSecondaryValue(result) {
+  if (!result?.gauge) {
+    return 'No reading';
+  }
+
+  const source = result.river?.gaugeSource;
+  if (source?.unit === 'ft' || source?.metric === 'gage_height_ft') {
+    return formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading');
+  }
+
+  return formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft', 'No reading');
+}
+
 function formatRainChance(value) {
   return typeof value === 'number' ? `${Math.round(value)}% rain` : 'Rain n/a';
 }
@@ -3446,6 +3512,7 @@ function buildDnrHydrographUrl(rawUrl) {
 function renderGaugeChart(result) {
   const parsedSamples = parseChartSamples(result);
   const activeSamples = windowedSamples(parsedSamples, currentChartWindowHours);
+  const sourceDisplay = gaugeSourceDisplay(result);
   const chartEl = root.querySelector('.gauge-visual__chart');
   const controlsEl = root.querySelector('.gauge-visual__controls');
   const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
@@ -3475,9 +3542,9 @@ function renderGaugeChart(result) {
     return;
   }
 
-  const hasDnrCurrentOnlyReading =
-    result.river?.gaugeSource?.provider === 'mn_dnr' && result.gauge && activeSamples.length < 2;
-  if (hasDnrCurrentOnlyReading) {
+  const hasCurrentOnlyReading =
+    result.gauge && !sourceDisplay.supportsRecentSamples && activeSamples.length < 2;
+  if (hasCurrentOnlyReading) {
     if (chartEl instanceof SVGElement) {
       chartEl.style.display = 'none';
     }
@@ -3487,17 +3554,24 @@ function renderGaugeChart(result) {
     if (currentPanelEl instanceof HTMLElement) {
       currentPanelEl.hidden = false;
     }
-    setText('gauge-visual-title', 'Current DNR level');
-    setText('chart-caption', 'MN DNR current level is available; recent chart samples are not.');
-    setText('current-gauge-provider', result.gauge.gaugeSource || 'MN DNR River Levels');
-    setText('current-gauge-value', formatGaugeValue(result.gauge.current, result.gauge.unit));
+    setText('gauge-visual-title', `Current ${sourceDisplay.shortLabel} level`);
+    setText('chart-caption', `${sourceDisplay.label} current level is available; recent chart samples are not.`);
+    setText('current-gauge-provider', result.gauge.gaugeSource || sourceDisplay.label);
+    setText('current-gauge-value', gaugePrimaryValue(result));
     setText(
       'current-gauge-observed',
       result.gauge.observedAt ? `Observed ${new Date(result.gauge.observedAt).toLocaleString()}` : 'Observed time unavailable'
     );
-    setText('current-gauge-interpretation', result.gauge.gaugeInterpretation || 'Not published');
+    setText(
+      'current-gauge-interpretation',
+      sourceDisplay.interpretationLabel
+        ? result.gauge.gaugeInterpretation || 'Not published'
+        : 'Not provided by this source'
+    );
     setText('current-gauge-band', result.gaugeBandLabel || 'Unavailable');
-    const hydrographUrl = buildDnrHydrographUrl(result.river?.gaugeSource?.hydrographUrl || '');
+    const hydrographUrl = sourceDisplay.supportsHydrograph
+      ? buildDnrHydrographUrl(result.river?.gaugeSource?.hydrographUrl || '')
+      : result.river?.gaugeSource?.hydrographUrl || '';
     if (hydrographFigure instanceof HTMLElement && hydrographImage instanceof HTMLImageElement) {
       if (hydrographUrl) {
         hydrographImage.src = hydrographUrl;
@@ -3796,6 +3870,7 @@ function renderDetailResult(result) {
   }
 
   const effectiveLiveData = effectiveLiveDataForResult(result);
+  const sourceDisplay = gaugeSourceDisplay(result);
   const dataStatus = setText('data-status', `Reads ${effectiveLiveData.overall}`);
   if (dataStatus instanceof HTMLElement) {
     dataStatus.classList.remove('data-status-pill--live', 'data-status-pill--degraded', 'data-status-pill--offline');
@@ -3821,18 +3896,10 @@ function renderDetailResult(result) {
   }
 
   setText('flow-band', result.gaugeBandLabel);
-  setText(
-    'gauge-now',
-    result.gauge
-      ? result.gauge.gaugeHeightNow != null
-        ? formatGaugeMetric(result.gauge.gaugeHeightNow, 'ft')
-        : formatGaugeMetric(result.gauge.current, result.gauge.unit)
-      : 'No reading'
-  );
-  setText(
-    'discharge-now',
-    result.gauge ? formatGaugeMetric(result.gauge.dischargeNow, 'cfs', 'No reading') : 'No reading'
-  );
+  setText('primary-gauge-label', sourceDisplay.primaryMetricLabel || 'Current gauge');
+  setText('secondary-gauge-label', sourceDisplay.secondaryMetricLabel || 'Secondary gauge metric');
+  setText('gauge-now', gaugePrimaryValue(result));
+  setText('discharge-now', gaugeSecondaryValue(result));
   setText(
     'observed-at',
     result.gauge?.observedAt ? new Date(result.gauge.observedAt).toLocaleString() : 'No reading'
@@ -3862,7 +3929,7 @@ function renderDetailResult(result) {
   setText('weather-water-temp', result.gauge?.waterTempF != null ? `${Math.round(result.gauge.waterTempF)}°F` : 'No reading');
   setText('weather-wind', result.weather?.windMph != null ? `${Math.round(result.weather.windMph)} mph` : 'No reading');
   setText('weather-gusts', result.weather?.gustMph != null ? `${Math.round(result.weather.gustMph)} mph` : 'No reading');
-  setText('gauge-source', result.gauge?.gaugeSource ?? 'No reading');
+  setText('gauge-source', result.gauge?.gaugeSource ?? gaugeSourceDisplay(result).label ?? 'No reading');
   setText('weather-source', result.weather?.weatherSource ?? 'No reading');
   setText('rainfall-source', result.weather?.rainfallSource ?? 'No reading');
   setFieldGroupHidden('level', false);

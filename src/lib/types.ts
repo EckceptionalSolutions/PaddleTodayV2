@@ -23,6 +23,7 @@ export type {
   ForecastWindow,
   GaugeReading,
   GaugeSample,
+  GaugeSourceDisplay,
   GaugeUnit,
   HourlyWeatherPoint,
   LiveDataOverall,
@@ -57,10 +58,21 @@ export type RainfallSensitivity = 'low' | 'medium' | 'high';
 export type ThresholdModel = 'two-sided' | 'minimum-only';
 export type TrendDirection = 'rising' | 'steady' | 'falling' | 'unknown';
 export type GaugeProvider = 'usgs' | 'mn_dnr';
+export type SourceProvider =
+  | 'usgs'
+  | 'mn_dnr'
+  | 'american_whitewater'
+  | 'miles_paddled'
+  | 'wisconsin_river_trips'
+  | 'wisconsin_trail_guide'
+  | 'nps'
+  | 'local'
+  | 'manual';
 
 export interface SourceLink {
   label: string;
   url: string;
+  provider?: SourceProvider;
 }
 
 export interface RiverGaugeSource {

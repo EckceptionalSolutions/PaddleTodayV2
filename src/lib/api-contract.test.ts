@@ -209,4 +209,32 @@ describe('api-contract serializers', () => {
     expect('evidenceNotes' in detail.river).toBe(false);
     expect('logistics' in detail.river).toBe(false);
   });
+
+  it('badges American Whitewater threshold evidence separately from the live USGS gauge', () => {
+    const scored = scoreRiverCondition({
+      river: {
+        ...baseRiver,
+        state: 'Wisconsin',
+        profile: {
+          ...baseRiver.profile,
+          thresholdSource: {
+            label: 'American Whitewater sample gauge info',
+            url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=999',
+            provider: 'american_whitewater',
+          },
+          thresholdSourceStrength: 'community',
+        },
+      },
+      gauge,
+      weather,
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    const summary = serializeSummaryResult(scored);
+
+    expect(summary.sources).toEqual([
+      { label: 'USGS', tone: 'usgs' },
+      { label: 'AW', tone: 'american_whitewater' },
+    ]);
+  });
 });
