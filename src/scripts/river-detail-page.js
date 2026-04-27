@@ -1524,6 +1524,19 @@ function coldWeatherDrivenResult(result) {
   );
 }
 
+function weatherSkipReason(result) {
+  const weather = result?.weather;
+  const cold = typeof weather?.temperatureF === 'number' && weather.temperatureF < 50;
+  const stormy = Boolean(weather?.next12hStormRisk);
+  const rainy = (weather?.next12hPrecipProbabilityMax ?? 0) > 60;
+
+  if (stormy && cold) return 'storms and cold weather';
+  if (stormy) return 'storms';
+  if (cold) return 'cold weather';
+  if (rainy) return 'heavy rain risk';
+  return 'weather';
+}
+
 function decisionStatement(result) {
   const rating = result?.rating;
   if (isDataLimitedNoGo(result)) {
@@ -1531,6 +1544,9 @@ function decisionStatement(result) {
   }
   if (hasHardSkip(result)) {
     const skipItem = firstSkipChecklistItem(result);
+    if (skipItem?.label === 'Weather window') {
+      return `Gauge looks good, but ${weatherSkipReason(result)} makes this a skip today.`;
+    }
     if (skipItem?.label && skipItem?.detail) {
       return `${skipItem.label} is failing: ${skipItem.detail}`;
     }
