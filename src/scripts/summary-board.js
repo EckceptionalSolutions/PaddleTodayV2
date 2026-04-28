@@ -178,6 +178,7 @@ const filterSearch = document.querySelector('[data-filter-search]');
 const filterState = document.querySelector('[data-filter-state]');
 const filterRating = document.querySelector('[data-filter-rating]');
 const filterDifficulty = document.querySelector('[data-filter-difficulty]');
+const filterRouteType = document.querySelector('[data-filter-route-type]');
 const filterDistance = document.querySelector('[data-filter-distance]');
 const filterPaddleTime = document.querySelector('[data-filter-paddle-time]');
 const sortSelect = document.querySelector('[data-sort-select]');
@@ -237,6 +238,7 @@ const activeFilters = {
   search: '',
   state: '',
   difficulty: '',
+  routeType: 'non-whitewater',
   distance: '',
   paddleTime: '',
   sort: 'best-now',
@@ -461,6 +463,14 @@ function routeDifficultyRankForResult(result) {
   if (difficulty === 'moderate') return 1;
   if (difficulty === 'hard') return 2;
   return 3;
+}
+
+function routeTypeForResult(result) {
+  return result?.river?.routeType === 'whitewater' ? 'whitewater' : 'recreational';
+}
+
+function isDefaultVisibleRoute(result) {
+  return routeTypeForResult(result) !== 'whitewater';
 }
 
 function representativePreferenceContext(options = {}) {
@@ -950,6 +960,36 @@ function buildDisplayItems(allResults, filteredResults, selectionMode = 'best-no
   return items;
 }
 
+function buildRouteMapItems(allResults, filteredResults) {
+  const allByRiver = groupResultsByRiverId(allResults);
+
+  return filteredResults
+    .filter((result) => {
+      const latitude = result?.river?.latitude;
+      const longitude = result?.river?.longitude;
+      return Number.isFinite(latitude) && Number.isFinite(longitude);
+    })
+    .map((cardRoute) => {
+      const totalRouteCount = allByRiver.get(cardRoute.river.riverId || cardRoute.river.slug)?.length ?? 1;
+      const distanceMilesValue = distanceForResult(cardRoute);
+      const travelMinutes = estimateTravelMinutes(distanceMilesValue);
+
+      return {
+        key: cardRoute.river.slug,
+        kind: 'route',
+        cardRoute,
+        totalRouteCount,
+        paddleableRouteCount: ['Strong', 'Good'].includes(cardRoute.rating) ? 1 : 0,
+        representativeMode: 'route',
+        distanceMiles: distanceMilesValue,
+        travelMinutes,
+        effectiveScore: cardRoute.score - distancePenalty(travelMinutes),
+        distanceBucket: distanceBucketLabel(travelMinutes),
+        link: `/rivers/${cardRoute.river.slug}/`,
+      };
+    });
+}
+
 function sortItems(items, mode) {
   const copy = [...items];
 
@@ -1060,6 +1100,10 @@ function routeDifficultyLabel(item) {
   }
 
   return `${String(difficulty).slice(0, 1).toUpperCase()}${String(difficulty).slice(1)} difficulty`;
+}
+
+function routeTypeLabel(item) {
+  return routeTypeForResult(item?.cardRoute) === 'whitewater' ? 'Whitewater' : '';
 }
 
 function routeEstimatedTimeLabel(item) {
@@ -1891,6 +1935,9 @@ function cardFactsMarkup(item, showDistance) {
   }
 
   if (!isGroupedItem(item) || item.representativeMode === 'setup') {
+    if (routeTypeLabel(item)) {
+      facts.push(routeTypeLabel(item));
+    }
     if (routeDifficultyLabel(item)) {
       facts.push(routeDifficultyLabel(item));
     }
@@ -1926,6 +1973,9 @@ function metaLineText(item, showDistance) {
   }
   if (routeLengthLabel(item)) {
     parts.push(routeLengthLabel(item));
+  }
+  if (!isGroupedItem(item) && routeTypeLabel(item)) {
+    parts.push(routeTypeLabel(item));
   }
   if (!isGroupedItem(item) && routeDifficultyLabel(item)) {
     parts.push(routeDifficultyLabel(item));
@@ -2773,6 +2823,14 @@ function matchesRouteFilters(result) {
     return false;
   }
 
+  if (activeFilters.routeType === 'non-whitewater' && routeTypeForResult(result) === 'whitewater') {
+    return false;
+  }
+
+  if (activeFilters.routeType === 'whitewater' && routeTypeForResult(result) !== 'whitewater') {
+    return false;
+  }
+
   if (activeFilters.distance) {
     if (!userLocation) {
       return false;
@@ -2824,6 +2882,7 @@ function resetExploreFilters({ rerender = true } = {}) {
   activeFilters.search = '';
   activeFilters.state = '';
   activeFilters.difficulty = '';
+  activeFilters.routeType = 'non-whitewater';
   activeFilters.distance = '';
   activeFilters.paddleTime = '';
   activeFilters.sort = userLocationState === 'ready' && userLocation ? 'near-you' : 'best-now';
@@ -2840,6 +2899,9 @@ function resetExploreFilters({ rerender = true } = {}) {
   }
   if (filterDifficulty instanceof HTMLSelectElement) {
     filterDifficulty.value = '';
+  }
+  if (filterRouteType instanceof HTMLSelectElement) {
+    filterRouteType.value = activeFilters.routeType;
   }
   if (filterDistance instanceof HTMLSelectElement) {
     filterDistance.value = '';
@@ -3234,6 +3296,23 @@ function buildExploreFilterPills() {
   if (activeFilters.difficulty) {
     pills.push({
       label: titleCase(activeFilters.difficulty),
+      tone: 'filter',
+    });
+  }
+
+  if (activeFilters.routeType === 'non-whitewater') {
+    pills.push({
+      label: 'Non-whitewater',
+      tone: 'filter',
+    });
+  } else if (activeFilters.routeType === 'whitewater') {
+    pills.push({
+      label: 'Whitewater only',
+      tone: 'filter',
+    });
+  } else if (activeFilters.routeType === 'all') {
+    pills.push({
+      label: 'All route types',
       tone: 'filter',
     });
   }
@@ -3828,7 +3907,7 @@ async function renderSummaryMap(items) {
           ? { top: 22, right: 22, bottom: 22, left: 22 }
           : { top: 52, right: 52, bottom: 52, left: 52 },
         maxZoom: 8.2,
-        duration: 700,
+        duration: 0,
       });
       mapRuntime.resize();
       if (!items.some((item) => item.key === selectedSummaryMapKey)) {
@@ -3944,8 +4023,9 @@ function hydrateBoardFromCache() {
 
 function renderHomepage(results) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
-  const overallItems = sortItems(buildDisplayItems(results, results, 'best-now'), 'best-now');
-  const nearbyPreferenceResults = results.filter(matchesHomeNearbyFilters);
+  const defaultVisibleResults = results.filter(isDefaultVisibleRoute);
+  const overallItems = sortItems(buildDisplayItems(defaultVisibleResults, defaultVisibleResults, 'best-now'), 'best-now');
+  const nearbyPreferenceResults = defaultVisibleResults.filter(matchesHomeNearbyFilters);
   const nearbyBaseItems = sortItems(
     buildDisplayItems(nearbyPreferenceResults, nearbyPreferenceResults, 'near-you', { useHomePreferences: true }),
     'near-you'
@@ -3955,14 +4035,15 @@ function renderHomepage(results) {
     : nearbyBaseItems.filter((item) => item.travelMinutes <= DAY_TRIP_TRAVEL_MINUTES);
   const summaryResults = locationReady
     ? nearbyPreferenceResults.filter(resultWithinSelectedRadius)
-    : results;
+    : defaultVisibleResults;
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
   const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
+  const exploreMapItems = sortItems(buildRouteMapItems(results, filteredRoutes), normalizedSortMode);
   const summaryMapItems = isNearbySummaryMapMode()
     ? (locationReady ? nearbyItems : [])
-    : exploreItems;
+    : exploreMapItems;
 
   updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(summaryResults);
@@ -4641,6 +4722,16 @@ function setupFilters() {
     filterDifficulty.dataset.filterBound = 'true';
     filterDifficulty.addEventListener('change', () => {
       activeFilters.difficulty = filterDifficulty.value;
+      currentExplorePage = 1;
+      renderHomepage(latestResults);
+    });
+  }
+
+  if (filterRouteType instanceof HTMLSelectElement && filterRouteType.dataset.filterBound !== 'true') {
+    filterRouteType.dataset.filterBound = 'true';
+    filterRouteType.value = activeFilters.routeType;
+    filterRouteType.addEventListener('change', () => {
+      activeFilters.routeType = filterRouteType.value || 'non-whitewater';
       currentExplorePage = 1;
       renderHomepage(latestResults);
     });

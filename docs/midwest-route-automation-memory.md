@@ -4,6 +4,26 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 ## Added
 
+- 2026-04-27: `Otter Tail River - Wannigan Road to Riverside Park`
+  - Added to PaddleTodayV2 as a conservative proxy-gauge route with official MN DNR route support, official public-water-access records for both endpoints, and official MN DNR interpretation bands on downstream `MN DNR 344` (`Otter Tail River nr Battle Lake, CR72`).
+  - Recheck that changed the outcome: the route was previously parked under `no_live_gauge` when DNR-only live feeds were treated as blocked. The current app supports MN DNR gauges, so the remaining question became gauge fit rather than gauge availability.
+  - Remaining caveat: threshold confidence is intentionally lower than a direct-gauge route because the Battle Lake gauge sits downstream of the Frazee-area day trip. The app uses a minimum-only floor and keeps route notes explicit about late-spring water, shallow main-channel picking, rock weirs, faster water near Riverside Park, and the low utility pipe past the take-out.
+
+- 2026-04-27: `Big Fork River - Highway 6 South to Highway 6 North`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on direct `MN DNR 281`.
+  - Recheck that changed the outcome: the route was previously parked under `no_live_gauge` when DNR-only live feeds were treated as blocked, but the current app supports MN DNR gauges. MN DNR explicitly recommends this 15.7-mile route, public-water-access data resolves both Highway 6 endpoints with access IDs `WAS01794` and `WAS01792`, and the Craigsville/Highway 6 gauge sits at the put-in river mile.
+  - Remaining caveat: this is a remote long-day or overnight route; DNR's general Big Fork low-water warning also references the upstream Highway 38 / Bigfork gauge, so the route notes preserve that supplemental caution while scoring from the closer Craigsville gauge.
+
+- 2026-04-26: `North Fork Crow River - Rockford Access to Riverside County Park`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on direct `MN DNR 310`.
+  - Supplemental research added: MN DNR's Rockford Access guide names this exact 8.5-mile day trip, the Minnesota public-water-access layer confirms both endpoints with access IDs `WAS03086` and `WAS01955`, Wright County confirms Riverside County Park public river access and campsite facilities, and the DNR Riverside Access guide adds the practical note that the take-out is somewhat steep but launchable for small boats/canoes.
+  - Remaining caveat: this uses the same lower North Fork Crow gauge family as the existing Riverside-to-Dayton route; it is useful as a shorter day-trip option, but same-day wood and shallow-gravel checks still matter.
+
+- 2026-04-26: `Cottonwood River - Juenemann Landing to Springfield`
+  - Added to PaddleTodayV2 with official MN DNR river-level bands on direct `MN DNR 42`.
+  - Supplemental research added: MN DNR Map 4 names Juenemann carry-in access and Springfield carry-in access with river miles, the Minnesota public-water-access layer confirms both endpoints with access IDs `WAS01422` and `WAS01421`, Brown County confirms Jueneman Landing as a county Cottonwood River canoe landing with parking and seasonal day-use, and the DNR Cottonwood page supports the general beginner-friendly no-major-rapids character.
+  - Remaining caveat: this exact 6.4-mile segment is map/access-supported rather than highlighted by DNR as a recommended day trip, so notes keep it framed as a compact local level-first route.
+
 - 2026-04-26: `Long Prairie River - Long Prairie to Browerville`
   - Added to PaddleTodayV2 with an official-source-backed `two-sided` model on direct `MN DNR site 89` (`Long Prairie River at Long Prairie, MN`).
   - Qualification path was clean: MN DNR directly recommends the exact 13.3-mile day trip, the city access names were resolved in the MN DNR public-water-access GIS, and the current product already supports this DNR gauge path with the current-level fallback panel when chart samples are unavailable.
@@ -205,6 +225,7 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Gauge support is strong: the direct MN DNR `Sauk River nr St. Martin, CR12` site carries a full official ladder (`below 14 ft scrapable`, `14-15 low`, `15-17 medium`, `17-20 high`, `above 20 very high`).
   - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Spring Hill County Park` and `St. Martin carry-in access`.
 
+<<<<<<< HEAD
 - 2026-04-26: `North Fork Crow River - City of Rockford trailer access to Riverside County Park`
   - Fresh Minnesota-first gauge sweep found a shorter, cleaner downstream-of-Rockford day trip adjacent to the existing `Riverside County Park to Dayton` route.
   - Official support is strong: MN DNR North Fork Crow Map 2 clearly names both endpoints, and the overview explicitly points paddlers to family-friendly routes downstream of Rockford.
@@ -260,6 +281,8 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Endpoint support is good enough to preserve: Hidden Falls is already a documented public launch in V2, and Saint Paul documents Harriet Island Regional Park with a `Public Dock` amenity.
   - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Hidden Falls Regional Park` and `Harriet Island Regional Park`.
 
+=======
+>>>>>>> 7dcf39deb1bdb62e6e8049fec3300941cb021580
 ## Research later
 
 - 2026-04-27: `Mississippi River - Palisade to Waldeck Landing` (`threshold_weak`)
@@ -720,8 +743,8 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 - 2026-04-26: Fresh Minnesota-first gauge sweep at 14:48 America/Chicago.
   - Reviewed 2 fresh gauge clusters and 1 fresh candidate instead of revisiting the stale bounded queue.
-  - Set aside as `no_live_gauge`:
-    - `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` — MN DNR explicitly recommends this 15.7-mile day trip and gives a usable qualitative floor (`some rapids will be too rocky to run if the gauge at the Highway 38 bridge in Bigfork is below four feet`), but the live level support surfaced on this pass is the MN DNR CSG site at Bigfork rather than a defensible live USGS gauge pairing, so it does not clear the product bar.
+  - Set aside as `no_live_gauge` on this pass, later superseded by the 2026-04-27 add:
+    - `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` — MN DNR explicitly recommends this 15.7-mile day trip and gives a usable qualitative floor (`some rapids will be too rocky to run if the gauge at the Highway 38 bridge in Bigfork is below four feet`), but this pass incorrectly treated MN DNR live support as blocked. The route was later added after confirming current PaddleTodayV2 support for MN DNR gauges and the closer Craigsville/Highway 6 DNR site.
   - Explored non-yield gauge cluster: `St. Louis River at Floodwood, CSAH8` and the nearby `Paupores to Brookston` recommended trip corridor. The route itself is official and practical, but this pass did not surface a defensible live USGS gauge-plus-threshold package; the available live levels in the DNR system are CSG sites and the route page stayed qualitative about rapids/high water.
   - Fresh-discovery takeaway: some remaining Minnesota DNR trails still have real route utility, but they are not automatic wins for PaddleTodayV2 if the live gauge story is DNR-only or qualitative. The current best queue remains the earlier direct-gauge Minnesota candidates already preserved in the ledger.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
@@ -742,7 +765,7 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Current best next-implementation targets remain `Long Prairie River - Long Prairie to Browerville` and `Pomme de Terre River - Larson to Appleton`, but both still depend on MN DNR CSG gauges rather than the current USGS-only ingestion path.
   - Current best preserve-for-cleanup targets remain `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, and `Cottonwood River - Juenemann carry-in access to Springfield carry-in access`.
   - `Chippewa River - Lentz Access to Watson Lion's Park` and `Des Moines River - Mayflower Park to Christianna Bridge` remain correctly parked at `threshold_weak` because both still fail route-specific gauge-fit quality.
-  - `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` remains correctly parked at `no_live_gauge` because the current live level story is DNR-only rather than a defensible USGS pairing.
+  - `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` was listed here as `no_live_gauge`, but that blocker was later superseded when MN DNR gauge support was confirmed and the route was added on 2026-04-27.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
 
 - 2026-04-26: Conservative no-add pass at 15:40 America/Chicago.
@@ -750,13 +773,13 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - No fresh Minnesota-first evidence path surfaced after the 15:28 pass, so this run stayed bounded instead of re-litigating stale `research_later` or `rejected` holdovers.
   - The current implementation blocker remains unchanged: `Long Prairie River - Long Prairie to Browerville` and `Pomme de Terre River - Larson to Appleton` are still the best queued `likely_addable` routes in content terms, but the app still only ingests `provider: 'usgs'` gauges through `src/lib/usgs.ts` and route typing still expects `provider: 'usgs'`, so adding either DNR-CSG-dependent route now would still ship a dead gauge.
   - The clean preserve-for-later set also remains unchanged: `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, and `Cottonwood River - Juenemann carry-in access to Springfield carry-in access` still look good enough to keep at `needs_manual_coordinates` rather than downgrading.
-  - `Chippewa River - Lentz Access to Watson Lion's Park` and `Des Moines River - Mayflower Park to Christianna Bridge` were deliberately not re-reviewed because both remain correctly parked at `threshold_weak`, and `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` remains correctly parked at `no_live_gauge`.
+  - `Chippewa River - Lentz Access to Watson Lion's Park` and `Des Moines River - Mayflower Park to Christianna Bridge` were deliberately not re-reviewed because both remain correctly parked at `threshold_weak`. `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access` was later promoted and added on 2026-04-27.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
 
 - 2026-04-26: Fresh Minnesota-first gauge sweep at 16:58 America/Chicago.
   - Reviewed 2 fresh Otter Tail candidates from 2 fresh gauge-adjacent route clusters, plus 1 additional non-yield Zumbro follow-on cluster, instead of rehashing the stale bounded queue.
-  - Set aside as `no_live_gauge`:
-    - `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access` — MN DNR explicitly recommends this 8.4-mile upstream Otter Tail day trip and names both endpoints cleanly, but this pass still did not surface a defensible route-level live gauge pairing or numeric ladder. The official page says to check gauge levels before paddling, which is directionally useful but not strong enough for PaddleTodayV2.
+  - Set aside as `no_live_gauge` on this pass, later superseded by the 2026-04-27 add:
+    - `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access` — MN DNR explicitly recommends this 8.4-mile upstream Otter Tail day trip and names both endpoints cleanly, but this pass still did not surface a defensible route-level live gauge pairing or numeric ladder. It was later added as a conservative proxy route after confirming MN DNR gauge support and intentionally limiting the model to a minimum-only downstream-proxy floor.
     - `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access` — another explicit MN DNR recommended day trip with clean endpoint names, but the same gauge problem remains: official trip support is real while the live-gauge story is still too vague to ship.
   - Explored non-yield gauge cluster: `Zumbro River at Zumbro Falls, MN` plus the official `Zumbro Falls to Hammond` follow-on corridor. The same-gauge idea is attractive because the live USGS site is direct and already trusted on nearby Zumbro routes, but this pass did not surface clear public endpoint names for the Hammond trip from the current route materials, so it did not clear the preserve-for-implementation bar.
   - Fresh-discovery takeaway: fresh Minnesota DNR day trips still exist beyond the earlier central-Minnesota queue, but some otherwise real official recommended trips still fail because the product bar is live-gauge clarity first, not route-shape quality alone.
@@ -771,12 +794,12 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
 
 - 2026-04-26: Conservative no-add pass at 16:28 America/Chicago.
   - Re-read the live V2 inventory in `src/data/rivers.ts`, `src/data/river-trip-details.ts`, this memory file, the normalized candidate ledger, and the bounded old seed list.
-  - No genuinely fresh Minnesota-first gauge-first evidence path surfaced beyond the queue already built earlier today, so this run stopped conservatively instead of pretending the same Zumbro, Otter Tail, Des Moines, Big Fork, or stale old-repo holdovers were new work.
+  - No genuinely fresh Minnesota-first gauge-first evidence path surfaced beyond the queue already built earlier today, so this run stopped conservatively instead of pretending the same Zumbro, Otter Tail, Des Moines, or stale old-repo holdovers were new work.
   - The best near-term queue remains unchanged:
     - `likely_addable`: `Long Prairie River - Long Prairie to Browerville`, `Pomme de Terre River - Larson to Appleton`
     - `needs_manual_coordinates`: `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, `Cottonwood River - Juenemann carry-in access to Springfield carry-in access`
     - `threshold_weak`: `Chippewa River - Lentz Access to Watson Lion's Park`, `Des Moines River - Mayflower Park to Christianna Bridge`, `Zumbro River - Village Park to Theilman Access`
-    - `no_live_gauge`: `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access`, `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access`, `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`
+    - `no_live_gauge`: `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`
   - Fresh-discovery takeaway: the current hit-rate gain is in implementation follow-through on the preserved Minnesota queue, not in forcing another weaker discovery pass from the same evidence pool.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
 
@@ -814,7 +837,7 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
     - `likely_addable`: `Long Prairie River - Long Prairie to Browerville`, `Pomme de Terre River - Larson to Appleton`
     - `needs_manual_coordinates`: `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, `Cottonwood River - Juenemann carry-in access to Springfield carry-in access`
     - `threshold_weak`: `Chippewa River - Lentz Access to Watson Lion's Park`, `Des Moines River - Mayflower Park to Christianna Bridge`, `Zumbro River - Village Park to Theilman Access`, `Red River of the North - Kidder Recreation Area to Brushvale Bridge Recreation Area`
-    - `no_live_gauge`: `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access`, `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access`, `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`, `Red Lake River - Smiley Bridge to Centennial Park`, `Pine River - Rock Dam to Harvey Drake access`, `Little Fork River - Veterans Park to Highway 73 bridge`
+    - `no_live_gauge`: `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`, `Red Lake River - Smiley Bridge to Centennial Park`, `Pine River - Rock Dam to Harvey Drake access`, `Little Fork River - Veterans Park to Highway 73 bridge`
   - Fresh-discovery takeaway: the remaining Minnesota-first opportunities are now mostly sorted by product-fit blockers, especially DNR-only live feeds and route-specific threshold quality, not by lack of named routes.
   - No code changes were made, so `npm test` and `npm run build` were not run on this pass.
 
@@ -886,7 +909,7 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - The most relevant deliberately skipped candidates remain unchanged:
     - `Sauk River - Spring Hill County Park to St. Martin carry-in access`, `North Fork Crow River - City of Rockford trailer access to Riverside County Park`, and `Cottonwood River - Juenemann carry-in access to Springfield carry-in access` still look content-strong but remain correctly parked at `needs_manual_coordinates` because authoritative endpoint coordinates are still missing.
     - `Chippewa River - Lentz Access to Watson Lion's Park`, `Des Moines River - Mayflower Park to Christianna Bridge`, `Zumbro River - Village Park to Theilman Access`, and `Red River of the North - Kidder Recreation Area to Brushvale Bridge Recreation Area` remain correctly parked at `threshold_weak` because route-specific numeric threshold support is still not strong enough to ship conservatively.
-    - `Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access`, `Otter Tail River - Wannigan Road carry-in access to Riverside Park carry-in access`, `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`, `Red Lake River - Smiley Bridge to Centennial Park`, `Pine River - Rock Dam to Harvey Drake access`, and `Little Fork River - Veterans Park to Highway 73 bridge` remain correctly parked at `no_live_gauge` because their current live-data path is still DNR-only rather than a separately validated fresh add path for this run.
+    - `Otter Tail River - Phelps Mill County Park carry-in access to West Red River Lake trailer access`, `Red Lake River - Smiley Bridge to Centennial Park`, `Pine River - Rock Dam to Harvey Drake access`, and `Little Fork River - Veterans Park to Highway 73 bridge` remain correctly parked at `no_live_gauge` because their current live-data path is still DNR-only rather than a separately validated fresh add path for this run.
   - Net result: short no-add pass, no candidate statuses changed, and no code changes were made.
   - `npm test` and `npm run build` were not run because no product files changed on this pass.
 

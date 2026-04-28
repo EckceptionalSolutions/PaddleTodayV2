@@ -123,6 +123,14 @@ const trackedRiverCount = riverGroups.length;
                   </select>
                 </label>
                 <label class="filter-select">
+                  <span class="sr-only">Filter by whitewater routes</span>
+                  <select class="filter-select__input" data-filter-route-type>
+                    <option value="non-whitewater" selected>Non-whitewater routes</option>
+                    <option value="whitewater">Whitewater only</option>
+                    <option value="all">All route types</option>
+                  </select>
+                </label>
+                <label class="filter-select">
                   <span class="sr-only">Filter by drive distance</span>
                   <select class="filter-select__input" data-filter-distance>
                     <option value="">Any drive distance</option>

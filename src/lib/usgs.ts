@@ -1,4 +1,5 @@
 import { fetchJson } from './http';
+import { readingSourceLabelForProvider } from './source-adapters';
 import type { GaugeMetric, GaugeReading, GaugeSample, RiverGaugeSource, TrendDirection } from './types';
 
 type UsgsResponse = {
@@ -98,7 +99,7 @@ export async function fetchUsgsGaugeReading(source: RiverGaugeSource): Promise<G
     waterTempF:
       typeof latestWaterTempC?.value === 'number' ? (latestWaterTempC.value * 9) / 5 + 32 : null,
     waterTempObservedAt: latestWaterTempC?.observedAt ?? null,
-    gaugeSource: 'USGS Water Data',
+    gaugeSource: readingSourceLabelForProvider(source.provider),
     waterTempSource: latestWaterTempC ? 'USGS Water Data' : null,
   };
 }

@@ -164,6 +164,7 @@ describe('api-contract serializers', () => {
     expect(summary.river.slug).toBe(baseRiver.slug);
     expect(summary.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
     expect(summary.river.difficulty).toBe('moderate');
+    expect(summary.river.routeType).toBe('recreational');
     expect(summary.river.putIn?.name).toBe('North Landing');
     expect(summary.river.takeOut?.name).toBe('South Landing');
     expect(summary.sources).toEqual([
@@ -182,6 +183,24 @@ describe('api-contract serializers', () => {
     expect('weather' in summary).toBe(false);
     expect('profile' in summary.river).toBe(false);
     expect('sourceLinks' in summary.river).toBe(false);
+  });
+
+  it('surfaces reviewed whitewater routes in the API contract', () => {
+    const scored = scoreRiverCondition({
+      river: {
+        ...baseRiver,
+        routeType: 'whitewater',
+      },
+      gauge,
+      weather,
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    const summary = serializeSummaryResult(scored);
+    const detail = serializeDetailResult(scored);
+
+    expect(summary.river.routeType).toBe('whitewater');
+    expect(detail.river.routeType).toBe('whitewater');
   });
 
   it('strips non-live editorial fields from the detail payload', () => {
@@ -208,5 +227,33 @@ describe('api-contract serializers', () => {
     expect('sourceLinks' in detail.river).toBe(false);
     expect('evidenceNotes' in detail.river).toBe(false);
     expect('logistics' in detail.river).toBe(false);
+  });
+
+  it('badges American Whitewater threshold evidence separately from the live USGS gauge', () => {
+    const scored = scoreRiverCondition({
+      river: {
+        ...baseRiver,
+        state: 'Wisconsin',
+        profile: {
+          ...baseRiver.profile,
+          thresholdSource: {
+            label: 'American Whitewater sample gauge info',
+            url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=999',
+            provider: 'american_whitewater',
+          },
+          thresholdSourceStrength: 'community',
+        },
+      },
+      gauge,
+      weather,
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    const summary = serializeSummaryResult(scored);
+
+    expect(summary.sources).toEqual([
+      { label: 'USGS', tone: 'usgs' },
+      { label: 'AW', tone: 'american_whitewater' },
+    ]);
   });
 });

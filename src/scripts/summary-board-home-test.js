@@ -3851,7 +3851,7 @@ async function renderSummaryMap(items) {
           ? { top: 22, right: 22, bottom: 22, left: 22 }
           : { top: 52, right: 52, bottom: 52, left: 52 },
         maxZoom: 8.2,
-        duration: 700,
+        duration: 0,
       });
       mapRuntime.resize();
       if (!selectedSummaryMapKey && items[0]) {

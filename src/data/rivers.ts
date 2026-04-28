@@ -2,6 +2,221 @@ import type { River } from '../lib/types';
 
 export const rivers: River[] = [
   {
+    id: 'big-fork-river-highway-6-south-north',
+    slug: 'big-fork-river-highway-6-south-north',
+    name: 'Big Fork River',
+    reach: 'Highway 6 South to Highway 6 North',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Remote Koochiching State Forest day on the Big Fork, with a direct DNR gauge at the put-in and an official DNR recommended-trip listing. This is a long northern river day, not a casual park float.',
+    statusText:
+      'Treat 4.5 to 8.5 ft at Craigsville / Highway 6 as the best zone. Below 4.0 ft is scrapable, and above 9.5 ft is beyond the broad-audience recommendation for this remote wooded reach.',
+    latitude: 47.953023,
+    longitude: -93.754988,
+    gaugeSource: {
+      id: 'mn-dnr-281',
+      provider: 'mn_dnr',
+      siteId: '281',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River nr Craigsville, MN6',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=281',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77107001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.5,
+      idealMax: 8.5,
+      tooLow: 4,
+      tooHigh: 9.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River near Craigsville',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says the Big Fork usually peaks in late April and falls during summer, when rapids can become impassable. Heavy summer or autumn rain can bring it back into runnable shape.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Most Big Fork rapids are Class I-II, and this recommended reach is primarily a remote wooded river day. The 15.7-mile length, cold water, isolation, and possible rocky low-water rapids make it more committed than an easy metro float.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends this exact Highway 6 South to Highway 6 North trip, public-water-access records resolve both endpoints, and the Craigsville/Highway 6 DNR gauge is at the put-in river mile with official interpretation bands. USGS also identifies a monitoring location at the same Craigville crossing, but DNR remains the scoring source because it provides the paddling interpretation bands. The main caveat is practical, not evidentiary: this is remote and long enough that low water, weather, and campsite planning matter.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 4.5-8.5 / 9.5 ft',
+        note: 'MN DNR interprets the Craigsville / Highway 6 gauge as Scrapable below 4.0 ft, Low from 4.0 to 4.5, Medium from 4.5 to 8.5, High from 8.5 to 9.5, and Very High above 9.5.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '15.7 river miles',
+        note: 'MN DNR recommends Highway 6 (S) carry-in access at river mile 91.5 to Highway 6 (N) carry-in access at river mile 75.8 as a long day trip or leisurely overnight through remote Koochiching State Forest.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS01794 and WAS01792',
+        note: 'Minnesota public-water-access data identifies the put-in as Big Fork River, State Hwy 6 Bridge Public Water Access Site and the take-out as Big Fork River, State Hwy 6 (S) Public Water Access Site.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Remote wooded shoreline',
+        note: 'DNR says this trip winds through thickly wooded shoreline in remote Koochiching State Forest. The route map names Easy Half watercraft campsite at river mile 81.7, with a grassy tree-lined clearing and picnic tables.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'Gauge corroboration',
+        value: 'USGS 05131870',
+        note: 'USGS lists Big Fork River at CSAH 6 near Craigville at the same corridor crossing. This supports the gauge-location story, while MN DNR remains the threshold source because it publishes paddling bands.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05131870/',
+      },
+      {
+        label: 'Low-water context',
+        value: 'Rapids may become too rocky',
+        note: 'DNR notes that some Big Fork rapids are too rocky to run when the Highway 38 bridge gauge in Bigfork is below four feet; use that as a supplemental low-water caution even though the route uses the closer Craigsville gauge for scoring.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork.pdf',
+      },
+      {
+        label: 'USGS Big Fork River at CSAH 6 near Craigville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05131870/',
+      },
+      {
+        label: 'MN DNR Big Fork State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00006.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'otter-tail-river-wannigan-riverside',
+    slug: 'otter-tail-river-wannigan-riverside',
+    name: 'Otter Tail River',
+    reach: 'Wannigan Road to Riverside Park',
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Official MN DNR day trip near Frazee with clear public access at both ends and a simple low-water decision. The gauge is a downstream proxy, so this route is best used as a conservative spring-water check rather than a precise daily forecast.',
+    statusText:
+      'Use the Battle Lake DNR gauge as a downstream proxy. Below about 1320.5 ft, expect this upper Otter Tail trip to be shallow enough that DNR warns low flows may require walking; late spring water is the safer bet.',
+    latitude: 46.7847573,
+    longitude: -95.6962111,
+    gaugeSource: {
+      id: 'mn-dnr-344',
+      provider: 'mn_dnr',
+      siteId: '344',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Otter Tail River nr Battle Lake, CR72',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=344',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=56052001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1320.5,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Otter Tail River near Battle Lake used as a downstream proxy',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'DNR says this recommended trip is best with late spring water levels. Later in the summer, expect the main-channel line to matter more and be ready for shallow sections.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a scenic, slow-flowing 8.4-mile day with few rapids, but DNR specifically calls out rock weirs, faster water near the take-out, culverts, low-headroom obstructions, and a low utility pipe just past the take-out.',
+      confidenceNotes:
+        'Route and access confidence is high: MN DNR recommends this exact Wannigan Road to Riverside Park trip, and the Minnesota public-water-access layer resolves both endpoints. Threshold confidence is intentionally lower because the interpreted DNR gauge is downstream near Battle Lake, not on the Frazee-area reach. The app uses only a conservative minimum floor and does not claim a precise ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '8.4 river miles',
+        note: 'MN DNR recommends Wannigan Road carry-in access at river mile 152.1 to Riverside Park carry-in access at river mile 144.5 as a scenic, slow-flowing day trip with little development.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/ottertailriver/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS00103 and WAS03087',
+        note: 'Minnesota public-water-access data identifies the put-in as Otter Tail River, Wannigan Road Public Water Access Site and the take-out as Otter Tail River, Riverside Park.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Proxy low-water floor',
+        value: '1320.5 ft at Battle Lake',
+        note: 'MN DNR interprets the Battle Lake / CR72 gauge as Scrapable below 1320.0 ft, Low from 1320.0 to 1320.5 ft, and Medium from 1320.5 to 1321.0 ft. The app uses the start of Medium as a conservative proxy floor for this upstream route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Low-water context',
+        value: 'Best with late spring water',
+        note: 'DNR says this trip is best with late spring water levels, and that low flows may require staying in the main channel or walking alongside the canoe or kayak.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/ottertailriver/segments-maps.html',
+      },
+      {
+        label: 'Hazards',
+        value: 'Rock weirs and low pipe near take-out',
+        note: 'DNR warns of rock weirs and faster water approaching Riverside Park, plus a low utility pipe just past the take-out. Broader Otter Tail guidance also warns paddlers to scout culverts, bridges, dams, and obstructions.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/ottertailriver/segments-maps.html',
+      },
+      {
+        label: 'Frazee reach detail',
+        value: 'Riverside Park access/rest area',
+        note: 'Otter Tail County trail-planning materials identify Riverside Park as a boat access/rest area near river mile 143.5 and flag nearby old bridge remnants, rock weirs, and Frazee city-corridor caution.',
+        sourceUrl: 'https://ottertailcounty.gov/wp-content/uploads/2022/06/GET_Amended-December-2021_web.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR Otter Tail River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/ottertailriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Otter Tail River map PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/ottertail1.pdf',
+      },
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'Otter Tail County Greater Trail planning map',
+        url: 'https://ottertailcounty.gov/wp-content/uploads/2022/06/GET_Amended-December-2021_web.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'cannon-river-welch',
     slug: 'cannon-river-welch',
     name: 'Cannon River',
@@ -226,6 +441,7 @@ export const rivers: River[] = [
       'Treat 4.0 to 6.0 ft at Rapidan as the target band. Below 2.0 ft gets too scrapy, and above 15.0 ft is out of bounds for this stretch.',
     latitude: 44.12135,
     longitude: -94.08935,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'mn-dnr-9',
       provider: 'mn_dnr',
@@ -782,6 +998,7 @@ export const rivers: River[] = [
       'Treat about 250 cfs as the low cutoff and 500 cfs as a strong target. Above that, the river is still in play, but the consequences rise faster than on an easy scenic float.',
     latitude: 45.30768,
     longitude: -88.85806,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04074950',
       provider: 'usgs',
@@ -800,6 +1017,7 @@ export const rivers: River[] = [
       thresholdSource: {
         label: 'American Whitewater Wolf gauge info plus MilesPaddled Wolf I notes',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+        provider: 'american_whitewater',
       },
       thresholdSourceStrength: 'mixed',
       rainfallSensitivity: 'medium',
@@ -873,6 +1091,7 @@ export const rivers: River[] = [
       'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
     latitude: 46.43763,
     longitude: -91.0262,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04027500',
       provider: 'usgs',
@@ -2355,6 +2574,107 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'cottonwood-river-juenemann-springfield',
+    slug: 'cottonwood-river-juenemann-springfield',
+    name: 'Cottonwood River',
+    reach: 'Juenemann Landing to Springfield',
+    state: 'Minnesota',
+    region: 'Southwest Minnesota',
+    summary:
+      'Short upper Cottonwood route with a rare direct DNR gauge at the put-in and official access records at both ends. It is a smaller, quieter south-central Minnesota add, useful mainly as a level-first local day-trip decision.',
+    statusText:
+      'Treat 13.0 to 17.0 ft at Springfield / County Road 2 as the best zone. Below 12.5 ft is scrapable, and above 19.0 ft is beyond the broad-audience recommendation for this short wooded reach.',
+    latitude: 44.2034723,
+    longitude: -95.0485134,
+    gaugeSource: {
+      id: 'mn-dnr-42',
+      provider: 'mn_dnr',
+      siteId: '42',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Cottonwood River nr Springfield, CR2',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=42',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29015001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 13,
+      idealMax: 17,
+      tooLow: 12.5,
+      tooHigh: 19,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Cottonwood River near Springfield',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window, with summer depending on enough rain to keep the Springfield gauge out of the scrapable band.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes the Cottonwood as having no major rapids and being a good river for beginning paddlers, but this short upper reach still needs wood, mud, and low-water judgment.',
+      confidenceNotes:
+        'Confidence is good for the gauge and access story because the DNR gauge is at the County Road 2 / Juenemann access and both endpoints resolve in the Minnesota public-water-access layer. Confidence is slightly lower than a named DNR recommended-day-trip route because the official map names the accesses and river miles but does not promote this exact short segment as a highlighted trip.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '12.5 / 13.0-17.0 / 19.0 ft',
+        note: 'MN DNR interprets the Springfield / County Road 2 gauge as Scrapable below 12.5 ft, Low from 12.5 to 13.0, Medium from 13.0 to 17.0, High from 17.0 to 19.0, and Very High above 19.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'Route shape',
+        value: '6.4 river miles',
+        note: 'MN DNR Map 4 lists Juenemann carry-in access at river mile 62.8 and Springfield carry-in access at river mile 56.4 on the Cottonwood River.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS01422 and WAS01421',
+        note: 'Minnesota public-water-access data identifies the put-in as Cottonwood River, Co Rd 2 Juenemann Landing and the take-out as Cottonwood River, Springfield Public Water Access Site.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'County landing support',
+        value: 'Brown County canoe access',
+        note: 'Brown County lists Jueneman Landing as one of four county Cottonwood River canoe access points, with vehicle parking and day-use from April 15 through October 15.',
+        sourceUrl: 'https://www.browncountymn.gov/231/Canoe-Landings',
+      },
+      {
+        label: 'River character',
+        value: 'No major rapids',
+        note: 'MN DNR says the Cottonwood has no major rapids and is a good river for beginning paddlers, while still warning paddlers to check water levels and avoid dead or overhanging trees.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Cottonwood River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/cottonwoodriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River / Cottonwood map 4 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota4.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Brown County canoe landings',
+        url: 'https://www.browncountymn.gov/231/Canoe-Landings',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-judson-land-of-memories',
     slug: 'minnesota-river-judson-land-of-memories',
     name: 'Minnesota River',
@@ -3088,6 +3408,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'north-fork-crow-river-rockford-riverside',
+    slug: 'north-fork-crow-river-rockford-riverside',
+    name: 'North Fork Crow River',
+    reach: 'Rockford Access to Riverside County Park',
+    state: 'Minnesota',
+    region: 'Twin Cities Northwest Metro',
+    summary:
+      'Shorter lower North Fork Crow day that fills the gap between the upper Wright County reach and the long Riverside-to-Dayton run. The route has DNR access-guide support, official public-access records, and the same Rockford DNR level ladder as the downstream route.',
+    statusText:
+      'Treat 500 to 1,500 cfs at Rockford as the best zone. Below 345 cfs gets too shallow and slow, and above 1,750 cfs is beyond the level this route should be promoted for a broad day-trip audience.',
+    latitude: 45.0927624,
+    longitude: -93.7294189,
+    gaugeSource: {
+      id: 'mn-dnr-310',
+      provider: 'mn_dnr',
+      siteId: '310',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Crow River nr Rockford, Farmington Ave',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=310',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18088001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05280400',
+        provider: 'usgs',
+        siteId: '05280400',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Crow River below State Hwy 101 at Dayton, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1500,
+      tooLow: 345,
+      tooHigh: 1750,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for North Fork Crow River near Rockford',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The reach is shorter than the Dayton route, but low water still drags across shallow gravel and recent high water can move wood.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this section as straight and shallow with gravel, cobble, and boulder substrate. It is generally approachable at normal levels, but current, wood, and shallow spots still matter.',
+      confidenceNotes:
+        'Confidence is high for route shape and access: DNR names Rockford to Riverside County Park as an 8.5-mile day trip, both endpoints resolve in the Minnesota public-water-access layer, and Riverside has a Wright County park page. The gauge is a direct lower North Fork Crow DNR site near Rockford, but route users should still watch for fresh wood and changing shallows.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '345 / 500-1,500 / 1,750 cfs',
+        note: 'MN DNR interprets the Rockford reading as Scrapable below 345 cfs, Low from 345 to 500, Medium from 500 to 1,500, High from 1,500 to 1,750, and Very High above 1,750.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
+      },
+      {
+        label: 'DNR route support',
+        value: '8.5 river miles',
+        note: 'The DNR Rockford Access guide names Rockford Access to Riverside County Park as a possible day trip and describes the river as straight and shallow with few downed trees encountered in the guide survey.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS03086 and WAS01955',
+        note: 'Minnesota public-water-access data identifies the put-in as North Fork Crow River, Rockford Public Water Access Site at river mile 22.8 and the take-out as Crow River, Riverside Park Public Water Access Site at river mile 15.4.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Wright County park',
+        note: 'Wright County confirms Riverside County Park has public river access, river frontage, pit toilets, picnic area, and a reservable primitive canoe campsite.',
+        sourceUrl: 'https://www.co.wright.mn.us/facilities/facility/details/Riverside-County-Park-18',
+      },
+      {
+        label: 'Take-out launch detail',
+        value: 'Steep but launchable',
+        note: 'The DNR Riverside Access guide says Riverside County Park has a somewhat steep access, but small boats and canoes may be launched there.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/riverside.pdf',
+      },
+      {
+        label: 'Hazard context',
+        value: 'Former low-head dams removed',
+        note: 'The DNR Rockford guide notes that former low-head dam hazards at Hanover and Berning Mill were removed, but same-day wood and water-level checks still matter.',
+        sourceUrl: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/index.html',
+      },
+      {
+        label: 'MN DNR North Fork Crow segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowrivernorthfork/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Rockford Access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/3rockford.pdf',
+      },
+      {
+        label: 'MN DNR Riverside Access guide',
+        url: 'https://files.dnr.state.mn.us/areas/fisheries/saukrapids/riverside.pdf',
+      },
+      {
+        label: 'MN DNR Crow access guide',
+        url: 'https://www.dnr.state.mn.us/areas/fisheries/saukrapids/crow_river_access.html',
+      },
+      {
+        label: 'Wright County Riverside County Park',
+        url: 'https://www.co.wright.mn.us/facilities/facility/details/Riverside-County-Park-18',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05280400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05280400/',
+      },
+    ],
+  },
+  {
     id: 'north-fork-crow-river-riverside-dayton',
     slug: 'north-fork-crow-river-riverside-dayton',
     name: 'North Fork Crow River',
@@ -3399,6 +3853,7 @@ export const rivers: River[] = [
       'Treat about 175 cfs as the low-water floor. Around 350 cfs and up is the stronger May-June paddling target when releases allow, but there is no published route-specific upper band.',
     latitude: 46.9912948,
     longitude: -92.225418,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04021960',
       provider: 'usgs',
@@ -3894,6 +4349,7 @@ export const rivers: River[] = [
       thresholdSource: {
         label: 'American Whitewater Lower Kettle gauge info',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=4091',
+        provider: 'american_whitewater',
       },
       thresholdSourceStrength: 'mixed',
       rainfallSensitivity: 'high',
@@ -5553,6 +6009,246 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'bois-brule-river-stones-winneboujou',
+    slug: 'bois-brule-river-stones-winneboujou',
+    name: 'Bois Brule River',
+    reach: "Stone's Bridge Landing to Winneboujou Landing",
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Classic upper Bois Brule day through clear spring-fed water, narrow wooded corridors, historic lodges, and mostly class I rapids. This Stone’s Bridge-to-Winneboujou version is the friendlier Brule choice, but the river still needs enough water and respect for ledges, strainers, and cold Northwoods conditions.',
+    statusText:
+      'Use the Brule gauge as a direct same-segment screen. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; above 600 cfs the current becomes an intermediate judgment call.',
+    latitude: 46.43415,
+    longitude: -91.67486,
+    gaugeSource: {
+      id: 'usgs-04025500',
+      provider: 'usgs',
+      siteId: '04025500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bois Brule River at Brule, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 350,
+      tooLow: 125,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Bois Brule BB1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main paddling season. The upper Brule is more spring-fed and stable than many rivers, but DNR warns lower/northern sections can rise quickly after rain and snowmelt.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin DNR calls Stone’s Bridge to Winneboujou an easygoing upper-river trip that nearly anyone can handle, while Wisconsin Trail Guide still lists class I-II features and tells paddlers to scout rapids and know their limits.',
+      confidenceNotes:
+        'Confidence is high-moderate: Wisconsin DNR supports the exact public-landings corridor and river rules, Wisconsin Trail Guide publishes route-specific level bands, Wisconsin River Trips confirms the same classic section, and American Whitewater corroborates the same USGS gauge family. The main limitation is that the numeric bands are guide/community guidance rather than a Wisconsin DNR live interpretation ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '125 / 200-350 / 600 cfs',
+        note: 'Wisconsin Trail Guide says below 125 cfs is not recommended, 125 to 200 cfs is low runnable, 200 to 350 cfs is medium runnable for novice paddlers, 350 to 600 cfs is high runnable, and novice paddlers should avoid 600 to 1,000 cfs.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule1.pdf',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'Direct same-segment gauge',
+        note: 'Wisconsin Trail Guide says the referenced gauge is located in this segment and should provide an accurate indication of current conditions in the reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule1.pdf',
+      },
+      {
+        label: 'Official corridor',
+        value: "Stone's Bridge to Winneboujou",
+        note: 'Wisconsin DNR describes Stone’s Bridge to Winneboujou as an easygoing upper-river trip and gives an approximate four-hour time between landings.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+      {
+        label: 'Classic route confirmation',
+        value: '9.3 to 9.6 miles',
+        note: 'Wisconsin River Trips identifies Stone’s Bridge Landing to Winneboujou Landing as the classic upper Bois Brule segment, while Wisconsin Trail Guide river-mile points put Stone’s Bridge to Winneboujou at about 9.6 river miles.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/bois-brule',
+      },
+      {
+        label: 'AW corroboration',
+        value: '125 to 1,700 cfs broader range',
+        note: 'American Whitewater lists the Bois Brule at Brule gauge for an I-II reach, with low boatable flow starting around 125 cfs and higher bands becoming pushier.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2280',
+      },
+      {
+        label: 'River rules',
+        value: 'Designated landings only',
+        note: 'Wisconsin DNR requires paddlers to launch and land only at allowed designated canoe landings, prohibits glass bottles, requires wearable PFDs, and allows camping only at state-designated campgrounds.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Brule River paddling',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB1 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule1.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin River Trips Bois Brule',
+        url: 'https://www.wisconsinrivertrips.com/segments/bois-brule',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'American Whitewater Bois Brule gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2280',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04025500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'menomonee-river-hoyt-park-bluemound',
+    slug: 'menomonee-river-hoyt-park-bluemound',
+    name: 'Menomonee River',
+    reach: 'Hoyt Park to Bluemound Road access',
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      'Short urban Wauwatosa-to-Milwaukee run with bedrock riffles, remediation rapids, strainers, and one stronger ledge. This is a gauge-sensitive moving-water route for skilled paddlers, not a casual family float.',
+    statusText:
+      'Hard urban swiftwater only. Treat roughly 151 to 250 cfs at Wauwatosa as the best window, below 100 cfs as too thin, and above 400 cfs as beyond PaddleToday’s normal rec-paddling recommendation. Avoid after heavy rain, sewer-overflow alerts, or uncertain take-out access.',
+    latitude: 43.05436,
+    longitude: -88.02431,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04087120',
+      provider: 'usgs',
+      siteId: '04087120',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Menomonee River at Wauwatosa, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04087120/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 151,
+      idealMax: 250,
+      tooLow: 100,
+      tooHigh: 400,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Menomonee River Hoyt Park depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work, but this small urban river changes quickly after rain. Avoid recent storm or combined-sewer-overflow context even when the gauge number looks tempting.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route includes many class I-II rapids and a scoutable class III-style ledge near the railroad/Wisconsin Avenue corridor. Strainers, walls, shallow rock, urban water quality, and fast post-rain rises make this a skilled-paddler route.',
+      confidenceNotes:
+        'Confidence is moderate: the live Wauwatosa gauge is direct, Wisconsin River Trips publishes detailed route-specific depth guidance, and American Whitewater corroborates the gauge and broader runnable range. Confidence is capped because this is a flashy urban river where water quality, strainers, hard features, informal take-out details, and individual skill matter as much as the numeric range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Rec-paddling target',
+        value: '151 to 250 cfs',
+        note: 'Wisconsin River Trips treats 151 to 250 cfs at Wauwatosa as likely a good target range for recreational paddlers, while noting that class II experience is still needed.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs',
+        note: 'The same source describes 0 to 60 cfs as too shallow, 61 to 100 cfs as very shallow, and 101 to 150 cfs as still shallow enough that many sources warn it is too low.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
+      {
+        label: 'Upper rec ceiling',
+        value: '~400 cfs',
+        note: 'Wisconsin River Trips treats 251 to 400 cfs as the upper bound for recreational paddling and says higher water is whitewater territory rather than a normal rec-paddling call.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
+      {
+        label: 'AW gauge range',
+        value: '125 to 3,000 cfs',
+        note: 'American Whitewater lists the Wauwatosa gauge for this Menomonee reach and publishes a much broader whitewater runnable range, including higher-flow bands that PaddleToday should treat as advanced whitewater context.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2654',
+      },
+      {
+        label: 'Gauge placement',
+        value: 'Direct same-route gauge',
+        note: 'American Whitewater says the Wauwatosa gauge is midway down the listed reach and accurately portrays actual flow, while also warning the river rises and falls quickly.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2654',
+      },
+      {
+        label: 'Urban water-quality caution',
+        value: 'Avoid after rain',
+        note: 'Wisconsin River Trips recommends staying off the Menomonee during or after big rain because of urban water-quality and sewer-overflow concerns.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
+      {
+        label: 'Overflow context',
+        value: 'Check MMSD after storms',
+        note: 'MMSD explains that heavy rain can trigger combined or sanitary sewer overflows into nearby waterways and publishes current overflow information. This is a route-level caution because the Menomonee is an urban river in the MMSD service area.',
+        sourceUrl: 'https://www.mmsd.com/what-we-do/wastewater-treatment/overflows',
+      },
+      {
+        label: 'Take-out quality',
+        value: 'Public space, not a polished ramp',
+        note: 'Wisconsin River Trips describes the Bluemound/Wisconsin Avenue exit as a public space where paddlers currently climb out on rocks rather than using a completed access ramp.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Menomonee River Hoyt Park',
+        url: 'https://www.wisconsinrivertrips.com/segments/menomonee-river/hoyt-park',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'American Whitewater Menomonee River gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2654',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04087120 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04087120/',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Wauwatosa Hoyt Park',
+        url: 'https://www.wauwatosa.net/Home/Components/FacilityDirectory/FacilityDirectory/58/',
+        provider: 'local',
+      },
+      {
+        label: 'MMSD sewer overflow information',
+        url: 'https://www.mmsd.com/what-we-do/wastewater-treatment/overflows',
+        provider: 'local',
+      },
+      {
+        label: 'Milwaukee Urban Water Trail',
+        url: 'https://mkeurbanwatertrail.org/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'wapsipinicon-river-state-park-newport-mills',
     slug: 'wapsipinicon-river-state-park-newport-mills',
     name: 'Wapsipinicon River',
@@ -5658,6 +6354,7 @@ export const rivers: River[] = [
       'Treat about 175 cfs at River Falls as the practical low-water floor. The river was still runnable at 125 cfs, but scrape-heavy enough that the app stays conservative below 175.',
     latitude: 44.85075,
     longitude: -92.63882,
+    routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-05342000',
       provider: 'usgs',

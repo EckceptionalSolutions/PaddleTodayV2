@@ -4,6 +4,17 @@ export type LiveDataState = 'live' | 'stale' | 'unavailable';
 export type LiveDataOverall = 'live' | 'degraded' | 'offline';
 export type GaugeUnit = 'cfs' | 'ft';
 export type GaugeProvider = 'usgs' | 'mn_dnr';
+export type SourceProvider =
+  | 'usgs'
+  | 'mn_dnr'
+  | 'american_whitewater'
+  | 'miles_paddled'
+  | 'wisconsin_river_trips'
+  | 'wisconsin_trail_guide'
+  | 'nps'
+  | 'local'
+  | 'manual';
+export type RouteType = 'recreational' | 'whitewater';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type GaugeBand =
@@ -18,7 +29,27 @@ export type GaugeBand =
 export type ScoreImpact = 'positive' | 'neutral' | 'negative' | 'warning';
 export type ChecklistStatus = 'go' | 'watch' | 'skip';
 export type OutlookAvailability = 'available' | 'withheld';
-export type SourceTone = 'usgs' | 'official' | 'mixed' | 'community' | 'derived' | 'minimum';
+export type SourceTone =
+  | 'usgs'
+  | 'official'
+  | 'american_whitewater'
+  | 'wisconsin_river_trips'
+  | 'wisconsin_trail_guide'
+  | 'mixed'
+  | 'community'
+  | 'derived'
+  | 'minimum';
+
+export interface GaugeSourceDisplay {
+  provider: GaugeProvider;
+  label: string;
+  shortLabel: string;
+  primaryMetricLabel: string;
+  secondaryMetricLabel: string | null;
+  interpretationLabel: string | null;
+  supportsRecentSamples: boolean;
+  supportsHydrograph: boolean;
+}
 
 export interface RiverAccessPoint {
   id?: string;
@@ -199,6 +230,7 @@ export interface RiverSummaryApiItem {
     distanceLabel: string;
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
+    routeType: RouteType;
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
   };
@@ -249,6 +281,7 @@ export interface WeekendSummaryApiItem {
     distanceLabel: string;
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
+    routeType: RouteType;
   };
   current: {
     score: number;
@@ -287,11 +320,13 @@ export interface RiverDetailApiResult {
     longitude: number;
     distanceLabel: string;
     estimatedPaddleTime: string;
+    routeType: RouteType;
     gaugeSource: {
       provider: GaugeProvider;
       unit: GaugeUnit;
       detailUrl?: string;
       hydrographUrl?: string;
+      display: GaugeSourceDisplay;
     };
     profile: {
       thresholdModel: 'two-sided' | 'minimum-only';
