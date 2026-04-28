@@ -85,37 +85,6 @@ const groupStructuredData = {
       </div>
     </section>
 
-    <section class="river-group-page__panel river-group-page__panel--map">
-      <div class="river-group-page__section-head river-group-page__section-head--map">
-        <div>
-          <p class="eyebrow section-label">
-            <FeatureIcon name="map" size={16} />
-            Route map
-          </p>
-          <h2 class="section-title">Where these routes sit</h2>
-        </div>
-        <p class="muted river-group-page__section-note">
-          Starts and finishes for each route.
-        </p>
-        <button
-          class="filter-chip river-group-page__map-toggle"
-          type="button"
-          data-group-map-toggle
-          hidden
-          aria-expanded="true"
-        >
-          Hide map
-        </button>
-      </div>
-
-      <div class="river-group-page__map-shell">
-        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
-        <p class="muted river-group-page__map-status" data-group-map-status>
-          Loading route map.
-        </p>
-      </div>
-    </section>
-
     <section class="river-group-page__panel">
       <div class="river-group-page__section-head">
         <div>
@@ -182,6 +151,37 @@ const groupStructuredData = {
             </div>
           </article>
         ))}
+      </div>
+    </section>
+
+    <section class="river-group-page__panel river-group-page__panel--map">
+      <div class="river-group-page__section-head river-group-page__section-head--map">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="map" size={16} />
+            Route map
+          </p>
+          <h2 class="section-title">Where these routes sit</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Starts and finishes for each route.
+        </p>
+        <button
+          class="filter-chip river-group-page__map-toggle"
+          type="button"
+          data-group-map-toggle
+          hidden
+          aria-expanded="true"
+        >
+          Hide map
+        </button>
+      </div>
+
+      <div class="river-group-page__map-shell">
+        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
+        <p class="muted river-group-page__map-status" data-group-map-status>
+          Loading route map.
+        </p>
       </div>
     </section>
   </article>

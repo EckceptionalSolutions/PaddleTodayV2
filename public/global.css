@@ -3848,6 +3848,36 @@ body.site-search-open {
   top: 1rem;
 }
 
+.river-call-panel__scoreline {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.82rem;
+  align-items: center;
+}
+
+.river-call-panel__score-copy {
+  display: grid;
+  gap: 0.34rem;
+  min-width: 0;
+}
+
+.river-call-panel__condition-line {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.river-call-panel__weather {
+  display: inline-flex;
+  align-items: center;
+}
+
+.river-call-panel__weather[hidden] {
+  display: none !important;
+}
+
 .river-call-panel__statement {
   margin: 0;
   font-family: var(--serif);
@@ -4115,6 +4145,18 @@ body.site-search-open {
 
 .river-call-panel__refresh-note {
   font-size: 0.82rem;
+}
+
+.river-call-panel__signal-line {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.22;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.72rem;
+  align-items: center;
 }
 
 .river-alerts {
@@ -6447,6 +6489,18 @@ body.site-search-open {
   min-height: 1.5rem;
 }
 
+.river-call-panel .river-call-panel__signal-line {
+  display: grid;
+  gap: 0.28rem;
+  min-height: 0;
+  font-size: 0.78rem;
+  line-height: 1.22;
+}
+
+.river-call-panel .river-call-panel__signal-line .river-card__signal-item {
+  white-space: normal;
+}
+
 .river-call-panel__actions--inline {
   grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
@@ -8740,11 +8794,11 @@ body.site-search-open {
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-areas:
       "eyebrow eyebrow"
-      "orb statement"
+      "score score"
+      "statement statement"
       "tooltip tooltip"
       "reliability reliability"
       "meta meta"
-      "actions actions"
       "source source";
     gap: 0.55rem 0.72rem;
     align-items: start;
@@ -8758,8 +8812,8 @@ body.site-search-open {
     grid-area: eyebrow;
   }
 
-  .river-call-panel > .score-orb {
-    grid-area: orb;
+  .river-call-panel__scoreline {
+    grid-area: score;
   }
 
   .river-call-panel__statement {
@@ -9438,11 +9492,11 @@ body.site-search-open {
     grid-template-columns: auto minmax(0, 1fr);
     grid-template-areas:
       "eyebrow eyebrow"
-      "orb statement"
+      "score score"
+      "statement statement"
       "tooltip tooltip"
       "reliability reliability"
       "meta meta"
-      "actions actions"
       "source source";
     gap: 0.48rem 0.62rem;
     align-items: start;
@@ -9456,8 +9510,8 @@ body.site-search-open {
     grid-area: eyebrow;
   }
 
-  .river-call-panel > .score-orb {
-    grid-area: orb;
+  .river-call-panel__scoreline {
+    grid-area: score;
   }
 
   .river-call-panel__statement {

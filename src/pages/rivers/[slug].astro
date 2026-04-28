@@ -198,14 +198,17 @@ const routeStructuredData = {
           <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="today" data-detail-nav-target="todays-score">
             Today
           </a>
+          <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="conditions" data-detail-nav-target="river-conditions">
+            Conditions
+          </a>
           <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="plan" data-detail-nav-target="access-plan">
             Plan
           </a>
-          <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="understand" data-detail-nav-target="why-this-call">
-            Why this score
+          <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="sources" data-detail-nav-target="why-this-call">
+            Sources
           </a>
-          <a class="river-detail__section-link" href="#share-trip" data-detail-nav-link="contribute" data-detail-nav-target="share-trip">
-            Contribute
+          <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
+            Reports
           </a>
         </div>
       </nav>
@@ -374,16 +377,23 @@ const routeStructuredData = {
       </section>
       <aside class="river-call-panel">
         <p class="eyebrow">Today&apos;s score</p>
-        <div class="score-orb score-orb--featured" aria-label="Live score loading">
-          <span class="score-orb__score" data-field="score">--</span>
-          <span class="score-orb__rating" data-field="rating">Checking</span>
+        <div class="river-call-panel__scoreline">
+          <div class="score-orb score-orb--featured" aria-label="Live score loading">
+            <span class="score-orb__score" data-field="score">--</span>
+            <span class="score-orb__rating" data-field="rating">Checking</span>
+          </div>
+          <div class="river-call-panel__score-copy">
+            <p class="river-call-panel__condition-line" data-field="score-gauge-condition">Gauge conditions loading</p>
+            <div class="river-call-panel__weather" data-field="score-weather-condition" hidden></div>
+            <p class="river-call-panel__signal-line" data-field="score-condition-signal">Checking gauge and weather signals.</p>
+          </div>
         </div>
         <p class="river-call-panel__statement" data-field="decision-line">
           Checking today's read.
         </p>
         <details class="river-score-tooltip">
           <summary class="river-score-tooltip__summary">
-            <span>How today&apos;s score comes together</span>
+            <span>Score breakdown</span>
           </summary>
           <div class="river-score-tooltip__panel">
             <p class="muted river-score-tooltip__intro" data-field="breakdown-summary">
@@ -425,9 +435,6 @@ const routeStructuredData = {
         </details>
         <div class="river-call-panel__reliability">
           <span class="pill" data-field="rail-reliability">Loading sources</span>
-          <p class="muted river-call-panel__reliability-note" data-field="rail-next-step">
-            Loading last known route score and checking live sources.
-          </p>
         </div>
           <dl class="river-call-panel__meta">
             <div>
@@ -439,21 +446,13 @@ const routeStructuredData = {
               <dd data-field="generated-at">Checking</dd>
             </div>
           </dl>
-        <div class="river-call-panel__actions">
-          <button class="filter-chip" type="button" data-detail-refresh>
-            Refresh river
-          </button>
-          <span class="muted river-call-panel__refresh-note" data-detail-refresh-note>
-            Pulling gauge and weather data now.
-          </span>
-        </div>
         <a
           class="river-link river-link--wide"
           href={river.profile.thresholdSource.url}
           target="_blank"
           rel="noreferrer"
         >
-          See the route guidance behind this score
+          View Primary Source
         </a>
       </aside>
       </div>
@@ -507,14 +506,17 @@ const routeStructuredData = {
         <a class="river-detail__section-link" href="#todays-score" data-detail-nav-link="today" data-detail-nav-target="todays-score">
           Today
         </a>
+        <a class="river-detail__section-link" href="#river-conditions" data-detail-nav-link="conditions" data-detail-nav-target="river-conditions">
+          Conditions
+        </a>
         <a class="river-detail__section-link" href="#access-plan" data-detail-nav-link="plan" data-detail-nav-target="access-plan">
           Plan
         </a>
-        <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="understand" data-detail-nav-target="why-this-call">
-          Why this score
+        <a class="river-detail__section-link" href="#why-this-call" data-detail-nav-link="sources" data-detail-nav-target="why-this-call">
+          Sources
         </a>
-        <a class="river-detail__section-link" href="#share-trip" data-detail-nav-link="contribute" data-detail-nav-target="share-trip">
-          Contribute
+        <a class="river-detail__section-link" href="#route-gallery" data-detail-nav-link="reports" data-detail-nav-target="route-gallery">
+          Reports
         </a>
       </div>
     </nav>
@@ -534,48 +536,15 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
-      <div class="status-banner__eyebrow">Read quality</div>
-      <div class="status-banner__body">
-        <strong data-detail-banner-title>Checking live inputs.</strong>
-        <p class="muted" data-detail-banner-detail>
-          Pulling the latest gauge and weather. Usually under 10 seconds.
-        </p>
-      </div>
-      <div class="status-banner__grid" data-detail-reliability-grid>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Gauge input</span>
-          <strong data-field="reliability-gauge-title">Checking</strong>
-          <p class="muted" data-field="reliability-gauge-detail">
-            Waiting on the gauge read.
-          </p>
-        </article>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Weather input</span>
-          <strong data-field="reliability-weather-title">Checking</strong>
-          <p class="muted" data-field="reliability-weather-detail">
-            Waiting on weather.
-          </p>
-        </article>
-        <article class="status-banner__item">
-          <span class="status-banner__label">Next step</span>
-          <strong data-field="reliability-action-title">Checking</strong>
-          <p class="muted" data-field="reliability-action-detail">
-            Waiting on enough data to give the next step.
-          </p>
-        </article>
-      </div>
-    </section>
-
     <section class="river-detail__chapter-head river-detail__chapter-head--today" aria-label="Today chapter">
       <p class="eyebrow section-label">Today</p>
       <h2 class="river-detail__chapter-title">Get the answer fast, then scan the route.</h2>
       <p class="muted river-detail__chapter-copy">
-        Start with the gallery, current conditions, and quick facts before you commit to the drive.
+        Start with the verdict, current conditions, route plan, and quick facts before you commit to the drive.
       </p>
     </section>
 
-    <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions" data-detail-nav-group="today">
+    <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions" data-detail-nav-group="conditions">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         River conditions
@@ -807,7 +776,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="today">
+    <section class="river-detail__panel river-quick-facts" id="quick-facts" data-detail-section="quick-facts" data-detail-nav-group="conditions">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         Quick facts
@@ -864,91 +833,6 @@ const routeStructuredData = {
       <div class="history-chart" data-history-chart-wrap>
         <div class="history-chart__canvas" data-history-bars aria-live="polite">
           <p class="history-chart__empty muted">Loading recent route scores.</p>
-        </div>
-      </div>
-    </section>
-
-    <section
-      class="river-detail__panel route-gallery"
-      id="route-gallery"
-      data-detail-section="route-gallery"
-      data-detail-nav-group="today"
-      data-route-gallery
-      data-approved-photos={approvedRoutePhotosJson}
-    >
-      <div class="route-gallery__intro">
-        <div class="route-gallery__intro-copy">
-          <p class="eyebrow section-label">
-            <FeatureIcon name="camera" size={16} />
-            Route gallery
-          </p>
-          <h2 class="section-title">See this route on the water</h2>
-          <p class="muted route-gallery__lede">
-          Photos help show what the access looks like and what the route actually feels like on the water.
-          </p>
-        </div>
-      </div>
-
-      <div class="route-gallery__layout">
-        <div class="route-gallery__viewer" data-route-gallery-viewer>
-          {approvedRoutePhotos.length > 0 ? (
-            <>
-              <figure class="route-gallery__figure" data-route-gallery-figure>
-                <img
-                  class="route-gallery__image"
-                  src={approvedRoutePhotos[0].src}
-                  alt={approvedRoutePhotos[0].alt}
-                  loading="eager"
-                  data-route-gallery-image
-                />
-                <figcaption class="route-gallery__caption">
-                  <div class="route-gallery__caption-copy">
-                    <strong data-route-gallery-caption>{approvedRoutePhotos[0].caption}</strong>
-                    <span class="muted" data-route-gallery-credit>
-                      {approvedRoutePhotos[0].credit ? `Photo by ${approvedRoutePhotos[0].credit}` : 'Approved community photo'}
-                    </span>
-                  </div>
-                  <span class="route-gallery__caption-tag" data-route-gallery-taken hidden={!approvedRoutePhotos[0].takenLabel}>
-                    {approvedRoutePhotos[0].takenLabel ?? ''}
-                  </span>
-                </figcaption>
-              </figure>
-
-              {approvedRoutePhotos.length > 1 ? (
-                <div class="route-gallery__thumbs" data-route-gallery-thumbs aria-label="Approved route photos">
-                  {approvedRoutePhotos.map((photo, index) => (
-                    <button
-                      class:list={['route-gallery__thumb', index === 0 && 'route-gallery__thumb--active']}
-                      type="button"
-                      data-route-gallery-thumb
-                      data-route-gallery-index={index}
-                      aria-pressed={index === 0 ? 'true' : 'false'}
-                    >
-                      <img src={photo.src} alt="" loading="lazy" />
-                      <span>{photo.caption}</span>
-                    </button>
-                  ))}
-                </div>
-              ) : null}
-            </>
-          ) : (
-            <div class="route-gallery__empty" data-route-gallery-empty>
-              <div class="route-gallery__empty-art" aria-hidden="true">
-                <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
-                <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
-                <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
-              </div>
-              <div class="route-gallery__empty-copy">
-                <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
-                <p class="muted">
-                  Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
-                </p>
-                <div class="route-gallery__cta-row">
-                  <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </section>
@@ -1181,15 +1065,133 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label="Understand chapter">
-      <p class="eyebrow section-label">Why this score</p>
-      <h2 class="river-detail__chapter-title">See what is driving today&apos;s call.</h2>
+    <section
+      class="river-detail__panel route-gallery"
+      id="route-gallery"
+      data-detail-section="route-gallery"
+      data-detail-nav-group="reports"
+      data-route-gallery
+      data-approved-photos={approvedRoutePhotosJson}
+    >
+      <div class="route-gallery__intro">
+        <div class="route-gallery__intro-copy">
+          <p class="eyebrow section-label">
+            <FeatureIcon name="camera" size={16} />
+            Route gallery
+          </p>
+          <h2 class="section-title">See this route on the water</h2>
+          <p class="muted route-gallery__lede">
+          Photos help show what the access looks like and what the route actually feels like on the water.
+          </p>
+        </div>
+      </div>
+
+      <div class="route-gallery__layout">
+        <div class="route-gallery__viewer" data-route-gallery-viewer>
+          {approvedRoutePhotos.length > 0 ? (
+            <>
+              <figure class="route-gallery__figure" data-route-gallery-figure>
+                <img
+                  class="route-gallery__image"
+                  src={approvedRoutePhotos[0].src}
+                  alt={approvedRoutePhotos[0].alt}
+                  loading="eager"
+                  data-route-gallery-image
+                />
+                <figcaption class="route-gallery__caption">
+                  <div class="route-gallery__caption-copy">
+                    <strong data-route-gallery-caption>{approvedRoutePhotos[0].caption}</strong>
+                    <span class="muted" data-route-gallery-credit>
+                      {approvedRoutePhotos[0].credit ? `Photo by ${approvedRoutePhotos[0].credit}` : 'Approved community photo'}
+                    </span>
+                  </div>
+                  <span class="route-gallery__caption-tag" data-route-gallery-taken hidden={!approvedRoutePhotos[0].takenLabel}>
+                    {approvedRoutePhotos[0].takenLabel ?? ''}
+                  </span>
+                </figcaption>
+              </figure>
+
+              {approvedRoutePhotos.length > 1 ? (
+                <div class="route-gallery__thumbs" data-route-gallery-thumbs aria-label="Approved route photos">
+                  {approvedRoutePhotos.map((photo, index) => (
+                    <button
+                      class:list={['route-gallery__thumb', index === 0 && 'route-gallery__thumb--active']}
+                      type="button"
+                      data-route-gallery-thumb
+                      data-route-gallery-index={index}
+                      aria-pressed={index === 0 ? 'true' : 'false'}
+                    >
+                      <img src={photo.src} alt="" loading="lazy" />
+                      <span>{photo.caption}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : null}
+            </>
+          ) : (
+            <div class="route-gallery__empty" data-route-gallery-empty>
+              <div class="route-gallery__empty-art" aria-hidden="true">
+                <img src="/gallery/fallbacks/river-fallback-wide.jpg" alt="" loading="lazy" />
+                <img src="/gallery/fallbacks/river-fallback-stream.jpg" alt="" loading="lazy" />
+                <img src="/gallery/fallbacks/river-fallback-marsh.jpg" alt="" loading="lazy" />
+              </div>
+              <div class="route-gallery__empty-copy">
+                <h3 class="route-gallery__empty-title">No approved route photos yet</h3>
+                <p class="muted">
+                  Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
+                </p>
+                <div class="route-gallery__cta-row">
+                  <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <section class="river-detail__chapter-head river-detail__chapter-head--understand" aria-label="Sources chapter">
+      <p class="eyebrow section-label">Sources</p>
+      <h2 class="river-detail__chapter-title">Check the data behind today&apos;s call.</h2>
       <p class="muted river-detail__chapter-copy">
-        Want to double-check the call? This is where you'll find the data confidence, outlook, and source links.
+        Use this section when the page shows stale data, limited confidence, or a call you want to verify before driving.
       </p>
     </section>
 
-    <section class="river-detail__panel river-accordion-group" id="why-this-call" data-detail-section="why-this-call" data-detail-nav-group="understand">
+    <section class="status-banner status-banner--loading" data-detail-status-banner aria-live="polite">
+      <div class="status-banner__eyebrow">Read quality</div>
+      <div class="status-banner__body">
+        <strong data-detail-banner-title>Checking live inputs.</strong>
+        <p class="muted" data-detail-banner-detail>
+          Pulling the latest gauge and weather. Usually under 10 seconds.
+        </p>
+      </div>
+      <div class="status-banner__grid" data-detail-reliability-grid>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Gauge input</span>
+          <strong data-field="reliability-gauge-title">Checking</strong>
+          <p class="muted" data-field="reliability-gauge-detail">
+            Waiting on the gauge read.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Weather input</span>
+          <strong data-field="reliability-weather-title">Checking</strong>
+          <p class="muted" data-field="reliability-weather-detail">
+            Waiting on weather.
+          </p>
+        </article>
+        <article class="status-banner__item">
+          <span class="status-banner__label">Next step</span>
+          <strong data-field="reliability-action-title">Checking</strong>
+          <p class="muted" data-field="reliability-action-detail">
+            Waiting on enough data to give the next step.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="river-detail__panel river-accordion-group" id="why-this-call" data-detail-section="why-this-call" data-detail-nav-group="sources">
         <details class="river-accordion" data-confidence-explainer>
           <summary class="river-accordion__summary">
             <span>
@@ -1414,7 +1416,7 @@ const routeStructuredData = {
       class="river-detail__panel route-community"
       data-route-community
       data-detail-section="community-reports"
-      data-detail-nav-group="understand"
+      data-detail-nav-group="reports"
       hidden
     >
       <div class="route-gallery__intro">
@@ -1439,15 +1441,15 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__chapter-head river-detail__chapter-head--contribute" aria-label="Contribute chapter">
-      <p class="eyebrow section-label">Contribute</p>
-      <h2 class="river-detail__chapter-title">Help the next paddler out.</h2>
+    <section class="river-detail__chapter-head river-detail__chapter-head--contribute" aria-label="Reports chapter">
+      <p class="eyebrow section-label">Reports</p>
+      <h2 class="river-detail__chapter-title">Photos, paddler notes, and updates.</h2>
       <p class="muted river-detail__chapter-copy">
-        Share a trip report, upload photos, or flag anything here that needs fixing.
+        See what others have shared, then add a trip report, upload photos, or flag anything that needs fixing.
       </p>
     </section>
 
-    <section class="river-detail__panel river-report-panel" data-detail-section="share-trip" data-detail-nav-group="contribute">
+    <section class="river-detail__panel river-report-panel" data-detail-section="share-trip" data-detail-nav-group="reports">
       <p class="eyebrow section-label">
         <FeatureIcon name="camera" size={16} />
         Share your trip
@@ -1706,7 +1708,7 @@ const routeStructuredData = {
       </div>
     </section>
 
-    <section class="river-detail__panel river-report-panel" data-detail-section="flag-change" data-detail-nav-group="contribute">
+    <section class="river-detail__panel river-report-panel" data-detail-section="flag-change" data-detail-nav-group="reports">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
         Flag a change

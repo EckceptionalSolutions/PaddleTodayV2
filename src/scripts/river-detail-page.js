@@ -1778,7 +1778,92 @@ function weatherValue(result) {
     return 'Weather unavailable';
   }
 
-  return `${Math.round(result.weather.next12hPrecipProbabilityMax ?? 0)}% rain - ${Math.round(result.weather.next12hWindMphMax ?? result.weather.windMph ?? 0)} mph`;
+  return `${Math.round(result.weather.next12hPrecipProbabilityMax ?? 0)}% rain • ${Math.round(result.weather.next12hWindMphMax ?? result.weather.windMph ?? 0)} mph wind`;
+}
+
+function scoreWeatherState(result) {
+  const weather = result?.weather;
+  if (!weather) return 'calm';
+
+  const rainChance = weather.next12hPrecipProbabilityMax;
+  const wind = weather.next12hWindMphMax ?? weather.windMph;
+  const temperature = weather.temperatureF;
+
+  if (weather.next12hStormRisk) return 'storm';
+  if (typeof temperature === 'number' && temperature <= 40) return 'cold';
+  if (typeof rainChance === 'number' && rainChance >= 45) return 'rain';
+  if (typeof wind === 'number' && wind >= 14) return 'wind';
+  return 'calm';
+}
+
+function scoreWeatherLabel(state) {
+  switch (state) {
+    case 'storm':
+      return 'Storm risk';
+    case 'rain':
+      return 'Rain possible';
+    case 'cold':
+      return 'Cold weather';
+    case 'wind':
+      return 'Wind watch';
+    default:
+      return 'Calm weather';
+  }
+}
+
+function scoreWeatherIconMarkup(state) {
+  if (state === 'wind') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5"></path><path d="M3 13h14a2.5 2.5 0 1 1-2.5 2.5"></path><path d="M5 17h7"></path></svg>';
+  }
+  if (state === 'rain' || state === 'storm') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path><path d="M10 18.5l-.8 2"></path><path d="M15 18.5l-.8 2"></path></svg>';
+  }
+  if (state === 'cold') {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M5.5 6.5 18.5 17.5"></path><path d="M5.5 17.5 18.5 6.5"></path><path d="M4 12h16"></path></svg>';
+  }
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v3"></path><path d="M12 18.5v3"></path><path d="M2.5 12h3"></path><path d="M18.5 12h3"></path></svg>';
+}
+
+function scoreWeatherBadgeMarkup(result) {
+  const state = scoreWeatherState(result);
+  const label = scoreWeatherLabel(state);
+
+  return `
+    <span class="card-weather-badge card-weather-badge--${state}">
+      <span class="card-weather-badge__icon weather-indicator weather-indicator--${state}" aria-hidden="true">${scoreWeatherIconMarkup(state)}</span>
+      <span class="card-weather-badge__label">${escapeHtml(label)}</span>
+    </span>
+  `;
+}
+
+function scoreConditionSignalMarkup(result) {
+  const gaugeText = result.gauge
+    ? `${gaugePrimaryValue(result)} • ${trendSummaryValue(result.gauge).toLowerCase()}`
+    : 'Gauge unavailable';
+  const weatherText = result.weather ? weatherValue(result) : 'Weather unavailable';
+
+  return `
+    <span class="river-card__signal-item">${escapeHtml(gaugeText)}</span>
+    <span class="river-card__signal-item">${escapeHtml(weatherText)}</span>
+  `;
+}
+
+function renderScoreConditions(result) {
+  setText(
+    'score-gauge-condition',
+    result.gauge ? `Gauge: ${result.gaugeBandLabel}` : 'Gauge unavailable'
+  );
+
+  const weather = root.querySelector('[data-field="score-weather-condition"]');
+  if (weather instanceof HTMLElement) {
+    weather.innerHTML = scoreWeatherBadgeMarkup(result);
+    weather.hidden = !result.weather;
+  }
+
+  const signal = root.querySelector('[data-field="score-condition-signal"]');
+  if (signal instanceof HTMLElement) {
+    signal.innerHTML = scoreConditionSignalMarkup(result);
+  }
 }
 
 function ageHours(value) {
@@ -2415,7 +2500,9 @@ function renderDecisionSummary(result) {
   const todaysCall = decisionStatement(result);
   const scoreLine =
     typeof result.score === 'number' && result.rating
-      ? `${result.score} ${result.rating}`
+      ? hasHardSkip(result)
+        ? `Score ${result.score}; route inputs rate ${ratingLabel(result)}`
+        : `Score ${result.score}; ${ratingLabel(result)}`
       : 'Score unavailable';
   const watchouts = sentences.filter((sentence) =>
     /wind|gust|dropping|falling|rising|cold|temperature|uncertainty|stale|re-check|check|limited|floor|minimum|low side|high side|less guidance/i.test(sentence)
@@ -3854,6 +3941,7 @@ function renderDetailResult(result) {
   setText('rating', ratingLabel(result));
   renderDecisionSummary(result);
   setText('decision-line', decisionStatement(result));
+  renderScoreConditions(result);
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {
     orb.classList.remove('score-orb--great', 'score-orb--good', 'score-orb--marginal', 'score-orb--no-go');
