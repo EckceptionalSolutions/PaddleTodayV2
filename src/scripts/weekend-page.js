@@ -29,12 +29,15 @@ const featuredScore = document.querySelector('[data-weekend-featured-score]');
 const featuredRating = document.querySelector('[data-weekend-featured-rating]');
 const featuredConfidence = document.querySelector('[data-weekend-featured-confidence]');
 const featuredCurrent = document.querySelector('[data-weekend-featured-current]');
+const featuredWeather = document.querySelector('[data-weekend-featured-weather]');
 const featuredReason = document.querySelector('[data-weekend-featured-reason]');
 const featuredSignal = document.querySelector('[data-weekend-featured-signal]');
 const featuredReasons = document.querySelector('[data-weekend-featured-reasons]');
 const featuredExplanation = document.querySelector('[data-weekend-featured-explanation]');
 const featuredToggle = document.querySelector('[data-weekend-featured-toggle]');
 const featuredLink = document.querySelector('[data-weekend-featured-link]');
+const featuredFactsSection = document.querySelector('[data-weekend-featured-facts-section]');
+const featuredFacts = document.querySelector('[data-weekend-featured-facts]');
 
 const strongCount = document.querySelector('[data-weekend-strong-count]');
 const goodCount = document.querySelector('[data-weekend-good-count]');
@@ -495,6 +498,10 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(featuredRating, 'Not enough data');
     setText(featuredConfidence, 'Forecast confidence building');
     setText(featuredCurrent, 'Check again later');
+    if (featuredWeather instanceof HTMLElement) {
+      featuredWeather.hidden = true;
+      featuredWeather.innerHTML = '';
+    }
     setText(
       featuredReason,
       worthWatchingCount > 0
@@ -517,6 +524,12 @@ function renderFeatured(item, worthWatchingCount = 0) {
     if (featuredReasons instanceof HTMLElement) {
       featuredReasons.innerHTML = '';
       featuredReasons.hidden = true;
+    }
+    if (featuredFacts instanceof HTMLElement) {
+      featuredFacts.innerHTML = '';
+    }
+    if (featuredFactsSection instanceof HTMLElement) {
+      featuredFactsSection.hidden = true;
     }
 
     updateFeaturedSummaryToggle(featuredExplanation.textContent || '');
@@ -544,9 +557,20 @@ function renderFeatured(item, worthWatchingCount = 0) {
   setText(featuredRating, ratingDisplayLabel(item.weekend.rating, { compact: true }));
   setText(featuredConfidence, confidenceDisplayLabel(item.weekend.confidence));
   setText(featuredCurrent, `Today: ${ratingDisplayLabel(item.current.rating, { liveData: item.current.liveData })}`);
+  if (featuredWeather instanceof HTMLElement) {
+    featuredWeather.innerHTML = weekendWeatherBadgeMarkup(item);
+    featuredWeather.hidden = false;
+  }
   setText(featuredReason, item.weekend.summary);
   setText(featuredSignal, item.weekend.signalLine);
   setText(featuredExplanation, item.weekend.explanation);
+  if (featuredFacts instanceof HTMLElement) {
+    const factsMarkup = weekendFactsMarkup(item);
+    featuredFacts.innerHTML = factsMarkup;
+    if (featuredFactsSection instanceof HTMLElement) {
+      featuredFactsSection.hidden = !factsMarkup;
+    }
+  }
 
   if (featuredReasons instanceof HTMLElement) {
     const reason = supportingReason(item);

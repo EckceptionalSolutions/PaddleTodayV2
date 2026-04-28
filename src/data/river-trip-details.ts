@@ -2295,4 +2295,135 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-muscoda-blue-river': {
+    putIn: {
+      name: 'Riverside Park / Muscoda west-side landing',
+      latitude: 43.1962605,
+      longitude: -90.4357156,
+    },
+    takeOut: {
+      name: 'Blue River Landing',
+      latitude: 43.2067548,
+      longitude: -90.5663182,
+    },
+    logistics: {
+      distanceLabel: '8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with sandbar stops',
+      shuttle:
+        'Short Lower Wisconsin vehicle shuttle between Muscoda and Blue River. Local outfitters may support this corridor in season, but a two-car shuttle is the simplest self-supported plan.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current Wisconsin DNR guidance for glass, trash, and riverway conduct.',
+      camping:
+        'Wisconsin DNR allows camping on state-owned Lower Wisconsin islands and sandbars for up to three days when you arrive by watercraft, with no camping permit required. This short segment is still easiest as a day trip unless your group has checked current water levels, rules, trash-container requirements, and sandbar availability.',
+      summary:
+        'Launch at the Muscoda/Riverside Park corridor and take out at Blue River Landing. This is a short easy Lower Wisconsin day with sandbars and island channels when the Muscoda gauge is in the normal summer range.',
+      accessCaveats: [
+        'Both endpoints are listed by Wisconsin DNR as major public access points on the Lower Wisconsin State Riverway.',
+        'Sandbars and channels change. Pick landings and break spots based on current water, not old satellite imagery.',
+      ],
+      watchFor: [
+        'Shallow pushing and main-channel picking below normal summer flows.',
+        'Undercurrents, fewer sandbars, and poor camping options as flows rise above the normal band, especially around 17,000 cfs and higher.',
+        'Wind, powerboats, and surprise drop-offs along sandbar edges.',
+      ],
+    },
+  },
+  'wisconsin-river-blue-river-boscobel': {
+    putIn: {
+      name: 'Blue River Landing',
+      latitude: 43.2067548,
+      longitude: -90.5663182,
+    },
+    takeOut: {
+      name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
+      latitude: 43.1492722,
+      longitude: -90.715253,
+    },
+    logistics: {
+      distanceLabel: '10 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with sandbar stops',
+      shuttle:
+        'Plan a vehicle shuttle between Blue River and Boscobel. The route is straightforward by road, but confirm current landing parking and any local construction before leaving a vehicle.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules and posted landing guidance.',
+      camping:
+        'Wisconsin DNR allows camping on state-owned Lower Wisconsin islands and sandbars for up to three days when you arrive by watercraft, with no camping permit required. For this route, treat overnight plans as level-dependent and avoid high-water sandbars.',
+      summary:
+        'Put in at Blue River Landing and finish at Boscobel. This is an easy Lower Wisconsin day through islands, sandbars, and bluff country when the Muscoda gauge is in the normal summer range.',
+      accessCaveats: [
+        'Both Blue River and Boscobel are Wisconsin DNR-listed Lower Wisconsin State Riverway access points.',
+        'Boscobel has multiple landing references in public map data; use current signage and the intended river landing rather than assuming any nearby ramp is the correct take-out.',
+      ],
+      watchFor: [
+        'Changing side channels around islands and strainers in narrow cuts.',
+        'Steep drop-offs and strong current around sandbars.',
+        'High water that removes sandbars and turns a mellow day into a stronger-current trip, especially around 17,000 cfs and higher.',
+      ],
+    },
+  },
+  'wisconsin-river-portage-dekorra': {
+    putIn: {
+      name: 'Highway 33 bridge carry-in (Portage)',
+      latitude: 43.535,
+      longitude: -89.464,
+    },
+    takeOut: {
+      name: 'Dekorra Park landing',
+      latitude: 43.3868,
+      longitude: -89.5142,
+    },
+    logistics: {
+      distanceLabel: '7.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a two-car shuttle between the Highway 33 bridge area and Dekorra Park. Confirm legal parking and carry routes at both ends because this route is sourced from a trip report rather than a formal DNR water-trail landing list.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Portage, Columbia County, and Dekorra Park rules.',
+      camping:
+        'Treat this as a day trip. Do not assume sandbar camping is legal or practical on this reach without separate confirmation.',
+      summary:
+        'Launch near the Highway 33 bridge at Portage and finish at Dekorra Park. Expect big-river current, large islands, sandbars at moderate flows, and side-channel choices rather than technical rapids.',
+      accessCaveats: [
+        'The Highway 33 put-in is backed by a Recreation.gov/BLM page describing a Wisconsin DNR carry-in boat launch just before the Highway 33 river crossing, but parking and bank conditions still deserve a same-day check.',
+        'The route passes near levee and power-plant infrastructure; keep the trip to the documented reach and avoid trespass or restricted areas.',
+      ],
+      watchFor: [
+        'Shallow side channels below normal summer water.',
+        'Fewer sandbars and faster push above the normal range.',
+        'Wind exposure, powerboats, and confusing island channels.',
+      ],
+    },
+  },
+  'baraboo-river-wayside-kalepp': {
+    putIn: {
+      name: 'Wayside Park (Baraboo River / 400 State Trail)',
+      latitude: 43.6462,
+      longitude: -90.2223,
+    },
+    takeOut: {
+      name: 'Kalepp Road / 400 State Trail Baraboo River access',
+      latitude: 43.6206,
+      longitude: -90.1531,
+    },
+    logistics: {
+      distanceLabel: '4.6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Short rural shuttle between Wayside Park and Kalepp Road. The 400 State Trail corridor can help with orientation, but a two-car shuttle is simplest.',
+      permits:
+        'No route-specific paddling permit is known. Check Wayside Park, DNR parking, and 400 State Trail signage before leaving vehicles.',
+      camping: 'No on-route camping documented. Treat this as a short day trip.',
+      summary:
+        'Put in at Wayside Park near Wonewoc and take out near Kalepp Road. This is a short scenic Baraboo River segment with sandstone outcrops, but muddy banks, strainers, and changing wood make it a moderate route.',
+      accessCaveats: [
+        'Wayside Park is a public park/rest area, but the water entry is not a polished boat ramp.',
+        'The Kalepp Road exit uses a side-creek/400 State Trail corridor described by Wisconsin River Trips; verify same-day access and avoid private land.',
+      ],
+      watchFor: [
+        'Downed trees and strainers in deep, muddy, fast water.',
+        'Steep muddy banks that can make portages harder than they look.',
+        'Pushy, dirty water above the target stage range.',
+      ],
+    },
+  },
 };

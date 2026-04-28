@@ -266,6 +266,7 @@ let selectedHomePaddleTimes = ['any'];
 let nearbySortMode = 'best-score';
 let homeFilterSheetOpen = false;
 let currentExplorePage = 1;
+let lastExploreItems = [];
 let exploreLockedHeight = 0;
 let exploreLayoutKey = '';
 let lastBoardGeneratedAt = null;
@@ -2449,6 +2450,18 @@ function renderCardGrid(container, items, options = {}) {
   refreshFavoriteButtons(container);
 }
 
+function renderExploreList(items) {
+  const explorePaginationState = paginateItems(items, EXPLORE_PAGE_SIZE, currentExplorePage);
+  currentExplorePage = explorePaginationState.currentPage;
+  updateExplorePagination(explorePaginationState);
+  renderCardGrid(exploreGrid, explorePaginationState.items, {
+    showDistance: userLocationState === 'ready' && userLocation,
+    compact: Boolean(exploreSection),
+  });
+  updateSummaryMapSelection(selectedSummaryMapKey);
+  syncExploreShellHeight();
+}
+
 function currentExploreLayoutKey() {
   if (window.innerWidth <= 760) return 'mobile';
   if (window.innerWidth <= 1100) return 'tablet';
@@ -3600,8 +3613,23 @@ function focusSummaryMapCard(key, { scroll = true } = {}) {
   }
 
   const shouldScrollCard = scroll && !(summaryMapSupportsMobileViews && phoneBreakpoint.matches);
+  let cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
+  const hasRenderedCard = cards.some(
+    (card) => card instanceof HTMLElement && card.dataset.summaryMapCard === key
+  );
 
-  const cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
+  if (!hasRenderedCard && key && lastExploreItems.length > 0) {
+    const itemIndex = lastExploreItems.findIndex((item) => item.key === key);
+    if (itemIndex >= 0) {
+      const targetPage = Math.floor(itemIndex / EXPLORE_PAGE_SIZE) + 1;
+      if (targetPage !== currentExplorePage) {
+        currentExplorePage = targetPage;
+        renderExploreList(lastExploreItems);
+        cards = Array.from(exploreGrid.querySelectorAll('[data-summary-map-card]'));
+      }
+    }
+  }
+
   for (const card of cards) {
     if (!(card instanceof HTMLElement)) {
       continue;
@@ -3862,6 +3890,7 @@ async function renderSummaryMap(items) {
       const markerNode = document.createElement('button');
       markerNode.type = 'button';
       markerNode.className = markerClassFor(item);
+      markerNode.dataset.summaryMapMarker = item.key;
       markerNode.innerHTML = `<span>${item.cardRoute.score}</span>`;
       markerNode.setAttribute(
         'aria-label',
@@ -3888,6 +3917,10 @@ async function renderSummaryMap(items) {
             updateSummaryMapSelection(null);
           }
         },
+      });
+      markerNode.addEventListener('click', () => {
+        updateSummaryMapSelection(item.key);
+        focusSummaryMapCard(item.key);
       });
       mapMarkers.push(marker);
       mapMarkersByKey.set(item.key, marker);
@@ -4039,11 +4072,11 @@ function renderHomepage(results) {
 
   const filteredRoutes = getFilteredResults(results);
   const normalizedSortMode = normalizeSortMode();
-  const exploreItems = sortItems(buildDisplayItems(results, filteredRoutes, normalizedSortMode), normalizedSortMode);
-  const exploreMapItems = sortItems(buildRouteMapItems(results, filteredRoutes), normalizedSortMode);
+  const exploreItems = sortItems(buildRouteMapItems(results, filteredRoutes), normalizedSortMode);
+  lastExploreItems = exploreItems;
   const summaryMapItems = isNearbySummaryMapMode()
     ? (locationReady ? nearbyItems : [])
-    : exploreMapItems;
+    : exploreItems;
 
   updateHomeNearbyCounters(summaryResults);
   updateHeroCallMix(summaryResults);
@@ -4057,14 +4090,7 @@ function renderHomepage(results) {
   updateSummaryStatus(exploreItems, results);
   updateBoardStatusBanner(exploreItems);
   renderSummaryMap(summaryMapItems);
-  const explorePaginationState = paginateItems(exploreItems, EXPLORE_PAGE_SIZE, currentExplorePage);
-  currentExplorePage = explorePaginationState.currentPage;
-  updateExplorePagination(explorePaginationState);
-  renderCardGrid(exploreGrid, explorePaginationState.items, {
-    showDistance: userLocationState === 'ready' && userLocation,
-    compact: Boolean(exploreSection),
-  });
-  syncExploreShellHeight();
+  renderExploreList(exploreItems);
 }
 
 function saveLocation(location) {

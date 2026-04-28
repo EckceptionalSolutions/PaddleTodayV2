@@ -58,15 +58,12 @@ const structuredData = [
         </div>
 
         <div class="hero-call__score-meta">
-          <div class="hero-call__meta">
-            <span class="pill" data-weekend-featured-confidence>Forecast confidence loading</span>
-            <span class="pill" data-weekend-featured-current>Today loading</span>
-          </div>
+          <div class="weekend-featured__weather" data-weekend-featured-weather hidden></div>
+          <p class="hero-call__signal-line" data-weekend-featured-signal>Loading forecast signals</p>
         </div>
       </div>
 
       <p class="hero-call__reason" data-weekend-featured-reason>Loading summary</p>
-      <p class="hero-call__signal-line" data-weekend-featured-signal>Loading forecast signals</p>
       <ul class="hero-call__reasons" data-weekend-featured-reasons></ul>
 
       <p class="hero-call__summary muted" data-weekend-featured-explanation>
@@ -75,6 +72,11 @@ const structuredData = [
       <button class="hero-call__toggle" type="button" data-weekend-featured-toggle hidden aria-expanded="false">
         Details
       </button>
+
+      <section class="weekend-featured__facts river-card__facts-section" data-weekend-featured-facts-section hidden>
+        <p class="river-card__facts-label">Route facts</p>
+        <div class="river-card__facts" data-weekend-featured-facts></div>
+      </section>
 
       <div class="decision-hero__actions">
         <a class="river-link river-link--inline" href="/" data-weekend-featured-link>View route</a>

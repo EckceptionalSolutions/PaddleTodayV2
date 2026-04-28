@@ -260,6 +260,8 @@ let lastSummaryMapItems = [];
 let featuredMapRuntime = null;
 let featuredMapMarkers = [];
 let featuredMapRenderVersion = 0;
+let lastFeaturedHeroKey;
+let featuredHeroAnimationTimeout = 0;
 let userLocation = null;
 let userLocationState = 'idle';
 let locationEditing = false;
@@ -2544,12 +2546,35 @@ function updateExplorePagination(pagination) {
   }
 }
 
+function updateFeaturedHeroAnimation(nextKey) {
+  if (!(featuredPanel instanceof HTMLElement)) {
+    return;
+  }
+
+  const normalizedKey = nextKey || 'none';
+  const shouldAnimate = lastFeaturedHeroKey !== undefined && lastFeaturedHeroKey !== normalizedKey;
+  lastFeaturedHeroKey = normalizedKey;
+
+  if (!shouldAnimate) {
+    return;
+  }
+
+  window.clearTimeout(featuredHeroAnimationTimeout);
+  featuredPanel.classList.remove('home-featured--updated');
+  void featuredPanel.offsetWidth;
+  featuredPanel.classList.add('home-featured--updated');
+  featuredHeroAnimationTimeout = window.setTimeout(() => {
+    featuredPanel.classList.remove('home-featured--updated');
+  }, 720);
+}
+
 function updateFeaturedHero(nearbyItems, overallItems) {
   const locationReady = userLocationState === 'ready' && Boolean(userLocation);
   const preferredNearbyItems = recommendationPoolForNearby(nearbyItems);
   const nearbyReady = locationReady && preferredNearbyItems.length > 0;
   const item = nearbyReady ? preferredNearbyItems[0] : locationReady ? null : overallItems[0] ?? null;
   const activePreferenceText = homePreferenceSummaryTextClean();
+  updateFeaturedHeroAnimation(item?.key || (locationReady ? 'empty' : 'locked'));
   if (!item) {
     renderFeaturedMap(null, { visible: false, status: '' });
     if (featuredPanel instanceof HTMLElement) {

@@ -6633,4 +6633,386 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'wisconsin-river-muscoda-blue-river',
+    slug: 'wisconsin-river-muscoda-blue-river',
+    name: 'Wisconsin River',
+    reach: 'Muscoda to Blue River Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Short Lower Wisconsin State Riverway day with broad sandbars, islands, and official public landing support. This is a good recreational add because the Muscoda gauge has clear Wisconsin Trail Guide level bands and the DNR lists the exact canoe route.',
+    statusText:
+      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.1962605,
+    longitude: -90.4357156,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR3 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. The Lower Wisconsin can change after upstream rain or dam operation changes even when the local forecast looks quiet.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy current in normal summer water, but broad channels, sandbar drop-offs, wind, powerboats, and deceptively strong current at high water still deserve respect.',
+      confidenceNotes:
+        'This clears the Wisconsin source bar well: the live gauge is direct, Wisconsin Trail Guide publishes level bands for the Muscoda gauge, and Wisconsin DNR lists Muscoda to Blue River as a popular canoe route with public access context. The main limitation is that high-water comfort varies by paddler and camping plan, so the app separates the 17,000 cfs camping caution from the 20,000 cfs no-go ceiling.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions with many medium to large sandbars, 14,000 to 17,000 cfs as high flow with sandbar camping not recommended, and above 20,000 cfs as paddling not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+      },
+      {
+        label: 'Official route',
+        value: 'Muscoda to Blue River, 8 miles',
+        note: 'Wisconsin DNR lists Muscoda to Blue River as an 8-mile Lower Wisconsin State Riverway canoe route with an estimated 2-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Access support',
+        value: 'DNR-listed public landings',
+        note: 'Wisconsin DNR lists Riverside Park/Muscoda and Blue River Landing among major public access points on the Lower Wisconsin State Riverway.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Sandbar drop-offs and high-water undercurrents',
+        note: 'Wisconsin Trail Guide warns that undercurrents develop at higher flows, especially in the lee of sandbars and islands, and Wisconsin DNR warns the river can look slow while still having powerful hidden current and unstable sandbar edges.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR3',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin river safety',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin camping rules',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/camping',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-blue-river-boscobel',
+    slug: 'wisconsin-river-blue-river-boscobel',
+    name: 'Wisconsin River',
+    reach: 'Blue River Landing to Boscobel Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Easy Lower Wisconsin State Riverway day through a sandbar-and-island corridor between two DNR-listed public landings. It uses the same Muscoda gauge bands as the upstream Muscoda-to-Blue River route.',
+    statusText:
+      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.2067548,
+    longitude: -90.5663182,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR3 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. Low to moderate summer flows are best for sandbars; high water reduces camping options and raises current hazards.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy in normal water, but this is still a big sandy river with changing channels, surprise drop-offs, wind exposure, and faster current around islands.',
+      confidenceNotes:
+        'The direct Muscoda gauge and Wisconsin Trail Guide level ladder provide a strong scoring basis. Wisconsin DNR lists Blue River to Boscobel as a popular canoe route. Confidence is capped below official-gauge-band status because the numeric bands come from trail-guide interpretation rather than a DNR live level product, and because 17,000 to 20,000 cfs is more of a high-water day-trip caution zone than a sandbar-camping recommendation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions with sandbars, 14,000 to 17,000 cfs as high flow, and above 20,000 cfs as paddling not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+      },
+      {
+        label: 'Official route',
+        value: 'Blue River to Boscobel, 10 miles',
+        note: 'Wisconsin DNR lists Blue River to Boscobel as a 10-mile Lower Wisconsin State Riverway canoe route with an estimated 3-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Route character',
+        value: 'Islands, bluffs, and sandbars',
+        note: 'Wisconsin Trail Guide describes the lower LWSR3 corridor as island-rich, with bluffs and sandbar opportunities during low to moderate flows.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Hidden current and sandbar drop-offs',
+        note: 'Wisconsin DNR warns that the Lower Wisconsin can look lazy while current remains powerful enough to sweep people off their feet, and that downstream sandbar edges can collapse into deep holes.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+      },
+      {
+        label: 'Access support',
+        value: 'DNR-listed public landings',
+        note: 'Wisconsin DNR lists Blue River Landing and Boscobel Landings among major Lower Wisconsin State Riverway access points.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR3',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-3.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin river safety',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin camping rules',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/camping',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-portage-dekorra',
+    slug: 'wisconsin-river-portage-dekorra',
+    name: 'Wisconsin River',
+    reach: 'Highway 33 Portage to Dekorra Park',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Overlooked sandbar-and-side-channel Wisconsin River day between Portage and Dekorra. Wisconsin River Trips gives exact endpoints and a Dells-gauge level ladder, so this can be added as a conservative recreational route.',
+    statusText:
+      'Use the Wisconsin Dells gauge. Treat 4,000 to 8,000 cfs as the best window, below about 2,500 cfs as too shallow, and above 13,000 cfs as beyond the normal recreational recommendation for this reach.',
+    latitude: 43.535,
+    longitude: -89.464,
+    gaugeSource: {
+      id: 'usgs-05404000',
+      provider: 'usgs',
+      siteId: '05404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River near Wisconsin Dells, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 8000,
+      tooLow: 2500,
+      tooHigh: 13000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Portage segment Dells-gauge depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main window. Summer low water makes sandbars bigger but can create shallow channels; high water reduces beaches and increases current.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Generally easy big-river paddling, but broad channels, wind, sandbar drop-offs, and choosing the correct island channel make it more involved than a small park float.',
+      confidenceNotes:
+        'Wisconsin River Trips provides route-specific endpoints, distance, paddle time, and a Dells-gauge level ladder. The live gauge is direct for the river but upstream, so the app keeps this recreational and conservative rather than overclaiming precision.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: '7.8 miles, 3 to 4 hours',
+        note: 'Wisconsin River Trips documents Highway 33 to Dekorra Park as a 7.8-mile route with an expected 3- to 4-hour paddle time.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,001 to 8,000 cfs best window',
+        note: 'Wisconsin River Trips treats 4,001 to 6,000 cfs as average summer depth, 6,001 to 8,000 cfs as average spring depth, 10,001 to 13,000 cfs as high and not inviting, and 13,001+ cfs as unsuitable unless experienced.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+      },
+      {
+        label: 'Access support',
+        value: 'Carry-in to park landing',
+        note: 'Wisconsin River Trips identifies a Highway 33 bridge carry-in and Dekorra Park as the endpoint pair. Recreation.gov describes the Portage put-in as a Wisconsin DNR carry-in boat launch just before the Highway 33 river crossing and publishes matching GPS coordinates.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Dekorra Park / Main Street access',
+        note: 'Town of Dekorra materials list Dekorra Park beside Main Street Access with Wisconsin River frontage, adjacent paved boat launch, parking, hand pump, portable toilet, and water access.',
+        sourceUrl: 'https://dekorra-wi.gov/parks-and-recreational-facilities/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Portage segment',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/portage',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Recreation.gov Wisconsin River Island in Portage',
+        url: 'https://www.recreation.gov/gateways/14567',
+        provider: 'local',
+      },
+      {
+        label: 'Town of Dekorra parks and water access',
+        url: 'https://dekorra-wi.gov/parks-and-recreational-facilities/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'baraboo-river-wayside-kalepp',
+    slug: 'baraboo-river-wayside-kalepp',
+    name: 'Baraboo River',
+    reach: 'Wayside Park to Kalepp Road',
+    state: 'Wisconsin',
+    region: 'Driftless Wisconsin',
+    summary:
+      'Short upper Baraboo day with sandstone outcrops, muddy banks, and a clear La Valle stage ladder from Wisconsin River Trips. It is scenic enough to add, but strainers and pushy high water keep the score conservative.',
+    statusText:
+      'Use the La Valle stage gauge. Treat 5.6 to 6.2 ft as the best target, below 5.0 ft as too low for an app recommendation, and above 6.9 ft as too high and dirty for a broad recreational call.',
+    latitude: 43.6462,
+    longitude: -90.2223,
+    gaugeSource: {
+      id: 'usgs-05404129',
+      provider: 'usgs',
+      siteId: '05404129',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Baraboo River at La Valle, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404129/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5.6,
+      idealMax: 6.2,
+      tooLow: 5.0,
+      tooHigh: 6.9,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Baraboo Wayside Park stage guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work. Recent rain can make the river dirty and pushy, and floodplain wood can change the route faster than the gauge alone implies.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Not technical whitewater, but deep muddy water, strainers, logjams, and difficult portage banks make it more serious than its short mileage suggests.',
+      confidenceNotes:
+        'The stage ladder is route-specific and tied to the La Valle gauge. Confidence is capped because this is a community route report rather than agency guidance, and wood conditions can change quickly.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published stage bands',
+        value: '5.6 to 6.2 ft target',
+        note: 'Wisconsin River Trips treats 5.6 to 6.2 ft at La Valle as average/good target depth, 6.2 to 6.4 ft as above normal, 6.4 to 6.9 ft as high and pushy, and 6.9 to 7.3 ft as very high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+      },
+      {
+        label: 'Route shape',
+        value: '4.6 miles, about 2 hours',
+        note: 'The source documents Wayside Park to Kalepp Road as a 4.6-mile route with an expected 2-hour paddle time and about 3 feet per mile of gradient.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Strainers and muddy banks',
+        note: 'Wisconsin River Trips calls out strainers in fast, deep, muddy water and notes that steep muddy banks can make portaging difficult.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+      },
+      {
+        label: 'Access context',
+        value: 'Wayside Park to DNR public parking near Kalepp',
+        note: 'The put-in is a public wayside park. The take-out is described as a DNR public parking area near the 400 State Trail and Baraboo River corridor, but same-day signage should still be checked.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Baraboo Wayside Park',
+        url: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/wayside-park-to-kalepp-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05404129 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404129/',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];
