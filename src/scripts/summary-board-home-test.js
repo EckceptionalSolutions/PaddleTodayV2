@@ -3414,7 +3414,7 @@ function popupMarkup(item) {
   `;
 }
 
-function updateSummaryMapSelection(key) {
+function updateSummaryMapSelection(key, { scrollResult = false } = {}) {
   selectedSummaryMapKey = key || null;
 
   if (summaryMapResults instanceof HTMLElement) {
@@ -3430,7 +3430,7 @@ function updateSummaryMapSelection(key) {
       }
     }
 
-    if (activeRow instanceof HTMLElement) {
+    if (scrollResult && activeRow instanceof HTMLElement) {
       activeRow.scrollIntoView({
         block: 'nearest',
         inline: 'nearest',
@@ -3577,7 +3577,7 @@ function openSummaryMapItem(key) {
     setSummaryMapMobileView('map', { scrollIntoView: true });
   }
 
-  updateSummaryMapSelection(key);
+  updateSummaryMapSelection(key, { scrollResult: true });
   closeSummaryMapPopups(key);
   const popup = marker.getPopup?.();
   if (popup && typeof popup.isOpen === 'function' && !popup.isOpen()) {
