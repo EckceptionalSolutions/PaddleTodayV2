@@ -114,7 +114,7 @@ const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, data confidence, access details, and today's paddle score before you drive.`;
-const routeShareText = `Check today's paddle score for ${river.name} - ${river.reach} on Paddle Today. Live gauge, weather, data confidence, and access details.`;
+const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, confidence, access, and a clear go / watch / skip call.`;
 const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
 const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
 const breadcrumbItems = [
@@ -324,7 +324,7 @@ const routeStructuredData = {
           </button>
 
           <details class="route-action-menu route-action-menu--share" data-route-action-menu>
-            <summary class="route-action-button route-action-button--menu" aria-label="Share route">
+            <summary class="route-action-button route-action-button--menu" aria-label="Share today's route read">
               <span class="route-action-button__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" focusable="false">
                   <path
@@ -333,7 +333,7 @@ const routeStructuredData = {
                   />
                 </svg>
               </span>
-              <span class="route-action-button__label route-action-button__label--desktop">Share</span>
+              <span class="route-action-button__label route-action-button__label--desktop">Share today</span>
             </summary>
             <div class="route-action-menu__panel">
               <a
@@ -413,6 +413,30 @@ const routeStructuredData = {
         <p class="river-call-panel__statement" data-field="decision-line">
           Checking today's read.
         </p>
+        <section class="route-conversion-card" aria-label="Route alerts">
+          <div class="route-conversion-card__copy">
+            <p class="route-conversion-card__kicker">Route alert</p>
+            <h2>Get emailed when this route turns Good.</h2>
+            <p>We only send when it newly crosses your chosen threshold.</p>
+          </div>
+          <button
+            class="route-action-button route-action-button--primary route-conversion-card__button"
+            type="button"
+            data-alert-open
+            data-analytics-event="Open route alert"
+            data-analytics-label="score-panel"
+          >
+            <span class="route-action-button__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M12 22a2.6 2.6 0 0 1-2.43-1.69h4.86A2.6 2.6 0 0 1 12 22Zm7-3.25H5v-1.5l1.65-1.48v-4.11a5.35 5.35 0 0 1 4.1-5.23V5.6a1.25 1.25 0 1 1 2.5 0v.83a5.35 5.35 0 0 1 4.1 5.23v4.11L19 17.25v1.5Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <span class="route-action-button__label">Set alert</span>
+          </button>
+        </section>
         <details class="river-score-tooltip">
           <summary class="river-score-tooltip__summary">
             <span>Score breakdown</span>

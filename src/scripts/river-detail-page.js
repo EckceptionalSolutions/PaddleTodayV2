@@ -60,7 +60,7 @@ const weatherHourlyGrid = root.querySelector('[data-weather-hourly]');
 const historyBars = root.querySelector('[data-history-bars]');
 const historyPanel = root.querySelector('[data-history-panel]');
 const alertDialog = root.querySelector('[data-alert-dialog]');
-const alertOpenButton = root.querySelector('[data-alert-open]');
+const alertOpenButtons = Array.from(root.querySelectorAll('[data-alert-open]'));
 const alertForm = root.querySelector('[data-alert-form]');
 const alertEmailInput = root.querySelector('[data-alert-email]');
 const alertCompanyInput = root.querySelector('[data-alert-company]');
@@ -4478,18 +4478,24 @@ function bindAlertForm() {
 }
 
 function bindRouteActions() {
-  if (alertOpenButton instanceof HTMLButtonElement && alertDialog instanceof HTMLDialogElement) {
-    alertOpenButton.addEventListener('click', () => {
-      closeRouteActionMenus();
-      if (!alertDialog.open) {
-        alertDialog.showModal();
+  if (alertDialog instanceof HTMLDialogElement) {
+    for (const alertOpenButton of alertOpenButtons) {
+      if (!(alertOpenButton instanceof HTMLButtonElement)) {
+        continue;
       }
-      if (alertEmailInput instanceof HTMLInputElement) {
-        window.setTimeout(() => {
-          alertEmailInput.focus();
-        }, 20);
-      }
-    });
+
+      alertOpenButton.addEventListener('click', () => {
+        closeRouteActionMenus();
+        if (!alertDialog.open) {
+          alertDialog.showModal();
+        }
+        if (alertEmailInput instanceof HTMLInputElement) {
+          window.setTimeout(() => {
+            alertEmailInput.focus();
+          }, 20);
+        }
+      });
+    }
 
     alertDialog.addEventListener('click', (event) => {
       if (event.target === alertDialog) {

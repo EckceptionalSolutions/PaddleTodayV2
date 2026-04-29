@@ -3980,6 +3980,52 @@ body.site-search-open {
   outline: none;
 }
 
+.route-conversion-card {
+  display: grid;
+  gap: 0.72rem;
+  padding: 0.82rem;
+  border: 1px solid rgba(30, 115, 151, 0.16);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(233, 245, 250, 0.92), rgba(255, 255, 255, 0.8)),
+    rgba(255, 255, 255, 0.82);
+}
+
+.route-conversion-card__copy {
+  display: grid;
+  gap: 0.28rem;
+}
+
+.route-conversion-card__kicker,
+.route-conversion-card h2,
+.route-conversion-card p {
+  margin: 0;
+}
+
+.route-conversion-card__kicker {
+  color: var(--river-deep);
+  font-size: 0.7rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.route-conversion-card h2 {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.16;
+}
+
+.route-conversion-card p:not(.route-conversion-card__kicker) {
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.38;
+}
+
+.route-conversion-card__button {
+  width: 100%;
+}
+
 .route-calibration-callout {
   display: flex;
   align-items: center;
