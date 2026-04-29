@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /alerts/unsubscribe/
+
+Sitemap: https://paddletoday.com/sitemap-index.xml

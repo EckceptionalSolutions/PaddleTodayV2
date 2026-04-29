@@ -256,7 +256,12 @@ const routeStructuredData = {
                 If you paddle this route, tell us whether the level felt low, good, pushy, or too high. Those notes help turn a conservative floor into a useful target window.
               </p>
             </div>
-            <a class="river-link river-link--inline" href="#share-trip" data-route-report-cta>
+            <a
+              class="river-link river-link--inline"
+              href="#share-trip"
+              data-route-report-cta
+              data-analytics-event="Open route report"
+            >
               Send a level report
             </a>
           </aside>
@@ -278,7 +283,12 @@ const routeStructuredData = {
       <div class="river-detail__hero-side river-detail__hero-side--sticky">
       <section class="route-action-bar route-action-bar--rail" aria-label="Route actions">
         <div class="route-action-bar__row">
-          <button class="route-action-button route-action-button--primary" type="button" data-alert-open>
+          <button
+            class="route-action-button route-action-button--primary"
+            type="button"
+            data-alert-open
+            data-analytics-event="Open route alert"
+          >
             <span class="route-action-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path
@@ -302,6 +312,8 @@ const routeStructuredData = {
             data-favorite-url={`/rivers/${river.slug}/`}
             data-unsaved-label="Save"
             data-saved-label="Saved"
+            data-analytics-event="Toggle favorite"
+            data-analytics-label={river.slug}
           >
             <span class="route-action-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
@@ -330,6 +342,8 @@ const routeStructuredData = {
                 target="_blank"
                 rel="noreferrer"
                 data-share-x
+                data-analytics-event="Share route"
+                data-analytics-label="x"
               >
                 <span class="route-action-button__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false">
@@ -347,6 +361,8 @@ const routeStructuredData = {
                 target="_blank"
                 rel="noreferrer"
                 data-share-facebook
+                data-analytics-event="Share route"
+                data-analytics-label="facebook"
               >
                 <span class="route-action-button__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false">
@@ -358,7 +374,13 @@ const routeStructuredData = {
                 </span>
                 <span>Facebook</span>
               </a>
-              <button class="route-action-menu__item" type="button" data-share-copy>
+              <button
+                class="route-action-menu__item"
+                type="button"
+                data-share-copy
+                data-analytics-event="Share route"
+                data-analytics-label="copy"
+              >
                 <span class="route-action-button__icon" aria-hidden="true">
                   <svg viewBox="0 0 24 24" focusable="false">
                     <path
@@ -472,7 +494,7 @@ const routeStructuredData = {
             We'll email you when this route climbs into Good or Strong. Every email includes an unsubscribe link.
           </p>
 
-          <form class="river-alerts__form" data-alert-form novalidate>
+          <form class="river-alerts__form" data-alert-form data-analytics-event="Submit route alert" novalidate>
             <label class="river-alerts__field">
               <span class="sr-only">Email address for river alerts</span>
               <input
@@ -857,6 +879,8 @@ const routeStructuredData = {
                 target="_blank"
                 rel="noreferrer"
                 data-access-directions-google
+                data-analytics-event="Open route directions"
+                data-analytics-label="google"
               >
                 Directions
               </a>
@@ -868,6 +892,8 @@ const routeStructuredData = {
                 target="_blank"
                 rel="noreferrer"
                 data-access-directions-apple
+                data-analytics-event="Open route directions"
+                data-analytics-label="apple"
               >
                 Apple Maps
               </a>
@@ -878,6 +904,8 @@ const routeStructuredData = {
               target="_blank"
               rel="noreferrer"
               data-access-openstreetmap
+              data-analytics-event="Open route map"
+              data-analytics-label="openstreetmap"
             >
               OpenStreetMap
             </a>
@@ -1126,7 +1154,13 @@ const routeStructuredData = {
                   Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
                 </p>
                 <div class="route-gallery__cta-row">
-                  <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
+                  <a
+                    class="river-link river-link--inline"
+                    href="#share-trip"
+                    data-analytics-event="Open route report"
+                  >
+                    Share photos or a trip report
+                  </a>
                 </div>
               </div>
             </div>
@@ -1422,7 +1456,14 @@ const routeStructuredData = {
       </div>
       <div class="route-community__list" data-route-community-list></div>
       <div class="route-gallery__cta-row route-community__cta-row">
-        <a class="river-link river-link--inline" href="#share-trip" data-route-report-cta>Send a route report</a>
+        <a
+          class="river-link river-link--inline"
+          href="#share-trip"
+          data-route-report-cta
+          data-analytics-event="Open route report"
+        >
+          Send a route report
+        </a>
       </div>
     </section>
 
@@ -1497,7 +1538,12 @@ const routeStructuredData = {
               <div class="route-gallery__pending-grid" data-route-gallery-pending-grid></div>
             </section>
 
-            <form class="request-form route-photo-form" data-route-photo-form novalidate>
+            <form
+              class="request-form route-photo-form"
+              data-route-photo-form
+              data-analytics-event="Submit route photos"
+              novalidate
+            >
               <div class="route-photo-form__grid">
                 <label>
                   Your name *
@@ -1589,7 +1635,12 @@ const routeStructuredData = {
               <p class="muted">A few honest notes about level, pace, wood, or access changes go a long way.</p>
             </div>
 
-            <form class="request-form route-photo-form" data-route-report-form novalidate>
+            <form
+              class="request-form route-photo-form"
+              data-route-report-form
+              data-analytics-event="Submit route report"
+              novalidate
+            >
               <div class="route-photo-form__grid">
                 <label>
                   Your name *
@@ -1706,10 +1757,18 @@ const routeStructuredData = {
           </p>
         </div>
         <div class="detail-map__links">
-          <a class="river-link river-link--inline" href={reportChangeHref}>
+          <a
+            class="river-link river-link--inline"
+            href={reportChangeHref}
+            data-analytics-event="Open route update"
+          >
             Report a change
           </a>
-          <a class="river-link river-link--inline" href={reportChangeEmail}>
+          <a
+            class="river-link river-link--inline"
+            href={reportChangeEmail}
+            data-analytics-event="Open route update email"
+          >
             Email update
           </a>
         </div>

@@ -57,7 +57,9 @@ const homepageStructuredData = [
       </p>
       <a
         class="river-link river-link--inline river-link--ghost"
-        href="/contribute/">Contribute photos</a
+        href="/contribute/"
+        data-analytics-event="Open photo contribution"
+        >Contribute photos</a
       >
     </section>
   </section>
@@ -125,6 +127,7 @@ const homepageStructuredData = [
           class="home-location-bar__current"
           type="button"
           data-location-edit-trigger
+          data-analytics-event="Edit location"
         >
           <span class="home-location-bar__icon" aria-hidden="true"
             >&#x1F4CD;</span
@@ -145,11 +148,13 @@ const homepageStructuredData = [
         <form
           class="location-panel__form home-location-bar__form"
           data-location-form
+          data-analytics-event="Submit location search"
         >
           <button
             class="river-link river-link--inline home-location-bar__use"
             type="button"
             data-location-use
+            data-analytics-event="Use current location"
             aria-label="Use my location"
           >
             <FeatureIcon name="crosshair" size={17} />

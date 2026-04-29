@@ -115,6 +115,8 @@ const pageClass =
         .replace(/[^a-zA-Z0-9/_-]+/g, '')
         .replace(/[\\/]+/g, '-')
         .toLowerCase() || 'page'}`;
+const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
+const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https://plausible.io/js/script.js';
 ---
 
 <!doctype html>
@@ -140,6 +142,17 @@ const pageClass =
     <meta name="twitter:description" content={socialDescription} />
     {socialImage && <meta name="twitter:image" content={socialImage} />}
     {socialImage && <meta name="twitter:image:alt" content={socialImageAlt} />}
+    {
+      plausibleDomain && (
+        <>
+          <script
+            is:inline
+            set:html={`window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}`}
+          />
+          <script defer data-domain={plausibleDomain} src={plausibleScriptSrc}></script>
+        </>
+      )
+    }
     <script type="application/ld+json" set:html={structuredDataJson}></script>
     <link rel="icon" type="image/png" href="/brand/paddle-today-logo-transparent-512.png" />
     <link rel="shortcut icon" href="/brand/paddle-today-logo-transparent-512.png" />
@@ -174,12 +187,19 @@ const pageClass =
                 Favorites <span data-site-favorites-count></span>
               </a>
             </nav>
-            <button class="site-header__search" type="button" data-site-search-open aria-haspopup="dialog" aria-controls="site-search-panel">
+            <button
+              class="site-header__search"
+              type="button"
+              data-site-search-open
+              data-analytics-event="Open site search"
+              aria-haspopup="dialog"
+              aria-controls="site-search-panel"
+            >
               <FeatureIcon name="search" size={15} />
               <span class="site-header__search-label site-header__search-label--full">Search Routes</span>
               <span class="site-header__search-label site-header__search-label--short">Search</span>
             </button>
-            <a class="site-header__action" href="/request-river/">
+            <a class="site-header__action" href="/request-river/" data-analytics-event="Open route request">
               <span class="site-header__action-label site-header__action-label--full">Request</span>
               <span class="site-header__action-label site-header__action-label--short">Request</span>
             </a>
@@ -235,6 +255,7 @@ const pageClass =
     <script type="application/json" data-site-search-index set:html={searchIndexJson}></script>
     <script>
       import '../scripts/site-shell.js';
+      import '../scripts/analytics.js';
     </script>
   </body>
 </html>

@@ -28,7 +28,7 @@ const requestEmail = 'hello@paddletoday.com';
         Best-case request: route name, state, put-in, take-out, and the exact USGS gauge that should drive the call. DNR, park, or club links help too.
       </p>
 
-      <form class="request-form" data-request-form novalidate>
+      <form class="request-form" data-request-form data-analytics-event="Submit route request" novalidate>
         <label>
           River or route name *
           <input
@@ -85,7 +85,14 @@ const requestEmail = 'hello@paddletoday.com';
 
         <div class="request-form__actions">
           <button class="filter-chip" type="submit" data-request-submit>Send request</button>
-          <a class="river-link river-link--inline" href={`mailto:${requestEmail}`} data-request-email-link>Email instead</a>
+          <a
+            class="river-link river-link--inline"
+            href={`mailto:${requestEmail}`}
+            data-request-email-link
+            data-analytics-event="Open request email"
+          >
+            Email instead
+          </a>
         </div>
 
         <p class="muted request-form__status" data-request-status aria-live="polite"></p>
