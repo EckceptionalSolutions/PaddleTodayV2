@@ -36,6 +36,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Taken today',
     },
   ],
+  'minnehaha-creek-grays-bay-longfellow-lagoon': [
+    {
+      id: 'minnehaha-creek-commons-2017',
+      src: '/gallery/minnehaha-creek-grays-bay-longfellow-lagoon/minnehaha-creek-oct-2017.jpg',
+      alt: 'Minnehaha Creek flows through a wooded Minneapolis park corridor with autumn leaves along the banks.',
+      caption: 'Autumn flow on Minnehaha Creek',
+      credit: 'Thomson200 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'minnesota-river-judson-land-of-memories': [
     {
       id: 'land-of-memories-park-commons',
@@ -64,6 +74,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Historic Cannon River view near Northfield',
       credit: 'Carleton College via DPLA/Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'kettle-river-lower-kettle-5-to-6': [
+    {
+      id: 'kettle-banning-commons',
+      src: '/gallery/kettle-river-lower-kettle-5-to-6/kettle-banning-state-park.jpg',
+      alt: 'The Kettle River winds through Banning State Park with evergreen trees and rocky banks along the channel.',
+      caption: 'Kettle River at Banning State Park',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
   'root-river-lanesboro-peterson': [
