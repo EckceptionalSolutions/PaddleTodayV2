@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FeatureIcon from '../../components/FeatureIcon.astro';
 import { getApprovedRoutePhotos } from '../../data/route-gallery';
+import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers } from '../../lib/rivers';
 
@@ -116,6 +117,7 @@ const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, data confidence, access details, and today's paddle score before you drive.`;
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, confidence, access, and a clear go / watch / skip call.`;
 const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
+const routeSocialCard = getRouteSocialCard(river.slug);
 const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
 const breadcrumbItems = [
   {
@@ -161,10 +163,10 @@ const routeStructuredData = {
   description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, data confidence, and a clear paddling recommendation before you drive.`}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
-  socialImage="/brand/paddle-today-share-card-v2-1200x630.png"
-  socialImageAlt="Paddle Today route share preview"
-  socialImageWidth={1200}
-  socialImageHeight={630}
+  socialImage={routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png'}
+  socialImageAlt={routeSocialCard?.alt ?? 'Paddle Today route share preview'}
+  socialImageWidth={routeSocialCard?.width ?? 1200}
+  socialImageHeight={routeSocialCard?.height ?? 630}
   ogType="article"
   twitterCard="summary_large_image"
 >

@@ -82,6 +82,16 @@ These assets are now safe enough to use and have been ingested into the app as l
 | `wisconsin-river-muscoda-blue-river` | [A 1973 replay reaches Muscoda on the Wisconsin River - NARA - 550771.jpg](https://commons.wikimedia.org/wiki/File:A_1973_REPLAY_OF_THE_MARQUETTE-JOLIET_TRIP,_THREE_HUNDRED_YEARS_LATER,_REACHES_MUSCODA_ON_THE_WISCONSIN_RIVER...._-_NARA_-_550771.jpg) | NARA/DOCUMERICA public-domain candidate via Wikimedia Commons. | Best next Wisconsin River pick. It directly names Muscoda and the Wisconsin River, making it route-relevant for Muscoda-to-Blue River despite being a historic reenactment image. |
 | `wisconsin-river-spring-green-muscoda` | [Paddling down the Wisconsin River from Tower Hill State Park - NARA - 550767.jpg](https://commons.wikimedia.org/wiki/File:PADDLING_DOWN_THE_WISCONSIN_RIVER_FROM_TOWER_HILL_STATE_PARK,_ONE_OF_THE_TWO_CANOES_OF_A_PARTY_OF_SEVEN_MEN_WHO_SPENT..._-_NARA_-_550767.jpg) | NARA/DOCUMERICA public-domain candidate via Wikimedia Commons. | Good route-family option for the Spring Green/Tower Hill area. Use after confirming the file page opens cleanly and the public-domain metadata is recorded. |
 
+## Route social cards
+
+Generated social preview cards live under `public/share/routes/`. They use approved route-gallery images when available, plus the following additional source images for routes that did not yet have a gallery image:
+
+| River slug | Source asset | Local source file | Rights status | Notes |
+| --- | --- | --- | --- | --- |
+| `kickapoo-river-ontario-rockton` | [Gfp-wisconsin-wildcat-mountain-sunset-over-kickapoo-river-valley.jpg](https://commons.wikimedia.org/wiki/File:Gfp-wisconsin-wildcat-mountain-sunset-over-kickapoo-river-valley.jpg) | `public/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg` | Public domain dedication by the author via GoodFreePhotos/Wikimedia Commons. | Used for the share card because it is the strongest scenic Kickapoo-corridor asset found so far. |
+| `wisconsin-river-muscoda-blue-river` | [A 1973 replay reaches Muscoda on the Wisconsin River - NARA - 550771.jpg](https://commons.wikimedia.org/wiki/File:A_1973_REPLAY_OF_THE_MARQUETTE-JOLIET_TRIP,_THREE_HUNDRED_YEARS_LATER,_REACHES_MUSCODA_ON_THE_WISCONSIN_RIVER...._-_NARA_-_550771.jpg) | `public/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg` | NARA/DOCUMERICA public-domain candidate via Wikimedia Commons. | Used for the share card because the file directly names Muscoda and the Wisconsin River. |
+| `milwaukee-river-newburg-fredonia` | [Milwaukee January 2026 25 (Milwaukee River).jpg](https://commons.wikimedia.org/wiki/File:Milwaukee_January_2026_25_(Milwaukee_River).jpg) | `public/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg` | `CC BY-SA 4.0` by Michael Barera via Wikimedia Commons. | Used for the share card as a clean Milwaukee River file-level source. It is a weaker reach match than the other cards because it is Milwaukee, not the Newburg-to-Waubedonia reach. |
+
 ## Recommended next actions
 
 1. Start with `st-croix-river-fox-highway-70` because NPS gives us the cleanest path to publishable imagery.
