@@ -105,10 +105,32 @@ const reportChangeEmail = `mailto:routes@paddletoday.com?subject=${encodeURIComp
 )}`;
 const hasAccessPlanner = (river.accessPoints?.length ?? 0) > 2;
 const accessPlannerPointsJson = JSON.stringify(river.accessPoints ?? []);
-const siblingRoutes = listRivers()
+const allRoutes = listRivers();
+const siblingRoutes = allRoutes
   .filter((candidate) => candidate.riverId === river.riverId && candidate.slug !== river.slug)
   .sort((left, right) => left.reach.localeCompare(right.reach));
 const riverHubHref = siblingRoutes.length > 0 ? `/rivers/by-river/${river.riverId}/` : null;
+const distanceMiles = (left: typeof river, right: typeof river) => {
+  const earthRadiusMiles = 3958.8;
+  const toRadians = (degrees: number) => (degrees * Math.PI) / 180;
+  const latDelta = toRadians(right.latitude - left.latitude);
+  const lonDelta = toRadians(right.longitude - left.longitude);
+  const leftLat = toRadians(left.latitude);
+  const rightLat = toRadians(right.latitude);
+  const haversine =
+    Math.sin(latDelta / 2) ** 2 +
+    Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(lonDelta / 2) ** 2;
+
+  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(haversine));
+};
+const nearbyRoutes = allRoutes
+  .filter((candidate) => candidate.slug !== river.slug && candidate.riverId !== river.riverId)
+  .map((candidate) => ({
+    ...candidate,
+    distance: distanceMiles(river, candidate),
+  }))
+  .sort((left, right) => left.distance - right.distance)
+  .slice(0, 4);
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
@@ -1767,6 +1789,66 @@ const routeStructuredData = {
             </form>
           </section>
         </div>
+      </div>
+    </section>
+
+    <section class="river-detail__panel route-discovery" data-detail-section="related-routes" data-detail-nav-group="plan" aria-labelledby="related-routes-title">
+      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-discovery__head">
+        <p class="eyebrow section-label">
+          <FeatureIcon name="compass" size={16} />
+          Keep exploring
+        </p>
+        <h2 class="river-detail__chapter-title" id="related-routes-title">More routes to check next</h2>
+        <p class="muted river-detail__chapter-copy">
+          Compare another stretch on this river, or jump to nearby options before you pick a plan.
+        </p>
+      </div>
+
+      <div class="route-discovery__grid">
+        {siblingRoutes.length > 0 ? (
+          <section class="route-discovery__group" aria-labelledby="same-river-routes-title">
+            <div class="route-discovery__group-head">
+              <h3 id="same-river-routes-title">More on {river.name}</h3>
+              {riverHubHref ? <a href={riverHubHref}>All {siblingRoutes.length + 1}</a> : null}
+            </div>
+            <div class="route-discovery__list">
+              {siblingRoutes.slice(0, 4).map((candidate) => (
+                <a
+                  class="route-discovery__link"
+                  href={`/rivers/${candidate.slug}/`}
+                  data-analytics-event="Open related route"
+                  data-analytics-label="same-river"
+                >
+                  <span class="route-discovery__route">{candidate.reach}</span>
+                  <span class="route-discovery__meta">{candidate.region}</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        {nearbyRoutes.length > 0 ? (
+          <section class="route-discovery__group" aria-labelledby="nearby-routes-title">
+            <div class="route-discovery__group-head">
+              <h3 id="nearby-routes-title">Nearby routes</h3>
+            </div>
+            <div class="route-discovery__list">
+              {nearbyRoutes.map((candidate) => (
+                <a
+                  class="route-discovery__link"
+                  href={`/rivers/${candidate.slug}/`}
+                  data-analytics-event="Open related route"
+                  data-analytics-label="nearby"
+                >
+                  <span class="route-discovery__route">{candidate.name}</span>
+                  <span class="route-discovery__meta">
+                    {candidate.reach} · {Math.round(candidate.distance)} mi
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
       </div>
     </section>
 
