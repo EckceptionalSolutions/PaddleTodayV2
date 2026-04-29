@@ -7015,4 +7015,461 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'wisconsin-river-sauk-city-arena',
+    slug: 'wisconsin-river-sauk-city-arena',
+    name: 'Wisconsin River',
+    reach: 'Sauk City to Arena Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Popular upper Lower Wisconsin State Riverway day with broad sandbars, easy current, and official DNR route support. It is best kept as its own scored route because the mileage and shuttle are different from the downstream Arena and Spring Green options.',
+    statusText:
+      'Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.2566,
+    longitude: -89.742,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. This upper riverway reach is especially popular in summer when sandbars are exposed.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Flatwater and beginner-friendly in normal summer water, but sandbar drop-offs, hidden current, strainers in narrow side channels, wind, and crowded weekends still matter.',
+      confidenceNotes:
+        'Wisconsin DNR lists Sauk City to Arena as a popular canoe route, Wisconsin Trail Guide publishes the riverway level ladder against the Muscoda gauge, and public access is well established. Confidence is capped below official gauge-band status because the level ladder is guide interpretation rather than a DNR live level product.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Sauk City to Arena, 11 miles',
+        note: 'Wisconsin DNR lists Sauk City to Arena as an 11-mile Lower Wisconsin State Riverway canoe route with an estimated 3.5-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Sauk Canoe Access',
+        note: 'Paddling.com lists Sauk Canoe Access on the Wisconsin River at 43.2566, -89.742 with a large parking lot and sandy carry to the river.',
+        sourceUrl: 'https://paddling.com/paddle/locations/sauk-canoe-access',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions, 17,000 to 20,000 cfs as high-water day-trip only, and above 20,000 cfs as paddling not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+      },
+      {
+        label: 'Route structure',
+        value: 'Separate scored segment',
+        note: 'The Lower Wisconsin can be chained between many landings, but the app keeps Sauk City to Arena separate so mileage, shuttle time, and day-trip expectations stay accurate.',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Hidden current and sandbar drop-offs',
+        note: 'Wisconsin DNR and Wisconsin Trail Guide both warn that the river can look slow while hidden current, sudden drop-offs, and shifting sandbars create real risk.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR1',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin river safety',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/safety',
+        provider: 'local',
+      },
+      {
+        label: 'Sauk Canoe Access',
+        url: 'https://paddling.com/paddle/locations/sauk-canoe-access',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-arena-spring-green',
+    slug: 'wisconsin-river-arena-spring-green',
+    name: 'Wisconsin River',
+    reach: 'Arena Landing to Peck’s Landing / Spring Green',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Classic Lower Wisconsin day from Arena to the Highway 23/Spring Green landing corridor, with sandbars, wide channels, and official DNR route support. It shares the Lower Wisconsin gauge ladder but has its own shuttle and route timing.',
+    statusText:
+      'Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.1867782,
+    longitude: -89.9016376,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. Summer weekends can be busy around Arena and Spring Green, while shoulder-season cold water raises consequence.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy flatwater in normal conditions, but the river is broad and deceptively powerful around sandbar edges and island channels.',
+      confidenceNotes:
+        'Wisconsin DNR lists Arena to Spring Green as a popular canoe route, and Wisconsin Trail Guide describes the broader Sauk Prairie-to-Spring Green segment with the same Muscoda-gauge level ladder. The app keeps the segment conservative because high-water and overnight suitability are not the same decision.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Arena to Spring Green, 10 miles',
+        note: 'Wisconsin DNR lists Arena to Spring Green as a 10-mile Lower Wisconsin State Riverway canoe route with an estimated 3-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide uses the Muscoda gauge for the Lower Wisconsin State Riverway and warns against paddling above 20,000 cfs.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+      },
+      {
+        label: 'Route character',
+        value: 'Sandbars and popular day-trip corridor',
+        note: 'Wisconsin Trail Guide says the Sauk Prairie-to-Spring Green reach is the most popular stretch of the Lower Wisconsin for single- and multi-day canoe trips.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR1',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wisconsin-river-lower-sauk-prairie.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Travel Wisconsin Peck’s Landing',
+        url: 'https://www.travelwisconsin.com/canoeing-kayaking-sup/pecks-landing-365711',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-spring-green-muscoda',
+    slug: 'wisconsin-river-spring-green-muscoda',
+    name: 'Wisconsin River',
+    reach: 'Peck’s Landing / Spring Green to Muscoda',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Long Lower Wisconsin day or easy overnight-capable corridor from Spring Green to Muscoda. It is not harder water, but the 22-mile length changes the planning burden enough that it should stay separate from the shorter upstream and downstream day routes.',
+    statusText:
+      'Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.1462917,
+    longitude: -90.0602028,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. For a 22-mile day or overnight, check upstream rain and potential overnight surges before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is flat and beginner-friendly, but 22 miles, fatigue, weather exposure, and overnight logistics make this a bigger commitment than the shorter Lower Wisconsin day routes.',
+      confidenceNotes:
+        'Wisconsin DNR lists Spring Green to Muscoda as a popular canoe route, and Wisconsin Trail Guide provides the Muscoda-gauge level ladder for the Lower Wisconsin. The route is marked moderate because commitment and planning are the issue, not whitewater.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Spring Green to Muscoda, 22 miles',
+        note: 'Wisconsin DNR lists Spring Green to Muscoda as a 22-mile Lower Wisconsin State Riverway canoe route with an estimated 6-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide applies the Muscoda gauge to the Lower Wisconsin State Riverway and separates normal sandbar-friendly water from high-water and no-go levels.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river.html',
+      },
+      {
+        label: 'Camping context',
+        value: 'Sandbar overnight possible at suitable levels',
+        note: 'Wisconsin Trail Guide and Wisconsin DNR both describe sandbar/island camping as part of the Lower Wisconsin experience, but high water can erase safe camping options.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/camping',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Lower Wisconsin overview',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Travel Wisconsin Peck’s Landing',
+        url: 'https://www.travelwisconsin.com/canoeing-kayaking-sup/pecks-landing-365711',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-boscobel-bridgeport',
+    slug: 'wisconsin-river-boscobel-bridgeport',
+    name: 'Wisconsin River',
+    reach: 'Boscobel Landing to Bridgeport Landing',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Longer, quieter lower Lower Wisconsin route from Boscobel toward Bridgeport. It shares the same Muscoda gauge ladder, but the 23-mile length and more remote lower-river feel make it a separate full-day or overnight planning problem.',
+    statusText:
+      'Use the Muscoda gauge for the Lower Wisconsin level ladder. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.1492722,
+    longitude: -90.715253,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR4 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. The lower river is quieter, but the full-day distance makes wind, heat, storms, and overnight water rises more important.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Flatwater, but 23 miles, fewer bailout options, broad-water exposure, and overnight-style planning make this more committed than an easy short day trip.',
+      confidenceNotes:
+        'Wisconsin DNR lists Boscobel to Bridgeport as a popular 23-mile route, and Wisconsin Trail Guide LWSR4 uses the same Muscoda gauge ladder. The endpoint record is adequate but not as polished as the upper riverway landings, so the route stays conservative.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Boscobel to Bridgeport, 23 miles',
+        note: 'Wisconsin DNR lists Boscobel to Bridgeport as a 23-mile Lower Wisconsin State Riverway canoe route with an estimated 6-hour paddling time.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide LWSR4 uses the Muscoda gauge and the same Lower Wisconsin level ladder, with paddling not recommended above 20,000 cfs.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+      },
+      {
+        label: 'Lower-river character',
+        value: 'Quieter, wooded islands and sloughs',
+        note: 'Wisconsin Trail Guide describes the final Lower Wisconsin segment as quieter and more isolated, with wooded islands, sloughs, and large bottomland areas.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR4',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-4.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Bridgeport Landing North reference',
+        url: 'https://paddling.com/paddle/locations/bridgeport-landing-north',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-dekorra-camp-rest',
+    slug: 'wisconsin-river-dekorra-camp-rest',
+    name: 'Wisconsin River',
+    reach: 'Dekorra Park to Camp Rest Park',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Shorter lower-Portage Wisconsin River route that keeps the best back channels, sandstone outcrops, islands, and sandbars while avoiding the rough final open-water mile to James Whalen. This is the better scored variant of the Dekorra-to-Lake Wisconsin source route.',
+    statusText:
+      'Use the Wisconsin Dells gauge. Treat 4,000 to 8,000 cfs as the best window, below about 2,500 cfs as too shallow for some back channels, and above 13,000 cfs as high-water only for very conservative paddlers.',
+    latitude: 43.3868,
+    longitude: -89.5142,
+    gaugeSource: {
+      id: 'usgs-05404000',
+      provider: 'usgs',
+      siteId: '05404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River near Wisconsin Dells, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 8000,
+      tooLow: 2500,
+      tooHigh: 13000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Dekorra Dells-gauge depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/dekorra',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main window. Early starts and lower-traffic weekdays improve the route because motorboat and jet-ski wakes are a key hazard.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Not whitewater, but back-channel choices, motorboat wakes, sandstone-wall rebound waves, wind, and hidden drop-offs make this a more attentive route than a short distance alone suggests.',
+      confidenceNotes:
+        'Wisconsin River Trips provides the route-specific gauge ladder and explicitly recommends Camp Rest Park as the better take-out than continuing to James Whalen. Town of Dekorra source material supports public water access in the Dekorra/Camp Rest corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Preferred take-out',
+        value: 'Camp Rest avoids rough final open water',
+        note: 'Wisconsin River Trips says Camp Rest Park is the better take-out because downstream of Camp Rest the current and islands vanish and rough open water, powerboats, and whitecaps become more common.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/dekorra',
+      },
+      {
+        label: 'Published level bands',
+        value: '4,001 to 8,000 cfs average range',
+        note: 'Wisconsin River Trips uses the Wisconsin Dells gauge and describes 4,001 to 6,000 cfs as average summer depth, 6,001 to 8,000 cfs as average spring depth, 10,001 to 13,000 cfs as high, and 20,000+ cfs as perhaps too high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/dekorra',
+      },
+      {
+        label: 'Route shape',
+        value: '5.1 miles to Camp Rest',
+        note: 'Wisconsin River Trips breaks Dekorra Park to Camp Rest Park out as a 5.1-mile section with outcrops, island deltas, hidden sloughs, and sandbars.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/dekorra',
+      },
+      {
+        label: 'Access support',
+        value: 'Town parks and water access',
+        note: 'Town of Dekorra lists Dekorra Park and Camp Rest Park among public recreational facilities and water-access areas on the Wisconsin River / Lake Wisconsin corridor.',
+        sourceUrl: 'https://dekorra-wi.gov/parks-and-recreational-facilities/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Dekorra segment',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/dekorra',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Town of Dekorra parks and water access',
+        url: 'https://dekorra-wi.gov/parks-and-recreational-facilities/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];

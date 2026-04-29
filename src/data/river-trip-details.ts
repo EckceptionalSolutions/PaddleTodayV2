@@ -2426,4 +2426,170 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-sauk-city-arena': {
+    putIn: {
+      name: 'Sauk Canoe Access',
+      latitude: 43.2566,
+      longitude: -89.742,
+    },
+    takeOut: {
+      name: 'Arena Landing',
+      latitude: 43.1867782,
+      longitude: -89.9016376,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 4.5 hr, longer with sandbar stops',
+      shuttle:
+        'Use a vehicle shuttle between Sauk City and Arena. This is a common outfitter corridor, but self-supported groups should still confirm landing parking before leaving vehicles.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and Wisconsin boating/PFD requirements.',
+      camping:
+        'Sandbar camping is possible at suitable flows under Lower Wisconsin State Riverway rules, but this route is also a normal day trip. Avoid overnight plans at high water or when sandbars are scarce.',
+      summary:
+        'Launch from the Sauk City/Sauk Prairie landing corridor and take out at Arena Landing. This is one of the classic upper Lower Wisconsin day trips, with broad sandbars and easy current in the normal summer gauge window.',
+      accessCaveats: [
+        'Wisconsin DNR lists both the Sauk/Prairie du Sac corridor and Arena among major public access points for the Lower Wisconsin State Riverway; the saved put-in is the Sauk Canoe Access point used by Lower Wisconsin paddling guides.',
+        'Paddling.com describes the Sauk Canoe Access as having a large parking lot and sandy carry, but warns the river-side access can be easy to miss from the water.',
+        'The Lower Wisconsin has many optional landings, but this route is scored specifically for Sauk City to Arena so distance and shuttle timing stay honest.',
+      ],
+      watchFor: [
+        'Crowded summer weekends and outfitter traffic.',
+        'Hidden current and sudden sandbar drop-offs, especially when wading.',
+        'High water that reduces sandbars and opens faster side channels with strainers.',
+      ],
+    },
+  },
+  'wisconsin-river-arena-spring-green': {
+    putIn: {
+      name: 'Arena Landing',
+      latitude: 43.1867782,
+      longitude: -89.9016376,
+    },
+    takeOut: {
+      name: 'Peck’s Landing / Spring Green Highway 23 landing',
+      latitude: 43.1462917,
+      longitude: -90.0602028,
+    },
+    logistics: {
+      distanceLabel: '10 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with sandbar stops',
+      shuttle:
+        'Use a vehicle shuttle between Arena and Peck’s Landing near the Highway 23 bridge. Local outfitters commonly service this corridor during the paddling season.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules and posted landing guidance.',
+      camping:
+        'Possible as part of a relaxed sandbar outing when levels are suitable, but this app entry is framed as a day route. Do not count on sandbar camping when flows are high.',
+      summary:
+        'Put in at Arena and take out at Peck’s Landing near Spring Green. This is a popular Lower Wisconsin sandbar day route with easy current, broad channels, and a straightforward shuttle.',
+      accessCaveats: [
+        'Arena and Peck’s Landing are well-known riverway landings, but same-day parking, crowding, and outfitter traffic can affect launch logistics.',
+        'Peck’s Landing is near the Highway 23 bridge; use current landing signage rather than stopping at informal riverbank pull-offs.',
+      ],
+      watchFor: [
+        'Busy landings and sandbars during warm weekends.',
+        'Changing channels around sandbars and wooded islands.',
+        'Fast hidden current and drop-offs even when the surface looks calm.',
+      ],
+    },
+  },
+  'wisconsin-river-spring-green-muscoda': {
+    putIn: {
+      name: 'Peck’s Landing / Spring Green Highway 23 landing',
+      latitude: 43.1462917,
+      longitude: -90.0602028,
+    },
+    takeOut: {
+      name: 'Riverside Park / Muscoda west-side landing',
+      latitude: 43.1962605,
+      longitude: -90.4357156,
+    },
+    logistics: {
+      distanceLabel: '22 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, or split as an overnight',
+      shuttle:
+        'Longer Lower Wisconsin shuttle between Spring Green and Muscoda. Plan pickup timing carefully, especially if wind, sandbar stops, or an overnight plan could slow the group.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current camping/trash/PFD guidance.',
+      camping:
+        'This is a natural overnight-capable reach at suitable flows. Wisconsin DNR allows camping on state-owned islands and sandbars for up to three days when arriving by watercraft, with no permit required, but high water can remove safe sandbars.',
+      summary:
+        'Launch at Peck’s Landing near Spring Green and finish at Muscoda. The river remains flatwater, but the 22-mile length makes this a full-day or overnight planning route rather than a casual short float.',
+      accessCaveats: [
+        'Use this as a specific scored route even though many intermediate landings exist; combining it with shorter routes would hide the full-day commitment.',
+        'Confirm overnight rules, water levels, weather, and shuttle timing before launching late in the day.',
+      ],
+      watchFor: [
+        'Fatigue, heat, wind, and storms over a long broad-river route.',
+        'Unexpected upstream rain-driven rises during overnight plans.',
+        'Sandbar drop-offs, hidden current, and side-channel strainers.',
+      ],
+    },
+  },
+  'wisconsin-river-boscobel-bridgeport': {
+    putIn: {
+      name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
+      latitude: 43.1492722,
+      longitude: -90.715253,
+    },
+    takeOut: {
+      name: 'Bridgeport Landing / Highway 18 bridge access',
+      latitude: 43.0239,
+      longitude: -91.0877,
+    },
+    logistics: {
+      distanceLabel: '23 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, or split as an overnight',
+      shuttle:
+        'Long lower-river shuttle from Boscobel to Bridgeport. Plan vehicle logistics before launching; there are fewer easy bailout options than on the busier Sauk-to-Spring Green corridor.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, and current camping/trash/PFD guidance.',
+      camping:
+        'Overnight sandbar camping may be practical at suitable flows, but use current DNR rules and avoid high-water sandbars. The route is long enough that a late start can force an unplanned overnight.',
+      summary:
+        'Put in at Boscobel and take out at Bridgeport near the Highway 18 bridge. This is a quieter lower-river commitment with flatwater, wooded islands, sloughs, and fewer crowds than upstream segments.',
+      accessCaveats: [
+        'Wisconsin DNR lists Boscobel and Bridgeport among major Lower Wisconsin access points, but Bridgeport has multiple nearby landing references; confirm the intended take-out and current road/parking conditions.',
+        'The route is scored separately from Blue River-to-Boscobel because the 23-mile length and lower-river isolation change the decision.',
+      ],
+      watchFor: [
+        'Long-distance fatigue and weather exposure.',
+        'Broad lower-river wind, slough choices, and wooded island strainers.',
+        'High-water hidden current and reduced sandbar availability.',
+      ],
+    },
+  },
+  'wisconsin-river-dekorra-camp-rest': {
+    putIn: {
+      name: 'Dekorra Park / Main Street access',
+      latitude: 43.3868,
+      longitude: -89.5142,
+    },
+    takeOut: {
+      name: 'Camp Rest Park',
+      latitude: 43.4158187,
+      longitude: -89.5287319,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer if exploring back channels',
+      shuttle:
+        'Short road shuttle between Dekorra Park and Camp Rest Park. A bike shuttle may work for some groups, but traffic and parking should be checked before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Town of Dekorra park rules and posted boat-launch or parking restrictions.',
+      camping:
+        'No on-route camping assumed. Treat this as a short day trip and avoid informal island camping unless independently confirmed legal and appropriate.',
+      summary:
+        'Launch at Dekorra Park and finish at Camp Rest Park. This keeps the most interesting part of the Dekorra route, including back channels, sandbars, islands, and sandstone outcrops, while avoiding the rough open-water finish to James Whalen.',
+      accessCaveats: [
+        'Dekorra Park and Camp Rest Park are Town of Dekorra public recreation facilities, but boat traffic and local launch etiquette matter.',
+        'Do not continue into the Lake Wisconsin-style open-water section unless wind, waves, boat traffic, and the take-out plan are all acceptable.',
+      ],
+      watchFor: [
+        'Motorboat and jet-ski wakes, especially near the main channel and sandstone walls.',
+        'Wind and whitecaps if you continue beyond Camp Rest toward Lake Wisconsin.',
+        'Undertows, drop-offs, poison ivy on islands, and shoreline strainers during high water.',
+      ],
+    },
+  },
 };
