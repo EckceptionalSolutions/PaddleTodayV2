@@ -2329,6 +2329,23 @@ function weatherConditionTone(condition) {
   return 'mixed';
 }
 
+function hourlyWeatherIconMarkup(condition) {
+  const label = weatherConditionShortLabel(condition);
+  if (/storm/i.test(label)) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path><path d="m13 13-2 4h3l-2 4"></path></svg>';
+  }
+  if (/rain|drizzle/i.test(label)) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path><path d="M9 18.5 8.2 21"></path><path d="M13 18.5 12.2 21"></path><path d="M17 18.5 16.2 21"></path></svg>';
+  }
+  if (/snow/i.test(label)) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"></path><path d="M5.6 6.6 18.4 17.4"></path><path d="M5.6 17.4 18.4 6.6"></path><path d="M4 12h16"></path></svg>';
+  }
+  if (/fog|cloud|mixed/i.test(label)) {
+    return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 16a4 4 0 1 1 .9-7.9A5 5 0 0 1 18 10a3.5 3.5 0 1 1-.5 7H7Z"></path><path d="M4 20h16"></path></svg>';
+  }
+  return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2.5v3"></path><path d="M12 18.5v3"></path><path d="M2.5 12h3"></path><path d="M18.5 12h3"></path><path d="m4.9 4.9 2.1 2.1"></path><path d="m17 17 2.1 2.1"></path><path d="m19.1 4.9-2.1 2.1"></path><path d="m7 17-2.1 2.1"></path></svg>';
+}
+
 function formatTemperature(value) {
   return typeof value === 'number' ? `${Math.round(value)}\u00B0F` : '--';
 }
@@ -2858,6 +2875,10 @@ function renderHourlyWeather(weather) {
     temp.className = 'weather-hour__temp';
     temp.textContent = formatTemperature(point.temperatureF);
 
+    const icon = document.createElement('span');
+    icon.className = 'weather-hour__icon';
+    icon.innerHTML = hourlyWeatherIconMarkup(point.conditionLabel ?? point.weatherCode);
+
     const condition = document.createElement('span');
     condition.className = 'weather-hour__condition';
     condition.textContent = weatherConditionShortLabel(point.conditionLabel ?? point.weatherCode);
@@ -2866,7 +2887,7 @@ function renderHourlyWeather(weather) {
     meta.className = 'weather-hour__meta';
     meta.textContent = `${formatRainChance(point.precipProbability)} \u00B7 ${formatWind(point.windMph)}${point.windGustMph ? ` \u00B7 gust ${Math.round(point.windGustMph)} mph` : ''}`;
 
-    article.append(time, temp, condition, meta);
+    article.append(time, icon, temp, condition, meta);
     fragment.append(article);
   }
 
@@ -3600,6 +3621,8 @@ function renderGaugeChart(result) {
   const parsedSamples = parseChartSamples(result);
   const activeSamples = windowedSamples(parsedSamples, currentChartWindowHours);
   const sourceDisplay = gaugeSourceDisplay(result);
+  const visualBody = root.querySelector('.gauge-visual__body');
+  const readoutEl = root.querySelector('.gauge-readout');
   const chartEl = root.querySelector('.gauge-visual__chart');
   const controlsEl = root.querySelector('.gauge-visual__controls');
   const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
@@ -3632,6 +3655,12 @@ function renderGaugeChart(result) {
   const hasCurrentOnlyReading =
     result.gauge && !sourceDisplay.supportsRecentSamples && activeSamples.length < 2;
   if (hasCurrentOnlyReading) {
+    if (visualBody instanceof HTMLElement) {
+      visualBody.classList.add('gauge-visual__body--current-only');
+    }
+    if (readoutEl instanceof HTMLElement) {
+      readoutEl.hidden = true;
+    }
     if (chartEl instanceof SVGElement) {
       chartEl.style.display = 'none';
     }
@@ -3642,7 +3671,7 @@ function renderGaugeChart(result) {
       currentPanelEl.hidden = false;
     }
     setText('gauge-visual-title', `Current ${sourceDisplay.shortLabel} level`);
-    setText('chart-caption', `${sourceDisplay.label} current level is available; recent chart samples are not.`);
+    setText('chart-caption', `${sourceDisplay.label} publishes the current level and official hydrograph.`);
     setText('current-gauge-provider', result.gauge.gaugeSource || sourceDisplay.label);
     setText('current-gauge-value', gaugePrimaryValue(result));
     setText(
@@ -3692,6 +3721,12 @@ function renderGaugeChart(result) {
 
   if (chartEl instanceof SVGElement) {
     chartEl.style.display = '';
+  }
+  if (visualBody instanceof HTMLElement) {
+    visualBody.classList.remove('gauge-visual__body--current-only');
+  }
+  if (readoutEl instanceof HTMLElement) {
+    readoutEl.hidden = false;
   }
   if (controlsEl instanceof HTMLElement) {
     controlsEl.hidden = false;

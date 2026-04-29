@@ -547,7 +547,7 @@ const routeStructuredData = {
     <section class="river-detail__panel river-why-score" id="river-conditions" data-detail-section="river-conditions" data-detail-nav-group="conditions">
       <p class="eyebrow section-label">
         <FeatureIcon name="compass" size={16} />
-        River conditions
+        Today&apos;s conditions
       </p>
 
       <div class="river-detail__quick-grid river-detail__quick-grid--compact river-why-score__grid river-detail__conditions-grid">
@@ -558,13 +558,13 @@ const routeStructuredData = {
         </article>
         <article class="snapshot-card snapshot-card--primary" data-card-field="trend">
           <span class="snapshot-card__label">Trend</span>
-          <strong data-field="trend-summary">Checking</strong>
-          <small data-field="gauge-freshness">Checking</small>
+          <strong data-field="trend">Checking</strong>
+          <small data-field="flow-change-24h">Checking 24h change</small>
         </article>
         <article class="snapshot-card snapshot-card--secondary" data-card-field="temperature">
-          <span class="snapshot-card__label">Temperature</span>
-          <strong data-field="weather-air-temp-summary">Loading</strong>
-          <small data-field="weather-water-temp-detail">Water: No reading</small>
+          <span class="snapshot-card__label">Weather</span>
+          <strong data-field="weather-condition">Loading</strong>
+          <small data-field="weather-air-temp-summary">Air: No reading</small>
         </article>
         <article class="snapshot-card snapshot-card--secondary" data-card-field="rain">
           <span class="snapshot-card__label">Rain</span>
@@ -610,104 +610,134 @@ const routeStructuredData = {
               </p>
             </div>
 
-            <svg
-              class="gauge-visual__chart"
-              viewBox="0 0 420 210"
-              width="420"
-              height="210"
-              role="img"
-              aria-label="Recent gauge trend chart"
-            >
-              <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
-
-              <g class="gauge-chart__grid">
-                <line x1="58" y1="28" x2="394" y2="28" />
-                <line x1="58" y1="96" x2="394" y2="96" />
-                <line x1="58" y1="164" x2="394" y2="164" />
-              </g>
-
-              <g class="gauge-chart__axis">
-                <line x1="58" y1="20" x2="58" y2="176" />
-                <line x1="58" y1="176" x2="394" y2="176" />
-              </g>
-
-              <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
-              <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
-
-              <path data-chart-line d="M62 140 L392 90" />
-              <circle data-chart-dot cx="392" cy="90" r="4" />
-
-              <g class="gauge-chart__labels gauge-chart__labels--y">
-                <text x="12" y="31" data-chart-y-max>--</text>
-                <text x="12" y="99" data-chart-y-mid>--</text>
-                <text x="12" y="167" data-chart-y-min>--</text>
-              </g>
-
-              <g class="gauge-chart__labels gauge-chart__labels--x">
-                <text x="58" y="194" data-chart-x-start>--</text>
-                <text x="204" y="194" data-chart-x-mid>--</text>
-                <text x="332" y="194" data-chart-x-end>--</text>
-              </g>
-            </svg>
-
-            <div class="gauge-current-panel" data-current-gauge-panel hidden>
-              <div class="gauge-current-panel__top">
-                <div class="gauge-current-panel__main">
-                  <p class="gauge-current-panel__label" data-field="current-gauge-provider">Gauge source</p>
-                  <strong data-field="current-gauge-value">--</strong>
-                  <span data-field="current-gauge-observed">Checking timestamp</span>
-                </div>
-                <div class="gauge-current-panel__interpretation">
-                  <span>DNR interpretation</span>
-                  <strong data-field="current-gauge-interpretation">Unavailable</strong>
-                </div>
-              </div>
-              <div class="gauge-current-panel__meta">
-                <div>
-                  <span>Paddle Today band</span>
-                  <strong data-field="current-gauge-band">Checking</strong>
-                </div>
-              </div>
-              <p class="gauge-current-panel__note">
-                MN DNR provides the current paddling level here, but not chart-ready recent samples.
-              </p>
-              <figure class="gauge-current-panel__hydrograph" data-current-gauge-hydrograph-figure hidden>
-                <div class="gauge-current-panel__hydrograph-head">
-                  <strong>Official MN DNR hydrograph</strong>
-                  <span>7 days</span>
-                </div>
-                <img
-                  alt="Official MN DNR seven-day river level hydrograph"
-                  loading="lazy"
-                  decoding="async"
-                  data-current-gauge-hydrograph-image
-                />
-                <figcaption>
-                  Displayed from MN DNR. Paddle Today does not turn this image into trend samples.
-                </figcaption>
-              </figure>
-              <div class="gauge-current-panel__links">
-                <a
-                  class="river-link river-link--inline gauge-current-panel__link"
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-current-gauge-hydrograph
-                  hidden
+            <div class="gauge-visual__body">
+              <div class="gauge-visual__chart-stack">
+                <svg
+                  class="gauge-visual__chart"
+                  viewBox="0 0 420 210"
+                  width="420"
+                  height="210"
+                  role="img"
+                  aria-label="Recent gauge trend chart"
                 >
-                  Open DNR hydrograph
-                </a>
-                <a
-                  class="river-link river-link--inline gauge-current-panel__link"
-                  href="#"
-                  target="_blank"
-                  rel="noreferrer"
-                  data-current-gauge-detail
-                  hidden
-                >
-                  Open DNR gauge detail
-                </a>
+                  <rect x="0.5" y="0.5" width="419" height="209" rx="20" class="gauge-chart__frame" />
+
+                  <g class="gauge-chart__grid">
+                    <line x1="58" y1="28" x2="394" y2="28" />
+                    <line x1="58" y1="96" x2="394" y2="96" />
+                    <line x1="58" y1="164" x2="394" y2="164" />
+                  </g>
+
+                  <g class="gauge-chart__axis">
+                    <line x1="58" y1="20" x2="58" y2="176" />
+                    <line x1="58" y1="176" x2="394" y2="176" />
+                  </g>
+
+                  <rect data-chart-range x="0" y="0" width="0" height="0" visibility="hidden" />
+                  <line data-chart-threshold x1="0" y1="0" x2="0" y2="0" visibility="hidden" />
+
+                  <path data-chart-line d="M62 140 L392 90" />
+                  <circle data-chart-dot cx="392" cy="90" r="4" />
+
+                  <g class="gauge-chart__labels gauge-chart__labels--y">
+                    <text x="12" y="31" data-chart-y-max>--</text>
+                    <text x="12" y="99" data-chart-y-mid>--</text>
+                    <text x="12" y="167" data-chart-y-min>--</text>
+                  </g>
+
+                  <g class="gauge-chart__labels gauge-chart__labels--x">
+                    <text x="58" y="194" data-chart-x-start>--</text>
+                    <text x="204" y="194" data-chart-x-mid>--</text>
+                    <text x="332" y="194" data-chart-x-end>--</text>
+                  </g>
+                </svg>
+
+                <div class="gauge-current-panel" data-current-gauge-panel hidden>
+                  <div class="gauge-current-panel__top">
+                    <div class="gauge-current-panel__main">
+                      <p class="gauge-current-panel__label" data-field="current-gauge-provider">Gauge source</p>
+                      <strong data-field="current-gauge-value">--</strong>
+                      <span data-field="current-gauge-observed">Checking timestamp</span>
+                    </div>
+                    <div class="gauge-current-panel__interpretation">
+                      <span>DNR interpretation</span>
+                      <strong data-field="current-gauge-interpretation">Unavailable</strong>
+                    </div>
+                  </div>
+                  <div class="gauge-current-panel__meta">
+                    <div>
+                      <span>Paddle Today band</span>
+                      <strong data-field="current-gauge-band">Checking</strong>
+                    </div>
+                  </div>
+                  <p class="gauge-current-panel__note">
+                    MN DNR provides the current paddling level here, but not chart-ready recent samples.
+                  </p>
+                  <figure class="gauge-current-panel__hydrograph" data-current-gauge-hydrograph-figure hidden>
+                    <div class="gauge-current-panel__hydrograph-head">
+                      <strong>Official MN DNR hydrograph</strong>
+                      <span>7 days</span>
+                    </div>
+                    <img
+                      alt="Official MN DNR seven-day river level hydrograph"
+                      loading="lazy"
+                      decoding="async"
+                      data-current-gauge-hydrograph-image
+                    />
+                    <figcaption>
+                      Displayed from MN DNR. Paddle Today does not turn this image into trend samples.
+                    </figcaption>
+                  </figure>
+                  <div class="gauge-current-panel__links">
+                    <a
+                      class="river-link river-link--inline gauge-current-panel__link"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-current-gauge-hydrograph
+                      hidden
+                    >
+                      Open DNR hydrograph
+                    </a>
+                    <a
+                      class="river-link river-link--inline gauge-current-panel__link"
+                      href="#"
+                      target="_blank"
+                      rel="noreferrer"
+                      data-current-gauge-detail
+                      hidden
+                    >
+                      Open DNR gauge detail
+                    </a>
+                  </div>
+                </div>
               </div>
+
+              <aside class="gauge-readout" aria-label="Gauge readout">
+                <div class="gauge-readout__primary">
+                  <span data-field="primary-gauge-label">Current gauge</span>
+                  <strong data-field="gauge-now">Checking</strong>
+                  <small data-field="flow-band">Checking range</small>
+                </div>
+                <div class="gauge-readout__grid">
+                  <div>
+                    <span data-field="secondary-gauge-label">Secondary metric</span>
+                    <strong data-field="discharge-now">Checking</strong>
+                  </div>
+                  <div>
+                    <span>24h movement</span>
+                    <strong data-field="flow-change-24h">Checking</strong>
+                  </div>
+                  <div>
+                    <span>Observed</span>
+                    <strong data-field="observed-at">Checking</strong>
+                  </div>
+                  <div>
+                    <span>Source</span>
+                    <strong data-field="gauge-source">Checking</strong>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
         </section>
@@ -719,35 +749,12 @@ const routeStructuredData = {
                 <FeatureIcon name="thermo" size={16} />
                 Weather
               </p>
-              <h3 class="river-subtitle river-subtitle--compact">Comfort and risk</h3>
+              <h3 class="river-subtitle river-subtitle--compact">Best window today</h3>
             </div>
             <p class="weather-visual__badge" data-field="weather-condition">Checking weather.</p>
           </div>
 
           <div class="weather-visual">
-            <div class="weather-visual__grid">
-                <article class="weather-tile" data-card-field="weather-condition">
-                  <FeatureIcon name="thermo" size={18} class="weather-tile__icon" />
-                  <span class="weather-tile__label">Temperature</span>
-                  <strong data-field="weather-air-temp-summary">Loading</strong>
-                  <small data-field="weather-water-temp-detail">Water: No reading</small>
-                </article>
-
-                <article class="weather-tile" data-card-field="weather-wind">
-                  <FeatureIcon name="wind" size={18} class="weather-tile__icon" />
-                  <span class="weather-tile__label">Wind</span>
-                  <strong data-field="weather-wind-summary">Loading</strong>
-                  <small data-field="weather-gusts-detail">Gusts: No reading</small>
-                </article>
-
-                <article class="weather-tile" data-card-field="weather-rain">
-                  <FeatureIcon name="rain" size={18} class="weather-tile__icon" />
-                  <span class="weather-tile__label">Rain</span>
-                  <strong data-field="weather-rain-risk">Loading</strong>
-                  <small data-field="weather-rain-summary">Recent rain: Checking</small>
-                </article>
-              </div>
-
             <section class="weather-hourly">
               <div class="weather-hourly__head">
                 <div>
@@ -782,58 +789,43 @@ const routeStructuredData = {
         Quick facts
       </p>
 
-      <div class="river-detail__quick-grid river-detail__quick-grid--compact">
-        <article class="snapshot-card">
+      <div class="river-detail__quick-grid river-detail__quick-grid--compact river-quick-facts__grid">
+        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
+          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
           <span class="snapshot-card__label">On-water distance</span>
           <strong>{logistics?.distanceLabel ?? 'Check source links'}</strong>
           <small>{river.reach}</small>
         </article>
-        <article class="snapshot-card">
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="mountain" size={18} /></span>
           <span class="snapshot-card__label">Difficulty</span>
           <strong>{river.profile.difficulty}</strong>
           <small>{river.profile.difficultyNotes}</small>
         </article>
-        <article class="snapshot-card">
+        <article class="snapshot-card snapshot-card--with-icon snapshot-card--featured">
+          <span class="snapshot-card__icon"><FeatureIcon name="car" size={18} /></span>
           <span class="snapshot-card__label">Shuttle</span>
           <strong>{shuttleHeadline}</strong>
           <small>{logistics?.shuttle ?? 'Confirm shuttle details in the source links.'}</small>
         </article>
-        <article class="snapshot-card">
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="compass" size={18} /></span>
           <span class="snapshot-card__label">Permits</span>
           <strong>{permitsHeadline}</strong>
           <small>{logistics?.permits ?? 'Check local access rules.'}</small>
         </article>
-        <article class="snapshot-card">
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="map" size={18} /></span>
           <span class="snapshot-card__label">Camping</span>
           <strong>{campingHeadline}</strong>
           <small>{logistics?.camping ?? 'Treat this as a day trip unless you confirm otherwise.'}</small>
         </article>
-        <article class="snapshot-card">
-          <span class="snapshot-card__label">Best season</span>
+        <article class="snapshot-card snapshot-card--with-icon">
+          <span class="snapshot-card__icon"><FeatureIcon name="clock" size={18} /></span>
+          <span class="snapshot-card__label">Season</span>
           <strong>{seasonHeadline}</strong>
           <small>{river.profile.seasonNotes}</small>
         </article>
-      </div>
-    </section>
-
-    <section class="river-detail__panel river-history-panel" data-history-panel hidden>
-      <div class="river-why-panel__section-head">
-        <div>
-          <p class="eyebrow section-label">
-            <FeatureIcon name="gauge" size={16} />
-            Recent score trend
-          </p>
-          <h3 class="river-subtitle river-subtitle--compact">Last 7 days</h3>
-        </div>
-        <p class="muted river-why-panel__section-note" data-field="history-status">
-          Loading recent route scores.
-        </p>
-      </div>
-
-      <div class="history-chart" data-history-chart-wrap>
-        <div class="history-chart__canvas" data-history-bars aria-live="polite">
-          <p class="history-chart__empty muted">Loading recent route scores.</p>
-        </div>
       </div>
     </section>
 
@@ -857,38 +849,16 @@ const routeStructuredData = {
             {logistics?.summary ??
               'Use the links below to confirm launch, shuttle, and access rules.'}
           </p>
-          <div class="detail-map__links">
-            {putInMapsUrl ? (
-              <a
-                class="river-link river-link--inline"
-                href={putInMapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-access-putin-link
-              >
-                Open put-in
-              </a>
-            ) : null}
-            {takeOutMapsUrl ? (
-              <a
-                class="river-link river-link--inline"
-                href={takeOutMapsUrl}
-                target="_blank"
-                rel="noreferrer"
-                data-access-takeout-link
-              >
-                Open take-out
-              </a>
-            ) : null}
+          <div class="detail-map__links detail-map__links--primary">
             {directionsGoogleUrl ? (
               <a
-                class="river-link river-link--inline"
+                class="river-link river-link--inline river-link--primary"
                 href={directionsGoogleUrl}
                 target="_blank"
                 rel="noreferrer"
                 data-access-directions-google
               >
-                Directions (Google)
+                Directions
               </a>
             ) : null}
             {directionsAppleUrl ? (
@@ -899,7 +869,7 @@ const routeStructuredData = {
                 rel="noreferrer"
                 data-access-directions-apple
               >
-                Directions (Apple)
+                Apple Maps
               </a>
             ) : null}
             <a
@@ -909,7 +879,7 @@ const routeStructuredData = {
               rel="noreferrer"
               data-access-openstreetmap
             >
-              Open in OpenStreetMap
+              OpenStreetMap
             </a>
           </div>
         </div>
@@ -981,6 +951,17 @@ const routeStructuredData = {
             <span class="river-access-card__eyebrow">Start</span>
             <h3 class="river-logistics__title">Put-in</h3>
             <strong data-field="active-putin-name">{putIn?.name ?? 'Check source links'}</strong>
+            {putInMapsUrl ? (
+              <a
+                class="river-link river-link--inline river-access-card__map-link"
+                href={putInMapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-putin-link
+              >
+                Open map
+              </a>
+            ) : null}
             {typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number' ? (
               <button
                 class="river-inline-button"
@@ -1001,6 +982,17 @@ const routeStructuredData = {
             <span class="river-access-card__eyebrow">Finish</span>
             <h3 class="river-logistics__title">Take-out</h3>
             <strong data-field="active-takeout-name">{takeOut?.name ?? 'Check source links'}</strong>
+            {takeOutMapsUrl ? (
+              <a
+                class="river-link river-link--inline river-access-card__map-link"
+                href={takeOutMapsUrl}
+                target="_blank"
+                rel="noreferrer"
+                data-access-takeout-link
+              >
+                Open map
+              </a>
+            ) : null}
             {typeof takeOut?.latitude === 'number' && typeof takeOut?.longitude === 'number' ? (
               <button
                 class="river-inline-button"
@@ -1037,16 +1029,9 @@ const routeStructuredData = {
         </div>
 
         <div class="river-launch-plan__support">
-          <dl class="detail-map__facts detail-map__facts--launch-plan">
-            <div>
-              <dt>On-water distance</dt>
-              <dd data-field="active-fact-distance">{logistics?.distanceLabel ?? 'Check source links'}</dd>
-            </div>
-          </dl>
-
           <section class="river-logistics__notes">
             <h3 class="river-logistics__title">Access caveats</h3>
-            <ul class="compact-list">
+            <ul class="compact-list compact-list--checklist">
               {(logistics?.accessCaveats ?? ['Check parking, launch, and access rules on the ground.']).map((note) => (
                 <li>{note}</li>
               ))}
@@ -1055,7 +1040,7 @@ const routeStructuredData = {
 
           <section class="river-logistics__notes">
             <h3 class="river-logistics__title">Watch for</h3>
-            <ul class="compact-list">
+            <ul class="compact-list compact-list--checklist">
               {(logistics?.watchFor ?? ['Use the factor breakdown and source links for the current risk picture.']).map((note) => (
                 <li>{note}</li>
               ))}
