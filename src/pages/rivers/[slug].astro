@@ -123,6 +123,16 @@ const distanceMiles = (left: typeof river, right: typeof river) => {
 
   return 2 * earthRadiusMiles * Math.asin(Math.sqrt(haversine));
 };
+const formatDifficulty = (difficulty: string | undefined) => {
+  if (!difficulty) {
+    return null;
+  }
+
+  return difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+};
+const routeLengthLabel = (candidate: typeof river) => candidate.logistics?.distanceLabel ?? null;
+const routeInfoParts = (candidate: typeof river) =>
+  [formatDifficulty(candidate.profile.difficulty), routeLengthLabel(candidate)].filter(Boolean);
 const nearbyRoutes = allRoutes
   .filter((candidate) => candidate.slug !== river.slug && candidate.riverId !== river.riverId)
   .map((candidate) => ({
@@ -131,10 +141,17 @@ const nearbyRoutes = allRoutes
   }))
   .sort((left, right) => left.distance - right.distance)
   .slice(0, 4);
+const hasSameRiverRoutes = siblingRoutes.length > 0;
+const hasNearbyRoutes = nearbyRoutes.length > 0;
+const routeDiscoveryGridClass =
+  hasSameRiverRoutes && hasNearbyRoutes ? 'route-discovery__grid' : 'route-discovery__grid route-discovery__grid--single';
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
 const riverHubUrl = riverHubHref ? new URL(riverHubHref, siteUrl).href : null;
+const routeSeoTitle = `${river.name} Paddle Conditions, Water Levels & Route Info | Paddle Today`;
+const routeSeoDescription = `Check today's paddle conditions for ${river.name}, including water level, weather, route distance, difficulty, and access details for ${river.reach}.`;
+const routeIntro = `Check current paddling conditions for this ${river.name} route, including water level, recent gauge trend, weather, and route details.`;
 const routeShareTitle = `${river.name}: ${river.reach} | Paddle Today`;
 const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gauge, weather, data confidence, access details, and today's paddle score before you drive.`;
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, confidence, access, and a clear go / watch / skip call.`;
@@ -172,17 +189,58 @@ const breadcrumbItems = [
         },
       ]),
 ];
+const routeAccessAnswer =
+  putIn?.name && takeOut?.name
+    ? `This route starts at ${putIn.name} and ends at ${takeOut.name}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`
+    : `This route covers ${river.reach}${logistics?.distanceLabel ? `, about ${logistics.distanceLabel} on the water` : ''}.`;
+const waterLevelAnswer = isMinimumOnlyRoute
+  ? `Paddle Today watches ${river.gaugeSource.siteName} and uses ${lowThresholdValue} as the conservative low-water floor for this route. The ideal range still needs more paddler reports.`
+  : `Paddle Today watches ${river.gaugeSource.siteName} and treats ${targetBandValue} as the target band for this route, with weather and recent trend included in the final score.`;
+const beginnerAnswer =
+  river.profile.difficulty === 'easy'
+    ? `This is listed as an easy route, but conditions still matter. Check today's score, water level, weather, and access notes before you go.`
+    : river.profile.difficulty === 'moderate'
+      ? `This is listed as a moderate route. Expect more planning than an easy float, and use the live score, route notes, and source links before committing.`
+      : `This is listed as a hard route. Treat the live score as a planning aid, then confirm conditions, hazards, access, and group skill before launching.`;
+const faqItems = [
+  {
+    question: `What water level is good for paddling ${river.name}?`,
+    answer: waterLevelAnswer,
+  },
+  {
+    question: `Where does this ${river.name} route start and end?`,
+    answer: routeAccessAnswer,
+  },
+  {
+    question: `Is this ${river.name} route good for beginners?`,
+    answer: beginnerAnswer,
+  },
+];
 const routeStructuredData = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   '@id': `${routeUrl}#breadcrumbs`,
   itemListElement: breadcrumbItems,
 };
+const routeFaqStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${routeUrl}#faq`,
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: item.answer,
+    },
+  })),
+};
 ---
 
 <BaseLayout
-  title={`${river.name} Today | ${river.reach} | Paddle Today`}
-  description={`Check ${river.name} today for ${river.reach}. See live gauge data, weather, score, data confidence, and a clear paddling recommendation before you drive.`}
+  title={routeSeoTitle}
+  description={routeSeoDescription}
+  structuredData={[routeStructuredData, routeFaqStructuredData]}
   socialTitle={routeShareTitle}
   socialDescription={routeShareDescription}
   socialImage={routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png'}
@@ -192,7 +250,6 @@ const routeStructuredData = {
   ogType="article"
   twitterCard="summary_large_image"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(routeStructuredData)}></script>
   <article
     class="river-detail"
     data-river-detail
@@ -249,6 +306,7 @@ const routeStructuredData = {
             <p class="eyebrow">{river.state} | {river.region}</p>
             <h1 class="river-detail__title">{river.name}</h1>
             <p class="river-detail__reach">{river.reach}</p>
+            <p class="route-seo-intro">{routeIntro}</p>
           </div>
         </div>
 
@@ -440,8 +498,8 @@ const routeStructuredData = {
         <section class="route-conversion-card" aria-label="Route alerts">
           <div class="route-conversion-card__copy">
             <p class="route-conversion-card__kicker">Route alert</p>
-            <h2>Get emailed when this route turns Good.</h2>
-            <p>We only send when it newly crosses your chosen threshold.</p>
+            <h2 data-alert-cta-title>Stay ahead of changes</h2>
+            <p data-alert-cta-copy>Get emailed when this route newly crosses your alert threshold.</p>
           </div>
           <button
             class="route-action-button route-action-button--primary route-conversion-card__button"
@@ -1804,8 +1862,8 @@ const routeStructuredData = {
         </p>
       </div>
 
-      <div class="route-discovery__grid">
-        {siblingRoutes.length > 0 ? (
+      <div class={routeDiscoveryGridClass}>
+        {hasSameRiverRoutes ? (
           <section class="route-discovery__group" aria-labelledby="same-river-routes-title">
             <div class="route-discovery__group-head">
               <h3 id="same-river-routes-title">More on {river.name}</h3>
@@ -1821,16 +1879,20 @@ const routeStructuredData = {
                 >
                   <span class="route-discovery__route">{candidate.reach}</span>
                   <span class="route-discovery__meta">{candidate.region}</span>
+                  {routeInfoParts(candidate).length > 0 ? (
+                    <span class="route-discovery__facts">{routeInfoParts(candidate).join(' · ')}</span>
+                  ) : null}
+                  <span class="route-discovery__cta" aria-hidden="true">View route</span>
                 </a>
               ))}
             </div>
           </section>
         ) : null}
 
-        {nearbyRoutes.length > 0 ? (
+        {hasNearbyRoutes ? (
           <section class="route-discovery__group" aria-labelledby="nearby-routes-title">
             <div class="route-discovery__group-head">
-              <h3 id="nearby-routes-title">Nearby routes</h3>
+              <h3 id="nearby-routes-title">Nearby routes by distance</h3>
             </div>
             <div class="route-discovery__list">
               {nearbyRoutes.map((candidate) => (
@@ -1842,13 +1904,42 @@ const routeStructuredData = {
                 >
                   <span class="route-discovery__route">{candidate.name}</span>
                   <span class="route-discovery__meta">
-                    {candidate.reach} · {Math.round(candidate.distance)} mi
+                    {candidate.reach} · about {Math.round(candidate.distance)} mi away
                   </span>
+                  {routeInfoParts(candidate).length > 0 ? (
+                    <span class="route-discovery__facts">{routeInfoParts(candidate).join(' · ')}</span>
+                  ) : null}
+                  <span class="route-discovery__cta" aria-hidden="true">View route</span>
                 </a>
               ))}
             </div>
           </section>
         ) : null}
+      </div>
+    </section>
+
+    <section class="river-detail__panel route-faq" data-detail-section="route-faq" data-detail-nav-group="plan" aria-labelledby="route-faq-title">
+      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+        <p class="eyebrow section-label">
+          <FeatureIcon name="compass" size={16} />
+          Quick answers
+        </p>
+        <h2 class="river-detail__chapter-title" id="route-faq-title">{river.name} paddling FAQ</h2>
+      </div>
+
+      <div class="route-faq__list">
+        {faqItems.map((item) => (
+          <details class="river-accordion route-faq__item">
+            <summary class="river-accordion__summary">
+              <span>
+                <strong>{item.question}</strong>
+              </span>
+            </summary>
+            <div class="river-accordion__body">
+              <p class="muted">{item.answer}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
 

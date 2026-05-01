@@ -1,0 +1,161 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import RouteBoardCardTemplate from '../../components/RouteBoardCardTemplate.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const guideUrl = new URL('/guides/best-weekend-paddle-trips-minnesota/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${guideUrl}#collection`,
+    name: 'Best Weekend Paddle Trips in Minnesota',
+    description:
+      'A practical Minnesota weekend paddling guide with live Paddle Today route scores, water levels, weather, and route details.',
+    url: guideUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${guideUrl}#faq`,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How does Paddle Today choose weekend paddle trips?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Paddle Today uses current route scores, gauge status, weather, and weekend forecast signals. This guide only shows Minnesota routes with decent current and weekend scores.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Should I still check the route page before launching?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Yes. Weekend picks are planning guidance. Check the route page again before driving because water levels, weather, access, and hazards can change.',
+        },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Best Weekend Paddle Trips in Minnesota | Paddle Today"
+  description="Find Minnesota paddle routes that look good for the weekend, filtered by current Paddle Today scores, water levels, weather, and route difficulty."
+  structuredData={structuredData}
+>
+  <section class="guide-hero">
+    <div class="guide-hero__copy">
+      <p class="hero__kicker">Minnesota weekend guide</p>
+      <h1>Best Weekend Paddle Trips in Minnesota</h1>
+      <p class="guide-hero__lede">
+        A live shortlist of Minnesota paddle routes that look promising for the weekend and also have decent Paddle Today scores right now.
+      </p>
+      <p class="guide-hero__status" data-guide-weekend-status>
+        Checking weekend route recommendations...
+      </p>
+    </div>
+    <aside class="guide-hero__note">
+      <p class="eyebrow">How this list works</p>
+      <p>
+        Routes only appear here when the weekend read is Good or Strong and today&apos;s Paddle Today score is also Good or Strong.
+      </p>
+    </aside>
+  </section>
+
+  <section class="decision-section decision-section--recommended guide-section">
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">Best this weekend</p>
+        <h2 class="section-title">Minnesota routes with decent scores</h2>
+      </div>
+      <p class="muted section-head__note" data-guide-weekend-note>
+        Pulling the same weekend recommendation feed used by Paddle Today&apos;s weekend board.
+      </p>
+    </div>
+
+    <div class="recommendation-grid guide-weekend-grid" data-guide-weekend-grid></div>
+    <div class="weekend-empty-state decision-section__empty" data-guide-weekend-empty hidden>
+      <p class="weekend-empty-state__title">No Minnesota weekend picks meet this filter yet</p>
+      <p class="muted weekend-empty-state__copy">
+        The weekend board may still have tradeoff routes, but this guide waits for routes that look good both today and this weekend.
+      </p>
+      <p>
+        <a class="river-link river-link--inline" href="/weekend/">Check the full weekend board</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="guide-section guide-explainer" aria-labelledby="guide-weekend-how-title">
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">Planning notes</p>
+        <h2 class="section-title" id="guide-weekend-how-title">How to use this weekend paddle guide</h2>
+      </div>
+    </div>
+    <div class="guide-explainer__grid">
+      <article class="guide-explainer__item">
+        <h3>Start with the live shortlist</h3>
+        <p>
+          These routes come from the weekend recommendation feed, then narrow to Minnesota routes with Good or Strong current scores.
+        </p>
+      </article>
+      <article class="guide-explainer__item">
+        <h3>Check the route page before driving</h3>
+        <p>
+          Open the route for current water level, trend, weather, access notes, source confidence, and nearby alternatives.
+        </p>
+      </article>
+      <article class="guide-explainer__item">
+        <h3>Use conditions over habit</h3>
+        <p>
+          A familiar river can still be a bad call after rain, during high wind, or when the gauge is outside the route&apos;s target band.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="guide-section route-faq" aria-labelledby="guide-weekend-faq-title">
+    <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+      <p class="eyebrow section-label">Quick answers</p>
+      <h2 class="river-detail__chapter-title" id="guide-weekend-faq-title">Weekend paddling FAQ</h2>
+    </div>
+    <div class="route-faq__list">
+      <details class="river-accordion route-faq__item">
+        <summary class="river-accordion__summary">
+          <span><strong>How does Paddle Today choose weekend paddle trips?</strong></span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted">
+            Paddle Today uses current route scores, gauge status, weather, and weekend forecast signals. This guide only shows Minnesota routes with decent current and weekend scores.
+          </p>
+        </div>
+      </details>
+      <details class="river-accordion route-faq__item">
+        <summary class="river-accordion__summary">
+          <span><strong>Should I still check the route page before launching?</strong></span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted">
+            Yes. Weekend picks are planning guidance. Check the route page again before driving because water levels, weather, access, and hazards can change.
+          </p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <RouteBoardCardTemplate />
+
+  <script>
+    import '../../scripts/minnesota-weekend-guide.js';
+  </script>
+</BaseLayout>
