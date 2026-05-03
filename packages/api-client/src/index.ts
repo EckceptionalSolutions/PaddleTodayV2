@@ -1,8 +1,13 @@
 import type {
   ApiErrorResponse,
+  CreateRiverRequestRequest,
+  CreateRiverRequestResponse,
+  CreateRouteReportRequest,
+  CreateRouteReportResponse,
   CreateRiverAlertRequest,
   CreateRiverAlertResponse,
   RiverDetailResponse,
+  RiverGroupResponse,
   RiverHistoryResponse,
   RouteCommunityResponse,
   RiverSummaryResponse,
@@ -41,9 +46,12 @@ export interface PaddleTodayApiClient {
   getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
+  getRiverGroup(riverId: string, options?: RequestOptions): Promise<RiverGroupResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
+  createRiverRequest(input: CreateRiverRequestRequest, options?: RequestOptions): Promise<CreateRiverRequestResponse>;
+  createRouteReport(input: CreateRouteReportRequest, options?: RequestOptions): Promise<CreateRouteReportResponse>;
 }
 
 export function createPaddleTodayApiClient(args: {
@@ -108,6 +116,12 @@ export function createPaddleTodayApiClient(args: {
         options
       );
     },
+    getRiverGroup(riverId, options) {
+      return requestJson<RiverGroupResponse>(
+        `/api/river-groups/${encodeURIComponent(riverId)}.json`,
+        options
+      );
+    },
     getRiverHistory(slug, options) {
       const days = options?.days ?? 7;
       return requestJson<RiverHistoryResponse>(
@@ -123,6 +137,20 @@ export function createPaddleTodayApiClient(args: {
     },
     createRiverAlert(input, options) {
       return requestJson<CreateRiverAlertResponse>('/api/alerts', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    createRiverRequest(input, options) {
+      return requestJson<CreateRiverRequestResponse>('/api/river-request', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    createRouteReport(input, options) {
+      return requestJson<CreateRouteReportResponse>('/api/route-photo-submissions', {
         ...options,
         method: 'POST',
         body: input,

@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
@@ -137,6 +137,17 @@ export default function WeekendScreen() {
           <Text style={styles.emptyText}>The board is either clearly good or still too weak to support a watch list.</Text>
         )}
       </SectionCard>
+
+      <Pressable style={styles.requestCallout} onPress={() => router.push('/request-route')}>
+        <View style={styles.requestCalloutCopy}>
+          <Text style={styles.requestCalloutLabel}>Missing a weekend route?</Text>
+          <Text style={styles.requestCalloutTitle}>Request a river or route</Text>
+          <Text style={styles.requestCalloutBody}>
+            Send a stretch you paddle and any gauge or access links that would help review it.
+          </Text>
+        </View>
+        <Text style={styles.requestCalloutAction}>Open</Text>
+      </Pressable>
     </ScrollView>
   );
 }
@@ -274,6 +285,42 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 14,
     lineHeight: 20,
+  },
+  requestCallout: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  requestCalloutCopy: {
+    flex: 1,
+    gap: 4,
+  },
+  requestCalloutLabel: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  requestCalloutTitle: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  requestCalloutBody: {
+    color: colors.textMuted,
+    fontSize: 14,
+    lineHeight: 20,
+  },
+  requestCalloutAction: {
+    color: colors.accent,
+    fontSize: 14,
+    fontWeight: '900',
   },
   centerState: {
     flex: 1,
