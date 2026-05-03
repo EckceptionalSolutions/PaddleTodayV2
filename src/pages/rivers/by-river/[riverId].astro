@@ -17,37 +17,74 @@ const { group } = Astro.props;
 const stateSummary = group.states.join(', ');
 const regionSummary = group.regions.join(', ');
 const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
-const heroLede = `Compare ${group.routeCount} scored ${group.name} ${routeLabel} before you drive.`;
+const heroLede = `Compare ${group.routeCount} scored ${group.name} ${routeLabel}, including water-level context, live route scores, weather, access, and difficulty.`;
 const heroDetail = `These reaches share a river, not a verdict. Gauge fit, access, and difficulty can change from one stretch to the next.`;
+const groupTitle = `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`;
+const groupDescription = `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`;
+const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
+const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.difficulty))]
+  .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
+  .sort();
+const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
+const riverHubIntro = `Use this ${group.name} hub to compare routes on the same river before you choose a paddle plan. Each route has its own score because water level, weather, access, distance, and difficulty can vary by stretch.`;
+const faqItems = [
+  {
+    question: `Where can I paddle the ${group.name}?`,
+    answer: `Paddle Today tracks ${group.routeCount} ${group.name} ${routeLabel} across ${regionSummary}. Compare the route cards on this page, then open an individual route for put-in, take-out, distance, and access notes.`,
+  },
+  {
+    question: `How should I check ${group.name} water levels?`,
+    answer: `Start with the route score and gauge notes for the stretch you plan to paddle. This hub includes routes watched with ${gaugeNames.length === 1 ? gaugeNames[0] : `${gaugeNames.length} gauges or gauge references`}, and each route page explains its own target range or low-water floor.`,
+  },
+  {
+    question: `Which ${group.name} route is best today?`,
+    answer: `Use the live route cards above to compare today's Paddle Today scores. The best stretch can change with water level, recent trend, weather, access, and route difficulty.`,
+  },
+];
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const groupUrl = new URL(`/rivers/by-river/${group.riverId}/`, siteUrl).href;
-const groupStructuredData = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  '@id': `${groupUrl}#breadcrumbs`,
-  itemListElement: [
-    {
-      '@type': 'ListItem',
-      position: 1,
-      name: 'Home',
-      item: homeUrl,
-    },
-    {
-      '@type': 'ListItem',
-      position: 2,
-      name: group.name,
-      item: groupUrl,
-    },
-  ],
-};
+const groupStructuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${groupUrl}#breadcrumbs`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: homeUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: group.name,
+        item: groupUrl,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${groupUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+];
 ---
 
 <BaseLayout
-  title={`${group.name} Routes Today | Paddle Today`}
-  description={`See which ${group.name} route looks best today, then compare the other stretches if you want a second option.`}
+  title={groupTitle}
+  description={groupDescription}
+  structuredData={groupStructuredData}
 >
-  <script type="application/ld+json" set:html={JSON.stringify(groupStructuredData)}></script>
   <article class="river-group-page" data-river-group-page data-river-id={group.riverId}>
     <section class="river-group-page__hero">
       <div class="river-group-page__hero-main">
@@ -59,9 +96,15 @@ const groupStructuredData = {
         <p class="muted river-group-page__summary" data-group-detail>
           {heroDetail}
         </p>
+        <p class="muted river-group-page__summary river-group-page__summary--seo">
+          {riverHubIntro}
+        </p>
 
         <div class="hero__meta river-group-page__meta">
           <span class="stat-chip">{group.routeCount} routes</span>
+          <span class="stat-chip">{gaugeNames.length} {gaugeNames.length === 1 ? 'gauge reference' : 'gauge references'}</span>
+          {difficultyLabels.length > 0 ? <span class="stat-chip">{difficultyLabels.join(' / ')} difficulty</span> : null}
+          {routeDistanceLabels.length > 0 ? <span class="stat-chip">{routeDistanceLabels.length} route distances</span> : null}
           <span class="stat-chip">Each route is scored separately</span>
         </div>
         <div class="river-group-page__actions">
@@ -154,6 +197,46 @@ const groupStructuredData = {
       </div>
     </section>
 
+    <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            River overview
+          </p>
+          <h2 class="section-title" id="river-hub-context-title">{group.name} paddle planning</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Pick the route first, then confirm the same-day details.
+        </p>
+      </div>
+
+      <div class="river-hub-context__grid">
+        <article class="river-hub-context__item">
+          <h3>Water levels</h3>
+          <p>
+            {gaugeNames.length === 1
+              ? `These ${group.name} routes use ${gaugeNames[0]} as the main gauge reference.`
+              : `These ${group.name} routes use ${gaugeNames.length} gauge references depending on the stretch.`}
+          </p>
+        </article>
+        <article class="river-hub-context__item">
+          <h3>Route options</h3>
+          <p>
+            Compare {group.routeCount} scored {routeLabel} across {regionSummary}. Open a route page for put-in, take-out, distance, source confidence, and access notes.
+          </p>
+        </article>
+        <article class="river-hub-context__item">
+          <h3>Difficulty</h3>
+          <p>
+            {difficultyLabels.length > 0
+              ? `${group.name} routes here are marked ${difficultyLabels.join(' and ').toLowerCase()}, so choose the stretch that fits your group and conditions.`
+              : `Difficulty varies by stretch, water level, weather, and access logistics.`}
+          </p>
+        </article>
+      </div>
+    </section>
+
     <section class="river-group-page__panel river-group-page__panel--map">
       <div class="river-group-page__section-head river-group-page__section-head--map">
         <div>
@@ -182,6 +265,31 @@ const groupStructuredData = {
         <p class="muted river-group-page__map-status" data-group-map-status>
           Loading route map.
         </p>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel route-faq" aria-labelledby="river-hub-faq-title">
+      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+        <p class="eyebrow section-label">
+          <FeatureIcon name="compass" size={16} />
+          Quick answers
+        </p>
+        <h2 class="river-detail__chapter-title" id="river-hub-faq-title">{group.name} paddling FAQ</h2>
+      </div>
+
+      <div class="route-faq__list">
+        {faqItems.map((item) => (
+          <details class="river-accordion route-faq__item">
+            <summary class="river-accordion__summary">
+              <span>
+                <strong>{item.question}</strong>
+              </span>
+            </summary>
+            <div class="river-accordion__body">
+              <p class="muted">{item.answer}</p>
+            </div>
+          </details>
+        ))}
       </div>
     </section>
   </article>

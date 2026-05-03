@@ -1,0 +1,209 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  minnesotaPaddleGuideCategoryLabels,
+  minnesotaPaddleGuideEntries,
+  type MinnesotaPaddleGuideCategory,
+} from '../../data/minnesota-paddle-guide';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const guideUrl = new URL('/guides/best-minnesota-paddle-trips/', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const websiteId = new URL('/#website', siteUrl).href;
+const categories: MinnesotaPaddleGuideCategory[] = [
+  'best-weekend',
+  'long-day',
+  'camping',
+  'beginner',
+  'near-twin-cities',
+  'remote',
+];
+const getEntriesForCategory = (category: MinnesotaPaddleGuideCategory) =>
+  minnesotaPaddleGuideEntries.filter((entry) => entry.categories.includes(category));
+const trackedCount = minnesotaPaddleGuideEntries.filter((entry) => entry.trackedSlug).length;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${guideUrl}#collection`,
+    name: 'Best Minnesota Paddle Trips',
+    description:
+      'A curated guide to Minnesota paddle trips, including long day routes, canoe camping ideas, beginner-friendly rivers, and live Paddle Today scores where available.',
+    url: guideUrl,
+    isPartOf: {
+      '@id': websiteId,
+    },
+    about: {
+      '@id': organizationId,
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${guideUrl}#faq`,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: 'How were these Minnesota paddle trips chosen?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'This guide combines official water-trail sources with Paddle Today route coverage. Entries favor routes with useful weekend planning value, strong scenery or camping potential, clear access, and enough route detail to plan responsibly.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Do all listed routes have good conditions right now?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'No. This is an evergreen guide, not a live-only ranking. Where Paddle Today tracks a route, the page shows the current score so you can separate a great route idea from a good route today.',
+        },
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="Best Minnesota Paddle Trips: Weekend Routes, Long Days & Canoe Camping | Paddle Today"
+  description="Plan Minnesota paddle trips with curated route ideas for weekends, long days, canoe camping, beginner routes, and live Paddle Today scores where available."
+  structuredData={structuredData}
+>
+  <section class="guide-hero guide-hero--flagship">
+    <div class="guide-hero__copy">
+      <p class="hero__kicker">Minnesota paddling guide</p>
+      <h1>Best Minnesota Paddle Trips</h1>
+      <p class="guide-hero__lede">
+        Weekend routes, long day trips, canoe-camping ideas, and beginner-friendly paddles with live Paddle Today status where we track the route.
+      </p>
+      <p class="guide-hero__status" data-minnesota-guide-status>
+        Loading live Paddle Today scores for tracked routes...
+      </p>
+    </div>
+    <aside class="guide-hero__note">
+      <p class="eyebrow">Guide scope</p>
+      <p>
+        This is a curated planning guide. A route can be worth knowing even when today&apos;s water level or weather says to wait.
+      </p>
+    </aside>
+  </section>
+
+  <section class="guide-section guide-explainer" aria-labelledby="minnesota-guide-how-title">
+    <div class="section-head section-head--stacked">
+      <div>
+        <p class="eyebrow">How to use this guide</p>
+        <h2 class="section-title" id="minnesota-guide-how-title">Pick the trip idea, then check the live route read</h2>
+      </div>
+      <p class="muted section-head__note">
+        {trackedCount} guide entries currently map to Paddle Today routes with live scores, water-level context, weather, and access notes.
+      </p>
+    </div>
+
+    <div class="guide-explainer__grid">
+      <article class="guide-explainer__item">
+        <h3>Use categories first</h3>
+        <p>Choose a long day, camping route, beginner paddle, or near-metro option based on your group and weekend plan.</p>
+      </article>
+      <article class="guide-explainer__item">
+        <h3>Read the live score second</h3>
+        <p>Tracked routes show the current Paddle Today score, gauge read, and route link so a good idea does not become a blind yes.</p>
+      </article>
+      <article class="guide-explainer__item">
+        <h3>Verify rules and access</h3>
+        <p>Camping, permits, water levels, and landings can change. Use the source links and route pages before you drive.</p>
+      </article>
+    </div>
+  </section>
+
+  {categories.map((category) => (
+    <section class="guide-section minnesota-guide-section" aria-labelledby={`guide-${category}-title`}>
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Minnesota guide</p>
+          <h2 class="section-title" id={`guide-${category}-title`}>{minnesotaPaddleGuideCategoryLabels[category]}</h2>
+        </div>
+      </div>
+
+      <div class="minnesota-guide-grid">
+        {getEntriesForCategory(category).map((entry) => (
+          <article class="minnesota-guide-card" data-minnesota-guide-entry data-guide-slug={entry.trackedSlug}>
+            <div class="minnesota-guide-card__top">
+              <div>
+                <p class="eyebrow">{entry.riverName}</p>
+                <h3>{entry.title}</h3>
+                <p class="minnesota-guide-card__route">{entry.routeName}</p>
+              </div>
+              <div class="minnesota-guide-card__score" data-guide-score-card hidden>
+                <span class="minnesota-guide-card__score-value" data-guide-score>--</span>
+                <span class="minnesota-guide-card__score-rating" data-guide-rating>Loading</span>
+              </div>
+            </div>
+
+            <p class="minnesota-guide-card__summary">{entry.summary}</p>
+
+            <div class="minnesota-guide-card__facts">
+              {entry.fastFacts.map((fact) => <span>{fact}</span>)}
+            </div>
+
+            <div class="minnesota-guide-card__live" data-guide-live-wrap>
+              {entry.trackedSlug ? (
+                <>
+                  <p class="minnesota-guide-card__live-title">Paddle Today status</p>
+                  <p class="muted" data-guide-live-summary>Loading current score and water-level read.</p>
+                </>
+              ) : (
+                <>
+                  <p class="minnesota-guide-card__live-title">Paddle Today status</p>
+                  <p class="muted">Not tracked yet. Use the source link and request this route if you want live scoring added.</p>
+                </>
+              )}
+            </div>
+
+            <div class="minnesota-guide-card__actions">
+              {entry.trackedSlug ? (
+                <a class="river-link river-link--inline" href={`/rivers/${entry.trackedSlug}/`} data-guide-route-link>
+                  View route
+                </a>
+              ) : null}
+              <a class="river-link river-link--inline river-link--ghost" href={entry.sourceUrl} target="_blank" rel="noreferrer">
+                {entry.sourceLabel}
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  ))}
+
+  <section class="guide-section route-faq" aria-labelledby="minnesota-guide-faq-title">
+    <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+      <p class="eyebrow section-label">Quick answers</p>
+      <h2 class="river-detail__chapter-title" id="minnesota-guide-faq-title">Minnesota paddle trip FAQ</h2>
+    </div>
+    <div class="route-faq__list">
+      <details class="river-accordion route-faq__item">
+        <summary class="river-accordion__summary">
+          <span><strong>How were these Minnesota paddle trips chosen?</strong></span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted">
+            This guide combines official water-trail sources with Paddle Today route coverage. Entries favor routes with useful weekend planning value, strong scenery or camping potential, clear access, and enough route detail to plan responsibly.
+          </p>
+        </div>
+      </details>
+      <details class="river-accordion route-faq__item">
+        <summary class="river-accordion__summary">
+          <span><strong>Do all listed routes have good conditions right now?</strong></span>
+        </summary>
+        <div class="river-accordion__body">
+          <p class="muted">
+            No. This is an evergreen guide, not a live-only ranking. Where Paddle Today tracks a route, the page shows the current score so you can separate a great route idea from a good route today.
+          </p>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <script>
+    import '../../scripts/minnesota-paddle-guide.js';
+  </script>
+</BaseLayout>
