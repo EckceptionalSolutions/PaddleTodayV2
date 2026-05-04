@@ -45,6 +45,8 @@ export default function RootLayout() {
         >
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="river/[slug]" options={{ title: 'River detail' }} />
+          <Stack.Screen name="river-hub/[riverId]" options={{ title: 'River hub' }} />
+          <Stack.Screen name="request-route" options={{ title: 'Request route' }} />
         </Stack>
       </ThemeProvider>
     </AppProviders>

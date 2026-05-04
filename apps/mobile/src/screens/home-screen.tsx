@@ -4,16 +4,18 @@ import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
-  FlatList,
+  ImageBackground,
   Pressable,
   RefreshControl,
+  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
 import { useRiverSummaryQuery } from '../api/queries';
-import { RiverCard } from '../components/river-card';
-import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { RatingPill } from '../components/rating-pill';
+import { SaveToggleButton } from '../components/save-toggle-button';
+import { StatusPill } from '../components/status-pill';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
@@ -27,20 +29,17 @@ import {
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-type BoardMode = 'best' | 'saved' | 'nearby';
-type BoardViewMode = 'list' | 'map';
+type BoardMode = 'best' | 'nearby';
 type BoardItem = RiverSummaryApiItem | NearbyRiverPick;
 
 interface BoardPreferences {
   mode: BoardMode;
-  viewMode: BoardViewMode;
 }
 
 const BOARD_PREFERENCES_STORAGE_KEY = 'paddletoday:board-preferences';
 
 const modeLabels: Record<BoardMode, string> = {
   best: 'Best',
-  saved: 'Saved',
   nearby: 'Nearby',
 };
 
@@ -48,38 +47,20 @@ export default function HomeScreen() {
   const router = useRouter();
   const summaryQuery = useRiverSummaryQuery();
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
-  const { savedRivers, isSaved, toggleSavedRiver } = useSavedRivers();
+  const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
-  const [viewMode, setViewMode] = useState<BoardViewMode>('list');
-  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const snapshot = buildBoardSnapshot(rivers);
-  const savedRiverLookup = useMemo(
-    () => new Map(savedRivers.map((river) => [river.slug, river])),
-    [savedRivers]
-  );
   const topPicks = useMemo(() => selectTopPicks(rivers, 12), [rivers]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, 12) : []),
     [rivers, location]
   );
-  const savedPicks = useMemo(
-    () =>
-      rivers
-        .filter((river) => savedRiverLookup.has(river.river.slug))
-        .sort((left, right) =>
-          (savedRiverLookup.get(right.river.slug)?.savedAt ?? '').localeCompare(
-            savedRiverLookup.get(left.river.slug)?.savedAt ?? ''
-          )
-        ),
-    [rivers, savedRiverLookup]
-  );
 
-  const data = mode === 'nearby' ? nearbyPicks : mode === 'saved' ? savedPicks : topPicks;
+  const data = mode === 'nearby' ? nearbyPicks : topPicks;
   const headline = data[0] ?? topPicks[0] ?? null;
-  const selectedRiver = data.find((river) => river.river.slug === selectedSlug) ?? data[0] ?? null;
 
   useEffect(() => {
     void hydrateBoardPreferences();
@@ -92,20 +73,9 @@ export default function HomeScreen() {
 
     void AsyncStorage.setItem(
       BOARD_PREFERENCES_STORAGE_KEY,
-      JSON.stringify({ mode, viewMode })
+      JSON.stringify({ mode })
     );
-  }, [mode, preferencesHydrated, viewMode]);
-
-  useEffect(() => {
-    if (data.length === 0) {
-      setSelectedSlug(null);
-      return;
-    }
-
-    if (!selectedSlug || !data.some((river) => river.river.slug === selectedSlug)) {
-      setSelectedSlug(data[0].river.slug);
-    }
-  }, [data, selectedSlug]);
+  }, [mode, preferencesHydrated]);
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
@@ -127,11 +97,9 @@ export default function HomeScreen() {
   }
 
   return (
-    <FlatList
+    <ScrollView
       style={styles.screen}
       contentContainerStyle={styles.listContent}
-      data={viewMode === 'list' ? data : []}
-      keyExtractor={(river) => river.river.slug}
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
@@ -139,55 +107,60 @@ export default function HomeScreen() {
           onRefresh={() => summaryQuery.refetch()}
         />
       }
-      ListHeaderComponent={
-        <View style={styles.headerStack}>
-          <BoardHeader
-            freshness={formatRelativeTime(summaryQuery.data?.generatedAt)}
-            headline={headline}
-            snapshot={snapshot}
-          />
-          <LocationStrip
-            locationLabel={location?.label ?? null}
-            status={status}
-            onUseLocation={() => void requestLocation()}
-            onClear={() => void clearLocation()}
-          />
-          <ModeTabs
-            mode={mode}
-            counts={{
-              best: topPicks.length,
-              saved: savedPicks.length,
-              nearby: location ? nearbyPicks.length : 0,
-            }}
-            onChange={setMode}
-          />
-          <ViewToggle mode={viewMode} onChange={setViewMode} />
-          <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
-          {viewMode === 'map' ? (
-            <HomeMapPanel
-              data={data}
-              selectedRiver={selectedRiver}
-              selectedSlug={selectedSlug}
-              userLocation={location}
-              onSelectSlug={setSelectedSlug}
-              isSaved={isSaved}
-              onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-              onOpenRoute={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-            />
-          ) : null}
-        </View>
-      }
-      ListEmptyComponent={<EmptyMode mode={mode} hasLocation={Boolean(location)} />}
-      renderItem={({ item }) => (
-        <RiverCard
-          river={item}
-          travelLabel={isNearbyPick(item) ? formatTravelTime(item.travelMinutes) : undefined}
-          saved={isSaved(item.river.slug)}
-          onToggleSaved={() => void toggleSavedRiver(toSavedRiver(item))}
-          onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: item.river.slug } })}
+    >
+      <View style={styles.headerStack}>
+        <BoardHero
+          freshness={formatRelativeTime(summaryQuery.data?.generatedAt)}
+          headline={headline}
+          snapshot={snapshot}
+          saved={headline ? isSaved(headline.river.slug) : false}
+          onToggleSaved={
+            headline
+              ? () => void toggleSavedRiver(toSavedRiver(headline))
+              : undefined
+          }
+          onOpen={
+            headline
+              ? () => router.push({ pathname: '/river/[slug]', params: { slug: headline.river.slug } })
+              : undefined
+          }
         />
+        <LocationStrip
+          locationLabel={location?.label ?? null}
+          status={status}
+          onUseLocation={() => void requestLocation()}
+          onClear={() => void clearLocation()}
+        />
+        <ModeTabs
+          mode={mode}
+          counts={{
+            best: topPicks.length,
+            nearby: location ? nearbyPicks.length : 0,
+          }}
+          onChange={setMode}
+        />
+        <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
+      </View>
+
+      {data.length > 0 ? (
+        <>
+          <RiverCarousel
+            rivers={data}
+            isSaved={isSaved}
+            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+            onOpen={(river) => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+          />
+          <QuickScanList
+            rivers={data.slice(0, 5)}
+            isSaved={isSaved}
+            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+            onOpen={(river) => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+          />
+        </>
+      ) : (
+        <EmptyMode mode={mode} hasLocation={Boolean(location)} />
       )}
-    />
+    </ScrollView>
   );
 
   async function hydrateBoardPreferences() {
@@ -195,7 +168,6 @@ export default function HomeScreen() {
       const parsed = parseJson(await AsyncStorage.getItem(BOARD_PREFERENCES_STORAGE_KEY));
       if (isBoardPreferences(parsed)) {
         setMode(parsed.mode);
-        setViewMode(parsed.viewMode);
       }
     } catch {
       // Keep the default board if local preferences are unavailable.
@@ -205,48 +177,219 @@ export default function HomeScreen() {
   }
 }
 
-function BoardHeader({
+function BoardHero({
   freshness,
   headline,
   snapshot,
+  saved,
+  onToggleSaved,
+  onOpen,
 }: {
   freshness: string;
   headline: BoardItem | null;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
+  saved: boolean;
+  onToggleSaved?: () => void;
+  onOpen?: () => void;
 }) {
-  return (
-    <View style={styles.boardHeader}>
-      <View style={styles.topBar}>
-        <View>
-          <Text style={styles.appName}>Paddle Today</Text>
-          <Text style={styles.freshness}>{freshness}</Text>
-        </View>
-        <View style={styles.liveBadge}>
-          <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
-        </View>
-      </View>
+  const imageUri = headline ? scenicImageForRiver(headline) : scenicImages[0];
 
-      {headline ? (
-        <View style={styles.headlineRow}>
-          <View style={styles.scoreOrb}>
-            <Text style={styles.scoreValue}>{headline.score}</Text>
-            <Text style={styles.scoreLabel}>{headline.rating}</Text>
+  return (
+    <View style={styles.heroShell}>
+      <ImageBackground source={{ uri: imageUri }} style={styles.heroImage} imageStyle={styles.heroImageRadius}>
+        <View style={styles.heroOverlay}>
+          <View style={styles.topBar}>
+            <View>
+              <Text style={styles.appName}>Today</Text>
+              <Text style={styles.freshness}>{freshness}</Text>
+            </View>
+            <View style={styles.liveBadge}>
+              <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
+            </View>
           </View>
-          <View style={styles.headlineCopy}>
-            <Text style={styles.headlineKicker}>Best read now</Text>
-            <Text style={styles.headlineName}>{headline.river.name}</Text>
-            <Text style={styles.headlineText} numberOfLines={2}>
-              {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
-            </Text>
-          </View>
+
+          {headline ? (
+            <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
+              <View style={styles.heroScoreRow}>
+                <View style={styles.scoreOrb}>
+                  <Text style={styles.scoreValue}>{headline.score}</Text>
+                  <Text style={styles.scoreLabel}>{headline.rating}</Text>
+                </View>
+                {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
+              </View>
+              <View style={styles.headlineCopy}>
+                <Text style={styles.headlineKicker}>Best read now</Text>
+                <Text style={styles.headlineName}>{headline.river.name}</Text>
+                <Text style={styles.headlineReach} numberOfLines={1}>{headline.river.reach}</Text>
+                <Text style={styles.headlineText} numberOfLines={2}>
+                  {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
+                </Text>
+              </View>
+            </Pressable>
+          ) : null}
         </View>
-      ) : null}
+      </ImageBackground>
 
       <View style={styles.snapshotRow}>
         <SnapshotPill label="Good+" value={snapshot.paddleable} tone={styles.snapshotStrong} />
         <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
         <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
       </View>
+    </View>
+  );
+}
+
+function RiverCarousel({
+  rivers,
+  isSaved,
+  onToggleSaved,
+  onOpen,
+}: {
+  rivers: BoardItem[];
+  isSaved: (slug: string) => boolean;
+  onToggleSaved: (river: BoardItem) => void;
+  onOpen: (river: BoardItem) => void;
+}) {
+  return (
+    <View style={styles.sectionStack}>
+      <SectionHeading title="Choose your water" subtitle="Swipe through the best calls right now." />
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.carouselTrack}
+        snapToInterval={278}
+        decelerationRate="fast"
+      >
+        {rivers.map((river) => (
+          <RiverImageCard
+            key={river.river.slug}
+            river={river}
+            saved={isSaved(river.river.slug)}
+            onToggleSaved={() => onToggleSaved(river)}
+            onOpen={() => onOpen(river)}
+          />
+        ))}
+      </ScrollView>
+    </View>
+  );
+}
+
+function RiverImageCard({
+  river,
+  saved,
+  onToggleSaved,
+  onOpen,
+}: {
+  river: BoardItem;
+  saved: boolean;
+  onToggleSaved: () => void;
+  onOpen: () => void;
+}) {
+  return (
+    <Pressable style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+      <ImageBackground
+        source={{ uri: scenicImageForRiver(river) }}
+        style={styles.imageCardMedia}
+        imageStyle={styles.imageCardImage}
+      >
+        <View style={styles.imageCardOverlay}>
+          <View style={styles.imageCardTop}>
+            <View style={styles.imageScore}>
+              <Text style={styles.imageScoreValue}>{river.score}</Text>
+            </View>
+            <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
+          </View>
+          <View style={styles.imageCardCopy}>
+            <RatingPill rating={river.rating} />
+            <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
+            <Text style={styles.imageCardMeta} numberOfLines={1}>
+              {[river.river.reach, travelLabelForRiver(river)].filter(Boolean).join(' - ')}
+            </Text>
+          </View>
+        </View>
+      </ImageBackground>
+      <View style={styles.imageCardBody}>
+        <Text style={styles.imageCardReason} numberOfLines={2}>
+          {normalizeApiText(river.summary.shortExplanation)}
+        </Text>
+        <View style={styles.imageCardFooter}>
+          <StatusPill status={river.liveData.overall} />
+          <Text style={styles.imageCardFreshness}>{river.summary.freshnessText}</Text>
+        </View>
+      </View>
+    </Pressable>
+  );
+}
+
+function QuickScanList({
+  rivers,
+  isSaved,
+  onToggleSaved,
+  onOpen,
+}: {
+  rivers: BoardItem[];
+  isSaved: (slug: string) => boolean;
+  onToggleSaved: (river: BoardItem) => void;
+  onOpen: (river: BoardItem) => void;
+}) {
+  return (
+    <View style={styles.sectionStack}>
+      <SectionHeading title="Fast scan" subtitle="A compact view for checking conditions." />
+      <View style={styles.quickList}>
+        {rivers.map((river) => (
+          <CompactRiverRow
+            key={river.river.slug}
+            river={river}
+            saved={isSaved(river.river.slug)}
+            onToggleSaved={() => onToggleSaved(river)}
+            onOpen={() => onOpen(river)}
+          />
+        ))}
+      </View>
+    </View>
+  );
+}
+
+function CompactRiverRow({
+  river,
+  saved,
+  onToggleSaved,
+  onOpen,
+}: {
+  river: BoardItem;
+  saved: boolean;
+  onToggleSaved: () => void;
+  onOpen: () => void;
+}) {
+  return (
+    <Pressable style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+      <View style={styles.quickThumb}>
+        <ImageBackground source={{ uri: scenicImageForRiver(river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
+          <View style={styles.quickScore}>
+            <Text style={styles.quickScoreText}>{river.score}</Text>
+          </View>
+        </ImageBackground>
+      </View>
+      <View style={styles.quickCopy}>
+        <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
+        <Text style={styles.quickMeta} numberOfLines={1}>
+          {[river.river.reach, travelLabelForRiver(river)].filter(Boolean).join(' - ')}
+        </Text>
+        <Text style={styles.quickReason} numberOfLines={1}>{normalizeApiText(river.summary.gaugeNow)}</Text>
+      </View>
+      <View style={styles.quickActions}>
+        <RatingPill rating={river.rating} />
+        <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
+      </View>
+    </Pressable>
+  );
+}
+
+function SectionHeading({ title, subtitle }: { title: string; subtitle: string }) {
+  return (
+    <View style={styles.sectionHeading}>
+      <Text style={styles.sectionTitle}>{title}</Text>
+      <Text style={styles.sectionSubtitle}>{subtitle}</Text>
     </View>
   );
 }
@@ -297,7 +440,7 @@ function ModeTabs({
 }) {
   return (
     <View style={styles.modeTabs}>
-      {(['best', 'saved', 'nearby'] as const).map((item) => {
+      {(['best', 'nearby'] as const).map((item) => {
         const active = item === mode;
         return (
           <Pressable
@@ -317,105 +460,9 @@ function ModeTabs({
   );
 }
 
-function ViewToggle({
-  mode,
-  onChange,
-}: {
-  mode: BoardViewMode;
-  onChange: (mode: BoardViewMode) => void;
-}) {
-  return (
-    <View style={styles.viewToggle}>
-      {(['list', 'map'] as const).map((item) => {
-        const active = item === mode;
-        return (
-          <Pressable
-            key={item}
-            style={[styles.viewToggleButton, active ? styles.viewToggleButtonActive : null]}
-            onPress={() => onChange(item)}
-            android_ripple={{ color: colors.border, borderless: true }}
-          >
-            <Text style={[styles.viewToggleText, active ? styles.viewToggleTextActive : null]}>
-              {item === 'list' ? 'List' : 'Map'}
-            </Text>
-          </Pressable>
-        );
-      })}
-    </View>
-  );
-}
-
-function HomeMapPanel({
-  data,
-  selectedRiver,
-  selectedSlug,
-  userLocation,
-  onSelectSlug,
-  isSaved,
-  onToggleSaved,
-  onOpenRoute,
-}: {
-  data: BoardItem[];
-  selectedRiver: BoardItem | null;
-  selectedSlug: string | null;
-  userLocation: { latitude: number; longitude: number; label: string } | null;
-  onSelectSlug: (slug: string) => void;
-  isSaved: (slug: string) => boolean;
-  onToggleSaved: (river: BoardItem) => void;
-  onOpenRoute: (slug: string) => void;
-}) {
-  const points = useMemo<RoutePlotPoint[]>(
-    () =>
-      data.map((river) => ({
-        id: river.river.slug,
-        label: river.river.name,
-        latitude: river.river.latitude,
-        longitude: river.river.longitude,
-        score: river.score,
-        rating: river.rating,
-        meta: [
-          river.river.reach,
-          isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region,
-        ]
-          .filter(Boolean)
-          .join(' - '),
-      })),
-    [data]
-  );
-
-  if (data.length === 0) {
-    return null;
-  }
-
-  return (
-    <View style={styles.mapStack}>
-      <RoutePlotMap
-        points={points}
-        selectedId={selectedSlug}
-        userLocation={userLocation}
-        onSelectPoint={(point) => onSelectSlug(point.id)}
-      />
-      {selectedRiver ? (
-        <View style={styles.selectedCardWrap}>
-          <Text style={styles.selectedCardLabel}>Selected route</Text>
-          <RiverCard
-            river={selectedRiver}
-            travelLabel={isNearbyPick(selectedRiver) ? formatTravelTime(selectedRiver.travelMinutes) : undefined}
-            saved={isSaved(selectedRiver.river.slug)}
-            onToggleSaved={() => onToggleSaved(selectedRiver)}
-            onPress={() => onOpenRoute(selectedRiver.river.slug)}
-          />
-        </View>
-      ) : null}
-    </View>
-  );
-}
-
 function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: string | null }) {
   const copy =
-    mode === 'saved'
-      ? 'Your repeat routes, sorted by most recently saved.'
-      : mode === 'nearby'
+    mode === 'nearby'
         ? locationLabel
           ? `Drive-aware picks from ${locationLabel}.`
           : 'Turn on location to fill this list.'
@@ -431,9 +478,7 @@ function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: s
 
 function EmptyMode({ mode, hasLocation }: { mode: BoardMode; hasLocation: boolean }) {
   const message =
-    mode === 'saved'
-      ? 'Save rivers from any card or detail screen to build a faster repeat-trip list.'
-      : mode === 'nearby' && !hasLocation
+    mode === 'nearby' && !hasLocation
         ? 'Use location above to show routes within a practical day-trip range.'
         : 'No routes match this view right now.';
 
@@ -467,16 +512,34 @@ function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
   return 'travelMinutes' in river;
 }
 
+function travelLabelForRiver(river: BoardItem) {
+  return isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region;
+}
+
+const scenicImages = [
+  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80',
+  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80',
+];
+
+function scenicImageForRiver(river: BoardItem) {
+  const key = `${river.river.riverId}:${river.river.slug}`;
+  let hash = 0;
+  for (let index = 0; index < key.length; index += 1) {
+    hash = (hash * 31 + key.charCodeAt(index)) % scenicImages.length;
+  }
+  return scenicImages[hash];
+}
+
 function isBoardPreferences(value: unknown): value is BoardPreferences {
-  return isRecord(value) && isBoardMode(value.mode) && isBoardViewMode(value.viewMode);
+  return isRecord(value) && isBoardMode(value.mode);
 }
 
 function isBoardMode(value: unknown): value is BoardMode {
-  return value === 'best' || value === 'saved' || value === 'nearby';
-}
-
-function isBoardViewMode(value: unknown): value is BoardViewMode {
-  return value === 'list' || value === 'map';
+  return value === 'best' || value === 'nearby';
 }
 
 const styles = StyleSheet.create({
@@ -492,13 +555,26 @@ const styles = StyleSheet.create({
   headerStack: {
     gap: spacing.sm,
   },
-  boardHeader: {
+  heroShell: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.md,
+    overflow: 'hidden',
     gap: spacing.md,
+  },
+  heroImage: {
+    minHeight: 310,
+  },
+  heroImageRadius: {
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+  },
+  heroOverlay: {
+    minHeight: 310,
+    justifyContent: 'space-between',
+    padding: spacing.md,
+    backgroundColor: 'rgba(15, 25, 22, 0.34)',
   },
   topBar: {
     flexDirection: 'row',
@@ -507,17 +583,19 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   appName: {
-    color: colors.text,
-    fontSize: 22,
+    color: colors.surfaceStrong,
+    fontSize: 34,
+    lineHeight: 38,
     fontWeight: '900',
   },
   freshness: {
-    color: colors.textMuted,
+    color: 'rgba(255, 255, 255, 0.82)',
     fontSize: 12,
     marginTop: 2,
+    fontWeight: '700',
   },
   liveBadge: {
-    backgroundColor: colors.accentSoft,
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
     borderRadius: radius.pill,
     paddingHorizontal: 12,
     paddingVertical: 7,
@@ -527,16 +605,20 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '800',
   },
-  headlineRow: {
-    flexDirection: 'row',
+  heroContent: {
     gap: spacing.md,
-    alignItems: 'center',
+  },
+  heroScoreRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
   },
   scoreOrb: {
     width: 66,
     height: 66,
     borderRadius: 19,
-    backgroundColor: colors.accentSoft,
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -551,29 +633,37 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   headlineCopy: {
-    flex: 1,
-    gap: 2,
+    gap: 4,
   },
   headlineKicker: {
-    color: colors.textMuted,
+    color: 'rgba(255, 255, 255, 0.78)',
     fontSize: 11,
-    fontWeight: '800',
+    fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
   headlineName: {
-    color: colors.text,
-    fontSize: 18,
+    color: colors.surfaceStrong,
+    fontSize: 28,
+    lineHeight: 32,
     fontWeight: '900',
   },
+  headlineReach: {
+    color: 'rgba(255, 255, 255, 0.86)',
+    fontSize: 14,
+    fontWeight: '700',
+  },
   headlineText: {
-    color: colors.textMuted,
+    color: colors.surfaceStrong,
     fontSize: 13,
-    lineHeight: 18,
+    lineHeight: 19,
+    fontWeight: '700',
   },
   snapshotRow: {
     flexDirection: 'row',
     gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.md,
   },
   snapshotPill: {
     flex: 1,
@@ -677,44 +767,6 @@ const styles = StyleSheet.create({
   modeCountActive: {
     color: colors.accentDeep,
   },
-  viewToggle: {
-    flexDirection: 'row',
-    backgroundColor: colors.canvasMuted,
-    borderRadius: radius.pill,
-    padding: 4,
-    gap: 4,
-  },
-  viewToggleButton: {
-    flex: 1,
-    minHeight: 38,
-    borderRadius: radius.pill,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  viewToggleButtonActive: {
-    backgroundColor: colors.accent,
-  },
-  viewToggleText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  viewToggleTextActive: {
-    color: colors.surfaceStrong,
-  },
-  mapStack: {
-    gap: spacing.sm,
-  },
-  selectedCardWrap: {
-    gap: spacing.xs,
-  },
-  selectedCardLabel: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
   boardIntro: {
     paddingHorizontal: 2,
     gap: 2,
@@ -728,6 +780,172 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  sectionStack: {
+    gap: spacing.sm,
+  },
+  sectionHeading: {
+    paddingHorizontal: 2,
+    gap: 2,
+  },
+  sectionTitle: {
+    color: colors.text,
+    fontSize: 19,
+    fontWeight: '900',
+  },
+  sectionSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  carouselTrack: {
+    gap: spacing.md,
+    paddingRight: spacing.md,
+  },
+  imageCard: {
+    width: 266,
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  imageCardMedia: {
+    height: 190,
+  },
+  imageCardImage: {
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+  },
+  imageCardOverlay: {
+    flex: 1,
+    justifyContent: 'space-between',
+    padding: spacing.md,
+    backgroundColor: 'rgba(12, 22, 19, 0.28)',
+  },
+  imageCardTop: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  imageScore: {
+    minWidth: 48,
+    height: 48,
+    borderRadius: 15,
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.sm,
+  },
+  imageScoreValue: {
+    color: colors.accentDeep,
+    fontSize: 20,
+    fontWeight: '900',
+  },
+  imageCardCopy: {
+    gap: 4,
+  },
+  imageCardTitle: {
+    color: colors.surfaceStrong,
+    fontSize: 21,
+    lineHeight: 25,
+    fontWeight: '900',
+  },
+  imageCardMeta: {
+    color: 'rgba(255, 255, 255, 0.86)',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  imageCardBody: {
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  imageCardReason: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  imageCardFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  imageCardFreshness: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 12,
+    textAlign: 'right',
+  },
+  quickList: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    overflow: 'hidden',
+  },
+  quickRow: {
+    minHeight: 82,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.sm,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+  },
+  quickThumb: {
+    width: 64,
+    height: 64,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+    backgroundColor: colors.canvasMuted,
+  },
+  quickThumbImage: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-start',
+    padding: 6,
+  },
+  quickThumbRadius: {
+    borderRadius: radius.md,
+  },
+  quickScore: {
+    minWidth: 28,
+    height: 24,
+    borderRadius: 8,
+    backgroundColor: 'rgba(255, 255, 255, 0.92)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+  },
+  quickScoreText: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  quickCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  quickName: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  quickMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+  },
+  quickReason: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  quickActions: {
+    alignItems: 'flex-end',
+    gap: spacing.xs,
   },
   emptyCard: {
     backgroundColor: colors.surfaceStrong,

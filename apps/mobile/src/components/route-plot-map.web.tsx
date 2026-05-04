@@ -61,11 +61,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
+          const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
               key={point.id}
               style={[
-                styles.marker,
+                showScore ? styles.marker : styles.dotMarker,
                 toneForRating(point.rating),
                 projectPoint(point.latitude, point.longitude, bounds),
                 selected ? styles.markerSelected : null,
@@ -75,9 +76,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityRole="button"
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
-              <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
-                {typeof point.score === 'number' ? point.score : ''}
-              </Text>
+              {showScore ? (
+                <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
+                  {typeof point.score === 'number' ? point.score : ''}
+                </Text>
+              ) : null}
             </Pressable>
           );
         })}
@@ -178,6 +181,25 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+function shouldShowScoreMarkers(latitudeDelta: number, pointCount: number) {
+  if (pointCount <= 8) {
+    return true;
+  }
+
+  if (pointCount <= 20) {
+    return latitudeDelta <= 1.2;
+  }
+
+  return latitudeDelta <= 0.7;
+}
+
+function shouldShowProjectedScoreMarkers(
+  bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number },
+  pointCount: number
+) {
+  return shouldShowScoreMarkers(Math.max(bounds.maxLat - bounds.minLat, 0.12), pointCount);
+}
+
 function toneForRating(rating: string | null | undefined) {
   if (rating === 'Strong' || rating === 'Good') {
     return { backgroundColor: colors.strong };
@@ -245,13 +267,23 @@ const styles = StyleSheet.create({
   },
   marker: {
     position: 'absolute',
-    width: 34,
-    height: 34,
-    marginLeft: -17,
-    marginTop: -17,
-    borderRadius: 17,
+    width: 32,
+    height: 32,
+    marginLeft: -16,
+    marginTop: -16,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+  },
+  dotMarker: {
+    position: 'absolute',
+    width: 16,
+    height: 16,
+    marginLeft: -8,
+    marginTop: -8,
+    borderRadius: 8,
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
   },

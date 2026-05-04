@@ -1,5 +1,5 @@
 import type { default as NativeMapView } from 'react-native-maps';
-import { forwardRef, useEffect, useImperativeHandle, useRef } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -42,6 +42,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
+  const initialRegion = regionFromBounds(bounds);
+  const [regionDelta, setRegionDelta] = useState({
+    latitudeDelta: initialRegion.latitudeDelta,
+    longitudeDelta: initialRegion.longitudeDelta,
+  });
+  const showScoreMarkers = shouldShowScoreMarkers(regionDelta.latitudeDelta, visiblePoints.length);
 
   function focusSelected() {
     if (!nativeMaps || !selectedPoint) {
@@ -77,6 +83,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     focusSelected();
   }, [nativeMaps, selectedPoint]);
 
+  useEffect(() => {
+    setRegionDelta({
+      latitudeDelta: initialRegion.latitudeDelta,
+      longitudeDelta: initialRegion.longitudeDelta,
+    });
+  }, [initialRegion.latitudeDelta, initialRegion.longitudeDelta]);
+
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;
     const Marker = nativeMaps.Marker;
@@ -86,7 +99,10 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
         <MapView
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
-          initialRegion={regionFromBounds(bounds)}
+          initialRegion={initialRegion}
+          onRegionChangeComplete={(region) =>
+            setRegionDelta({ latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta })
+          }
           showsUserLocation={false}
           showsCompass
           showsScale
@@ -106,6 +122,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
           {visiblePoints.map((point) => {
             const selected = point.id === selectedId;
+            const showScore = selected || showScoreMarkers;
             return (
               <Marker
                 key={point.id}
@@ -114,11 +131,22 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 description={point.meta ?? undefined}
                 onPress={() => onSelectPoint?.(point)}
                 zIndex={selected ? 10 : 1}
+                anchor={{ x: 0.5, y: 0.5 }}
               >
-                <View style={[styles.nativeMarker, toneForRating(point.rating), selected ? styles.nativeMarkerSelected : null]}>
-                  <Text style={[styles.nativeMarkerText, selected ? styles.nativeMarkerTextSelected : null]}>
-                    {typeof point.score === 'number' ? point.score : ''}
-                  </Text>
+                <View style={styles.nativeMarkerWrap}>
+                  <View
+                    style={[
+                      showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
+                      toneForRating(point.rating),
+                      selected ? styles.nativeMarkerSelected : null,
+                    ]}
+                  >
+                    {showScore ? (
+                      <Text style={[styles.nativeMarkerText, selected ? styles.nativeMarkerTextSelected : null]}>
+                        {typeof point.score === 'number' ? point.score : ''}
+                      </Text>
+                    ) : null}
+                  </View>
                 </View>
               </Marker>
             );
@@ -151,11 +179,12 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
+          const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
               key={point.id}
               style={[
-                styles.marker,
+                showScore ? styles.marker : styles.dotMarker,
                 toneForRating(point.rating),
                 projectPoint(point.latitude, point.longitude, bounds),
                 selected ? styles.markerSelected : null,
@@ -165,9 +194,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityRole="button"
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
-              <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
-                {typeof point.score === 'number' ? point.score : ''}
-              </Text>
+              {showScore ? (
+                <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
+                  {typeof point.score === 'number' ? point.score : ''}
+                </Text>
+              ) : null}
             </Pressable>
           );
         })}
@@ -293,6 +324,25 @@ function regionAroundPoint(point: RoutePlotPoint) {
   };
 }
 
+function shouldShowScoreMarkers(latitudeDelta: number, pointCount: number) {
+  if (pointCount <= 8) {
+    return true;
+  }
+
+  if (pointCount <= 20) {
+    return latitudeDelta <= 1.2;
+  }
+
+  return latitudeDelta <= 0.7;
+}
+
+function shouldShowProjectedScoreMarkers(
+  bounds: { minLat: number; maxLat: number; minLon: number; maxLon: number },
+  pointCount: number
+) {
+  return shouldShowScoreMarkers(Math.max(bounds.maxLat - bounds.minLat, 0.12), pointCount);
+}
+
 function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
@@ -324,19 +374,33 @@ const styles = StyleSheet.create({
   nativeMap: {
     width: '100%',
   },
-  nativeMarker: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+  nativeMarkerWrap: {
+    width: 56,
+    height: 56,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'visible',
+  },
+  nativeScoreMarker: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
   },
+  nativeDotMarker: {
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+  },
   nativeMarkerSelected: {
-    width: 46,
-    height: 46,
-    borderRadius: 23,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
     borderWidth: 3,
     borderColor: colors.text,
   },
@@ -407,13 +471,23 @@ const styles = StyleSheet.create({
   },
   marker: {
     position: 'absolute',
-    width: 34,
-    height: 34,
-    marginLeft: -17,
-    marginTop: -17,
-    borderRadius: 17,
+    width: 32,
+    height: 32,
+    marginLeft: -16,
+    marginTop: -16,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+  },
+  dotMarker: {
+    position: 'absolute',
+    width: 16,
+    height: 16,
+    marginLeft: -8,
+    marginTop: -8,
+    borderRadius: 8,
     borderWidth: 2,
     borderColor: colors.surfaceStrong,
   },

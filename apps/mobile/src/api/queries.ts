@@ -1,5 +1,7 @@
 import type {
   CreateRiverAlertRequest,
+  CreateRiverRequestRequest,
+  CreateRouteReportRequest,
   CreateRouteContributionRequest,
   RiverSummaryApiItem,
   RiverSummaryResponse,
@@ -13,6 +15,7 @@ export const riverQueryKeys = {
   summary: ['river-summary'] as const,
   weekend: ['weekend-summary'] as const,
   detail: (slug: string) => ['river-detail', slug] as const,
+  group: (riverId: string) => ['river-group', riverId] as const,
   history: (slug: string, days: number) => ['river-history', slug, days] as const,
   community: (slug: string) => ['river-community', slug] as const,
 };
@@ -22,6 +25,7 @@ export function useRiverSummaryQuery() {
     queryKey: riverQueryKeys.summary,
     queryFn: ({ signal }) => apiClient.getSummary({ signal }),
     select: dedupeRiverSummaryResponse,
+    retry: false,
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -31,6 +35,15 @@ export function useRiverDetailQuery(slug: string) {
     queryKey: riverQueryKeys.detail(slug),
     enabled: Boolean(slug),
     queryFn: ({ signal }) => apiClient.getRiverDetail(slug, { signal }),
+    staleTime: 5 * 60 * 1000,
+  });
+}
+
+export function useRiverGroupQuery(riverId: string) {
+  return useQuery({
+    queryKey: riverQueryKeys.group(riverId),
+    enabled: Boolean(riverId),
+    queryFn: ({ signal }) => apiClient.getRiverGroup(riverId, { signal }),
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -65,6 +78,18 @@ export function useRouteCommunityQuery(slug: string) {
 export function useCreateRiverAlertMutation() {
   return useMutation({
     mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+  });
+}
+
+export function useCreateRiverRequestMutation() {
+  return useMutation({
+    mutationFn: (input: CreateRiverRequestRequest) => apiClient.createRiverRequest(input),
+  });
+}
+
+export function useCreateRouteReportMutation() {
+  return useMutation({
+    mutationFn: (input: CreateRouteReportRequest) => apiClient.createRouteReport(input),
   });
 }
 

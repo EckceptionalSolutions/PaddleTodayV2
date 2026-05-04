@@ -66,6 +66,8 @@ const alertEmailInput = root.querySelector('[data-alert-email]');
 const alertCompanyInput = root.querySelector('[data-alert-company]');
 const alertStatus = root.querySelector('[data-alert-status]');
 const alertSubmitButtons = Array.from(root.querySelectorAll('[data-alert-submit]'));
+const alertCtaTitle = root.querySelector('[data-alert-cta-title]');
+const alertCtaCopy = root.querySelector('[data-alert-cta-copy]');
 const shareCopyButton = root.querySelector('[data-share-copy]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
@@ -186,6 +188,22 @@ function setText(field, value) {
     element.textContent = value;
   }
   return elements[0] ?? null;
+}
+
+function updateAlertCtaCopy(result) {
+  const rating = result?.rating;
+  const isCurrentlyGood = !hasHardSkip(result) && (rating === 'Strong' || rating === 'Good');
+  const title = isCurrentlyGood ? 'Stay ahead of changes' : 'Know when it improves';
+  const copy = isCurrentlyGood
+    ? 'Get emailed when this route newly crosses your alert threshold.'
+    : 'Get emailed when this route newly reaches the threshold you choose.';
+
+  if (alertCtaTitle instanceof HTMLElement) {
+    alertCtaTitle.textContent = title;
+  }
+  if (alertCtaCopy instanceof HTMLElement) {
+    alertCtaCopy.textContent = copy;
+  }
 }
 
 function setDetailLoadingState(isLoading) {
@@ -3976,6 +3994,7 @@ function renderDetailResult(result) {
   setText('rating', ratingLabel(result));
   renderDecisionSummary(result);
   setText('decision-line', decisionStatement(result));
+  updateAlertCtaCopy(result);
   renderScoreConditions(result);
   const orb = root.querySelector('.score-orb');
   if (orb instanceof HTMLElement) {

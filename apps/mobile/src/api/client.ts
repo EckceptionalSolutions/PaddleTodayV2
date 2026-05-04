@@ -3,4 +3,5 @@ import { resolveApiBaseUrl } from '../lib/api-base-url';
 
 export const apiClient = createPaddleTodayApiClient({
   baseUrl: resolveApiBaseUrl(),
+  timeoutMs: 12000,
 });

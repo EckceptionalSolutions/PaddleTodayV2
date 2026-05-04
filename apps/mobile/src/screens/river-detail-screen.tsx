@@ -7,7 +7,6 @@ import type {
   CreateRouteContributionRequest,
   RiverDetailApiResult,
   RiverOutlook,
-  ScoreFactor,
 } from '@paddletoday/api-contract';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack, useLocalSearchParams } from 'expo-router';
@@ -17,11 +16,9 @@ import {
   ActivityIndicator,
   Image,
   Linking,
-  Modal,
   Pressable,
   RefreshControl,
   ScrollView,
-  Share,
   StyleProp,
   StyleSheet,
   Text,
@@ -38,6 +35,7 @@ import {
 } from '../api/queries';
 import { HistoryBars } from '../components/history-bars';
 import { RatingPill } from '../components/rating-pill';
+import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
@@ -62,18 +60,9 @@ import { colors, radius, spacing } from '../theme/tokens';
 const ROUTE_REPORT_MAX_PHOTOS = 4;
 const ROUTE_REPORT_MAX_PHOTO_BYTES = 4 * 1024 * 1024;
 const ROUTE_REPORT_ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
-const DETAIL_SECTIONS = ['Overview', 'Conditions', 'Community', 'Access'] as const;
+const DETAIL_SECTIONS = ['Today', 'Access', 'More'] as const;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
-
-interface SelectedReportPhoto {
-  id: string;
-  uri: string;
-  name: string;
-  type: string;
-  size: number;
-  dataUrl: string;
-}
 
 export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
@@ -98,7 +87,7 @@ export default function RiverDetailScreen() {
   const [reportPhotoRights, setReportPhotoRights] = useState(false);
   const [reportConsent, setReportConsent] = useState(false);
   const [reportStatus, setReportStatus] = useState('Reports are reviewed before they appear on Paddle Today.');
-  const [activeSection, setActiveSection] = useState<DetailSection>('Overview');
+  const [activeSection, setActiveSection] = useState<DetailSection>('Today');
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
 
   const detail = detailQuery.data?.result ?? null;
@@ -154,16 +143,6 @@ export default function RiverDetailScreen() {
   }
 
   const riverSlug = detail.river.slug;
-
-  async function shareRiver(loadedDetail: RiverDetailApiResult) {
-    const title = `${loadedDetail.river.name}: ${loadedDetail.river.reach}`;
-    const url = `https://paddletoday.com/rivers/${loadedDetail.river.slug}/`;
-    await Share.share({
-      title,
-      message: `${title}\n${url}`,
-      url,
-    });
-  }
 
   async function submitRiverAlert(threshold: RiverAlertThreshold) {
     const email = draftEmail.trim().toLowerCase();
@@ -361,19 +340,6 @@ export default function RiverDetailScreen() {
                 <RatingPill rating={detail.rating} />
                 <StatusPill status={detail.liveData.overall} />
               </View>
-              <View style={styles.heroActions}>
-                <Pressable style={styles.heroActionButton} onPress={() => void shareRiver(detail)}>
-                  <Text style={styles.heroActionButtonText}>Share</Text>
-                </Pressable>
-                {detail.river.gaugeSource.detailUrl ? (
-                  <Pressable
-                    style={styles.heroActionButton}
-                    onPress={() => void Linking.openURL(detail.river.gaugeSource.detailUrl!)}
-                  >
-                    <Text style={styles.heroActionButtonText}>Gauge</Text>
-                  </Pressable>
-                ) : null}
-              </View>
             </View>
           </View>
           <Text style={styles.explanation}>{normalizeApiText(detail.explanation)}</Text>
@@ -408,25 +374,18 @@ export default function RiverDetailScreen() {
           </Pressable>
           <Pressable
             style={styles.actionDockButton}
-            onPress={() => {
-              setActiveSection('Community');
-              setReportSheetVisible(true);
-            }}
+            onPress={() => setActiveSection('Access')}
           >
-            <Text style={styles.actionDockLabel}>Report</Text>
-            <Text style={styles.actionDockValue}>Intel</Text>
-          </Pressable>
-          <Pressable style={styles.actionDockButton} onPress={() => setActiveSection('Access')}>
             <Text style={styles.actionDockLabel}>Alerts</Text>
             <Text style={styles.actionDockValue}>Email</Text>
           </Pressable>
-          <Pressable style={styles.actionDockButton} onPress={() => setActiveSection('Community')}>
-            <Text style={styles.actionDockLabel}>Community</Text>
-            <Text style={styles.actionDockValue}>{communityReports.length + communityPhotos.length}</Text>
+          <Pressable style={styles.actionDockButton} onPress={() => setActiveSection('More')}>
+            <Text style={styles.actionDockLabel}>More</Text>
+            <Text style={styles.actionDockValue}>Details</Text>
           </Pressable>
         </View>
 
-        {activeSection === 'Overview' ? (
+        {activeSection === 'Today' ? (
           <>
             <SectionCard title="Current conditions" subtitle={normalizeApiText(detail.liveData.summary)}>
               <View style={styles.metricGrid}>
@@ -461,13 +420,6 @@ export default function RiverDetailScreen() {
               </View>
             </SectionCard>
 
-            <SectionCard
-              title="Outlooks"
-              subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
-            >
-              <OutlookRows outlooks={detail.outlooks} />
-            </SectionCard>
-
             <SectionCard title="Trip checks" subtitle="Conclusion first, supporting checks second.">
               <View style={styles.checklist}>
                 {checklist.map((item) => (
@@ -478,8 +430,15 @@ export default function RiverDetailScreen() {
           </>
         ) : null}
 
-        {activeSection === 'Conditions' ? (
+        {activeSection === 'More' ? (
           <>
+            <SectionCard
+              title="Outlooks"
+              subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
+            >
+              <OutlookRows outlooks={detail.outlooks} />
+            </SectionCard>
+
             <SectionCard
               title="Weather through today"
               subtitle="Short-interval weather for trip timing, not just a single summary."
@@ -499,20 +458,6 @@ export default function RiverDetailScreen() {
             </SectionCard>
 
             <SectionCard
-              title="Why this score"
-              subtitle="The main scoring inputs behind the launch call."
-            >
-              <ScoreFactorRows factors={detail.factors} breakdown={detail.scoreBreakdown} />
-            </SectionCard>
-
-            <SectionCard
-              title="Confidence and sources"
-              subtitle="Use this before driving when the call looks close."
-            >
-              <ConfidenceSourceBlock detail={detail} />
-            </SectionCard>
-
-            <SectionCard
               title="Score history"
               subtitle={
                 history?.latestSnapshotAt
@@ -525,7 +470,7 @@ export default function RiverDetailScreen() {
           </>
         ) : null}
 
-        {activeSection === 'Community' ? (
+        {activeSection === 'More' ? (
           <>
             <SectionCard
               title="Community reports"
@@ -628,154 +573,33 @@ export default function RiverDetailScreen() {
         ) : null}
       </ScrollView>
 
-      <Modal
-        animationType="slide"
-        transparent
+      <RouteReportSheet
         visible={reportSheetVisible}
-        onRequestClose={() => setReportSheetVisible(false)}
-      >
-        <View style={styles.sheetScrim}>
-          <View style={styles.reportSheet}>
-            <View style={styles.sheetHandle} />
-            <View style={styles.sheetHeader}>
-              <View style={styles.sheetTitleCopy}>
-                <Text style={styles.sheetTitle}>Send a route report</Text>
-                <Text style={styles.sheetSubtitle}>Share access, wood, pace, level, or photos for review.</Text>
-              </View>
-              <Pressable style={styles.sheetCloseButton} onPress={() => setReportSheetVisible(false)}>
-                <Text style={styles.sheetCloseText}>Close</Text>
-              </Pressable>
-            </View>
-            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.sheetContent}>
-              <View style={styles.reportForm}>
-                <View style={styles.reportGrid}>
-                  <TextInput
-                    autoCapitalize="words"
-                    placeholder="Name or paddling handle"
-                    placeholderTextColor={colors.textMuted}
-                    style={styles.reportInput}
-                    value={reportName}
-                    onChangeText={setReportName}
-                  />
-                  <TextInput
-                    autoCapitalize="none"
-                    autoCorrect={false}
-                    keyboardType="email-address"
-                    placeholder="you@example.com"
-                    placeholderTextColor={colors.textMuted}
-                    style={styles.reportInput}
-                    value={reportEmail}
-                    onChangeText={setReportEmail}
-                  />
-                </View>
-                <TextInput
-                  placeholder="Trip date, optional"
-                  placeholderTextColor={colors.textMuted}
-                  style={styles.reportInput}
-                  value={reportDate}
-                  onChangeText={setReportDate}
-                />
-                <SentimentPicker value={reportSentiment ?? ''} onChange={setReportSentiment} />
-                <TextInput
-                  multiline
-                  placeholder="What did you see?"
-                  placeholderTextColor={colors.textMuted}
-                  style={[styles.reportInput, styles.reportTextArea]}
-                  value={reportText}
-                  onChangeText={setReportText}
-                  textAlignVertical="top"
-                />
-                <TextInput
-                  multiline
-                  placeholder="Extra notes, optional"
-                  placeholderTextColor={colors.textMuted}
-                  style={[styles.reportInput, styles.reportNotesArea]}
-                  value={reportNotes}
-                  onChangeText={setReportNotes}
-                  textAlignVertical="top"
-                />
-                <View style={styles.reportPhotoPanel}>
-                  <View style={styles.reportPhotoHeader}>
-                    <View style={styles.reportPhotoCopy}>
-                      <Text style={styles.reportPhotoTitle}>Route photos</Text>
-                      <Text style={styles.reportPhotoMeta}>
-                        {reportPhotos.length}/{ROUTE_REPORT_MAX_PHOTOS} attached · JPEG, PNG, or WebP
-                      </Text>
-                    </View>
-                    <Pressable
-                      style={[
-                        styles.reportPhotoButton,
-                        reportPhotos.length >= ROUTE_REPORT_MAX_PHOTOS ? styles.reportPhotoButtonDisabled : null,
-                      ]}
-                      disabled={reportPhotos.length >= ROUTE_REPORT_MAX_PHOTOS}
-                      onPress={() => void pickReportPhotos()}
-                    >
-                      <Text style={styles.reportPhotoButtonText}>Add</Text>
-                    </Pressable>
-                  </View>
-                  {reportPhotos.length > 0 ? (
-                    <ScrollView
-                      horizontal
-                      showsHorizontalScrollIndicator={false}
-                      contentContainerStyle={styles.reportPhotoStrip}
-                    >
-                      {reportPhotos.map((photo) => (
-                        <View key={photo.id} style={styles.reportPhotoThumbCard}>
-                          <Image source={{ uri: photo.uri }} style={styles.reportPhotoThumb} resizeMode="cover" />
-                          <Pressable style={styles.reportPhotoRemove} onPress={() => removeReportPhoto(photo.id)}>
-                            <Text style={styles.reportPhotoRemoveText}>Remove</Text>
-                          </Pressable>
-                        </View>
-                      ))}
-                    </ScrollView>
-                  ) : (
-                    <Text style={styles.reportPhotoEmpty}>
-                      Optional, but useful for strainers, access changes, water clarity, and gauge references.
-                    </Text>
-                  )}
-                </View>
-                {reportPhotos.length > 0 ? (
-                  <Pressable
-                    style={styles.reportConsentRow}
-                    onPress={() => setReportPhotoRights((current) => !current)}
-                  >
-                    <View style={[styles.checkbox, reportPhotoRights ? styles.checkboxChecked : null]}>
-                      {reportPhotoRights ? <Text style={styles.checkboxMark}>✓</Text> : null}
-                    </View>
-                    <Text style={styles.reportConsentText}>
-                      I own these photos or have permission to share them with Paddle Today.
-                    </Text>
-                  </Pressable>
-                ) : null}
-                <Pressable
-                  style={styles.reportConsentRow}
-                  onPress={() => setReportConsent((current) => !current)}
-                >
-                  <View style={[styles.checkbox, reportConsent ? styles.checkboxChecked : null]}>
-                    {reportConsent ? <Text style={styles.checkboxMark}>✓</Text> : null}
-                  </View>
-                  <Text style={styles.reportConsentText}>
-                    It is okay to contact me if more detail is needed before publishing.
-                  </Text>
-                </Pressable>
-                <Pressable
-                  style={[
-                    styles.reportSubmitButton,
-                    createContributionMutation.isPending ? styles.reportSubmitButtonDisabled : null,
-                  ]}
-                  disabled={createContributionMutation.isPending}
-                  onPress={() => void submitRouteReport()}
-                >
-                  <Text style={styles.reportSubmitText}>
-                    {createContributionMutation.isPending ? 'Sending...' : 'Send report'}
-                  </Text>
-                </Pressable>
-                <Text style={styles.reportStatus}>{reportStatus}</Text>
-              </View>
-            </ScrollView>
-          </View>
-        </View>
-      </Modal>
+        name={reportName}
+        email={reportEmail}
+        tripDate={reportDate}
+        sentiment={reportSentiment}
+        report={reportText}
+        notes={reportNotes}
+        photos={reportPhotos}
+        maxPhotos={ROUTE_REPORT_MAX_PHOTOS}
+        photoRightsConfirmed={reportPhotoRights}
+        contactConsentConfirmed={reportConsent}
+        isSubmitting={createContributionMutation.isPending}
+        status={reportStatus}
+        onClose={() => setReportSheetVisible(false)}
+        onNameChange={setReportName}
+        onEmailChange={setReportEmail}
+        onTripDateChange={setReportDate}
+        onSentimentChange={setReportSentiment}
+        onReportChange={setReportText}
+        onNotesChange={setReportNotes}
+        onPickPhotos={() => void pickReportPhotos()}
+        onRemovePhoto={removeReportPhoto}
+        onTogglePhotoRights={() => setReportPhotoRights((current) => !current)}
+        onToggleContactConsent={() => setReportConsent((current) => !current)}
+        onSubmit={() => void submitRouteReport()}
+      />
     </>
   );
 }
@@ -879,120 +703,6 @@ function OutlookRows({ outlooks }: { outlooks: RiverOutlook[] }) {
           ) : null}
         </View>
       ))}
-    </View>
-  );
-}
-
-function ScoreFactorRows({
-  factors,
-  breakdown,
-}: {
-  factors: ScoreFactor[];
-  breakdown: RiverDetailApiResult['scoreBreakdown'];
-}) {
-  const rows = [
-    { label: 'River quality', value: breakdown.riverQuality, detail: breakdown.riverQualityExplanation },
-    { label: 'Wind', value: breakdown.windAdjustment, detail: breakdown.windExplanation },
-    { label: 'Temperature', value: breakdown.temperatureAdjustment, detail: breakdown.temperatureExplanation },
-    { label: 'Rain', value: breakdown.rainAdjustment, detail: breakdown.rainExplanation },
-    { label: 'Comfort', value: breakdown.comfortAdjustment, detail: breakdown.comfortExplanation },
-  ];
-
-  return (
-    <View style={styles.scoreStack}>
-      <View style={styles.breakdownGrid}>
-        {rows.map((row) => (
-          <View key={row.label} style={styles.breakdownRow}>
-            <View style={styles.breakdownRowTop}>
-              <Text style={styles.breakdownLabel}>{row.label}</Text>
-              <Text style={[styles.breakdownValue, row.value < 0 ? styles.breakdownValueNegative : null]}>
-                {formatSigned(row.value)}
-              </Text>
-            </View>
-            <Text style={styles.breakdownDetail}>{normalizeApiText(row.detail)}</Text>
-          </View>
-        ))}
-      </View>
-
-      {breakdown.capReasons.length > 0 ? (
-        <View style={styles.capBox}>
-          <Text style={styles.capTitle}>What held the score back</Text>
-          {breakdown.capReasons.map((reason) => (
-            <Text key={reason} style={styles.capText}>- {normalizeApiText(reason)}</Text>
-          ))}
-        </View>
-      ) : null}
-
-      {factors.length > 0 ? (
-        <View style={styles.factorList}>
-          {factors.map((factor) => (
-            <View key={factor.id} style={styles.factorRow}>
-              <View style={[styles.factorImpact, impactTone(factor.impact)]} />
-              <View style={styles.factorCopy}>
-                <View style={styles.factorHeader}>
-                  <Text style={styles.factorLabel}>{factor.label}</Text>
-                  <Text style={styles.factorValue}>{normalizeApiText(factor.value)}</Text>
-                </View>
-                <Text style={styles.factorDetail}>{normalizeApiText(factor.detail)}</Text>
-              </View>
-            </View>
-          ))}
-        </View>
-      ) : null}
-    </View>
-  );
-}
-
-function ConfidenceSourceBlock({ detail }: { detail: RiverDetailApiResult }) {
-  const profile = detail.river.profile;
-  const thresholdValue =
-    profile.thresholdModel === 'two-sided' && typeof profile.idealMin === 'number' && typeof profile.idealMax === 'number'
-      ? `${formatThreshold(profile.idealMin, detail)} to ${formatThreshold(profile.idealMax, detail)}`
-      : profile.thresholdModel === 'minimum-only' && typeof profile.tooLow === 'number'
-        ? `Minimum ${formatThreshold(profile.tooLow, detail)}`
-        : 'Needs paddler reports';
-
-  return (
-    <View style={styles.sourceStack}>
-      <View style={styles.sourceSummary}>
-        <MetricPill label="Confidence" value={`${detail.confidence.label} ${detail.confidence.score}/100`} />
-        <MetricPill label="Thresholds" value={sourceStrengthLabel(profile.thresholdSourceStrength)} />
-        <MetricPill label="Model" value={profile.thresholdModel === 'two-sided' ? 'Target band' : 'Minimum only'} />
-      </View>
-
-      <View style={styles.sourceTable}>
-        <SourceRow label="Gauge source" value={detail.river.gaugeSource.display.label} />
-        <SourceRow label="Gauge metric" value={detail.river.gaugeSource.display.primaryMetricLabel} />
-        <SourceRow label="Target" value={thresholdValue} />
-        <SourceRow label="Weather" value={detail.weather?.weatherSource ?? 'Unavailable'} />
-        <SourceRow label="Rainfall" value={detail.weather?.rainfallSource ?? 'Unavailable'} />
-      </View>
-
-      {detail.confidence.warnings.length > 0 ? (
-        <View style={styles.warningBox}>
-          <Text style={styles.warningTitle}>Watch-outs</Text>
-          {detail.confidence.warnings.map((warning) => (
-            <Text key={warning} style={styles.warningText}>- {normalizeApiText(warning)}</Text>
-          ))}
-        </View>
-      ) : null}
-
-      {detail.confidence.rationale.length > 0 ? (
-        <View style={styles.rationaleList}>
-          {detail.confidence.rationale.slice(0, 4).map((item) => (
-            <Text key={item} style={styles.rationaleText}>- {normalizeApiText(item)}</Text>
-          ))}
-        </View>
-      ) : null}
-    </View>
-  );
-}
-
-function SourceRow({ label, value }: { label: string; value: string }) {
-  return (
-    <View style={styles.sourceRow}>
-      <Text style={styles.sourceLabel}>{label}</Text>
-      <Text style={styles.sourceValue}>{normalizeApiText(value)}</Text>
     </View>
   );
 }
@@ -1268,41 +978,6 @@ function CommunityReportCard({ report }: { report: ApprovedTripReport }) {
   );
 }
 
-function SentimentPicker({
-  value,
-  onChange,
-}: {
-  value: string;
-  onChange: (value: CreateRouteContributionRequest['tripSentiment']) => void;
-}) {
-  const options = [
-    { value: '', label: 'No rating' },
-    { value: 'great', label: 'Great' },
-    { value: 'good', label: 'Good' },
-    { value: 'mixed', label: 'Mixed' },
-    { value: 'rough', label: 'Rough' },
-  ] as const;
-
-  return (
-    <View style={styles.sentimentRow}>
-      {options.map((option) => {
-        const selected = value === option.value;
-        return (
-          <Pressable
-            key={option.value || 'none'}
-            style={[styles.sentimentChip, selected ? styles.sentimentChipSelected : null]}
-            onPress={() => onChange(option.value)}
-          >
-            <Text style={[styles.sentimentChipText, selected ? styles.sentimentChipTextSelected : null]}>
-              {option.label}
-            </Text>
-          </Pressable>
-        );
-      })}
-    </View>
-  );
-}
-
 function weatherValue(detail: RiverDetailApiResult) {
   if (!detail.weather) {
     return 'Weather unavailable';
@@ -1356,34 +1031,11 @@ function compactGaugeSample(value: number, unit: RiverDetailApiResult['river']['
   return `${rounded}`;
 }
 
-function formatSigned(value: number) {
-  if (value === 0) return '0';
-  return value > 0 ? `+${Math.round(value)}` : `${Math.round(value)}`;
-}
-
-function formatThreshold(value: number, detail: RiverDetailApiResult) {
-  return formatGaugeValue(value, detail.river.gaugeSource.unit, 'Unknown');
-}
-
-function sourceStrengthLabel(value: RiverDetailApiResult['river']['profile']['thresholdSourceStrength']) {
-  if (value === 'official') return 'Official';
-  if (value === 'mixed') return 'Mixed';
-  if (value === 'community') return 'Community';
-  return 'Derived';
-}
-
 function ratingBackground(rating: string) {
   if (rating === 'Strong') return { backgroundColor: '#E0EFE9' };
   if (rating === 'Good') return { backgroundColor: '#E8EFD9' };
   if (rating === 'Fair') return { backgroundColor: '#F3E8CC' };
   return { backgroundColor: '#F2DDD6' };
-}
-
-function impactTone(impact: ScoreFactor['impact']) {
-  if (impact === 'positive') return { backgroundColor: colors.strong };
-  if (impact === 'warning') return { backgroundColor: colors.fair };
-  if (impact === 'negative') return { backgroundColor: colors.noGo };
-  return { backgroundColor: colors.textMuted };
 }
 
 function checklistTone(status: DecisionChecklistItem['status']) {
@@ -1527,25 +1179,6 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: spacing.sm,
     marginTop: spacing.sm,
-  },
-  heroActions: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.sm,
-  },
-  heroActionButton: {
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    backgroundColor: colors.surfaceStrong,
-  },
-  heroActionButtonText: {
-    color: colors.accent,
-    fontSize: 12,
-    fontWeight: '800',
   },
   explanation: {
     color: colors.text,
@@ -1707,153 +1340,6 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     fontWeight: '700',
-  },
-  scoreStack: {
-    gap: spacing.md,
-  },
-  breakdownGrid: {
-    gap: spacing.sm,
-  },
-  breakdownRow: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: 5,
-  },
-  breakdownRowTop: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  breakdownLabel: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  breakdownValue: {
-    color: colors.strong,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  breakdownValueNegative: {
-    color: colors.noGo,
-  },
-  breakdownDetail: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  capBox: {
-    backgroundColor: '#F3E8CC',
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: spacing.xs,
-  },
-  capTitle: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  capText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  factorList: {
-    gap: spacing.sm,
-  },
-  factorRow: {
-    flexDirection: 'row',
-    gap: spacing.sm,
-  },
-  factorImpact: {
-    width: 5,
-    borderRadius: radius.pill,
-  },
-  factorCopy: {
-    flex: 1,
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: 5,
-  },
-  factorHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  factorLabel: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  factorValue: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '800',
-  },
-  factorDetail: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  sourceStack: {
-    gap: spacing.md,
-  },
-  sourceSummary: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
-  sourceTable: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    overflow: 'hidden',
-  },
-  sourceRow: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border,
-    gap: 3,
-  },
-  sourceLabel: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  sourceValue: {
-    color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '700',
-  },
-  warningBox: {
-    backgroundColor: '#F2DDD6',
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: spacing.xs,
-  },
-  warningTitle: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  warningText: {
-    color: colors.text,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  rationaleList: {
-    gap: spacing.xs,
-  },
-  rationaleText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
   checklist: {
     gap: spacing.md,
@@ -2113,238 +1599,6 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
-  },
-  sheetScrim: {
-    flex: 1,
-    justifyContent: 'flex-end',
-    backgroundColor: 'rgba(10, 24, 29, 0.34)',
-  },
-  reportSheet: {
-    maxHeight: '88%',
-    backgroundColor: colors.canvas,
-    borderTopLeftRadius: 24,
-    borderTopRightRadius: 24,
-    paddingTop: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingBottom: spacing.md,
-  },
-  sheetHandle: {
-    alignSelf: 'center',
-    width: 42,
-    height: 4,
-    borderRadius: radius.pill,
-    backgroundColor: colors.border,
-    marginBottom: spacing.md,
-  },
-  sheetHeader: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-    marginBottom: spacing.md,
-  },
-  sheetTitleCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  sheetTitle: {
-    color: colors.text,
-    fontSize: 19,
-    lineHeight: 24,
-    fontWeight: '900',
-  },
-  sheetSubtitle: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  sheetCloseButton: {
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: 13,
-    paddingVertical: 8,
-  },
-  sheetCloseText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  sheetContent: {
-    paddingBottom: spacing.lg,
-  },
-  reportForm: {
-    gap: spacing.sm,
-  },
-  reportGrid: {
-    gap: spacing.sm,
-  },
-  reportInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    color: colors.text,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 15,
-  },
-  reportTextArea: {
-    minHeight: 112,
-  },
-  reportNotesArea: {
-    minHeight: 78,
-  },
-  reportPhotoPanel: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.md,
-    gap: spacing.sm,
-  },
-  reportPhotoHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  reportPhotoCopy: {
-    flex: 1,
-    gap: 3,
-  },
-  reportPhotoTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  reportPhotoMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 16,
-  },
-  reportPhotoButton: {
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 9,
-  },
-  reportPhotoButtonDisabled: {
-    opacity: 0.55,
-  },
-  reportPhotoButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  reportPhotoStrip: {
-    gap: spacing.sm,
-    paddingRight: spacing.sm,
-  },
-  reportPhotoThumbCard: {
-    width: 104,
-    gap: 6,
-  },
-  reportPhotoThumb: {
-    width: 104,
-    height: 82,
-    borderRadius: radius.md,
-    backgroundColor: colors.canvasMuted,
-  },
-  reportPhotoRemove: {
-    alignItems: 'center',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingVertical: 6,
-    backgroundColor: colors.surfaceStrong,
-  },
-  reportPhotoRemoveText: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-  },
-  reportPhotoEmpty: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  sentimentRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
-  sentimentChip: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.pill,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: 12,
-    paddingVertical: 9,
-  },
-  sentimentChipSelected: {
-    backgroundColor: colors.accentSoft,
-    borderColor: colors.accent,
-  },
-  sentimentChipText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '800',
-  },
-  sentimentChipTextSelected: {
-    color: colors.accentDeep,
-  },
-  reportConsentRow: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: spacing.sm,
-    paddingVertical: spacing.xs,
-  },
-  checkbox: {
-    width: 22,
-    height: 22,
-    borderRadius: 6,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 1,
-  },
-  checkboxChecked: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
-  },
-  checkboxMark: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  reportConsentText: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  reportSubmitButton: {
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingVertical: 12,
-    alignItems: 'center',
-  },
-  reportSubmitButtonDisabled: {
-    opacity: 0.65,
-  },
-  reportSubmitText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  reportStatus: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
   },
   weatherStrip: {
     gap: spacing.sm,

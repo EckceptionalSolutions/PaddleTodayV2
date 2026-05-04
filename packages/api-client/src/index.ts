@@ -1,10 +1,15 @@
 import type {
   ApiErrorResponse,
+  CreateRiverRequestRequest,
+  CreateRiverRequestResponse,
+  CreateRouteReportRequest,
+  CreateRouteReportResponse,
   CreateRiverAlertRequest,
   CreateRiverAlertResponse,
   CreateRouteContributionRequest,
   CreateRouteContributionResponse,
   RiverDetailResponse,
+  RiverGroupResponse,
   RiverHistoryResponse,
   RouteCommunityResponse,
   RiverSummaryResponse,
@@ -43,9 +48,12 @@ export interface PaddleTodayApiClient {
   getSummary(options?: RequestOptions): Promise<RiverSummaryResponse>;
   getWeekendSummary(options?: RequestOptions): Promise<WeekendSummaryResponse>;
   getRiverDetail(slug: string, options?: RequestOptions): Promise<RiverDetailResponse>;
+  getRiverGroup(riverId: string, options?: RequestOptions): Promise<RiverGroupResponse>;
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
+  createRiverRequest(input: CreateRiverRequestRequest, options?: RequestOptions): Promise<CreateRiverRequestResponse>;
+  createRouteReport(input: CreateRouteReportRequest, options?: RequestOptions): Promise<CreateRouteReportResponse>;
   createRouteContribution(
     input: CreateRouteContributionRequest,
     options?: RequestOptions
@@ -56,6 +64,7 @@ export function createPaddleTodayApiClient(args: {
   baseUrl: string;
   fetchImpl?: typeof fetch;
   headers?: HeadersInit;
+  timeoutMs?: number;
 }): PaddleTodayApiClient {
   const fetchImpl = args.fetchImpl ?? globalThis.fetch;
   if (typeof fetchImpl !== 'function') {
@@ -66,17 +75,35 @@ export function createPaddleTodayApiClient(args: {
 
   async function requestJson<T>(path: string, options?: JsonRequestOptions): Promise<T> {
     const hasBody = options?.body !== undefined;
-    const response = await fetchImpl(new URL(path, baseUrl), {
-      method: options?.method ?? 'GET',
-      headers: {
-        accept: 'application/json',
-        ...(hasBody ? { 'content-type': 'application/json' } : {}),
-        ...args.headers,
-        ...options?.headers,
-      },
-      signal: options?.signal,
-      body: hasBody ? JSON.stringify(options.body) : undefined,
-    });
+    const timeout = createRequestTimeout(args.timeoutMs, options?.signal);
+    let response: Response;
+
+    try {
+      response = await fetchImpl(new URL(path, baseUrl), {
+        method: options?.method ?? 'GET',
+        headers: {
+          accept: 'application/json',
+          ...(hasBody ? { 'content-type': 'application/json' } : {}),
+          ...args.headers,
+          ...options?.headers,
+        },
+        signal: timeout.signal,
+        body: hasBody ? JSON.stringify(options.body) : undefined,
+      });
+    } catch (error) {
+      if (timeout.timedOut()) {
+        throw new PaddleTodayApiError({
+          message: `PaddleToday API request timed out after ${args.timeoutMs}ms.`,
+          status: 0,
+          code: 'request_timeout',
+        });
+      }
+
+      throw error;
+    } finally {
+      timeout.cleanup();
+    }
+
     const payload = await readJsonBody(response);
 
     if (!response.ok) {
@@ -114,6 +141,12 @@ export function createPaddleTodayApiClient(args: {
         options
       );
     },
+    getRiverGroup(riverId, options) {
+      return requestJson<RiverGroupResponse>(
+        `/api/river-groups/${encodeURIComponent(riverId)}.json`,
+        options
+      );
+    },
     getRiverHistory(slug, options) {
       const days = options?.days ?? 7;
       return requestJson<RiverHistoryResponse>(
@@ -134,12 +167,63 @@ export function createPaddleTodayApiClient(args: {
         body: input,
       });
     },
+    createRiverRequest(input, options) {
+      return requestJson<CreateRiverRequestResponse>('/api/river-request', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    createRouteReport(input, options) {
+      return requestJson<CreateRouteReportResponse>('/api/route-photo-submissions', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
     createRouteContribution(input, options) {
       return requestJson<CreateRouteContributionResponse>('/api/route-photo-submissions', {
         ...options,
         method: 'POST',
         body: input,
       });
+    },
+  };
+}
+
+function createRequestTimeout(timeoutMs: number | undefined, externalSignal: AbortSignal | undefined) {
+  if (!timeoutMs || timeoutMs <= 0) {
+    return {
+      signal: externalSignal,
+      timedOut: () => false,
+      cleanup: () => undefined,
+    };
+  }
+
+  const controller = new AbortController();
+  let didTimeout = false;
+
+  const timeoutId = setTimeout(() => {
+    didTimeout = true;
+    controller.abort();
+  }, timeoutMs);
+
+  function abortFromExternalSignal() {
+    controller.abort();
+  }
+
+  if (externalSignal?.aborted) {
+    controller.abort();
+  } else {
+    externalSignal?.addEventListener('abort', abortFromExternalSignal, { once: true });
+  }
+
+  return {
+    signal: controller.signal,
+    timedOut: () => didTimeout,
+    cleanup: () => {
+      clearTimeout(timeoutId);
+      externalSignal?.removeEventListener('abort', abortFromExternalSignal);
     },
   };
 }

@@ -309,6 +309,14 @@ a {
   line-height: 1.65;
 }
 
+.route-seo-intro {
+  max-width: 44rem;
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.98rem;
+  line-height: 1.55;
+}
+
 .site-header__freshness {
   margin: 0;
   display: inline-flex;
@@ -3123,9 +3131,18 @@ body.site-search-open {
   gap: 0.85rem;
 }
 
+.route-discovery__grid--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.route-discovery__grid--single .route-discovery__list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .route-discovery__group {
   display: grid;
   gap: 0.58rem;
+  align-content: start;
   min-width: 0;
 }
 
@@ -3158,41 +3175,500 @@ body.site-search-open {
 .route-discovery__list {
   display: grid;
   gap: 0.45rem;
+  align-content: start;
 }
 
 .route-discovery__link {
+  position: relative;
   display: grid;
-  gap: 0.18rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "route arrow"
+    "meta cta"
+    "facts cta";
+  gap: 0.18rem 0.75rem;
   min-height: 4.35rem;
-  padding: 0.72rem 0.78rem;
-  border: 1px solid rgba(30, 115, 151, 0.12);
+  align-items: center;
+  padding: 0.72rem 0.82rem;
+  border: 1px solid rgba(30, 115, 151, 0.24);
   border-radius: 16px;
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 250, 252, 0.72)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(244, 250, 252, 0.84)),
     rgba(255, 255, 255, 0.76);
   color: var(--ink);
   text-decoration: none;
+  box-shadow: 0 10px 22px rgba(16, 35, 45, 0.05);
   transition:
     border-color 160ms ease,
     background-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.route-discovery__link::after {
+  content: "→";
+  grid-area: arrow;
+  display: inline-grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: rgba(30, 115, 151, 0.1);
+  color: var(--river-deep);
+  font-size: 1.1rem;
+  font-weight: 900;
+  line-height: 1;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
     transform 160ms ease;
 }
 
 .route-discovery__link:hover {
-  border-color: rgba(30, 115, 151, 0.28);
+  border-color: rgba(30, 115, 151, 0.42);
   background: rgba(244, 250, 252, 0.96);
+  box-shadow: 0 16px 30px rgba(16, 35, 45, 0.09);
   transform: translateY(-1px);
 }
 
+.route-discovery__link:hover::after {
+  background: var(--river);
+  color: #fff;
+  transform: translateX(2px);
+}
+
+.route-discovery__link:focus-visible {
+  outline: 3px solid rgba(30, 115, 151, 0.24);
+  outline-offset: 3px;
+}
+
 .route-discovery__route {
+  grid-area: route;
+  font-weight: 800;
+  line-height: 1.2;
+  text-decoration: underline;
+  text-decoration-color: rgba(30, 115, 151, 0.26);
+  text-underline-offset: 0.18em;
+}
+
+.route-discovery__meta {
+  grid-area: meta;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.route-discovery__facts {
+  grid-area: facts;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  font-weight: 750;
+  line-height: 1.25;
+}
+
+.route-discovery__cta {
+  grid-area: cta;
+  align-self: end;
+  color: var(--river);
+  font-size: 0.76rem;
   font-weight: 800;
   line-height: 1.2;
 }
 
-.route-discovery__meta {
+.route-faq {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.route-faq__head {
+  margin-bottom: 0;
+}
+
+.route-faq__list {
+  display: grid;
+  gap: 0.52rem;
+  max-width: 54rem;
+}
+
+.route-faq__item {
+  border-color: rgba(30, 115, 151, 0.12);
+  border-radius: 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(244, 250, 252, 0.54)),
+    rgba(255, 255, 255, 0.72);
+  box-shadow: none;
+}
+
+.route-faq__item[open] {
+  border-color: rgba(30, 115, 151, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.route-faq__item .river-accordion__summary {
+  align-items: start;
+  gap: 0.85rem;
+  min-height: 0;
+  padding: 0.78rem 0.9rem 0.72rem;
+}
+
+.route-faq__item .river-accordion__summary strong {
+  display: block;
+  max-width: 44rem;
+  font-size: 0.96rem;
+  line-height: 1.25;
+}
+
+.route-faq__item .river-accordion__summary::after {
+  width: 1.45rem;
+  height: 1.45rem;
+  margin-top: -0.1rem;
+  border-color: rgba(30, 115, 151, 0.16);
+  background: rgba(233, 245, 250, 0.7);
+  color: var(--river-deep);
+  font-size: 0.96rem;
+}
+
+.route-faq__item[open] .river-accordion__summary::after {
+  content: "-";
+  background: rgba(30, 115, 151, 0.12);
+}
+
+.route-faq__item .river-accordion__body {
+  gap: 0;
+  padding: 0.7rem 0.9rem 0.82rem;
+  border-top-color: rgba(30, 115, 151, 0.1);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.route-faq__item .river-accordion__body p {
+  margin: 0;
+  max-width: 46rem;
+  font-size: 0.88rem;
+  line-height: 1.48;
+}
+
+.guide-hero,
+.guide-section {
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(244, 250, 252, 0.78)),
+    var(--panel);
+  box-shadow: var(--shadow-soft);
+}
+
+.guide-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.38fr);
+  gap: 1rem;
+  align-items: end;
+  padding: 1.35rem;
+}
+
+.guide-hero__copy {
+  display: grid;
+  gap: 0.68rem;
+  max-width: 48rem;
+}
+
+.guide-hero h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-family: var(--serif);
+  font-size: clamp(2.25rem, 5vw, 4.8rem);
+  line-height: 0.96;
+  letter-spacing: 0;
+  color: var(--ink);
+}
+
+.guide-hero__lede,
+.guide-hero__status {
+  margin: 0;
   color: var(--muted);
-  font-size: 0.82rem;
-  line-height: 1.3;
+  line-height: 1.55;
+}
+
+.guide-hero__lede {
+  max-width: 42rem;
+  font-size: 1.04rem;
+}
+
+.guide-hero__status {
+  font-weight: 750;
+  color: var(--ink-soft);
+}
+
+.guide-hero__note {
+  display: grid;
+  gap: 0.45rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.12);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.78);
+}
+
+.guide-hero__note p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.guide-section {
+  display: grid;
+  gap: 1rem;
+  padding: 1.15rem;
+}
+
+.guide-weekend-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.guide-explainer__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.guide-explainer__item {
+  display: grid;
+  gap: 0.42rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.guide-explainer__item h3,
+.guide-explainer__item p {
+  margin: 0;
+}
+
+.guide-explainer__item h3 {
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.guide-explainer__item p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.guide-hero--flagship h1 {
+  max-width: 11ch;
+}
+
+.minnesota-guide-section {
+  gap: 1.05rem;
+}
+
+.minnesota-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.minnesota-guide-card {
+  display: grid;
+  gap: 0.82rem;
+  align-content: start;
+  padding: 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.12);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(244, 250, 252, 0.62)),
+    rgba(255, 255, 255, 0.8);
+  box-shadow: 0 12px 28px rgba(16, 35, 45, 0.06);
+}
+
+.minnesota-guide-card__top {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.9rem;
+  align-items: start;
+}
+
+.minnesota-guide-card h3,
+.minnesota-guide-card p {
+  margin: 0;
+}
+
+.minnesota-guide-card h3 {
+  color: var(--ink);
+  font-size: 1.08rem;
+  line-height: 1.18;
+}
+
+.minnesota-guide-card__route,
+.minnesota-guide-card__summary,
+.minnesota-guide-card__live .muted {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.minnesota-guide-card__route {
+  margin-top: 0.22rem;
+  font-size: 0.86rem;
+}
+
+.minnesota-guide-card__summary {
+  font-size: 0.92rem;
+}
+
+.minnesota-guide-card__score {
+  display: grid;
+  place-items: center;
+  align-content: center;
+  width: 4.25rem;
+  min-width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(30, 115, 151, 0.16);
+  background: rgba(233, 245, 250, 0.88);
+  color: var(--river-deep);
+  text-align: center;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.minnesota-guide-card__score--strong {
+  border-color: rgba(33, 126, 86, 0.18);
+  background: rgba(226, 246, 236, 0.9);
+  color: #216d4b;
+}
+
+.minnesota-guide-card__score--good {
+  border-color: rgba(30, 115, 151, 0.18);
+}
+
+.minnesota-guide-card__score--fair {
+  border-color: rgba(173, 117, 44, 0.22);
+  background: rgba(252, 244, 226, 0.9);
+  color: #86601f;
+}
+
+.minnesota-guide-card__score--low {
+  border-color: rgba(121, 55, 55, 0.18);
+  background: rgba(252, 232, 226, 0.85);
+  color: #7b3b35;
+}
+
+.minnesota-guide-card__score-value {
+  font-size: 1.35rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.minnesota-guide-card__score-rating {
+  font-size: 0.58rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.minnesota-guide-card__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.minnesota-guide-card__facts span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.72rem;
+  padding: 0.28rem 0.58rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+  color: var(--ink-soft);
+  font-size: 0.74rem;
+  font-weight: 750;
+  line-height: 1.2;
+}
+
+.minnesota-guide-card__live {
+  display: grid;
+  gap: 0.28rem;
+  padding: 0.72rem 0.78rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.minnesota-guide-card__live-title {
+  color: var(--ink);
+  font-size: 0.78rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.minnesota-guide-card__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.river-hub-context {
+  display: grid;
+  gap: 1rem;
+}
+
+.river-group-page__summary--seo {
+  max-width: 48rem;
+}
+
+.river-hub-context__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.river-hub-context__item {
+  display: grid;
+  gap: 0.42rem;
+  padding: 0.95rem 1rem;
+  border: 1px solid rgba(30, 115, 151, 0.12);
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(244, 250, 252, 0.56)),
+    rgba(255, 255, 255, 0.72);
+}
+
+.river-hub-context__item h3,
+.river-hub-context__item p {
+  margin: 0;
+}
+
+.river-hub-context__item h3 {
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+
+.river-hub-context__item p {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .guide-hero,
+  .guide-explainer__grid,
+  .guide-weekend-grid,
+  .minnesota-guide-grid,
+  .river-hub-context__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-hero,
+  .guide-section {
+    padding: 0.9rem;
+  }
+
+  .guide-hero h1 {
+    max-width: none;
+    font-size: 2.2rem;
+    line-height: 1;
+  }
 }
 
 .river-detail__section-link {
@@ -14562,14 +15038,25 @@ body.site-search-open {
     gap: 0.58rem !important;
   }
 
+  html body [data-river-detail] .route-discovery__grid--single .route-discovery__list {
+    grid-template-columns: 1fr !important;
+  }
+
   html body [data-river-detail] .route-discovery__list {
     gap: 0.38rem !important;
   }
 
   html body [data-river-detail] .route-discovery__link {
+    grid-template-columns: minmax(0, 1fr) auto !important;
     min-height: 3.4rem !important;
     padding: 0.56rem 0.62rem !important;
     border-radius: 14px !important;
+  }
+
+  html body [data-river-detail] .route-discovery__link::after {
+    width: 1.78rem !important;
+    height: 1.78rem !important;
+    font-size: 0.96rem !important;
   }
 
   html body [data-river-detail] .route-discovery__route {
@@ -14578,6 +15065,14 @@ body.site-search-open {
 
   html body [data-river-detail] .route-discovery__meta {
     font-size: 0.74rem !important;
+  }
+
+  html body [data-river-detail] .route-discovery__facts {
+    font-size: 0.7rem !important;
+  }
+
+  html body [data-river-detail] .route-discovery__cta {
+    font-size: 0.7rem !important;
   }
 }
 

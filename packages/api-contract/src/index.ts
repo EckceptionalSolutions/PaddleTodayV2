@@ -476,15 +476,34 @@ export interface CreateRiverAlertResponse {
   };
 }
 
+export interface CreateRiverRequestRequest {
+  routeName: string;
+  state: string;
+  putIn?: string;
+  takeOut?: string;
+  sources?: string;
+  notes: string;
+  replyEmail?: string;
+  company?: string;
+}
+
+export interface CreateRiverRequestResponse {
+  requestId: string;
+  ok: true;
+  stored: boolean;
+  storage?: 'local' | string;
+}
+
 export interface RouteContributionFileInput {
   name: string;
   type: string;
   size: number;
+  lastModified?: number;
   dataUrl: string;
   caption?: string;
 }
 
-export interface CreateRouteContributionRequest {
+export interface CreateRouteReportRequest {
   riverSlug: string;
   contributorName: string;
   contributorEmail: string;
@@ -496,6 +515,16 @@ export interface CreateRouteContributionRequest {
   reviewConsent: boolean;
   company?: string;
   files?: RouteContributionFileInput[];
+}
+
+export type CreateRouteContributionRequest = CreateRouteReportRequest;
+
+export interface CreateRouteReportResponse {
+  requestId: string;
+  ok: true;
+  stored: boolean;
+  storage?: 'local' | string;
+  submissionId?: string;
 }
 
 export interface CreateRouteContributionResponse {
