@@ -17,6 +17,7 @@ import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { StatusPill } from '../components/status-pill';
 import { useStoredLocation } from '../hooks/use-stored-location';
+import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
 import { isRecord, parseJson } from '../lib/storage';
@@ -92,6 +93,9 @@ export default function HomeScreen() {
       <View style={styles.centerState}>
         <Text style={styles.stateTitle}>The board did not load.</Text>
         <Text style={styles.stateBody}>Pull down to retry when the connection is back.</Text>
+        <Text style={styles.stateMeta} numberOfLines={3}>
+          {errorDetailForSummaryQuery(summaryQuery.error)}
+        </Text>
       </View>
     );
   }
@@ -192,7 +196,7 @@ function BoardHero({
   onToggleSaved?: () => void;
   onOpen?: () => void;
 }) {
-  const imageUri = headline ? scenicImageForRiver(headline) : scenicImages[0];
+  const imageUri = headline ? photoForRiver(headline) : resolveApiUrl(placeholderImages[0]);
 
   return (
     <View style={styles.heroShell}>
@@ -288,7 +292,7 @@ function RiverImageCard({
   return (
     <Pressable style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <ImageBackground
-        source={{ uri: scenicImageForRiver(river) }}
+        source={{ uri: photoForRiver(river) }}
         style={styles.imageCardMedia}
         imageStyle={styles.imageCardImage}
       >
@@ -364,7 +368,7 @@ function CompactRiverRow({
   return (
     <Pressable style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <View style={styles.quickThumb}>
-        <ImageBackground source={{ uri: scenicImageForRiver(river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
+        <ImageBackground source={{ uri: photoForRiver(river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
           <View style={styles.quickScore}>
             <Text style={styles.quickScoreText}>{river.score}</Text>
           </View>
@@ -516,22 +520,75 @@ function travelLabelForRiver(river: BoardItem) {
   return isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region;
 }
 
-const scenicImages = [
-  'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80',
-  'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=80',
+const routeGalleryImages: Record<string, string[]> = {
+  'blue-earth-river-rapidan-county-road-90': [
+    '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
+  ],
+  'rice-creek-peltier-to-long-lake': [
+    '/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg',
+    '/gallery/rice-creek-peltier-to-long-lake/rice-creek-2.jpg',
+  ],
+  'minnehaha-creek-grays-bay-longfellow-lagoon': [
+    '/gallery/minnehaha-creek-grays-bay-longfellow-lagoon/minnehaha-creek-oct-2017.jpg',
+  ],
+  'minnesota-river-judson-land-of-memories': [
+    '/gallery/minnesota-river-judson-land-of-memories/land-of-memories-park.jpg',
+  ],
+  'cannon-river-welch': [
+    '/gallery/cannon-river-welch/cannon-welch.jpg',
+  ],
+  'cannon-river-faribault-dundas': [
+    '/gallery/cannon-river-faribault-dundas/cannon-northfield.jpg',
+  ],
+  'kettle-river-lower-kettle-5-to-6': [
+    '/gallery/kettle-river-lower-kettle-5-to-6/kettle-banning-state-park.jpg',
+  ],
+  'root-river-lanesboro-peterson': [
+    '/gallery/root-river-lanesboro-peterson/root-near-peterson.jpg',
+  ],
+  'root-river-rushford-houston': [
+    '/gallery/root-river-rushford-houston/root-river-houston.jpg',
+  ],
+  'st-croix-river-fox-highway-70': [
+    '/gallery/st-croix-river-fox-highway-70/vantage.jpg',
+    '/gallery/st-croix-river-fox-highway-70/bluffs-with-branches.jpg',
+    '/gallery/st-croix-river-fox-highway-70/lower-lake.jpg',
+  ],
+  'namekagon-river-big-bend-trego': [
+    '/gallery/namekagon-river-big-bend-trego/namekagon-mirror.jpg',
+  ],
+  'mississippi-river-east-river-flats-hidden-falls': [
+    '/gallery/mississippi-river-east-river-flats-hidden-falls/minneapolis-skyline.jpg',
+  ],
+  'minnesota-river-henderson-belle-plaine': [
+    '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
+  ],
+  'kickapoo-river-ontario-rockton': [
+    '/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg',
+  ],
+  'wisconsin-river-muscoda-blue-river': [
+    '/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg',
+  ],
+  'milwaukee-river-newburg-fredonia': [
+    '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
+  ],
+};
+
+const placeholderImages = [
+  '/gallery/fallbacks/river-fallback-stream.jpg',
+  '/gallery/fallbacks/river-fallback-wide.jpg',
+  '/gallery/fallbacks/river-fallback-marsh.jpg',
 ];
 
-function scenicImageForRiver(river: BoardItem) {
+function photoForRiver(river: BoardItem) {
   const key = `${river.river.riverId}:${river.river.slug}`;
+  const routeImages = routeGalleryImages[river.river.slug];
+  const images = routeImages?.length ? routeImages : placeholderImages;
   let hash = 0;
   for (let index = 0; index < key.length; index += 1) {
-    hash = (hash * 31 + key.charCodeAt(index)) % scenicImages.length;
+    hash = (hash * 31 + key.charCodeAt(index)) % images.length;
   }
-  return scenicImages[hash];
+  return resolveApiUrl(images[hash]);
 }
 
 function isBoardPreferences(value: unknown): value is BoardPreferences {
@@ -540,6 +597,11 @@ function isBoardPreferences(value: unknown): value is BoardPreferences {
 
 function isBoardMode(value: unknown): value is BoardMode {
   return value === 'best' || value === 'nearby';
+}
+
+function errorDetailForSummaryQuery(error: unknown) {
+  const message = error instanceof Error ? error.message : 'Unknown request error';
+  return `${resolveApiBaseUrl()} - ${message}`;
 }
 
 const styles = StyleSheet.create({
@@ -984,5 +1046,11 @@ const styles = StyleSheet.create({
     fontSize: 14,
     textAlign: 'center',
     lineHeight: 20,
+  },
+  stateMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+    textAlign: 'center',
+    lineHeight: 17,
   },
 });

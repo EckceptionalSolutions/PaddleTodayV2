@@ -1,7 +1,7 @@
 import { createServer, type ServerResponse } from 'node:http';
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { mkdir, writeFile } from 'node:fs/promises';
-import { extname, resolve } from 'node:path';
+import { extname, resolve, sep } from 'node:path';
 import {
   serializeDetailResult,
   serializeRiverGroupResult,
@@ -49,12 +49,14 @@ import { parseQueryNumber, parseRiverAlertThreshold } from './request-parsers';
 const host = process.env.CANOE_API_HOST || '0.0.0.0';
 const staticDirArg = readArgValue('--static');
 const staticDir = staticDirArg ? resolve(process.cwd(), staticDirArg) : null;
+const publicDir = resolve(process.cwd(), 'public');
 const port = Number(
   readArgValue('--port') || process.env.CANOE_API_PORT || process.env.PORT || (staticDir ? 4321 : 4322)
 );
 const startedAt = Date.now();
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX = 5;
+const LIVE_SCORE_TIMEOUT_MS = 12_000;
 const rateByIp = new Map<string, number[]>();
 
 const server = createServer(async (request, response) => {
@@ -304,7 +306,7 @@ const server = createServer(async (request, response) => {
       }
 
       const generatedAt = new Date().toISOString();
-      const rivers = (await getAllRiverScores()).map((result) => serializeSummaryResult({
+      const rivers = (await withTimeout(getAllRiverScores(), LIVE_SCORE_TIMEOUT_MS, 'river summary scoring')).map((result) => serializeSummaryResult({
         ...result,
         generatedAt,
       }));
@@ -330,7 +332,7 @@ const server = createServer(async (request, response) => {
       }
 
       const generatedAt = new Date().toISOString();
-      const results = await getAllRiverScores();
+      const results = await withTimeout(getAllRiverScores(), LIVE_SCORE_TIMEOUT_MS, 'weekend summary scoring');
       const rivers = results
         .map((result) => serializeWeekendSummaryResult({
           ...result,
@@ -360,7 +362,7 @@ const server = createServer(async (request, response) => {
         }, includeBody);
       }
 
-      const result = await getRiverScore(slug);
+      const result = await withTimeout(getRiverScore(slug), LIVE_SCORE_TIMEOUT_MS, `river detail scoring for ${slug}`);
 
       if (!result) {
         return sendJson(response, 404, {
@@ -420,7 +422,7 @@ const server = createServer(async (request, response) => {
         }, includeBody);
       }
 
-      const results = await getRiverGroupScores(riverId);
+      const results = await withTimeout(getRiverGroupScores(riverId), LIVE_SCORE_TIMEOUT_MS, `river group scoring for ${riverId}`);
 
       if (!results) {
         return sendJson(response, 404, {
@@ -441,6 +443,11 @@ const server = createServer(async (request, response) => {
           })),
         }),
       }, includeBody);
+    }
+
+    const publicAsset = resolvePublicAssetFile(requestUrl.pathname);
+    if (publicAsset) {
+      return sendStatic(response, publicAsset, includeBody);
     }
 
     if (staticDir) {
@@ -502,6 +509,7 @@ function sendStatic(response: ServerResponse, filePath: string, includeBody = tr
     'content-type': contentTypeFor(filePath),
     'cache-control': isAsset(filePath) ? 'public, max-age=31536000, immutable' : 'no-cache',
     'content-length': stats.size,
+    'access-control-allow-origin': '*',
   });
 
   if (!includeBody) {
@@ -538,9 +546,23 @@ function resolveStaticFile(pathname: string, rootDir: string): string | null {
   return null;
 }
 
+function resolvePublicAssetFile(pathname: string): string | null {
+  if (!pathname.startsWith('/gallery/') && !pathname.startsWith('/share/routes/')) {
+    return null;
+  }
+
+  const filePath = safeResolve(publicDir, pathname);
+  if (filePath && existsSync(filePath) && statSync(filePath).isFile()) {
+    return filePath;
+  }
+
+  return null;
+}
+
 function safeResolve(rootDir: string, relativePath: string): string | null {
-  const filePath = resolve(rootDir, `.${relativePath}`);
-  return filePath.startsWith(rootDir) ? filePath : null;
+  const normalizedRoot = resolve(rootDir);
+  const filePath = resolve(normalizedRoot, `.${relativePath}`);
+  return filePath === normalizedRoot || filePath.startsWith(`${normalizedRoot}${sep}`) ? filePath : null;
 }
 
 function contentTypeFor(filePath: string): string {
@@ -581,6 +603,24 @@ function readArgValue(flag: string): string | null {
 
 function shouldLogRequest(pathname: string, statusCode: number): boolean {
   return pathname === '/' || pathname.startsWith('/api/') || pathname.startsWith('/health') || statusCode >= 400;
+}
+
+async function withTimeout<T>(promise: Promise<T>, timeoutMs: number, label: string): Promise<T> {
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+  try {
+    return await Promise.race([
+      promise,
+      new Promise<never>((_resolve, reject) => {
+        timeoutId = setTimeout(() => {
+          reject(new Error(`${label} timed out after ${timeoutMs}ms`));
+        }, timeoutMs);
+      }),
+    ]);
+  } finally {
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+  }
 }
 
 function createRequestId(): string {

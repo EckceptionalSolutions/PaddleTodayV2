@@ -149,7 +149,9 @@ export async function captureRiverSnapshots(args: {
 }
 
 export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnapshot | null> {
-  const snapshot = await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName());
+  const snapshot =
+    (await snapshotStorage().readJson<RiverSummarySnapshot>(summaryBlobName())) ??
+    (await readLocalSummaryFallback());
   if (!snapshot) {
     return null;
   }
@@ -158,6 +160,16 @@ export async function getStoredRiverSummarySnapshot(): Promise<RiverSummarySnaps
     ...snapshot,
     rivers: snapshot.rivers.map(normalizeSummarySnapshotItem),
   };
+}
+
+async function readLocalSummaryFallback(): Promise<RiverSummarySnapshot | null> {
+  try {
+    const payload = await readFile(resolve(process.cwd(), 'tmp-summary.json'), 'utf8');
+    const parsed: unknown = JSON.parse(payload);
+    return isRiverSummarySnapshot(parsed) ? parsed : null;
+  } catch {
+    return null;
+  }
 }
 
 export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverDetailSnapshot | null> {
