@@ -30,7 +30,7 @@ export default function RootLayout() {
   return (
     <AppProviders>
       <ThemeProvider value={navigationTheme}>
-        <StatusBar style="dark" />
+        <StatusBar style="dark" backgroundColor={colors.canvas} translucent={false} />
         <Stack
           screenOptions={{
             headerShadowVisible: false,

@@ -1,8 +1,12 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Tabs } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../../src/theme/tokens';
 
 export default function TabLayout() {
+  const insets = useSafeAreaInsets();
+  const bottomInset = Math.max(insets.bottom, 8);
+
   return (
     <Tabs
       screenOptions={{
@@ -12,6 +16,13 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: colors.surfaceStrong,
           borderTopColor: colors.border,
+          height: 54 + bottomInset,
+          paddingTop: 6,
+          paddingBottom: bottomInset,
+        },
+        tabBarLabelStyle: {
+          fontSize: 11,
+          fontWeight: '700',
         },
       }}>
       <Tabs.Screen
@@ -20,6 +31,15 @@ export default function TabLayout() {
           title: 'Today',
           tabBarIcon: ({ color, size }) => (
             <MaterialCommunityIcons name="kayaking" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="explore"
+        options={{
+          title: 'Explore',
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="map-search-outline" color={color} size={size} />
           ),
         }}
       />

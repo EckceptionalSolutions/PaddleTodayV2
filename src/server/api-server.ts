@@ -486,6 +486,7 @@ function sendJson(
     'cache-control': cacheControl,
     'content-length': Buffer.byteLength(body),
     'x-request-id': requestIdFromPayload(payload),
+    'access-control-allow-origin': '*',
   });
   response.end(includeBody ? body : undefined);
 }
@@ -516,6 +517,7 @@ function sendBinary(response: ServerResponse, status: number, payload: Buffer, c
     'content-type': contentType,
     'content-length': payload.length,
     'cache-control': cacheControl,
+    'access-control-allow-origin': '*',
   });
   response.end(payload);
 }

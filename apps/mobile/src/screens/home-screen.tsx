@@ -1,33 +1,47 @@
+import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import type { ReactNode } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   ActivityIndicator,
-  Animated,
+  FlatList,
   Pressable,
   RefreshControl,
-  ScrollView,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import { useRiverSummaryQuery } from '../api/queries';
 import { RiverCard } from '../components/river-card';
-import { SectionCard } from '../components/section-card';
+import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
-import { buildBoardSnapshot, selectNearbyPicks, selectTopPicks } from '../lib/ranking';
+import { isRecord, parseJson } from '../lib/storage';
+import {
+  buildBoardSnapshot,
+  selectNearbyPicks,
+  selectTopPicks,
+  type NearbyRiverPick,
+} from '../lib/ranking';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-type HomePanel = {
-  id: string;
-  label: string;
-  title: string;
-  subtitle: string;
-  content: ReactNode;
+type BoardMode = 'best' | 'saved' | 'nearby';
+type BoardViewMode = 'list' | 'map';
+type BoardItem = RiverSummaryApiItem | NearbyRiverPick;
+
+interface BoardPreferences {
+  mode: BoardMode;
+  viewMode: BoardViewMode;
+}
+
+const BOARD_PREFERENCES_STORAGE_KEY = 'paddletoday:board-preferences';
+
+const modeLabels: Record<BoardMode, string> = {
+  best: 'Best',
+  saved: 'Saved',
+  nearby: 'Nearby',
 };
 
 export default function HomeScreen() {
@@ -35,204 +49,70 @@ export default function HomeScreen() {
   const summaryQuery = useRiverSummaryQuery();
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { savedRivers, isSaved, toggleSavedRiver } = useSavedRivers();
+  const [mode, setMode] = useState<BoardMode>('best');
+  const [viewMode, setViewMode] = useState<BoardViewMode>('list');
+  const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
+  const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const snapshot = buildBoardSnapshot(rivers);
-  const topPicks = selectTopPicks(rivers, 5);
-  const nearbyPicks = location ? selectNearbyPicks(rivers, location, 4) : [];
-  const headline = topPicks[0];
-  const savedRiverLookup = new Map(savedRivers.map((river) => [river.slug, river]));
-  const savedPicks = rivers
-    .filter((river) => savedRiverLookup.has(river.river.slug))
-    .sort(
-      (left, right) =>
-        (savedRiverLookup.get(right.river.slug)?.savedAt ?? '').localeCompare(
-          savedRiverLookup.get(left.river.slug)?.savedAt ?? ''
-        )
-    )
-    .slice(0, 4);
-
-  const panels = useMemo<HomePanel[]>(() => {
-    const nextPanels: HomePanel[] = [];
-
-    if (savedPicks.length > 0) {
-      nextPanels.push({
-        id: 'saved',
-        label: 'Saved',
-        title: 'Saved rivers',
-        subtitle: 'Your repeat routes stay close to the top so the app gets faster over time.',
-        content: (
-          <View style={styles.list}>
-            {savedPicks.map((river) => (
-              <HomeRiverCard
-                key={river.river.slug}
-                river={river}
-                saved={isSaved(river.river.slug)}
-                onToggleSaved={() => void toggleSavedRiver(toSavedRiver(river))}
-                onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-              />
-            ))}
-          </View>
-        ),
-      });
-    }
-
-    nextPanels.push({
-      id: 'best',
-      label: 'Top picks',
-      title: 'Top picks today',
-      subtitle: 'The strongest current calls first, favoring live reads, confidence, then score.',
-      content: (
-        <View style={styles.list}>
-          {topPicks.map((river) => (
-            <HomeRiverCard
-              key={river.river.slug}
-              river={river}
-              saved={isSaved(river.river.slug)}
-              onToggleSaved={() => void toggleSavedRiver(toSavedRiver(river))}
-              onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-            />
-          ))}
-        </View>
-      ),
-    });
-
-    nextPanels.push({
-      id: 'nearby',
-      label: 'Nearby',
-      title: 'Nearby picks',
-      subtitle: location
-        ? `Ranked from ${location.label}. Distance trims the score so the list stays practical.`
-        : 'Turn on location to surface realistic day-trip options.',
-      content: location ? (
-        nearbyPicks.length > 0 ? (
-          <View style={styles.list}>
-            {nearbyPicks.map((river) => (
-              <HomeRiverCard
-                key={river.river.slug}
-                river={river}
-                saved={isSaved(river.river.slug)}
-                travelLabel={formatTravelTime(river.travelMinutes)}
-                onToggleSaved={() => void toggleSavedRiver(toSavedRiver(river))}
-                onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-              />
-            ))}
-          </View>
-        ) : (
-          <Text style={styles.emptyText}>
-            Nothing is ranking as a realistic nearby option inside a 3-hour day-trip window yet.
-          </Text>
-        )
-      ) : (
-        <View style={styles.locationCallout}>
-          <Text style={styles.locationTitle}>
-            {status === 'denied' ? 'Location access was denied.' : 'Use my location'}
-          </Text>
-          <Text style={styles.locationBody}>
-            Show the best routes that are actually close enough to matter on a trip day.
-          </Text>
-          <Pressable
-            style={[styles.primaryButton, status === 'requesting' ? styles.primaryButtonDisabled : null]}
-            onPress={() => void requestLocation()}
-            disabled={status === 'requesting'}
-          >
-            <Text style={styles.primaryButtonText}>
-              {status === 'requesting' ? 'Checking location...' : 'Find nearby picks'}
-            </Text>
-          </Pressable>
-          {location ? (
-            <Pressable style={styles.secondaryButton} onPress={() => void clearLocation()}>
-              <Text style={styles.secondaryButtonText}>Clear location</Text>
-            </Pressable>
-          ) : null}
-        </View>
-      ),
-    });
-
-    nextPanels.push({
-      id: 'about',
-      label: 'How it works',
-      title: 'How Paddle Today ranks routes',
-      subtitle: 'The app keeps the first screen focused on practical launch-day decisions.',
-      content: (
-        <View style={styles.bulletList}>
-          <Text style={styles.bullet}>- Water level decides whether a route is in range.</Text>
-          <Text style={styles.bullet}>- Weather, trend, and route confidence move the score up or down.</Text>
-          <Text style={styles.bullet}>- Saved rivers stay on this device for quick repeat checks.</Text>
-          <Text style={styles.bullet}>- Email alerts can watch for Good or Strong route conditions.</Text>
-        </View>
-      ),
-    });
-
-    return nextPanels;
-  }, [
-    savedPicks,
-    topPicks,
-    nearbyPicks,
-    isSaved,
-    location,
-    status,
-    router,
-    toggleSavedRiver,
-    clearLocation,
-    requestLocation,
-  ]);
-
-  const [activePanelId, setActivePanelId] = useState<string | null>(null);
-  const previousPanelIndexRef = useRef(0);
-  const activePanelIndex = Math.max(
-    0,
-    panels.findIndex((panel) => panel.id === (activePanelId ?? panels[0]?.id))
+  const savedRiverLookup = useMemo(
+    () => new Map(savedRivers.map((river) => [river.slug, river])),
+    [savedRivers]
   );
-  const activePanel = panels[activePanelIndex] ?? null;
-  const panelTranslateX = useState(() => new Animated.Value(0))[0];
-  const panelOpacity = useState(() => new Animated.Value(1))[0];
+  const topPicks = useMemo(() => selectTopPicks(rivers, 12), [rivers]);
+  const nearbyPicks = useMemo(
+    () => (location ? selectNearbyPicks(rivers, location, 12) : []),
+    [rivers, location]
+  );
+  const savedPicks = useMemo(
+    () =>
+      rivers
+        .filter((river) => savedRiverLookup.has(river.river.slug))
+        .sort((left, right) =>
+          (savedRiverLookup.get(right.river.slug)?.savedAt ?? '').localeCompare(
+            savedRiverLookup.get(left.river.slug)?.savedAt ?? ''
+          )
+        ),
+    [rivers, savedRiverLookup]
+  );
+
+  const data = mode === 'nearby' ? nearbyPicks : mode === 'saved' ? savedPicks : topPicks;
+  const headline = data[0] ?? topPicks[0] ?? null;
+  const selectedRiver = data.find((river) => river.river.slug === selectedSlug) ?? data[0] ?? null;
 
   useEffect(() => {
-    if (!panels.length) {
-      setActivePanelId(null);
+    void hydrateBoardPreferences();
+  }, []);
+
+  useEffect(() => {
+    if (!preferencesHydrated) {
       return;
     }
 
-    if (!activePanelId || !panels.some((panel) => panel.id === activePanelId)) {
-      setActivePanelId(panels[0].id);
-    }
-  }, [activePanelId, panels]);
+    void AsyncStorage.setItem(
+      BOARD_PREFERENCES_STORAGE_KEY,
+      JSON.stringify({ mode, viewMode })
+    );
+  }, [mode, preferencesHydrated, viewMode]);
 
   useEffect(() => {
-    if (!activePanel) {
+    if (data.length === 0) {
+      setSelectedSlug(null);
       return;
     }
 
-    const previousIndex = previousPanelIndexRef.current;
-    const direction = activePanelIndex > previousIndex ? 1 : activePanelIndex < previousIndex ? -1 : 0;
-    previousPanelIndexRef.current = activePanelIndex;
-
-    panelTranslateX.stopAnimation();
-    panelOpacity.stopAnimation();
-    panelTranslateX.setValue(direction * 28);
-    panelOpacity.setValue(direction === 0 ? 1 : 0.55);
-
-    Animated.parallel([
-      Animated.timing(panelTranslateX, {
-        toValue: 0,
-        duration: 220,
-        useNativeDriver: true,
-      }),
-      Animated.timing(panelOpacity, {
-        toValue: 1,
-        duration: 220,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [activePanel, activePanelIndex, panelOpacity, panelTranslateX]);
+    if (!selectedSlug || !data.some((river) => river.river.slug === selectedSlug)) {
+      setSelectedSlug(data[0].river.slug);
+    }
+  }, [data, selectedSlug]);
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
       <View style={styles.centerState}>
         <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading today's river board</Text>
-        <Text style={styles.stateBody}>Pulling the latest snapshot-backed calls.</Text>
+        <Text style={styles.stateTitle}>Loading river board</Text>
+        <Text style={styles.stateBody}>Getting the latest launch calls.</Text>
       </View>
     );
   }
@@ -240,16 +120,18 @@ export default function HomeScreen() {
   if (summaryQuery.isError && rivers.length === 0) {
     return (
       <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>The river board did not load.</Text>
-        <Text style={styles.stateBody}>Couldn't load river data. Pull to retry.</Text>
+        <Text style={styles.stateTitle}>The board did not load.</Text>
+        <Text style={styles.stateBody}>Pull down to retry when the connection is back.</Text>
       </View>
     );
   }
 
   return (
-    <ScrollView
+    <FlatList
       style={styles.screen}
-      contentContainerStyle={styles.content}
+      contentContainerStyle={styles.listContent}
+      data={viewMode === 'list' ? data : []}
+      keyExtractor={(river) => river.river.slug}
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
@@ -257,162 +139,322 @@ export default function HomeScreen() {
           onRefresh={() => summaryQuery.refetch()}
         />
       }
-    >
-      <View style={styles.hero}>
-        <Text style={styles.kicker}>Paddle Today</Text>
-        <Text style={styles.title}>Where should I paddle today?</Text>
-        <Text style={styles.subtitle}>
-          Start with the clearest live options. Drill into the river only when the call deserves it.
-        </Text>
-
-        <View style={styles.heroPanel}>
-          <View style={styles.heroHeader}>
-            <Text style={styles.heroLabel}>Board snapshot</Text>
-            <Text style={styles.heroFreshness}>{formatRelativeTime(summaryQuery.data?.generatedAt)}</Text>
-          </View>
-
-          <View style={styles.snapshotRow}>
-            <SnapshotStat label="Paddleable" value={snapshot.paddleable} tone={styles.snapshotStrong} />
-            <SnapshotStat label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
-            <SnapshotStat label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
-          </View>
-
-          {headline ? (
-            <View style={styles.headlineBlock}>
-              <Text style={styles.headlineLabel}>Best read right now</Text>
-              <Text style={styles.headlineName}>{headline.river.name}</Text>
-              <Text style={styles.headlineReach}>{headline.river.reach}</Text>
-              <Text style={styles.headlineSummary}>
-                {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
-              </Text>
-            </View>
+      ListHeaderComponent={
+        <View style={styles.headerStack}>
+          <BoardHeader
+            freshness={formatRelativeTime(summaryQuery.data?.generatedAt)}
+            headline={headline}
+            snapshot={snapshot}
+          />
+          <LocationStrip
+            locationLabel={location?.label ?? null}
+            status={status}
+            onUseLocation={() => void requestLocation()}
+            onClear={() => void clearLocation()}
+          />
+          <ModeTabs
+            mode={mode}
+            counts={{
+              best: topPicks.length,
+              saved: savedPicks.length,
+              nearby: location ? nearbyPicks.length : 0,
+            }}
+            onChange={setMode}
+          />
+          <ViewToggle mode={viewMode} onChange={setViewMode} />
+          <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
+          {viewMode === 'map' ? (
+            <HomeMapPanel
+              data={data}
+              selectedRiver={selectedRiver}
+              selectedSlug={selectedSlug}
+              userLocation={location}
+              onSelectSlug={setSelectedSlug}
+              isSaved={isSaved}
+              onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+              onOpenRoute={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+            />
           ) : null}
+        </View>
+      }
+      ListEmptyComponent={<EmptyMode mode={mode} hasLocation={Boolean(location)} />}
+      renderItem={({ item }) => (
+        <RiverCard
+          river={item}
+          travelLabel={isNearbyPick(item) ? formatTravelTime(item.travelMinutes) : undefined}
+          saved={isSaved(item.river.slug)}
+          onToggleSaved={() => void toggleSavedRiver(toSavedRiver(item))}
+          onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: item.river.slug } })}
+        />
+      )}
+    />
+  );
+
+  async function hydrateBoardPreferences() {
+    try {
+      const parsed = parseJson(await AsyncStorage.getItem(BOARD_PREFERENCES_STORAGE_KEY));
+      if (isBoardPreferences(parsed)) {
+        setMode(parsed.mode);
+        setViewMode(parsed.viewMode);
+      }
+    } catch {
+      // Keep the default board if local preferences are unavailable.
+    } finally {
+      setPreferencesHydrated(true);
+    }
+  }
+}
+
+function BoardHeader({
+  freshness,
+  headline,
+  snapshot,
+}: {
+  freshness: string;
+  headline: BoardItem | null;
+  snapshot: ReturnType<typeof buildBoardSnapshot>;
+}) {
+  return (
+    <View style={styles.boardHeader}>
+      <View style={styles.topBar}>
+        <View>
+          <Text style={styles.appName}>Paddle Today</Text>
+          <Text style={styles.freshness}>{freshness}</Text>
+        </View>
+        <View style={styles.liveBadge}>
+          <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
         </View>
       </View>
 
-      {activePanel ? (
-        <View style={styles.deck}>
-          <Animated.View
-            style={[
-              styles.deckAnimated,
-              {
-                opacity: panelOpacity,
-                transform: [{ translateX: panelTranslateX }],
-              },
-            ]}
-          >
-            <View style={styles.deckHeader}>
-              <View style={styles.deckHeaderCopy}>
-                <Text style={styles.deckKicker}>Home sections</Text>
-                <Text style={styles.deckTitle}>{activePanel.title}</Text>
-              </View>
-              <Text style={styles.deckCount}>
-                {activePanelIndex + 1} / {panels.length}
-              </Text>
-            </View>
-
-            <ScrollView
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              contentContainerStyle={styles.jumpStrip}
-            >
-              {panels.map((panel) => {
-                const active = panel.id === activePanel.id;
-                return (
-                  <Pressable
-                    key={panel.id}
-                    style={[styles.jumpPill, active ? styles.jumpPillActive : null]}
-                    onPress={() => setActivePanelId(panel.id)}
-                  >
-                    <Text style={[styles.jumpPillText, active ? styles.jumpPillTextActive : null]}>
-                      {panel.label}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </ScrollView>
-
-            <SectionCard
-              title={activePanel.title}
-              subtitle={activePanel.subtitle}
-              accessory={
-                activePanel.id === 'nearby' && location ? (
-                  <Pressable onPress={() => void clearLocation()}>
-                    <Text style={styles.linkText}>Clear</Text>
-                  </Pressable>
-                ) : undefined
-              }
-            >
-              {activePanel.content}
-            </SectionCard>
-
-            <View style={styles.deckControls}>
-              <Pressable
-                style={[styles.deckButton, activePanelIndex === 0 ? styles.deckButtonDisabled : null]}
-                disabled={activePanelIndex === 0}
-                onPress={() => setActivePanelId(panels[Math.max(0, activePanelIndex - 1)]?.id ?? activePanel.id)}
-              >
-                <Text style={styles.deckButtonText}>Previous</Text>
-              </Pressable>
-              <Pressable
-                style={[styles.deckButton, activePanelIndex === panels.length - 1 ? styles.deckButtonDisabled : null]}
-                disabled={activePanelIndex === panels.length - 1}
-                onPress={() =>
-                  setActivePanelId(panels[Math.min(panels.length - 1, activePanelIndex + 1)]?.id ?? activePanel.id)
-                }
-              >
-                <Text style={styles.deckButtonText}>Next</Text>
-              </Pressable>
-            </View>
-          </Animated.View>
+      {headline ? (
+        <View style={styles.headlineRow}>
+          <View style={styles.scoreOrb}>
+            <Text style={styles.scoreValue}>{headline.score}</Text>
+            <Text style={styles.scoreLabel}>{headline.rating}</Text>
+          </View>
+          <View style={styles.headlineCopy}>
+            <Text style={styles.headlineKicker}>Best read now</Text>
+            <Text style={styles.headlineName}>{headline.river.name}</Text>
+            <Text style={styles.headlineText} numberOfLines={2}>
+              {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
+            </Text>
+          </View>
         </View>
       ) : null}
-    </ScrollView>
+
+      <View style={styles.snapshotRow}>
+        <SnapshotPill label="Good+" value={snapshot.paddleable} tone={styles.snapshotStrong} />
+        <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
+        <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
+      </View>
+    </View>
   );
 }
 
-function HomeRiverCard({
-  river,
-  saved,
-  travelLabel,
+function LocationStrip({
+  locationLabel,
+  status,
+  onUseLocation,
+  onClear,
+}: {
+  locationLabel: string | null;
+  status: string;
+  onUseLocation: () => void;
+  onClear: () => void;
+}) {
+  const isRequesting = status === 'requesting';
+
+  return (
+    <View style={styles.locationStrip}>
+      <View style={styles.locationCopy}>
+        <Text style={styles.locationLabel}>{locationLabel ? 'Current area' : 'Nearby picks'}</Text>
+        <Text style={styles.locationValue} numberOfLines={1}>
+          {locationLabel ?? (status === 'denied' ? 'Location access denied' : 'Use location for drive-aware picks')}
+        </Text>
+      </View>
+      <Pressable
+        style={[styles.locationButton, isRequesting ? styles.locationButtonDisabled : null]}
+        disabled={isRequesting}
+        onPress={locationLabel ? onClear : onUseLocation}
+        android_ripple={{ color: colors.accentSoft }}
+      >
+        <Text style={styles.locationButtonText}>
+          {locationLabel ? 'Clear' : isRequesting ? 'Finding' : 'Use'}
+        </Text>
+      </Pressable>
+    </View>
+  );
+}
+
+function ModeTabs({
+  mode,
+  counts,
+  onChange,
+}: {
+  mode: BoardMode;
+  counts: Record<BoardMode, number>;
+  onChange: (mode: BoardMode) => void;
+}) {
+  return (
+    <View style={styles.modeTabs}>
+      {(['best', 'saved', 'nearby'] as const).map((item) => {
+        const active = item === mode;
+        return (
+          <Pressable
+            key={item}
+            style={[styles.modeTab, active ? styles.modeTabActive : null]}
+            onPress={() => onChange(item)}
+            android_ripple={{ color: colors.border, borderless: true }}
+          >
+            <Text style={[styles.modeTabText, active ? styles.modeTabTextActive : null]}>
+              {modeLabels[item]}
+            </Text>
+            <Text style={[styles.modeCount, active ? styles.modeCountActive : null]}>{counts[item]}</Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+function ViewToggle({
+  mode,
+  onChange,
+}: {
+  mode: BoardViewMode;
+  onChange: (mode: BoardViewMode) => void;
+}) {
+  return (
+    <View style={styles.viewToggle}>
+      {(['list', 'map'] as const).map((item) => {
+        const active = item === mode;
+        return (
+          <Pressable
+            key={item}
+            style={[styles.viewToggleButton, active ? styles.viewToggleButtonActive : null]}
+            onPress={() => onChange(item)}
+            android_ripple={{ color: colors.border, borderless: true }}
+          >
+            <Text style={[styles.viewToggleText, active ? styles.viewToggleTextActive : null]}>
+              {item === 'list' ? 'List' : 'Map'}
+            </Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+function HomeMapPanel({
+  data,
+  selectedRiver,
+  selectedSlug,
+  userLocation,
+  onSelectSlug,
+  isSaved,
   onToggleSaved,
-  onOpen,
+  onOpenRoute,
 }: {
-  river: RiverSummaryApiItem;
-  saved: boolean;
-  travelLabel?: string;
-  onToggleSaved: () => void;
-  onOpen: () => void;
+  data: BoardItem[];
+  selectedRiver: BoardItem | null;
+  selectedSlug: string | null;
+  userLocation: { latitude: number; longitude: number; label: string } | null;
+  onSelectSlug: (slug: string) => void;
+  isSaved: (slug: string) => boolean;
+  onToggleSaved: (river: BoardItem) => void;
+  onOpenRoute: (slug: string) => void;
 }) {
+  const points = useMemo<RoutePlotPoint[]>(
+    () =>
+      data.map((river) => ({
+        id: river.river.slug,
+        label: river.river.name,
+        latitude: river.river.latitude,
+        longitude: river.river.longitude,
+        score: river.score,
+        rating: river.rating,
+        meta: [
+          river.river.reach,
+          isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region,
+        ]
+          .filter(Boolean)
+          .join(' - '),
+      })),
+    [data]
+  );
+
+  if (data.length === 0) {
+    return null;
+  }
+
   return (
-    <RiverCard
-      river={river}
-      saved={saved}
-      travelLabel={travelLabel}
-      onToggleSaved={onToggleSaved}
-      onPress={onOpen}
-    />
+    <View style={styles.mapStack}>
+      <RoutePlotMap
+        points={points}
+        selectedId={selectedSlug}
+        userLocation={userLocation}
+        onSelectPoint={(point) => onSelectSlug(point.id)}
+      />
+      {selectedRiver ? (
+        <View style={styles.selectedCardWrap}>
+          <Text style={styles.selectedCardLabel}>Selected route</Text>
+          <RiverCard
+            river={selectedRiver}
+            travelLabel={isNearbyPick(selectedRiver) ? formatTravelTime(selectedRiver.travelMinutes) : undefined}
+            saved={isSaved(selectedRiver.river.slug)}
+            onToggleSaved={() => onToggleSaved(selectedRiver)}
+            onPress={() => onOpenRoute(selectedRiver.river.slug)}
+          />
+        </View>
+      ) : null}
+    </View>
   );
 }
 
-function SnapshotStat({
-  label,
-  value,
-  tone,
-}: {
-  label: string;
-  value: number;
-  tone: object;
-}) {
+function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: string | null }) {
+  const copy =
+    mode === 'saved'
+      ? 'Your repeat routes, sorted by most recently saved.'
+      : mode === 'nearby'
+        ? locationLabel
+          ? `Drive-aware picks from ${locationLabel}.`
+          : 'Turn on location to fill this list.'
+        : 'Live reads sorted by data status, confidence, then score.';
+
   return (
-    <View style={[styles.snapshotCard, tone]}>
+    <View style={styles.boardIntro}>
+      <Text style={styles.boardIntroTitle}>{modeLabels[mode]} rivers</Text>
+      <Text style={styles.boardIntroCopy}>{copy}</Text>
+    </View>
+  );
+}
+
+function EmptyMode({ mode, hasLocation }: { mode: BoardMode; hasLocation: boolean }) {
+  const message =
+    mode === 'saved'
+      ? 'Save rivers from any card or detail screen to build a faster repeat-trip list.'
+      : mode === 'nearby' && !hasLocation
+        ? 'Use location above to show routes within a practical day-trip range.'
+        : 'No routes match this view right now.';
+
+  return (
+    <View style={styles.emptyCard}>
+      <Text style={styles.emptyTitle}>Nothing here yet</Text>
+      <Text style={styles.emptyText}>{message}</Text>
+    </View>
+  );
+}
+
+function SnapshotPill({ label, value, tone }: { label: string; value: number; tone: object }) {
+  return (
+    <View style={[styles.snapshotPill, tone]}>
       <Text style={styles.snapshotValue}>{value}</Text>
       <Text style={styles.snapshotLabel}>{label}</Text>
     </View>
   );
 }
 
-function toSavedRiver(river: RiverSummaryApiItem) {
+function toSavedRiver(river: BoardItem) {
   return {
     slug: river.river.slug,
     riverId: river.river.riverId,
@@ -421,67 +463,123 @@ function toSavedRiver(river: RiverSummaryApiItem) {
   };
 }
 
+function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
+  return 'travelMinutes' in river;
+}
+
+function isBoardPreferences(value: unknown): value is BoardPreferences {
+  return isRecord(value) && isBoardMode(value.mode) && isBoardViewMode(value.viewMode);
+}
+
+function isBoardMode(value: unknown): value is BoardMode {
+  return value === 'best' || value === 'saved' || value === 'nearby';
+}
+
+function isBoardViewMode(value: unknown): value is BoardViewMode {
+  return value === 'list' || value === 'map';
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
   },
-  content: {
-    padding: spacing.lg,
-    gap: spacing.lg,
+  listContent: {
+    padding: spacing.md,
+    gap: spacing.sm,
+    paddingBottom: spacing.xl,
   },
-  hero: {
-    gap: spacing.md,
+  headerStack: {
+    gap: spacing.sm,
   },
-  kicker: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '700',
-    letterSpacing: 0.7,
-    textTransform: 'uppercase',
-  },
-  title: {
-    color: colors.text,
-    fontSize: 34,
-    lineHeight: 40,
-    fontWeight: '800',
-  },
-  subtitle: {
-    color: colors.textMuted,
-    fontSize: 16,
-    lineHeight: 24,
-  },
-  heroPanel: {
+  boardHeader: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.lg,
+    padding: spacing.md,
     gap: spacing.md,
   },
-  heroHeader: {
+  topBar: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     gap: spacing.md,
   },
-  heroLabel: {
+  appName: {
     color: colors.text,
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 22,
+    fontWeight: '900',
   },
-  heroFreshness: {
+  freshness: {
+    color: colors.textMuted,
+    fontSize: 12,
+    marginTop: 2,
+  },
+  liveBadge: {
+    backgroundColor: colors.accentSoft,
+    borderRadius: radius.pill,
+    paddingHorizontal: 12,
+    paddingVertical: 7,
+  },
+  liveBadgeText: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  headlineRow: {
+    flexDirection: 'row',
+    gap: spacing.md,
+    alignItems: 'center',
+  },
+  scoreOrb: {
+    width: 66,
+    height: 66,
+    borderRadius: 19,
+    backgroundColor: colors.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  scoreValue: {
+    color: colors.accentDeep,
+    fontSize: 28,
+    fontWeight: '900',
+  },
+  scoreLabel: {
+    color: colors.accentDeep,
+    fontSize: 10,
+    fontWeight: '800',
+  },
+  headlineCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  headlineKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  headlineName: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  headlineText: {
     color: colors.textMuted,
     fontSize: 13,
+    lineHeight: 18,
   },
   snapshotRow: {
     flexDirection: 'row',
     gap: spacing.sm,
   },
-  snapshotCard: {
+  snapshotPill: {
     flex: 1,
     borderRadius: radius.md,
-    padding: spacing.md,
-    gap: 4,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.sm,
   },
   snapshotStrong: {
     backgroundColor: '#E0EFE9',
@@ -494,180 +592,160 @@ const styles = StyleSheet.create({
   },
   snapshotValue: {
     color: colors.text,
-    fontSize: 28,
-    fontWeight: '800',
+    fontSize: 20,
+    fontWeight: '900',
   },
   snapshotLabel: {
     color: colors.textMuted,
-    fontSize: 12,
+    fontSize: 11,
+    fontWeight: '700',
     textTransform: 'uppercase',
-    letterSpacing: 0.4,
   },
-  headlineBlock: {
-    paddingTop: spacing.sm,
-    borderTopWidth: 1,
-    borderTopColor: colors.border,
-    gap: 2,
-  },
-  headlineLabel: {
-    color: colors.textMuted,
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  headlineName: {
-    color: colors.text,
-    fontSize: 24,
-    fontWeight: '800',
-  },
-  headlineReach: {
-    color: colors.text,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-  headlineSummary: {
-    color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
-  },
-  deck: {
-    gap: spacing.md,
-  },
-  deckAnimated: {
-    gap: spacing.md,
-  },
-  deckHeader: {
+  locationStrip: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
+    alignItems: 'center',
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
     gap: spacing.md,
   },
-  deckHeaderCopy: {
+  locationCopy: {
     flex: 1,
-    gap: 2,
   },
-  deckKicker: {
+  locationLabel: {
     color: colors.textMuted,
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-    fontWeight: '700',
-  },
-  deckTitle: {
-    color: colors.text,
-    fontSize: 24,
+    fontSize: 11,
     fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
   },
-  deckCount: {
-    color: colors.textMuted,
-    fontSize: 13,
+  locationValue: {
+    color: colors.text,
+    fontSize: 14,
     fontWeight: '700',
+    marginTop: 2,
   },
-  jumpStrip: {
-    gap: spacing.sm,
-    paddingRight: spacing.sm,
-  },
-  jumpPill: {
-    backgroundColor: colors.canvasMuted,
+  locationButton: {
+    backgroundColor: colors.accent,
     borderRadius: radius.pill,
     paddingHorizontal: 14,
-    paddingVertical: 10,
+    paddingVertical: 9,
   },
-  jumpPillActive: {
-    backgroundColor: colors.accent,
+  locationButtonDisabled: {
+    opacity: 0.65,
   },
-  jumpPillText: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '700',
-  },
-  jumpPillTextActive: {
+  locationButtonText: {
     color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '800',
   },
-  deckControls: {
+  modeTabs: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    backgroundColor: colors.canvasMuted,
+    borderRadius: radius.pill,
+    padding: 4,
+    gap: 4,
   },
-  deckButton: {
+  modeTab: {
     flex: 1,
-    backgroundColor: colors.accent,
+    minHeight: 42,
     borderRadius: radius.pill,
-    paddingVertical: 12,
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 6,
   },
-  deckButtonDisabled: {
-    opacity: 0.4,
+  modeTabActive: {
+    backgroundColor: colors.surfaceStrong,
   },
-  deckButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '700',
+  modeTabText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    fontWeight: '800',
   },
-  list: {
-    gap: spacing.md,
-  },
-  locationCallout: {
-    backgroundColor: colors.accentSoft,
-    borderRadius: radius.md,
-    padding: spacing.lg,
-    gap: spacing.sm,
-  },
-  locationTitle: {
-    color: colors.accentDeep,
-    fontSize: 18,
-    fontWeight: '700',
-  },
-  locationBody: {
+  modeTabTextActive: {
     color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
   },
-  primaryButton: {
-    alignSelf: 'flex-start',
+  modeCount: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  modeCountActive: {
+    color: colors.accentDeep,
+  },
+  viewToggle: {
+    flexDirection: 'row',
+    backgroundColor: colors.canvasMuted,
+    borderRadius: radius.pill,
+    padding: 4,
+    gap: 4,
+  },
+  viewToggleButton: {
+    flex: 1,
+    minHeight: 38,
+    borderRadius: radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  viewToggleButtonActive: {
     backgroundColor: colors.accent,
-    borderRadius: radius.pill,
-    paddingHorizontal: 18,
-    paddingVertical: 12,
-    marginTop: spacing.sm,
   },
-  primaryButtonDisabled: {
-    opacity: 0.7,
-  },
-  primaryButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  secondaryButton: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
-  },
-  secondaryButtonText: {
+  viewToggleText: {
     color: colors.accent,
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '900',
   },
-  linkText: {
-    color: colors.accent,
-    fontSize: 14,
-    fontWeight: '700',
+  viewToggleTextActive: {
+    color: colors.surfaceStrong,
+  },
+  mapStack: {
+    gap: spacing.sm,
+  },
+  selectedCardWrap: {
+    gap: spacing.xs,
+  },
+  selectedCardLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  boardIntro: {
+    paddingHorizontal: 2,
+    gap: 2,
+  },
+  boardIntroTitle: {
+    color: colors.text,
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  boardIntroCopy: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  emptyCard: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    gap: spacing.xs,
+  },
+  emptyTitle: {
+    color: colors.text,
+    fontSize: 17,
+    fontWeight: '900',
   },
   emptyText: {
     color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
-  },
-  bulletList: {
-    gap: spacing.sm,
-  },
-  bullet: {
-    color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 13,
+    lineHeight: 18,
   },
   centerState: {
     flex: 1,
@@ -679,14 +757,14 @@ const styles = StyleSheet.create({
   },
   stateTitle: {
     color: colors.text,
-    fontSize: 22,
-    fontWeight: '700',
+    fontSize: 20,
+    fontWeight: '800',
     textAlign: 'center',
   },
   stateBody: {
     color: colors.textMuted,
-    fontSize: 15,
+    fontSize: 14,
     textAlign: 'center',
-    lineHeight: 22,
+    lineHeight: 20,
   },
 });

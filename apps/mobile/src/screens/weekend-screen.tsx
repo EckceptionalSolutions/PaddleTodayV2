@@ -164,8 +164,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
-    padding: spacing.lg,
-    gap: spacing.lg,
+    padding: spacing.md,
+    gap: spacing.md,
   },
   hero: {
     gap: spacing.md,
@@ -179,21 +179,21 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.text,
-    fontSize: 32,
-    lineHeight: 38,
+    fontSize: 26,
+    lineHeight: 31,
     fontWeight: '800',
   },
   subtitle: {
     color: colors.textMuted,
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 14,
+    lineHeight: 20,
   },
   heroPanel: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.lg,
+    padding: spacing.md,
     gap: spacing.md,
   },
   heroHeader: {
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   },
   snapshotValue: {
     color: colors.text,
-    fontSize: 28,
+    fontSize: 22,
     fontWeight: '800',
   },
   snapshotLabel: {
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
   },
   featuredName: {
     color: colors.text,
-    fontSize: 24,
+    fontSize: 19,
     fontWeight: '800',
   },
   featuredReach: {

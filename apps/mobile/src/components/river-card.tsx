@@ -20,7 +20,7 @@ export function RiverCard({
   onPress: () => void;
 }) {
   return (
-    <Pressable style={styles.card} onPress={onPress}>
+    <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
           <Text style={styles.score}>{river.score}</Text>
@@ -61,24 +61,24 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.lg,
-    gap: spacing.md,
+    padding: spacing.md,
+    gap: spacing.sm,
   },
   header: {
     flexDirection: 'row',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   scoreBlock: {
-    width: 70,
-    height: 70,
-    borderRadius: 20,
+    width: 58,
+    height: 58,
+    borderRadius: 16,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   score: {
     color: colors.accentDeep,
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '800',
   },
   scoreLabel: {
@@ -105,17 +105,17 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     color: colors.text,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '700',
   },
   reach: {
     color: colors.textMuted,
-    fontSize: 14,
+    fontSize: 13,
   },
   explanation: {
     color: colors.text,
-    fontSize: 15,
-    lineHeight: 21,
+    fontSize: 14,
+    lineHeight: 19,
     fontWeight: '600',
   },
   metaRow: {
@@ -130,8 +130,8 @@ const styles = StyleSheet.create({
   },
   cardText: {
     color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 13,
+    lineHeight: 18,
   },
   footer: {
     flexDirection: 'row',

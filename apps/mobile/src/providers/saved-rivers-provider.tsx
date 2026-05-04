@@ -35,7 +35,7 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
       const parsed = parseJson(raw);
       if (Array.isArray(parsed)) {
-        setSavedRivers(parsed.filter(isSavedRiverRecord).sort(sortSavedRiversByRecency));
+        setSavedRivers(uniqueSavedRiversBySlug(parsed.filter(isSavedRiverRecord).sort(sortSavedRiversByRecency)));
       }
     } catch {
       // Leave saved rivers empty if local state is corrupt.
@@ -95,4 +95,16 @@ function isSavedRiverRecord(value: unknown): value is SavedRiverRecord {
 
 function sortSavedRiversByRecency(left: SavedRiverRecord, right: SavedRiverRecord) {
   return right.savedAt.localeCompare(left.savedAt);
+}
+
+function uniqueSavedRiversBySlug(rivers: SavedRiverRecord[]) {
+  const seen = new Set<string>();
+  return rivers.filter((river) => {
+    if (seen.has(river.slug)) {
+      return false;
+    }
+
+    seen.add(river.slug);
+    return true;
+  });
 }

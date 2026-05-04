@@ -475,3 +475,33 @@ export interface CreateRiverAlertResponse {
     lastState: RiverAlertState;
   };
 }
+
+export interface RouteContributionFileInput {
+  name: string;
+  type: string;
+  size: number;
+  dataUrl: string;
+  caption?: string;
+}
+
+export interface CreateRouteContributionRequest {
+  riverSlug: string;
+  contributorName: string;
+  contributorEmail: string;
+  tripDate?: string;
+  tripSentiment?: 'great' | 'good' | 'mixed' | 'rough' | string;
+  tripReport: string;
+  notes?: string;
+  rightsConfirmed?: boolean;
+  reviewConsent: boolean;
+  company?: string;
+  files?: RouteContributionFileInput[];
+}
+
+export interface CreateRouteContributionResponse {
+  requestId: string;
+  ok: true;
+  stored: boolean;
+  storage: string;
+  submissionId: string;
+}

@@ -2,6 +2,8 @@ import type {
   ApiErrorResponse,
   CreateRiverAlertRequest,
   CreateRiverAlertResponse,
+  CreateRouteContributionRequest,
+  CreateRouteContributionResponse,
   RiverDetailResponse,
   RiverHistoryResponse,
   RouteCommunityResponse,
@@ -44,6 +46,10 @@ export interface PaddleTodayApiClient {
   getRiverHistory(slug: string, options?: RiverHistoryRequestOptions): Promise<RiverHistoryResponse>;
   getRouteCommunity(slug: string, options?: RequestOptions): Promise<RouteCommunityResponse>;
   createRiverAlert(input: CreateRiverAlertRequest, options?: RequestOptions): Promise<CreateRiverAlertResponse>;
+  createRouteContribution(
+    input: CreateRouteContributionRequest,
+    options?: RequestOptions
+  ): Promise<CreateRouteContributionResponse>;
 }
 
 export function createPaddleTodayApiClient(args: {
@@ -123,6 +129,13 @@ export function createPaddleTodayApiClient(args: {
     },
     createRiverAlert(input, options) {
       return requestJson<CreateRiverAlertResponse>('/api/alerts', {
+        ...options,
+        method: 'POST',
+        body: input,
+      });
+    },
+    createRouteContribution(input, options) {
+      return requestJson<CreateRouteContributionResponse>('/api/route-photo-submissions', {
         ...options,
         method: 'POST',
         body: input,

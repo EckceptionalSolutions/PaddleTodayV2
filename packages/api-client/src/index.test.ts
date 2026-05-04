@@ -90,4 +90,53 @@ describe('@paddletoday/api-client', () => {
       message: 'PaddleToday API returned invalid JSON for HTTP 500: {not valid json',
     });
   });
+
+  it('posts route contribution reports as JSON', async () => {
+    const fetchImpl = async (_input: URL | RequestInfo, init?: RequestInit) => {
+      expect(String(_input)).toBe('https://api.example.com/api/route-photo-submissions');
+      expect(init?.method).toBe('POST');
+      expect(init?.headers).toEqual({
+        accept: 'application/json',
+        'content-type': 'application/json',
+      });
+      expect(JSON.parse(String(init?.body))).toMatchObject({
+        riverSlug: 'cannon-river-welch',
+        contributorName: 'Test Paddler',
+        contributorEmail: 'test@example.com',
+        tripReport: 'Good level with clear access.',
+        reviewConsent: true,
+        files: [],
+      });
+
+      return new Response(
+        JSON.stringify({
+          requestId: 'req-3',
+          ok: true,
+          stored: true,
+          storage: 'local',
+          submissionId: 'submission-1',
+        }),
+        { status: 202 }
+      );
+    };
+
+    const client = createPaddleTodayApiClient({
+      baseUrl: 'https://api.example.com',
+      fetchImpl,
+    });
+
+    await expect(
+      client.createRouteContribution({
+        riverSlug: 'cannon-river-welch',
+        contributorName: 'Test Paddler',
+        contributorEmail: 'test@example.com',
+        tripReport: 'Good level with clear access.',
+        reviewConsent: true,
+        files: [],
+      })
+    ).resolves.toMatchObject({
+      ok: true,
+      submissionId: 'submission-1',
+    });
+  });
 });

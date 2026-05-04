@@ -1,4 +1,11 @@
-import type { CreateRiverAlertRequest } from '@paddletoday/api-contract';
+import type {
+  CreateRiverAlertRequest,
+  CreateRouteContributionRequest,
+  RiverSummaryApiItem,
+  RiverSummaryResponse,
+  WeekendSummaryApiItem,
+  WeekendSummaryResponse,
+} from '@paddletoday/api-contract';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { apiClient } from './client';
 
@@ -14,6 +21,7 @@ export function useRiverSummaryQuery() {
   return useQuery({
     queryKey: riverQueryKeys.summary,
     queryFn: ({ signal }) => apiClient.getSummary({ signal }),
+    select: dedupeRiverSummaryResponse,
     staleTime: 5 * 60 * 1000,
   });
 }
@@ -40,6 +48,7 @@ export function useWeekendSummaryQuery() {
   return useQuery({
     queryKey: riverQueryKeys.weekend,
     queryFn: ({ signal }) => apiClient.getWeekendSummary({ signal }),
+    select: dedupeWeekendSummaryResponse,
     staleTime: 15 * 60 * 1000,
   });
 }
@@ -56,5 +65,33 @@ export function useRouteCommunityQuery(slug: string) {
 export function useCreateRiverAlertMutation() {
   return useMutation({
     mutationFn: (input: CreateRiverAlertRequest) => apiClient.createRiverAlert(input),
+  });
+}
+
+export function useCreateRouteContributionMutation() {
+  return useMutation({
+    mutationFn: (input: CreateRouteContributionRequest) => apiClient.createRouteContribution(input),
+  });
+}
+
+function dedupeRiverSummaryResponse(response: RiverSummaryResponse): RiverSummaryResponse {
+  const rivers = uniqueBySlug(response.rivers);
+  return rivers.length === response.rivers.length ? response : { ...response, rivers, riverCount: rivers.length };
+}
+
+function dedupeWeekendSummaryResponse(response: WeekendSummaryResponse): WeekendSummaryResponse {
+  const rivers = uniqueBySlug(response.rivers);
+  return rivers.length === response.rivers.length ? response : { ...response, rivers, riverCount: rivers.length };
+}
+
+function uniqueBySlug<Item extends RiverSummaryApiItem | WeekendSummaryApiItem>(rivers: Item[]) {
+  const seen = new Set<string>();
+  return rivers.filter((river) => {
+    if (seen.has(river.river.slug)) {
+      return false;
+    }
+
+    seen.add(river.river.slug);
+    return true;
   });
 }

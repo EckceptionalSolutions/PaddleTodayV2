@@ -251,8 +251,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
-    padding: spacing.lg,
-    gap: spacing.lg,
+    padding: spacing.md,
+    gap: spacing.md,
   },
   kicker: {
     color: colors.accentDeep,
@@ -263,14 +263,14 @@ const styles = StyleSheet.create({
   },
   title: {
     color: colors.text,
-    fontSize: 30,
-    lineHeight: 36,
+    fontSize: 24,
+    lineHeight: 30,
     fontWeight: '800',
   },
   subtitle: {
     color: colors.textMuted,
-    fontSize: 16,
-    lineHeight: 24,
+    fontSize: 14,
+    lineHeight: 20,
   },
   list: {
     gap: spacing.sm,
@@ -282,8 +282,8 @@ const styles = StyleSheet.create({
   },
   body: {
     color: colors.text,
-    fontSize: 15,
-    lineHeight: 22,
+    fontSize: 14,
+    lineHeight: 20,
   },
   input: {
     borderWidth: 1,
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
   },
   savedFallbackCard: {
     backgroundColor: colors.surface,
-    borderRadius: 16,
+    borderRadius: radius.md,
     padding: spacing.md,
     gap: spacing.sm,
   },

@@ -19,7 +19,12 @@ export function SaveToggleButton({
 
   if (compact) {
     return (
-      <Pressable style={styles.compactButton} onPress={handlePress} hitSlop={10}>
+      <Pressable
+        style={styles.compactButton}
+        onPress={handlePress}
+        hitSlop={10}
+        android_ripple={{ color: colors.canvasMuted, borderless: true }}
+      >
         <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
           size={20}
@@ -30,7 +35,11 @@ export function SaveToggleButton({
   }
 
   return (
-    <Pressable style={[styles.button, saved ? styles.buttonSaved : null]} onPress={handlePress}>
+    <Pressable
+      style={[styles.button, saved ? styles.buttonSaved : null]}
+      onPress={handlePress}
+      android_ripple={{ color: colors.accentSoft }}
+    >
       <View style={styles.row}>
         <MaterialCommunityIcons
           name={saved ? 'bookmark' : 'bookmark-outline'}
@@ -58,9 +67,9 @@ const styles = StyleSheet.create({
     backgroundColor: colors.accent,
   },
   compactButton: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: colors.surface,

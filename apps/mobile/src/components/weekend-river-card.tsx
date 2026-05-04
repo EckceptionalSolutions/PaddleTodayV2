@@ -18,7 +18,7 @@ export function WeekendRiverCard({
   onPress: () => void;
 }) {
   return (
-    <Pressable style={styles.card} onPress={onPress}>
+    <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
           <Text style={styles.score}>{river.weekend.score}</Text>
@@ -60,24 +60,24 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.lg,
-    gap: spacing.md,
+    padding: spacing.md,
+    gap: spacing.sm,
   },
   header: {
     flexDirection: 'row',
     gap: spacing.md,
   },
   scoreBlock: {
-    width: 84,
-    height: 84,
-    borderRadius: 24,
+    width: 62,
+    height: 62,
+    borderRadius: 17,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   score: {
     color: colors.accentDeep,
-    fontSize: 30,
+    fontSize: 24,
     fontWeight: '800',
   },
   scoreLabel: {
@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
   name: {
     flex: 1,
     color: colors.text,
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: '800',
   },
   reach: {
@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
   },
   summary: {
     color: colors.text,
-    fontSize: 15,
-    lineHeight: 21,
+    fontSize: 14,
+    lineHeight: 19,
     fontWeight: '700',
   },
   metaRow: {
@@ -129,8 +129,8 @@ const styles = StyleSheet.create({
   },
   explanation: {
     color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 13,
+    lineHeight: 18,
   },
   signalLine: {
     color: colors.textMuted,
