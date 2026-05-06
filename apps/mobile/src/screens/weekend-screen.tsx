@@ -1,9 +1,11 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useWeekendSummaryQuery } from '../api/queries';
+import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
+import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { normalizeApiText } from '../lib/format';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -34,20 +36,18 @@ export default function WeekendScreen() {
 
   if (weekendQuery.isLoading && rivers.length === 0) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading weekend board</Text>
-        <Text style={styles.stateBody}>Pulling the latest stored weekend outlook.</Text>
-      </View>
+      <AppLoadingState title="Loading weekend board" body="Pulling the latest stored weekend outlook." />
     );
   }
 
   if (weekendQuery.isError && rivers.length === 0) {
     return (
-      <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>Weekend outlook did not load.</Text>
-        <Text style={styles.stateBody}>Couldn't load weekend data. Pull to retry.</Text>
-      </View>
+      <AppErrorState
+        title="Weekend outlook did not load"
+        body="Check the API connection, then try again."
+        detail={errorDetailForWeekendQuery(weekendQuery.error)}
+        onRetry={() => weekendQuery.refetch()}
+      />
     );
   }
 
@@ -242,6 +242,11 @@ function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
+function errorDetailForWeekendQuery(error: unknown) {
+  const message = error instanceof Error ? error.message : 'Unknown request error';
+  return `${resolveApiBaseUrl()} - ${message}`;
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -409,25 +414,5 @@ const styles = StyleSheet.create({
     color: colors.accent,
     fontSize: 14,
     fontWeight: '900',
-  },
-  centerState: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    padding: spacing.xl,
-  },
-  stateTitle: {
-    color: colors.text,
-    fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
-  },
-  stateBody: {
-    color: colors.textMuted,
-    fontSize: 15,
-    lineHeight: 22,
-    textAlign: 'center',
   },
 });

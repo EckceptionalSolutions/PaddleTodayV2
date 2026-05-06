@@ -21,5 +21,5 @@ export function alertMutationMessage(
     return `${thresholdLabel} alert turned back on.`;
   }
 
-  return `Alert saved. You will get emailed on the next ${thresholdLabel} crossing.`;
+  return `Alert saved. You will get emailed on the next ${thresholdLabel} crossing, with an unsubscribe link in the email.`;
 }

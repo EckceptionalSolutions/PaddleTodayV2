@@ -1,9 +1,10 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
-import { QueryClient } from '@tanstack/react-query';
+import { MutationCache, QueryCache, QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
 import type { PropsWithChildren } from 'react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
 
@@ -16,6 +17,26 @@ export function AppProviders({ children }: PropsWithChildren) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
+        queryCache: new QueryCache({
+          onError(error, query) {
+            captureAppException(error, {
+              name: 'query_error',
+              extra: {
+                queryKey: JSON.stringify(query.queryKey),
+              },
+            });
+          },
+        }),
+        mutationCache: new MutationCache({
+          onError(error, _variables, _context, mutation) {
+            captureAppException(error, {
+              name: 'mutation_error',
+              extra: {
+                mutationKey: mutation.options.mutationKey ? JSON.stringify(mutation.options.mutationKey) : 'unkeyed',
+              },
+            });
+          },
+        }),
         defaultOptions: {
           queries: {
             retry: 1,
@@ -25,6 +46,10 @@ export function AppProviders({ children }: PropsWithChildren) {
         },
       })
   );
+
+  useEffect(() => {
+    trackAppEvent('app_opened');
+  }, []);
 
   return (
     <PersistQueryClientProvider

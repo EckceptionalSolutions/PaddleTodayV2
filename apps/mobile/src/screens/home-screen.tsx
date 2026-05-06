@@ -3,7 +3,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
 import {
-  ActivityIndicator,
   ImageBackground,
   Pressable,
   RefreshControl,
@@ -13,6 +12,7 @@ import {
   View,
 } from 'react-native';
 import { useRiverSummaryQuery } from '../api/queries';
+import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
@@ -94,23 +94,18 @@ export default function HomeScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading river board</Text>
-        <Text style={styles.stateBody}>Getting the latest launch calls.</Text>
-      </View>
+      <AppLoadingState title="Loading river board" body="Getting the latest launch calls." />
     );
   }
 
   if (summaryQuery.isError && rivers.length === 0) {
     return (
-      <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>The board did not load.</Text>
-        <Text style={styles.stateBody}>Pull down to retry when the connection is back.</Text>
-        <Text style={styles.stateMeta} numberOfLines={3}>
-          {errorDetailForSummaryQuery(summaryQuery.error)}
-        </Text>
-      </View>
+      <AppErrorState
+        title="The board did not load"
+        body="Check the API connection, then try again."
+        detail={errorDetailForSummaryQuery(summaryQuery.error)}
+        onRetry={() => summaryQuery.refetch()}
+      />
     );
   }
 
@@ -1125,31 +1120,5 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
-  },
-  centerState: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    padding: spacing.xl,
-  },
-  stateTitle: {
-    color: colors.text,
-    fontSize: 20,
-    fontWeight: '800',
-    textAlign: 'center',
-  },
-  stateBody: {
-    color: colors.textMuted,
-    fontSize: 14,
-    textAlign: 'center',
-    lineHeight: 20,
-  },
-  stateMeta: {
-    color: colors.textMuted,
-    fontSize: 12,
-    textAlign: 'center',
-    lineHeight: 17,
   },
 });

@@ -2,8 +2,11 @@ import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
 import 'react-native-reanimated';
+import { initObservability, withObservability } from '../src/lib/observability';
 import { AppProviders } from '../src/providers/app-providers';
 import { colors } from '../src/theme/tokens';
+
+initObservability();
 
 export {
   ErrorBoundary,
@@ -26,7 +29,7 @@ const navigationTheme = {
   },
 };
 
-export default function RootLayout() {
+function RootLayout() {
   return (
     <AppProviders>
       <ThemeProvider value={navigationTheme}>
@@ -52,3 +55,5 @@ export default function RootLayout() {
     </AppProviders>
   );
 }
+
+export default withObservability(RootLayout);

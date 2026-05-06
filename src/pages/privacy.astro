@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const websiteId = new URL('/#website', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const privacyUrl = new URL('/privacy/', siteUrl).href;
+const privacyStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${privacyUrl}#privacy-page`,
+  name: 'Paddle Today Privacy Policy',
+  description: 'How Paddle Today handles location, route, alert, and report information.',
+  url: privacyUrl,
+  isPartOf: {
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
+  },
+};
+---
+
+<BaseLayout
+  title="Privacy Policy | Paddle Today"
+  description="How Paddle Today handles location, route, alert, and report information."
+  structuredData={privacyStructuredData}
+>
+  <section class="info-hero">
+    <p class="eyebrow">Privacy</p>
+    <h1>Privacy Policy</h1>
+    <p class="muted">
+      Paddle Today uses only the information needed to show paddling conditions, remember your preferences, and improve route coverage.
+    </p>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Information</p>
+    <h2>What we collect</h2>
+    <ul class="compact-list">
+      <li>Approximate or precise location only when you grant permission, so nearby routes and drive-aware recommendations can be shown.</li>
+      <li>Saved rivers, alert preferences, and app settings that help personalize your experience.</li>
+      <li>Route requests, route reports, photos, corrections, and email messages that you choose to submit.</li>
+      <li>Basic technical information such as device, browser, request logs, and error diagnostics used to keep the service reliable.</li>
+    </ul>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Use</p>
+    <h2>How we use it</h2>
+    <ul class="compact-list">
+      <li>To rank nearby paddling options, show route context, and deliver requested alerts.</li>
+      <li>To respond to support requests, route updates, and submitted trip reports.</li>
+      <li>To diagnose bugs, improve route data, and understand which parts of the service need work.</li>
+      <li>To protect the service from abuse, spam, and security issues.</li>
+    </ul>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Control</p>
+    <h2>Your choices</h2>
+    <ul class="compact-list">
+      <li>You can deny or revoke location permission in your browser or device settings.</li>
+      <li>You can remove saved rivers and alert preferences in the app where those controls are available.</li>
+      <li>You can ask us to review, correct, or delete information you submitted by emailing <a href="mailto:hello@paddletoday.com">hello@paddletoday.com</a>.</li>
+    </ul>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Sharing</p>
+    <h2>How information is shared</h2>
+    <p class="muted">
+      We do not sell personal information. We may use service providers for hosting, analytics, email, storage, maps, and crash or error reporting. Submitted route information may be reviewed and incorporated into public route pages when it improves paddling coverage.
+    </p>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Contact</p>
+    <h2>Questions</h2>
+    <p class="muted">
+      Email <a href="mailto:hello@paddletoday.com">hello@paddletoday.com</a> with privacy questions or requests. This policy should be reviewed before a store release and updated when the app adds new data collection or third-party services.
+    </p>
+  </section>
+</BaseLayout>

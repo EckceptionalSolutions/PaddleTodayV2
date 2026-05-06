@@ -1,6 +1,8 @@
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, ScrollView, StyleSheet, Text, View } from 'react-native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useRiverSummaryQuery } from '../api/queries';
+import { AppLoadingState } from '../components/app-state';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
@@ -19,10 +21,7 @@ export default function SavedScreen() {
 
   if (!isHydrated) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading saved rivers</Text>
-      </View>
+      <AppLoadingState title="Loading saved rivers" />
     );
   }
 
@@ -35,14 +34,23 @@ export default function SavedScreen() {
       </Text>
 
       {savedRivers.length === 0 ? (
-        <SectionCard
-          title="No saved rivers yet"
-          subtitle="Save a river from the Today board or a river detail screen to build a quicker personal shortlist."
-        >
-          <Text style={styles.body}>
-            Save a route from Today, Explore, Weekend, or river detail. Once it is saved, this screen becomes your repeat-use shortlist.
+        <View style={styles.emptyPanel}>
+          <View style={styles.emptyIcon}>
+            <MaterialCommunityIcons name="bookmark-outline" color={colors.accent} size={26} />
+          </View>
+          <Text style={styles.emptyTitle}>No saved rivers yet</Text>
+          <Text style={styles.emptyBody}>
+            Save routes you check often. This becomes a quick personal board for repeat trips and local favorites.
           </Text>
-        </SectionCard>
+          <View style={styles.emptyActions}>
+            <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
+              <Text style={styles.primaryButtonText}>Find today’s picks</Text>
+            </Pressable>
+            <Pressable style={styles.secondaryButton} onPress={() => router.push('/explore')}>
+              <Text style={styles.secondaryButtonText}>Open map</Text>
+            </Pressable>
+          </View>
+        </View>
       ) : null}
 
       {savedSummaries.length > 0 ? (
@@ -95,9 +103,12 @@ export default function SavedScreen() {
       ) : null}
 
       {summaryQuery.isError ? (
-        <Text style={styles.footnote}>
-          Live saved-river cards could not refresh. Local saved routes still work.
-        </Text>
+        <View style={styles.offlineNote}>
+          <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={18} />
+          <Text style={styles.footnote}>
+            Live saved-river cards could not refresh. Local saved routes still work.
+          </Text>
+        </View>
       ) : null}
 
     </ScrollView>
@@ -139,6 +150,67 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  emptyPanel: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.xl,
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  emptyIcon: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: colors.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.xs,
+  },
+  emptyTitle: {
+    color: colors.text,
+    fontSize: 20,
+    fontWeight: '900',
+    textAlign: 'center',
+  },
+  emptyBody: {
+    color: colors.textMuted,
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: 'center',
+  },
+  emptyActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+  },
+  primaryButton: {
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 15,
+    paddingVertical: 11,
+  },
+  primaryButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  secondaryButton: {
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 15,
+    paddingVertical: 11,
+  },
+  secondaryButtonText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
   savedFallbackCard: {
     backgroundColor: colors.surface,
     borderRadius: radius.md,
@@ -166,19 +238,14 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
-  },
-  centerState: {
     flex: 1,
-    backgroundColor: colors.canvas,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    padding: spacing.xl,
   },
-  stateTitle: {
-    color: colors.text,
-    fontSize: 22,
-    fontWeight: '700',
-    textAlign: 'center',
+  offlineNote: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.sm,
+    borderRadius: radius.md,
+    backgroundColor: '#F2DDD6',
+    padding: spacing.md,
   },
 });

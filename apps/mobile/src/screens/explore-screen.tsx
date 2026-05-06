@@ -4,7 +4,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  ActivityIndicator,
   FlatList,
   Pressable,
   RefreshControl,
@@ -15,6 +14,7 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
+import { AppErrorState, AppLoadingState } from '../components/app-state';
 import {
   ExploreSearchBar,
   ExploreSortFilterBar,
@@ -38,6 +38,7 @@ import {
 import { RiverCard } from '../components/river-card';
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
+import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import { isRecord, parseJson } from '../lib/storage';
@@ -123,11 +124,18 @@ export default function ExploreScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading explore board</Text>
-        <Text style={styles.stateBody}>Preparing routes, filters, and live reads.</Text>
-      </View>
+      <AppLoadingState title="Loading explore board" body="Preparing routes, filters, and live reads." />
+    );
+  }
+
+  if (summaryQuery.isError && rivers.length === 0) {
+    return (
+      <AppErrorState
+        title="Explore did not load"
+        body="The map needs the route board before it can render."
+        detail={errorDetailForExploreQuery(summaryQuery.error)}
+        onRetry={() => summaryQuery.refetch()}
+      />
     );
   }
 
@@ -265,11 +273,17 @@ export default function ExploreScreen() {
         }
         ListEmptyComponent={
           <View style={styles.emptyCard}>
+            <MaterialCommunityIcons name="filter-off-outline" color={colors.accent} size={24} />
             <Text style={styles.emptyTitle}>No routes match</Text>
-            <Text style={styles.emptyText}>Clear filters or broaden distance, difficulty, and score.</Text>
-            <Pressable style={styles.resetButton} onPress={() => setFilters(defaultFilters)}>
-              <Text style={styles.resetButtonText}>Reset filters</Text>
-            </Pressable>
+            <Text style={styles.emptyText}>Clear filters, remove search text, or switch back to the map to scan the full route board.</Text>
+            <View style={styles.emptyActions}>
+              <Pressable style={styles.resetButton} onPress={() => setFilters(defaultFilters)}>
+                <Text style={styles.resetButtonText}>Reset filters</Text>
+              </Pressable>
+              <Pressable style={styles.secondaryResetButton} onPress={() => setViewMode('map')}>
+                <Text style={styles.secondaryResetButtonText}>Show map</Text>
+              </Pressable>
+            </View>
           </View>
         }
         renderItem={({ item }) => (
@@ -321,14 +335,21 @@ function LocationControl({
   onClear: () => void;
 }) {
   const requesting = status === 'requesting';
+  const denied = status === 'denied';
 
   return (
     <View style={styles.locationRow}>
       <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={20} />
       <View style={styles.locationCopy}>
-        <Text style={styles.locationTitle}>{locationLabel ?? 'Add location for distance filters'}</Text>
+        <Text style={styles.locationTitle}>
+          {locationLabel ?? (denied ? 'Location access is off' : 'Add location for distance filters')}
+        </Text>
         <Text style={styles.locationSubtitle}>
-          {locationLabel ? 'Nearest sort and drive filters are active.' : 'Distance filters stay hidden until location is set.'}
+          {locationLabel
+            ? 'Nearest sort and drive filters are active.'
+            : denied
+              ? 'Explore still works. Turn on location in system settings to use nearest filters.'
+              : 'Distance filters stay hidden until location is set.'}
         </Text>
       </View>
       <Pressable
@@ -507,7 +528,9 @@ function FullScreenExploreMap({
           onPress={onUseLocation}
         >
           <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
-          <Text style={styles.fullMapLocationText}>{requesting ? 'Finding location' : 'Use location'}</Text>
+          <Text style={styles.fullMapLocationText}>
+            {requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
+          </Text>
         </Pressable>
       ) : (
         <Pressable style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]} onPress={onClearLocation}>
@@ -660,6 +683,11 @@ function estimateDriveMinutes(miles: number) {
 
 function nullableNumber(value: number | null) {
   return typeof value === 'number' && Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
+}
+
+function errorDetailForExploreQuery(error: unknown) {
+  const message = error instanceof Error ? error.message : 'Unknown request error';
+  return `${resolveApiBaseUrl()} - ${message}`;
 }
 
 function isExplorePreferences(value: unknown): value is ExplorePreferences {
@@ -916,6 +944,7 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.lg,
     gap: spacing.sm,
+    alignItems: 'flex-start',
   },
   emptyTitle: {
     color: colors.text,
@@ -939,24 +968,23 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '800',
   },
-  centerState: {
-    flex: 1,
-    backgroundColor: colors.canvas,
-    alignItems: 'center',
-    justifyContent: 'center',
+  emptyActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
     gap: spacing.sm,
-    padding: spacing.xl,
   },
-  stateTitle: {
-    color: colors.text,
-    fontSize: 20,
+  secondaryResetButton: {
+    alignSelf: 'flex-start',
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 14,
+    paddingVertical: 9,
+  },
+  secondaryResetButtonText: {
+    color: colors.accent,
+    fontSize: 13,
     fontWeight: '800',
-    textAlign: 'center',
-  },
-  stateBody: {
-    color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
-    textAlign: 'center',
   },
 });

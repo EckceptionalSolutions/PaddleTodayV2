@@ -14,7 +14,6 @@ import { Stack, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { useEffect, useMemo, useState } from 'react';
 import {
-  ActivityIndicator,
   Image,
   Linking,
   Pressable,
@@ -35,6 +34,7 @@ import {
   useRouteCommunityQuery,
 } from '../api/queries';
 import { HistoryBars } from '../components/history-bars';
+import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
@@ -54,6 +54,7 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { captureAppException, trackAppEvent } from '../lib/observability';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -104,38 +105,42 @@ export default function RiverDetailScreen() {
     setReportEmail((current) => current || storedEmail);
   }, [storedEmail]);
 
+  useEffect(() => {
+    if (!detail) {
+      return;
+    }
+
+    trackAppEvent('route_opened', {
+      slug: detail.river.slug,
+      riverId: detail.river.riverId,
+      rating: detail.rating,
+      score: detail.score,
+    });
+  }, [detail]);
+
   if (!slug) {
     return (
-      <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>River slug is missing.</Text>
-      </View>
+      <AppErrorState
+        title="River route is missing"
+        body="Open this route again from Today, Explore, Weekend, or Saved."
+      />
     );
   }
 
   if (detailQuery.isLoading && !detail) {
     return (
-      <View style={styles.centerState}>
-        <ActivityIndicator size="large" color={colors.accent} />
-        <Text style={styles.stateTitle}>Loading river detail</Text>
-        <Text style={styles.stateBody}>Pulling the latest river call and score history.</Text>
-      </View>
+      <AppLoadingState title="Loading river detail" body="Pulling the latest river call and score history." />
     );
   }
 
   if (detailQuery.isError && !detail) {
     return (
-      <View style={styles.centerState}>
-        <Text style={styles.stateTitle}>This river call did not load.</Text>
-        <Text style={styles.stateBody}>
-          Check that the API server is reachable from this device, then try again.
-        </Text>
-        <Text style={styles.stateMeta} numberOfLines={2}>
-          {resolveApiUrl(`/api/rivers/${slug}.json`)}
-        </Text>
-        <Pressable style={styles.stateButton} onPress={() => void detailQuery.refetch()}>
-          <Text style={styles.stateButtonText}>Retry</Text>
-        </Pressable>
-      </View>
+      <AppErrorState
+        title="This river call did not load"
+        body="Check the API connection, then try again."
+        detail={resolveApiUrl(`/api/rivers/${slug}.json`)}
+        onRetry={() => detailQuery.refetch()}
+      />
     );
   }
 
@@ -154,14 +159,31 @@ export default function RiverDetailScreen() {
 
     setPendingThreshold(threshold);
     try {
+      trackAppEvent('alert_create_started', {
+        slug: riverSlug,
+        threshold,
+      });
       await setEmail(email);
       const response = await createAlertMutation.mutateAsync({
         email,
         riverSlug,
         threshold,
       });
+      trackAppEvent('alert_create_succeeded', {
+        slug: riverSlug,
+        threshold,
+        duplicate: response.duplicate,
+        reactivated: response.reactivated,
+      });
       setAlertStatus(alertMutationMessage(response, threshold));
     } catch (error) {
+      captureAppException(error, {
+        name: 'alert_create_failed',
+        extra: {
+          slug: riverSlug,
+          threshold,
+        },
+      });
       setAlertStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
@@ -179,46 +201,50 @@ export default function RiverDetailScreen() {
       return;
     }
 
-    const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (!permission.granted) {
-      setReportStatus('Allow photo access to attach route photos.');
-      return;
-    }
-
-    const result = await ImagePicker.launchImageLibraryAsync({
-      allowsMultipleSelection: true,
-      base64: true,
-      mediaTypes: ['images'],
-      orderedSelection: true,
-      quality: 0.82,
-      selectionLimit: remainingSlots,
-    });
-
-    if (result.canceled) {
-      return;
-    }
-
-    const selected: SelectedReportPhoto[] = [];
-    let skipped = 0;
-
-    result.assets.slice(0, remainingSlots).forEach((asset, index) => {
-      const normalized = normalizeReportPhotoAsset(asset, index);
-      if (normalized) {
-        selected.push(normalized);
-      } else {
-        skipped += 1;
+    try {
+      const permission = await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (!permission.granted) {
+        setReportStatus('Photo access is off. You can still send a text-only report, or enable photos in system settings.');
+        return;
       }
-    });
 
-    if (selected.length > 0) {
-      setReportPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
-      setReportStatus(
-        skipped > 0
-          ? `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}. Some files were skipped.`
-          : `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}.`
-      );
-    } else if (skipped > 0) {
-      setReportStatus('Those photos could not be attached. Use JPEG, PNG, or WebP under 4 MB.');
+      const result = await ImagePicker.launchImageLibraryAsync({
+        allowsMultipleSelection: true,
+        base64: true,
+        mediaTypes: ['images'],
+        orderedSelection: true,
+        quality: 0.82,
+        selectionLimit: remainingSlots,
+      });
+
+      if (result.canceled) {
+        return;
+      }
+
+      const selected: SelectedReportPhoto[] = [];
+      let skipped = 0;
+
+      result.assets.slice(0, remainingSlots).forEach((asset, index) => {
+        const normalized = normalizeReportPhotoAsset(asset, index);
+        if (normalized) {
+          selected.push(normalized);
+        } else {
+          skipped += 1;
+        }
+      });
+
+      if (selected.length > 0) {
+        setReportPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
+        setReportStatus(
+          skipped > 0
+            ? `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}. Some files were skipped.`
+            : `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}.`
+        );
+      } else if (skipped > 0) {
+        setReportStatus('Those photos could not be attached. Use JPEG, PNG, or WebP under 4 MB.');
+      }
+    } catch {
+      setReportStatus('Photos could not be opened. You can still send a text-only report.');
     }
   }
 
@@ -258,6 +284,11 @@ export default function RiverDetailScreen() {
 
     try {
       setReportStatus('Sending route report...');
+      trackAppEvent('route_report_submitted', {
+        slug: riverSlug,
+        hasPhotos: reportPhotos.length > 0,
+        photoCount: reportPhotos.length,
+      });
       await setEmail(contributorEmail);
       await createContributionMutation.mutateAsync({
         riverSlug,
@@ -287,6 +318,14 @@ export default function RiverDetailScreen() {
       setReportSheetVisible(false);
       void communityQuery.refetch();
     } catch (error) {
+      captureAppException(error, {
+        name: 'route_report_failed',
+        extra: {
+          slug: riverSlug,
+          hasPhotos: reportPhotos.length > 0,
+          photoCount: reportPhotos.length,
+        },
+      });
       setReportStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
@@ -471,9 +510,17 @@ export default function RiverDetailScreen() {
             <View style={styles.reportCta}>
               <View style={styles.reportCtaCopy}>
                 <Text style={styles.reportCtaTitle}>Add route intel</Text>
-                <Text style={styles.reportCtaText}>Send photos, access notes, wood, pace, or level context for review.</Text>
+                <Text style={styles.reportCtaText}>
+                  Send access notes, wood, pace, level context, or optional photos. Reports are reviewed before anything appears publicly.
+                </Text>
               </View>
-              <Pressable style={styles.reportCtaButton} onPress={() => setReportSheetVisible(true)}>
+              <Pressable
+                style={styles.reportCtaButton}
+                onPress={() => {
+                  trackAppEvent('route_report_started', { slug: riverSlug });
+                  setReportSheetVisible(true);
+                }}
+              >
                 <Text style={styles.reportCtaButtonText}>Report</Text>
               </Pressable>
             </View>
@@ -558,7 +605,7 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Route alerts"
-              subtitle="Use email alerts when this route reaching Good or Strong would change your plan."
+              subtitle="Email only when this route crosses your chosen threshold. Every alert email includes an unsubscribe link."
             >
               <TextInput
                 autoCapitalize="none"
@@ -587,6 +634,9 @@ export default function RiverDetailScreen() {
                   );
                 })}
               </View>
+              <Text style={styles.alertHelper}>
+                Your email is used for route alerts and stored locally on this device for the next alert form.
+              </Text>
               <Text style={styles.alertStatus}>{alertStatus}</Text>
             </SectionCard>
           </>
@@ -1233,6 +1283,10 @@ function hasCoordinates(point: RiverAccessPoint | undefined): point is RiverAcce
 function openPrimaryDirections(detail: RiverDetailApiResult) {
   const url = mapUrlForAccessPoint(detail.river.putIn) || mapUrlForAccessPoint(detail.river.takeOut);
   if (url) {
+    trackAppEvent('directions_opened', {
+      slug: detail.river.slug,
+      target: detail.river.putIn ? 'put_in' : 'take_out',
+    });
     void Linking.openURL(url);
   }
 }
@@ -2092,6 +2146,11 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
+  },
+  alertHelper: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   communityPhotoStrip: {
     gap: spacing.sm,

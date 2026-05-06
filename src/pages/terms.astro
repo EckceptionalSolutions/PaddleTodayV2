@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const websiteId = new URL('/#website', siteUrl).href;
+const organizationId = new URL('/#organization', siteUrl).href;
+const termsUrl = new URL('/terms/', siteUrl).href;
+const termsStructuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${termsUrl}#terms-page`,
+  name: 'Paddle Today Terms and Safety',
+  description: 'Terms, safety notes, and responsibility reminders for Paddle Today.',
+  url: termsUrl,
+  isPartOf: {
+    '@id': websiteId,
+  },
+  about: {
+    '@id': organizationId,
+  },
+};
+---
+
+<BaseLayout
+  title="Terms and Safety | Paddle Today"
+  description="Terms, safety notes, and responsibility reminders for Paddle Today."
+  structuredData={termsStructuredData}
+>
+  <section class="info-hero">
+    <p class="eyebrow">Terms</p>
+    <h1>Terms and Safety</h1>
+    <p class="muted">
+      Paddle Today helps with trip planning, but river conditions change quickly. Always make your own go or no-go decision before paddling.
+    </p>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Safety</p>
+    <h2>Use your judgment</h2>
+    <ul class="compact-list">
+      <li>Scores, forecasts, gauge reads, route notes, and AI summaries are planning aids, not professional safety advice.</li>
+      <li>Water levels, strainers, construction, weather, access conditions, closures, and hazards can change without notice.</li>
+      <li>You are responsible for checking official sources, local rules, weather, access status, skill fit, gear, and group readiness before launching.</li>
+      <li>Wear appropriate safety equipment and do not paddle beyond your ability or conditions.</li>
+    </ul>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Service</p>
+    <h2>Availability and accuracy</h2>
+    <p class="muted">
+      Paddle Today is provided as-is. We work to keep route information useful and current, but we do not guarantee that any score, forecast, location, route note, or recommendation is complete, accurate, timely, or suitable for your trip.
+    </p>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Submissions</p>
+    <h2>Route reports and photos</h2>
+    <p class="muted">
+      If you submit route reports, corrections, photos, or other content, you confirm you have the right to share it and allow Paddle Today to use it to operate, improve, and promote the service. Do not submit content that is unlawful, misleading, unsafe, or infringes someone else's rights.
+    </p>
+  </section>
+
+  <section class="info-panel">
+    <p class="eyebrow">Contact</p>
+    <h2>Questions or corrections</h2>
+    <p class="muted">
+      Email <a href="mailto:hello@paddletoday.com">hello@paddletoday.com</a> if you spot bad route data, unsafe guidance, access changes, or other issues. These terms should be reviewed before a store release.
+    </p>
+  </section>
+</BaseLayout>

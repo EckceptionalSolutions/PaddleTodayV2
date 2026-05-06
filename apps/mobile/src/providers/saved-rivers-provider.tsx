@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { PropsWithChildren } from 'react';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { trackAppEvent } from '../lib/observability';
 import { isRecord, parseJson } from '../lib/storage';
 
 const STORAGE_KEY = 'paddletoday:saved-rivers';
@@ -45,10 +46,16 @@ export function SavedRiversProvider({ children }: PropsWithChildren) {
   }
 
   async function toggleSavedRiver(river: Omit<SavedRiverRecord, 'savedAt'>) {
+    const saved = !savedRivers.some((item) => item.slug === river.slug);
     const next = buildNextSavedRivers(savedRivers, river);
 
     setSavedRivers(next);
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    trackAppEvent('saved_river_toggled', {
+      slug: river.slug,
+      riverId: river.riverId,
+      saved,
+    });
   }
 
   const value = useMemo<SavedRiversContextValue>(

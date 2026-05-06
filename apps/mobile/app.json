@@ -15,7 +15,11 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.paddletoday.mobile"
+      "bundleIdentifier": "com.paddletoday.mobile",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports."
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -24,7 +28,8 @@
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.paddletoday.mobile"
+      "package": "com.paddletoday.mobile",
+      "versionCode": 1
     },
     "web": {
       "bundler": "metro",
@@ -38,7 +43,14 @@
         {
           "locationWhenInUsePermission": "PaddleToday uses your location to highlight nearby paddling options."
         }
-      ]
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "PaddleToday lets you attach route photos when you choose to submit paddling reports."
+        }
+      ],
+      "@sentry/react-native"
     ],
     "experiments": {
       "typedRoutes": true

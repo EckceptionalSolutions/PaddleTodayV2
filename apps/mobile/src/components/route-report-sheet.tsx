@@ -85,13 +85,19 @@ export function RouteReportSheet({
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy}>
               <Text style={styles.sheetTitle}>Send a route report</Text>
-              <Text style={styles.sheetSubtitle}>Share access, wood, pace, level, or photos for review.</Text>
+              <Text style={styles.sheetSubtitle}>Share what would help another paddler decide whether this route is realistic today.</Text>
             </View>
             <Pressable style={styles.sheetCloseButton} onPress={onClose}>
               <Text style={styles.sheetCloseText}>Close</Text>
             </Pressable>
           </View>
           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.sheetContent}>
+            <View style={styles.reviewPanel}>
+              <Text style={styles.reviewTitle}>Reviewed before publishing</Text>
+              <Text style={styles.reviewText}>
+                Your email is used for follow-up questions. Reports and photos are not public until reviewed, and photos are optional.
+              </Text>
+            </View>
             <View style={styles.reportForm}>
               <View style={styles.reportGrid}>
                 <TextInput
@@ -123,7 +129,7 @@ export function RouteReportSheet({
               <SentimentPicker value={sentiment ?? ''} onChange={onSentimentChange} />
               <TextInput
                 multiline
-                placeholder="What did you see?"
+                placeholder="What did you see? Access, wood, level, crowding, pace, or anything that affects the call."
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportTextArea]}
                 value={report}
@@ -168,7 +174,7 @@ export function RouteReportSheet({
                   </ScrollView>
                 ) : (
                   <Text style={styles.reportPhotoEmpty}>
-                    Optional, but useful for strainers, access changes, water clarity, and gauge references.
+                    Optional, but useful for strainers, access changes, water clarity, and gauge references. Photo access is only requested when you tap Add.
                   </Text>
                 )}
               </View>
@@ -187,7 +193,7 @@ export function RouteReportSheet({
                   {contactConsentConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
                 </View>
                 <Text style={styles.reportConsentText}>
-                  It is okay to contact me if more detail is needed before publishing.
+                  It is okay to contact me if more detail is needed before publishing this report.
                 </Text>
               </Pressable>
               <Pressable
@@ -301,9 +307,28 @@ const styles = StyleSheet.create({
   },
   sheetContent: {
     paddingBottom: spacing.lg,
+    gap: spacing.sm,
   },
   reportForm: {
     gap: spacing.sm,
+  },
+  reviewPanel: {
+    borderRadius: radius.md,
+    backgroundColor: colors.accentSoft,
+    borderWidth: 1,
+    borderColor: '#BFD6CC',
+    padding: spacing.md,
+    gap: 3,
+  },
+  reviewTitle: {
+    color: colors.accentDeep,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  reviewText: {
+    color: colors.text,
+    fontSize: 12,
+    lineHeight: 17,
   },
   reportGrid: {
     gap: spacing.sm,
