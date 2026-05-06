@@ -75,6 +75,7 @@ export function normalizeApiText(value: string | null | undefined) {
 
   return value
     .replace(/â€¢/g, ' - ')
+    .replace(/�+/g, ' - ')
     .replace(/Â·/g, ' - ')
     .replace(/·/g, ' - ')
     .replace(/â€¦/g, '...')

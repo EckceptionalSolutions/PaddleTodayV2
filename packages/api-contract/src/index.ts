@@ -58,6 +58,17 @@ export interface RiverAccessPoint {
   longitude?: number;
 }
 
+export interface RiverRouteLogistics {
+  distanceLabel: string;
+  estimatedPaddleTime: string;
+  shuttle: string;
+  permits: string;
+  camping: string;
+  summary: string;
+  accessCaveats: string[];
+  watchFor: string[];
+}
+
 export interface ApprovedCommunityPhoto {
   id: string;
   src: string;
@@ -233,6 +244,7 @@ export interface RiverSummaryApiItem {
     routeType: RouteType;
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
+    logistics?: RiverRouteLogistics;
   };
   sources: Array<{
     label: string;
@@ -282,6 +294,7 @@ export interface WeekendSummaryApiItem {
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
     routeType: RouteType;
+    logistics?: RiverRouteLogistics;
   };
   current: {
     score: number;
@@ -339,6 +352,7 @@ export interface RiverDetailApiResult {
     };
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
+    logistics?: RiverRouteLogistics;
   };
   score: number;
   rating: ScoreRating;

@@ -1,9 +1,9 @@
 import type { RiverDetailApiResult } from '@paddletoday/api-contract';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { ActivityIndicator, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
-import MapView, { Marker, type Region } from 'react-native-maps';
 import { useRiverGroupQuery } from '../api/queries';
 import { RatingPill } from '../components/rating-pill';
+import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { formatGaugeValue, formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
@@ -17,7 +17,7 @@ export default function RiverHubScreen() {
   const result = groupQuery.data?.result ?? null;
   const routes = [...(result?.routes ?? [])].sort((left, right) => right.score - left.score);
   const bestRoute = routes[0] ?? null;
-  const region = mapRegionForRoutes(routes);
+  const routePoints = routeMapPoints(routes);
 
   if (!riverId) {
     return (
@@ -73,7 +73,7 @@ export default function RiverHubScreen() {
           <View style={styles.heroMeta}>
             <MetricPill label="Routes" value={String(result.group.routeCount)} />
             <MetricPill label="Updated" value={formatRelativeTime(groupQuery.data?.generatedAt)} />
-            {bestRoute ? <MetricPill label="Best now" value={`${bestRoute.score} ${bestRoute.rating}`} /> : null}
+            {bestRoute ? <MetricPill label="Recommended" value={`${bestRoute.score} ${bestRoute.rating}`} /> : null}
           </View>
         </View>
 
@@ -85,17 +85,7 @@ export default function RiverHubScreen() {
 
         <SectionCard title="Route map" subtitle="Put-ins are plotted for each tracked stretch. Open a route for full access details.">
           <View style={styles.mapFrame}>
-            <MapView style={styles.map} initialRegion={region} scrollEnabled={false} zoomEnabled={false} rotateEnabled={false} pitchEnabled={false}>
-              {routes.map((route) => (
-                <Marker
-                  key={route.river.slug}
-                  coordinate={{ latitude: route.river.latitude, longitude: route.river.longitude }}
-                  pinColor={markerColor(route.rating)}
-                  title={route.river.reach}
-                  description={`${route.score} ${route.rating}`}
-                />
-              ))}
-            </MapView>
+            <RoutePlotMap points={routePoints} selectedId={bestRoute?.river.slug ?? null} height={238} showFooter={false} fullBleed />
           </View>
         </SectionCard>
 
@@ -167,36 +157,16 @@ function MetricPill({ label, value }: { label: string; value: string }) {
   );
 }
 
-function mapRegionForRoutes(routes: RiverDetailApiResult[]): Region {
-  if (routes.length === 0) {
-    return {
-      latitude: 44.95,
-      longitude: -93.2,
-      latitudeDelta: 2,
-      longitudeDelta: 2,
-    };
-  }
-
-  const latitudes = routes.map((route) => route.river.latitude);
-  const longitudes = routes.map((route) => route.river.longitude);
-  const minLat = Math.min(...latitudes);
-  const maxLat = Math.max(...latitudes);
-  const minLon = Math.min(...longitudes);
-  const maxLon = Math.max(...longitudes);
-
-  return {
-    latitude: (minLat + maxLat) / 2,
-    longitude: (minLon + maxLon) / 2,
-    latitudeDelta: Math.max(0.35, (maxLat - minLat) * 1.9),
-    longitudeDelta: Math.max(0.35, (maxLon - minLon) * 1.9),
-  };
-}
-
-function markerColor(rating: RiverDetailApiResult['rating']) {
-  if (rating === 'Strong') return colors.strong;
-  if (rating === 'Good') return colors.good;
-  if (rating === 'Fair') return colors.fair;
-  return colors.noGo;
+function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
+  return routes.map((route) => ({
+    id: route.river.slug,
+    label: route.river.reach,
+    latitude: route.river.latitude,
+    longitude: route.river.longitude,
+    score: route.score,
+    rating: route.rating,
+    meta: `${route.score} ${route.rating}`,
+  }));
 }
 
 function capitalize(value: string) {
@@ -270,9 +240,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.border,
     backgroundColor: colors.canvasMuted,
-  },
-  map: {
-    flex: 1,
   },
   routeList: {
     gap: spacing.md,

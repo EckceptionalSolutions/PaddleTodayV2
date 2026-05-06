@@ -24,6 +24,28 @@ export interface NearbyRiverPick extends RiverSummaryApiItem {
   effectiveScore: number;
 }
 
+export function selectBestNowPicks(
+  rivers: RiverSummaryApiItem[],
+  location: StoredLocation | null | undefined,
+  limit = 5
+) {
+  const scored = location
+    ? withTravelContext(rivers, location)
+    : rivers;
+
+  return [...scored]
+    .sort((left, right) => {
+      const leftRank = bestNowRank(left);
+      const rightRank = bestNowRank(right);
+      if (leftRank !== rightRank) {
+        return rightRank - leftRank;
+      }
+
+      return compareScoreThenConfidence(left, right);
+    })
+    .slice(0, limit);
+}
+
 export function selectTopPicks(rivers: RiverSummaryApiItem[], limit = 5) {
   return [...rivers].sort(compareRivers).slice(0, limit);
 }
@@ -33,22 +55,7 @@ export function selectNearbyPicks(
   location: StoredLocation,
   limit = 5
 ): NearbyRiverPick[] {
-  return rivers
-    .map((river) => {
-      const miles = distanceMiles(
-        location.latitude,
-        location.longitude,
-        river.river.latitude,
-        river.river.longitude
-      );
-      const travelMinutes = estimateTravelMinutes(miles);
-      return {
-        ...river,
-        distanceMiles: miles,
-        travelMinutes,
-        effectiveScore: river.score - distancePenalty(travelMinutes),
-      };
-    })
+  return withTravelContext(rivers, location)
     .filter((river) => river.travelMinutes <= 180)
     .sort((left, right) => {
       if (left.effectiveScore !== right.effectiveScore) {
@@ -62,6 +69,24 @@ export function selectNearbyPicks(
       return compareRivers(left, right);
     })
     .slice(0, limit);
+}
+
+function withTravelContext(rivers: RiverSummaryApiItem[], location: StoredLocation): NearbyRiverPick[] {
+  return rivers.map((river) => {
+    const miles = distanceMiles(
+      location.latitude,
+      location.longitude,
+      river.river.latitude,
+      river.river.longitude
+    );
+    const travelMinutes = estimateTravelMinutes(miles);
+    return {
+      ...river,
+      distanceMiles: miles,
+      travelMinutes,
+      effectiveScore: river.score - distancePenalty(travelMinutes),
+    };
+  });
 }
 
 export function buildBoardSnapshot(rivers: RiverSummaryApiItem[]) {
@@ -87,4 +112,25 @@ function compareRivers(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
   }
 
   return right.score - left.score;
+}
+
+function bestNowRank(river: RiverSummaryApiItem | NearbyRiverPick) {
+  const confidenceBonus = (confidenceWeight[river.confidence.label] ?? 0) * 4;
+  const travelPenalty = 'travelMinutes' in river ? distancePenalty(river.travelMinutes) : 0;
+  const statusPenalty = river.liveData.overall === 'offline' ? 12 : river.liveData.overall === 'degraded' ? 4 : 0;
+  return river.score + confidenceBonus - travelPenalty - statusPenalty;
+}
+
+function compareScoreThenConfidence(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
+  if (left.score !== right.score) {
+    return right.score - left.score;
+  }
+
+  const leftConfidence = confidenceWeight[left.confidence.label] ?? 0;
+  const rightConfidence = confidenceWeight[right.confidence.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
+  }
+
+  return left.river.name.localeCompare(right.river.name);
 }

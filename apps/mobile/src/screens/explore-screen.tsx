@@ -39,7 +39,7 @@ import { RiverCard } from '../components/river-card';
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { formatRelativeTime } from '../lib/format';
-import { distanceMiles, formatTravelTime } from '../lib/location';
+import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -166,7 +166,12 @@ export default function ExploreScreen() {
           onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
           onSelectSlug={setSelectedSlug}
           onSetViewMode={setViewMode}
-          onSortChange={(sort) => setFilters((current) => ({ ...current, sort }))}
+          onSortChange={(sort) => {
+            setFilters((current) => ({ ...current, sort }));
+            if (sort === 'nearest' && !location) {
+              void requestLocation();
+            }
+          }}
           onUseLocation={() => void requestLocation()}
           isSaved={isSaved}
           onFocusNearest={() => {
@@ -212,7 +217,12 @@ export default function ExploreScreen() {
               sort={filters.sort}
               activeFilterCount={activeFilterCount}
               onFilterPress={() => setFiltersOpen(true)}
-              onSortChange={(sort) => setFilters((current) => ({ ...current, sort }))}
+              onSortChange={(sort) => {
+                setFilters((current) => ({ ...current, sort }));
+                if (sort === 'nearest' && !location) {
+                  void requestLocation();
+                }
+              }}
             />
 
             {summaryQuery.isError ? (
@@ -609,11 +619,24 @@ function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: Exp
 }
 
 function compareBest(left: ExploreRiver, right: ExploreRiver) {
+  const leftRank = recommendationRank(left);
+  const rightRank = recommendationRank(right);
+  if (leftRank !== rightRank) {
+    return rightRank - leftRank;
+  }
+
   return (
-    (liveRank[right.liveData.overall] ?? 0) - (liveRank[left.liveData.overall] ?? 0) ||
+    right.score - left.score ||
     (confidenceRank[right.confidence.label] ?? 0) - (confidenceRank[left.confidence.label] ?? 0) ||
-    right.score - left.score
+    `${left.river.name} ${left.river.reach}`.localeCompare(`${right.river.name} ${right.river.reach}`)
   );
+}
+
+function recommendationRank(river: ExploreRiver) {
+  const confidenceBonus = (confidenceRank[river.confidence.label] ?? 0) * 4;
+  const travelPenalty = river.distanceMiles === null ? 0 : distancePenalty(estimateDriveMinutes(river.distanceMiles));
+  const statusPenalty = river.liveData.overall === 'offline' ? 12 : river.liveData.overall === 'degraded' ? 4 : 0;
+  return river.score + confidenceBonus - travelPenalty - statusPenalty;
 }
 
 function searchBlob(river: RiverSummaryApiItem) {
@@ -676,11 +699,6 @@ const styles = StyleSheet.create({
     right: spacing.md,
     gap: spacing.sm,
   },
-  fullMapToolbar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
   fullMapPills: {
     position: 'absolute',
     left: spacing.md,
@@ -724,53 +742,6 @@ const styles = StyleSheet.create({
   headerStack: {
     gap: spacing.sm,
   },
-  appHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.md,
-  },
-  appHeaderCopy: {
-    flex: 1,
-    gap: 2,
-  },
-  kicker: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
-  },
-  title: {
-    color: colors.text,
-    fontSize: 25,
-    lineHeight: 30,
-    fontWeight: '900',
-  },
-  freshness: {
-    color: colors.textMuted,
-    fontSize: 12,
-  },
-  countBadge: {
-    minWidth: 62,
-    borderRadius: radius.lg,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-  },
-  countValue: {
-    color: colors.text,
-    fontSize: 21,
-    fontWeight: '900',
-  },
-  countLabel: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '700',
-  },
   locationRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -809,13 +780,6 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 12,
     fontWeight: '800',
-  },
-  viewToggle: {
-    flexDirection: 'row',
-    backgroundColor: colors.canvasMuted,
-    borderRadius: radius.pill,
-    padding: 4,
-    gap: 4,
   },
   mapBottomBar: {
     flexDirection: 'row',
@@ -869,9 +833,6 @@ const styles = StyleSheet.create({
   },
   segmentButtonTextSelected: {
     color: colors.surfaceStrong,
-  },
-  mapStack: {
-    gap: spacing.sm,
   },
   mapPill: {
     minHeight: 32,
@@ -931,16 +892,6 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     textAlign: 'center',
-  },
-  selectedCardWrap: {
-    gap: spacing.xs,
-  },
-  selectedCardLabel: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
   },
   statusBanner: {
     backgroundColor: '#F3E8CC',

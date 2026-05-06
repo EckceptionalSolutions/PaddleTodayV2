@@ -5,7 +5,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 export type ExploreSort = 'best' | 'nearest' | 'confidence' | 'score' | 'name';
 
 const sortOptions: Array<{ value: ExploreSort; label: string }> = [
-  { value: 'best', label: 'Best now' },
+  { value: 'best', label: 'Recommended' },
   { value: 'nearest', label: 'Nearest' },
   { value: 'confidence', label: 'Most certain' },
   { value: 'score', label: 'Highest score' },

@@ -1,10 +1,10 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
+import { routeFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RatingPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
-import { StatusPill } from './status-pill';
 
 export function WeekendRiverCard({
   river,
@@ -38,13 +38,15 @@ export function WeekendRiverCard({
       </View>
 
       <View style={styles.metaRow}>
-        <StatusPill status={river.liveData.overall} />
-        <Text style={styles.metaText}>Today {river.current.score}</Text>
-        <Text style={styles.metaText}>{river.weekend.confidence} confidence</Text>
+        {weekendFactItems(river).map((fact) => (
+          <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
+        ))}
       </View>
 
-      <Text style={styles.explanation}>{normalizeApiText(river.weekend.explanation)}</Text>
-      <Text style={styles.signalLine}>{normalizeApiText(river.weekend.signalLine)}</Text>
+      <View style={[styles.riskPanel, riskToneStyle(river)]}>
+        <Text style={styles.riskLabel}>{planRiskLabel(river)}</Text>
+        <Text style={styles.explanation}>{normalizeApiText(river.weekend.explanation)}</Text>
+      </View>
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>{river.river.region}</Text>
@@ -120,20 +122,42 @@ const styles = StyleSheet.create({
   metaRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.sm,
+    gap: 6,
     alignItems: 'center',
   },
-  metaText: {
-    color: colors.textMuted,
-    fontSize: 13,
+  factChip: {
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '800',
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+  },
+  riskPanel: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    gap: 4,
+  },
+  riskStable: {
+    backgroundColor: '#E0EFE9',
+  },
+  riskWeather: {
+    backgroundColor: '#F3E8CC',
+  },
+  riskUncertain: {
+    backgroundColor: '#F2DDD6',
+  },
+  riskLabel: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
   },
   explanation: {
     color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  signalLine: {
-    color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
   },
@@ -148,3 +172,27 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
+
+function weekendFactItems(river: WeekendSummaryApiItem) {
+  return routeFactItems(river.river, { includePaddleTime: true });
+}
+
+function planRiskLabel(river: WeekendSummaryApiItem) {
+  if (river.weekend.confidence === 'High' && river.weekend.rating === river.current.rating) {
+    return 'Stable plan';
+  }
+
+  const explanation = normalizeApiText(`${river.weekend.explanation} ${river.weekend.signalLine}`).toLowerCase();
+  if (explanation.includes('rain') || explanation.includes('storm') || explanation.includes('wind') || explanation.includes('forecast')) {
+    return 'Weather dependent';
+  }
+
+  return river.weekend.confidence === 'Low' ? 'Gauge uncertain' : 'Recheck before committing';
+}
+
+function riskToneStyle(river: WeekendSummaryApiItem) {
+  const label = planRiskLabel(river);
+  if (label === 'Stable plan') return styles.riskStable;
+  if (label === 'Weather dependent' || label === 'Recheck before committing') return styles.riskWeather;
+  return styles.riskUncertain;
+}

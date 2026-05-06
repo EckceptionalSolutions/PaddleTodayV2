@@ -15,22 +15,22 @@ import {
 import { useRiverSummaryQuery } from '../api/queries';
 import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
-import { StatusPill } from '../components/status-pill';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
-import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
+import { normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
 import { isRecord, parseJson } from '../lib/storage';
+import { routeFactItems, routeFactLine } from '../lib/route-facts';
 import {
   buildBoardSnapshot,
+  selectBestNowPicks,
   selectNearbyPicks,
-  selectTopPicks,
   type NearbyRiverPick,
 } from '../lib/ranking';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-type BoardMode = 'best' | 'nearby';
+type BoardMode = 'best' | 'closest' | 'score' | 'certain';
 type BoardItem = RiverSummaryApiItem | NearbyRiverPick;
 
 interface BoardPreferences {
@@ -40,8 +40,10 @@ interface BoardPreferences {
 const BOARD_PREFERENCES_STORAGE_KEY = 'paddletoday:board-preferences';
 
 const modeLabels: Record<BoardMode, string> = {
-  best: 'Best',
-  nearby: 'Nearby',
+  best: 'Recommended',
+  closest: 'Closest',
+  score: 'Score',
+  certain: 'Most certain',
 };
 
 export default function HomeScreen() {
@@ -54,14 +56,26 @@ export default function HomeScreen() {
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const snapshot = buildBoardSnapshot(rivers);
-  const topPicks = useMemo(() => selectTopPicks(rivers, 12), [rivers]);
+  const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 12), [rivers, location]);
   const nearbyPicks = useMemo(
-    () => (location ? selectNearbyPicks(rivers, location, 12) : []),
+    () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
     [rivers, location]
   );
+  const scorePicks = useMemo(
+    () => [...rivers].sort(compareHomeScore).slice(0, 12),
+    [rivers]
+  );
+  const certainPicks = useMemo(
+    () => [...rivers].sort(compareHomeCertainty).slice(0, 12),
+    [rivers]
+  );
+  const closestPicks = useMemo(
+    () => nearbyPicks.slice().sort((left, right) => left.travelMinutes - right.travelMinutes).slice(0, 12),
+    [nearbyPicks]
+  );
 
-  const data = mode === 'nearby' ? nearbyPicks : topPicks;
-  const headline = data[0] ?? topPicks[0] ?? null;
+  const data = mode === 'closest' ? closestPicks : mode === 'score' ? scorePicks : mode === 'certain' ? certainPicks : bestPicks;
+  const headline = data[0] ?? bestPicks[0] ?? null;
 
   useEffect(() => {
     void hydrateBoardPreferences();
@@ -114,7 +128,6 @@ export default function HomeScreen() {
     >
       <View style={styles.headerStack}>
         <BoardHero
-          freshness={formatRelativeTime(summaryQuery.data?.generatedAt)}
           headline={headline}
           snapshot={snapshot}
           saved={headline ? isSaved(headline.river.slug) : false}
@@ -138,9 +151,12 @@ export default function HomeScreen() {
         <ModeTabs
           mode={mode}
           counts={{
-            best: topPicks.length,
-            nearby: location ? nearbyPicks.length : 0,
+            best: bestPicks.length,
+            closest: location ? closestPicks.length : 0,
+            score: scorePicks.length,
+            certain: certainPicks.length,
           }}
+          hasLocation={Boolean(location)}
           onChange={setMode}
         />
         <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
@@ -149,12 +165,14 @@ export default function HomeScreen() {
       {data.length > 0 ? (
         <>
           <RiverCarousel
+            mode={mode}
             rivers={data}
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
             onOpen={(river) => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
           />
           <QuickScanList
+            mode={mode}
             rivers={data.slice(0, 5)}
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
@@ -182,14 +200,12 @@ export default function HomeScreen() {
 }
 
 function BoardHero({
-  freshness,
   headline,
   snapshot,
   saved,
   onToggleSaved,
   onOpen,
 }: {
-  freshness: string;
   headline: BoardItem | null;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
   saved: boolean;
@@ -205,7 +221,7 @@ function BoardHero({
           <View style={styles.topBar}>
             <View>
               <Text style={styles.appName}>Today</Text>
-              <Text style={styles.freshness}>{freshness}</Text>
+              <Text style={styles.freshness}>Score, confidence, drive time</Text>
             </View>
             <View style={styles.liveBadge}>
               <Text style={styles.liveBadgeText}>{snapshot.paddleable} ready</Text>
@@ -222,7 +238,7 @@ function BoardHero({
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>Best read now</Text>
+                <Text style={styles.headlineKicker}>Recommended today</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={1}>{headline.river.reach}</Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
@@ -244,11 +260,13 @@ function BoardHero({
 }
 
 function RiverCarousel({
+  mode,
   rivers,
   isSaved,
   onToggleSaved,
   onOpen,
 }: {
+  mode: BoardMode;
   rivers: BoardItem[];
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
@@ -256,8 +274,9 @@ function RiverCarousel({
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title="Choose your water" subtitle="Swipe through the best calls right now." />
+      <SectionHeading title="Choose your water" subtitle={sectionSubtitleForMode(mode)} />
       <ScrollView
+        key={mode}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.carouselTrack}
@@ -317,8 +336,9 @@ function RiverImageCard({
           {normalizeApiText(river.summary.shortExplanation)}
         </Text>
         <View style={styles.imageCardFooter}>
-          <StatusPill status={river.liveData.overall} />
-          <Text style={styles.imageCardFreshness}>{river.summary.freshnessText}</Text>
+          {homeFactItems(river).slice(0, 3).map((fact) => (
+            <Text key={fact} style={styles.homeFactChip} numberOfLines={1}>{fact}</Text>
+          ))}
         </View>
       </View>
     </Pressable>
@@ -326,11 +346,13 @@ function RiverImageCard({
 }
 
 function QuickScanList({
+  mode,
   rivers,
   isSaved,
   onToggleSaved,
   onOpen,
 }: {
+  mode: BoardMode;
   rivers: BoardItem[];
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
@@ -338,8 +360,8 @@ function QuickScanList({
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title="Fast scan" subtitle="A compact view for checking conditions." />
-      <View style={styles.quickList}>
+      <SectionHeading title="Fast scan" subtitle={quickScanSubtitleForMode(mode)} />
+      <View key={mode} style={styles.quickList}>
         {rivers.map((river) => (
           <CompactRiverRow
             key={river.river.slug}
@@ -379,7 +401,7 @@ function CompactRiverRow({
         <Text style={styles.quickMeta} numberOfLines={1}>
           {[river.river.reach, travelLabelForRiver(river)].filter(Boolean).join(' - ')}
         </Text>
-        <Text style={styles.quickReason} numberOfLines={1}>{normalizeApiText(river.summary.gaugeNow)}</Text>
+        <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
       <View style={styles.quickActions}>
         <RatingPill rating={river.rating} />
@@ -436,20 +458,28 @@ function LocationStrip({
 function ModeTabs({
   mode,
   counts,
+  hasLocation,
   onChange,
 }: {
   mode: BoardMode;
   counts: Record<BoardMode, number>;
+  hasLocation: boolean;
   onChange: (mode: BoardMode) => void;
 }) {
   return (
-    <View style={styles.modeTabs}>
-      {(['best', 'nearby'] as const).map((item) => {
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={styles.modeTabs}
+    >
+      {(['best', 'closest', 'score', 'certain'] as const).map((item) => {
         const active = item === mode;
+        const disabled = item === 'closest' && !hasLocation;
         return (
           <Pressable
             key={item}
-            style={[styles.modeTab, active ? styles.modeTabActive : null]}
+            style={[styles.modeTab, active ? styles.modeTabActive : null, disabled ? styles.modeTabDisabled : null]}
+            disabled={disabled}
             onPress={() => onChange(item)}
             android_ripple={{ color: colors.border, borderless: true }}
           >
@@ -460,17 +490,23 @@ function ModeTabs({
           </Pressable>
         );
       })}
-    </View>
+    </ScrollView>
   );
 }
 
 function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: string | null }) {
   const copy =
-    mode === 'nearby'
+    mode === 'closest'
         ? locationLabel
-          ? `Drive-aware picks from ${locationLabel}.`
-          : 'Turn on location to fill this list.'
-        : 'Live reads sorted by data status, confidence, then score.';
+          ? `Shortest drives from ${locationLabel}.`
+          : 'Turn on location to sort by closest launch.'
+        : mode === 'score'
+          ? 'Highest scores first, regardless of drive time.'
+          : mode === 'certain'
+            ? 'High-confidence calls first, then score.'
+            : locationLabel
+              ? `Score, confidence, and drive time from ${locationLabel}.`
+              : 'Score and confidence first. Turn on location to include drive time.';
 
   return (
     <View style={styles.boardIntro}>
@@ -482,7 +518,7 @@ function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: s
 
 function EmptyMode({ mode, hasLocation }: { mode: BoardMode; hasLocation: boolean }) {
   const message =
-    mode === 'nearby' && !hasLocation
+    mode === 'closest' && !hasLocation
         ? 'Use location above to show routes within a practical day-trip range.'
         : 'No routes match this view right now.';
 
@@ -596,7 +632,61 @@ function isBoardPreferences(value: unknown): value is BoardPreferences {
 }
 
 function isBoardMode(value: unknown): value is BoardMode {
-  return value === 'best' || value === 'nearby';
+  return value === 'best' || value === 'closest' || value === 'score' || value === 'certain';
+}
+
+const homeConfidenceWeight = {
+  High: 3,
+  Medium: 2,
+  Low: 1,
+};
+
+function compareHomeScore(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
+  if (left.score !== right.score) {
+    return right.score - left.score;
+  }
+
+  return left.river.name.localeCompare(right.river.name);
+}
+
+function compareHomeCertainty(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
+  const leftConfidence = homeConfidenceWeight[left.confidence.label] ?? 0;
+  const rightConfidence = homeConfidenceWeight[right.confidence.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
+  }
+
+  return compareHomeScore(left, right);
+}
+
+function sectionSubtitleForMode(mode: BoardMode) {
+  if (mode === 'closest') return 'Shortest practical drives first.';
+  if (mode === 'score') return 'Highest condition scores first.';
+  if (mode === 'certain') return 'The calls with the strongest supporting data.';
+  return 'Best mix of score, confidence, and drive time.';
+}
+
+function quickScanSubtitleForMode(mode: BoardMode) {
+  if (mode === 'closest') return 'Nearby routes with the facts that affect the trip.';
+  if (mode === 'score') return 'Raw condition score, then route fit.';
+  if (mode === 'certain') return 'Confidence first, with route facts alongside it.';
+  return 'A compact recommendation list for today.';
+}
+
+function homeFactItems(river: BoardItem) {
+  return routeFactItems(river.river, {
+    travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
+    includeNoCamping: true,
+    campingAvailableLabel: 'Camping info',
+  });
+}
+
+function homeFactLine(river: BoardItem) {
+  return routeFactLine(river.river, {
+    travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
+    includeNoCamping: true,
+    campingAvailableLabel: 'Camping info',
+  });
 }
 
 function errorDetailForSummaryQuery(error: unknown) {
@@ -796,22 +886,27 @@ const styles = StyleSheet.create({
   },
   modeTabs: {
     flexDirection: 'row',
-    backgroundColor: colors.canvasMuted,
-    borderRadius: radius.pill,
-    padding: 4,
-    gap: 4,
+    gap: spacing.sm,
+    paddingRight: spacing.md,
   },
   modeTab: {
-    flex: 1,
-    minHeight: 42,
+    minHeight: 38,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 6,
+    paddingHorizontal: 14,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
   },
   modeTabActive: {
-    backgroundColor: colors.surfaceStrong,
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  modeTabDisabled: {
+    opacity: 0.48,
   },
   modeTabText: {
     color: colors.textMuted,
@@ -819,7 +914,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   modeTabTextActive: {
-    color: colors.text,
+    color: colors.surfaceStrong,
   },
   modeCount: {
     color: colors.textMuted,
@@ -827,7 +922,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   modeCountActive: {
-    color: colors.accentDeep,
+    color: colors.surfaceStrong,
   },
   boardIntro: {
     paddingHorizontal: 2,
@@ -932,14 +1027,18 @@ const styles = StyleSheet.create({
   imageCardFooter: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    gap: spacing.sm,
+    flexWrap: 'wrap',
+    gap: 6,
   },
-  imageCardFreshness: {
-    flex: 1,
-    color: colors.textMuted,
-    fontSize: 12,
-    textAlign: 'right',
+  homeFactChip: {
+    maxWidth: '100%',
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '800',
+    paddingHorizontal: 9,
+    paddingVertical: 5,
   },
   quickList: {
     backgroundColor: colors.surfaceStrong,

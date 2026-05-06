@@ -90,7 +90,12 @@ export function ExploreRouteDrawer({
           <Text style={styles.mapSheetSnapText}>{sheetSnap === 'full' ? 'Less' : 'More'}</Text>
         </Pressable>
       </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.mapRouteStrip}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.mapRouteStripViewport}
+        contentContainerStyle={styles.mapRouteStrip}
+      >
         {results.slice(0, 12).map((river) => {
           const selected = river.river.slug === selectedSlug;
           return (
@@ -388,10 +393,16 @@ const styles = StyleSheet.create({
   mapRouteStrip: {
     gap: spacing.sm,
     paddingRight: spacing.sm,
+    alignItems: 'center',
+  },
+  mapRouteStripViewport: {
+    flexGrow: 0,
+    height: 48,
+    maxHeight: 48,
   },
   mapRouteChip: {
     maxWidth: 150,
-    minHeight: 38,
+    height: 38,
     borderRadius: radius.pill,
     backgroundColor: 'rgba(255, 255, 255, 0.94)',
     borderWidth: 1,

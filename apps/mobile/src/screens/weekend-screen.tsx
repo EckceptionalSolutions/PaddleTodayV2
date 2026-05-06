@@ -1,9 +1,10 @@
+import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { useRouter } from 'expo-router';
-import { ActivityIndicator, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { WeekendRiverCard } from '../components/weekend-river-card';
-import { formatRelativeTime, normalizeApiText } from '../lib/format';
+import { normalizeApiText } from '../lib/format';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -15,7 +16,21 @@ export default function WeekendScreen() {
   const rivers = [...(weekendQuery.data?.rivers ?? [])].sort((left, right) => right.weekend.score - left.weekend.score);
   const featured = rivers[0];
   const topPicks = rivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').slice(0, 5);
-  const watchList = rivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5);
+  const topPickSlugs = slugSet(topPicks);
+  const lowerCommitment = rivers
+    .filter((river) => !topPickSlugs.has(river.river.slug))
+    .filter(isLowerCommitmentRoute)
+    .slice(0, 4);
+  const secondarySlugs = slugSet([...topPicks, ...lowerCommitment]);
+  const campingRoutes = rivers
+    .filter((river) => !secondarySlugs.has(river.river.slug))
+    .filter(hasCamping)
+    .slice(0, 4);
+  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingRoutes]);
+  const watchList = rivers
+    .filter((river) => !shownSlugs.has(river.river.slug))
+    .filter((river) => river.weekend.rating === 'Fair')
+    .slice(0, 5);
 
   if (weekendQuery.isLoading && rivers.length === 0) {
     return (
@@ -50,21 +65,21 @@ export default function WeekendScreen() {
     >
       <View style={styles.hero}>
         <Text style={styles.kicker}>Weekend planning</Text>
-        <Text style={styles.title}>Best picks this weekend</Text>
+        <Text style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>
-          Use the weekend board for shortlist planning. Conclusions first, forecast caveats second.
+          Start with strong options, then narrow by commitment, camping, and forecast risk.
         </Text>
 
         <View style={styles.heroPanel}>
           <View style={styles.heroHeader}>
             <Text style={styles.heroLabel}>{weekendQuery.data?.label ?? 'Weekend outlook'}</Text>
-            <Text style={styles.heroFreshness}>{formatRelativeTime(weekendQuery.data?.generatedAt)}</Text>
+            <Text style={styles.heroFreshness}>Forecast-aware</Text>
           </View>
 
           <View style={styles.snapshotRow}>
             <SnapshotStat label="Strong" value={rivers.filter((river) => river.weekend.rating === 'Strong').length} tone={styles.snapshotStrong} />
             <SnapshotStat label="Good" value={rivers.filter((river) => river.weekend.rating === 'Good').length} tone={styles.snapshotGood} />
-            <SnapshotStat label="Watch" value={weekendQuery.data?.withheldCount ?? 0} tone={styles.snapshotWatch} />
+            <SnapshotStat label="Watch" value={watchList.length} tone={styles.snapshotWatch} />
           </View>
 
           {featured ? (
@@ -72,6 +87,11 @@ export default function WeekendScreen() {
               <Text style={styles.featuredLabel}>Top weekend pick</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
+              <View style={styles.featuredFacts}>
+                {weekendFacts(featured).map((fact) => (
+                  <Text key={fact} style={styles.featuredFact}>{fact}</Text>
+                ))}
+              </View>
               <Text style={styles.featuredSummary}>{normalizeApiText(featured.weekend.summary)}</Text>
             </View>
           ) : (
@@ -82,7 +102,7 @@ export default function WeekendScreen() {
 
       {topPicks.length > 0 ? (
         <SectionCard
-          title="Weekend shortlist"
+          title="Best weekend"
           subtitle="Routes that already look actionable if the forecast holds."
         >
           <View style={styles.list}>
@@ -106,6 +126,28 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
+      {lowerCommitment.length > 0 ? (
+        <SectionCard
+          title="Lower commitment"
+          subtitle="Shorter or easier routes that are simpler to fit around weather."
+        >
+          <View style={styles.list}>
+            {lowerCommitment.map((river) => renderWeekendCard(river))}
+          </View>
+        </SectionCard>
+      ) : null}
+
+      {campingRoutes.length > 0 ? (
+        <SectionCard
+          title="Camping possible"
+          subtitle="Routes with useful camping or overnight staging notes."
+        >
+          <View style={styles.list}>
+            {campingRoutes.map((river) => renderWeekendCard(river))}
+          </View>
+        </SectionCard>
+      ) : null}
+
       <SectionCard
         title="Watch list"
         subtitle={
@@ -117,20 +159,7 @@ export default function WeekendScreen() {
         {watchList.length > 0 ? (
           <View style={styles.list}>
             {watchList.map((river) => (
-              <WeekendRiverCard
-                key={river.river.slug}
-                river={river}
-                saved={isSaved(river.river.slug)}
-                onToggleSaved={() =>
-                  void toggleSavedRiver({
-                    slug: river.river.slug,
-                    riverId: river.river.riverId,
-                    name: river.river.name,
-                    reach: river.river.reach,
-                  })
-                }
-                onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-              />
+              renderWeekendCard(river)
             ))}
           </View>
         ) : (
@@ -140,6 +169,25 @@ export default function WeekendScreen() {
 
     </ScrollView>
   );
+
+  function renderWeekendCard(river: WeekendSummaryApiItem) {
+    return (
+      <WeekendRiverCard
+        key={river.river.slug}
+        river={river}
+        saved={isSaved(river.river.slug)}
+        onToggleSaved={() =>
+          void toggleSavedRiver({
+            slug: river.river.slug,
+            riverId: river.river.riverId,
+            name: river.river.name,
+            reach: river.river.reach,
+          })
+        }
+        onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+      />
+    );
+  }
 }
 
 function SnapshotStat({
@@ -157,6 +205,41 @@ function SnapshotStat({
       <Text style={styles.snapshotLabel}>{label}</Text>
     </View>
   );
+}
+
+function slugSet(rivers: WeekendSummaryApiItem[]) {
+  return new Set(rivers.map((river) => river.river.slug));
+}
+
+function isLowerCommitmentRoute(river: WeekendSummaryApiItem) {
+  if (river.weekend.rating !== 'Strong' && river.weekend.rating !== 'Good') {
+    return false;
+  }
+
+  const distance = parseFloat(river.river.distanceLabel);
+  return river.river.difficulty === 'easy' || (Number.isFinite(distance) && distance <= 8);
+}
+
+function hasCamping(river: WeekendSummaryApiItem) {
+  if (river.weekend.rating !== 'Strong' && river.weekend.rating !== 'Good') {
+    return false;
+  }
+
+  const camping = normalizeApiText(river.river.logistics?.camping).toLowerCase();
+  return camping.length > 0 && !camping.startsWith('none') && !camping.startsWith('no ');
+}
+
+function weekendFacts(river: WeekendSummaryApiItem) {
+  return [
+    river.river.distanceLabel || null,
+    river.river.estimatedPaddleTime || null,
+    `${capitalize(river.river.difficulty)} difficulty`,
+    hasCamping(river) ? 'Camping possible' : null,
+  ].filter(Boolean) as string[];
+}
+
+function capitalize(value: string) {
+  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({
@@ -262,6 +345,21 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 16,
     fontWeight: '600',
+  },
+  featuredFacts: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+    marginTop: spacing.xs,
+  },
+  featuredFact: {
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '800',
+    paddingHorizontal: 9,
+    paddingVertical: 5,
   },
   featuredSummary: {
     color: colors.textMuted,

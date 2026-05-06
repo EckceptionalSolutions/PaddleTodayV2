@@ -40,6 +40,7 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       routeType: result.river.routeType ?? 'recreational',
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
+      logistics: result.river.logistics,
     },
     sources: summarySourceBadges(result),
     score: result.score,
@@ -96,6 +97,7 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
+      logistics: result.river.logistics,
     },
     current: {
       score: result.score,
@@ -201,6 +203,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       },
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
+      logistics: result.river.logistics,
     },
     score: result.score,
     rating: result.rating,

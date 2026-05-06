@@ -8,6 +8,7 @@ import type {
   RiverDetailApiResult,
   RiverOutlook,
 } from '@paddletoday/api-contract';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
@@ -60,7 +61,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 const ROUTE_REPORT_MAX_PHOTOS = 4;
 const ROUTE_REPORT_MAX_PHOTO_BYTES = 4 * 1024 * 1024;
 const ROUTE_REPORT_ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
-const DETAIL_SECTIONS = ['Today', 'Access', 'More'] as const;
+const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
@@ -336,13 +337,22 @@ export default function RiverDetailScreen() {
               <Text style={styles.subtitle}>
                 {verdictForRating(detail.rating)} - {detailMessageForRating(detail.rating)}
               </Text>
+              <View style={styles.routeFactRow}>
+                {routeHeroFacts(detail).map((fact) => (
+                  <View key={fact.label} style={styles.routeFactPill}>
+                    <MaterialCommunityIcons name={fact.icon as never} color={colors.accent} size={17} />
+                    <Text style={styles.routeFactValue}>{fact.value}</Text>
+                    <Text style={styles.routeFactLabel}>{fact.label}</Text>
+                  </View>
+                ))}
+              </View>
               <View style={styles.heroMeta}>
                 <RatingPill rating={detail.rating} />
                 <StatusPill status={detail.liveData.overall} />
               </View>
             </View>
           </View>
-          <Text style={styles.explanation}>{normalizeApiText(detail.explanation)}</Text>
+          <DecisionSummary detail={detail} />
           <View style={styles.heroFooter}>
             <Text style={styles.heroFooterText}>{detail.gaugeBandLabel}</Text>
             <Text style={styles.heroFooterText}>{detail.confidence.label} confidence</Text>
@@ -376,51 +386,45 @@ export default function RiverDetailScreen() {
             style={styles.actionDockButton}
             onPress={() => setActiveSection('Access')}
           >
-            <Text style={styles.actionDockLabel}>Alerts</Text>
-            <Text style={styles.actionDockValue}>Email</Text>
+            <Text style={styles.actionDockLabel}>Access</Text>
+            <Text style={styles.actionDockValue}>Map</Text>
           </Pressable>
-          <Pressable style={styles.actionDockButton} onPress={() => setActiveSection('More')}>
-            <Text style={styles.actionDockLabel}>More</Text>
-            <Text style={styles.actionDockValue}>Details</Text>
+          <Pressable style={styles.actionDockButton} onPress={() => setActiveSection('Reports')}>
+            <Text style={styles.actionDockLabel}>Reports</Text>
+            <Text style={styles.actionDockValue}>Share intel</Text>
           </Pressable>
         </View>
 
         {activeSection === 'Today' ? (
           <>
-            <SectionCard title="Current conditions" subtitle={normalizeApiText(detail.liveData.summary)}>
-              <View style={styles.metricGrid}>
-                <MetricTile
-                  label="Gauge now"
-                  value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : 'No reading'}
+            <RouteBasicsCard detail={detail} />
+
+            <SectionCard title="Flow, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
+              <View style={styles.conditionList}>
+                <ConditionRow
+                  label="Flow"
+                  value={detail.gauge ? `${detail.gaugeBandLabel} - ${formatGaugeValue(detail.gauge.current, detail.gauge.unit)}` : detail.gaugeBandLabel}
                   detail={normalizeApiText(detail.liveData.gauge.detail)}
+                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
                 />
-                <MetricTile
+                <ConditionRow
                   label="Trend"
-                  value={
-                    detail.gauge
-                      ? `${capitalize(detail.gauge.trend)} ${
-                          detail.gauge.delta24h !== null
-                            ? `(${formatGaugeValue(detail.gauge.delta24h, detail.gauge.unit, '0')})`
-                            : ''
-                        }`.trim()
-                      : 'Unavailable'
-                  }
+                  value={trendValue(detail)}
                   detail={normalizeApiText(detail.scoreBreakdown.riverQualityExplanation)}
+                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
                 />
-                <MetricTile
+                <ConditionRow
                   label="Weather"
                   value={weatherValue(detail)}
                   detail={normalizeApiText(detail.liveData.weather.detail)}
-                />
-                <MetricTile
-                  label="Confidence"
-                  value={`${detail.confidence.label} (${detail.confidence.score}/100)`}
-                  detail={normalizeApiText(detail.scoreBreakdown.rainExplanation)}
+                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
                 />
               </View>
             </SectionCard>
 
-            <SectionCard title="Trip checks" subtitle="Conclusion first, supporting checks second.">
+            <AboutRouteCard detail={detail} />
+
+            <SectionCard title="Checklist" subtitle="Secondary checks before committing to the drive.">
               <View style={styles.checklist}>
                 {checklist.map((item) => (
                   <ChecklistRow key={`${item.label}-${item.status}`} item={item} />
@@ -430,47 +434,7 @@ export default function RiverDetailScreen() {
           </>
         ) : null}
 
-        {activeSection === 'More' ? (
-          <>
-            <SectionCard
-              title="Outlooks"
-              subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
-            >
-              <OutlookRows outlooks={detail.outlooks} />
-            </SectionCard>
-
-            <SectionCard
-              title="Weather through today"
-              subtitle="Short-interval weather for trip timing, not just a single summary."
-            >
-              <HourlyWeatherStrip detail={detail} />
-            </SectionCard>
-
-            <SectionCard
-              title="USGS recent trend"
-              subtitle={
-                detail.gauge?.gaugeSource
-                  ? `${detail.gauge.gaugeSource} · observed ${formatTimestamp(detail.gauge.observedAt)}`
-                  : 'Recent gauge samples are unavailable.'
-              }
-            >
-              <GaugeTrendChart detail={detail} />
-            </SectionCard>
-
-            <SectionCard
-              title="Score history"
-              subtitle={
-                history?.latestSnapshotAt
-                  ? `Last captured ${formatTimestamp(history.latestSnapshotAt)}`
-                  : 'History will fill in as snapshots are captured.'
-              }
-            >
-              <HistoryBars days={history?.days ?? []} />
-            </SectionCard>
-          </>
-        ) : null}
-
-        {activeSection === 'More' ? (
+        {activeSection === 'Reports' ? (
           <>
             <SectionCard
               title="Community reports"
@@ -516,11 +480,51 @@ export default function RiverDetailScreen() {
           </>
         ) : null}
 
+        {activeSection === 'More' ? (
+          <>
+            <SectionCard
+              title="Outlooks"
+              subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
+            >
+              <OutlookRows outlooks={detail.outlooks} />
+            </SectionCard>
+
+            <SectionCard
+              title="Weather through today"
+              subtitle="Short-interval weather for trip timing, not just a single summary."
+            >
+              <HourlyWeatherStrip detail={detail} />
+            </SectionCard>
+
+            <SectionCard
+              title="USGS recent trend"
+              subtitle={
+                detail.gauge?.gaugeSource
+                  ? `${detail.gauge.gaugeSource} - observed ${formatTimestamp(detail.gauge.observedAt)}`
+                  : 'Recent gauge samples are unavailable.'
+              }
+            >
+              <GaugeTrendChart detail={detail} />
+            </SectionCard>
+
+            <SectionCard
+              title="Score history"
+              subtitle={
+                history?.latestSnapshotAt
+                  ? `Last captured ${formatTimestamp(history.latestSnapshotAt)}`
+                  : 'History will fill in as snapshots are captured.'
+              }
+            >
+              <HistoryBars days={history?.days ?? []} />
+            </SectionCard>
+          </>
+        ) : null}
+
         {activeSection === 'Access' ? (
           <>
             <SectionCard
-              title="Access basics"
-              subtitle="Practical launch information first. Route planning can get richer later."
+              title="Access & logistics"
+              subtitle="Put-in, take-out, shuttle, and the route facts that affect planning."
             >
               {routePlotPoints.length > 0 ? (
                 <RoutePlotMap points={routePlotPoints} selectedId={routePlotPoints[0]?.id ?? null} />
@@ -530,10 +534,26 @@ export default function RiverDetailScreen() {
                 <AccessCard label="Take-out" point={detail.river.takeOut} fallback="Take-out not mapped yet." />
               </View>
               <RouteDirectionActions detail={detail} />
+              <TripPlanningCard detail={detail} />
               <View style={styles.accessMeta}>
                 <MetricPill label="Distance" value={detail.river.distanceLabel || 'Check source'} />
+                <MetricPill label="Paddle time" value={detail.river.estimatedPaddleTime || 'Not tracked'} />
                 <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
+                <MetricPill label="Camping" value={shortLogisticsValue(detail.river.logistics?.camping)} />
               </View>
+              <LogisticsPanel
+                title="Shuttle"
+                body={detail.river.logistics?.shuttle || 'Shuttle notes are not tracked yet for this route.'}
+              />
+              <LogisticsPanel
+                title="Permits"
+                body={detail.river.logistics?.permits || 'Permit notes are not tracked yet for this route.'}
+              />
+              <LogisticsBulletList
+                title="Access notes"
+                items={detail.river.logistics?.accessCaveats ?? []}
+                empty="Access caveats are not tracked yet for this route."
+              />
             </SectionCard>
 
             <SectionCard
@@ -666,12 +686,288 @@ function estimateBase64ByteSize(base64: string | null | undefined) {
   return Math.floor((encoded.length * 3) / 4) - padding;
 }
 
-function MetricTile({ label, value, detail }: { label: string; value: string; detail: string }) {
+function decisionSummaryItems(detail: RiverDetailApiResult) {
+  const checklistByLabel = new Map(detail.checklist.map((item) => [item.label, item]));
+  const warnings = detail.checklist.filter((item) => item.status !== 'go');
+  const working = detail.checklist.filter((item) => item.status === 'go');
+  const firstWarning = warnings[0];
+  const primaryWorking = working[0] ?? detail.checklist[0];
+
+  return [
+    {
+      label: detail.rating === 'Fair' ? 'Why today may work' : 'Why today works',
+      text: normalizeApiText(primaryWorking?.detail ?? detail.explanation),
+      tone: conditionToneForStatus(primaryWorking?.status ?? 'watch'),
+    },
+    {
+      label: 'What to watch',
+      text: normalizeApiText(firstWarning?.detail ?? checklistByLabel.get('Weather window')?.detail ?? detail.liveData.summary),
+      tone: conditionToneForStatus(firstWarning?.status ?? 'watch'),
+    },
+    {
+      label: 'Before committing',
+      text: beforeCommittingText(detail),
+      tone: conditionToneForStatus(detail.liveData.overall === 'live' ? 'go' : 'watch'),
+    },
+  ].filter((item) => item.text.trim().length > 0);
+}
+
+function beforeCommittingText(detail: RiverDetailApiResult) {
+  const bits = [
+    detail.river.distanceLabel ? `${detail.river.distanceLabel} route` : null,
+    detail.river.estimatedPaddleTime || null,
+    `${capitalize(detail.river.profile.difficulty)} difficulty`,
+  ].filter(Boolean);
+  const routeContext = bits.length > 0 ? ` This is a ${bits.join(', ')}.` : '';
+
+  return detail.liveData.overall === 'live'
+    ? `Refresh the board, check access notes, and confirm the shuttle still fits your group.${routeContext}`
+    : `Open the source and confirm the latest gauge before relying on this call.${routeContext}`;
+}
+
+function routeHeroFacts(detail: RiverDetailApiResult) {
+  return [
+    { label: 'Length', value: detail.river.distanceLabel || 'Unknown', icon: 'map-marker-distance' },
+    { label: 'Time', value: detail.river.estimatedPaddleTime || 'Unknown', icon: 'clock-outline' },
+    { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
+  ];
+}
+
+function decisionStatement(detail: RiverDetailApiResult) {
+  if (detail.rating === 'Strong') {
+    return 'Clear go if the route fits your group.';
+  }
+
+  if (detail.rating === 'Good') {
+    return 'Good option with normal same-day checks.';
+  }
+
+  if (detail.rating === 'Fair') {
+    return 'Possible paddle, but review the cautions first.';
+  }
+
+  return 'Skip this one today unless sources have changed.';
+}
+
+function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
+  return checklist.find((item) => item.label === label)?.status ?? 'watch';
+}
+
+function conditionToneForStatus(status: DecisionChecklistItem['status']) {
+  if (status === 'go') return styles.conditionGood;
+  if (status === 'watch') return styles.conditionWatch;
+  return styles.conditionSkip;
+}
+
+function trendValue(detail: RiverDetailApiResult) {
+  if (!detail.gauge) {
+    return 'Trend unavailable';
+  }
+
+  const trend = capitalize(detail.gauge.trend);
+  const delta =
+    detail.gauge.delta24h !== null
+      ? formatGaugeValue(detail.gauge.delta24h, detail.gauge.unit, '0')
+      : null;
+  return delta ? `${trend} (${delta})` : trend;
+}
+
+function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
+  const items = decisionSummaryItems(detail);
   return (
-    <View style={styles.metricTile}>
-      <Text style={styles.metricLabel}>{label}</Text>
-      <Text style={styles.metricValue}>{value}</Text>
-      <Text style={styles.metricDetail}>{detail}</Text>
+    <View style={styles.decisionSummary}>
+      <View style={styles.decisionSummaryHeader}>
+        <Text style={styles.decisionSummaryLabel}>Today's call</Text>
+        <Text style={styles.decisionSummaryScore}>{detail.score} / {detail.rating}</Text>
+      </View>
+      <Text style={styles.decisionSummaryTitle}>{decisionStatement(detail)}</Text>
+      <View style={styles.decisionBulletList}>
+        {items.map((item) => (
+          <View key={item.label} style={styles.decisionBullet}>
+            <View style={[styles.decisionBulletDot, item.tone]} />
+            <View style={styles.decisionBulletCopy}>
+              <Text style={styles.decisionBulletLabel}>{item.label}</Text>
+              <Text style={styles.decisionBulletText}>{item.text}</Text>
+            </View>
+          </View>
+        ))}
+      </View>
+    </View>
+  );
+}
+
+function ConditionRow({
+  label,
+  value,
+  detail,
+  tone,
+}: {
+  label: string;
+  value: string;
+  detail: string;
+  tone: object;
+}) {
+  return (
+    <View style={styles.conditionRow}>
+      <View style={[styles.conditionStatus, tone]} />
+      <View style={styles.conditionCopy}>
+        <View style={styles.conditionHeader}>
+          <Text style={styles.conditionLabel}>{label}</Text>
+          <Text style={styles.conditionValue} numberOfLines={1}>{value}</Text>
+        </View>
+        <Text style={styles.conditionDetail}>{detail}</Text>
+      </View>
+    </View>
+  );
+}
+
+function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
+  const logistics = detail.river.logistics;
+  const basics = [
+    { label: 'Length', value: detail.river.distanceLabel || 'Not tracked', icon: 'map-marker-distance' },
+    { label: 'Paddle time', value: detail.river.estimatedPaddleTime || 'Not tracked', icon: 'clock-outline' },
+    { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
+    { label: 'Route type', value: routeTypeLabel(detail.river.routeType), icon: 'kayaking' },
+    { label: 'Region', value: `${detail.river.region}, ${detail.river.state}`, icon: 'map-outline' },
+    { label: 'Camping', value: shortLogisticsValue(logistics?.camping), icon: 'tent' },
+  ];
+
+  const gaugeRange = thresholdRangeLabel(detail);
+
+  return (
+    <SectionCard
+      title="Route basics"
+      subtitle="The durable trip facts behind today's score."
+    >
+      <View style={styles.routeBasicsGrid}>
+        {basics.map((item) => (
+          <View key={item.label} style={styles.routeBasicCell}>
+            <View style={styles.routeBasicLabelRow}>
+              <MaterialCommunityIcons name={item.icon as never} color={colors.accent} size={16} />
+              <Text style={styles.routeBasicLabel}>{item.label}</Text>
+            </View>
+            <Text style={styles.routeBasicValue}>{item.value}</Text>
+          </View>
+        ))}
+      </View>
+      <View style={styles.routeInfoPanel}>
+        <Text style={styles.routeInfoTitle}>Gauge reference</Text>
+        <Text style={styles.routeInfoText}>
+          {detail.river.gaugeSource.display.label} - {gaugeRange}
+        </Text>
+      </View>
+      <View style={styles.routeInfoPanel}>
+        <Text style={styles.routeInfoTitle}>Access</Text>
+        <Text style={styles.routeInfoText}>
+          {[detail.river.putIn?.name, detail.river.takeOut?.name].filter(Boolean).join(' to ') || 'Access points are not fully mapped yet.'}
+        </Text>
+      </View>
+    </SectionCard>
+  );
+}
+
+function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
+  const logistics = detail.river.logistics;
+
+  return (
+    <SectionCard
+      title="About this route"
+      subtitle="Evergreen planning notes, separate from today's live conditions."
+    >
+      <Text style={styles.aboutRouteText}>
+        {normalizeApiText(logistics?.summary || detail.explanation)}
+      </Text>
+      <LogisticsBulletList
+        title="Watch for"
+        items={logistics?.watchFor ?? []}
+        empty="Hazards and watch-outs are not tracked yet for this route."
+        tone="warning"
+      />
+      <LogisticsPanel
+        title="Camping"
+        body={logistics?.camping || 'Camping information is not tracked yet for this route.'}
+      />
+    </SectionCard>
+  );
+}
+
+function LogisticsPanel({ title, body }: { title: string; body: string }) {
+  return (
+    <View style={styles.logisticsPanel}>
+      <View style={styles.logisticsPanelHeader}>
+        <LogisticsIcon title={title} />
+        <Text style={styles.logisticsPanelTitle}>{title}</Text>
+      </View>
+      <Text style={styles.logisticsPanelText}>{normalizeApiText(body)}</Text>
+    </View>
+  );
+}
+
+function LogisticsBulletList({
+  title,
+  items,
+  empty,
+  tone = 'normal',
+}: {
+  title: string;
+  items: string[];
+  empty: string;
+  tone?: 'normal' | 'warning';
+}) {
+  const visibleItems = items.map(normalizeApiText).filter(Boolean);
+
+  return (
+    <View style={[styles.logisticsPanel, tone === 'warning' ? styles.logisticsPanelWarning : null]}>
+      <View style={styles.logisticsPanelHeader}>
+        <LogisticsIcon title={title} warning={tone === 'warning'} />
+        <Text style={styles.logisticsPanelTitle}>{title}</Text>
+      </View>
+      {visibleItems.length > 0 ? (
+        <View style={styles.logisticsBulletList}>
+          {visibleItems.slice(0, 4).map((item) => (
+            <View key={item} style={styles.logisticsBullet}>
+              <View style={[styles.logisticsBulletDot, tone === 'warning' ? styles.logisticsBulletDotWarning : null]} />
+              <Text style={styles.logisticsBulletText}>{item}</Text>
+            </View>
+          ))}
+        </View>
+      ) : (
+        <Text style={styles.logisticsPanelText}>{empty}</Text>
+      )}
+    </View>
+  );
+}
+
+function LogisticsIcon({ title, warning = false }: { title: string; warning?: boolean }) {
+  return (
+    <MaterialCommunityIcons
+      name={logisticsIconName(title) as never}
+      color={warning ? colors.noGo : colors.accent}
+      size={18}
+    />
+  );
+}
+
+function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
+  const logistics = detail.river.logistics;
+  const rows = [
+    { label: 'Shuttle', value: shortLogisticsValue(logistics?.shuttle), icon: 'car' },
+    { label: 'Permits', value: shortLogisticsValue(logistics?.permits), icon: 'ticket-confirmation-outline' },
+    { label: 'Camping', value: shortLogisticsValue(logistics?.camping), icon: 'tent' },
+  ];
+
+  return (
+    <View style={styles.tripPlanningCard}>
+      <Text style={styles.tripPlanningTitle}>Trip planning</Text>
+      <View style={styles.tripPlanningRows}>
+        {rows.map((row) => (
+          <View key={row.label} style={styles.tripPlanningRow}>
+            <MaterialCommunityIcons name={row.icon as never} color={colors.accent} size={18} />
+            <Text style={styles.tripPlanningLabel}>{row.label}</Text>
+            <Text style={styles.tripPlanningValue} numberOfLines={1}>{row.value}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }
@@ -1031,6 +1327,59 @@ function compactGaugeSample(value: number, unit: RiverDetailApiResult['river']['
   return `${rounded}`;
 }
 
+function routeTypeLabel(value: RiverDetailApiResult['river']['routeType']) {
+  return value
+    .split('-')
+    .map(capitalize)
+    .join(' ');
+}
+
+function thresholdRangeLabel(detail: RiverDetailApiResult) {
+  const unit = detail.river.gaugeSource.unit;
+  const { idealMin, idealMax, tooLow, tooHigh, thresholdModel } = detail.river.profile;
+
+  if (thresholdModel === 'two-sided' && typeof idealMin === 'number' && typeof idealMax === 'number') {
+    return `ideal around ${formatGaugeValue(idealMin, unit)} to ${formatGaugeValue(idealMax, unit)}`;
+  }
+
+  if (typeof tooLow === 'number') {
+    return `minimum around ${formatGaugeValue(tooLow, unit)}`;
+  }
+
+  if (typeof tooHigh === 'number') {
+    return `high-water caution around ${formatGaugeValue(tooHigh, unit)}`;
+  }
+
+  return 'threshold details are still being refined';
+}
+
+function shortLogisticsValue(value: string | null | undefined) {
+  const normalized = normalizeApiText(value);
+  if (!normalized) {
+    return 'Not tracked';
+  }
+
+  if (/^(none|no )/i.test(normalized)) {
+    return 'None noted';
+  }
+
+  if (normalized.length <= 34) {
+    return normalized;
+  }
+
+  return 'Details below';
+}
+
+function logisticsIconName(title: string) {
+  const normalized = title.toLowerCase();
+  if (normalized.includes('watch')) return 'alert-outline';
+  if (normalized.includes('camp')) return 'tent';
+  if (normalized.includes('shuttle')) return 'car';
+  if (normalized.includes('permit')) return 'ticket-confirmation-outline';
+  if (normalized.includes('access')) return 'map-marker-alert-outline';
+  return 'information-outline';
+}
+
 function ratingBackground(rating: string) {
   if (rating === 'Strong') return { backgroundColor: '#E0EFE9' };
   if (rating === 'Good') return { backgroundColor: '#E8EFD9' };
@@ -1174,16 +1523,96 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     fontWeight: '600',
   },
+  routeFactRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+    marginTop: spacing.xs,
+  },
+  routeFactPill: {
+    flex: 1,
+    minHeight: 48,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.sm,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    gap: 2,
+  },
+  routeFactValue: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  routeFactLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
   heroMeta: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
     marginTop: spacing.sm,
   },
-  explanation: {
+  decisionSummary: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  decisionSummaryHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  decisionSummaryLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  decisionSummaryScore: {
+    color: colors.accentDeep,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  decisionSummaryTitle: {
     color: colors.text,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 17,
+    lineHeight: 22,
+    fontWeight: '900',
+  },
+  decisionBulletList: {
+    gap: spacing.sm,
+  },
+  decisionBullet: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  decisionBulletDot: {
+    width: 9,
+    height: 9,
+    borderRadius: 5,
+    marginTop: 6,
+  },
+  decisionBulletCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  decisionBulletLabel: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  decisionBulletText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
   },
   heroFooter: {
     flexDirection: 'row',
@@ -1257,30 +1686,196 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  metricGrid: {
-    gap: spacing.md,
+  conditionList: {
+    gap: spacing.sm,
   },
-  metricTile: {
+  conditionRow: {
+    flexDirection: 'row',
+    gap: spacing.sm,
     backgroundColor: colors.surface,
     borderRadius: radius.md,
     padding: spacing.md,
-    gap: 6,
   },
-  metricLabel: {
+  conditionStatus: {
+    width: 9,
+    borderRadius: radius.pill,
+  },
+  conditionGood: {
+    backgroundColor: colors.strong,
+  },
+  conditionWatch: {
+    backgroundColor: colors.fair,
+  },
+  conditionSkip: {
+    backgroundColor: colors.noGo,
+  },
+  conditionCopy: {
+    flex: 1,
+    gap: 4,
+  },
+  conditionHeader: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  conditionLabel: {
     color: colors.textMuted,
-    fontSize: 12,
+    fontSize: 11,
+    fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
-  metricValue: {
+  conditionValue: {
+    flex: 1,
     color: colors.text,
-    fontSize: 17,
-    fontWeight: '800',
+    fontSize: 13,
+    fontWeight: '900',
+    textAlign: 'right',
   },
-  metricDetail: {
+  conditionDetail: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  routeBasicsGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  routeBasicCell: {
+    width: '48%',
+    minHeight: 70,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    justifyContent: 'center',
+    gap: 4,
+  },
+  routeBasicLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  routeBasicLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  routeBasicValue: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 18,
+    fontWeight: '900',
+  },
+  routeInfoPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: 3,
+  },
+  routeInfoTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  routeInfoText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  aboutRouteText: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '700',
+  },
+  logisticsPanel: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  logisticsPanelWarning: {
+    backgroundColor: '#F7E9E3',
+    borderWidth: 1,
+    borderColor: '#E1B8A7',
+  },
+  logisticsPanelHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  logisticsPanelTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  logisticsPanelText: {
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
+  },
+  logisticsBulletList: {
+    gap: spacing.sm,
+  },
+  logisticsBullet: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  logisticsBulletDot: {
+    width: 7,
+    height: 7,
+    borderRadius: 4,
+    backgroundColor: colors.accent,
+    marginTop: 6,
+  },
+  logisticsBulletDotWarning: {
+    backgroundColor: colors.noGo,
+  },
+  logisticsBulletText: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+  },
+  tripPlanningCard: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  tripPlanningTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  tripPlanningRows: {
+    gap: spacing.xs,
+  },
+  tripPlanningRow: {
+    minHeight: 34,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  tripPlanningLabel: {
+    width: 68,
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  tripPlanningValue: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '800',
+    textAlign: 'right',
   },
   outlookList: {
     gap: spacing.sm,

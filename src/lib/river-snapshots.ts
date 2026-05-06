@@ -19,7 +19,7 @@ import {
 } from './api-contract';
 import { getRiverBySlug, listRiverGroups } from './rivers';
 import { gaugeDisplayForSource } from './source-adapters';
-import type { RiverScoreResult } from './types';
+import type { GaugeBand, RiverGaugeSource, RiverScoreResult } from './types';
 
 const DEFAULT_SNAPSHOT_DIR = '.local';
 
@@ -65,7 +65,7 @@ function isWeekendSummaryApiItem(value: unknown): value is WeekendSummaryApiItem
 }
 
 function isRiverGroupApiResult(value: unknown): value is RiverGroupApiResult {
-  return isRecord(value) && isString(value.riverId) && isArrayOf(value.routes, isRiverDetailApiResult);
+  return isRecord(value) && isRecord(value.group) && isString(value.group.riverId) && isArrayOf(value.routes, isRiverDetailApiResult);
 }
 
 function isRiverSummarySnapshot(value: unknown): value is RiverSummarySnapshot {
@@ -173,7 +173,9 @@ async function readLocalSummaryFallback(): Promise<RiverSummarySnapshot | null> 
 }
 
 export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverDetailSnapshot | null> {
-  const snapshot = await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug));
+  const snapshot =
+    (await snapshotStorage().readJson<RiverDetailSnapshot>(detailBlobName(slug))) ??
+    (await readSummaryDetailFallback(slug));
   if (!snapshot) {
     return null;
   }
@@ -185,7 +187,9 @@ export async function getStoredRiverDetailSnapshot(slug: string): Promise<RiverD
 }
 
 export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummarySnapshot | null> {
-  const snapshot = await snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName());
+  const snapshot =
+    (await snapshotStorage().readJson<WeekendSummarySnapshot>(weekendSummaryBlobName())) ??
+    (await readSummaryWeekendFallback());
   if (!snapshot) {
     return null;
   }
@@ -197,7 +201,9 @@ export async function getStoredWeekendSummarySnapshot(): Promise<WeekendSummaryS
 }
 
 export async function getStoredRiverGroupSnapshot(riverId: string): Promise<RiverGroupSnapshot | null> {
-  const snapshot = await snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId));
+  const snapshot =
+    (await snapshotStorage().readJson<RiverGroupSnapshot>(groupBlobName(riverId))) ??
+    (await readSummaryGroupFallback(riverId));
   if (!snapshot) {
     return null;
   }
@@ -211,6 +217,251 @@ export async function getStoredRiverGroupSnapshot(riverId: string): Promise<Rive
   };
 }
 
+async function readSummaryDetailFallback(slug: string): Promise<RiverDetailSnapshot | null> {
+  const summary = await readLocalSummaryFallback();
+  const item = summary?.rivers.find((river) => river.river.slug === slug);
+  if (!summary || !item) {
+    return null;
+  }
+
+  return item ? { generatedAt: summary.generatedAt, result: detailFromSummaryItem(item) } : null;
+}
+
+async function readSummaryWeekendFallback(): Promise<WeekendSummarySnapshot | null> {
+  const summary = await readLocalSummaryFallback();
+  if (!summary) {
+    return null;
+  }
+
+  const rivers = summary.rivers
+    .map(normalizeSummarySnapshotItem)
+    .map((item) => ({
+      river: {
+        riverId: item.river.riverId,
+        slug: item.river.slug,
+        name: item.river.name,
+        reach: item.river.reach,
+        state: item.river.state,
+        region: item.river.region,
+        latitude: item.river.latitude,
+        longitude: item.river.longitude,
+        distanceLabel: item.river.distanceLabel,
+        estimatedPaddleTime: item.river.estimatedPaddleTime,
+        difficulty: item.river.difficulty,
+        routeType: item.river.routeType,
+      },
+      current: {
+        score: item.score,
+        rating: item.rating,
+        gaugeBandLabel: item.gaugeBandLabel,
+      },
+      weekend: {
+        label: 'Current board',
+        score: item.score,
+        rating: item.rating,
+        confidence: item.confidence.label,
+        explanation: 'Weekend forecast data is unavailable, so this card is using the stored current board.',
+        summary: item.summary.shortExplanation || item.explanation,
+        signalLine: item.summary.rawSignalLine,
+      },
+      liveData: {
+        overall: item.liveData.overall,
+        summary: item.liveData.summary,
+        gaugeState: item.liveData.gaugeState,
+        gaugeDetail: item.liveData.gaugeDetail,
+        weatherState: item.liveData.weatherState,
+        weatherDetail: item.liveData.weatherDetail,
+      },
+      generatedAt: summary.generatedAt,
+    }));
+
+  return {
+    generatedAt: summary.generatedAt,
+    label: 'Current board fallback',
+    riverCount: rivers.length,
+    withheldCount: 0,
+    rivers,
+  };
+}
+
+async function readSummaryGroupFallback(riverId: string): Promise<RiverGroupSnapshot | null> {
+  const summary = await readLocalSummaryFallback();
+  const routes = summary?.rivers
+    .filter((item) => item.river.riverId === riverId)
+    .map((item) => detailFromSummaryItem(item))
+    .sort((left, right) => right.score - left.score);
+
+  if (!summary || !routes?.length) {
+    return null;
+  }
+
+  const states = [...new Set(routes.map((route) => route.river.state))].sort();
+  const regions = [...new Set(routes.map((route) => route.river.region))].sort();
+
+  return {
+    generatedAt: summary.generatedAt,
+    result: {
+      group: {
+        riverId,
+        name: routes[0]?.river.name ?? riverId,
+        routeCount: routes.length,
+        stateSummary: states.join(', '),
+        regionSummary: regions.join(', '),
+      },
+      routes,
+    },
+  };
+}
+
+function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult {
+  const river = getRiverBySlug(item.river.slug);
+  const normalized = normalizeSummarySnapshotItem(item);
+  const gaugeSource = river?.gaugeSource ?? fallbackGaugeSource(item);
+  const profile = river?.profile;
+
+  return {
+    river: {
+      riverId: normalized.river.riverId,
+      slug: normalized.river.slug,
+      name: normalized.river.name,
+      reach: normalized.river.reach,
+      state: normalized.river.state,
+      region: normalized.river.region,
+      latitude: normalized.river.latitude,
+      longitude: normalized.river.longitude,
+      distanceLabel: normalized.river.distanceLabel,
+      estimatedPaddleTime: normalized.river.estimatedPaddleTime,
+      routeType: normalized.river.routeType,
+      gaugeSource: {
+        provider: gaugeSource.provider,
+        unit: gaugeSource.unit,
+        detailUrl: gaugeSource.detailUrl,
+        hydrographUrl: gaugeSource.hydrographUrl,
+        display: gaugeDisplayForSource(gaugeSource),
+      },
+      profile: {
+        thresholdModel: profile?.thresholdModel ?? 'minimum-only',
+        thresholdSourceStrength: profile?.thresholdSourceStrength ?? 'derived',
+        idealMin: profile?.idealMin,
+        idealMax: profile?.idealMax,
+        tooLow: profile?.tooLow,
+        tooHigh: profile?.tooHigh,
+        difficulty: normalized.river.difficulty,
+      },
+      putIn: normalized.river.putIn,
+      takeOut: normalized.river.takeOut,
+      logistics: river?.logistics,
+    },
+    score: item.score,
+    rating: item.rating,
+    gaugeBand: gaugeBandFromSummary(item),
+    gaugeBandLabel: item.gaugeBandLabel,
+    explanation: item.explanation,
+    scoreBreakdown: item.scoreBreakdown ?? fallbackScoreBreakdown(item),
+    confidence: {
+      score: item.confidence.score,
+      label: item.confidence.label,
+      level: confidenceLevel(item.confidence.label),
+      reasons: [item.summary.confidenceText].filter(Boolean),
+      warnings: item.liveData.overall === 'live' ? [] : [item.liveData.summary],
+      rationale: [item.explanation],
+    },
+    liveData: {
+      overall: item.liveData.overall,
+      summary: item.liveData.summary,
+      gauge: {
+        state: item.liveData.gaugeState,
+        ageMinutes: null,
+        detail: item.liveData.gaugeDetail,
+      },
+      weather: {
+        state: item.liveData.weatherState,
+        ageMinutes: null,
+        detail: item.liveData.weatherDetail,
+      },
+    },
+    factors: [
+      {
+        id: 'summary-primary',
+        label: 'Primary factor',
+        value: item.summary.primaryFactor,
+        detail: item.summary.shortExplanation || item.explanation,
+        impact: item.rating === 'Strong' || item.rating === 'Good' ? 'positive' : item.rating === 'Fair' ? 'warning' : 'negative',
+      },
+      {
+        id: 'summary-secondary',
+        label: 'Secondary factor',
+        value: item.summary.secondaryFactor,
+        detail: item.summary.rawSignalLine || item.summary.gaugeNow,
+        impact: 'neutral',
+      },
+    ],
+    checklist: [
+      {
+        status: item.rating === 'Strong' || item.rating === 'Good' ? 'go' : item.rating === 'Fair' ? 'watch' : 'skip',
+        label: 'Stored board call',
+        detail: item.summary.shortExplanation || item.explanation,
+      },
+      {
+        status: item.liveData.overall === 'live' ? 'go' : 'watch',
+        label: 'Live data status',
+        detail: item.liveData.summary,
+      },
+    ],
+    outlooks: [],
+    gauge: null,
+    weather: null,
+    generatedAt: item.generatedAt,
+  };
+}
+
+function fallbackGaugeSource(item: RiverSummaryApiItem): RiverGaugeSource {
+  return {
+    id: `${item.river.slug}-fallback-gauge`,
+    provider: 'usgs',
+    siteId: '',
+    metric: 'discharge_cfs',
+    unit: 'cfs',
+    kind: 'direct',
+    siteName: item.river.name,
+  };
+}
+
+function gaugeBandFromSummary(item: RiverSummaryApiItem): GaugeBand {
+  const label = item.gaugeBandLabel.toLowerCase();
+  if (label.includes('ideal')) return 'ideal';
+  if (label.includes('too low')) return 'too-low';
+  if (label.includes('too high')) return 'too-high';
+  if (label.includes('low')) return 'low-shoulder';
+  if (label.includes('high')) return 'high-shoulder';
+  if (label.includes('minimum')) return 'minimum-met';
+  return 'unknown';
+}
+
+function fallbackScoreBreakdown(item: RiverSummaryApiItem): RiverDetailApiResult['scoreBreakdown'] {
+  return {
+    riverQuality: item.score,
+    windAdjustment: 0,
+    temperatureAdjustment: 0,
+    rainAdjustment: 0,
+    comfortAdjustment: 0,
+    rawTripScore: item.score,
+    finalScore: item.score,
+    capReasons: [],
+    riverQualityExplanation: item.summary.gaugeNow || item.gaugeBandLabel,
+    windExplanation: item.liveData.weatherDetail,
+    temperatureExplanation: item.liveData.weatherDetail,
+    rainExplanation: item.liveData.weatherDetail,
+    comfortExplanation: item.summary.shortExplanation || item.explanation,
+  };
+}
+
+function confidenceLevel(label: RiverSummaryApiItem['confidence']['label']): RiverDetailApiResult['confidence']['level'] {
+  if (label === 'High') return 'high';
+  if (label === 'Medium') return 'medium';
+  return 'low';
+}
+
 function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryApiItem {
   const river = getRiverBySlug(item.river.slug);
   return {
@@ -222,6 +473,7 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
       routeType: item.river.routeType || river?.routeType || 'recreational',
       putIn: item.river.putIn || river?.putIn,
       takeOut: item.river.takeOut || river?.takeOut,
+      logistics: item.river.logistics || river?.logistics,
     },
   };
 }
@@ -235,6 +487,7 @@ function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSumma
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',
+      logistics: item.river.logistics || river?.logistics,
     },
   };
 }
@@ -247,6 +500,7 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
       ...result.river,
       estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       routeType: result.river.routeType || river?.routeType || 'recreational',
+      logistics: result.river.logistics || river?.logistics,
       gaugeSource:
         river && !result.river.gaugeSource.display
           ? {
@@ -277,7 +531,7 @@ function buildWeekendSummarySnapshot(results: RiverScoreResult[], generatedAt: s
         generatedAt,
       })
     )
-    .filter(Boolean)
+    .filter((item): item is WeekendSummaryApiItem => Boolean(item))
     .sort((left, right) => {
       if (left.weekend.score !== right.weekend.score) {
         return right.weekend.score - left.weekend.score;
