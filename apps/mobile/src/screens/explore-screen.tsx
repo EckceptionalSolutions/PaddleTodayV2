@@ -3,15 +3,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import {
-  FlatList,
-  Pressable,
-  RefreshControl,
-  StyleSheet,
-  Text,
-  View,
-  useWindowDimensions,
-} from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
@@ -21,7 +13,6 @@ import {
   type ExploreSort,
 } from '../components/explore-controls';
 import {
-  ActiveFilterStrip,
   ExploreFilterSheet,
   countActiveFilters,
   defaultFilters,
@@ -35,7 +26,6 @@ import {
   sheetHeightValue,
   type MapSheetSnap,
 } from '../components/explore-route-drawer';
-import { RiverCard } from '../components/river-card';
 import { RoutePlotMap, type RoutePlotMapHandle, type RoutePlotPoint } from '../components/route-plot-map';
 import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
@@ -45,8 +35,6 @@ import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-type ExploreViewMode = 'list' | 'map';
-
 interface ExploreRiver extends RiverSummaryApiItem {
   distanceMiles: number | null;
   travelLabel: string | null;
@@ -54,7 +42,7 @@ interface ExploreRiver extends RiverSummaryApiItem {
 
 interface ExplorePreferences {
   filters: ExploreFilters;
-  viewMode: ExploreViewMode;
+  viewMode?: 'list' | 'map';
 }
 
 const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v2';
@@ -80,7 +68,6 @@ export default function ExploreScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filters, setFilters] = useState<ExploreFilters>(defaultFilters);
-  const [viewMode, setViewMode] = useState<ExploreViewMode>('map');
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
@@ -107,9 +94,9 @@ export default function ExploreScreen() {
 
     void AsyncStorage.setItem(
       EXPLORE_PREFERENCES_STORAGE_KEY,
-      JSON.stringify({ filters, viewMode })
+      JSON.stringify({ filters, viewMode: 'map' })
     );
-  }, [filters, preferencesHydrated, viewMode]);
+  }, [filters, preferencesHydrated]);
 
   useEffect(() => {
     if (results.length === 0) {
@@ -124,7 +111,7 @@ export default function ExploreScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading explore board" body="Preparing routes, filters, and live reads." />
+      <AppLoadingState title="Loading explore map" body="Preparing routes, filters, and current calls." />
     );
   }
 
@@ -132,7 +119,7 @@ export default function ExploreScreen() {
     return (
       <AppErrorState
         title="Explore did not load"
-        body="The map needs the route board before it can render."
+        body="The map needs current route calls before it can render."
         detail={errorDetailForExploreQuery(summaryQuery.error)}
         onRetry={() => summaryQuery.refetch()}
       />
@@ -153,155 +140,46 @@ export default function ExploreScreen() {
     />
   );
 
-  if (viewMode === 'map') {
-    return (
-      <>
-        <FullScreenExploreMap
-          activeFilterCount={activeFilterCount}
-          filters={filters}
-          generatedAt={summaryQuery.data?.generatedAt}
-          mapHeight={windowHeight}
-          results={results}
-          selectedRiver={selectedRiver}
-          selectedSlug={selectedSlug}
-          status={status}
-          topInset={insets.top}
-          userLocation={location}
-          onClearLocation={() => void clearLocation()}
-          onFilterPress={() => setFiltersOpen(true)}
-          onOpenRoute={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
-          onRefresh={() => summaryQuery.refetch()}
-          onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
-          onSelectSlug={setSelectedSlug}
-          onSetViewMode={setViewMode}
-          onSortChange={(sort) => {
-            setFilters((current) => ({ ...current, sort }));
-            if (sort === 'nearest' && !location) {
-              void requestLocation();
-            }
-          }}
-          onUseLocation={() => void requestLocation()}
-          isSaved={isSaved}
-          onFocusNearest={() => {
-            setFilters((current) => ({ ...current, sort: 'nearest' }));
-            void requestLocation();
-          }}
-          onToggleSaved={(river) =>
-            void toggleSavedRiver({
-              slug: river.river.slug,
-              riverId: river.river.riverId,
-              name: river.river.name,
-              reach: river.river.reach,
-            })
-          }
-        />
-        {filterModal}
-      </>
-    );
-  }
-
   return (
     <>
-      <FlatList
-        style={styles.screen}
-        contentContainerStyle={styles.content}
-        data={results}
-        keyExtractor={(river) => river.river.slug}
-        refreshControl={
-          <RefreshControl
-            tintColor={colors.accent}
-            refreshing={summaryQuery.isRefetching}
-            onRefresh={() => summaryQuery.refetch()}
-          />
+      <FullScreenExploreMap
+        activeFilterCount={activeFilterCount}
+        filters={filters}
+        generatedAt={summaryQuery.data?.generatedAt}
+        mapHeight={windowHeight}
+        results={results}
+        selectedRiver={selectedRiver}
+        selectedSlug={selectedSlug}
+        status={status}
+        bottomInset={insets.bottom}
+        topInset={insets.top}
+        userLocation={location}
+        onClearLocation={() => void clearLocation()}
+        onFilterPress={() => setFiltersOpen(true)}
+        onOpenRoute={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+        onRefresh={() => summaryQuery.refetch()}
+        onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
+        onSelectSlug={setSelectedSlug}
+        onSortChange={(sort) => {
+          setFilters((current) => ({ ...current, sort }));
+          if (sort === 'nearest' && !location) {
+            void requestLocation();
+          }
+        }}
+        onUseLocation={() => void requestLocation()}
+        isSaved={isSaved}
+        onFocusNearest={() => {
+          setFilters((current) => ({ ...current, sort: 'nearest' }));
+          void requestLocation();
+        }}
+        onToggleSaved={(river) =>
+          void toggleSavedRiver({
+            slug: river.river.slug,
+            riverId: river.river.riverId,
+            name: river.river.name,
+            reach: river.river.reach,
+          })
         }
-        ListHeaderComponent={
-          <View style={styles.headerStack}>
-            <ExploreSearchBar
-              query={filters.query}
-              onQueryChange={(query) => setFilters((current) => ({ ...current, query }))}
-            />
-
-            <ExploreSortFilterBar
-              sort={filters.sort}
-              activeFilterCount={activeFilterCount}
-              onFilterPress={() => setFiltersOpen(true)}
-              onSortChange={(sort) => {
-                setFilters((current) => ({ ...current, sort }));
-                if (sort === 'nearest' && !location) {
-                  void requestLocation();
-                }
-              }}
-            />
-
-            {summaryQuery.isError ? (
-              <View style={styles.statusBanner}>
-                <Text style={styles.statusBannerTitle}>Refresh failed</Text>
-                <Text style={styles.statusBannerText}>Showing the last cached board if one is available.</Text>
-              </View>
-            ) : null}
-
-            <View style={styles.mapBottomBar}>
-              <View style={styles.resultSummary}>
-                <Text style={styles.resultSummaryTitle}>{results.length} routes</Text>
-                <Text style={styles.resultSummaryText}>{formatRelativeTime(summaryQuery.data?.generatedAt)}</Text>
-              </View>
-              <View style={styles.viewToggleCompact}>
-                <SegmentButton
-                  label="Map"
-                  icon="map-outline"
-                  selected={false}
-                  onPress={() => setViewMode('map')}
-                />
-                <SegmentButton
-                  label="List"
-                  icon="format-list-bulleted"
-                  selected
-                  onPress={() => setViewMode('list')}
-                />
-              </View>
-            </View>
-
-            <ActiveFilterStrip filters={filters} locationReady={Boolean(location)} />
-
-            <LocationControl
-              locationLabel={location?.label ?? null}
-              status={status}
-              onUseLocation={() => void requestLocation()}
-              onClear={() => void clearLocation()}
-            />
-          </View>
-        }
-        ListEmptyComponent={
-          <View style={styles.emptyCard}>
-            <MaterialCommunityIcons name="filter-off-outline" color={colors.accent} size={24} />
-            <Text style={styles.emptyTitle}>No routes match</Text>
-            <Text style={styles.emptyText}>Clear filters, remove search text, or switch back to the map to scan the full route board.</Text>
-            <View style={styles.emptyActions}>
-              <Pressable style={styles.resetButton} onPress={() => setFilters(defaultFilters)}>
-                <Text style={styles.resetButtonText}>Reset filters</Text>
-              </Pressable>
-              <Pressable style={styles.secondaryResetButton} onPress={() => setViewMode('map')}>
-                <Text style={styles.secondaryResetButtonText}>Show map</Text>
-              </Pressable>
-            </View>
-          </View>
-        }
-        renderItem={({ item }) => (
-          <RiverCard
-            river={item}
-            travelLabel={item.travelLabel ?? undefined}
-            saved={isSaved(item.river.slug)}
-            onToggleSaved={() =>
-              void toggleSavedRiver({
-                slug: item.river.slug,
-                riverId: item.river.riverId,
-                name: item.river.name,
-                reach: item.river.reach,
-              })
-            }
-            onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: item.river.slug } })}
-          />
-        )}
       />
 
       {filterModal}
@@ -313,7 +191,6 @@ export default function ExploreScreen() {
       const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
       if (isExplorePreferences(parsed)) {
         setFilters(parsed.filters);
-        setViewMode(parsed.viewMode);
       }
     } catch {
       // Leave the default Explore setup if local preferences are unavailable.
@@ -321,77 +198,6 @@ export default function ExploreScreen() {
       setPreferencesHydrated(true);
     }
   }
-}
-
-function LocationControl({
-  locationLabel,
-  status,
-  onUseLocation,
-  onClear,
-}: {
-  locationLabel: string | null;
-  status: string;
-  onUseLocation: () => void;
-  onClear: () => void;
-}) {
-  const requesting = status === 'requesting';
-  const denied = status === 'denied';
-
-  return (
-    <View style={styles.locationRow}>
-      <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={20} />
-      <View style={styles.locationCopy}>
-        <Text style={styles.locationTitle}>
-          {locationLabel ?? (denied ? 'Location access is off' : 'Add location for distance filters')}
-        </Text>
-        <Text style={styles.locationSubtitle}>
-          {locationLabel
-            ? 'Nearest sort and drive filters are active.'
-            : denied
-              ? 'Explore still works. Turn on location in system settings to use nearest filters.'
-              : 'Distance filters stay hidden until location is set.'}
-        </Text>
-      </View>
-      <Pressable
-        style={[styles.locationButton, requesting ? styles.locationButtonDisabled : null]}
-        disabled={requesting}
-        onPress={locationLabel ? onClear : onUseLocation}
-      >
-        <Text style={styles.locationButtonText}>
-          {locationLabel ? 'Clear' : requesting ? 'Finding' : 'Use'}
-        </Text>
-      </Pressable>
-    </View>
-  );
-}
-
-function SegmentButton({
-  label,
-  icon,
-  selected,
-  onPress,
-}: {
-  label: string;
-  icon: keyof typeof MaterialCommunityIcons.glyphMap;
-  selected: boolean;
-  onPress: () => void;
-}) {
-  return (
-    <Pressable
-      style={[styles.segmentButton, selected ? styles.segmentButtonSelected : null]}
-      onPress={onPress}
-      android_ripple={{ color: colors.canvasMuted, borderless: true }}
-    >
-      <MaterialCommunityIcons
-        name={icon}
-        color={selected ? colors.surfaceStrong : colors.accent}
-        size={17}
-      />
-      <Text style={[styles.segmentButtonText, selected ? styles.segmentButtonTextSelected : null]}>
-        {label}
-      </Text>
-    </Pressable>
-  );
 }
 
 function FullScreenExploreMap({
@@ -403,6 +209,7 @@ function FullScreenExploreMap({
   selectedRiver,
   selectedSlug,
   status,
+  bottomInset,
   topInset,
   userLocation,
   onClearLocation,
@@ -412,7 +219,6 @@ function FullScreenExploreMap({
   onRefresh,
   onSearchChange,
   onSelectSlug,
-  onSetViewMode,
   onSortChange,
   onToggleSaved,
   onUseLocation,
@@ -426,6 +232,7 @@ function FullScreenExploreMap({
   selectedRiver: ExploreRiver | null;
   selectedSlug: string | null;
   status: string;
+  bottomInset: number;
   topInset: number;
   userLocation: { latitude: number; longitude: number; label: string } | null;
   onClearLocation: () => void;
@@ -435,7 +242,6 @@ function FullScreenExploreMap({
   onRefresh: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string) => void;
-  onSetViewMode: (mode: ExploreViewMode) => void;
   onSortChange: (sort: ExploreSort) => void;
   onToggleSaved: (river: ExploreRiver) => void;
   onUseLocation: () => void;
@@ -445,7 +251,7 @@ function FullScreenExploreMap({
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const points = useExploreMapPoints(results);
   const requesting = status === 'requesting';
-  const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
+  const floatingControlBottom = sheetHeightValue(sheetSnap) + bottomInset + spacing.md;
 
   return (
     <View style={styles.fullMapScreen}>
@@ -475,12 +281,13 @@ function FullScreenExploreMap({
           sort={filters.sort}
           activeFilterCount={activeFilterCount}
           compactFilterLabel
+          showSortOptions={false}
           onFilterPress={onFilterPress}
           onSortChange={onSortChange}
         />
       </View>
 
-      <View style={[styles.fullMapPills, { top: topInset + 118 }]}>
+      <View style={[styles.fullMapPills, { top: topInset + 102 }]}>
         <View style={styles.mapPill}>
           <Text style={styles.mapPillText}>{results.length} routes</Text>
         </View>
@@ -489,7 +296,7 @@ function FullScreenExploreMap({
         </View>
       </View>
 
-      <View style={[styles.mapOverlayActions, { top: topInset + 176 }]}>
+      <View style={[styles.mapOverlayActions, { top: topInset + 154 }]}>
         <Pressable style={styles.mapFab} onPress={() => mapRef.current?.focusSelected()}>
           <MaterialCommunityIcons name="crosshairs" color={colors.accent} size={20} />
         </Pressable>
@@ -502,23 +309,6 @@ function FullScreenExploreMap({
         <Pressable style={styles.mapFab} onPress={onRefresh}>
           <MaterialCommunityIcons name="refresh" color={colors.accent} size={20} />
         </Pressable>
-      </View>
-
-      <View style={[styles.fullMapModeToggle, { bottom: floatingControlBottom }]}>
-        <View style={styles.viewToggleCompact}>
-          <SegmentButton
-            label="Map"
-            icon="map-outline"
-            selected
-            onPress={() => onSetViewMode('map')}
-          />
-          <SegmentButton
-            label="List"
-            icon="format-list-bulleted"
-            selected={false}
-            onPress={() => onSetViewMode('list')}
-          />
-        </View>
       </View>
 
       {!userLocation ? (
@@ -541,14 +331,12 @@ function FullScreenExploreMap({
 
       {selectedRiver ? (
         <ExploreRouteDrawer
-          results={results}
           selectedRiver={selectedRiver}
-          selectedSlug={selectedSlug}
           sheetSnap={sheetSnap}
           setSheetSnap={setSheetSnap}
+          bottomInset={bottomInset}
           isSaved={isSaved}
           onOpenRoute={onOpenRoute}
-          onSelectSlug={onSelectSlug}
           onToggleSaved={onToggleSaved}
         />
       ) : null}
@@ -693,13 +481,8 @@ function errorDetailForExploreQuery(error: unknown) {
 function isExplorePreferences(value: unknown): value is ExplorePreferences {
   return (
     isRecord(value) &&
-    isExploreFilters(value.filters) &&
-    isExploreViewMode(value.viewMode)
+    isExploreFilters(value.filters)
   );
-}
-
-function isExploreViewMode(value: unknown): value is ExploreViewMode {
-  return value === 'list' || value === 'map';
 }
 
 const styles = StyleSheet.create({
@@ -735,10 +518,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     gap: spacing.sm,
   },
-  fullMapModeToggle: {
-    position: 'absolute',
-    left: spacing.md,
-  },
   fullMapLocationPrompt: {
     position: 'absolute',
     right: spacing.md,
@@ -760,107 +539,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 12,
     fontWeight: '900',
-  },
-  content: {
-    paddingHorizontal: spacing.md,
-    paddingTop: spacing.md,
-    gap: spacing.sm,
-    paddingBottom: spacing.xl,
-  },
-  headerStack: {
-    gap: spacing.sm,
-  },
-  locationRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-  },
-  locationCopy: {
-    flex: 1,
-    gap: 2,
-  },
-  locationTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '800',
-  },
-  locationSubtitle: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 16,
-  },
-  locationButton: {
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 14,
-    paddingVertical: 9,
-  },
-  locationButtonDisabled: {
-    opacity: 0.65,
-  },
-  locationButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 12,
-    fontWeight: '800',
-  },
-  mapBottomBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  resultSummary: {
-    flex: 1,
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    gap: 2,
-  },
-  resultSummaryTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  resultSummaryText: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  viewToggleCompact: {
-    width: 156,
-    flexDirection: 'row',
-    backgroundColor: colors.canvasMuted,
-    borderRadius: radius.pill,
-    padding: 4,
-    gap: 4,
-  },
-  segmentButton: {
-    flex: 1,
-    minHeight: 40,
-    borderRadius: radius.pill,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 6,
-  },
-  segmentButtonSelected: {
-    backgroundColor: colors.accent,
-  },
-  segmentButtonText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
-  },
-  segmentButtonTextSelected: {
-    color: colors.surfaceStrong,
   },
   mapPill: {
     minHeight: 32,
@@ -899,17 +577,6 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 4,
   },
-  mapEmptyState: {
-    minHeight: 380,
-    borderRadius: radius.lg,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.border,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: spacing.sm,
-    padding: spacing.lg,
-  },
   mapEmptyTitle: {
     color: colors.text,
     fontSize: 17,
@@ -920,71 +587,5 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
     textAlign: 'center',
-  },
-  statusBanner: {
-    backgroundColor: '#F3E8CC',
-    borderRadius: radius.md,
-    padding: spacing.md,
-    gap: 2,
-  },
-  statusBannerTitle: {
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  statusBannerText: {
-    color: colors.textMuted,
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  emptyCard: {
-    backgroundColor: colors.surfaceStrong,
-    borderRadius: radius.lg,
-    borderWidth: 1,
-    borderColor: colors.border,
-    padding: spacing.lg,
-    gap: spacing.sm,
-    alignItems: 'flex-start',
-  },
-  emptyTitle: {
-    color: colors.text,
-    fontSize: 18,
-    fontWeight: '900',
-  },
-  emptyText: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
-  },
-  resetButton: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    paddingHorizontal: 14,
-    paddingVertical: 9,
-  },
-  resetButtonText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '800',
-  },
-  emptyActions: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
-  secondaryResetButton: {
-    alignSelf: 'flex-start',
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 14,
-    paddingVertical: 9,
-  },
-  secondaryResetButtonText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '800',
   },
 });

@@ -1,6 +1,8 @@
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack } from 'expo-router';
+import { useEffect } from 'react';
+import { Platform, StatusBar as NativeStatusBar } from 'react-native';
 import 'react-native-reanimated';
 import { initObservability, withObservability } from '../src/lib/observability';
 import { AppProviders } from '../src/providers/app-providers';
@@ -30,6 +32,16 @@ const navigationTheme = {
 };
 
 function RootLayout() {
+  useEffect(() => {
+    if (Platform.OS !== 'android') {
+      return;
+    }
+
+    NativeStatusBar.setBackgroundColor(colors.canvas);
+    NativeStatusBar.setTranslucent(false);
+    NativeStatusBar.setBarStyle('dark-content');
+  }, []);
+
   return (
     <AppProviders>
       <ThemeProvider value={navigationTheme}>

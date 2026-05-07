@@ -36,7 +36,7 @@ export default function WeekendScreen() {
 
   if (weekendQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading weekend board" body="Pulling the latest stored weekend outlook." />
+      <AppLoadingState title="Loading weekend routes" body="Pulling the latest weekend outlook." />
     );
   }
 
@@ -44,7 +44,7 @@ export default function WeekendScreen() {
     return (
       <AppErrorState
         title="Weekend outlook did not load"
-        body="Check the API connection, then try again."
+        body="Check your connection, then try again."
         detail={errorDetailForWeekendQuery(weekendQuery.error)}
         onRetry={() => weekendQuery.refetch()}
       />
@@ -163,7 +163,7 @@ export default function WeekendScreen() {
             ))}
           </View>
         ) : (
-          <Text style={styles.emptyText}>The board is either clearly good or still too weak to support a watch list.</Text>
+          <Text style={styles.emptyText}>The weekend list is either clearly good or still too weak to support a watch list.</Text>
         )}
       </SectionCard>
 

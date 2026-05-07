@@ -70,7 +70,9 @@ const paddleTimeOptions: Array<{ value: PaddleTimeFilter; label: string }> = [
   { value: '7-plus', label: '7h+' },
 ];
 
-const presetOptions: Array<{ id: string; label: string; apply: (filters: ExploreFilters) => ExploreFilters }> = [
+type PresetApply = (filters: ExploreFilters, context: { locationReady: boolean }) => ExploreFilters;
+
+const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = [
   {
     id: 'quick-float',
     label: 'Quick float',
@@ -98,9 +100,9 @@ const presetOptions: Array<{ id: string; label: string; apply: (filters: Explore
   {
     id: 'best-nearby',
     label: 'Best nearby',
-    apply: (filters) => ({
+    apply: (filters, context) => ({
       ...filters,
-      distance: '100',
+      distance: context.locationReady ? '100' : 'any',
       rating: 'Good',
       sort: 'nearest',
     }),
@@ -188,7 +190,7 @@ function FilterPanel({
             key={preset.id}
             label={preset.label}
             selected={false}
-            onPress={() => onApplyPreset(preset.apply)}
+            onPress={() => onApplyPreset((current) => preset.apply(current, { locationReady }))}
           />
         ))}
       </FilterGroup>

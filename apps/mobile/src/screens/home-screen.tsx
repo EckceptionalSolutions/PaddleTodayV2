@@ -16,9 +16,10 @@ import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
 import { SaveToggleButton } from '../components/save-toggle-button';
 import { useStoredLocation } from '../hooks/use-stored-location';
-import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
+import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
+import { photoForRiver } from '../lib/route-photos';
 import { isRecord, parseJson } from '../lib/storage';
 import { routeFactItems, routeFactLine } from '../lib/route-facts';
 import {
@@ -42,8 +43,8 @@ const BOARD_PREFERENCES_STORAGE_KEY = 'paddletoday:board-preferences';
 const modeLabels: Record<BoardMode, string> = {
   best: 'Recommended',
   closest: 'Closest',
-  score: 'Score',
-  certain: 'Most certain',
+  score: 'Score ranking',
+  certain: 'Confidence first',
 };
 
 export default function HomeScreen() {
@@ -56,21 +57,21 @@ export default function HomeScreen() {
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const snapshot = buildBoardSnapshot(rivers);
-  const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 12), [rivers, location]);
+  const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 24), [rivers, location]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
     [rivers, location]
   );
   const scorePicks = useMemo(
-    () => [...rivers].sort(compareHomeScore).slice(0, 12),
+    () => [...rivers].sort(compareHomeScore).slice(0, 24),
     [rivers]
   );
   const certainPicks = useMemo(
-    () => [...rivers].sort(compareHomeCertainty).slice(0, 12),
+    () => [...rivers].sort(compareHomeCertainty).slice(0, 24),
     [rivers]
   );
   const closestPicks = useMemo(
-    () => nearbyPicks.slice().sort((left, right) => left.travelMinutes - right.travelMinutes).slice(0, 12),
+    () => nearbyPicks.slice().sort((left, right) => left.travelMinutes - right.travelMinutes).slice(0, 24),
     [nearbyPicks]
   );
 
@@ -94,15 +95,15 @@ export default function HomeScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading river board" body="Getting the latest launch calls." />
+      <AppLoadingState title="Loading today’s routes" body="Getting the latest launch calls." />
     );
   }
 
   if (summaryQuery.isError && rivers.length === 0) {
     return (
       <AppErrorState
-        title="The board did not load"
-        body="Check the API connection, then try again."
+        title="Today’s routes did not load"
+        body="Check your connection, then try again."
         detail={errorDetailForSummaryQuery(summaryQuery.error)}
         onRetry={() => summaryQuery.refetch()}
       />
@@ -123,6 +124,7 @@ export default function HomeScreen() {
     >
       <View style={styles.headerStack}>
         <BoardHero
+          mode={mode}
           headline={headline}
           snapshot={snapshot}
           saved={headline ? isSaved(headline.river.slug) : false}
@@ -152,7 +154,13 @@ export default function HomeScreen() {
             certain: certainPicks.length,
           }}
           hasLocation={Boolean(location)}
-          onChange={setMode}
+          locationStatus={status}
+          onChange={(nextMode) => {
+            setMode(nextMode);
+            if (nextMode === 'closest' && !location) {
+              void requestLocation();
+            }
+          }}
         />
         <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
       </View>
@@ -175,7 +183,7 @@ export default function HomeScreen() {
           />
         </>
       ) : (
-        <EmptyMode mode={mode} hasLocation={Boolean(location)} />
+          <EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />
       )}
     </ScrollView>
   );
@@ -187,7 +195,7 @@ export default function HomeScreen() {
         setMode(parsed.mode);
       }
     } catch {
-      // Keep the default board if local preferences are unavailable.
+      // Keep the default route view if local preferences are unavailable.
     } finally {
       setPreferencesHydrated(true);
     }
@@ -195,19 +203,21 @@ export default function HomeScreen() {
 }
 
 function BoardHero({
+  mode,
   headline,
   snapshot,
   saved,
   onToggleSaved,
   onOpen,
 }: {
+  mode: BoardMode;
   headline: BoardItem | null;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
   saved: boolean;
   onToggleSaved?: () => void;
   onOpen?: () => void;
 }) {
-  const imageUri = headline ? photoForRiver(headline) : resolveApiUrl(placeholderImages[0]);
+  const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
 
   return (
     <View style={styles.heroShell}>
@@ -233,7 +243,7 @@ function BoardHero({
                 {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
               </View>
               <View style={styles.headlineCopy}>
-                <Text style={styles.headlineKicker}>Recommended today</Text>
+                <Text style={styles.headlineKicker}>{headlineLabelForMode(mode, headline)}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
                 <Text style={styles.headlineReach} numberOfLines={1}>{headline.river.reach}</Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
@@ -269,7 +279,7 @@ function RiverCarousel({
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title="Choose your water" subtitle={sectionSubtitleForMode(mode)} />
+      <SectionHeading title="Routes" subtitle={sectionSubtitleForMode(mode)} />
       <ScrollView
         key={mode}
         horizontal
@@ -306,7 +316,7 @@ function RiverImageCard({
   return (
     <Pressable style={styles.imageCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <ImageBackground
-        source={{ uri: photoForRiver(river) }}
+        source={{ uri: photoForRiver(river.river) }}
         style={styles.imageCardMedia}
         imageStyle={styles.imageCardImage}
       >
@@ -321,7 +331,7 @@ function RiverImageCard({
             <RatingPill rating={river.rating} />
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
             <Text style={styles.imageCardMeta} numberOfLines={1}>
-              {[river.river.reach, travelLabelForRiver(river)].filter(Boolean).join(' - ')}
+              {[river.river.reach, distanceLabelForRiver(river)].filter(Boolean).join(' - ')}
             </Text>
           </View>
         </View>
@@ -385,7 +395,7 @@ function CompactRiverRow({
   return (
     <Pressable style={styles.quickRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
       <View style={styles.quickThumb}>
-        <ImageBackground source={{ uri: photoForRiver(river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
+        <ImageBackground source={{ uri: photoForRiver(river.river) }} style={styles.quickThumbImage} imageStyle={styles.quickThumbRadius}>
           <View style={styles.quickScore}>
             <Text style={styles.quickScoreText}>{river.score}</Text>
           </View>
@@ -394,7 +404,7 @@ function CompactRiverRow({
       <View style={styles.quickCopy}>
         <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
         <Text style={styles.quickMeta} numberOfLines={1}>
-          {[river.river.reach, travelLabelForRiver(river)].filter(Boolean).join(' - ')}
+          {[river.river.reach, distanceLabelForRiver(river)].filter(Boolean).join(' - ')}
         </Text>
         <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
@@ -454,11 +464,13 @@ function ModeTabs({
   mode,
   counts,
   hasLocation,
+  locationStatus,
   onChange,
 }: {
   mode: BoardMode;
   counts: Record<BoardMode, number>;
   hasLocation: boolean;
+  locationStatus: string;
   onChange: (mode: BoardMode) => void;
 }) {
   return (
@@ -469,19 +481,25 @@ function ModeTabs({
     >
       {(['best', 'closest', 'score', 'certain'] as const).map((item) => {
         const active = item === mode;
-        const disabled = item === 'closest' && !hasLocation;
+        const requestingLocation = item === 'closest' && !hasLocation && locationStatus === 'requesting';
         return (
           <Pressable
             key={item}
-            style={[styles.modeTab, active ? styles.modeTabActive : null, disabled ? styles.modeTabDisabled : null]}
-            disabled={disabled}
+            style={[
+              styles.modeTab,
+              active ? styles.modeTabActive : null,
+              requestingLocation ? styles.modeTabDisabled : null,
+            ]}
+            disabled={requestingLocation}
             onPress={() => onChange(item)}
             android_ripple={{ color: colors.border, borderless: true }}
           >
             <Text style={[styles.modeTabText, active ? styles.modeTabTextActive : null]}>
               {modeLabels[item]}
             </Text>
-            <Text style={[styles.modeCount, active ? styles.modeCountActive : null]}>{counts[item]}</Text>
+            <Text style={[styles.modeCount, active ? styles.modeCountActive : null]}>
+              {item === 'closest' && !hasLocation ? 'GPS' : counts[item]}
+            </Text>
           </Pressable>
         );
       })}
@@ -505,16 +523,28 @@ function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: s
 
   return (
     <View style={styles.boardIntro}>
-      <Text style={styles.boardIntroTitle}>{modeLabels[mode]} rivers</Text>
+      <Text style={styles.boardIntroTitle}>{boardIntroTitleForMode(mode)}</Text>
       <Text style={styles.boardIntroCopy}>{copy}</Text>
     </View>
   );
 }
 
-function EmptyMode({ mode, hasLocation }: { mode: BoardMode; hasLocation: boolean }) {
+function EmptyMode({
+  mode,
+  hasLocation,
+  locationStatus,
+}: {
+  mode: BoardMode;
+  hasLocation: boolean;
+  locationStatus: string;
+}) {
   const message =
     mode === 'closest' && !hasLocation
-        ? 'Use location above to show routes within a practical day-trip range.'
+        ? locationStatus === 'requesting'
+          ? 'Finding your area so nearby routes can be ranked by practical drive time.'
+          : locationStatus === 'denied'
+            ? 'Location is off. You can still use Recommended, Score ranking, or Confidence first.'
+            : 'Allow location to show routes within a practical day-trip range.'
         : 'No routes match this view right now.';
 
   return (
@@ -551,75 +581,12 @@ function travelLabelForRiver(river: BoardItem) {
   return isNearbyPick(river) ? formatTravelTime(river.travelMinutes) : river.river.region;
 }
 
-const routeGalleryImages: Record<string, string[]> = {
-  'blue-earth-river-rapidan-county-road-90': [
-    '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
-  ],
-  'rice-creek-peltier-to-long-lake': [
-    '/gallery/rice-creek-peltier-to-long-lake/rice-creek-1.jpg',
-    '/gallery/rice-creek-peltier-to-long-lake/rice-creek-2.jpg',
-  ],
-  'minnehaha-creek-grays-bay-longfellow-lagoon': [
-    '/gallery/minnehaha-creek-grays-bay-longfellow-lagoon/minnehaha-creek-oct-2017.jpg',
-  ],
-  'minnesota-river-judson-land-of-memories': [
-    '/gallery/minnesota-river-judson-land-of-memories/land-of-memories-park.jpg',
-  ],
-  'cannon-river-welch': [
-    '/gallery/cannon-river-welch/cannon-welch.jpg',
-  ],
-  'cannon-river-faribault-dundas': [
-    '/gallery/cannon-river-faribault-dundas/cannon-northfield.jpg',
-  ],
-  'kettle-river-lower-kettle-5-to-6': [
-    '/gallery/kettle-river-lower-kettle-5-to-6/kettle-banning-state-park.jpg',
-  ],
-  'root-river-lanesboro-peterson': [
-    '/gallery/root-river-lanesboro-peterson/root-near-peterson.jpg',
-  ],
-  'root-river-rushford-houston': [
-    '/gallery/root-river-rushford-houston/root-river-houston.jpg',
-  ],
-  'st-croix-river-fox-highway-70': [
-    '/gallery/st-croix-river-fox-highway-70/vantage.jpg',
-    '/gallery/st-croix-river-fox-highway-70/bluffs-with-branches.jpg',
-    '/gallery/st-croix-river-fox-highway-70/lower-lake.jpg',
-  ],
-  'namekagon-river-big-bend-trego': [
-    '/gallery/namekagon-river-big-bend-trego/namekagon-mirror.jpg',
-  ],
-  'mississippi-river-east-river-flats-hidden-falls': [
-    '/gallery/mississippi-river-east-river-flats-hidden-falls/minneapolis-skyline.jpg',
-  ],
-  'minnesota-river-henderson-belle-plaine': [
-    '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
-  ],
-  'kickapoo-river-ontario-rockton': [
-    '/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg',
-  ],
-  'wisconsin-river-muscoda-blue-river': [
-    '/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg',
-  ],
-  'milwaukee-river-newburg-fredonia': [
-    '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
-  ],
-};
-
-const placeholderImages = [
-  '/gallery/fallbacks/river-fallback-stream.jpg',
-  '/gallery/fallbacks/river-fallback-wide.jpg',
-  '/gallery/fallbacks/river-fallback-marsh.jpg',
-];
-
-function photoForRiver(river: BoardItem) {
-  const key = `${river.river.riverId}:${river.river.slug}`;
-  const routeImages = routeGalleryImages[river.river.slug];
-  const images = routeImages?.length ? routeImages : placeholderImages;
-  let hash = 0;
-  for (let index = 0; index < key.length; index += 1) {
-    hash = (hash * 31 + key.charCodeAt(index)) % images.length;
+function distanceLabelForRiver(river: BoardItem) {
+  if (!isNearbyPick(river)) {
+    return river.river.region;
   }
-  return resolveApiUrl(images[hash]);
+
+  return `${river.distanceMiles.toFixed(river.distanceMiles < 10 ? 1 : 0)} mi away`;
 }
 
 function isBoardPreferences(value: unknown): value is BoardPreferences {
@@ -656,16 +623,31 @@ function compareHomeCertainty(left: RiverSummaryApiItem, right: RiverSummaryApiI
 
 function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest practical drives first.';
-  if (mode === 'score') return 'Highest condition scores first.';
-  if (mode === 'certain') return 'The calls with the strongest supporting data.';
+  if (mode === 'score') return 'Rivers ordered by score.';
+  if (mode === 'certain') return 'High-confidence calls first, then score.';
   return 'Best mix of score, confidence, and drive time.';
+}
+
+function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
+  if (!headline) return 'Today';
+  if (mode === 'closest') return 'Best nearby';
+  if (mode === 'score') return 'Best conditions';
+  if (mode === 'certain') return 'Confidence pick';
+  return isNearbyPick(headline) ? 'Best mix today' : 'Best conditions today';
 }
 
 function quickScanSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Nearby routes with the facts that affect the trip.';
-  if (mode === 'score') return 'Raw condition score, then route fit.';
-  if (mode === 'certain') return 'Confidence first, with route facts alongside it.';
+  if (mode === 'score') return 'Rivers ordered by score.';
+  if (mode === 'certain') return 'High-confidence calls first, then score.';
   return 'A compact recommendation list for today.';
+}
+
+function boardIntroTitleForMode(mode: BoardMode) {
+  if (mode === 'closest') return 'Closest routes';
+  if (mode === 'score') return 'Rivers ordered by score';
+  if (mode === 'certain') return 'Highest-confidence calls';
+  return 'Recommended routes';
 }
 
 function homeFactItems(river: BoardItem) {
@@ -673,7 +655,7 @@ function homeFactItems(river: BoardItem) {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
     campingAvailableLabel: 'Camping info',
-  });
+  }).concat(isNearbyPick(river) ? [distanceLabelForRiver(river)] : []);
 }
 
 function homeFactLine(river: BoardItem) {

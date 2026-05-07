@@ -2,17 +2,9 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useMemo, useState } from 'react';
-import {
-  GestureResponderEvent,
-  Linking,
-  PanResponder,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from 'react-native';
+import { Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { routeFactItems, routeFactLine } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export type MapSheetSnap = 'peek' | 'half' | 'full';
@@ -23,33 +15,29 @@ export interface ExploreDrawerRiver extends RiverSummaryApiItem {
 }
 
 interface ExploreRouteDrawerProps {
-  results: ExploreDrawerRiver[];
   selectedRiver: ExploreDrawerRiver;
-  selectedSlug: string | null;
   sheetSnap: MapSheetSnap;
   setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>;
+  bottomInset?: number;
   isSaved: (slug: string) => boolean;
   onOpenRoute: (slug: string) => void;
-  onSelectSlug: (slug: string) => void;
   onToggleSaved: (river: ExploreDrawerRiver) => void;
 }
 
 export function ExploreRouteDrawer({
-  results,
   selectedRiver,
-  selectedSlug,
   sheetSnap,
   setSheetSnap,
+  bottomInset = 0,
   isSaved,
   onOpenRoute,
-  onSelectSlug,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
   const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
 
   return (
-    <View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(sheetSnap, sheetGesture.dragOffset)]}>
+    <View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(sheetSnap, sheetGesture.dragOffset, bottomInset)]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
         <View style={styles.mapSheetHandle} />
       </View>
@@ -76,10 +64,19 @@ export function ExploreRouteDrawer({
           />
         </Pressable>
       </View>
+      {sheetSnap !== 'peek' ? (
+        <View style={styles.mapPreviewFacts}>
+          {drawerFactItems(selectedRiver).slice(0, 3).map((fact) => (
+            <View key={fact} style={styles.mapPreviewFactPill}>
+              <Text style={styles.mapPreviewFactText} numberOfLines={1}>{fact}</Text>
+            </View>
+          ))}
+        </View>
+      ) : null}
       <View style={styles.mapSheetActions}>
         {selectedDirectionsUrl ? (
           <Pressable style={styles.mapDirectionsButton} onPress={() => void Linking.openURL(selectedDirectionsUrl)}>
-            <MaterialCommunityIcons name="directions" color={colors.accent} size={18} />
+            <MaterialCommunityIcons name="directions" color={colors.surfaceStrong} size={18} />
             <Text style={styles.mapDirectionsText}>Directions</Text>
           </Pressable>
         ) : null}
@@ -90,96 +87,39 @@ export function ExploreRouteDrawer({
           <Text style={styles.mapSheetSnapText}>{sheetSnap === 'full' ? 'Less' : 'More'}</Text>
         </Pressable>
       </View>
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.mapRouteStripViewport}
-        contentContainerStyle={styles.mapRouteStrip}
-      >
-        {results.slice(0, 12).map((river) => {
-          const selected = river.river.slug === selectedSlug;
-          return (
-            <Pressable
-              key={river.river.slug}
-              style={[styles.mapRouteChip, selected ? styles.mapRouteChipSelected : null]}
-              onPress={() => onSelectSlug(river.river.slug)}
-            >
-              <Text style={[styles.mapRouteChipScore, selected ? styles.mapRouteChipScoreSelected : null]}>
-                {river.score}
-              </Text>
-              <Text style={[styles.mapRouteChipText, selected ? styles.mapRouteChipTextSelected : null]} numberOfLines={1}>
-                {river.river.name}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </ScrollView>
       {sheetSnap !== 'peek' ? (
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.mapSheetList}>
-          {results.slice(0, sheetSnap === 'full' ? 10 : 4).map((river) => (
-            <MapSheetRouteRow
-              key={river.river.slug}
-              river={river}
-              selected={river.river.slug === selectedSlug}
-              saved={isSaved(river.river.slug)}
-              onSelect={() => onSelectSlug(river.river.slug)}
-              onOpen={() => onOpenRoute(river.river.slug)}
-              onDirections={() => {
-                const url = mapUrlForAccessPoint(river.river.putIn);
-                if (url) void Linking.openURL(url);
-              }}
-            />
-          ))}
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.selectedDetails}>
+          <View style={styles.selectedStatGrid}>
+            <DrawerStat label="Score" value={`${selectedRiver.score} / ${selectedRiver.rating}`} icon="chart-donut" />
+            <DrawerStat label="Distance" value={selectedRiver.river.distanceLabel || 'Unknown'} icon="map-marker-distance" />
+            <DrawerStat label="Paddle time" value={selectedRiver.river.estimatedPaddleTime || 'Unknown'} icon="clock-outline" />
+            <DrawerStat label="Difficulty" value={capitalize(selectedRiver.river.difficulty)} icon="waves" />
+          </View>
+          <View style={styles.selectedNote}>
+            <Text style={styles.selectedNoteTitle}>Route context</Text>
+            <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
+          </View>
         </ScrollView>
       ) : null}
     </View>
   );
 }
 
-function MapSheetRouteRow({
-  river,
-  selected,
-  saved,
-  onSelect,
-  onOpen,
-  onDirections,
+function DrawerStat({
+  label,
+  value,
+  icon,
 }: {
-  river: ExploreDrawerRiver;
-  selected: boolean;
-  saved: boolean;
-  onSelect: () => void;
-  onOpen: () => void;
-  onDirections: () => void;
+  label: string;
+  value: string;
+  icon: keyof typeof MaterialCommunityIcons.glyphMap;
 }) {
-  function handleDirections(event: GestureResponderEvent) {
-    event.stopPropagation();
-    onDirections();
-  }
-
-  function handleOpen(event: GestureResponderEvent) {
-    event.stopPropagation();
-    onOpen();
-  }
-
   return (
-    <Pressable style={[styles.mapSheetRow, selected ? styles.mapSheetRowSelected : null]} onPress={onSelect}>
-      <View style={styles.mapSheetRowScore}>
-        <Text style={styles.mapSheetRowScoreText}>{river.score}</Text>
-      </View>
-      <View style={styles.mapSheetRowCopy}>
-        <Text style={styles.mapSheetRowTitle} numberOfLines={1}>{river.river.name}</Text>
-        <Text style={styles.mapSheetRowMeta} numberOfLines={1}>
-          {[river.river.reach, river.travelLabel, river.rating].filter(Boolean).join(' - ')}
-        </Text>
-      </View>
-      {saved ? <MaterialCommunityIcons name="bookmark" color={colors.accent} size={17} /> : null}
-      <Pressable style={styles.mapSheetRowDirections} onPress={handleDirections}>
-        <MaterialCommunityIcons name="directions" color={colors.accent} size={18} />
-      </Pressable>
-      <Pressable style={styles.mapSheetRowOpen} onPress={handleOpen}>
-        <MaterialCommunityIcons name="chevron-right" color={colors.surfaceStrong} size={18} />
-      </Pressable>
-    </Pressable>
+    <View style={styles.selectedStat}>
+      <MaterialCommunityIcons name={icon} color={colors.accent} size={17} />
+      <Text style={styles.selectedStatLabel}>{label}</Text>
+      <Text style={styles.selectedStatValue} numberOfLines={2}>{value}</Text>
+    </View>
   );
 }
 
@@ -201,11 +141,6 @@ function useMapSheetPanResponder(
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
           setDragOffset(0);
-          if (Math.abs(gestureState.dy) < 8) {
-            setSheetSnap(nextSheetSnap(sheetSnap));
-            return;
-          }
-
           setSheetSnap(snapSheetAfterDrag(sheetSnap, gestureState.dy));
         },
         onPanResponderTerminate: () => setDragOffset(0),
@@ -216,14 +151,17 @@ function useMapSheetPanResponder(
   return { panHandlers: panResponder.panHandlers, dragOffset };
 }
 
-function sheetHeightStyle(value: MapSheetSnap, dragOffset = 0) {
-  return { height: clampSheetHeight(sheetHeightValue(value) + dragOffset) };
+function sheetHeightStyle(value: MapSheetSnap, dragOffset = 0, bottomInset = 0) {
+  return {
+    height: clampSheetHeight(sheetHeightValue(value) + dragOffset) + bottomInset,
+    paddingBottom: spacing.md + bottomInset,
+  };
 }
 
 export function sheetHeightValue(value: MapSheetSnap) {
   if (value === 'full') return 430;
-  if (value === 'half') return 296;
-  return 168;
+  if (value === 'half') return 310;
+  return 164;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -233,12 +171,12 @@ function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
 }
 
 function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
-  if (dragY < -36) {
+  if (dragY < -48) {
     if (value === 'peek') return 'half';
     return 'full';
   }
 
-  if (dragY > 36) {
+  if (dragY > 28) {
     if (value === 'full') return 'half';
     return 'peek';
   }
@@ -253,6 +191,34 @@ function clampSheetDragOffset(value: MapSheetSnap, dragOffset: number) {
 
 function clampSheetHeight(height: number) {
   return Math.min(sheetHeightValue('full'), Math.max(sheetHeightValue('peek'), height));
+}
+
+function drawerFactItems(river: ExploreDrawerRiver) {
+  return routeFactItems(river.river, {
+    includePaddleTime: true,
+    includeNoCamping: true,
+    campingAvailableLabel: 'Camping info',
+  }).filter((fact) => fact !== river.river.distanceLabel || !river.travelLabel)
+    .slice(0, river.travelLabel ? 2 : 3)
+    .concat(river.travelLabel ? [river.travelLabel] : []);
+}
+
+function drawerFactLine(river: ExploreDrawerRiver) {
+  const base = routeFactLine(river.river, {
+    includePaddleTime: true,
+    includeNoCamping: true,
+    campingAvailableLabel: 'Camping info',
+  });
+
+  if (river.travelLabel) {
+    return [base, river.travelLabel].filter(Boolean).join(' - ');
+  }
+
+  return base;
+}
+
+function capitalize(value: string) {
+  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({
@@ -343,20 +309,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  mapPreviewOpenButton: {
-    flex: 1,
-    borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    minHeight: 38,
-    alignItems: 'center',
-    justifyContent: 'center',
+  mapPreviewFacts: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
   },
-  mapPreviewOpenText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
+  mapPreviewFactPill: {
+    maxWidth: '100%',
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+    paddingHorizontal: 9,
+    paddingVertical: 5,
+  },
+  mapPreviewFactText: {
+    color: colors.text,
+    fontSize: 11,
     fontWeight: '900',
   },
-  mapDirectionsButton: {
+  mapPreviewOpenButton: {
     flex: 1,
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -365,11 +335,24 @@ const styles = StyleSheet.create({
     minHeight: 38,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  mapPreviewOpenText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  mapDirectionsButton: {
+    flex: 1,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    minHeight: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
     flexDirection: 'row',
     gap: 6,
   },
   mapDirectionsText: {
-    color: colors.accent,
+    color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
   },
@@ -390,111 +373,51 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  mapRouteStrip: {
+  selectedDetails: {
     gap: spacing.sm,
-    paddingRight: spacing.sm,
-    alignItems: 'center',
+    paddingBottom: spacing.lg,
   },
-  mapRouteStripViewport: {
-    flexGrow: 0,
-    height: 48,
-    maxHeight: 48,
-  },
-  mapRouteChip: {
-    maxWidth: 150,
-    height: 38,
-    borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.94)',
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: 10,
+  selectedStatGrid: {
     flexDirection: 'row',
-    alignItems: 'center',
-    gap: 7,
-  },
-  mapRouteChipSelected: {
-    backgroundColor: colors.accent,
-    borderColor: colors.accent,
-  },
-  mapRouteChipScore: {
-    color: colors.accentDeep,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  mapRouteChipScoreSelected: {
-    color: colors.surfaceStrong,
-  },
-  mapRouteChipText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '800',
-    maxWidth: 104,
-  },
-  mapRouteChipTextSelected: {
-    color: colors.surfaceStrong,
-  },
-  mapSheetList: {
+    flexWrap: 'wrap',
     gap: spacing.sm,
-    paddingBottom: spacing.md,
   },
-  mapSheetRow: {
-    minHeight: 58,
+  selectedStat: {
+    width: '48%',
+    minHeight: 78,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  mapSheetRowSelected: {
-    borderColor: colors.accent,
-    backgroundColor: colors.accentSoft,
-  },
-  mapSheetRowScore: {
-    width: 36,
-    height: 36,
-    borderRadius: 12,
-    backgroundColor: colors.surfaceStrong,
-    alignItems: 'center',
+    padding: spacing.sm,
     justifyContent: 'center',
+    gap: 3,
   },
-  mapSheetRowScoreText: {
-    color: colors.accentDeep,
-    fontSize: 14,
+  selectedStatLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  selectedStatValue: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 17,
     fontWeight: '900',
   },
-  mapSheetRowCopy: {
-    flex: 1,
-    gap: 2,
+  selectedNote: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    gap: 4,
   },
-  mapSheetRowTitle: {
+  selectedNoteTitle: {
     color: colors.text,
     fontSize: 14,
     fontWeight: '900',
   },
-  mapSheetRowMeta: {
+  selectedNoteText: {
     color: colors.textMuted,
-    fontSize: 12,
-  },
-  mapSheetRowOpen: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    backgroundColor: colors.accent,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  mapSheetRowDirections: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    alignItems: 'center',
-    justifyContent: 'center',
+    fontSize: 13,
+    lineHeight: 18,
   },
 });

@@ -11,7 +11,7 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
 export default function SupportScreen() {
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
-  const [diagnosticText, setDiagnosticText] = useState(`API: ${resolveApiBaseUrl()}`);
+  const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
 
   async function runDiagnostic() {
     trackAppEvent('api_diagnostic_started', {
@@ -55,7 +55,7 @@ export default function SupportScreen() {
     } catch (error) {
       clearTimeout(timeout);
       setDiagnosticState('error');
-      setDiagnosticText(error instanceof Error ? error.message : 'Could not reach the PaddleToday API.');
+      setDiagnosticText(error instanceof Error ? error.message : 'Could not reach PaddleToday right now.');
       captureAppException(error, {
         name: 'api_diagnostic_failed',
         extra: {
@@ -69,9 +69,9 @@ export default function SupportScreen() {
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
-        <Text style={styles.title}>Safety, support, and app checks.</Text>
+        <Text style={styles.title}>Safety, support, and app checks</Text>
         <Text style={styles.subtitle}>
-          Important release surfaces stay easy to find without adding noise to the main paddling workflow.
+          Key safety notes, feedback links, and troubleshooting stay out of the main paddling flow.
         </Text>
       </View>
 
@@ -86,14 +86,14 @@ export default function SupportScreen() {
       <SectionCard title="Support" subtitle="Fast links for feedback, route requests, and release paperwork.">
         <View style={styles.actionList}>
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
-          <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, API, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
+          <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
           <ActionRow icon="plus-circle-outline" title="Request a route" body="Send put-in, take-out, and source notes." onPress={() => openUrl('https://paddletoday.com/request-river/')} />
           <ActionRow icon="shield-check-outline" title="Privacy policy" body="How app and route information is handled." onPress={() => openUrl('https://paddletoday.com/privacy/')} />
           <ActionRow icon="file-document-outline" title="Terms and safety" body="Use, safety, and submission terms." onPress={() => openUrl('https://paddletoday.com/terms/')} />
         </View>
       </SectionCard>
 
-      <SectionCard title="API diagnostic" subtitle="Use this when a native build opens but the boards do not load.">
+      <SectionCard title="Connection check" subtitle="Use this when the app opens but route calls do not load.">
         <View style={styles.diagnosticCard}>
           <View style={[styles.diagnosticIcon, diagnosticTone(diagnosticState)]}>
             <MaterialCommunityIcons name={diagnosticIcon(diagnosticState)} color={colors.surfaceStrong} size={20} />
@@ -188,8 +188,8 @@ function ActionRow({
 
 function diagnosticTitle(state: DiagnosticState) {
   if (state === 'checking') return 'Checking connection';
-  if (state === 'ok') return 'API is reachable';
-  if (state === 'error') return 'API check failed';
+  if (state === 'ok') return 'Route feed is reachable';
+  if (state === 'error') return 'Connection check failed';
   return 'Ready to check';
 }
 

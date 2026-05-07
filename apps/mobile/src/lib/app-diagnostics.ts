@@ -29,7 +29,7 @@ export function appDiagnosticRows(): AppDiagnosticRow[] {
       value: observability.environment,
     },
     {
-      label: 'API',
+      label: 'Route feed',
       value: resolveApiBaseUrl(),
     },
     {

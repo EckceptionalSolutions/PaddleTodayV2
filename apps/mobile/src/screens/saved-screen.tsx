@@ -28,9 +28,9 @@ export default function SavedScreen() {
   return (
     <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
       <Text style={styles.kicker}>Saved</Text>
-      <Text style={styles.title}>Keep your repeat trips close at hand.</Text>
+      <Text style={styles.title}>Your saved routes</Text>
       <Text style={styles.subtitle}>
-        Saved rivers stay on this device for faster repeat checks.
+        Quick access to rivers you check often.
       </Text>
 
       {savedRivers.length === 0 ? (
@@ -40,7 +40,7 @@ export default function SavedScreen() {
           </View>
           <Text style={styles.emptyTitle}>No saved rivers yet</Text>
           <Text style={styles.emptyBody}>
-            Save routes you check often. This becomes a quick personal board for repeat trips and local favorites.
+            Save routes you check often. This becomes a quick list for repeat trips and local favorites.
           </Text>
           <View style={styles.emptyActions}>
             <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
@@ -56,7 +56,7 @@ export default function SavedScreen() {
       {savedSummaries.length > 0 ? (
         <SectionCard
           title="Saved rivers"
-          subtitle="These are live cards, backed by the same summary API as the home screen."
+          subtitle="Current calls for your repeat trips."
         >
           <View style={styles.list}>
             {savedSummaries.map((river) => (
@@ -81,8 +81,8 @@ export default function SavedScreen() {
 
       {savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
         <SectionCard
-          title="Saved routes waiting on live data"
-          subtitle="These are saved locally, but the current summary board did not include them."
+          title="Saved routes without a current call"
+          subtitle="They are still saved here, but today’s route list did not include a current call."
         >
           <View style={styles.list}>
             {savedRivers
@@ -93,7 +93,7 @@ export default function SavedScreen() {
                     <Text style={styles.savedFallbackName}>{river.name}</Text>
                     <Text style={styles.savedFallbackReach}>{river.reach}</Text>
                     <Text style={styles.savedFallbackNote}>
-                      Live summary data is not available for this route right now.
+                      A current call is not available for this route right now.
                     </Text>
                   </View>
                 </View>
@@ -106,7 +106,7 @@ export default function SavedScreen() {
         <View style={styles.offlineNote}>
           <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={18} />
           <Text style={styles.footnote}>
-            Live saved-river cards could not refresh. Local saved routes still work.
+            Saved route calls could not refresh. Your saved list is still available.
           </Text>
         </View>
       ) : null}

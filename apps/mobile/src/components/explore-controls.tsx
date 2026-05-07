@@ -7,8 +7,8 @@ export type ExploreSort = 'best' | 'nearest' | 'confidence' | 'score' | 'name';
 const sortOptions: Array<{ value: ExploreSort; label: string }> = [
   { value: 'best', label: 'Recommended' },
   { value: 'nearest', label: 'Nearest' },
-  { value: 'confidence', label: 'Most certain' },
-  { value: 'score', label: 'Highest score' },
+  { value: 'confidence', label: 'Confidence' },
+  { value: 'score', label: 'Score' },
   { value: 'name', label: 'A-Z' },
 ];
 
@@ -53,12 +53,14 @@ export function ExploreSortFilterBar({
   sort,
   activeFilterCount,
   compactFilterLabel = false,
+  showSortOptions = true,
   onFilterPress,
   onSortChange,
 }: {
   sort: ExploreSort;
   activeFilterCount: number;
   compactFilterLabel?: boolean;
+  showSortOptions?: boolean;
   onFilterPress: () => void;
   onSortChange: (sort: ExploreSort) => void;
 }) {
@@ -66,16 +68,20 @@ export function ExploreSortFilterBar({
 
   return (
     <View style={styles.toolbar}>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.sortStrip}>
-        {sortOptions.map((option) => (
-          <ChoiceChip
-            key={option.value}
-            label={option.label}
-            selected={sort === option.value}
-            onPress={() => onSortChange(option.value)}
-          />
-        ))}
-      </ScrollView>
+      {showSortOptions ? (
+        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.sortStrip}>
+          {sortOptions.map((option) => (
+            <ChoiceChip
+              key={option.value}
+              label={option.label}
+              selected={sort === option.value}
+              onPress={() => onSortChange(option.value)}
+            />
+          ))}
+        </ScrollView>
+      ) : (
+        <View style={styles.toolbarSpacer} />
+      )}
       <Pressable
         style={[styles.filterButton, filterActive ? styles.filterButtonActive : null]}
         onPress={onFilterPress}
@@ -168,6 +174,9 @@ const styles = StyleSheet.create({
   sortStrip: {
     gap: spacing.sm,
     paddingRight: spacing.sm,
+  },
+  toolbarSpacer: {
+    flex: 1,
   },
   filterButton: {
     minHeight: 38,

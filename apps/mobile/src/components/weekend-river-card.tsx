@@ -1,7 +1,8 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { routeFactItems } from '../lib/route-facts';
+import { photoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RatingPill } from './rating-pill';
 import { SaveToggleButton } from './save-toggle-button';
@@ -19,18 +20,27 @@ export function WeekendRiverCard({
 }) {
   return (
     <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
-      <View style={styles.header}>
-        <View style={styles.scoreBlock}>
-          <Text style={styles.score}>{river.weekend.score}</Text>
-          <Text style={styles.scoreLabel}>Weekend</Text>
+      <ImageBackground
+        source={{ uri: photoForRiver(river.river) }}
+        style={styles.media}
+        imageStyle={styles.mediaImage}
+      >
+        <View style={styles.mediaOverlay}>
+          <View style={styles.scoreBlock}>
+            <Text style={styles.score}>{river.weekend.score}</Text>
+            <Text style={styles.scoreLabel}>Weekend</Text>
+          </View>
+          <View style={styles.actions}>
+            {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
+            <RatingPill rating={river.weekend.rating} />
+          </View>
         </View>
+      </ImageBackground>
+
+      <View style={styles.header}>
         <View style={styles.copy}>
           <View style={styles.topRow}>
             <Text style={styles.name}>{river.river.name}</Text>
-            <View style={styles.actions}>
-              {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
-              <RatingPill rating={river.weekend.rating} />
-            </View>
           </View>
           <Text style={styles.reach}>{river.river.reach}</Text>
           <Text style={styles.summary}>{normalizeApiText(river.weekend.summary)}</Text>
@@ -62,12 +72,29 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.md,
+    overflow: 'hidden',
     gap: spacing.sm,
+  },
+  media: {
+    height: 142,
+  },
+  mediaImage: {
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+  },
+  mediaOverlay: {
+    flex: 1,
+    backgroundColor: 'rgba(12, 22, 19, 0.24)',
+    padding: spacing.md,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'flex-start',
+    gap: spacing.md,
   },
   header: {
     flexDirection: 'row',
     gap: spacing.md,
+    paddingHorizontal: spacing.md,
   },
   scoreBlock: {
     width: 62,
@@ -124,6 +151,7 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: 6,
     alignItems: 'center',
+    paddingHorizontal: spacing.md,
   },
   factChip: {
     borderRadius: radius.pill,
@@ -139,6 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     padding: spacing.md,
     gap: 4,
+    marginHorizontal: spacing.md,
   },
   riskStable: {
     backgroundColor: '#E0EFE9',
@@ -165,6 +194,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     gap: spacing.md,
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.md,
   },
   footerText: {
     color: colors.textMuted,
@@ -179,20 +210,20 @@ function weekendFactItems(river: WeekendSummaryApiItem) {
 
 function planRiskLabel(river: WeekendSummaryApiItem) {
   if (river.weekend.confidence === 'High' && river.weekend.rating === river.current.rating) {
-    return 'Stable plan';
+    return 'Looks steady';
   }
 
   const explanation = normalizeApiText(`${river.weekend.explanation} ${river.weekend.signalLine}`).toLowerCase();
   if (explanation.includes('rain') || explanation.includes('storm') || explanation.includes('wind') || explanation.includes('forecast')) {
-    return 'Weather dependent';
+    return 'Forecast watch';
   }
 
-  return river.weekend.confidence === 'Low' ? 'Gauge uncertain' : 'Recheck before committing';
+  return river.weekend.confidence === 'Low' ? 'Gauge watch' : 'Recheck before launch';
 }
 
 function riskToneStyle(river: WeekendSummaryApiItem) {
   const label = planRiskLabel(river);
-  if (label === 'Stable plan') return styles.riskStable;
-  if (label === 'Weather dependent' || label === 'Recheck before committing') return styles.riskWeather;
+  if (label === 'Looks steady') return styles.riskStable;
+  if (label === 'Forecast watch' || label === 'Recheck before launch') return styles.riskWeather;
   return styles.riskUncertain;
 }
