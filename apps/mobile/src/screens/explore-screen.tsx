@@ -31,6 +31,7 @@ import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
+import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -72,6 +73,7 @@ export default function ExploreScreen() {
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
+  const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const states = useMemo(
     () => [...new Set(rivers.map((river) => river.river.state))].sort(),
     [rivers]
@@ -154,9 +156,10 @@ export default function ExploreScreen() {
         bottomInset={insets.bottom}
         topInset={insets.top}
         userLocation={location}
+        routeCounts={routeCounts}
         onClearLocation={() => void clearLocation()}
         onFilterPress={() => setFiltersOpen(true)}
-        onOpenRoute={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+        onOpenRoute={openExploreRoute}
         onRefresh={() => summaryQuery.refetch()}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
@@ -198,6 +201,16 @@ export default function ExploreScreen() {
       setPreferencesHydrated(true);
     }
   }
+
+  function openExploreRoute(route: ExploreRiver) {
+    const routeCount = routeGroupMetaForRoute(route, routeCounts).routeCount;
+    if (route.river.riverId && routeCount > 1) {
+      router.push({ pathname: '/river-hub/[riverId]', params: { riverId: route.river.riverId } });
+      return;
+    }
+
+    router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } });
+  }
 }
 
 function FullScreenExploreMap({
@@ -212,6 +225,7 @@ function FullScreenExploreMap({
   bottomInset,
   topInset,
   userLocation,
+  routeCounts,
   onClearLocation,
   onFilterPress,
   onFocusNearest,
@@ -235,10 +249,11 @@ function FullScreenExploreMap({
   bottomInset: number;
   topInset: number;
   userLocation: { latitude: number; longitude: number; label: string } | null;
+  routeCounts: ReadonlyMap<string, number>;
   onClearLocation: () => void;
   onFilterPress: () => void;
   onFocusNearest: () => void;
-  onOpenRoute: (slug: string) => void;
+  onOpenRoute: (route: ExploreRiver) => void;
   onRefresh: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string) => void;
@@ -249,9 +264,10 @@ function FullScreenExploreMap({
 }) {
   const [sheetSnap, setSheetSnap] = useState<MapSheetSnap>('peek');
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
-  const points = useExploreMapPoints(results);
+  const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
   const floatingControlBottom = sheetHeightValue(sheetSnap) + bottomInset + spacing.md;
+  const userOutOfRange = Boolean(userLocation && results.length > 0 && results.every((route) => (route.distanceMiles ?? 0) > 180));
 
   return (
     <View style={styles.fullMapScreen}>
@@ -296,7 +312,16 @@ function FullScreenExploreMap({
         </View>
       </View>
 
-      <View style={[styles.mapOverlayActions, { top: topInset + 154 }]}>
+      {userOutOfRange ? (
+        <View style={[styles.coverageBanner, { top: topInset + 154 }]}>
+          <MaterialCommunityIcons name="map-marker-distance" color={colors.accent} size={18} />
+          <Text style={styles.coverageBannerText}>
+            PaddleToday currently supports select Midwest rivers.
+          </Text>
+        </View>
+      ) : null}
+
+      <View style={[styles.mapOverlayActions, { top: topInset + (userOutOfRange ? 210 : 154) }]}>
         <Pressable style={styles.mapFab} onPress={() => mapRef.current?.focusSelected()}>
           <MaterialCommunityIcons name="crosshairs" color={colors.accent} size={20} />
         </Pressable>
@@ -336,7 +361,11 @@ function FullScreenExploreMap({
           setSheetSnap={setSheetSnap}
           bottomInset={bottomInset}
           isSaved={isSaved}
-          onOpenRoute={onOpenRoute}
+          onOpenRoute={() => {
+            if (selectedRiver) {
+              onOpenRoute(selectedRiver);
+            }
+          }}
           onToggleSaved={onToggleSaved}
         />
       ) : null}
@@ -344,19 +373,22 @@ function FullScreenExploreMap({
   );
 }
 
-function useExploreMapPoints(results: ExploreRiver[]) {
+function useExploreMapPoints(results: ExploreRiver[], routeCounts: ReadonlyMap<string, number>) {
   return useMemo<RoutePlotPoint[]>(
     () =>
-      results.map((river) => ({
-        id: river.river.slug,
-        label: river.river.name,
-        latitude: river.river.latitude,
-        longitude: river.river.longitude,
-        score: river.score,
-        rating: river.rating,
-        meta: [river.river.reach, river.travelLabel].filter(Boolean).join(' - '),
-      })),
-    [results]
+      results.map((river) => {
+        const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+        return {
+          id: river.river.slug,
+          label: river.river.name,
+          latitude: river.river.latitude,
+          longitude: river.river.longitude,
+          score: river.score,
+          rating: river.rating,
+          meta: [river.river.reach, river.travelLabel, routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - '),
+        };
+      }),
+    [results, routeCounts]
   );
 }
 
@@ -391,19 +423,7 @@ function applyExploreFilters(
     })
     .sort((left, right) => compareExploreRivers(left, right, filters.sort));
 
-  return uniqueExploreRiversBySlug(sortedResults);
-}
-
-function uniqueExploreRiversBySlug(rivers: ExploreRiver[]) {
-  const seen = new Set<string>();
-  return rivers.filter((river) => {
-    if (seen.has(river.river.slug)) {
-      return false;
-    }
-
-    seen.add(river.river.slug);
-    return true;
-  });
+  return uniqueRoutesByRiver(sortedResults);
 }
 
 function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: ExploreSort) {
@@ -576,6 +596,31 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.14,
     shadowRadius: 10,
     elevation: 4,
+  },
+  coverageBanner: {
+    position: 'absolute',
+    left: spacing.md,
+    right: 62,
+    minHeight: 42,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    paddingHorizontal: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  coverageBannerText: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '800',
   },
   mapEmptyTitle: {
     color: colors.text,

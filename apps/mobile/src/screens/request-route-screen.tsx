@@ -8,32 +8,31 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export default function RequestRouteScreen() {
   const createRequestMutation = useCreateRiverRequestMutation();
-  const [routeName, setRouteName] = useState('');
-  const [state, setState] = useState('');
-  const [putIn, setPutIn] = useState('');
-  const [takeOut, setTakeOut] = useState('');
-  const [sources, setSources] = useState('');
+  const [riverName, setRiverName] = useState('');
+  const [area, setArea] = useState('');
+  const [accessPoints, setAccessPoints] = useState('');
   const [notes, setNotes] = useState('');
   const [replyEmail, setReplyEmail] = useState('');
-  const [status, setStatus] = useState('Include the best details you know. Put-in, take-out, and gauge links help most.');
+  const [status, setStatus] = useState('Include the best details you know. City, state, access points, and gauge links help most.');
 
   async function submitRequest() {
-    const cleanRouteName = routeName.trim();
-    const cleanState = state.trim();
+    const cleanRiverName = riverName.trim();
+    const cleanArea = area.trim();
+    const cleanAccessPoints = accessPoints.trim();
     const cleanNotes = notes.trim();
 
-    if (cleanRouteName.length < 3 || !cleanState || cleanNotes.length < 12) {
-      setStatus('Add a route or river name, state, and at least a sentence of detail.');
+    if (cleanRiverName.length < 3 || cleanArea.length < 3 || cleanNotes.length < 12) {
+      setStatus('Add a river name, city/state or area, and at least a sentence of detail.');
       return;
     }
 
     try {
       const response = await createRequestMutation.mutateAsync({
-        routeName: cleanRouteName,
-        state: cleanState,
-        putIn: putIn.trim(),
-        takeOut: takeOut.trim(),
-        sources: sources.trim(),
+        routeName: cleanRiverName,
+        state: cleanArea,
+        putIn: cleanAccessPoints,
+        takeOut: '',
+        sources: '',
         notes: cleanNotes,
         replyEmail: replyEmail.trim().toLowerCase(),
       });
@@ -44,11 +43,9 @@ export default function RequestRouteScreen() {
         setStatus('Request received. Thanks for helping expand the route list.');
       }
 
-      setRouteName('');
-      setState('');
-      setPutIn('');
-      setTakeOut('');
-      setSources('');
+      setRiverName('');
+      setArea('');
+      setAccessPoints('');
       setNotes('');
       setReplyEmail('');
     } catch (error) {
@@ -68,28 +65,31 @@ export default function RequestRouteScreen() {
           <Text style={styles.kicker}>Route request</Text>
           <Text style={styles.title}>Ask us to add a route.</Text>
           <Text style={styles.subtitle}>
-            Send the basics. The fastest routes to review have a clear put-in, take-out, and matching gauge source.
+            Send the basics. Requests with a clear area, access points, and source notes are fastest to review.
           </Text>
         </View>
 
         <SectionCard title="Route basics" subtitle="Start with whatever you know. Required fields are marked in the labels.">
           <View style={styles.form}>
-            <Field label="River or route name *" value={routeName} onChangeText={setRouteName} placeholder="St. Croix River - Taylors Falls to Osceola" />
-            <Field label="State *" value={state} onChangeText={setState} placeholder="MN, WI, IA, etc." autoCapitalize="characters" />
-            <Field label="Put-in name" value={putIn} onChangeText={setPutIn} placeholder="Launch or access name" />
-            <Field label="Take-out name" value={takeOut} onChangeText={setTakeOut} placeholder="Exit or access name" />
+            <Field label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" />
             <Field
-              label="Known links"
-              value={sources}
-              onChangeText={setSources}
-              placeholder="USGS, DNR, park, club, or outfitter URLs"
+              label="City, state, or general area *"
+              value={area}
+              onChangeText={setArea}
+              placeholder="Taylors Falls, MN / Osceola, WI"
+            />
+            <Field
+              label="Access points"
+              value={accessPoints}
+              onChangeText={setAccessPoints}
+              placeholder="Known put-ins, take-outs, launches, parks, or bridge accesses"
               multiline
             />
             <Field
-              label="Additional information *"
+              label="Notes *"
               value={notes}
               onChangeText={setNotes}
-              placeholder="Distance, hazards, shuttle notes, gauge context, local demand, or anything useful."
+              placeholder="Distance, hazards, shuttle notes, gauge links, outfitter pages, local demand, or anything useful."
               multiline
             />
             <Field

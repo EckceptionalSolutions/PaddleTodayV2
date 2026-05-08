@@ -1,4 +1,5 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { SectionCard } from '../components/section-card';
@@ -10,6 +11,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
 export default function SupportScreen() {
+  const router = useRouter();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
 
@@ -87,9 +89,9 @@ export default function SupportScreen() {
         <View style={styles.actionList}>
           <ActionRow icon="email-outline" title="Email support" body="hello@paddletoday.com" onPress={() => openUrl('mailto:hello@paddletoday.com')} />
           <ActionRow icon="bug-outline" title="Email app diagnostics" body="Send build, connection, and environment details." onPress={() => openUrl(buildDiagnosticsEmailUrl())} />
-          <ActionRow icon="plus-circle-outline" title="Request a route" body="Send put-in, take-out, and source notes." onPress={() => openUrl('https://paddletoday.com/request-river/')} />
-          <ActionRow icon="shield-check-outline" title="Privacy policy" body="How app and route information is handled." onPress={() => openUrl('https://paddletoday.com/privacy/')} />
-          <ActionRow icon="file-document-outline" title="Terms and safety" body="Use, safety, and submission terms." onPress={() => openUrl('https://paddletoday.com/terms/')} />
+          <ActionRow icon="plus-circle-outline" title="Request a route" body="Send river, area, access, and notes." onPress={() => router.push('/request-route')} />
+          <ActionRow icon="shield-check-outline" title="Privacy policy" body="How app and route information is handled." onPress={() => router.push('/privacy')} />
+          <ActionRow icon="file-document-outline" title="Terms and safety" body="Use, safety, and submission terms." onPress={() => router.push('/terms')} />
         </View>
       </SectionCard>
 

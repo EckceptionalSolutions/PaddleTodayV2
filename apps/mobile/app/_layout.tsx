@@ -62,6 +62,8 @@ function RootLayout() {
           <Stack.Screen name="river/[slug]" options={{ title: 'River detail' }} />
           <Stack.Screen name="river-hub/[riverId]" options={{ title: 'River hub' }} />
           <Stack.Screen name="request-route" options={{ title: 'Request route' }} />
+          <Stack.Screen name="privacy" options={{ title: 'Privacy' }} />
+          <Stack.Screen name="terms" options={{ title: 'Terms' }} />
         </Stack>
       </ThemeProvider>
     </AppProviders>

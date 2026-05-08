@@ -20,6 +20,7 @@ import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
 import { photoForRiver } from '../lib/route-photos';
+import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { routeFactItems, routeFactLine } from '../lib/route-facts';
 import {
@@ -57,6 +58,7 @@ export default function HomeScreen() {
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const snapshot = buildBoardSnapshot(rivers);
+  const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 24), [rivers, location]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
@@ -75,8 +77,12 @@ export default function HomeScreen() {
     [nearbyPicks]
   );
 
-  const data = mode === 'closest' ? closestPicks : mode === 'score' ? scorePicks : mode === 'certain' ? certainPicks : bestPicks;
-  const headline = data[0] ?? bestPicks[0] ?? null;
+  const data = useMemo(
+    () => uniqueRoutesByRiver(mode === 'closest' ? closestPicks : mode === 'score' ? scorePicks : mode === 'certain' ? certainPicks : bestPicks),
+    [bestPicks, certainPicks, closestPicks, mode, scorePicks]
+  );
+  const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
+  const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
 
   useEffect(() => {
     void hydrateBoardPreferences();
@@ -165,21 +171,29 @@ export default function HomeScreen() {
         <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
       </View>
 
-      {data.length > 0 ? (
+      {locationOutOfRange ? (
+        <OutOfRangeState
+          locationLabel={location?.label ?? 'your area'}
+          onRequestRoute={() => router.push('/request-route')}
+          onBrowseRoutes={() => router.push('/explore')}
+        />
+      ) : data.length > 0 ? (
         <>
           <RiverCarousel
             mode={mode}
             rivers={data}
+            routeCounts={routeCounts}
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-            onOpen={(river) => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+            onOpen={openBoardRoute}
           />
           <QuickScanList
             mode={mode}
             rivers={data.slice(0, 5)}
+            routeCounts={routeCounts}
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-            onOpen={(river) => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+            onOpen={openBoardRoute}
           />
         </>
       ) : (
@@ -199,6 +213,16 @@ export default function HomeScreen() {
     } finally {
       setPreferencesHydrated(true);
     }
+  }
+
+  function openBoardRoute(river: BoardItem) {
+    const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+    if (river.river.riverId && routeCount > 1) {
+      router.push({ pathname: '/river-hub/[riverId]', params: { riverId: river.river.riverId } });
+      return;
+    }
+
+    router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } });
   }
 }
 
@@ -267,12 +291,14 @@ function BoardHero({
 function RiverCarousel({
   mode,
   rivers,
+  routeCounts,
   isSaved,
   onToggleSaved,
   onOpen,
 }: {
   mode: BoardMode;
   rivers: BoardItem[];
+  routeCounts: ReadonlyMap<string, number>;
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
@@ -292,6 +318,7 @@ function RiverCarousel({
           <RiverImageCard
             key={river.river.slug}
             river={river}
+            routeCount={routeGroupMetaForRoute(river, routeCounts).routeCount}
             saved={isSaved(river.river.slug)}
             onToggleSaved={() => onToggleSaved(river)}
             onOpen={() => onOpen(river)}
@@ -304,11 +331,13 @@ function RiverCarousel({
 
 function RiverImageCard({
   river,
+  routeCount,
   saved,
   onToggleSaved,
   onOpen,
 }: {
   river: BoardItem;
+  routeCount: number;
   saved: boolean;
   onToggleSaved: () => void;
   onOpen: () => void;
@@ -331,7 +360,7 @@ function RiverImageCard({
             <RatingPill rating={river.rating} />
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
             <Text style={styles.imageCardMeta} numberOfLines={1}>
-              {[river.river.reach, distanceLabelForRiver(river)].filter(Boolean).join(' - ')}
+              {[river.river.reach, distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
             </Text>
           </View>
         </View>
@@ -353,12 +382,14 @@ function RiverImageCard({
 function QuickScanList({
   mode,
   rivers,
+  routeCounts,
   isSaved,
   onToggleSaved,
   onOpen,
 }: {
   mode: BoardMode;
   rivers: BoardItem[];
+  routeCounts: ReadonlyMap<string, number>;
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
@@ -371,6 +402,7 @@ function QuickScanList({
           <CompactRiverRow
             key={river.river.slug}
             river={river}
+            routeCount={routeGroupMetaForRoute(river, routeCounts).routeCount}
             saved={isSaved(river.river.slug)}
             onToggleSaved={() => onToggleSaved(river)}
             onOpen={() => onOpen(river)}
@@ -383,11 +415,13 @@ function QuickScanList({
 
 function CompactRiverRow({
   river,
+  routeCount,
   saved,
   onToggleSaved,
   onOpen,
 }: {
   river: BoardItem;
+  routeCount: number;
   saved: boolean;
   onToggleSaved: () => void;
   onOpen: () => void;
@@ -404,7 +438,7 @@ function CompactRiverRow({
       <View style={styles.quickCopy}>
         <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
         <Text style={styles.quickMeta} numberOfLines={1}>
-          {[river.river.reach, distanceLabelForRiver(river)].filter(Boolean).join(' - ')}
+          {[river.river.reach, distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
         </Text>
         <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
@@ -551,6 +585,33 @@ function EmptyMode({
     <View style={styles.emptyCard}>
       <Text style={styles.emptyTitle}>Nothing here yet</Text>
       <Text style={styles.emptyText}>{message}</Text>
+    </View>
+  );
+}
+
+function OutOfRangeState({
+  locationLabel,
+  onRequestRoute,
+  onBrowseRoutes,
+}: {
+  locationLabel: string;
+  onRequestRoute: () => void;
+  onBrowseRoutes: () => void;
+}) {
+  return (
+    <View style={styles.outOfRangeCard}>
+      <Text style={styles.emptyTitle}>No supported routes near {locationLabel}</Text>
+      <Text style={styles.emptyText}>
+        PaddleToday currently supports select Midwest rivers. You can still browse the active route list or tell us which river to add next.
+      </Text>
+      <View style={styles.emptyActions}>
+        <Pressable style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
+          <Text style={styles.emptyPrimaryButtonText}>Request a Route</Text>
+        </Pressable>
+        <Pressable style={styles.emptySecondaryButton} onPress={onBrowseRoutes}>
+          <Text style={styles.emptySecondaryButtonText}>Browse Supported Rivers</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -1093,6 +1154,14 @@ const styles = StyleSheet.create({
     padding: spacing.lg,
     gap: spacing.xs,
   },
+  outOfRangeCard: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.lg,
+    gap: spacing.md,
+  },
   emptyTitle: {
     color: colors.text,
     fontSize: 17,
@@ -1102,5 +1171,38 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  emptyActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  emptyPrimaryButton: {
+    minHeight: 42,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyPrimaryButtonText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  emptySecondaryButton: {
+    minHeight: 42,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 15,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptySecondaryButtonText: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
   },
 });

@@ -10,7 +10,7 @@ import type {
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
-import { Stack, useLocalSearchParams } from 'expo-router';
+import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { useEffect, useMemo, useState } from 'react';
 import {
@@ -31,6 +31,7 @@ import {
   useCreateRiverAlertMutation,
   useCreateRouteContributionMutation,
   useRiverDetailQuery,
+  useRiverGroupQuery,
   useRiverHistoryQuery,
   useRouteCommunityQuery,
 } from '../api/queries';
@@ -70,6 +71,7 @@ type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
 export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
+  const router = useRouter();
   const insets = useSafeAreaInsets();
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
@@ -96,12 +98,14 @@ export default function RiverDetailScreen() {
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
 
   const detail = detailQuery.data?.result ?? null;
+  const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '');
   const history = historyQuery.data?.result ?? null;
   const community = communityQuery.data ?? null;
   const checklist = useMemo(() => (detail ? detail.checklist.slice(0, 4) : []), [detail]);
   const routePlotPoints = useMemo(() => (detail ? buildDetailRoutePoints(detail) : []), [detail]);
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
+  const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
 
   useEffect(() => {
     setDraftEmail(storedEmail);
@@ -523,6 +527,27 @@ export default function RiverDetailScreen() {
 
         {activeSection === 'More' ? (
           <>
+            {detail.river.riverId && siblingRouteCount > 1 ? (
+              <SectionCard
+                title="More routes on this river"
+                subtitle={`${detail.river.name} has ${siblingRouteCount} tracked route options with separate gauges, access, and scores.`}
+              >
+                <Pressable
+                  style={styles.riverHubLink}
+                  onPress={() => router.push({ pathname: '/river-hub/[riverId]', params: { riverId: detail.river.riverId ?? '' } })}
+                >
+                  <View style={styles.riverHubLinkIcon}>
+                    <MaterialCommunityIcons name="routes" color={colors.accent} size={20} />
+                  </View>
+                  <View style={styles.riverHubLinkCopy}>
+                    <Text style={styles.riverHubLinkTitle}>Compare route options</Text>
+                    <Text style={styles.riverHubLinkText}>Open the river hub before choosing a stretch.</Text>
+                  </View>
+                  <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
+                </Pressable>
+              </SectionCard>
+            ) : null}
+
             <SectionCard
               title="Outlooks"
               subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
@@ -2478,6 +2503,37 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
+  },
+  riverHubLink: {
+    minHeight: 68,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  riverHubLinkIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: colors.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  riverHubLinkCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  riverHubLinkTitle: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  riverHubLinkText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
   },
   weatherStrip: {
     gap: spacing.sm,
