@@ -25,6 +25,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   height?: number;
   showFooter?: boolean;
   fullBleed?: boolean;
+  markerMode?: 'score' | 'pin';
 }>(function RoutePlotMap({
   points,
   selectedId,
@@ -61,6 +62,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
+          const dimmed = Boolean(selectedId && !selected);
           const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
@@ -75,7 +77,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
-              <View style={[showScore ? styles.marker : styles.dotMarker, toneForRating(point.rating)]}>
+              <View style={[showScore ? styles.marker : styles.dotMarker, dimmed ? styles.markerDimmed : null, toneForRating(point.rating)]}>
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
                     {typeof point.score === 'number' ? point.score : ''}
@@ -183,15 +185,15 @@ function clamp(value: number, min: number, max: number) {
 }
 
 function shouldShowScoreMarkers(latitudeDelta: number, pointCount: number) {
-  if (pointCount <= 6) {
+  if (pointCount <= 24) {
     return true;
   }
 
-  if (pointCount <= 16) {
-    return latitudeDelta <= 0.75;
+  if (pointCount <= 80) {
+    return latitudeDelta <= 1.5;
   }
 
-  return latitudeDelta <= 0.38;
+  return latitudeDelta <= 0.85;
 }
 
 function shouldShowProjectedScoreMarkers(
@@ -277,10 +279,10 @@ const styles = StyleSheet.create({
   },
   markerSelectedRing: {
     position: 'absolute',
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    borderWidth: 3,
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    borderWidth: 4,
     borderColor: colors.text,
     backgroundColor: 'transparent',
   },
@@ -307,6 +309,9 @@ const styles = StyleSheet.create({
   },
   markerTextSelected: {
     fontSize: 13,
+  },
+  markerDimmed: {
+    opacity: 0.58,
   },
   userMarker: {
     position: 'absolute',

@@ -150,7 +150,7 @@ export function RouteReportSheet({
                   <View style={styles.reportPhotoCopy}>
                     <Text style={styles.reportPhotoTitle}>Route photos</Text>
                     <Text style={styles.reportPhotoMeta}>
-                      {photos.length}/{maxPhotos} attached · JPEG, PNG, or WebP
+                      {photos.length}/{maxPhotos} attached
                     </Text>
                   </View>
                   <Pressable
@@ -174,7 +174,7 @@ export function RouteReportSheet({
                   </ScrollView>
                 ) : (
                   <Text style={styles.reportPhotoEmpty}>
-                    Optional, but useful for strainers, access changes, water clarity, and gauge references. Photo access is only requested when you tap Add.
+                    Optional, but useful for strainers, access changes, water clarity, and gauge references.
                   </Text>
                 )}
               </View>

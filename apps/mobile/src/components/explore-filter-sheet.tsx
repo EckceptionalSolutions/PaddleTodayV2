@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from 'react';
+import { useRef, type PropsWithChildren } from 'react';
 import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
-import { Modal, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
-import { ChoiceChip, isExploreSort, type ExploreSort } from './explore-controls';
+import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ChoiceChip, isExploreSort, sortOptions, type ExploreSort } from './explore-controls';
 import { isRecord } from '../lib/storage';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -27,7 +27,7 @@ export const defaultFilters: ExploreFilters = {
   query: '',
   state: '',
   difficulty: 'any',
-  routeType: 'non-whitewater',
+  routeType: 'all',
   rating: 'any',
   distance: 'any',
   paddleTime: 'any',
@@ -49,9 +49,9 @@ const difficultyOptions: Array<{ value: DifficultyFilter; label: string }> = [
 ];
 
 const routeTypeOptions: Array<{ value: RouteTypeFilter; label: string }> = [
+  { value: 'all', label: 'All routes' },
   { value: 'non-whitewater', label: 'Rec routes' },
   { value: 'whitewater', label: 'Whitewater' },
-  { value: 'all', label: 'All routes' },
 ];
 
 const distanceOptions: Array<{ value: DistanceFilter; label: string }> = [
@@ -130,12 +130,47 @@ export function ExploreFilterSheet({
   onReset: () => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
+  const translateY = useRef(new Animated.Value(0)).current;
+  const panResponder = useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onMoveShouldSetPanResponder: (_, gesture) => gesture.dy > 6 && Math.abs(gesture.dy) > Math.abs(gesture.dx),
+      onPanResponderMove: (_, gesture) => {
+        translateY.setValue(Math.max(0, gesture.dy));
+      },
+      onPanResponderRelease: (_, gesture) => {
+        if (gesture.dy > 90 || gesture.vy > 0.9) {
+          translateY.setValue(0);
+          onClose();
+          return;
+        }
+
+        Animated.spring(translateY, {
+          toValue: 0,
+          useNativeDriver: true,
+          damping: 20,
+          stiffness: 190,
+        }).start();
+      },
+      onPanResponderTerminate: () => {
+        Animated.spring(translateY, {
+          toValue: 0,
+          useNativeDriver: true,
+          damping: 20,
+          stiffness: 190,
+        }).start();
+      },
+    })
+  ).current;
+
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
       <View style={styles.sheetScrim}>
-        <View style={styles.filterSheet}>
-          <View style={styles.sheetHandle} />
-          <View style={styles.sheetHeader}>
+        <Animated.View style={[styles.filterSheet, { transform: [{ translateY }] }]}>
+          <View style={styles.sheetDragZone} {...panResponder.panHandlers}>
+            <View style={styles.sheetHandle} />
+          </View>
+          <View style={styles.sheetHeader} {...panResponder.panHandlers}>
             <View style={styles.sheetTitleCopy}>
               <Text style={styles.sheetTitle}>Filters</Text>
               <Text style={styles.sheetSubtitle}>{matchCount} routes match this setup</Text>
@@ -144,17 +179,28 @@ export function ExploreFilterSheet({
               <Text style={styles.sheetDoneText}>Done</Text>
             </Pressable>
           </View>
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.sheetContent}>
+          <ScrollView
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled"
+            contentContainerStyle={styles.sheetContent}
+          >
             <FilterPanel
               filters={filters}
               states={states}
               locationReady={locationReady}
               onChange={onChange}
-              onReset={onReset}
               onApplyPreset={onApplyPreset}
             />
           </ScrollView>
-        </View>
+          <View style={styles.sheetFooter}>
+            <Pressable style={styles.sheetResetButton} onPress={onReset}>
+              <Text style={styles.sheetResetText}>Clear filters</Text>
+            </Pressable>
+            <Pressable style={styles.sheetShowButton} onPress={onClose}>
+              <Text style={styles.sheetShowText}>Show {matchCount} routes</Text>
+            </Pressable>
+          </View>
+        </Animated.View>
       </View>
     </Modal>
   );
@@ -165,32 +211,38 @@ function FilterPanel({
   states,
   locationReady,
   onChange,
-  onReset,
   onApplyPreset,
 }: {
   filters: ExploreFilters;
   states: string[];
   locationReady: boolean;
   onChange: (filters: ExploreFilters) => void;
-  onReset: () => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
   return (
     <View style={styles.filterPanel}>
       <View style={styles.filterPanelHeader}>
-        <Text style={styles.filterPanelTitle}>Setup</Text>
-        <Pressable onPress={onReset} hitSlop={10}>
-          <Text style={styles.resetLink}>Reset</Text>
-        </Pressable>
+        <Text style={styles.filterPanelTitle}>Quick filters</Text>
       </View>
 
-      <FilterGroup title="Presets">
+      <FilterGroup title="Quick picks">
         {presetOptions.map((preset) => (
           <ChoiceChip
             key={preset.id}
             label={preset.label}
             selected={false}
             onPress={() => onApplyPreset((current) => preset.apply(current, { locationReady }))}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup title="Sort">
+        {sortOptions.map((option) => (
+          <ChoiceChip
+            key={option.value}
+            label={option.label}
+            selected={filters.sort === option.value}
+            onPress={() => onChange({ ...filters, sort: option.value })}
           />
         ))}
       </FilterGroup>
@@ -279,7 +331,7 @@ function FilterGroup({ title, children }: PropsWithChildren<{ title: string }>) 
 export function ActiveFilterStrip({ filters, locationReady }: { filters: ExploreFilters; locationReady: boolean }) {
   const active = activeFilterLabels(filters, locationReady);
   if (active.length === 0) {
-    return <Text style={styles.filterHint}>Default view hides whitewater and ranks practical picks first.</Text>;
+    return <Text style={styles.filterHint}>Default view shows every route and ranks practical picks first.</Text>;
   }
 
   return (
@@ -395,17 +447,19 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
-    paddingTop: spacing.sm,
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.md,
   },
+  sheetDragZone: {
+    alignItems: 'center',
+    paddingTop: 10,
+    paddingBottom: spacing.sm,
+  },
   sheetHandle: {
-    alignSelf: 'center',
     width: 42,
-    height: 4,
-    borderRadius: radius.pill,
+    height: 5,
+    borderRadius: 999,
     backgroundColor: colors.border,
-    marginBottom: spacing.md,
   },
   sheetHeader: {
     flexDirection: 'row',
@@ -443,6 +497,42 @@ const styles = StyleSheet.create({
   sheetContent: {
     paddingBottom: spacing.lg,
   },
+  sheetFooter: {
+    borderTopWidth: 1,
+    borderTopColor: colors.border,
+    flexDirection: 'row',
+    gap: spacing.sm,
+    paddingTop: spacing.md,
+  },
+  sheetResetButton: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    paddingHorizontal: spacing.md,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.accentSoft,
+  },
+  sheetResetText: {
+    color: colors.accentDeep,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  sheetShowButton: {
+    flex: 1,
+    minHeight: 44,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.lg,
+  },
+  sheetShowText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '900',
+  },
   filterPanel: {
     gap: spacing.md,
   },
@@ -455,11 +545,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 18,
     fontWeight: '900',
-  },
-  resetLink: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '800',
   },
   filterGroup: {
     gap: spacing.sm,

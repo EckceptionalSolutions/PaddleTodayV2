@@ -1,10 +1,11 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
-import { useMemo, useState } from 'react';
-import { Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useEffect, useMemo, useRef } from 'react';
+import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { routeFactItems, routeFactLine } from '../lib/route-facts';
+import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export type MapSheetSnap = 'peek' | 'half' | 'full';
@@ -21,6 +22,7 @@ interface ExploreRouteDrawerProps {
   bottomInset?: number;
   isSaved: (slug: string) => boolean;
   onOpenRoute: (slug: string) => void;
+  onContributePhotos: (slug: string) => void;
   onToggleSaved: (river: ExploreDrawerRiver) => void;
 }
 
@@ -31,13 +33,16 @@ export function ExploreRouteDrawer({
   bottomInset = 0,
   isSaved,
   onOpenRoute,
+  onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
   const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
+  const expanded = sheetSnap !== 'peek';
+  const full = sheetSnap === 'full';
 
   return (
-    <View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(sheetSnap, sheetGesture.dragOffset, bottomInset)]}>
+    <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(bottomInset), { height: sheetGesture.animatedHeight }]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
         <View style={styles.mapSheetHandle} />
       </View>
@@ -64,7 +69,15 @@ export function ExploreRouteDrawer({
           />
         </Pressable>
       </View>
-      {sheetSnap !== 'peek' ? (
+      {expanded ? (
+        <RoutePhotoCard
+          river={selectedRiver.river}
+          compact
+          height={82}
+          onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
+        />
+      ) : null}
+      {expanded ? (
         <View style={styles.mapPreviewFacts}>
           {drawerFactItems(selectedRiver).slice(0, 3).map((fact) => (
             <View key={fact} style={styles.mapPreviewFactPill}>
@@ -74,20 +87,19 @@ export function ExploreRouteDrawer({
         </View>
       ) : null}
       <View style={styles.mapSheetActions}>
-        {selectedDirectionsUrl ? (
-          <Pressable style={styles.mapDirectionsButton} onPress={() => void Linking.openURL(selectedDirectionsUrl)}>
-            <MaterialCommunityIcons name="directions" color={colors.surfaceStrong} size={18} />
-            <Text style={styles.mapDirectionsText}>Directions</Text>
-          </Pressable>
-        ) : null}
         <Pressable style={styles.mapPreviewOpenButton} onPress={() => onOpenRoute(selectedRiver.river.slug)}>
           <Text style={styles.mapPreviewOpenText}>Open route</Text>
         </Pressable>
+        {selectedDirectionsUrl ? (
+          <Pressable style={styles.mapDirectionsButton} onPress={() => void Linking.openURL(selectedDirectionsUrl)}>
+            <MaterialCommunityIcons name="directions" color={colors.accent} size={19} />
+          </Pressable>
+        ) : null}
         <Pressable style={styles.mapSheetSnapButton} onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}>
-          <Text style={styles.mapSheetSnapText}>{sheetSnap === 'full' ? 'Less' : 'More'}</Text>
+          <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
         </Pressable>
       </View>
-      {sheetSnap !== 'peek' ? (
+      {full ? (
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.selectedDetails}>
           <View style={styles.selectedStatGrid}>
             <DrawerStat label="Score" value={`${selectedRiver.score} / ${selectedRiver.rating}`} icon="chart-donut" />
@@ -101,7 +113,7 @@ export function ExploreRouteDrawer({
           </View>
         </ScrollView>
       ) : null}
-    </View>
+    </Animated.View>
   );
 }
 
@@ -127,41 +139,72 @@ function useMapSheetPanResponder(
   sheetSnap: MapSheetSnap,
   setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>
 ) {
-  const [dragOffset, setDragOffset] = useState(0);
+  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap))).current;
+  const currentSnapRef = useRef(sheetSnap);
+
+  useEffect(() => {
+    currentSnapRef.current = sheetSnap;
+    Animated.spring(animatedHeight, {
+      toValue: sheetHeightValue(sheetSnap),
+      useNativeDriver: false,
+      damping: 22,
+      stiffness: 210,
+      mass: 0.75,
+    }).start();
+  }, [animatedHeight, sheetSnap]);
+
   const panResponder = useMemo(
     () =>
       PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onMoveShouldSetPanResponder: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onMoveShouldSetPanResponderCapture: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
-        onPanResponderGrant: () => setDragOffset(0),
+        onPanResponderGrant: () => {
+          animatedHeight.stopAnimation();
+        },
         onPanResponderMove: (_event, gestureState) => {
-          setDragOffset(clampSheetDragOffset(sheetSnap, -gestureState.dy));
+          const baseHeight = sheetHeightValue(currentSnapRef.current);
+          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy));
         },
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
-          setDragOffset(0);
-          setSheetSnap(snapSheetAfterDrag(sheetSnap, gestureState.dy));
+          const nextSnap = snapSheetAfterDrag(currentSnapRef.current, gestureState.dy);
+          currentSnapRef.current = nextSnap;
+          setSheetSnap(nextSnap);
+          Animated.spring(animatedHeight, {
+            toValue: sheetHeightValue(nextSnap),
+            useNativeDriver: false,
+            damping: 22,
+            stiffness: 210,
+            mass: 0.75,
+          }).start();
         },
-        onPanResponderTerminate: () => setDragOffset(0),
+        onPanResponderTerminate: () => {
+          Animated.spring(animatedHeight, {
+            toValue: sheetHeightValue(currentSnapRef.current),
+            useNativeDriver: false,
+            damping: 22,
+            stiffness: 210,
+            mass: 0.75,
+          }).start();
+        },
       }),
-    [setSheetSnap, sheetSnap]
+    [animatedHeight, setSheetSnap]
   );
 
-  return { panHandlers: panResponder.panHandlers, dragOffset };
+  return { panHandlers: panResponder.panHandlers, animatedHeight };
 }
 
-function sheetHeightStyle(value: MapSheetSnap, dragOffset = 0, bottomInset = 0) {
+function sheetHeightStyle(_bottomInset = 0) {
   return {
-    height: clampSheetHeight(sheetHeightValue(value) + dragOffset) + bottomInset,
-    paddingBottom: spacing.md + bottomInset,
+    paddingBottom: spacing.sm,
   };
 }
 
 export function sheetHeightValue(value: MapSheetSnap) {
-  if (value === 'full') return 430;
-  if (value === 'half') return 310;
-  return 164;
+  if (value === 'full') return 452;
+  if (value === 'half') return 286;
+  return 138;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -182,11 +225,6 @@ function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
   }
 
   return value;
-}
-
-function clampSheetDragOffset(value: MapSheetSnap, dragOffset: number) {
-  const baseHeight = sheetHeightValue(value);
-  return clampSheetHeight(baseHeight + dragOffset) - baseHeight;
 }
 
 function clampSheetHeight(height: number) {
@@ -236,8 +274,8 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: colors.border,
     paddingHorizontal: spacing.md,
-    paddingBottom: spacing.md,
-    gap: spacing.sm,
+    paddingBottom: spacing.sm,
+    gap: 6,
     shadowColor: '#000',
     shadowOpacity: 0.18,
     shadowRadius: 18,
@@ -246,9 +284,9 @@ const styles = StyleSheet.create({
   },
   mapSheetHandleWrap: {
     alignItems: 'center',
-    paddingTop: spacing.md,
-    paddingBottom: spacing.sm,
-    minHeight: 32,
+    paddingTop: 9,
+    paddingBottom: 4,
+    minHeight: 18,
   },
   mapSheetHandle: {
     width: 42,
@@ -329,49 +367,37 @@ const styles = StyleSheet.create({
   mapPreviewOpenButton: {
     flex: 1,
     borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    minHeight: 38,
+    backgroundColor: colors.accent,
+    minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
   },
   mapPreviewOpenText: {
-    color: colors.accent,
+    color: colors.surfaceStrong,
     fontSize: 13,
     fontWeight: '900',
   },
   mapDirectionsButton: {
-    flex: 1,
+    width: 44,
     borderRadius: radius.pill,
-    backgroundColor: colors.accent,
-    minHeight: 38,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
+    minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 6,
-  },
-  mapDirectionsText: {
-    color: colors.surfaceStrong,
-    fontSize: 13,
-    fontWeight: '900',
   },
   mapSheetActions: {
     flexDirection: 'row',
     gap: spacing.sm,
   },
   mapSheetSnapButton: {
-    minWidth: 74,
+    width: 44,
     borderRadius: radius.pill,
     backgroundColor: colors.canvasMuted,
-    minHeight: 38,
+    minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  mapSheetSnapText: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
   },
   selectedDetails: {
     gap: spacing.sm,

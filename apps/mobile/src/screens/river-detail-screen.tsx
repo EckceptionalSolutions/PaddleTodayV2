@@ -39,6 +39,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
+import { RoutePhotoCard } from '../components/route-photo-card';
 import { RouteReportSheet, type SelectedReportPhoto } from '../components/route-report-sheet';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SaveToggleButton } from '../components/save-toggle-button';
@@ -58,13 +59,14 @@ import {
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { captureAppException, trackAppEvent } from '../lib/observability';
+import {
+  normalizeReportPhotoAsset,
+  ROUTE_REPORT_MAX_PHOTOS,
+} from '../lib/report-photos';
 import { useAlertPreferences } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
-const ROUTE_REPORT_MAX_PHOTOS = 4;
-const ROUTE_REPORT_MAX_PHOTO_BYTES = 4 * 1024 * 1024;
-const ROUTE_REPORT_ALLOWED_IMAGE_TYPES = new Set(['image/jpeg', 'image/png', 'image/webp']);
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
@@ -230,24 +232,24 @@ export default function RiverDetailScreen() {
       const selected: SelectedReportPhoto[] = [];
       let skipped = 0;
 
-      result.assets.slice(0, remainingSlots).forEach((asset, index) => {
-        const normalized = normalizeReportPhotoAsset(asset, index);
+      for (const [index, asset] of result.assets.slice(0, remainingSlots).entries()) {
+        const normalized = await normalizeReportPhotoAsset(asset, index);
         if (normalized) {
           selected.push(normalized);
         } else {
           skipped += 1;
         }
-      });
+      }
 
       if (selected.length > 0) {
         setReportPhotos((current) => [...current, ...selected].slice(0, ROUTE_REPORT_MAX_PHOTOS));
         setReportStatus(
           skipped > 0
-            ? `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}. Some files were skipped.`
+            ? `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}. Some photos could not be added.`
             : `Added ${selected.length} photo${selected.length === 1 ? '' : 's'}.`
         );
       } else if (skipped > 0) {
-        setReportStatus('Those photos could not be attached. Use JPEG, PNG, or WebP under 4 MB.');
+        setReportStatus('Those photos could not be added.');
       }
     } catch {
       setReportStatus('Photos could not be opened. You can still send a text-only report.');
@@ -346,7 +348,7 @@ export default function RiverDetailScreen() {
       <ScrollView
         style={styles.screen}
         contentContainerStyle={[styles.content, { paddingBottom: spacing.xl + Math.max(insets.bottom, spacing.md) }]}
-        stickyHeaderIndices={[1]}
+        stickyHeaderIndices={[2]}
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -355,6 +357,16 @@ export default function RiverDetailScreen() {
           />
         }
       >
+        <RoutePhotoCard
+          river={detail.river}
+          height={126}
+          showCaption={false}
+          onContributePhotos={() => {
+            trackAppEvent('route_photo_contribution_started', { slug: riverSlug, source: 'route_detail' });
+            router.push({ pathname: '/contribute-photo/[slug]', params: { slug: riverSlug } });
+          }}
+        />
+
         <View style={styles.hero}>
           <View style={styles.heroHeader}>
             <View style={styles.heroScore}>
@@ -368,6 +380,7 @@ export default function RiverDetailScreen() {
                   <Text style={styles.title}>{detail.river.reach}</Text>
                 </View>
                 <SaveToggleButton
+                  compact
                   saved={isSaved(detail.river.slug)}
                   onPress={() =>
                     void toggleSavedRiver({
@@ -382,15 +395,7 @@ export default function RiverDetailScreen() {
               <Text style={styles.subtitle}>
                 {verdictForRating(detail.rating)} - {detailMessageForRating(detail.rating)}
               </Text>
-              <View style={styles.routeFactRow}>
-                {routeHeroFacts(detail).map((fact) => (
-                  <View key={fact.label} style={styles.routeFactPill}>
-                    <MaterialCommunityIcons name={fact.icon as never} color={colors.accent} size={17} />
-                    <Text style={styles.routeFactValue}>{fact.value}</Text>
-                    <Text style={styles.routeFactLabel}>{fact.label}</Text>
-                  </View>
-                ))}
-              </View>
+              <Text style={styles.routeMetaLine} numberOfLines={2}>{routeHeroLine(detail)}</Text>
               <View style={styles.heroMeta}>
                 <RatingPill rating={detail.rating} />
                 <StatusPill status={detail.liveData.overall} />
@@ -399,13 +404,11 @@ export default function RiverDetailScreen() {
           </View>
           <DecisionSummary detail={detail} />
           <DecisionStrip detail={detail} onDirections={() => openPrimaryDirections(detail)} />
-          <View style={styles.heroFooter}>
-            <Text style={styles.heroFooterText}>{detail.gaugeBandLabel}</Text>
-            <Text style={styles.heroFooterText}>{detail.confidence.label} confidence</Text>
-            {detail.liveData.overall !== 'live' ? (
+          {detail.liveData.overall !== 'live' ? (
+            <View style={styles.heroFooter}>
               <Text style={styles.heroFooterWarning}>{normalizeApiText(detail.liveData.summary)}</Text>
-            ) : null}
-          </View>
+            </View>
+          ) : null}
         </View>
 
         <View style={styles.sectionTabsSticky}>
@@ -507,7 +510,25 @@ export default function RiverDetailScreen() {
 
             <View style={styles.reportCta}>
               <View style={styles.reportCtaCopy}>
-                <Text style={styles.reportCtaTitle}>Add route intel</Text>
+                <Text style={styles.reportCtaTitle}>Contribute route photos</Text>
+                <Text style={styles.reportCtaText}>
+                  Add access, condition, and route photos with an optional caption. Photos are reviewed before publishing.
+                </Text>
+              </View>
+              <Pressable
+                style={styles.reportCtaButton}
+                onPress={() => {
+                  trackAppEvent('route_photo_contribution_started', { slug: riverSlug, source: 'reports_section' });
+                  router.push({ pathname: '/contribute-photo/[slug]', params: { slug: riverSlug } });
+                }}
+              >
+                <Text style={styles.reportCtaButtonText}>Photos</Text>
+              </Pressable>
+            </View>
+
+            <View style={styles.reportCta}>
+              <View style={styles.reportCtaCopy}>
+                <Text style={styles.reportCtaTitle}>Add a full report</Text>
                 <Text style={styles.reportCtaText}>
                   Send access notes, wood, pace, level context, or optional photos. Reports are reviewed before anything appears publicly.
                 </Text>
@@ -699,68 +720,6 @@ export default function RiverDetailScreen() {
   );
 }
 
-function normalizeReportPhotoAsset(asset: ImagePicker.ImagePickerAsset, index: number): SelectedReportPhoto | null {
-  const type = normalizeImageMimeType(asset.mimeType, asset.fileName, asset.uri);
-  const size = asset.fileSize ?? estimateBase64ByteSize(asset.base64);
-
-  if (!asset.base64 || !type || !ROUTE_REPORT_ALLOWED_IMAGE_TYPES.has(type)) {
-    return null;
-  }
-
-  if (!Number.isFinite(size) || size <= 0 || size > ROUTE_REPORT_MAX_PHOTO_BYTES) {
-    return null;
-  }
-
-  const name = asset.fileName || `route-photo-${index + 1}.${extensionForMimeType(type)}`;
-  const base64 = asset.base64.startsWith('data:') ? asset.base64.split(',').pop() ?? '' : asset.base64;
-
-  if (!base64) {
-    return null;
-  }
-
-  return {
-    id: `${asset.assetId ?? asset.uri}-${Date.now()}-${index}`,
-    uri: asset.uri,
-    name,
-    type,
-    size,
-    dataUrl: `data:${type};base64,${base64}`,
-  };
-}
-
-function normalizeImageMimeType(
-  mimeType: string | null | undefined,
-  fileName: string | null | undefined,
-  uri: string
-) {
-  const normalized = mimeType?.toLowerCase();
-  if (normalized && ROUTE_REPORT_ALLOWED_IMAGE_TYPES.has(normalized)) {
-    return normalized;
-  }
-
-  const source = (fileName || uri).toLowerCase();
-  if (source.endsWith('.png')) return 'image/png';
-  if (source.endsWith('.webp')) return 'image/webp';
-  if (source.endsWith('.jpg') || source.endsWith('.jpeg')) return 'image/jpeg';
-  return null;
-}
-
-function extensionForMimeType(type: string) {
-  if (type === 'image/png') return 'png';
-  if (type === 'image/webp') return 'webp';
-  return 'jpg';
-}
-
-function estimateBase64ByteSize(base64: string | null | undefined) {
-  if (!base64) {
-    return 0;
-  }
-
-  const encoded = base64.startsWith('data:') ? base64.split(',').pop() ?? '' : base64;
-  const padding = encoded.endsWith('==') ? 2 : encoded.endsWith('=') ? 1 : 0;
-  return Math.floor((encoded.length * 3) / 4) - padding;
-}
-
 function decisionSummaryItems(detail: RiverDetailApiResult) {
   const checklistByLabel = new Map(detail.checklist.map((item) => [item.label, item]));
   const warnings = detail.checklist.filter((item) => item.status !== 'go');
@@ -800,13 +759,26 @@ function beforeCommittingText(detail: RiverDetailApiResult) {
     : `Open the source and confirm the latest gauge before relying on this call.${routeContext}`;
 }
 
-function routeHeroFacts(detail: RiverDetailApiResult) {
+function routeHeroLine(detail: RiverDetailApiResult) {
   return [
-    { label: 'Length', value: detail.river.distanceLabel || 'Unknown', icon: 'map-marker-distance' },
-    { label: 'Time', value: detail.river.estimatedPaddleTime || 'Unknown', icon: 'clock-outline' },
-    { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
-    { label: 'Camping', value: shortLogisticsValue(detail.river.logistics?.camping), icon: 'tent' },
-  ];
+    detail.river.distanceLabel || null,
+    compactPaddleTime(detail.river.estimatedPaddleTime),
+    `${capitalize(detail.river.profile.difficulty)} difficulty`,
+  ].filter(Boolean).join(' - ');
+}
+
+function compactPaddleTime(value: string) {
+  if (!value) return null;
+  return value
+    .replace(/^About\s+/i, '')
+    .replace(/roughly\s+/i, '')
+    .replace(/\s+depending.*$/i, '')
+    .replace(/\s+longer.*$/i, '')
+    .replace(/\s+hr\b/gi, 'h')
+    .replace(/\s+min\b/gi, 'm')
+    .replace(/\s+to\s+/gi, '-')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function decisionStatement(detail: RiverDetailApiResult) {
@@ -849,7 +821,7 @@ function trendValue(detail: RiverDetailApiResult) {
 }
 
 function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
-  const items = decisionSummaryItems(detail);
+  const items = decisionSummaryItems(detail).slice(0, 2);
   return (
     <View style={styles.decisionSummary}>
       <View style={styles.decisionSummaryHeader}>
@@ -863,7 +835,7 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
             <View style={[styles.decisionBulletDot, item.tone]} />
             <View style={styles.decisionBulletCopy}>
               <Text style={styles.decisionBulletLabel}>{item.label}</Text>
-              <Text style={styles.decisionBulletText}>{item.text}</Text>
+              <Text style={styles.decisionBulletText} numberOfLines={2}>{item.text}</Text>
             </View>
           </View>
         ))}
@@ -1679,29 +1651,29 @@ const styles = StyleSheet.create({
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    padding: spacing.md,
-    gap: spacing.md,
+    padding: spacing.sm,
+    gap: spacing.sm,
   },
   heroHeader: {
     flexDirection: 'row',
-    gap: spacing.md,
+    gap: spacing.sm,
   },
   heroScore: {
-    width: 68,
-    height: 68,
-    borderRadius: 20,
+    width: 58,
+    height: 58,
+    borderRadius: 17,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
     justifyContent: 'center',
   },
   scoreValue: {
     color: colors.accentDeep,
-    fontSize: 28,
+    fontSize: 24,
     fontWeight: '800',
   },
   scoreLabel: {
     color: colors.textMuted,
-    fontSize: 11,
+    fontSize: 10,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
@@ -1712,7 +1684,7 @@ const styles = StyleSheet.create({
   heroTitleRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    gap: spacing.md,
+    gap: spacing.sm,
     alignItems: 'flex-start',
   },
   heroTitleCopy: {
@@ -1721,64 +1693,40 @@ const styles = StyleSheet.create({
   },
   kicker: {
     color: colors.accentDeep,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '700',
     textTransform: 'uppercase',
     letterSpacing: 0.4,
   },
   title: {
     color: colors.text,
-    fontSize: 21,
-    lineHeight: 26,
+    fontSize: 19,
+    lineHeight: 23,
     fontWeight: '900',
   },
   subtitle: {
     color: colors.textMuted,
-    fontSize: 14,
-    lineHeight: 20,
+    fontSize: 13,
+    lineHeight: 18,
     fontWeight: '600',
   },
-  routeFactRow: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.xs,
-  },
-  routeFactPill: {
-    flex: 1,
-    flexBasis: 90,
-    minHeight: 48,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-    justifyContent: 'center',
-    alignItems: 'flex-start',
-    gap: 2,
-  },
-  routeFactValue: {
+  routeMetaLine: {
     color: colors.text,
     fontSize: 12,
-    fontWeight: '900',
-  },
-  routeFactLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
+    lineHeight: 17,
+    fontWeight: '800',
   },
   heroMeta: {
     flexDirection: 'row',
     flexWrap: 'wrap',
-    gap: spacing.sm,
-    marginTop: spacing.sm,
+    gap: spacing.xs,
+    marginTop: spacing.xs,
   },
   decisionSummary: {
     backgroundColor: colors.surface,
     borderRadius: radius.md,
-    padding: spacing.md,
-    gap: spacing.sm,
+    padding: spacing.sm,
+    gap: spacing.xs,
   },
   decisionSummaryHeader: {
     flexDirection: 'row',
@@ -1800,22 +1748,22 @@ const styles = StyleSheet.create({
   },
   decisionSummaryTitle: {
     color: colors.text,
-    fontSize: 17,
-    lineHeight: 22,
+    fontSize: 15,
+    lineHeight: 19,
     fontWeight: '900',
   },
   decisionBulletList: {
-    gap: spacing.sm,
+    gap: spacing.xs,
   },
   decisionBullet: {
     flexDirection: 'row',
     gap: spacing.sm,
   },
   decisionBulletDot: {
-    width: 9,
-    height: 9,
-    borderRadius: 5,
-    marginTop: 6,
+    width: 8,
+    height: 8,
+    borderRadius: 4,
+    marginTop: 5,
   },
   decisionBulletCopy: {
     flex: 1,
@@ -1823,13 +1771,13 @@ const styles = StyleSheet.create({
   },
   decisionBulletLabel: {
     color: colors.text,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '900',
   },
   decisionBulletText: {
     color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
+    fontSize: 12,
+    lineHeight: 16,
   },
   decisionStrip: {
     backgroundColor: colors.surfaceStrong,
@@ -1845,7 +1793,7 @@ const styles = StyleSheet.create({
   decisionStripItem: {
     flex: 1,
     minWidth: 0,
-    minHeight: 74,
+    minHeight: 62,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
     paddingHorizontal: 7,
@@ -1855,16 +1803,16 @@ const styles = StyleSheet.create({
     gap: 3,
   },
   decisionStripIcon: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
+    width: 23,
+    height: 23,
+    borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
   },
   decisionStripValue: {
     color: colors.text,
-    fontSize: 12,
-    lineHeight: 15,
+    fontSize: 11,
+    lineHeight: 14,
     fontWeight: '900',
     textAlign: 'center',
   },
@@ -1877,7 +1825,7 @@ const styles = StyleSheet.create({
   },
   decisionStripInlineAction: {
     minWidth: 74,
-    minHeight: 74,
+    minHeight: 62,
     borderRadius: radius.md,
     borderWidth: 1,
     borderColor: colors.accent,
@@ -2468,6 +2416,144 @@ const styles = StyleSheet.create({
     color: colors.accentDeep,
     fontSize: 12,
     fontWeight: '700',
+  },
+  quickPhotoForm: {
+    gap: spacing.sm,
+  },
+  quickPhotoInputGrid: {
+    gap: spacing.sm,
+  },
+  quickPhotoInput: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    color: colors.text,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    fontSize: 15,
+  },
+  quickPhotoPanel: {
+    backgroundColor: colors.surface,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  quickPhotoHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  quickPhotoCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  quickPhotoTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  quickPhotoMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 16,
+  },
+  quickPhotoAddButton: {
+    minHeight: 38,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+  },
+  quickPhotoAddText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  quickPhotoButtonDisabled: {
+    opacity: 0.6,
+  },
+  quickPhotoStrip: {
+    gap: spacing.sm,
+    paddingRight: spacing.sm,
+  },
+  quickPhotoThumbCard: {
+    width: 104,
+    gap: 6,
+  },
+  quickPhotoThumb: {
+    width: 104,
+    height: 82,
+    borderRadius: radius.md,
+    backgroundColor: colors.canvasMuted,
+  },
+  quickPhotoRemove: {
+    alignItems: 'center',
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingVertical: 6,
+    backgroundColor: colors.surfaceStrong,
+  },
+  quickPhotoRemoveText: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  quickPhotoEmpty: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+  },
+  quickPhotoConsentRow: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.sm,
+    paddingVertical: spacing.xs,
+  },
+  quickPhotoCheckbox: {
+    width: 22,
+    height: 22,
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 1,
+  },
+  quickPhotoCheckboxChecked: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  quickPhotoConsentText: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  quickPhotoSubmitButton: {
+    minHeight: 42,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.lg,
+  },
+  quickPhotoSubmitText: {
+    color: colors.surfaceStrong,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  quickPhotoStatus: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
   },
   reportCta: {
     backgroundColor: colors.accentSoft,

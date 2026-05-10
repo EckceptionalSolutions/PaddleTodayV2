@@ -27,6 +27,7 @@
         "backgroundColor": "#f4f1e8"
       },
       "edgeToEdgeEnabled": false,
+      "softwareKeyboardLayoutMode": "resize",
       "predictiveBackGestureEnabled": false,
       "package": "com.paddletoday.mobile",
       "versionCode": 1
