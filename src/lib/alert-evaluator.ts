@@ -6,6 +6,7 @@ import {
   type RiverThresholdAlert,
 } from './alerts';
 import { sendRiverAlertEmail } from './alert-email';
+import { sendRiverAlertPush } from './alert-push';
 import { getStoredRiverDetailSnapshot, type RiverDetailSnapshot } from './river-snapshots';
 import type { ConfidenceLabel, ScoreRating } from './types';
 
@@ -28,6 +29,8 @@ export async function evaluateRiverAlerts(args: {
     skipped: 0,
     emailsSent: 0,
     emailFailures: 0,
+    pushesSent: 0,
+    pushFailures: 0,
     resetToBelow: 0,
     stayedAbove: 0,
   };
@@ -96,10 +99,9 @@ export async function evaluateRiverAlerts(args: {
     }
 
     try {
-      const delivery = await sendRiverAlertEmail({
-        alert,
-        snapshot: evaluation.snapshot,
-      });
+      const delivery = alert.deliveryMethod === 'push'
+        ? await sendRiverAlertPush({ alert, snapshot: evaluation.snapshot })
+        : await sendRiverAlertEmail({ alert, snapshot: evaluation.snapshot });
       await appendRiverAlertEvent({
         alertId: alert.id,
         riverId: alert.riverId,
@@ -121,18 +123,27 @@ export async function evaluateRiverAlerts(args: {
         riverSlug: alert.riverSlug,
         threshold: alert.threshold,
         provider: delivery.provider,
-        emailId: delivery.id,
+        deliveryId: delivery.id,
       });
       stats.triggered += 1;
-      stats.emailsSent += 1;
+      if (alert.deliveryMethod === 'push') {
+        stats.pushesSent += 1;
+      } else {
+        stats.emailsSent += 1;
+      }
     } catch (error) {
-      console.error('[alerts] email failed', {
+      console.error('[alerts] delivery failed', {
         alertId: alert.id,
         riverSlug: alert.riverSlug,
         threshold: alert.threshold,
+        deliveryMethod: alert.deliveryMethod ?? 'email',
         error,
       });
-      stats.emailFailures += 1;
+      if (alert.deliveryMethod === 'push') {
+        stats.pushFailures += 1;
+      } else {
+        stats.emailFailures += 1;
+      }
     }
   }
 

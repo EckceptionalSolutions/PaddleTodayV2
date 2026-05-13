@@ -10,7 +10,8 @@
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "https://paddletoday.com",
         "EXPO_PUBLIC_APP_ENV": "development",
-        "EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE": "0"
+        "EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE": "0",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       },
       "ios": {
         "resourceClass": "m-medium"
@@ -24,7 +25,8 @@
       "env": {
         "EXPO_PUBLIC_API_BASE_URL": "https://paddletoday.com",
         "EXPO_PUBLIC_APP_ENV": "preview",
-        "EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE": "0"
+        "EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE": "0",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       },
       "ios": {
         "resourceClass": "m-medium"

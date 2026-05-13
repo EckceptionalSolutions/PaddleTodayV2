@@ -58,6 +58,7 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
+import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
   normalizeReportPhotoAsset,
@@ -84,7 +85,7 @@ export default function RiverDetailScreen() {
   const { email: storedEmail, setEmail } = useAlertPreferences();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [draftEmail, setDraftEmail] = useState(storedEmail);
-  const [alertStatus, setAlertStatus] = useState('Alerts only email on a new threshold crossing.');
+  const [alertStatus, setAlertStatus] = useState('Choose native notifications or email for route alerts.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -196,6 +197,50 @@ export default function RiverDetailScreen() {
         error instanceof PaddleTodayApiError && error.message
           ? error.message
           : `Could not save the ${alertThresholdLabel(threshold)} alert right now.`
+      );
+    } finally {
+      setPendingThreshold(null);
+    }
+  }
+
+  async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
+    setPendingThreshold(threshold);
+    try {
+      trackAppEvent('native_alert_create_started', {
+        slug: riverSlug,
+        threshold,
+      });
+      const registration = await registerForRiverAlertPushNotifications();
+      if (!registration.ok || !registration.expoPushToken) {
+        setAlertStatus(registration.message);
+        return;
+      }
+
+      const response = await createAlertMutation.mutateAsync({
+        riverSlug,
+        threshold,
+        deliveryMethod: 'push',
+        expoPushToken: registration.expoPushToken,
+      });
+      trackAppEvent('native_alert_create_succeeded', {
+        slug: riverSlug,
+        threshold,
+        duplicate: response.duplicate,
+        reactivated: response.reactivated,
+      });
+      setAlertStatus(alertMutationMessage(response, threshold, 'push'));
+    } catch (error) {
+      captureAppException(error, {
+        name: 'native_alert_create_failed',
+        extra: {
+          slug: riverSlug,
+          threshold,
+        },
+      });
+      setAlertStatus(
+        error instanceof PaddleTodayApiError && error.message
+          ? error.message
+          : `Could not save the ${alertThresholdLabel(threshold)} native alert right now.`
       );
     } finally {
       setPendingThreshold(null);
@@ -651,8 +696,29 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Route alerts"
-              subtitle="Email only when this route crosses your chosen threshold. Every alert email includes an unsubscribe link."
+              subtitle="Get notified when this route crosses your chosen threshold. Native alerts require notification permission."
             >
+              <View style={styles.alertButtonRow}>
+                {(['good', 'strong'] as const).map((threshold) => {
+                  const isPending = pendingThreshold === threshold && createAlertMutation.isPending;
+                  return (
+                    <Pressable
+                      key={`native-${threshold}`}
+                      style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
+                      disabled={isPending}
+                      onPress={() => void submitNativeRiverAlert(threshold)}
+                    >
+                      <Text style={styles.alertButtonText}>
+                        {isPending ? 'Saving...' : `Native at ${alertThresholdLabel(threshold)}`}
+                      </Text>
+                    </Pressable>
+                  );
+                })}
+              </View>
+              <Text style={styles.alertHelper}>
+                Native alerts open this route when tapped. Android push notifications require a development or preview build, not Expo Go.
+              </Text>
+              <Text style={styles.alertEmailLabel}>Email fallback</Text>
               <TextInput
                 autoCapitalize="none"
                 autoCorrect={false}
@@ -2349,6 +2415,12 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     lineHeight: 17,
+  },
+  alertEmailLabel: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+    marginTop: spacing.sm,
   },
   communityPhotoStrip: {
     gap: spacing.sm,

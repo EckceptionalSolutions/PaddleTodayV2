@@ -1,7 +1,7 @@
 import type { RiverDetailApiResult, ScoreBreakdown } from '@paddletoday/api-contract';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useMemo, useState } from 'react';
-import { ActivityIndicator, ImageBackground, Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
 import { SectionCard } from '../components/section-card';
@@ -67,12 +67,32 @@ export default function RiverHubScreen() {
     });
   }
 
+  function renderRoute({ item: route, index }: { item: RiverDetailApiResult; index: number }) {
+    return (
+      <RouteChoiceCard
+        route={route}
+        rank={index + 1}
+        recommended={index === 0}
+        expanded={expandedRoutes.has(route.river.slug)}
+        onToggleExpanded={() => toggleExpandedRoute(route.river.slug)}
+        onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
+      />
+    );
+  }
+
   return (
     <>
       <Stack.Screen options={{ title: result.group.name }} />
-      <ScrollView
+      <FlatList
+        data={routes}
+        keyExtractor={(route) => route.river.slug}
+        renderItem={renderRoute}
         style={styles.screen}
         contentContainerStyle={styles.content}
+        initialNumToRender={8}
+        maxToRenderPerBatch={6}
+        windowSize={7}
+        removeClippedSubviews
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -80,41 +100,36 @@ export default function RiverHubScreen() {
             onRefresh={() => groupQuery.refetch()}
           />
         }
-      >
-        <View style={styles.hero}>
-          <Text style={styles.kicker}>{result.group.stateSummary}</Text>
-          <Text style={styles.title}>{result.group.name} Routes</Text>
-          <Text style={styles.subtitle}>{hubStatusLine(summary)}</Text>
-          <View style={styles.heroMeta}>
-            <MetricPill label="Routes" value={String(result.group.routeCount)} />
-            <MetricPill label="Updated" value={compactUpdatedLabel(groupQuery.data?.generatedAt)} />
-            <MetricPill label="Paddleable" value={String(summary.paddleable)} />
-            <MetricPill label="Skip" value={String(summary.skip)} />
-          </View>
-        </View>
+        ListHeaderComponent={
+          <>
+            <View style={styles.hero}>
+              <Text style={styles.kicker}>{result.group.stateSummary}</Text>
+              <Text style={styles.title}>{result.group.name} Routes</Text>
+              <Text style={styles.subtitle}>{hubStatusLine(summary)}</Text>
+              <View style={styles.heroMeta}>
+                <MetricPill label="Routes" value={String(result.group.routeCount)} />
+                <MetricPill label="Updated" value={compactUpdatedLabel(groupQuery.data?.generatedAt)} />
+                <MetricPill label="Paddleable" value={String(summary.paddleable)} />
+                <MetricPill label="Skip" value={String(summary.skip)} />
+              </View>
+            </View>
 
-        <SectionCard title="Choose a stretch" subtitle={comparisonSubtitle(summary)}>
-          <View style={styles.routeList}>
-            {routes.map((route, index) => (
-              <RouteChoiceCard
-                key={route.river.slug}
-                route={route}
-                rank={index + 1}
-                recommended={index === 0}
-                expanded={expandedRoutes.has(route.river.slug)}
-                onToggleExpanded={() => toggleExpandedRoute(route.river.slug)}
-                onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
-              />
-            ))}
+            <View style={styles.listIntro}>
+              <Text style={styles.listIntroTitle}>Choose a stretch</Text>
+              <Text style={styles.listIntroSubtitle}>{comparisonSubtitle(summary)}</Text>
+            </View>
+          </>
+        }
+        ListFooterComponent={
+          <View style={styles.footerSection}>
+            <SectionCard title="Route score map" subtitle="Approximate put-ins by today's score.">
+              <View style={styles.mapFrame}>
+                <RoutePlotMap points={routePoints} selectedId={bestRoute?.river.slug ?? null} height={158} showFooter={false} fullBleed />
+              </View>
+            </SectionCard>
           </View>
-        </SectionCard>
-
-        <SectionCard title="Route score map" subtitle="Approximate put-ins by today's score.">
-          <View style={styles.mapFrame}>
-            <RoutePlotMap points={routePoints} selectedId={bestRoute?.river.slug ?? null} height={158} showFooter={false} fullBleed />
-          </View>
-        </SectionCard>
-      </ScrollView>
+        }
+      />
     </>
   );
 }
@@ -443,8 +458,28 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     backgroundColor: colors.canvasMuted,
   },
-  routeList: {
-    gap: spacing.sm,
+  listIntro: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+    gap: 3,
+    ...shadow,
+  },
+  listIntroTitle: {
+    color: colors.text,
+    fontSize: 18,
+    lineHeight: 23,
+    fontWeight: '900',
+  },
+  listIntroSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  footerSection: {
+    marginTop: spacing.md,
   },
   routeCard: {
     backgroundColor: colors.surface,

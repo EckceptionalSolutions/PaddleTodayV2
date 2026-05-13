@@ -17,6 +17,7 @@ export type SourceProvider =
 export type RouteType = 'recreational' | 'whitewater';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
+export type RiverAlertDeliveryMethod = 'email' | 'push';
 export type GaugeBand =
   | 'ideal'
   | 'low-shoulder'
@@ -471,7 +472,9 @@ export interface RouteCommunityResponse {
 }
 
 export interface CreateRiverAlertRequest {
-  email: string;
+  email?: string;
+  expoPushToken?: string;
+  deliveryMethod?: RiverAlertDeliveryMethod;
   riverSlug: string;
   threshold: RiverAlertThreshold;
   company?: string;
@@ -487,6 +490,7 @@ export interface CreateRiverAlertResponse {
     threshold: RiverAlertThreshold;
     riverSlug: string;
     lastState: RiverAlertState;
+    deliveryMethod: RiverAlertDeliveryMethod;
   };
 }
 

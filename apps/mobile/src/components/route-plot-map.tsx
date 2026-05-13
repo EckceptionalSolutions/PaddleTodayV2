@@ -53,6 +53,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     longitudeDelta: initialRegion.longitudeDelta,
   });
   const showScoreMarkers = shouldShowScoreMarkers(regionDelta.latitudeDelta, visiblePoints.length);
+  const [trackMarkerViews, setTrackMarkerViews] = useState(true);
 
   function focusSelected() {
     if (!nativeMaps || !selectedPoint) {
@@ -113,6 +114,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     focusAll();
   }, [nativeMaps, pointSignature, userLocation]);
 
+  useEffect(() => {
+    if (!nativeMaps) {
+      return;
+    }
+
+    setTrackMarkerViews(true);
+    const timeout = setTimeout(() => setTrackMarkerViews(false), 450);
+    return () => clearTimeout(timeout);
+  }, [nativeMaps, pointSignature, selectedId, showScoreMarkers]);
+
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;
     const Marker = nativeMaps.Marker;
@@ -123,9 +134,18 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
-          onRegionChangeComplete={(region) =>
-            setRegionDelta({ latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta })
-          }
+          onRegionChangeComplete={(region) => {
+            setRegionDelta((current) => {
+              if (
+                Math.abs(current.latitudeDelta - region.latitudeDelta) < 0.01 &&
+                Math.abs(current.longitudeDelta - region.longitudeDelta) < 0.01
+              ) {
+                return current;
+              }
+
+              return { latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta };
+            });
+          }}
           showsUserLocation={false}
           showsCompass
           showsScale
@@ -168,7 +188,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                 zIndex={selected ? 10 : 1}
                 anchor={{ x: 0.5, y: 0.5 }}
                 centerOffset={{ x: 0, y: 0 }}
-                tracksViewChanges
+                tracksViewChanges={trackMarkerViews}
               >
                 <View
                   style={[

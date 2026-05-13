@@ -27,15 +27,21 @@
     "apps/mobile": {
       "ignoreDependencies": [
         "@expo/vector-icons",
+        "@expo/ngrok",
         "@paddletoday/api-client",
         "@paddletoday/api-contract",
         "@react-native-async-storage/async-storage",
         "@react-navigation/native",
+        "@sentry/react-native",
         "@tanstack/query-async-storage-persister",
         "@tanstack/react-query",
         "@tanstack/react-query-persist-client",
+        "expo-image-manipulator",
+        "expo-image-picker",
         "expo-location",
+        "expo-notifications",
         "expo-status-bar",
+        "react-native-maps",
         "react-native-worklets"
       ],
       "entry": [
