@@ -203,7 +203,7 @@ describe('api-contract serializers', () => {
     expect(detail.river.routeType).toBe('whitewater');
   });
 
-  it('strips non-live editorial fields from the detail payload', () => {
+  it('strips non-live editorial fields from the detail payload while keeping route logistics', () => {
     const scored = scoreRiverCondition({
       river: baseRiver,
       gauge,
@@ -226,7 +226,7 @@ describe('api-contract serializers', () => {
     expect('statusText' in detail.river).toBe(false);
     expect('sourceLinks' in detail.river).toBe(false);
     expect('evidenceNotes' in detail.river).toBe(false);
-    expect('logistics' in detail.river).toBe(false);
+    expect(detail.river.logistics?.shuttle).toBe('Simple car shuttle');
   });
 
   it('badges American Whitewater threshold evidence separately from the live USGS gauge', () => {

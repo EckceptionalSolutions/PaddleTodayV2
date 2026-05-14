@@ -4,7 +4,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export type ExploreSort = 'best' | 'nearest' | 'confidence' | 'score' | 'name';
 
-const sortOptions: Array<{ value: ExploreSort; label: string }> = [
+export const sortOptions: Array<{ value: ExploreSort; label: string }> = [
   { value: 'best', label: 'Recommended' },
   { value: 'nearest', label: 'Nearest' },
   { value: 'confidence', label: 'Confidence' },
@@ -111,7 +111,11 @@ export function ChoiceChip({
 }) {
   return (
     <Pressable
-      style={[styles.choiceChip, selected ? styles.choiceChipSelected : null]}
+      style={({ pressed }) => [
+        styles.choiceChip,
+        selected ? styles.choiceChipSelected : null,
+        pressed ? styles.choiceChipPressed : null,
+      ]}
       onPress={onPress}
       android_ripple={{ color: colors.canvasMuted }}
     >
@@ -201,14 +205,21 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
   },
   choiceChip: {
-    minHeight: 34,
+    minHeight: 38,
     borderRadius: radius.pill,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: '#C8BDAB',
     backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: 12,
+    paddingHorizontal: 14,
     alignItems: 'center',
     justifyContent: 'center',
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 7,
+    elevation: 2,
+  },
+  choiceChipPressed: {
+    opacity: 0.82,
   },
   choiceChipSelected: {
     backgroundColor: colors.accent,

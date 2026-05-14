@@ -2162,6 +2162,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-little-white-dog-carry-in-cottingham-county-park': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.58698,
+      longitude: -94.82262,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.5044417,
+      longitude: -94.8107221,
+    },
+    logistics: {
+      distanceLabel: '9.8 river mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
+      shuttle:
+        'Standard Wadena County self-shuttle. Confirm the Cottingham parking and camping setup before leaving a vehicle, especially if you are pairing the paddle with an overnight.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp.',
+      camping:
+        'MN DNR identifies primitive camping/rest-area context at both Little White Dog and Cottingham. Confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
+      summary:
+        'Launch at Little White Dog and finish at Cottingham County Park for the DNR-recommended Crow Wing day trip. The river character is friendly, but use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
+      accessCaveats: [
+        'Both endpoints are named by MN DNR and backed by Wadena County campground/access pages, but saved coordinates should still defer to on-site signage.',
+        'Cottingham and Little White Dog are county campground/access sites, so parking, camping, fees, and seasonal details should be checked before the shuttle.',
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
+        'Fresh wood, strainers, and debris after high water.',
+        'Tubing traffic on popular summer weekends in the lower part of the route.',
+      ],
+    },
+  },
   'menomonee-river-hoyt-park-bluemound': {
     putIn: {
       name: 'Hoyt Park / TOSA Pool river access',

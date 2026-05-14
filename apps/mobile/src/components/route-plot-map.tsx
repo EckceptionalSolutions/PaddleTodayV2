@@ -53,6 +53,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     longitudeDelta: initialRegion.longitudeDelta,
   });
   const showScoreMarkers = shouldShowScoreMarkers(regionDelta.latitudeDelta, visiblePoints.length);
+  const [trackMarkerViews, setTrackMarkerViews] = useState(true);
 
   function focusSelected() {
     if (!nativeMaps || !selectedPoint) {
@@ -113,6 +114,16 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     focusAll();
   }, [nativeMaps, pointSignature, userLocation]);
 
+  useEffect(() => {
+    if (!nativeMaps) {
+      return;
+    }
+
+    setTrackMarkerViews(true);
+    const timeout = setTimeout(() => setTrackMarkerViews(false), 450);
+    return () => clearTimeout(timeout);
+  }, [nativeMaps, pointSignature, selectedId, showScoreMarkers]);
+
   if (nativeMaps && visiblePoints.length > 0) {
     const MapView = nativeMaps.default;
     const Marker = nativeMaps.Marker;
@@ -123,9 +134,18 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
-          onRegionChangeComplete={(region) =>
-            setRegionDelta({ latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta })
-          }
+          onRegionChangeComplete={(region) => {
+            setRegionDelta((current) => {
+              if (
+                Math.abs(current.latitudeDelta - region.latitudeDelta) < 0.01 &&
+                Math.abs(current.longitudeDelta - region.longitudeDelta) < 0.01
+              ) {
+                return current;
+              }
+
+              return { latitudeDelta: region.latitudeDelta, longitudeDelta: region.longitudeDelta };
+            });
+          }}
           showsUserLocation={false}
           showsCompass
           showsScale
@@ -145,14 +165,13 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
           {visiblePoints.map((point) => {
             const selected = point.id === selectedId;
+            const dimmed = Boolean(selectedId && !selected);
             const showScore = selected || showScoreMarkers;
             if (markerMode === 'pin') {
               return (
                 <Marker
                   key={point.id}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                  title={point.label}
-                  description={point.meta ?? undefined}
                   onPress={() => onSelectPoint?.(point)}
                   zIndex={selected ? 10 : 1}
                   pinColor={pinColorForPoint(point, selected)}
@@ -163,31 +182,29 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
             return (
               <Marker
-                key={point.id}
+                key={`${point.id}-${selected ? 'selected' : 'idle'}-${showScore ? 'score' : 'dot'}`}
                 coordinate={{ latitude: point.latitude, longitude: point.longitude }}
-                title={point.label}
-                description={point.meta ?? undefined}
                 onPress={() => onSelectPoint?.(point)}
                 zIndex={selected ? 10 : 1}
                 anchor={{ x: 0.5, y: 0.5 }}
                 centerOffset={{ x: 0, y: 0 }}
-                tracksViewChanges
+                tracksViewChanges={trackMarkerViews}
               >
-                <View style={styles.nativeMarkerWrap} collapsable={false}>
-                  {selected ? <View style={styles.nativeMarkerSelectedRing} /> : null}
-                  <View
-                    style={[
-                      showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
-                      selected && showScore ? styles.nativeScoreMarkerSelected : null,
-                      toneForRating(point.rating),
-                    ]}
-                  >
-                    {showScore ? (
-                      <Text style={[styles.nativeMarkerText, selected ? styles.nativeMarkerTextSelected : null]}>
-                        {typeof point.score === 'number' ? point.score : ''}
-                      </Text>
-                    ) : null}
-                  </View>
+                <View
+                  style={[
+                    styles.nativeMarker,
+                    showScore ? styles.nativeScoreMarker : styles.nativeDotMarker,
+                    dimmed ? styles.nativeMarkerDimmed : null,
+                    selected ? styles.nativeMarkerSelected : null,
+                    toneForRating(point.rating),
+                  ]}
+                  collapsable={false}
+                >
+                  {showScore ? (
+                    <Text style={styles.nativeMarkerText}>
+                      {typeof point.score === 'number' ? point.score : ''}
+                    </Text>
+                  ) : null}
                 </View>
               </Marker>
             );
@@ -220,6 +237,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
         {visiblePoints.map((point) => {
           const selected = point.id === selectedId;
+          const dimmed = Boolean(selectedId && !selected);
           const showScore = selected || shouldShowProjectedScoreMarkers(bounds, visiblePoints.length);
           return (
             <Pressable
@@ -234,7 +252,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
-              <View style={[showScore ? styles.marker : styles.dotMarker, toneForRating(point.rating)]}>
+              <View style={[showScore ? styles.marker : styles.dotMarker, dimmed ? styles.markerDimmed : null, toneForRating(point.rating)]}>
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
                     {typeof point.score === 'number' ? point.score : ''}
@@ -367,15 +385,15 @@ function regionAroundPoint(point: RoutePlotPoint) {
 }
 
 function shouldShowScoreMarkers(latitudeDelta: number, pointCount: number) {
-  if (pointCount <= 6) {
+  if (pointCount <= 24) {
     return true;
   }
 
-  if (pointCount <= 16) {
-    return latitudeDelta <= 1.3;
+  if (pointCount <= 80) {
+    return latitudeDelta <= 1.5;
   }
 
-  return latitudeDelta <= 0.7;
+  return latitudeDelta <= 0.85;
 }
 
 function shouldShowProjectedScoreMarkers(
@@ -436,51 +454,32 @@ const styles = StyleSheet.create({
   nativeMap: {
     width: '100%',
   },
-  nativeMarkerWrap: {
-    width: 68,
-    height: 68,
+  nativeMarker: {
     alignItems: 'center',
     justifyContent: 'center',
-    overflow: 'visible',
-    backgroundColor: 'transparent',
-  },
-  nativeMarkerSelectedRing: {
-    position: 'absolute',
-    width: 46,
-    height: 46,
-    borderRadius: 23,
-    borderWidth: 3,
-    borderColor: colors.text,
-    backgroundColor: 'transparent',
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
   },
   nativeScoreMarker: {
-    width: 26,
-    height: 26,
-    borderRadius: 13,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderWidth: 2,
-    borderColor: colors.surfaceStrong,
-  },
-  nativeScoreMarkerSelected: {
-    width: 30,
-    height: 30,
-    borderRadius: 15,
+    width: 32,
+    height: 32,
+    borderRadius: 16,
   },
   nativeDotMarker: {
-    width: 12,
-    height: 12,
-    borderRadius: 6,
-    borderWidth: 2,
-    borderColor: colors.surfaceStrong,
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+  },
+  nativeMarkerSelected: {
+    borderColor: colors.text,
+  },
+  nativeMarkerDimmed: {
+    opacity: 0.58,
   },
   nativeMarkerText: {
     color: colors.surfaceStrong,
-    fontSize: 10,
+    fontSize: 11,
     fontWeight: '900',
-  },
-  nativeMarkerTextSelected: {
-    fontSize: 12,
   },
   nativeUserMarker: {
     width: 24,
@@ -550,10 +549,10 @@ const styles = StyleSheet.create({
   },
   markerSelectedRing: {
     position: 'absolute',
-    width: 44,
-    height: 44,
-    borderRadius: 22,
-    borderWidth: 3,
+    width: 46,
+    height: 46,
+    borderRadius: 23,
+    borderWidth: 4,
     borderColor: colors.text,
     backgroundColor: 'transparent',
   },
@@ -580,6 +579,9 @@ const styles = StyleSheet.create({
   },
   markerTextSelected: {
     fontSize: 13,
+  },
+  markerDimmed: {
+    opacity: 0.58,
   },
   userMarker: {
     position: 'absolute',

@@ -31,9 +31,9 @@ npm run mobile:generate-icons
 Run from the repo root:
 
 ```sh
-npx eas --version
-npx eas login
-npx eas whoami
+npx eas-cli --version
+npx eas-cli login
+npx eas-cli whoami
 ```
 
 Expected:
@@ -45,7 +45,7 @@ If the app is not linked to an EAS project yet:
 
 ```sh
 cd apps/mobile
-npx eas init
+npx eas-cli init
 ```
 
 Use the PaddleToday account/project. Do not create the project under a personal account unless that is the intended long-term owner.
@@ -58,19 +58,28 @@ npm run mobile:eas:whoami
 
 ## 3. Configure EAS Secrets
 
+Required before Android Explore map builds can render Google Maps:
+
+```sh
+cd apps/mobile
+npx eas-cli env:create --scope project --name GOOGLE_MAPS_ANDROID_API_KEY --value "<Google Maps Android API key>" --visibility sensitive --environment preview
+```
+
+Use `--environment production` as well before production Android builds. Do not use secret visibility for this key because Expo needs to read it while resolving `android.config.googleMaps.apiKey`; the key is embedded in the Android app and should be protected with Google Cloud Android app restrictions.
+
 Required before observability can work in preview/production builds:
 
 ```sh
 cd apps/mobile
-npx eas secret:create --scope project --name EXPO_PUBLIC_SENTRY_DSN --value "<public mobile Sentry DSN>"
-npx eas secret:create --scope project --name SENTRY_AUTH_TOKEN --value "<Sentry auth token>"
+npx eas-cli secret:create --scope project --name EXPO_PUBLIC_SENTRY_DSN --value "<public mobile Sentry DSN>"
+npx eas-cli secret:create --scope project --name SENTRY_AUTH_TOKEN --value "<Sentry auth token>"
 ```
 
 Optional if Sentry project metadata is required by the build plugin in your setup:
 
 ```sh
-npx eas secret:create --scope project --name SENTRY_ORG --value "<sentry org slug>"
-npx eas secret:create --scope project --name SENTRY_PROJECT --value "<sentry project slug>"
+npx eas-cli secret:create --scope project --name SENTRY_ORG --value "<sentry org slug>"
+npx eas-cli secret:create --scope project --name SENTRY_PROJECT --value "<sentry project slug>"
 ```
 
 Do not commit secret values to the repo.
@@ -83,7 +92,7 @@ Run:
 
 ```sh
 cd apps/mobile
-npx eas credentials
+npx eas-cli credentials
 ```
 
 Recommended MVP path:
@@ -102,14 +111,14 @@ Android internal APK:
 
 ```sh
 cd apps/mobile
-npx eas build --platform android --profile preview
+npx eas-cli build --platform android --profile preview
 ```
 
 iOS internal build:
 
 ```sh
 cd apps/mobile
-npx eas build --platform ios --profile preview
+npx eas-cli build --platform ios --profile preview
 ```
 
 Expected:
@@ -143,8 +152,8 @@ After preview builds pass local install QA:
 
 ```sh
 cd apps/mobile
-npx eas build --platform android --profile production
-npx eas build --platform ios --profile production
+npx eas-cli build --platform android --profile production
+npx eas-cli build --platform ios --profile production
 ```
 
 Then submit through the store consoles or EAS Submit after Apple App Store Connect and Google Play app records exist.

@@ -225,7 +225,6 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Gauge support is strong: the direct MN DNR `Sauk River nr St. Martin, CR12` site carries a full official ladder (`below 14 ft scrapable`, `14-15 low`, `15-17 medium`, `17-20 high`, `above 20 very high`).
   - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Spring Hill County Park` and `St. Martin carry-in access`.
 
-<<<<<<< HEAD
 - 2026-04-26: `North Fork Crow River - City of Rockford trailer access to Riverside County Park`
   - Fresh Minnesota-first gauge sweep found a shorter, cleaner downstream-of-Rockford day trip adjacent to the existing `Riverside County Park to Dayton` route.
   - Official support is strong: MN DNR North Fork Crow Map 2 clearly names both endpoints, and the overview explicitly points paddlers to family-friendly routes downstream of Rockford.
@@ -281,8 +280,6 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Endpoint support is good enough to preserve: Hidden Falls is already a documented public launch in V2, and Saint Paul documents Harriet Island Regional Park with a `Public Dock` amenity.
   - Blocker is only coordinate cleanup: this pass did not finish authoritative coordinates for `Hidden Falls Regional Park` and `Harriet Island Regional Park`.
 
-=======
->>>>>>> 7dcf39deb1bdb62e6e8049fec3300941cb021580
 ## Research later
 
 - 2026-04-27: `Mississippi River - Palisade to Waldeck Landing` (`threshold_weak`)

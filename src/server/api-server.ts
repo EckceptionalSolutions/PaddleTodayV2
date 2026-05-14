@@ -57,6 +57,10 @@ const startedAt = Date.now();
 const RATE_WINDOW_MS = 10 * 60 * 1000;
 const RATE_MAX = 5;
 const LIVE_SCORE_TIMEOUT_MS = 12_000;
+const DEFAULT_JSON_BODY_LIMIT_BYTES = 1 * 1024 * 1024;
+const ROUTE_CONTRIBUTION_MAX_FILES = 4;
+const ROUTE_CONTRIBUTION_MAX_FILE_BYTES = 4 * 1024 * 1024;
+const ROUTE_CONTRIBUTION_JSON_BODY_LIMIT_BYTES = 24 * 1024 * 1024;
 const rateByIp = new Map<string, number[]>();
 
 const server = createServer(async (request, response) => {
@@ -761,6 +765,9 @@ async function handleRiverRequest(
       'no-store'
     );
   } catch (error) {
+    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
+    if (bodyLimitResponse) return bodyLimitResponse;
+
     console.error('[river-request] request failed', { requestId, error });
     return sendJson(
       response,
@@ -794,7 +801,7 @@ async function handleRoutePhotoSubmission(
   }
 
   try {
-    const body = await readJsonBody(request);
+    const body = await readJsonBody(request, ROUTE_CONTRIBUTION_JSON_BODY_LIMIT_BYTES);
     const riverSlug = clean(body?.riverSlug, 160);
     const contributorName = clean(body?.contributorName, 120);
     const contributorEmail = clean(body?.contributorEmail, 160).toLowerCase();
@@ -831,11 +838,11 @@ async function handleRoutePhotoSubmission(
       );
     }
 
-    if (files.length > 12) {
+    if (files.length > ROUTE_CONTRIBUTION_MAX_FILES) {
       return sendJson(
         response,
         400,
-        { requestId, error: 'too_many_files', message: 'Upload up to 12 photos at a time.' },
+        { requestId, error: 'too_many_files', message: `Upload up to ${ROUTE_CONTRIBUTION_MAX_FILES} photos at a time.` },
         includeBody,
         'no-store'
       );
@@ -891,7 +898,12 @@ async function handleRoutePhotoSubmission(
         );
       }
 
-      if (!Number.isFinite(byteSize) || byteSize <= 0 || byteSize > 4 * 1024 * 1024 || decoded.buffer.length > 4 * 1024 * 1024) {
+      if (
+        !Number.isFinite(byteSize) ||
+        byteSize <= 0 ||
+        byteSize > ROUTE_CONTRIBUTION_MAX_FILE_BYTES ||
+        decoded.buffer.length > ROUTE_CONTRIBUTION_MAX_FILE_BYTES
+      ) {
         return sendJson(
           response,
           400,
@@ -949,6 +961,9 @@ async function handleRoutePhotoSubmission(
       'no-store'
     );
   } catch (error) {
+    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
+    if (bodyLimitResponse) return bodyLimitResponse;
+
     console.error('[route-photo-submission] request failed', { requestId, error });
     return sendJson(
       response,
@@ -1182,6 +1197,9 @@ async function handleAdminRouteAuditUpdate(
     });
     return sendJson(response, 200, { requestId, ok: true, audit }, includeBody, 'no-store');
   } catch (error) {
+    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
+    if (bodyLimitResponse) return bodyLimitResponse;
+
     console.error('[admin-route-audits] update failed', { requestId, routeSlug, error });
     return sendJson(
       response,
@@ -1335,6 +1353,8 @@ async function handleRiverAlertCreate(
   try {
     const body = await readJsonBody(request);
     const email = clean(body?.email, 240).toLowerCase();
+    const expoPushToken = clean(body?.expoPushToken, 320);
+    const deliveryMethod = body?.deliveryMethod === 'push' ? 'push' : 'email';
     const riverSlug = clean(body?.riverSlug, 160);
     const threshold = parseRiverAlertThreshold(body?.threshold);
     const honeypot = clean(body?.company, 240);
@@ -1343,7 +1363,7 @@ async function handleRiverAlertCreate(
       return sendJson(response, 202, { requestId, ok: true, stored: false }, includeBody, 'no-store');
     }
 
-    if (!email || !riverSlug || !threshold) {
+    if (!riverSlug || !threshold || (deliveryMethod === 'email' && !email) || (deliveryMethod === 'push' && !expoPushToken)) {
       return sendJson(
         response,
         400,
@@ -1353,7 +1373,7 @@ async function handleRiverAlertCreate(
       );
     }
 
-    if (!isValidEmail(email)) {
+    if (deliveryMethod === 'email' && !isValidEmail(email)) {
       return sendJson(
         response,
         400,
@@ -1381,6 +1401,8 @@ async function handleRiverAlertCreate(
 
     const created = await createRiverThresholdAlert({
       email,
+      expoPushToken,
+      deliveryMethod,
       riverId: river.riverId,
       riverSlug: river.slug,
       riverName: river.name,
@@ -1396,6 +1418,7 @@ async function handleRiverAlertCreate(
       threshold,
       duplicate: created.duplicate,
       reactivated: created.reactivated,
+      deliveryMethod,
     });
 
     return sendJson(
@@ -1411,12 +1434,16 @@ async function handleRiverAlertCreate(
           threshold: created.alert.threshold,
           riverSlug: created.alert.riverSlug,
           lastState: created.alert.lastState,
+          deliveryMethod: created.alert.deliveryMethod ?? 'email',
         },
       },
       includeBody,
       'no-store'
     );
   } catch (error) {
+    const bodyLimitResponse = sendBodyLimitResponse(error, response, requestId, includeBody);
+    if (bodyLimitResponse) return bodyLimitResponse;
+
     console.error('[alerts] create failed', { requestId, error });
     return sendJson(
       response,
@@ -1604,11 +1631,21 @@ async function handleRiverSnapshotRefresh(
   );
 }
 
-async function readJsonBody(request: Parameters<typeof createServer>[0]) {
+async function readJsonBody(
+  request: Parameters<typeof createServer>[0],
+  limitBytes = DEFAULT_JSON_BODY_LIMIT_BYTES
+) {
   const chunks: Buffer[] = [];
+  let totalBytes = 0;
 
   for await (const chunk of request) {
-    chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk));
+    const buffer = Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk);
+    totalBytes += buffer.length;
+    if (totalBytes > limitBytes) {
+      throw new RequestBodyTooLargeError(limitBytes);
+    }
+
+    chunks.push(buffer);
   }
 
   const raw = Buffer.concat(chunks).toString('utf8').trim();
@@ -1617,6 +1654,13 @@ async function readJsonBody(request: Parameters<typeof createServer>[0]) {
   }
 
   return JSON.parse(raw);
+}
+
+class RequestBodyTooLargeError extends Error {
+  constructor(readonly limitBytes: number) {
+    super(`Request body exceeds ${limitBytes} bytes.`);
+    this.name = 'RequestBodyTooLargeError';
+  }
 }
 
 function requestHasRefreshToken(
@@ -1678,6 +1722,29 @@ function decodeImageDataUrl(value: string) {
   } catch {
     return null;
   }
+}
+
+function sendBodyLimitResponse(
+  error: unknown,
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean
+) {
+  if (!(error instanceof RequestBodyTooLargeError)) {
+    return null;
+  }
+
+  return sendJson(
+    response,
+    413,
+    {
+      requestId,
+      error: 'request_body_too_large',
+      message: 'This submission is too large. Try fewer or smaller photos.',
+    },
+    includeBody,
+    'no-store'
+  );
 }
 
 function getIp(request: Parameters<typeof createServer>[0]) {

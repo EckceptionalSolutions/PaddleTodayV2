@@ -18,6 +18,7 @@
       "bundleIdentifier": "com.paddletoday.mobile",
       "buildNumber": "3",
       "infoPlist": {
+        "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts when a saved river reaches your chosen paddling threshold.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",
         "ITSAppUsesNonExemptEncryption": false
       }
@@ -28,13 +29,14 @@
         "backgroundColor": "#f4f1e8"
       },
       "edgeToEdgeEnabled": false,
+      "softwareKeyboardLayoutMode": "resize",
       "predictiveBackGestureEnabled": false,
       "package": "com.paddletoday.mobile",
       "versionCode": 1,
       "permissions": [
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION",
-        "android.permission.RECORD_AUDIO"
+        "android.permission.POST_NOTIFICATIONS"
       ]
     },
     "web": {
@@ -56,6 +58,7 @@
           "photosPermission": "PaddleToday lets you attach route photos when you choose to submit paddling reports."
         }
       ],
+      "expo-notifications",
       "@sentry/react-native"
     ],
     "experiments": {

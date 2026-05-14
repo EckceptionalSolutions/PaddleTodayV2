@@ -1,7 +1,11 @@
 import type { CreateRouteContributionRequest } from '@paddletoday/api-contract';
+import { useRef } from 'react';
 import {
   Image,
+  KeyboardAvoidingView,
+  type LayoutChangeEvent,
   Modal,
+  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -9,6 +13,7 @@ import {
   TextInput,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export interface SelectedReportPhoto {
@@ -76,11 +81,21 @@ export function RouteReportSheet({
   onSubmit,
 }: RouteReportSheetProps) {
   const photoLimitReached = photos.length >= maxPhotos;
+  const insets = useSafeAreaInsets();
+  const scrollRef = useRef<ScrollView | null>(null);
+  const formOffset = useRef(0);
+  const inputOffsets = useRef<Record<string, number>>({});
+  const keyboardBottomPadding = Platform.OS === 'android' ? 280 : 180 + insets.bottom;
 
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
       <View style={styles.sheetScrim}>
-        <View style={styles.reportSheet}>
+        <KeyboardAvoidingView
+          style={styles.keyboardWrap}
+          behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+          keyboardVerticalOffset={Platform.OS === 'ios' ? 88 : 0}
+        >
+        <View style={[styles.reportSheet, { paddingBottom: spacing.md + insets.bottom }]}>
           <View style={styles.sheetHandle} />
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy}>
@@ -91,14 +106,25 @@ export function RouteReportSheet({
               <Text style={styles.sheetCloseText}>Close</Text>
             </Pressable>
           </View>
-          <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.sheetContent}>
+          <ScrollView
+            ref={scrollRef}
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled"
+            keyboardDismissMode={Platform.OS === 'ios' ? 'interactive' : 'on-drag'}
+            contentContainerStyle={[styles.sheetContent, { paddingBottom: keyboardBottomPadding }]}
+          >
             <View style={styles.reviewPanel}>
               <Text style={styles.reviewTitle}>Reviewed before publishing</Text>
               <Text style={styles.reviewText}>
                 Your email is used for follow-up questions. Reports and photos are not public until reviewed, and photos are optional.
               </Text>
             </View>
-            <View style={styles.reportForm}>
+            <View
+              style={styles.reportForm}
+              onLayout={(event) => {
+                formOffset.current = event.nativeEvent.layout.y;
+              }}
+            >
               <View style={styles.reportGrid}>
                 <TextInput
                   autoCapitalize="words"
@@ -107,6 +133,8 @@ export function RouteReportSheet({
                   style={styles.reportInput}
                   value={name}
                   onChangeText={onNameChange}
+                  onFocus={() => scrollFocusedInputIntoView('name')}
+                  onLayout={(event) => recordInputOffset('name', event)}
                 />
                 <TextInput
                   autoCapitalize="none"
@@ -117,6 +145,8 @@ export function RouteReportSheet({
                   style={styles.reportInput}
                   value={email}
                   onChangeText={onEmailChange}
+                  onFocus={() => scrollFocusedInputIntoView('email')}
+                  onLayout={(event) => recordInputOffset('email', event)}
                 />
               </View>
               <TextInput
@@ -125,6 +155,8 @@ export function RouteReportSheet({
                 style={styles.reportInput}
                 value={tripDate}
                 onChangeText={onTripDateChange}
+                onFocus={() => scrollFocusedInputIntoView('tripDate')}
+                onLayout={(event) => recordInputOffset('tripDate', event)}
               />
               <SentimentPicker value={sentiment ?? ''} onChange={onSentimentChange} />
               <TextInput
@@ -134,6 +166,8 @@ export function RouteReportSheet({
                 style={[styles.reportInput, styles.reportTextArea]}
                 value={report}
                 onChangeText={onReportChange}
+                onFocus={() => scrollFocusedInputIntoView('report')}
+                onLayout={(event) => recordInputOffset('report', event)}
                 textAlignVertical="top"
               />
               <TextInput
@@ -143,6 +177,8 @@ export function RouteReportSheet({
                 style={[styles.reportInput, styles.reportNotesArea]}
                 value={notes}
                 onChangeText={onNotesChange}
+                onFocus={() => scrollFocusedInputIntoView('notes')}
+                onLayout={(event) => recordInputOffset('notes', event)}
                 textAlignVertical="top"
               />
               <View style={styles.reportPhotoPanel}>
@@ -150,7 +186,7 @@ export function RouteReportSheet({
                   <View style={styles.reportPhotoCopy}>
                     <Text style={styles.reportPhotoTitle}>Route photos</Text>
                     <Text style={styles.reportPhotoMeta}>
-                      {photos.length}/{maxPhotos} attached · JPEG, PNG, or WebP
+                      {photos.length}/{maxPhotos} attached
                     </Text>
                   </View>
                   <Pressable
@@ -174,7 +210,7 @@ export function RouteReportSheet({
                   </ScrollView>
                 ) : (
                   <Text style={styles.reportPhotoEmpty}>
-                    Optional, but useful for strainers, access changes, water clarity, and gauge references. Photo access is only requested when you tap Add.
+                    Optional, but useful for strainers, access changes, water clarity, and gauge references.
                   </Text>
                 )}
               </View>
@@ -207,9 +243,22 @@ export function RouteReportSheet({
             </View>
           </ScrollView>
         </View>
+        </KeyboardAvoidingView>
       </View>
     </Modal>
   );
+
+  function recordInputOffset(key: string, event: LayoutChangeEvent) {
+    inputOffsets.current[key] = formOffset.current + event.nativeEvent.layout.y;
+  }
+
+  function scrollFocusedInputIntoView(key: string) {
+    const fieldOffset = inputOffsets.current[key] ?? 0;
+    const targetY = Math.max(0, fieldOffset - 80);
+    setTimeout(() => {
+      scrollRef.current?.scrollTo({ y: targetY, animated: true });
+    }, 80);
+  }
 }
 
 function SentimentPicker({
@@ -253,14 +302,16 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end',
     backgroundColor: 'rgba(10, 24, 29, 0.34)',
   },
-  reportSheet: {
+  keyboardWrap: {
     maxHeight: '88%',
+  },
+  reportSheet: {
+    maxHeight: '100%',
     backgroundColor: colors.canvas,
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     paddingTop: spacing.sm,
     paddingHorizontal: spacing.md,
-    paddingBottom: spacing.md,
   },
   sheetHandle: {
     alignSelf: 'center',

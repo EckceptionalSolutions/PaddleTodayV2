@@ -2467,8 +2467,8 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'crow-wing-river-little-white-dog-cottingham',
-    slug: 'crow-wing-river-little-white-dog-cottingham',
+    id: 'crow-wing-river-little-white-dog-carry-in-cottingham-county-park',
+    slug: 'crow-wing-river-little-white-dog-carry-in-cottingham-county-park',
     name: 'Crow Wing River',
     reach: 'Little White Dog carry-in access to Cottingham County Park',
     state: 'Minnesota',

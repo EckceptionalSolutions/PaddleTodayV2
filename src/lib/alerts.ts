@@ -13,10 +13,13 @@ type BlobContainer = {
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertType = 'river_threshold';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
+export type RiverAlertDeliveryMethod = 'email' | 'push';
 
 export interface RiverThresholdAlert {
   id: string;
   email: string;
+  expoPushToken: string | null;
+  deliveryMethod: RiverAlertDeliveryMethod;
   type: RiverAlertType;
   riverId: string | null;
   riverSlug: string;
@@ -59,6 +62,8 @@ function isRiverThresholdAlert(value: unknown): value is RiverThresholdAlert {
   return (
     isString(value.id) &&
     isString(value.email) &&
+    (value.expoPushToken === undefined || isNullableString(value.expoPushToken)) &&
+    (value.deliveryMethod === undefined || isOneOf(value.deliveryMethod, ['email', 'push'] as const)) &&
     value.type === 'river_threshold' &&
     isNullableString(value.riverId) &&
     isString(value.riverSlug) &&
@@ -113,7 +118,9 @@ export async function getRiverAlertById(id: string): Promise<RiverThresholdAlert
 }
 
 export async function createRiverThresholdAlert(args: {
-  email: string;
+  email?: string;
+  expoPushToken?: string;
+  deliveryMethod?: RiverAlertDeliveryMethod;
   riverId?: string | null;
   riverSlug: string;
   riverName: string;
@@ -122,14 +129,17 @@ export async function createRiverThresholdAlert(args: {
   initialState: RiverAlertState;
   now?: string;
 }): Promise<{ alert: RiverThresholdAlert; duplicate: boolean; reactivated: boolean }> {
-  const email = normalizeEmail(args.email);
+  const deliveryMethod = args.deliveryMethod ?? 'email';
+  const email = normalizeEmail(args.email ?? '');
+  const expoPushToken = normalizeExpoPushToken(args.expoPushToken);
   const now = args.now ?? new Date().toISOString();
   const storage = alertsStorage();
   const store = (await storage.readJson<AlertsStore>(alertsBlobName())) ?? { alerts: [] };
   const existing = store.alerts.find(
     (alert) =>
       alert.type === 'river_threshold' &&
-      alert.email === email &&
+      alertDeliveryMethod(alert) === deliveryMethod &&
+      alertContactKey(alert) === (deliveryMethod === 'push' ? expoPushToken : email) &&
       alert.riverSlug === args.riverSlug &&
       alert.threshold === args.threshold
   );
@@ -149,6 +159,9 @@ export async function createRiverThresholdAlert(args: {
     existing.riverId = args.riverId ?? existing.riverId ?? null;
     existing.riverName = args.riverName;
     existing.riverReach = args.riverReach;
+    existing.email = email || existing.email;
+    existing.expoPushToken = expoPushToken || existing.expoPushToken || null;
+    existing.deliveryMethod = deliveryMethod;
     await storage.writeJson(alertsBlobName(), store);
     return {
       alert: existing,
@@ -160,6 +173,8 @@ export async function createRiverThresholdAlert(args: {
   const alert: RiverThresholdAlert = {
     id: `alert_${randomUUID()}`,
     email,
+    expoPushToken,
+    deliveryMethod,
     type: 'river_threshold',
     riverId: args.riverId ?? null,
     riverSlug: args.riverSlug,
@@ -368,4 +383,17 @@ function cleanPathSegment(value: string) {
 
 function normalizeEmail(value: string) {
   return value.trim().toLowerCase();
+}
+
+function normalizeExpoPushToken(value: string | null | undefined) {
+  const token = String(value || '').trim();
+  return token || null;
+}
+
+function alertDeliveryMethod(alert: RiverThresholdAlert) {
+  return alert.deliveryMethod ?? (alert.expoPushToken ? 'push' : 'email');
+}
+
+function alertContactKey(alert: RiverThresholdAlert) {
+  return alertDeliveryMethod(alert) === 'push' ? alert.expoPushToken ?? '' : alert.email;
 }

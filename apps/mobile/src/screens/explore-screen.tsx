@@ -7,11 +7,7 @@ import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-na
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
-import {
-  ExploreSearchBar,
-  ExploreSortFilterBar,
-  type ExploreSort,
-} from '../components/explore-controls';
+import { ExploreSearchBar } from '../components/explore-controls';
 import {
   ExploreFilterSheet,
   countActiveFilters,
@@ -31,7 +27,8 @@ import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
-import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
+import { trackAppEvent } from '../lib/observability';
+import { buildRouteGroupMeta, routeGroupMetaForRoute } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -46,7 +43,7 @@ interface ExplorePreferences {
   viewMode?: 'list' | 'map';
 }
 
-const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v2';
+const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v3';
 
 const confidenceRank = {
   High: 3,
@@ -159,16 +156,14 @@ export default function ExploreScreen() {
         routeCounts={routeCounts}
         onClearLocation={() => void clearLocation()}
         onFilterPress={() => setFiltersOpen(true)}
+        onContributePhotos={(slug) => {
+          trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
+          router.push({ pathname: '/contribute-photo/[slug]', params: { slug } });
+        }}
         onOpenRoute={openExploreRoute}
         onRefresh={() => summaryQuery.refetch()}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
-        onSortChange={(sort) => {
-          setFilters((current) => ({ ...current, sort }));
-          if (sort === 'nearest' && !location) {
-            void requestLocation();
-          }
-        }}
         onUseLocation={() => void requestLocation()}
         isSaved={isSaved}
         onFocusNearest={() => {
@@ -229,11 +224,11 @@ function FullScreenExploreMap({
   onClearLocation,
   onFilterPress,
   onFocusNearest,
+  onContributePhotos,
   onOpenRoute,
   onRefresh,
   onSearchChange,
   onSelectSlug,
-  onSortChange,
   onToggleSaved,
   onUseLocation,
   isSaved,
@@ -253,11 +248,11 @@ function FullScreenExploreMap({
   onClearLocation: () => void;
   onFilterPress: () => void;
   onFocusNearest: () => void;
+  onContributePhotos: (slug: string) => void;
   onOpenRoute: (route: ExploreRiver) => void;
   onRefresh: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string) => void;
-  onSortChange: (sort: ExploreSort) => void;
   onToggleSaved: (river: ExploreRiver) => void;
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
@@ -266,7 +261,7 @@ function FullScreenExploreMap({
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
-  const floatingControlBottom = sheetHeightValue(sheetSnap) + bottomInset + spacing.md;
+  const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length > 0 && results.every((route) => (route.distanceMiles ?? 0) > 180));
 
   return (
@@ -292,23 +287,28 @@ function FullScreenExploreMap({
 
       <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.sm }]}>
         <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
-
-        <ExploreSortFilterBar
-          sort={filters.sort}
-          activeFilterCount={activeFilterCount}
-          compactFilterLabel
-          showSortOptions={false}
-          onFilterPress={onFilterPress}
-          onSortChange={onSortChange}
-        />
-      </View>
-
-      <View style={[styles.fullMapPills, { top: topInset + 102 }]}>
-        <View style={styles.mapPill}>
-          <Text style={styles.mapPillText}>{results.length} routes</Text>
-        </View>
-        <View style={styles.mapPill}>
-          <Text style={styles.mapPillText}>{formatRelativeTime(generatedAt)}</Text>
+        <View style={styles.mapUnderSearchRow}>
+          <Pressable style={[styles.mapFilterButton, activeFilterCount > 0 ? styles.mapFilterButtonActive : null]} onPress={onFilterPress}>
+            <MaterialCommunityIcons
+              name="tune-variant"
+              color={activeFilterCount > 0 ? colors.surfaceStrong : colors.accent}
+              size={19}
+            />
+            <Text style={[styles.mapFilterButtonText, activeFilterCount > 0 ? styles.mapFilterButtonTextActive : null]}>
+              Filters
+            </Text>
+            {activeFilterCount > 0 ? (
+              <View style={styles.mapFilterCount}>
+                <Text style={styles.mapFilterCountText}>{activeFilterCount}</Text>
+              </View>
+            ) : null}
+          </Pressable>
+          <Pressable style={styles.mapStatusChip} onPress={onRefresh}>
+            <Text style={styles.mapStatusChipText} numberOfLines={1}>
+              {results.length} routes - {compactUpdatedLabel(generatedAt)}
+            </Text>
+            <MaterialCommunityIcons name="refresh" color={colors.accent} size={16} />
+          </Pressable>
         </View>
       </View>
 
@@ -330,9 +330,6 @@ function FullScreenExploreMap({
         </Pressable>
         <Pressable style={styles.mapFab} onPress={onFocusNearest}>
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
-        </Pressable>
-        <Pressable style={styles.mapFab} onPress={onRefresh}>
-          <MaterialCommunityIcons name="refresh" color={colors.accent} size={20} />
         </Pressable>
       </View>
 
@@ -366,6 +363,7 @@ function FullScreenExploreMap({
               onOpenRoute(selectedRiver);
             }
           }}
+          onContributePhotos={onContributePhotos}
           onToggleSaved={onToggleSaved}
         />
       ) : null}
@@ -423,10 +421,10 @@ function applyExploreFilters(
     })
     .sort((left, right) => compareExploreRivers(left, right, filters.sort));
 
-  return uniqueRoutesByRiver(sortedResults);
+  return sortedResults;
 }
 
-function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: ExploreSort) {
+function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: ExploreFilters['sort']) {
   if (sort === 'nearest') {
     return nullableNumber(left.distanceMiles) - nullableNumber(right.distanceMiles) || compareBest(left, right);
   }
@@ -493,6 +491,10 @@ function nullableNumber(value: number | null) {
   return typeof value === 'number' && Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
 }
 
+function compactUpdatedLabel(value: string | undefined) {
+  return formatRelativeTime(value).replace(/^Updated\s+/i, '');
+}
+
 function errorDetailForExploreQuery(error: unknown) {
   const message = error instanceof Error ? error.message : 'Unknown request error';
   return `${resolveApiBaseUrl()} - ${message}`;
@@ -530,13 +532,77 @@ const styles = StyleSheet.create({
     right: spacing.md,
     gap: spacing.sm,
   },
-  fullMapPills: {
-    position: 'absolute',
-    left: spacing.md,
-    right: spacing.md,
+  mapUnderSearchRow: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     gap: spacing.sm,
+  },
+  mapFilterButton: {
+    minHeight: 42,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(255, 255, 255, 0.97)',
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 14,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 7,
+    shadowColor: '#000',
+    shadowOpacity: 0.14,
+    shadowRadius: 10,
+    elevation: 4,
+  },
+  mapFilterButtonActive: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  mapFilterButtonText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  mapFilterButtonTextActive: {
+    color: colors.surfaceStrong,
+  },
+  mapFilterCount: {
+    minWidth: 20,
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: colors.noGo,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 5,
+    borderWidth: 1,
+    borderColor: colors.surfaceStrong,
+  },
+  mapFilterCountText: {
+    color: colors.surfaceStrong,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  mapStatusChip: {
+    minHeight: 34,
+    maxWidth: '58%',
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(255, 255, 255, 0.94)',
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 6,
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 8,
+    elevation: 3,
+  },
+  mapStatusChipText: {
+    flexShrink: 1,
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
   },
   fullMapLocationPrompt: {
     position: 'absolute',
@@ -560,23 +626,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
-  mapPill: {
-    minHeight: 32,
-    borderRadius: radius.pill,
-    backgroundColor: 'rgba(255, 255, 255, 0.94)',
-    borderWidth: 1,
-    borderColor: colors.border,
-    paddingHorizontal: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 5,
-  },
-  mapPillText: {
-    color: colors.text,
-    fontSize: 12,
-    fontWeight: '900',
-  },
   mapOverlayActions: {
     position: 'absolute',
     right: spacing.sm,
@@ -584,9 +633,9 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   mapFab: {
-    width: 42,
-    height: 42,
-    borderRadius: 21,
+    width: 38,
+    height: 38,
+    borderRadius: 19,
     backgroundColor: 'rgba(255, 255, 255, 0.96)',
     borderWidth: 1,
     borderColor: colors.border,
