@@ -50,6 +50,12 @@ npx eas init
 
 Use the PaddleToday account/project. Do not create the project under a personal account unless that is the intended long-term owner.
 
+If you are using the repo-pinned EAS CLI, this root script verifies the same login state:
+
+```sh
+npm run mobile:eas:whoami
+```
+
 ## 3. Configure EAS Secrets
 
 Required before observability can work in preview/production builds:
@@ -68,6 +74,8 @@ npx eas secret:create --scope project --name SENTRY_PROJECT --value "<sentry pro
 ```
 
 Do not commit secret values to the repo.
+
+Until those Sentry values exist, EAS builds set `SENTRY_DISABLE_AUTO_UPLOAD=true` so the app can still archive for TestFlight. Remove that flag after `SENTRY_ORG`, `SENTRY_PROJECT`, and `SENTRY_AUTH_TOKEN` are configured and you want source maps/debug symbols uploaded during builds.
 
 ## 4. Configure Credentials
 
@@ -143,7 +151,26 @@ Then submit through the store consoles or EAS Submit after Apple App Store Conne
 
 Production Android should produce an AAB because `apps/mobile/eas.json` sets `production.android.buildType` to `app-bundle`.
 
-## 8. Evidence To Capture
+## 8. Upload iOS To TestFlight
+
+Recommended friend-testing path:
+
+```sh
+npm run mobile:ios:testflight
+```
+
+This uses the production iOS profile and `--auto-submit`, so EAS builds the signed iOS archive and uploads it to App Store Connect for TestFlight.
+
+Before running it, confirm:
+
+- You are logged into the intended Expo account.
+- The Apple Developer membership is active.
+- App Store Connect has an app record for bundle ID `com.paddletoday.mobile`.
+- EAS can manage or access the Apple distribution certificate and provisioning profile.
+
+After upload processing finishes in App Store Connect, add testers in TestFlight. Internal testers are App Store Connect users on your team. External testers can use a public invite link after Apple beta review approves the build.
+
+## 9. Evidence To Capture
 
 For each internal build, record:
 

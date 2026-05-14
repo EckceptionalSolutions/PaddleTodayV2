@@ -34,6 +34,7 @@ for (const profile of ['development', 'preview', 'production']) {
   check(`${profile} build uses production API`, () => env.EXPO_PUBLIC_API_BASE_URL === 'https://paddletoday.com');
   check(`${profile} build declares app env`, () => env.EXPO_PUBLIC_APP_ENV === profile);
   check(`${profile} build disables Sentry traces by default`, () => env.EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE === '0');
+  check(`${profile} build skips Sentry auto upload until credentials exist`, () => env.SENTRY_DISABLE_AUTO_UPLOAD === 'true');
 }
 
 check('production Android build creates app bundle', () => easConfig.build?.production?.android?.buildType === 'app-bundle');

@@ -8,7 +8,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "typecheck": "tsc --noEmit",
-    "release-check": "node ../../scripts/mobile-release-check.mjs"
+    "release-check": "node ../../scripts/mobile-release-check.mjs",
+    "eas": "eas",
+    "ios:testflight": "eas build --platform ios --profile production --auto-submit"
   },
   "dependencies": {
     "@expo/ngrok": "^4.1.3",
