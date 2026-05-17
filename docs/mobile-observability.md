@@ -1,36 +1,23 @@
 # Mobile Observability
 
-PaddleToday mobile uses `@sentry/react-native` for release crash and error reporting. The integration is safe by default: it does nothing until a Sentry DSN is provided.
+PaddleToday mobile keeps observability calls behind a small app-level wrapper in `apps/mobile/src/lib/observability.ts`.
 
-## Runtime Configuration
+The wrapper sends events and handled errors to Firebase Analytics and Crashlytics only in preview and production native builds. Development builds and Expo Go stay no-op.
 
-Set these for preview and production builds:
+## Current Runtime Behavior
 
-- `EXPO_PUBLIC_SENTRY_DSN`: public Sentry DSN for the mobile project.
-- `EXPO_PUBLIC_APP_ENV`: `preview` or `production`.
-- `EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE`: keep at `0` for MVP unless performance tracing is explicitly enabled.
+Configured today:
 
-Set this as an EAS secret so source maps can be uploaded during builds:
+- `EXPO_PUBLIC_APP_ENV`: `development`, `preview`, or `production`.
 
-- `SENTRY_AUTH_TOKEN`
+Preview/production native builds require:
 
-The Expo/Sentry docs also require a Sentry organization slug and project name during project setup. Do not commit auth tokens or private project credentials.
+- `apps/mobile/firebase/GoogleService-Info.plist`
+- `apps/mobile/firebase/google-services.json`
 
-## Captured Signals
+## Preserved Event Hooks
 
-Automatic:
-
-- Native crashes when Sentry is configured in a native build.
-- Unhandled JavaScript errors through `Sentry.wrap`.
-- React Query query errors.
-- React Query mutation errors.
-
-Handled app errors:
-
-- API diagnostic failures.
-- Route report submission failures.
-
-Breadcrumbs:
+The app calls `trackAppEvent` for:
 
 - Route opened.
 - Saved river toggled.
@@ -42,8 +29,24 @@ Breadcrumbs:
 - API diagnostic started, succeeded, or failed.
 - Support links opened.
 
+The app calls `captureAppException` for:
+
+- React Query query errors.
+- React Query mutation errors.
+- API diagnostic failures.
+- Route report submission failures.
+
+## Provider
+
+Configured provider:
+
+- Firebase Analytics for product events.
+- Firebase Crashlytics for native crashes and handled JavaScript errors.
+
+See `docs/mobile-firebase-setup.md` for setup and verification.
+
 ## Privacy Notes
 
-The integration avoids intentionally sending user email, contributor name, report text, or photo contents to Sentry. Route slugs, route IDs, status codes, counts, and non-identifying app state may be included as tags, extras, or breadcrumbs.
+Development builds do not send diagnostics or analytics to a third party. Preview and production builds send diagnostics/events to Firebase when the native config files are present.
 
-Before store submission, make sure the privacy policy and store data safety forms reflect whether Sentry is enabled in the submitted build.
+Before store submission, make sure the privacy policy and store data safety forms reflect Firebase Analytics and Crashlytics in the submitted build.

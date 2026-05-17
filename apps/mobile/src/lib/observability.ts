@@ -1,11 +1,14 @@
-import * as Sentry from '@sentry/react-native';
-import Constants from 'expo-constants';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 import type { ComponentType } from 'react';
-import { Platform } from 'react-native';
 
 type EventProperties = Record<string, boolean | number | string | null | undefined>;
+type FirebaseBridge = {
+  logEvent(name: string, properties: EventProperties): Promise<void>;
+  recordError(error: Error, context?: { name?: string; extra?: EventProperties }): Promise<void>;
+};
 
 let initialized = false;
+let firebaseBridgePromise: Promise<FirebaseBridge | null> | null = null;
 
 export function initObservability() {
   if (initialized) {
@@ -13,82 +16,35 @@ export function initObservability() {
   }
 
   initialized = true;
-
-  if (!isObservabilityEnabled()) {
-    return;
-  }
-
-  Sentry.init({
-    dsn: sentryDsn(),
-    environment: appEnvironment(),
-    release: appRelease(),
-    dist: nativeBuildNumber(),
-    tracesSampleRate: numericEnv(process.env.EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE, 0),
-    enableAutoSessionTracking: true,
-    attachStacktrace: true,
-    beforeSend(event) {
-      if (event.user) {
-        delete event.user.email;
-        delete event.user.username;
-      }
-      return event;
-    },
-  });
-
-  Sentry.setTags({
-    app: 'paddletoday-mobile',
-    platform: Platform.OS,
-    runtime: __DEV__ ? 'development' : 'release',
-  });
+  void firebaseBridge();
 }
 
 export function withObservability<P extends Record<string, unknown>>(component: ComponentType<P>) {
-  return isObservabilityEnabled() ? Sentry.wrap(component) : component;
+  return component;
 }
 
 export function captureAppException(error: unknown, context?: { name?: string; extra?: EventProperties }) {
-  if (!isObservabilityEnabled()) {
+  if (!isFirebaseDiagnosticsEnabled()) {
     return;
   }
 
-  Sentry.withScope((scope) => {
-    if (context?.name) {
-      scope.setTag('handled_in', context.name);
-    }
-    if (context?.extra) {
-      scope.setExtras(cleanProperties(context.extra));
-    }
-    Sentry.captureException(error);
-  });
+  void firebaseBridge().then((bridge) => bridge?.recordError(toError(error), context));
 }
 
 export function trackAppEvent(name: string, properties?: EventProperties) {
-  if (!isObservabilityEnabled()) {
+  if (!isFirebaseDiagnosticsEnabled()) {
     return;
   }
 
-  Sentry.addBreadcrumb({
-    category: 'product',
-    level: 'info',
-    message: name,
-    data: cleanProperties(properties ?? {}),
-  });
+  void firebaseBridge().then((bridge) => bridge?.logEvent(name, properties ?? {}));
 }
 
 export function observabilityStatus() {
   return {
-    enabled: isObservabilityEnabled(),
+    enabled: isFirebaseDiagnosticsEnabled(),
     environment: appEnvironment(),
     release: appRelease(),
   };
-}
-
-function isObservabilityEnabled() {
-  return Boolean(sentryDsn());
-}
-
-function sentryDsn() {
-  return process.env.EXPO_PUBLIC_SENTRY_DSN?.trim() ?? '';
 }
 
 function appEnvironment() {
@@ -101,25 +57,110 @@ function appRelease() {
   return `${slug}@${version}`;
 }
 
-function nativeBuildNumber() {
+function isFirebaseDiagnosticsEnabled() {
+  const environment = appEnvironment();
   return (
-    Constants.expoConfig?.ios?.buildNumber ??
-    Constants.expoConfig?.android?.versionCode?.toString() ??
-    undefined
+    !__DEV__ &&
+    (environment === 'preview' || environment === 'production') &&
+    Constants.executionEnvironment !== ExecutionEnvironment.StoreClient
   );
 }
 
-function numericEnv(value: string | undefined, fallback: number) {
-  if (!value) {
-    return fallback;
+function firebaseBridge() {
+  if (!isFirebaseDiagnosticsEnabled()) {
+    return Promise.resolve(null);
   }
 
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : fallback;
+  firebaseBridgePromise ??= loadFirebaseBridge();
+  return firebaseBridgePromise;
 }
 
-function cleanProperties(properties: EventProperties) {
+async function loadFirebaseBridge(): Promise<FirebaseBridge | null> {
+  try {
+    const [analyticsModule, crashlyticsModule] = await Promise.all([
+      import('@react-native-firebase/analytics'),
+      import('@react-native-firebase/crashlytics'),
+    ]);
+
+    const analytics = analyticsModule.getAnalytics();
+    const crashlytics = crashlyticsModule.getCrashlytics();
+
+    await Promise.all([
+      analyticsModule.setAnalyticsCollectionEnabled(analytics, true),
+      crashlyticsModule.setCrashlyticsCollectionEnabled(crashlytics, true),
+      crashlyticsModule.setAttributes(crashlytics, {
+        app_environment: appEnvironment(),
+        app_release: appRelease(),
+      }),
+    ]);
+
+    return {
+      async logEvent(name, properties) {
+        const eventName = firebaseEventName(name);
+        const params = firebaseProperties(properties);
+
+        await analyticsModule.logEvent(analytics, eventName, params);
+        crashlyticsModule.log(crashlytics, eventName);
+      },
+      async recordError(error, context) {
+        const attributes = firebaseStringProperties(context?.extra ?? {});
+        if (context?.name) {
+          attributes.handled_in = context.name;
+        }
+
+        if (Object.keys(attributes).length > 0) {
+          await crashlyticsModule.setAttributes(crashlytics, attributes);
+        }
+
+        crashlyticsModule.recordError(crashlytics, error, context?.name);
+      },
+    };
+  } catch (error) {
+    if (__DEV__) {
+      console.warn('Firebase diagnostics unavailable.', error);
+    }
+    return null;
+  }
+}
+
+function firebaseEventName(name: string) {
+  const normalized = name.replace(/[^A-Za-z0-9_]/g, '_').slice(0, 40);
+  return /^[A-Za-z]/.test(normalized) ? normalized : `event_${normalized}`.slice(0, 40);
+}
+
+function firebaseProperties(properties: EventProperties) {
+  const params: Record<string, number | string> = {};
+
+  for (const [key, value] of Object.entries(properties)) {
+    if (value === null || value === undefined) {
+      continue;
+    }
+
+    params[firebasePropertyName(key)] = firebasePropertyValue(value);
+  }
+
+  return params;
+}
+
+function firebaseStringProperties(properties: EventProperties) {
   return Object.fromEntries(
-    Object.entries(properties).filter(([, value]) => value !== undefined)
+    Object.entries(firebaseProperties(properties)).map(([key, value]) => [key, String(value)])
   );
+}
+
+function firebasePropertyName(name: string) {
+  const normalized = name.replace(/[^A-Za-z0-9_]/g, '_').slice(0, 40);
+  return /^[A-Za-z]/.test(normalized) ? normalized : `param_${normalized}`.slice(0, 40);
+}
+
+function firebasePropertyValue(value: Exclude<EventProperties[string], null | undefined>) {
+  return typeof value === 'boolean' ? String(value) : value;
+}
+
+function toError(error: unknown) {
+  if (error instanceof Error) {
+    return error;
+  }
+
+  return new Error(typeof error === 'string' ? error : JSON.stringify(error));
 }

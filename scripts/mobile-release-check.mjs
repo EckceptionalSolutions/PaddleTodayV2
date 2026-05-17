@@ -11,6 +11,7 @@ check('apps/mobile/eas.json parses', () => readJson(join(mobileRoot, 'eas.json')
 
 const appConfig = readJson(join(mobileRoot, 'app.json')).expo;
 const easConfig = readJson(join(mobileRoot, 'eas.json'));
+const mobilePackage = readJson(join(mobileRoot, 'package.json'));
 
 check('Expo app name is set', () => Boolean(appConfig.name));
 check('Expo slug is set', () => Boolean(appConfig.slug));
@@ -20,7 +21,9 @@ check('iOS buildNumber is set', () => Boolean(appConfig.ios?.buildNumber));
 check('Android versionCode is set', () => Number.isInteger(appConfig.android?.versionCode));
 check('Location permission copy is configured', () => pluginText('expo-location', 'locationWhenInUsePermission').length > 20);
 check('Photo permission copy is configured', () => pluginText('expo-image-picker', 'photosPermission').length > 20);
-check('Sentry plugin is configured', () => hasPlugin('@sentry/react-native'));
+check('Firebase app dependency is installed', () => hasDependency('@react-native-firebase/app'));
+check('Firebase analytics dependency is installed', () => hasDependency('@react-native-firebase/analytics'));
+check('Firebase crashlytics dependency is installed', () => hasDependency('@react-native-firebase/crashlytics'));
 
 checkPng('mobile icon', join(mobileRoot, 'assets/images/icon.png'), 1024, 1024, 100_000);
 checkPng('mobile adaptive icon', join(mobileRoot, 'assets/images/adaptive-icon.png'), 1024, 1024, 75_000);
@@ -28,14 +31,15 @@ checkPng('mobile splash icon', join(mobileRoot, 'assets/images/splash-icon.png')
 checkPng('mobile favicon', join(mobileRoot, 'assets/images/favicon.png'), 48, 48, 1_000);
 checkFile('mobile icon generation script', join(root, 'scripts/generate-mobile-icons.mjs'));
 checkFile('source brand icon asset', join(root, 'public/brand/paddle-today-logo-transparent-512-clean.png'));
-checkFile('Sentry Metro config', join(mobileRoot, 'metro.config.js'));
+checkFile('mobile app config', join(mobileRoot, 'app.config.js'));
+checkFile('Firebase diagnostics config', join(mobileRoot, 'firebase.json'));
+checkFile('Firebase native config instructions', join(mobileRoot, 'firebase/README.md'));
+checkFile('Metro config', join(mobileRoot, 'metro.config.js'));
 
 for (const profile of ['development', 'preview', 'production']) {
   const env = easConfig.build?.[profile]?.env ?? {};
   check(`${profile} build uses production API`, () => env.EXPO_PUBLIC_API_BASE_URL === 'https://paddletoday.com');
   check(`${profile} build declares app env`, () => env.EXPO_PUBLIC_APP_ENV === profile);
-  check(`${profile} build disables Sentry traces by default`, () => env.EXPO_PUBLIC_SENTRY_TRACES_SAMPLE_RATE === '0');
-  check(`${profile} build skips Sentry auto upload until credentials exist`, () => env.SENTRY_DISABLE_AUTO_UPLOAD === 'true');
 }
 
 check('production Android build creates app bundle', () => easConfig.build?.production?.android?.buildType === 'app-bundle');
@@ -53,8 +57,8 @@ for (const file of [
   'docs/mobile-store-privacy-worksheet.md',
   'docs/mobile-store-screenshot-plan.md',
   'docs/mobile-observability.md',
+  'docs/mobile-firebase-setup.md',
   'docs/mobile-saved-rivers-mvp-decision.md',
-  'docs/mobile-sentry-setup.md',
   'docs/mobile-support-triage.md',
   'src/pages/privacy.astro',
   'src/pages/terms.astro',
@@ -127,18 +131,15 @@ function readJson(path) {
   return JSON.parse(readFileSync(path, 'utf8'));
 }
 
-function hasPlugin(pluginName) {
-  return appConfig.plugins?.some((plugin) => {
-    if (typeof plugin === 'string') return plugin === pluginName;
-    return Array.isArray(plugin) && plugin[0] === pluginName;
-  });
-}
-
 function pluginText(pluginName, key) {
   const plugin = appConfig.plugins?.find((candidate) => Array.isArray(candidate) && candidate[0] === pluginName);
   if (!Array.isArray(plugin)) return '';
   const options = plugin[1];
   return typeof options?.[key] === 'string' ? options[key] : '';
+}
+
+function hasDependency(packageName) {
+  return Boolean(mobilePackage.dependencies?.[packageName] ?? mobilePackage.devDependencies?.[packageName]);
 }
 
 function fileIncludes(path, needles) {

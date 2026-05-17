@@ -927,11 +927,13 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'DNR explicitly names East River Flats Park as the launch, but the launch logistics there are still less clearly documented than the Hidden Falls take-out. Check the access on arrival instead of assuming a trailer-style ramp.',
         'Hidden Falls has posted park hours and can close roads or amenities during flooding, restoration, or other conditions.',
+        'Lock and Dam 1 is not a full-time recreational lock. USACE lists recreation lockage for Saturdays, Sundays, major holidays, and Monday/Friday afternoons, says weekday hours can change, and tells boaters to contact lock staff on VHF channel 14, by the pull cord, or at 651-290-5919.',
       ],
       watchFor: [
         'Swift current and large wakes from larger river traffic.',
-        'Lock and Dam 1 procedure when the lock is operating.',
-        'A 1.40-mile unsigned portage if the lock is unavailable.',
+        'Lock and Dam 1 procedure when the lock is operating; be at the lock at least 30 minutes before posted closure.',
+        'A 1.40-mile unsigned Lock and Dam 1 portage if the lock is unavailable. NPS places the take-out on river right about one-third mile upstream of the Ford Bridge and the put-in at the Minnehaha Creek mouth.',
+        'Do not use Minnehaha Creek itself as a shortcut around the dam; NPS warns of down trees, rapids, and hazards in the creek.',
         'Wind, floating debris, and muddy landings after recent weather.',
       ],
     },

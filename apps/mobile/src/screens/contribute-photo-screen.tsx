@@ -59,7 +59,7 @@ export default function ContributePhotoScreen() {
   }
 
   if (detailQuery.isLoading && !detail) {
-    return <AppLoadingState title="Loading route" body="Preparing the photo contribution form." />;
+    return <AppLoadingState title="Loading route" body="Loading the photo form." />;
   }
 
   if (detailQuery.isError && !detail) {
@@ -204,7 +204,7 @@ export default function ContributePhotoScreen() {
       setStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
-          : 'Could not send these photos right now.'
+          : 'Could not send these photos.'
       );
     }
   }
@@ -236,7 +236,7 @@ export default function ContributePhotoScreen() {
           <View style={styles.panel}>
             <Text style={styles.title}>Add route photos</Text>
             <Text style={styles.body}>
-              Photos help paddlers recognize access points, current river conditions, strainers, and route character.
+              Photos help paddlers spot access points, conditions, strainers, and route character.
             </Text>
 
             <View style={styles.actionRow}>
@@ -284,7 +284,7 @@ export default function ContributePhotoScreen() {
             <TextInput
               autoCapitalize="sentences"
               multiline
-              placeholder="What should paddlers know about this photo? Access point, river level, obstacles, or date."
+              placeholder="What should paddlers know? Access, level, obstacles, or date."
               placeholderTextColor={colors.textMuted}
               style={[styles.input, styles.captionInput]}
               value={caption}

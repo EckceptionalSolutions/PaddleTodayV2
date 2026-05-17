@@ -57,13 +57,15 @@ export default function HomeScreen() {
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
-  const snapshot = buildBoardSnapshot(rivers);
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
   const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 24), [rivers, location]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
     [rivers, location]
   );
+  const snapshotRoutes = location && nearbyPicks.length > 0 ? nearbyPicks : rivers;
+  const snapshot = buildBoardSnapshot(snapshotRoutes);
+  const snapshotContext = location && nearbyPicks.length > 0 ? 'In your range' : 'Across supported routes';
   const scorePicks = useMemo(
     () => [...rivers].sort(compareHomeScore).slice(0, 24),
     [rivers]
@@ -101,7 +103,7 @@ export default function HomeScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading today’s routes" body="Getting the latest launch calls." />
+      <AppLoadingState title="Loading today’s routes" body="Checking launch calls." />
     );
   }
 
@@ -133,6 +135,7 @@ export default function HomeScreen() {
           mode={mode}
           headline={headline}
           snapshot={snapshot}
+          snapshotContext={snapshotContext}
           saved={headline ? isSaved(headline.river.slug) : false}
           onToggleSaved={
             headline
@@ -168,7 +171,6 @@ export default function HomeScreen() {
             }
           }}
         />
-        <BoardIntro mode={mode} locationLabel={location?.label ?? null} />
       </View>
 
       {locationOutOfRange ? (
@@ -230,6 +232,7 @@ function BoardHero({
   mode,
   headline,
   snapshot,
+  snapshotContext,
   saved,
   onToggleSaved,
   onOpen,
@@ -237,6 +240,7 @@ function BoardHero({
   mode: BoardMode;
   headline: BoardItem | null;
   snapshot: ReturnType<typeof buildBoardSnapshot>;
+  snapshotContext: string;
   saved: boolean;
   onToggleSaved?: () => void;
   onOpen?: () => void;
@@ -279,10 +283,13 @@ function BoardHero({
         </View>
       </ImageBackground>
 
-      <View style={styles.snapshotRow}>
-        <SnapshotPill label="Good+" value={snapshot.paddleable} tone={styles.snapshotStrong} />
-        <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
-        <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
+      <View style={styles.snapshotSummary}>
+        <Text style={styles.snapshotContext}>{snapshotContext}</Text>
+        <View style={styles.snapshotRow}>
+          <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} />
+          <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
+          <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
+        </View>
       </View>
     </View>
   );
@@ -305,7 +312,7 @@ function RiverCarousel({
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title="Routes" subtitle={sectionSubtitleForMode(mode)} />
+      <SectionHeading title={boardIntroTitleForMode(mode)} subtitle={sectionSubtitleForMode(mode)} />
       <ScrollView
         key={mode}
         horizontal
@@ -541,28 +548,6 @@ function ModeTabs({
   );
 }
 
-function BoardIntro({ mode, locationLabel }: { mode: BoardMode; locationLabel: string | null }) {
-  const copy =
-    mode === 'closest'
-        ? locationLabel
-          ? `Shortest drives from ${locationLabel}.`
-          : 'Turn on location to sort by closest launch.'
-        : mode === 'score'
-          ? 'Highest scores first, regardless of drive time.'
-          : mode === 'certain'
-            ? 'High-confidence calls first, then score.'
-            : locationLabel
-              ? `Score, confidence, and drive time from ${locationLabel}.`
-              : 'Score and confidence first. Turn on location to include drive time.';
-
-  return (
-    <View style={styles.boardIntro}>
-      <Text style={styles.boardIntroTitle}>{boardIntroTitleForMode(mode)}</Text>
-      <Text style={styles.boardIntroCopy}>{copy}</Text>
-    </View>
-  );
-}
-
 function EmptyMode({
   mode,
   hasLocation,
@@ -575,11 +560,11 @@ function EmptyMode({
   const message =
     mode === 'closest' && !hasLocation
         ? locationStatus === 'requesting'
-          ? 'Finding your area so nearby routes can be ranked by practical drive time.'
+          ? 'Finding nearby routes.'
           : locationStatus === 'denied'
             ? 'Location is off. You can still use Recommended, Score ranking, or Confidence first.'
-            : 'Allow location to show routes within a practical day-trip range.'
-        : 'No routes match this view right now.';
+            : 'Allow location to show nearby routes.'
+        : 'No routes match this view.';
 
   return (
     <View style={styles.emptyCard}>
@@ -602,7 +587,7 @@ function OutOfRangeState({
     <View style={styles.outOfRangeCard}>
       <Text style={styles.emptyTitle}>No supported routes near {locationLabel}</Text>
       <Text style={styles.emptyText}>
-        PaddleToday currently supports select Midwest rivers. You can still browse the active route list or tell us which river to add next.
+        PaddleToday supports select Midwest rivers. Browse the list or request one near you.
       </Text>
       <View style={styles.emptyActions}>
         <Pressable style={styles.emptyPrimaryButton} onPress={onRequestRoute}>
@@ -683,7 +668,7 @@ function compareHomeCertainty(left: RiverSummaryApiItem, right: RiverSummaryApiI
 }
 
 function sectionSubtitleForMode(mode: BoardMode) {
-  if (mode === 'closest') return 'Shortest practical drives first.';
+  if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'High-confidence calls first, then score.';
   return 'Best mix of score, confidence, and drive time.';
@@ -698,10 +683,10 @@ function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
 }
 
 function quickScanSubtitleForMode(mode: BoardMode) {
-  if (mode === 'closest') return 'Nearby routes with the facts that affect the trip.';
+  if (mode === 'closest') return 'Nearby routes with key trip facts.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'A compact recommendation list for today.';
+  return 'Compact picks for today.';
 }
 
 function boardIntroTitleForMode(mode: BoardMode) {
@@ -849,11 +834,21 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     fontWeight: '700',
   },
+  snapshotSummary: {
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.md,
+    gap: spacing.xs,
+  },
+  snapshotContext: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
   snapshotRow: {
     flexDirection: 'row',
     gap: spacing.sm,
-    paddingHorizontal: spacing.md,
-    paddingBottom: spacing.md,
   },
   snapshotPill: {
     flex: 1,
@@ -961,20 +956,6 @@ const styles = StyleSheet.create({
   },
   modeCountActive: {
     color: colors.surfaceStrong,
-  },
-  boardIntro: {
-    paddingHorizontal: 2,
-    gap: 2,
-  },
-  boardIntroTitle: {
-    color: colors.text,
-    fontSize: 17,
-    fontWeight: '900',
-  },
-  boardIntroCopy: {
-    color: colors.textMuted,
-    fontSize: 13,
-    lineHeight: 18,
   },
   sectionStack: {
     gap: spacing.sm,

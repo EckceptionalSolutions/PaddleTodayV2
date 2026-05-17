@@ -57,7 +57,7 @@ export default function SupportScreen() {
     } catch (error) {
       clearTimeout(timeout);
       setDiagnosticState('error');
-      setDiagnosticText(error instanceof Error ? error.message : 'Could not reach PaddleToday right now.');
+      setDiagnosticText(error instanceof Error ? error.message : 'Could not reach PaddleToday.');
       captureAppException(error, {
         name: 'api_diagnostic_failed',
         extra: {
@@ -95,7 +95,7 @@ export default function SupportScreen() {
         </View>
       </SectionCard>
 
-      <SectionCard title="Connection check" subtitle="Use this when the app opens but route calls do not load.">
+      <SectionCard title="Connection check" subtitle="Use this when routes do not load.">
         <View style={styles.diagnosticCard}>
           <View style={[styles.diagnosticIcon, diagnosticTone(diagnosticState)]}>
             <MaterialCommunityIcons name={diagnosticIcon(diagnosticState)} color={colors.surfaceStrong} size={20} />
@@ -115,7 +115,7 @@ export default function SupportScreen() {
         </Pressable>
       </SectionCard>
 
-      <SectionCard title="Observability" subtitle="Release builds report errors only after Sentry is configured.">
+      <SectionCard title="Observability" subtitle="Release diagnostics are not configured yet.">
         <View style={styles.observabilityCard}>
           <Text style={styles.observabilityLabel}>Status</Text>
           <Text style={styles.observabilityValue}>

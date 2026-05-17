@@ -43,9 +43,9 @@ Production API note: the desktop web app already uses the production PaddleToday
 - [ ] Complete Apple privacy nutrition labels in App Store Connect after owner/legal review.
 - [ ] Complete Google Play Data Safety form after owner/legal review.
 - [x] Confirm alert creation API is live in production and represented in privacy copy.
-- [x] Add crash/error reporting hooks for native builds.
-- [x] Add privacy-safe product breadcrumbs for the core release funnels.
-- [x] Document Sentry signup, auth token, EAS secrets, and verification steps in `docs/mobile-sentry-setup.md`.
+- [x] Configure Firebase Analytics and Crashlytics for preview/production native builds.
+- [x] Keep development builds and Expo Go observability as no-op.
+- [ ] Add Firebase iOS and Android native config files before preview/production builds.
 - [x] Confirm route reports and optional photo uploads are live in production and represented in privacy/terms copy.
 - [x] Add in-app build/API/observability details for TestFlight and Play internal testing.
 
@@ -82,10 +82,10 @@ Production API note: the desktop web app already uses the production PaddleToday
 
 ## Observability and Operations
 
-- [x] Add crash/error reporting for native builds.
-- [x] Add privacy-compatible breadcrumbs for core funnels: app open, route open, save, directions, report started/submitted, alert creation, API diagnostic.
-- [x] Decide Sentry breadcrumbs are enough for MVP analytics in `docs/mobile-analytics-mvp-decision.md`.
-- [ ] Create Sentry organization/project and configure `EXPO_PUBLIC_SENTRY_DSN` plus `SENTRY_AUTH_TOKEN` in EAS.
+- [x] Add Firebase Analytics and Crashlytics dependencies.
+- [x] Wire privacy-compatible event hooks for core funnels: app open, route open, save, directions, report started/submitted, alert creation, API diagnostic.
+- [x] Decide Firebase Analytics and Crashlytics are the preferred low-cost provider in `docs/mobile-analytics-mvp-decision.md`.
+- [ ] Create Firebase project and add native app config files.
 - [x] Add a production API health check that mobile QA can verify quickly.
 - [x] Document support triage: where app feedback goes, who reviews it, and how urgent river safety corrections are handled.
 

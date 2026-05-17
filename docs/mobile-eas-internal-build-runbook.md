@@ -67,24 +67,12 @@ npx eas-cli env:create --scope project --name GOOGLE_MAPS_ANDROID_API_KEY --valu
 
 Use `--environment production` as well before production Android builds. Do not use secret visibility for this key because Expo needs to read it while resolving `android.config.googleMaps.apiKey`; the key is embedded in the Android app and should be protected with Google Cloud Android app restrictions.
 
-Required before observability can work in preview/production builds:
+Required before Firebase Analytics and Crashlytics can work in preview/production builds:
 
-```sh
-cd apps/mobile
-npx eas-cli secret:create --scope project --name EXPO_PUBLIC_SENTRY_DSN --value "<public mobile Sentry DSN>"
-npx eas-cli secret:create --scope project --name SENTRY_AUTH_TOKEN --value "<Sentry auth token>"
-```
+- Add `apps/mobile/firebase/GoogleService-Info.plist`.
+- Add `apps/mobile/firebase/google-services.json`.
 
-Optional if Sentry project metadata is required by the build plugin in your setup:
-
-```sh
-npx eas-cli secret:create --scope project --name SENTRY_ORG --value "<sentry org slug>"
-npx eas-cli secret:create --scope project --name SENTRY_PROJECT --value "<sentry project slug>"
-```
-
-Do not commit secret values to the repo.
-
-Until those Sentry values exist, EAS builds set `SENTRY_DISABLE_AUTO_UPLOAD=true` so the app can still archive for TestFlight. Remove that flag after `SENTRY_ORG`, `SENTRY_PROJECT`, and `SENTRY_AUTH_TOKEN` are configured and you want source maps/debug symbols uploaded during builds.
+Both files come from the Firebase Console after adding iOS and Android apps for `com.paddletoday.mobile`.
 
 ## 4. Configure Credentials
 
@@ -188,7 +176,7 @@ For each internal build, record:
 - Native app version/build number.
 - Device or simulator used.
 - API diagnostic result.
-- Sentry status from More tab.
+- Observability status from More tab.
 - Any failed QA item from `docs/mobile-native-qa-plan.md`.
 
 Store the notes in the release checklist or a dated QA note before moving to public submission.

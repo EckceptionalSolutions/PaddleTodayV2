@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "378411608143",
+    "project_id": "paddletoday-9933a",
+    "storage_bucket": "paddletoday-9933a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:378411608143:android:d8484a91c252e97afd623a",
+        "android_client_info": {
+          "package_name": "com.paddletoday.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlRMdKJhufWYvVYPs6PekcDvAhyhOFwbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

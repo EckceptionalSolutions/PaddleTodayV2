@@ -12,7 +12,8 @@ The release check validates the repo-side configuration that can be checked with
 - `apps/mobile/app.json` and `apps/mobile/eas.json` parse.
 - Bundle/package identifiers and native version fields are present.
 - Production API URL is configured for EAS build profiles.
-- Sentry plugin and Metro config are present.
+- Metro config is present.
+- Firebase Analytics and Crashlytics dependencies/config are present.
 - Location and photo permission copy exists.
 - Required app assets exist.
 - Required release docs exist.
@@ -24,7 +25,7 @@ The check does not replace real native QA. It cannot verify:
 - EAS project ownership.
 - Signing credentials.
 - TestFlight or Google internal testing install.
-- Sentry DSN/auth token secrets.
+- Firebase project/native config files exist in the Firebase Console and local build input.
 - Actual production alert email delivery.
 - Real device safe-area and gesture behavior.
 

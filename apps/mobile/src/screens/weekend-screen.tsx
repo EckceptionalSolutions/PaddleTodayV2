@@ -36,7 +36,7 @@ export default function WeekendScreen() {
 
   if (weekendQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading weekend routes" body="Pulling the latest weekend outlook." />
+      <AppLoadingState title="Loading weekend routes" body="Checking the weekend outlook." />
     );
   }
 
@@ -67,7 +67,7 @@ export default function WeekendScreen() {
         <Text style={styles.kicker}>Weekend planning</Text>
         <Text style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>
-          Start with strong options, then narrow by commitment, camping, and forecast risk.
+          Start with strong options, then narrow by trip size, camping, and forecast risk.
         </Text>
 
         <View style={styles.heroPanel}>
@@ -103,7 +103,7 @@ export default function WeekendScreen() {
       {topPicks.length > 0 ? (
         <SectionCard
           title="Best weekend"
-          subtitle="Routes that already look actionable if the forecast holds."
+          subtitle="Good options if the forecast holds."
         >
           <View style={styles.list}>
             {topPicks.map((river) => (
@@ -129,7 +129,7 @@ export default function WeekendScreen() {
       {lowerCommitment.length > 0 ? (
         <SectionCard
           title="Lower commitment"
-          subtitle="Shorter or easier routes that are simpler to fit around weather."
+          subtitle="Shorter, easier routes."
         >
           <View style={styles.list}>
             {lowerCommitment.map((river) => renderWeekendCard(river))}
@@ -140,7 +140,7 @@ export default function WeekendScreen() {
       {campingRoutes.length > 0 ? (
         <SectionCard
           title="Camping possible"
-          subtitle="Routes with useful camping or overnight staging notes."
+          subtitle="Routes with camping notes."
         >
           <View style={styles.list}>
             {campingRoutes.map((river) => renderWeekendCard(river))}
@@ -152,8 +152,8 @@ export default function WeekendScreen() {
         title="Watch list"
         subtitle={
           watchList.length > 0
-            ? 'Promising routes that still need cleaner support before they become a recommendation.'
-            : 'Nothing is sitting in the middle right now.'
+            ? 'Possible options that need another check.'
+            : 'No maybe routes today.'
         }
       >
         {watchList.length > 0 ? (
@@ -163,7 +163,7 @@ export default function WeekendScreen() {
             ))}
           </View>
         ) : (
-          <Text style={styles.emptyText}>The weekend list is either clearly good or still too weak to support a watch list.</Text>
+          <Text style={styles.emptyText}>No weekend routes are in the maybe range.</Text>
         )}
       </SectionCard>
 

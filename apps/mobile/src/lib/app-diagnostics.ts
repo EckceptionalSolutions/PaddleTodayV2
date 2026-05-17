@@ -34,7 +34,7 @@ export function appDiagnosticRows(): AppDiagnosticRow[] {
     },
     {
       label: 'Errors',
-      value: observability.enabled ? 'Sentry enabled' : 'Sentry not configured',
+      value: observability.enabled ? 'Diagnostics enabled' : 'Diagnostics not configured',
     },
   ];
 }

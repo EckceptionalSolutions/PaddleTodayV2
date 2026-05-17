@@ -31,7 +31,7 @@ Device-local Saved rivers should not require account/data collection disclosures
 - optional route report/contact information,
 - optional route-report photos,
 - alert signup contact details,
-- diagnostics/crash reporting if Sentry is enabled.
+- Firebase Analytics and Crashlytics in preview/production builds.
 
 Saved rivers become a bigger privacy item only if they are synced to PaddleToday servers or associated with a user identity.
 

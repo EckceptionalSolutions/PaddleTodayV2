@@ -40,7 +40,7 @@ export default function SavedScreen() {
           </View>
           <Text style={styles.emptyTitle}>No saved rivers yet</Text>
           <Text style={styles.emptyBody}>
-            Save routes you check often. This becomes a quick list for repeat trips and local favorites.
+            Save repeat trips and local favorites here.
           </Text>
           <View style={styles.emptyActions}>
             <Pressable style={styles.primaryButton} onPress={() => router.push('/')}>
@@ -81,8 +81,8 @@ export default function SavedScreen() {
 
       {savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
         <SectionCard
-          title="Saved routes without a current call"
-          subtitle="They are still saved here, but today’s route list did not include a current call."
+          title="Saved routes without a call"
+          subtitle="Still saved, but missing from today’s calls."
         >
           <View style={styles.list}>
             {savedRivers
@@ -93,7 +93,7 @@ export default function SavedScreen() {
                     <Text style={styles.savedFallbackName}>{river.name}</Text>
                     <Text style={styles.savedFallbackReach}>{river.reach}</Text>
                     <Text style={styles.savedFallbackNote}>
-                      A current call is not available for this route right now.
+                      No call is available today.
                     </Text>
                   </View>
                 </View>
@@ -106,7 +106,7 @@ export default function SavedScreen() {
         <View style={styles.offlineNote}>
           <MaterialCommunityIcons name="wifi-off" color={colors.noGo} size={18} />
           <Text style={styles.footnote}>
-            Saved route calls could not refresh. Your saved list is still available.
+            Saved calls did not refresh. Your list is still here.
           </Text>
         </View>
       ) : null}

@@ -51,6 +51,35 @@ const baseRiver: River = {
     latitude: 44.88,
     longitude: -93.19,
   },
+  accessPoints: [
+    {
+      id: 'north-landing',
+      name: 'North Landing',
+      latitude: 44.91,
+      longitude: -93.21,
+      mileFromStart: 0,
+      segmentKind: 'creek',
+      note: 'Primary launch.',
+    },
+    {
+      id: 'middle-landing',
+      name: 'Middle Landing',
+      latitude: 44.9,
+      longitude: -93.2,
+      mileFromStart: 3,
+      segmentKind: 'creek',
+      note: 'Short route access.',
+    },
+    {
+      id: 'south-landing',
+      name: 'South Landing',
+      latitude: 44.88,
+      longitude: -93.19,
+      mileFromStart: 6,
+      segmentKind: 'creek',
+      note: 'Primary take-out.',
+    },
+  ],
   logistics: {
     distanceLabel: '6 miles',
     estimatedPaddleTime: 'About 2 hr to 3 hr',
@@ -227,6 +256,7 @@ describe('api-contract serializers', () => {
     expect('sourceLinks' in detail.river).toBe(false);
     expect('evidenceNotes' in detail.river).toBe(false);
     expect(detail.river.logistics?.shuttle).toBe('Simple car shuttle');
+    expect(detail.river.accessPoints?.[1]?.note).toBe('Short route access.');
   });
 
   it('badges American Whitewater threshold evidence separately from the live USGS gauge', () => {

@@ -3,6 +3,7 @@ import type {
   ApprovedTripReport,
   DecisionChecklistItem,
   RiverAccessPoint,
+  RiverRouteAccessPoint,
   RiverAlertThreshold,
   CreateRouteContributionRequest,
   RiverDetailApiResult,
@@ -16,6 +17,7 @@ import { useEffect, useMemo, useState } from 'react';
 import {
   Image,
   Linking,
+  Modal,
   Platform,
   Pressable,
   RefreshControl,
@@ -99,13 +101,23 @@ export default function RiverDetailScreen() {
   const [reportStatus, setReportStatus] = useState('Reports are reviewed before they appear on Paddle Today.');
   const [activeSection, setActiveSection] = useState<DetailSection>('Today');
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
+  const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
+  const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
   const detail = detailQuery.data?.result ?? null;
   const groupQuery = useRiverGroupQuery(detail?.river.riverId ?? '');
   const history = historyQuery.data?.result ?? null;
   const community = communityQuery.data ?? null;
   const checklist = useMemo(() => (detail ? detail.checklist.slice(0, 4) : []), [detail]);
-  const routePlotPoints = useMemo(() => (detail ? buildDetailRoutePoints(detail) : []), [detail]);
+  const accessPoints = useMemo(() => (detail ? routeAccessPoints(detail) : []), [detail]);
+  const selectedPutInAccess = selectedPutInId ? accessPoints.find((point) => point.id === selectedPutInId) : undefined;
+  const selectedTakeOutAccess = selectedTakeOutId ? accessPoints.find((point) => point.id === selectedTakeOutId) : undefined;
+  const selectedPutIn = selectedPutInAccess ?? detail?.river.putIn;
+  const selectedTakeOut = selectedTakeOutAccess ?? detail?.river.takeOut;
+  const routePlotPoints = useMemo(
+    () => (detail ? buildDetailRoutePoints(detail, selectedPutIn, selectedTakeOut) : []),
+    [detail, selectedPutIn, selectedTakeOut]
+  );
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
   const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
@@ -119,6 +131,10 @@ export default function RiverDetailScreen() {
     if (!detail) {
       return;
     }
+
+    const points = routeAccessPoints(detail);
+    setSelectedPutInId(points[0]?.id ?? null);
+    setSelectedTakeOutId(points[points.length - 1]?.id ?? null);
 
     trackAppEvent('route_opened', {
       slug: detail.river.slug,
@@ -448,7 +464,7 @@ export default function RiverDetailScreen() {
             </View>
           </View>
           <DecisionSummary detail={detail} />
-          <DecisionStrip detail={detail} onDirections={() => openPrimaryDirections(detail)} />
+          <DecisionStrip detail={detail} onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)} />
           {detail.liveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
               <Text style={styles.heroFooterWarning}>{normalizeApiText(detail.liveData.summary)}</Text>
@@ -509,7 +525,7 @@ export default function RiverDetailScreen() {
 
             <AboutRouteCard detail={detail} />
 
-            <SectionCard title="Checklist" subtitle="Secondary checks before committing to the drive.">
+            <SectionCard title="Checklist" subtitle="Final checks before driving.">
               <View style={styles.checklist}>
                 {checklist.map((item) => (
                   <ChecklistRow key={`${item.label}-${item.status}`} item={item} />
@@ -616,14 +632,14 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Outlooks"
-              subtitle="Forward-looking calls stay conservative when forecast or gauge support is weak."
+              subtitle="Forecast calls stay cautious."
             >
               <OutlookRows outlooks={detail.outlooks} />
             </SectionCard>
 
             <SectionCard
               title="Weather through today"
-              subtitle="Short-interval weather for trip timing, not just a single summary."
+              subtitle="Hourly weather for timing."
             >
               <HourlyWeatherStrip detail={detail} />
             </SectionCard>
@@ -656,7 +672,7 @@ export default function RiverDetailScreen() {
           <>
             <SectionCard
               title="Access & logistics"
-              subtitle="Put-in, take-out, shuttle, and the route facts that affect planning."
+              subtitle="Access, shuttle, and route basics."
             >
               {Platform.OS !== 'web' && routePlotPoints.length > 0 ? (
                 <RoutePlotMap
@@ -668,17 +684,28 @@ export default function RiverDetailScreen() {
                 />
               ) : null}
               <View style={styles.accessBlock}>
-                <AccessCard label="Put-in" point={detail.river.putIn} fallback="Put-in not mapped yet." />
-                <AccessCard label="Take-out" point={detail.river.takeOut} fallback="Take-out not mapped yet." />
+                <AccessPlanner
+                  detail={detail}
+                  points={accessPoints}
+                  selectedPutInId={selectedPutInId}
+                  selectedTakeOutId={selectedTakeOutId}
+                  onPutInChange={(point) => {
+                    setSelectedPutInId(point.id);
+                    if (selectedTakeOutAccess && point.mileFromStart >= selectedTakeOutAccess.mileFromStart) {
+                      const nextTakeOut = accessPoints.find((candidate) => candidate.mileFromStart > point.mileFromStart);
+                      setSelectedTakeOutId(nextTakeOut?.id ?? point.id);
+                    }
+                  }}
+                  onTakeOutChange={(point) => setSelectedTakeOutId(point.id)}
+                />
+                <AccessCard label="Put-in" point={selectedPutIn} fallback="Put-in not mapped yet." />
+                <AccessCard label="Take-out" point={selectedTakeOut} fallback="Take-out not mapped yet." />
+                {accessPoints.length <= 2 ? (
+                  <AccessMetrics detail={detail} distanceLabel={detail.river.distanceLabel || 'Check source'} />
+                ) : null}
               </View>
-              <RouteDirectionActions detail={detail} />
+              <RouteDirectionActions putIn={selectedPutIn} takeOut={selectedTakeOut} />
               <TripPlanningCard detail={detail} />
-              <View style={styles.accessMeta}>
-                <MetricPill label="Distance" value={detail.river.distanceLabel || 'Check source'} />
-                <MetricPill label="Paddle time" value={detail.river.estimatedPaddleTime || 'Not tracked'} />
-                <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
-                <MetricPill label="Camping" value={shortLogisticsValue(detail.river.logistics?.camping)} />
-              </View>
               <LogisticsPanel
                 title="Shuttle"
                 body={detail.river.logistics?.shuttle || 'Shuttle notes are not tracked yet for this route.'}
@@ -696,7 +723,7 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Route alerts"
-              subtitle="Get notified when this route crosses your chosen threshold. Native alerts require notification permission."
+              subtitle="Get alerts when this route improves. Native alerts require notification permission."
             >
               <View style={styles.alertButtonRow}>
                 {(['good', 'strong'] as const).map((threshold) => {
@@ -795,17 +822,17 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
 
   return [
     {
-      label: detail.rating === 'Fair' ? 'Why today may work' : 'Why today works',
+      label: 'Pros',
       text: normalizeApiText(primaryWorking?.detail ?? detail.explanation),
       tone: conditionToneForStatus(primaryWorking?.status ?? 'watch'),
     },
     {
-      label: 'What to watch',
+      label: 'Cautions',
       text: normalizeApiText(firstWarning?.detail ?? checklistByLabel.get('Weather window')?.detail ?? detail.liveData.summary),
       tone: conditionToneForStatus(firstWarning?.status ?? 'watch'),
     },
     {
-      label: 'Before committing',
+      label: 'Before you go',
       text: beforeCommittingText(detail),
       tone: conditionToneForStatus(detail.liveData.overall === 'live' ? 'go' : 'watch'),
     },
@@ -849,18 +876,18 @@ function compactPaddleTime(value: string) {
 
 function decisionStatement(detail: RiverDetailApiResult) {
   if (detail.rating === 'Strong') {
-    return 'Clear go if the route fits your group.';
+    return 'Good to go if it fits your group.';
   }
 
   if (detail.rating === 'Good') {
-    return 'Good option with normal same-day checks.';
+    return 'Good with normal checks.';
   }
 
   if (detail.rating === 'Fair') {
-    return 'Possible paddle, but review the cautions first.';
+    return 'Possible paddle with caution.';
   }
 
-  return 'Skip this one today unless sources have changed.';
+  return 'Skip today unless sources changed.';
 }
 
 function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
@@ -1038,7 +1065,7 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
   return (
     <SectionCard
       title="Trip fit"
-      subtitle="The quick facts that decide whether this route fits your group."
+      subtitle="Quick fit check."
     >
       <View style={styles.routeBasicsGrid}>
         {basics.map((item) => (
@@ -1077,7 +1104,7 @@ function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
   return (
     <SectionCard
       title="About this route"
-      subtitle="Evergreen planning notes, separate from today's live conditions."
+      subtitle="Planning notes, not live conditions."
     >
       <Text style={styles.aboutRouteText}>
         {normalizeApiText(logistics?.summary || detail.explanation)}
@@ -1085,7 +1112,7 @@ function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
       <LogisticsBulletList
         title="Watch for"
         items={logistics?.watchFor ?? []}
-        empty="Hazards and watch-outs are not tracked yet for this route."
+        empty="No hazards noted yet."
         tone="warning"
       />
       <LogisticsPanel
@@ -1361,13 +1388,173 @@ function AccessCard({
   );
 }
 
-function RouteDirectionActions({ detail }: { detail: RiverDetailApiResult }) {
-  if (!hasCoordinates(detail.river.putIn) || !hasCoordinates(detail.river.takeOut)) {
+function AccessPlanner({
+  detail,
+  points,
+  selectedPutInId,
+  selectedTakeOutId,
+  onPutInChange,
+  onTakeOutChange,
+}: {
+  detail: RiverDetailApiResult;
+  points: RiverRouteAccessPoint[];
+  selectedPutInId: string | null;
+  selectedTakeOutId: string | null;
+  onPutInChange: (point: RiverRouteAccessPoint) => void;
+  onTakeOutChange: (point: RiverRouteAccessPoint) => void;
+}) {
+  if (points.length <= 2) {
     return null;
   }
 
-  const origin = `${detail.river.putIn.latitude},${detail.river.putIn.longitude}`;
-  const destination = `${detail.river.takeOut.latitude},${detail.river.takeOut.longitude}`;
+  const selectedPutIn = points.find((point) => point.id === selectedPutInId) ?? points[0];
+  const selectedTakeOut = points.find((point) => point.id === selectedTakeOutId) ?? points[points.length - 1];
+  const distance = Math.max(0, selectedTakeOut.mileFromStart - selectedPutIn.mileFromStart);
+  const distanceLabel = formatSegmentDistance(distance);
+  const paddleTime = estimateSegmentPaddleTime(detail, distance);
+  const takeOutOptions = points.filter((point) => point.mileFromStart > selectedPutIn.mileFromStart);
+
+  return (
+    <View style={styles.accessPlanner}>
+      <View style={styles.accessPlannerHeader}>
+        <View style={styles.accessPlannerTitleWrap}>
+          <Text style={styles.accessPlannerKicker}>Access planner</Text>
+          <Text style={styles.accessPlannerTitle}>Pick a shorter segment</Text>
+        </View>
+        <View style={styles.accessPlannerDistance}>
+          <Text style={styles.accessPlannerDistanceValue}>{distanceLabel}</Text>
+          <Text style={styles.accessPlannerDistanceLabel}>selected</Text>
+        </View>
+      </View>
+      <Text style={styles.accessPlannerText}>
+        This changes launch and take-out logistics, not today's river score.
+      </Text>
+      <AccessPointSelector
+        label="Put-in"
+        points={points.slice(0, -1)}
+        selectedId={selectedPutIn.id}
+        onSelect={onPutInChange}
+      />
+      <AccessPointSelector
+        label="Take-out"
+        points={takeOutOptions}
+        selectedId={selectedTakeOut.id}
+        onSelect={onTakeOutChange}
+      />
+      <AccessMetrics detail={detail} distanceLabel={distanceLabel} paddleTime={paddleTime} />
+      <Text style={styles.accessPlannerSummary}>
+        {selectedPutIn.name} to {selectedTakeOut.name}
+        {selectedPutIn.note || selectedTakeOut.note ? ` - ${selectedPutIn.note ?? selectedTakeOut.note}` : ''}
+      </Text>
+      <Text style={styles.accessPlannerRoute}>Full route: {detail.river.distanceLabel || 'distance not tracked'}.</Text>
+    </View>
+  );
+}
+
+function AccessPointSelector({
+  label,
+  points,
+  selectedId,
+  onSelect,
+}: {
+  label: string;
+  points: RiverRouteAccessPoint[];
+  selectedId: string | null;
+  onSelect: (point: RiverRouteAccessPoint) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const selectedPoint = points.find((point) => point.id === selectedId) ?? points[0];
+
+  return (
+    <View style={styles.accessSelector}>
+      <Text style={styles.accessSelectorLabel}>{label}</Text>
+      <Pressable style={styles.accessDropdownButton} onPress={() => setOpen(true)}>
+        <View style={styles.accessDropdownCopy}>
+          <Text style={styles.accessDropdownValue} numberOfLines={2}>
+            {selectedPoint?.name ?? 'Select access'}
+          </Text>
+          <Text style={styles.accessDropdownMeta}>
+            {selectedPoint ? formatSegmentMile(selectedPoint.mileFromStart) : 'Choose an access point'}
+          </Text>
+        </View>
+        <MaterialCommunityIcons name="chevron-down" color={colors.accent} size={22} />
+      </Pressable>
+      <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
+        <Pressable style={styles.accessDropdownBackdrop} onPress={() => setOpen(false)}>
+          <Pressable style={styles.accessDropdownSheet}>
+            <View style={styles.accessDropdownSheetHeader}>
+              <Text style={styles.accessDropdownSheetTitle}>{label}</Text>
+              <Pressable style={styles.accessDropdownClose} onPress={() => setOpen(false)}>
+                <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
+              </Pressable>
+            </View>
+            <ScrollView style={styles.accessDropdownList} contentContainerStyle={styles.accessDropdownListContent}>
+              {points.map((point) => {
+                const selected = point.id === selectedId;
+                return (
+                  <Pressable
+                    key={`${label}-${point.id}`}
+                    style={[styles.accessDropdownItem, selected ? styles.accessDropdownItemSelected : null]}
+                    onPress={() => {
+                      onSelect(point);
+                      setOpen(false);
+                    }}
+                  >
+                    <View style={styles.accessDropdownItemCopy}>
+                      <Text
+                        style={[styles.accessDropdownItemName, selected ? styles.accessDropdownItemNameSelected : null]}
+                        numberOfLines={2}
+                      >
+                        {point.name}
+                      </Text>
+                      <Text style={[styles.accessDropdownItemMeta, selected ? styles.accessDropdownItemMetaSelected : null]}>
+                        {formatSegmentMile(point.mileFromStart)}
+                      </Text>
+                    </View>
+                    {selected ? <MaterialCommunityIcons name="check" color={colors.surfaceStrong} size={19} /> : null}
+                  </Pressable>
+                );
+              })}
+            </ScrollView>
+          </Pressable>
+        </Pressable>
+      </Modal>
+    </View>
+  );
+}
+
+function AccessMetrics({
+  detail,
+  distanceLabel,
+  paddleTime,
+}: {
+  detail: RiverDetailApiResult;
+  distanceLabel: string;
+  paddleTime?: string;
+}) {
+  return (
+    <View style={styles.accessMeta}>
+      <MetricPill label="Distance" value={distanceLabel} />
+      <MetricPill label="Paddle time" value={paddleTime || detail.river.estimatedPaddleTime || 'Not tracked'} />
+      <MetricPill label="Difficulty" value={capitalize(detail.river.profile.difficulty)} />
+      <MetricPill label="Camping" value={shortLogisticsValue(detail.river.logistics?.camping)} />
+    </View>
+  );
+}
+
+function RouteDirectionActions({
+  putIn,
+  takeOut,
+}: {
+  putIn: RiverAccessPoint | undefined;
+  takeOut: RiverAccessPoint | undefined;
+}) {
+  if (!hasCoordinates(putIn) || !hasCoordinates(takeOut)) {
+    return null;
+  }
+
+  const origin = `${putIn.latitude},${putIn.longitude}`;
+  const destination = `${takeOut.latitude},${takeOut.longitude}`;
   const appleUrl = `https://maps.apple.com/?saddr=${encodeURIComponent(origin)}&daddr=${encodeURIComponent(destination)}&dirflg=d`;
   const googleUrl = `https://www.google.com/maps/dir/?api=1&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
 
@@ -1375,7 +1562,9 @@ function RouteDirectionActions({ detail }: { detail: RiverDetailApiResult }) {
     <View style={styles.directionsPanel}>
       <View style={styles.directionsCopy}>
         <Text style={styles.directionsTitle}>Shuttle directions</Text>
-        <Text style={styles.directionsText}>Open driving directions from put-in to take-out.</Text>
+        <Text style={styles.directionsText}>
+          Open driving directions from {putIn.name} to {takeOut.name}.
+        </Text>
       </View>
       <View style={styles.directionsActions}>
         <Pressable style={styles.directionButton} onPress={() => void Linking.openURL(appleUrl)}>
@@ -1389,27 +1578,31 @@ function RouteDirectionActions({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
-function buildDetailRoutePoints(detail: RiverDetailApiResult): RoutePlotPoint[] {
+function buildDetailRoutePoints(
+  detail: RiverDetailApiResult,
+  putIn: RiverAccessPoint | undefined = detail.river.putIn,
+  takeOut: RiverAccessPoint | undefined = detail.river.takeOut
+): RoutePlotPoint[] {
   const points: RoutePlotPoint[] = [];
 
-  if (hasCoordinates(detail.river.putIn)) {
+  if (hasCoordinates(putIn)) {
     points.push({
       id: 'put-in',
-      label: detail.river.putIn.name,
-      latitude: detail.river.putIn.latitude,
-      longitude: detail.river.putIn.longitude,
+      label: putIn.name,
+      latitude: putIn.latitude,
+      longitude: putIn.longitude,
       rating: detail.rating,
       score: detail.score,
       meta: 'Put-in',
     });
   }
 
-  if (hasCoordinates(detail.river.takeOut)) {
+  if (hasCoordinates(takeOut)) {
     points.push({
       id: 'take-out',
-      label: detail.river.takeOut.name,
-      latitude: detail.river.takeOut.latitude,
-      longitude: detail.river.takeOut.longitude,
+      label: takeOut.name,
+      latitude: takeOut.latitude,
+      longitude: takeOut.longitude,
       rating: detail.rating,
       score: detail.score,
       meta: 'Take-out',
@@ -1435,12 +1628,99 @@ function hasCoordinates(point: RiverAccessPoint | undefined): point is RiverAcce
   return Boolean(point && Number.isFinite(point.latitude) && Number.isFinite(point.longitude));
 }
 
-function openPrimaryDirections(detail: RiverDetailApiResult) {
-  const url = mapUrlForAccessPoint(detail.river.putIn) || mapUrlForAccessPoint(detail.river.takeOut);
+function routeAccessPoints(detail: RiverDetailApiResult): RiverRouteAccessPoint[] {
+  return (detail.river.accessPoints ?? []).slice().sort((left, right) => left.mileFromStart - right.mileFromStart);
+}
+
+function formatSegmentDistance(distance: number) {
+  if (!Number.isFinite(distance) || distance <= 0) {
+    return '0 mi';
+  }
+
+  return `${distance.toFixed(distance >= 10 ? 0 : 1).replace(/\.0$/, '')} mi`;
+}
+
+function formatSegmentMile(mile: number) {
+  if (!Number.isFinite(mile)) {
+    return 'Mile --';
+  }
+
+  return `Mile ${mile.toFixed(mile >= 10 ? 0 : 1).replace(/\.0$/, '')}`;
+}
+
+function estimateSegmentPaddleTime(detail: RiverDetailApiResult, distanceMiles: number) {
+  const fullDistance =
+    parseDistanceMiles(detail.river.distanceLabel) ??
+    routeAccessPoints(detail).at(-1)?.mileFromStart ??
+    null;
+  const fullTime = parsePaddleTimeHours(detail.river.estimatedPaddleTime);
+
+  if (!fullDistance || !fullTime || !Number.isFinite(distanceMiles) || distanceMiles <= 0) {
+    return detail.river.estimatedPaddleTime || 'Not tracked';
+  }
+
+  const ratio = Math.min(1, Math.max(0, distanceMiles / fullDistance));
+  return formatPaddleTimeRange(fullTime.min * ratio, fullTime.max * ratio);
+}
+
+function parseDistanceMiles(value: string) {
+  const match = value.match(/(\d+(?:\.\d+)?)/);
+  if (!match) {
+    return null;
+  }
+
+  const miles = Number(match[1]);
+  return Number.isFinite(miles) && miles > 0 ? miles : null;
+}
+
+function parsePaddleTimeHours(value: string) {
+  const numbers = value.match(/\d+(?:\.\d+)?/g)?.map(Number).filter(Number.isFinite) ?? [];
+  if (numbers.length === 0) {
+    return null;
+  }
+
+  const min = numbers[0];
+  const max = numbers[1] ?? numbers[0];
+  return min > 0 && max > 0 ? { min, max: Math.max(min, max) } : null;
+}
+
+function formatPaddleTimeRange(minHours: number, maxHours: number) {
+  const min = Math.max(0.5, roundPaddleHours(minHours));
+  const max = Math.max(min, roundPaddleHours(maxHours));
+
+  if (min === max) {
+    return `About ${formatPaddleHours(min)}`;
+  }
+
+  return `About ${formatPaddleHours(min)} to ${formatPaddleHours(max)}`;
+}
+
+function roundPaddleHours(hours: number) {
+  if (!Number.isFinite(hours)) {
+    return 0.5;
+  }
+
+  return Math.round(hours * 2) / 2;
+}
+
+function formatPaddleHours(hours: number) {
+  if (hours < 1) {
+    return '30 min';
+  }
+
+  return `${hours.toFixed(hours % 1 === 0 ? 0 : 1)} hr`;
+}
+
+function openPrimaryDirections(
+  detail: RiverDetailApiResult,
+  putIn: RiverAccessPoint | undefined = detail.river.putIn,
+  takeOut: RiverAccessPoint | undefined = detail.river.takeOut
+) {
+  const url = mapUrlForAccessPoint(putIn) || mapUrlForAccessPoint(takeOut);
   if (url) {
     trackAppEvent('directions_opened', {
       slug: detail.river.slug,
-      target: detail.river.putIn ? 'put_in' : 'take_out',
+      target: putIn ? 'put_in' : 'take_out',
     });
     void Linking.openURL(url);
   }
@@ -2289,6 +2569,190 @@ const styles = StyleSheet.create({
   },
   accessBlock: {
     gap: spacing.md,
+  },
+  accessPlanner: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  accessPlannerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  accessPlannerTitleWrap: {
+    flex: 1,
+    gap: 2,
+  },
+  accessPlannerKicker: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  accessPlannerTitle: {
+    color: colors.text,
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  accessPlannerDistance: {
+    minWidth: 72,
+    borderRadius: radius.md,
+    backgroundColor: colors.accentSoft,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
+    alignItems: 'center',
+  },
+  accessPlannerDistanceValue: {
+    color: colors.accentDeep,
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  accessPlannerDistanceLabel: {
+    color: colors.textMuted,
+    fontSize: 9,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  accessPlannerText: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '700',
+  },
+  accessSelector: {
+    gap: spacing.xs,
+  },
+  accessSelectorLabel: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  accessDropdownButton: {
+    minHeight: 58,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  accessDropdownCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  accessDropdownValue: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 18,
+    fontWeight: '900',
+  },
+  accessDropdownMeta: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  accessDropdownBackdrop: {
+    flex: 1,
+    backgroundColor: 'rgba(15, 23, 42, 0.36)',
+    justifyContent: 'flex-end',
+  },
+  accessDropdownSheet: {
+    maxHeight: '72%',
+    backgroundColor: colors.surfaceStrong,
+    borderTopLeftRadius: radius.lg,
+    borderTopRightRadius: radius.lg,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  accessDropdownSheetHeader: {
+    minHeight: 36,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  accessDropdownSheetTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  accessDropdownClose: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  accessDropdownList: {
+    maxHeight: 420,
+  },
+  accessDropdownListContent: {
+    gap: spacing.sm,
+    paddingBottom: spacing.md,
+  },
+  accessDropdownItem: {
+    minHeight: 62,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  accessDropdownItemSelected: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
+  },
+  accessDropdownItemCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  accessDropdownItemName: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 18,
+    fontWeight: '900',
+  },
+  accessDropdownItemNameSelected: {
+    color: colors.surfaceStrong,
+  },
+  accessDropdownItemMeta: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+  },
+  accessDropdownItemMetaSelected: {
+    color: colors.surfaceStrong,
+  },
+  accessPlannerSummary: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '800',
+  },
+  accessPlannerRoute: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '700',
   },
   accessCard: {
     backgroundColor: colors.surface,

@@ -59,6 +59,13 @@ export interface RiverAccessPoint {
   longitude?: number;
 }
 
+export interface RiverRouteAccessPoint extends RiverAccessPoint {
+  id: string;
+  mileFromStart: number;
+  segmentKind: 'lake' | 'transition' | 'creek';
+  note?: string;
+}
+
 export interface RiverRouteLogistics {
   distanceLabel: string;
   estimatedPaddleTime: string;
@@ -353,6 +360,7 @@ export interface RiverDetailApiResult {
     };
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
+    accessPoints?: RiverRouteAccessPoint[];
     logistics?: RiverRouteLogistics;
   };
   score: number;

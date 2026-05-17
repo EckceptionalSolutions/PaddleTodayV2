@@ -13,7 +13,7 @@ export default function RequestRouteScreen() {
   const [accessPoints, setAccessPoints] = useState('');
   const [notes, setNotes] = useState('');
   const [replyEmail, setReplyEmail] = useState('');
-  const [status, setStatus] = useState('Include the best details you know. City, state, access points, and gauge links help most.');
+  const [status, setStatus] = useState('City, state, access points, and gauge links help most.');
 
   async function submitRequest() {
     const cleanRiverName = riverName.trim();
@@ -40,7 +40,7 @@ export default function RequestRouteScreen() {
       if (!response.stored) {
         setStatus('Request received.');
       } else {
-        setStatus('Request received. Thanks for helping expand the route list.');
+        setStatus('Request received. Thanks for the lead.');
       }
 
       setRiverName('');
@@ -52,7 +52,7 @@ export default function RequestRouteScreen() {
       setStatus(
         error instanceof PaddleTodayApiError && error.message
           ? error.message
-          : 'Could not send this request right now.'
+          : 'Could not send this request.'
       );
     }
   }
@@ -63,13 +63,13 @@ export default function RequestRouteScreen() {
       <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
         <View style={styles.hero}>
           <Text style={styles.kicker}>Route request</Text>
-          <Text style={styles.title}>Ask us to add a route.</Text>
+          <Text style={styles.title}>Request a route</Text>
           <Text style={styles.subtitle}>
-            Send the basics. Requests with a clear area, access points, and source notes are fastest to review.
+            Clear access points and source notes make review faster.
           </Text>
         </View>
 
-        <SectionCard title="Route basics" subtitle="Start with whatever you know. Required fields are marked in the labels.">
+        <SectionCard title="Route basics" subtitle="Required fields are marked.">
           <View style={styles.form}>
             <Field label="River name *" value={riverName} onChangeText={setRiverName} placeholder="St. Croix River" />
             <Field
@@ -82,14 +82,14 @@ export default function RequestRouteScreen() {
               label="Access points"
               value={accessPoints}
               onChangeText={setAccessPoints}
-              placeholder="Known put-ins, take-outs, launches, parks, or bridge accesses"
+              placeholder="Put-ins, take-outs, launches, parks, or bridges"
               multiline
             />
             <Field
               label="Notes *"
               value={notes}
               onChangeText={setNotes}
-              placeholder="Distance, hazards, shuttle notes, gauge links, outfitter pages, local demand, or anything useful."
+              placeholder="Distance, hazards, shuttle notes, gauge links, or local demand."
               multiline
             />
             <Field

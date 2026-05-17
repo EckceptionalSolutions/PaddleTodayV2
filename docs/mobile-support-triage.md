@@ -43,7 +43,7 @@ Response:
 
 1. Check `https://paddletoday.com/api/rivers/summary.json`.
 2. Check production API logs and hosting status.
-3. Check Sentry for crashes and handled API errors if configured.
+3. Check mobile diagnostics for crashes and handled API errors if configured.
 4. Confirm whether the issue reproduces on web, iOS, Android, or only one platform.
 5. If mobile-only, test the production API URL from a clean native build.
 6. Update the release checklist if the issue blocks MVP release.
@@ -130,15 +130,15 @@ Operational checks:
 4. Confirm email provider configuration is active in production.
 5. Confirm unsubscribe links work.
 
-## Sentry and Diagnostics
+## Diagnostics
 
-When Sentry is configured:
+When Firebase diagnostics are configured:
 
 - Search by release, environment, route slug, and handled error name.
 - Useful handled names include `query_error`, `mutation_error`, `api_diagnostic_failed`, `route_report_failed`, and `alert_create_failed`.
-- Do not paste user email, route report text, or photo contents into Sentry comments.
+- Do not paste user email, route report text, or photo contents into Firebase comments or issue notes.
 
-When Sentry is not configured:
+When Firebase diagnostics are not configured:
 
 - Ask the tester to open More -> API diagnostic.
 - Ask which screen failed and whether retry worked.
@@ -153,5 +153,5 @@ When Sentry is not configured:
 4. Confirm alerts endpoint accepts OPTIONS/POST.
 5. Confirm support email is monitored.
 6. Confirm route safety reports have a same-day review path.
-7. Confirm Sentry project is monitored if enabled.
+7. Confirm Firebase Crashlytics and Analytics are monitored if enabled.
 8. Confirm app store reviews and support mail are checked daily during launch week.

@@ -16,7 +16,7 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.paddletoday.mobile",
-      "buildNumber": "3",
+      "buildNumber": "4",
       "infoPlist": {
         "NSUserNotificationsUsageDescription": "PaddleToday can send route alerts when a saved river reaches your chosen paddling threshold.",
         "NSPhotoLibraryUsageDescription": "PaddleToday lets you attach route photos when you choose to submit paddling reports.",
@@ -58,8 +58,7 @@
           "photosPermission": "PaddleToday lets you attach route photos when you choose to submit paddling reports."
         }
       ],
-      "expo-notifications",
-      "@sentry/react-native"
+      "expo-notifications"
     ],
     "experiments": {
       "typedRoutes": true

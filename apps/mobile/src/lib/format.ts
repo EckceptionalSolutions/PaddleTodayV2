@@ -64,10 +64,10 @@ export function verdictForRating(rating: ScoreRating) {
 }
 
 export function detailMessageForRating(rating: ScoreRating) {
-  if (rating === 'Strong') return 'Conditions line up especially well right now.';
-  if (rating === 'Good') return 'This looks like a workable launch window right now.';
-  if (rating === 'Fair') return 'There is a path to paddling today, but it needs a second look.';
-  return 'This does not look like a clean yes today.';
+  if (rating === 'Strong') return 'Conditions line up well.';
+  if (rating === 'Good') return 'Good with normal checks.';
+  if (rating === 'Fair') return 'Possible paddle with caution.';
+  return 'Not a clean yes today.';
 }
 
 export function normalizeApiText(value: string | null | undefined) {

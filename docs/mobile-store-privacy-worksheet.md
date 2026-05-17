@@ -1,6 +1,6 @@
 # Mobile Store Privacy Worksheet
 
-Draft worksheet for Apple App Privacy labels and Google Play Data Safety. This is not legal advice; review it against the final submitted build, privacy policy, Sentry configuration, alert/report behavior, and any third-party SDK changes.
+Draft worksheet for Apple App Privacy labels and Google Play Data Safety. This is not legal advice; review it against the final submitted build, privacy policy, analytics/diagnostics configuration, alert/report behavior, and any third-party SDK changes.
 
 Primary references:
 
@@ -18,8 +18,8 @@ Primary references:
 | Route report contributor name/email | User input | Yes, POST to `/api/route-photo-submissions` | Yes | App functionality / support / content moderation | Email used for follow-up. Public copy should not include private contact info. |
 | Route report text/notes | User input | Yes, POST to `/api/route-photo-submissions` | Could be linked through submission metadata | App functionality / content moderation | Reviewed before publishing. |
 | Route report photos | User-selected media | Yes, only if user adds photos | Could be linked through submission metadata | App functionality / content moderation | Photo access is requested only when the user taps Add. Rights confirmation required. |
-| Crash/error diagnostics | Sentry SDK, only if DSN configured | Yes, to Sentry | Not intentionally linked | Analytics / diagnostics | App code avoids sending email, names, report text, and photo contents to Sentry. Route slugs/status may appear. |
-| Product breadcrumbs | Sentry breadcrumbs, only if DSN configured | Yes, to Sentry | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, alert, diagnostic events. |
+| Crash/error diagnostics | Firebase Crashlytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | App code avoids sending email, names, report text, and photo contents to Firebase. Route slugs/status may appear. |
+| Product events | Firebase Analytics in preview/production builds | Yes, to Firebase/Google | Not intentionally linked | Analytics / diagnostics | Includes app open, route open, save toggle, directions, report, alert, diagnostic events. Advertising-oriented collection is disabled in `apps/mobile/firebase.json`. |
 | API request logs | Production API/hosting | Yes, server-side | Potentially via IP/request metadata | App functionality / security / diagnostics | Covered by web/API hosting operations. |
 
 ## Apple App Privacy Draft
@@ -48,14 +48,14 @@ Review whether these should be marked linked to identity because submissions inc
 
 ### Data Not Linked To The User
 
-Likely disclose if Sentry is enabled:
+Likely disclose for Firebase-enabled preview/production builds:
 
 - Diagnostics -> Crash Data
   - Purpose: App Functionality / Analytics.
 - Diagnostics -> Performance Data or Other Diagnostic Data
   - Purpose: App Functionality / Analytics.
 - Usage Data -> Product Interaction
-  - Purpose: Analytics, if Sentry breadcrumbs/product events are treated as usage analytics.
+  - Purpose: Analytics, if product events are uploaded.
 
 Likely disclose:
 
@@ -69,7 +69,7 @@ Question for final review: Apple may still consider permissioned location "colle
 
 Recommended draft: no financial info, contacts, browsing history, search history, health/fitness, sensitive info, purchases, or identifiers are intentionally collected by PaddleToday mobile for MVP.
 
-Reconfirm third-party SDK behavior, especially Sentry, Expo, maps, and hosting logs.
+Reconfirm third-party SDK behavior, especially Firebase, Expo, maps, and hosting logs.
 
 ## Google Play Data Safety Draft
 
@@ -77,7 +77,7 @@ Reconfirm third-party SDK behavior, especially Sentry, Expo, maps, and hosting l
 
 Recommended draft answer: `Yes, collects user data`.
 
-Do not mark shared for PaddleToday-owned backend processing unless Google definitions require a third-party disclosure for Sentry or hosting providers. Review the final SDK/provider list.
+Do not mark shared for PaddleToday-owned backend processing unless Google definitions require a third-party disclosure for analytics, diagnostics, or hosting providers. Review the final SDK/provider list.
 
 ### Data Types To Disclose
 
@@ -102,11 +102,11 @@ Likely disclose:
   - Purpose: App functionality/content moderation.
   - Required: No.
 - App activity -> App interactions
-  - Only if Sentry breadcrumbs are enabled and treated as analytics/event collection.
+  - Firebase Analytics product events.
   - Purpose: Analytics, App functionality, Diagnostics.
   - Required: No.
 - App info and performance -> Crash logs / Diagnostics
-  - Only if Sentry is enabled.
+  - Firebase Crashlytics.
   - Purpose: Analytics, App functionality.
   - Required: No.
 
@@ -127,7 +127,7 @@ Mark these optional where the form allows it:
 - Alert email.
 - Route request email.
 - Route report name/email/report/photos.
-- Diagnostics/analytics if Sentry is not required for app functionality.
+- Diagnostics/analytics if not required for app functionality.
 
 ## Privacy Policy Follow-Up
 
@@ -140,13 +140,13 @@ Before submission, verify it explicitly covers:
 - Alert emails and unsubscribe.
 - Route requests and route reports.
 - Optional route photos.
-- Crash/error reporting and product breadcrumbs if Sentry is enabled.
+- Firebase Crashlytics and Analytics.
 - Support email data deletion requests.
 
 ## Open Decisions Before Submission
 
-- Is Sentry enabled in the submitted build?
-- Are product breadcrumbs considered analytics for store forms?
+- Are Firebase Analytics and Crashlytics enabled in the submitted build?
+- Are product events considered analytics for store forms?
 - Does the final build upload device coordinates anywhere, or only compute locally?
 - Are alerts fully production-email backed for MVP?
 - Is route report/photo moderation operational before public launch?

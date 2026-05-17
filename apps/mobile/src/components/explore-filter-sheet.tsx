@@ -331,7 +331,7 @@ function FilterGroup({ title, children }: PropsWithChildren<{ title: string }>) 
 export function ActiveFilterStrip({ filters, locationReady }: { filters: ExploreFilters; locationReady: boolean }) {
   const active = activeFilterLabels(filters, locationReady);
   if (active.length === 0) {
-    return <Text style={styles.filterHint}>Default view shows every route and ranks practical picks first.</Text>;
+    return <Text style={styles.filterHint}>Default view shows every route and ranks good picks first.</Text>;
   }
 
   return (

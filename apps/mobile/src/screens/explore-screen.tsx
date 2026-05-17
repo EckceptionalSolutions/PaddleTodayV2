@@ -110,7 +110,7 @@ export default function ExploreScreen() {
 
   if (summaryQuery.isLoading && rivers.length === 0) {
     return (
-      <AppLoadingState title="Loading explore map" body="Preparing routes, filters, and current calls." />
+      <AppLoadingState title="Loading explore map" body="Loading routes and filters." />
     );
   }
 
@@ -118,7 +118,7 @@ export default function ExploreScreen() {
     return (
       <AppErrorState
         title="Explore did not load"
-        body="The map needs current route calls before it can render."
+        body="The map needs current calls."
         detail={errorDetailForExploreQuery(summaryQuery.error)}
         onRetry={() => summaryQuery.refetch()}
       />
@@ -281,7 +281,7 @@ function FullScreenExploreMap({
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
           <MaterialCommunityIcons name="map-search-outline" color={colors.textMuted} size={32} />
           <Text style={styles.mapEmptyTitle}>No routes on this map</Text>
-          <Text style={styles.mapEmptyText}>Broaden filters or clear search to bring routes back.</Text>
+          <Text style={styles.mapEmptyText}>Broaden filters or clear search.</Text>
         </View>
       )}
 
@@ -316,7 +316,7 @@ function FullScreenExploreMap({
         <View style={[styles.coverageBanner, { top: topInset + 154 }]}>
           <MaterialCommunityIcons name="map-marker-distance" color={colors.accent} size={18} />
           <Text style={styles.coverageBannerText}>
-            PaddleToday currently supports select Midwest rivers.
+            PaddleToday supports select Midwest rivers.
           </Text>
         </View>
       ) : null}

@@ -3144,8 +3144,14 @@ export const rivers: River[] = [
       },
       {
         label: 'Lock and Dam 1 backup plan',
-        value: 'Use lock when open; portage is 1.40 miles',
-        note: 'NPS advises using Lock and Dam 1 when operational because the portage is long. The current portage was updated in September 2025, is about 1.40 miles, and is not yet signed.',
+        value: 'Call ahead; portage is 1.40 miles',
+        note: 'USACE lists recreational lockage at Lock and Dam 1 for Saturdays, Sundays, major holidays, and Monday/Friday afternoons, with weekday availability subject to change. Contact lock staff on VHF channel 14, by pull cord, or at 651-290-5919; NPS advises using the lock when operational because the alternate portage is long, new as of September 2025, and not yet signed.',
+        sourceUrl: 'https://www.mvp.usace.army.mil/Missions/Navigation/Locks-Dams/Lock-Dam-1/',
+      },
+      {
+        label: 'Lock and Dam 1 portage',
+        value: 'River-right take-out to Minnehaha Creek mouth',
+        note: 'NPS describes the unsigned 1.40-mile Ford Dam portage as starting at a small natural gravel beach on river right about one-third mile upstream of the Ford Bridge, climbing switchbacks to the bluff trail, then descending through Minnehaha Falls Park to put in at the Minnehaha Creek confluence. Do not paddle Minnehaha Creek; NPS warns of down trees, rapids, and hazards there.',
         sourceUrl: 'https://www.nps.gov/miss/planyourvisit/navigating-portages-locks-and-dams.htm',
       },
     ],
@@ -3177,6 +3183,10 @@ export const rivers: River[] = [
       {
         label: 'NPS navigating portages, locks, and dams',
         url: 'https://www.nps.gov/miss/planyourvisit/navigating-portages-locks-and-dams.htm',
+      },
+      {
+        label: 'USACE Lock and Dam 1 lockage hours',
+        url: 'https://www.mvp.usace.army.mil/Missions/Navigation/Locks-Dams/Lock-Dam-1/',
       },
       {
         label: 'USGS 05331000 monitoring location',

@@ -203,6 +203,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       },
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
+      accessPoints: result.river.accessPoints,
       logistics: result.river.logistics,
     },
     score: result.score,

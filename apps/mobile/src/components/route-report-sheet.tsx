@@ -100,7 +100,7 @@ export function RouteReportSheet({
           <View style={styles.sheetHeader}>
             <View style={styles.sheetTitleCopy}>
               <Text style={styles.sheetTitle}>Send a route report</Text>
-              <Text style={styles.sheetSubtitle}>Share what would help another paddler decide whether this route is realistic today.</Text>
+              <Text style={styles.sheetSubtitle}>Share what would help another paddler make the call.</Text>
             </View>
             <Pressable style={styles.sheetCloseButton} onPress={onClose}>
               <Text style={styles.sheetCloseText}>Close</Text>
@@ -114,9 +114,9 @@ export function RouteReportSheet({
             contentContainerStyle={[styles.sheetContent, { paddingBottom: keyboardBottomPadding }]}
           >
             <View style={styles.reviewPanel}>
-              <Text style={styles.reviewTitle}>Reviewed before publishing</Text>
+              <Text style={styles.reviewTitle}>Reviewed first</Text>
               <Text style={styles.reviewText}>
-                Your email is used for follow-up questions. Reports and photos are not public until reviewed, and photos are optional.
+                Your email is only for follow-up. Reports and photos stay private until reviewed.
               </Text>
             </View>
             <View
@@ -161,7 +161,7 @@ export function RouteReportSheet({
               <SentimentPicker value={sentiment ?? ''} onChange={onSentimentChange} />
               <TextInput
                 multiline
-                placeholder="What did you see? Access, wood, level, crowding, pace, or anything that affects the call."
+                placeholder="What did you see? Access, wood, level, crowding, pace, or anything useful."
                 placeholderTextColor={colors.textMuted}
                 style={[styles.reportInput, styles.reportTextArea]}
                 value={report}
@@ -210,7 +210,7 @@ export function RouteReportSheet({
                   </ScrollView>
                 ) : (
                   <Text style={styles.reportPhotoEmpty}>
-                    Optional, but useful for strainers, access changes, water clarity, and gauge references.
+                    Optional. Useful for strainers, access changes, water clarity, and gauge checks.
                   </Text>
                 )}
               </View>
@@ -229,7 +229,7 @@ export function RouteReportSheet({
                   {contactConsentConfirmed ? <Text style={styles.checkboxMark}>✓</Text> : null}
                 </View>
                 <Text style={styles.reportConsentText}>
-                  It is okay to contact me if more detail is needed before publishing this report.
+                  It is okay to contact me if more detail is needed.
                 </Text>
               </Pressable>
               <Pressable
