@@ -8,6 +8,76 @@ export interface RouteGalleryPhoto {
 }
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'big-fork-river-highway-6-south-north': [
+    {
+      id: 'big-fork-boat-launch-commons',
+      src: '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+      alt: 'A grassy Big Fork River boat launch slopes down toward a narrow river channel under a bright summer sky.',
+      caption: 'Big Fork River boat launch in Bigfork',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'red-lake-river-smiley-bridge-centennial-park': [
+    {
+      id: 'red-lake-river-red-lake-falls-kiddle',
+      src: '/gallery/red-lake-river-smiley-bridge-centennial-park/red-lake-river-red-lake-falls.jpg',
+      alt: 'The Red Lake River reflects a railroad bridge, green banks, and cloudy sky in calm water.',
+      caption: 'Red Lake River at Red Lake Falls',
+      credit: 'Chitrapa / Peter Rimar via Kiddle',
+      takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'sauk-river-spring-hill-st-martin': [
+    {
+      id: 'sauk-river-sartell-commons',
+      src: '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+      alt: 'The Sauk River winds through a wooded winter corridor with ice along the banks and bright clouds overhead.',
+      caption: 'Sauk River near Sartell',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'cottonwood-river-juenemann-springfield': [
+    {
+      id: 'cottonwood-river-flandrau-commons',
+      src: '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
+      alt: 'The Cottonwood River bends through Flandrau State Park with green wooded banks and a partly cloudy sky.',
+      caption: 'Cottonwood River at Flandrau State Park',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'minnesota-river-thompson-ferry-carver': [
+    {
+      id: 'carver-rapids-usfws',
+      src: '/gallery/minnesota-river-thompson-ferry-carver/carver-rapids.jpg',
+      alt: 'Autumn leaves hang above the Minnesota River at Carver Rapids, with shallow current moving past wooded banks.',
+      caption: 'Carver Rapids on the Minnesota River',
+      credit: 'Mara Koenig/USFWS via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'north-fork-crow-river-rockford-riverside': [
+    {
+      id: 'crow-river-rockford-commons',
+      src: '/gallery/north-fork-crow-river-rockford-riverside/crow-river-rockford.jpg',
+      alt: 'The Crow River flows under a railroad bridge in Rockford, Minnesota, with people sitting near the water at the landing.',
+      caption: 'Crow River at Rockford',
+      credit: 'Jerry Huddleston via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'south-fork-crow-river-rick-johnson-lake-rebecca': [
+    {
+      id: 'south-fork-crow-river-commons',
+      src: '/gallery/south-fork-crow-river-rick-johnson-lake-rebecca/south-fork-crow-river.jpg',
+      alt: 'The South Fork Crow River flows through a grassy rural corridor with trees along the far bank.',
+      caption: 'South Fork Crow River near Cosmos',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
   'blue-earth-river-rapidan-county-road-90': [
     {
       id: 'blue-earth-mankato-commons',
@@ -150,6 +220,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Mississippi gorge view toward downtown Minneapolis',
       credit: 'Tom Koerner/USFWS',
       takenLabel: 'USFWS asset: public domain',
+    },
+  ],
+  'mississippi-river-hidden-falls-harriet-island': [
+    {
+      id: 'hidden-falls-st-paul-commons',
+      src: '/gallery/mississippi-river-hidden-falls-harriet-island/hidden-falls-st-paul.jpg',
+      alt: 'An aerial view of the Mississippi River shoreline at Hidden Falls in Saint Paul, with a sandy bank, riverside trail, trees, and power lines.',
+      caption: 'Mississippi River shoreline at Hidden Falls',
+      credit: 'Gabriel Vanslette via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
   'minnesota-river-henderson-belle-plaine': [

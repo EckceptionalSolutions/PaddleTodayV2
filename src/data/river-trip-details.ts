@@ -8,9 +8,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -93.754988,
     },
     takeOut: {
-      name: 'Highway 6 North carry-in access',
-      latitude: 48.0346942,
-      longitude: -93.7415563,
+      name: 'Bill Counter Landing / Highway 6 North carry-in access',
+      latitude: 48.034694214683626,
+      longitude: -93.74155634703675,
     },
     logistics: {
       distanceLabel: '15.7 mi',
@@ -32,6 +32,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Rocky or impassable rapids when Big Fork levels fall toward the scrapable/low band.',
         'A Class I rapid immediately below the put-in, plus additional Class I-II rapids, cold water, sweepers, beaver-dam potential, and remote shoreline with limited quick exits.',
         'Do not continue into Big Falls or Little American Falls sections without separate whitewater and portage planning.',
+      ],
+    },
+  },
+  'little-fork-river-veterans-park-highway-73': {
+    putIn: {
+      name: 'Veterans Park carry-in access, Cook',
+      latitude: 47.854286,
+      longitude: -92.688289,
+    },
+    takeOut: {
+      name: 'Highway 73 bridge carry-in access',
+      latitude: 47.858288,
+      longitude: -92.870024,
+    },
+    logistics: {
+      distanceLabel: '15.2 mi',
+      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and scouting',
+      shuttle:
+        'Plan a rural two-car shuttle from Veterans Park in Cook to the Highway 73 bridge near Linden Grove. The take-out is next to the DNR gauge and bridge parking, but services are limited.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access, city park, and bridge-area parking rules.',
+      camping:
+        'Do not assume an on-route campsite for this day trip. Nearby state forests may have separate camping options, but this route should be planned as a committed day paddle unless camping is confirmed separately.',
+      summary:
+        'Launch at Veterans Park in Cook and take out at the Highway 73 bridge. MN DNR recommends this 15.2-mile Little Fork route for paddlers with experience running Class II rapids.',
+      accessCaveats: [
+        'Veterans Park is the practical town-side put-in, while the downstream Highway 73 bridge access is a bridge/gauge-area carry-in rather than a developed park.',
+        'The route is remote enough that weather, daylight, and shuttle reliability should be checked before launch.',
+        'Some Little Fork portages can be brushy; do not rely on an easy roadside exit between the endpoints.',
+      ],
+      watchFor: [
+        'Multiple rock riffles and Class I-II rapids; scout larger rapids before committing.',
+        'Scrapable or too-shallow rapids when the Highway 73/Linden Grove flow falls toward the low band.',
+        'Downed trees, sweepers, cold water, and limited quick exits on a long northern route.',
+      ],
+    },
+  },
+  'red-lake-river-smiley-bridge-centennial-park': {
+    putIn: {
+      name: 'Smiley Bridge public water access',
+      latitude: 48.077331,
+      longitude: -96.034388,
+    },
+    takeOut: {
+      name: 'Centennial Park / Highway 1 trailer access',
+      latitude: 48.124,
+      longitude: -96.168056,
+    },
+    logistics: {
+      distanceLabel: '12.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr',
+      shuttle:
+        'Use a straightforward Thief River Falls-area shuttle from Smiley Bridge to Centennial Park. Stage the take-out at Centennial Park before launching from the quieter upstream bridge access.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and city park rules at Smiley Bridge and Centennial Park.',
+      camping:
+        'Treat this as a day trip. Centennial Park has park amenities, but no on-route overnight plan is assumed.',
+      summary:
+        'Put in at Smiley Bridge and take out at Centennial Park for MN DNR\'s 12.3-mile beginner-friendly Red Lake River trip into Thief River Falls.',
+      accessCaveats: [
+        'Smiley Bridge is a public access at County Road 7, while Centennial Park is a trailer access at Highway 1 with city-park amenities.',
+        'The route ends near Thief River Falls; know downstream dam and access locations before continuing past Centennial Park.',
+        'Upstream Red Lake Reservation waters have separate restrictions; this route starts downstream at Smiley Bridge.',
+      ],
+      watchFor: [
+        'Several dams exist elsewhere on the Red Lake River; stay with the planned Centennial Park take-out.',
+        'Higher water can increase current and debris even on this generally gentle segment.',
+        'Wind exposure on open farmland bends and low grassy banks.',
       ],
     },
   },
@@ -639,13 +707,13 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   'sauk-river-spring-hill-st-martin': {
     putIn: {
       name: 'Spring Hill County Park carry-in access',
-      latitude: 45.5338997,
-      longitude: -94.7754217,
+      latitude: 45.529026,
+      longitude: -94.776531,
     },
     takeOut: {
-      name: 'St. Martin carry-in access / County Road 12',
-      latitude: 45.51951,
-      longitude: -94.680228,
+      name: 'St. Martin Public Water Access / County Road 12',
+      latitude: 45.520241,
+      longitude: -94.67885,
     },
     logistics: {
       distanceLabel: 'About 9.1 river mi',
@@ -770,12 +838,12 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
   'cottonwood-river-juenemann-springfield': {
     putIn: {
-      name: 'Juenemann Landing / County Road 2 carry-in access',
+      name: 'Juenemann Landing / County Road 2 public water access',
       latitude: 44.2034723,
       longitude: -95.0485134,
     },
     takeOut: {
-      name: 'Springfield Riverside Park carry-in access',
+      name: 'Springfield Public Water Access / Riverside Park canoe landing',
       latitude: 44.2377827,
       longitude: -94.9740406,
     },
@@ -799,6 +867,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Scraping and slow travel when the County Road 2 gauge drops toward the scrapable band.',
         'Deadfall, overhanging trees, and muddy banks after higher water.',
         'Private shoreland; stop only at public accesses or clearly legal sites.',
+      ],
+    },
+  },
+  'pine-river-rock-dam-harvey-drake': {
+    putIn: {
+      name: 'Pine River Rock Dam public water access',
+      latitude: 46.635762,
+      longitude: -94.092075,
+    },
+    takeOut: {
+      name: 'Harvey Drake Public Water Access',
+      latitude: 46.57168,
+      longitude: -94.02806,
+    },
+    logistics: {
+      distanceLabel: '14.4 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
+      shuttle:
+        'Plan a full-day two-car shuttle from Rock Dam near Crosslake to Harvey Drake Public Water Access near County Road 11. Confirm rural landing and parking conditions before staging vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules at Rock Dam and Harvey Drake.',
+      camping:
+        'Treat this as a day trip unless you separately confirm a legal overnight option. The DNR route is long enough that daylight planning matters.',
+      summary:
+        'Launch at Pine River Rock Dam and take out at Harvey Drake Public Water Access for the DNR lower Pine day trip. The Jenkins DNR gauge gives this wooded route an official level ladder.',
+      accessCaveats: [
+        'Rock Dam and Harvey Drake are official Minnesota public-water-access sites, but both are rural landings where parking, mud, and loading space should be checked on arrival.',
+        'The route begins at the Rock Dam area; review the DNR map and avoid improvising around dam or rock-riffle infrastructure.',
+        'Harvey Drake sits near a bridge crossing and is easier to identify on the map than from the road at speed.',
+      ],
+      watchFor: [
+        'Low-water scraping when the Jenkins gauge falls toward the 35 cfs scrapable floor.',
+        'Wood, sweepers, and narrow-channel debris on wooded bends after storms.',
+        'Long-route fatigue and cold-water exposure outside midsummer.',
       ],
     },
   },
@@ -902,6 +1004,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'minnesota-river-thompson-ferry-carver': {
+    putIn: {
+      name: 'Thompson Ferry trailer access',
+      latitude: 44.692386,
+      longitude: -93.641157,
+    },
+    takeOut: {
+      name: 'Carver Riverfront Park / Minnesota River public water access',
+      latitude: 44.766777,
+      longitude: -93.616717,
+    },
+    logistics: {
+      distanceLabel: '8.1 mi',
+      estimatedPaddleTime: 'About 2 hr 45 min to 4 hr',
+      shuttle:
+        'Short lower Minnesota River car shuttle from Thompson Ferry north of Jordan to Carver. Stage the take-out in town before launching so wind or a slow current does not complicate pickup.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, city park, and parking rules at Thompson Ferry and Carver.',
+      camping:
+        'No on-route camping is assumed for this short lower-river segment. Treat it as a day trip.',
+      summary:
+        'Put in at Thompson Ferry and take out at Carver Riverfront Park for the DNR Map 6 recommended lower Minnesota day trip. It is shorter than the Henderson-to-Belle Plaine route while using the same official Jordan gauge ladder.',
+      accessCaveats: [
+        'Thompson Ferry is an official public-water-access site near the Jordan gauge, but same-day riverbank mud and parking conditions can still vary after high water.',
+        'Carver is an official Minnesota River public-water-access site on the riverfront; use the named access and posted parking rules rather than assuming every nearby riverfront space is a landing.',
+        'The lower Minnesota River is broad and exposed enough that wind can matter even on an 8-mile route.',
+      ],
+      watchFor: [
+        'Wind and wave exposure on open bends.',
+        'Flood debris, muddy landings, and changing sandbars after high water.',
+        'Private shoreland; stop only at public landings or clearly legal sites.',
+      ],
+    },
+  },
   'mississippi-river-east-river-flats-hidden-falls': {
     putIn: {
       name: 'East River Flats Park',
@@ -935,6 +1071,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'A 1.40-mile unsigned Lock and Dam 1 portage if the lock is unavailable. NPS places the take-out on river right about one-third mile upstream of the Ford Bridge and the put-in at the Minnehaha Creek mouth.',
         'Do not use Minnehaha Creek itself as a shortcut around the dam; NPS warns of down trees, rapids, and hazards in the creek.',
         'Wind, floating debris, and muddy landings after recent weather.',
+      ],
+    },
+  },
+  'mississippi-river-hidden-falls-harriet-island': {
+    putIn: {
+      name: 'Hidden Falls Regional Park Mississippi River boat ramp',
+      latitude: 44.904029,
+      longitude: -93.190748,
+    },
+    takeOut: {
+      name: "Kelley's Landing / Harriet Island",
+      latitude: 44.935466,
+      longitude: -93.100314,
+    },
+    logistics: {
+      distanceLabel: '6.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr depending on wind and current',
+      shuttle:
+        'Short Saint Paul shuttle from Hidden Falls to Harriet Island. Confirm the take-out at Kelley\'s Landing rather than Lambert\'s Landing, which is farther north on the downtown side.',
+      permits:
+        'No route-specific paddling permit is known. Follow Saint Paul park, dock, and posted landing rules at Hidden Falls and Harriet Island.',
+      camping:
+        'No camping is assumed. This is an urban day trip through Saint Paul.',
+      summary:
+        'Launch at Hidden Falls and take out at Kelley\'s Landing on Harriet Island for MN DNR\'s 6.5-mile downstream Twin Cities Mississippi trip.',
+      accessCaveats: [
+        'Hidden Falls is the confirmed public boat-ramp put-in; use current park access and flood-closure information before launch.',
+        'Kelley\'s Landing is the Harriet Island-side take-out. Lambert\'s Landing is not the endpoint for this route.',
+        'Saint Paul public dock and park rules may limit docking, tie-up duration, and event-area use.',
+      ],
+      watchFor: [
+        'Swift current, commercial traffic, and large boat wakes through the metro Mississippi corridor.',
+        'Changing water color and converging current near the Minnesota River confluence.',
+        'Urban debris, bridge piers, wind exposure, and limited casual landing options between official access points.',
       ],
     },
   },
@@ -1007,12 +1177,12 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
   'north-fork-crow-river-rockford-riverside': {
     putIn: {
-      name: 'Rockford public water access',
+      name: 'Rockford Boat Launch / Rockford public water access',
       latitude: 45.0927624,
       longitude: -93.7294189,
     },
     takeOut: {
-      name: 'Riverside County Park carry-in access',
+      name: 'Riverside County Park / Riverside Park public water access',
       latitude: 45.1650523,
       longitude: -93.6400414,
     },
@@ -1074,14 +1244,14 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   },
   'south-fork-crow-river-rick-johnson-lake-rebecca': {
     putIn: {
-      name: 'Rick Johnson Park trailer access',
-      latitude: 44.9663195,
-      longitude: -93.8439068,
+      name: 'South Fork Crow River boat landing / Rick Johnson Park trailer access',
+      latitude: 44.965047,
+      longitude: -93.845448,
     },
     takeOut: {
       name: 'Lake Rebecca Park Reserve Crow River carry-in access',
-      latitude: 45.0629739,
-      longitude: -93.7646553,
+      latitude: 45.079117,
+      longitude: -93.754431,
     },
     logistics: {
       distanceLabel: '14.3 mi',

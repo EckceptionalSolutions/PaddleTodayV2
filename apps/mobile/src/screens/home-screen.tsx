@@ -484,7 +484,7 @@ function LocationStrip({
       <View style={styles.locationCopy}>
         <Text style={styles.locationLabel}>{locationLabel ? 'Current area' : 'Nearby picks'}</Text>
         <Text style={styles.locationValue} numberOfLines={1}>
-          {locationLabel ?? (status === 'denied' ? 'Location access denied' : 'Use location for drive-aware picks')}
+          {locationLabel ?? (status === 'denied' ? 'Location access denied' : 'Find routes near me')}
         </Text>
       </View>
       <Pressable

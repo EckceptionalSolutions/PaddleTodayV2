@@ -67,7 +67,7 @@ export default function WeekendScreen() {
         <Text style={styles.kicker}>Weekend planning</Text>
         <Text style={styles.title}>Plan the weekend</Text>
         <Text style={styles.subtitle}>
-          Start with strong options, then narrow by trip size, camping, and forecast risk.
+          Weekend picks are cautious by design: a route needs a usable river read and a forecast that still leaves room for a good day.
         </Text>
 
         <View style={styles.heroPanel}>
@@ -92,7 +92,7 @@ export default function WeekendScreen() {
                   <Text key={fact} style={styles.featuredFact}>{fact}</Text>
                 ))}
               </View>
-              <Text style={styles.featuredSummary}>{normalizeApiText(featured.weekend.summary)}</Text>
+              <Text style={styles.featuredSummary}>{weekendHeroSummary(featured)}</Text>
             </View>
           ) : (
             <Text style={styles.emptyText}>No supported weekend picks are available yet.</Text>
@@ -152,7 +152,7 @@ export default function WeekendScreen() {
         title="Watch list"
         subtitle={
           watchList.length > 0
-            ? 'Possible options that need another check.'
+            ? 'Possible options to re-check as the forecast settles.'
             : 'No maybe routes today.'
         }
       >
@@ -236,6 +236,15 @@ function weekendFacts(river: WeekendSummaryApiItem) {
     `${capitalize(river.river.difficulty)} difficulty`,
     hasCamping(river) ? 'Camping possible' : null,
   ].filter(Boolean) as string[];
+}
+
+function weekendHeroSummary(river: WeekendSummaryApiItem) {
+  const summary = normalizeApiText(river.weekend.summary);
+  if (river.weekend.rating === 'Fair') {
+    return `${summary} Re-check the route before planning around it.`;
+  }
+
+  return summary;
 }
 
 function capitalize(value: string) {

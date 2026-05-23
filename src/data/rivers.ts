@@ -63,7 +63,7 @@ export const rivers: River[] = [
       {
         label: 'Public access records',
         value: 'DNR access IDs WAS01794 and WAS01792',
-        note: 'Minnesota public-water-access data identifies the put-in as Big Fork River, State Hwy 6 Bridge Public Water Access Site and the take-out as Big Fork River, State Hwy 6 (S) Public Water Access Site.',
+        note: 'Minnesota public-water-access data identifies the put-in as Big Fork River, State Hwy 6 Bridge Public Water Access Site and the take-out as Bill Counter Landing / Big Fork River, State Hwy 6 (S) Public Water Access Site.',
         sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
       {
@@ -109,6 +109,180 @@ export const rivers: River[] = [
       {
         label: 'Minnesota public water access feature service',
         url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-veterans-park-highway-73',
+    slug: 'little-fork-river-veterans-park-highway-73',
+    name: 'Little Fork River',
+    reach: 'Veterans Park to Highway 73 Bridge',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Long northern Little Fork day from Veterans Park in Cook to the Highway 73 bridge. MN DNR recommends the exact route for experienced paddlers, and the Highway 73 gauge gives it a direct official flow ladder.',
+    statusText:
+      'Treat 175 to 500 cfs at Linden Grove / Highway 73 as the best zone. Below 100 cfs is scrapable, and above 1,000 cfs is beyond the broad-audience recommendation for this rapids-sensitive route.',
+    latitude: 47.854286,
+    longitude: -92.688289,
+    gaugeSource: {
+      id: 'mn-dnr-88',
+      provider: 'mn_dnr',
+      siteId: '88',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Linden Grove, TH73',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=88',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76023001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 175,
+      idealMax: 500,
+      tooLow: 100,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Linden Grove',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Little Fork usually peaks in late April and falls through summer. Rapids can become too shallow without recent rain, while high water raises the consequence of rapids, wood, and brushy exits.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'DNR frames this as a route for paddlers with experience running Class II rapids. The mileage, rock riffles, remote feel, and need to scout larger rapids keep it out of the easy bucket.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Veterans Park to Highway 73 bridge as a 15.2-mile trip, the Highway 73 DNR gauge sits at the take-out, and the endpoints were visually checked in Google Maps.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '100 / 175-500 / 1,000 cfs',
+        note: 'MN DNR interprets the Linden Grove / Highway 73 gauge as Scrapable below 100 cfs, Low from 100 to 175, Medium from 175 to 500, High from 500 to 1,000, and Very High above 1,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '15.2 river miles',
+        note: 'MN DNR recommends Veterans Park to Highway 73 bridge as a 15.2-mile Little Fork route for paddlers with experience running Class II rapids.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'Map support',
+        value: 'Veterans Park RM 142 to Highway 73 RM 126.8',
+        note: 'DNR Map 1 places Veterans Park carry-in at river mile 142.0 and Highway 73 bridge carry-in at river mile 126.8, with the river level gauge at the take-out bridge.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I-II rapids and rock riffles',
+        note: 'DNR says to expect several rock riffles and multiple rapids, and to scout larger rapids before attempting them.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+    ],
+  },
+  {
+    id: 'red-lake-river-smiley-bridge-centennial-park',
+    slug: 'red-lake-river-smiley-bridge-centennial-park',
+    name: 'Red Lake River',
+    reach: 'Smiley Bridge to Centennial Park',
+    state: 'Minnesota',
+    region: 'Northwest Minnesota',
+    summary:
+      'Gentle Red Lake River day from Smiley Bridge into Thief River Falls, ending at Centennial Park. MN DNR recommends the exact route for beginner paddlers and provides a direct Thief River Falls level ladder.',
+    statusText:
+      'Treat 1,099 to 1,103 ft at Thief River Falls as the best zone. Below 1,098 ft is scrapable, and above 1,105 ft is beyond the broad-audience recommendation for this route.',
+    latitude: 48.077331,
+    longitude: -96.034388,
+    gaugeSource: {
+      id: 'mn-dnr-179',
+      provider: 'mn_dnr',
+      siteId: '179',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Red Lake River at Thief River Falls, Zeh St W',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=179',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63023001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1099,
+      idealMax: 1103,
+      tooLow: 1098,
+      tooHigh: 1105,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red Lake River at Thief River Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. This route is generally gentle, but high water can add debris, current, and dam-related consequences near Thief River Falls.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'DNR describes this as a gentle stretch that is good for beginner paddlers. The main cautions are route length, wind, changing urban current, and not continuing downstream past the planned take-out without dam awareness.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Smiley Bridge to Centennial Park as a 12.3-mile trip, the Thief River Falls gauge sits in the route corridor with official interpretation bands, and both endpoints were visually checked in Google Maps.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '1,098 / 1,099-1,103 / 1,105 ft',
+        note: 'MN DNR interprets the Thief River Falls gauge as Scrapable below 1,098 ft, Low from 1,098 to 1,099, Medium from 1,099 to 1,103, High from 1,103 to 1,105, and Very High above 1,105.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '12.3 river miles',
+        note: 'MN DNR recommends Smiley Bridge carry-in to Centennial Park trailer access as a gentle Red Lake River day trip that is good for beginner paddlers.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/redlakeriver/segments-maps.html',
+      },
+      {
+        label: 'Map support',
+        value: 'Smiley Bridge RM 140.9 to Centennial Park RM 128.6',
+        note: 'DNR Map 1 places Smiley Bridge / County Road 7 at river mile 140.9 and Centennial Park / Highway 1 at river mile 128.6, with park amenities at the take-out.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf',
+      },
+      {
+        label: 'Take-out amenities',
+        value: 'Picnic, toilets, water, fishing pier, parking',
+        note: 'DNR Map 1 notes that Centennial Park has a picnic shelter, toilets, drinking water, fishing pier, and public parking.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Red Lake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/redlakeriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red Lake River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf',
       },
     ],
   },
@@ -2029,8 +2203,8 @@ export const rivers: River[] = [
       'Upper Sauk day segment that avoids turning the Spring Hill to Rockville corridor into an overlong product route. The St. Martin DNR gauge sits at the take-out, so the level call is much cleaner than the older 39-mile draft.',
     statusText:
       'Treat 15 to 17 ft at St. Martin as the best zone. Below 14 ft gets scrape-prone and weedy; above 20 ft is beyond a broad-audience Sauk day-trip recommendation.',
-    latitude: 45.5338997,
-    longitude: -94.7754217,
+    latitude: 45.529026,
+    longitude: -94.776531,
     gaugeSource: {
       id: 'mn-dnr-328',
       provider: 'mn_dnr',
@@ -2675,6 +2849,101 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'pine-river-rock-dam-harvey-drake',
+    slug: 'pine-river-rock-dam-harvey-drake',
+    name: 'Pine River',
+    reach: 'Rock Dam to Harvey Drake',
+    state: 'Minnesota',
+    region: 'Brainerd Lakes Area',
+    summary:
+      'Long lower Pine River day from Rock Dam to Harvey Drake Public Water Access, with official DNR route support and a direct DNR level ladder near Jenkins. This is a wooded full-day paddle, not a quick lake-country float.',
+    statusText:
+      'Treat 50 to 200 cfs at Jenkins as the best zone. Below 35 cfs is scrapable, and above 500 cfs is beyond the broad-audience recommendation for this wooded lower Pine route.',
+    latitude: 46.635762,
+    longitude: -94.092075,
+    gaugeSource: {
+      id: 'mn-dnr-316',
+      provider: 'mn_dnr',
+      siteId: '316',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pine River nr Jenkins, CSAH15',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=316',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 200,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Pine River near Jenkins',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. Summer depends on enough water to keep the route above the scrapable band, while recent rain can move wood and sharpen current.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The Pine is generally a wooded touring river at normal levels, but this Rock Dam-to-Harvey Drake segment is long enough that low water, strainers, and cold-water exposure make it more committed than an easy short route.',
+      confidenceNotes:
+        'Confidence is high for the level model because MN DNR publishes official interpretation bands at the Jenkins gauge and the DNR Pine River page recommends this exact Rock Dam-to-Harvey Drake trip. Both endpoints resolve to Minnesota public-water-access records and were visually checked in Google Maps.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '35 / 50-200 / 500 cfs',
+        note: 'MN DNR interprets the Jenkins gauge as Scrapable below 35 cfs, Low from 35 to 50, Medium from 50 to 200, High from 200 to 500, and Very High above 500.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '14.4 river miles',
+        note: 'MN DNR lists Rock Dam to Harvey Drake access as a recommended Pine River trip. Public access records place Rock Dam at river mile 15.3 and Harvey Drake at river mile 0.9.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS02986 and WAS01001',
+        note: 'Minnesota public-water-access data identifies the put-in as Pine River, Rock Dam Public Water Access Site and the take-out as Pine River, Harvey Drake Public Water Access Site.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Wooded full-day route',
+        note: 'The Pine River State Water Trail flows through jack pine forest and lake-country wetlands. Treat the lower route as a full-day wooded river paddle with normal strainers and low-water checks.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/pineriver/index.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Pine River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/pineriver/index.html',
+      },
+      {
+        label: 'MN DNR Pine River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/pineriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Pine River GeoPDF',
+        url: 'https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/water_trail/Pine%20GEO.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'minnesota-river-judson-land-of-memories',
     slug: 'minnesota-river-judson-land-of-memories',
     name: 'Minnesota River',
@@ -3061,6 +3330,117 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'minnesota-river-thompson-ferry-carver',
+    slug: 'minnesota-river-thompson-ferry-carver',
+    name: 'Minnesota River',
+    reach: 'Thompson Ferry to Carver Riverfront Park',
+    state: 'Minnesota',
+    region: 'Lower Minnesota Valley',
+    summary:
+      'Shorter lower Minnesota River day from Thompson Ferry north of Jordan to Carver. It uses the official Jordan DNR gauge ladder and keeps the route length more approachable than the longer Henderson-to-Belle Plaine run.',
+    statusText:
+      'Treat 9.0 to 12.0 ft at Jordan as the best working band. Below 4.0 ft drags the pace down, and above 16.0 ft is beyond the level this route should be promoted for a broad lower-river day.',
+    latitude: 44.692386,
+    longitude: -93.641157,
+    gaugeSource: {
+      id: 'mn-dnr-112',
+      provider: 'mn_dnr',
+      siteId: '112',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Minnesota River near Jordan, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=112',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05330000',
+        provider: 'usgs',
+        siteId: '05330000',
+        metric: 'gage_height_ft',
+        unit: 'ft',
+        kind: 'direct',
+        siteName: 'Minnesota River near Jordan, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 9,
+      idealMax: 12,
+      tooLow: 4,
+      tooHigh: 16,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Minnesota River near Jordan',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. The route is shorter than other lower-Minnesota trips, but wind, muddy banks, and flood debris still affect same-day quality.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is usually straightforward big-river paddling at normal levels. It is still an exposed lower Minnesota River day where wind, current, and landing mud can make the trip feel harder than the mileage suggests.',
+      confidenceNotes:
+        'Confidence is high: MN DNR Map 6 recommends Thompson Ferry to Carver as an 8.1-mile day trip, both endpoints resolve in the Minnesota public-water-access layer, and the Jordan gauge sits at the put-in corridor with official DNR interpretation bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '4.0 / 9.0-12.0 / 16.0 ft',
+        note: 'MN DNR interprets the Jordan gauge as Scrapable below 4.0 ft, Low from 4.0 to 9.0, Medium from 9.0 to 12.0, High from 12.0 to 16.0, and Very High above 16.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '8.1 river miles',
+        note: 'MN DNR Map 6 recommends Thompson Ferry Access to Carver Riverfront Park as an 8.1-mile lower Minnesota River day trip.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'DNR access IDs WAS01222 and WAS02646',
+        note: 'Minnesota public-water-access data identifies Thompson Ferry Public Water Access at river mile 40.1 and Carver Public Water Access at river mile 32.0.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Wind, mud, private shoreland',
+        note: 'MN DNR Map 6 tells paddlers to expect 2 to 3 river miles per hour, respect private shoreland, and not underestimate wind, waves, or obstacles.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/index.html',
+      },
+      {
+        label: 'MN DNR Minnesota River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/minnesotariver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Minnesota River map 6 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/minnesota6.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'USGS 05330000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05330000/',
+      },
+    ],
+  },
+  {
     id: 'mississippi-river-east-river-flats-hidden-falls',
     slug: 'mississippi-river-east-river-flats-hidden-falls',
     name: 'Mississippi River',
@@ -3187,6 +3567,121 @@ export const rivers: River[] = [
       {
         label: 'USACE Lock and Dam 1 lockage hours',
         url: 'https://www.mvp.usace.army.mil/Missions/Navigation/Locks-Dams/Lock-Dam-1/',
+      },
+      {
+        label: 'USGS 05331000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05331000/',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-hidden-falls-harriet-island',
+    slug: 'mississippi-river-hidden-falls-harriet-island',
+    name: 'Mississippi River',
+    reach: 'Hidden Falls to Harriet Island',
+    state: 'Minnesota',
+    region: 'Twin Cities',
+    summary:
+      'Downstream Saint Paul Mississippi day from Hidden Falls to Kelley\'s Landing at Harriet Island. MN DNR recommends the exact route, and the St. Paul gauge gives this metro reach an official level ladder.',
+    statusText:
+      'Treat 6,000 to 30,000 cfs at St. Paul as the best working band. Below 2,000 cfs gets too low for this route model, and above 40,000 cfs is beyond the level this urban route should be promoted for.',
+    latitude: 44.904029,
+    longitude: -93.190748,
+    gaugeSource: {
+      id: 'mn-dnr-133',
+      provider: 'mn_dnr',
+      siteId: '133',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Mississippi River at St. Paul, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=133',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20088002&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05331000',
+        provider: 'usgs',
+        siteId: '05331000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Mississippi River at St. Paul, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6000,
+      idealMax: 30000,
+      tooLow: 2000,
+      tooHigh: 40000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at St. Paul',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the practical window. The St. Paul reading is close to this route, but wind, commercial traffic, and park or flood closures can matter more than small gauge changes.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is urban big-river paddling rather than technical whitewater. Swift current, barge wakes, bridge piers, and the Minnesota River confluence require confident boat handling.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Hidden Falls to Harriet Island as a 6.5-mile trip, the St. Paul gauge sits at the take-out corridor with official interpretation bands, and the user visually confirmed Hidden Falls and Kelley\'s Landing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '2,000 / 6,000-30,000 / 40,000 cfs',
+        note: 'MN DNR interprets the St. Paul reading as Scrapable below 2,000 cfs, Low from 2,000 to 6,000, Medium from 6,000 to 30,000, High from 30,000 to 40,000, and Very High above 40,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '6.5 river miles',
+        note: 'MN DNR recommends Hidden Falls to Harriet Island as the Map 10 downstream Twin Cities Mississippi day trip.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/segments-maps.html',
+      },
+      {
+        label: 'Route character',
+        value: 'Metro big river',
+        note: 'DNR Map 10 cautions that this segment can have deceptively swift current and large wakes from motorboats and barges, and it passes the Minnesota River confluence before downtown Saint Paul.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi10.pdf',
+      },
+      {
+        label: 'Take-out selection',
+        value: "Kelley's Landing at Harriet Island",
+        note: 'Saint Paul identifies Kelley\'s Landing as part of Harriet Island Regional Park. Lambert\'s Landing is farther north and was not selected because the DNR route endpoint is Harriet Island.',
+        sourceUrl: 'https://www.stpaul.gov/departments/parks-and-recreation/harriet-island-regional-park/kelleys-landing',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River map 10 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi10.pdf',
+      },
+      {
+        label: 'Saint Paul Hidden Falls Regional Park',
+        url: 'https://www.stpaul.gov/facilities/hidden-falls-regional-park',
+      },
+      {
+        label: "Saint Paul Kelley's Landing",
+        url: 'https://www.stpaul.gov/departments/parks-and-recreation/harriet-island-regional-park/kelleys-landing',
       },
       {
         label: 'USGS 05331000 monitoring location',
@@ -3671,8 +4166,8 @@ export const rivers: River[] = [
       'Long west-metro Crow River day that starts below the Watertown dam, passes Delano, and finishes at the Lake Rebecca Crow River carry-in. DNR recommends the exact trip, and the Delano DNR gauge gives it an official level ladder.',
     statusText:
       'Treat 200 to 600 cfs at Delano as the best zone. Below 26 cfs is scrapable, and above 800 cfs is beyond the broad-audience recommendation for this long wooded route.',
-    latitude: 44.9663195,
-    longitude: -93.8439068,
+    latitude: 44.965047,
+    longitude: -93.845448,
     gaugeSource: {
       id: 'mn-dnr-51',
       provider: 'mn_dnr',

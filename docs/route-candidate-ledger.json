@@ -165,11 +165,11 @@
       "river": "Big Fork River",
       "route": "Highway 6 (S) carry-in access to Highway 6 (N) carry-in access",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-27",
-      "reviewCount": 2,
-      "blocker": "The route now clears the live-data bar, but this pass still did not finish authoritative coordinate lookup for the official Highway 6 south and Highway 6 north carry-in endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 3,
+      "blocker": "Added to PaddleTodayV2 in the second coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Big Fork River segments and maps page",
@@ -180,7 +180,7 @@
         "Big Fork River - Highway 6 (S) to Highway 6 (N)",
         "Big Fork River - Highway 6 South to Highway 6 North"
       ],
-      "v2Slug": null,
+      "v2Slug": "big-fork-river-highway-6-south-north",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "The Bigfork Highway 38 MN DNR gauge is the direct corridor live source, and the current app already supports provider:'mn_dnr' current readings, so the old DNR-only live-data blocker no longer holds."
@@ -190,11 +190,15 @@
         "notes": "Official route page gives a conservative usable floor: some rapids will be too rocky to run if the Bigfork Highway 38 gauge is below 4 ft. That is enough for a minimum-only trust-first model even without a fuller preferred range."
       },
       "endpoints": {
-        "putIn": "Highway 6 (S) carry-in access",
-        "takeOut": "Highway 6 (N) carry-in access",
-        "coordinatesPresent": false
+        "putIn": "Big Fork River, State Hwy 6 Bridge Public Water Access Site",
+        "takeOut": "Bill Counter Landing / Big Fork River, State Hwy 6 (S) Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInLatitude": 47.95302296444459,
+        "putInLongitude": -93.75498797729725,
+        "takeOutLatitude": 48.034694214683626,
+        "takeOutLongitude": -93.74155634703675
       },
-      "notes": "Re-reviewed on 2026-04-27 under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route no longer belongs in no_live_gauge: the Bigfork DNR site is direct, the route page gives a conservative 4 ft floor, and the remaining blocker is endpoint coordinate cleanup only."
+      "notes": "Re-reviewed on 2026-04-27 under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. Coordinate follow-up on 2026-05-22 found official MN DNR public-water-access records WAS01794 (river mile 91.5, Highway 6 bridge access) and WAS01792 (river mile 75.8, Bill Counter Landing / State Hwy 6 (S) access); both were opened in Google Maps and visually accepted. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-chippewa-river-lentz-access-watson-lions-park",
@@ -273,21 +277,23 @@
       "river": "Cottonwood River",
       "route": "Juenemann carry-in access to Springfield carry-in access",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "Route evidence is strong enough to preserve, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 2,
+      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Cottonwood River overview page",
         "MN DNR Minnesota River map 4 / Cottonwood River PDF",
-        "MN DNR river levels site for Cottonwood River nr Springfield, CR2"
+        "MN DNR river levels site for Cottonwood River nr Springfield, CR2",
+        "MN DNR public-water-access records WAS01422 and WAS01421",
+        "City of Springfield Riverside Park canoe landing page"
       ],
       "aliases": [
         "Cottonwood River - Juenemann carry-in access to Springfield carry-in access"
       ],
-      "v2Slug": null,
+      "v2Slug": "cottonwood-river-juenemann-springfield",
       "gauge": {
         "quality": "direct",
         "notes": "Official MN DNR Springfield gauge sits exactly at the upstream access cluster and carries a full five-band ladder."
@@ -297,11 +303,15 @@
         "notes": "Official ladder for site 42: Scrapable below 12.5 ft, Low 12.5-13 ft, Medium 13-17 ft, High 17-19 ft, Very High above 19 ft."
       },
       "endpoints": {
-        "putIn": "Juenemann carry-in access",
-        "takeOut": "Springfield carry-in access",
-        "coordinatesPresent": false
+        "putIn": "Cottonwood River, Co Rd 2 Juenemann Landing Public Water Access Site",
+        "takeOut": "Cottonwood River, Springfield Public Water Access Site / Riverside Park canoe landing",
+        "coordinatesPresent": true,
+        "putInLatitude": 44.20347232998403,
+        "putInLongitude": -95.04851343859924,
+        "takeOutLatitude": 44.237782688059475,
+        "takeOutLongitude": -94.97404056446204
       },
-      "notes": "Fresh gauge-first Minnesota discovery. The Cottonwood corridor did not yield a longer recommended trip as cleanly as Long Prairie or Pomme de Terre, but this short official water-trail segment is a practical same-river day trip with direct gauge support and named public endpoints."
+      "notes": "Fresh gauge-first Minnesota discovery. The Cottonwood corridor did not yield a longer recommended trip as cleanly as Long Prairie or Pomme de Terre, but this short official water-trail segment is a practical same-river day trip with direct gauge support and named public endpoints. Coordinate follow-up on 2026-05-22 found official MN DNR public-water-access records WAS01422 (river mile 62.8, Co Rd 2 Juenemann Landing) and WAS01421 (river mile 56.3, Springfield / Riverside Park); both were opened in Google Maps, and the Springfield take-out is corroborated by the City of Springfield's Riverside Park canoe landing description. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-des-moines-river-mayflower-park-christianna-bridge",
@@ -380,21 +390,22 @@
       "river": "Little Fork River",
       "route": "Veterans Park to Highway 73 bridge",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 2,
-      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 3,
+      "blocker": "Added to PaddleTodayV2 in the second coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Little Fork River segments and maps page",
         "MN DNR river levels dataset for Little Fork River nr Linden Grove, TH73",
-        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "Google Maps visual check for Veterans Park in Cook and Highway 73 bridge near Linden Grove"
       ],
       "aliases": [
         "Little Fork River - Veterans Park to Highway 73 bridge"
       ],
-      "v2Slug": null,
+      "v2Slug": "little-fork-river-veterans-park-highway-73",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "Direct MN DNR site 88 at Linden Grove / Highway 73 sits exactly on the route corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
@@ -404,11 +415,15 @@
         "notes": "Official ladder at site 88 remains strong: Scrapable below 100 cfs, Low 100-175 cfs, Medium 175-500 cfs, High 500-1000 cfs, Very High above 1000 cfs. The route page also says three feet or lower at the Highway 73 bridge makes most rapids too shallow for easy passage."
       },
       "endpoints": {
-        "putIn": "Veterans Park (carry-in)",
-        "takeOut": "Highway 73 bridge (carry-in)",
-        "coordinatesPresent": false
+        "putIn": "Veterans Park (carry-in), Cook, MN",
+        "takeOut": "Highway 73 bridge (carry-in) / Little Fork River nr Linden Grove, TH73",
+        "coordinatesPresent": true,
+        "putInLatitude": 47.854286,
+        "putInLongitude": -92.688289,
+        "takeOutLatitude": 47.858288,
+        "takeOutLongitude": -92.870024
       },
-      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Linden Grove / Highway 73 DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Linden Grove / Highway 73 DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 visually identified Veterans Park in Cook, MN at 47.854286, -92.688289 and the Highway 73 bridge take-out at DNR site 88 / river mile 126.8, 47.858288, -92.870024; Google Maps visual check found river signage and parking next to the bridge. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-long-prairie-river-long-prairie-browerville",
@@ -494,23 +509,25 @@
       "river": "Minnesota River",
       "route": "Thompson Ferry Access to Carver Riverfront Park",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-27",
-      "reviewCount": 1,
-      "blocker": "The route clears the live-data and threshold bar, but this pass did not finish authoritative endpoint coordinate lookup for Thompson Ferry Access and Carver Riverfront Park.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR, county, or city access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 2,
+      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Minnesota River segments and maps page",
         "MN DNR Minnesota River map 6 PDF",
         "MN DNR river levels guidance for Minnesota River near Jordan",
-        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "MN DNR public-water-access records WAS01222 and WAS02646",
+        "Google Maps visual check for Thompson Ferry trailer access and Carver public water access"
       ],
       "aliases": [
         "Minnesota River - Thompson Ferry Access to Carver Riverfront Park",
         "Minnesota River - Thompson Ferry to Carver Riverfront Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "minnesota-river-thompson-ferry-carver",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "The current best live story is the MN DNR/USGS Jordan site already used on the lower Minnesota corridor. For this exact route it is cleaner than for Henderson-to-Belle-Plaine because Thompson Ferry is effectively the gauge-adjacent put-in, and the app can already operate the DNR live path."
@@ -520,11 +537,15 @@
         "notes": "Official DNR ladder already exists for the Jordan gauge (scrapable below 4 ft, low 4-9, medium 9-12, high 12-16, very high above 16). That is good enough for a conservative lower-Minnesota implementation once coordinates are cleaned up."
       },
       "endpoints": {
-        "putIn": "Thompson Ferry Access",
-        "takeOut": "Carver Riverfront Park",
-        "coordinatesPresent": false
+        "putIn": "Thompson Ferry trailer access / Minnesota River, Thompson Ferry Public Water Access Site",
+        "takeOut": "Carver Riverfront Park / Minnesota River, Carver Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInLatitude": 44.692386,
+        "putInLongitude": -93.641157,
+        "takeOutLatitude": 44.766777,
+        "takeOutLongitude": -93.616717
       },
-      "notes": "Fresh official Map 6 recommended day trip. DNR explicitly names both endpoints and the route length (8.1 river miles). This is a better fit for the existing Jordan gauge ladder than broader stitched lower-Minnesota corridor ideas, but this pass stopped at named-endpoint preservation rather than authoritative coordinate extraction."
+      "notes": "Fresh official Map 6 recommended day trip. DNR explicitly names both endpoints and the route length (8.1 river miles). This is a better fit for the existing Jordan gauge ladder than broader stitched lower-Minnesota corridor ideas. Coordinate follow-up on 2026-05-22 confirmed the put-in as Thompson Ferry trailer access / MN DNR WAS01222 at 44.692386, -93.641157 and the take-out as Carver Riverfront Park / MN DNR WAS02646 at 44.766777, -93.616717; both were visually accepted in Google Maps. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-mississippi-river-coon-rapids-dam-regional-park-riverfront-regional-park",
@@ -567,21 +588,23 @@
       "river": "North Fork Crow River",
       "route": "City of Rockford trailer access to Riverside County Park",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "Route evidence is strong, but this pass did not finish authoritative coordinate lookup for both official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from county or city access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 2,
+      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR North Fork Crow River segments and maps page",
         "MN DNR North Fork Crow map 2 PDF",
-        "MN DNR river levels site for North Fork Crow River near Rockford"
+        "MN DNR river levels site for North Fork Crow River near Rockford",
+        "MN DNR public-water-access records WAS03086 and WAS01955",
+        "Google Maps visual check for Rockford Boat Launch and Riverside County Park access"
       ],
       "aliases": [
         "North Fork Crow River - City of Rockford trailer access to Riverside County Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "north-fork-crow-river-rockford-riverside",
       "gauge": {
         "quality": "direct",
         "notes": "Official MN DNR gauge at Farmington Avenue bridge / near Rockford sits just upstream of the route and already underpins the lower-river threshold story."
@@ -591,11 +614,15 @@
         "notes": "Official ladder for site 310 / Rockford corridor: Scrapable below 345 cfs, Low 345-500 cfs, Medium 500-1500 cfs, High 1500-1750 cfs, Very High above 1750 cfs."
       },
       "endpoints": {
-        "putIn": "City of Rockford trailer access",
-        "takeOut": "Riverside County Park",
-        "coordinatesPresent": false
+        "putIn": "Rockford Boat Launch / North Fork Crow River, Rockford Public Water Access Site",
+        "takeOut": "Riverside County Park / Crow River, Riverside Park Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInLatitude": 45.092762,
+        "putInLongitude": -93.729419,
+        "takeOutLatitude": 45.165052,
+        "takeOutLongitude": -93.640041
       },
-      "notes": "Fresh gauge-first Minnesota discovery. DNR map 2 names both endpoints clearly, the overview explicitly points paddlers downstream of Rockford for family-friendly day trips, and this route trims the existing long Riverside-to-Dayton route into a cleaner ~7.4-mile upstream companion."
+      "notes": "Fresh gauge-first Minnesota discovery. DNR map 2 names both endpoints clearly, the overview explicitly points paddlers downstream of Rockford for family-friendly day trips, and this route trims the existing long Riverside-to-Dayton route into a cleaner ~7.4-mile upstream companion. Coordinate follow-up on 2026-05-22 confirmed the put-in as Rockford Boat Launch / MN DNR WAS03086 at 45.092762, -93.729419 and the take-out as Riverside County Park / MN DNR WAS01955 at 45.165052, -93.640041; Google Maps visual check found the park and a short route alongside the river. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-north-fork-crow-river-crow-hassan-park-reserve-crow-dayton-public-water-access",
@@ -711,22 +738,24 @@
       "river": "Pine River",
       "route": "Rock Dam to Harvey Drake access",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 2,
-      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 3,
+      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Pine River segments and maps page",
         "MN DNR river levels dataset for Pine River nr Jenkins, CSAH15",
-        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "MN DNR public-water-access records WAS02986 and WAS01001",
+        "Google Maps visual check for Pine River Rock Dam and Harvey Drake Public Water Access"
       ],
       "aliases": [
         "Pine River - Rock Dam to Harvey Drake access",
         "Pine River - Rock Dam to Harvey Drake trailer landing"
       ],
-      "v2Slug": null,
+      "v2Slug": "pine-river-rock-dam-harvey-drake",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "Direct MN DNR site 316 near Jenkins sits on the same lower-Pine corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
@@ -736,11 +765,15 @@
         "notes": "Official ladder at site 316 remains strong: Scrapable below 35 cfs, Low 35-50 cfs, Medium 50-200 cfs, High 200-500 cfs, Very High above 500 cfs."
       },
       "endpoints": {
-        "putIn": "Rock Dam carry-in access",
-        "takeOut": "Harvey Drake trailer landing",
-        "coordinatesPresent": false
+        "putIn": "Pine River Rock Dam / Pine River, Rock Dam Public Water Access Site",
+        "takeOut": "Harvey Drake Public Water Access / Pine River, Harvey Drake Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInLatitude": 46.635762,
+        "putInLongitude": -94.092075,
+        "takeOutLatitude": 46.571680,
+        "takeOutLongitude": -94.028060
       },
-      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Jenkins DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Jenkins DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 confirmed the put-in as Pine River Rock Dam / MN DNR WAS02986 at 46.635762, -94.092075 and the take-out as Harvey Drake Public Water Access / MN DNR WAS01001 at 46.571680, -94.028060. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-pomme-de-terre-river-larson-appleton",
@@ -791,21 +824,23 @@
       "river": "Red Lake River",
       "route": "Smiley Bridge to Centennial Park",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 2,
-      "blocker": "Route evidence is now strong enough for the implementation queue, but this pass did not finish authoritative coordinate lookup for the official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR or local access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 3,
+      "blocker": "Added to PaddleTodayV2 in the second coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Red Lake River segments and maps page",
         "MN DNR river levels dataset for Red Lake River at Thief River Falls, Zeh St W",
-        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "MN DNR public-water-access record WAS00809 for Smiley Bridge",
+        "Google Maps visual check for Smiley Bridge and Centennial Park / Highway 1 access"
       ],
       "aliases": [
         "Red Lake River - Smiley Bridge to Centennial Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "red-lake-river-smiley-bridge-centennial-park",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "Direct MN DNR site 179 at Thief River Falls sits on the route corridor and the current app already supports this DNR live-reading path, so the old DNR-only blocker no longer holds."
@@ -815,11 +850,15 @@
         "notes": "Official ladder at site 179 remains strong: Scrapable below 1098 ft, Low 1098-1099 ft, Medium 1099-1103 ft, High 1103-1105 ft, Very High above 1105 ft."
       },
       "endpoints": {
-        "putIn": "Smiley Bridge carry-in access",
-        "takeOut": "Centennial Park trailer access",
-        "coordinatesPresent": false
+        "putIn": "Smiley Bridge Public Water Access Site",
+        "takeOut": "Centennial Park / Highway 1 trailer access",
+        "coordinatesPresent": true,
+        "putInLatitude": 48.077331,
+        "putInLongitude": -96.034388,
+        "takeOutLatitude": 48.124,
+        "takeOutLongitude": -96.168056
       },
-      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Thief River Falls DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Remaining blocker is endpoint coordinate cleanup only."
+      "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Thief River Falls DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 confirmed the put-in as Smiley Bridge Public Water Access Site / MN DNR WAS00809 at 48.077331, -96.034388 and the take-out as Centennial Park / Highway 1 trailer access at 48.124000, -96.168056. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-red-river-kidder-recreation-area-brushvale-bridge-recreation-area",
@@ -1007,21 +1046,24 @@
       "river": "Sauk River",
       "route": "Spring Hill County Park to St. Martin carry-in access",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "Route evidence is strong, but this pass did not finish authoritative coordinate lookup for both official endpoints.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from county or DNR access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 2,
+      "blocker": "Added to PaddleTodayV2 in the first coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Sauk River segments and maps page",
         "MN DNR Sauk River map 2 PDF",
-        "MN DNR river levels site for Sauk River nr St. Martin, CR12"
+        "MN DNR river levels site for Sauk River nr St. Martin, CR12",
+        "Stearns County Sauk River canoe access list",
+        "MN DNR public-water-access record WAS02217",
+        "Google Maps visual check for Spring Hill County Park and St. Martin Public Water Access"
       ],
       "aliases": [
         "Sauk River - Spring Hill County Park to St. Martin carry-in access"
       ],
-      "v2Slug": null,
+      "v2Slug": "sauk-river-spring-hill-st-martin",
       "gauge": {
         "quality": "direct",
         "notes": "Official MN DNR gauge at Sauk River nr St. Martin, CR12 sits on the take-out side of the route and carries a full five-band ladder."
@@ -1032,10 +1074,14 @@
       },
       "endpoints": {
         "putIn": "Spring Hill County Park",
-        "takeOut": "St. Martin carry-in access",
-        "coordinatesPresent": false
+        "takeOut": "St. Martin carry-in access / Sauk River, St. Martin Public Water Access Site",
+        "coordinatesPresent": true,
+        "putInLatitude": 45.529026,
+        "putInLongitude": -94.776531,
+        "takeOutLatitude": 45.520241,
+        "takeOutLongitude": -94.67885
       },
-      "notes": "Fresh gauge-first Minnesota discovery. MN DNR map 2 names both endpoints clearly and the route is a practical ~9-mile day trip from RM 56.2 to RM 47.1."
+      "notes": "Fresh gauge-first Minnesota discovery. MN DNR map 2 names both endpoints clearly and the route is a practical ~9-mile day trip from RM 56.2 to RM 47.1. Coordinate follow-up on 2026-05-22 confirmed the put-in as Spring Hill County Park at 45.529026, -94.776531 and the take-out as St. Martin Public Water Access Site / MN DNR WAS02217 at 45.520241, -94.678850. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-south-fork-crow-river-rick-johnson-park-lake-rebecca-regional-park",
@@ -1045,8 +1091,8 @@
       "status": "needs_manual_coordinates",
       "lastReviewed": "2026-04-26",
       "reviewCount": 1,
-      "blocker": "Strong direct-gauge DNR route with an official recommended trip, but this pass did not finish authoritative endpoint coordinates for Rick Johnson Park (below the Watertown dam) and the Lake Rebecca Regional Park carry-in on the North Fork Crow.",
-      "retryCondition": "Promote once authoritative endpoint coordinates are resolved from DNR/public-access or park-manager sources; the live-gauge and threshold story is already implementation-ready.",
+      "blocker": "Coordinates are now located from park/source-backed access context and visually checked in Google Maps; ready for implementation pass.",
+      "retryCondition": "Implement route data using the confirmed access coordinates.",
       "retryDate": null,
       "sourcesChecked": [
         "src/data/rivers.ts",
@@ -1055,7 +1101,9 @@
         "docs/route-candidate-ledger.json",
         "MN DNR South Fork Crow segments-and-maps page",
         "MN DNR South Fork Crow water-trail PDF",
-        "MN DNR river_levels site JSON (site 51 / 19001001)"
+        "MN DNR river_levels site JSON (site 51 / 19001001)",
+        "Three Rivers Lake Rebecca Park Reserve Crow River carry-in access context",
+        "Google Maps visual check for South Fork Crow River boat landing and Lake Rebecca Crow River launch"
       ],
       "aliases": [
         "South Fork Crow River - Rick Johnson Park to Lake Rebecca Regional Park",
@@ -1072,11 +1120,15 @@
         "notes": "MN DNR ladder for site 51: scrapable below 26 cfs, low 26-200, medium 200-600, high 600-800, very high above 800. A conservative implementation can ship the medium band as the broad-audience target with low/high caveats."
       },
       "endpoints": {
-        "putIn": "Rick Johnson Park trailer access",
-        "takeOut": "Lake Rebecca Regional Park carry-in access",
-        "coordinatesPresent": false
+        "putIn": "South Fork Crow River boat landing / Rick Johnson Park trailer access",
+        "takeOut": "Lake Rebecca Park Reserve Crow River carry-in access",
+        "coordinatesPresent": true,
+        "putInLatitude": 44.965047,
+        "putInLongitude": -93.845448,
+        "takeOutLatitude": 45.079117,
+        "takeOutLongitude": -93.754431
       },
-      "notes": "Fresh gauge-first discovery from the South Fork Crow cluster. The official DNR recommended day trip is 14.3 river miles from Rick Johnson Park (RM 13.8, below the Watertown dam) to Lake Rebecca Regional Park on the North Fork Crow (RM 24.7). Strong trust trail, but coordinate cleanup remains."
+      "notes": "Fresh gauge-first discovery from the South Fork Crow cluster. The official DNR recommended day trip is 14.3 river miles from Rick Johnson Park (RM 13.8, below the Watertown dam) to Lake Rebecca Regional Park on the North Fork Crow (RM 24.7). Coordinate follow-up on 2026-05-22 confirmed the put-in as Google Maps' South Fork Crow River boat landing near Rick Johnson Park at 44.965047, -93.845448 and the take-out as the Lake Rebecca Park Reserve Crow River carry-in access at 45.079117, -93.754431."
     },
     {
       "candidateId": "mn-st-croix-river-interstate-state-park-landing-william-obrien-state-park-landing",
@@ -1852,11 +1904,11 @@
       "river": "Mississippi River",
       "route": "Hidden Falls to Harriet Island",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-27",
-      "reviewCount": 1,
-      "blocker": "The route clears the live-data and threshold bar, but this pass did not finish authoritative endpoint coordinate lookup for Hidden Falls Regional Park and Harriet Island Regional Park.",
-      "retryCondition": "Queue for implementation once authoritative endpoint coordinates are pulled from DNR, NPS, or Saint Paul access records.",
+      "status": "added",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 2,
+      "blocker": "Added to PaddleTodayV2 in the second coordinate-confirmed implementation batch.",
+      "retryCondition": "Already added; revisit only for corrections or source updates.",
       "retryDate": null,
       "sourcesChecked": [
         "MN DNR Mississippi River segments and maps page",
@@ -1864,13 +1916,14 @@
         "MN DNR river levels guidance for Mississippi River at St. Paul",
         "Saint Paul Hidden Falls Regional Park facility page",
         "Saint Paul Harriet Island Regional Park facility page",
-        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts"
+        "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
+        "Google Maps visual check for Hidden Falls Regional Park Mississippi River Boat Ramp and Kelley's Landing"
       ],
       "aliases": [
         "Mississippi River - Hidden Falls to Harriet Island",
         "Mississippi River - Hidden Falls Regional Park to Harriet Island Regional Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "mississippi-river-hidden-falls-harriet-island",
       "gauge": {
         "quality": "direct_non_usgs",
         "notes": "The current best live story is the MN DNR / USGS St. Paul site already used on the shipped East River Flats to Hidden Falls route. For this downstream metro trip, that same gauge is at least as defensible because it sits closer to the take-out end and the current app already supports the DNR live path."
@@ -1880,11 +1933,15 @@
         "notes": "Official DNR ladder already exists for the St. Paul gauge (scrapable below 2,000 cfs, low 2,000-6,000, medium 6,000-30,000, high 30,000-40,000, very high above 40,000). That is good enough for a conservative metro-Mississippi implementation once coordinates are cleaned up."
       },
       "endpoints": {
-        "putIn": "Hidden Falls Regional Park",
-        "takeOut": "Harriet Island Regional Park",
-        "coordinatesPresent": false
+        "putIn": "Hidden Falls Regional Park Mississippi River Boat Ramp",
+        "takeOut": "Kelley's Landing / Harriet Island riverfront landing",
+        "coordinatesPresent": true,
+        "putInLatitude": 44.904029,
+        "putInLongitude": -93.190748,
+        "takeOutLatitude": 44.935466,
+        "takeOutLongitude": -93.100314
       },
-      "notes": "Fresh metro-Mississippi discovery from the second official DNR Twin Cities recommended trip. DNR explicitly names both endpoints and mileage, Hidden Falls is already a documented public launch in V2, and Saint Paul documents Harriet Island Regional Park with a public dock. I stopped at named-endpoint preservation rather than authoritative coordinate extraction."
+      "notes": "Fresh metro-Mississippi discovery from the second official DNR Twin Cities recommended trip. DNR explicitly names both endpoints and mileage, Hidden Falls is already a documented public launch in V2, and Saint Paul documents Harriet Island Regional Park with a public dock. Coordinate follow-up on 2026-05-22 confirmed the put-in as Hidden Falls Regional Park Mississippi River Boat Ramp at 44.904029, -93.190748 and the take-out as Kelley's Landing / Harriet Island riverfront landing at 44.935466, -93.100314. Lambert's Landing was checked but not selected because it is Lower Landing Park at the foot of Jackson Street on the downtown side rather than the Harriet Island endpoint. Added to PaddleTodayV2 on 2026-05-22."
     },
     {
       "candidateId": "mn-mississippi-river-lake-itasca-coffee-pot-landing",
@@ -1994,6 +2051,117 @@
         "coordinatesPresent": false
       },
       "notes": "Fresh Minnesota-first discovery from the unreviewed Zumbro Map 2 recommended day trip. Official route legitimacy is clean: the DNR PDF explicitly recommends Zumbro Falls to Hammond at 7 river miles and the map text names Village Park at Hammond as the water access. It stays below likely_addable because the threshold package is still an exact-start / longer-finish stitch rather than a clean Hammond-specific ladder."
+    },
+    {
+      "candidateId": "wi-bark-river-princes-point-burnt-village-park",
+      "river": "Bark River",
+      "route": "Prince's Point to Burnt Village Park",
+      "state": "WI",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 1,
+      "blocker": "Route and threshold evidence are good enough for a coordinate-confirmation pass, but exact launch coordinates still need visual/public-access verification.",
+      "retryCondition": "Confirm Prince's Point and Burnt Village Park coordinates, then implement using the Bark River at Rome gauge.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Bark River - Prince's Point",
+        "USGS Bark River at Rome gauge",
+        "Travel Wisconsin / Jefferson County Parks Burnt Village listing",
+        "Wisconsin DNR water detail for Prince's Point access"
+      ],
+      "aliases": [
+        "Bark River - Prince's Point to Burnt Village Park",
+        "Bark River - Princes Point to Burnt Village County Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips ties this lower-Bark route to the direct Bark River at Rome USGS gauge."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a full route-specific ladder: 0-30 cfs low but fine, 31-50 average, 51-75 above average, 76-100 high but fine, and 101+ flooded/woods-paddling conditions."
+      },
+      "endpoints": {
+        "putIn": "Prince's Point Wildlife Area / County Road D access",
+        "takeOut": "Burnt Village Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Wisconsin expansion research from an already-supported river family. This looks like a practical lower-Bark add: same-river direct gauge, exact route report, public put-in/take-out language, and a Jefferson County/Travel Wisconsin page corroborating Burnt Village as a Bark River canoe/kayak launch."
+    },
+    {
+      "candidateId": "wi-sugar-river-highway-x-attica",
+      "river": "Sugar River",
+      "route": "Highway X to Attica Highway C Access",
+      "state": "WI",
+      "status": "needs_manual_coordinates",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 1,
+      "blocker": "Route and threshold evidence are good enough for a coordinate-confirmation pass, but exact access coordinates still need visual/public-access verification.",
+      "retryCondition": "Confirm Highway X and Attica Highway C access coordinates, then implement as a modest lower-Sugar companion route.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Sugar River - Hwy X",
+        "USGS Sugar River near Verona gauge",
+        "Upper Sugar River Watershed Association",
+        "Lower Sugar River Watershed Association"
+      ],
+      "aliases": [
+        "Sugar River - Hwy X to Attica",
+        "Sugar River - Highway X to Highway C / Attica"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips ties the route to the existing Sugar River near Verona USGS gauge used by current Sugar River coverage."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a full route-specific ladder: 0-20 cfs still navigable, 21-50 good summer average, 51-90 above normal but fine, 91-130 above normal but fine, 131-200 high/pushy but likely doable with care, and 201+ very high/adventurous only."
+      },
+      "endpoints": {
+        "putIn": "Highway X public access",
+        "takeOut": "Attica Highway C Access",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Wisconsin expansion research from an already-supported river family. This route is not a marquee scenic segment, but it is short, public-access-backed, and has a clearer gauge ladder than many stale holdovers."
+    },
+    {
+      "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
+      "river": "Black Earth Creek",
+      "route": "Cross Plains to Salmo Pond County Park",
+      "state": "WI",
+      "status": "research_later",
+      "lastReviewed": "2026-05-22",
+      "reviewCount": 1,
+      "blocker": "Gauge and threshold support are promising, but a 2025 same-page comment reports two full blockages near the Scherbel Road / Salmo Pond take-out area, including one impossible to get around. That makes this too operationally uncertain to queue for implementation without fresher clearance evidence.",
+      "retryCondition": "Retry if Wisconsin River Trips, Dane County, local paddlers, or field verification confirms the Cross Plains-to-Salmo corridor is currently clear enough for normal recreational passage.",
+      "retryDate": "2026-06-22",
+      "sourcesChecked": [
+        "Wisconsin River Trips Black Earth Creek - Cross Plains",
+        "USGS Black Earth Creek at Cross Plains gauge",
+        "Dane County Parks Salmo Pond County Park page",
+        "Dane County public trout stream access materials"
+      ],
+      "aliases": [
+        "Black Earth Creek - Cross Plains to Salmo Pond",
+        "Black Earth Creek - Cross Plains Fishing Access to Salmo Pond County Park"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips uses the direct Black Earth Creek at Cross Plains USGS gauge for this short route."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific ladder: 0-15 cfs too shallow, 16-20 bumpy with possible walking, 21-30 good target, 31-40 high but viable, 41-50 dirty/pushy but viable for experienced paddlers, and 51+ maybe too high for enjoyable paddling."
+      },
+      "endpoints": {
+        "putIn": "Cross Plains Fishing Access",
+        "takeOut": "Salmo Pond County Park",
+        "coordinatesPresent": false
+      },
+      "notes": "Fresh Wisconsin research. This could become a useful small-stream route because the gauge ladder is unusually clear and Salmo Pond is a real Dane County park, but current blockage uncertainty keeps it below the implementation queue."
     }
   ]
 }

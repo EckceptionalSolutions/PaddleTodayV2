@@ -281,7 +281,7 @@ function weekendWeatherBadgeMarkup(item) {
 function weekendVerdict(item) {
   if (item.weekend.rating === 'Strong') return 'Top weekend pick';
   if (item.weekend.rating === 'Good') return 'Good weekend pick';
-  if (item.weekend.rating === 'Fair') return 'Paddleable with tradeoffs';
+  if (item.weekend.rating === 'Fair') return 'Possible with tradeoffs';
   return 'No weekend pick';
 }
 
@@ -356,10 +356,17 @@ function supportingReason(item) {
 
   const lowered = item.weekend.explanation.toLowerCase();
   if (lowered.includes('conservative')) {
-    return 'Weekend picks stay a little more conservative than today.';
+    return '';
   }
 
   return '';
+}
+
+function weekendExplanationText(item) {
+  return String(item?.weekend?.explanation || '')
+    .replace(/\bWeekend outlooks stay a little more conservative\.\s*/gi, '')
+    .replace(/\bWeekend picks stay a little more conservative than today\.\s*/gi, '')
+    .trim();
 }
 
 function slotLabel(index) {
@@ -517,8 +524,8 @@ function renderFeatured(item, worthWatchingCount = 0) {
     setText(
       featuredExplanation,
       worthWatchingCount > 0
-        ? 'This page is intentionally conservative. Warm temperatures alone are not enough for a weekend recommendation when the weekend rain or storm signal is still this strong.'
-        : 'This page is intentionally conservative. Weekend picks only show up when the current gauge and forecast both look solid.'
+        ? 'Warm temperatures alone are not enough for a weekend recommendation when rain, storms, or wind are still a concern.'
+        : 'Weekend picks only show up when the current gauge and forecast both look solid.'
     );
 
     if (featuredReasons instanceof HTMLElement) {
@@ -563,7 +570,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
   }
   setText(featuredReason, item.weekend.summary);
   setText(featuredSignal, item.weekend.signalLine);
-  setText(featuredExplanation, item.weekend.explanation);
+  setText(featuredExplanation, weekendExplanationText(item));
   if (featuredFacts instanceof HTMLElement) {
     const factsMarkup = weekendFactsMarkup(item);
     featuredFacts.innerHTML = factsMarkup;
@@ -578,7 +585,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
     featuredReasons.hidden = !reason;
   }
 
-  updateFeaturedSummaryToggle(item.weekend.explanation);
+  updateFeaturedSummaryToggle(featuredExplanation?.textContent || '');
   if (featuredLink instanceof HTMLAnchorElement) {
     featuredLink.href = `/rivers/${item.river.slug}/`;
     featuredLink.textContent = 'View route';
@@ -603,7 +610,11 @@ function createWeekendCard(item, index, options = {}) {
   }
 
   const slotText = typeof options.slotLabel === 'string' ? options.slotLabel : slotLabel(index);
-  setText(card.querySelector('[data-field="card-kind"]'), 'Weekend');
+  const cardKind = card.querySelector('[data-field="card-kind"]');
+  setText(cardKind, '');
+  if (cardKind instanceof HTMLElement) {
+    cardKind.hidden = true;
+  }
   setText(card.querySelector('[data-field="card-slot"]'), slotText);
   setText(card.querySelector('[data-field="state"]'), regionStateText(item));
   setText(card.querySelector('[data-field="route-label"]'), item.river.reach);

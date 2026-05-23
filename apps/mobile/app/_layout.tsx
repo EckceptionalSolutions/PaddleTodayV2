@@ -2,7 +2,6 @@ import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';
 import { useEffect } from 'react';
-import { Platform, StatusBar as NativeStatusBar } from 'react-native';
 import 'react-native-reanimated';
 import {
   addNotificationResponseListener,
@@ -39,16 +38,6 @@ const navigationTheme = {
 
 function RootLayout() {
   useEffect(() => {
-    if (Platform.OS !== 'android') {
-      return;
-    }
-
-    NativeStatusBar.setBackgroundColor(colors.canvas);
-    NativeStatusBar.setTranslucent(false);
-    NativeStatusBar.setBarStyle('dark-content');
-  }, []);
-
-  useEffect(() => {
     void getLastNotificationResponse().then((response) => {
       redirectFromNotification(response?.notification.request.content.data);
     });
@@ -63,7 +52,7 @@ function RootLayout() {
   return (
     <AppProviders>
       <ThemeProvider value={navigationTheme}>
-        <StatusBar style="dark" backgroundColor={colors.canvas} translucent={false} />
+        <StatusBar style="dark" />
         <Stack
           screenOptions={{
             headerShadowVisible: false,

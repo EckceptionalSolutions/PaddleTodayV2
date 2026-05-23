@@ -1571,7 +1571,7 @@ function outlookExplanation(
         ? `Gauge is still rising, which tends to improve low days and worsen high days.`
         : `Gauge is falling, which tends to improve high days and worsen low days.`;
 
-  return `${trendText} ${weatherText} ${windowId === 'weekend' ? 'Weekend outlooks stay a little more conservative.' : 'Tomorrow is an early read, not a promise.'}`;
+  return `${trendText} ${weatherText} ${windowId === 'weekend' ? 'Re-check this before you commit to the drive.' : 'Tomorrow is an early read, not a promise.'}`;
 }
 
 function weatherWindowSummary(window: ForecastWindow): string {

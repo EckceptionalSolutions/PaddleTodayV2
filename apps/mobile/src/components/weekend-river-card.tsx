@@ -18,6 +18,8 @@ export function WeekendRiverCard({
   onToggleSaved?: () => void;
   onPress: () => void;
 }) {
+  const riskExplanation = cardRiskExplanation(river);
+
   return (
     <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
       <ImageBackground
@@ -28,7 +30,7 @@ export function WeekendRiverCard({
         <View style={styles.mediaOverlay}>
           <View style={styles.scoreBlock}>
             <Text style={styles.score}>{river.weekend.score}</Text>
-            <Text style={styles.scoreLabel}>Weekend</Text>
+            <Text style={styles.scoreLabel}>Score</Text>
           </View>
           <View style={styles.actions}>
             {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
@@ -53,14 +55,15 @@ export function WeekendRiverCard({
         ))}
       </View>
 
-      <View style={[styles.riskPanel, riskToneStyle(river)]}>
-        <Text style={styles.riskLabel}>{planRiskLabel(river)}</Text>
-        <Text style={styles.explanation}>{normalizeApiText(river.weekend.explanation)}</Text>
-      </View>
+      {riskExplanation ? (
+        <View style={[styles.riskPanel, riskToneStyle(river)]}>
+          <Text style={styles.riskLabel}>{planRiskLabel(river)}</Text>
+          <Text style={styles.explanation}>{riskExplanation}</Text>
+        </View>
+      ) : null}
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>{river.river.region}</Text>
-        <Text style={styles.footerText}>{river.weekend.label}</Text>
       </View>
     </Pressable>
   );
@@ -219,6 +222,19 @@ function planRiskLabel(river: WeekendSummaryApiItem) {
   }
 
   return river.weekend.confidence === 'Low' ? 'Gauge watch' : 'Recheck before launch';
+}
+
+function cardRiskExplanation(river: WeekendSummaryApiItem) {
+  const cleaned = normalizeApiText(river.weekend.explanation)
+    .replace(/\bWeekend outlooks stay a little more conservative\.\s*/gi, '')
+    .replace(/\bWeekend picks stay a little more conservative than today\.\s*/gi, '')
+    .trim();
+
+  if (!cleaned || cleaned === normalizeApiText(river.weekend.summary)) {
+    return '';
+  }
+
+  return cleaned;
 }
 
 function riskToneStyle(river: WeekendSummaryApiItem) {
