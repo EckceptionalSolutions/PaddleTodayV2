@@ -1181,6 +1181,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Wolf River at Langlade, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -1189,9 +1190,8 @@ export const rivers: River[] = [
       tooLow: 250,
       tooHigh: 2000,
       thresholdSource: {
-        label: 'American Whitewater Wolf gauge info plus MilesPaddled Wolf I notes',
-        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
-        provider: 'american_whitewater',
+        label: 'Wisconsin Trail Guide Wolf River Lily-to-Hollister suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-lily.html',
       },
       thresholdSourceStrength: 'mixed',
       rainfallSensitivity: 'medium',
@@ -1208,8 +1208,8 @@ export const rivers: River[] = [
       {
         label: 'Working band',
         value: '250 to 2,000 cfs',
-        note: 'American Whitewater lists this Wolf section family as boatable through that broader range, with 250 to 1,000 cfs covering the lower to moderate sweet spot.',
-        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+        note: 'Wisconsin Trail Guide says below 250 cfs is not recommended, 250-500 cfs is low runnable, 500-1,000 cfs is very good for novice whitewater paddlers, 1,400-2,000 cfs is unusually high and novice paddlers should avoid it, and above 2,000 cfs is not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-lily.html',
       },
       {
         label: 'Strong target',
@@ -1228,8 +1228,22 @@ export const rivers: River[] = [
         value: 'Verified',
         note: 'Both landings are backed by Wisconsin DNR boat-access inventory records.',
       },
+      {
+        label: 'Route character',
+        value: '6.4 miles, Class I-II',
+        note: 'Wisconsin Trail Guide and the National Rivers Project describe Lily to Hollister as a 6.4-mile upper Wolf route with riffles, Class I-II rapids, boulder gardens, islands, and DNR-managed corridor context.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-lily.html',
+      },
     ],
     sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Wolf River Lily to Hollister',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-lily.html',
+      },
+      {
+        label: 'National Rivers Project Wolf River Lily to Hollister',
+        url: 'https://www.nationalriversproject.com/wi/wolf-river-lily-to-hollister',
+      },
       {
         label: 'American Whitewater Wolf gauge info',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
@@ -1370,6 +1384,123 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wolf-river-langlade-markton',
+    slug: 'wolf-river-langlade-markton',
+    name: 'Wolf River',
+    reach: 'Highway 64 DNR Landing to Markton County M Landing',
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Upper Wolf Section III run from the Highway 64 DNR landing at Langlade to the Markton County M landing. This is a compact whitewater day with long boulder gardens, Class II rapids, and a direct gauge at the put-in bridge.',
+    statusText:
+      'Use the Wolf River at Langlade gauge. Treat 600 to 950 cfs as the best Section III whitewater window, 250 to 600 cfs as runnable but lower and bumpier, 950 to 1,200 cfs as experienced-paddler water, and 1,200+ cfs as beyond the broad app recommendation.',
+    latitude: 45.18977,
+    longitude: -88.73369,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04074950',
+      provider: 'usgs',
+      siteId: '04074950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wolf River at Langlade, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 950,
+      tooLow: 250,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Wolf River Langlade-to-Markton flow bands',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-langlade.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Spring through fall can work because the upper Wolf holds water well, but dry spells make the boulder gardens bumpy and high rain-fed water raises the consequence of holes, waves, wood, and swims.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Intermediate whitewater. Wisconsin Trail Guide lists Class II-III, including Crowle, Horserace, Twenty Day, Boy Scout, Hanson, and Gilmore\'s Mistake rapids. Less experienced paddlers should scout, portage, or choose an easier Wolf reach.',
+      confidenceNotes:
+        'Confidence is high for a guarded whitewater add: Wisconsin Trail Guide documents the exact Highway 64 DNR Landing-to-Markton County M route, endpoint WGS84 coordinates, and a full Langlade-gauge flow ladder; USGS operates the direct gauge at the put-in bridge; Wisconsin DNR and Langlade County confirm the upper Wolf public-access/fishery-area context; and American Whitewater corroborates the same Highway 64-to-Markton/Crab n Jack\'s Section III reach and gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific bands',
+        value: '600-950 cfs great range',
+        note: 'Wisconsin Trail Guide treats 250-400 cfs as low runnable, 400-600 cfs as enjoyable low runnable, 600-950 cfs as the great range, 950-1,200 cfs as fun and challenging for experienced whitewater paddlers, 1,200-1,700 cfs as unusually high intermediate water, and 2,500+ cfs as not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-langlade.html',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04074950',
+        note: 'Wisconsin Trail Guide says the referenced Langlade gauge is at the beginning of this segment and should accurately indicate current conditions; USGS locates the gauge at the State Highway 64 bridge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.18977, -88.73369 to 45.12576, -88.66297',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 GPS points for Langlade Highway 64 Landing and Markton County M Landing on the W5 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-wolf5.pdf',
+      },
+      {
+        label: 'Public access context',
+        value: 'Upper Wolf River Fishery Area',
+        note: 'Wisconsin DNR says the Upper Wolf River Fishery Area includes many DNR-owned properties along the Wolf in Langlade County and provides fishing, boating, and other recreational uses.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/fisheriesareas/2740upperwolfriver.html',
+      },
+      {
+        label: 'Route character',
+        value: '9.5 miles; Class II-III',
+        note: 'Wisconsin Trail Guide lists Langlade to Markton as a 9.5-mile intermediate route with Class II-III whitewater, 182 feet of elevation drop, and long rapids/boulder gardens.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-langlade.html',
+      },
+      {
+        label: 'Whitewater corroboration',
+        value: 'AW reach 2319',
+        note: 'American Whitewater documents the Wolf Section III reach from Langlade / Highway 64 to Crab n Jack\'s, describes the public DNR Highway 64 put-in, and uses the Wolf River at Langlade gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2319/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Wolf River Langlade to Markton',
+        url: 'https://wisconsintrailguide.com/2024/paddle/wolf-river-langlade.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Wolf W5 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-wolf5.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04074950 Wolf River at Langlade',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Upper Wolf River Fishery Area',
+        url: 'https://dnr.wisconsin.gov/topic/lands/fisheriesareas/2740upperwolfriver.html',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Wolf Section III',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2319/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Langlade County Wolf River recreation context',
+        url: 'https://www.langladecounty.org/play/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'white-river-maple-ridge-highway-112',
     slug: 'white-river-maple-ridge-highway-112',
     name: 'White River',
@@ -1380,8 +1511,8 @@ export const rivers: River[] = [
       'Fast-moving Northwoods run with nearly continuous class I-II current, clay banks, and a dam finish. This is a moving-water decision first, not a lazy scenic float.',
     statusText:
       'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
-    latitude: 46.43763,
-    longitude: -91.0262,
+    latitude: 46.43755,
+    longitude: -91.0261,
     routeType: 'whitewater',
     gaugeSource: {
       id: 'usgs-04027500',
@@ -1391,6 +1522,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'White River near Ashland, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04027500/',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -1411,7 +1543,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly class I-II, but nearly continuous current, boulder gardens, and the dam finish reward paddlers who can read lines and stay attentive for the full day.',
       confidenceNotes:
-        'The gauge is direct and the route note gives one exact same-route recommended level, but the working band is still a cautious manual calibration rather than an official manager-published threshold. Hydropeaking remarks from USGS also justify a more conservative read.',
+        'Confidence is moderate: Wisconsin Trail Guide documents the exact Maple Ridge Road Bridge to Highway 112 Dam route, named access points, WGS84 endpoint coordinates, distance, difficulty, and hazards; MilesPaddled ties this exact route to a same-river USGS gauge observation; and USGS operates the White River near Ashland live gauge at the downstream end of the corridor. The range is still a cautious community-source calibration around one same-route recommended observation rather than an official manager-published paddling ladder.',
     },
     evidenceNotes: [
       {
@@ -1421,9 +1553,21 @@ export const rivers: River[] = [
         sourceUrl: 'https://milespaddled.com/white-river-bayfield-county/',
       },
       {
+        label: 'Route guide',
+        value: '14.9 miles; Class II',
+        note: 'Wisconsin Trail Guide documents White River WH1 from Maple Ridge Road Bridge to Highway 112 Dam as a 14.9-mile novice route with frequent riffles, low-hazard rapids, and Class II as the most difficult rapid rating.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/white-river.html',
+      },
+      {
+        label: 'Published coordinates',
+        value: '46.43755, -91.02610 to 46.49834, -90.91032',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Maple Ridge Road Access and Highway 112 Dam Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-white.pdf',
+      },
+      {
         label: 'Primary caution',
         value: 'Continuous current plus dam take-out',
-        note: 'This is not a drift-and-chat river. Quick current, boulder gardens, and the dam finish mean consequence rises before the number alone looks extreme.',
+        note: 'This is not a drift-and-chat river. Quick current, boulder gardens, frequent riffles, and the dam finish mean consequence rises before the number alone looks extreme.',
       },
       {
         label: 'USGS gauge note',
@@ -1433,8 +1577,9 @@ export const rivers: River[] = [
       },
       {
         label: 'Access confidence',
-        value: 'Partial',
-        note: 'Put-in and take-out coordinates are good, but official landing and parking authority is weaker than on the strongest seeded routes.',
+        value: 'Named guide access points',
+        note: 'Wisconsin Trail Guide identifies both endpoints as Maple Ridge Road Access and Highway 112 Dam Landing, and its map labels the route with canoe/kayak access symbols. Official manager landing pages remain weaker than on the strongest DNR-led routes.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/map-white.pdf',
       },
     ],
     sourceLinks: [
@@ -1443,12 +1588,133 @@ export const rivers: River[] = [
         url: 'https://milespaddled.com/white-river-bayfield-county/',
       },
       {
+        label: 'Wisconsin Trail Guide White River WH1',
+        url: 'https://wisconsintrailguide.com/2024/paddle/white-river.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide White River WH1 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-white.pdf',
+      },
+      {
+        label: 'Wisconsin Trail Guide White River map PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-white.pdf',
+      },
+      {
         label: 'USGS 04027500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04027500/',
       },
       {
         label: 'USGS 04027500 legacy current conditions',
         url: 'https://waterdata.usgs.gov/nwis/uv?site_no=04027500',
+      },
+    ],
+  },
+  {
+    id: 'chippewa-river-county-a-highway-8',
+    slug: 'chippewa-river-county-a-highway-8',
+    name: 'Chippewa River',
+    reach: 'County A Bridge to Highway 8 Landing',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Quiet upper-Chippewa day from the Imalone / County A access to the Highway 8 canoe landing at Bruce, with wooded banks, islands, light riffles, and a direct same-river gauge at Bruce.',
+    statusText:
+      'Use the Chippewa River near Bruce gauge. Treat 400 cfs / 1.5 ft as the practical minimum; below that expect shallow riffles and boulder gardens, while high or rising water requires extra caution around islands, wood, and bridge approaches.',
+    latitude: 45.552358,
+    longitude: -91.228388,
+    gaugeSource: {
+      id: 'usgs-05356500',
+      provider: 'usgs',
+      siteId: '05356500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Chippewa River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      idealMin: 400,
+      tooLow: 400,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Chippewa River C3 minimum flow',
+        url: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says the reach is usually runnable from early spring through late fall and is a good late-summer or fall option, but high flows after rain or Arpin Dam releases require extra caution.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly easy flatwater with light riffles and widely spaced boulder gardens. The nine-mile length, island channels, and high-water caution keep it above a casual beginner pond paddle.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only Wisconsin add: Wisconsin Trail Guide documents the exact County A Bridge-to-Highway-8 route, named endpoints, shuttle notes, map, route mileage, hazards, and a 400 cfs / 1.5 ft minimum tied to USGS 05356500; USGS operates the direct Chippewa River near Bruce gauge; and Rusk County publishes public access coordinates for the Imalone put-in and Highway 8 canoe landing. The app does not claim a preferred upper range because the strongest route-specific source publishes a minimum and qualitative high-water caution rather than a full ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route guide',
+        value: '9.0 miles; Class I riffles',
+        note: 'Wisconsin Trail Guide documents Chippewa River C3 from County A Bridge to Highway 8 Landing as a nine-mile easy route with light riffles, boulder gardens, islands, and roughly four hours of paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+      },
+      {
+        label: 'Minimum flow',
+        value: '400 cfs / 1.5 ft',
+        note: 'Wisconsin Trail Guide lists the Bruce gauge as the river-level reference and gives 400 cfs / 1.5 feet as the suggested minimum for this Chippewa C3 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05356500',
+        note: 'USGS identifies 05356500 as Chippewa River Near Bruce, WI, matching the route-specific Bruce gauge named by Wisconsin Trail Guide and located at the take-out town.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+      },
+      {
+        label: 'Public access coordinates',
+        value: '45.552358, -91.228388 to 45.452909, -91.256361',
+        note: 'Rusk County Tourism publishes the Imalone Boat Access and Highway 8 Canoe Landing GPS coordinates for its Imalone-to-Bruce Chippewa River route.',
+        sourceUrl: 'https://ruskcountywi.com/chippewa-river-imalone-to-bruce/',
+      },
+      {
+        label: 'Access details',
+        value: 'Hand carry put-in; trailer-access take-out',
+        note: 'Wisconsin Trail Guide describes the County A access as a hand-carry landing with roadside parking and the Highway 8 landing as a trailer-access ramp with parking east of the bridge near Sawdust Road.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-chippewa3.pdf',
+      },
+      {
+        label: 'High-water caution',
+        value: 'Rain and dam-release sensitivity',
+        note: 'Wisconsin Trail Guide warns novice paddlers to use extra caution at high water, especially after heavy rain or Arpin Dam releases.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Chippewa River C3',
+        url: 'https://wisconsintrailguide.com/2024/paddle/chippewa-river-county-a.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C3 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-chippewa3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Chippewa C3 map PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/map-chippewa3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05356500 Chippewa River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Rusk County Chippewa River - Imalone to Bruce',
+        url: 'https://ruskcountywi.com/chippewa-river-imalone-to-bruce/',
+        provider: 'local',
       },
     ],
   },
@@ -5476,6 +5742,234 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'baraboo-river-haskins-glenville',
+    slug: 'baraboo-river-haskins-glenville',
+    name: 'Baraboo River',
+    reach: 'Haskins Park to Glenville Landing',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Short Baraboo Rapids run from the Haskins Park ADA kayak launch through downtown Baraboo and Circus World to the Highway 113 Glenville Landing. It is one of the more useful short Wisconsin gauge-driven routes because the direct Baraboo gauge, public access points, and same-route community level notes all line up.',
+    statusText:
+      'Use the Baraboo River near Baraboo gauge. Treat about 350 cfs as the practical minimum for the Haskins-to-Glenville riffles; around 470 to 600 cfs has strong same-route community support, while higher water reduces eddy detail and makes strainers and Class I ledges more consequential.',
+    latitude: 43.46997,
+    longitude: -89.76158,
+    gaugeSource: {
+      id: 'usgs-05405000',
+      provider: 'usgs',
+      siteId: '05405000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Baraboo River Near Baraboo, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Miles Paddled Baraboo River II same-route flow guidance',
+        url: 'https://milespaddled.com/baraboo-river-ii/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Baraboo gauge is above the same-route minimum. Summer drought can make the riffles bony, while rain can make the short urban rapids less playful and more pushy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Short but not a beginner float. Expect brisk current, riffles, Class I ledges through downtown Baraboo, bridge approaches, muddy banks, and wood or strainers that matter more as the river rises.',
+      confidenceNotes:
+        'Confidence is good for a conservative Wisconsin add: Miles Paddled documents the exact Haskins Park-to-Highway-113 route with endpoint GPS points and Baraboo-gauge flow guidance, Sauk County and the Baraboo River corridor plan support Haskins Park and Glenville Landing as public paddle accesses, Wisconsin River Trips calls Haskins-to-Glenville one of the best Baraboo sections, and USGS operates the direct Baraboo River near Baraboo live gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Same-route minimum',
+        value: '350 cfs',
+        note: 'Miles Paddled recommends a minimum of about 350 cfs at the Baraboo gauge for this Haskins Park-to-Highway-113 route, with more riffles, waves, and fun above that floor.',
+        sourceUrl: 'https://milespaddled.com/baraboo-river-ii/',
+      },
+      {
+        label: 'Observed good levels',
+        value: '473 to 600 cfs',
+        note: 'Miles Paddled recorded 473 cfs / 8.76 ft as a recommended same-route level, and a related Haskins-to-Highway-33 report describes 600 cfs as recommended while preserving the same Haskins-to-Highway-113 core.',
+        sourceUrl: 'https://milespaddled.com/baraboo-river-ii/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05405000',
+        note: 'USGS operates the Baraboo River Near Baraboo, WI monitoring location, and American Whitewater links the same station to the Baraboo Highway 12-to-Highway 113 reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Haskins Park ADA kayak launch',
+        note: 'The Baraboo River Corridor Plan says Haskins Park includes a non-motorized boat launch, floating pier, and ADA-accessible kayak launch on the river.',
+        sourceUrl:
+          'https://www.co.sauk.wi.us/sites/default/files/fileattachments/conservation_planning_and_zoning/page/2102/00082057_baraboo_river_corridor_plan_4.7.16.pdf',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Glenville Landing / Highway 113',
+        note: 'Sauk County and the Baraboo River map identify Glenville Landing off Highway 113 at the southeast corner of Baraboo, with parking at the landing.',
+        sourceUrl: 'https://www.baraboo.com/wp-content/uploads/2017/04/Baraboo_River_Map.pdf',
+      },
+      {
+        label: 'Route character',
+        value: '4.5 miles of riffles and Class I',
+        note: 'Miles Paddled rates Haskins Park to Highway 113 as a 4.5-mile intermediate route with riffles and Class I, while Wisconsin River Trips identifies Haskins-to-Glenville as one of the best Baraboo River sections.',
+        sourceUrl: 'https://milespaddled.com/baraboo-river-ii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Baraboo River II',
+        url: 'https://milespaddled.com/baraboo-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05405000 Baraboo River Near Baraboo',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'American Whitewater Baraboo gauge detail',
+        url: 'https://www.americanwhitewater.org/content/Gauge2/detail/id/2234/',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Wisconsin River Trips Baraboo Rapids',
+        url: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/baraboo-rapids',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Baraboo River Corridor Plan',
+        url: 'https://www.co.sauk.wi.us/sites/default/files/fileattachments/conservation_planning_and_zoning/page/2102/00082057_baraboo_river_corridor_plan_4.7.16.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Baraboo River paddling map PDF',
+        url: 'https://www.baraboo.com/wp-content/uploads/2017/04/Baraboo_River_Map.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'baraboo-river-glenville-luebke',
+    slug: 'baraboo-river-glenville-luebke',
+    name: 'Baraboo River',
+    reach: 'Glenville Landing to Luebke Landing',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Lower Baraboo day from the Highway 113 Glenville Landing to Luebke Landing on County Road W. Sauk County maps both public landings, and the direct Baraboo gauge has a route-specific Wisconsin River Trips level ladder.',
+    statusText:
+      'Use the Baraboo River near Baraboo stage gauge. Treat 7.1 to 8.0 ft as the best broad-audience window, 8.1 to 8.7 ft as pushier but manageable, 8.8 to 9.5 ft as expert-only, and 9.6+ ft as not recommended.',
+    latitude: 43.45828,
+    longitude: -89.71452,
+    gaugeSource: {
+      id: 'usgs-05405000',
+      provider: 'usgs',
+      siteId: '05405000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Baraboo River Near Baraboo, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7.1,
+      idealMax: 8,
+      tooLow: 7,
+      tooHigh: 9.6,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Baraboo River - Glenville Landing depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/glenville-landing',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is practical. The lower Baraboo is drought resistant compared with shallow riffly reaches, but rain can quickly make strainers and muddy banks more consequential.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'No rapids are expected on this reach, but steady current, strainers, muddy banks, and possible logjams mean it still needs alert river handling and conservative high-water judgment.',
+      confidenceNotes:
+        'Confidence is good for a community-source Wisconsin add: Sauk County and the Baraboo River map name Glenville and Luebke as public river landings with parking, Wisconsin River Trips documents the exact 5.1-mile route and a full stage ladder, and USGS operates the direct Baraboo River near Baraboo gauge upstream in the same river corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Depth guide',
+        value: '7.1-8.0 ft target',
+        note: 'Wisconsin River Trips treats 7.1-7.5 ft as low but navigable, 7.6-8.0 ft as average, 8.1-8.7 ft as above average and faster, 8.8-9.5 ft as expert-only, and 9.6+ ft as flood-stage/not recommended paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/glenville-landing',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05405000',
+        note: 'USGS operates Baraboo River Near Baraboo, WI, and the Sauk County Baraboo River map points paddlers to site 05405000 for real-time flow downstream of Baraboo.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+      },
+      {
+        label: 'Public access',
+        value: 'Glenville and Luebke landings',
+        note: 'The Sauk County / Baraboo River map lists Glenville Landing off Highway 113 and Luebke Landing on County Road W, with parking available at both sites.',
+        sourceUrl: 'https://www.baraboo.com/wp-content/uploads/2017/04/Baraboo_River_Map.pdf',
+      },
+      {
+        label: 'Route shape',
+        value: '5.1 miles',
+        note: 'Wisconsin River Trips documents Glenville Landing to Luebke Landing as a 5.1-mile route that usually takes about two to three hours.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/glenville-landing',
+      },
+      {
+        label: 'Hazards',
+        value: 'Strainers and muddy banks',
+        note: 'Wisconsin River Trips found no required portages on its trip but warns that this stretch is unpredictable, with downed trees, strainers, deceptively quick current, and possible future logjams.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/glenville-landing',
+      },
+      {
+        label: 'Official corridor',
+        value: 'Baraboo River Water Trail',
+        note: 'The National Rivers Project lists Glenville Landing to the Wisconsin River as a Wisconsin DNR-managed Baraboo River Water Trail corridor and identifies Glenville-to-Luebke as one of the most traveled portions.',
+        sourceUrl: 'https://www.nationalriversproject.com/wi/baraboo-river-glenville-landing-to-wisconsin-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Baraboo River - Glenville Landing',
+        url: 'https://www.wisconsinrivertrips.com/segments/baraboo-river/glenville-landing',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05405000 Baraboo River Near Baraboo',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05405000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Sauk County Paddle the Baraboo River',
+        url: 'https://www.co.sauk.wi.us/landconservation/paddle-baraboo-river',
+        provider: 'local',
+      },
+      {
+        label: 'Baraboo River paddling map PDF',
+        url: 'https://www.baraboo.com/wp-content/uploads/2017/04/Baraboo_River_Map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'National Rivers Project Baraboo River Water Trail',
+        url: 'https://www.nationalriversproject.com/wi/baraboo-river-glenville-landing-to-wisconsin-river',
+      },
+      {
+        label: 'Travel Wisconsin Baraboo River',
+        url: 'https://www.travelwisconsin.com/canoeing%2C-kayaking-sup/baraboo-river-200169',
+      },
+    ],
+  },
+  {
     id: 'sugar-river-belleville-county-x',
     slug: 'sugar-river-belleville-county-x',
     name: 'Sugar River',
@@ -5483,9 +5977,9 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'South-Central Wisconsin',
     summary:
-      'Mostly mellow Sugar River day trip where low water is the main thing to watch. Above that, the route is straightforward, but the high end is still fuzzy.',
+      'Mostly mellow Sugar River day from Belleville Community Park toward County Road X, with riffles, wooded bends, sandbars, and a Verona-gauge ladder from the same Belleville corridor.',
       statusText:
-        'Treat 60 cfs at Verona as the low end. Above that can work, but there is still not enough guidance to say where the upper end should be for this reach.',
+        'Use the Sugar River near Verona gauge. Treat 21 to 130 cfs as the broad normal window, 0 to 20 cfs as low but still navigable, 131 to 200 cfs as high and pushier, and 201+ cfs as very high/adventurous.',
     latitude: 42.86083,
     longitude: -89.53419,
     gaugeSource: {
@@ -5498,11 +5992,15 @@ export const rivers: River[] = [
       siteName: 'Sugar River near Verona, WI',
     },
     profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 60,
+      thresholdModel: 'two-sided',
+      idealMin: 21,
+      idealMax: 130,
+      tooLow: 0,
+      tooHigh: 201,
       thresholdSource: {
-        label: 'MilesPaddled Sugar River IV minimum-flow note',
-        url: 'https://milespaddled.com/sugar-river-iv/',
+        label: 'Wisconsin River Trips Sugar River - Belleville gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/belleville',
+        provider: 'wisconsin_river_trips',
       },
       thresholdSourceStrength: 'community',
       rainfallSensitivity: 'medium',
@@ -5511,21 +6009,21 @@ export const rivers: River[] = [
         'Spring through early fall is the practical window. This is more sensitive to low water than to a narrow sweet spot.',
       difficulty: 'easy',
       difficultyNotes:
-        'Generally mellow current, but distance, muddy shallows, and long flat stretches still matter if you launch too low.',
+        'Generally mellow current, but distance, muddy shallows, small riffles, strainers, and long flat stretches still matter if you launch too low or too high.',
       confidenceNotes:
-        'The clearest number here is a low-water mark from paddler reports. The route itself is straightforward, but there is still no published upper range for this reach.',
+        'Confidence is now acceptable for a community-threshold Wisconsin route: Miles Paddled documents Belleville Community Park to County Road X and gives a 60 cfs Verona-gauge minimum, Wisconsin River Trips documents the same Belleville corridor with a full Verona-gauge ladder and explicitly notes continuation to Highway X, and the Village of Belleville supports Community Park as a public park. The County X take-out remains a bridge landing rather than a polished manager page, so access should be checked on arrival.',
     },
     evidenceNotes: [
       {
-        label: 'Published minimum',
-        value: '60 cfs',
-        note: 'MilesPaddled recommends about 60 cfs minimum on the Verona gauge to avoid a shallow, frustrating day.',
-        sourceUrl: 'https://milespaddled.com/sugar-river-iv/',
+        label: 'Published corridor ladder',
+        value: '21 to 130 cfs normal window',
+        note: 'Wisconsin River Trips publishes a Belleville-corridor Verona-gauge ladder: 0-20 cfs is a shallow but navigable fall average, 21-50 cfs is a good summer average, 51-90 and 91-130 cfs are above normal but fine, 131-200 cfs is high and pushier, and 201+ cfs is very high/adventurous.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/belleville',
       },
       {
-        label: 'Trip style',
-        value: 'Mellow, longer day',
-        note: 'This is mostly a scenic float rather than a technical run. Low water is the main quality problem.',
+        label: 'Exact route support',
+        value: 'Belleville to County Road X',
+        note: 'Miles Paddled documents Belleville Community Park to County Road X as Sugar River IV and recommends about 60 cfs minimum on the Verona gauge to avoid a shallow, frustrating day.',
         sourceUrl: 'https://milespaddled.com/sugar-river-iv/',
       },
       {
@@ -5533,6 +6031,12 @@ export const rivers: River[] = [
         value: 'Verona gauge only',
         note: 'The Verona gauge gives a useful low-water reference, but there is still not enough high-water guidance for this exact reach.',
         sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Belleville Community Park',
+        note: 'Wisconsin River Trips describes Belleville Community Park as a terrific put-in just below the dam, and Village of Belleville park rules provide public-park operating context.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/belleville',
       },
       {
         label: 'Official park operations',
@@ -5543,10 +6047,15 @@ export const rivers: River[] = [
       {
         label: 'Difficulty',
         value: 'Easy',
-        note: 'A good easy-day candidate once the river is clearly above its low-water mark.',
+        note: 'A good easy-day candidate when the Verona gauge is in the normal band and the County X bridge landing checks out on arrival.',
       },
     ],
     sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Sugar River - Belleville',
+        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/belleville',
+        provider: 'wisconsin_river_trips',
+      },
       {
         label: 'MilesPaddled Sugar River IV',
         url: 'https://milespaddled.com/sugar-river-iv/',
@@ -5757,6 +6266,122 @@ export const rivers: River[] = [
       {
         label: 'Lower Sugar River Watershed Association',
         url: 'https://lsrwa.org/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'sugar-river-highway-69-paoli',
+    slug: 'sugar-river-highway-69-paoli',
+    name: 'Sugar River',
+    reach: 'Highway 69 to Paoli',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Short upper-Sugar paddle from Dane County Parks\' Falk Wells Highway 69 launch to Paoli. This is the livelier and prettier local Sugar River reach, with clear water, riffles, a small former-dam drop, and a direct Verona gauge nearby.',
+    statusText:
+      'Use the Sugar River near Verona gauge. Treat roughly 55 to 100 cfs as the best paddling window, below about 50 cfs as shallow and slow, and 200+ cfs as high, pushy, and not recommended for a casual trip.',
+    latitude: 42.950098,
+    longitude: -89.545272,
+    gaugeSource: {
+      id: 'usgs-05435950',
+      provider: 'usgs',
+      siteId: '05435950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar River near Verona, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 55,
+      idealMax: 100,
+      tooLow: 50,
+      tooHigh: 200,
+      thresholdSource: {
+        label: 'MilesPaddled Sugar River II and Wisconsin River Trips Paoli gauge notes',
+        url: 'https://milespaddled.com/sugar-river-ii/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work because the upper Sugar usually keeps enough water, but clarity and control are best at moderate levels. Heavy rain can quickly turn this narrow, wood-prone route into a pushy obstacle course.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is short, but it has lively current, strainers to dodge, riffles, a fun Class I+ former-dam chute, and a concrete-remnant hazard below the drop. Beginners should go with current boat-control skills and avoid high or rising water.',
+      confidenceNotes:
+        'Confidence is good for a guarded Wisconsin community-source add: Dane County Parks documents the Highway 69 canoe/kayak launch and has run public Highway 69-to-Paoli paddles, MilesPaddled gives exact endpoint coordinates and Verona-gauge observations, Wisconsin River Trips documents the same upper-Sugar corridor and practical gauge guidance, and the USGS Verona gauge is directly upstream on the same river.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Gauge observations',
+        value: '53 to 64 cfs worked; 100 cfs full',
+        note: 'MilesPaddled recorded 53 cfs as just enough for the Riverside-to-Paoli version and 56 cfs for a longer Bobcat-to-Paoli update, while Wisconsin River Trips recorded 64 cfs as a good depth and treats about 100 cfs as a pretty full river.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-ii/',
+      },
+      {
+        label: 'High-water caution',
+        value: '200+ cfs avoid for casual trips',
+        note: 'Wisconsin River Trips says 200 and 300 cfs readings happen only after heavy rain and, because of fast current and downed trees, does not suggest paddling when the river is high. MilesPaddled similarly cautions that above about 4 ft would be wild and unruly.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/paoli',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05435950',
+        note: 'USGS operates the Sugar River near Verona monitoring location, the direct same-river gauge used by both route reports for this upper-Sugar corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Falk Wells Highway 69 canoe/kayak launch',
+        note: 'Dane County and local tourism sources describe the Falk Wells Sugar River Wildlife Area with carry-in canoe/kayak access landings, including the Highway 69 / West Parking Lot launch at 1752 State Highway 69.',
+        sourceUrl: 'https://danecounty.gov/Event/Detail/1630',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Paoli / Canal Street take-out',
+        note: 'Dane County paddle events stage the take-out at 6889 Canal Street in Paoli, and MilesPaddled gives the Paoli Mill / County PB bridge take-out coordinates used for the route.',
+        sourceUrl: 'https://danecounty.gov/Event/Detail/1630',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Highway 69 42.950098, -89.545272; Paoli 42.93032, -89.5244',
+        note: 'The put-in coordinate follows the named Falk Wells Highway 69 launch context from Dane County / Recplanet, and the take-out coordinate comes from MilesPaddled\'s Paoli Mill GPS point.',
+        sourceUrl: 'https://milespaddled.com/sugar-river-ii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Sugar River II',
+        url: 'https://milespaddled.com/sugar-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Sugar River - Paoli',
+        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/paoli',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05435950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Dane County Paddle in the Parks - Highway 69 to Paoli',
+        url: 'https://danecounty.gov/Event/Detail/1630',
+        provider: 'local',
+      },
+      {
+        label: 'Falk Wells Sugar River Wildlife Area map',
+        url: 'https://parks-lwrd.danecounty.gov/documents/PDFs/Maps/FalkWellsWA-WebMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Town of Verona natural areas tour',
+        url: 'https://www.town.verona.wi.us/parks-recreation/pages/town-verona-natural-areas-tour',
         provider: 'local',
       },
     ],
@@ -6481,6 +7106,120 @@ export const rivers: River[] = [
       {
         label: 'Village of Ontario',
         url: 'https://ontariowi.com/',
+      },
+    ],
+  },
+  {
+    id: 'kickapoo-river-rockton-la-farge',
+    slug: 'kickapoo-river-rockton-la-farge',
+    name: 'Kickapoo River',
+    reach: 'Rockton Landing to La Farge Landing',
+    state: 'Wisconsin',
+    region: 'Driftless Wisconsin',
+    summary:
+      'Second classic upper-Kickapoo day through the Kickapoo Valley Reserve from Landing 12 at Rockton to Landing 20 at La Farge, with sandstone walls, riffles, bridge-number navigation, and a direct La Farge gauge near the take-out.',
+    statusText:
+      'Use the Kickapoo River at La Farge gauge. Treat roughly 60 to 120 cfs as the best broad target, expect scrape risk below 60 cfs, and be cautious or skip the route around 200+ cfs or any fast rise after rain.',
+    latitude: 43.6371,
+    longitude: -90.60292,
+    gaugeSource: {
+      id: 'usgs-05408000',
+      provider: 'usgs',
+      siteId: '05408000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kickapoo River at La Farge, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05408000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 60,
+      idealMax: 120,
+      tooLow: 42,
+      tooHigh: 200,
+      thresholdSource: {
+        label: 'MilesPaddled Kickapoo River II and Wisconsin River Trips Rockton-to-La Farge level notes',
+        url: 'https://milespaddled.com/kickapoo-river-ii/',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the normal recreational window. The Kickapoo is shallow but flashy, so trend and recent rain matter more than the single CFS number.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly approachable riffles and moving water, but the route is long, has strainers and shallow riffles, and becomes more consequential when the narrow valley rises quickly after storms.',
+      confidenceNotes:
+        'Confidence is good for a conservative community-source add: MilesPaddled documents the exact Landing 12-to-Landing 20 route, endpoint GPS points, La Farge-gauge observation, and 60-100 cfs scrape-free guidance while noting this lower section is more forgiving. Wisconsin River Trips corroborates the exact Rockton-to-La Farge route and describes 112 cfs at La Farge as good depth. KVR and DNR sources confirm the Ontario-to-La Farge public access corridor and direct paddlers to the La Farge gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific level guidance',
+        value: '60-100 cfs scrape-free; 116 cfs fine',
+        note: 'MilesPaddled recorded 116 cfs at the La Farge gauge for this exact route, said it was below ideal but fine, recommends 60-100 cfs for a scrape-free journey, and notes Rockton-to-La Farge is more forgiving than the steeper Ontario-to-Rockton segment.',
+        sourceUrl: 'https://milespaddled.com/kickapoo-river-ii/',
+      },
+      {
+        label: 'Corroborating trip level',
+        value: '112 cfs good depth',
+        note: 'Wisconsin River Trips documents the exact Rockton Landing to La Farge Landing route at 112 cfs on the La Farge gauge and describes that as good depth.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/kickapoo-river/rockton',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05408000 at La Farge',
+        note: 'USGS places the Kickapoo River at La Farge gauge on the left bank just upstream from the State Highway 82 bridge in La Farge, immediately downstream of the route corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?site_no=05408000',
+      },
+      {
+        label: 'Official access corridor',
+        value: 'Landing 12 to Landing 20',
+        note: 'Kickapoo Valley Reserve publishes the Ontario-to-La Farge upper-river guide, identifies access points from Landing 1 through Landing 20, and requires a KVR permit at Landing 12.',
+        sourceUrl: 'https://kickapoovalley.wi.gov/Documents/Maps/RecreationMaps/2025WEB%20Upper%20Kickapoo%20River%20Guide%20%20WEB.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.6371, -90.60292 to 43.57481, -90.6437',
+        note: 'MilesPaddled links GPS points for Landing 12 at Rockton and Landing 20 at La Farge; Mapcarta/OpenStreetMap independently resolves Canoe Landing 20 at La Farge at essentially the same coordinate.',
+        sourceUrl: 'https://milespaddled.com/kickapoo-river-ii/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Flash flooding, snags, riffles, cold water',
+        note: 'The KVR guide warns the Kickapoo is susceptible to flash flooding and calls out current, snags, and cold water; MilesPaddled also reports riffles and a tree hazard after Bridge 19.',
+        sourceUrl: 'https://milespaddled.com/kickapoo-river-ii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MilesPaddled Kickapoo River II',
+        url: 'https://milespaddled.com/kickapoo-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Kickapoo River - Rockton to La Farge',
+        url: 'https://www.wisconsinrivertrips.com/segments/kickapoo-river/rockton',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05408000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05408000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Kickapoo Valley Reserve Upper Kickapoo River Guide',
+        url: 'https://kickapoovalley.wi.gov/Documents/Maps/RecreationMaps/2025WEB%20Upper%20Kickapoo%20River%20Guide%20%20WEB.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Kickapoo Valley Reserve State Natural Area',
+        url: 'https://dnr.wisconsin.gov/topic/statenaturalareas/KickapooValleyReserve',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Canoe Landing 20',
+        url: 'https://mapcarta.com/N5984015780',
       },
     ],
   },
@@ -7309,6 +8048,464 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'peshtigo-river-ccc-burnt-bridge',
+    slug: 'peshtigo-river-ccc-burnt-bridge',
+    name: 'Peshtigo River',
+    reach: 'CCC Bridge to Burnt Bridge Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote Chequamegon-Nicolet National Forest run from CCC Bridge to Burnt Bridge Landing, with long Class I-II boulder gardens, clear tea-colored water, and a route-specific Wabeno gauge ladder. This is a step-up whitewater day, not a casual flatwater float.',
+    statusText:
+      'Use the Wabeno / County C gauge as a downstream same-river indicator. Below 4.5 ft is not recommended; 5.0 to 6.0 ft is the best novice-whitewater window; 6.5 ft and above is no longer novice-friendly, and above 7.5 ft is unusually high.',
+    latitude: 45.61092,
+    longitude: -88.59312,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04067958',
+      provider: 'usgs',
+      siteId: '04067958',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Peshtigo River Near Wabeno, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 6,
+      tooLow: 4.5,
+      tooHigh: 7.5,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Peshtigo P2 CCC Bridge suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this reach is usually best in spring and early summer, with summer and fall trips depending on moderate to heavy rainfall. The downstream Wabeno gauge is an estimate for this upstream forest reach, so use trend, recent rain, and visual checks together.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin Trail Guide rates this as novice whitewater at medium runnable levels, but the route includes Class I-II Camp 12, Coldwater, Preserve, Smiley, and Big Rock rapids, with boulders, strainers, and faster constrictions that require boat control.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-source add: Wisconsin Trail Guide documents the exact CCC Bridge-to-Burnt Bridge P2 route, route mileage, hazards, and a full County C gauge-height ladder; Miles Paddled corroborates the exact route in a 2024 trip report with GPS endpoint coordinates, access condition, same gauge, and practical level notes; and USGS 04067958 is a direct same-river live gauge. The main caveat is distance: Wisconsin Trail Guide says the gauge is about 26 miles downstream, so the app treats it as a route-specific indicator rather than an exact on-site gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '4.5 / 5.0-6.0 / 7.5 ft',
+        note: 'Wisconsin Trail Guide lists below 4.5 ft as not recommended, 4.5 to 5.0 ft as low runnable, 5.0 to 6.0 ft as medium runnable and excellent, 6.0 to 6.5 ft as high runnable, 6.5 to 7.5 ft as above novice range, and above 7.5 ft as unusually high.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'USGS 04067958 near Wabeno',
+        note: 'Wisconsin Trail Guide ties this route to the County C / Wabeno gauge, while warning that the gauge is about 26 miles downstream and should be read as an estimate for the reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html',
+      },
+      {
+        label: '2024 level check',
+        value: '5.2 ft / 892 cfs',
+        note: 'Miles Paddled ran the exact CCC Bridge-to-Burnt Bridge route in May 2024 at 5.2 ft and 892 cfs at Wabeno, strongly recommended that level, and notes the route can be paddled as low as 4.5 ft while 6 ft and above becomes rowdy for novices.',
+        sourceUrl: 'https://milespaddled.com/peshtigo-river-ii/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.61092, -88.59312 to 45.56208, -88.49530',
+        note: 'Miles Paddled publishes Google Maps-linked GPS coordinates for CCC Bridge on Forest Road 2131 / Peshtigo River Road and Burnt Bridge Landing on Forest Road 2134 / Michigan Creek Road.',
+        sourceUrl: 'https://milespaddled.com/peshtigo-river-ii/',
+      },
+      {
+        label: 'Access context',
+        value: 'Chequamegon-Nicolet National Forest',
+        note: 'Wisconsin Trail Guide says the entire route runs through the Chequamegon-Nicolet National Forest and identifies rustic canoe/kayak campsites at Burnt Bridge Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html',
+      },
+      {
+        label: 'Hazards',
+        value: 'Preserve Rapids and strainers',
+        note: 'Wisconsin Trail Guide highlights the mile-plus Preserve Rapids as the most difficult section and cautions that constricted rapids require quick maneuvering around boulders; Miles Paddled also reports one nearly river-wide blockage that was passable without portaging in 2024.',
+        sourceUrl: 'https://milespaddled.com/peshtigo-river-ii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P2 page',
+        url: 'https://wisconsintrailguide.com/paddle/peshtigo-river-ccc-bridge.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-peshtigo2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Miles Paddled Peshtigo River II',
+        url: 'https://milespaddled.com/peshtigo-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 04067958 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Chequamegon-Nicolet National Forest',
+        url: 'https://www.fs.usda.gov/cnnf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'peshtigo-river-goodman-park-farm-dam',
+    slug: 'peshtigo-river-goodman-park-farm-dam',
+    name: 'Peshtigo River',
+    reach: 'Goodman Park Access to Farm Dam Public Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Scenic upper-Peshtigo run from Goodman Park below Strong Falls to Farm Dam Public Landing. It is mostly wooded flatwater and riffles, but Skinners Elbow and Wilson Rapids make this a boat-control route rather than a casual lake float.',
+    statusText:
+      'Use the Wabeno / County C gauge just downstream. Below 4.5 ft is not recommended; 5.0 to 5.8 ft is the best all-around window; 5.8 to 6.5 ft is high but still novice-friendly with care; above 6.5 ft becomes stronger whitewater, and 7.5+ ft is unusually high.',
+    latitude: 45.51799,
+    longitude: -88.33935,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04067958',
+      provider: 'usgs',
+      siteId: '04067958',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Peshtigo River Near Wabeno, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 5.8,
+      tooLow: 4.5,
+      tooHigh: 7.5,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Peshtigo P4 Goodman Park suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-goodman-park.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this segment is best from late spring through mid-summer, and after sustained rain from mid-summer through fall. The Peshtigo rises quickly enough that same-day gauge and weather checks matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is described as novice-friendly when levels are adequate, but it still includes Class I-II Skinners Elbow, Class II Wilson Rapids, pushier current at higher levels, and strainer/deadfall consequences in wooded bends.',
+      confidenceNotes:
+        'Confidence is high for a guarded scenic-whitewater add: Wisconsin Trail Guide documents the exact P4 Goodman Park-to-Farm Dam route, WGS84 endpoint coordinates, named public/county/state-forest access, a full County C gauge ladder, and the gauge is only about 4 to 4.6 miles downstream of the segment. Wisconsin DNR corroborates broader Governor Earl Peshtigo River State Forest paddling and clearly marked dam-portage context, while Marinette County identifies Goodman Park and McClintock Park as county park resources on the Peshtigo corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '4.5 / 5.0-5.8 / 7.5 ft',
+        note: 'Wisconsin Trail Guide lists below 4.5 ft as not recommended, 4.5 to 5.0 ft as low runnable, 5.0 to 5.8 ft as medium runnable and excellent, 5.8 to 6.5 ft as high runnable for most novices, 6.5 to 7.5 ft as high runnable but not for novices, and above 7.5 ft as unusually high.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-goodman-park.html',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'USGS 04067958 near Wabeno',
+        note: 'Wisconsin Trail Guide says the Highway C bridge gauge is about 4.6 miles downstream from the segment and should provide a fairly accurate indication of conditions in this reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-goodman-park.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.51799, -88.33935 to 45.41351, -88.34615',
+        note: 'Wisconsin Trail Guide P4 publishes NAD83 / WGS84 waypoints for Goodman Park Landing and Farm Dam Public Landing, and describes both access points with parking and hand-carry or ramp context.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo4.pdf',
+      },
+      {
+        label: 'Access and parks',
+        value: 'Goodman Park, McClintock Park, Farm Dam',
+        note: 'Wisconsin Trail Guide identifies Goodman and McClintock as Marinette County parks on this segment and describes Farm Dam Public Landing as the northern public landing on Otter Creek, separate from commercial outfitter landings.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo4.pdf',
+      },
+      {
+        label: 'Official corridor context',
+        value: 'Governor Earl Peshtigo River State Forest',
+        note: 'Wisconsin DNR describes the Peshtigo as a major paddling river with clearly marked dam portages, remote campsites, and public-use landings in the state forest corridor.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/govearl/recreation/water',
+      },
+      {
+        label: 'Hazards',
+        value: 'Skinners Elbow and Wilson Rapids',
+        note: 'Wisconsin Trail Guide calls out Skinners Elbow as Class I-II and Wilson Rapids as Class II, with larger waves and stronger current as the County C gauge rises.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P4 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-goodman-park.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P4 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin DNR Governor Earl Peshtigo River State Forest water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/govearl/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04067958 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Marinette County Goodman Park',
+        url: 'https://www.marinettecounty.com/parks/camping/goodman-park/',
+        provider: 'local',
+      },
+      {
+        label: 'Marinette County McClintock Park',
+        url: 'https://www.marinettecounty.com/parks/camping/mcclintock-park/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'peshtigo-river-roaring-rapids',
+    slug: 'peshtigo-river-roaring-rapids',
+    name: 'Peshtigo River',
+    reach: 'Farm Dam Landing to WPS Landing #12',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Classic Roaring Rapids whitewater run through Governor Earl Peshtigo River State Forest, starting at Farm Dam Public Landing and ending at WPS Landing #12. This is a short, intense class II-IV route for skilled paddlers or guided rafting groups, not a casual rec-kayak float.',
+    statusText:
+      'Use the Wabeno / County C gauge in the route. Below 3.6 ft is not recommended; 4.0 to 5.3 ft is the best skilled-paddler window; 5.3 to 7.0 ft is big-water advanced territory, and above 7.0 ft is outside the normal recommendation.',
+    latitude: 45.41351,
+    longitude: -88.34615,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04067958',
+      provider: 'usgs',
+      siteId: '04067958',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Peshtigo River Near Wabeno, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4,
+      idealMax: 5.3,
+      tooLow: 3.6,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Peshtigo P5 Roaring Rapids suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo5.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and rain-fed windows are the main targets. Wisconsin Trail Guide warns that varying water levels dramatically change the rapids, and DNR frames this section as skilled-paddler whitewater.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Expect nearly five miles of continuous class II-IV whitewater, including First Drop, Third Drop, Five Foot Falls, Horserace, and S-Curve. Scout rapids, paddle with whitewater rescue judgment, or use a local guided rafting outfitter.',
+      confidenceNotes:
+        'Confidence is high for a guarded whitewater add: Wisconsin DNR names the exact Farm Dam Landing-to-Boat Landing #12 Roaring Rapids route and restricts it to skilled paddlers, Wisconsin Trail Guide publishes endpoint coordinates plus route-specific gauge bands, American Whitewater corroborates the same reach and Wabeno gauge, and the USGS gauge sits at the County C bridge inside the route corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '3.6 / 4.0-5.3 / 7.0 ft',
+        note: 'Wisconsin Trail Guide lists below 3.6 ft as not recommended, 3.6 to 4.0 ft as low runnable, 4.0 to 4.5 ft as low but enjoyable, 4.5 to 5.3 ft as medium runnable, 5.3 to 6.0 ft as medium-high, 6.0 to 7.0 ft as high runnable for advanced big-water paddlers, and above 7.0 ft as rare, unusually high flow.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo5.pdf',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'USGS 04067958 at County C',
+        note: 'Wisconsin Trail Guide says the gauge corresponding with the Roaring Rapids chart is located in this segment and should accurately indicate river levels and conditions in the reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo5.pdf',
+      },
+      {
+        label: 'Official route',
+        value: 'Farm Dam Landing to Boat Landing #12',
+        note: 'Wisconsin DNR describes the short Roaring Rapids section from Farm Dam Landing to Boat Landing #12 as a skilled-paddler route with some of the most intense whitewater in the area, and says Boat Landing #12 has ample parking and an easy take-out.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/govearl/recreation/water',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.41351, -88.34615 to 45.38092, -88.30101',
+        note: 'Wisconsin Trail Guide maps Farm Dam Public Landing and WPS Landing #12 with NAD83/WGS84 coordinates and identifies both as developed landings with parking.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo5.pdf',
+      },
+      {
+        label: 'Whitewater corroboration',
+        value: 'AW reach 2305',
+        note: 'American Whitewater identifies the Roaring Rapids / Otter Creek-to-WPS Landing reach with the Peshtigo River near Wabeno gauge and describes the same class II-IV whitewater corridor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2305/main',
+      },
+      {
+        label: 'Gauge metadata',
+        value: 'County C bridge gauge',
+        note: 'USGS places 04067958 on the Peshtigo River near Wabeno, 12 feet north of County Trunk Highway C and 50 feet from the river edge, matching the route-corridor gauge described by Wisconsin Trail Guide.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=04067958',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Governor Earl Peshtigo River State Forest water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/govearl/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Peshtigo P5 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-peshtigo5.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Roaring Rapids page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/peshtigo-river-roaring-rapids.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'American Whitewater Peshtigo Roaring Rapids',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2305/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04067958 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'eau-claire-river-bear-lake-county-n',
+    slug: 'eau-claire-river-bear-lake-county-n',
+    name: 'Eau Claire River',
+    reach: 'Bear Lake Road Bridge Landing to County N Bridge Landing',
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      'Long Marathon County whitewater day through wooded banks, boulder gardens, the Dells of the Eau Claire, and the lower Island Dells. This is a whitewater route with mandatory scouting and a normal Dells portage, not a casual beginner float.',
+    statusText:
+      'Use the Eau Claire River at Kelly gauge. Below 300 cfs is not recommended; 600 to 1,500 cfs is the best broad whitewater window; 1,500 to 2,000 cfs is high and pushy; 2,000+ cfs is beyond the broad-audience recommendation.',
+    latitude: 45.0586,
+    longitude: -89.27024,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05397500',
+      provider: 'usgs',
+      siteId: '05397500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eau Claire River at Kelly, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1500,
+      tooLow: 300,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Eau Claire River EC1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring runoff and sustained rain windows are the main targets. Wisconsin Trail Guide warns that the river rises and falls rapidly, and that the downstream Kelly gauge can lag or mislead after small storms.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Expect class II-III rapids, a class IV Dells feature that most full-route paddlers portage, long mileage, bony low-water rapids, and powerful hydraulics as the gauge climbs.',
+      confidenceNotes:
+        'Confidence is good for a guarded whitewater add: Wisconsin Trail Guide documents the exact EC1 route, names both bridge landings, publishes WGS84 waypoint coordinates, ties the route to the same-river Kelly USGS gauge, and gives detailed flow bands. The main caveat is gauge distance and flashiness: the gauge is downstream of the take-out, so this route should be scored conservatively after localized storms.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '300 / 600-1,500 / 2,000 cfs',
+        note: 'Wisconsin Trail Guide lists below 300 cfs as not recommended, 300 to 600 cfs as bony low-hazard whitewater, 600 to 1,000 cfs as low runnable, 1,000 to 1,500 cfs as medium runnable and excellent/challenging, 1,500 to 2,000 cfs as high runnable for novice-whitewater paddlers, and 2,000+ cfs as avoid for less-experienced paddlers.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'USGS 05397500 at Kelly',
+        note: 'Wisconsin Trail Guide points the EC1 route to the USGS gauge at Kelly / Highway SS Bridge and warns that it is about 11 miles downstream of the end of the segment, so trend and recent rainfall matter.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.05860, -89.27024 to 44.94419, -89.41916',
+        note: 'Wisconsin Trail Guide publishes NAD83/WGS84 waypoints for Bear Lake Road Bridge Landing and County N Bridge Landing in the EC1 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-eauclaire.pdf',
+      },
+      {
+        label: 'Access details',
+        value: 'Hand-carry bridge landings with parking',
+        note: 'The EC1 guide describes Bear Lake Road Bridge Landing as hand-carry access with roadside parking and County N Bridge Landing as a river-right take-out above the bridge with hand-carry access and parking.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-eauclaire.pdf',
+      },
+      {
+        label: 'Route character',
+        value: '13.9 to 14.2 river miles, class II-III(IV)',
+        note: 'Wisconsin Trail Guide maps Bear Lake Road Bridge to County N Bridge as the EC1 route and describes the Dells, Upper Island Dells, and Lower Island Dells as the key whitewater/scenic features.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+      },
+      {
+        label: 'Supplemental route report',
+        value: 'Bear Lake Road to Highway 52 route context',
+        note: 'Wisconsin River Trips corroborates the upstream Bear Lake Road access, boulder gardens, rapids, and post-storm wood risk on the first part of the EC1 corridor.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/eau-claire-river-marathon-county/bear-lake-rd',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Eau Claire River EC1',
+        url: 'https://wisconsintrailguide.com/paddle/eau-claire-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Eau Claire EC1 guide PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-eauclaire.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Eau Claire EC1 map PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-eauclaire.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05397500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05397500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin River Trips Eau Claire River - Bear Lake Road',
+        url: 'https://www.wisconsinrivertrips.com/segments/eau-claire-river-marathon-county/bear-lake-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin DNR Dells Of The Eau Claire River State Natural Area',
+        url: 'https://dnr.wisconsin.gov/topic/statenaturalareas/DellsoftheEauClaireRiver',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'bois-brule-river-stones-winneboujou',
     slug: 'bois-brule-river-stones-winneboujou',
     name: 'Bois Brule River',
@@ -7411,6 +8608,355 @@ export const rivers: River[] = [
         label: 'American Whitewater Bois Brule gauge info',
         url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2280',
         provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04025500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bois-brule-river-bois-brule-pine-tree',
+    slug: 'bois-brule-river-bois-brule-pine-tree',
+    name: 'Bois Brule River',
+    reach: 'Bois Brule Landing to Pine Tree Landing',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Middle Bois Brule day from the Bois Brule state-forest campground landing to Pine Tree Landing, with clear water, pine banks, several class I rapids, the Highway 2 access in the middle, and a route-specific Brule gauge ladder.',
+    statusText:
+      'Use the Bois Brule at Brule gauge. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly medium band; 350 to 600 cfs is high but still runnable for prepared paddlers; above 600 cfs deserves more experienced judgment.',
+    latitude: 46.54042,
+    longitude: -91.59408,
+    gaugeSource: {
+      id: 'usgs-04025500',
+      provider: 'usgs',
+      siteId: '04025500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bois Brule River at Brule, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 350,
+      tooLow: 125,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Bois Brule BB2 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal paddling season. The Brule is spring-fed and often holds water, but DNR warns lower/northern sections can rise quickly after rain or snowmelt.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin Trail Guide lists this BB2 route as class I, but it is a 10.3-mile cold-water Brule run with named rapids, bony low-water riffles, and high-water strainer consequences.',
+      confidenceNotes:
+        'Confidence is high for a guarded state-forest route: Wisconsin Trail Guide publishes the exact Bois Brule Landing-to-Pine Tree route, WGS84 endpoint coordinates, landing notes, hazards, and flow bands; Wisconsin DNR confirms designated Brule River landings, rules, and time-between-landing context; and USGS operates the same-river Brule gauge used by adjacent Brule routes. The main limitation is that the numeric threshold ladder is guide/community guidance rather than an official Wisconsin DNR interpretation band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '125 / 200-350 / 600 cfs',
+        note: 'Wisconsin Trail Guide says below 125 cfs is not recommended, 125 to 200 cfs is low runnable with bony riffles and rapids, 200 to 350 cfs is medium runnable for novice paddlers, 350 to 600 cfs is high runnable, 600 to 1000 cfs should be avoided by novice paddlers, and above 1000 cfs is experienced-paddler-only because deadfall and strainers become hazardous.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'Same-river Brule gauge',
+        note: 'Wisconsin Trail Guide says the referenced gauge is in the previous BB1 segment and should provide an accurate indication of current conditions in this reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.54042, -91.59408 to 46.61545, -91.58264',
+        note: 'Wisconsin Trail Guide BB2 publishes NAD83 / WGS84 coordinates for Bois Brule Landing and Pine Tree Landing, and describes both as developed or hand-carry canoe/kayak landings with parking and toilets.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+      },
+      {
+        label: 'Official landing rules',
+        value: 'Designated Brule River landings only',
+        note: 'Wisconsin DNR says paddlers on the Bois Brule must launch and land only at allowed designated canoe landings, must secure containers and trash, and must carry wearable PFDs.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+      {
+        label: 'Route character',
+        value: 'Doodlebug Rapids and Co-Op Park Rapids',
+        note: 'Wisconsin Trail Guide describes Doodlebug Rapids soon after the put-in, a developed Highway 2 landing, the Meadows reach, Casey Creek, Co-Op Park Rapids by Copper Range Campground, and two more class I pitches before Pine Tree Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+      },
+      {
+        label: 'DNR corridor timing',
+        value: 'Highway 2 to Pine Tree: four hours',
+        note: 'Wisconsin DNR lists Highway 2 to Pine Tree as a four-hour Brule River State Forest landing-to-landing trip, supporting the public access corridor within this longer Bois Brule Landing-to-Pine Tree route.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB2 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB2 map',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-boisbrule2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin DNR Brule River paddling',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule overview',
+        url: 'https://wisconsintrailguide.com/2024/paddle/bois-brule-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04025500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bois-brule-river-pine-tree-highway-13',
+    slug: 'bois-brule-river-pine-tree-highway-13',
+    name: 'Bois Brule River',
+    reach: 'Pine Tree Landing to Highway 13 Canoe Landing',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Classic Bois Brule whitewater segment from Pine Tree Landing to Highway 13, with near-continuous riffles, Lenroot Ledges, Mays Ledges, and the Highway 13 Rapids inside Brule River State Forest.',
+    statusText:
+      'Use the Bois Brule at Brule gauge. Below 125 cfs is not recommended; 200 to 350 cfs is the best broad window; 350 to 600 cfs is high and pushier; above 600 cfs is outside the normal recommendation for less-experienced paddlers.',
+    latitude: 46.61545,
+    longitude: -91.58264,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04025500',
+      provider: 'usgs',
+      siteId: '04025500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bois Brule River at Brule, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 350,
+      tooLow: 125,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Bois Brule BB3 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main season. The Bois Brule is spring-fed and often runnable, but rain or snowmelt can make the ledges fast, pushy, and less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Intermediate whitewater judgment is appropriate. Lenroot Ledges and Mays Ledges can reach Class II-III character, should be scouted as needed, and become more consequential at high flows.',
+      confidenceNotes:
+        'Confidence is high for a guarded whitewater add: Wisconsin DNR identifies Pine Tree to Highway 13 as a named Brule River State Forest trip, Wisconsin Trail Guide publishes the exact BB3 route, endpoint coordinates, landing amenities, hazards, and cfs ladder, American Whitewater corroborates the same reach family and gauge, and USGS operates the direct same-river Brule gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '125 / 200-350 / 600 cfs',
+        note: 'Wisconsin Trail Guide says below 125 cfs is not recommended, 125 to 200 cfs is low runnable with bony rapids, 200 to 350 cfs is medium runnable and fun for novice whitewater paddlers, 350 to 600 cfs is high runnable, 600 to 1000 cfs should be avoided by novice paddlers, and above 1000 cfs is experienced-paddler-only.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'Same river, route-specific guidance',
+        note: 'Wisconsin Trail Guide says the referenced gauge is 10.5 miles upstream from this BB3 segment and should provide an accurate indication of current conditions in the reach.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+      },
+      {
+        label: 'Official trip timing',
+        value: 'Pine Tree to Highway 13: five hours',
+        note: 'Wisconsin DNR lists Pine Tree to Highway 13 among the Brule River State Forest time-between-landings options and describes this northern stretch as a preferred rapid-filled run for more daring canoeists and kayakers.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.61545, -91.58264 to 46.67776, -91.59553',
+        note: 'Wisconsin Trail Guide publishes WGS84 coordinates for Pine Tree Landing and Highway 13 Landing; the Highway 13 coordinate is also corroborated by the Wisconsin DNR boat-access detail used by the downstream route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+      },
+      {
+        label: 'Key rapids',
+        value: 'Lenroot Ledges, Mays Ledges, Highway 13 Rapids',
+        note: 'Wisconsin Trail Guide describes Lenroot Ledges as long Class II ledges, Mays Ledges as Class II-III and the most challenging whitewater on the Bois Brule, and Highway 13 Rapids as low-hazard Class I riffles near the take-out.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+      },
+      {
+        label: 'Whitewater corroboration',
+        value: 'American Whitewater reach 2280',
+        note: 'American Whitewater lists the Copper Range-to-Highway 13 reach at about 8.7 miles with the Bois Brule at Brule gauge, including Lenroot Ledges, May Ledges, and Highway 13 Rapids in the route feature list.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2280/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Brule River paddling',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule Pine Tree',
+        url: 'https://wisconsintrailguide.com/2024/paddle/bois-brule-river-pine-tree.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB3 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-boisbrule3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB3 map',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-boisbrule3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'American Whitewater Bois Brule reach 2280',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2280/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04025500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bois-brule-river-highway-13-mouth',
+    slug: 'bois-brule-river-highway-13-mouth',
+    name: 'Bois Brule River',
+    reach: 'Highway 13 Canoe Landing to Mouth Access',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Lower Bois Brule run from the Highway 13 Canoe Landing to the Lake Superior mouth. This is the scenic finish of the state-forest river, with mostly Class I water, a required lamprey-barrier portage, and colder lower-river conditions than the friendlier upper Brule reaches.',
+    statusText:
+      'Use the Bois Brule at Brule gauge as a lower-river screen. Below 125 cfs is not recommended; 200 to 350 cfs is the best novice-friendly band; above 600 cfs novice paddlers should avoid this lower segment.',
+    latitude: 46.67795948,
+    longitude: -91.59535953,
+    gaugeSource: {
+      id: 'usgs-04025500',
+      provider: 'usgs',
+      siteId: '04025500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bois Brule River at Brule, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 350,
+      tooLow: 125,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Bois Brule BB4 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the main paddling season. Wisconsin DNR warns that water levels in the lower northern Bois Brule can fluctuate significantly, and rain or snowmelt can quickly create fast and dangerous conditions.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin Trail Guide lists this as a novice route with Class I features, but the lower Brule still requires moving-water judgment, a mandatory lamprey-barrier portage, cold-water awareness, and careful landing discipline near Lake Superior.',
+      confidenceNotes:
+        'Confidence is high-moderate: Wisconsin DNR confirms Highway 13 to the mouth as a named four-hour Brule trip, DNR boat-access records identify Highway 13 Canoe Landing as a state-managed carry-in with coordinates, Wisconsin Trail Guide publishes exact BB4 route notes and flow bands, and USGS operates the same-river Brule gauge. The main limitation is that the gauge is about 19 river miles upstream of this lower segment, so the app treats it as direct same-river guidance with route-specific caution rather than a landing-side reading.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route level bands',
+        value: '125 / 200-350 / 600 cfs',
+        note: 'Wisconsin Trail Guide says below 125 cfs is not recommended, 125 to 200 cfs is low runnable, 200 to 350 cfs is medium runnable for novice paddlers, 350 to 600 cfs is high runnable, and novice paddlers should avoid 600 to 1,000 cfs.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule4.pdf',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'Same river, upstream gauge',
+        note: 'Wisconsin Trail Guide says the referenced gauge is roughly 19 miles upstream from this segment, provides a good indication of general river height, and should be treated as an estimate of lower-reach conditions.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule4.pdf',
+      },
+      {
+        label: 'Official trip timing',
+        value: 'Highway 13 to mouth: four hours',
+        note: 'Wisconsin DNR lists Highway 13 to the mouth of the Brule among its approximate time-between-landings options for the Brule River State Forest.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Highway 13 Canoe Landing',
+        note: 'Wisconsin DNR boat-access details identify Highway 13 Canoe Landing as a state-managed carry-in on the Bois Brule River with gravel launch surface, parking, vault restroom, potable water, and latitude/longitude coordinates.',
+        sourceUrl: 'https://dnrmaps.wi.gov/LF_ShowDetails/boats.aspx?ID=1661',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Bois Brule River -- Mouth Access',
+        note: 'Wisconsin DNR lists Mouth Access and Highway 13 Canoe Landing as boat landings for the Bois Brule River / Spring Lake page, and the route finishes at the designated mouth landing near Lake Superior.',
+        sourceUrl: 'https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?page=boating&wbic=2868300',
+      },
+      {
+        label: 'Mandatory portage',
+        value: 'Lamprey barrier at about mile 6.2',
+        note: 'Wisconsin Trail Guide and Wisconsin DNR context identify the sea lamprey barrier as a river-wide dam; paddlers must portage it and should watch for warning signs and buoys.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin DNR Brule River paddling',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/bruleriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Highway 13 Canoe Landing details',
+        url: 'https://dnrmaps.wi.gov/LF_ShowDetails/boats.aspx?ID=1661',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR Spring Lake / Bois Brule boat landings',
+        url: 'https://apps.dnr.wi.gov/lakes/lakepages/LakeDetail.aspx?page=boating&wbic=2868300',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule Highway 13',
+        url: 'https://wisconsintrailguide.com/2024/paddle/bois-brule-river-highway-13.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule BB4 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-boisbrule4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Bois Brule full map',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/map-bois-brule-full.pdf',
+        provider: 'wisconsin_trail_guide',
       },
       {
         label: 'USGS 04025500 monitoring location',
@@ -7651,7 +9197,7 @@ export const rivers: River[] = [
     summary:
       'Clear, fast, bluff-lined Class II day paddle where the main call is whether the River Falls gauge is clearly above a scrape-heavy floor and whether your group is ready for sustained swiftwater plus a steep carry out.',
     statusText:
-      'Treat about 175 cfs at River Falls as the practical low-water floor. The river was still runnable at 125 cfs, but scrape-heavy enough that the app stays conservative below 175.',
+      'Treat roughly 175 to 225 cfs at River Falls as the broad target. The river was still runnable at 125 cfs but scrape-heavy, and 250+ cfs can become pushy and murky.',
     latitude: 44.85075,
     longitude: -92.63882,
     routeType: 'whitewater',
@@ -7665,10 +9211,12 @@ export const rivers: River[] = [
       siteName: 'Kinnickinnic River near River Falls, WI',
     },
     profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 175,
+      idealMin: 175,
+      idealMax: 225,
+      tooLow: 125,
+      tooHigh: 250,
       thresholdSource: {
-        label: 'MilesPaddled Kinnickinnic River minimum-flow note',
+        label: 'MilesPaddled and Wisconsin River Trips Kinnickinnic flow notes',
         url: 'https://milespaddled.com/kinnickinnic-river/',
       },
       thresholdSourceStrength: 'community',
@@ -7680,7 +9228,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Continuous swiftwater, shallow class II features, anglers, and the steep state-park carry keep this well above a casual beginner run.',
       confidenceNotes:
-        'The route and direct gauge are strong, and the low-water story is specific. The main remaining gap is a reliable upper range for when fast water stops being a fun Class II day.',
+        'The route, endpoints, and direct gauge are strong. The low-water floor comes from MilesPaddled exact-route reporting, and the conservative high-water ceiling is supported by Wisconsin River Trips lower-Kinni guidance for the same River Falls gauge.',
     },
     evidenceNotes: [
       {
@@ -8134,6 +9682,111 @@ export const rivers: River[] = [
         label: 'Wisconsin DNR Lower Wisconsin camping rules',
         url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/camping',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-gotham-muscoda-west',
+    slug: 'wisconsin-river-gotham-muscoda-west',
+    name: 'Wisconsin River',
+    reach: 'Gotham / Buena Vista Landing to Muscoda Landing West',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Scenic Lower Wisconsin State Riverway day from Buena Vista Landing at Gotham to Muscoda Landing West, with big sandbars, bluff views, side-channel choices, and a direct Muscoda gauge at the take-out town.',
+    statusText:
+      'Use the Muscoda gauge. Treat 4,000 to 10,000 cfs as the normal sandbar-friendly window, below about 2,500 cfs as too shallow for an app recommendation, 17,000 cfs and up as high-water day-trip only, and above 20,000 cfs as not recommended.',
+    latitude: 43.20903,
+    longitude: -90.30424,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4000,
+      idealMax: 10000,
+      tooLow: 2500,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR2 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-2.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. Low to moderate flows are best for sandbars, while upstream rain or dam operation changes can create unexpected rises even when local weather is quiet.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Easy in normal summer water, but this is a broad sandy river with fast main-channel current, changing islands, strainers in narrow side channels, wind exposure, and surprise drop-offs along sandbars.',
+      confidenceNotes:
+        'This clears the Wisconsin source bar: Wisconsin DNR lists Buena Vista Boat Landing and Muscoda west-side access as major Lower Wisconsin public access points; Wisconsin Trail Guide publishes WGS84 coordinates and the LWSR2 Muscoda-gauge level ladder; Wisconsin River Trips documents the exact Gotham-to-Muscoda day trip; and USGS 05407000 is a direct same-river gauge in the take-out town.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published level bands',
+        value: '4,000 to 10,000 cfs normal',
+        note: 'Wisconsin Trail Guide treats 4,000 to 10,000 cfs at Muscoda as normal summer conditions with many medium to large sandbars, 14,000 to 17,000 cfs as high flow with sandbar camping not recommended, and above 20,000 cfs as paddling not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-2.html',
+      },
+      {
+        label: 'Exact route report',
+        value: '7.9 miles',
+        note: 'Wisconsin River Trips documents Gotham / Buena Vista Boat Landing to Old Muscoda Landing as a 7.9-mile route with sandbars, bluff scenery, side-channel exploration, fast current, and a 3 to 4 hour expected paddle time.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/gotham',
+      },
+      {
+        label: 'Access support',
+        value: 'DNR-listed public access points',
+        note: 'Wisconsin DNR lists Buena Vista Boat Landing (Gotham) and Muscoda west side of Highway 80 among major Lower Wisconsin State Riverway public access points.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'WTG LWSR2 WGS84 points',
+        note: 'Wisconsin Trail Guide publishes Buena Vista Landing at 43.20903, -90.30424 and Muscoda Landing West at 43.19800, -90.44576 in its LWSR2 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-lwsr2.pdf',
+      },
+      {
+        label: 'Primary hazards',
+        value: 'Hidden current and narrow-channel strainers',
+        note: 'Wisconsin Trail Guide warns of undercurrents at higher flows, especially around sandbars and islands; Wisconsin River Trips also notes fast current, dangerous shoreline strainers, and poison ivy at Gotham.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-2.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Gotham to Muscoda',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/gotham',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin Trail Guide Lower Wisconsin Riverway LWSR2',
+        url: 'https://wisconsintrailguide.com/paddle/lower-wisconsin-river-2.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR2 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-lwsr2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin DNR Lower Wisconsin boating and canoeing',
+        url: 'https://dnr.wisconsin.gov/topic/lands/lowerwisconsin/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
       },
     ],
   },
@@ -8592,6 +10245,113 @@ export const rivers: River[] = [
         label: 'USGS 05407000 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wisconsin-river-wisconsin-rapids-nepco-creek',
+    slug: 'wisconsin-river-wisconsin-rapids-nepco-creek',
+    name: 'Wisconsin River',
+    reach: 'Veterans Memorial Park to Nepco Creek / County Z',
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      'Guarded Wisconsin Rapids day from the city kayak launch at Veterans Memorial Park through island channels, dam-portage sections, granite bedrock, and the Grignon Rapids area to the Nepco Creek / County Z access below Port Edwards. The scenery is strong at low water, but dam hazards and long portages make this a planned moving-water trip rather than a casual float.',
+    statusText:
+      'Use the Wisconsin River at Wisconsin Rapids gauge. Treat 3,001 to 4,500 cfs as the best target, 0 to 3,000 cfs as rare low but navigable, 4,501 to 6,000 cfs as higher with more covered bedrock and livelier rapids, 6,001 to 9,000 cfs as high and experienced-only, and 9,001+ cfs as too high for a broad recommendation.',
+    latitude: 44.3922,
+    longitude: -89.8269,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05400760',
+      provider: 'usgs',
+      siteId: '05400760',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Wisconsin Rapids, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/05400760/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3001,
+      idealMax: 4500,
+      tooLow: 0,
+      tooHigh: 9001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Wisconsin Rapids gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall can work, but the route is best saved for low to average releases when exposed granite, manageable portages, and lower dam turbulence line up. Recheck the gauge and forecast shortly before launch because the Wisconsin can rise or fall sharply.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly flatwater and easy current at target levels, but this route includes two major dam portages, dam-warning lines, possible fast dam outflow, Class I-II Grignon Rapids at low water, stronger Class II-III behavior at high water, wind on flowage pools, and a hidden take-out carry at Nepco Creek.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-source Wisconsin add: Wisconsin River Trips documents the exact Veterans Memorial Park-to-Hwy-Z trip, public access notes, dam portages, hazards, and a full Wisconsin Rapids gauge ladder; USGS operates the direct 05400760 Wisconsin River at Wisconsin Rapids gauge in the route corridor; and the City of Wisconsin Rapids lists Veterans Memorial Park as a public kayak/canoe launch. The main weakness is the downstream Nepco Creek / County Z access, which is route-report and map-feature supported rather than a polished land-manager landing page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact route report',
+        value: 'Veterans Memorial Park to Hwy Z, 6.3 miles',
+        note: 'Wisconsin River Trips documents the July 2025 Wisconsin Rapids route from Veterans Memorial Park to the Hwy Z / Nepco Creek access with route time, access notes, portages, hazards, and a route map.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 05400760',
+        note: 'USGS identifies 05400760 as Wisconsin River at Wisconsin Rapids, WI, at the Grand Avenue bridge in the same river corridor used by the Wisconsin River Trips level ladder.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05400760',
+      },
+      {
+        label: 'Best target range',
+        value: '3,001 to 4,500 cfs',
+        note: 'Wisconsin River Trips calls 3,001-4,500 cfs an average depth and good target range, with much of the Port Edwards boulder field still exposed.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '9,001+ cfs too high for broad use',
+        note: 'Wisconsin River Trips says 9,001+ cfs may be too high for most recreational paddlers, with strong unforgiving current and Class II-III behavior around Grignon Rapids.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+      },
+      {
+        label: 'Put-in authority',
+        value: 'Veterans Memorial Park kayak/canoe launch',
+        note: 'The City of Wisconsin Rapids facility page lists Veterans Memorial Park on 2nd Street South with a kayak/canoe launch, water access, paved walking path, benches, and picnic tables.',
+        sourceUrl: 'https://www.wirapids.gov/Facilities/Facility/Details/Veterans-Memorial-Park-27',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Veterans Memorial Park 44.3922, -89.8269; Nepco Creek / County Z 44.3377, -89.8439',
+        note: 'Coordinates were resolved from named public map features and checked against Wisconsin River Trips route context: the city park launch below Grand Avenue and the Nepco Creek / County Z take-out path below the Port Edwards dam.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Wisconsin Rapids',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05400760 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05400760',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Wisconsin Rapids Veterans Memorial Park',
+        url: 'https://www.wirapids.gov/Facilities/Facility/Details/Veterans-Memorial-Park-27',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Wisconsin Veterans Memorial Park',
+        url: 'https://www.travelwisconsin.com/local-parks/veterans-memorial-park-313298',
+        provider: 'local',
       },
     ],
   },
@@ -9495,6 +11255,1506 @@ export const rivers: River[] = [
         label: 'NPS Lock 29 River Access',
         url: 'https://www.nps.gov/places/lock-29-river-access.htm',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'la-crosse-river-veterans-holiday-heights',
+    slug: 'la-crosse-river-veterans-holiday-heights',
+    name: 'La Crosse River',
+    reach: 'Veterans Memorial County Park to Holiday Heights Park',
+    state: 'Wisconsin',
+    region: 'Western Wisconsin',
+    summary:
+      'Lower La Crosse River day trip from the county campground canoe landing to Holiday Heights Park, with fast easy current, sandbanks, bluff views, and a direct downstream USGS gauge tied to a route-specific Wisconsin River Trips CFS ladder.',
+    statusText:
+      'Use the La Crosse River near La Crosse gauge. Treat 301 to 400 cfs as the best target window, 401 to 500 cfs as high but navigable, 501 to 600 cfs as very high and skilled-paddler-only, and 601+ cfs as too high for an app recommendation.',
+    latitude: 43.891232,
+    longitude: -91.116408,
+    gaugeSource: {
+      id: 'usgs-05383075',
+      provider: 'usgs',
+      siteId: '05383075',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'La Crosse River Near La Crosse, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05383075/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 301,
+      idealMax: 400,
+      tooLow: 0,
+      tooHigh: 601,
+      thresholdSource: {
+        label: 'Wisconsin River Trips La Crosse River - Veterans Memorial Campground depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is practical. The route is deep enough that low water is usually less important than avoiding pushy post-rain current, covered sandbars, and fast strainers.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly easy moving water with minor riffles and Class I current around I-90, but fast bends, strainers, and higher water can make the route more consequential than a flatwater float.',
+      confidenceNotes:
+        'Confidence is good for a community-source Wisconsin add: Wisconsin River Trips documents the exact Veterans Memorial Campground to Holiday Heights Park route and a full La Crosse-gauge flow ladder; La Crosse County confirms Veterans Memorial Campground is on the La Crosse River with access and a canoe landing; Onalaska records Holiday Heights as a public city park; and USGS operates the direct La Crosse River near La Crosse live gauge downstream of the corridor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Depth guide',
+        value: '301-400 cfs target',
+        note: 'Wisconsin River Trips treats 301-400 cfs as the average target range, 401-500 cfs as high but navigable, 501-600 cfs as very high and skilled-paddler-only, and 601+ cfs as perhaps too high for enjoyable paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05383075',
+        note: 'USGS operates the La Crosse River Near La Crosse, WI monitoring location used by Wisconsin River Trips for this lower-river route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05383075/',
+      },
+      {
+        label: 'Route shape',
+        value: '8.6 miles',
+        note: 'Wisconsin River Trips documents Veterans Memorial Campground to Holiday Heights Park as an 8.6-mile route normally taking about three to four hours.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Veterans Memorial Campground canoe landing',
+        note: 'La Crosse County lists Veterans Memorial Campground at N4668 County Road VP with GPS coordinates, confirms it is located on the La Crosse River, and related trail/campground materials list a canoe landing.',
+        sourceUrl: 'https://lacrossecounty.org/facilities/campgrounds',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Holiday Heights Park / landing',
+        note: 'Onalaska records Holiday Heights Park as a public city park, while Wisconsin River Trips describes Holiday Heights Landing as a public-access take-out with parking.',
+        sourceUrl: 'https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84',
+      },
+      {
+        label: 'Hazards',
+        value: 'Fast strainers and high-water push',
+        note: 'Wisconsin River Trips reports fast current, minor Class I riffles, and several strainers that should be avoided or portaged if a paddler is not comfortable squeezing past.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips La Crosse River - Veterans Memorial Campground',
+        url: 'https://www.wisconsinrivertrips.com/segments/la-crosse-river/veterans-memorial-campground',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05383075 La Crosse River near La Crosse',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05383075/',
+        provider: 'usgs',
+      },
+      {
+        label: 'La Crosse County campgrounds',
+        url: 'https://lacrossecounty.org/facilities/campgrounds',
+        provider: 'local',
+      },
+      {
+        label: 'Veterans Memorial Park - La Crosse River State Trail',
+        url: 'https://www.lacrosseriverstatetrail.org/veterans-memorial-park/',
+        provider: 'local',
+      },
+      {
+        label: 'Onalaska Holiday Heights Park',
+        url: 'https://onalaska.recdesk.com/Community/Facility/Detail?facilityId=84',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Holiday Heights Park',
+        url: 'https://mapcarta.com/W255174507',
+      },
+      {
+        label: 'Travel Wisconsin La Crosse River',
+        url: 'https://www.travelwisconsin.com/canoeing%2C-kayaking-sup/la-crosse-river-200166',
+      },
+    ],
+  },
+  {
+    id: 'black-river-melrose-north-bend',
+    slug: 'black-river-melrose-north-bend',
+    name: 'Black River',
+    reach: 'Melrose Landing to North Bend Landing',
+    state: 'Wisconsin',
+    region: 'Southwest Wisconsin',
+    summary:
+      'Popular lower-Black River sandbar day from the public Melrose Landing to the public North Bend Landing, with easy current, sandstone outcrops, broad sandy beaches, and a route-specific Black River Falls gauge ladder.',
+    statusText:
+      'Use the Black River at Black River Falls gauge. Treat 101 to 300 cfs as the best sandbar-and-padding window, 0 to 100 cfs as very low with some walking, 301 to 600 cfs as increasingly sandbar-covered, 601 to 800 cfs as high and less interesting, and 801+ cfs as probably too high.',
+    latitude: 44.1261,
+    longitude: -91.0045,
+    gaugeSource: {
+      id: 'usgs-053813595',
+      provider: 'usgs',
+      siteId: '053813595',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Black River DS ST Hwy 54 at Black River Falls, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 101,
+      idealMax: 300,
+      tooLow: 100,
+      tooHigh: 801,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Black River - Melrose to North Bend depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal window. Low to moderate water exposes the best sandbars and camping beaches, while higher water covers the beaches, speeds the current, and reduces the route character.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly beginner-friendly flatwater and easy current with no major rapids. The 10-mile length, headwind exposure, shallow late-route bars, shoreline strainers, powerboats in shallow water, and heavy weekend traffic still require planning.',
+      confidenceNotes:
+        'Confidence is good for a community-threshold Wisconsin add: Wisconsin River Trips documents the exact Melrose Landing to North Bend Landing route and publishes a complete Black River Falls gauge ladder, Wisconsin DNR says it owns and maintains Black River access at Melrose and North Bend, North Bend Canoe Rental describes the same 10-mile Melrose Public Landing to North Bend exit trip, and USGS operates a direct same-river live gauge at Black River Falls upstream of the route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route ladder',
+        value: '101 to 300 cfs target window',
+        note: 'Wisconsin River Trips says 0 to 100 cfs is extraordinarily low with some walking, 101 to 200 cfs is a great target with very good sandbars, 201 to 300 cfs keeps decent sandbars and better padding, 601 to 800 cfs is high, and 801+ cfs is probably too high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 053813595',
+        note: 'USGS operates the Black River downstream of State Highway 54 at Black River Falls gauge, the same Black River Falls gauge family used by the route-specific paddling guidance.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+      },
+      {
+        label: 'Public access',
+        value: 'DNR-maintained Melrose and North Bend access',
+        note: 'Wisconsin DNR says it owns and maintains Black River access to the river at Melrose and North Bend.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/watersheds/basins/bbt/black/blackriver.html',
+      },
+      {
+        label: 'Commercial shuttle corroboration',
+        value: 'Melrose Public Landing to North Bend exit',
+        note: 'North Bend Canoe Rental lists its signature day trip as a 10-mile paddle from Melrose Public Landing to the North Bend exit, with all trips ending at North Bend.',
+        sourceUrl: 'https://northbendcanoerental.com/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Put-in 44.12610, -91.00450; take-out 44.08951, -91.11544',
+        note: 'The put-in coordinate is resolved at the named Melrose public landing just southwest of the Highway 108 bridge; the take-out coordinate is the named North Bend public boat-ramp feature, corroborated by the public landing and livery context.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend',
+      },
+      {
+        label: 'Hazards',
+        value: 'Length, wind, strainers, and crowds',
+        note: 'Wisconsin River Trips reports no major rapids, but cautions that a 10+ mph headwind can be brutal, shoreline strainers should be avoided, late starts can lead to night paddling, and popular weekends can be crowded.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Black River - Melrose to North Bend',
+        url: 'https://www.wisconsinrivertrips.com/segments/black-river-melrose-to-north-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 053813595 Black River at Black River Falls',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-053813595/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Black River watershed',
+        url: 'https://dnr.wisconsin.gov/topic/watersheds/basins/bbt/black/blackriver.html',
+        provider: 'local',
+      },
+      {
+        label: 'North Bend Canoe Rental Black River trips',
+        url: 'https://northbendcanoerental.com/',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Wisconsin Black River',
+        url: 'https://www.travelwisconsin.com/canoeing%2C-kayaking-sup/black-river-200168',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'waupaca-river-county-q-brainards-bridge',
+    slug: 'waupaca-river-county-q-brainards-bridge',
+    name: 'Waupaca River',
+    reach: "County Highway Q to Brainard's Bridge Park",
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      "Popular Waupaca day trip from the Cobbtown Road / County Q canoe launch to Brainard's Bridge Park, with clear water, boulder gardens, riffles, and an official county tourism route description for the 8-mile corridor.",
+    statusText:
+      'Use the Waupaca River near Waupaca gauge. Treat roughly 150 to 320 cfs as the normal runnable window, 121 to 149 cfs as shallow and scrapey, 321 to 400 cfs as pushier high water, and 401+ cfs as above the broad app recommendation.',
+    latitude: 44.37413,
+    longitude: -89.18548,
+    gaugeSource: {
+      id: 'usgs-04081000',
+      provider: 'usgs',
+      siteId: '04081000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Waupaca River Near Waupaca, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04081000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 150,
+      idealMax: 320,
+      tooLow: 120,
+      tooHigh: 401,
+      thresholdSource: {
+        label: 'Wisconsin River Trips and Miles Paddled Waupaca River gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/waupaca-river/hwy-q',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the normal paddling season. The county tourism page says most of this stretch remains deep enough even in dry years, but low water exposes the boulder gardens and high water makes wood and riffles more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Easy to moderate moving water with frequent riffles and some Class I current. Fallen trees, rocks, boulder gardens, and pushier high-water current make this better for paddlers with some boat control than for first-time floaters.',
+      confidenceNotes:
+        "Confidence is good for a community-threshold Wisconsin add: Visit Waupaca County publishes the exact Cobbtown Road / Hwy Q to Brainard's Bridge Park route and access notes; Miles Paddled publishes endpoint GPS coordinates and same-route gauge observations; Wisconsin River Trips provides route-specific Waupaca gauge guidance and hazard context; and USGS operates the Waupaca River near Waupaca gauge downstream in the same river corridor.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Cobbtown Road / Hwy Q to Brainard\'s Bridge Park',
+        note: "Visit Waupaca County lists this as an approximately 8-mile, 3- to 3.5-hour Waupaca River paddling route from Cobbtown Road/Hwy Q to Brainard's Bridge Park.",
+        sourceUrl: 'https://visitwaupacacounty.com/routes/paddling/waupaca-river/',
+      },
+      {
+        label: 'Published coordinates',
+        value: 'Put-in 44.37413, -89.18548; take-out 44.36546, -89.09842',
+        note: "Miles Paddled publishes GPS coordinates for the County Highway Q put-in and Brainard's Bridge Park take-out on this exact route.",
+        sourceUrl: 'https://milespaddled.com/waupaca-river-iii/',
+      },
+      {
+        label: 'Gauge guidance',
+        value: 'About 150 to 320 cfs practical window',
+        note: 'Wisconsin River Trips describes 172 cfs as low-side but plenty navigable, suggests about 140-150 cfs as a lower runnable edge, and is cautious above 200 cfs; Miles Paddled records 265 and 358 cfs as recommendable levels on the same reach.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/waupaca-river/hwy-q',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04081000',
+        note: 'The Waupaca River Near Waupaca monitoring location is a same-river gauge downstream of the route and is the gauge referenced by the route reports.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04081000/',
+      },
+      {
+        label: 'Take-out support',
+        value: "Brainard's Bridge Park",
+        note: "The City of Waupaca lists Brainard's Bridge Park at 711 Bailey Street as a public city park along the Waupaca River with restrooms, shelter, trails, and river/lake water access context.",
+        sourceUrl: 'https://cityofwaupaca.org/park-and-rec-area/brainards-bridge-park/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Wood, rocks, riffles, and whitewater',
+        note: 'Visit Waupaca County warns of fallen trees, rocks, and whitewater; Wisconsin River Trips adds duck-unders, hop-overs, shallow boulder gardens, and stronger current at higher flows.',
+        sourceUrl: 'https://visitwaupacacounty.com/routes/paddling/waupaca-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Visit Waupaca County Waupaca River route',
+        url: 'https://visitwaupacacounty.com/routes/paddling/waupaca-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Waupaca River III',
+        url: 'https://milespaddled.com/waupaca-river-iii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Waupaca River - Hwy Q',
+        url: 'https://www.wisconsinrivertrips.com/segments/waupaca-river/hwy-q',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 04081000 Waupaca River near Waupaca',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04081000/',
+        provider: 'usgs',
+      },
+      {
+        label: "City of Waupaca Brainard's Bridge Park",
+        url: 'https://cityofwaupaca.org/park-and-rec-area/brainards-bridge-park/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'brule-river-highway-139-fr-2150',
+    slug: 'brule-river-highway-139-fr-2150',
+    name: 'Brule River',
+    reach: 'Highway 139/189 Bridge Landing to Forest Road 2150 Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Remote border-river day on the Wisconsin-Michigan Brule with narrow current, long quietwater stretches, class I-II riffles, primitive campsites, and a direct same-river USGS gauge downstream at Highway 2.',
+    statusText:
+      'Use the Brule River at US Highway 2 gauge. Treat about 220 cfs / 3.5 ft as the practical minimum from Wisconsin Trail Guide; below that expect bumpy boulder gardens and more scraping, while higher water makes the class I-II pitches pushier.',
+    latitude: 45.98767,
+    longitude: -88.65238,
+    gaugeSource: {
+      id: 'usgs-04060993',
+      provider: 'usgs',
+      siteId: '04060993',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Brule River at US Highway 2 near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 220,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Brule River B2 minimum suggested flow',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this reach is usually navigable through spring, summer, and fall, but it can become scrappy during periods with little rainfall. Cold water and remote access raise the planning bar outside warm weather.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly novice-friendly moving water for prepared paddlers, but the 16-mile length, isolation, low road access, boulder gardens, class I-II rapids, and fast take-out current make this more than a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: Wisconsin Trail Guide documents the exact Highway 139/189 Bridge-to-Forest-Road-2150 route, endpoint WGS84 coordinates, named hand-carry landings, hazards, campsites, and a 220 cfs / 3.5 ft minimum tied to USGS 04060993. Travel Wisconsin corroborates that access on the border Brule is available at county and forest-service roads, and American Whitewater separately lists the same Highway 189-to-FS2150 reach with the same USGS gauge. The app does not claim a preferred upper range because the strongest published route guidance is a minimum rather than a full ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '16.2 miles; 6 to 8 hours',
+        note: 'Wisconsin Trail Guide publishes Brule River B2 from Highway 139/189 Bridge to Forest Road 2150, with 16.2 miles, 6 to 8 hours, 120 feet of elevation drop, and class I-II as the most difficult rapids.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      {
+        label: 'Minimum suggested flow',
+        value: '220 cfs / 3.5 ft',
+        note: 'Wisconsin Trail Guide lists 220 cfs / 3.5 ft at the US Highway 2 bridge gauge as the minimum suggested flow for this B2 route.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      {
+        label: 'Same-river live gauge',
+        value: 'USGS 04060993',
+        note: 'USGS operates the Brule River at US Highway 2 near Florence monitoring location used by the route guide for water-level context.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.98767, -88.65238 to 45.99013, -88.45013',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for the Highway 139/189 Bridge Landing and Forest Road 2150 Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      {
+        label: 'Access support',
+        value: 'County and forest-service road access',
+        note: 'Travel Wisconsin describes the Brule as a Wisconsin-Michigan boundary river with access available at county and forest-service roads; Wisconsin Trail Guide identifies the put-in and take-out as hand-carry landings with parking.',
+        sourceUrl: 'https://www.travelwisconsin.com/outdoors/on-the-water/brule-river',
+      },
+      {
+        label: 'Hazards',
+        value: 'Class I-II rapids, boulder gardens, fast take-out current',
+        note: 'Wisconsin Trail Guide calls out Twins Rapids, Railroad Rapids, Two Foot Falls, boulder gardens, class I-II waves at moderate to high flows, and fast current at the Forest Road 2150 take-out.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      {
+        label: 'Whitewater corroboration',
+        value: 'AW reach 2282',
+        note: 'American Whitewater lists the Brule Highway 189 to FS2150 reach and ties it to the Brule River at US Highway 2 near Florence gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2282/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Brule River B2 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-brule2.pdf',
+      },
+      {
+        label: 'Wisconsin Trail Guide Brule River B2 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/brule-river-highway-139.html',
+      },
+      {
+        label: 'USGS 04060993 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04060993/',
+      },
+      {
+        label: 'American Whitewater Brule Hwy 189 to FS2150',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2282/main',
+      },
+      {
+        label: 'Travel Wisconsin Brule River',
+        url: 'https://www.travelwisconsin.com/outdoors/on-the-water/brule-river',
+      },
+      {
+        label: 'Florence County highway map',
+        url: 'https://wisconsindot.gov/Documents/travel/road/hwy-maps/county-maps/florence.pdf',
+      },
+    ],
+  },
+  {
+    id: 'pike-river-amberg-yellow-bridge',
+    slug: 'pike-river-amberg-yellow-bridge',
+    name: 'Pike River',
+    reach: 'Amberg Highway 141 Landing to Yellow Bridge Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Wild-river whitewater day south of Amberg with clear water, granite dells, Bull Falls, Scrounge Canyon, Horseshoe Falls, and a guarded finish above Yellow Bridge Falls. It is scenic enough for novice whitewater paddlers at moderate levels, but the class II-III drops and private-bank constraints make scouting and boat control mandatory.',
+    statusText:
+      'Use the Pike River at Amberg gauge. Treat 2.9 to 4.1 ft as the normal full-route window, 4.1 to 4.6 ft as high and challenging, 4.6 to 5.0 ft as experienced-only, and 5.0+ ft as too high for broad recommendations.',
+    latitude: 45.49576,
+    longitude: -87.98712,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04066500',
+      provider: 'usgs',
+      siteId: '04066500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pike River at Amberg, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.9,
+      idealMax: 4.1,
+      tooLow: 2.9,
+      tooHigh: 5.0,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Pike River PK1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Spring and fall are the most reliable targets. Summer can work after rain, but low water makes the lower rapids bony and the gauge rises quickly enough that fresh rainfall should trigger a same-day recheck.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Wisconsin Trail Guide rates the route novice whitewater at moderate levels, with Class II Bull Falls, Scrounge Canyon and Horseshoe Falls, plus Class III Yellow Bridge Falls immediately below the take-out. Do not treat this as a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is strong for a guarded add: Wisconsin Trail Guide documents the exact PK1 route, WGS84 endpoint coordinates, named hand-carry landings, a route map, hazard notes, and a full Amberg-gauge ladder. USGS confirms 04066500 is the Pike River at Amberg gauge at County V, about a mile upstream of the Highway 141 put-in. The main caution is practical: the take-out sits just above Yellow Bridge Falls, and high water changes the route from novice-friendly whitewater into a pushier run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '9.4 miles; 4 hours',
+        note: 'Wisconsin Trail Guide publishes Pike River PK1 from Amberg Highway 141 Landing to Yellow Bridge Landing, with 9.4 miles, 90 feet of drop, and Class II with Class III at Yellow Bridge Falls as the most difficult rapid.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04066500 at County V',
+        note: 'Wisconsin Trail Guide says the referenced gauge is one mile upstream from the Highway 141 landing and should accurately indicate conditions for this reach; USGS identifies the site as Pike River at Amberg, WI.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+      },
+      {
+        label: 'Full-route window',
+        value: '2.9 to 4.1 ft',
+        note: 'The guide treats 2.9-3.5 ft as low runnable for Highway 141 to Yellow Bridge Landing and 3.5-4.1 ft as medium runnable. The app combines those as the normal full-route window.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '5.0+ ft not recommended',
+        note: 'Wisconsin Trail Guide warns that 4.6-5.0 ft is high enough that novice paddlers should avoid the river and that above 5.0 ft is rare, unusually high flow where paddling is not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.49576, -87.98712 to 45.47494, -87.87593',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Amberg Highway 141 Landing and Yellow Bridge Landing in the PK1 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Access details',
+        value: 'Hand-carry landings with parking',
+        note: 'The guide describes the Highway 141 put-in as a hand-carry access with parking and trailer turnaround, and the Yellow Bridge Landing as a hand-carry access reached by footpath from a small parking area.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Hazards',
+        value: 'Bull Falls, Scrounge Canyon, Horseshoe Falls, Yellow Bridge Falls',
+        note: 'Scout or portage the named drops as needed, and take out at Yellow Bridge Landing before the stronger Class III Yellow Bridge Falls below Barker Road.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Pike River PK1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Pike River PK1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'USGS 04066500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Pike River at Amberg legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04066500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Pike River public-domain image lead',
+        url: 'https://www.usgs.gov/media/images/usgs-scientist-collecting-samples-aquatic-species-pike-river',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pike-river-yellow-bridge-grogan-road',
+    slug: 'pike-river-yellow-bridge-grogan-road',
+    name: 'Pike River',
+    reach: 'Yellow Bridge Landing to Grogan Road Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Compact advanced Pike River run starting at Yellow Bridge Landing, dropping through the Class III Yellow Bridge Falls short-run, then continuing through boulder gardens and quieter Wild River miles to Grogan Road Landing at the Menominee confluence.',
+    statusText:
+      'Use the Pike River at Amberg gauge. Treat 3.5 to 4.6 ft as the practical Yellow Bridge Falls window, 2.9 to 3.5 ft as low and bony, 4.6 to 5.0 ft as high and expert-only, and 5.0+ ft as not recommended.',
+    latitude: 45.47494,
+    longitude: -87.87593,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04066500',
+      provider: 'usgs',
+      siteId: '04066500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pike River at Amberg, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.5,
+      idealMax: 4.6,
+      tooLow: 2.9,
+      tooHigh: 5.0,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Pike River Yellow Bridge Falls level guidance',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'Target spring or fall runoff windows, or summer only after recent rain. The Pike is rainfall and snowmelt dependent, and this lower route is less forgiving than the upstream novice-whitewater day because Yellow Bridge Falls gets bony at low water and pushy at high water.',
+      difficulty: 'advanced',
+      difficultyNotes:
+        'Wisconsin Trail Guide calls Yellow Bridge Falls a short Class III run with 2- to 5-foot drops, a long rocky Class II runout, and a river-wide ledge. This route is for experienced whitewater paddlers who are comfortable scouting, portaging, and managing private-bank constraints.',
+      confidenceNotes:
+        'Confidence is good for a guarded advanced add: Wisconsin Trail Guide documents Yellow Bridge Landing, Pike River Road Landing, Pike River Road Bridge Landing, and Grogan Road Landing with WGS84 coordinates and access notes, and it ties the runnable character of Yellow Bridge Falls to the Amberg gauge ladder. The gauge is upstream of this lower subreach rather than inside it, so the route stays advanced-only and explicitly preserves the falls-specific low/high cautions.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: '4.8 miles; advanced short-run plus lower river',
+        note: 'Wisconsin Trail Guide maps Yellow Bridge Landing at mile 4.8, Pike River Road Landing below the falls, Pike River Road Bridge Landing at mile 1.6, and Grogan Road Landing at the Menominee confluence.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Direct same-river gauge',
+        value: 'USGS 04066500 at Amberg',
+        note: 'Wisconsin Trail Guide references the Pike River at Amberg gauge for this Pike River guide and says it should indicate current conditions for the reach family; USGS identifies the site as Pike River at Amberg, WI.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+      },
+      {
+        label: 'Falls window',
+        value: '3.5 to 4.6 ft',
+        note: 'The guide says Yellow Bridge Falls develops fun waves at the high end of 3.5-4.1 ft and pushy waves at the high end of 4.1-4.6 ft. Below that it can be bony, while 4.6-5.0 ft may overpower intermediates.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '5.0+ ft not recommended',
+        note: 'Wisconsin Trail Guide lists 5.0+ ft as rare, unusually high flow where paddling is not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.47494, -87.87593 to 45.44202, -87.85582',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Yellow Bridge Landing and Grogan Road Landing in the Pike River guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Access details',
+        value: 'Hand-carry put-in; trailer-ramp take-out',
+        note: 'The guide describes Yellow Bridge Landing as a hand-carry access with parking and Grogan Road Landing as a developed ramp with parking and trailer turnaround at the Menominee confluence.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'Hazards',
+        value: 'Yellow Bridge Falls, private banks, boulder gardens',
+        note: 'Scout or portage Yellow Bridge Falls from river left while staying along the riverbank because nearby land is private. Expect 2- to 5-foot drops, a rocky Class II runout, and a ledge before easier lower miles.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Pike River page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pike-river.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Pike River PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-pike.pdf',
+      },
+      {
+        label: 'USGS 04066500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04066500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04066500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04066500',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'popple-river-morgan-lake-highway-101',
+    slug: 'popple-river-morgan-lake-highway-101',
+    name: 'Popple River',
+    reach: 'Morgan Lake Road Bridge to Highway 101 Wayside',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Short but serious Florence County Wild River whitewater run below Morgan Lake Road. The route packs Little Bull Falls, Big Bull Falls, boulder gardens, signed portages, and remote northwoods scenery into a 5.4-mile bridge-to-bridge day.',
+    statusText:
+      'Use the Popple River near Fence gauge at Morgan Lake Road. Treat 250 to 600 cfs as the preferred window, 150 to 250 cfs as low/scrapy, 600 to 800 cfs as high and expert-only, and 800+ cfs as beyond a broad recommendation.',
+    latitude: 45.763611,
+    longitude: -88.463611,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04063700',
+      provider: 'usgs',
+      siteId: '04063700',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Popple River Near Fence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 600,
+      tooLow: 150,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Popple River PO2 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 9, 10],
+      seasonNotes:
+        'This freestone Wild River is best in spring, early summer, and after sustained rain. American Whitewater notes spring rain can produce excellent levels before leaf-out, while summer and fall often need much larger rainfall to bring the route up.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates Morgan Lake Road to Highway 101 as II-III+, with Little Bull Falls, Big Bull Falls, tight boulder gardens, sticky holes, and signed portages. Florence County says the lower Popple below Morgan Lake Road is for expert paddlers.',
+      confidenceNotes:
+        'Confidence is strong for a guarded whitewater add: Florence County lists Morgan Lake Road #5 to Highway 101 #4 as a 5.4-mile Popple route and links the same American Whitewater reach; Wisconsin Trail Guide publishes a direct 04063700 gauge ladder for the Morgan Lake Road corridor; USGS places that gauge at the bridge on Forest Service Road 2159 / Morgan Lake Road; and Miles Paddled supplies a verified Highway 101 take-out coordinate. The app intentionally uses a conservative high-water ceiling because this is not a casual recreational float.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific reach',
+        value: '5.4 miles; Class II-III+',
+        note: 'American Whitewater documents Popple River C from Morgan Lake Road to Highway 101 as the best whitewater section of the Popple, with 14 rocky rapids, Little Bull Falls, Big Bull Falls, and a Highway 101 take-out.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2312/main',
+      },
+      {
+        label: 'County access support',
+        value: 'Morgan Lake Road #5 to Highway 101 #4',
+        note: 'Florence County lists Morgan Lake Road to Highway 101 as a 5.4-mile Popple River paddling trip, identifies Morgan Lake Road as access point #5 and Highway 101 as access point #4, and warns the lower Popple requires advanced skills.',
+        sourceUrl: 'https://www.exploreflorencecounty.com/tourism/wild-rivers-fun/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04063700 at Morgan Lake Road',
+        note: 'USGS locates Popple River near Fence on the left bank upstream from the Forest Service Road 2159 bridge, at 8037 Morgan Lake Road, in the route put-in corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/wys_rpt/?site_no=04063700',
+      },
+      {
+        label: 'Gauge bands',
+        value: '150 / 250-600 / 800 cfs',
+        note: 'Wisconsin Trail Guide gives a 150 cfs minimum, 250-400 cfs low-to-medium enjoyable flow, 400-600 cfs medium runnable flow, 600-1000 cfs high runnable flow for intermediate and advanced paddlers, and a suggested maximum of 800 cfs. The app uses 800 cfs as the broad-audience ceiling.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.763611, -88.463611 to 45.79995, -88.39662',
+        note: 'The put-in coordinate is the USGS gauge/bridge location at Morgan Lake Road. Miles Paddled publishes the Highway 101 take-out GPS point and describes the landing downstream of the bridge with dedicated parking.',
+        sourceUrl: 'https://milespaddled.com/popple-river/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Little Bull Falls, Big Bull Falls, portages',
+        note: 'American Whitewater warns Little Bull Falls can form an aggressive hole with a difficult rescue, and Big Bull Falls has a signed portage where swift current can carry paddlers past the intended landing.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2312/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Popple River C',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2312/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Wisconsin Trail Guide Popple River PO2',
+        url: 'https://wisconsintrailguide.com/2024/paddle/popple-river-morgan-lake-road.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Popple River PO2 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-popple2.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04063700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04063700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04063700 water-year site metadata',
+        url: 'https://waterdata.usgs.gov/nwis/wys_rpt/?site_no=04063700',
+        provider: 'usgs',
+      },
+      {
+        label: 'Florence County Wild Rivers Fun',
+        url: 'https://www.exploreflorencecounty.com/tourism/wild-rivers-fun/',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Popple River',
+        url: 'https://milespaddled.com/popple-river/',
+        provider: 'miles_paddled',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-county-n-wepco-5',
+    slug: 'pine-river-county-n-wepco-5',
+    name: 'Pine River',
+    reach: 'County N Bridge Landing to WEPCO Landing #5',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Easy Florence County Wild River day through mixed hardwood forest, quietwater, riffles, and one short Class I pitch. The direct USGS gauge sits at the put-in bridge, and Wisconsin Trail Guide publishes a route-specific minimum level for the PN1 Oxbow run.',
+    statusText:
+      'Use the Pine River below Pine River Powerplant gauge at County N. Treat 1.75 ft / about 150 cfs as the practical minimum; below that expect shallow riffles and more dragging, while higher dam-release flows can make the easy current quicker.',
+    latitude: 45.83711,
+    longitude: -88.22522,
+    gaugeSource: {
+      id: 'usgs-04064500',
+      provider: 'usgs',
+      siteId: '04064500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Pine River Below Pine River Powerplant near Florence, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1.75,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Pine River PN1 suggested minimum level',
+        url: 'https://wisconsintrailguide.com/paddle/pine-river.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this Pine segment is usually navigable in spring, summer, and fall, with flow controlled by Pine Dam two miles upstream of the County N wayside landing. Recheck the live gauge and powerplant-release context before driving north.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is mostly flatwater and riffles with one easy Class I pitch, but it is still a remote Wild River corridor with cold water, wooded banks, and shallow-drag risk below the suggested minimum.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add. Wisconsin Trail Guide documents the exact PN1 County N Bridge Landing to WEPCO Landing #5 route, route distance, named public landings, WGS84 coordinates, and a 1.75 ft / 150 cfs minimum tied to the USGS 04064500 gauge at County N. USGS confirms the gauge is on the Pine River at the County N bridge, and Wisconsin DNR / Travel Wisconsin corroborate Pine-Popple Wild Rivers public recreation context. The app does not claim an ideal high-water ceiling because the strongest route-specific source only publishes a minimum and release caution.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '9.3 miles; 3 to 4 hours',
+        note: 'Wisconsin Trail Guide publishes Pine River PN1 from County N Bridge Landing to WEPCO Landing #5, with easy difficulty, riffles/Class I, 20 feet of drop, and a 3 to 4 hour paddle time.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pine-river.html',
+      },
+      {
+        label: 'Minimum suggested level',
+        value: '1.75 ft / about 150 cfs',
+        note: 'Wisconsin Trail Guide lists the County N Bridge USGS gauge and gives 1.75 feet / 150 cfs as the suggested minimum for this Pine River segment.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pine-river.html',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04064500 at County N',
+        note: 'USGS describes 04064500 as Pine River below Pine River Powerplant near Florence, on the left bank 60 feet upstream from the County Trunk Highway N bridge, with current discharge and gage-height data.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04064500',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.83711, -88.22522 to 45.83949, -88.14080',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for County N Bridge Landing and WEPCO Landing #5 in the PN1 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-pine.pdf',
+      },
+      {
+        label: 'Public recreation context',
+        value: 'Pine-Popple Wild Rivers',
+        note: 'Wisconsin DNR describes public recreation in the Pine and Popple Wild Rivers area, and Travel Wisconsin identifies the Pine as a state-designated wild river with canoeing, rapids, and portage context.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation',
+      },
+      {
+        label: 'Access and route character',
+        value: 'County N, Oxbow, Johnson Creek Road, WEPCO #5',
+        note: 'The guide maps multiple named accesses along the PN1 corridor and notes that the shorter Oxbow shuttle is a common local option inside the full County N-to-WEPCO route.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-pine.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Pine River PN1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pine-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Pine River legacy page',
+        url: 'https://wisconsintrailguide.com/paddle/pine-river.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Pine River PN1 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-pine.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 04064500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04064500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04064500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04064500',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Pine-Popple Wild Rivers recreation',
+        url: 'https://dnr.wisconsin.gov/topic/lands/pinepopple/recreation',
+      },
+      {
+        label: 'Travel Wisconsin Pine River',
+        url: 'https://www.travelwisconsin.com/rafting-tubing/pine-river-200182',
+      },
+    ],
+  },
+  {
+    id: 'menominee-river-piers-gorge',
+    slug: 'menominee-river-piers-gorge',
+    name: 'Menominee River',
+    reach: 'Mill Street Landing to Piers Gorge Road Landing',
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      'Short, committing border-river whitewater run through Piers Gorge from Niagara to the Michigan-side Piers Gorge Road landing, with Sand Portage Falls, Missicot Falls, 2 Sisters, Terminal Surfer, and powerful dam-release hydraulics. This is an expert-oriented Class IV route, not a recreational float.',
+    statusText:
+      'Use the Menominee River at Niagara gauge. Treat 600 to 1400 cfs as the guarded lower whitewater window, 1401 to 2400 cfs as advanced/expert water, 2401 to 5000 cfs as very powerful expert-only water, and 5001+ cfs as beyond the app recommendation.',
+    latitude: 45.77032,
+    longitude: -87.98863,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04065106',
+      provider: 'usgs',
+      siteId: '04065106',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Menominee River at Niagara, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04065106/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1400,
+      tooLow: 600,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Menominee River ME1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/2024/paddle/menominee-river.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The reach is influenced by Little Quinnesec Falls Dam releases, so same-day gauge and release checks matter more than season alone. Warm-weather commercial rafting and experienced private boating are common when dam releases put the Niagara gauge in range.',
+      difficulty: 'expert',
+      difficultyNotes:
+        'Wisconsin Trail Guide rates Missicot Falls as Class IV and repeatedly limits higher ranges to advanced or expert paddlers. Powerful holes at Terminal Surfer, 2 Sisters, Volkswagen Rock, and 4th Pier can punish mistakes even when the run is short.',
+      confidenceNotes:
+        'Confidence is strong for an expert whitewater add: Wisconsin Trail Guide documents the exact ME1 route, named public hand-carry landings, WGS84 endpoint coordinates, hazards, and a full Niagara-gauge flow ladder. USGS operates 04065106 Menominee River at Niagara on the same corridor downstream of Little Quinnesec Falls Dam, and Michigan DNR confirms Piers Gorge is part of the Menominee River State Recreation Area with whitewater kayaking.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '2.9 miles; Class IV',
+        note: 'Wisconsin Trail Guide publishes Menominee River ME1 from Mill Street Landing in Niagara to Piers Gorge Road Landing, with 2.9 miles, 40 feet of drop, and Missicot Falls as the most difficult rapid.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-menominee.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04065106 at Niagara',
+        note: 'USGS identifies 04065106 as Menominee River at Niagara, WI, 0.7 mile downstream from Little Quinnesec Falls Dam with real-time discharge data.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04065106/',
+      },
+      {
+        label: 'Lower runnable window',
+        value: '600 to 1400 cfs',
+        note: 'Wisconsin Trail Guide treats 600-800 cfs as low runnable and 800-1400 cfs as low to medium runnable, while warning that intermediate paddlers are pushed near the high end.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/menominee-river.html',
+      },
+      {
+        label: 'Upper ceiling',
+        value: '5000+ cfs not recommended',
+        note: 'The guide describes 3000-5000 cfs as powerful high water for paddlers who know the run at lower levels and says above 5000 cfs is rare, unusually high flow where paddling is not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/menominee-river.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.77032, -87.98863 to 45.75834, -87.93907',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Niagara Mill Street Landing and Piers Gorge Road Landing in the ME1 guide.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-menominee.pdf',
+      },
+      {
+        label: 'Public recreation context',
+        value: 'Menominee River State Recreation Area',
+        note: 'Michigan DNR describes the comanaged recreation area as a Wisconsin/Michigan Menominee River corridor destination with whitewater rafting and kayaking, including the Piers Gorge Unit.',
+        sourceUrl: 'https://www.michigan.gov/MenomineeRiver',
+      },
+      {
+        label: 'Hazards',
+        value: 'Missicot Falls, Terminal Surfer, 2 Sisters, dam releases',
+        note: 'Scout before committing. Wisconsin Trail Guide warns that water levels rise rapidly during dam releases and calls out powerful hydraulics, sticky holes, and Class III-IV features throughout the gorge.',
+        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-menominee.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Menominee River ME1 page',
+        url: 'https://wisconsintrailguide.com/2024/paddle/menominee-river.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Menominee River ME1 PDF',
+        url: 'https://wisconsintrailguide.com/2024/paddle/pdf/guide-menominee.pdf',
+      },
+      {
+        label: 'USGS 04065106 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04065106/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04065106 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04065106',
+        provider: 'usgs',
+      },
+      {
+        label: 'Michigan DNR Menominee River State Recreation Area',
+        url: 'https://www.michigan.gov/MenomineeRiver',
+      },
+      {
+        label: 'American Whitewater Piers Gorge reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2299/main',
+      },
+    ],
+  },
+  {
+    id: 'red-river-weed-dam-zeimers-falls',
+    slug: 'red-river-weed-dam-zeimers-falls',
+    name: 'Red River',
+    reach: "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
+    state: 'Wisconsin',
+    region: 'Northeast Wisconsin',
+    summary:
+      "Short Shawano County whitewater run from Weed Dam Powerhouse Landing through Second Drop, Monastery Falls, and Zeimer's Falls. This is a playboating-oriented Class III-IV route with dam-release swings, private-bank constraints, and a very short but consequential shuttle.",
+    statusText:
+      "Use the Red River at Morgan Road gauge as the corridor signal, then verify Weed Dam release conditions on site. Treat 150 to 500 cfs as the best intermediate whitewater window, 80 to 150 cfs as low and scrappy, 500 to 800 cfs as high, 800 to 1000 cfs as advanced-only, and 1000+ cfs as not recommended.",
+    latitude: 44.84168,
+    longitude: -88.76063,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04077630',
+      provider: 'usgs',
+      siteId: '04077630',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Red River at Morgan Road near Morgan, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04077630/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 150,
+      idealMax: 500,
+      tooLow: 80,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'Wisconsin Trail Guide Red River R1 suggested river levels',
+        url: 'https://wisconsintrailguide.com/paddle/red-river.html',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The route is influenced by Weed Dam Powerhouse releases below Lower Red Lake. Wisconsin Trail Guide says the Morgan Road gauge usually indicates the route but may overstate downstream flow during dry periods when releases are limited, so same-day visual checks at the powerhouse matter.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Wisconsin Trail Guide rates Monastery Falls as Class III-IV and Zeimer\'s Falls as Class III. Low water can be scrapey, while high water creates pushy holes and class IV waves; scout Monastery Falls from river right and avoid trespassing on private banks.',
+      confidenceNotes:
+        'Confidence is good for a guarded whitewater add: Wisconsin Trail Guide documents the exact R1 route, named hand-carry endpoints, WGS84 waypoint coordinates, hazards, and a complete Morgan Road gauge ladder. USGS operates 04077630 on the same river upstream of the dam system. Confidence is capped because Weed Dam releases can make the downstream run lower than the upstream gauge during dry periods, and the USGS current-conditions page observed during this pass showed recent data availability lagging behind the run date.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '2.2 miles; Class III-IV',
+        note: 'Wisconsin Trail Guide publishes Red River R1 from Weed Dam Powerhouse Landing to Zeimer\'s Falls Landing, with Second Drop, Monastery Falls, and Zeimer\'s Falls as the main features.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-red.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04077630 at Morgan Road',
+        note: 'USGS identifies 04077630 as Red River at Morgan Road near Morgan, WI, with discharge records and a same-river gauge upstream of the Weed Dam / Lower Red Lake release corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04077630',
+      },
+      {
+        label: 'Preferred whitewater window',
+        value: '150 to 500 cfs',
+        note: 'Wisconsin Trail Guide treats 150-250 cfs as low-to-medium runnable flow and 250-500 cfs as medium runnable flow where Monastery Falls and Zeimer\'s Falls produce fun waves.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/red-river.html',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '1000+ cfs not recommended',
+        note: 'The guide treats 800-1000 cfs as advanced-only and says above 1000 cfs is rare, unusually high, and not recommended.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/red-river.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: "44.84168, -88.76063 to 44.84287, -88.72289",
+        note: "Wisconsin Trail Guide's Red River R1 PDF publishes NAD83 / WGS84 coordinates for Weed Dam Powerhouse Landing and Zeimer's Falls Landing.",
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-red.pdf',
+      },
+      {
+        label: 'Dam-release context',
+        value: 'Weed Dam / Lower Red Lake',
+        note: 'Wisconsin Trail Guide says a horn sounds before a release and that water levels can change quickly below the powerhouse.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/red-river.html',
+      },
+      {
+        label: 'Supplemental trip report',
+        value: 'Red River Park to Highway A at 180 cfs',
+        note: 'Wisconsin River Trips documents the overlapping lower Red River whitewater corridor at 180 cfs on the Morgan gauge and notes convenient public access and scouting/portage context near Monastery and Zeimer-style drops.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/red-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin Trail Guide Red River R1 page',
+        url: 'https://wisconsintrailguide.com/paddle/red-river.html',
+      },
+      {
+        label: 'Wisconsin Trail Guide Red River R1 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-red.pdf',
+      },
+      {
+        label: 'USGS 04077630 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04077630/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 04077630 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04077630',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin River Trips Red River',
+        url: 'https://www.wisconsinrivertrips.com/segments/red-river',
+      },
+      {
+        label: 'Hydropower Reform Coalition Weed Dam project',
+        url: 'https://hydroreform.org/hydro-project/weed-p-2464/',
+      },
+    ],
+  },
+  {
+    id: 'jump-river-wayside-park-sheldon',
+    slug: 'jump-river-wayside-park-sheldon',
+    name: 'Jump River',
+    reach: 'Wayside Park / Highway 73 to Haley Park',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Lower Jump River day from the Highway 73 Wayside Park access near the village of Jump River to Haley Park in Sheldon. Expect clear water, frequent Class I riffles, boulder gardens, wooded banks, and a direct USGS gauge at the take-out.',
+    statusText:
+      'Use the Jump River at Sheldon gauge. Treat about 200 to 400 cfs as the best normal window, 101 to 200 cfs as low but likely navigable, 501 to 1000 cfs as very high and pushier, and 1001+ cfs as beyond the broad recreational recommendation.',
+    latitude: 45.354054,
+    longitude: -90.788597,
+    gaugeSource: {
+      id: 'usgs-05362000',
+      provider: 'usgs',
+      siteId: '05362000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jump River at Sheldon, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 400,
+      tooLow: 100,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Jump River lower-corridor gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/jump-river/sheldon',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows are most reliable. The Jump can be frustratingly shallow because it is wide and rocky, but the lower river also rises quickly after rain; recheck the Sheldon gauge before driving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I riffles and boulder gardens, with occasional Class II-style push at high water. This is not a technical whitewater run, but low-water scraping, cold water, and faster race-level flows make boat control and scouting judgment useful.',
+      confidenceNotes:
+        'Confidence is good but intentionally conservative: Rusk County publishes this Highway 73-to-Sheldon paddling route with endpoint coordinates and public access notes, Wisconsin River Trips documents the exact Wayside Park-to-Haley Park trip and ties it to the Jump River at Sheldon gauge, and its adjacent lower-Jump route provides the usable CFS ladder. The exact 2026 Wayside-to-Sheldon report was paddled at unusually high race flow, so the app uses the lower-corridor ladder rather than treating 2200 cfs as normal recreational water.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Highway 73 to Sheldon',
+        note: 'Rusk County Tourism publishes the Jump River Highway 73 to Sheldon trip, describes a boat launch just east of the village of Jump River, and says the paddle to Sheldon takes less than three hours when run straight through.',
+        sourceUrl: 'https://ruskcountywi.com/jump-river-hwy-73-to-sheldon/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.354054, -90.788597 to 45.307764, -90.955985',
+        note: 'Rusk County publishes coordinates for the Jump River Access and Sheldon Access on the official Highway 73-to-Sheldon route page.',
+        sourceUrl: 'https://ruskcountywi.com/jump-river-hwy-73-to-sheldon/',
+      },
+      {
+        label: 'Exact route report',
+        value: '11.1 miles from Wayside Park to Haley Park',
+        note: 'Wisconsin River Trips documents the exact Wayside Park / Highway 73 to Haley Park / Sheldon route and describes both accesses as good, unobstructed public launch and take-out options.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/jump-river/wayside-park-to-sheldon',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05362000',
+        note: 'USGS operates the Jump River at Sheldon gauge immediately in the take-out corridor, and Wisconsin River Trips uses that gauge for the exact Wayside-to-Sheldon and adjacent Haley-to-County-G route reports.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+      },
+      {
+        label: 'Usable flow ladder',
+        value: '101-400 cfs normal runnable range',
+        note: 'Wisconsin River Trips describes the local Sheldon gauge as accurate for the adjacent lower route and estimates 0-100 cfs as likely too shallow, 101-200 cfs as low but likely navigable, 201-300 cfs as average, and 301-400 cfs as high but likely okay.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/jump-river/sheldon',
+      },
+      {
+        label: 'High-water caution',
+        value: '1001+ cfs maybe too high',
+        note: 'The same Wisconsin River Trips ladder treats 501-1000 cfs as extremely high and 1001+ cfs as maybe too high for recreational paddling; the exact Wayside-to-Sheldon race report at 2200 cfs confirms that water can be very fast at extreme levels.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/jump-river/wayside-park-to-sheldon',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Rusk County Jump River Highway 73 to Sheldon',
+        url: 'https://ruskcountywi.com/jump-river-hwy-73-to-sheldon/',
+        provider: 'local',
+      },
+      {
+        label: 'Rusk County Jump River route map PDF',
+        url: 'https://www.ruskcountywi.com/download/jump-river-hwy73-sheldon.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Jump River - Wayside Park to Sheldon',
+        url: 'https://www.wisconsinrivertrips.com/segments/jump-river/wayside-park-to-sheldon',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Jump River - Sheldon',
+        url: 'https://www.wisconsinrivertrips.com/segments/jump-river/sheldon',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05362000 Jump River at Sheldon',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05362000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'red-cedar-river-tom-prince-russian-slough',
+    slug: 'red-cedar-river-tom-prince-russian-slough',
+    name: 'Red Cedar River',
+    reach: 'Tom Prince Memorial Park to Russian Slough County Park',
+    state: 'Wisconsin',
+    region: 'Northwest Wisconsin',
+    summary:
+      'Fast northwest-Wisconsin Red Cedar day below Colfax, with easy Class I riffles, gravel bars, tall sand banks, and a direct Colfax gauge ladder. The route is scenic but strainer-sensitive, so it is best treated as an intermediate moving-water run.',
+    statusText:
+      'Use the Red Cedar River near Colfax gauge. Treat about 401 to 600 cfs as the best normal window, below 400 cfs as low but still navigable, 601 to 800 cfs as pushy, and 801+ cfs as expert-only or beyond the broad app recommendation because of strainers.',
+    latitude: 45.0026972,
+    longitude: -91.729812,
+    gaugeSource: {
+      id: 'usgs-05367500',
+      provider: 'usgs',
+      siteId: '05367500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Red Cedar River Near Colfax, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05367500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 401,
+      idealMax: 600,
+      tooLow: 400,
+      tooHigh: 801,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Red Cedar River - Colfax gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/red-cedar-river/colfax',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin River Trips says the river rarely gets below 400 cfs, with 401-600 cfs typical for fall and 601-800 cfs a common but pushier summer depth. Spring and storm runoff can quickly move this reach into high-water strainer territory.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The rapids are mostly easy Class I riffles, but the current is deceptively fast and downed trees create frequent strainers. High water raises the consequence of missed lines around islands, side channels, and wooded banks.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-source Wisconsin add: Wisconsin River Trips documents the exact Tom Prince Memorial Park to Russian Slough County Park route, route distance, hazards, access descriptions, and a full Red Cedar near Colfax gauge ladder; USGS operates the direct same-river gauge downstream in the route corridor; Paddling.com and the WRT shuttle map resolve the Tom Prince coordinate; the WRT shuttle map resolves the Russian Slough coordinate; and Dunn County / Wisconsin DNR corroborate Russian Slough as public Red Cedar corridor land. The main caveat is that Dunn County says Russian Slough has no developed boat landing or amenities, so the app treats it as a rustic public take-out that must be scouted and avoided during seasonal DNR closures.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Tom Prince Memorial Park',
+        note: 'Wisconsin River Trips describes Tom Prince Memorial Park Landing in Colfax as the upstream Red Cedar launch for this route, and Paddling.com lists Tom Prince Memorial Park on the Red Cedar River with launch-point coordinates.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/red-cedar-river/colfax',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Russian Slough County Park',
+        note: 'Wisconsin River Trips uses Russian Slough County Park as the route take-out and describes the signed dirt-road approach. Dunn County confirms Russian Slough is county-owned public land at the mouth of the Red Cedar River, while warning it has no amenities or developed boat landing and may close in spring for walleye spawning.',
+        sourceUrl: 'https://www.co.dunn.wi.us/parks',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Tom Prince 45.0026972, -91.729812; Russian Slough 44.9933827, -91.8095487',
+        note: 'The Wisconsin River Trips shuttle map resolves the planned endpoints; Paddling.com independently corroborates Tom Prince Memorial Park at 45.002775, -91.729783.',
+        sourceUrl: 'https://paddling.com/paddle/locations/tom-prince-memorial-park',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05367500',
+        note: 'USGS operates Red Cedar River near Colfax, WI, downstream on the same river corridor and Wisconsin River Trips uses that exact gauge for the route ladder.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05367500/',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '401-600 cfs good depth',
+        note: 'Wisconsin River Trips gives route-specific Colfax-gauge guidance: under 400 cfs still navigable, 401-600 cfs good depth, 601-800 cfs a bit high and pushy, 801-1200 cfs expert-only because of strainers, and 1201+ cfs maybe too high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/red-cedar-river/colfax',
+      },
+      {
+        label: 'Route character',
+        value: '7.7 miles with Class I riffles',
+        note: 'Wisconsin River Trips documents the Tom Prince to Russian Slough route as 7.7 miles with fast current, roughly 30 easy Class I pitches, gravel bars, a major sand bank, and a strainer warning around side channels.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/red-cedar-river/colfax',
+      },
+      {
+        label: 'DNR access context',
+        value: 'Notable public accesses include Russian Slough',
+        note: 'Wisconsin DNR\'s 2024 Red Cedar River survey names Felland Park, Dobbs Landing, and Russian Slough among notable public accesses on the Red Cedar River in Dunn County.',
+        sourceUrl: 'https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/DunnRedCedarRiver2024Survey.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Red Cedar River - Colfax',
+        url: 'https://www.wisconsinrivertrips.com/segments/red-cedar-river/colfax',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05367500 Red Cedar River near Colfax',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05367500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Dunn County parks - Russian Slough',
+        url: 'https://www.co.dunn.wi.us/parks',
+        provider: 'local',
+      },
+      {
+        label: 'Paddling.com Tom Prince Memorial Park',
+        url: 'https://paddling.com/paddle/locations/tom-prince-memorial-park',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin DNR 2024 Red Cedar River survey',
+        url: 'https://dnr.wisconsin.gov/sites/default/files/topic/Fishing/DunnRedCedarRiver2024Survey.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-eau-pleine-river-cherokee-march-rapids',
+    slug: 'big-eau-pleine-river-cherokee-march-rapids',
+    name: 'Big Eau Pleine River',
+    reach: 'Cherokee Park to March Rapids Park',
+    state: 'Wisconsin',
+    region: 'Central Wisconsin',
+    summary:
+      'Rocky central-Wisconsin day from Cherokee County Park to March Rapids Park, linking two strong Big Eau Pleine legs with clear water, granite boulder gardens, frequent Class I-II rapids, and county-park access at both ends.',
+    statusText:
+      'Use the Big Eau Pleine River at Stratford gauge. Treat about 151 to 250 cfs as the best normal window, 101 to 150 cfs as runnable but bumpy, 251 to 300 cfs as high for experienced paddlers, and 301+ cfs as whitewater-only or beyond the broad recommendation.',
+    latitude: 44.9046882,
+    longitude: -90.2226348,
+    gaugeSource: {
+      id: 'usgs-05399500',
+      provider: 'usgs',
+      siteId: '05399500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Eau Pleine River at Stratford, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05399500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 151,
+      idealMax: 250,
+      tooLow: 100,
+      tooHigh: 301,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Big Eau Pleine River gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/hazelnut-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This is a rain-window river. Wisconsin River Trips repeatedly describes the Big Eau Pleine as a Goldilocks stream that rises and drains quickly; spring and the day or two after rain are the most likely runnable windows.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Frequent Class I rapids, boulder gardens, and several Class II or Class II+ rapids make this an intermediate moving-water route. At higher water, the rapids get pushy quickly and should be treated as a whitewater decision rather than a casual float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Wisconsin community-source add: Marathon County confirms Cherokee Park as a public county park on the Big Eau Pleine River, public topo/USGS-derived sources resolve both county-park coordinates, Wisconsin River Trips documents Cherokee-to-Hazelnut and Hazelnut-to-March Rapids as adjacent route legs, and both pages use the direct Big Eau Pleine River at Stratford gauge. The main caveat is that the Stratford gauge is downstream and the river is flashy, so the app keeps the recommendation conservative and emphasizes same-day checks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Cherokee Park',
+        note: 'Marathon County lists Cherokee Park at 108042 County Road N in Colby as a 69-acre county park with fishing access, vault restrooms, trails, and the Big Eau Pleine River running through the park.',
+        sourceUrl: 'https://www.marathoncounty.gov/Home/Components/FacilityDirectory/FacilityDirectory/32/60',
+      },
+      {
+        label: 'Public take-out',
+        value: 'March Rapids Park',
+        note: 'Wisconsin River Trips describes March Rapids Park as a public park take-out with pull-off space, outhouses, and fishing paths above and below March Rapids.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/hazelnut-rd',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Cherokee 44.9046882, -90.2226348; March Rapids 44.8507988, -90.1498549',
+        note: 'AnyplaceAmerica publishes USGS/topographic-place coordinates for Cherokee Park and March Rapids County Park; Marathon County corroborates Cherokee Park as the public access park.',
+        sourceUrl: 'https://www.anyplaceamerica.com/directory/wi/marathon-county-55073/parks/cherokee-park-1562984/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05399500',
+        note: 'USGS operates the Big Eau Pleine River at Stratford gauge downstream on the same river, and Wisconsin River Trips uses this gauge for the Cherokee, Hazelnut, and March Rapids route family.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05399500/',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '151-250 cfs best normal window',
+        note: 'Wisconsin River Trips gives route-family guidance: under 100 cfs likely too shallow, 101-150 cfs runnable with bumps, 151-200 cfs good, 201-250 cfs also good, 251-300 cfs high but manageable for experienced paddlers, and 301+ cfs whitewater/high-water territory.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/hazelnut-rd',
+      },
+      {
+        label: 'Route character',
+        value: 'About 9.2 miles with many rapids',
+        note: 'Wisconsin River Trips rates Cherokee-to-Hazelnut as a fantastic 3.1-mile leg with clear water and boulder gardens, then Hazelnut-to-March Rapids as a 6.1-mile wooded leg with multiple boulder gardens and significant Class II rapids.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/cherokee-park',
+      },
+      {
+        label: 'High-water caution',
+        value: '301+ cfs changes the audience',
+        note: 'Wisconsin River Trips says 301-400 cfs is high for recreational paddlers but good for whitewater paddlers, 401-500 cfs is likely only for whitewater paddlers, and 501+ cfs is very high and only for very experienced whitewater paddlers.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/hazelnut-rd',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Marathon County Cherokee Park',
+        url: 'https://www.marathoncounty.gov/Home/Components/FacilityDirectory/FacilityDirectory/32/60',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Big Eau Pleine - Cherokee Park',
+        url: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/cherokee-park',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Big Eau Pleine - Hazelnut Road',
+        url: 'https://www.wisconsinrivertrips.com/segments/big-eau-pleine-river/hazelnut-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'AnyplaceAmerica Cherokee Park coordinates',
+        url: 'https://www.anyplaceamerica.com/directory/wi/marathon-county-55073/parks/cherokee-park-1562984/',
+        provider: 'local',
+      },
+      {
+        label: 'AnyplaceAmerica March Rapids County Park coordinates',
+        url: 'https://www.anyplaceamerica.com/directory/wi/marathon-county-55073/parks/march-rapids-county-park-1844190/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05399500 Big Eau Pleine River at Stratford',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05399500/',
+        provider: 'usgs',
       },
     ],
   },

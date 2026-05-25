@@ -1135,7 +1135,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(thresholdFactor?.value).toBe('Official numeric guidance');
   });
 
-  it('treats Sugar River above 60 cfs as an above-minimum easy-day candidate with capped upside', () => {
+  it('treats Sugar River Belleville inside the corridor ladder as an ideal easy-day candidate', () => {
     expect(sugarRiver).toBeDefined();
 
     const result = scoreRiverCondition({
@@ -1148,9 +1148,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
       now,
     });
 
-    expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeLessThanOrEqual(74);
-  expect(result.rating).toBe('Fair');
+    expect(result.gaugeBand).toBe('ideal');
+    expect(result.rating).toBe('Strong');
   });
 
   it('treats the lower Sugar River segment above 60 cfs as another minimum-met day rather than a calibrated sweet spot', () => {

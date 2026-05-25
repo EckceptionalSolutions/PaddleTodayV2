@@ -93,6 +93,15 @@ const routeGalleryImages: Record<string, string[]> = {
   'milwaukee-river-newburg-fredonia': [
     '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
   ],
+  'grand-river-harpersfield-hidden-valley': [
+    '/gallery/grand-river-harpersfield-hidden-valley/grand-river-harpersfield-covered-bridge.jpg',
+  ],
+  'vermilion-river-schoepfle-mill-hollow': [
+    '/gallery/vermilion-river-schoepfle-mill-hollow/vermilion-river-birmingham.jpg',
+  ],
+  'la-crosse-river-veterans-holiday-heights': [
+    '/gallery/la-crosse-river-veterans-holiday-heights/la-crosse-river-trail-bridge.jpg',
+  ],
 };
 
 const placeholderImages = [

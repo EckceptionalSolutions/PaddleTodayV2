@@ -1,7 +1,49 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-25T15:47:00Z",
+  "updatedAt": "2026-05-25T23:55:44Z",
   "notes": [
+    "2026-05-25 18:55 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked, and the remaining Wisconsin audit gaps were duplicate or blocked, so this pass added Red Cedar River - Tom Prince Memorial Park to Russian Slough County Park. Used Wisconsin River Trips' exact Red Cedar Colfax route report, route-specific Colfax gauge ladder, hazards, access notes, and shuttle coordinates; USGS 05367500 Red Cedar River near Colfax as the direct same-river live gauge; Paddling.com for Tom Prince coordinate corroboration; Dunn County and Wisconsin DNR for Russian Slough / Red Cedar public-access context. No route-gallery asset was added because the targeted Commons/federal/local search found no clearly reusable representative route photo.",
+    "2026-05-25 19:42 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Big Eau Pleine River - Cherokee Park to March Rapids Park. Used Marathon County Cherokee Park access context, AnyplaceAmerica/USGS-topo endpoint coordinates for Cherokee Park and March Rapids County Park, Wisconsin River Trips adjacent Cherokee-to-Hazelnut and Hazelnut-to-March Rapids route reports plus the shared Stratford-gauge ladder, and USGS 05399500 Big Eau Pleine River at Stratford as the direct live same-river gauge. No route-gallery asset was added because no clearly reusable representative route photo was found.",
+    "2026-05-25 18:34 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with another targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results still confirm Salmo Pond access and local creek context but not corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 19:18 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Jump River - Wayside Park / Highway 73 to Haley Park in Sheldon. Used Rusk County Tourism's official Highway 73-to-Sheldon route page/PDF for public access context and endpoint coordinates; Wisconsin River Trips' exact Wayside Park-to-Sheldon report plus adjacent lower-Jump Sheldon-gauge ladder for practical level guidance; and USGS 05362000 Jump River at Sheldon as the direct live gauge at the take-out corridor. No route-gallery asset was added because the fresh search found route/blog photos and broad map/context sources but no clearly reusable exact-route photo.",
+    "2026-05-25 18:38 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked by the Scherbel/Salmo obstruction report, and weak proxy-gauge leads were skipped. Added Pike River - Yellow Bridge Landing to Grogan Road Landing as a guarded advanced follow-on to the existing Amberg-to-Yellow-Bridge route. Used Wisconsin Trail Guide's Pike page/PDF for the 4.8-mile lower route shape, WGS84 endpoint coordinates, Yellow Bridge Falls hazard notes, and Amberg-gauge ladder; used USGS 04066500 Pike River at Amberg as the same-river live gauge. No gallery asset was added because the reusable USGS Pike image is science/context rather than representative route scenery, and no rights-clean lower-route photo was selected.",
+    "2026-05-25 17:54 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked, and the first Peshtigo Roaring Rapids follow-up was already present, so this pass added Peshtigo River - CCC Bridge to Burnt Bridge Landing. Used Wisconsin Trail Guide's P2 route page/PDF for the 9.2-mile route, Class I-II hazards, 4.5-7.5 ft Wabeno gauge ladder, and downstream-gauge caveat; Miles Paddled's May 2024 exact-route report for endpoint GPS coordinates, access/shuttle context, and 5.2 ft / 892 cfs practical level support; and USGS 04067958 Peshtigo River Near Wabeno as the direct same-river live gauge. No route-gallery asset was added because the available route photos are guide/blog imagery without clear reusable rights, while Commons/federal searches did not produce a clearly representative CCC-to-Burnt-Bridge image.",
+    "2026-05-25 17:57 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, current route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a seventeenth targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results still confirm Salmo Pond access but not corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 17:33 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, current route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a sixteenth targeted clearance search. Dane County still confirms Salmo Pond canoe/kayak access, but Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results did not show corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 17:23 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, current route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a fifteenth targeted clearance search. Dane County still confirms Salmo Pond canoe/kayak access, but Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results did not show corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 17:13 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, current route data, trip details, image audit, and the structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a fourteenth targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results still confirm only Salmo Pond access/fishing and nearby conservation context, not route clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 16:54 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, existing Wisconsin route data, trip details, gallery audit, and the structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a twelfth targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results still only confirm access/fishing context, not corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 16:45 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Wisconsin River - Gotham / Buena Vista Landing to Muscoda Landing West. Used Wisconsin River Trips' exact 7.9-mile Gotham-to-Muscoda route report; Wisconsin Trail Guide's LWSR2 WGS84 endpoint coordinates, access notes, and Muscoda-gauge level ladder; Wisconsin DNR's Lower Wisconsin public-access list; and USGS 05407000 Wisconsin River at Muscoda as the direct same-river live gauge. No route-gallery asset was added because the fresh photo search found Commons/category and federal/local leads but no clearly representative exact-route reusable photo.",
+    "2026-05-25 16:24 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Chippewa River - County A Bridge to Highway 8 Landing. Used Wisconsin Trail Guide's exact C3 route, access descriptions, map/PDF notes, 9.0-mile distance, high-water cautions, and 400 cfs / 1.5 ft Bruce-gauge minimum; USGS 05356500 Chippewa River Near Bruce, WI as the direct same-river live gauge; and Rusk County Tourism's Imalone Boat Access and Highway 8 Canoe Landing coordinates. No route-gallery asset was added because the fresh photo search found only broad Chippewa River Commons/local imagery, not a clearly representative exact-route reusable photo.",
+    "2026-05-25 16:14 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and structured ledger. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access are already implemented and marked added, so this pass avoided duplicates. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with an eleventh targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results only confirm access/fishing context, not corridor clearance. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 16:08 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked, and Menominee/Piers Gorge was already present, so this pass added Red River - Weed Dam Powerhouse Landing to Zeimer's Falls Landing. Used Wisconsin Trail Guide's exact R1 route, WGS84 endpoint coordinates, access descriptions, hazards, and full Morgan Road-gauge ladder; USGS 04077630 Red River at Morgan Road near Morgan, WI as the direct same-river gauge; Wisconsin River Trips as overlapping-corridor supplemental context; and Hydropower Reform Coalition project metadata for Weed Dam. No gallery asset was added because the fresh search found route/blog/guide imagery without clear reusable rights, and the USGS current-conditions page showed data availability lagging during this pass.",
+    "2026-05-25 16:35 America/Chicago Wisconsin reconciliation pass. No duplicate app route was added because the prompted Bark River and Sugar River Highway X candidates, Badfish Creek, Millville-to-Wyalusing, Wolf Hollister, Baraboo Glenville-to-Luebke, and other clean Wisconsin backlog items were already implemented. Completed one existing Wisconsin route instead: Sugar River - Belleville Community Park to County Road X. Upgraded the app route from a minimum-only 60 cfs model to a bounded Verona-gauge model using Wisconsin River Trips' Belleville corridor ladder, preserved Miles Paddled's exact Belleville-to-County-X support and 60 cfs minimum, added the missing structured ledger record, and left gallery unwired because the audit still has no approved reusable route image.",
+    "2026-05-25 15:46 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek / Bark 83 / Earl Park remained blocked or duplicate, so this pass added Black River - Melrose Landing to North Bend Landing. Used Wisconsin River Trips' exact 10.1-mile route, hazards, access notes, and full Black River Falls-gauge ladder; USGS 053813595 Black River DS ST Hwy 54 at Black River Falls as the direct same-river live gauge; Wisconsin DNR support for maintained Melrose and North Bend access; and North Bend Canoe Rental corroboration of the public Melrose-to-North-Bend day trip. No gallery asset was added because the fresh photo search found route/livery/blog imagery without clear reusable rights.",
+    "2026-05-25 15:38 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Sugar River - Highway 69 to Paoli as the next clean Wisconsin route. Used Dane County Parks' Highway 69-to-Paoli public paddle/access context, Falk Wells Highway 69 canoe/kayak launch support, MilesPaddled's exact Paoli endpoint coordinates and Verona-gauge observations, Wisconsin River Trips' upper-Sugar gauge/high-water cautions, and USGS 05435950 Sugar River near Verona as the direct same-river live gauge. No route-gallery asset was added because the usable route photos found were community/blog/event/tourism images without clear reusable asset-level rights.",
+    "2026-05-25 15:25 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Peshtigo River - Goodman Park Access to Farm Dam Public Landing as the next clean Wisconsin route. Used Wisconsin Trail Guide's exact P4 route, WGS84 endpoint coordinates, Goodman/McClintock/Farm Dam access details, and full County C gauge ladder; USGS 04067958 Peshtigo River Near Wabeno as the direct same-river gauge about 4-4.6 miles downstream; Wisconsin DNR Governor Earl Peshtigo River State Forest paddling context; and no gallery asset because the fresh photo search found Wisconsin Historical Society / county / guide imagery without clear reusable rights.",
+    "2026-05-25 15:16 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Wisconsin River - Veterans Memorial Park to Nepco Creek / County Z as a guarded Wisconsin Rapids route. Used Wisconsin River Trips' exact July 2025 route report, dam-portage notes, hazard context, and full Wisconsin Rapids-gauge ladder; USGS 05400760 Wisconsin River at Wisconsin Rapids as the direct same-corridor live gauge; and City of Wisconsin Rapids / Travel Wisconsin support for Veterans Memorial Park as a public kayak/canoe launch. No gallery asset was added because the photo search found no clearly reusable exact-route image and Wisconsin River Trips photos are not reuse-cleared.",
+    "2026-05-25 15:05 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Popple River - Morgan Lake Road Bridge to Highway 101 Wayside as a guarded Florence County Wild River whitewater route. Used American Whitewater's exact Morgan Lake Road-to-Highway-101 reach, Florence County Wild Rivers access support, Wisconsin Trail Guide's Popple PO2 gauge ladder, USGS 04063700 Popple River near Fence at the Morgan Lake Road / FR 2159 bridge as the direct live gauge, and Miles Paddled's Highway 101 take-out coordinate. No gallery asset was added because the fresh search found broad Pine-Popple or upstream imagery but no clearly representative rights-clean route photo.",
+    "2026-05-25 14:54 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Pine River - County N Bridge Landing to WEPCO Landing #5 in Florence County. Used Wisconsin Trail Guide's PN1 route, WGS84 endpoint coordinates, named landings, route character, and 1.75 ft / 150 cfs minimum; USGS 04064500 Pine River below Pine River Powerplant near Florence as the direct live gauge at the County N put-in bridge; Wisconsin DNR and Travel Wisconsin Pine-Popple Wild Rivers context; and no gallery asset because the rights-clean Commons LaSalle Falls photo is upstream waterfall context rather than representative PN1 route scenery.",
+    "2026-05-25 14:33 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, live route data, trip details, route gallery, image audit, and the structured ledger. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access are already implemented and marked added. Rechecked Black Earth Creek - Cross Plains to Salmo Pond County Park with a tenth targeted clearance search; Dane County still confirms Salmo Pond has a canoe/kayak launch and Wisconsin River Trips still provides the direct Cross Plains gauge ladder, but no newer source cleared the July 2, 2025 Scherbel/Salmo full-blockage report. Black Earth remains research_later and no gallery asset was added.",
+    "2026-05-25 14:24 America/Chicago Wisconsin route pass. No app route added. Re-read the automation memory, route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, and the next apparent Wisconsin gaps checked from the audit were also already present in app data and ledger. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a ninth targeted clearance search. Dane County still confirms Salmo Pond has an active canoe/kayak launch, Wisconsin River Trips still provides a strong direct Cross Plains gauge ladder, and the search found only access/fishing context rather than newer route-clearance evidence. The July 2, 2025 Scherbel/Salmo full-blockage report remains the controlling blocker, so Black Earth stays research_later and no gallery asset was added.",
+    "2026-05-25 14:05 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Pike River - Amberg Highway 141 Landing to Yellow Bridge Landing as a guarded Marinette County whitewater route. Used Wisconsin Trail Guide's exact PK1 route, WGS84 endpoint coordinates, named hand-carry landings, hazards, and full 2.9-5.0 ft Amberg-gauge ladder; USGS 04066500 Pike River at Amberg as the direct same-river live gauge; and a public-domain USGS Pike River image lead without wiring a gallery asset because it is not representative route scenery.",
+    "2026-05-25 13:54 America/Chicago Wisconsin route completion pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remains blocked, so this pass completed the next Wisconsin documentation gap: Kinnickinnic River - Glen Park to Kinnickinnic State Park. The route already existed in app data and gallery wiring; this pass upgraded it from minimum-only to a bounded River Falls gauge model using MilesPaddled's 125 cfs scrape-heavy / 175 cfs practical-minimum exact-route notes plus Wisconsin River Trips' 250+ cfs pushy high-water caution, and added the missing structured ledger record. Existing Commons photo remains wired through route-gallery.",
+    "2026-05-25 13:44 America/Chicago Wisconsin route pass. No app route added. Re-read the automation memory, route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, so this pass avoided duplicates. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with an eighth targeted clearance search. Dane County still confirms Salmo Pond has an active canoe/kayak launch, and Wisconsin River Trips still provides a strong direct Cross Plains gauge ladder, but no newer source cleared the July 2, 2025 Scherbel/Salmo full-blockage report. Black Earth stays research_later; no gallery asset added.",
+    "2026-05-25 13:35 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked by the 2025 Salmo/Scherbel obstruction report, so this pass added Bois Brule River - Pine Tree Landing to Highway 13 Canoe Landing. Used Wisconsin DNR Brule River paddling rules/time-between-landings, Wisconsin Trail Guide BB3 endpoint coordinates, landing notes, hazards, and 125/200-350/600 cfs ladder, American Whitewater reach 2280 corroboration, and USGS 04025500 Bois Brule River at Brule as the same-river live gauge. No route-gallery asset was added because the fresh photo search found no clearly reusable exact-route image.",
+    "2026-05-25 13:15 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked by the 2025 Salmo/Scherbel obstruction report, so this pass added Bois Brule River - Highway 13 Canoe Landing to Mouth Access. Used Wisconsin DNR Brule River paddling rules/time-between-landings, DNR public boat-access records for Highway 13 and Mouth Access context, Wisconsin Trail Guide BB4 endpoint/route notes and 125/200-350/600 cfs ladder, and USGS 04025500 Bois Brule River at Brule as the same-river live gauge. No route-gallery asset was added because the public-domain USGS image is a streamgage rather than route scenery and no clearly reusable exact-route photo was selected.",
+    "2026-05-25 12:56 America/Chicago Wisconsin implementation pass. The prompted Bark River and Sugar River routes were already implemented and Black Earth Creek remains blocked, so this pass added Brule River - Highway 139/189 Bridge Landing to Forest Road 2150 Landing. Used Wisconsin Trail Guide's exact B2 route, endpoint WGS84 coordinates, hand-carry landing/access notes, hazards, primitive campsite notes, and 220 cfs / 3.5 ft minimum suggested flow; USGS 04060993 Brule River at US Highway 2 near Florence as the same-river live gauge; American Whitewater reach 2282 as same-reach gauge corroboration; and Travel Wisconsin for public county/forest-service-road access context. No gallery asset was added because no clearly reusable route photo was selected.",
+    "2026-05-25 12:46 America/Chicago Wisconsin implementation pass. The prompted Bark River and Sugar River candidates were already implemented, and Black Earth Creek remains blocked by the 2025 Scherbel/Salmo obstruction report, so this pass added Waupaca River - County Highway Q to Brainard's Bridge Park. Used Visit Waupaca County's exact Cobbtown Road/Hwy Q-to-Brainard's Bridge route and public access notes; Miles Paddled endpoint GPS points and same-route gauge observations; Wisconsin River Trips Waupaca River Hwy Q level/hazard guidance; USGS 04081000 Waupaca River Near Waupaca as the same-river live gauge; and City of Waupaca Brainard's Bridge Park access context. No gallery asset was added because the available tourism/blog images did not have clear reusable rights.",
+    "2026-05-25 12:36 America/Chicago Wisconsin implementation pass. The prompted Bark River and Sugar River candidates were already implemented, and Black Earth Creek remains blocked by the 2025 Scherbel/Salmo obstruction report, so this pass added Kickapoo River - Rockton Landing to La Farge Landing. Used MilesPaddled's exact Kickapoo River II route, endpoint GPS points, and La Farge-gauge 60-100 cfs scrape-free guidance; Wisconsin River Trips' exact Rockton-to-La Farge report at 112 cfs good depth; USGS 05408000 as the direct same-river live gauge near the take-out; and Kickapoo Valley Reserve / DNR access and flash-flood context. No separate route-gallery asset was added; the audit records a rights-clean broad Kickapoo Valley Commons lead already used upstream.",
+    "2026-05-25 12:23 America/Chicago Wisconsin route pass. Re-read automation memory path, existing route data, trip details, gallery wiring, image audit, and the structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, so this pass did not duplicate them. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a seventh targeted clearance search. Dane County still confirms Salmo Pond has a canoe/kayak launch, and Wisconsin River Trips still provides the route and gauge ladder, but no newer source cleared the July 2, 2025 Scherbel/Salmo blockage report. No app route or gallery asset was added.",
+    "2026-05-25 12:16 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Eau Claire River - Bear Lake Road Bridge Landing to County N Bridge Landing as a guarded Marathon County whitewater route. Used Wisconsin Trail Guide's exact EC1 route, WGS84 endpoint coordinates, named hand-carry bridge landings, and 300/600-1500/2000 cfs Kelly-gauge ladder; USGS 05397500 Eau Claire River at Kelly as the direct same-river live gauge; Wisconsin River Trips as supplemental upper-corridor access/hazard context; and a Commons Dells of the Eau Claire image lead without wiring a gallery asset.",
+    "2026-05-25 12:36 America/Chicago Wisconsin route pass. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and the structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with another targeted current search. Dane County still confirms Salmo Pond has a canoe/kayak launch, and Wisconsin River Trips still provides the route and gauge ladder, but no newer source cleared the July 2, 2025 Scherbel/Salmo blockage report. No app route or gallery asset was added.",
+    "2026-05-25 11:53 America/Chicago Wisconsin route reconciliation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remains blocked, so this pass completed the next Wisconsin documentation gap: Wolf River - Highway 52 at Lily to West Hollister Road was already present in app data and image audit but missing from the structured ledger. Recorded Wisconsin Trail Guide's exact Lily-to-Hollister route, 250 cfs minimum, 500-1000 cfs very-good band, 2000+ cfs no-go guidance; USGS 04074950 Wolf River at Langlade as the direct live gauge; Wisconsin DNR boat-access context; American Whitewater corroboration; and no-approved-photo status.",
+    "2026-05-25 11:45 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Baraboo River - Haskins Park to Glenville Landing as a short Baraboo Rapids route. Used Miles Paddled's exact Haskins-to-Highway-113 route, endpoint GPS points, and 350 cfs same-route minimum with 473-600 cfs observed/recommended support; USGS 05405000 Baraboo River Near Baraboo as the direct live gauge; Sauk County/Baraboo River Corridor Plan support for the Haskins ADA kayak launch and Glenville Landing; and Wisconsin River Trips/Sauk County context for route character. No gallery asset was added because reusable image search found generic Baraboo/flood assets rather than a clearly representative exact-route photo.",
+    "2026-05-25 11:34 America/Chicago Wisconsin route reconciliation pass. The prompt's Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remains blocked, so this pass completed the next Wisconsin documentation gap: Milwaukee River - Waubedonia Park to Veterans Memorial Park was already present in app data and image audit but missing from the structured ledger. Recorded USGS 04086600 Milwaukee River near Cedarburg as the direct same-river gauge, the conservative 390 cfs floor plus 760 cfs high-water reference from Miles Paddled and 801+ cfs same-gauge downstream context from Wisconsin River Trips, Ozaukee County / Village of Grafton public launch support, and no-approved-photo status.",
+    "2026-05-25 11:26 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added a fresh Wisconsin whitewater candidate: Peshtigo River - Farm Dam Landing to WPS Landing #12 / Roaring Rapids. Used Wisconsin DNR's exact Roaring Rapids public route language, Wisconsin Trail Guide's P5 endpoint coordinates and 3.6-7.0 ft County C gauge ladder, USGS 04067958 Peshtigo River Near Wabeno as the direct live gauge inside the route, and American Whitewater reach 2305 as corroborating whitewater context. No gallery asset was added because only a broad downstream Commons city-park photo was found, not a clearly reusable route photo.",
+    "2026-05-25 11:15 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added a fresh Wisconsin candidate: La Crosse River - Veterans Memorial County Park to Holiday Heights Park. Used Wisconsin River Trips' exact route and 301-400 cfs target / 601+ cfs high-water cutoff, USGS 05383075 La Crosse River Near La Crosse as the direct live gauge, La Crosse County / La Crosse River State Trail support for the Veterans Memorial canoe landing, and Onalaska / Mapcarta support for Holiday Heights Park. A CC0 Commons image lead was found, but sandbox network blocked download, so no gallery asset was wired.",
+    "2026-05-25 11:04 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added a fresh Wisconsin candidate: Baraboo River - Glenville Landing to Luebke Landing. Used Sauk County / Baraboo River map public-landing support, Wisconsin River Trips' exact-route 7.1-8.0 ft target and 9.6+ ft no-go ladder, USGS 05405000 Baraboo River Near Baraboo as the direct live gauge, and National Rivers Project / Travel Wisconsin corridor context. No gallery asset was added because no clearly reusable exact-route photo was selected.",
+    "2026-05-25 18:05 America/Chicago Ohio threshold follow-up. No app route added. Rechecked Mahoning, Tuscarawas, and Little Beaver after the initial Ohio adds. Mahoning remains threshold_weak because RiverScout's 150-450 cfs Pricetown range is still the only numeric paddling ladder found and needs independent corroboration. Tuscarawas remains threshold_weak because ODNR/MWCD provide strong access/gauge context but no route-level numeric paddling model beyond a race flyer high-water cutoff. Little Beaver Creek was upgraded in the Ohio queue to needs_specific_segment because the federal Wild & Scenic study gives a 300 cfs satisfactory-canoeing benchmark at the East Liverpool gauge and other local/community notes support roughly 400 cfs minimum context, but the exact public route and endpoint coordinates still need cleanup before implementation.",
     "2026-05-25 10:47 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented and Black Earth Creek remains blocked, so this pass added a fresh Wisconsin candidate: Beaver Dam River - Cotton Mill Park to County Road J. Used Dodge County's Beaver Dam waterway route support, Wisconsin River Trips' 30-140 cfs guarded flow ladder, Miles Paddled endpoint GPS coordinates and take-out landing update, American Whitewater's exact Class I-II reach/hazard notes, and USGS 05425912 as the direct live gauge. No gallery asset was added because no clearly reusable exact-route paddling photo was selected.",
     "2026-05-25 10:34 America/Chicago Wisconsin route pass. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and the structured ledger. The prompt's Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, and Black Earth Creek remains blocked by the 2025 Salmo/Scherbel obstruction report. Reviewed the next Wisconsin seed, Bark River III - Highway 83 to Upper Nemahbin Lake Public Boat Launch, but deferred it at research_later: the route has a direct Delafield USGS gauge and Miles Paddled route-specific low-water guidance, yet the put-in remains a roadside Highway 83 bridge shoulder rather than a named public launch. No app route or gallery asset was added.",
     "2026-05-25 10:23 America/Chicago Wisconsin route pass. Re-read automation memory and the live route/data docs. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, so this pass avoided duplicating them. Refreshed the deferred Black Earth Creek - Cross Plains to Salmo Pond hold with another targeted clearance search: Wisconsin River Trips still shows the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; Dane County Parks and WI DNR confirm access/fishery context but not corridor clearance. Net result: no app route added, Black Earth remains research_later, no gallery asset added.",
@@ -74,6 +116,924 @@
     "2026-04-27 01:28 America/Chicago fresh Minnesota-first Red River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined the unreviewed Red River Map 2 and Map 6 segment pages instead of reopening stale threshold-weak holdovers. Reviewed 2 fresh candidates from 1 genuinely new official evidence path: North Dam to M.B. Johnson Park (Map 2 recommended day trip) and Golden Grain trailer access to Hilltop trailer access (Map 6 recommended day trip). Both were parked at threshold_weak because the official pages still only say to check water levels and warn that low water may not be suitable for boating; they do not tie a numeric threshold model to the exact routes. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 needs_manual_coordinates additions, 0 rejections, no code changes, and no tests/build because no product files changed."
   ],
   "candidates": [
+    {
+      "candidateId": "wi-jump-river-wayside-park-sheldon",
+      "river": "Jump River",
+      "route": "Wayside Park / Highway 73 to Haley Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as jump-river-wayside-park-sheldon. Revisit only if an official manager publishes numeric paddling bands or a rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Rusk County Jump River - State Highway 73 to Sheldon page",
+        "Rusk County Jump River Highway 73 to Sheldon route map PDF",
+        "Wisconsin River Trips Jump River - Wayside Park to Sheldon",
+        "Wisconsin River Trips Jump River - Sheldon",
+        "USGS 05362000 Jump River at Sheldon monitoring location",
+        "Miles Paddled Jump River",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Jump River - Highway 73 to Sheldon",
+        "Jump River - Wayside Park to Sheldon",
+        "Jump River - Wayside Park to Haley Park",
+        "Jump River - Highway 73 to Haley Park"
+      ],
+      "v2Slug": "jump-river-wayside-park-sheldon",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05362000 Jump River at Sheldon, WI. The gauge is on the same river at the route take-out corridor, and Wisconsin River Trips ties both the exact Wayside Park-to-Sheldon route and the adjacent Haley Park-to-County-G route to this gauge."
+      },
+      "thresholdSupport": {
+        "strength": "community",
+        "notes": "Wisconsin River Trips publishes a local Sheldon-gauge ladder for the adjacent lower-Jump route: 0-100 cfs likely too shallow, 101-200 low but likely navigable, 201-300 average, 301-400 high but likely okay, 401-500 very high, 501-1000 extremely high but possibly doable with care, and 1001+ maybe too high for recreational paddling. The exact Wayside-to-Sheldon report was paddled at 2200 cfs during the Sheldon Canoe Race and is treated only as high-water caution, not as a normal app target."
+      },
+      "endpoints": {
+        "putIn": "Wayside Park / Highway 73 Jump River Access",
+        "takeOut": "Haley Park / Sheldon Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.354054,
+          "longitude": -90.788597
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.307764,
+          "longitude": -90.955985
+        },
+        "coordinateSource": "Rusk County Tourism publishes Jump River Access 45.354054, -90.788597 and Sheldon Access 45.307764, -90.955985 on its official Highway 73-to-Sheldon route page. Wisconsin River Trips corroborates the exact public access names as Wayside Park / Highway 73 and Haley Park / Sheldon."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded lower-Jump addition after the prompted Bark and Sugar routes were already present and Black Earth Creek remained blocked. This route clears the quality bar with named public endpoints, Rusk County endpoint coordinates, a direct USGS gauge in the route corridor, exact-route Wisconsin River Trips access/context, and adjacent lower-route gauge bands. Confidence is capped below the strongest adds because the full numeric ladder comes from the adjacent downstream lower-Jump report rather than the exact 11.1-mile route page."
+    },
+    {
+      "candidateId": "wi-wisconsin-river-gotham-muscoda-west",
+      "river": "Wisconsin River",
+      "route": "Gotham / Buena Vista Landing to Muscoda Landing West",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wisconsin-river-gotham-muscoda-west. Revisit only if official DNR landing-level coordinates, newer obstruction or access changes, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Wisconsin River - Gotham",
+        "Wisconsin Trail Guide Lower Wisconsin Riverway LWSR2",
+        "Wisconsin Trail Guide LWSR2 PDF",
+        "Wisconsin DNR Lower Wisconsin boating and canoeing",
+        "USGS 05407000 Wisconsin River at Muscoda monitoring location",
+        "Lower Wisconsin State Riverway Board home / Muscoda flow link",
+        "Targeted reusable image search across Wikimedia Commons, USGS, Wisconsin DNR, and local/route pages"
+      ],
+      "aliases": [
+        "Wisconsin River - Gotham Boat Landing to Old Muscoda Landing",
+        "Wisconsin River - Buena Vista Landing to Muscoda Landing West",
+        "Lower Wisconsin Riverway LWSR2 Gotham to Muscoda"
+      ],
+      "v2Slug": "wisconsin-river-gotham-muscoda-west",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05407000 Wisconsin River at Muscoda, WI, a direct same-river live gauge in the take-out town and the gauge named by Wisconsin Trail Guide for LWSR2 level interpretation."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a Muscoda-gauge ladder for LWSR2: below 4,000 cfs is very shallow with many large sandbars and possible pushing; 4,000-10,000 cfs is normal summer flow with sandbars; 10,000-14,000 cfs is above normal with undercurrents; 14,000-17,000 cfs is high and sandbar camping is not recommended; 17,000-20,000 cfs is high day-trip-only water with powerful undercurrents; and above 20,000 cfs is not recommended."
+      },
+      "endpoints": {
+        "putIn": "Gotham / Buena Vista Boat Landing",
+        "takeOut": "Muscoda Landing West",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.20903,
+          "longitude": -90.30424
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.198,
+          "longitude": -90.44576
+        },
+        "coordinateSource": "Wisconsin Trail Guide LWSR2 PDF publishes NAD83 / WGS84 coordinates for Buena Vista Landing and Muscoda Landing West; Wisconsin DNR lists both Buena Vista Boat Landing (Gotham) and Muscoda west side of Highway 80 as major Lower Wisconsin public access points."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Lower Wisconsin route after the prompted Bark and Sugar candidates were already implemented and Black Earth Creek stayed blocked. This route clears the quality bar with named public landings, direct Muscoda live gauge support, a published route-corridor flow ladder, route-specific Wisconsin River Trips mileage/access/hazard context, DNR public-access corroboration, and explicit high-water / strainer / sandbar caveats. No gallery asset was added because no clearly reusable representative route photo was found."
+    },
+    {
+      "candidateId": "wi-sugar-river-highway-69-paoli",
+      "river": "Sugar River",
+      "route": "Highway 69 to Paoli",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as sugar-river-highway-69-paoli. Revisit only if Dane County publishes permanent landing-level coordinate tables, a stronger official flow ladder appears, or a rights-clean exact-route photo becomes available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MilesPaddled Sugar River II",
+        "Wisconsin River Trips Sugar River - Paoli",
+        "USGS 05435950 Sugar River near Verona monitoring location",
+        "Dane County Paddle in the Parks - Highway 69 to Paoli event page",
+        "Dane County Falk Wells Sugar River Wildlife Area map",
+        "Town of Verona natural areas tour",
+        "Visit Madison Falk Wells Sugar River Wildlife Area listing",
+        "Targeted reusable image search across Dane County, Visit Madison, Wikimedia Commons, and route-report sources"
+      ],
+      "aliases": [
+        "Sugar River - Hwy 69 to Paoli",
+        "Sugar River - Falk Wells to Paoli",
+        "Upper Sugar River - Highway 69 to County PB",
+        "Sugar River II short route"
+      ],
+      "v2Slug": "sugar-river-highway-69-paoli",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05435950 Sugar River near Verona, WI. The gauge is directly upstream on the same Sugar River corridor and is the gauge used by MilesPaddled and Wisconsin River Trips for this upper-Sugar / Paoli route family."
+      },
+      "thresholdSupport": {
+        "strength": "community",
+        "notes": "MilesPaddled records exact upper-Sugar trips at 53, 56, and 64 cfs on the Verona gauge, treating 53 cfs as just enough and warning that 2.5-3 ft is shallow while above 4 ft is wild and unruly. Wisconsin River Trips records 64 cfs as a good depth, treats about 100 cfs as a pretty full river, and cautions against high-water paddling because of fast current and downed trees. The app uses this as a guarded two-sided CFS model: 55-100 cfs preferred, below 50 cfs shallow/slow, and 200+ cfs outside casual recommendation."
+      },
+      "endpoints": {
+        "putIn": "Falk Wells Sugar River Wildlife Area / Highway 69 canoe-kayak launch",
+        "takeOut": "Paoli Mill / County PB bridge take-out",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.950098,
+          "longitude": -89.545272
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.93032,
+          "longitude": -89.5244
+        },
+        "coordinateSource": "Put-in coordinate follows the named Falk Wells Highway 69 / West Parking Lot canoe-kayak launch context from Dane County, Visit Madison, Recplanet, and the county property map. Take-out coordinate comes from MilesPaddled's Paoli Mill GPS point and is corroborated by Dane County public paddle event staging at 6889 Canal Street."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded short upper-Sugar route after the prompted Bark and Sugar candidates were already implemented and Black Earth Creek remained blocked. This clears the quality bar with a named county wildlife-area launch, county event use of the Highway 69-to-Paoli route, route-specific community level guidance tied to the direct Verona USGS gauge, recent 2025 corridor-clearing context from Wisconsin River Trips, and endpoint coordinates tied to named access/map features. The Paoli take-out remains the main caveat because it is event/local-permission access rather than a conventional public boat landing, so the route details explicitly tell users to confirm current parking and take-out permission."
+    },
+    {
+      "candidateId": "wi-sugar-river-belleville-county-x",
+      "river": "Sugar River",
+      "route": "Belleville Community Park to County Road X",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as sugar-river-belleville-county-x. Revisit only if official landing-level coordinate tables, a stronger exact-route manager page, or a rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MilesPaddled Sugar River IV",
+        "Wisconsin River Trips Sugar River - Belleville",
+        "USGS 05435950 Sugar River near Verona monitoring location",
+        "Village of Belleville parks FAQ PDF",
+        "Targeted reusable image search recorded in river-image-source-audit.csv"
+      ],
+      "aliases": [
+        "Sugar River IV",
+        "Sugar River - Belleville to County Road X",
+        "Sugar River - Belleville Community Park to County X"
+      ],
+      "v2Slug": "sugar-river-belleville-county-x",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05435950 Sugar River near Verona, WI, the direct same-river upstream gauge used by Miles Paddled and Wisconsin River Trips for this Belleville corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a Belleville-corridor Verona-gauge ladder: 0-20 cfs low but navigable, 21-50 cfs good summer average, 51-90 and 91-130 cfs above normal but fine, 131-200 cfs high/pushy but likely doable with care, and 201+ cfs very high/adventurous. Miles Paddled provides exact Belleville-to-County-X support and recommends about 60 cfs minimum on the same gauge."
+      },
+      "endpoints": {
+        "putIn": "Belleville Community Park",
+        "takeOut": "County Road X bridge access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.86083,
+          "longitude": -89.53419
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.79994,
+          "longitude": -89.48646
+        },
+        "coordinateSource": "Existing V2 coordinates tied to Miles Paddled Sugar River IV endpoint GPS/map context, Wisconsin River Trips Belleville put-in context, and the named County Road X bridge access."
+      },
+      "notes": "Reconciled 2026-05-25 after the route was found already present in app data but absent from the structured ledger. This pass upgraded the live route from minimum-only to a bounded community model using Wisconsin River Trips' Belleville ladder while preserving Miles Paddled's exact-route 60 cfs minimum. No route-gallery asset was added; the audit row still has no approved reusable image for this route."
+    },
+    {
+      "candidateId": "wi-wisconsin-river-wisconsin-rapids-nepco-creek",
+      "river": "Wisconsin River",
+      "route": "Veterans Memorial Park to Nepco Creek / County Z",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wisconsin-river-wisconsin-rapids-nepco-creek. Revisit only if a stronger land-manager page for the Nepco Creek / County Z access, updated dam-portage guidance, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Wisconsin River - Wisconsin Rapids route report",
+        "USGS 05400760 Wisconsin River at Wisconsin Rapids current conditions and metadata",
+        "City of Wisconsin Rapids Veterans Memorial Park facility page",
+        "Travel Wisconsin Veterans Memorial Park page",
+        "Targeted Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Wisconsin River - Wisconsin Rapids",
+        "Veterans Memorial Park to Hwy Z",
+        "Veterans Memorial Park to Nepco Creek Access",
+        "Wisconsin Rapids to Port Edwards"
+      ],
+      "v2Slug": "wisconsin-river-wisconsin-rapids-nepco-creek",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05400760 Wisconsin River at Wisconsin Rapids, WI. USGS places the gauge at the Grand Avenue bridge in Wisconsin Rapids, inside the same dam-and-island corridor used by the route-specific Wisconsin River Trips ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a full route-specific Wisconsin Rapids ladder tied to the USGS gauge: 0-3000 cfs rare low but navigable, 3001-4500 cfs average and a good target, 4501-6000 cfs higher with livelier Grignon Rapids, 6001-9000 cfs high with multiple Class II-III features below Port Edwards, and 9001+ cfs perhaps too high for most recreational paddlers."
+      },
+      "endpoints": {
+        "putIn": "Veterans Memorial Park kayak/canoe launch",
+        "takeOut": "Nepco Creek / County Z access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.3922,
+          "longitude": -89.8269
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.3377,
+          "longitude": -89.8439
+        },
+        "coordinateSource": "Named map-feature coordinate review for Veterans Memorial Park below Grand Avenue and the Nepco Creek / County Z access below Port Edwards Dam, checked against Wisconsin River Trips route map/access descriptions. City of Wisconsin Rapids confirms the put-in park has a kayak/canoe launch."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Central Wisconsin route after the prompted Bark River and Sugar River routes were already implemented and Black Earth Creek remained blocked. The route clears the gauge and threshold quality bar with a direct Wisconsin Rapids gauge and route-specific WRT flow bands, and the put-in is officially supported as a public city kayak/canoe launch. The take-out is weaker but acceptable for this pass because WRT documents Nepco Creek / County Z access with take-out and portage details. No gallery asset was added because no clearly reusable exact-route photo was found."
+    },
+    {
+      "candidateId": "wi-popple-river-morgan-lake-highway-101",
+      "river": "Popple River",
+      "route": "Morgan Lake Road Bridge to Highway 101 Wayside",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as popple-river-morgan-lake-highway-101. Revisit only if official DNR manager pages publish stronger bridge-level access metadata, route-specific high-water guidance changes, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Popple River C - Morgan Lake Road to Highway 101",
+        "Wisconsin Trail Guide Popple River PO2 page",
+        "Wisconsin Trail Guide Popple River PO2 PDF",
+        "USGS 04063700 Popple River near Fence monitoring location and water-year metadata",
+        "Florence County Wild Rivers Fun page",
+        "Miles Paddled Popple River trip report",
+        "Wikimedia Commons / Pine-Popple Wild Rivers photo search",
+        "Travel Wisconsin Popple River page",
+        "Wisconsin DNR Pine-Popple Wild Rivers management and Popple River Corridor pages"
+      ],
+      "aliases": [
+        "Popple River C",
+        "Popple River PO2 lower section",
+        "Popple River - Morgan Lake Road to Hwy 101",
+        "Florence County Popple River lower whitewater"
+      ],
+      "v2Slug": "popple-river-morgan-lake-highway-101",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04063700 Popple River near Fence, WI. USGS places the gauge on the left bank 170 feet upstream from the Forest Service Road 2159 bridge at 8037 Morgan Lake Road, which is the route put-in corridor, and American Whitewater ties the exact Morgan Lake Road-to-Highway-101 reach to this gauge."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific Popple PO2 ladder tied to USGS 04063700: below 150 cfs not recommended, 150-250 cfs low runnable and scrappy, 250-400 cfs low-to-medium enjoyable, 400-600 cfs medium runnable, 600-1000 cfs high runnable for intermediate and advanced paddlers, and above 1000 cfs not recommended. The guide also states a suggested maximum of 800 cfs, so the app uses 250-600 cfs as the preferred window and 800 cfs as a conservative broad-audience ceiling."
+      },
+      "endpoints": {
+        "putIn": "Morgan Lake Road / Forest Service Road 2159 bridge access",
+        "takeOut": "Highway 101 Wayside / Popple River bridge access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.763611,
+          "longitude": -88.463611
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.79995,
+          "longitude": -88.39662
+        },
+        "coordinateSource": "Put-in from USGS 04063700 NAD83 bridge/gauge metadata at Morgan Lake Road / Forest Service Road 2159. Take-out from Miles Paddled's Highway 101 GPS point, corroborated by American Whitewater's Highway 101 take-out description and Florence County's Highway 101 access point #4."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded short whitewater route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. Florence County confirms the Morgan Lake Road #5 to Highway 101 #4 route and warns the lower Popple requires advanced skill; American Whitewater supplies exact reach shape, distance, gauge pairing, access, and hazard detail; Wisconsin Trail Guide supplies the gauge ladder; and USGS confirms the live gauge location. No gallery asset was wired because no clearly reusable exact-route image was selected."
+    },
+    {
+      "candidateId": "wi-pine-river-county-n-wepco-5",
+      "river": "Pine River",
+      "route": "County N Bridge Landing to WEPCO Landing #5",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pine-river-county-n-wepco-5. Revisit only if Wisconsin Trail Guide or an official manager publishes fuller high-water bands, Pine Dam release guidance changes, or a rights-clean representative PN1 route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Pine River PN1 2024 page",
+        "Wisconsin Trail Guide Pine River legacy page",
+        "Wisconsin Trail Guide Pine River PN1 PDF",
+        "USGS 04064500 Pine River Below Pine River Powerplant near Florence current conditions",
+        "USGS 04064500 monitoring location",
+        "Wisconsin DNR Pine-Popple Wild Rivers recreation page",
+        "Travel Wisconsin Pine River page",
+        "Wikimedia Commons Pine River Florence County photo search",
+        "Florence County tourism / Wild Rivers search"
+      ],
+      "aliases": [
+        "Pine River PN1",
+        "Pine River Oxbow",
+        "Pine River - County N to WEPCO 5",
+        "Florence County Pine River"
+      ],
+      "v2Slug": "pine-river-county-n-wepco-5",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04064500 Pine River Below Pine River Powerplant near Florence, WI. USGS places the gauge on the left bank 60 feet upstream from the County Trunk Highway N bridge, which is the PN1 put-in corridor; Wisconsin Trail Guide identifies this as the County N Bridge gauge for the route."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community_minimum",
+        "notes": "Wisconsin Trail Guide publishes route-specific PN1 water guidance: use the USGS County N Bridge gauge, with 1.75 feet / about 150 cfs as the suggested minimum. The guide also notes Pine Dam controls flow two miles upstream and that the route is usually navigable in spring, summer, and fall. No defensible route-specific high-water ceiling was found, so the app uses a conservative minimum-only model."
+      },
+      "endpoints": {
+        "putIn": "County N Bridge Landing",
+        "takeOut": "WEPCO Landing #5",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.83711,
+          "longitude": -88.22522
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.83949,
+          "longitude": -88.1408
+        },
+        "coordinateSource": "Wisconsin Trail Guide Pine River PN1 GPS table, NAD83 / WGS84."
+      },
+      "notes": "Implemented 2026-05-25 as an easy but remote Florence County Wild River route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. Wisconsin Trail Guide supplies the exact PN1 route, named landings, WGS84 points, route distance, riffles/Class I character, and minimum level. Wisconsin DNR and Travel Wisconsin support the public Pine-Popple Wild Rivers recreation context. No gallery asset was wired because the rights-clean Commons LaSalle Falls image is upstream/waterfall context rather than representative County N-to-WEPCO route scenery, and local/tourism images lacked clear reusable file-level rights."
+    },
+    {
+      "candidateId": "wi-pike-river-amberg-yellow-bridge",
+      "river": "Pike River",
+      "route": "Amberg Highway 141 Landing to Yellow Bridge Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pike-river-amberg-yellow-bridge. Revisit only if official DNR/manager access metadata improves, Wisconsin Trail Guide updates the gauge ladder, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Pike River PK1 page",
+        "Wisconsin Trail Guide Pike River PK1 PDF",
+        "USGS 04066500 Pike River at Amberg, WI monitoring location",
+        "USGS public-domain Pike River image lead",
+        "Wikimedia Commons Pike River / Wisconsin search"
+      ],
+      "aliases": [
+        "Pike River PK1",
+        "Pike River - Highway 141 to Yellow Bridge Landing",
+        "Pike River - Amberg to Yellow Bridge"
+      ],
+      "v2Slug": "pike-river-amberg-yellow-bridge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04066500 Pike River at Amberg, WI. Wisconsin Trail Guide says the gauge is one mile upstream from the Highway 141 Landing and should accurately indicate current conditions for this reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific Amberg-gauge ladder: below 2.5 ft not recommended, 2.5-2.9 ft only suitable for a shorter Highway 141-to-County K trip, 2.9-3.5 ft low runnable for the full route, 3.5-4.1 ft medium runnable, 4.1-4.6 ft high and challenging, 4.6-5.0 ft high enough that novice paddlers should avoid it, and above 5.0 ft not recommended."
+      },
+      "endpoints": {
+        "putIn": "Amberg Highway 141 Landing",
+        "takeOut": "Yellow Bridge Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.49576,
+          "longitude": -87.98712
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.47494,
+          "longitude": -87.87593
+        },
+        "coordinateSource": "Wisconsin Trail Guide Pike River PK1 NAD83 / WGS84 waypoint table."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Wild River whitewater route after the prompted Bark and Sugar routes were confirmed already implemented and Black Earth Creek remained blocked. Wisconsin Trail Guide supplies the exact PK1 route, endpoint names, WGS84 coordinates, access notes, hazards, and a full route-specific gauge ladder. No gallery asset was wired; a USGS Pike River public-domain science image exists, but it is not representative route scenery, and Commons search did not surface a cleaner exact-route photo."
+    },
+    {
+      "candidateId": "wi-pike-river-yellow-bridge-grogan-road",
+      "river": "Pike River",
+      "route": "Yellow Bridge Landing to Grogan Road Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pike-river-yellow-bridge-grogan-road. Revisit only if official DNR/manager access metadata improves, Wisconsin Trail Guide splits the lower route into a standalone page, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Pike River page",
+        "Wisconsin Trail Guide Pike River PDF",
+        "USGS 04066500 Pike River at Amberg, WI monitoring location",
+        "USGS public-domain Pike River image lead",
+        "Wikimedia Commons Pike River / Wisconsin search"
+      ],
+      "aliases": [
+        "Pike River - Yellow Bridge Falls",
+        "Pike River short run",
+        "Pike River - Yellow Bridge Landing to Grogan Road Landing"
+      ],
+      "v2Slug": "pike-river-yellow-bridge-grogan-road",
+      "gauge": {
+        "quality": "same_river_nearby",
+        "notes": "The route uses USGS 04066500 Pike River at Amberg, WI. The gauge is upstream of the lower Yellow Bridge-to-Grogan subreach, but Wisconsin Trail Guide uses this Amberg gauge for the Pike River guide and explicitly ties Yellow Bridge Falls character to the same level ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes the Pike River Amberg-gauge ladder and specifically describes Yellow Bridge Falls as bony/dangerous in lower flows, fun at medium-to-high runnable levels, pushy enough to overpower intermediates at 4.6-5.0 ft, and not recommended above 5.0 ft. The app uses 3.5-4.6 ft as the practical advanced falls window, 2.9 ft as the low cutoff, and 5.0 ft as the high cutoff."
+      },
+      "endpoints": {
+        "putIn": "Yellow Bridge Landing",
+        "takeOut": "Grogan Road Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.47494,
+          "longitude": -87.87593
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.44202,
+          "longitude": -87.85582
+        },
+        "coordinateSource": "Wisconsin Trail Guide Pike River PK1 NAD83 / WGS84 waypoint table."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded advanced Pike River route after the prompted Bark and Sugar routes were confirmed already implemented and Black Earth Creek remained blocked. Wisconsin Trail Guide supplies the lower-route access points, endpoint coordinates, hand-carry/ramp details, Yellow Bridge Falls hazards, private-bank scouting caution, and Amberg-gauge level ladder. No gallery asset was wired; the known USGS Pike image is not representative lower-route scenery and no clearly reusable exact-route photo was selected."
+    },
+    {
+      "candidateId": "wi-menominee-river-piers-gorge",
+      "river": "Menominee River",
+      "route": "Mill Street Landing to Piers Gorge Road Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as menominee-river-piers-gorge. Revisit only if official DNR access metadata adds landing-level details, the dam-release guidance changes, or a rights-clean exact-route gorge photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Menominee River ME1 page",
+        "Wisconsin Trail Guide Menominee River ME1 PDF",
+        "USGS 04065106 Menominee River at Niagara, WI monitoring location",
+        "USGS 04065106 legacy current conditions",
+        "Michigan DNR Menominee River State Recreation Area",
+        "American Whitewater Piers Gorge reach 2299",
+        "Wikimedia Commons / USGS / state park photo search"
+      ],
+      "aliases": [
+        "Menominee River - Piers Gorge",
+        "Menominee River ME1",
+        "Niagara to Piers Gorge Road Landing",
+        "Mill Street Landing to Highway 8"
+      ],
+      "v2Slug": "menominee-river-piers-gorge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04065106 Menominee River at Niagara, WI, a direct same-river gauge in the route corridor downstream of Little Quinnesec Falls Dam. Wisconsin Trail Guide ties the exact ME1 Piers Gorge route to the Niagara gauge and dam-release phone context."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a full Piers Gorge flow ladder: below 600 cfs not recommended; 600-800 cfs low runnable; 800-1400 cfs low-to-medium runnable; 1400-2400 cfs advanced/expert; 2400-5000 cfs powerful high water; and above 5000 cfs not recommended."
+      },
+      "endpoints": {
+        "putIn": "Niagara Mill Street Landing",
+        "takeOut": "Piers Gorge Road Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.77032,
+          "longitude": -87.98863
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.75834,
+          "longitude": -87.93907
+        },
+        "coordinateSource": "Wisconsin Trail Guide Menominee River ME1 PDF GPS table, NAD83 / WGS84. The same guide describes both endpoints as hand-carry landings with parking, and Michigan DNR corroborates the Piers Gorge public recreation-area context."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin expert-whitewater route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public hand-carry endpoints, published endpoint coordinates, route-specific gauge bands, a direct live USGS gauge, public recreation-area context, and detailed hazard notes. No gallery asset was added because this pass found only broad Menominee Commons/state/media leads rather than a rights-clean exact-route Piers Gorge photo."
+    },
+    {
+      "candidateId": "wi-red-river-weed-dam-zeimers-falls",
+      "river": "Red River",
+      "route": "Weed Dam Powerhouse Landing to Zeimer's Falls Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as red-river-weed-dam-zeimers-falls. Revisit if USGS current-data availability remains stale, if Weed Dam release guidance changes, if land-manager access metadata appears, or if a rights-clean exact-route photo is found.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Red River R1 page",
+        "Wisconsin Trail Guide Red River R1 PDF",
+        "USGS 04077630 Red River at Morgan Road near Morgan, WI current conditions",
+        "Wisconsin River Trips Red River",
+        "Hydropower Reform Coalition Weed Dam project",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Red River R1",
+        "Red River - Weed Dam to Zeimer's Falls",
+        "Weed Dam Powerhouse to Zeimer's Falls",
+        "Red River - Gresham whitewater"
+      ],
+      "v2Slug": "red-river-weed-dam-zeimers-falls",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04077630 Red River at Morgan Road near Morgan, WI, a direct same-river gauge upstream of the Upper Red Lake / Weed Dam release corridor. Wisconsin Trail Guide ties the exact R1 route to this gauge, while warning that Weed Dam releases can make route flow lower than the upstream gauge during dry periods."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a full route-specific Morgan Road-gauge ladder: below 80 cfs not recommended, 80-150 cfs low runnable and scrappy, 150-250 cfs low-to-medium runnable, 250-500 cfs medium runnable, 500-800 cfs high runnable, 800-1000 cfs advanced-only, and above 1000 cfs not recommended."
+      },
+      "endpoints": {
+        "putIn": "Weed Dam Powerhouse Landing",
+        "takeOut": "Zeimer's Falls Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.84168,
+          "longitude": -88.76063
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.84287,
+          "longitude": -88.72289
+        },
+        "coordinateSource": "Wisconsin Trail Guide Red River R1 PDF GPS table, NAD83 / WGS84. The same guide describes both endpoints as hand-carry landings with parking and trailer turnarounds."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Shawano County whitewater route after the prompted Bark and Sugar routes were confirmed already implemented, Black Earth Creek remained blocked, and Menominee/Piers Gorge was already present. This route clears the route-specific threshold and endpoint-coordinate bar with Wisconsin Trail Guide's exact R1 documentation. Confidence is capped because the USGS current-conditions page checked during this pass showed data availability only through 2026-04-25, and because Weed Dam releases can decouple actual route flow from the upstream Morgan Road gauge during dry periods. No gallery asset was added because no clearly reusable exact-route photo was found."
+    },
+    {
+      "candidateId": "wi-wolf-river-lily-hollister",
+      "river": "Wolf River",
+      "route": "Highway 52 at Lily to West Hollister Road Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wolf-river-lily-hollister. Revisit only if a clearly reusable route photo appears or if Wisconsin DNR publishes official paddling bands for this exact reach.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Wolf River Lily to Hollister",
+        "Wisconsin Trail Guide Wolf River W2 map PDF",
+        "American Whitewater Wolf River Section 1 gauge information for reach 2318",
+        "USGS 04074950 Wolf River at Langlade, WI monitoring location",
+        "National Rivers Project Wolf River Lily to Hollister",
+        "Wisconsin DNR Wolf River State Trail page",
+        "Wisconsin DNR boat access inventory",
+        "Miles Paddled Wolf River I",
+        "Wikimedia Commons Wolf River category",
+        "Wisconsin Historical Society Wolf River image lead"
+      ],
+      "aliases": [
+        "Wolf River - Lily to Hollister",
+        "Wolf River - Highway 52 to West Hollister Road",
+        "Wolf River Section 1",
+        "Upper Wolf River - Lily to Hollister"
+      ],
+      "v2Slug": "wolf-river-lily-hollister",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04074950 Wolf River at Langlade, WI. Wisconsin Trail Guide says the gauge is 8.3 miles downstream from this segment and should provide an accurate indication of current conditions; American Whitewater also says the Langlade gauge is at the end of this reach family and accurately reflects actual flow."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "Wisconsin Trail Guide publishes exact Lily-to-Hollister bands: below 250 cfs not recommended, 250-500 cfs low runnable, 500-1000 cfs very good for novice whitewater paddlers, 1000-1400 cfs high runnable with faster current, 1400-2000 cfs unusually high and novice paddlers should avoid it, and above 2000 cfs not recommended. American Whitewater corroborates the same 250 cfs runnable floor and broader 250-3000 cfs Section 1/2 whitewater range; Miles Paddled supports roughly 250 cfs as too low and about 500 cfs as an excellent route level."
+      },
+      "endpoints": {
+        "putIn": "Highway 52 access at Lily",
+        "takeOut": "West Hollister Road carry-in / Hollister Road Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.30768,
+          "longitude": -88.85806
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.24736,
+          "longitude": -88.80559
+        },
+        "coordinateSource": "Existing V2 endpoint coordinates are tied to the named Highway 52/Lily and West Hollister Road access records; Wisconsin Trail Guide maps the exact Lily-to-Hollister route, and the app route notes preserve the Wisconsin DNR boat-access inventory support."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data but absent from the structured ledger. The pass also enriched the live route source notes with Wisconsin Trail Guide's exact route and level ladder plus National Rivers Project route-character support. No gallery asset was added: Commons search found only broad Wolf River category material, and the Wisconsin Historical Society Langlade image requires purchase/permission rather than reusable direct ingest."
+    },
+    {
+      "candidateId": "wi-baraboo-river-haskins-glenville",
+      "river": "Baraboo River",
+      "route": "Haskins Park to Glenville Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as baraboo-river-haskins-glenville. Revisit only if official manager threshold bands or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Miles Paddled Baraboo River II",
+        "Miles Paddled Baraboo River IV",
+        "Wisconsin River Trips Baraboo River - Baraboo Rapids",
+        "Wisconsin River Trips Baraboo River - Glenville Landing overview",
+        "USGS 05405000 Baraboo River Near Baraboo, WI monitoring location",
+        "American Whitewater Baraboo gauge detail",
+        "Sauk County Paddle the Baraboo River page and map",
+        "Baraboo River Corridor Plan",
+        "Wikimedia Commons Baraboo River category",
+        "USGS Baraboo River media search"
+      ],
+      "aliases": [
+        "Baraboo River II",
+        "Baraboo River - Haskins Park to Highway 113",
+        "Baraboo River - Haskins Park to Glenville Landing",
+        "Baraboo - Highway 12 to Highway 113"
+      ],
+      "v2Slug": "baraboo-river-haskins-glenville",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05405000 Baraboo River Near Baraboo, WI. Miles Paddled ties the exact Haskins Park-to-Highway-113 route to the Baraboo gauge, and American Whitewater links the same station to the Baraboo Highway 12-to-Highway 113 reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Miles Paddled publishes route-specific guidance for Haskins Park to Highway 113: about 350 cfs at the Baraboo gauge is the recommended minimum, 473 cfs / 8.76 ft was a definitely recommended same-route level, and the longer Haskins-to-Highway-33 report preserves the same urban core with 600 cfs described as recommended. The implemented app model stays minimum-only because the high-water ceiling is less clean than the runnable floor."
+      },
+      "endpoints": {
+        "putIn": "Haskins Park ADA kayak launch",
+        "takeOut": "Glenville Landing / Highway 113 boat landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.46997,
+          "longitude": -89.76158
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.45853,
+          "longitude": -89.71399
+        },
+        "coordinateSource": "Miles Paddled Baraboo River II GPS listings, corroborated by the Baraboo River Corridor Plan for Haskins Park launch context and Sauk County / Baraboo River map support for Glenville Landing."
+      },
+      "notes": "Implemented 2026-05-25 as a short guarded Baraboo Rapids route. It is stronger than speculative Baraboo alternatives because the route has public named endpoints, exact same-route GPS points, direct USGS live gauge support, and same-route cfs guidance. Photo audit remains no-approved-image: Commons and USGS searches produced only generic/flood-context Baraboo material, not a clearly representative reusable route photo."
+    },
+    {
+      "candidateId": "wi-peshtigo-river-ccc-burnt-bridge",
+      "river": "Peshtigo River",
+      "route": "CCC Bridge to Burnt Bridge Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as peshtigo-river-ccc-burnt-bridge. Revisit only if a rights-clean exact-route photo appears, an official manager publishes stronger access metadata, or fresh storm-damage reports require a wood/blockage caution update.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Peshtigo P2 CCC Bridge page",
+        "Wisconsin Trail Guide Peshtigo P2 guide PDF",
+        "Miles Paddled Peshtigo River II May 2024 trip report",
+        "USGS 04067958 Peshtigo River Near Wabeno monitoring location",
+        "Chequamegon-Nicolet National Forest context",
+        "Wikimedia Commons / USGS / local photo search"
+      ],
+      "aliases": [
+        "Peshtigo River P2",
+        "Peshtigo River - CCC Bridge to Burnt Bridge",
+        "Peshtigo River II",
+        "Peshtigo River - Forest Road 2131 to Forest Road 2134"
+      ],
+      "v2Slug": "peshtigo-river-ccc-burnt-bridge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04067958 Peshtigo River Near Wabeno, WI. Wisconsin Trail Guide ties this exact P2 route to the same-river County C / Wabeno gauge, but warns the gauge is about 26 miles downstream and should be treated as an estimate for this upstream reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes route-specific gauge-height bands: below 4.5 ft not recommended, 4.5-5.0 ft low runnable, 5.0-6.0 ft medium/excellent, 6.0-6.5 ft high runnable, 6.5-7.5 ft above novice range, and above 7.5 ft rare/unusually high. Miles Paddled corroborates the exact route at 5.2 ft / 892 cfs as strongly recommended, says 4.5 ft is a practical low end, and warns 6 ft and above becomes rowdy for novices."
+      },
+      "endpoints": {
+        "putIn": "CCC Bridge / Forest Road 2131 access",
+        "takeOut": "Burnt Bridge Landing / Forest Road 2134",
+        "coordinatesPresent": true,
+        "coordinates": {
+          "putIn": {
+            "latitude": 45.61092,
+            "longitude": -88.59312
+          },
+          "takeOut": {
+            "latitude": 45.56208,
+            "longitude": -88.4953
+          }
+        },
+        "coordinateSource": "Miles Paddled's Google Maps-linked GPS points for the exact May 2024 Peshtigo River II route; Wisconsin Trail Guide corroborates the named P2 CCC Bridge-to-Burnt Bridge corridor through Chequamegon-Nicolet National Forest."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded novice-whitewater Peshtigo route upstream of Goodman Park. This route clears the quality bar with named forest-road landings, GPS endpoint coordinates from exact-route public access context, a direct same-river USGS gauge, a route-specific Wisconsin Trail Guide gauge ladder, and Miles Paddled's 2024 field corroboration. No gallery asset was added because route photos found were guide/blog imagery without clear reusable rights, and no clearly representative rights-clean Commons/federal/local-government image was selected."
+    },
+    {
+      "candidateId": "wi-peshtigo-river-goodman-park-farm-dam",
+      "river": "Peshtigo River",
+      "route": "Goodman Park Access to Farm Dam Public Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as peshtigo-river-goodman-park-farm-dam. Revisit only if a rights-clean exact-route photo appears or if official DNR/Marinette County landing metadata changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Peshtigo P4 Goodman Park page",
+        "Wisconsin Trail Guide Peshtigo P4 PDF",
+        "USGS 04067958 Peshtigo River near Wabeno monitoring location",
+        "Wisconsin DNR Governor Earl Peshtigo River State Forest water recreation",
+        "Marinette County Goodman Park",
+        "Marinette County McClintock Park",
+        "Wikimedia Commons / USGS / Wisconsin Historical Society / county photo search"
+      ],
+      "aliases": [
+        "Peshtigo River P4",
+        "Peshtigo River - Goodman Park to Farm Dam",
+        "Peshtigo River - Goodman County Park Landing to Farm Dam Landing",
+        "Peshtigo River - McClintock Park route"
+      ],
+      "v2Slug": "peshtigo-river-goodman-park-farm-dam",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04067958 Peshtigo River Near Wabeno, WI. Wisconsin Trail Guide ties the exact Goodman Park-to-Farm Dam P4 route to the Highway C bridge gauge about 4 to 4.6 miles downstream and says it should provide a fairly accurate indication of conditions in the reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific gauge-height ladder: below 4.5 ft not recommended, 4.5-5.0 ft low runnable, 5.0-5.8 ft medium/excellent, 5.8-6.5 ft high but runnable for most novices, 6.5-7.5 ft high and novices should avoid, and above 7.5 ft rare/unusually high."
+      },
+      "endpoints": {
+        "putIn": "Goodman Park Access",
+        "takeOut": "Farm Dam Public Landing",
+        "coordinatesPresent": true,
+        "coordinates": {
+          "putIn": {
+            "latitude": 45.51799,
+            "longitude": -88.33935
+          },
+          "takeOut": {
+            "latitude": 45.41351,
+            "longitude": -88.34615
+          }
+        },
+        "coordinateSource": "Wisconsin Trail Guide Peshtigo P4 PDF, GPS NAD83 / WGS84 waypoint table. The guide describes Goodman Park as a Marinette County Park hand-carry access below Strong Falls and Farm Dam Public Landing as the northern public landing on Otter Creek."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded scenic Peshtigo route upstream of the existing Roaring Rapids entry. This route clears the quality bar with named public/county/state-forest access context, WGS84 endpoint coordinates, a same-river USGS live gauge, a full route-specific Wisconsin Trail Guide level ladder, and documented Class I-II / II hazards. No gallery asset was added because the fresh photo search found Wisconsin Historical Society and local/guide imagery, but no clearly reusable exact-route photo."
+    },
+    {
+      "candidateId": "wi-peshtigo-river-roaring-rapids",
+      "river": "Peshtigo River",
+      "route": "Farm Dam Landing to WPS Landing #12",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as peshtigo-river-roaring-rapids. Revisit only if a rights-clean exact-route photo appears or if official DNR/WPS landing metadata changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin DNR Governor Earl Peshtigo River State Forest water recreation",
+        "Wisconsin Trail Guide Peshtigo P5 Roaring Rapids PDF",
+        "Wisconsin Trail Guide Roaring Rapids page",
+        "USGS 04067958 Peshtigo River near Wabeno",
+        "American Whitewater Peshtigo Roaring Rapids reach 2305",
+        "Wikimedia Commons Peshtigo River category"
+      ],
+      "aliases": [
+        "Peshtigo River - Roaring Rapids",
+        "Peshtigo River - Farm Dam Landing to Boat Landing #12",
+        "Peshtigo - Otter Creek to WPS Landing"
+      ],
+      "v2Slug": "peshtigo-river-roaring-rapids",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04067958 Peshtigo River Near Wabeno, WI. Wisconsin Trail Guide places the County C USGS gauge in the Roaring Rapids segment and says it should accurately indicate conditions in this reach; American Whitewater uses the same Wabeno gauge for reach 2305."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "Wisconsin Trail Guide publishes route-specific gauge-height bands: below 3.6 ft not recommended, 3.6-4.0 ft low runnable, 4.0-4.5 ft low enjoyable, 4.5-5.3 ft medium runnable, 5.3-6.0 ft medium-high, 6.0-7.0 ft high advanced big-water, and above 7.0 ft rare/unusually high. American Whitewater corroborates the same reach and gauge with broader whitewater context."
+      },
+      "endpoints": {
+        "putIn": "Farm Dam Public Landing",
+        "takeOut": "WPS Landing #12",
+        "coordinatesPresent": true,
+        "coordinates": {
+          "putIn": {
+            "latitude": 45.41351,
+            "longitude": -88.34615
+          },
+          "takeOut": {
+            "latitude": 45.38092,
+            "longitude": -88.30101
+          }
+        },
+        "coordinateSource": "Wisconsin Trail Guide Peshtigo P5 PDF, GPS NAD83/WGS84 waypoint table"
+      },
+      "notes": "Implemented 2026-05-25 as a guarded whitewater route. Wisconsin DNR names the exact Roaring Rapids section from Farm Dam Landing to Boat Landing #12 and says it is for skilled paddlers only; Wisconsin Trail Guide provides the public landing details, endpoint coordinates, in-segment gauge fit, route hazards, and level ladder. No photo was added because the only quick Commons hit was a broad downstream city-park Peshtigo River photo rather than a route-representative Roaring Rapids image."
+    },
+    {
+      "candidateId": "wi-eau-claire-river-bear-lake-county-n",
+      "river": "Eau Claire River",
+      "route": "Bear Lake Road Bridge Landing to County N Bridge Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as eau-claire-river-bear-lake-county-n. Revisit only if official county landing metadata improves or to ingest the route-representative Commons Dells of the Eau Claire image after file-level metadata and download are verified.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Eau Claire River EC1 page",
+        "Wisconsin Trail Guide Eau Claire EC1 guide PDF",
+        "Wisconsin Trail Guide Eau Claire EC1 map PDF",
+        "USGS 05397500 Eau Claire River at Kelly, WI monitoring location",
+        "Wisconsin River Trips Eau Claire River - Bear Lake Road",
+        "Wisconsin DNR Dells Of The Eau Claire River State Natural Area",
+        "Wikimedia Commons Eau Claire River category"
+      ],
+      "aliases": [
+        "Eau Claire River EC1",
+        "Eau Claire River - Bear Lake Road to County N Bridge",
+        "Eau Claire River - Bear Lake Road Bridge to County N Landing"
+      ],
+      "v2Slug": "eau-claire-river-bear-lake-county-n",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05397500 Eau Claire River at Kelly, WI. Wisconsin Trail Guide ties EC1 to this same-river gauge, while explicitly warning that the gauge is about 11 miles downstream of the route and can be misleading after small storms."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "Wisconsin Trail Guide publishes a full EC1 Kelly-gauge ladder: below 300 cfs not recommended, 300-600 cfs bony low-hazard whitewater, 600-1000 cfs low runnable, 1000-1500 cfs medium runnable/excellent and challenging, 1500-2000 cfs high runnable for novice-whitewater paddlers, 2000-2800 cfs avoid for less-experienced paddlers, 2800-3400 cfs advanced/expert only, and above 3400 cfs experts only."
+      },
+      "endpoints": {
+        "putIn": "Bear Lake Road Bridge Landing",
+        "takeOut": "County N Bridge Landing",
+        "coordinatesPresent": true,
+        "coordinates": {
+          "putIn": {
+            "latitude": 45.0586,
+            "longitude": -89.27024
+          },
+          "takeOut": {
+            "latitude": 44.94419,
+            "longitude": -89.41916
+          }
+        },
+        "coordinateSource": "Wisconsin Trail Guide Eau Claire EC1 guide PDF, GPS NAD83/WGS84 waypoint table; guide text describes both endpoints as hand-carry landings with parking."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded central Wisconsin whitewater route. Wisconsin Trail Guide supplies the exact route, endpoint names, route map, WGS84 coordinates, access notes, hazards, and Kelly-gauge level ladder. Wisconsin River Trips corroborates the upstream Bear Lake Road access, rapids, boulder gardens, and post-storm wood concerns. No gallery asset was wired; Commons has route-representative Dells of the Eau Claire images, but this pass did not complete file-level metadata/download verification."
+    },
+    {
+      "candidateId": "wi-waupaca-river-county-q-brainards-bridge",
+      "river": "Waupaca River",
+      "route": "County Highway Q to Brainard's Bridge Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as waupaca-river-county-q-brainards-bridge. Revisit only if official manager threshold bands, stronger live-gauge metadata, or a rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Visit Waupaca County Waupaca River paddling route",
+        "Miles Paddled Waupaca River III",
+        "Wisconsin River Trips Waupaca River - Hwy Q",
+        "USGS 04081000 Waupaca River Near Waupaca, WI monitoring location",
+        "City of Waupaca Brainard's Bridge Park",
+        "Wikimedia Commons Waupaca / Waupaca River search"
+      ],
+      "aliases": [
+        "Waupaca River - Cobbtown Road/Hwy Q to Brainard's Bridge Park",
+        "Waupaca River III - County Highway Q to Brainards Bridge Park",
+        "Waupaca River - Hwy Q Canoe Launch to Brainards Bridge Park"
+      ],
+      "v2Slug": "waupaca-river-county-q-brainards-bridge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04081000 Waupaca River Near Waupaca, WI, a same-river gauge downstream in the Waupaca corridor and the gauge referenced by Wisconsin River Trips and Miles Paddled route reports."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips reports 172 cfs as low-side but plenty navigable, suggests about 140-150 cfs as a practical lower edge, and is cautious above 200 cfs because wood/rapids become pushier. Miles Paddled records 265 cfs and 358 cfs as recommendable same-route levels, so the app uses a conservative 150-320 cfs target window with 401+ cfs above the broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "County Highway Q / Cobbtown Road canoe launch",
+        "takeOut": "Brainard's Bridge Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.37413,
+          "longitude": -89.18548
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.36546,
+          "longitude": -89.09842
+        },
+        "coordinateSource": "Miles Paddled publishes GPS coordinates for the County Highway Q put-in and Brainard's Bridge Park take-out. Visit Waupaca County corroborates the public parking/access at Cobbtown Road just off Hwy Q, and the City of Waupaca corroborates Brainard's Bridge Park as a public park along the Waupaca River."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek stayed blocked. This route clears the quality bar with named public endpoints, public/official access context, endpoint coordinates, a direct same-river USGS gauge story, and route-specific community level guidance. No approved reusable route photo was found during the targeted Commons/federal/local-government search."
+    },
     {
       "candidateId": "ia-little-turkey-river-u-avenue-eldorado",
       "river": "Little Turkey River",
@@ -1304,7 +2264,7 @@
       "state": "MN",
       "status": "research_later",
       "lastReviewed": "2026-04-26",
-      "reviewCount": 19,
+      "reviewCount": 20,
       "blocker": "Official route naming is strong, but the best official gauge guidance found still applies to broader rapids-heavy Vermilion context rather than this easy no-rapids segment.",
       "retryCondition": "Retry only if official manager guidance or strong same-route evidence ties this exact Twomile-to-Eightmile reach to a defensible live gauge floor or range.",
       "retryDate": null,
@@ -2121,6 +3081,54 @@
       "notes": "Implemented 2026-05-23 test cron pass. Reverified 2026-05-25 automation pass without duplicating the route: Jefferson County water-trail guide provided endpoint coordinates and access details, Wisconsin DNR corroborated the County D boat landing at Princes Point, Travel Wisconsin / Jefferson County Parks corroborated Burnt Village as a lower-Bark canoe/kayak launch, and Wisconsin River Trips supplied the route-specific Bark River at Rome flow ladder. Fresh photo search still did not find a clearly reusable route image."
     },
     {
+      "candidateId": "wi-chippewa-river-county-a-highway-8",
+      "river": "Chippewa River",
+      "route": "County A Bridge to Highway 8 Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as chippewa-river-county-a-highway-8. Revisit only if a stronger official upper-range source or reusable exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Chippewa River C3",
+        "Wisconsin Trail Guide Chippewa C3 guide and map PDFs",
+        "USGS Chippewa River Near Bruce gauge",
+        "Rusk County Tourism Chippewa River - Imalone to Bruce",
+        "Wikimedia Commons Chippewa River photo search"
+      ],
+      "aliases": [
+        "Chippewa River - County A Bridge to Highway 8 Landing",
+        "Chippewa River - Imalone to Bruce",
+        "Chippewa River C3"
+      ],
+      "v2Slug": "chippewa-river-county-a-highway-8",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin Trail Guide ties the C3 route to the Bruce gauge, and USGS operates 05356500 Chippewa River Near Bruce, WI on the same route corridor near the take-out."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific minimum of 400 cfs / 1.5 ft at the Bruce gauge and qualitative high-water caution for rain and Arpin Dam releases. No full upper ladder was found, so the app uses a minimum-only model."
+      },
+      "endpoints": {
+        "putIn": "Imalone / County A Bridge access",
+        "takeOut": "Highway 8 Canoe Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.552358,
+          "longitude": -91.228388
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.452909,
+          "longitude": -91.256361
+        },
+        "coordinateSource": "Rusk County Tourism Google-map coordinate listing for Imalone Boat Access and Highway 8 Canoe Landing"
+      },
+      "notes": "Implemented 2026-05-25 automation pass. Wisconsin Trail Guide documents the exact County A Bridge-to-Highway-8 route with access notes, map, distance, difficulty, minimum flow, and high-water caution. Rusk County corroborates the Imalone-to-Bruce public route and publishes endpoint GPS coordinates. Fresh photo search found a broad Chippewa River Commons category and local/tourism imagery, but no clearly reusable exact-route photo was selected."
+    },
+    {
       "candidateId": "wi-beaver-dam-river-cotton-mill-county-j",
       "river": "Beaver Dam River",
       "route": "Cotton Mill Park to County Road J",
@@ -2314,6 +3322,58 @@
       "notes": "Reconciled 2026-05-25 after finding the route already present in app data but missing from the structured ledger. This is a long beginner-friendly lower Red Cedar day with a strong bike-shuttle story on the Red Cedar State Trail, direct USGS gauge support, DNR-backed endpoint coordinates, and route-specific community level guidance. Photo audit remains no-approved-image after prior source review."
     },
     {
+      "candidateId": "wi-milwaukee-river-waubedonia-veterans",
+      "river": "Milwaukee River",
+      "route": "Waubedonia Park to Veterans Memorial Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as milwaukee-river-waubedonia-veterans. Revisit only if an exact-route ideal range or rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Miles Paddled Milwaukee River I",
+        "Miles Paddled Milwaukee River VI",
+        "Wisconsin River Trips Milwaukee River overview",
+        "Wisconsin River Trips Milwaukee River - Thiensville",
+        "USGS 04086600 Milwaukee River near Cedarburg, WI monitoring location",
+        "Ozaukee County Waubedonia Park page",
+        "Ozaukee County Waubedonia Park facility record",
+        "Village of Grafton Veterans Memorial Park page",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Milwaukee River - Waubedonia Park to Veterans Memorial Park",
+        "Milwaukee River VI",
+        "Milwaukee River - Waubedonia to Grafton"
+      ],
+      "v2Slug": "milwaukee-river-waubedonia-veterans",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04086600 Milwaukee River near Cedarburg, WI, a direct same-river live gauge downstream of the Waubedonia-to-Grafton corridor."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "The app carries a conservative minimum-only model: 390 cfs at Cedarburg is the same-gauge floor from the immediately upstream Newburg-to-Waubedonia route, Miles Paddled documents this Waubedonia-to-Grafton route at about 760 cfs and describes it as high, and Wisconsin River Trips' same-gauge Thiensville ladder treats 801+ cfs as maybe too high for enjoyable paddling. This supports a low floor and high-water caution, but not a polished route-specific ideal band."
+      },
+      "endpoints": {
+        "putIn": "Waubedonia Park, Fredonia",
+        "takeOut": "Veterans Memorial Park, Grafton",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.46838,
+          "longitude": -87.97317
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.32211,
+          "longitude": -87.94948
+        },
+        "coordinateSource": "Existing V2 coordinates align with Ozaukee County's Waubedonia Park public boat/canoe/kayak launch context and the Village of Grafton Veterans Memorial Park canoe/kayak launch and adjacent parking context."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data and the image audit but missing from the structured ledger. Access and gauge quality are solid, but the route intentionally remains minimum-only because the available community evidence supports a conservative floor and high-water caution rather than a clean exact-route ideal range. Photo audit remains no-approved-image after prior source review."
+    },
+    {
       "candidateId": "wi-milwaukee-river-west-bend-quaas-creek-park",
       "river": "Milwaukee River",
       "route": "Washington Street Dam to Quaas Creek Park",
@@ -2360,6 +3420,55 @@
         "coordinateSource": "West Bend Dam tailwater named monitoring point plus Quaas Creek Park named map feature, both corroborated by West Bend public access pages"
       },
       "notes": "Implemented 2026-05-25. Wisconsin River Trips documents the exact Washington Street Dam to Quaas Creek Park route and provides a full Cedarburg-gauge ladder, Visit West Bend explicitly recommends this same four-mile city run, and the endpoint coordinates were resolved from a named West Bend Dam tailwater monitoring point and the named Quaas Creek Park feature."
+    },
+    {
+      "candidateId": "wi-black-river-melrose-north-bend",
+      "river": "Black River",
+      "route": "Melrose Landing to North Bend Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as black-river-melrose-north-bend. Revisit only if official DNR threshold bands, stronger landing-level coordinate metadata, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Black River - Melrose to North Bend",
+        "USGS 053813595 Black River DS ST Hwy 54 at Black River Falls, WI monitoring location",
+        "Wisconsin DNR Black River watershed page",
+        "North Bend Canoe Rental Black River trips",
+        "Travel Wisconsin Black River",
+        "BoatRampFinder North Bend public boat ramp"
+      ],
+      "aliases": [
+        "Black River - Melrose to North Bend",
+        "Black River - Melrose Public Landing to North Bend exit",
+        "Lower Black River - Melrose Landing to North Bend Landing"
+      ],
+      "v2Slug": "black-river-melrose-north-bend",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 053813595 Black River DS ST Hwy 54 at Black River Falls, WI, a direct same-river live gauge upstream of the Melrose-to-North-Bend lower Black corridor and the Black River Falls gauge family tied to the route-specific guidance."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific Black River Falls-gauge ladder for Melrose to North Bend: 0-100 cfs extraordinarily low with some walking, 101-200 cfs great target with very good sandbars, 201-300 cfs decent sandbars with padding over shallows, 301-450 cfs smaller sandbars, 451-600 cfs mostly submerged sandbars, 601-800 cfs high and less interesting, and 801+ cfs probably too high."
+      },
+      "endpoints": {
+        "putIn": "Melrose Public Landing",
+        "takeOut": "North Bend Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.1261,
+          "longitude": -91.0045
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.08951,
+          "longitude": -91.11544
+        },
+        "coordinateSource": "Put-in resolved at the named Melrose public landing southwest of the Highway 108 bridge from Wisconsin River Trips / DNR access context; take-out resolved from the named North Bend public boat-ramp feature and livery/public access context."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and remaining prompt-adjacent Wisconsin holds stayed blocked or duplicate. This route clears the quality bar with named public landings, DNR-maintained access confirmation, a direct same-river USGS gauge, route-specific level guidance, shuttle corroboration, and explicit length/wind/crowd hazards. No gallery asset was added because the fresh source search found no clearly reusable exact-route photo."
     },
     {
       "candidateId": "wi-kickapoo-river-ontario-rockton",
@@ -2410,16 +3519,118 @@
       "notes": "Reconciled 2026-05-25. The route was already present in V2 route and trip-detail data but missing from the normalized candidate ledger. This pass tightened the route's threshold model to include the published 70-100 cfs sweet spot and 200+ cfs high-water cutoff. Photo audit remains no-approved-image; no reusable public-domain or clearly licensed route photo was added."
     },
     {
+      "candidateId": "wi-kickapoo-river-rockton-la-farge",
+      "river": "Kickapoo River",
+      "route": "Rockton Landing to La Farge Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as kickapoo-river-rockton-la-farge. Revisit only if KVR publishes landing-level coordinate tables, a stronger official threshold ladder appears, or a rights-clean exact Rockton-to-La Farge photo can be ingested.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MilesPaddled Kickapoo River II",
+        "Wisconsin River Trips Kickapoo River - Rockton to La Farge",
+        "USGS 05408000 Kickapoo River at La Farge monitoring location",
+        "Kickapoo Valley Reserve Upper Kickapoo River Guide",
+        "Wisconsin DNR Kickapoo Valley Reserve State Natural Area",
+        "Mapcarta Canoe Landing 20",
+        "Wikimedia Commons Kickapoo River / Kickapoo Valley photo search"
+      ],
+      "aliases": [
+        "Kickapoo River - Landing 12 to Landing 20",
+        "Kickapoo River - Rockton to La Farge",
+        "Kickapoo River II"
+      ],
+      "v2Slug": "kickapoo-river-rockton-la-farge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05408000 Kickapoo River at La Farge, WI, a direct same-river gauge at the downstream end of the Rockton-to-La Farge corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "MilesPaddled documents the exact Rockton-to-La Farge route and ties it to the La Farge gauge, noting 116 cfs was below ideal but fine, 60-100 cfs is a scrape-free recommendation, and this lower section is more forgiving than Ontario-to-Rockton. Wisconsin River Trips corroborates the exact route at 112 cfs and describes that level as good depth. The app uses a conservative 60-120 cfs target and inherits a cautious 200+ cfs broad-audience ceiling from same-valley Kickapoo high-water guidance."
+      },
+      "endpoints": {
+        "putIn": "Kickapoo River Landing 12 (Rockton)",
+        "takeOut": "Landing 20 / La Farge Canoe Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.6371,
+          "longitude": -90.60292
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.57481,
+          "longitude": -90.6437
+        },
+        "coordinateSource": "MilesPaddled's linked GPS points for the exact Kickapoo River II route resolve Landing 12 and Landing 20. The official KVR upper-river guide corroborates the managed Landing 12-to-Landing 20 corridor, and Mapcarta/OpenStreetMap independently resolves Canoe Landing 20 in La Farge."
+      },
+      "notes": "Implemented 2026-05-25 as a follow-on upper-Kickapoo route. This clears the Wisconsin quality bar with named public/plausible landings, a direct live La Farge gauge, route-specific MilesPaddled and Wisconsin River Trips level observations, KVR access/permit context, and documented flash-flood/snags/riffle hazards. No gallery asset was added; the image audit records a rights-clean broad Kickapoo Valley Commons lead already used on the upstream Ontario-to-Rockton route, but no separate exact-route reusable image was ingested."
+    },
+    {
+      "candidateId": "wi-kinnickinnic-river-glen-park-state-park",
+      "river": "Kinnickinnic River",
+      "route": "Glen Park to Kinnickinnic State Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as kinnickinnic-river-glen-park-state-park. Revisit only if official DNR or city paddling bands appear, access rules materially change, or a better exact-route reusable photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MilesPaddled Kinnickinnic River",
+        "Wisconsin River Trips Kinnickinnic River",
+        "USGS 05342000 Kinnickinnic River near River Falls, WI",
+        "City of River Falls Glen Park",
+        "City of River Falls Kinni Trail System map",
+        "Wisconsin DNR Kinnickinnic State Park",
+        "Wisconsin DNR Kinnickinnic State Park map",
+        "Wisconsin DNR Kinnickinnic River Gorge and Delta State Natural Area",
+        "Wikimedia Commons Kinnickinnic River Winter Sunset"
+      ],
+      "aliases": [
+        "Kinnickinnic River - River Falls to Kinnickinnic State Park",
+        "Kinni River - Glen Park to State Park",
+        "Kinnickinnic River lower gorge"
+      ],
+      "v2Slug": "kinnickinnic-river-glen-park-state-park",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05342000 Kinnickinnic River near River Falls, WI. USGS places the gauge on the same river 1.9 miles upstream from the mouth and 5.5 miles west of River Falls, inside the lower route corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "MilesPaddled documents the exact River Falls-to-Kinnickinnic State Park route at 125 cfs and says that level is doable but scrape-heavy, with about 175 cfs as a better minimum for a fun run. Wisconsin River Trips ties the same lower Kinni route to the River Falls gauge and warns that roughly 250+ cfs can become pushy and murky. The app uses 175-225 cfs as the preferred window, 125 cfs as the scrape-heavy floor, and 250 cfs as the broad-audience high cutoff."
+      },
+      "endpoints": {
+        "putIn": "Glen Park (River Falls)",
+        "takeOut": "St. Croix River beach / concrete take-out at Kinnickinnic State Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.85075,
+          "longitude": -92.63882
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.83254,
+          "longitude": -92.76374
+        },
+        "coordinateSource": "Existing V2 implementation, corroborated by the City of River Falls Glen Park / Kinni Trail System launch context, Wisconsin DNR Kinnickinnic State Park map context for the mouth-area take-out, and route-specific MilesPaddled access notes."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data, trip details, route gallery, and image audit but absent from the structured ledger. This route clears the Wisconsin quality bar with named public endpoints, direct live gauge support, route-specific community flow guidance, official city/DNR access context, and documented swiftwater/carry-out hazards. The existing Commons image remains wired as /gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg."
+    },
+    {
       "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
       "river": "Black Earth Creek",
       "route": "Cross Plains to Salmo Pond County Park",
       "state": "WI",
       "status": "research_later",
       "lastReviewed": "2026-05-25",
-      "reviewCount": 8,
-      "blocker": "Gauge and threshold support remain promising, but the freshest route-operability evidence still cuts against shipping: Wisconsin River Trips' July 2, 2025 field comment reports two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around, and a fifth 2026-05-25 targeted clearance search did not surface newer confirmation that the corridor is clear.",
-      "retryCondition": "Retry only if Wisconsin River Trips, Dane County, or recent field verification confirms the Cross Plains-to-Salmo corridor has been cleared enough for normal recreational passage.",
-      "retryDate": "2026-06-25",
+      "reviewCount": 19,
+      "blocker": "A July 2, 2025 Wisconsin River Trips field report for Cross Plains to Salmo Pond says there are two full blockages near the Scherbel Road / Salmo Pond take-out, including one impossible to get around. This pass found no newer public clearance evidence.",
+      "retryCondition": "Retry only if Wisconsin River Trips, Dane County Parks, a local paddling group, or another credible current source reports the Cross Plains-to-Salmo Pond corridor clear through the Scherbel/Salmo take-out area.",
+      "retryDate": null,
       "sourcesChecked": [
         "Wisconsin River Trips Black Earth Creek - Cross Plains",
         "USGS Black Earth Creek at Cross Plains gauge",
@@ -2432,7 +3643,22 @@
         "2026-05-25 third targeted web search for Black Earth Creek Salmo Pond blockage clearance and newer access reports",
         "2026-05-25 fourth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
         "2026-05-25 fifth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
-        "Wisconsin DNR Black Earth Creek Fishery Area page"
+        "2026-05-25 sixth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 seventh targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 eighth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 ninth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 tenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 eleventh targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 twelfth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 thirteenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 fourteenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 fifteenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 sixteenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "Wisconsin DNR Black Earth Creek Fishery Area page",
+        "Wisconsin River Trips Black Earth Creek - Cross Plains July 2 2025 blockage comment",
+        "Dane County Parks Salmo Pond County Park page and 2026 park map",
+        "Targeted 2026 web search for Black Earth Creek Salmo Pond Scherbel clearance evidence",
+        "2026-05-25 eighteenth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel clearance evidence"
       ],
       "aliases": [
         "Black Earth Creek - Cross Plains to Salmo Pond",
@@ -2452,7 +3678,7 @@
         "takeOut": "Salmo Pond County Park",
         "coordinatesPresent": false
       },
-      "notes": "Re-reviewed again on 2026-05-25. Wisconsin River Trips still provides strong route-specific gauge guidance and Dane County still confirms Salmo Pond has an active canoe/kayak launch, but the freshest explicit field update remains the July 2, 2025 report of two full blockages near the take-out, one impossible to bypass. A fifth targeted search found only access/fishing context and no newer 2026 clearance evidence, so the route stays deferred for safety/operability confidence."
+      "notes": "Rechecked 2026-05-25 after the prompted Bark River and Sugar River routes were already implemented. The gauge/range and endpoint-access story remains attractive, but route operability is still blocked by the July 2, 2025 Wisconsin River Trips report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around. The latest targeted search still surfaced Dane County Salmo Pond canoe/kayak access and local creek context, not corridor clearance, so this remains deferred."
     },
     {
       "candidateId": "oh-grand-river-harpersfield-covered-bridge-hidden-valley-park",
@@ -2463,7 +3689,7 @@
       "lastReviewed": "2026-05-25",
       "reviewCount": 2,
       "blocker": null,
-      "retryCondition": "Already implemented as grand-river-harpersfield-hidden-valley. Revisit to ingest the public-domain USFWS/Wikimedia Harpersfield image after download access is available.",
+      "retryCondition": "Already implemented as grand-river-harpersfield-hidden-valley with the public-domain USFWS/Wikimedia Harpersfield image wired. Revisit only if a stronger downstream paddling-action image, improved access metadata, or official threshold updates appear.",
       "retryDate": null,
       "sourcesChecked": [
         "docs/ohio-route-candidate-queue.md",
@@ -2658,7 +3884,7 @@
       "lastReviewed": "2026-05-25",
       "reviewCount": 2,
       "blocker": null,
-      "retryCondition": "Already implemented as vermilion-river-schoepfle-mill-hollow. Revisit to verify and possibly ingest a rights-clean same-reach gallery image.",
+      "retryCondition": "Already implemented as vermilion-river-schoepfle-mill-hollow with the CC BY-SA 2.5 Schoepfle/Birmingham Commons image wired. Revisit only if a more exact Mill Hollow or paddling-action image, official access metadata, or official threshold updates appear.",
       "retryDate": null,
       "sourcesChecked": [
         "American Whitewater Vermilion - Schoepfle Gardens to Mill Hollow Park reach",
@@ -3046,6 +4272,518 @@
         "coordinateSource": "Existing V2 coordinates align with the named Stone's Bridge and Winneboujou landings described by Wisconsin DNR and Wisconsin Trail Guide, which documents both as designated Brule River canoe landings with parking and facilities."
       },
       "notes": "Reconciled 2026-05-25 after finding the route already present in app data but absent from the structured ledger and image audit. This route clears the Wisconsin quality bar with DNR-designated public landings, a direct same-segment USGS gauge, route-specific Wisconsin Trail Guide flow bands, Wisconsin River Trips route confirmation, and AW gauge corroboration. A reusable Commons Brule River photo near Winneboujou and a public-domain USGS gauge photo were found, but sandbox network blocked direct asset download, so no gallery entry was wired."
+    },
+    {
+      "candidateId": "wi-bois-brule-river-bois-brule-pine-tree",
+      "river": "Bois Brule River",
+      "route": "Bois Brule Landing to Pine Tree Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as bois-brule-river-bois-brule-pine-tree. Revisit only if Wisconsin DNR publishes official paddling bands or a rights-clean representative BB2 route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin DNR Brule River State Forest paddling page",
+        "Wisconsin Trail Guide Bois Brule BB2 PDF",
+        "Wisconsin Trail Guide Bois Brule BB2 map PDF",
+        "Wisconsin Trail Guide Bois Brule overview",
+        "USGS 04025500 Bois Brule River at Brule, WI monitoring location",
+        "Wisconsin River Trips Bois Brule River - Hwy 2 to Pine Tree Landing",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Bois Brule River BB2",
+        "Brule River - Bois Brule Landing to Pine Tree Landing",
+        "Bois Brule Campground to Pine Tree Landing",
+        "Bois Brule River - Highway 2 to Pine Tree plus upstream campground approach"
+      ],
+      "v2Slug": "bois-brule-river-bois-brule-pine-tree",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04025500 Bois Brule River at Brule, WI. Wisconsin Trail Guide ties the exact BB2 route to this same-river gauge family and says the gauge in the previous BB1 segment should provide an accurate indication of current conditions in this reach."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "Wisconsin Trail Guide publishes route-specific BB2 bands: below 125 cfs not recommended, 125-200 cfs low runnable with bony riffles and rapids, 200-350 cfs medium runnable for novice paddlers, 350-600 cfs high runnable, 600-1000 cfs not recommended for novice paddlers, and above 1000 cfs experienced-paddler-only because deadfall and strainers can become hazardous and unavoidable."
+      },
+      "endpoints": {
+        "putIn": "Bois Brule Landing / Bois Brule Campground canoe landing",
+        "takeOut": "Pine Tree Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 46.54042,
+          "longitude": -91.59408
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.61545,
+          "longitude": -91.58264
+        },
+        "coordinateSource": "Wisconsin Trail Guide BB2 PDF publishes NAD83 / WGS84 coordinates for Bois Brule Landing and Pine Tree Landing. Wisconsin DNR corroborates that Brule River paddlers must use designated canoe landings, and the Brule River State Forest paddling page lists the same landing corridor including Highway 2-to-Pine Tree timing."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark River and Sugar River candidates were already present. This route clears the quality bar with named state-forest landings, published endpoint coordinates, route-specific Wisconsin Trail Guide flow bands, a same-river live USGS gauge, Wisconsin DNR designated-landing rules, campground/access context, and documented class I rapids. No gallery asset was added because the fresh search found broad Brule Commons/USGS leads and route/blog imagery but no clearly reusable representative BB2 route photo."
+    },
+    {
+      "candidateId": "wi-baraboo-river-glenville-luebke",
+      "river": "Baraboo River",
+      "route": "Glenville Landing to Luebke Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as baraboo-river-glenville-luebke. Revisit only if official Sauk County coordinate tables, stronger manager thresholds, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Baraboo River - Glenville Landing",
+        "USGS 05405000 Baraboo River Near Baraboo, WI monitoring location",
+        "Sauk County Paddle the Baraboo River page",
+        "Baraboo River paddling map PDF",
+        "National Rivers Project Baraboo River Water Trail",
+        "Travel Wisconsin Baraboo River page",
+        "Wikimedia Commons / federal / local-government photo search"
+      ],
+      "aliases": [
+        "Baraboo River - Glenville Landing to Luebke Landing",
+        "Lower Baraboo - Highway 113 to County Road W",
+        "Baraboo River Water Trail - Glenville to Luebke"
+      ],
+      "v2Slug": "baraboo-river-glenville-luebke",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05405000 Baraboo River Near Baraboo, WI. Wisconsin River Trips ties the exact Glenville-to-Luebke route to this nearby Baraboo gauge, and the Sauk County Baraboo River map points paddlers to site 05405000 for real-time river flow downstream of Baraboo."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a full stage ladder for this exact route: under 7.0 ft still likely navigable, 7.1-7.5 ft low but navigable, 7.6-8.0 ft average, 8.1-8.7 ft above average with faster/muddier current, 8.8-9.5 ft expert-only, 9.6-11 ft minor flood stage and likely dangerous, and 11.1+ ft not recommended."
+      },
+      "endpoints": {
+        "putIn": "Glenville Landing / Highway 113",
+        "takeOut": "Luebke Landing / County Road W",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.45828,
+          "longitude": -89.71452
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.46578,
+          "longitude": -89.65695
+        },
+        "coordinateSource": "Wisconsin River Trips linked Google route map coordinates, corroborated by the Sauk County / Baraboo River map naming Glenville Landing off Highway 113 and Luebke Landing on County Road W with parking available at both."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were found already implemented and the remaining known Wisconsin holds stayed blocked or duplicate. This route clears the quality bar with named public landings, a direct USGS gauge, route-specific community threshold guidance, and official/local water-trail map support. No gallery asset was added because this pass did not find a clearly reusable exact-route photo."
+    },
+    {
+      "candidateId": "wi-la-crosse-river-veterans-holiday-heights",
+      "river": "La Crosse River",
+      "route": "Veterans Memorial County Park to Holiday Heights Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as la-crosse-river-veterans-holiday-heights with the CC0 Commons La Crosse River trail-corridor image wired. Revisit only if a more exact launch/paddling image or county/city landing coordinate records improve.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips La Crosse River - Veterans Memorial Campground",
+        "USGS 05383075 La Crosse River Near La Crosse, WI monitoring location",
+        "La Crosse County campgrounds page",
+        "Veterans Memorial Park - La Crosse River State Trail page",
+        "Onalaska Holiday Heights Park facility page",
+        "Mapcarta Holiday Heights Park OpenStreetMap feature",
+        "Travel Wisconsin La Crosse River page",
+        "Wikimedia Commons La Crosse River trail bridge image"
+      ],
+      "aliases": [
+        "La Crosse River - Veterans Memorial Campground to Holiday Heights Park",
+        "La Crosse River - Veterans Memorial County Park to Holiday Heights Landing",
+        "La Crosse River - Veterans Memorial County Park to Holiday Heights Launch"
+      ],
+      "v2Slug": "la-crosse-river-veterans-holiday-heights",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05383075 La Crosse River Near La Crosse, WI. Wisconsin River Trips ties the exact Veterans Memorial Campground-to-Holiday Heights route to this lower La Crosse River gauge, which is downstream in the same corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific CFS ladder: 0-300 cfs is still runnable because the leg is deep, 301-400 cfs is average and the target range, 401-500 cfs is high but navigable, 501-600 cfs is very high and skilled-paddler-only, and 601+ cfs is perhaps too high for enjoyable paddling."
+      },
+      "endpoints": {
+        "putIn": "Veterans Memorial Campground canoe landing",
+        "takeOut": "Holiday Heights Park / Holiday Heights Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.891232,
+          "longitude": -91.116408
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.86201,
+          "longitude": -91.20178
+        },
+        "coordinateSource": "La Crosse County publishes Veterans Memorial Campground GPS coordinates and county/trail pages confirm the river-access/canoe-landing context. Onalaska publishes Holiday Heights Park as a public park, Mapcarta/OpenStreetMap gives the named park coordinates, and Wisconsin River Trips identifies Holiday Heights Landing as the route take-out with public parking."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and the known Black Earth Creek hold stayed blocked. This route clears the quality bar with named public endpoints, route-specific level guidance, a direct live USGS gauge, official local access context, and documented hazards. A CC0 Commons La Crosse River Trail bridge image was found, but sandbox network blocked direct download, so no gallery asset was wired."
+    },
+    {
+      "candidateId": "wi-brule-river-highway-139-fr-2150",
+      "river": "Brule River",
+      "route": "Highway 139/189 Bridge Landing to Forest Road 2150 Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as brule-river-highway-139-fr-2150. Revisit only if an official manager publishes fuller route-specific flow bands or if a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Brule River B2 PDF",
+        "Wisconsin Trail Guide Brule River Highway 139/189 Bridge to Forest Road 2150 page",
+        "USGS 04060993 Brule River at US Highway 2 near Florence, WI monitoring location",
+        "American Whitewater Brule Highway 189 to FS2150 reach 2282",
+        "Travel Wisconsin Brule River",
+        "Florence County highway map",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Brule River - Highway 139 to Forest Road 2150",
+        "Brule River B2",
+        "Brule River - Hwy 189 to FS2150",
+        "Brule River - Highway 139/189 Bridge to Forest Road 2150"
+      ],
+      "v2Slug": "brule-river-highway-139-fr-2150",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04060993 Brule River at US Highway 2 near Florence, WI. Wisconsin Trail Guide ties the exact B2 route minimum to the US Highway 2 bridge gauge, and American Whitewater uses the same gauge for the Highway 189-to-FS2150 reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific minimum suggested flow of 220 cfs / 3.5 ft at the US Highway 2 bridge gauge. It also says the river is usually navigable through spring, summer, and fall but can be scrappy during periods with little rainfall. American Whitewater corroborates the same reach/gauge pairing but does not add a fuller recreational ladder."
+      },
+      "endpoints": {
+        "putIn": "Highway 139/189 Bridge Landing",
+        "takeOut": "Forest Road 2150 Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.98767,
+          "longitude": -88.65238
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.99013,
+          "longitude": -88.45013
+        },
+        "coordinateSource": "Wisconsin Trail Guide Brule River B2 PDF GPS table, NAD83 / WGS84. Travel Wisconsin corroborates that Brule River access is available at county and forest-service roads, and Wisconsin Trail Guide describes both endpoints as hand-carry landings with parking."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and the known Black Earth Creek hold stayed blocked. This route clears the quality bar with named hand-carry access points, published endpoint coordinates, route-specific minimum-flow guidance, a same-river live USGS gauge, AW gauge corroboration, and documented hazards. No gallery asset was added because this pass did not select a clearly reusable route image."
+    },
+    {
+      "candidateId": "wi-wolf-river-langlade-markton",
+      "river": "Wolf River",
+      "route": "Highway 64 DNR Landing to Markton County M Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wolf-river-langlade-markton. Revisit only if official Wisconsin DNR paddling bands or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Wolf River - Langlade to Markton page",
+        "Wisconsin Trail Guide Wolf W5 PDF",
+        "USGS 04074950 Wolf River at Langlade, WI monitoring location",
+        "Wisconsin DNR Upper Wolf River Fishery Area page",
+        "American Whitewater Wolf Section III reach 2319",
+        "Langlade County Wolf River recreation context",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Wolf River - Langlade to Markton",
+        "Wolf River Section III",
+        "Wolf River - Highway 64 DNR Landing to County M Landing",
+        "Wolf River - Langlade to County M"
+      ],
+      "v2Slug": "wolf-river-langlade-markton",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04074950 Wolf River at Langlade, WI. Wisconsin Trail Guide says the gauge is at the beginning of the Langlade-to-Markton segment and should accurately indicate current conditions in the reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a full route-specific Langlade-gauge ladder for this exact Section III route: below 250 cfs not recommended, 250-400 cfs low runnable, 400-600 cfs enjoyable low runnable, 600-950 cfs great range, 950-1200 cfs experienced whitewater, 1200-1700 cfs unusually high intermediate water, 1700-2500 cfs advanced only, and 2500+ cfs not recommended."
+      },
+      "endpoints": {
+        "putIn": "Highway 64 DNR Landing, Langlade",
+        "takeOut": "Markton County M Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.18977,
+          "longitude": -88.73369
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.12576,
+          "longitude": -88.66297
+        },
+        "coordinateSource": "Wisconsin Trail Guide Wolf W5 PDF GPS table, NAD83 / WGS84. Wisconsin DNR corroborates Upper Wolf River Fishery Area public boating/recreation context, and American Whitewater corroborates the public DNR Highway 64 put-in and Section III gauge story."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded whitewater route after the prompted Bark River and Sugar River routes were confirmed already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public/DNR access context, endpoint coordinates, a direct live USGS gauge at the put-in bridge, route-specific flow bands, and documented Class II-III hazards. The app uses a conservative 1200 cfs broad-audience ceiling even though Wisconsin Trail Guide lists higher advanced-only runnable bands. No gallery asset was added because the photo search found no clearly reusable exact-route image; broad Wolf/guide/outfitter images are discovery-only unless rights are explicit."
+    },
+    {
+      "candidateId": "wi-bois-brule-river-pine-tree-highway-13",
+      "river": "Bois Brule River",
+      "route": "Pine Tree Landing to Highway 13 Canoe Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as bois-brule-river-pine-tree-highway-13. Revisit only if Wisconsin DNR publishes official paddling bands, a closer segment-side live gauge appears, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin DNR Brule River State Forest paddling page",
+        "Wisconsin Trail Guide Bois Brule River Pine Tree page",
+        "Wisconsin Trail Guide BB3 guide PDF",
+        "Wisconsin Trail Guide BB3 map PDF",
+        "Wisconsin Trail Guide Bois Brule full map PDF",
+        "American Whitewater Bois Brule reach 2280",
+        "National Rivers Project Bois Brule Pine Tree to Highway 13",
+        "USGS 04025500 Bois Brule River at Brule, WI monitoring location",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Bois Brule River BB3",
+        "Bois Brule - Pine Tree Landing to Highway 13 Landing",
+        "Brule River - Pine Tree to Highway 13",
+        "Bois Brule River - Pine Tree Landing to Highway 13 Bridge"
+      ],
+      "v2Slug": "bois-brule-river-pine-tree-highway-13",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04025500 Bois Brule River at Brule, WI. Wisconsin Trail Guide ties the exact BB3 route to this same-river gauge and says the station is roughly 10.5 miles upstream from the segment and should provide an accurate indication of current conditions in the reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific BB3 ladder: below 125 cfs not recommended, 125-200 cfs low runnable with bony rapids, 200-350 cfs medium runnable and fun for novice whitewater paddlers, 350-600 cfs high runnable, 600-1000 cfs novice paddlers should avoid, and above 1000 cfs experienced paddlers only because deadfall and strainers can become unavoidable."
+      },
+      "endpoints": {
+        "putIn": "Pine Tree Landing",
+        "takeOut": "Highway 13 Canoe Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 46.61545,
+          "longitude": -91.58264
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.67776,
+          "longitude": -91.59553
+        },
+        "coordinateSource": "Wisconsin Trail Guide BB3 guide PDF publishes NAD83 / WGS84 coordinates for Pine Tree Landing and Highway 13 Landing. The full Bois Brule map lists both as Brule River State Forest canoe landings, and Wisconsin DNR corroborates the Pine Tree-to-Highway-13 trip and designated-landing rule."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Bois Brule whitewater route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with designated state-forest landings, route-specific Wisconsin Trail Guide flow bands, a same-river USGS live gauge, official Brule River State Forest trip context, and documented Lenroot/Mays ledge hazards. No gallery asset was added because the fresh photo search found no clearly reusable exact-route photo; broad Commons/USGS and AW/blog images remain discovery-only unless rights and route fit are clear."
+    },
+    {
+      "candidateId": "wi-bois-brule-river-highway-13-mouth",
+      "river": "Bois Brule River",
+      "route": "Highway 13 Canoe Landing to Mouth Access",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as bois-brule-river-highway-13-mouth. Revisit only if official Wisconsin DNR paddling bands, a closer lower-river gauge, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin DNR Brule River State Forest paddling page",
+        "Wisconsin DNR Highway 13 Canoe Landing boat-access detail",
+        "Wisconsin DNR Spring Lake / Bois Brule boat landings page",
+        "Wisconsin Trail Guide Bois Brule River Highway 13 page",
+        "Wisconsin Trail Guide BB4 guide PDF",
+        "Wisconsin Trail Guide Bois Brule full map PDF",
+        "USGS 04025500 Bois Brule River at Brule, WI monitoring location",
+        "USGS public-domain streamgage photo",
+        "Wikimedia Commons / local-government photo search"
+      ],
+      "aliases": [
+        "Bois Brule River BB4",
+        "Bois Brule - Highway 13 to Mouth of Brule Landing",
+        "Brule River - Highway 13 to Lake Superior",
+        "Bois Brule River - Highway 13 Canoe Landing to Mouth of the Brule"
+      ],
+      "v2Slug": "bois-brule-river-highway-13-mouth",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04025500 Bois Brule River at Brule, WI. Wisconsin Trail Guide ties the exact BB4 route to this same-river gauge, while noting that the station is roughly 19 miles upstream from the segment and should be treated as an estimate of lower-river conditions."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a route-specific BB4 ladder: below 125 cfs not recommended, 125-200 cfs low runnable with bony riffles/rapids, 200-350 cfs medium runnable for novice paddlers, 350-600 cfs high runnable for novice paddlers, 600-1000 cfs novice paddlers should avoid, and above 1000 cfs experienced paddlers only because deadfall and strainers may become unavoidable."
+      },
+      "endpoints": {
+        "putIn": "Highway 13 Canoe Landing",
+        "takeOut": "Bois Brule River -- Mouth Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 46.67795948,
+          "longitude": -91.59535953
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.74768874,
+          "longitude": -91.61055237
+        },
+        "coordinateSource": "Wisconsin DNR boat-access detail publishes Highway 13 Canoe Landing coordinates. Wisconsin DNR lists Bois Brule River -- Mouth Access as a public boat landing on the same boat-landings page, and the take-out coordinate was verified against the DNR linked Google Maps/named mouth access location."
+      },
+      "notes": "Implemented 2026-05-25 as a lower Bois Brule route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with designated DNR landings, route-specific Wisconsin Trail Guide level bands, a same-river USGS live gauge, official Brule River State Forest rules, and a documented mandatory lamprey-barrier portage. No gallery asset was added: the USGS public-domain image is useful gauge context but not a representative route photo, and no rights-clean exact-route paddling image was selected."
+    },
+    {
+      "candidateId": "wi-white-river-maple-ridge-highway-112",
+      "river": "White River",
+      "route": "Maple Ridge Road to Highway 112 Dam",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as white-river-maple-ridge-highway-112. Revisit only if an official manager publishes fuller flow bands, DNR-level access records appear for both landings, or a rights-clean route photo is found.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide White River WH1 page",
+        "Wisconsin Trail Guide White River WH1 guide PDF",
+        "Wisconsin Trail Guide White River map PDF",
+        "MilesPaddled White River - Bayfield County",
+        "USGS 04027500 White River near Ashland, WI monitoring location",
+        "Wisconsin DNR White River Flowage boating page",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "White River WH1",
+        "White River - Maple Ridge Road Bridge to Highway 112 Dam",
+        "White River - Maple Ridge Road to Highway 112 Dam Landing",
+        "White River - Maple Ridge to White River Flowage"
+      ],
+      "v2Slug": "white-river-maple-ridge-highway-112",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04027500 White River near Ashland, WI. The gauge is on the same river at the downstream end of the route corridor near the Highway 112 dam / White River Flowage area, and MilesPaddled ties the exact Maple Ridge-to-Highway-112 route to this gauge."
+      },
+      "thresholdSupport": {
+        "strength": "community",
+        "notes": "MilesPaddled reports this exact route as recommended at 1.47 ft / 200 cfs on the White River near Ashland gauge. The app uses a cautious two-sided manual band around that same-route observation: 1.35-1.75 ft as the preferred window, 1.1 ft as too low, and 2.6 ft as too high for broad recommendation. This is weaker than a full official ladder, but it is tied to the direct same-river gauge and route-specific community evidence."
+      },
+      "endpoints": {
+        "putIn": "Maple Ridge Road Access",
+        "takeOut": "Highway 112 Dam Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 46.43755,
+          "longitude": -91.0261
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.49834,
+          "longitude": -90.91032
+        },
+        "coordinateSource": "Wisconsin Trail Guide White River WH1 guide PDF GPS table, NAD83 / WGS84. The guide and map identify Maple Ridge Road Access and Highway 112 Dam Landing as the route endpoints with canoe/kayak access context; the DNR White River Flowage boating page corroborates public boating access at STH 112 near the take-out corridor."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data and image audit but absent from the structured ledger. This route clears a guarded Wisconsin quality bar with named guide access points, published endpoint coordinates, a direct same-river live USGS gauge, route-specific MilesPaddled water-level evidence, and Wisconsin Trail Guide route/hazard documentation. Confidence remains below the best Wisconsin additions because the threshold model is based on one same-route community observation rather than a full official or community ladder, and official manager access pages are thinner than for DNR landings. No route-gallery asset was added because the image audit still has no clearly reusable representative White River route photo."
+    },
+    {
+      "candidateId": "wi-red-cedar-river-tom-prince-russian-slough",
+      "river": "Red Cedar River",
+      "route": "Tom Prince Memorial Park to Russian Slough County Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as red-cedar-river-tom-prince-russian-slough. Revisit only if an official manager publishes stronger paddling bands, Russian Slough access status changes, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Red Cedar River - Colfax",
+        "USGS 05367500 Red Cedar River near Colfax, WI monitoring location",
+        "Dunn County parks Russian Slough page",
+        "Wisconsin DNR 2024 Red Cedar River survey report",
+        "Paddling.com Tom Prince Memorial Park access page",
+        "Wikimedia Commons / USGS / Dunn County / Wisconsin DNR photo search"
+      ],
+      "aliases": [
+        "Red Cedar River - Colfax",
+        "Red Cedar River - Tom Prince Landing to Russian Slough Landing",
+        "Red Cedar River - Tom Prince Memorial Park to Russian Slough County Park"
+      ],
+      "v2Slug": "red-cedar-river-tom-prince-russian-slough",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05367500 Red Cedar River near Colfax, WI, a live same-river gauge downstream in the route corridor. Wisconsin River Trips uses this exact gauge for the Tom Prince-to-Russian Slough route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Colfax-gauge guidance for this Red Cedar reach: under 400 cfs still navigable, 401-600 cfs good depth / typical fall, 601-800 cfs a bit high and pushy, 801-1200 cfs high and expert-only because of strainers, and 1201+ cfs maybe too high. The app uses 401-600 cfs as the preferred window and 801+ cfs as beyond broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "Tom Prince Memorial Park Landing",
+        "takeOut": "Russian Slough County Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.0026972,
+          "longitude": -91.729812
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.9933827,
+          "longitude": -91.8095487
+        },
+        "coordinateSource": "Wisconsin River Trips' Google shuttle map resolves the planned endpoint coordinates. Paddling.com independently lists Tom Prince Memorial Park on the Red Cedar River at 45.002775, -91.729783. Dunn County corroborates Russian Slough as county-owned public Red Cedar corridor land, and Wisconsin DNR's 2024 Red Cedar River survey lists Russian Slough among notable public accesses."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public endpoints, endpoint coordinates, a direct same-river USGS gauge, route-specific community level guidance, and explicit strainer/high-water cautions. The main caveat is Russian Slough: Dunn County confirms it as public land but says it has no amenities or developed boat landing and may close during spring walleye spawning, so the app presents it as a rustic take-out that must be scouted. No route-gallery asset was added because no clearly reusable representative route photo was found."
+    },
+    {
+      "candidateId": "wi-big-eau-pleine-river-cherokee-march-rapids",
+      "river": "Big Eau Pleine River",
+      "route": "Cherokee Park to March Rapids Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as big-eau-pleine-river-cherokee-march-rapids. Revisit only if an official manager publishes stronger route-specific flow bands, a closer upstream live gauge appears, or a rights-clean exact-route photo becomes available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Big Eau Pleine River - Cherokee Park",
+        "Wisconsin River Trips Big Eau Pleine River - Hazelnut Road",
+        "Wisconsin River Trips Big Eau Pleine River overview",
+        "USGS 05399500 Big Eau Pleine River at Stratford, WI monitoring location",
+        "Marathon County Cherokee Park facility page",
+        "AnyplaceAmerica Cherokee Park USGS topo coordinates",
+        "AnyplaceAmerica March Rapids County Park USGS topo coordinates",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Big Eau Pleine River - Cherokee Park to Hazelnut Road to March Rapids Park",
+        "Big Eau Pleine - Cherokee County Park to March Rapids County Park",
+        "Big Eau Pleine River - Cherokee to March Rapids",
+        "Big Eau Pleine River - Cherokee Park to March Rapids Park"
+      ],
+      "v2Slug": "big-eau-pleine-river-cherokee-march-rapids",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05399500 Big Eau Pleine River at Stratford, WI, a live same-river gauge downstream of the Cherokee-to-March Rapids corridor. Wisconsin River Trips uses the Stratford gauge for the Cherokee, Hazelnut, and March Rapids route family, while noting the river is flashy and the gauge is downstream."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-family Stratford-gauge guidance for the Big Eau Pleine: under 100 cfs likely too shallow, 101-150 cfs runnable with bumps, 151-200 cfs good, 201-250 cfs also good, 251-300 cfs high but manageable for experienced paddlers, 301-400 cfs high for recreational paddlers but good for whitewater paddlers, 401-500 cfs likely whitewater-only, and 501+ cfs very high / very experienced paddlers only. The app uses 151-250 cfs as the preferred window and 301+ cfs as beyond broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "Cherokee Park",
+        "takeOut": "March Rapids Park",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.9046882,
+          "longitude": -90.2226348
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.8507988,
+          "longitude": -90.1498549
+        },
+        "coordinateSource": "AnyplaceAmerica publishes USGS/topographic-place coordinates for Cherokee Park and March Rapids County Park. Marathon County corroborates Cherokee Park as a public county park on the Big Eau Pleine River, and Wisconsin River Trips corroborates March Rapids Park as the public take-out with paths and pull-off space."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public county-park endpoints, endpoint coordinates from public topo context, route-specific community level guidance, a direct live same-river USGS gauge, and detailed hazards. No gallery asset was added because the photo search found WRT route imagery and broad river/category leads but no clearly reusable representative route photo."
     }
   ]
 }

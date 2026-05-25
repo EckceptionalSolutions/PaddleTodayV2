@@ -312,6 +312,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
+  'grand-river-harpersfield-hidden-valley': [
+    {
+      id: 'grand-river-harpersfield-covered-bridge-commons',
+      src: '/gallery/grand-river-harpersfield-hidden-valley/grand-river-harpersfield-covered-bridge.jpg',
+      alt: 'The Harpersfield covered bridge and adjacent road bridge cross the Grand River above low ledges and brown spring water.',
+      caption: 'Grand River at Harpersfield Covered Bridge',
+      credit: 'Joanna Gilkeson/USFWS via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'vermilion-river-schoepfle-mill-hollow': [
+    {
+      id: 'vermilion-river-birmingham-commons',
+      src: '/gallery/vermilion-river-schoepfle-mill-hollow/vermilion-river-birmingham.jpg',
+      alt: 'The Vermilion River bends through dense summer woods at Schoepfle Garden Metropark near Birmingham.',
+      caption: 'Vermilion River at Schoepfle Garden Metropark',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
+  'la-crosse-river-veterans-holiday-heights': [
+    {
+      id: 'la-crosse-river-trail-bridge-commons',
+      src: '/gallery/la-crosse-river-veterans-holiday-heights/la-crosse-river-trail-bridge.jpg',
+      alt: 'An aerial view shows the La Crosse River curving through a green corridor beside rail tracks and a trail bridge.',
+      caption: 'La Crosse River trail corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

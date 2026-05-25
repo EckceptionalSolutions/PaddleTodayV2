@@ -437,16 +437,50 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'white-river-maple-ridge-highway-112': {
+  'wolf-river-langlade-markton': {
     putIn: {
-      name: 'Maple Ridge Road access',
-      latitude: 46.43763,
-      longitude: -91.0262,
+      name: 'Highway 64 DNR Landing, Langlade',
+      latitude: 45.18977,
+      longitude: -88.73369,
     },
     takeOut: {
-      name: 'Highway 112 Dam / White River Flowage access',
-      latitude: 46.49858,
-      longitude: -90.90995,
+      name: 'Markton County M Landing',
+      latitude: 45.12576,
+      longitude: -88.66297,
+    },
+    logistics: {
+      distanceLabel: '9.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer with scouting or play stops',
+      shuttle:
+        'Use a two-car shuttle from the Highway 64 DNR landing at Langlade to the County M landing near Markton. Paddlers running the shorter Section III variant often start at Herb\'s Landing, but this route keeps the full Wisconsin Trail Guide Langlade-to-Markton segment.',
+      permits:
+        'No route-specific permit was found for the Langlade County segment above Markton. Check posted DNR/fishery-area access rules, and do not continue into downstream Menominee Reservation access without separate permission and local guidance.',
+      camping:
+        'No on-route campsite is assumed for this whitewater day run. Nearby forest and private lodging options exist in the broader Wolf River corridor, but they should be planned separately.',
+      summary:
+        'Launch from the public Highway 64 DNR landing at Langlade and paddle Section III of the upper Wolf to Markton County M Landing. The run starts with several miles of riffles and Class II rapids, then builds into the Boy Scout, Hanson, and Gilmore\'s Mistake sequence near the lower end.',
+      accessCaveats: [
+        'The Highway 64 landing is a public DNR access next to the live Langlade gauge and is also the take-out for the upstream Hollister-to-Langlade route.',
+        'County M is the planned take-out before downstream Menominee Reservation access rules become a separate issue. Do not assume downstream landings are public without checking current tribal and outfitter guidance.',
+        'Herb\'s Landing and Crab n Jack\'s/Wild Wolf-area landings are common whitewater alternates, but this route uses the published Markton County M endpoint and coordinates.',
+      ],
+      watchFor: [
+        'Long boulder gardens and named rapids including Crowle, Horserace, Twenty Day, Boy Scout, Hanson, and Gilmore\'s Mistake.',
+        'Bony lines below about 400 cfs and stronger holes, pushier waves, and more consequential swims above about 950 cfs on the Langlade gauge.',
+        'Strainers, deadfall, cold water, and private/reservation access issues if you miss the planned take-out.',
+      ],
+    },
+  },
+  'white-river-maple-ridge-highway-112': {
+    putIn: {
+      name: 'Maple Ridge Road Access',
+      latitude: 46.43755,
+      longitude: -91.0261,
+    },
+    takeOut: {
+      name: 'Highway 112 Dam Landing',
+      latitude: 46.49834,
+      longitude: -90.91032,
     },
     logistics: {
       distanceLabel: '15 mi',
@@ -460,7 +494,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       summary:
         'Put in at Maple Ridge Road near Mason and take out above the Highway 112 dam / flowage. This is a full moving-water day with a dam-finish mindset, not a casual float.',
       accessCaveats: [
-        'The coordinates and route shape are solid, but official landing or parking authority is weaker than on the strongest seeded routes.',
+        'Wisconsin Trail Guide publishes WGS84 coordinates for Maple Ridge Road Access and Highway 112 Dam Landing, but official landing or parking authority is weaker than on the strongest DNR-led routes.',
         'Do not drift toward the dam or restricted area at the take-out. Treat the finish as a deliberate exit, not a soft glide into flatwater.',
       ],
       watchFor: [
@@ -1973,6 +2007,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'baraboo-river-glenville-luebke': {
+    putIn: {
+      name: 'Glenville Landing / Highway 113',
+      latitude: 43.45828,
+      longitude: -89.71452,
+    },
+    takeOut: {
+      name: 'Luebke Landing / County Road W',
+      latitude: 43.46578,
+      longitude: -89.65695,
+    },
+    logistics: {
+      distanceLabel: '5.1 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Use a short rural car shuttle from Glenville Landing at Highway 113 to Luebke Landing on County Road W. Wisconsin River Trips maps the bike shuttle at about 3.5 miles with modest climbing, but County Road W traffic and shoulder conditions should be checked before choosing a bike shuttle.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted parking and landing rules at both Sauk County / Baraboo River access sites.',
+      camping:
+        'No on-route camping is expected. The Baraboo River map notes that most riverfront land is private and that camping is not allowed along the river.',
+      summary:
+        'Put in at Glenville Landing off Highway 113 southeast of Baraboo and take out at Luebke Landing on County Road W. This short lower-Baraboo route is easy at normal levels, with steady current, floodplain woods, muddy banks, and enough wood risk to make high-water judgment important.',
+      accessCaveats: [
+        'Sauk County mapping lists both Glenville and Luebke as river landings with parking, but no restrooms at either site.',
+        'Glenville can be muddy after heavy rain, and Luebke is a boat ramp but still a small river landing rather than a full-service paddling facility.',
+        'Most banks along the Baraboo are private; use the named landings and avoid casual bank exits unless safety requires it.',
+      ],
+      watchFor: [
+        'Strainers, downed trees, and fresh logjams after wind or rain events.',
+        'Faster, muddier current that can push paddlers into wood above the average stage band.',
+        'Steep muddy banks and slippery carries if a blockage forces an unplanned portage.',
+      ],
+    },
+  },
   'sugar-river-belleville-county-x': {
     putIn: {
       name: 'Belleville Community Park (Sugar River)',
@@ -1993,14 +2061,15 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'No paddling permit noted. Village of Belleville parks are open 6 a.m. to 10 p.m.; check Community Park and County Road X signage for any more specific parking rules.',
       camping: 'No established camping documented for this segment. Treat it as a day trip.',
       summary:
-        'Put in at Belleville Community Park and take out at County Road X. This is a mellow but full-feeling day, and low water makes it substantially less fun.',
+        'Put in at Belleville Community Park and take out at County Road X. This is a mellow but full-feeling day with several riffles and wooded bends; use the Verona gauge because both low-water scraping and pushier high water change the character quickly.',
       accessCaveats: [
         'Belleville Community Park is subject to official village park hours and vehicle rules, but the exact river-launch pattern and County Road X parking setup are still best confirmed on the ground.',
         'The low-water floor matters more than a precise sweet spot on this reach.',
       ],
       watchFor: [
-        'Shallows and grounding in low water.',
-        'Muddy bottom and tight bends that sap momentum.',
+        'Shallows and grounding below the normal Verona-gauge window.',
+        'Pushier current, poorer clarity, and harder strainer avoidance above the high-water caution band.',
+        'Muddy bottom, tight bends, and occasional strainers after storms.',
         'Stay clear of the Belleville dam or spillway upstream of the put-in.',
       ],
     },
@@ -2037,6 +2106,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'baraboo-river-haskins-glenville': {
+    putIn: {
+      name: 'Haskins Park ADA kayak launch',
+      latitude: 43.46997,
+      longitude: -89.76158,
+    },
+    takeOut: {
+      name: 'Glenville Landing / Highway 113 boat landing',
+      latitude: 43.45853,
+      longitude: -89.71399,
+    },
+    logistics: {
+      distanceLabel: '4.5 mi',
+      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr',
+      shuttle:
+        'Use a short Baraboo-area car shuttle between Haskins Park in West Baraboo and Glenville Landing on Highway 113. A bike shuttle is practical through town and along the riverwalk, but the final Highway 113 approach has traffic exposure.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Haskins Park and Glenville Landing parking rules, and avoid blocking the landing or ADA kayak-launch approach.',
+      camping:
+        'No on-route camping is expected. This is a short urban day route through Baraboo and past Circus World, not an overnight corridor.',
+      summary:
+        'Launch from Haskins Park and paddle the short Baraboo Rapids corridor through downtown Baraboo to Glenville Landing. The route is short and popular, but it has real current, riffles, and Class I ledges, so use the Baraboo gauge and scout if recent rain has changed wood or strainers.',
+      accessCaveats: [
+        'Haskins Park is the clean public start; the Baraboo River Corridor Plan documents a non-motorized boat launch, floating pier, and ADA-accessible kayak launch there.',
+        'Glenville Landing is a public Highway 113 landing with parking, but muddy/silty conditions are common after rain or high water.',
+        'The route runs through an urban corridor with bridges, public parks, museum property, and private edges. Stay in the river corridor and use only established landings.',
+      ],
+      watchFor: [
+        'Riffles and Class I ledges, especially around downtown Baraboo and the former dam/bridge corridors.',
+        'Strainers, bridge approaches, muddy banks, and higher-water push if the Baraboo gauge is rising.',
+        'Low-water rock bumps below the 350 cfs same-route minimum, plus cold water in spring and fall.',
+      ],
+    },
+  },
   'sugar-river-highway-x-attica': {
     putIn: {
       name: 'Highway X public access',
@@ -2070,6 +2173,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sugar-river-highway-69-paoli': {
+    putIn: {
+      name: 'Falk Wells Sugar River Wildlife Area / Highway 69 canoe-kayak launch',
+      latitude: 42.950098,
+      longitude: -89.545272,
+    },
+    takeOut: {
+      name: 'Paoli Mill / County PB bridge take-out',
+      latitude: 42.93032,
+      longitude: -89.5244,
+    },
+    logistics: {
+      distanceLabel: '3.3 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on level and stops',
+      shuttle:
+        'Use the short local shuttle between Dane County Parks\' Highway 69 launch and Paoli. Dane County paddle events stage vehicles at 6889 Canal Street in Paoli and shuttle paddlers back to the Highway 69 launch.',
+      permits:
+        'No route-specific paddling permit is known. Confirm current event, parking, and take-out permission details at the Paoli Mill / Canal Street area before leaving a vehicle.',
+      camping:
+        'No on-route camping is documented for this short Dane County route. Treat it as a day paddle.',
+      summary:
+        'Launch from the Highway 69 canoe/kayak landing in Falk Wells Sugar River Wildlife Area and take out at Paoli near the County PB bridge. This is the best short upper-Sugar option, with riffles, clear gravel shallows, public conservation land, and a small former-dam drop near Paoli.',
+      accessCaveats: [
+        'The Highway 69 launch is a Dane County carry-in access with parking, but it is a wildlife-area landing rather than a staffed park facility.',
+        'The Paoli take-out is used by Dane County paddle events and by local paddlers, but the mill-area access is not an unrestricted public boat landing; confirm current parking and take-out permission before staging there.',
+        'This is a narrow creek-like route. Fresh storm wood can change access and passage even when the Verona gauge is in range.',
+      ],
+      watchFor: [
+        'Strainers, overhanging branches, and current pushing into wood on tight bends.',
+        'A fun but consequential Class I+ former-dam chute near Paoli, followed by a concrete-remnant hazard where the current can draw boats left.',
+        'Shallow riffles below the practical low-water floor and pushy obstacle-dodging at high or rising water.',
+      ],
+    },
+  },
   'black-hawk-creek-ranchero-hope-martin': {
     putIn: {
       name: 'Ranchero Road / Katoski Greenbelt Area (Access 8)',
@@ -2098,6 +2235,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Frequent deadfalls, sweepers, and logjams on tight bends.',
         'Two creek fords that can behave like low-head dam hazards at some levels.',
         'Storm damage can change the route even when the gauge is inside the official range.',
+      ],
+    },
+  },
+  'chippewa-river-county-a-highway-8': {
+    putIn: {
+      name: 'Imalone / County A Bridge access',
+      latitude: 45.552358,
+      longitude: -91.228388,
+    },
+    takeOut: {
+      name: 'Highway 8 Canoe Landing',
+      latitude: 45.452909,
+      longitude: -91.256361,
+    },
+    logistics: {
+      distanceLabel: '9 mi',
+      estimatedPaddleTime: 'About 4 hr',
+      shuttle:
+        'Use a rural car shuttle between the Imalone / County A bridge access and the Highway 8 canoe landing east of the bridge in Bruce. The roads are straightforward but too long for most casual bike shuttles.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Rusk County and Wisconsin public-access rules, and do not block roadside parking at the hand-carry put-in.',
+      camping:
+        'No on-route camping is documented for this day section. Treat it as a day paddle unless separately planning a longer upper-Chippewa trip.',
+      summary:
+        'Launch at the Imalone / County A access and finish at Highway 8 Canoe Landing in Bruce. This upper-Chippewa section is mostly easy current with wooded banks, island channels, riffles, and boulder gardens, but it still needs the Bruce gauge to stay above the practical minimum.',
+      accessCaveats: [
+        'Rusk County publishes the Imalone Boat Access and Highway 8 Canoe Landing coordinates for the Imalone-to-Bruce route.',
+        'Wisconsin Trail Guide describes the County A put-in as a hand-carry access east of the bridge, upstream side, with roadside parking and a short downslope carry.',
+        'The Highway 8 landing entrance is east of the bridge near Sawdust Road and has a trailer-access ramp and parking.',
+      ],
+      watchFor: [
+        'Light riffles and boulder gardens that become scrapier below the 400 cfs / 1.5 ft minimum.',
+        'Island splits, faster current near the left fork around islands, overhanging trees, and fresh wood.',
+        'High or rising water after heavy rain or Arpin Dam releases, when novice paddlers should use extra caution.',
       ],
     },
   },
@@ -2299,6 +2470,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Frequent scraping and dragging through shallow riffles below about 60 cfs on the Ontario gauge.',
         'Flash-flood potential and pushier Class I water after storms or rising upstream readings.',
         'Strainers, sweepers, and cold-water exposure outside midsummer.',
+      ],
+    },
+  },
+  'kickapoo-river-rockton-la-farge': {
+    putIn: {
+      name: 'Kickapoo River Landing 12 (Rockton)',
+      latitude: 43.6371,
+      longitude: -90.60292,
+    },
+    takeOut: {
+      name: 'Landing 20 / La Farge Canoe Landing',
+      latitude: 43.57481,
+      longitude: -90.6437,
+    },
+    logistics: {
+      distanceLabel: '10 mi',
+      estimatedPaddleTime: 'About 3 hr 45 min to 5 hr',
+      shuttle:
+        'Use a two-car shuttle from Landing 12 near Rockton to Landing 20 in La Farge. Outfitters commonly serve the Ontario-to-La Farge corridor, but confirm pickup rules if you are not using your own vehicle shuttle.',
+      permits:
+        'Kickapoo Valley Reserve requires a day-use, annual, camping, or vehicle-parking permit for vehicles left at Landing 12. The La Farge take-out is outside the Reserve boundary in MilesPaddled notes, but still confirm posted rules before leaving a vehicle.',
+      camping:
+        'KVR has designated campsites elsewhere in the reserve, but this route should be treated as a day trip unless you reserve or confirm a legal campsite in advance.',
+      summary:
+        'Launch at Landing 12 in Rockton and finish at Landing 20 in La Farge for the second classic upper-Kickapoo day. The route has fewer access points than Ontario-to-Rockton, but it keeps the sandstone scenery, riffles, and bridge-number navigation.',
+      accessCaveats: [
+        'Landing 12 is a KVR managed carry-in access with permit requirements and limited space, so do not treat it like an unregulated roadside shoulder.',
+        'Landing 20 can be less obvious from the road than from the river; MilesPaddled describes it as tucked back through a field approach near Bridge 20.',
+        'The route has one practical intermediate public landing at Landing 14 / County Highway P, so plan the shuttle and bailout options before launching.',
+      ],
+      watchFor: [
+        'Scraping and dragging if the La Farge gauge is well below the 60 cfs scrape-free guidance.',
+        'Flash-flooding and pushy current after storms; KVR explicitly warns the Kickapoo can rise quickly.',
+        'Strainers, snags, cold-water exposure, and a reported tree hazard in the riffles below Bridge 19.',
       ],
     },
   },
@@ -2537,6 +2742,144 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'peshtigo-river-ccc-burnt-bridge': {
+    putIn: {
+      name: 'CCC Bridge / Forest Road 2131 access',
+      latitude: 45.61092,
+      longitude: -88.59312,
+    },
+    takeOut: {
+      name: 'Burnt Bridge Landing / Forest Road 2134',
+      latitude: 45.56208,
+      longitude: -88.4953,
+    },
+    logistics: {
+      distanceLabel: '9.2 to 9.25 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, plus scouting or portage time if wood is present',
+      shuttle:
+        'Use a remote national-forest shuttle between CCC Bridge on Forest Road 2131 / Peshtigo River Road and Burnt Bridge Landing on Forest Road 2134 / Michigan Creek Road. Expect gravel roads; low-clearance vehicles and bike shuttles need extra planning.',
+      permits:
+        'No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest rules and posted parking, camping, and landing guidance at both forest-road access points.',
+      camping:
+        'Wisconsin Trail Guide notes two rustic canoe/kayak campsites at Burnt Bridge Landing, one on each side of the river, available first-come, first-served. Confirm current forest rules before relying on them for an overnight.',
+      summary:
+        'Launch at CCC Bridge and take out at Burnt Bridge Landing for the P2 Peshtigo forest run. The day mixes quiet remote water with repeated Class I-II boulder gardens and the longer Preserve Rapids section.',
+      accessCaveats: [
+        'Both endpoints are remote forest-road landings rather than full-service parks; check road condition, parking room, and cell coverage before committing to the shuttle.',
+        'Miles Paddled reports ample room at both landings and an easy downstream river-right take-out at Burnt Bridge with railroad-tie steps, but access conditions can change after storms or forest-road maintenance.',
+        'Do not use this route as a substitute for the easier upper P1 section after major blowdowns; current wood conditions should be checked locally before launching.',
+      ],
+      watchFor: [
+        'Camp 12, Little Camp 12, Coldwater, Preserve, Smiley, and Big Rock rapids, with Class I-II boulder gardens and constricted current.',
+        'Scrapier rocks below 5.0 ft and pushier, less novice-friendly rapids above 6.5 ft on the Wabeno gauge.',
+        'Strainers, deadfall, possible near-river-wide wood, cold water, and long stretches with limited road access.',
+        'The Wabeno gauge is about 26 miles downstream, so pair the gauge with recent rainfall, trend, and visual checks at the put-in.',
+      ],
+    },
+  },
+  'peshtigo-river-goodman-park-farm-dam': {
+    putIn: {
+      name: 'Goodman Park Access',
+      latitude: 45.51799,
+      longitude: -88.33935,
+    },
+    takeOut: {
+      name: 'Farm Dam Public Landing',
+      latitude: 45.41351,
+      longitude: -88.34615,
+    },
+    logistics: {
+      distanceLabel: '9.8 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr',
+      shuttle:
+        'Use a County C / Goodman Park Road shuttle between Goodman Park and Farm Dam Public Landing. McClintock Park sits mid-route and can work as a planned rest stop or conservative shorter option.',
+      permits:
+        'No route-specific paddling permit is known. Goodman and McClintock are Marinette County parks with day-use or camping rules, and Farm Dam sits in the state-forest / WPS landing corridor; follow posted access and fee requirements.',
+      camping:
+        'Goodman Park and McClintock Park both have reservable county campgrounds near the river. Treat river camping elsewhere as unconfirmed unless a land manager separately approves it.',
+      summary:
+        'Launch below Strong Falls at Goodman Park Access and take out at Farm Dam Public Landing. This is the scenic P4 Peshtigo run, mostly wooded flatwater and riffles with Skinners Elbow and Wilson Rapids adding Class I-II / II boat-control work.',
+      accessCaveats: [
+        'Goodman Park Access is a hand-carry beach launch below Strong Falls; use the main park lot and trail to the river, and expect any posted county park fee.',
+        'Farm Dam has separate public and commercial outfitter landings. Use the northern public landing on Otter Creek rather than the commercial outfitter landing downstream.',
+        'The stronger Roaring Rapids route starts below Farm Dam; do not continue downstream unless your group intentionally planned the more serious whitewater section.',
+      ],
+      watchFor: [
+        'Skinners Elbow and Wilson Rapids, which become stronger and wavier as the County C gauge rises.',
+        'Scrapier riffles below 5.0 ft and increasingly pushy Class II water above 6.5 ft.',
+        'Deadfall, strainers, cold water, and limited road exits through wooded bends.',
+        'Strong Falls is upstream of the launch; scout park paths and stay clear of falls current while staging boats.',
+      ],
+    },
+  },
+  'peshtigo-river-roaring-rapids': {
+    putIn: {
+      name: 'Farm Dam Public Landing',
+      latitude: 45.41351,
+      longitude: -88.34615,
+    },
+    takeOut: {
+      name: 'WPS Landing #12',
+      latitude: 45.38092,
+      longitude: -88.30101,
+    },
+    logistics: {
+      distanceLabel: '5.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr depending on scouting, level, and group size',
+      shuttle:
+        'Use a short County C corridor shuttle between Farm Dam Public Landing and WPS Landing #12. Local outfitters also run guided rafting trips and shuttles in this corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow Governor Earl Peshtigo River State Forest rules, posted landing rules, and any outfitter requirements if using a guided trip.',
+      camping:
+        'Treat this as a day run unless you have separately reserved or confirmed legal state-forest camping. Overnight island camping is not allowed except at designated campsites.',
+      summary:
+        'Put in at Farm Dam Public Landing and take out at WPS Landing #12 for the Roaring Rapids section of the Peshtigo. This is a compact but serious whitewater route, with the USGS County C gauge inside the run.',
+      accessCaveats: [
+        'Wisconsin Trail Guide notes that Farm Dam has separate commercial and public landings; use the northern public landing on Otter Creek.',
+        'WPS Landing #12 is a large developed state-forest landing maintained by Wisconsin Public Service, with parking, trailer turnaround, trailer parking, water, and pit toilets.',
+        'This route is for skilled whitewater paddlers or guided rafting groups. Casual rec boats should not treat it as a normal river float.',
+      ],
+      watchFor: [
+        'Continuous class II-IV rapids, including First Drop, Third Drop, Five Foot Falls, Horserace, and S-Curve.',
+        'Sticky holes, ledges, boulder gardens, shallow rocky swim zones, and much stronger hydraulics as the County C gauge rises.',
+        'Rapid level changes after rain, cold water, remote-feeling banks, and the need to scout and portage features that exceed your group skills.',
+      ],
+    },
+  },
+  'eau-claire-river-bear-lake-county-n': {
+    putIn: {
+      name: 'Bear Lake Road Bridge Landing',
+      latitude: 45.0586,
+      longitude: -89.27024,
+    },
+    takeOut: {
+      name: 'County N Bridge Landing',
+      latitude: 44.94419,
+      longitude: -89.41916,
+    },
+    logistics: {
+      distanceLabel: '13.9 mi',
+      estimatedPaddleTime: 'Long day, about 6 hr to 8 hr with scouting and portage time',
+      shuttle:
+        'Plan a rural two-car shuttle between Bear Lake Road and County N. The route passes Dells of the Eau Claire County Park, so some groups may stage food, scouting, or an alternate plan there.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted rules at bridge landings, Dells of the Eau Claire County Park, and any portage or parking areas.',
+      camping:
+        'Dells of the Eau Claire County Park has a family campground near the middle of the segment, but do not assume a riverbank overnight. Reserve or confirm camping separately before planning this as more than a day run.',
+      summary:
+        'Launch at Bear Lake Road Bridge Landing and take out at County N Bridge Landing for Wisconsin Trail Guide EC1. This is a long whitewater day with the Dells of the Eau Claire in the middle and the Kelly USGS gauge downstream.',
+      accessCaveats: [
+        'Bear Lake Road is a hand-carry bridge landing with roadside parking, not a large developed ramp.',
+        'County N Bridge Landing is a hand-carry take-out on river right above the bridge with parking west of the bridge.',
+        'The USGS Kelly gauge is downstream of the route, so recent local rain, falling or rising trends, and visual scouting matter more than the number alone.',
+      ],
+      watchFor: [
+        'Class II-III rapids, boulder gardens, and scratchy ledges when the river is low.',
+        'The Eau Claire Dells class IV feature; most full-route paddlers should portage at the county park unless they have appropriate whitewater skill.',
+        'Powerful hydraulics above about 2,000 cfs, possible debris or downed trees after storms, cold water, and a long shuttle with limited quick exits.',
+      ],
+    },
+  },
   'bois-brule-river-stones-winneboujou': {
     putIn: {
       name: "Stone's Bridge Landing",
@@ -2568,6 +2911,108 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Bony rapids below about 200 cfs and paddling not recommended below 125 cfs.',
         'Falls Rapids, Big Twin, Wildcat, Station, and other class I features; scout or portage anything that exceeds group comfort.',
         'Strainers, fallen trees, cold spring-fed water, and faster constricted current as flows rise.',
+      ],
+    },
+  },
+  'bois-brule-river-bois-brule-pine-tree': {
+    putIn: {
+      name: 'Bois Brule Landing / Bois Brule Campground canoe landing',
+      latitude: 46.54042,
+      longitude: -91.59408,
+    },
+    takeOut: {
+      name: 'Pine Tree Landing',
+      latitude: 46.61545,
+      longitude: -91.58264,
+    },
+    logistics: {
+      distanceLabel: '10.3 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr',
+      shuttle:
+        'Use a two-car state-forest shuttle from the Bois Brule campground landing on South Ranger Road to Pine Tree Landing at the end of Dead End Road off County Highway H. Highway 2 Landing can work as a shorter midpoint option if the full route is too long.',
+      permits:
+        'No route-specific paddling permit is known, but Wisconsin DNR Brule River rules apply: launch and land only at designated canoe landings, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
+      camping:
+        'Bois Brule Campground is at the put-in and Copper Range Campground is just upstream of Pine Tree Landing. Camping is allowed only at state-designated campgrounds, so reserve or confirm campground plans separately.',
+      summary:
+        'Launch at Bois Brule Landing and take out at Pine Tree Landing for Wisconsin Trail Guide BB2. The route links the campground landing, Highway 2 Landing, the Meadows, Co-Op Park Rapids, Copper Range Campground, and the upper Pine Tree approach into one clear-water Brule day.',
+      accessCaveats: [
+        'Bois Brule Landing is a developed state-forest campground landing with a gravel ramp, parking, pit toilets, picnic area, and drinking water according to Wisconsin Trail Guide.',
+        'Pine Tree Landing is a hand-carry state-forest landing with parking, trailer turnaround, and pit toilets at the end of a gravel drive.',
+        'Wisconsin DNR requires paddlers on the Brule to use allowed designated landings only, so do not improvise alternate exits on private or angler-only access points.',
+      ],
+      watchFor: [
+        'Doodlebug Rapids, Co-Op Park Rapids, and additional class I pitches below East Park Road.',
+        'Bony riffles and rapids below about 200 cfs, with paddling not recommended below 125 cfs.',
+        'Fallen trees, strainers along bends and constricted channels, cold spring-fed water, and faster current above about 600 cfs.',
+      ],
+    },
+  },
+  'bois-brule-river-pine-tree-highway-13': {
+    putIn: {
+      name: 'Pine Tree Landing',
+      latitude: 46.61545,
+      longitude: -91.58264,
+    },
+    takeOut: {
+      name: 'Highway 13 Canoe Landing',
+      latitude: 46.67776,
+      longitude: -91.59553,
+    },
+    logistics: {
+      distanceLabel: '8.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, or about 5 hr by DNR landing-to-landing timing',
+      shuttle:
+        'Use a two-car shuttle between Pine Tree Landing at the end of Dead End Road off County Highway H and Highway 13 Canoe Landing east of the Highway 13 bridge. Both are designated Brule River State Forest canoe landings.',
+      permits:
+        'No route-specific paddling permit is known, but Wisconsin DNR Brule River rules apply: launch and land only at designated canoe landings, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
+      camping:
+        'Camping is allowed only at state-designated campgrounds. Copper Range Campground is upstream of the put-in, but this route itself should be planned as a day trip unless you have a legal campground reservation or plan.',
+      summary:
+        'Launch at Pine Tree Landing for the Bois Brule BB3 whitewater segment and finish at Highway 13 Canoe Landing. Expect near-continuous riffles and rapids, with Lenroot Ledges and Mays Ledges as the key scout-or-portage features.',
+      accessCaveats: [
+        'Pine Tree Landing is a hand-carry state-forest landing with parking, trailer turn-around, and pit toilets at the end of Dead End Road. Confirm road and seasonal access before committing to the shuttle.',
+        'Highway 13 Canoe Landing is a hand-carry landing on river right near the end of Highway 13 Rapids, with parking, trailer turn-around, pit toilets, and potable water.',
+        'Wisconsin DNR requires paddlers on the Brule to use allowed designated landings only, so do not improvise alternate exits on private or angler-only access points.',
+      ],
+      watchFor: [
+        'Lenroot Ledges, a long Class II ledge sequence that can get shallow and bumpy at low water and faster at higher flows.',
+        'Mays Ledges, the most challenging whitewater on this segment; scout or portage from river right if there is any doubt.',
+        'Fallen trees, strainers along banks, bony rapids below about 200 cfs, fast constrictions above about 600 cfs, and cold spring-fed water.',
+      ],
+    },
+  },
+  'bois-brule-river-highway-13-mouth': {
+    putIn: {
+      name: 'Highway 13 Canoe Landing',
+      latitude: 46.67795948,
+      longitude: -91.59535953,
+    },
+    takeOut: {
+      name: 'Bois Brule River -- Mouth Access',
+      latitude: 46.74768874,
+      longitude: -91.61055237,
+    },
+    logistics: {
+      distanceLabel: '8.2 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with the lamprey-barrier portage and Lake Superior wind',
+      shuttle:
+        'Use a two-car shuttle between the state-managed Highway 13 Canoe Landing and the designated Mouth Access near Lake Superior. The lower landing is remote; confirm the road, parking, and lake/wind conditions before launching.',
+      permits:
+        'No route-specific paddling permit is known, but Wisconsin DNR Brule River rules apply: launch and land only at designated canoe landings, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
+      camping:
+        'Camping is allowed only at state-designated campgrounds. Treat Highway 13 to the mouth as a day trip unless you have a separate legal campground plan.',
+      summary:
+        'Launch at Highway 13 Canoe Landing and take out at the Bois Brule mouth landing on Lake Superior. This lower Brule route is scenic and mostly Class I, but it has a mandatory portage at the lamprey barrier and a cold-water finish where Lake Superior wind and waves can matter.',
+      accessCaveats: [
+        'Highway 13 Canoe Landing is a DNR-managed carry-in with parking, a gravel access road, vault restroom, and potable water, but no boarding dock.',
+        'The Mouth Access is a designated DNR-listed landing; inspect it before the shuttle because the finish is near Lake Superior and conditions can feel different from inland river landings.',
+        'Wisconsin DNR requires paddlers on the Brule to use allowed designated landings only, so do not improvise alternate exits on private or angler-only access points.',
+      ],
+      watchFor: [
+        'The sea lamprey barrier about 2 miles below Highway 13; warning buoys and signs mark the approach, and paddlers must portage on river right.',
+        'Class I riffles including Shale Falls, shallow bony ledges below about 200 cfs, and deadfall around islands and bends.',
+        'Cold water, rapid lower-river rises after rain or snowmelt, and wind or waves near the Lake Superior mouth.',
       ],
     },
   },
@@ -2803,6 +3248,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-gotham-muscoda-west': {
+    putIn: {
+      name: 'Gotham / Buena Vista Boat Landing',
+      latitude: 43.20903,
+      longitude: -90.30424,
+    },
+    takeOut: {
+      name: 'Muscoda Landing West',
+      latitude: 43.198,
+      longitude: -90.44576,
+    },
+    logistics: {
+      distanceLabel: '7.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with sandbar stops',
+      shuttle:
+        'Use a Lower Wisconsin vehicle shuttle between Buena Vista Landing at Gotham and Muscoda Landing West off West River Road. The road shuttle is straightforward but rural; confirm the intended west-side Muscoda landing before leaving a vehicle.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, PFD requirements, and current Wisconsin DNR guidance for glass, trash, and riverway conduct.',
+      camping:
+        'Wisconsin DNR allows camping on state-owned Lower Wisconsin islands and sandbars for up to three days when you arrive by watercraft, with no camping permit required. For this short route, treat overnight plans as level-dependent and avoid high-water sandbars.',
+      summary:
+        'Launch at Gotham / Buena Vista Boat Landing near the Pine River mouth and finish at Muscoda Landing West just downstream of the Highway 80 bridge. This is a short Lower Wisconsin day with big sandbars, bluff views, side-channel exploration, and a direct Muscoda gauge.',
+      accessCaveats: [
+        'Wisconsin DNR lists Buena Vista Boat Landing and Muscoda west-side access as major public access points on the Lower Wisconsin State Riverway.',
+        'Wisconsin River Trips notes that Gotham is a good public access but has no outhouse, prohibits overnight parking, and has poison ivy around the landing.',
+        'Muscoda has multiple landings. This route uses Muscoda Landing West / Old Muscoda Landing on West River Road, not the newer Victoria Riverside Park motorboat ramp upstream.',
+      ],
+      watchFor: [
+        'Fast main-channel current at Gotham and around sandbars.',
+        'Strainers along eroding banks and in narrow side channels, especially when higher water opens smaller cuts.',
+        'Undercurrents, fewer sandbars, and poor camping options above the normal range, especially around 17,000 cfs and higher.',
+        'Wind, powerboats near Muscoda, poison ivy at access points, and steep sandbar drop-offs.',
+      ],
+    },
+  },
   'wisconsin-river-portage-dekorra': {
     putIn: {
       name: 'Highway 33 bridge carry-in (Portage)',
@@ -2965,6 +3445,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, heat, wind, and storms over a long broad-river route.',
         'Unexpected upstream rain-driven rises during overnight plans.',
         'Sandbar drop-offs, hidden current, and side-channel strainers.',
+      ],
+    },
+  },
+  'wisconsin-river-wisconsin-rapids-nepco-creek': {
+    putIn: {
+      name: 'Veterans Memorial Park kayak/canoe launch',
+      latitude: 44.3922,
+      longitude: -89.8269,
+    },
+    takeOut: {
+      name: 'Nepco Creek / County Z access',
+      latitude: 44.3377,
+      longitude: -89.8439,
+    },
+    logistics: {
+      distanceLabel: '6.3 mi',
+      estimatedPaddleTime: 'About 3 hr on the water, plus dam-portage time',
+      shuttle:
+        'Use a short city-to-Port-Edwards car shuttle from Veterans Memorial Park in Wisconsin Rapids to the County Z parking area by Nepco Creek. A bike shuttle is realistic for some groups, but kayak wheels matter more because the route has long dam portages.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Wisconsin Rapids park rules at Veterans Memorial Park, obey all dam warning lines and portage signs, and use the Nepco Creek / County Z access without blocking the road or trail.',
+      camping:
+        'No on-route camping is documented. Treat this as a day route with enough daylight reserved for Centralia and Port Edwards dam portages.',
+      summary:
+        'Launch from the Veterans Memorial Park kayak/canoe launch below the Wisconsin Rapids dam, then paddle through island channels and portage around the Centralia and Port Edwards dams before finishing at Nepco Creek / County Z. Low to average water exposes granite bedrock and boulder fields; high water turns the lower rapids and dam outflows into a much more serious trip.',
+      accessCaveats: [
+        'Veterans Memorial Park is a public city park with a kayak/canoe launch, but Wisconsin River Trips notes the river access uses steep stairs and an awkward railing for kayaks.',
+        'The Centralia Dam portage is roughly 1000 feet on the east bank and uses a golf-course-edge path with stairs near the reentry.',
+        'The Port Edwards Dam portage can be about 2500 feet on the east bank unless low water allows a shorter legal carry near the overflow-gate area; confirm conditions before relying on the shorter option.',
+        'The Nepco Creek take-out is easy to miss. Wisconsin River Trips recommends paddling a short distance up Nepco Creek to shorten the carry to County Z.',
+      ],
+      watchFor: [
+        'Dam warning lines, overflow gates, recirculating current, and fast powerhouse outflow below Wisconsin Rapids, Centralia, and Port Edwards.',
+        'Grignon Rapids and lower boulder-garden current, which are Class I-II at lower water and can become Class II-III in high water.',
+        'Wind on impounded pools, submerged bedrock, shallow boulder gardens, and a long day if portages run slowly.',
+        'Sharp gauge changes; Wisconsin River Trips specifically warns that the Wisconsin can rise or fall quickly and that forecast graphs matter before committing.',
       ],
     },
   },
@@ -3238,6 +3754,461 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Poor or variable urban river water quality; avoid after heavy rain or sewage/water-quality alerts.',
         'Training/play features, shallow attainments, and changing difficulty as the Old Portage gauge rises through the AW range.',
         'Busy Towpath and Lock 29 parking areas during peak park hours.',
+      ],
+    },
+  },
+  'la-crosse-river-veterans-holiday-heights': {
+    putIn: {
+      name: 'Veterans Memorial Campground canoe landing',
+      latitude: 43.891232,
+      longitude: -91.116408,
+    },
+    takeOut: {
+      name: 'Holiday Heights Park / Holiday Heights Landing',
+      latitude: 43.86201,
+      longitude: -91.20178,
+    },
+    logistics: {
+      distanceLabel: '8.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a westbound car shuttle from Veterans Memorial Campground near West Salem to Holiday Heights Park in Onalaska. A bike shuttle can use the La Crosse River State Trail for much of the return, but trail passes, route-finding from the park, and boat security at the take-out need to be planned ahead.',
+      permits:
+        'No route-specific paddling permit is known. Follow La Crosse County campground and Onalaska park rules, and use posted parking areas rather than campground roads or informal riverbank pull-offs.',
+      camping:
+        'Veterans Memorial Campground is a developed county campground at the put-in, but this app route should be treated as a day trip unless a campsite is separately reserved or otherwise allowed under county rules.',
+      summary:
+        'Launch from the Veterans Memorial Campground canoe landing on the La Crosse River and take out at Holiday Heights Landing in Holiday Heights Park. The first miles are straighter and noisier near I-90, while the lower half has better sandbanks, faster current, and bluff views.',
+      accessCaveats: [
+        'La Crosse County publishes campground coordinates for Veterans Memorial Campground and confirms river access; Wisconsin River Trips notes the actual canoe landing is inside the campground and parking may be several hundred feet from the water.',
+        'Holiday Heights Park is a public Onalaska park, and Wisconsin River Trips describes the landing as a good public-access take-out with parking but no restroom.',
+        'The Holiday Heights access road can be easy to miss from Highway 16; confirm the turn pattern before leaving a shuttle vehicle.',
+      ],
+      watchFor: [
+        'Fast strainers and tight gaps around downed wood, especially in the second half of the trip.',
+        'Pushier current and covered sandbars above about 500 cfs on the La Crosse gauge.',
+        'Minor Class I current around I-90 and changing wood after storms or spring runoff.',
+        'Campground traffic, bike-trail traffic, and limited take-out amenities.',
+      ],
+    },
+  },
+  'black-river-melrose-north-bend': {
+    putIn: {
+      name: 'Melrose Public Landing',
+      latitude: 44.1261,
+      longitude: -91.0045,
+    },
+    takeOut: {
+      name: 'North Bend Landing',
+      latitude: 44.08951,
+      longitude: -91.11544,
+    },
+    logistics: {
+      distanceLabel: '10.1 mi',
+      estimatedPaddleTime: 'About 5 hr for most groups, longer with sandbar stops',
+      shuttle:
+        'Use a vehicle or local livery shuttle between Melrose Public Landing and North Bend Landing. The bike shuttle is hilly and indirect, so most groups should stage vehicles or use a Black River shuttle operator.',
+      permits:
+        'No route-specific paddling permit is known. Use the DNR-maintained public access points at Melrose and North Bend, and follow posted parking rules when the landings overflow on busy summer weekends.',
+      camping:
+        'Sandbar camping is commonly used on this lower-Black corridor, but confirm current rules, weather, and overnight river levels before planning it as more than a day trip.',
+      summary:
+        'Launch at Melrose Public Landing and take out at North Bend Landing for the classic lower-Black sandbar day. The route has easy current, big sand beaches, sandstone outcrops, and a direct upstream Black River Falls gauge ladder.',
+      accessCaveats: [
+        'Wisconsin DNR says it owns and maintains Black River access at Melrose and North Bend, and Wisconsin River Trips describes both as public landings.',
+        'The Melrose lot can fill on popular weekends, with overflow parking pushed toward the Highway 108 shoulder.',
+        'The North Bend landing sits near a livery and remains public, but the main lot is small and can spill over onto North Bend Drive.',
+      ],
+      watchFor: [
+        'A 10-mile day that can run long if you start late, paddle a slow canoe, stop often, or fight a headwind.',
+        'Shallow bars and possible walking below about 100 cfs on the Black River Falls gauge.',
+        'Fewer sandbars and less route character as the gauge rises above about 450 to 600 cfs.',
+        'Shoreline strainers, shallow motorboat traffic, crowded summer weekends, and the signed right-channel choice near North Bend.',
+      ],
+    },
+  },
+  'waupaca-river-county-q-brainards-bridge': {
+    putIn: {
+      name: 'County Highway Q / Cobbtown Road canoe launch',
+      latitude: 44.37413,
+      longitude: -89.18548,
+    },
+    takeOut: {
+      name: "Brainard's Bridge Park",
+      latitude: 44.36546,
+      longitude: -89.09842,
+    },
+    logistics: {
+      distanceLabel: '7.8 mi',
+      estimatedPaddleTime: 'About 3 hr to 3.5 hr at normal recreational pace',
+      shuttle:
+        "Use a short Waupaca-area car shuttle between the County Q / Cobbtown Road public parking area and Brainard's Bridge Park. A bike shuttle is possible but includes hills, town riding, and busy-road crossings.",
+      permits:
+        "No route fee is listed by Visit Waupaca County. Follow posted rules at the County Q access and Brainard's Bridge Park, and park only in public parking areas.",
+      camping:
+        'No on-route camping is documented for this short city-adjacent day trip. Treat it as a day paddle.',
+      summary:
+        "Launch at the public Cobbtown Road / County Q canoe access and take out at Brainard's Bridge Park in Waupaca. This is the standard Waupaca River day run with clear water, boulder gardens, riffles, wooded bends, and a public city-park finish.",
+      accessCaveats: [
+        'Visit Waupaca County describes public parking on Cobbtown Road just off Highway Q, while Miles Paddled records the launch GPS point at the County Q access.',
+        "Brainard's Bridge Park is a public city park with facilities, islands, trails, and river access context, but the take-out can be busy during park events.",
+        'The covered bridge corridor includes private-drive context nearby; use the public park and named access points rather than informal stops on private banks.',
+      ],
+      watchFor: [
+        'Fallen trees, duck-unders, hop-overs, and fresh strainers, especially after storms.',
+        'Boulder gardens, riffles, and Class I current that become pushier as the Waupaca gauge rises.',
+        'Shallow scraping in the final mile and at boulder gardens when the gauge is near the low end.',
+        'Road noise, bridge approaches, and other paddlers on this popular route during warm weekends.',
+      ],
+    },
+  },
+  'brule-river-highway-139-fr-2150': {
+    putIn: {
+      name: 'Highway 139/189 Bridge Landing',
+      latitude: 45.98767,
+      longitude: -88.65238,
+    },
+    takeOut: {
+      name: 'Forest Road 2150 Landing',
+      latitude: 45.99013,
+      longitude: -88.45013,
+    },
+    logistics: {
+      distanceLabel: '16.2 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr',
+      shuttle:
+        'Plan a long remote shuttle between the Highway 139/189 bridge on the Wisconsin-Michigan line and the end of Forest Road 2150. Roads are sparse, so download maps and confirm road conditions before leaving a vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted forest-road, landing, camping, and fire rules, and use only the named hand-carry landings or established primitive campsites.',
+      camping:
+        'Wisconsin Trail Guide identifies primitive first-come riverside campsites at Twins Rapids and below Two Foot Falls. Confirm current forest rules, fire restrictions, and campsite availability before planning this as an overnight.',
+      summary:
+        'Launch from the hand-carry Highway 139/189 Bridge Landing and paddle the border Brule to Forest Road 2150. This is a long, remote northwoods route with clear current, marsh and mixed-forest banks, class I-II rapids, and a useful downstream Highway 2 gauge.',
+      accessCaveats: [
+        'The Highway 139/189 landing is on the Wisconsin side south of the bridge, reached by a gravel track with limited parking.',
+        'Forest Road 2150 is a hand-carry landing with parking, but the current can rip through the take-out area at higher water. Start looking for the exit early.',
+        'This corridor has low road density and limited quick exits. Treat phone coverage and self-rescue as uncertain.',
+      ],
+      watchFor: [
+        'Class I-II features including Twins Rapids, Railroad Rapids, Two Foot Falls, and unnamed boulder gardens.',
+        'Scraping and bumpy rock gardens when the US Highway 2 gauge is below the 220 cfs / 3.5 ft minimum.',
+        'Pushier waves, stronger take-out current, cold water, and remote rescue conditions at higher flows or after rain.',
+        'Private shoreline context near the Forest Road 2150 landing; use the signed/known landing path rather than nearby banks.',
+      ],
+    },
+  },
+  'pike-river-amberg-yellow-bridge': {
+    putIn: {
+      name: 'Amberg Highway 141 Landing',
+      latitude: 45.49576,
+      longitude: -87.98712,
+    },
+    takeOut: {
+      name: 'Yellow Bridge Landing',
+      latitude: 45.47494,
+      longitude: -87.87593,
+    },
+    logistics: {
+      distanceLabel: '9.4 mi',
+      estimatedPaddleTime: 'About 4 hr',
+      shuttle:
+        'Plan a rural Marinette County shuttle between the Highway 141 landing south of Amberg and Yellow Bridge Landing on Pike River Road near Barker Road. Roads are straightforward, but cell coverage and quick exits are limited once you are on the river.',
+      permits:
+        'No route-specific paddling permit is known. Use the named hand-carry landings, keep the Yellow Bridge Falls scouting/portage tight to the riverbank where the guide notes private land, and follow posted landing rules.',
+      camping:
+        'No on-route camping is documented for the 9.4-mile PK1 day route. Treat this as a day paddle unless a land manager separately confirms a legal campsite.',
+      summary:
+        'Launch at the Amberg Highway 141 Landing and paddle the Pike River to Yellow Bridge Landing. This is a scenic Wild River whitewater route with class I-II rapids, granite ledges, clear northwoods current, and a take-out just above the stronger Yellow Bridge Falls.',
+      accessCaveats: [
+        'The Highway 141 put-in is a hand-carry landing south of the bridge on the west side of the highway, reached by a gravel trail from the parking area.',
+        'Yellow Bridge Landing is on river left above the second drop and before Barker Road. Start looking early because missing the landing commits you toward Yellow Bridge Falls.',
+        'Several banks around Yellow Bridge Falls are private. Scout and portage from the riverbank corridor described by the guide rather than wandering inland.',
+      ],
+      watchFor: [
+        'Class II Bull Falls, Scrounge Canyon, Horseshoe Falls, and multiple unnamed boulder-garden rapids.',
+        'Yellow Bridge Falls below the landing, which can become Class III-IV at higher water and is not part of the broad-audience route recommendation.',
+        'Bony ledges and possible portages below 2.9 ft at Amberg, especially below County K.',
+        'Pushy waves, stronger holes, strainers, deadfall, cold water, and remote rescue conditions above the normal 2.9-4.1 ft window.',
+      ],
+    },
+  },
+  'pike-river-yellow-bridge-grogan-road': {
+    putIn: {
+      name: 'Yellow Bridge Landing',
+      latitude: 45.47494,
+      longitude: -87.87593,
+    },
+    takeOut: {
+      name: 'Grogan Road Landing',
+      latitude: 45.44202,
+      longitude: -87.85582,
+    },
+    logistics: {
+      distanceLabel: '4.8 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, plus scouting time',
+      shuttle:
+        'Use a short but remote Pike River Road and Grogan Road shuttle from Yellow Bridge Landing to the Menominee confluence. Download maps before leaving Amberg and do not count on cell coverage at the accesses.',
+      permits:
+        'No route-specific paddling permit is known. Use the named landings, keep scouting and portaging tight to the riverbank near private land, and follow posted Wild River and road-access rules.',
+      camping:
+        'No on-route campsite is documented for this short lower Pike run. Treat it as a technical day route and use separate public campground planning if staying in the area.',
+      summary:
+        'Launch at Yellow Bridge Landing, scout the Yellow Bridge Falls short-run, then continue past Pike River Road access points to Grogan Road Landing at the Menominee River confluence. This is the advanced lower-Pike companion to the longer Amberg-to-Yellow-Bridge route.',
+      accessCaveats: [
+        'Yellow Bridge Landing is on river left above Barker Road and just above the falls sequence. It is a hand-carry access reached by a footpath from a small parking area.',
+        'Pike River Road Landing sits just below the final Yellow Bridge Rapids drop and can be hard to spot in heavy underbrush. Use it as a bailout only if you identify it during scouting or from the road first.',
+        'Grogan Road Landing is a developed ramp on river right at the Menominee River confluence. Confirm the exit before continuing into the border-river current.',
+      ],
+      watchFor: [
+        'Class III Yellow Bridge Falls immediately below the put-in, with 2- to 5-foot drops, a rocky Class II runout, and a river-wide ledge.',
+        'Private land along the falls scout and portage area. Wisconsin Trail Guide says to stay along the riverbank.',
+        'Bony rocks and pin potential below the 3.5 ft practical falls window, and pushy waves that may overpower intermediates above 4.6 ft.',
+        'Cold water, deadfall, limited quick exits, and the transition into the Menominee River confluence near the take-out.',
+      ],
+    },
+  },
+  'popple-river-morgan-lake-highway-101': {
+    putIn: {
+      name: 'Morgan Lake Road / Forest Service Road 2159 bridge access',
+      latitude: 45.763611,
+      longitude: -88.463611,
+    },
+    takeOut: {
+      name: 'Highway 101 Wayside / Popple River bridge access',
+      latitude: 45.79995,
+      longitude: -88.39662,
+    },
+    logistics: {
+      distanceLabel: '5.4 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, plus scouting and portage time',
+      shuttle:
+        'Use a remote Florence County shuttle from the Morgan Lake Road bridge to the Highway 101 wayside. Roads are rural and partly gravel, so download maps and expect limited cell coverage.',
+      permits:
+        'No route-specific paddling permit is known. Use the signed bridge/wayside access points, respect private land near portage trails, and follow Pine-Popple Wild Rivers rules.',
+      camping:
+        'Treat this as a short technical day route. Nearby national forest or county camping is a separate base-camp plan, not an assumed riverside campsite on this 5.4-mile run.',
+      summary:
+        'Launch at the Morgan Lake Road / Forest Service Road 2159 bridge and take out at the Highway 101 wayside. This is the lower Popple whitewater run through Little Bull Falls, Big Bull Falls, tight boulder gardens, marked portages, and protected Wild River forest.',
+      accessCaveats: [
+        'The Morgan Lake Road put-in is a bridge/gauge-area access rather than a developed livery launch. Confirm shoulder, parking, and road conditions before unloading.',
+        'At Highway 101, American Whitewater describes the take-out on river left near the bridge and shallow gravel shore. Identify the exit before continuing downstream.',
+        'Several scouting or emergency paths touch private land. Stay on signed/accepted river-portage routes and keep the group tight.',
+      ],
+      watchFor: [
+        'Little Bull Falls, where an aggressive hole and submerged bedrock feature can make rescues difficult.',
+        'Big Bull Falls and its approach, where swift current can carry paddlers past the portage landing.',
+        'Low-water scraping below 150-250 cfs and technical boulder dodging even inside the runnable range.',
+        'High water, sticky holes, strainers, deadfall, spring ice shelves, cold water, and limited road exits in the Wild River corridor.',
+      ],
+    },
+  },
+  'pine-river-county-n-wepco-5': {
+    putIn: {
+      name: 'County N Bridge Landing',
+      latitude: 45.83711,
+      longitude: -88.22522,
+    },
+    takeOut: {
+      name: 'WEPCO Landing #5',
+      latitude: 45.83949,
+      longitude: -88.1408,
+    },
+    logistics: {
+      distanceLabel: '9.3 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        'Use a rural Florence County shuttle from County N Bridge Landing to WEPCO Landing #5. The shorter Oxbow option can reduce shuttle work, but this route keeps the full PN1 segment to the downstream WEPCO landing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named landings, follow posted Pine-Popple Wild Rivers and landing rules, and confirm release or access changes before launch.',
+      camping:
+        'No on-route campsite is assumed for the 9.3-mile day route. Nearby Chequamegon-Nicolet National Forest campgrounds are a separate lodging plan, not a river-camp assumption.',
+      summary:
+        'Launch at County N Bridge Landing beside the live USGS gauge and paddle the Pine River to WEPCO Landing #5. This is an easy Wild River float with quiet mixed-forest scenery, riffles, one short Class I pitch, and a route-specific minimum level from Wisconsin Trail Guide.',
+      accessCaveats: [
+        'County N Bridge Landing is the put-in and gauge corridor; check parking space and shoulder conditions before unloading.',
+        'WEPCO Landing #5 is the planned take-out near the lower end of the PN1 guide. Identify the landing before launching because downstream continuation changes the trip and shuttle.',
+        'Pine Dam and the Pine River Powerplant influence flow upstream of the route, so same-day gauge and release checks matter even though this is an easy route.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and slower travel below the 1.75 ft / 150 cfs suggested minimum.',
+        'Faster current after dam releases or rain, plus cold water and limited quick exits in the wooded Wild River corridor.',
+        'Downed trees, sweepers, and low branches on bends, especially after storms.',
+        'One short Class I pitch and riffles that are easy at normal levels but still require boat control around rocks.',
+      ],
+    },
+  },
+  'menominee-river-piers-gorge': {
+    putIn: {
+      name: 'Niagara Mill Street Landing',
+      latitude: 45.77032,
+      longitude: -87.98863,
+    },
+    takeOut: {
+      name: 'Piers Gorge Road Landing',
+      latitude: 45.75834,
+      longitude: -87.93907,
+    },
+    logistics: {
+      distanceLabel: '2.9 mi',
+      estimatedPaddleTime: 'Varies',
+      shuttle:
+        'Run a short cross-border shuttle from Mill Street Landing in Niagara to the Piers Gorge Road access off Highway 8 in Michigan. The river mile is short, but scout time, dam-release timing, and rescue planning can dominate the day.',
+      permits:
+        'No route-specific paddling permit is known from the sources checked. Use the named hand-carry landings, follow Menominee River State Recreation Area rules at Piers Gorge, and verify whether any local parking fee or commercial-release constraint applies before launch.',
+      camping:
+        'No on-route camping is documented for the 2.9-mile Piers Gorge run. Treat this as a short expert whitewater day route unless a land manager separately confirms legal overnight use.',
+      summary:
+        'Launch at Niagara Mill Street Landing and paddle the Menominee through Piers Gorge to the Piers Gorge Road Landing. The route starts broad and fast, then compresses into a Class IV gorge with Sand Portage Falls, Missicot Falls, 2 Sisters, Terminal Surfer, and several powerful play features.',
+      accessCaveats: [
+        'Mill Street Landing has hand-carry access, parking, trailer turnaround, and a pit toilet according to Wisconsin Trail Guide.',
+        'Piers Gorge Road Landing is about 200 yards below Terminal Surfer on river left, downstream of a narrow slough; identify it before committing to the lower gorge.',
+        'The take-out is in Michigan within the Piers Gorge unit of the Menominee River State Recreation Area, while the put-in is in Niagara, Wisconsin.',
+      ],
+      watchFor: [
+        'Dam-release changes from Little Quinnesec Falls Dam; water can rise quickly and the gauge should be checked the same day.',
+        'Class IV Missicot Falls, Volkswagen Rock, Whirlpool Rapids, 2 Sisters, Terminal Surfer, sticky holes, and powerful hydraulics at higher flows.',
+        'Intermediate paddlers should stay away above 1400 cfs per Wisconsin Trail Guide; this app route is framed for advanced/expert whitewater paddlers.',
+        'Scout before running the gorge and avoid entering Terminal Surfer without scouting; its hydraulic is easy to underestimate from upstream.',
+      ],
+    },
+  },
+  'red-river-weed-dam-zeimers-falls': {
+    putIn: {
+      name: 'Weed Dam Powerhouse Landing',
+      latitude: 44.84168,
+      longitude: -88.76063,
+    },
+    takeOut: {
+      name: "Zeimer's Falls Landing",
+      latitude: 44.84287,
+      longitude: -88.72289,
+    },
+    logistics: {
+      distanceLabel: '2.2 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr plus scouting time',
+      shuttle:
+        "Run a very short rural shuttle between Weed Dam Powerhouse Landing and the Butternut Road access for Zeimer's Falls Landing. The river miles are short, but scout time and release timing can matter more than mileage.",
+      permits:
+        'No route-specific paddling permit is known from the sources checked. Use only the named hand-carry landings and stay off private banks while scouting or portaging.',
+      camping:
+        'No on-route camping is documented for this 2.2-mile whitewater run. Treat it as a short day route and use nearby public campgrounds only after checking separate rules and availability.',
+      summary:
+        "Launch below Weed Dam Powerhouse and paddle the Red River through First Drop, Second Drop, Monastery Falls, and Zeimer's Falls. This is a compact Class III-IV whitewater run, not a casual recreational float.",
+      accessCaveats: [
+        'Wisconsin Trail Guide describes Weed Dam Powerhouse Landing as a hand-carry access with parking and a trailer turnaround.',
+        "Zeimer's Falls Landing is reached from a sand-and-gravel drive off Butternut Road, with parking, trailer turnaround, and a woodchip path down to the river.",
+        'The guide warns that land on either side of Monastery Falls is privately owned; scout or portage from river right and stay on exposed rock ledges.',
+      ],
+      watchFor: [
+        'Dam-release changes from Weed Dam Powerhouse; a horn may sound before release and water can rise quickly.',
+        'Scrappy boulder gardens below about 150 cfs, including possible low-water portage at Monastery Falls.',
+        "Monastery Falls can reach Class IV at high flows, while Zeimer's Falls becomes pushy Class III+ in the high band.",
+        'Treat the Morgan Road USGS gauge as a corridor signal, not a substitute for same-day release and visual checks at the put-in.',
+      ],
+    },
+  },
+  'jump-river-wayside-park-sheldon': {
+    putIn: {
+      name: 'Wayside Park / Highway 73 Jump River Access',
+      latitude: 45.354054,
+      longitude: -90.788597,
+    },
+    takeOut: {
+      name: 'Haley Park / Sheldon Access',
+      latitude: 45.307764,
+      longitude: -90.955985,
+    },
+    logistics: {
+      distanceLabel: '11.1 mi',
+      estimatedPaddleTime: 'About 3 hr at normal levels; faster during race-level high water',
+      shuttle:
+        'Use a rural two-car shuttle between Wayside Park off Highway 73 near the village of Jump River and Haley Park in Sheldon. The exact route is longer than the road shuttle suggests, so stage vehicles before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use the public park and access areas, follow posted Rusk County and local rules, and avoid informal private-bank stops.',
+      camping:
+        'No on-route campsite is assumed for this day route. Treat nearby parks or campgrounds as separate base-camp planning, not river-camp permission.',
+      summary:
+        'Launch at the Highway 73 Wayside Park access and take out at Haley Park in Sheldon. This lower Jump River route follows the Rusk County Highway 73-to-Sheldon paddle and the Wisconsin River Trips Wayside Park-to-Haley Park report.',
+      accessCaveats: [
+        'Rusk County publishes the official Highway 73-to-Sheldon route coordinates as Jump River Access and Sheldon Access; use those named sites rather than informal bridge shoulders.',
+        'Wayside Park has good public access near Highway 73, while Haley Park spans both sides of the bridge in Sheldon and has an outhouse according to Wisconsin River Trips.',
+        'The direct USGS gauge is at Sheldon near the take-out, so check the gauge before staging there and before deciding whether to extend downstream.',
+      ],
+      watchFor: [
+        'Frequent shallow Class I riffles and boulder gardens that can require scraping or walking below the low band.',
+        'Fast current and stronger Class I-II wave trains when the Sheldon gauge is high or rising after rain.',
+        'Wind on more open stretches, cold water in spring, and changing wood or strainers after high water.',
+        'Do not use the 2200 cfs Sheldon Canoe Race observation as normal recreational guidance; that is extreme, fast water for this app audience.',
+      ],
+    },
+  },
+  'red-cedar-river-tom-prince-russian-slough': {
+    putIn: {
+      name: 'Tom Prince Memorial Park Landing',
+      latitude: 45.0026972,
+      longitude: -91.729812,
+    },
+    takeOut: {
+      name: 'Russian Slough County Park',
+      latitude: 44.9933827,
+      longitude: -91.8095487,
+    },
+    logistics: {
+      distanceLabel: '7.7 mi',
+      estimatedPaddleTime: 'About 3 hr at normal fall levels',
+      shuttle:
+        'Use a rural two-car shuttle from Tom Prince Memorial Park in Colfax to Russian Slough County Park off 860th Avenue. The final Russian Slough approach is a narrow dirt access road, so scout the take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted village, county, and DNR rules at both endpoints; Dunn County notes Russian Slough may be closed in spring for walleye spawning.',
+      camping:
+        'Do not assume legal on-route camping. Wisconsin River Trips notes some sandbars looked campable, but this route should be planned as a day trip unless separate public camping permission is confirmed.',
+      summary:
+        'Launch at Tom Prince Memorial Park in Colfax and paddle the Red Cedar River to Russian Slough County Park. Expect brisk current, easy riffles, gravel bars, tall sand banks, and a rustic county-park take-out.',
+      accessCaveats: [
+        'Tom Prince is the longer Colfax launch for this route; Felland Park is a shorter alternate 1.3 miles downstream.',
+        'Russian Slough is public county land on the Red Cedar corridor, but Dunn County says it has no amenities or developed boat landing. Treat it as a primitive take-out and confirm it is open before relying on it.',
+        'The take-out is on the east end of an island/slough complex; mark it before launching and stay alert as the river begins to split near the finish.',
+      ],
+      watchFor: [
+        'Fast current and frequent strainers, especially near side channels and island splits.',
+        'Roughly 30 easy Class I riffles that become pushier as the Colfax gauge rises.',
+        'A minor logjam near the large sand banks that may require a quick scooch or gravel-bar walkaround.',
+        'High water above about 800 cfs changes this from a scenic moving-water day into an expert-only strainer route.',
+      ],
+    },
+  },
+  'big-eau-pleine-river-cherokee-march-rapids': {
+    putIn: {
+      name: 'Cherokee Park',
+      latitude: 44.9046882,
+      longitude: -90.2226348,
+    },
+    takeOut: {
+      name: 'March Rapids Park',
+      latitude: 44.8507988,
+      longitude: -90.1498549,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level and scouting',
+      shuttle:
+        'Use a two-car shuttle between Cherokee Park on County Road N and March Rapids Park on County Road P. The road shuttle is manageable, but this is a level-sensitive river, so check the Stratford gauge before leaving the take-out vehicle.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Marathon County park rules at Cherokee Park and March Rapids Park, and avoid private banks along the rural middle corridor.',
+      camping:
+        'No on-route camping is documented for this day section. Treat the trip as a day paddle unless separately planning a legal county-park or private campground stay.',
+      summary:
+        'Launch below the Cherokee Park dam and paddle the Big Eau Pleine through the Cherokee-to-Hazelnut boulder gardens and the wooded Hazelnut-to-March Rapids reach. Take out at March Rapids Park after scouting or running the park rapids.',
+      accessCaveats: [
+        'Cherokee Park is a Marathon County park with river access, vault restrooms, picnic facilities, and trails; use the river access below the dam rather than launching above the impoundment.',
+        'March Rapids Park has paths above and below the rapids, so scout during the shuttle and decide whether to take out above the rapids or finish by running them.',
+        'Hazelnut Road is a possible bailout but is only a gravel-road bridge access with poison ivy and limited comfort; the cleaner planned take-out is March Rapids Park.',
+      ],
+      watchFor: [
+        'Bumpy rapids, shallow boulder slots, and walking risk below about 150 cfs on the Stratford gauge.',
+        'Class II or Class II+ rapids two miles above March Rapids, with the best line reported along the left; scout before running.',
+        'March Rapids at the take-out, which is scenic and scoutable but still deserves attention before tired paddlers commit.',
+        'Fast current under low branches, strainers, and rapidly changing levels after rain on this flashy rocky watershed.',
       ],
     },
   },
