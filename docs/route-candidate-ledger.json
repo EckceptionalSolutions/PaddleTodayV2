@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-27T12:48:00Z",
+  "updatedAt": "2026-05-24T00:00:00Z",
   "notes": [
     "2026-04-27 08:08 America/Chicago bounded Minnesota-first gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one fresh evidence path that had not yet been logged: the unreviewed MN DNR Zumbro Map 2 recommended day trip from Zumbro Falls to Hammond. Reviewed 1 fresh candidate: Zumbro River - Zumbro Falls to Hammond was parked at threshold_weak because MN DNR explicitly recommends the exact 7-mile route, the direct USGS Zumbro Falls gauge already underpins nearby live Zumbro coverage, and the best numeric support I surfaced was still mixed-source neighboring-reach evidence (the longer Miles Paddled Zumbro River II main-stem run uses the same put-in/gauge and recommends 7-9 ft, but it does not stop at Hammond). Also logged two fresh cluster outcomes so future runs rotate away faster: Crow Wing Map 2 / Nimrod is now saturated because the DNR-recommended Little White Dog to Cottingham route is already live in V2 and the farther-downstream same-gauge subreaches still lack a defensible threshold carryover; Vermilion's Twomile-to-Eightmile corridor was deliberately not reopened because it is already parked at research_later and this pass did not surface a genuinely new official gauge/threshold source. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 07:48 America/Chicago fresh Mississippi headwaters gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first evidence path that had not yet been logged: the upstream Mississippi recommended day trips on segments 1 and 2. Reviewed 2 fresh candidates. Mississippi River - Lake Itasca to Coffee Pot Landing was parked at no_live_gauge because the route is officially recommended and clearly named, but the corridor mixes the headwaters creek with open-water hazard context and this pass did not surface a route-operable live gauge plus threshold model strong enough for conservative shipping. Mississippi River - Cass Lake to Lake Winnibigoshish was also parked at no_live_gauge because the official trip is real and clearly named, but the route depends on big-lake transitions and this pass still did not surface a route-operable live gauge / threshold package strong enough to outrank cleaner river-only candidates. Fresh-discovery takeaway: the remaining official Mississippi headwaters trip blocks are real but lower-yield for PaddleTodayV2 because the trust gap is now live-gauge operability and lake-transition complexity, not endpoint naming. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
@@ -1088,11 +1088,11 @@
       "river": "South Fork Crow River",
       "route": "Rick Johnson Park to Lake Rebecca Regional Park carry-in access",
       "state": "MN",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 1,
-      "blocker": "Coordinates are now located from park/source-backed access context and visually checked in Google Maps; ready for implementation pass.",
-      "retryCondition": "Implement route data using the confirmed access coordinates.",
+      "status": "added",
+      "lastReviewed": "2026-05-24",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as south-fork-crow-river-rick-johnson-lake-rebecca. Revisit only if stronger endpoint authority or updated DNR gauge guidance appears.",
       "retryDate": null,
       "sourcesChecked": [
         "src/data/rivers.ts",
@@ -1110,7 +1110,7 @@
         "South Fork Crow River - Watertown to Lake Rebecca Regional Park",
         "Crow River South Fork - Rick Johnson Park to Lake Rebecca Regional Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "south-fork-crow-river-rick-johnson-lake-rebecca",
       "gauge": {
         "quality": "direct",
         "notes": "Direct MN DNR gauge at Delano (site 51, South Fork Crow River at Delano, Bridge Ave) sits on the route corridor just upstream of the confluence and has a full interpreted ladder."
@@ -1128,7 +1128,7 @@
         "takeOutLatitude": 45.079117,
         "takeOutLongitude": -93.754431
       },
-      "notes": "Fresh gauge-first discovery from the South Fork Crow cluster. The official DNR recommended day trip is 14.3 river miles from Rick Johnson Park (RM 13.8, below the Watertown dam) to Lake Rebecca Regional Park on the North Fork Crow (RM 24.7). Coordinate follow-up on 2026-05-22 confirmed the put-in as Google Maps' South Fork Crow River boat landing near Rick Johnson Park at 44.965047, -93.845448 and the take-out as the Lake Rebecca Park Reserve Crow River carry-in access at 45.079117, -93.754431."
+      "notes": "Implemented in PaddleTodayV2 as south-fork-crow-river-rick-johnson-lake-rebecca. Fresh gauge-first discovery from the South Fork Crow cluster. The official DNR recommended day trip is 14.3 river miles from Rick Johnson Park (RM 13.8, below the Watertown dam) to Lake Rebecca Regional Park on the North Fork Crow (RM 24.7). Coordinate follow-up on 2026-05-22 confirmed the put-in as Google Maps' South Fork Crow River boat landing near Rick Johnson Park at 44.965047, -93.845448 and the take-out as the Lake Rebecca Park Reserve Crow River carry-in access at 45.079117, -93.754431."
     },
     {
       "candidateId": "mn-st-croix-river-interstate-state-park-landing-william-obrien-state-park-landing",
@@ -1358,11 +1358,11 @@
       "river": "Whitewater River",
       "route": "Elba to Highway 74",
       "state": "MN",
-      "status": "research_later",
-      "lastReviewed": "2026-04-26",
-      "reviewCount": 19,
-      "blocker": "No defensible live gauge-plus-threshold story strong enough for PaddleTodayV2. The active Beaver gauge sits downstream, but current evidence still does not tie a usable paddling floor or range cleanly back to the Elba-to-Highway-74 reach.",
-      "retryCondition": "Retry only if MN DNR, USGS-adjacent guidance, or strong same-route mixed evidence ties the Elba-to-Highway-74 reach to a defensible live gauge model.",
+      "status": "added",
+      "lastReviewed": "2026-05-24",
+      "reviewCount": 20,
+      "blocker": null,
+      "retryCondition": "Already implemented as whitewater-river-elba-highway-74. Revisit only if stronger endpoint authority or updated route-specific threshold evidence appears.",
       "retryDate": null,
       "sourcesChecked": [
         "docs/midwest-route-candidate-seeds.md",
@@ -1375,7 +1375,7 @@
         "Whitewater River - Elba to Hwy 74",
         "Whitewater River - Elba to Highway 74"
       ],
-      "v2Slug": null,
+      "v2Slug": "whitewater-river-elba-highway-74",
       "gauge": {
         "quality": "direct",
         "notes": "Active official Whitewater river-level site exists near Beaver, but route-to-gauge threshold fit is still weak for this upstream reach."
@@ -1387,9 +1387,9 @@
       "endpoints": {
         "putIn": "Elba",
         "takeOut": "Highway 74",
-        "coordinatesPresent": false
+        "coordinatesPresent": true
       },
-      "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+      "notes": "Implemented in PaddleTodayV2 as whitewater-river-elba-highway-74. Earlier ledger status was stale after the route shipped with MN DNR river-level bands on MN DNR 265 and USGS 05377500 as fallback support. Remaining caveat: the access points are roadside-style rather than polished landing pages, and wood/logjam conditions can dominate the gauge call."
     },
     {
       "candidateId": "mn-zumbro-river-village-park-theilman-access",
@@ -2057,23 +2057,24 @@
       "river": "Bark River",
       "route": "Prince's Point to Burnt Village Park",
       "state": "WI",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-05-22",
-      "reviewCount": 1,
-      "blocker": "Route and threshold evidence are good enough for a coordinate-confirmation pass, but exact launch coordinates still need visual/public-access verification.",
-      "retryCondition": "Confirm Prince's Point and Burnt Village Park coordinates, then implement using the Bark River at Rome gauge.",
+      "status": "added",
+      "lastReviewed": "2026-05-23",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as bark-river-princes-point-burnt-village-park. Revisit only if a stronger official level source or reusable route photo appears.",
       "retryDate": null,
       "sourcesChecked": [
         "Wisconsin River Trips Bark River - Prince's Point",
         "USGS Bark River at Rome gauge",
         "Travel Wisconsin / Jefferson County Parks Burnt Village listing",
-        "Wisconsin DNR water detail for Prince's Point access"
+        "Wisconsin DNR water detail for Prince's Point access",
+        "Jefferson County water-trail guide"
       ],
       "aliases": [
         "Bark River - Prince's Point to Burnt Village Park",
         "Bark River - Princes Point to Burnt Village County Park"
       ],
-      "v2Slug": null,
+      "v2Slug": "bark-river-princes-point-burnt-village-park",
       "gauge": {
         "quality": "direct",
         "notes": "Wisconsin River Trips ties this lower-Bark route to the direct Bark River at Rome USGS gauge."
@@ -2085,20 +2086,29 @@
       "endpoints": {
         "putIn": "Prince's Point Wildlife Area / County Road D access",
         "takeOut": "Burnt Village Park",
-        "coordinatesPresent": false
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.8941667,
+          "longitude": -88.7010972
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.9147222,
+          "longitude": -88.7792528
+        },
+        "coordinateSource": "Jefferson County water-trail guide PITO coordinate listings"
       },
-      "notes": "Fresh Wisconsin expansion research from an already-supported river family. This looks like a practical lower-Bark add: same-river direct gauge, exact route report, public put-in/take-out language, and a Jefferson County/Travel Wisconsin page corroborating Burnt Village as a Bark River canoe/kayak launch."
+      "notes": "Implemented 2026-05-23 test cron pass. Jefferson County water-trail guide provided endpoint coordinates and access details, Wisconsin DNR corroborated the County D boat landing at Princes Point, Travel Wisconsin / Jefferson County Parks corroborated Burnt Village as a lower-Bark canoe/kayak launch, and Wisconsin River Trips supplied the route-specific Bark River at Rome flow ladder."
     },
     {
       "candidateId": "wi-sugar-river-highway-x-attica",
       "river": "Sugar River",
       "route": "Highway X to Attica Highway C Access",
       "state": "WI",
-      "status": "needs_manual_coordinates",
-      "lastReviewed": "2026-05-22",
-      "reviewCount": 1,
-      "blocker": "Route and threshold evidence are good enough for a coordinate-confirmation pass, but exact access coordinates still need visual/public-access verification.",
-      "retryCondition": "Confirm Highway X and Attica Highway C access coordinates, then implement as a modest lower-Sugar companion route.",
+      "status": "added",
+      "lastReviewed": "2026-05-24",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as sugar-river-highway-x-attica. Revisit only if stronger official access documentation or reusable route photo appears.",
       "retryDate": null,
       "sourcesChecked": [
         "Wisconsin River Trips Sugar River - Hwy X",
@@ -2110,7 +2120,7 @@
         "Sugar River - Hwy X to Attica",
         "Sugar River - Highway X to Highway C / Attica"
       ],
-      "v2Slug": null,
+      "v2Slug": "sugar-river-highway-x-attica",
       "gauge": {
         "quality": "direct",
         "notes": "Wisconsin River Trips ties the route to the existing Sugar River near Verona USGS gauge used by current Sugar River coverage."
@@ -2122,9 +2132,18 @@
       "endpoints": {
         "putIn": "Highway X public access",
         "takeOut": "Attica Highway C Access",
-        "coordinatesPresent": false
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.754137,
+          "longitude": -89.429329
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.733903,
+          "longitude": -89.406695
+        },
+        "coordinateSource": "Wisconsin River Trips linked Google shuttle map"
       },
-      "notes": "Fresh Wisconsin expansion research from an already-supported river family. This route is not a marquee scenic segment, but it is short, public-access-backed, and has a clearer gauge ladder than many stale holdovers."
+      "notes": "Implemented 2026-05-24 after coordinate follow-up. Wisconsin River Trips documents the exact route, describes public access at Highway X and Attica Highway C, links the route to the Sugar River near Verona gauge, and publishes a full route-specific ladder. The linked shuttle map resolves the endpoint coordinates. This route overlaps the upstream half of the longer County X to County EE V2 entry, but it is a cleaner 5.4-mile day with stronger route-specific threshold support."
     },
     {
       "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
@@ -2132,10 +2151,10 @@
       "route": "Cross Plains to Salmo Pond County Park",
       "state": "WI",
       "status": "research_later",
-      "lastReviewed": "2026-05-22",
-      "reviewCount": 1,
-      "blocker": "Gauge and threshold support are promising, but a 2025 same-page comment reports two full blockages near the Scherbel Road / Salmo Pond take-out area, including one impossible to get around. That makes this too operationally uncertain to queue for implementation without fresher clearance evidence.",
-      "retryCondition": "Retry if Wisconsin River Trips, Dane County, local paddlers, or field verification confirms the Cross Plains-to-Salmo corridor is currently clear enough for normal recreational passage.",
+      "lastReviewed": "2026-05-24",
+      "reviewCount": 2,
+      "blocker": "Gauge and threshold support remain promising, but no newer-than-2025 corridor-clearance evidence was found to overrule the reported full blockages near Scherbel Road / Salmo Pond, including one previously described as impossible to get around. That keeps this operationally uncertain for conservative shipping.",
+      "retryCondition": "Retry only if Wisconsin River Trips, Dane County, or field verification confirms the Cross Plains-to-Salmo corridor is currently clear enough for normal recreational passage.",
       "retryDate": "2026-06-22",
       "sourcesChecked": [
         "Wisconsin River Trips Black Earth Creek - Cross Plains",
@@ -2161,7 +2180,7 @@
         "takeOut": "Salmo Pond County Park",
         "coordinatesPresent": false
       },
-      "notes": "Fresh Wisconsin research. This could become a useful small-stream route because the gauge ladder is unusually clear and Salmo Pond is a real Dane County park, but current blockage uncertainty keeps it below the implementation queue."
+      "notes": "Re-reviewed 2026-05-24. Wisconsin River Trips still provides strong route-specific gauge guidance and Dane County confirms Salmo Pond has an active canoe/kayak launch, but this pass did not surface fresh (post-2025) obstruction-clearance evidence for the Scherbel/Salmo corridor. Kept deferred for safety/operability confidence."
     }
   ]
 }

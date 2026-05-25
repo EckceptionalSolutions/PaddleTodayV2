@@ -2003,6 +2003,39 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sugar-river-highway-x-attica': {
+    putIn: {
+      name: 'Highway X public access',
+      latitude: 42.754137,
+      longitude: -89.429329,
+    },
+    takeOut: {
+      name: 'Attica Highway C Access',
+      latitude: 42.733903,
+      longitude: -89.406695,
+    },
+    logistics: {
+      distanceLabel: '5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Use the short rural shuttle between the Highway X landing and the Attica Highway C access. Wisconsin River Trips reports the bike shuttle as about 2.7 miles with little climbing.',
+      permits:
+        'No route-specific paddling permit is known. Check posted access and roadside parking rules before leaving a vehicle.',
+      camping:
+        'No on-route camping is documented for this short reach. Treat it as a day paddle.',
+      summary:
+        'Put in at the Highway X public access and take out at the Attica Highway C access. This is a simple lower-Sugar float with easy current, a wooded final mile, and a clear Verona-gauge ladder.',
+      accessCaveats: [
+        'The accesses are bridge-area public landings, so confirm parking and bank conditions before committing to the shuttle.',
+        'This route overlaps the upstream half of the longer County Road X to County Road EE entry, but the Attica take-out creates a shorter, cleaner beginner day.',
+      ],
+      watchFor: [
+        'Low-water scraping below the normal summer range.',
+        'Strainers after storms or at higher, pushier levels.',
+        'Turbid water, limited scenery on some open-bank miles, and cold-water exposure outside summer.',
+      ],
+    },
+  },
   'black-hawk-creek-ranchero-hope-martin': {
     putIn: {
       name: 'Ranchero Road / Katoski Greenbelt Area (Access 8)',
@@ -2062,6 +2095,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Very low water and grass-choked channels below the minimum floor.',
         'Downed trees, tight bends, and overgrown banks.',
         'Cold spring water and quick rain response on the upper Bark.',
+      ],
+    },
+  },
+  'bark-river-princes-point-burnt-village-park': {
+    putIn: {
+      name: "Prince's Point Wildlife Area / County D boat landing",
+      latitude: 42.8941667,
+      longitude: -88.7010972,
+    },
+    takeOut: {
+      name: 'Burnt Village Park / County Highway N launch',
+      latitude: 42.9147222,
+      longitude: -88.7792528,
+    },
+    logistics: {
+      distanceLabel: '7.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr',
+      shuttle:
+        "Use a short rural car shuttle between the County D landing at Prince's Point Wildlife Area and Burnt Village Park on County Highway N. Wisconsin River Trips reports a manageable bike shuttle, but staging vehicles is simpler.",
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin DNR wildlife-area rules at Princes Point and posted Jefferson County park rules at Burnt Village.',
+      camping:
+        'No on-route camping is documented for this marsh-and-floodplain day route. Treat it as a day paddle.',
+      summary:
+        "Launch from the Wisconsin DNR County D boat landing at Prince's Point Wildlife Area and finish at Burnt Village Park. This lower Bark reach is mostly slow flatwater through floodplain woods and marsh, with the strongest scenery near the put-in.",
+      accessCaveats: [
+        'Wisconsin DNR warns that weather, local water levels, and county road closures may affect Princes Point parking-lot availability.',
+        'Jefferson County lists Burnt Village Park as prone to flooding, so check both the Rome gauge and current park conditions before staging a vehicle there.',
+        'Much of the middle route borders private land. Stay in the public waterway corridor and do not use private banks as casual stops.',
+      ],
+      watchFor: [
+        "A possible hop-over logjam just downstream from Prince's Point.",
+        'Slow open-marsh miles with little current, especially near the final approach to Burnt Village.',
+        'Flooded woods, hidden banks, motorboat traffic, carp activity, and cold-water exposure outside summer.',
       ],
     },
   },

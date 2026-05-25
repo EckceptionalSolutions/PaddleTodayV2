@@ -13,13 +13,14 @@ Start every run by reading:
 
 Implementation strategy:
 1. Build the current V2 route inventory from src/data/rivers.ts.
-2. Prefer candidates already marked likely_addable.
-3. If none exist, prefer candidates marked needs_manual_coordinates for human follow-up rather than re-litigating stale route quality decisions.
-4. Only review truly fresh candidates with a new evidence path, with Minnesota first.
-5. Do not re-review stale holdovers already parked as research_later, threshold_weak, or rejected unless new evidence directly changes the case.
-6. Add at most 1 route per run.
-7. Do not add a weak route.
-8. If the ledger has no likely_addable candidates and no fresh new-evidence candidate emerged, end the run as a short no-add pass instead of recycling the same shortlist.
+2. Reconcile the ledger against that inventory before choosing work. If a ledger candidate already exists in src/data/rivers.ts under an exact or obvious slug, mark it added with its V2 slug instead of treating it as blocked or queued.
+3. Prefer candidates already marked likely_addable.
+4. If none exist, prefer candidates marked needs_manual_coordinates for human follow-up rather than re-litigating stale route quality decisions.
+5. Only review truly fresh candidates with a new evidence path, with Minnesota first.
+6. Do not re-review stale holdovers already parked as research_later, threshold_weak, or rejected unless new evidence directly changes the case.
+7. Add at most 1 route per run.
+8. Do not add a weak route.
+9. If the ledger has no likely_addable candidates and no fresh new-evidence candidate emerged, end the run as a short no-add pass instead of recycling the same shortlist.
 
 Manual-coordinate rule:
 If a route has:

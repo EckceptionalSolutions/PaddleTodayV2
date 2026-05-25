@@ -5540,6 +5540,111 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sugar-river-highway-x-attica',
+    slug: 'sugar-river-highway-x-attica',
+    name: 'Sugar River',
+    reach: 'Highway X to Attica Highway C Access',
+    state: 'Wisconsin',
+    region: 'South-Central Wisconsin',
+    summary:
+      'Short lower-Sugar day from the public Highway X landing to the Attica Highway C access. It is not the most scenic Sugar River reach, but it has good public access, easy current, and a route-specific Verona gauge ladder.',
+    statusText:
+      'Use the Sugar River near Verona gauge. Treat 21 to 130 cfs as the broad normal paddling window, 0 to 20 cfs as low but still navigable, 131 to 200 cfs as high and pushy but likely doable with care, and 201+ cfs as very high/adventurous.',
+    latitude: 42.754137,
+    longitude: -89.429329,
+    gaugeSource: {
+      id: 'usgs-05435950',
+      provider: 'usgs',
+      siteId: '05435950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar River near Verona, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 21,
+      idealMax: 130,
+      tooLow: 0,
+      tooHigh: 201,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Sugar River - Hwy X gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Verona gauge is above its shallow fall lows. Summer average water is a good fit, while rain-driven highs can make the current pushy and reduce clarity.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'No rapids and only moderate current at normal levels. The main concerns are low-water scraping, strainers after storms, turbid water, and a few less-scenic open banks before the wooded final mile.',
+      confidenceNotes:
+        'Confidence is good for a route-specific community-source add: Wisconsin River Trips documents the exact Highway X to Attica trip, describes both public accesses, links the route to the Sugar River near Verona gauge, and publishes a complete flow ladder. The main caveat is product overlap with the longer County X to County EE route already in V2; this shorter entry exists because the route-specific ladder and easy 5-mile day shape are cleaner.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route ladder',
+        value: '21 to 130 cfs normal window',
+        note: 'Wisconsin River Trips ties the Highway X-to-Attica route to the Sugar River near Verona gauge and publishes bands from low-but-navigable through very high/adventurous.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05435950',
+        note: 'USGS operates the Sugar River near Verona monitoring location used by the route-specific gauge guide.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Highway X public access',
+        note: 'Wisconsin River Trips describes an excellent public access northeast of the Highway X bridge.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Attica Highway C Access',
+        note: 'Wisconsin River Trips describes the Attica Highway C access north of the bridge as another good public Sugar River access.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Highway X 42.754137, -89.429329; Attica 42.733903, -89.406695',
+        note: 'The route shuttle map linked from Wisconsin River Trips resolves to the Highway X and Attica access coordinates.',
+        sourceUrl: 'https://maps.app.goo.gl/uVq32Jdb22vuYBTm9',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Sugar River - Hwy X',
+        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/hwy-x',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05435950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin River Trips shuttle map',
+        url: 'https://maps.app.goo.gl/uVq32Jdb22vuYBTm9',
+        provider: 'local',
+      },
+      {
+        label: 'Upper Sugar River Watershed Association',
+        url: 'https://www.uppersugar.org/',
+        provider: 'local',
+      },
+      {
+        label: 'Lower Sugar River Watershed Association',
+        url: 'https://lsrwa.org/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'black-hawk-creek-ranchero-hope-martin',
     slug: 'black-hawk-creek-ranchero-hope-martin',
     name: 'Black Hawk Creek',
@@ -5695,6 +5800,112 @@ export const rivers: River[] = [
       {
         label: 'USGS 05426067 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/05426067/#parameterCode=00060',
+      },
+    ],
+  },
+  {
+    id: 'bark-river-princes-point-burnt-village-park',
+    slug: 'bark-river-princes-point-burnt-village-park',
+    name: 'Bark River',
+    reach: "Prince's Point to Burnt Village Park",
+    state: 'Wisconsin',
+    region: 'Southern Wisconsin',
+    summary:
+      'Lower Bark River marsh-and-floodplain day from the Wisconsin DNR County D boat landing at Princes Point Wildlife Area to Jefferson County\'s Burnt Village Park launch. The route is slow and beginner-friendly at normal levels, with the best scenery in the wooded first mile.',
+    statusText:
+      'Use the Bark River near Rome gauge. Treat 31 to 75 cfs as the normal paddling window, 0 to 30 cfs as low but still navigable, 76 to 100 cfs as high but generally fine, and 101+ cfs as flooded woods-paddling conditions.',
+    latitude: 42.8941667,
+    longitude: -88.7010972,
+    gaugeSource: {
+      id: 'usgs-05426250',
+      provider: 'usgs',
+      siteId: '05426250',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bark River Near Rome, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05426250/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 31,
+      idealMax: 75,
+      tooLow: 0,
+      tooHigh: 101,
+      thresholdSource: {
+        label: "Wisconsin River Trips Bark River - Prince's Point gauge guide",
+        url: 'https://www.wisconsinrivertrips.com/segments/bark-river/princes-point',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work because this lower marsh reach stays floatable even when shallow. Higher water can make the floodplain woods more interesting, but it also hides banks, expands marsh current, and can flood Burnt Village Park.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly slow flatwater with no rapids. The main issues are a possible hop-over logjam just below Princes Point, slow open marsh miles, motorboat traffic, private-bank no-trespassing areas, and flooded access when levels rise.',
+      confidenceNotes:
+        'Confidence is good for a conservative Wisconsin add: Wisconsin River Trips documents the exact route and Rome-gauge ladder, Wisconsin DNR names the County D boat landing at Princes Point, Jefferson County publishes both endpoint coordinates in its water-trail guide, and Travel Wisconsin corroborates Burnt Village as a public lower-Bark canoe/kayak launch.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route ladder',
+        value: '31 to 75 cfs normal range',
+        note: "Wisconsin River Trips ties this Prince's Point-to-Burnt Village route to the Bark River at Rome gauge and publishes the usable flow bands from low-but-fine through flooded woods-paddling.",
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/bark-river/princes-point',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05426250',
+        note: 'USGS operates the Bark River Near Rome monitoring location, the same-river live gauge used by the route-specific Wisconsin River Trips ladder.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05426250/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'County D boat landing',
+        note: 'Wisconsin DNR lists a County D Parking Lot and Boat Landing for Princes Point Wildlife Area, and Jefferson County maps the water-trail access on Highway D with trailer parking and a graveled launch.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/prince',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Burnt Village Park launch',
+        note: 'Travel Wisconsin, submitted by Jefferson County Parks, describes Burnt Village County Park on County Highway N at the Bark River bridge as a lower-Bark launch for small boats, canoes, and kayaks.',
+        sourceUrl: 'https://www.travelwisconsin.com/outdoors/burnt-village-400698',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Prince's Point 42.8941667, -88.7010972; Burnt Village 42.9147222, -88.7792528",
+        note: 'Jefferson County water-trail guide publishes both endpoint coordinates and access notes for the Princes Point Wildlife Area and Burnt Village Park PITO sites.',
+        sourceUrl:
+          'https://cms4files.revize.com/jeffersoncountynew/park/Document%20Center/Recreation/Trails/Water%20Trails/Watertrail%20Guide.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "Wisconsin River Trips Bark River - Prince's Point",
+        url: 'https://www.wisconsinrivertrips.com/segments/bark-river/princes-point',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05426250 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05426250/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Princes Point Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/prince',
+        provider: 'local',
+      },
+      {
+        label: 'Jefferson County water-trail guide',
+        url: 'https://cms4files.revize.com/jeffersoncountynew/park/Document%20Center/Recreation/Trails/Water%20Trails/Watertrail%20Guide.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Wisconsin Burnt Village',
+        url: 'https://www.travelwisconsin.com/outdoors/burnt-village-400698',
+        provider: 'local',
       },
     ],
   },
