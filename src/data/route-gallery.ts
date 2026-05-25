@@ -242,6 +242,76 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'USFWS asset: public domain',
     },
   ],
+  'kickapoo-river-ontario-rockton': [
+    {
+      id: 'kickapoo-river-valley-commons',
+      src: '/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg',
+      alt: 'The Kickapoo River valley stretches below wooded hills at sunset in the Driftless Area.',
+      caption: 'Kickapoo River valley near Wildcat Mountain',
+      credit: 'Yinan Chen via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'wisconsin-river-muscoda-blue-river': [
+    {
+      id: 'wisconsin-river-muscoda-nara',
+      src: '/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg',
+      alt: 'Canoes and paddlers reach Muscoda on the Wisconsin River during a 1973 historical river trip.',
+      caption: 'Wisconsin River at Muscoda',
+      credit: 'Ted Rozumalski / NARA via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'milwaukee-river-newburg-fredonia': [
+    {
+      id: 'milwaukee-river-january-2026-commons',
+      src: '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
+      alt: 'The Milwaukee River flows through an urban winter corridor with snowy banks and bare trees.',
+      caption: 'Winter view of the Milwaukee River',
+      credit: 'Michael Barera via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kinnickinnic-river-glen-park-state-park': [
+    {
+      id: 'kinnickinnic-winter-sunset-commons',
+      src: '/gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg',
+      alt: 'A winter sunset glows over the Kinnickinnic River where it meets the St. Croix River near Kinnickinnic State Park.',
+      caption: 'Kinnickinnic River at Kinnickinnic State Park',
+      credit: 'Tony Webster via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'wisconsin-river-sauk-city-arena': [
+    {
+      id: 'wisconsin-river-ferry-bluff-commons',
+      src: '/gallery/wisconsin-river-sauk-city-arena/wisconsin-river-ferry-bluff.jpg',
+      alt: 'The Wisconsin River winds through a wide sandy valley below Ferry Bluff near Sauk City.',
+      caption: 'Wisconsin River from Ferry Bluff near Sauk City',
+      credit: 'Gripper via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'wisconsin-river-blue-river-boscobel': [
+    {
+      id: 'wisconsin-river-boscobel-bridge-commons',
+      src: '/gallery/wisconsin-river-blue-river-boscobel/wisconsin-river-boscobel-bridge.jpg',
+      alt: 'The Wisconsin River flows north of Boscobel with the U.S. 61 bridge crossing the channel.',
+      caption: 'Wisconsin River north of Boscobel',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'wisconsin-river-boscobel-bridgeport': [
+    {
+      id: 'bridgeport-bridge-wisconsin-river-commons',
+      src: '/gallery/wisconsin-river-boscobel-bridgeport/bridgeport-bridge-wisconsin-river.jpg',
+      alt: 'The Bridgeport bridge crosses the broad lower Wisconsin River near its final miles before the Mississippi.',
+      caption: 'Bridgeport bridge over the Wisconsin River',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

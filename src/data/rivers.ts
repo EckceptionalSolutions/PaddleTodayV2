@@ -1253,6 +1253,123 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wolf-river-hollister-highway-64',
+    slug: 'wolf-river-hollister-highway-64',
+    name: 'Wolf River',
+    reach: 'West Hollister Road to Highway 64 DNR Landing',
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Classic upper Wolf Section II run from West Hollister Road to the Highway 64 DNR landing at Langlade. Expect repeated Class I-II boulder gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely.',
+    statusText:
+      'Use the Wolf River at Langlade gauge. Treat 250 to 500 cfs as the conservative target window, 150 to 250 cfs as marginal and scrapey, 500 to 1,000 cfs as pushier whitewater-only water, and 1,000+ cfs as beyond the broad-audience recommendation.',
+    latitude: 45.248,
+    longitude: -88.8062,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04074950',
+      provider: 'usgs',
+      siteId: '04074950',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wolf River at Langlade, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 500,
+      tooLow: 150,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'American Whitewater Wolf Section II gauge bands plus Wisconsin River Trips route notes',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Warm-weather paddling is the normal fit. The Wolf often holds enough water through summer, but low levels make boulder gardens scrapey and higher rain-fed water makes swims more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater lists this as Class I-II and Wisconsin River Trips frames it as the popular intermediate Hollister-to-Langlade section. It is not a lazy float: Burnt Point, Oxbow, Cedar, Hemlock, Sherry, and Larzelere rapids require line choice, boat control, and whitewater safety basics.',
+      confidenceNotes:
+        'Confidence is good for a guarded whitewater add: Wisconsin River Trips documents the exact West Hollister Road to Highway 64 DNR Landing route, American Whitewater identifies the same Section II reach with direct Langlade-gauge flow bands, USGS operates station 04074950 at the take-out bridge, and map/source cross-checks resolve both access coordinates. The app deliberately keeps the recommended ceiling more conservative than AW high-runnable whitewater bands.',
+    },
+    evidenceNotes: [
+      {
+        label: 'AW flow bands',
+        value: '250-1,000 cfs low-to-moderate runnable',
+        note: 'American Whitewater ties Section II to USGS 04074950 and lists 150-250 cfs as marginal bump-and-scrape, 250-1,000 cfs as low-to-moderate boatable, 1,000-2,000 cfs as moderate boatable, and 2,000-3,000 cfs as high boatable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+      },
+      {
+        label: 'Route-specific target',
+        value: '200-500 cfs intermediate window',
+        note: 'Wisconsin River Trips says intermediate paddlers should do the Hollister-to-Langlade section at 200-500 cfs, calls 210 cfs low but workable, and warns that 500 cfs and up is for paddlers with whitewater gear and training.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wolf-river/hollister',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04074950',
+        note: 'USGS locates the Wolf River at Langlade gauge at the State Highway 64 bridge, and American Whitewater notes that the gauge is at the end of the reach and accurately reflects actual flow.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=04074950',
+      },
+      {
+        label: 'Access coordinates',
+        value: '45.248, -88.8062 to 45.1901, -88.7333',
+        note: 'Riverfacts publishes Hollister-to-Langlade put-in and take-out coordinates that align with Wisconsin River Trips, American Whitewater, Wisconsin Trail Guide map context, and the USGS Highway 64 bridge gauge location.',
+        sourceUrl: 'https://www.riverfacts.com/maps/14345.html',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Highway 64 DNR Landing',
+        note: 'American Whitewater describes the take-out as a Wisconsin DNR-maintained public access on river right just past the Langlade bridge, with outhouses and a large parking area.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2318/main',
+      },
+      {
+        label: 'River character',
+        value: 'Class I-II boulder gardens',
+        note: 'Wisconsin Trail Guide maps the 8.3-mile Hollister-to-Langlade segment and names the main rapids, including Burnt Point, Oxbow, Cedar, Hemlock, Sherry, and Larzelere.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/map-wolf3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Wolf River - Hollister',
+        url: 'https://www.wisconsinrivertrips.com/segments/wolf-river/hollister',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'American Whitewater Wolf Section II',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2318/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Wolf gauge information',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2318',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04074950 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04074950/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin Trail Guide Wolf W3 map',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/map-wolf3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'WI DNR Wolf River State Trail',
+        url: 'https://dnr.wisconsin.gov/topic/parks/wolfriver',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'white-river-maple-ridge-highway-112',
     slug: 'white-river-maple-ridge-highway-112',
     name: 'White River',
@@ -1409,7 +1526,7 @@ export const rivers: River[] = [
       },
       {
         label: 'USGS 05369000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/05369000/',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05369000/',
       },
       {
         label: 'WI DNR Riverside Park canoe launch record',
@@ -5728,6 +5845,238 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'badfish-creek-old-stage-casey',
+    slug: 'badfish-creek-old-stage-casey',
+    name: 'Badfish Creek',
+    reach: 'Old Stage Road to North Casey Road',
+    state: 'Wisconsin',
+    region: 'Southern Wisconsin',
+    summary:
+      'Fast, intimate south-central Wisconsin creek run from the DNR-supported Old Stage Road landing to the North Casey Road take-out. Reliable effluent-fed baseflow keeps the route more paddleable than most small creeks, but tight bends, riffles, wood, and post-storm debris still demand active boat control.',
+    statusText:
+      'Use the Badfish Creek near Cooksville gauge. Treat 51 to 150 cfs as the best broad-audience window, 151 to 200 cfs as normal-to-high but still reasonable, 201 to 300 cfs as pushy and experienced-only, and 301+ cfs as not recommended for a casual trip.',
+    latitude: 42.8569,
+    longitude: -89.2756,
+    gaugeSource: {
+      id: 'usgs-05430150',
+      provider: 'usgs',
+      siteId: '05430150',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Badfish Creek Near Cooksville, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05430150/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 51,
+      idealMax: 150,
+      tooLow: 0,
+      tooHigh: 301,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Badfish Creek gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/hwy-a-to-old-stage-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The creek often has enough water outside spring because wastewater effluent stabilizes baseflow. Warm-weather paddles are most common, but fresh storms can turn the same narrow bends and strainers into a much pushier trip.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I moving water with many tight turns, riffles, low branches, and occasional deadfall. It is not a lazy beginner float; paddlers need confident maneuvering and should be ready to portage fresh wood.',
+      confidenceNotes:
+        'Confidence is good for a Wisconsin community-source add: Wisconsin River Trips and Miles Paddled both document the exact Old Stage-to-North Casey route, Wisconsin DNR confirms Badfish Creek Wildlife Area has maintained canoe/kayak launches and parking at the Old Stage corridor, the Cooksville USGS gauge sits on the route corridor, and 2024 Wisconsin River Trips comments report the corridor cleared from Old Stage to the Yahara. The main caveat is that wood can return quickly after storms.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published flow ladder',
+        value: '51-150 cfs best broad window',
+        note: 'Wisconsin River Trips publishes a Badfish Creek Cooksville-gauge ladder: 0-50 cfs low but generally paddleable, 51-100 cfs very good, 101-150 cfs ok, 151-200 cfs normal-to-high, 201-300 cfs very high and experienced-only, and 301+ cfs likely not enjoyable.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/hwy-a-to-old-stage-rd',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05430150',
+        note: 'USGS operates the Badfish Creek Near Cooksville monitoring location on the same creek and route corridor, just downstream of the Old Stage-to-North Casey reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05430150/',
+      },
+      {
+        label: 'Route support',
+        value: 'Old Stage to North Casey',
+        note: 'Wisconsin River Trips documents Old Stage Road to North Casey Road as a Badfish Creek trip, reports 70 cfs as a good depth, and identifies the Old Stage-to-Highway 138 and Highway 138-to-Riley subreaches as the creek highlights.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/old-stage-rd-to-casey-rd',
+      },
+      {
+        label: 'Access support',
+        value: 'DNR wildlife-area launches',
+        note: 'Wisconsin DNR says Badfish Creek Wildlife Area has two maintained canoe/kayak launches with parking, including the southern Old Stage Road corridor landing.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/badfish',
+      },
+      {
+        label: 'Take-out support',
+        value: 'North Casey Road',
+        note: 'Miles Paddled describes the North Casey Road take-out as very good, on river-left before the bridge, and identifies Old Stage Road to Casey Road as a favorite 6.75-mile Badfish Creek segment.',
+        sourceUrl: 'https://milespaddled.com/badfish-creek-paddle-guide/',
+      },
+      {
+        label: 'Recent obstruction context',
+        value: 'Cleared September 2024',
+        note: 'Wisconsin River Trips comments report that Mad City Paddlers cleared Badfish Creek from Old Stage to the Yahara on September 16, 2024. Still treat fresh storms and wind events as a reason to re-check wood.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/old-stage-rd-to-casey-rd',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Badfish Creek - Old Stage to Casey',
+        url: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/old-stage-rd-to-casey-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Badfish Creek - Hwy A to Old Stage',
+        url: 'https://www.wisconsinrivertrips.com/segments/badfish-creek/hwy-a-to-old-stage-rd',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Miles Paddled Badfish Creek paddle guide',
+        url: 'https://milespaddled.com/badfish-creek-paddle-guide/',
+      },
+      {
+        label: 'USGS 05430150 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05430150/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wisconsin DNR Badfish Creek Wildlife Area',
+        url: 'https://dnr.wisconsin.gov/topic/Lands/WildlifeAreas/badfish',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'beaver-dam-river-cotton-mill-county-j',
+    slug: 'beaver-dam-river-cotton-mill-county-j',
+    name: 'Beaver Dam River',
+    reach: 'Cotton Mill Park to County Road J',
+    state: 'Wisconsin',
+    region: 'South Central Wisconsin',
+    summary:
+      'Short Dodge County swiftwater run that starts below the Beaver Dam Lake dam, threads downtown riffles and Class I-II waves, then opens into a quieter marshy finish at County Road J. It is worth adding only as a guarded moving-water route because dam releases, strainers, and low bridges can change the day fast.',
+    statusText:
+      'Use the Beaverdam River at Beaver Dam gauge. Treat 30 to 140 cfs as the normal app window, 0 to 29 cfs as too scrapey for a recommendation, 141 to 210 cfs as experienced-only pushy water, and 211+ cfs as too high for broad use.',
+    latitude: 43.45456,
+    longitude: -88.84298,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05425912',
+      provider: 'usgs',
+      siteId: '05425912',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Beaverdam River at Beaver Dam, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05425912/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 30,
+      idealMax: 140,
+      tooLow: 29,
+      tooHigh: 211,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Beaver Dam River gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/beaver-dam-river',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 9, 10, 11],
+      seasonNotes:
+        'Spring and fall are the cleaner targets. Summer can work during controlled releases, but warm-water algae blooms, erratic dam operations, and storm debris should lower confidence quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach Class I-II. Keep it out of beginner recommendations unless the gauge is in the low-to-normal band, wood is known passable, and paddlers are comfortable with swift current, small weirs, strainers, and low bridges.',
+      confidenceNotes:
+        'Confidence is good for a guarded Wisconsin add: Dodge County promotes the exact Beaver Dam 5.8-mile paddle, Wisconsin River Trips and Miles Paddled document Cotton Mill Park to County Road J with numeric gauge guidance, American Whitewater ties the exact reach to the direct USGS 05425912 gauge, and Miles Paddled publishes endpoint GPS coordinates. The caution is route volatility rather than source quality.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route support',
+        value: 'Beaver Dam - 5.8 miles',
+        note: 'Dodge County lists the Beaver Dam River as a county waterway route and describes the same downtown-to-Hwy-J trip character, ending where the rapids fade after Highway J.',
+        sourceUrl: 'https://www.co.dodge.wi.gov/trails-waterways/waterways',
+      },
+      {
+        label: 'Direct gauge and reach',
+        value: 'USGS 05425912 / 5.35 miles / Class I-II',
+        note: 'American Whitewater lists Cotton Mill Park to CTH J as a 5.35-mile Class I-II reach using the Beaverdam River at Beaver Dam gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10748/main',
+      },
+      {
+        label: 'Primary app range',
+        value: '30 to 140 cfs',
+        note: 'Wisconsin River Trips treats 30-90 cfs as the great target band and 91-140 cfs as high-side but good if rapids are the priority; the app uses that combined 30-140 cfs as the guarded normal window.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/beaver-dam-river',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '211+ cfs too high for broad use',
+        note: 'Wisconsin River Trips says strainers and fast current become annoying at 141-210 cfs and that 211+ cfs becomes obnoxious and partly dangerous; American Whitewater also warns not to exceed the recommended maximum because bridges can become difficult or impossible.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/beaver-dam-river',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Cotton Mill Park 43.45456, -88.84298; County Road J 43.39397, -88.86828',
+        note: 'Miles Paddled publishes GPS coordinates for Cotton Mill Park and the County Road J take-out, and its 2026 comment confirms a dedicated parking and landing area at County J.',
+        sourceUrl: 'https://milespaddled.com/beaver-dam-river-iii/',
+      },
+      {
+        label: 'Put-in authority',
+        value: 'City park at 200 Haskell Street',
+        note: 'The City of Beaver Dam lists Cotton Mill Park as a public city facility on the easterly edge of Beaver Dam Lake with fishing and basic park amenities.',
+        sourceUrl: 'https://www.ci.beaverdam.wi.gov/facilities/facility/details/Cotton-Mill-Park-4',
+      },
+      {
+        label: 'Hazards',
+        value: 'Dam releases, strainers, low bridges, algae',
+        note: 'American Whitewater documents strainer and low-bridge risk, blue-green algae warnings, and recent 2024-2026 trip reports with portage/wood updates; Wisconsin River Trips warns that dramatic dam releases can occur suddenly.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10748/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Dodge County Waterways',
+        url: 'https://www.co.dodge.wi.gov/trails-waterways/waterways',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Beaver Dam River',
+        url: 'https://www.wisconsinrivertrips.com/segments/beaver-dam-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Miles Paddled Beaver Dam River III',
+        url: 'https://milespaddled.com/beaver-dam-river-iii/',
+      },
+      {
+        label: 'American Whitewater Beaver Dam reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10748/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05425912 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05425912/',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Beaver Dam Cotton Mill Park',
+        url: 'https://www.ci.beaverdam.wi.gov/facilities/facility/details/Cotton-Mill-Park-4',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'bark-river-highway-164-to-merton-millpond',
     slug: 'bark-river-highway-164-to-merton-millpond',
     name: 'Bark River',
@@ -5910,6 +6259,111 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'pecatonica-river-black-bridge-wells',
+    slug: 'pecatonica-river-black-bridge-wells',
+    name: 'Pecatonica River',
+    reach: 'Black Bridge Landing to Wells Landing',
+    state: 'Wisconsin',
+    region: 'Driftless Wisconsin',
+    summary:
+      'Lower Pecatonica day from Darlington through the first rural bends below town. Black Bridge Landing is the clean public put-in, Wells Landing is a named county landing, and the direct Darlington gauge has a route-specific lower-Pecatonica flow ladder.',
+    statusText:
+      'Use the Pecatonica River at Darlington gauge. Treat 101 to 250 cfs as the best lower-Pecatonica paddling window, 251 to 350 cfs as high but usually manageable, 351 to 500 cfs as experienced-only high water, and 501+ cfs as too high and muddy for a broad recommendation.',
+    latitude: 42.68601091,
+    longitude: -90.12030611,
+    gaugeSource: {
+      id: 'usgs-05432500',
+      provider: 'usgs',
+      siteId: '05432500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pecatonica River at Darlington, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/05432500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 101,
+      idealMax: 250,
+      tooLow: 100,
+      tooHigh: 501,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Pecatonica River - Roller Coaster Road to Wells Landing gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall often provide cleaner, cooler flow. Summer can still work after rain, but the lower Pecatonica is muddy by nature and becomes pushier, browner, and less pleasant as the Darlington gauge climbs.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly flatwater and easy current, but the 12-plus-mile length, steep muddy banks, occasional strainers, possible partial logjams below town, and cold shoulder-season water make this more committed than a short park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Wisconsin route: Lafayette County publishes both landing coordinates, Darlington documents Black Bridge Park as the city improved Pecatonica boat launch, Wisconsin River Trips documents the lower reach to Wells Landing with a detailed Darlington-gauge ladder, and USGS operates the direct live gauge in Darlington.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published lower-Pec ladder',
+        value: '101 to 250 cfs target range',
+        note: 'Wisconsin River Trips uses the Pecatonica River at Darlington gauge for the lower Pecatonica and rates 101-210 cfs as very ideal, 211-250 cfs as average and fine, 291-350 cfs as high, 351-500 cfs as very high, and 501+ cfs as too high and muddy for enjoyable paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05432500',
+        note: 'USGS operates the Pecatonica River at Darlington monitoring location on the route corridor, with current discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/05432500/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Black Bridge Landing',
+        note: 'Lafayette County lists Black Bridge Landing with coordinates, and Darlington says Black Bridge Park provides the city improved Pecatonica River boat launch.',
+        sourceUrl: 'https://www.lafayettecountywi.org/media/51331',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Wells Landing',
+        note: 'Lafayette County lists Wells Landing with coordinates on Walnut Road, while Wisconsin River Trips describes Wells Landing as a good lower-Pecatonica boat launch.',
+        sourceUrl: 'https://www.lafayettecountywi.org/media/51331',
+      },
+      {
+        label: 'Route mileage',
+        value: 'About 12.3 river miles',
+        note: 'Wisconsin River Trips breaks the route into Black Bridge Park to Roller Coaster Road at 4.9 miles and Roller Coaster Road to Walnut Road/Wells Landing at about 7.3 miles.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Pecatonica River - Roller Coaster Road to Wells Landing',
+        url: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05432500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05432500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Lafayette County canoe and boat landing coordinates',
+        url: 'https://www.lafayettecountywi.org/media/51331',
+        provider: 'local',
+      },
+      {
+        label: 'Darlington Comprehensive Outdoor Recreation Plan',
+        url: 'https://darlingtonwi.org/wp-content/uploads/2022/06/Darlington-CORP-2020-2024_10262020.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'City of Darlington Pecatonica River Trails Park',
+        url: 'https://darlingtonwi.org/parks-recreation/pecatonica-river-trails-park/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'kickapoo-river-ontario-rockton',
     slug: 'kickapoo-river-ontario-rockton',
     name: 'Kickapoo River',
@@ -5919,7 +6373,7 @@ export const rivers: River[] = [
     summary:
       'Classic Driftless day trip where low water quickly turns the route into a scrape-and-walk slog. The score should mainly answer whether the Ontario gauge is clearly above the low-water floor.',
     statusText:
-      'Treat 60 cfs at Ontario as the low-water floor. Above that can be worthwhile, but there is not yet a clear high-water cutoff for this reach.',
+      'Use the Kickapoo River at Ontario gauge. Treat 70 to 100 cfs as the best scrape-free window, about 60 cfs as the practical minimum, and 200+ cfs as too high for a broad recreational recommendation.',
     latitude: 43.72300847,
     longitude: -90.58704745,
     gaugeSource: {
@@ -5932,10 +6386,13 @@ export const rivers: River[] = [
       siteName: 'Kickapoo River at Ontario, WI',
     },
     profile: {
-      thresholdModel: 'minimum-only',
+      thresholdModel: 'two-sided',
+      idealMin: 70,
+      idealMax: 100,
       tooLow: 60,
+      tooHigh: 200,
       thresholdSource: {
-        label: 'MilesPaddled Kickapoo River I minimum-flow note',
+        label: 'MilesPaddled Kickapoo River I flow guidance',
         url: 'https://milespaddled.com/kickapoo-river-i/',
       },
       thresholdSourceStrength: 'community',
@@ -5947,7 +6404,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Mostly approachable moving water, but shallow riffles, strainers, and fast-changing rain conditions make this more than a lazy float.',
       confidenceNotes:
-        'The app has a clear low-water floor from trip guidance, but not a clear high-water cutoff. Treat rising water and flood context cautiously even when the river is above minimum.',
+        'Confidence is good for a conservative community-source add: MilesPaddled documents the exact Ontario-to-Rockton route, endpoint coordinates, an Ontario-gauge minimum, a 70-to-100-cfs sweet spot, and a 200-cfs high-water cutoff. Kickapoo Valley Reserve adds official access, permit, and high-water safety context for the managed Rockton side of the route.',
     },
     evidenceNotes: [
       {
@@ -5957,16 +6414,22 @@ export const rivers: River[] = [
         sourceUrl: 'https://milespaddled.com/kickapoo-river-i/',
       },
       {
-        label: 'Community sweet spot',
-        value: 'About 70 to 100 cfs',
-        note: 'Existing route notes describe this as a good range, but it is still paddler guidance rather than an official published threshold.',
+        label: 'Published sweet spot',
+        value: '70 to 100 cfs',
+        note: 'MilesPaddled recommends 60 to 100 cfs for a scrape-free journey and calls 70 to 100 cfs the sweet spot for Ontario to Rockton.',
         sourceUrl: 'https://milespaddled.com/kickapoo-river-i/',
       },
       {
-        label: 'High-water caution',
-        value: 'Avoid flood conditions',
-        note: 'The route is rain-sensitive and can turn pushy quickly. Treat higher water cautiously because the upper range is still not well defined.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv/?site_no=05407468&PARAmeter_cd=00065,00060',
+        label: 'Published high-water cutoff',
+        value: '200 cfs and above',
+        note: 'MilesPaddled cautions against high water on this flash-flood-prone valley route and identifies 200 cfs and above as too high.',
+        sourceUrl: 'https://milespaddled.com/kickapoo-river-i/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05407468',
+        note: 'USGS operates the Kickapoo River at State Highway 131 at Ontario gauge with recent discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?site_no=05407468',
       },
       {
         label: 'Landing management',
@@ -6400,6 +6863,122 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'milwaukee-river-west-bend-quaas-creek',
+    slug: 'milwaukee-river-west-bend-quaas-creek',
+    name: 'Milwaukee River',
+    reach: 'Washington Street Dam to Quaas Creek Park',
+    state: 'Wisconsin',
+    region: 'Southeast Wisconsin',
+    summary:
+      'Short West Bend Milwaukee run with a public put-in below the Washington Street dam, a city-park take-out at Quaas Creek, and a better route-specific Cedarburg gauge ladder than most upper-Milwaukee prospects.',
+    statusText:
+      'Use the Milwaukee River near Cedarburg gauge. Treat 351 to 600 cfs as the target range, 251 to 350 cfs as low with some likely walking above Riverside Park, 601 to 800 cfs as high but manageable, 801 to 1000 cfs as very high for experienced paddlers, and 1001+ cfs as probably too high for most groups.',
+    latitude: 43.42833,
+    longitude: -88.18399,
+    gaugeSource: {
+      id: 'usgs-04086600',
+      provider: 'usgs',
+      siteId: '04086600',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Milwaukee River near Cedarburg, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 351,
+      idealMax: 600,
+      tooLow: 250,
+      tooHigh: 1001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Milwaukee River - West Bend gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall works when Cedarburg is clearly above the shallow bands. Higher water brings pushier current and less forgiving shoreline strainers through the downtown and prairie sections.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Short mileage keeps this approachable, but it is not flatwater. Expect many Class I riffles, one bouncier Class II-in-high-water rapid below Indiana Avenue, fast current, and a few strainer-lined banks that deserve active boat control.',
+      confidenceNotes:
+        'Confidence is good for a route-specific community-source add: Wisconsin River Trips documents the exact Washington Street Dam to Quaas Creek Park route and publishes a full Cedarburg-gauge ladder, Visit West Bend explicitly recommends this same launch-to-take-out pairing, Quaas Creek Park is a named city launch destination, and USGS 04086600 is the direct Milwaukee River gauge WRT ties to the route. The main caveat is that the gauge sits downstream near Cedarburg rather than in West Bend itself, so the score should be read as a practical corridor guide, not a hyper-local downtown sensor.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route ladder',
+        value: '351 to 600 cfs target range',
+        note: 'Wisconsin River Trips says 0 to 250 cfs is likely too shallow above Riverside Park, 251 to 350 can require walking, 351 to 600 is a good target, 601 to 800 is high but manageable, 801 to 1000 is very high, and 1001+ is probably too high.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 04086600',
+        note: 'USGS operates the Milwaukee River near Cedarburg monitoring location used by the route-specific Wisconsin River Trips guidance.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+      },
+      {
+        label: 'Route pairing',
+        value: 'Washington Street dam to Quaas Creek Park',
+        note: 'Visit West Bend tells paddlers to launch south of the Washington Street dam and paddle downstream to Quaas Creek Park for a trip of about four miles.',
+        sourceUrl: 'https://visitwestbend.com/attraction/milwaukee-river/',
+      },
+      {
+        label: 'Take-out support',
+        value: 'City park canoe/kayak launch',
+        note: 'Visit West Bend describes Quaas Creek Park as a good place to launch canoes and kayaks on the Milwaukee River corridor.',
+        sourceUrl: 'https://visitwestbend.com/park/quaas-creek-park/',
+      },
+      {
+        label: 'Put-in coordinates',
+        value: '43.42833, -88.18399',
+        note: 'A named monitoring point in the Milwaukee River basin bioassessment plan identifies the West Bend Dam tailwater at Highway 33, matching the public Washington Street dam launch area described by Wisconsin River Trips and Visit West Bend.',
+        sourceUrl: 'https://midwestbiodiversityinst.org/reports/watershed-monitoring-and-bioassessment-plan-for-the-milwaukee-river-basin/Milwaukee-R-M%26A-Bioassessment-Plan.pdf',
+      },
+      {
+        label: 'Take-out coordinates',
+        value: '43.41636, -88.14629',
+        note: 'Mapcarta resolves the named Quaas Creek Park feature at the city park address used by Visit West Bend.',
+        sourceUrl: 'https://mapcarta.com/W439843361',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Milwaukee River - West Bend',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/west-bend',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 04086600 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Visit West Bend Milwaukee River',
+        url: 'https://visitwestbend.com/attraction/milwaukee-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Visit West Bend Quaas Creek Park',
+        url: 'https://visitwestbend.com/park/quaas-creek-park/',
+        provider: 'local',
+      },
+      {
+        label: 'Milwaukee River basin bioassessment plan PDF',
+        url: 'https://midwestbiodiversityinst.org/reports/watershed-monitoring-and-bioassessment-plan-for-the-milwaukee-river-basin/Milwaukee-R-M%26A-Bioassessment-Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Quaas Creek Park',
+        url: 'https://mapcarta.com/W439843361',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'milwaukee-river-newburg-fredonia',
     slug: 'milwaukee-river-newburg-fredonia',
     name: 'Milwaukee River',
@@ -6407,9 +6986,9 @@ export const rivers: River[] = [
     state: 'Wisconsin',
     region: 'Southeast Wisconsin',
     summary:
-      'Flow-sensitive southeast-Wisconsin day trip with mostly easy current and intermittent riffles. The main product question is whether Cedarburg is clearly above the scrape line, not whether the route has a narrow perfect band.',
+      'Flow-sensitive southeast-Wisconsin day trip from Newburg through Riveredge and Waubeka to Waubedonia Park. Cedarburg is the direct Milwaukee River gauge, and community guidance now gives a usable low-to-high ladder for this shallow, riffly corridor.',
     statusText:
-      'Treat about 390 cfs at Cedarburg as the low-water floor. Around 550 cfs was described as close to perfect, but the app still stays conservative above the minimum because the upper range is thinly sourced.',
+      'Use the Milwaukee River near Cedarburg gauge. Treat 390 to 600 cfs as the preferred full-route window, 200 to 389 cfs as low and scrape-prone, 601 to 800 cfs as high but likely runnable, and 801+ cfs as too high for most casual groups.',
     latitude: 43.43373,
     longitude: -88.04926,
     gaugeSource: {
@@ -6420,61 +6999,66 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Milwaukee River near Cedarburg, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
     },
     profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 390,
+      thresholdModel: 'two-sided',
+      idealMin: 390,
+      idealMax: 600,
+      tooLow: 200,
+      tooHigh: 801,
       thresholdSource: {
-        label: 'MilesPaddled Milwaukee River I minimum-flow note',
-        url: 'https://milespaddled.com/milwaukee-river-i/',
+        label: 'Wisconsin River Trips Milwaukee River - Newburg gauge guidance',
+        url: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+        provider: 'wisconsin_river_trips',
       },
       thresholdSourceStrength: 'community',
       rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7],
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
       seasonNotes:
-        'Best from spring into early summer when the river is less likely to slip back into scrape mode. Summer can still work after rain, but the floor matters.',
+        'Spring is the easiest time to find water, but Wisconsin River Trips notes mid-summer to late fall can be the best clarity window when flows stay up. Summer can still work after rain, while low water quickly turns the trip scrapey.',
       difficulty: 'easy',
       difficultyNotes:
-        'Mostly straightforward current with intermittent riffles. Low water, not technical whitewater, is the main route-quality problem.',
+        'Mostly straightforward current with intermittent riffles and easy Class I drops near Newburg. Low water, fresh wood, and high-water speed are bigger concerns than technical whitewater.',
       confidenceNotes:
-        'The access points and gauge are solid, and the low-water floor is specific. The remaining gap is a well-supported upper target rather than the basic go/no-go floor.',
+        'Confidence is good for a community-sourced Wisconsin add: Wisconsin River Trips documents the exact Newburg segment and a Cedarburg-gauge ladder, Miles Paddled documents the full Newburg-to-Waubedonia shuttle and corroborates the low-water sensitivity, USGS 04086600 is a direct same-river gauge, and Waubedonia Park is an official county canoe/kayak launch. The main caveat is distance: the Cedarburg gauge sits downstream of the route, so recent local rain can make the upper river differ from the live number.',
     },
     evidenceNotes: [
       {
-        label: 'Published minimum',
-        value: '390 cfs',
-        note: 'MilesPaddled treats the Cedarburg gauge reading from this trip as the recommended minimum level for Newburg to Fredonia.',
-        sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
+        label: 'Newburg gauge ladder',
+        value: '200-400 best clarity; 400-600 fine; 600+ less fun',
+        note: 'Wisconsin River Trips says the Newburg reach is best around 200 to 400 cfs at Cedarburg for clarity, still likely fine at 400 to 600 cfs, and probably doable but less enjoyable above 600 cfs.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
       },
       {
-        label: 'Better target day',
-        value: '550 cfs upstream / 390 cfs Cedarburg',
-        note: 'The same trip report says Waubedonia staff described those conditions as just past too low and close to perfect timing.',
+        label: 'Full-route low-water check',
+        value: '390 cfs near the practical floor',
+        note: 'Miles Paddled ran Newburg to Waubedonia at a Cedarburg reading around 390 cfs and describes it as just past the point of too low, with some shallow scraping still present.',
         sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
       },
       {
         label: 'Trip style',
         value: '11-mile easy day',
-        note: 'Expect swift current with mild riffles rather than a technical rapids run.',
+        note: 'Miles Paddled documents the full Newburg Fireman\'s Park to Waubedonia Park trip as an 11-mile paddle with mostly mild riffles, wooded banks, Riveredge Nature Center scenery, and a little over 6 miles of shuttle.',
         sourceUrl: 'https://milespaddled.com/milwaukee-river-i/',
       },
       {
-        label: 'Supplemental upper-flow context',
-        value: '400 to 600 cfs still works; 600+ gets less attractive',
-        note: 'Wisconsin River Trips treats the Newburg segment as best around 200 to 400 cfs, still navigable at 400 to 600 cfs, and increasingly less appealing above 600 cfs. This improves the upper-flow story, but it remains community guidance rather than an official route standard.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/newburg',
+        label: 'Public put-in',
+        value: "Fireman's Park / Main Street bridge",
+        note: 'The Village of Newburg lists Fireman\'s Park as a village park, and Wisconsin River Trips / Miles Paddled both describe the public put-in just downstream of the Main Street bridge by the old dam site.',
+        sourceUrl: 'https://village.newburg.wi.us/our-parks/',
       },
       {
-        label: 'Adjacent downstream caution',
-        value: '801+ cfs may be too high for an enjoyable day',
-        note: 'On the adjacent Waubeka segment ending at Waubedonia Park, Wisconsin River Trips treats roughly 801 cfs and above at Cedarburg as potentially too high for an enjoyable paddle. This is useful cautionary context, but not a direct threshold for the Newburg to Waubedonia route.',
+        label: 'Downstream high-water check',
+        value: '801+ cfs too high for most groups',
+        note: 'On the adjacent Waubeka-to-Waubedonia section, Wisconsin River Trips treats 801+ cfs at Cedarburg as too high for most enjoyable paddling. The app uses that as a conservative high-water cutoff for the combined route.',
         sourceUrl: 'https://www.wisconsinrivertrips.com/segments/milwaukee-river/waubeka',
       },
       {
         label: 'Access quality',
-        value: 'Public park put-in and county-park take-out',
-        note: 'The route starts at Fireman\'s Park in Newburg and ends at Waubedonia Park, which has a public boat/canoe/kayak launch.',
-        sourceUrl: 'https://www.ozaukeecounty.gov/Facilities/Facility/Details/Waubedonia-Park-9',
+        value: 'County park canoe/kayak launch',
+        note: 'Ozaukee County says Waubedonia Park has boat/canoe/kayak launches, day-visitor hours, restrooms, and seasonal camping.',
+        sourceUrl: 'https://ozaukeecounty.gov/670/Waubedonia-Park',
       },
     ],
     sourceLinks: [
@@ -8100,6 +8684,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wisconsin-river-millville-wyalusing-beach',
+    slug: 'wisconsin-river-millville-wyalusing-beach',
+    name: 'Wisconsin River',
+    reach: 'Millville Boat Landing to Wyalusing Beach',
+    state: 'Wisconsin',
+    region: 'Lower Wisconsin Riverway',
+    summary:
+      'Final Lower Wisconsin day from Millville through the river mouth and into the Mississippi at Wyalusing Beach. This is scenic and access-backed, but the confluence, big-water wind, and boat traffic make it a guarded route rather than a casual sandbar float.',
+    statusText:
+      'Use the Muscoda gauge. Treat 3,001 to 7,500 cfs as the best practical window, 2,000 cfs as the low/scrape floor, and 20,000 cfs as too high for a broad recommendation. Above about 12,500 cfs, expect fewer sandbars and pushier, dirtier water.',
+    latitude: 43.03505,
+    longitude: -90.96091,
+    gaugeSource: {
+      id: 'usgs-05407000',
+      provider: 'usgs',
+      siteId: '05407000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wisconsin River at Muscoda, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3001,
+      idealMax: 7500,
+      tooLow: 2000,
+      tooHigh: 20000,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Millville Muscoda-gauge depth guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal window. Check upstream rain and dam-driven changes because the lower river can rise even when local weather is quiet. Wind and Mississippi River boat traffic matter more here than on upstream sandbar segments.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The Wisconsin River miles are flatwater, but this route finishes across the Wisconsin/Mississippi confluence and toward a Mississippi River beach landing. Broad water, wind, recreational boats, wakes, and confluence navigation make it more committed than the easy current suggests.',
+      confidenceNotes:
+        'Confidence is good for a guarded Lower Wisconsin add. Wisconsin River Trips documents the exact Millville-to-Wyalusing Beach route, ties it to the direct Wisconsin River at Muscoda gauge, and publishes a lower-river flow ladder. Wisconsin Trail Guide provides Millville Landing coordinates and amenities, while Wisconsin DNR and Grant County corroborate Wyalusing-area public beach/boat-landing access. The main caution is route shape: the take-out is on the Mississippi, not the Wisconsin, so the app scores this more conservatively than upstream riverway day trips.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact route report',
+        value: '10.8 miles, 5.5 hours',
+        note: 'Wisconsin River Trips documents Millville Boat Landing to Wyalusing Beach as a 10.8-mile final Lower Wisconsin route and ties the trip to the Wisconsin River at Muscoda gauge.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/final-segment',
+      },
+      {
+        label: 'Published level bands',
+        value: '3,001 to 7,500 cfs best practical window',
+        note: 'Wisconsin River Trips treats 3,001 to 5,000 cfs as very ideal, 5,001 to 7,500 cfs as common and ok, 7,501 to 10,000 cfs as viable with smaller sandbars, and 20,001+ cfs as probably too high for safe paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Millville Landing, 43.03505, -90.96091',
+        note: 'Wisconsin Trail Guide LWSR4 maps Millville Landing and describes it as a developed landing with trailer ramp, pier, parking, picnic area, grill, and pit toilets.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-lwsr4.pdf',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Wyalusing Beach / boat landing',
+        note: 'Wisconsin DNR says the Wyalusing Recreation Area has a beach, boat landing, and picnic area, and Grant County lists Wyalusing off Highway X with shelter, hydrant, restroom, picnic tables, grills, and sand beach.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/parks/wyalusing/recreation/water',
+      },
+      {
+        label: 'Confluence caution',
+        value: 'Mississippi River finish',
+        note: 'Wisconsin River Trips notes that after entering the Mississippi the water becomes much wider and deeper with recreational boat traffic, so the final mile needs wind, wake, and navigation judgment.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/final-segment',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips final segment',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/final-segment',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin River Trips Millville segment',
+        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/millville',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'Wisconsin Trail Guide LWSR4 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-lwsr4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin DNR Wyalusing water recreation',
+        url: 'https://dnr.wisconsin.gov/topic/parks/wyalusing/recreation/water',
+        provider: 'local',
+      },
+      {
+        label: 'Grant County fishing and boat landings',
+        url: 'https://grantcounty.org/tourism/outdoor-activities/fishing/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05407000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05407000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'wisconsin-river-dekorra-camp-rest',
     slug: 'wisconsin-river-dekorra-camp-rest',
     name: 'Wisconsin River',
@@ -8185,6 +8879,622 @@ export const rivers: River[] = [
         label: 'USGS 05404000 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05404000/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'vermilion-river-schoepfle-mill-hollow',
+    slug: 'vermilion-river-schoepfle-mill-hollow',
+    name: 'Vermilion River',
+    reach: 'Schoepfle Garden / Birmingham to Mill Hollow',
+    state: 'Ohio',
+    region: 'North Central Ohio',
+    summary:
+      'Short north-flowing Vermilion day run with shale-valley scenery, pool-and-drop Class I water, and a couple light Class II riffle sections when the stage is right.',
+    statusText:
+      'Use the Vermilion near Vermilion stage gauge. Treat about 3.5 to 4.25 ft as the best novice-friendly window, 2.55 ft as the bare runnable floor, and 6 ft as high runnable rather than a broad recreational recommendation.',
+    latitude: 41.326667,
+    longitude: -82.357333,
+    gaugeSource: {
+      id: 'usgs-04199500',
+      provider: 'usgs',
+      siteId: '04199500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Vermilion River near Vermilion, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.5,
+      idealMax: 4.25,
+      tooLow: 2.55,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'American Whitewater Vermilion middle reach gauge guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3140/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 9, 10, 11],
+      seasonNotes:
+        'Spring and rain-refreshed fall are the more likely windows. Summer can become too shallow; avoid quick rises after heavy rain and verify local access before staging.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I pool-and-drop water, but American Whitewater notes light Class II sections after the SR 113 crossing and before Dean Hollow Bridge at the recommended novice range.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-threshold add: American Whitewater documents the exact 8.1-mile reach, same-river USGS gauge, gauge range, and route character. ODNR public-access materials provide coordinates for Schoepfle Garden / Birmingham and Vermilion River Reservation / Mill Hollow, while Lorain County Metro Parks supports the named park access context.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and distance',
+        value: '8.1 miles, Class I(II)',
+        note: 'American Whitewater lists the middle Vermilion reach from Edison Hwy / US 20 at Schoepfle Gardens to Mill Hollow Park as 8.1 miles with Class I(II) difficulty.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3140/main',
+      },
+      {
+        label: 'Published AW range',
+        value: '2.55 to 6.00 ft',
+        note: 'American Whitewater ties the reach to USGS 04199500 and labels 2.55 to 6.00 ft as barely runnable through high runnable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3140',
+      },
+      {
+        label: 'Novice target',
+        value: '3.5 to 4.25 ft',
+        note: 'A same-reach American Whitewater trip report recommends 3.5 to 4.25 ft for novice kayakers, with the middle of that range most fun.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3140/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 04199500',
+        note: 'USGS operates the Vermilion River near Vermilion, OH monitoring location used by American Whitewater for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+      },
+      {
+        label: 'Put-in coordinate support',
+        value: 'Birmingham Community Center / Schoepfle Garden public-access coordinates',
+        note: 'ODNR public-access materials list Schoepfle Garden as a Vermilion River access site and publish Birmingham-area coordinates, including the community-center point used here for the AW Birmingham put-in context.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/coastal/public-access/pag-riv-06-VermilionRiver.pdf',
+      },
+      {
+        label: 'Take-out coordinate support',
+        value: 'Mill Hollow / Vermilion River Reservation coordinates',
+        note: 'ODNR public-access materials and the Vermilion-Lorain Water Trail identify Mill Hollow / Vermilion River Reservation as the western trailhead area and publish coordinates for the Mill Hollow side.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/coastal/public-access/pag-riv-06-VermilionRiver.pdf',
+      },
+      {
+        label: 'Hazards',
+        value: 'Low water, light Class II riffles, wood, bridge hydraulics downstream',
+        note: 'AW notes the light Class II sections on this middle reach; ODNR water-trail materials warn the lower Vermilion can include log jams and bridge abutment hazards during high water.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/watertrails/VermilionLorainWaterTrail.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Vermilion middle reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3140/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Vermilion gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3140',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04199500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'ODNR Vermilion River public access guide',
+        url: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/coastal/public-access/pag-riv-06-VermilionRiver.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'ODNR Vermilion-Lorain Water Trail PDF',
+        url: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/watertrails/VermilionLorainWaterTrail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Lorain County Metro Parks Schoepfle Garden',
+        url: 'https://www.loraincountymetroparks.com/schoepfle-garden',
+        provider: 'local',
+      },
+      {
+        label: 'Lorain County Metro Parks Vermilion River Reservation',
+        url: 'https://www.loraincountymetroparks.com/vermilion-river-reservation',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'grand-river-harpersfield-hidden-valley',
+    slug: 'grand-river-harpersfield-hidden-valley',
+    name: 'Grand River',
+    reach: 'Harpersfield Covered Bridge to Hidden Valley Park',
+    state: 'Ohio',
+    region: 'Northeast Ohio',
+    summary:
+      'Wild and Scenic Grand River run from the Harpersfield covered bridge corridor to Hidden Valley, with a broad valley feel, bedrock ledges near the put-in, and Class I-II wave trains as water rises.',
+    statusText:
+      'Use the Grand River near Painesville gauge. Lake Metroparks treats under 2 ft as low/draggy, 2 to 5 ft as optimal, 5 to 8 ft as high and fast, and above 8 ft as flood-level dangerous.',
+    latitude: 41.75649,
+    longitude: -80.946408,
+    gaugeSource: {
+      id: 'usgs-04212100',
+      provider: 'usgs',
+      siteId: '04212100',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Grand River near Painesville, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04212100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 5,
+      tooLow: 2,
+      tooHigh: 8,
+      thresholdSource: {
+        label: 'Lake Metroparks Grand River Water Trail gauge bands',
+        url: 'https://www.lakemetroparks.com/KenticoTemplate/media/LakeMetroparks/Grand-River-Water-Trail-map_low-res.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 9, 10, 11],
+      seasonNotes:
+        'Spring and fall rain windows are most reliable. Summer can be low and slow; higher rain-driven levels create fast current, wave trains, and stronger eddy lines.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Usually approachable moving water in the optimal band, but the Harpersfield ledge/play spot, standing waves above 4 ft, and 1500+ cfs wave trains make this more than a flatwater float.',
+      confidenceNotes:
+        'Confidence is strong for a guarded add: Lake Metroparks publishes public access coordinates, river miles, and official gauge-height bands for the Grand River Water Trail; American Whitewater documents the exact Harpersfield-to-Hidden Valley reach, same USGS gauge, distance, Class I-II character, and route-specific flow notes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official gauge bands',
+        value: '2 to 5 ft optimal; >8 ft dangerous',
+        note: 'Lake Metroparks tells paddlers to check USGS 04212100 and labels under 2 ft low/slow drag, 2 to 5 ft optimal, 5 to 8 ft high/fast, and above 8 ft flood-level dangerous.',
+        sourceUrl:
+          'https://www.lakemetroparks.com/KenticoTemplate/media/LakeMetroparks/Grand-River-Water-Trail-map_low-res.pdf',
+      },
+      {
+        label: 'AW route and distance',
+        value: '8.4 miles, Class I-II',
+        note: 'American Whitewater lists Harpersfield Dam / Route 534 to Hidden Valley / Route 528 as an 8.4-mile Class I-II Grand River reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1468/main',
+      },
+      {
+        label: 'AW flow floor',
+        value: 'About 100 cfs',
+        note: 'AW trip-report guidance says boatable flows are about 100 cfs and that 90 cfs was too low in spots.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1468/main',
+      },
+      {
+        label: 'AW beginner range',
+        value: '100 to 1500 cfs',
+        note: 'AW reports 100 to 1500 cfs as a safe beginner/novice range and warns that above 1500 cfs a few spots need intermediate skills.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1468/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 04212100',
+        note: 'USGS identifies Grand River near Painesville, OH as station 04212100 and reports both gage height and discharge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04212100/',
+      },
+      {
+        label: 'Put-in coordinate support',
+        value: 'Harpersfield Covered Bridge: 41.75649, -80.946408',
+        note: 'Lake Metroparks Grand River Water Trail map publishes the Harpersfield Covered Bridge access coordinate and address at 1122 Harpersfield Road.',
+        sourceUrl:
+          'https://www.lakemetroparks.com/KenticoTemplate/media/LakeMetroparks/Grand-River-Water-Trail-map_low-res.pdf',
+      },
+      {
+        label: 'Take-out coordinate support',
+        value: 'Hidden Valley Park: 41.741864, -81.047837',
+        note: 'Lake Metroparks Grand River Water Trail map publishes Hidden Valley Park as a paddle access with GIS coordinates and a short carry from drop-off to water.',
+        sourceUrl:
+          'https://www.lakemetroparks.com/KenticoTemplate/media/LakeMetroparks/Grand-River-Water-Trail-map_low-res.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Lake Metroparks Grand River Water Trail map',
+        url: 'https://www.lakemetroparks.com/KenticoTemplate/media/LakeMetroparks/Grand-River-Water-Trail-map_low-res.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Grand Harpersfield to Hidden Valley',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1468/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04212100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04212100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS Grand River near Painesville project page',
+        url: 'https://www.usgs.gov/centers/ohio-kentucky-indiana-water-science-center/science/grand-river-near-painesville-oh',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'great-miami-river-heritage-dravo',
+    slug: 'great-miami-river-heritage-dravo',
+    name: 'Great Miami River',
+    reach: 'Heritage Park to Obergiesing Soccer Complex at Dravo Park',
+    state: 'Ohio',
+    region: 'Southwest Ohio',
+    summary:
+      'Cincinnati-area Great Miami training run with Class I-II wave features, named play spots, real strainer history, and a strong Hamilton gauge story. This is a whitewater-skills route, not a casual recreational float.',
+    statusText:
+      'Whitewater/swiftwater only. Use the Hamilton gauge; treat about 1000 to 3500 cfs as the guarded training window, 500 cfs as the rough runnable floor, 5000+ cfs as flushed/pushy, and around 8000 cfs as stay-off water because of wood and debris.',
+    latitude: 39.291548,
+    longitude: -84.661803,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-03274000',
+      provider: 'usgs',
+      siteId: '03274000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Great Miami River at Hamilton, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03274000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 3500,
+      tooLow: 500,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'American Whitewater Great Miami Heritage to Dravo guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the normal local training window when the Hamilton gauge is in range. Avoid recent high-water debris, fast rises, and any uncertainty about strainers at Denny\'s Run or the Dravo take-out maze.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'AW rates the reach Class I-II, but route reports and feature notes make it unsuitable for casual recreational kayakers: expect wave trains, eddyline practice, shallow ledges, rescues/strainer history at Denny\'s Run, and wood at the take-out.',
+      confidenceNotes:
+        'The live gauge and threshold evidence are strong because American Whitewater ties this exact reach to USGS 03274000 and publishes detailed same-reach level notes. Official access confidence is also good: Colerain Township confirms canoe ramps at Heritage Park and Dravo Park, and the Great Miami River Water Trail map names both access points. Coordinate confidence is lower than Vermilion/Grand because the sources found in this pass give official names and addresses rather than ramp-level GIS points; the implementation uses named park coordinates with caveats.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and gauge',
+        value: '6.1 miles, Class I-II, USGS 03274000',
+        note: 'American Whitewater lists Heritage Park or Blue Rock Road to Obergiesing Soccer Complex at Dravo Park as a 6.1-mile Class I-II reach and ties it to the Great Miami River at Hamilton gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+      },
+      {
+        label: 'Runnable range',
+        value: '500 to 5000+ cfs',
+        note: 'AW says this section is run at a variety of levels from 500 cfs to 5000+ cfs, while also explaining that the 5000 cfs cutoff is partly because rapids generally flush out.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+      },
+      {
+        label: 'Stay-off level',
+        value: 'Around 8000 cfs',
+        note: 'AW warns that somewhere around 8000 cfs paddlers probably want to stay off the river because of wood and other floating debris.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+      },
+      {
+        label: 'Training window support',
+        value: '1000 to 3500 cfs guarded app target',
+        note: 'AW feature notes identify usable/playable behavior around 1000, 1500, 2000, 2500, 3000, and 3500 cfs. The app target stays below the more pushy 4500-to-5000 cfs bands and above the marginal 500-to-650 cfs reports.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+      },
+      {
+        label: 'Direct gauge metadata',
+        value: 'AW gauge 1529 / USGS 03274000',
+        note: 'American Whitewater gauge metadata identifies the Great Miami River at Hamilton gauge as a direct USGS station, USGS 03274000.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/Gauge2/detail/id/1529/',
+      },
+      {
+        label: 'Official ramp pair',
+        value: 'Heritage Park and Dravo Park canoe ramps',
+        note: 'Colerain Township says the upstream canoe ramp is at Heritage Park and the second ramp is just over four nautical miles downstream at Obergiesing Soccer Complex at Dravo Park.',
+        sourceUrl: 'https://www.colerain.org/225/Canoe-Ramps',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Obergiesing Soccer Complex at Dravo Park canoe ramp',
+        note: 'Colerain Township lists Obergiesing Soccer Complex at Dravo Park with a canoe ramp, parking, picnic facilities, and ODNR boating-facility grant context.',
+        sourceUrl: 'https://www.colerain.org/Facilities/Facility/Details/Obergiesing-Soccer-Complex-at-Dravo-Park-33',
+      },
+      {
+        label: 'Hazard escalation',
+        value: 'Denny\'s Run strainers and non-rec warning',
+        note: 'AW describes rescues, wrapped boats, and persistent strainers at Denny\'s Run; a 2018 trip report explicitly warns the route is not for recreational kayakers.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Great Miami Heritage to Dravo',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/4554/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Hamilton gauge metadata',
+        url: 'https://www.americanwhitewater.org/content/Gauge2/detail/id/1529/',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 03274000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03274000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Colerain Township canoe ramps',
+        url: 'https://www.colerain.org/225/Canoe-Ramps',
+        provider: 'local',
+      },
+      {
+        label: 'Colerain Township Heritage Park',
+        url: 'https://www.colerain.org/Facilities/Facility/Details/Heritage-Park-29',
+        provider: 'local',
+      },
+      {
+        label: 'Colerain Township Obergiesing Soccer Complex at Dravo Park',
+        url: 'https://www.colerain.org/Facilities/Facility/Details/Obergiesing-Soccer-Complex-at-Dravo-Park-33',
+        provider: 'local',
+      },
+      {
+        label: 'Great Miami River Water Trail map',
+        url: 'https://www.miamicountyparks.com/sites/default/files/media/mcpd/2022-Great-Miami-River-Water-Trail-Map.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'little-miami-river-kelley-milford',
+    slug: 'little-miami-river-kelley-milford',
+    name: 'Little Miami River',
+    reach: 'Kelley Nature Preserve to Jim Terrell Park',
+    state: 'Ohio',
+    region: 'Southwest Ohio',
+    summary:
+      'Short lower Little Miami run from the public Kelley Nature Preserve launch to Milford, with scenic-river access, riffles, small ledges, and several Class I-II play features when the Milford gauge is high enough.',
+    statusText:
+      'Guarded Class I-II play route. Use the Milford gauge; treat 5.5 to 7.5 ft as the best window, 4.6 ft as the low runnable floor, and 9 ft as the upper app ceiling before the run becomes sketchy or flood-prone.',
+    latitude: 39.20997,
+    longitude: -84.30608,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-03245500',
+      provider: 'usgs',
+      siteId: '03245500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Little Miami River at Milford, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03245500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5.5,
+      idealMax: 7.5,
+      tooLow: 4.6,
+      tooHigh: 9,
+      thresholdSource: {
+        label: 'American Whitewater Little Miami Kelley-to-Milford gauge guidance',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring and rain-refreshed periods are best for the AW play levels. Summer recreational floating may still occur below the app target, but this route score is calibrated to the Kelley-to-Milford Class I-II feature guidance rather than livery-style low-water floating.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly easy moving water, but the AW route includes Boathouse Rapid, old low-head-dam remnants, small holes, ledges, rock gardens, and pushier water above the preferred range.',
+      confidenceNotes:
+        'Confidence is good for a guarded community-threshold add. AW documents the exact Kelley Nature Preserve to Jim Terrell Park run, the direct Milford gauge, a detailed stage ladder, and feature-level hazards. ODNR publishes both access points with coordinates on the Little Miami Scenic River map, and Clermont County Parks confirms Kelley has canoe/kayak access.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and difficulty',
+        value: '4.9 miles, Class I-II',
+        note: 'American Whitewater lists Kelley Nature Preserve to Milford / Jim Terrell Park as a 4.9-mile Little Miami reach with Class I-II difficulty.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10600/main',
+      },
+      {
+        label: 'Gauge ladder',
+        value: '4.6 to 9.0 ft runnable range',
+        note: 'AW ties the reach to the Little Miami River at Milford gauge and publishes a 4.60-to-9.00 ft range, with 5.50-to-7.50 ft described as the best boatable play level and around 6.5 ft prime.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600',
+      },
+      {
+        label: 'Low-water floor',
+        value: '4.6 ft',
+        note: 'AW says below 4.6 ft is way too low and that 4.6-to-5.5 ft is low water with little play and possible walking in the shallows.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '9 ft',
+        note: 'AW treats 9-to-15 ft as sketchy and possibly flooding, with features washed out and other streams running.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03245500',
+        note: 'USGS operates the Little Miami River at Milford, OH monitoring location, which AW uses for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03245500/',
+      },
+      {
+        label: 'Official put-in coordinates',
+        value: 'Kelley Nature Preserve: 39.20997, -84.30608',
+        note: 'ODNR Little Miami Scenic River map lists Kelley Nature Preserve, Clermont County Park District, as a river-left access with coordinates.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/streammaps/LittleMiamiScenicRiver.pdf',
+      },
+      {
+        label: 'Official take-out coordinates',
+        value: 'Jim Terrell Park: 39.17041, -84.29856',
+        note: 'ODNR Little Miami Scenic River map lists the canoe launch at Jim Terrell Park in Milford as river-right access with coordinates.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/streammaps/LittleMiamiScenicRiver.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Little Miami Kelley to Milford',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10600/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Little Miami gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10600',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 03245500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03245500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'ODNR Little Miami Scenic River map',
+        url: 'https://dam.assets.ohio.gov/image/upload/ohiodnr.gov/documents/parks/streammaps/LittleMiamiScenicRiver.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Clermont County Parks Kelley Nature Preserve',
+        url: 'https://www.clermontparks.org/kelley-nature-preserve/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'cuyahoga-river-ira-lock-29',
+    slug: 'cuyahoga-river-ira-lock-29',
+    name: 'Cuyahoga River',
+    reach: 'Ira Road to Lock 29 / Route 303',
+    state: 'Ohio',
+    region: 'Cuyahoga Valley',
+    summary:
+      'Cuyahoga Valley training run from the Ira Road corridor to Peninsula, with mostly Class I current, flatwater stretches, strainers, and a few attainment/play features when the Old Portage gauge is in range.',
+    statusText:
+      'Use the Cuyahoga at Old Portage gauge. Treat roughly 250 to 700 cfs as the guarded training window, 100 cfs as the bare runnable floor, and 1000 cfs as the upper app ceiling. Scout visually after rain or snowmelt.',
+    latitude: 41.184583,
+    longitude: -81.58335,
+    gaugeSource: {
+      id: 'usgs-04206000',
+      provider: 'usgs',
+      siteId: '04206000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cuyahoga River at Old Portage, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 700,
+      tooLow: 100,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'American Whitewater Cuyahoga Ira-to-Route 303 gauge guidance',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3355',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall can work when Old Portage is in range. Treat recent rain, snowmelt, and fast rises as reasons to scout rather than trusting the gauge alone.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'AW rates the reach Class I and describes only a few rapids between flatwater stretches, but strainers, long-boat handling, training attainments, poor water quality, and changing post-storm wood keep this from being a simple beginner float.',
+      confidenceNotes:
+        'Confidence is acceptable for a guarded community-threshold add: AW documents the exact E. Ira Road to Route 303 reach, distance, Class I character, Old Portage gauge, and 100-1000 cfs range. ODNR/Cuyahoga River Water Trail materials and NPS confirm Lock 29 at Route 303 as an official access with coordinates. The put-in is less polished: AW directs paddlers to park at the nearby Ira/Towpath Trail lot, and NPS confirms Ira Trailhead, but the actual riverbank put-in should be verified on arrival.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and distance',
+        value: '6.9 miles, Class I',
+        note: 'American Whitewater lists the Cuyahoga E. Ira Road to Route 303 reach as 6.9 miles with Class I difficulty.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3355/main',
+      },
+      {
+        label: 'Published AW range',
+        value: '100 to 1000 cfs',
+        note: 'AW gauge information for reach 3355 ties the route to USGS 04206000 and lists 100 to 1000 cfs as barely runnable through high runnable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3355',
+      },
+      {
+        label: 'Guarded app target',
+        value: '250 to 700 cfs',
+        note: 'The app target is a conservative subset of the AW range: AW route text says one upstream training rapid is nearly impossible at 250 cfs and under but probably attainable around 700 cfs, while the rapid below Ira Road gets harder above 300 cfs.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3355/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 04206000',
+        note: 'USGS operates the Cuyahoga River at Old Portage, OH monitoring location used by AW for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206000/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Ira Trailhead / Ira Road corridor',
+        note: 'AW directs paddlers to the Ira Road put-in and nearby Towpath Trail parking; NPS confirms Ira Trailhead at 3801 Riverview Road with public parking and restrooms.',
+        sourceUrl: 'https://home.nps.gov/places/000/ira-trailhead.htm',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Lock 29 Trailhead / Route 303',
+        note: 'The Cuyahoga River Water Trail map lists Lock 29 Trailhead at river mile 29 with coordinates, 50-foot carry, parking, and Cuyahoga Valley National Park management; it is the official access at Peninsula / Route 303.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/CuyahogaRiverWaterTrail.pdf',
+      },
+      {
+        label: 'Hazards',
+        value: 'Strainers, water quality, lowhead-dam remnant nearby',
+        note: 'AW identifies strainers as the main route hazard and notes poor but improving water quality. ODNR/NPS materials warn about lowhead dams, foot entrapment, swift water, and changing obstructions on the Cuyahoga River Water Trail.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/CuyahogaRiverWaterTrail.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Cuyahoga Ira to Route 303',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3355/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Cuyahoga Ira gauge info',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3355',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04206000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'ODNR Cuyahoga River Water Trail PDF',
+        url: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/CuyahogaRiverWaterTrail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Ira Trailhead',
+        url: 'https://home.nps.gov/places/000/ira-trailhead.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Lock 29 River Access',
+        url: 'https://www.nps.gov/places/lock-29-river-access.htm',
+        provider: 'local',
       },
     ],
   },

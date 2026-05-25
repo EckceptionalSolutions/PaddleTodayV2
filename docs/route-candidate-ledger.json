@@ -1,13 +1,34 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-24T00:00:00Z",
+  "updatedAt": "2026-05-25T15:47:00Z",
   "notes": [
+    "2026-05-25 10:47 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented and Black Earth Creek remains blocked, so this pass added a fresh Wisconsin candidate: Beaver Dam River - Cotton Mill Park to County Road J. Used Dodge County's Beaver Dam waterway route support, Wisconsin River Trips' 30-140 cfs guarded flow ladder, Miles Paddled endpoint GPS coordinates and take-out landing update, American Whitewater's exact Class I-II reach/hazard notes, and USGS 05425912 as the direct live gauge. No gallery asset was added because no clearly reusable exact-route paddling photo was selected.",
+    "2026-05-25 10:34 America/Chicago Wisconsin route pass. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and the structured ledger. The prompt's Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, and Black Earth Creek remains blocked by the 2025 Salmo/Scherbel obstruction report. Reviewed the next Wisconsin seed, Bark River III - Highway 83 to Upper Nemahbin Lake Public Boat Launch, but deferred it at research_later: the route has a direct Delafield USGS gauge and Miles Paddled route-specific low-water guidance, yet the put-in remains a roadside Highway 83 bridge shoulder rather than a named public launch. No app route or gallery asset was added.",
+    "2026-05-25 10:23 America/Chicago Wisconsin route pass. Re-read automation memory and the live route/data docs. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added, so this pass avoided duplicating them. Refreshed the deferred Black Earth Creek - Cross Plains to Salmo Pond hold with another targeted clearance search: Wisconsin River Trips still shows the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; Dane County Parks and WI DNR confirm access/fishery context but not corridor clearance. Net result: no app route added, Black Earth remains research_later, no gallery asset added.",
+    "2026-05-25 17:45 America/Chicago Ohio implementation follow-up. Added Cuyahoga River - Ira Road to Lock 29 / Route 303 as a guarded Class I training route. Used American Whitewater's exact E. Ira Road to Route 303 reach and 100-1000 cfs Old Portage gauge range, USGS 04206000 live discharge, ODNR/Cuyahoga River Water Trail access data for Lock 29, and NPS Ira Trailhead / Lock 29 access pages. The route uses Lock 29 as the official Route 303 take-out; put-in confidence is lower because AW points to Ira Road and nearby Towpath parking rather than a polished official launch.",
+    "2026-05-25 09:53 America/Chicago Wisconsin route reconciliation pass. The prompt's Bark River and Sugar River candidates were already implemented, and Black Earth Creek remains blocked by the documented 2025 Scherbel/Salmo obstruction report. Reconciled the next Wisconsin route already present in app data: Red Cedar River - Menomonie to Dunnville now has a structured added-status ledger record, direct USGS 05369000 Menomonie gauge documentation, Miles Paddled's route-specific 6.4-7.0 ft sweet spot, WI DNR access-record coordinates for Riverside Park Canoe Launch and Dunnville Bottoms Boat Landing, and the existing no-approved-photo audit status. Also corrected the app's USGS monitoring-location link format.",
+    "2026-05-25 09:44 America/Chicago Wisconsin route completion pass. The prompt's Bark River and Sugar River candidates were already implemented, and Black Earth Creek remains blocked by the documented 2025 Salmo/Scherbel obstruction report. Completed the next Wisconsin quality gap instead: Milwaukee River - Fireman's Park to Waubedonia Park was already present in app data and gallery wiring, but it was missing from the structured ledger and still used a minimum-only threshold. Upgraded the route to a two-sided Cedarburg-gauge model using Wisconsin River Trips' Newburg ladder plus Miles Paddled full-route low-water corroboration, preserved the USGS 04086600 direct same-river gauge, retained existing endpoint coordinates, and added an added-status ledger record. Existing Commons photo remains wired through route-gallery.",
+    "2026-05-25 09:25 America/Chicago Wisconsin implementation pass. Added Wolf River - West Hollister Road Landing to Highway 64 DNR Landing as a guarded whitewater route. Used Wisconsin River Trips' exact Hollister-to-Hwy-64 route, American Whitewater's Section II Langlade-gauge bands, USGS 04074950 as the direct live gauge at the take-out bridge, Riverfacts/Wisconsin Trail Guide map context for endpoint coordinates, and Wisconsin DNR / AW access context for the public Highway 64 landing. No rights-clean reusable route photo was found, so no gallery asset was added.",
+    "2026-05-25 17:15 America/Chicago Ohio implementation follow-up. Added Little Miami River - Kelley Nature Preserve to Jim Terrell Park as a guarded Class I-II route. Used American Whitewater's exact Kelley-to-Milford reach and Milford gauge ladder, USGS 03245500 live stage, ODNR Little Miami Scenic River access coordinates for Kelley and Jim Terrell, and Clermont County Parks' Kelley Nature Preserve access confirmation. The route is intentionally calibrated to AW play/whitewater levels, not generic low-water recreational floating.",
+    "2026-05-25 09:05 America/Chicago Wisconsin implementation pass. Added Wisconsin River - Millville Boat Landing to Wyalusing Beach as a guarded final Lower Wisconsin route. Used Wisconsin River Trips' exact final-segment route plus the Millville Muscoda-gauge ladder, USGS 05407000 Wisconsin River at Muscoda as the live gauge, Wisconsin Trail Guide LWSR4 for Millville Landing coordinates and amenities, Wisconsin DNR / Grant County for Wyalusing public beach and boat-landing support, and Mapcarta/OpenStreetMap named-feature coordinates for Wyalusing Boat Landing beside Wyalusing Beach. A rights-clean Commons confluence photo exists, but sandbox network blocked direct asset download, so no gallery entry was wired.",
+    "2026-05-25 08:58 America/Chicago Wisconsin candidate-queue refill. Checked the structured ledger and confirmed there were no remaining Wisconsin likely_addable or needs_manual_coordinates candidates after the prompt's Bark/Sugar routes were already added and Black Earth stayed blocked. Added two future-run candidates without touching app route data: Wisconsin River - Millville Boat Landing to Wyalusing Beach as a likely_addable Lower Wisconsin final-segment route, and Wolf River - West Hollister Road Landing to Highway 64 DNR Landing as a likely_addable guarded whitewater route. Both have named public/plausible endpoints, direct same-river live gauge stories, and route-specific or AW threshold bands; both still need final endpoint coordinate verification and gallery review before implementation.",
+    "2026-05-25 16:35 America/Chicago Ohio implementation follow-up. Added Great Miami River - Heritage Park to Obergiesing Soccer Complex at Dravo Park as a guarded whitewater route. Used American Whitewater's exact Heritage/Blue Rock-to-Dravo reach and Hamilton gauge threshold evidence, USGS 03274000 live discharge, Colerain Township's official Heritage and Dravo canoe-ramp pages, and Great Miami River Water Trail map context. Coordinate confidence is lower than Vermilion/Grand because the official sources found provide named ramps and addresses rather than ramp-level GIS points; the route uses named park coordinates with explicit caveats.",
+    "2026-05-25 08:52 America/Chicago Wisconsin route pass. Re-read the automation memory path, live route data, route trip details, gallery wiring, image audit, and the structured ledger. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access are already implemented and marked added, so this pass did not duplicate them. Rechecked the only prompted Wisconsin hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with a fresh targeted web search. Wisconsin River Trips still shows the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around, and newer Dane County / local results confirm access context but not clearance. Net result: Black Earth Creek remains research_later, no app route added, no gallery asset added.",
+    "2026-05-25 15:55 America/Chicago Ohio implementation follow-up. Added Grand River - Harpersfield Covered Bridge to Hidden Valley Park as the second Ohio live route. Used Lake Metroparks' Grand River Water Trail map for official access coordinates and gauge-height bands tied to USGS 04212100, plus American Whitewater's exact Harpersfield-to-Hidden Valley reach notes and cfs threshold support. The public-domain USFWS/Wikimedia Harpersfield image remains rights-clean, but asset download was rate-limited by Wikimedia during this pass, so no gallery entry was wired yet.",
+    "2026-05-25 08:43 America/Chicago Wisconsin route pass. Re-read automation memory and checked the prompted Wisconsin queue against live route data and the normalized ledger. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access are already implemented and marked added, so this pass rechecked the only remaining prompted Wisconsin hold: Black Earth Creek - Cross Plains to Salmo Pond County Park. A fresh targeted web search still surfaced the Wisconsin River Trips July 2, 2025 blockage report near Scherbel Road / Salmo Pond and no newer clearance confirmation from Wisconsin River Trips, Dane County, DNR, or recent public reports. Net result: Black Earth Creek remains research_later, no app route added, no gallery asset added.",
+    "2026-05-25 15:10 America/Chicago Ohio implementation follow-up. Added the first Ohio live route: Vermilion River - Schoepfle Garden / Birmingham to Mill Hollow. Used American Whitewater's exact middle-reach listing and gauge range, USGS 04199500 as the direct live stage gauge, ODNR public-access coordinates for Schoepfle Garden / Birmingham and Mill Hollow / Vermilion River Reservation, plus Lorain County Metro Parks access context. No gallery image added yet; the same-reach Commons image remains in the audit queue until file-level rights and suitability are verified.",
+    "2026-05-25 14:30 America/Chicago Ohio supplemental and expansion pass. No app code changed. Added image/access supplement notes for the first two Ohio likely-addable candidates and promoted one additional likely-addable Ohio route: Vermilion River - Schoepfle Garden / Birmingham to Mill Hollow. Grand River now has a rights-clean public-domain USFWS/Wikimedia image lead at Harpersfield Covered Bridge plus USGS gauge-area media; Great Miami has route-relevant AW, Great Miami Riverway, and Dravo Park image leads but no rights-clean reusable route photo yet. Vermilion has a same-reach Commons image at Schoepfle Garden, official Lorain County Metro Parks access support at Mill Hollow, and an AW/USGS threshold package.",
+    "2026-05-25 08:23 America/Chicago Wisconsin route pass. Re-read automation memory, the live Wisconsin route inventory, trip details, gallery wiring, image audit, and the structured ledger. The prompt's Bark River and Sugar River candidates are already implemented, and the deferred Black Earth Creek blockage hold was already refreshed today, so this pass checked the next seeded Wisconsin route: Namekagon River - Earl Park Landing to Trego Town Park Landing. Deferred it as duplicate_corridor/no stronger gauge story because the existing Big Bend Landing to Trego Town Park V2 route already contains the Earl-to-Trego subreach, NPS frames Big Bend-to-Trego as the official recommended trip near Earl Park, and the only current app-operable level model remains the upstream Leonards USGS/NPS proxy; the closer Trego USGS pages are historical/discontinued rather than a live route gauge. Net result: no app route added, no gallery asset added, ledger and image audit updated.",
+    "2026-05-25 13:50 America/Chicago Ohio likely-addable promotion pass. No app code changed. Started from docs/ohio-route-candidate-queue.md and promoted the two strongest Ohio candidates into the structured ledger for later implementation review: Grand River - Harpersfield Covered Bridge to Hidden Valley Park and Great Miami River - Heritage Park or Blue Rock Road to Obergiesing Soccer Complex at Dravo Park. Both have named public endpoints, USGS live gauges, American Whitewater same-reach numeric threshold support, and credible route-character/hazard sources. Remaining blockers are implementation details rather than route-quality blockers: final endpoint coordinate resolution and routeType/scoring posture, especially for the swiftwater/whitewater-like Great Miami run.",
+    "2026-05-25 07:53 America/Chicago Wisconsin route pass. Re-read automation memory and checked the prompt queue against live route data and the normalized ledger. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access are already implemented and marked added, so this pass rechecked the deferred Black Earth Creek - Cross Plains to Salmo Pond candidate for fresh clearance evidence. Targeted current web search still surfaced the Wisconsin River Trips page with the July 2, 2025 field comment reporting two full blockages near Scherbel Road / Salmo Pond and no newer clearance confirmation; Dane County still confirms Salmo Pond has a canoe/kayak launch, but that does not resolve route passage. Net result: Black Earth Creek remains research_later, no route/gallery add, ledger refreshed, npm test required because docs changed.",
+    "2026-05-25 13:25 America/Chicago Wisconsin route pass. Re-read automation memory, live route data, trip details, route gallery, image audit, and the Wisconsin ledger slice. The prompt's Bark River and Sugar River candidates were already implemented, and the deferred Black Earth Creek blockage hold had already been refreshed earlier today. Found the next Wisconsin route, Kickapoo River - Ontario to Rockton, already present in src/data/rivers.ts and src/data/river-trip-details.ts but missing from the candidate ledger and underusing its high-water threshold. Tightened the live route from minimum-only to two-sided using MilesPaddled's exact-route Ontario gauge guidance (60 cfs minimum, 70-100 cfs sweet spot, 200+ cfs too high), preserved the direct USGS 05407468 gauge, and added a full added-status ledger entry. Photo audit already records no approved reusable photo for this route, so no gallery asset was added. Net result: 1 existing Wisconsin route reconciled and quality-improved, 1 ledger record added, no route-gallery change.",
+    "2026-05-25 07:20 America/Chicago Wisconsin route pass. No app code changed. Re-read the live V2 Wisconsin inventory, trip details, gallery wiring, and candidate ledger, then sanity-checked the prompt queue before research. Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica were already implemented in V2, so this pass focused on the deferred Black Earth Creek candidate. Reviewed 1 fresh candidate: Black Earth Creek - Cross Plains to Salmo Pond County Park stays at research_later because the gauge and route-specific ladder are still good, Dane County still confirms the Salmo Pond canoe/kayak launch, but Wisconsin River Trips now shows a July 2, 2025 field comment reporting two full blockages near the Scherbel/Salmo take-out, including one described as impossible to get around, and I did not surface any newer 2026 clearance evidence to overrule that. Also logged a photo-audit follow-up: Wikimedia Commons has reusable Black Earth Creek imagery, but no route-level add was appropriate while operability remains blocked. Net result: 1 Wisconsin candidate reviewed, 0 route adds, 0 promotions, 0 coordinate-only holds, 0 rejections, docs updated, and npm test should be run because files changed.",
     "2026-04-27 08:08 America/Chicago bounded Minnesota-first gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one fresh evidence path that had not yet been logged: the unreviewed MN DNR Zumbro Map 2 recommended day trip from Zumbro Falls to Hammond. Reviewed 1 fresh candidate: Zumbro River - Zumbro Falls to Hammond was parked at threshold_weak because MN DNR explicitly recommends the exact 7-mile route, the direct USGS Zumbro Falls gauge already underpins nearby live Zumbro coverage, and the best numeric support I surfaced was still mixed-source neighboring-reach evidence (the longer Miles Paddled Zumbro River II main-stem run uses the same put-in/gauge and recommends 7-9 ft, but it does not stop at Hammond). Also logged two fresh cluster outcomes so future runs rotate away faster: Crow Wing Map 2 / Nimrod is now saturated because the DNR-recommended Little White Dog to Cottingham route is already live in V2 and the farther-downstream same-gauge subreaches still lack a defensible threshold carryover; Vermilion's Twomile-to-Eightmile corridor was deliberately not reopened because it is already parked at research_later and this pass did not surface a genuinely new official gauge/threshold source. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 07:48 America/Chicago fresh Mississippi headwaters gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Minnesota-first evidence path that had not yet been logged: the upstream Mississippi recommended day trips on segments 1 and 2. Reviewed 2 fresh candidates. Mississippi River - Lake Itasca to Coffee Pot Landing was parked at no_live_gauge because the route is officially recommended and clearly named, but the corridor mixes the headwaters creek with open-water hazard context and this pass did not surface a route-operable live gauge plus threshold model strong enough for conservative shipping. Mississippi River - Cass Lake to Lake Winnibigoshish was also parked at no_live_gauge because the official trip is real and clearly named, but the route depends on big-lake transitions and this pass still did not surface a route-operable live gauge / threshold package strong enough to outrank cleaner river-only candidates. Fresh-discovery takeaway: the remaining official Mississippi headwaters trip blocks are real but lower-yield for PaddleTodayV2 because the trust gap is now live-gauge operability and lake-transition complexity, not endpoint naming. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 07:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then stopped without reopening the same saturated Minnesota River Map 5 and lower Blue Earth / Watonwan clusters from 07:28 because no genuinely new evidence path had emerged in the meantime. Per the run rules, there were still no queued likely_addable candidates and no fresh new-evidence candidate strong enough to outrank the preserved needs_manual_coordinates queue, so this remained a short bounded no-add pass rather than a recycled shortlist review. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 07:28 America/Chicago conservative gauge-first no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then did one bounded fresh Minnesota-first saturation sweep instead of reopening stale threshold holds. Explored non-yield cluster: Minnesota River Map 5 / Mankato-to-Seven-Mile and Le Sueur-to-Henderson corridor. Useful outcome: the official map still only offers broad 'easy stretches' language rather than a cleaner exact recommended day-trip package than the already-live Judson-to-Land-of-Memories and Henderson-to-Belle-Plaine routes, so this cluster remains saturated for trust-first expansion. Explored non-yield cluster: Blue Earth / Watonwan lower-confluence corridor around Garden City and Sibley Park. Useful outcome: the direct-gauge value is already captured by the live Rapidan Blue Earth route plus the parked Watonwan research_later hold, and this pass did not surface a new official named day trip with a stronger route-level live story than those existing queue items. Per the run rules, I stopped conservatively instead of padding the ledger with weaker proxy or stitched candidates. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 07:08 America/Chicago fresh metro-Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then mined one fresh official Mississippi evidence path that had not yet been logged: the second MN DNR recommended Twin Cities Mississippi trip, Hidden Falls to Harriet Island, plus direct official endpoint pages on the Saint Paul side. Reviewed 1 fresh candidate: Mississippi River - Hidden Falls to Harriet Island was preserved as needs_manual_coordinates because MN DNR explicitly recommends the exact 6.5-mile route, the St. Paul gauge already has an official DNR ladder the current app can operate, Hidden Falls is already a documented public launch in V2, and Saint Paul officially documents Harriet Island Regional Park with a public dock; the remaining blocker from this pass is authoritative endpoint coordinate cleanup for a future implementation run. Also logged the fresh gauge cluster outcome: the St. Paul Mississippi gauge family remains one of the highest-yield same-gauge metro corridors, and this new downstream DNR trip is a better trust-first use of that gauge than speculative unlisted metro subreaches. Net result: 1 candidate reviewed, 0 promotions to likely_addable, 1 new needs_manual_coordinates candidate, 0 rejections, no code changes, and no tests/build because no product files changed.",
-    "2026-04-27 06:48 America/Chicago fresh Mississippi Headwaters Board follow-on pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one genuinely new evidence path instead of reopening stale threshold holds: the official Mississippi DNR segment page's linked Mississippi Headwaters Board excursion maps plus direct same-corridor USGS site inventory around Palisade and Aitkin. Reviewed 2 fresh candidates and 1 fresh cluster-only follow-up. Mississippi River - Palisade to Waldeck Landing was parked at threshold_weak because the route now has a clean public-endpoint trust trail from the Mississippi Headwaters Board excursion map set and a direct corridor USGS gauge at Palisade (05220600), but I still did not surface any route-level numeric threshold guidance beyond the parent DNR segment's qualitative low-water riffle warning. Mississippi River - Waldeck to Kimball was also parked at threshold_weak because the route trust trail is real on the same MHB excursion path and the cleanest live story is the downstream Aitkin gauge family (USGS 05227500 / 05227510), but the exact subreach still lacks a defensible numeric paddling model. Explored cluster-only follow-up: Mississippi River - Kimball to Aitkin County Campground. Useful outcome: the MHB map confirms a real short public day trip near the Aitkin gauge, but the evidence pattern is the same as the other Aitkin-area subtrips\u2014good endpoint legitimacy, no shippable numeric threshold\u2014so I stopped after logging the cluster instead of padding the ledger with a third near-duplicate threshold hold. Fresh-discovery takeaway: the Mississippi DNR page still has some route-shape value when paired with the MHB excursion maps, but the remaining Aitkin/Palisade opportunities are still threshold-calibration misses rather than endpoint-discovery misses. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
+    "2026-04-27 06:48 America/Chicago fresh Mississippi Headwaters Board follow-on pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one genuinely new evidence path instead of reopening stale threshold holds: the official Mississippi DNR segment page's linked Mississippi Headwaters Board excursion maps plus direct same-corridor USGS site inventory around Palisade and Aitkin. Reviewed 2 fresh candidates and 1 fresh cluster-only follow-up. Mississippi River - Palisade to Waldeck Landing was parked at threshold_weak because the route now has a clean public-endpoint trust trail from the Mississippi Headwaters Board excursion map set and a direct corridor USGS gauge at Palisade (05220600), but I still did not surface any route-level numeric threshold guidance beyond the parent DNR segment's qualitative low-water riffle warning. Mississippi River - Waldeck to Kimball was also parked at threshold_weak because the route trust trail is real on the same MHB excursion path and the cleanest live story is the downstream Aitkin gauge family (USGS 05227500 / 05227510), but the exact subreach still lacks a defensible numeric paddling model. Explored cluster-only follow-up: Mississippi River - Kimball to Aitkin County Campground. Useful outcome: the MHB map confirms a real short public day trip near the Aitkin gauge, but the evidence pattern is the same as the other Aitkin-area subtrips—good endpoint legitimacy, no shippable numeric threshold—so I stopped after logging the cluster instead of padding the ledger with a third near-duplicate threshold hold. Fresh-discovery takeaway: the Mississippi DNR page still has some route-shape value when paired with the MHB excursion maps, but the remaining Aitkin/Palisade opportunities are still threshold-calibration misses rather than endpoint-discovery misses. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 06:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable route, so I did not force a weak addition or reopen stale research_later / threshold_weak / rejected holdovers without genuinely new evidence. Deliberately left unchanged: the needs_manual_coordinates queue remains the best next work (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park). The freshest threshold-only Mississippi candidates (Fort Ripley to Fletcher Creek, Royalton Sportsman's Club to Stearns County Park, Steamboat Access to Blackberry Bridge Access, Beaver Island Trail Access to Clearwater, Sandy Lake Recreation Area to Wold's Ferry Crossing, and Highway 6 to Trommald) also remain correctly parked at threshold_weak; no new evidence changed their blocker. Net result: short no-add pass, 0 status changes, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 06:28 America/Chicago fresh upper/central Mississippi gauge-cluster pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed, then used one bounded fresh Mississippi evidence path that had not been logged yet instead of reopening stale threshold holds. Reviewed 2 fresh candidates and 1 fresh non-yield cluster. Mississippi River - Sandy Lake Recreation Area to Wold's Ferry Crossing was parked at threshold_weak because the route legitimacy is strong on the official DNR page, but the current page only gives qualitative low-water language ('riffles during low water') and I did not surface a defensible numeric route model tied to a route-operable live gauge for the exact corridor. Mississippi River - Highway 6 to Trommald was also parked at threshold_weak because the official recommended trip is real and practical, but the current page only says current can be quite strong after rain and does not tie the exact reach to a numeric live-gauge model strong enough for conservative shipping. Explored non-yield cluster: Mississippi River - Cass Lake to Lake Winnibigoshish. Useful outcome: the official trip is real, but the corridor is dominated by big-lake transitions and this pass did not surface a route-operable live gauge / threshold package that would outrank the fresher river-only Mississippi holds, so it was logged as cluster-only rather than as a candidate. Fresh-discovery takeaway: more of the official Mississippi page still has route-shape value, but the remaining misses are still threshold-calibration and live-story problems rather than endpoint naming problems. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
     "2026-04-27 06:08 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. No queued likely_addable candidate exists right now, and the freshest new-evidence Mississippi reviews from 05:48 AM still parked at threshold_weak rather than clearing the ship bar. Per the run rules, stale research_later / threshold_weak / rejected holdovers were not recycled as fake fresh work. Deliberately left unchanged: the preserved needs_manual_coordinates set (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge, Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access, and Minnesota River - Thompson Ferry Access to Carver Riverfront Park) remains the highest-value next queue; the active threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets also remain unchanged. Net result: 0 new candidates reviewed, 0 promotions to likely_addable, 0 new needs_manual_coordinates, 0 rejections, no code changes, and no tests/build because no product files changed.",
@@ -39,7 +60,7 @@
     "2026-04-26 22:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate. The strongest remaining queue stays in non-shippable buckets: needs_manual_coordinates (Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, Cottonwood River - Juenemann carry-in access to Springfield carry-in access, Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, Little Fork River - Veterans Park to Highway 73 bridge), plus the existing threshold_weak, duplicate_corridor, research_later, and rejected sets. Per the run rules, stale holdovers were not re-reviewed because no genuinely new evidence path surfaced. The freshest reviewed candidate, Kettle River - Musclewood carry-in access to #1 trailer access, also remains correctly parked at threshold_weak because current guidance is only 'best when the gauge reads Medium or above,' not a clean route-level numeric ladder. Net result: 0 status changes, no code changes, and no tests/build because no product files changed.",
     "2026-04-26 22:28 America/Chicago fresh Minnesota-first gauge-cluster sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined fresh DNR gauge/trail combinations instead of reopening stale holdovers. Reviewed 1 fresh candidate from the Kettle River cluster: Musclewood carry-in access to #1 trailer access is a real official recommended day trip, but it stays threshold_weak because the best current guidance is still a corridor-level DNR note ('best when the Willow River Long Lake Road gauge reads Medium or above') rather than a clean route-level numeric ladder. Also logged two non-yield clusters so future runs rotate away faster: Shell Rock River did not produce a route candidate because the current official recommended trip is lake-only on Albert Lea Lake, and the lower Kettle #5-to-#6 corridor is already live so it added no new queue value. Net result: 1 candidate reviewed, 1 new threshold_weak hold, no code changes, and no tests/build because no product files changed.",
     "2026-04-26 22:08 America/Chicago fresh Minnesota-first DNR gauge reassessment. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then sanity-checked the current product reality against preserved DNR-backed holdovers. Reviewed 4 candidates from 2 fresh evidence paths: Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, and Little Fork River - Veterans Park to Highway 73 bridge are correctly parked at needs_manual_coordinates because the current app already supports provider:'mn_dnr' current readings, each route has a direct official DNR ladder plus a clearly named official recommended trip, and the remaining blocker is endpoint coordinate cleanup rather than live-data viability; Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was rechecked but left below promotion because the route page's practical floor still reads more as qualitative height context than a clean same-route implementation ladder. Also explored the St. Louis River Floodwood/Paupores/Brookston cluster: official trip support is real, but the current gauge fit still looks proxy-like and rapid-sensitive rather than cleanly implementation-ready. Net result: 4 candidates reviewed, 3 preserved as needs_manual_coordinates, no code changes, and no tests/build because no product files changed.",
-    "2026-04-26 21:48 America/Chicago fresh Minnesota-first DNR gauge reassessment. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then rechecked the current product\u2019s MN DNR live-gauge support against fresh official DNR route pages and the live DNR river-level dataset. Reviewed 4 candidates from 2 fresh evidence paths: Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, and Little Fork River - Veterans Park to Highway 73 bridge were upgraded from no_live_gauge to needs_manual_coordinates because the current app already supports provider:'mn_dnr' current readings, each route has a direct official DNR ladder plus a clearly named official recommended trip, and the remaining blocker is endpoint coordinate cleanup rather than live-data viability; Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was rechecked but left out of promotion because the route page\u2019s practical floor still appears tied to the Bigfork height context rather than a fully clean same-route implementation package. Also explored the St. Louis River Floodwood/Paupores/Brookston cluster: official trip support is real, but the current gauge fit still looks more upstream/proxy-like and rapid-sensitive than the cleaner preserve-now candidates. Net result: 4 candidates reviewed, 3 status changes, no tests or build because no product files changed.",
+    "2026-04-26 21:48 America/Chicago fresh Minnesota-first DNR gauge reassessment. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then rechecked the current product’s MN DNR live-gauge support against fresh official DNR route pages and the live DNR river-level dataset. Reviewed 4 candidates from 2 fresh evidence paths: Red Lake River - Smiley Bridge to Centennial Park, Pine River - Rock Dam to Harvey Drake access, and Little Fork River - Veterans Park to Highway 73 bridge were upgraded from no_live_gauge to needs_manual_coordinates because the current app already supports provider:'mn_dnr' current readings, each route has a direct official DNR ladder plus a clearly named official recommended trip, and the remaining blocker is endpoint coordinate cleanup rather than live-data viability; Big Fork River - Highway 6 (S) carry-in access to Highway 6 (N) carry-in access was rechecked but left out of promotion because the route page’s practical floor still appears tied to the Bigfork height context rather than a fully clean same-route implementation package. Also explored the St. Louis River Floodwood/Paupores/Brookston cluster: official trip support is real, but the current gauge fit still looks more upstream/proxy-like and rapid-sensitive than the cleaner preserve-now candidates. Net result: 4 candidates reviewed, 3 status changes, no tests or build because no product files changed.",
     "2026-04-26 21:40 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger exactly as instructed. The ledger still has no queued likely_addable candidate. The best remaining queue is unchanged: Sauk River - Spring Hill County Park to St. Martin carry-in access, North Fork Crow River - City of Rockford trailer access to Riverside County Park, and Cottonwood River - Juenemann carry-in access to Springfield carry-in access remain needs_manual_coordinates; threshold_weak, no_live_gauge, duplicate_corridor, research_later, and rejected sets are also unchanged. Per the run rules, stale holdovers were not re-reviewed because no genuinely new official route page, gauge guidance, threshold evidence, or endpoint coordinates surfaced. Net result: 0 status changes and no tests or build because no product files changed.",
     "2026-04-26 21:28 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then tested a fresh Minnesota-first search path instead of reopening stale candidates. Buffalo River and Wild Rice River DNR water-trail page hunts were still low-yield from this runtime: straightforward official URL patterns returned 404, and the follow-up search did not surface a clean official route page or live-gauge package worth logging as a candidate. A quick Red River sanity recheck only reaffirmed the already-logged Kidder-to-Brushvale threshold gap. Net result: 0 fresh candidates reviewed, 0 status changes, and no tests or build because no product files changed.",
     "2026-04-26 20:48 America/Chicago conservative no-add pass. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then did one bounded fresh Minnesota-first discovery sweep against the current MN DNR recommended-trip index and its six linked trip pages (Cannon, North Fork Crow, Mississippi #1, Mississippi #2, Rum, St. Croix). That recommendation-page path is now effectively saturated: it only pointed back to already-live routes, already-logged duplicate corridors, or already-known blocked corridors like Cannon Falls to Miesville and Coon Rapids Dam to North Mississippi Park. No genuinely new evidence changed any candidate status, so the run stopped conservatively instead of padding the queue with stale reviews. Net result: 0 candidates reviewed, 0 status changes, and no tests or build because no product files changed.",
@@ -770,8 +791,8 @@
         "coordinatesPresent": true,
         "putInLatitude": 46.635762,
         "putInLongitude": -94.092075,
-        "takeOutLatitude": 46.571680,
-        "takeOutLongitude": -94.028060
+        "takeOutLatitude": 46.57168,
+        "takeOutLongitude": -94.02806
       },
       "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Jenkins DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 confirmed the put-in as Pine River Rock Dam / MN DNR WAS02986 at 46.635762, -94.092075 and the take-out as Harvey Drake Public Water Access / MN DNR WAS01001 at 46.571680, -94.028060. Added to PaddleTodayV2 on 2026-05-22."
     },
@@ -2058,8 +2079,8 @@
       "route": "Prince's Point to Burnt Village Park",
       "state": "WI",
       "status": "added",
-      "lastReviewed": "2026-05-23",
-      "reviewCount": 2,
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 3,
       "blocker": null,
       "retryCondition": "Already implemented as bark-river-princes-point-burnt-village-park. Revisit only if a stronger official level source or reusable route photo appears.",
       "retryDate": null,
@@ -2097,7 +2118,105 @@
         },
         "coordinateSource": "Jefferson County water-trail guide PITO coordinate listings"
       },
-      "notes": "Implemented 2026-05-23 test cron pass. Jefferson County water-trail guide provided endpoint coordinates and access details, Wisconsin DNR corroborated the County D boat landing at Princes Point, Travel Wisconsin / Jefferson County Parks corroborated Burnt Village as a lower-Bark canoe/kayak launch, and Wisconsin River Trips supplied the route-specific Bark River at Rome flow ladder."
+      "notes": "Implemented 2026-05-23 test cron pass. Reverified 2026-05-25 automation pass without duplicating the route: Jefferson County water-trail guide provided endpoint coordinates and access details, Wisconsin DNR corroborated the County D boat landing at Princes Point, Travel Wisconsin / Jefferson County Parks corroborated Burnt Village as a lower-Bark canoe/kayak launch, and Wisconsin River Trips supplied the route-specific Bark River at Rome flow ladder. Fresh photo search still did not find a clearly reusable route image."
+    },
+    {
+      "candidateId": "wi-beaver-dam-river-cotton-mill-county-j",
+      "river": "Beaver Dam River",
+      "route": "Cotton Mill Park to County Road J",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as beaver-dam-river-cotton-mill-county-j. Revisit only if official release guidance, newer obstruction reports, or a rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Dodge County Waterways",
+        "Wisconsin River Trips Beaver Dam River",
+        "Miles Paddled Beaver Dam River III",
+        "American Whitewater Beaver Dam - Cotton Mill Park to CTH J",
+        "USGS 05425912 Beaverdam River at Beaver Dam",
+        "City of Beaver Dam Cotton Mill Park",
+        "Wikimedia Commons Beaver Dam, Wisconsin category"
+      ],
+      "aliases": [
+        "Beaver Dam River - Cotton Mill Park to County Road J",
+        "Beaver Dam - Cotton Mill Park to CTH J",
+        "Beaver Dam River III"
+      ],
+      "v2Slug": "beaver-dam-river-cotton-mill-county-j",
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05425912 Beaverdam River at Beaver Dam sits inside the route corridor near Cooper Street, and American Whitewater ties the exact Cotton Mill Park-to-CTH-J reach to this gauge."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a full route-specific ladder: 0-29 cfs too low for the upper rapids, 30-90 cfs great target depth, 91-140 cfs high-side but good for rapids, 141-210 cfs experienced-only pushy water, and 211+ cfs too obnoxious/partly dangerous. Miles Paddled separately recommends 150-250 cfs as ideal for a recreational-release trip, so the app chose WRT's lower, more conservative 30-140 cfs normal window."
+      },
+      "endpoints": {
+        "putIn": "Cotton Mill Park",
+        "takeOut": "County Road J landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.45456,
+          "longitude": -88.84298
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.39397,
+          "longitude": -88.86828
+        },
+        "coordinateSource": "Miles Paddled Beaver Dam River III GPS listings; City of Beaver Dam corroborates Cotton Mill Park as a public city park, and Miles Paddled 2026 comments corroborate a dedicated County J landing/parking area."
+      },
+      "notes": "Added 2026-05-25 as a guarded Class I-II Wisconsin route after the prompt's first two candidates were found already implemented. Dodge County promotes the exact Beaver Dam 5.8-mile route, WRT and Miles Paddled provide same-route gauge guidance, AW supplies exact-reach difficulty and hazard notes, and the direct live USGS gauge is in the route corridor. No reusable photo was wired; Commons has nearby city/park imagery but no exact-route paddling asset was selected."
+    },
+    {
+      "candidateId": "wi-bark-river-highway-83-upper-nemahbin",
+      "river": "Bark River",
+      "route": "Highway 83 to Upper Nemahbin Lake Public Boat Launch",
+      "state": "WI",
+      "status": "research_later",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": "The route has a direct same-river Delafield gauge and credible route-specific paddling notes, but the upstream access does not meet the current named-public-access bar. Miles Paddled describes Highway 83 as a workable but not ideal roadside bridge shoulder with traffic and no developed launch, and Wisconsin River Trips treats Highway 83 as a segment point rather than a public landing. The downstream Upper Nemahbin public boat launch is well supported by Wisconsin DNR, but that does not fix the put-in.",
+      "retryCondition": "Retry only if City of Delafield, Waukesha County, Wisconsin DNR, or another access manager documents a legal public Bark River launch at or near Highway 83, or if the route can be reshaped around two named public endpoints without creating a deadfall-heavy or portage-heavy trip.",
+      "retryDate": "2026-07-01",
+      "sourcesChecked": [
+        "Miles Paddled Bark River III",
+        "Wisconsin River Trips Bark River - Delafield",
+        "USGS 05426067 Bark River at Nagawicka Road at Delafield",
+        "USGS 05426070 Bark River at Delafield",
+        "Wisconsin DNR water detail for Upper Nemahbin Lake",
+        "Waukesha County park and open space plan"
+      ],
+      "aliases": [
+        "Bark River III - Highway 83 to Upper Nemahbin Lake Public Boat Launch",
+        "Bark River - Highway 83 to Upper Nemahbin Lake"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "The old route seed uses USGS 05426067, Bark River at Nagawicka Road at Delafield, and Miles Paddled notes the route passes that gauge shortly below Highway 83. USGS also lists a Bark River at Delafield monitoring location, but the access blocker stopped implementation before final gauge selection."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Miles Paddled gives route-specific guidance that below about 50 cfs is too low for comfort, with 70+ cfs making the low pipeline below the Delafield dam more consequential. This is usable community guidance, but it cannot overcome the weak put-in."
+      },
+      "endpoints": {
+        "putIn": "Highway 83 bridge shoulder",
+        "takeOut": "Upper Nemahbin Lake Public Boat Launch",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.0866,
+          "longitude": -88.36327
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.05873,
+          "longitude": -88.43185
+        },
+        "coordinateSource": "Old PaddleToday seed plus Miles Paddled route notes; downstream launch corroborated by Wisconsin DNR Upper Nemahbin public-access language, but upstream coordinate remains a bridge/shoulder access rather than an official public landing."
+      },
+      "notes": "Reviewed 2026-05-25 after the prompt's Bark/Sugar candidates were found already implemented. This is not ready for V2 because the first quality-bar requirement is not met: the put-in is plausible but not a named public access. The route also includes Lake Nagawicka wind/motorboat exposure, a downtown Delafield dam portage without a designated re-entry, a low pipeline in swift current, and potential deadfall near the put-in, so it should not be reshaped casually without better official access support."
     },
     {
       "candidateId": "wi-sugar-river-highway-x-attica",
@@ -2146,21 +2265,174 @@
       "notes": "Implemented 2026-05-24 after coordinate follow-up. Wisconsin River Trips documents the exact route, describes public access at Highway X and Attica Highway C, links the route to the Sugar River near Verona gauge, and publishes a full route-specific ladder. The linked shuttle map resolves the endpoint coordinates. This route overlaps the upstream half of the longer County X to County EE V2 entry, but it is a cleaner 5.4-mile day with stronger route-specific threshold support."
     },
     {
+      "candidateId": "wi-red-cedar-river-menomonie-dunnville",
+      "river": "Red Cedar River",
+      "route": "Menomonie to Dunnville",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as red-cedar-river-menomonie-dunnville. Revisit only if official water-level bands or a rights-clean route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Miles Paddled Red Cedar River I",
+        "USGS 05369000 Red Cedar River at Menomonie, WI monitoring location",
+        "WI DNR Riverside Park canoe launch access record",
+        "WI DNR Dunnville Bottoms boat landing access record",
+        "WI DNR Red Cedar State Trail information page",
+        "Wikimedia Commons / USGS / local-government photo search"
+      ],
+      "aliases": [
+        "Red Cedar River - Menomonie to Dunnville",
+        "Red Cedar River I",
+        "Red Cedar River - Riverside Park to Dunnville Bottoms"
+      ],
+      "v2Slug": "red-cedar-river-menomonie-dunnville",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05369000 Red Cedar River at Menomonie, WI, a direct same-river live gauge at the upstream city and route corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Miles Paddled's exact Menomonie-to-Dunnville route recommends saving the trip for about 6.4 to 7.0 ft at the Menomonie gauge, records 6.6 ft / 1,100 cfs as strongly recommended, and warns that higher water washes out the riffles and rapids."
+      },
+      "endpoints": {
+        "putIn": "Riverside Park Canoe Launch, Menomonie",
+        "takeOut": "Dunnville Bottoms Boat Landing / County Road Y",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 44.87257917,
+          "longitude": -91.94084048
+        },
+        "takeOutCoordinates": {
+          "latitude": 44.71636558,
+          "longitude": -91.89691839
+        },
+        "coordinateSource": "Wisconsin DNR boat-access records for Riverside Park Canoe Launch and Dunnville Bottoms Boat Landing."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data but missing from the structured ledger. This is a long beginner-friendly lower Red Cedar day with a strong bike-shuttle story on the Red Cedar State Trail, direct USGS gauge support, DNR-backed endpoint coordinates, and route-specific community level guidance. Photo audit remains no-approved-image after prior source review."
+    },
+    {
+      "candidateId": "wi-milwaukee-river-west-bend-quaas-creek-park",
+      "river": "Milwaukee River",
+      "route": "Washington Street Dam to Quaas Creek Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as milwaukee-river-west-bend-quaas-creek. Revisit only if a clearly reusable route photo or stronger official coordinate source appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Milwaukee River - West Bend",
+        "USGS Milwaukee River near Cedarburg gauge",
+        "Visit West Bend Milwaukee River page",
+        "Visit West Bend Quaas Creek Park page",
+        "Milwaukee River basin bioassessment plan PDF",
+        "Mapcarta Quaas Creek Park named feature"
+      ],
+      "aliases": [
+        "Milwaukee River - Washington Street Dam to Quaas Creek Park",
+        "Milwaukee River - West Bend Dam to Quaas Creek Park"
+      ],
+      "v2Slug": "milwaukee-river-west-bend-quaas-creek",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips uses the direct Milwaukee River near Cedarburg USGS gauge for this West Bend route."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific ladder: 0-250 cfs likely too shallow above Riverside Park, 251-350 low with possible walking, 351-600 good target, 601-800 high but manageable, 801-1000 very high for experienced paddlers, and 1001+ probably too high."
+      },
+      "endpoints": {
+        "putIn": "Washington Street Dam launch",
+        "takeOut": "Quaas Creek Park canoe/kayak launch",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.42833,
+          "longitude": -88.18399
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.41636,
+          "longitude": -88.14629
+        },
+        "coordinateSource": "West Bend Dam tailwater named monitoring point plus Quaas Creek Park named map feature, both corroborated by West Bend public access pages"
+      },
+      "notes": "Implemented 2026-05-25. Wisconsin River Trips documents the exact Washington Street Dam to Quaas Creek Park route and provides a full Cedarburg-gauge ladder, Visit West Bend explicitly recommends this same four-mile city run, and the endpoint coordinates were resolved from a named West Bend Dam tailwater monitoring point and the named Quaas Creek Park feature."
+    },
+    {
+      "candidateId": "wi-kickapoo-river-ontario-rockton",
+      "river": "Kickapoo River",
+      "route": "Ontario to Rockton",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as kickapoo-river-ontario-rockton. Revisit only if a stronger official threshold ladder or clearly reusable route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "MilesPaddled Kickapoo River I",
+        "USGS 05407468 Kickapoo River at State Highway 131 at Ontario",
+        "Kickapoo Valley Reserve canoe/kayak page",
+        "Kickapoo Valley Reserve Upper Kickapoo River Guide",
+        "Wisconsin River Trips Kickapoo River - Ontario"
+      ],
+      "aliases": [
+        "Kickapoo River - Landing 1 Ontario to Landing 12 Rockton",
+        "Kickapoo River - Ontario to Rockton",
+        "Kickapoo River I"
+      ],
+      "v2Slug": "kickapoo-river-ontario-rockton",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses the direct USGS 05407468 Kickapoo River at State Highway 131 at Ontario gauge, which is on the same river at the put-in corridor and reports discharge plus gage height."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "MilesPaddled documents this exact Ontario-to-Rockton route and ties guidance to the Ontario gauge: 60 cfs minimum, 70-100 cfs sweet spot, and 200+ cfs too high."
+      },
+      "endpoints": {
+        "putIn": "Village of Ontario Public Canoe Landing / Landing 1",
+        "takeOut": "Kickapoo River Landing 12 (Rockton)",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.72300847,
+          "longitude": -90.58704745
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.6370798,
+          "longitude": -90.60288277
+        },
+        "coordinateSource": "Existing V2 implementation, corroborated by MilesPaddled's linked endpoint GPS points and official Kickapoo Valley Reserve access-map context"
+      },
+      "notes": "Reconciled 2026-05-25. The route was already present in V2 route and trip-detail data but missing from the normalized candidate ledger. This pass tightened the route's threshold model to include the published 70-100 cfs sweet spot and 200+ cfs high-water cutoff. Photo audit remains no-approved-image; no reusable public-domain or clearly licensed route photo was added."
+    },
+    {
       "candidateId": "wi-black-earth-creek-cross-plains-salmo-pond",
       "river": "Black Earth Creek",
       "route": "Cross Plains to Salmo Pond County Park",
       "state": "WI",
       "status": "research_later",
-      "lastReviewed": "2026-05-24",
-      "reviewCount": 2,
-      "blocker": "Gauge and threshold support remain promising, but no newer-than-2025 corridor-clearance evidence was found to overrule the reported full blockages near Scherbel Road / Salmo Pond, including one previously described as impossible to get around. That keeps this operationally uncertain for conservative shipping.",
-      "retryCondition": "Retry only if Wisconsin River Trips, Dane County, or field verification confirms the Cross Plains-to-Salmo corridor is currently clear enough for normal recreational passage.",
-      "retryDate": "2026-06-22",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 8,
+      "blocker": "Gauge and threshold support remain promising, but the freshest route-operability evidence still cuts against shipping: Wisconsin River Trips' July 2, 2025 field comment reports two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around, and a fifth 2026-05-25 targeted clearance search did not surface newer confirmation that the corridor is clear.",
+      "retryCondition": "Retry only if Wisconsin River Trips, Dane County, or recent field verification confirms the Cross Plains-to-Salmo corridor has been cleared enough for normal recreational passage.",
+      "retryDate": "2026-06-25",
       "sourcesChecked": [
         "Wisconsin River Trips Black Earth Creek - Cross Plains",
         "USGS Black Earth Creek at Cross Plains gauge",
         "Dane County Parks Salmo Pond County Park page",
-        "Dane County public trout stream access materials"
+        "Dane County public trout stream access materials",
+        "Dane County Salmo Pond overview map PDF",
+        "Wikimedia Commons Black Earth Creek image search",
+        "2026-05-25 targeted web search for Black Earth Creek Cross Plains Salmo Pond blockage clearance",
+        "2026-05-25 follow-up web search for Black Earth Creek Salmo Pond Scherbel Road blockage clearance",
+        "2026-05-25 third targeted web search for Black Earth Creek Salmo Pond blockage clearance and newer access reports",
+        "2026-05-25 fourth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "2026-05-25 fifth targeted web search for Black Earth Creek Cross Plains Salmo Pond Scherbel Road clearance evidence",
+        "Wisconsin DNR Black Earth Creek Fishery Area page"
       ],
       "aliases": [
         "Black Earth Creek - Cross Plains to Salmo Pond",
@@ -2180,7 +2452,600 @@
         "takeOut": "Salmo Pond County Park",
         "coordinatesPresent": false
       },
-      "notes": "Re-reviewed 2026-05-24. Wisconsin River Trips still provides strong route-specific gauge guidance and Dane County confirms Salmo Pond has an active canoe/kayak launch, but this pass did not surface fresh (post-2025) obstruction-clearance evidence for the Scherbel/Salmo corridor. Kept deferred for safety/operability confidence."
+      "notes": "Re-reviewed again on 2026-05-25. Wisconsin River Trips still provides strong route-specific gauge guidance and Dane County still confirms Salmo Pond has an active canoe/kayak launch, but the freshest explicit field update remains the July 2, 2025 report of two full blockages near the take-out, one impossible to bypass. A fifth targeted search found only access/fishing context and no newer 2026 clearance evidence, so the route stays deferred for safety/operability confidence."
+    },
+    {
+      "candidateId": "oh-grand-river-harpersfield-covered-bridge-hidden-valley-park",
+      "river": "Grand River",
+      "route": "Harpersfield Covered Bridge to Hidden Valley Park",
+      "state": "OH",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as grand-river-harpersfield-hidden-valley. Revisit to ingest the public-domain USFWS/Wikimedia Harpersfield image after download access is available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/ohio-route-candidate-queue.md",
+        "American Whitewater Grand River - Harpersfield to Hidden Valley reach",
+        "USGS 04212100 Grand River near Painesville, OH monitoring location",
+        "USGS Grand River near Painesville project page",
+        "Lake Metroparks Grand River Water Trail map PDF"
+      ],
+      "aliases": [
+        "Grand River - Harpersfield to Hidden Valley",
+        "Grand River - Harpersfield Covered Bridge to Hidden Valley Park",
+        "Grand River - Route 534 to Route 528"
+      ],
+      "v2Slug": "grand-river-harpersfield-hidden-valley",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Lake Metroparks and American Whitewater use the Grand River near Painesville USGS gauge, station 04212100, for this Grand River corridor. The gauge is downstream on the same river and reports gage height and discharge."
+      },
+      "thresholdSupport": {
+        "strength": "mixed_official_community",
+        "notes": "Lake Metroparks publishes official stage bands tied to USGS 04212100: under 2 ft low/slow drag, 2-5 ft optimal, 5-8 ft high/fast, and above 8 ft flood-level dangerous. American Whitewater adds same-reach cfs guidance: about 100 cfs boatable minimum, 100-1500 cfs beginner/novice range, and 1500+ cfs needing intermediate skills in wave-train sections."
+      },
+      "endpoints": {
+        "putIn": "Harpersfield Covered Bridge / Route 534",
+        "takeOut": "Hidden Valley Park / Route 528",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.75649,
+          "longitude": -80.946408
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.741864,
+          "longitude": -81.047837
+        },
+        "coordinateSource": "Lake Metroparks Grand River Water Trail map PDF."
+      },
+      "notes": "Implemented 2026-05-25. Lake Metroparks' Grand River Water Trail map gives named public access context, river miles, endpoint coordinates, and stage bands tied to USGS 04212100. American Whitewater supplies exact-route Class I-II character, distance, and same-reach cfs guidance. The public-domain USFWS/Wikimedia Harpersfield image remains a clean gallery follow-up, but the file download was rate-limited during implementation."
+    },
+    {
+      "candidateId": "oh-great-miami-river-heritage-blue-rock-obergiesing-dravo",
+      "river": "Great Miami River",
+      "route": "Heritage Park or Blue Rock Road to Obergiesing Soccer Complex at Dravo Park",
+      "state": "OH",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as great-miami-river-heritage-dravo. Revisit if ramp-level official GIS coordinates or a rights-clean route image become available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "docs/ohio-route-candidate-queue.md",
+        "American Whitewater Great Miami - Heritage Park / Blue Rock Rd to Obergiesing Soccer Complex at Dravo Park reach",
+        "American Whitewater Great Miami Hamilton gauge metadata",
+        "USGS 03274000 Great Miami River at Hamilton, OH monitoring location",
+        "Colerain Township Obergiesing Soccer Complex at Dravo Park facility page",
+        "Great Miami Riverway access map"
+      ],
+      "aliases": [
+        "Great Miami River - Heritage Park to Dravo Park",
+        "Great Miami River - Blue Rock Road to Obergiesing Soccer Complex",
+        "Great Miami River - Heritage/Blue Rock to Dravo Park"
+      ],
+      "v2Slug": "great-miami-river-heritage-dravo",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater identifies the Great Miami River at Hamilton USGS gauge for this reach, and its gauge metadata ties the reach to USGS 03274000."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "American Whitewater provides same-reach numeric guidance: commonly run from about 500 cfs to 5000+ cfs, with features described at 1000, 1500, 2000, 2500, 3000, 3500, 4500, and 5000+ cfs; AW warns that around 8000 cfs paddlers should stay off due to floating debris and wood."
+      },
+      "endpoints": {
+        "putIn": "Heritage Park canoe ramp",
+        "takeOut": "Obergiesing Soccer Complex at Dravo Park canoe access ramp",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 39.291548,
+          "longitude": -84.661803
+        },
+        "takeOutCoordinates": {
+          "latitude": 39.26157,
+          "longitude": -84.68773
+        },
+        "coordinateSource": "Official Colerain Township pages confirm named canoe ramps and addresses; coordinates are named park coordinates from public map indexes, not official ramp-level GIS."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded whitewater route. AW gives unusually detailed same-reach Hamilton-gauge guidance, feature notes, and hazard reports; Colerain Township confirms the Heritage Park and Dravo Park canoe ramps, and the Great Miami River Water Trail map names both access points. The implementation deliberately chose Heritage Park rather than Blue Rock Road because Heritage and Dravo are the official Colerain ramp pair. Coordinate precision is lower than Vermilion/Grand and should be improved if official ramp GIS appears."
+    },
+    {
+      "candidateId": "oh-little-miami-river-kelley-nature-preserve-jim-terrell-park",
+      "river": "Little Miami River",
+      "route": "Kelley Nature Preserve to Jim Terrell Park",
+      "state": "OH",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as little-miami-river-kelley-milford. Revisit if official non-playboating threshold bands or a rights-clean route photo become available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Little Miami - Kelley Nature Preserve to Milford reach",
+        "American Whitewater Little Miami Kelley-to-Milford gauge information",
+        "USGS 03245500 Little Miami River at Milford, OH monitoring location",
+        "ODNR Little Miami Scenic River map PDF",
+        "Clermont County Parks Kelley Nature Preserve page",
+        "Clermont Sun Kelley Nature Preserve boat-ramp article"
+      ],
+      "aliases": [
+        "Little Miami River - Kelley Nature Preserve to Milford",
+        "Little Miami - Kelley to Jim Terrell Park",
+        "Little Miami - Kelley Nature Preserve to Jim Tarrell Park"
+      ],
+      "v2Slug": "little-miami-river-kelley-milford",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater ties the exact Kelley-to-Milford reach to the Little Miami River at Milford USGS gauge, station 03245500."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "American Whitewater publishes a stage ladder for this reach: below 4.60 ft way too low, 4.60-5.50 ft low with possible walking, 5.50-7.50 ft best boatable/play levels with about 6.5 ft prime, 7.50-9.00 ft fast/washy high runnable, and 9.00+ ft sketchy/possibly flooding."
+      },
+      "endpoints": {
+        "putIn": "Kelley Nature Preserve canoe/kayak access",
+        "takeOut": "Jim Terrell Park canoe launch",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 39.20997,
+          "longitude": -84.30608
+        },
+        "takeOutCoordinates": {
+          "latitude": 39.17041,
+          "longitude": -84.29856
+        },
+        "coordinateSource": "ODNR Little Miami Scenic River map PDF."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Class I-II route. ODNR provides official Scenic River access coordinates for Kelley Nature Preserve and Jim Terrell Park, Clermont County Parks confirms Kelley has canoe/kayak access, and AW supplies exact-route stage guidance on the direct Milford gauge. The model is deliberately calibrated to AW play/whitewater levels rather than generic recreational floating."
+    },
+    {
+      "candidateId": "oh-cuyahoga-river-ira-road-lock-29-route-303",
+      "river": "Cuyahoga River",
+      "route": "Ira Road to Lock 29 / Route 303",
+      "state": "OH",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as cuyahoga-river-ira-lock-29. Revisit if an official Ira river-access GIS point or stronger water-quality/closure source changes the access model.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Cuyahoga - E. Ira Rd. to Rte. 303 reach",
+        "American Whitewater Cuyahoga reach 3355 gauge information",
+        "USGS 04206000 Cuyahoga River at Old Portage, OH monitoring location",
+        "ODNR / Cuyahoga River Water Trail PDF",
+        "NPS Ira Trailhead page",
+        "NPS Lock 29 River Access page"
+      ],
+      "aliases": [
+        "Cuyahoga River - E. Ira Road to Route 303",
+        "Cuyahoga River - Ira Road to Peninsula",
+        "Cuyahoga River - Ira Trailhead to Lock 29"
+      ],
+      "v2Slug": "cuyahoga-river-ira-lock-29",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater ties the exact Ira-to-Route-303 reach to the Cuyahoga River at Old Portage USGS gauge, station 04206000."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "American Whitewater publishes a same-reach 100-1000 cfs barely-runnable to high-runnable range for reach 3355. The app uses a guarded 250-700 cfs target because AW route text gives feature notes at 250, 300, and 700 cfs and this is a training run with strainers."
+      },
+      "endpoints": {
+        "putIn": "Ira Road / Ira Trailhead put-in corridor",
+        "takeOut": "Lock 29 Trailhead river access / Route 303",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.184583,
+          "longitude": -81.58335
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.2428,
+          "longitude": -81.55067
+        },
+        "coordinateSource": "NPS Ira Trailhead coordinate/address context and ODNR/Cuyahoga River Water Trail Lock 29 access coordinates."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Class I training route. AW provides the exact route, distance, Old Portage gauge, and 100-1000 cfs range. Lock 29 gives a clean official Route 303 take-out; the Ira put-in remains the weaker side because AW points to Ira Road and nearby Towpath Trail parking rather than a polished water-trail launch, so trip details explicitly require local access verification."
+    },
+    {
+      "candidateId": "oh-vermilion-river-schoepfle-garden-mill-hollow",
+      "river": "Vermilion River",
+      "route": "Schoepfle Garden / Birmingham to Mill Hollow",
+      "state": "OH",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as vermilion-river-schoepfle-mill-hollow. Revisit to verify and possibly ingest a rights-clean same-reach gallery image.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Vermilion - Schoepfle Gardens to Mill Hollow Park reach",
+        "American Whitewater Vermilion gauge information for reach 3140",
+        "USGS 04199500 Vermilion River near Vermilion, OH monitoring location",
+        "Lorain County Metro Parks Vermilion River Reservation page",
+        "Lorain County Metro Parks activities/kayaking page",
+        "ODNR Vermilion-Lorain Water Trail PDF",
+        "ODNR Vermilion River public access guide PDF",
+        "Wikimedia Commons Vermilion River Birmingham Ohio image"
+      ],
+      "aliases": [
+        "Vermilion River - Edison Highway / Schoepfle Gardens to Mill Hollow Park",
+        "Vermilion River - Birmingham to Mill Hollow",
+        "Vermilion - Middle: Edison Hwy/US20 to Mill Hollow Park"
+      ],
+      "v2Slug": "vermilion-river-schoepfle-mill-hollow",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater ties the route to the Vermilion River near Vermilion USGS gauge, station 04199500. The gauge is downstream on the same river and reports live gage height."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "American Whitewater publishes a same-reach gauge range of 2.55-6.00 ft for barely runnable through high runnable Class I(II). A route report recommends 3.5-4.25 ft for novice kayakers, with the middle of that range most fun."
+      },
+      "endpoints": {
+        "putIn": "Schoepfle Garden / Birmingham access",
+        "takeOut": "Mill Hollow / Vermilion River Reservation kayak and canoe access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.326667,
+          "longitude": -82.357333
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.381833,
+          "longitude": -82.3155
+        },
+        "coordinateSource": "ODNR Vermilion River public access guide PDF: Schoepfle Garden / Birmingham community-center point and Mill Hollow / Vermilion River Reservation Mill Hollow point."
+      },
+      "notes": "Implemented 2026-05-25. AW gives a clean 8.1-mile route, same-river USGS gauge, and numeric stage guidance; the route now uses a conservative 3.5-4.25 ft preferred band, 2.55 ft floor, and 6 ft high runnable ceiling. ODNR public-access materials resolved the Birmingham / Schoepfle and Mill Hollow coordinates, while Lorain County Metro Parks and ODNR water-trail materials support the public access and hazard context. A Commons image at Schoepfle Garden remains a promising same-reach image lead, but asset rights and final gallery suitability still need review before use."
+    },
+    {
+      "candidateId": "wi-namekagon-river-earl-park-trego-town-park",
+      "river": "Namekagon River",
+      "route": "Earl Park Landing to Trego Town Park Landing",
+      "state": "WI",
+      "status": "duplicate_corridor",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": "This short seeded route is real and public, but it is already covered inside the existing Namekagon River - Big Bend Landing to Trego Town Park V2 route. Shipping it separately would duplicate the busier downstream half without improving the live gauge story: the app-operable level model is still the upstream USGS 05331833 Namekagon River at Leonards gauge with NPS normal/high context, while the closer Trego USGS sites are historical/discontinued rather than usable live gauges.",
+      "retryCondition": "Revisit only if NPS publishes Earl Park-to-Trego as a distinct recommended trip with a stronger route-specific level model, or if a live same-corridor Trego/Highway 63 gauge becomes available with official or route-specific threshold guidance.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Old PaddleToday seed file for Namekagon River - Earl Park Landing to Trego Town Park Landing",
+        "NPS Big Bend to Trego recommended paddle page",
+        "NPS Namekagon River overview",
+        "NPS Namekagon paddling guide PDF",
+        "NPS current conditions page and Namekagon level dataset",
+        "USGS 05331833 Namekagon River at Leonards live gauge",
+        "USGS 05332000 Namekagon River at Trego historical site",
+        "USGS 05332500 Namekagon River near Trego historical site",
+        "Existing V2 route namekagon-river-big-bend-trego"
+      ],
+      "aliases": [
+        "Namekagon River - Earl Park to Trego",
+        "Namekagon River - Earl Park Landing to Trego Town Park",
+        "Namekagon River - Earl Park Landing to Trego Town Park Landing"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "proxy_existing_route_only",
+        "notes": "The only usable live story found is the same upstream USGS 05331833 Leonards gauge already used by the broader Big Bend-to-Trego route with official NPS 150-230 cfs normal and 650+ cfs high context. The closer Trego USGS pages are historical/discontinued and do not provide a current live feed."
+      },
+      "thresholdSupport": {
+        "strength": "covered_by_existing_route",
+        "notes": "NPS provides official level context for the Leonards gauge and says the middle Namekagon near Earl/Trego is generally floatable, with scraping/walking possible during low rainfall near the islands below Highway 63. That supports the existing broader route, but it does not justify a separate duplicate Earl-to-Trego entry."
+      },
+      "endpoints": {
+        "putIn": "Earl Park Landing",
+        "takeOut": "Trego Town Park Landing",
+        "coordinatesPresent": false,
+        "coordinateSource": "Not resolved in this pass because the candidate was stopped on duplicate-corridor and no-stronger-live-gauge grounds before implementation."
+      },
+      "notes": "Reviewed 2026-05-25. The old seed is legitimate as a public short outing, and NPS explicitly identifies Earl Park as a landing/amenity point within the Big Bend-to-Trego recommended route. Because the existing V2 route already starts upstream at Big Bend and ends at the same Trego Town Park take-out, this shorter segment would mostly duplicate shipped coverage while inheriting the same upstream proxy gauge limitation."
+    },
+    {
+      "candidateId": "wi-badfish-creek-old-stage-casey",
+      "river": "Badfish Creek",
+      "route": "Old Stage Road to North Casey Road",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as badfish-creek-old-stage-casey. Revisit if a stronger official threshold ladder appears or to ingest the CC0 Cooksville Commons photo when downloads are available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Badfish Creek - Old Stage Road to Casey Road",
+        "Wisconsin River Trips Badfish Creek - Hwy A to Old Stage Road",
+        "Miles Paddled Badfish Creek Paddle Guide",
+        "USGS 05430150 Badfish Creek Near Cooksville, WI monitoring location",
+        "Wisconsin DNR Badfish Creek Wildlife Area",
+        "Madison Metropolitan Sewerage District Badfish Creek landing update",
+        "Wikimedia Commons Badfish Creek Cooksville Mill and Mill Pond Site image"
+      ],
+      "aliases": [
+        "Badfish Creek - Old Stage to Casey",
+        "Badfish Creek - Old Stage Road to North Casey Road",
+        "Badfish Creek I"
+      ],
+      "v2Slug": "badfish-creek-old-stage-casey",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05430150 Badfish Creek Near Cooksville, WI, a direct same-creek gauge on the Old Stage-to-North Casey corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a Badfish Creek Cooksville-gauge ladder: 0-50 cfs low but generally paddleable, 51-100 very good, 101-150 ok, 151-200 normal-to-high, 201-300 very high and experienced-only, and 301+ likely not enjoyable. Miles Paddled adds route-specific support that this reach has reliable water and maintained access points."
+      },
+      "endpoints": {
+        "putIn": "Old Stage Road canoe/kayak landing",
+        "takeOut": "North Casey Road take-out",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.8569,
+          "longitude": -89.2756
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.8287,
+          "longitude": -89.1849
+        },
+        "coordinateSource": "Endpoint coordinates resolved from the named Wisconsin River Trips/Miles Paddled route map context, DNR Badfish Creek Wildlife Area access description for the Old Stage landing, and map-feature verification at the North Casey Road bridge take-out."
+      },
+      "notes": "Implemented 2026-05-25. Wisconsin DNR confirms maintained canoe/kayak launches and parking in Badfish Creek Wildlife Area, Wisconsin River Trips and Miles Paddled document the exact Old Stage-to-North Casey route, and the direct Cooksville USGS gauge has strong community threshold guidance. A CC0 Wikimedia Commons photo at Cooksville is suitable for a future gallery add, but the sandbox blocked the image download during this pass."
+    },
+    {
+      "candidateId": "wi-wisconsin-river-millville-wyalusing-beach",
+      "river": "Wisconsin River",
+      "route": "Millville Boat Landing to Wyalusing Beach",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as wisconsin-river-millville-wyalusing-beach. Revisit to ingest the rights-clean Commons Wyalusing confluence photo once downloads are available, or if stronger official endpoint coordinate tables appear.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Wisconsin River - Final Segment",
+        "Wisconsin River Trips Wisconsin River - Millville",
+        "USGS 05407000 Wisconsin River at Muscoda, WI monitoring location",
+        "Wisconsin DNR Wyalusing State Park water recreation page",
+        "Wisconsin DNR Lower Wisconsin State Riverway visitor guide PDF",
+        "Lower Wisconsin State Riverway Board water recreation page",
+        "Wisconsin Trail Guide LWSR4 PDF",
+        "Grant County fishing and boat landings page",
+        "Mapcarta/OpenStreetMap Wyalusing Boat Landing named feature",
+        "Wikimedia Commons WyalusingStateParkWisconsinRiverIntoMississippiRiver image lead"
+      ],
+      "aliases": [
+        "Wisconsin River - Final Segment",
+        "Wisconsin River - Millville to Wyalusing Beach",
+        "Lower Wisconsin River - Millville to Wyalusing"
+      ],
+      "v2Slug": "wisconsin-river-millville-wyalusing-beach",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips ties both the final-segment trip and nearby Millville reach to the direct Wisconsin River at Muscoda USGS gauge, station 05407000. It is upstream but on the same free-flowing Lower Wisconsin system used by existing V2 Lower Wisconsin routes."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips' Millville page publishes a Muscoda-gauge ladder for this lower river corridor: 2,000-3,000 cfs very low/sandbar-rich, 3,001-5,000 ideal, 5,001-7,500 common/ok, 7,501-10,000 viable with smaller sandbars, 10,001-12,500 not ideal for camping, 12,501-15,000 few sandbars and dirty water, 15,001-20,000 very high/pushy, and 20,001+ probably too high for safe paddling."
+      },
+      "endpoints": {
+        "putIn": "Millville Boat Landing",
+        "takeOut": "Wyalusing Beach / Wyalusing Boat Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.03505,
+          "longitude": -90.96091
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.94815,
+          "longitude": -91.14397
+        },
+        "coordinateSource": "Wisconsin Trail Guide LWSR4 PDF for Millville Landing; Mapcarta/OpenStreetMap named Wyalusing Boat Landing feature beside Wyalusing Beach, corroborated by Wisconsin DNR and Grant County public recreation access context."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded final Lower Wisconsin route. Wisconsin River Trips documents the exact 10.8-mile Millville-to-Wyalusing Beach trip and ties it to the Muscoda gauge; the Millville page supplies the lower-river gauge ladder. Wisconsin Trail Guide resolves Millville Landing coordinates and amenities. Wisconsin DNR and Grant County corroborate Wyalusing-area public beach and boat-landing access, with Mapcarta/OpenStreetMap resolving the named Wyalusing Boat Landing coordinate beside Wyalusing Beach. The route is scored moderate because the final approach enters the wider Mississippi River with boat traffic, wind, wakes, and confluence navigation."
+    },
+    {
+      "candidateId": "wi-wolf-river-hollister-highway-64",
+      "river": "Wolf River",
+      "route": "West Hollister Road Landing to Highway 64 DNR Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 2,
+      "blocker": null,
+      "retryCondition": "Already implemented as wolf-river-hollister-highway-64. Revisit only if a rights-clean exact-route photo appears or if official Wisconsin DNR paddling bands become available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Wolf River - Hollister",
+        "Wisconsin River Trips Wolf River overview",
+        "American Whitewater Wolf River at Langlade gauge information for reach 2318",
+        "USGS 04074950 Wolf River at Langlade, WI monitoring location",
+        "Wisconsin DNR Wolf River State Trail page",
+        "Wisconsin Trail Guide Wolf River W3 map",
+        "Riverfacts Hollister Road to Langlade coordinates"
+      ],
+      "aliases": [
+        "Wolf River - Hollister to Langlade",
+        "Wolf River - W. Hollister Road Landing to Hwy 64 DNR Landing",
+        "Wolf River - West Hollister Road Landing to Highway 64 DNR Landing"
+      ],
+      "v2Slug": "wolf-river-hollister-highway-64",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater uses USGS 04074950 Wolf River at Langlade for this reach and says the gauge is at the end of the reach, accurately reflecting actual flow."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "American Whitewater publishes a full Langlade-gauge ladder for this Wolf reach: 0-150 cfs too low, 150-250 marginal/bump-and-scrape, 250-1000 low-to-moderate boatable, 1000-2000 moderate boatable, and 2000-3000 high boatable. Wisconsin River Trips documents the exact Hollister-to-Highway-64 trip at 210 cfs and describes the public endpoints and rapids."
+      },
+      "endpoints": {
+        "putIn": "West Hollister Road Landing",
+        "takeOut": "Highway 64 DNR Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.248,
+          "longitude": -88.8062
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.1901,
+          "longitude": -88.7333
+        },
+        "coordinateSource": "Riverfacts publishes the Hollister-to-Langlade put-in/take-out coordinates; these align with the existing DNR-backed West Hollister access coordinate, Wisconsin Trail Guide's W3 map, American Whitewater's take-out description on river right just past the Langlade bridge, and the USGS Highway 64 bridge gauge coordinate."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded whitewater route. Wisconsin River Trips documents the exact West Hollister Road Landing to Highway 64 DNR Landing route and recommends 200-500 cfs for intermediate paddlers; American Whitewater supplies the same-reach Section II bands on the direct USGS 04074950 Langlade gauge. The app uses a conservative 250-500 cfs target and a 1,000 cfs broad-audience ceiling even though AW lists higher whitewater-runnable bands. Photo audit remains no-approved-image after a targeted Commons/federal/local search."
+    },
+    {
+      "candidateId": "wi-pecatonica-river-black-bridge-wells",
+      "river": "Pecatonica River",
+      "route": "Black Bridge Landing to Wells Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as pecatonica-river-black-bridge-wells. Revisit only if a rights-clean exact-route photo appears or if official Lafayette County water-trail guidance publishes a stronger Black-Bridge-to-Wells route sheet.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Pecatonica River - Roller Coaster Road to Wells Landing",
+        "USGS 05432500 Pecatonica River at Darlington, WI monitoring location",
+        "Lafayette County canoe and boat landing coordinates PDF",
+        "Darlington Comprehensive Outdoor Recreation Plan 2020-2024",
+        "City of Darlington Pecatonica River Trails Park page",
+        "Wikimedia Commons / USGS / Wisconsin Historical Society photo search"
+      ],
+      "aliases": [
+        "Pecatonica River - Black Bridge to Wells Landing",
+        "Pecatonica River - Darlington to Walnut Road",
+        "Pecatonica River - Black Bridge Park to Wells Landing"
+      ],
+      "v2Slug": "pecatonica-river-black-bridge-wells",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05432500 Pecatonica River at Darlington, WI, a direct same-river live gauge in the put-in city and route corridor."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a lower-Pecatonica Darlington-gauge ladder on the Roller Coaster Road to Wells Landing page: under 100 cfs is still generally navigable, 101-210 cfs is very ideal, 211-250 cfs is average/fine, 251-290 cfs is above average but manageable, 291-350 cfs is high, 351-500 cfs is very high and experienced-only, and 501+ cfs may be too high and muddy for enjoyable paddling. The implemented route starts at stronger public access upstream at Black Bridge Landing and includes that same lower-Wells segment."
+      },
+      "endpoints": {
+        "putIn": "Black Bridge Landing",
+        "takeOut": "Wells Landing / Walnut Road",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.68601091,
+          "longitude": -90.12030611
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.6424164,
+          "longitude": -90.03988431
+        },
+        "coordinateSource": "Lafayette County canoe/boat landing coordinate table lists Black Bridge Landing and Wells Landing; Darlington's outdoor recreation plan corroborates Black Bridge Park as the city improved Pecatonica River boat launch, and Wisconsin River Trips corroborates Wells Landing as the route take-out."
+      },
+      "notes": "Implemented 2026-05-25. This pass chose Black Bridge Landing over the poorer Roller Coaster Road bridge access because it preserves the same direct Darlington-gauge story while using official named public landings at both ends. The route is intentionally marked moderate for 12.3 miles, steep muddy banks, partial logjams/strainers below town, and high-water mud/strainer risk."
+    },
+    {
+      "candidateId": "wi-milwaukee-river-newburg-fredonia",
+      "river": "Milwaukee River",
+      "route": "Fireman's Park to Waubedonia Park",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as milwaukee-river-newburg-fredonia. Revisit only if official Milwaukee River water-trail bands appear or a more route-specific reusable photo becomes available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Milwaukee River - Newburg",
+        "Wisconsin River Trips Milwaukee River - Waubeka",
+        "Miles Paddled Milwaukee River I",
+        "USGS 04086600 Milwaukee River near Cedarburg, WI monitoring location",
+        "Village of Newburg parks page",
+        "Riveredge Nature Center Newburg Fireman's Park venue page",
+        "Ozaukee County Waubedonia Park page and park map",
+        "Wikimedia Commons Milwaukee River January 2026 image"
+      ],
+      "aliases": [
+        "Milwaukee River - Newburg to Fredonia",
+        "Milwaukee River - Newburg to Waubedonia",
+        "Milwaukee River I"
+      ],
+      "v2Slug": "milwaukee-river-newburg-fredonia",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04086600 Milwaukee River near Cedarburg, WI, a direct same-river gauge downstream of the Newburg-to-Waubedonia corridor. Wisconsin River Trips and Miles Paddled both use the Cedarburg gauge for this route family."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Cedarburg-gauge guidance for the Newburg segment: 200-400 cfs for best clarity, 400-600 cfs still likely fine, and 600+ cfs increasingly less attractive though probably doable. Miles Paddled documents the full Newburg-to-Waubedonia route at about 390 cfs and treats that as just past too low, while Wisconsin River Trips' adjacent Waubeka-to-Waubedonia page supports a conservative 801+ cfs high-water cutoff."
+      },
+      "endpoints": {
+        "putIn": "Fireman's Park / Main Street bridge, Newburg",
+        "takeOut": "Waubedonia Park, Fredonia",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.43373,
+          "longitude": -88.04926
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.46838,
+          "longitude": -87.97313
+        },
+        "coordinateSource": "Existing V2 coordinates align with the named Fireman's Park / Main Street bridge put-in described by Wisconsin River Trips, Miles Paddled, and Riveredge Nature Center, plus Ozaukee County's Waubedonia Park canoe/kayak launch map and park page."
+      },
+      "notes": "Completed 2026-05-25 as a route-quality reconciliation rather than a duplicate route add. The app route already existed with endpoint coordinates and a Commons gallery image, but this pass upgraded the profile from minimum-only to a two-sided Cedarburg-gauge model and added the missing structured ledger record. The app uses 390-600 cfs as the preferred full-route window, 200 cfs as the hard low mark, and 801+ cfs as the broad-audience high cutoff."
+    },
+    {
+      "candidateId": "wi-bois-brule-river-stones-winneboujou",
+      "river": "Bois Brule River",
+      "route": "Stone's Bridge Landing to Winneboujou Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as bois-brule-river-stones-winneboujou. Revisit only if a route photo can be downloaded from the rights-clean Commons or USGS leads.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin DNR Brule River State Forest paddling page",
+        "Wisconsin Trail Guide Bois Brule BB1 PDF",
+        "Wisconsin River Trips Bois Brule overview",
+        "American Whitewater Bois Brule gauge information for reach 2280",
+        "USGS 04025500 Bois Brule River at Brule, WI monitoring location",
+        "Wikimedia Commons Brule River.jpg image lead",
+        "USGS streamgage 04025500 public-domain image"
+      ],
+      "aliases": [
+        "Bois Brule River - Stone's Bridge to Winneboujou",
+        "Brule River - Stones Bridge Landing to Winneboujou Landing",
+        "Upper Bois Brule - Stone's Bridge to Winneboujou"
+      ],
+      "v2Slug": "bois-brule-river-stones-winneboujou",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04025500 Bois Brule River at Brule, WI. Wisconsin Trail Guide says the referenced gauge is located in this segment and gives an accurate indication of current conditions; American Whitewater also ties the reach to the Brule gauge."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "Wisconsin Trail Guide publishes route-specific BB1 bands: below 125 cfs not recommended, 125-200 cfs low runnable, 200-350 cfs medium runnable for novice paddlers, 350-600 cfs high runnable, and 600-1000 cfs not recommended for novice paddlers. American Whitewater corroborates 125 cfs as the low boatable floor for the same gauge family."
+      },
+      "endpoints": {
+        "putIn": "Stone's Bridge Landing",
+        "takeOut": "Winneboujou Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 46.43415,
+          "longitude": -91.67486
+        },
+        "takeOutCoordinates": {
+          "latitude": 46.5133,
+          "longitude": -91.6022
+        },
+        "coordinateSource": "Existing V2 coordinates align with the named Stone's Bridge and Winneboujou landings described by Wisconsin DNR and Wisconsin Trail Guide, which documents both as designated Brule River canoe landings with parking and facilities."
+      },
+      "notes": "Reconciled 2026-05-25 after finding the route already present in app data but absent from the structured ledger and image audit. This route clears the Wisconsin quality bar with DNR-designated public landings, a direct same-segment USGS gauge, route-specific Wisconsin Trail Guide flow bands, Wisconsin River Trips route confirmation, and AW gauge corroboration. A reusable Commons Brule River photo near Winneboujou and a public-domain USGS gauge photo were found, but sandbox network blocked direct asset download, so no gallery entry was wired."
     }
   ]
 }

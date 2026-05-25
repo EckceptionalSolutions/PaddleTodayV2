@@ -1,6 +1,6 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
-import { photoForRiver } from '../lib/route-photos';
+import { routePhotoForRiver } from '../lib/route-photos';
 import { colors, radius, spacing } from '../theme/tokens';
 
 interface RoutePhotoCardProps {
@@ -23,13 +23,23 @@ export function RoutePhotoCard({
   showCaption = true,
   onContributePhotos,
 }: RoutePhotoCardProps) {
+  const photo = routePhotoForRiver(river);
+
   return (
     <ImageBackground
-      source={{ uri: photoForRiver(river) }}
+      source={{ uri: photo.uri }}
       style={[styles.photo, { height }, compact ? styles.photoCompact : null]}
       imageStyle={styles.photoImage}
     >
       <View style={styles.scrim} />
+      {photo.isPlaceholder ? (
+        <View style={[styles.placeholderBadge, compact ? styles.placeholderBadgeCompact : null]}>
+          <MaterialCommunityIcons name="image-plus" color={colors.surfaceStrong} size={compact ? 13 : 14} />
+          <Text style={[styles.placeholderBadgeText, compact ? styles.placeholderBadgeTextCompact : null]}>
+            Needs route photo
+          </Text>
+        </View>
+      ) : null}
       {!compact && showCaption ? (
         <View style={styles.caption}>
           <Text style={styles.captionKicker}>Route photos</Text>
@@ -83,6 +93,34 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textShadowColor: 'rgba(0, 0, 0, 0.28)',
     textShadowRadius: 5,
+  },
+  placeholderBadge: {
+    position: 'absolute',
+    left: spacing.sm,
+    bottom: spacing.sm,
+    minHeight: 32,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(10, 24, 29, 0.58)',
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.48)',
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  placeholderBadgeCompact: {
+    minHeight: 28,
+    paddingHorizontal: 9,
+  },
+  placeholderBadgeText: {
+    color: colors.surfaceStrong,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  placeholderBadgeTextCompact: {
+    fontSize: 10,
   },
   contributeButton: {
     position: 'absolute',

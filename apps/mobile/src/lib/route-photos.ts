@@ -6,6 +6,27 @@ interface PhotoRiver {
 }
 
 const routeGalleryImages: Record<string, string[]> = {
+  'big-fork-river-highway-6-south-north': [
+    '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
+  ],
+  'red-lake-river-smiley-bridge-centennial-park': [
+    '/gallery/red-lake-river-smiley-bridge-centennial-park/red-lake-river-red-lake-falls.jpg',
+  ],
+  'sauk-river-spring-hill-st-martin': [
+    '/gallery/sauk-river-spring-hill-st-martin/sauk-river-sartell.jpg',
+  ],
+  'cottonwood-river-juenemann-springfield': [
+    '/gallery/cottonwood-river-juenemann-springfield/cottonwood-river-flandrau.jpg',
+  ],
+  'minnesota-river-thompson-ferry-carver': [
+    '/gallery/minnesota-river-thompson-ferry-carver/carver-rapids.jpg',
+  ],
+  'north-fork-crow-river-rockford-riverside': [
+    '/gallery/north-fork-crow-river-rockford-riverside/crow-river-rockford.jpg',
+  ],
+  'south-fork-crow-river-rick-johnson-lake-rebecca': [
+    '/gallery/south-fork-crow-river-rick-johnson-lake-rebecca/south-fork-crow-river.jpg',
+  ],
   'blue-earth-river-rapidan-county-road-90': [
     '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
   ],
@@ -48,11 +69,26 @@ const routeGalleryImages: Record<string, string[]> = {
   'minnesota-river-henderson-belle-plaine': [
     '/gallery/minnesota-river-henderson-belle-plaine/minnesota-valley-refuge.jpg',
   ],
+  'mississippi-river-hidden-falls-harriet-island': [
+    '/gallery/mississippi-river-hidden-falls-harriet-island/hidden-falls-st-paul.jpg',
+  ],
   'kickapoo-river-ontario-rockton': [
     '/gallery/kickapoo-river-ontario-rockton/kickapoo-river-valley.jpg',
   ],
   'wisconsin-river-muscoda-blue-river': [
     '/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg',
+  ],
+  'kinnickinnic-river-glen-park-state-park': [
+    '/gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg',
+  ],
+  'wisconsin-river-sauk-city-arena': [
+    '/gallery/wisconsin-river-sauk-city-arena/wisconsin-river-ferry-bluff.jpg',
+  ],
+  'wisconsin-river-blue-river-boscobel': [
+    '/gallery/wisconsin-river-blue-river-boscobel/wisconsin-river-boscobel-bridge.jpg',
+  ],
+  'wisconsin-river-boscobel-bridgeport': [
+    '/gallery/wisconsin-river-boscobel-bridgeport/bridgeport-bridge-wisconsin-river.jpg',
   ],
   'milwaukee-river-newburg-fredonia': [
     '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
@@ -62,16 +98,23 @@ const routeGalleryImages: Record<string, string[]> = {
 const placeholderImages = [
   '/gallery/fallbacks/river-fallback-stream.jpg',
   '/gallery/fallbacks/river-fallback-wide.jpg',
-  '/gallery/fallbacks/river-fallback-marsh.jpg',
 ];
 
-export function photoForRiver(river: PhotoRiver) {
+export function routePhotoForRiver(river: PhotoRiver) {
   const key = `${river.riverId ?? 'route'}:${river.slug}`;
   const routeImages = routeGalleryImages[river.slug];
-  const images = routeImages?.length ? routeImages : placeholderImages;
+  const isPlaceholder = !routeImages?.length;
+  const images = isPlaceholder ? placeholderImages : routeImages;
   let hash = 0;
   for (let index = 0; index < key.length; index += 1) {
     hash = (hash * 31 + key.charCodeAt(index)) % images.length;
   }
-  return resolveApiUrl(images[hash]);
+  return {
+    uri: resolveApiUrl(images[hash]),
+    isPlaceholder,
+  };
+}
+
+export function photoForRiver(river: PhotoRiver) {
+  return routePhotoForRiver(river).uri;
 }

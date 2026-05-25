@@ -1207,7 +1207,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.score).toBeLessThanOrEqual(74);
   });
 
-  it('treats Kickapoo above 60 cfs as minimum-met while keeping the upper call conservative', () => {
+  it('treats Kickapoo in the 70 to 100 cfs sweet spot as ideal while keeping the route guarded', () => {
     expect(kickapoo).toBeDefined();
 
     const result = scoreRiverCondition({
@@ -1220,8 +1220,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
       now,
     });
 
-    expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.gaugeBand).toBe('ideal');
     expect(result.checklist.some((item) => item.label === 'Skill and access')).toBe(true);
   });
 
