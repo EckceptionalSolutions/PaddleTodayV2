@@ -8,6 +8,136 @@ export interface RouteGalleryPhoto {
 }
 
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
+  'des-moines-river-bentonsport-bonaparte': [
+    {
+      id: 'des-moines-river-bonaparte-commons',
+      src: '/gallery/des-moines-river-bentonsport-bonaparte/des-moines-river-bonaparte.jpg',
+      alt: 'The Des Moines River flows past Bonaparte riverfront buildings and the old lock structure under a bright sky.',
+      caption: 'Des Moines River at Bonaparte',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'south-skunk-river-lekwa-sopers-mill': [
+    {
+      id: 'skunk-river-iowa-commons',
+      src: '/gallery/south-skunk-river-lekwa-sopers-mill/skunk-river-iowa.jpg',
+      alt: 'The Skunk River flows between wooded banks with exposed roots and late-season leaves along the water.',
+      caption: 'Skunk River corridor in Iowa',
+      credit: 'Ken Lund via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'south-skunk-river-sleepy-hollow-river-valley': [
+    {
+      id: 'skunk-river-iowa-commons',
+      src: '/gallery/south-skunk-river-sleepy-hollow-river-valley/skunk-river-iowa.jpg',
+      alt: 'The Skunk River flows between wooded banks with exposed roots and late-season leaves along the water.',
+      caption: 'Skunk River corridor in Iowa',
+      credit: 'Ken Lund via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'south-skunk-river-sopers-mill-peterson-park': [
+    {
+      id: 'skunk-river-iowa-commons',
+      src: '/gallery/south-skunk-river-sopers-mill-peterson-park/skunk-river-iowa.jpg',
+      alt: 'The Skunk River flows between wooded banks with exposed roots and late-season leaves along the water.',
+      caption: 'Skunk River corridor in Iowa',
+      credit: 'Ken Lund via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'south-skunk-river-ames-13th-street': [
+    {
+      id: 'skunk-river-iowa-commons',
+      src: '/gallery/south-skunk-river-ames-13th-street/skunk-river-iowa.jpg',
+      alt: 'The Skunk River flows between wooded banks with exposed roots and late-season leaves along the water.',
+      caption: 'Skunk River corridor in Iowa',
+      credit: 'Ken Lund via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'middle-river-forest-park-schildberg': [
+    {
+      id: 'middle-river-iowa-upstream-commons',
+      src: '/gallery/middle-river-forest-park-schildberg/middle-river-iowa-upstream.jpg',
+      alt: 'The Middle River runs between wooded banks with a low gravel bar and overhanging trees.',
+      caption: 'Middle River in Iowa',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
+  'middle-river-schildberg-roseman': [
+    {
+      id: 'middle-river-iowa-upstream-commons',
+      src: '/gallery/middle-river-schildberg-roseman/middle-river-iowa-upstream.jpg',
+      alt: 'The Middle River runs between wooded banks with a low gravel bar and overhanging trees.',
+      caption: 'Middle River in Iowa',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
+  'upper-iowa-river-kendallville-bluffton': [
+    {
+      id: 'upper-iowa-river-new-albin-commons',
+      src: '/gallery/upper-iowa-river-kendallville-bluffton/upper-iowa-river-new-albin.jpg',
+      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
+      caption: 'Upper Iowa River bluff-country corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'upper-iowa-river-chimney-rock-malanaphy': [
+    {
+      id: 'upper-iowa-river-new-albin-commons',
+      src: '/gallery/upper-iowa-river-chimney-rock-malanaphy/upper-iowa-river-new-albin.jpg',
+      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
+      caption: 'Upper Iowa River bluff-country corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'upper-iowa-river-malanaphy-trout-run': [
+    {
+      id: 'upper-iowa-river-new-albin-commons',
+      src: '/gallery/upper-iowa-river-malanaphy-trout-run/upper-iowa-river-new-albin.jpg',
+      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
+      caption: 'Upper Iowa River bluff-country corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'maquoketa-river-mon-maq-pictured-rocks': [
+    {
+      id: 'maquoketa-river-usgs',
+      src: '/gallery/maquoketa-river-mon-maq-pictured-rocks/maquoketa-river-usgs.jpg',
+      alt: 'A person fishes from a rock in the Maquoketa River, with wooded banks and a shallow rocky channel around them.',
+      caption: 'Maquoketa River in Iowa',
+      credit: 'Mara Koenig/USFWS via USGS',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'turkey-river-big-spring-elkader': [
+    {
+      id: 'elkader-keystone-bridge-loc',
+      src: '/gallery/turkey-river-big-spring-elkader/elkader-keystone-bridge.jpg',
+      alt: 'Elkader Keystone Bridge crosses the Turkey River with stone arches, town buildings, and riverbank trees in view.',
+      caption: 'Turkey River at Elkader Keystone Bridge',
+      credit: 'HAER via Library of Congress',
+      takenLabel: 'Library of Congress: no known restrictions',
+    },
+  ],
+  'boone-river-riverside-albright': [
+    {
+      id: 'boone-river-iowa-commons',
+      src: '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+      alt: 'The Boone River bends below a wooded bank near Albright canoe access in Hamilton County, Iowa.',
+      caption: 'Boone River near Albright canoe access',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
   'big-fork-river-highway-6-south-north': [
     {
       id: 'big-fork-boat-launch-commons',
@@ -282,6 +412,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'USGS asset: public domain',
     },
   ],
+  'volga-river-osborne-mederville': [
+    {
+      id: 'mederville-bridge-volga-river-loc',
+      src: '/gallery/volga-river-osborne-mederville/mederville-bridge-volga-river.jpg',
+      alt: 'The Mederville Bridge spans the Volga River from a river-edge view, with wooded banks around the crossing.',
+      caption: 'Volga River at Mederville Bridge',
+      credit: 'Bruce A. Harms / HAER via Library of Congress',
+      takenLabel: 'Library of Congress: no known restrictions',
+    },
+  ],
   'volga-river-mederville-littleport': [
     {
       id: 'mederville-bridge-volga-river-loc',
@@ -308,6 +448,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg',
       alt: 'The Yellow River curves through a wooded valley below a high overlook in northeast Iowa.',
       caption: 'Yellow River in northeast Iowa',
+      credit: 'Yinan Chen / GoodFreePhotos via Wikimedia Commons',
+      takenLabel: 'Public domain dedication',
+    },
+  ],
+  'yellow-river-sixteen-bridge-highway-76': [
+    {
+      id: 'yellow-river-effigy-mounds-goodfreephotos',
+      src: '/gallery/yellow-river-sixteen-bridge-highway-76/yellow-river-effigy-mounds.jpg',
+      alt: 'The Yellow River curves through a wooded valley below a high overlook in northeast Iowa.',
+      caption: 'Yellow River near Effigy Mounds',
       credit: 'Yinan Chen / GoodFreePhotos via Wikimedia Commons',
       takenLabel: 'Public domain dedication',
     },

@@ -1224,3 +1224,18 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Fresh cluster check only; no new candidate was logged.
   - Why it did not yield: the official trip is real, but this pass did not surface a route-operable live gauge / threshold package strong enough to outrank the fresher river-only Mississippi holds, and the corridor is also complicated by big-lake transitions rather than a cleaner direct-gauge river day trip.
   - Revisit later only if: Mississippi Headwaters Board, MN DNR, or USGS-adjacent guidance publishes a cleaner route-level gauge model for the Cass-to-Winnie corridor.
+
+- 2026-05-26: First Missouri-first gauge pass at 09:44 America/Chicago.
+  - Re-read `src/data/rivers.ts`, `src/data/river-trip-details.ts`, this memory file, `docs/route-candidate-ledger.json`, and `docs/route-addition-requirements.md` exactly as instructed.
+  - Missouri reconciliation result: there are currently no Missouri routes in the live V2 route inventory and no prior Missouri candidate records in the structured ledger, so there was nothing to dedupe or reconcile before research.
+  - Reviewed 2 fresh Missouri candidates from 1 strong official gauge cluster:
+    - `Current River - Akers Ferry to Pulltite` -> `research_later`
+      - NPS clearly supports the route shape with named public endpoints, estimated float time, upper-Current access context, and a direct USGS gauge at Akers.
+      - Blockers: threshold support is still only an average/closure story rather than a conservative runnable model, and NPS currently says Pulltite Campground is closed for an unknown period after November 2024 flood damage, making the downstream access story too unsettled to ship.
+    - `Jacks Fork - Alley Spring to Eminence` -> `threshold_weak`
+      - NPS clearly supports the route as a standard lower-Jacks float and the Alley Spring USGS gauge is live and same-river.
+      - Blocker: the public threshold package is too conflicted between NPS average/closure markers and community floatability heuristics to produce an honest PaddleTodayV2 model.
+  - Fresh gauge clusters explored so future runs can rotate faster:
+    - `Ozark National Scenic Riverways / upper Current / Akers gauge family` -> route shape and access quality are strong, but current threshold language is still too soft and Pulltite remains closure-affected.
+    - `Ozark National Scenic Riverways / lower Jacks Fork / Alley Spring gauge family` -> route shape and live gauge are strong, but the published numeric guidance is still too inconsistent for conservative shipping.
+  - Net result: 2 Missouri candidates reviewed, 0 promoted to `likely_addable`, 0 promoted to `needs_manual_coordinates`, 0 routes added, no app code changes, and no validation run because only docs changed.

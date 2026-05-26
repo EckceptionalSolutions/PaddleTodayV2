@@ -1658,6 +1658,247 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'des-moines-river-bentonsport-bonaparte': {
+    putIn: {
+      name: 'Bentonsport Park / Bentonsport Boat Ramp',
+      latitude: 40.72454,
+      longitude: -91.85125,
+    },
+    takeOut: {
+      name: 'Bonaparte Riverfront Park / Bonaparte Boat Ramp',
+      latitude: 40.69785,
+      longitude: -91.80552,
+    },
+    logistics: {
+      distanceLabel: '3.6 to 5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, plus time for rock bars and historic stops',
+      shuttle:
+        'Use a short two-car shuttle between Bentonsport Park and Bonaparte Riverfront / City Park. The road shuttle follows local roads in Van Buren County and is short enough that most groups will spend more time staging boats than driving.',
+      permits:
+        'No route-specific paddling permit is known. Follow Van Buren County, City of Bonaparte, and posted Lower Des Moines River Water Trail access rules at both ramps.',
+      camping:
+        'Bentonsport Park has county campground facilities nearby, but treat camping as a separate reservation or county-park plan rather than part of the day paddle. Bonaparte is best treated as a take-out and town stop.',
+      summary:
+        'Launch at Bentonsport Park and paddle the Lower Des Moines River downstream to Bonaparte Riverfront Park. This short historic-village segment is best when lower water exposes riffles, rock bars, and geode-hunting stops without making the route a scrape-heavy walk.',
+      accessCaveats: [
+        'Bentonsport Park is a county park with a public boat ramp on the Lower Des Moines River Water Trail, but the saved coordinate is park/access-area context rather than a ramp-survey point.',
+        'Bonaparte Riverfront / City Park is the public riverfront take-out context; use posted local signs for the exact boat-ramp approach and parking.',
+        'The Des Moines River is meandered here, but private property begins above the ordinary high-water mark. Keep stops to legal bars, public parkland, and clearly public access areas.',
+      ],
+      watchFor: [
+        'Old lock-and-dam remnants and riffles near Bentonsport and Bonaparte, especially when low water exposes more rock.',
+        'Walking or dragging boats when the Keosauqua gauge is around 700 to 800 cfs or lower.',
+        'Rock bars disappearing and current getting less beginner-friendly above roughly 6,000 cfs on the Keosauqua gauge.',
+        'Large-river wind, floating debris after rain, motorboat traffic, and soft or muddy landings.',
+      ],
+    },
+  },
+  'south-skunk-river-lekwa-sopers-mill': {
+    putIn: {
+      name: 'Lekwa Access #242',
+      latitude: 42.1819,
+      longitude: -93.5708,
+    },
+    takeOut: {
+      name: "Soper's Mill Access #235",
+      latitude: 42.1044299,
+      longitude: -93.5754935,
+    },
+    logistics: {
+      distanceLabel: 'About 7.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, plus scouting or portage time',
+      shuttle:
+        "Use a two-car shuttle between Lekwa Access on 130th Street / E-18 south of Story City and Soper's Mill on 170th Street north of Ames. The road shuttle is straightforward, but scout the Soper's Mill take-out and riffle before launching.",
+      permits:
+        'No route-specific paddling permit is known. Follow posted Story County Conservation rules and park hours at both access areas.',
+      camping:
+        'Treat this as a day route. No on-route camping is assumed, and most adjoining land outside public access and greenbelt areas is private.',
+      summary:
+        "Launch at Lekwa Access and paddle the official South Skunk River Water Trail downstream through the Story County greenbelt to Soper's Mill. This is a scenic but guarded above-Ames run where enough water, wood scouting, and private-bank discipline matter more than mileage.",
+      accessCaveats: [
+        'Lekwa Access is a public county water-trail access near the E-18 / 130th Street bridge; the saved point is an access-area coordinate anchored to the named access, address, and bridge corridor rather than a ramp-survey point.',
+        "Soper's Mill is a public Story County access with launch options above or below the constructed riffle; decide where to land based on level, skill, and posted access signs.",
+        'The South Skunk is non-meandered through this corridor; stay with public accesses and confirmed greenbelt or parkland rather than assuming banks are public.',
+      ],
+      watchFor: [
+        "Log jams and fresh strainers, which county guidance says are usual between Story City and Soper's Mill.",
+        'Shallow rock riffles and scraping when the Ames gauge is below the local 125 cfs floor.',
+        "The constructed Soper's Mill riffle at the take-out, especially if the gauge is high, rising, or muddy.",
+        'Limited intermediate exits and private-bank constraints between public access points.',
+      ],
+    },
+  },
+  'south-skunk-river-sleepy-hollow-river-valley': {
+    putIn: {
+      name: 'Sleepy Hollow access / W Riverside Road',
+      latitude: 42.06658,
+      longitude: -93.62025,
+    },
+    takeOut: {
+      name: 'River Valley Park access, Ames',
+      latitude: 42.03535,
+      longitude: -93.59895,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime: 'About 1 hr to 1 hr 45 min',
+      shuttle:
+        'Use a short two-car shuttle between Sleepy Hollow on W Riverside Road and River Valley Park on 13th Street. The road shuttle is simple, but parking can compete with park and ballfield use.',
+      permits:
+        'No route-specific paddling permit is known. Follow Story County / City of Ames access rules and posted park hours.',
+      camping:
+        'Treat this as a short day run. No route camping is indicated, and much adjoining land is private.',
+      summary:
+        'Launch at Sleepy Hollow beside the South Skunk near Ames gauge and finish at River Valley Park. This is a compact north Ames water-trail segment with enough riffle and dam-mitigation context to deserve a same-day gauge and hazard check.',
+      accessCaveats: [
+        'Sleepy Hollow is listed as a public water-trail access at W Riverside Road, and the saved coordinate is anchored to the adjacent USGS gauge / bridge corridor.',
+        'River Valley Park is an official City of Ames park with boat access, but the saved take-out point is an access-area coordinate from named park and map context rather than a published ramp GIS point.',
+        'The South Skunk is non-meandered through this corridor; use public accesses and confirmed public parkland rather than assuming banks are public.',
+      ],
+      watchFor: [
+        'Shallow rock riffles and scraping when the gauge is below the local 125 cfs floor.',
+        'Fresh wood, sweepers, and fast-changing muddy banks after storms.',
+        'The 13th Street mitigated-dam / paddler-passage feature at River Valley Park; scout if levels or skills are uncertain.',
+      ],
+    },
+  },
+  'south-skunk-river-sopers-mill-peterson-park': {
+    putIn: {
+      name: "Soper's Mill Access #235",
+      latitude: 42.1044299,
+      longitude: -93.5754935,
+    },
+    takeOut: {
+      name: 'Peterson Park West Access #233',
+      latitude: 42.0847077,
+      longitude: -93.5974389,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime: 'About 1 hr to 1.5 hr',
+      shuttle:
+        "Use a short two-car shuttle between Soper's Mill on 170th Street and Peterson Park West on 180th Street. The road shuttle is simple, but scout Peterson's river access before launching because the broader park also includes ponds and a beach.",
+      permits:
+        'No route-specific paddling permit is known. Follow posted Story County Conservation rules and park hours at both access areas.',
+      camping:
+        'Treat this as a short day route. No on-route camping is assumed, and much adjoining land is private.',
+      summary:
+        "Launch at Soper's Mill Access and paddle the official South Skunk River Water Trail downstream to Peterson Park West Access. This short wooded Story County leg has a renovated launch, a constructed riffle at Soper's Mill, gravel riffles, and enough wood potential to require a same-day gauge and hazard check.",
+      accessCaveats: [
+        "Soper's Mill has north and south parking areas; use the south/water-trail access for the paddle launch, and choose above or below the constructed riffle based on level and skill.",
+        'Peterson Park West is a public Story County park with Skunk River Water Trail Canoe Access, but the saved coordinate is park/access-area context rather than a published ramp GIS point.',
+        'The South Skunk is non-meandered through this corridor; stay with public accesses and confirmed parkland rather than assuming banks are public.',
+      ],
+      watchFor: [
+        "The constructed Soper's Mill riffle and other shallow rock riffles, especially below the 125 cfs local floor.",
+        'Trees, sweepers, and strainers that can change after storms or volunteer clearing work.',
+        'Faster, muddier current when the Ames gauge is high or rising; no trusted source found gives a broad recreational upper band for this route.',
+      ],
+    },
+  },
+  'south-skunk-river-ames-13th-street': {
+    putIn: {
+      name: 'River Valley Park / 13th Street play feature',
+      latitude: 42.03535,
+      longitude: -93.59895,
+    },
+    takeOut: {
+      name: 'River Valley Park / walk-back access',
+      latitude: 42.03535,
+      longitude: -93.59895,
+    },
+    logistics: {
+      distanceLabel: '0.074 mi / play-park laps',
+      estimatedPaddleTime: 'Play-park session; laps vary by level and skill',
+      shuttle:
+        'No vehicle shuttle is needed for normal play sessions. Park at River Valley Park on 13th Street, scout from shore, and use the public park access and walk-back paths for repeated laps.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Ames park hours, posted signs, and South Skunk River Water Trail access rules.',
+      camping:
+        'Treat this as a short day-use play feature. No on-route camping is assumed, and nearby banks outside public parkland may be private.',
+      summary:
+        'Use the 13th Street mitigated low-head-dam feature in North River Valley Park for a compact South Skunk whitewater skills session. American Whitewater ties the feature to the South Skunk near Ames gauge and describes 400+ cfs as the level where surfing and spins appear.',
+      accessCaveats: [
+        'This is a play feature inside River Valley Park rather than a downstream shuttle route; use the same public park area for launch, take-out, scouting, and walking back.',
+        'The saved coordinate is an access-area coordinate from the existing River Valley Park / Story County #227 route context, not a surveyed eddy or ramp point.',
+        'City of Ames lists boat access at River Valley Park, and Story County lists River Valley Park #227 as a South Skunk River Water Trail access, but paddlers should still follow posted signs and avoid informal private-bank exits.',
+      ],
+      watchFor: [
+        'Shallow rock features that can punish missed rolls or upside-down impacts, even when the gauge is high enough for play.',
+        'Fast rises, muddy water, and debris after rain on the South Skunk watershed.',
+        'Tubers, casual swimmers, anglers, and park users near the 13th Street feature; American Whitewater reports specifically caution against tubing this feature.',
+        'Low-water scraping below the 400 cfs play threshold and pushier, less forgiving hydraulics during high or rising water.',
+      ],
+    },
+  },
+  'middle-river-forest-park-schildberg': {
+    putIn: {
+      name: 'Middle River Forest Park Access #89',
+      latitude: 41.352351,
+      longitude: -94.281724,
+    },
+    takeOut: {
+      name: 'Schildberg Access #78 / Highway 92',
+      latitude: 41.31736,
+      longitude: -94.213296,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr depending on level and scouting',
+      shuttle:
+        'Use a rural two-car shuttle between Middle River Forest Area near 200th Street and Schildberg Access on Highway 92. Expect gravel-road approaches and confirm parking layout at both access areas before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Adair County, Madison County, and posted water-trail access rules.',
+      camping:
+        'Middle River Forest Area has primitive camping support, but this route should still be planned as a day paddle unless camping is separately confirmed with Adair County Conservation.',
+      summary:
+        'Launch from Middle River Forest Park Access #89 and take out at Schildberg Access #78. This is the first developed Middle River Water Trail leg, with a real official flow band but enough riffles, bends, and ledges to require same-day judgment.',
+      accessCaveats: [
+        'Middle River Forest Park is the official water-trail trailhead and has a carry-down canoe access; the saved point is converted from the official UTM access table.',
+        'Schildberg Access is a Highway 92 walk-down access on river left near the northeast bridge corner; identify the take-out before continuing toward Roseman Covered Bridge.',
+        'The Indianola gauge is the official flow reference for Adair / Madison County, but it is downstream of this first leg, so recent local rain and visual scouting still matter.',
+      ],
+      watchFor: [
+        'Numerous bends, riffles, occasional chutes, and ledges, especially outside the 600-900 cfs optimum band.',
+        'Fallen trees, strainers, and changing gravel or rock lines after high water.',
+        'Low-water dragging and high-water push that can make this moderate route more consequential than the mileage suggests.',
+      ],
+    },
+  },
+  'middle-river-schildberg-roseman': {
+    putIn: {
+      name: 'Schildberg Access #78 / Highway 92',
+      latitude: 41.31736,
+      longitude: -94.213296,
+    },
+    takeOut: {
+      name: 'Roseman Covered Bridge Access #71',
+      latitude: 41.292917,
+      longitude: -94.149879,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 3 hr 30 min depending on level and scouting',
+      shuttle:
+        'Use a short rural vehicle shuttle between the Highway 92 Schildberg access and Roseman Bridge Road / Elmwood Avenue. Follow posted water-trail signs and confirm parking before unloading.',
+      permits:
+        'No route-specific paddling permit is known. Follow Madison County and posted Middle River Water Trail access rules.',
+      camping:
+        'No on-route camping is documented for this short leg. Nearby Pammel Park has developed camping, but plan this as a day paddle unless you reserve separate lodging.',
+      summary:
+        'Launch from Schildberg Access #78 and take out at Roseman Covered Bridge Access #71. This official Middle River Water Trail section is short enough for a focused half-day, but the chutes, riffles, and shale ledge keep it more technical than a simple float.',
+      accessCaveats: [
+        'Schildberg is a walk-down canoe/kayak access on river left near the northeast corner of the Highway 92 bridge.',
+        'Roseman is a paved carry-down access at the covered bridge area; use the signed water-trail access rather than informal bridge-bank paths.',
+        'The Indianola gauge is the official flow reference for Adair / Madison County but is downstream, so local rainfall and on-site scouting still matter.',
+      ],
+      watchFor: [
+        'Scattered chutes and riffles across timbered valleys and pasture bends.',
+        'A moderately challenging shale ledge a few hundred yards upstream of the P53 bridge.',
+        'Fallen trees, strainers, low-water dragging, and high-water push outside the 600-900 cfs optimum band.',
+      ],
+    },
+  },
   'black-hawk-creek-hudson-waterloo': {
     putIn: {
       name: 'Franck Park (Access 15), Hudson',
@@ -1944,29 +2185,29 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'upper-iowa-river-kendallville-decorah': {
+  'upper-iowa-river-kendallville-bluffton': {
     putIn: {
       name: 'Kendallville Park Canoe Access',
       latitude: 43.44202,
       longitude: -92.03809,
     },
     takeOut: {
-      name: 'Ice Cave Hill Park / Decorah canoe access',
-      latitude: 43.30667,
-      longitude: -91.78813,
+      name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+      latitude: 43.3996,
+      longitude: -91.8884,
     },
     logistics: {
       distanceLabel: '16.5 mi',
       estimatedPaddleTime: 'About 5 hr 30 min to 7 hr 30 min',
       shuttle:
-        'Arrange a car shuttle between Kendallville and Decorah or use an outfitter.',
-      permits: 'No permit is known for a basic day paddle. Follow county-park and city-park access rules at Kendallville and the Decorah finish.',
+        'Arrange a car shuttle between Kendallville and Bluffton or use an outfitter. The road shuttle is scenic but narrow, winding, and poor for casual bike shuttles.',
+      permits: 'No permit is known for a basic day paddle. Follow county-park, water-trail, and state-preserve access rules at Kendallville and Bluffton Fir Stand.',
       camping:
         'Kendallville is a convenient campground staging point. Other overnight options exist along the corridor if you plan ahead.',
       summary:
-        'This is a long Driftless day with county-park staging at Kendallville and a Decorah finish. Low water hurts trip quality well before it becomes unsafe.',
+        'This is a long Driftless day with county-park staging at Kendallville and a Bluffton Palisades finish. Low water hurts trip quality well before it becomes unsafe.',
       accessCaveats: [
-        'Kendallville is a strong staging access with county campground support, and Decorah park materials show canoe access at the city finish, but parking layout still deserves a same-day look.',
+        'Kendallville is a strong staging access with county campground support, and the Upper Iowa River Paddler\'s Guide identifies Bluffton Fir Stand Access at the downstream end of this segment.',
         'This is a long day for beginners, so consider splitting it if your group is new.',
       ],
       watchFor: [
@@ -2007,6 +2248,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Scraping in riffles near or below 150 cfs at the Bluffton gauge.',
         'Pushy current at roughly 700 cfs and above, plus faster consequences around wood, bridge approaches, and crowded landings.',
         'Minor Class I riffles, strainers after storms, cold-water exposure outside midsummer, and private-bank boundaries along the corridor.',
+      ],
+    },
+  },
+  'upper-iowa-river-chimney-rock-malanaphy': {
+    putIn: {
+      name: 'Chimney Rock Road bridge / Chimney Rock Park access',
+      latitude: 43.42156,
+      longitude: -91.93467,
+    },
+    takeOut: {
+      name: 'Malanaphy Springs / Bluffton Road bridge access',
+      latitude: 43.34508,
+      longitude: -91.843,
+    },
+    logistics: {
+      distanceLabel: '13.75 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr, plus stops for bluffs and Malanaphy Springs',
+      shuttle:
+        'Use a car or local outfitter shuttle between Chimney Rock Road and the Malanaphy Springs / Bluffton Road bridge area. Treat a bike shuttle as a poor default because local roads are hilly, narrow, and partly gravel.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats; follow posted access, state-preserve, county-road, and private campground rules.',
+      camping:
+        'Private campgrounds and outfitters line the Bluffton corridor, but no public watercraft campsite is assumed for this route. Arrange any camping or private landing use separately before launch.',
+      summary:
+        'Launch at Chimney Rock Road and paddle the long scenic Upper Iowa leg through Bluffton-area palisades, riffles, springs, and the Malanaphy Springs corridor to the Bluffton Road bridge take-out.',
+      accessCaveats: [
+        'Chimney Rock Road is a bridge/park access used by paddlers, but confirm current parking and launch bank condition before unloading.',
+        'Malanaphy Springs is a state-preserve area with a trailhead and river corridor access context; use posted parking and avoid treating adjacent private campground land as public.',
+        'This route passes many private campgrounds and banks. Stay with known accesses and public river stops unless you have permission.',
+      ],
+      watchFor: [
+        'Scraping and dragging in riffles when the Bluffton gauge is near or below 150 cfs.',
+        'Long mileage, sun exposure, summer livery traffic, and limited easy bailouts once committed downstream.',
+        'Strainers after storms, faster pushy current on rising water, cold spring water, and private-bank boundaries along the corridor.',
+      ],
+    },
+  },
+  'upper-iowa-river-malanaphy-trout-run': {
+    putIn: {
+      name: 'Malanaphy Springs / Bluffton Road bridge access',
+      latitude: 43.34508,
+      longitude: -91.843,
+    },
+    takeOut: {
+      name: 'Trout Run Park boat access',
+      latitude: 43.29092,
+      longitude: -91.75884,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, plus stops in the Decorah corridor',
+      shuttle:
+        'Use a car or local outfitter shuttle between the Malanaphy Springs / Bluffton Road access area and Trout Run Park. The route runs into Decorah, but the road shuttle still uses hilly rural roads and city-edge traffic.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats; follow posted state-preserve, county-road, city-park, and private-bank rules.',
+      camping:
+        'Treat this as a day route. Private campgrounds and Decorah lodging are nearby, but no public watercraft campsite is assumed along this leg.',
+      summary:
+        'Launch at the Malanaphy Springs / Bluffton Road bridge area and take out at Trout Run Park for an Upper Iowa route that starts rural, passes Chattahoochie Park and Decorah bluffs, and finishes at a city park with boat access.',
+      accessCaveats: [
+        'Malanaphy Springs access is usable but limited; expect a small lot, a muddy or steep carry, and conflicts with hikers on busy days.',
+        'If the Malanaphy lot is full, the downstream Pole Line Road bridge access is the cleaner fallback, but it shortens the route.',
+        'Trout Run Park is the planned take-out because it has published boat access and parking where Trout Run enters the Upper Iowa River.',
+      ],
+      watchFor: [
+        'Scraping and dragging in riffles when the Bluffton gauge is near or below 125 cfs.',
+        'Class I riffles, shallow rock, bridge approaches, and city-park traffic through Decorah.',
+        'Fresh strainers after storms, faster current on rising water, cold spring inflows, and private-bank boundaries along the corridor.',
       ],
     },
   },
@@ -4385,6 +4694,109 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'volga-river-osborne-mederville': {
+    putIn: {
+      name: 'Osborne Canoe Access',
+      latitude: 42.7897657,
+      longitude: -91.442417,
+    },
+    takeOut: {
+      name: 'Mederville Canoe Access',
+      latitude: 42.7637267,
+      longitude: -91.4218817,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 to 5.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on level and stops',
+      shuttle:
+        'Use a short rural two-car shuttle between Osborne Canoe Access and the hidden Mederville landing. The road shuttle is manageable for northeast Iowa, but both ends are easy to miss, so scout the Mederville take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Clayton County Conservation rules at Osborne Canoe Access and use only established bridge-area or canoe-access landings at Mederville.',
+      camping:
+        'No on-route campsite is documented for this short day route. Osborne Park and nearby Clayton County areas should be treated as separate camping or base-camp planning.',
+      summary:
+        'Launch at Clayton County\'s Osborne Canoe Access and paddle the lower Volga to Mederville Canoe Access. Expect clear water, gravel bars, wooded hills, light Class I riffles, and a scenic gorge/bridge finish at Mederville.',
+      accessCaveats: [
+        'Osborne Canoe Access is the cleaner public put-in than the rougher Highway 13 bridge launch, but the access road can still be hard to identify inside the broader Osborne Park complex.',
+        'Mederville Canoe Access is hidden below the Evergreen Road / Eclipse Road bridge corridor and uses a steep path to the river.',
+        'Much of the corridor is rural and privately bordered. Stay with established access points and do not assume sandbars or banks are public picnic sites.',
+      ],
+      watchFor: [
+        'Several light Class I riffles below Osborne and again near the Mederville gorge.',
+        'Shallow riffles and scrape risk when the Littleport gauge falls below the target band.',
+        'Low branches, faster current around bends, slippery banks at Mederville, cold shoulder-season water, and fast rises after heavy rain.',
+      ],
+    },
+  },
+  'maquoketa-river-mon-maq-pictured-rocks': {
+    putIn: {
+      name: 'Mon-Maq Dam Access / Lower Mon-Maq sandbar launch',
+      latitude: 42.24511929,
+      longitude: -91.17077245,
+    },
+    takeOut: {
+      name: 'Pictured Rocks Park Access',
+      latitude: 42.20569962,
+      longitude: -91.10253825,
+    },
+    logistics: {
+      distanceLabel: '8 to 8.1 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 4.5 hr depending on level and stops',
+      shuttle:
+        'Use a two-car shuttle between Mon-Maq Dam Access northeast of Monticello and Pictured Rocks Park southeast of town. The road shuttle is short enough for a bike shuttle, but the Pictured Rocks park road is steep and can be seasonally gated after snow.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Jones County Conservation and Iowa DNR water-trail rules at Mon-Maq Dam, Pictured Rocks, and the surrounding wildlife areas.',
+      camping:
+        'Do not plan on river camping for this day route unless a separate legal campsite or county permission is confirmed. Pictured Rocks is best treated as a day-use take-out and hiking/climbing area.',
+      summary:
+        'Launch from the sandbar access below Mon-Maq Dam and paddle the classic lower-Maquoketa bluff section to the hard-surface Pictured Rocks Park access. Expect steady current, wooded banks, limestone outcrops, public wildlife-area scenery, and a popular take-out with parking and restrooms.',
+      accessCaveats: [
+        'The practical put-in is below the Mon-Maq Dam, not above it. Use the lower sandbar/access area and stay clear of dam hydraulics.',
+        'Pictured Rocks has hard-surface river access, parking, restrooms, and water in the water-trail guide, but Jones County notes the steep access road is typically closed after the first snowfall.',
+        'Summer weekends can be busy because this is one of the better-known lower-Maquoketa bluff runs and Pictured Rocks also draws hikers and climbers.',
+      ],
+      watchFor: [
+        'Shallow gravel bars and grounding risk below about 500 cfs on the Maquoketa near Maquoketa gauge.',
+        'Eight miles of moving water, which the official guide says can be long for beginners even though the section is not technical.',
+        'Pushier, dirtier current above about 2,000 cfs, especially around outside bends, wood, bridge areas, and the Pictured Rocks landing.',
+        'Private-property boundaries between public access areas and wildlife-area frontage.',
+      ],
+    },
+  },
+  'volga-river-klocks-island-heron-road': {
+    putIn: {
+      name: "Klock's Island Park",
+      latitude: 42.84288,
+      longitude: -91.81917,
+    },
+    takeOut: {
+      name: 'Heron Road Access / Volga River Access',
+      latitude: 42.86453,
+      longitude: -91.74071,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level and scouting',
+      shuttle:
+        "Use a two-car shuttle between Klock's Island Park in Fayette and the Heron Road bridge east of Volga River State Recreation Area. The bike shuttle is possible but hilly and partly gravel/trail; most paddlers should treat this as a vehicle shuttle.",
+      permits:
+        "No route-specific paddling permit is known. Follow posted City of Fayette and Iowa DNR Volga River State Recreation Area rules, and use only established river access points or confirmed public parkland for stops.",
+      camping:
+        "Klock's Island Park and Volga River State Recreation Area have campground options nearby, but treat camping as a separate city or Iowa DNR reservation/fee plan rather than part of the river route.",
+      summary:
+        "Launch at Klock's Island Park on the edge of Fayette and paddle the upper Volga into Volga River State Recreation Area to the Heron Road access. This is a clear, scenic, shallow-water route with steady riffles, limestone bluffs, public-land scenery, and a narrow strainer-prone finish.",
+      accessCaveats: [
+        "Klock's Island has public kayak/canoe access, but the saved point comes from route-report GPS rather than a city GIS launch point; orient inside the park before unloading.",
+        'Heron Road is a dedicated but subtle landing downstream of the bridge on river left. The named Volga River Access topo feature corroborates the corridor, but scout the take-out before launching.',
+        'A state-park picnic-area access roughly a mile upstream of Heron Road can shorten the trip and avoid the messier final mile if levels, wood, or daylight are unfavorable.',
+      ],
+      watchFor: [
+        'Scraping and boat abuse when the Littleport gauge drops below the 5.0 ft route floor; below 4.5 ft should be avoided.',
+        'Fast narrow bends, concrete debris from old railroad/bridge features, and strainers in the last mile above Heron Road.',
+        'Cold shoulder-season water, spring access/trail issues in Volga River State Recreation Area, and fast rises after northeast Iowa storms.',
+      ],
+    },
+  },
   'volga-river-mederville-littleport': {
     putIn: {
       name: 'Mederville Canoe Access',
@@ -4416,6 +4828,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'About 15 easy Class I riffle pitches that become scrape-prone near the low band and pushier above the broad target window.',
         'Low branches over faster current, especially after storms or when the Littleport gauge is in the high band.',
         'Steep, slippery banks and stairs at both landings, cold spring/fall water, and fast rises after heavy rain in the Driftless hills.',
+      ],
+    },
+  },
+  'turkey-river-big-spring-elkader': {
+    putIn: {
+      name: 'Big Spring Campground / Water Trail Access #47',
+      latitude: 42.91229,
+      longitude: -91.483,
+    },
+    takeOut: {
+      name: 'Elkader Access #39A / Sandpit Road',
+      latitude: 42.8618,
+      longitude: -91.40877,
+    },
+    logistics: {
+      distanceLabel: '7.25 to 7.6 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 3 hr 30 min',
+      shuttle:
+        'Use a rural paved-and-gravel shuttle between Big Spring Campground northwest of Elkader and Elkader Access #39A off Sandpit Road. Avoid bike shuttles unless the rider is comfortable with hilly gravel roads and local traffic.',
+      permits:
+        'No route-specific paddling permit is known. Big Spring Campground is a Clayton County / MyCountyParks facility, so follow posted campground, parking, and day-use rules.',
+      camping:
+        'Big Spring Campground has primitive reservable campsites near the put-in. Frieden Park just downstream has rough camping and canoe access; confirm current Clayton County rules before planning an overnight.',
+      summary:
+        'Launch at Big Spring Campground / Access #47 and take out at Elkader Access #39A for the official lower pre-dam Turkey River water-trail leg. This is the shorter, more reliable half of the Elgin-to-Elkader corridor because Big Spring adds coldwater flow before the river bends into Elkader.',
+      accessCaveats: [
+        'Big Spring Campground is the cleaner public put-in for this route; nearby Frieden Park #46 is another official access about a half mile downstream if logistics require it.',
+        'Elkader Access #39A is upstream of the Elkader dam. Watch for water-trail signs, land on river left, and do not continue toward the dam unless you are intentionally portaging around it.',
+        'The Elkader landing can be a skinny sand-and-mud path rather than a developed ramp, so carrying boats up the bank may be awkward at low or high water.',
+      ],
+      watchFor: [
+        'Scrapey riffles and gravel bars near and below 220 cfs on the Elkader gauge.',
+        'Abandoned car debris, wood piles, and strainers along outside bends.',
+        'Wind through the wider valley, shallow side channels, and the current slowing as the Elkader dam pool begins.',
+        'Mandatory take-out / portage behavior at Elkader; never pass posted dam warnings.',
       ],
     },
   },
@@ -4453,6 +4900,177 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'little-turkey-river-gouldsburg-eldorado': {
+    putIn: {
+      name: 'Gouldsburg Park Access #98',
+      latitude: 43.012796,
+      longitude: -91.958595,
+    },
+    takeOut: {
+      name: 'Eldorado Bridge Access #86 / Highway 150',
+      latitude: 43.0513,
+      longitude: -91.83966,
+    },
+    logistics: {
+      distanceLabel: '12.2 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level and scouting',
+      shuttle:
+        'Use a rural two-car shuttle between Gouldsburg Park on Sunset Road and the Highway 150 / 292nd Street bridge access at Eldorado. Scout the Eldorado take-out before launching because the river confluence and bridge come up quickly near the end.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Fayette County park, Turkey River Water Trail, and bridge/access parking rules at Gouldsburg Park and Eldorado.',
+      camping:
+        'Gouldsburg Park has county campground facilities, but treat camping as a separate Fayette County park plan rather than an assumed part of the paddle.',
+      summary:
+        'Launch at Gouldsburg Park, the official upper end of the Turkey River Water Trail, and follow the Little Turkey River downstream to Eldorado Bridge Access shortly after the confluence with the main Turkey River.',
+      accessCaveats: [
+        'Gouldsburg Park is the official water-trail start, but Miles Paddled notes the practical launch inside the park can be ambiguous; identify the carry path near the campground before unloading boats.',
+        'The Highway 150 / 292nd Street take-out at Eldorado replaced older nearby access references that are no longer public. Use the signed/current public access, not older bridge or private-bank descriptions.',
+        'The Eldorado gauge is downstream of the Little Turkey confluence, so use it as a conservative route-corridor indicator rather than a perfect reach-specific forecast.',
+      ],
+      watchFor: [
+        'Seasonal barbed-wire or fence strands around Gouldsburg Park and downstream pasture crossings; portage rather than ducking under wire in current.',
+        'Scrapey riffles and shallow gravel bars when the Eldorado gauge falls below the 6 ft floor.',
+        'Fast rises, debris, low branches, and stronger bridge/confluence current after storms in this small Driftless watershed.',
+      ],
+    },
+  },
+  'north-fork-maquoketa-river-ozark-caven': {
+    putIn: {
+      name: 'Ozark Bridge / 21st Ave access area',
+      latitude: 42.19,
+      longitude: -90.87,
+    },
+    takeOut: {
+      name: 'Caven Bridge Access / 60th Ave',
+      latitude: 42.18,
+      longitude: -90.83,
+    },
+    logistics: {
+      distanceLabel: '4.4 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with bluff stops or low water',
+      shuttle:
+        'Use a short but hilly gravel-road two-car shuttle between the 21st Ave / 185th Street access area and the east-bank Caven Bridge Access at 60th Ave. Scout the take-out first because the old bridge is gone and west-bank use is private.',
+      permits:
+        'No route-specific paddling permit is known. Follow Jackson County water-trail signs, posted road-right-of-way rules, and Ozark Wildlife Area restrictions.',
+      camping:
+        'Do not assume legal river camping on this short route. Jackson County lists primitive camping for some water-trail contexts, but site permission and land ownership should be confirmed separately before planning an overnight.',
+      summary:
+        'Launch from the Ozark Bridge / 21st Ave access area near 185th Street and take out at the east-bank Caven Bridge Access on 60th Ave. This short Ozark Wildlife Area route has fast current, easy riffles, boulders, and steep Driftless bluffs.',
+      accessCaveats: [
+        'Ozark Bridge is an undeveloped access rather than a managed ramp. Jackson County marks it as not managed by JCCB, and WRT describes using a public pull-off and faint trail near 185th Street instead of the tall bridge bank.',
+        'Caven Bridge Access is the named public take-out at 60th Ave, but the bridge has been removed. Use the east-bank public side; WRT notes the west bank is private and requires permission.',
+        'Coordinates come from Jackson County water-trail table coordinates rounded to two decimals. Use road names, signs, and same-day scouting to pinpoint the practical launch and carry-out paths.',
+      ],
+      watchFor: [
+        'Swift current and light Class I riffles immediately downstream of the put-in that become pushier above the target range.',
+        'Muddy undeveloped banks at both ends, plus steep bridge-area approaches and limited roadside maneuvering on gravel roads.',
+        'Cold shoulder-season water, fast rises after heavy rain, and private-property boundaries around road-right-of-way and west-bank access.',
+      ],
+    },
+  },
+  'boone-river-riverside-albright': {
+    putIn: {
+      name: 'Riverside Park Access',
+      latitude: 42.4677519,
+      longitude: -93.8118872,
+    },
+    takeOut: {
+      name: "Albright's Canoe Access",
+      latitude: 42.4054,
+      longitude: -93.8099,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr depending on level and stops',
+      shuttle:
+        "Use a two-car shuttle from Riverside Park in Webster City to Albright's Canoe Access on Inkpaduta Avenue. Briggs Woods is a logical mid-route exit if the full eight-mile day is too long.",
+      permits:
+        'No route-specific paddling permit is known. Use established water-trail accesses and respect private land outside marked public sites.',
+      camping:
+        'Do not assume gravel-bar camping on this navigable non-meandered stream. Briggs Woods Park has separate camping/cabin options, but those require normal park planning.',
+      summary:
+        "Launch at Riverside Park Access in Webster City and paddle through the Boone River Trail / Briggs Woods corridor to Albright's Canoe Access. Expect wooded banks, riffles, boulders, and a faster second half below Briggs Woods.",
+      accessCaveats: [
+        'Riverside Park is a city park access rather than a large outfitter landing. Locate the river access and parking before unloading.',
+        "Albright's Canoe Access is managed by Hamilton County Conservation for Iowa DNR and is the cleanest public endpoint for the full Webster City-to-Albright day.",
+        'The Boone is navigable, but adjacent land and streambed outside public access areas can be private. Stay with marked public sites for launching, stopping, and taking out.',
+      ],
+      watchFor: [
+        'Strainers in the Riverside-to-Briggs Woods section, especially after storms and high water.',
+        'Rocks, boulders, riffles, and moderately swift current between Briggs Woods and Albright at normal levels.',
+        'Low-head dam and ledge hazards in the broader Webster City / Briggs Woods corridor; scout and portage any structure that is not clearly safe at the day\'s flow.',
+      ],
+    },
+  },
+  'cedar-river-charles-city-whitewater': {
+    putIn: {
+      name: 'Charles City Whitewater Park put-in / Riverside Park',
+      latitude: 43.064968,
+      longitude: -92.677829,
+    },
+    takeOut: {
+      name: 'Charles City Whitewater Park take-out / Riverside Park',
+      latitude: 43.064968,
+      longitude: -92.677829,
+    },
+    logistics: {
+      distanceLabel: '0.3 mi / 1,200 ft',
+      estimatedPaddleTime: 'Play-park session; laps vary by level and skill',
+      shuttle:
+        'No road shuttle is needed for normal park laps. Stage at Riverside Park / Riverfront Park in downtown Charles City and use the signed park exits and eddies to lap the features.',
+      permits:
+        'No route-specific paddling fee is known. The park is free to use; follow posted Riverside Park and whitewater-course signs.',
+      camping:
+        'Riverside camping is available nearby through R Campground, but treat that as a separate lodging reservation rather than an assumed route amenity.',
+      summary:
+        'Use the downtown Charles City Whitewater Park access at Riverside Park for a compact Cedar River play session. The course has three constructed features, large eddies, and a direct Charles City gauge.',
+      accessCaveats: [
+        'This is a whitewater play park, not a beginner float route. Wear a properly fitted PFD and helmet and match the feature to your skill level.',
+        'Iowa Whitewater publishes the same GPS coordinate for put-in and take-out because normal use is a park session with repeated feature laps.',
+        'Read posted signage and scout from shore before entering; course hydraulics and eddy access change substantially across the gauge range.',
+      ],
+      watchFor: [
+        'A large dangerous dam upstream of the whitewater park; do not paddle upstream into the dam hazard.',
+        'Minimal eddy access and random waves/holes above 8,000 cfs, which Iowa Whitewater describes as solid-whitewater-skill territory.',
+        'Shallow feature impacts at low levels, fast rises after rain, tubers and spectators in warm weather, and aging feature performance noted by American Whitewater.',
+      ],
+    },
+  },
+  'maquoketa-river-manchester-whitewater': {
+    putIn: {
+      name: 'Manchester Whitewater Park access / 300 West Main Street',
+      latitude: 42.482137,
+      longitude: -91.458424,
+    },
+    takeOut: {
+      name: 'Manchester Whitewater Park take-out / walk-back trail',
+      latitude: 42.482137,
+      longitude: -91.458424,
+    },
+    logistics: {
+      distanceLabel: 'About 800 to 1,000 ft',
+      estimatedPaddleTime: 'Play-park session; laps vary by level and skill',
+      shuttle:
+        'No vehicle shuttle is needed for normal park laps. Park at 300 West Main Street, use the access near the first feature, and walk the paved trail back upstream between laps.',
+      permits:
+        'No route-specific paddling fee is known. The city says the park is open to the public with no cost or admission; follow posted park, river, and safety signs.',
+      camping:
+        'No on-route camping is assumed for this downtown play-park session. Use separate local lodging or campground plans if staying overnight.',
+      summary:
+        'Use Manchester Whitewater Park for a short Maquoketa River play session through six constructed drops in downtown Manchester. The direct Manchester gauge is about one mile downstream and has a published American Whitewater flow ladder.',
+      accessCaveats: [
+        'This is a whitewater play park rather than a downstream float route; use it as repeated laps unless you separately plan a longer Maquoketa trip.',
+        'The city says recreational users need to judge when the river is too much for them and specifically advises proper water shoes, a secured PFD, and a helmet.',
+        'Iowa Whitewater publishes a single park coordinate, and the city describes flexible access along the course, so the app uses the public parking/first-feature access as both the put-in anchor and take-out anchor.',
+      ],
+      watchFor: [
+        'Very shallow, scrapey constructed features below about 100 cfs on the Manchester gauge.',
+        'Pushier eddies and increasingly flushy, irregular features above about 1,200 cfs.',
+        'High-water Class III behavior above about 5,000 cfs; keep this outside the broad recreational recommendation.',
+        'Tubers, swimmers, SUPs, anglers, spectators, rocks, and changing feature hydraulics in a busy downtown river park.',
+      ],
+    },
+  },
   'yellow-river-volney-sixteen-bridge': {
     putIn: {
       name: 'Volney Canoe Access',
@@ -4484,6 +5102,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Frequent Class I riffles and fast current; at high water some rapids can approach Class II consequences.',
         'Three or four strainers are noted on the route, including at least one that may require an easy portage at normal levels.',
         'Cold water, trout anglers, cloudy post-rain water, and fast rises after heavy rain.',
+      ],
+    },
+  },
+  'yellow-river-sixteen-bridge-highway-76': {
+    putIn: {
+      name: 'Bridge Sixteen Canoe Access',
+      latitude: 43.1277592,
+      longitude: -91.3140227,
+    },
+    takeOut: {
+      name: 'Highway 76 / Yellow River mouth access',
+      latitude: 43.08612,
+      longitude: -91.18213,
+    },
+    logistics: {
+      distanceLabel: '16.75 mi',
+      estimatedPaddleTime: 'Long day, about 5 hr to 6.5 hr depending on level and stops',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Bridge Sixteen and the Highway 76 mouth-area access. Avoid a bike shuttle unless you are comfortable with a long hilly Highway 76 shoulder route.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa DNR, Yellow River State Forest, Effigy Mounds, railroad-area, and posted access rules; use only established public access points.',
+      camping:
+        'Yellow River State Forest has designated camping options, including canoe-in context on DNR maps. Do not assume informal riverbank camping is allowed; Miles Paddled notes state forest camping is limited to designated areas.',
+      summary:
+        'Launch from the public Bridge Sixteen access below the bridge and paddle the long lower Yellow River to the Highway 76 / railroad bridge area near the Mississippi. Expect fast early miles, bluffs, riffles, public-land solitude, and a floodplain finish near Effigy Mounds.',
+      accessCaveats: [
+        'Use the public Bridge Sixteen launch downstream and river left of the bridge. Do not use Scenic View Campground take-outs, bathrooms, or private banks unless you are a paying customer or have permission.',
+        'The Highway 76 finish is a mouth-area access near railroad and highway infrastructure. Scout the take-out before launching, especially if the Mississippi is high or debris is present.',
+        'The route is almost 17 miles and becomes harder to shorten once committed below the Ion Road area; plan daylight and shuttle carefully.',
+      ],
+      watchFor: [
+        'Frequent riffles and Class I+ current, with stronger rapids in the Sixteen-to-Ion stretch and pushier behavior as the Ion gauge rises.',
+        'Sweepers, strainers, tight bends, rock walls, and occasional portage-worthy wood.',
+        'Mississippi River backwater, floating debris, and confusing banks near the mouth at high river stages.',
+        'Cold water, trout anglers, private campground banks at the put-in, and posted land-management rules through Yellow River State Forest and Effigy Mounds.',
       ],
     },
   },

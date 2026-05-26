@@ -6,6 +6,45 @@ interface PhotoRiver {
 }
 
 const routeGalleryImages: Record<string, string[]> = {
+  'des-moines-river-bentonsport-bonaparte': [
+    '/gallery/des-moines-river-bentonsport-bonaparte/des-moines-river-bonaparte.jpg',
+  ],
+  'south-skunk-river-lekwa-sopers-mill': [
+    '/gallery/south-skunk-river-lekwa-sopers-mill/skunk-river-iowa.jpg',
+  ],
+  'south-skunk-river-sleepy-hollow-river-valley': [
+    '/gallery/south-skunk-river-sleepy-hollow-river-valley/skunk-river-iowa.jpg',
+  ],
+  'south-skunk-river-sopers-mill-peterson-park': [
+    '/gallery/south-skunk-river-sopers-mill-peterson-park/skunk-river-iowa.jpg',
+  ],
+  'south-skunk-river-ames-13th-street': [
+    '/gallery/south-skunk-river-ames-13th-street/skunk-river-iowa.jpg',
+  ],
+  'middle-river-forest-park-schildberg': [
+    '/gallery/middle-river-forest-park-schildberg/middle-river-iowa-upstream.jpg',
+  ],
+  'middle-river-schildberg-roseman': [
+    '/gallery/middle-river-schildberg-roseman/middle-river-iowa-upstream.jpg',
+  ],
+  'upper-iowa-river-kendallville-bluffton': [
+    '/gallery/upper-iowa-river-kendallville-bluffton/upper-iowa-river-new-albin.jpg',
+  ],
+  'upper-iowa-river-chimney-rock-malanaphy': [
+    '/gallery/upper-iowa-river-chimney-rock-malanaphy/upper-iowa-river-new-albin.jpg',
+  ],
+  'upper-iowa-river-malanaphy-trout-run': [
+    '/gallery/upper-iowa-river-malanaphy-trout-run/upper-iowa-river-new-albin.jpg',
+  ],
+  'maquoketa-river-mon-maq-pictured-rocks': [
+    '/gallery/maquoketa-river-mon-maq-pictured-rocks/maquoketa-river-usgs.jpg',
+  ],
+  'turkey-river-big-spring-elkader': [
+    '/gallery/turkey-river-big-spring-elkader/elkader-keystone-bridge.jpg',
+  ],
+  'boone-river-riverside-albright': [
+    '/gallery/boone-river-riverside-albright/boone-river-iowa.jpg',
+  ],
   'big-fork-river-highway-6-south-north': [
     '/gallery/big-fork-river-highway-6-south-north/big-fork-boat-launch.jpg',
   ],
@@ -84,6 +123,9 @@ const routeGalleryImages: Record<string, string[]> = {
   'maquoketa-river-backbone-dundee': [
     '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
   ],
+  'volga-river-osborne-mederville': [
+    '/gallery/volga-river-osborne-mederville/mederville-bridge-volga-river.jpg',
+  ],
   'volga-river-mederville-littleport': [
     '/gallery/volga-river-mederville-littleport/mederville-bridge-volga-river.jpg',
   ],
@@ -92,6 +134,9 @@ const routeGalleryImages: Record<string, string[]> = {
   ],
   'yellow-river-volney-sixteen-bridge': [
     '/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg',
+  ],
+  'yellow-river-sixteen-bridge-highway-76': [
+    '/gallery/yellow-river-sixteen-bridge-highway-76/yellow-river-effigy-mounds.jpg',
   ],
   'kinnickinnic-river-glen-park-state-park': [
     '/gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg',

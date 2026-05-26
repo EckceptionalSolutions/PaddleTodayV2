@@ -718,7 +718,7 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
   const riceCreek = rivers.find((river) => river.slug === 'rice-creek-peltier-to-long-lake');
   const kettle = rivers.find((river) => river.slug === 'kettle-river-lower-kettle-5-to-6');
   const southForkZumbro = rivers.find((river) => river.slug === 'south-fork-zumbro-lake-zumbro');
-  const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-kendallville-decorah');
+  const upperIowa = rivers.find((river) => river.slug === 'upper-iowa-river-kendallville-bluffton');
   const sugarRiver = rivers.find((river) => river.slug === 'sugar-river-belleville-county-x');
   const sugarRiverCountyEe = rivers.find((river) => river.slug === 'sugar-river-county-road-x-county-road-ee');
   const blackHawkDownstream = rivers.find((river) => river.slug === 'black-hawk-creek-ranchero-hope-martin');

@@ -5149,6 +5149,765 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'des-moines-river-bentonsport-bonaparte',
+    slug: 'des-moines-river-bentonsport-bonaparte',
+    name: 'Des Moines River',
+    reach: 'Bentonsport Boat Ramp to Bonaparte Boat Ramp',
+    state: 'Iowa',
+    region: 'Southeast Iowa',
+    summary:
+      'Short Lower Des Moines River water-trail segment from historic Bentonsport to Bonaparte, with public riverfront parks, riffles around old lock-and-dam remnants, geode bars, and a nearby Keosauqua gauge.',
+    statusText:
+      'Use the Des Moines River at Keosauqua gauge. Treat roughly 3,500 cfs as the preferred low-water exploring level, expect walking at 700 to 800 cfs or less, and avoid claiming a normal trip above about 6,000 cfs because the rock bars go under.',
+    latitude: 40.72454,
+    longitude: -91.85125,
+    gaugeSource: {
+      id: 'usgs-05490500',
+      provider: 'usgs',
+      siteId: '05490500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Des Moines River at Keosauqua, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05490500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3000,
+      idealMax: 4500,
+      tooLow: 800,
+      tooHigh: 6000,
+      thresholdSource: {
+        label: 'Outdoor Adventures Made Easy Bentonsport-to-Bonaparte level notes',
+        url: 'https://outdooradventuresmadeeasy.com/iowa/geode-paddle/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late summer and early fall often expose the rock and geode bars that make this route distinctive. Spring flows can still be paddleable, but higher water covers the bars and changes the trip from a slow explore into a broader moving-water float.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short and generally beginner-friendly at lower levels, but old lock-and-dam remnants, riffles, exposed rock bars, and changing sand/gravel landings require attention. Treat very low water as a walking-and-scraping trip, not a clean float.',
+      confidenceNotes:
+        'Confidence is good but not official-threshold high: Van Buren County / MyCountyParks confirms Bentonsport Park has a public boat ramp on the Lower Des Moines River Water Trail, Villages of Van Buren and Iowa DNR sources identify Bentonsport and Bonaparte as water-trail access points, USGS 05490500 is a direct same-river gauge upstream at Keosauqua, and Outdoor Adventures Made Easy publishes route-specific Bentonsport-to-Bonaparte cfs guidance tied to that gauge. The app uses the community range conservatively and keeps the cautions explicit.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water trail',
+        value: 'Bentonsport to Bonaparte',
+        note: 'The Iowa DNR lower Des Moines water-trail planning material names Segment 6 as Bentonsport Boat Ramp to Bonaparte Boat Ramp, and local water-trail pages list both as access points.',
+        sourceUrl: 'https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/plans/wtplan_lower_dsm.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bentonsport Park boat ramp',
+        note: 'Van Buren County / MyCountyParks says Bentonsport Park sits along the Des Moines River and has a boat ramp giving access to the Lower Des Moines River Water Trail.',
+        sourceUrl: 'https://www.mycountyparks.com/county/Van-Buren/Park/Bentonsport-Park',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Bonaparte Riverfront / City Park',
+        note: 'Villages of Van Buren lists Bonaparte among the Lower Des Moines River Trail access points, and NPS identifies Bonaparte Riverfront Park as a city-managed riverfront park with auto parking.',
+        sourceUrl: 'https://villagesofvanburen.com/explore/des_moines_river_trail/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05490500',
+        note: 'USGS operates Des Moines River at Keosauqua, IA, upstream on the same lower-river corridor; the Iowa DNR AQuIA record ties the Keosauqua bridge site to USGS NWIS 05490500.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05490500/',
+      },
+      {
+        label: 'Route-specific levels',
+        value: '700-6,000 cfs used; about 3,500 cfs preferred',
+        note: 'Outdoor Adventures Made Easy describes the Bentonsport-to-Bonaparte paddle, says 700 to 800 cfs or less can require walking, prefers about 3,500 cfs, and says higher than 6,000 cfs covers many rock bars.',
+        sourceUrl: 'https://outdooradventuresmadeeasy.com/iowa/geode-paddle/',
+      },
+      {
+        label: 'Route character',
+        value: '3.6 to 5 miles',
+        note: 'The route report gives 3.6 miles for the main Bentonsport-to-Bonaparte paddle, while local water-trail access spacing lists Bentonsport to Bonaparte as about five miles. Plan it as a short day with time to stop at bars and historical features.',
+        sourceUrl: 'https://outdooradventuresmadeeasy.com/iowa/geode-paddle/',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Bentonsport 40.72454, -91.85125; Bonaparte 40.69785, -91.80552',
+        note: 'Coordinates are anchored to named public park/access map features: Bentonsport Riverside Park / Bentonsport Park and Bonaparte City Park / Riverfront Park. Use posted signs to identify the exact ramp approach.',
+        sourceUrl: 'https://mapcarta.com/W410402678',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Iowa DNR Lower Des Moines River Water Trail plan',
+        url: 'https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/plans/wtplan_lower_dsm.pdf',
+        provider: 'iowa_dnr',
+      },
+      {
+        label: 'Van Buren County Bentonsport Park',
+        url: 'https://www.mycountyparks.com/county/Van-Buren/Park/Bentonsport-Park',
+        provider: 'county',
+      },
+      {
+        label: 'Villages of Van Buren Des Moines River Trail',
+        url: 'https://villagesofvanburen.com/explore/des_moines_river_trail/',
+        provider: 'local',
+      },
+      {
+        label: 'Outdoor Adventures Made Easy Geode Paddle',
+        url: 'https://outdooradventuresmadeeasy.com/iowa/geode-paddle/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05490500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05490500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Iowa DNR Fish Iowa Des Moines River Ottumwa Dam to Farmington',
+        url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RDM89',
+        provider: 'iowa_dnr',
+      },
+      {
+        label: 'NPS Bonaparte Riverfront Park',
+        url: 'https://www.nps.gov/places/bonaparte-riverfront-park.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Bonaparte City Park map record',
+        url: 'https://mapcarta.com/22043716',
+        provider: 'osm',
+      },
+    ],
+  },
+  {
+    id: 'south-skunk-river-lekwa-sopers-mill',
+    slug: 'south-skunk-river-lekwa-sopers-mill',
+    name: 'South Skunk River',
+    reach: "Lekwa Access to Soper's Mill",
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      "Upper Story County water-trail leg from Lekwa Access near the E-18 bridge to Soper's Mill, with wooded greenbelt banks, rock riffles, recurring wood hazards, and a direct South Skunk gauge downstream in Ames.",
+    statusText:
+      'Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. This upper greenbelt segment is logjam-prone, so avoid high or rising water unless you know the corridor well.',
+    latitude: 42.1819,
+    longitude: -93.5708,
+    gaugeSource: {
+      id: 'usgs-05470000',
+      provider: 'usgs',
+      siteId: '05470000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Skunk River near Ames, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 125,
+      thresholdSource: {
+        label: 'Skunk River Paddlers South Skunk Water Trail flow guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows usually provide the best depth, but this wooded upper Story County corridor can collect new strainers quickly. The Ames gauge is downstream on the same river, so pair it with same-day hazard reports and visual scouting.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "Story County and MyCountyParks identify this as an official water-trail corridor, but the Story County access guidance warns that log jams are usual between Story City and Soper's Mill. Treat the trip as moving-water problem solving, not a passive float.",
+      confidenceNotes:
+        "Confidence is good for a guarded Iowa minimum-only add: Story County lists Lekwa Access #242 and Soper's Mill Access #235 as public South Skunk River Water Trail access points, MyCountyParks confirms both as canoe/kayak access areas, Skunk River Paddlers ties the above-Ames reach to a roughly 125 cfs minimum, and USGS 05470000 is a direct live same-river gauge downstream in the Ames corridor. The route intentionally stays minimum-only because no trusted source found publishes an ideal or upper band for this logjam-prone segment.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water trail',
+        value: "Lekwa #242 to Soper's Mill #235",
+        note: "Story County lists Lekwa Access at 56156 130th St. and Soper's Mill Access at 56364 170th St. among the public South Skunk River Water Trail access points.",
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lekwa Access',
+        note: 'MyCountyParks says Lekwa Access is a Skunk River water-trail access with canoeing and kayaking, and Story County places it just west of the Skunk River bridge on County Highway E-18.',
+        sourceUrl: 'https://www.mycountyparks.com/county/story/Park/Lekwa-Access',
+      },
+      {
+        label: 'Take-out access',
+        value: "Soper's Mill",
+        note: "Story County/MyCountyParks says Soper's Mill Access is part of the Skunk River Water Trail and lists the access sequence from Lekwa and Anderson downstream to Soper's Mill.",
+        sourceUrl: 'https://www.mycountyparks.com/county/story/Park/Sopers-Mill/Activity/Canoeing-Kayaking',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 7.3 river miles',
+        note: "The Story County South Skunk water-trail map places Lekwa Access and Soper's Mill about 7.3 river miles apart.",
+        sourceUrl: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=1E38600B-76CF-4C0A-872C-D89497D0EEE3',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05470000',
+        note: 'USGS operates South Skunk River near Ames downstream on the same river, and Skunk River Paddlers lists it as a relevant local South Skunk water-trail gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+      {
+        label: 'Minimum flow',
+        value: 'About 125 cfs',
+        note: 'Skunk River Paddlers says most paddlers consider the minimum recommended flow above Ames and Ioway Creek to be somewhere near 125 cfs, while lower flows may require stepping out in riffles.',
+        sourceUrl: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: 'Wood and private-bank caveat',
+        value: "Log jams usual between Story City and Soper's Mill",
+        note: "MyCountyParks' canoeing and kayaking guidance for the Skunk River Water Trail says log jams are usual between Story City and Soper's Mill, and Skunk River Paddlers warns that most adjoining land is private even where the public greenbelt borders the river.",
+        sourceUrl: 'https://www.mycountyparks.com/county/story/Park/Sopers-Mill/Activity/Canoeing-Kayaking',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Story County South Skunk River Water Trail',
+        url: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Story County South Skunk map PDF',
+        url: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=1E38600B-76CF-4C0A-872C-D89497D0EEE3',
+      },
+      {
+        label: 'Skunk River Paddlers water trail guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: 'Story County Lekwa Access',
+        url: 'https://www.mycountyparks.com/county/story/Park/Lekwa-Access',
+      },
+      {
+        label: "Story County Soper's Mill canoeing and kayaking",
+        url: 'https://www.mycountyparks.com/county/story/Park/Sopers-Mill/Activity/Canoeing-Kayaking',
+      },
+      {
+        label: 'USGS 05470000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+    ],
+  },
+  {
+    id: 'south-skunk-river-sleepy-hollow-river-valley',
+    slug: 'south-skunk-river-sleepy-hollow-river-valley',
+    name: 'South Skunk River',
+    reach: 'Sleepy Hollow to River Valley Park',
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      'Short Story County water-trail run through the north Ames corridor, starting at the W Riverside Road gauge and finishing at River Valley Park near the 13th Street rock-riffle / mitigated-dam feature.',
+    statusText:
+      'Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. There is no broad-audience upper band, so judge rain, debris, and the River Valley Park riffle same-day.',
+    latitude: 42.06658,
+    longitude: -93.62025,
+    gaugeSource: {
+      id: 'usgs-05470000',
+      provider: 'usgs',
+      siteId: '05470000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Skunk River near Ames, IA',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 125,
+      thresholdSource: {
+        label: 'Skunk River Paddlers South Skunk Water Trail flow guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows usually give the cleanest depth. The South Skunk rises and drops quickly enough that wood, muddy banks, and recent storm debris can matter more than the gauge number alone.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is short, but shallow rock riffles, private-bank constraints, and the River Valley Park mitigated-dam / paddler-passage area make this more than a passive float. Scout the 13th Street feature if levels or skills are uncertain.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa minimum-only add: Story County lists Sleepy Hollow and River Valley Park as public South Skunk Water Trail accesses, the USGS South Skunk near Ames gauge is at the W Riverside Road / Sleepy Hollow put-in corridor, and Skunk River Paddlers ties the above-Ames water trail to that gauge family with a roughly 125 cfs minimum. The main caveat is threshold shape: no trusted source found gives a broad recreational upper band for this exact short segment.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water trail',
+        value: 'Sleepy Hollow #230 to River Valley Park #227',
+        note: 'Story County lists Sleepy Hollow at river mile 230 and River Valley Park at river mile 227 among the public South Skunk River Water Trail access points.',
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05470000',
+        note: 'USGS operates South Skunk River near Ames on the left bank just downstream from the West Riverside Road bridge, matching the Sleepy Hollow access and route put-in corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+      {
+        label: 'Minimum flow',
+        value: 'About 125 cfs',
+        note: 'Skunk River Paddlers says most paddlers consider the minimum recommended flow above Ames and Ioway Creek to be somewhere near 125 cfs, while lower flows may require stepping out in riffles.',
+        sourceUrl: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 2.9 river miles',
+        note: 'The Story County South Skunk water-trail map places Sleepy Hollow and River Valley Park three river miles apart in the official access sequence.',
+        sourceUrl: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=1E38600B-76CF-4C0A-872C-D89497D0EEE3',
+      },
+      {
+        label: 'River Valley feature',
+        value: 'Mitigated 13th Street dam',
+        note: 'American Whitewater documents the 13th Street feature at North River Valley Park and notes that Iowa DNR mitigation converted the former low-head dam into fish and paddler passages.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+      },
+      {
+        label: 'Access and shore-use caveat',
+        value: 'Public water, private banks',
+        note: 'Story County and Skunk River Paddlers both warn that the South Skunk is non-meandered and much adjoining land is private, so use only public accesses and confirmed public parkland for stops.',
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Story County South Skunk River Water Trail',
+        url: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Skunk River Paddlers water trail guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: 'USGS 05470000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+      {
+        label: 'City of Ames River Valley Park',
+        url: 'https://www.cityofames.org/My-Government/Departments/Parks-and-Recreation/Parks/River-Valley-Park',
+      },
+      {
+        label: 'American Whitewater South Skunk 13th Street',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+      },
+      {
+        label: 'Story County South Skunk map PDF',
+        url: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=1E38600B-76CF-4C0A-872C-D89497D0EEE3',
+      },
+    ],
+  },
+  {
+    id: 'south-skunk-river-sopers-mill-peterson-park',
+    slug: 'south-skunk-river-sopers-mill-peterson-park',
+    name: 'South Skunk River',
+    reach: "Soper's Mill to Peterson Park West",
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      "Short official South Skunk water-trail leg from the renovated Soper's Mill launch to Peterson Park West, with a constructed riffle at the put-in, public county access on both ends, and local gauge guidance for the above-Ames corridor.",
+    statusText:
+      'Treat roughly 125 cfs at the South Skunk near Ames gauge as the practical low-water floor for the above-Ames reach. No trusted source gives a broad upper band, so avoid high or rising water unless you know this wooded corridor well.',
+    latitude: 42.10443,
+    longitude: -93.57549,
+    gaugeSource: {
+      id: 'usgs-05470000',
+      provider: 'usgs',
+      siteId: '05470000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Skunk River near Ames, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 125,
+      thresholdSource: {
+        label: 'Skunk River Paddlers South Skunk Water Trail flow guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows usually make the upper Story County water trail less scrapey. The local gauge is downstream at W Riverside Road, so use it as a close same-river signal and still expect wood, shallow riffles, and muddy banks to change after storms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        "The mileage is short, but Story County describes the Soper's-to-Peterson stretch as suitable for paddlers with at least intermediate skill because of trees and riffles. Scout the constructed Soper's Mill riffle and be ready for shallow gravel or fresh strainers.",
+      confidenceNotes:
+        "Confidence is good for a guarded Iowa minimum-only add: Story County lists Soper's Mill Access #235 and Peterson Park West Access #233 as public South Skunk River Water Trail access points, Story County/MyCountyParks confirms canoeing and kayaking at Soper's Mill and canoe access at Peterson Park West, USGS 05470000 is a direct same-river live gauge a few miles downstream in the Ames corridor, and Skunk River Paddlers publishes a 125 cfs minimum recommendation for the above-Ames reach. The route intentionally does not claim an ideal or upper band.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water trail',
+        value: "Soper's Mill #235 to Peterson Park West #233",
+        note: "Story County lists Soper's Mill Access at 56364 170th St. and Peterson Park West Access at 55310 180th St. as public South Skunk River Water Trail access points.",
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Put-in access',
+        value: "Soper's Mill",
+        note: "Story County/MyCountyParks says Soper's Mill is a 16-acre historic site on the Skunk River with canoeing and kayaking, and the Travel Iowa listing describes the renovated access, parking, and concrete paths for paddle launches above or below the constructed riffle.",
+        sourceUrl: 'https://www.mycountyparks.com/county/story/Park/Sopers-Mill',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Peterson Park West',
+        note: 'Story County lists Peterson Park West with boating, canoeing, kayaking, pond and river fishing, and Skunk River Water Trail Canoe Access.',
+        sourceUrl: 'https://www.storycountyiowa.gov/Facilities/Facility/Details/Peterson-Park-West-40',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05470000',
+        note: 'USGS operates South Skunk River near Ames on the same river at W Riverside Road downstream of the route; Skunk River Paddlers lists this gauge as one of the relevant local South Skunk water-trail gauges.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+      {
+        label: 'Minimum flow',
+        value: 'About 125 cfs',
+        note: 'Skunk River Paddlers says most paddlers consider the minimum recommended flow above Ames and Ioway Creek to be somewhere near 125 cfs, while lower flows may require stepping out in riffles.',
+        sourceUrl: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: 'Route distance and skill',
+        value: 'About 2.9 river miles',
+        note: "The Story County water-trail map places Soper's Mill and Peterson Park West about 2.9 river miles apart, and the brochure says trees and riffles make this stretch appropriate for paddlers with at least intermediate skill.",
+        sourceUrl: 'https://storycountyiowa.gov/DocumentCenter/View/12558/South-Skunk-River-Water-Trail-2021',
+      },
+      {
+        label: 'Access and shore-use caveat',
+        value: 'Public water, private banks',
+        note: 'Story County and Skunk River Paddlers both warn that the South Skunk is non-meandered and much adjoining land is private, so use only public accesses and confirmed public parkland for stops.',
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Story County South Skunk River Water Trail',
+        url: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Story County South Skunk map PDF',
+        url: 'https://storycountyiowa.gov/DocumentCenter/View/12558/South-Skunk-River-Water-Trail-2021',
+      },
+      {
+        label: 'Skunk River Paddlers water trail guidance',
+        url: 'https://www.skunkriverpaddlers.org/skunk-river-water-trail',
+      },
+      {
+        label: "Story County Soper's Mill",
+        url: 'https://www.mycountyparks.com/county/story/Park/Sopers-Mill',
+      },
+      {
+        label: 'Story County Peterson Park West',
+        url: 'https://www.storycountyiowa.gov/Facilities/Facility/Details/Peterson-Park-West-40',
+      },
+      {
+        label: 'USGS 05470000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+    ],
+  },
+  {
+    id: 'south-skunk-river-ames-13th-street',
+    slug: 'south-skunk-river-ames-13th-street',
+    name: 'South Skunk River',
+    reach: 'Ames 13th Street Play Feature',
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      'Compact South Skunk play-park session at the 13th Street mitigated low-head dam in North River Valley Park, with public City of Ames access and a direct Ames gauge.',
+    statusText:
+      'Use the South Skunk River near Ames gauge. Treat 400+ cfs as the feature-specific play threshold from American Whitewater, and avoid low, high, or rising water unless you know the shallow rock channel well.',
+    latitude: 42.03535,
+    longitude: -93.59895,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05470000',
+      provider: 'usgs',
+      siteId: '05470000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Skunk River near Ames, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 400,
+      thresholdSource: {
+        label: 'American Whitewater South Skunk 13th Street play-feature guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The feature works best during high-water events rather than summer base flow. Because the channel is shallow and rock-lined, pair the gauge with same-day visual scouting and avoid tubing or casual floating through the feature.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach I-II, but describes shallow play features where rolling carries impact risk. Treat this as a whitewater skills feature for boaters with helmets, PFDs, quick rolls, and good judgment, not as a beginner tubing chute.',
+      confidenceNotes:
+        'Confidence is good for a guarded play-park add: City of Ames lists River Valley Park at 725 E 13th Street with boat access and public park amenities, Story County lists River Valley Park #227 as a South Skunk River Water Trail access with rock-riffle mitigation, American Whitewater documents the exact 13th Street mitigated low-head-dam feature and ties 400+ cfs to the South Skunk gauge, and USGS 05470000 is the direct same-river live gauge just upstream in Ames. The route stays minimum-only because public evidence gives a play threshold but not a broad ideal/high recreational ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public park access',
+        value: 'River Valley Park / 725 E 13th Street',
+        note: 'The City of Ames lists River Valley Park at 725 E 13th Street with off-street parking, restrooms, and boat access.',
+        sourceUrl: 'https://www.cityofames.org/My-Government/Departments/Parks-and-Recreation/Parks/River-Valley-Park',
+      },
+      {
+        label: 'Water-trail access',
+        value: 'River Valley Park #227',
+        note: 'Story County lists River Valley Park as South Skunk River Water Trail Access #227 and notes rock-riffle construction at River Valley Park.',
+        sourceUrl: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'Feature description',
+        value: '13th Street mitigated low-head dam',
+        note: 'American Whitewater says the 2021 Iowa DNR mitigation converted the former dam into fish and paddler passage channels in North River Valley Park off 13th Street.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+      },
+      {
+        label: 'Play threshold',
+        value: '400+ cfs',
+        note: 'American Whitewater says high-water events above 400 cfs on the South Skunk gauge, or river-right wall-gauge levels over 4 ft, produce surf, spin, and cartwheel opportunities.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05470000',
+        note: 'USGS operates South Skunk River near Ames on the same river at W Riverside Road, upstream of the 13th Street feature in the Ames corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+      },
+      {
+        label: 'Hazard caveat',
+        value: 'Shallow rock feature',
+        note: 'American Whitewater cautions that the features are shallow and care should be taken when rolling; a user report specifically warns tubing is not advised at any level.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of Ames River Valley Park',
+        url: 'https://www.cityofames.org/My-Government/Departments/Parks-and-Recreation/Parks/River-Valley-Park',
+      },
+      {
+        label: 'Story County South Skunk River Water Trail',
+        url: 'https://www.storycountyiowa.gov/1496/South-Skunk-River-Water-Trail',
+      },
+      {
+        label: 'American Whitewater South Skunk 13th Street',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/11597/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05470000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'middle-river-forest-park-schildberg',
+    slug: 'middle-river-forest-park-schildberg',
+    name: 'Middle River',
+    reach: 'Middle River Forest Park to Schildberg Access',
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      'Scenic first leg of the Middle River Water Trail from the Adair County trailhead to Schildberg, with limestone outcrops, riffles, chutes, and official access and flow guidance.',
+    statusText:
+      'Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be conservative outside that band.',
+    latitude: 41.352351,
+    longitude: -94.281724,
+    gaugeSource: {
+      id: 'usgs-05486490',
+      provider: 'usgs',
+      siteId: '05486490',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Middle River near Indianola, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 900,
+      tooLow: 600,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'Iowa DNR / Middle River Water Trail map optimum-flow note',
+        url: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring, early summer, and fall are the best planning windows. The route is explicitly sensitive to both low and high water, and storm debris can change bends and riffles quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'County materials describe this as a moderately challenging paddle for experienced canoeists, with numerous bends, riffles, occasional chutes, and ledges. Treat the gauge band as a planning filter, not a substitute for scouting.',
+      confidenceNotes:
+        'Confidence is good for a guarded official-source add: Adair County and Madison County identify Middle River Forest Park Access #89 and Schildberg Access #78 as public water-trail accesses, the Iowa DNR / county map publishes UTM coordinates and access details for both, and the same map directs paddlers to the Middle River Indianola USGS station with a 600-900 cfs optimum range for Adair and Madison counties. The gauge is downstream of this first leg, so the route remains conservative and calls out same-day scouting.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Access #89 to Access #78',
+        note: 'Adair County says Middle River Forest Park Access is the trailhead and that Schildberg Access is about 11 miles downstream.',
+        sourceUrl: 'https://www.mycountyparks.com/county/Adair/Park/Middle-River-Forest-Area/Activity/Canoeing-Kayaking',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Schildberg Access walk-down ramp',
+        note: 'Madison County lists Schildberg Access on the north side of Highway 92 at the northeast bridge corner, with a walk-down canoe/kayak ramp near parking.',
+        sourceUrl: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+      {
+        label: 'Optimum flow',
+        value: '600 to 900 cfs',
+        note: 'The Middle River Water Trail map says optimum flow for Adair / Madison County is 600 to 900 cfs at the Indianola station and points paddlers to USGS real-time Middle River data.',
+        sourceUrl: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05486490',
+        note: 'USGS operates Middle River near Indianola, IA, a downstream same-river station that the official water-trail map uses for the Adair / Madison County optimum-flow note.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'UTM access table',
+        note: 'The Middle River Water Trail map publishes UTM coordinates and access types for Middle River Forest Park and Schildberg Access. The app stores the converted WGS84 access-area coordinates.',
+        sourceUrl: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'Hazards',
+        value: 'Bends, riffles, chutes, ledges',
+        note: 'Adair County describes this water-trail leg as moderately challenging, with numerous bends and riffles; Madison County adds that Middle River is especially challenging at high or low levels.',
+        sourceUrl: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Adair County Middle River Forest Area canoeing',
+        url: 'https://www.mycountyparks.com/county/Adair/Park/Middle-River-Forest-Area/Activity/Canoeing-Kayaking',
+      },
+      {
+        label: 'Adair County Middle River Forest Area park page',
+        url: 'https://www.mycountyparks.com/COUNTY/Adair/Park/Middle-River-Forest-Area.aspx',
+      },
+      {
+        label: 'Madison County Middle River Water Trail',
+        url: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+      {
+        label: 'Middle River Water Trail map PDF',
+        url: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'USGS 05486490 Middle River near Indianola',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+      },
+    ],
+  },
+  {
+    id: 'middle-river-schildberg-roseman',
+    slug: 'middle-river-schildberg-roseman',
+    name: 'Middle River',
+    reach: 'Schildberg Access to Roseman Covered Bridge Access',
+    state: 'Iowa',
+    region: 'Central Iowa',
+    summary:
+      'Official Middle River Water Trail leg from Highway 92 to Roseman Covered Bridge, with timbered valleys, open pasture, scattered riffles, chutes, and a shale ledge above the P53 bridge.',
+    statusText:
+      'Use the Middle River near Indianola gauge as the official planning signal. Treat 600 to 900 cfs as the optimum Adair / Madison County window, and be conservative outside that band.',
+    latitude: 41.31736,
+    longitude: -94.213296,
+    gaugeSource: {
+      id: 'usgs-05486490',
+      provider: 'usgs',
+      siteId: '05486490',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Middle River near Indianola, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 900,
+      tooLow: 600,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'Iowa DNR / Middle River Water Trail map optimum-flow note',
+        url: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring, early summer, and fall are the best planning windows. The Madison County reach reacts to both rain and drought, so scout landings and riffles even when the downstream gauge is in the preferred band.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Madison County describes this 7-mile leg as moderately challenging, with timbered valleys, open pasture, scattered chutes and riffles, and a shale ledge drop upstream of the P53 bridge.',
+      confidenceNotes:
+        'Confidence is good for a guarded official-source add: Madison County names Schildberg Access #78 and Roseman Covered Bridge Access #71 as developed Middle River Water Trail accesses, the Iowa DNR / county map publishes UTM coordinates, distance, time, gradient, and access types for both, the same map gives a 600-900 cfs optimum band at the Indianola station, and USGS 05486490 is a direct same-river live gauge downstream.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Access #78 to Access #71',
+        note: 'Madison County says Roseman Covered Bridge Access is about 7 river miles downstream from Schildberg Access, through timbered valleys and open pasture.',
+        sourceUrl: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+      {
+        label: 'Endpoint support',
+        value: 'Schildberg and Roseman accesses',
+        note: 'The Middle River Water Trail map lists Schildberg Access #78 and Roseman Access #71 with carry-down canoe access, surface type, distance to next access, gradient, estimated time, and UTM coordinates.',
+        sourceUrl: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'Optimum flow',
+        value: '600 to 900 cfs',
+        note: 'The official map says optimum flow for Adair / Madison County is 600 to 900 cfs at the Indianola station and points paddlers to USGS real-time Middle River data.',
+        sourceUrl: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05486490',
+        note: 'USGS operates Middle River near Indianola, IA, a downstream same-river station that the official water-trail map uses for the Adair / Madison County optimum-flow note.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Chutes, riffles, shale ledge',
+        note: 'Madison County calls out a moderately challenging shale ledge a few hundred yards upstream of the P53 bridge, along with chutes and riffles across this reach.',
+        sourceUrl: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Madison County Middle River Water Trail',
+        url: 'https://www.madisoncountyparks.org/water-trail/',
+      },
+      {
+        label: 'Middle River Water Trail map PDF',
+        url: 'https://www.iowadnr.gov/media/8713/download?inline=',
+      },
+      {
+        label: 'USGS 05486490 Middle River near Indianola',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05486490/',
+      },
+    ],
+  },
+  {
     id: 'black-hawk-creek-hudson-waterloo',
     slug: 'black-hawk-creek-hudson-waterloo',
     name: 'Black Hawk Creek',
@@ -5751,26 +6510,26 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'upper-iowa-river-kendallville-decorah',
-    slug: 'upper-iowa-river-kendallville-decorah',
+    id: 'upper-iowa-river-kendallville-bluffton',
+    slug: 'upper-iowa-river-kendallville-bluffton',
     name: 'Upper Iowa River',
-    reach: 'Kendallville Park to Decorah',
+    reach: 'Kendallville Park to Bluffton Fir Stand Access',
     state: 'Iowa',
     region: 'Northeast Iowa',
     summary:
       'Classic Driftless float with clear water and bluff scenery. The big question here is simple: is there enough water to make it worth the drive?',
     statusText:
-      'Treat 200 cfs as the low end. Above that can work, but there is still not enough guidance to call the upper end with much confidence.',
+      'Use the Bluffton gauge and treat 200 cfs as the low end. Above that can work, but there is still not enough guidance to call the upper end with much confidence.',
     latitude: 43.44202,
     longitude: -92.03809,
     gaugeSource: {
-      id: 'usgs-05387500',
+      id: 'usgs-05387440',
       provider: 'usgs',
-      siteId: '05387500',
+      siteId: '05387440',
       metric: 'discharge_cfs',
       unit: 'cfs',
       kind: 'direct',
-      siteName: 'Upper Iowa River near Decorah, IA',
+      siteName: 'Upper Iowa River at Bluffton, IA',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -5788,7 +6547,7 @@ export const rivers: River[] = [
       difficultyNotes:
         'Generally beginner-friendly at sensible levels, but this is still a long moving-water day with strainers and flood-current consequences.',
       confidenceNotes:
-        'This reach has a useful low-water mark, but not a published upper range. County and Iowa DNR sources support the segment itself, but not the full scoring range.',
+        'This reach has a useful low-water mark, but not a published upper range. County and Iowa DNR-backed sources support the segment itself, but not the full scoring range.',
     },
     evidenceNotes: [
       {
@@ -5800,7 +6559,7 @@ export const rivers: River[] = [
       {
         label: 'Route shape',
         value: 'Long Driftless day trip',
-        note: 'Kendallville to Decorah is a scenic but full-length outing. Low water hurts trip quality before it becomes unsafe.',
+        note: 'Kendallville to Bluffton is a scenic but full-length outing through the Upper Iowa bluff corridor. Low water hurts trip quality before it becomes unsafe.',
         sourceUrl: 'https://www.winneshiekwild.com/park-trail/upper-iowa-river',
       },
       {
@@ -5810,10 +6569,10 @@ export const rivers: River[] = [
         sourceUrl: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
       },
       {
-        label: 'Decorah take-out support',
-        value: 'City-park canoe access shown',
-        note: 'Decorah park materials show canoe access in the Ice Cave park corridor at the city finish, which is stronger than treating the take-out as an undocumented local landing.',
-        sourceUrl: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
+        label: 'Bluffton take-out support',
+        value: 'Paddler guide access shown',
+        note: 'The Upper Iowa River Paddler\'s Guide identifies Bluffton Fir Stand Access as a public access at the downstream end of this segment.',
+        sourceUrl: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
       },
       {
         label: 'Flood caution',
@@ -5832,8 +6591,8 @@ export const rivers: River[] = [
         url: 'https://milespaddled.com/upper-iowa-river-iii/',
       },
       {
-        label: 'USGS 05387500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/05387500/',
+        label: 'USGS 05387440 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/05387440/',
       },
       {
         label: 'Winneshiek County Upper Iowa River overview',
@@ -5846,10 +6605,6 @@ export const rivers: River[] = [
       {
         label: 'Winneshiek County Upper Iowa paddlers guide PDF',
         url: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
-      },
-      {
-        label: 'Decorah parks trail guide PDF',
-        url: 'https://parks.decorahia.org/wp-content/uploads/2022/11/Parks-Trail-Guide.pdf',
       },
     ],
   },
@@ -5972,6 +6727,228 @@ export const rivers: River[] = [
       {
         label: 'The Gazette Daley Bridge Canoe Access article',
         url: 'https://www.thegazette.com/travel/an-oscar-winning-trip-down-the-upper-iowa-river/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'upper-iowa-river-chimney-rock-malanaphy',
+    slug: 'upper-iowa-river-chimney-rock-malanaphy',
+    name: 'Upper Iowa River',
+    reach: 'Chimney Rock Road to Malanaphy Springs',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long Bluffton-to-Decorah-area Upper Iowa day with limestone palisades, riffles, springs, and a direct Bluffton gauge minimum from a same-route trip report.',
+    statusText:
+      'Use the Upper Iowa River at Bluffton gauge. Treat 150 cfs as the scrape-prone floor; 375 cfs had strong same-route support, but no trusted upper ceiling is published for this longer leg.',
+    latitude: 43.42156,
+    longitude: -91.93467,
+    gaugeSource: {
+      id: 'usgs-05387440',
+      provider: 'usgs',
+      siteId: '05387440',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Upper Iowa River at Bluffton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 150,
+      thresholdSource: {
+        label: 'Miles Paddled Upper Iowa River IV minimum-flow note',
+        url: 'https://milespaddled.com/upper-iowa-river-iv/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton gauge is above the scrape-prone floor. Lower clear water is scenic but shallow, while fresh rain can make the long riffly corridor faster and less forgiving.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Generally easy riffles at sensible levels, but the 13.75-mile distance, crowded summer corridor, private banks, cold springs, and storm-changed wood make it a real day trip.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Chimney Rock Road-to-Malanaphy Springs route, endpoint GPS points, route distance, and Bluffton-gauge observation; Wisconsin River Trips corroborates the same Upper Iowa corridor, access sequence, and broader Bluffton-gauge behavior; USGS 05387440 is a live same-river gauge in the route corridor; and the Upper Iowa River Paddler\'s Guide names the official access sequence around Chimney Rock, Bluffton, and Malanaphy Springs. The app stays minimum-only because the best exact-route source gives a scrape-prone floor and one good observed level, not a complete high-water ceiling for the longer leg.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Chimney Rock Road to Malanaphy Springs',
+        note: 'Miles Paddled documents this as a 13.75-mile Upper Iowa route from Chimney Rock Road bridge / Chimney Rock Park to Malanaphy Springs at the Bluffton Road bridge.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-iv/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '150 cfs',
+        note: 'Miles Paddled says more than 150 cfs on the Bluffton gauge is needed to avoid scraping and dragging on this route.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-iv/',
+      },
+      {
+        label: 'Observed good level',
+        value: '375 cfs / 4.27 ft',
+        note: 'The same route report recorded 375 cfs at Bluffton and described the level as lower than average but entirely adequate.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-iv/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05387440',
+        note: 'USGS operates Upper Iowa River at Bluffton, IA, a live same-river gauge in the Bluffton corridor and the gauge cited by the route report.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+      },
+      {
+        label: 'Public access sequence',
+        value: 'Chimney Rock, Bluffton, Malanaphy Springs corridor',
+        note: 'The Upper Iowa River Paddler\'s Guide names the access sequence through the Bluffton-area water-trail corridor, including Chimney Rock Park Access and Malanaphy Springs-area downstream access context.',
+        sourceUrl: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+      },
+      {
+        label: 'Corridor corroboration',
+        value: 'Bluffton palisades and Malanaphy Springs',
+        note: 'Wisconsin River Trips identifies Chimney Rock Access to Bluffton Bluff Access as the most scenic Upper Iowa section and lists Bluffton Fir Stand to Malanaphy Springs as the next downstream section with good current and riffles.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/upper-iowa-river',
+      },
+      {
+        label: 'Take-out context',
+        value: 'Malanaphy Springs / Bluffton Road bridge',
+        note: 'Malanaphy Springs is a state preserve on the Upper Iowa River, and local visitor context describes parking and a kayak/canoe launch near the Bluffton Road trailhead area.',
+        sourceUrl: 'https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Upper Iowa River IV',
+        url: 'https://milespaddled.com/upper-iowa-river-iv/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Upper Iowa River',
+        url: 'https://www.wisconsinrivertrips.com/segments/upper-iowa-river',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05387440 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Upper Iowa River Paddler\'s Guide',
+        url: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa DNR Bluffton Fir Stand State Preserve',
+        url: 'https://www.iowadnr.gov/places-go/state-preserves/bluffton-fir-stand',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'upper-iowa-river-malanaphy-trout-run',
+    slug: 'upper-iowa-river-malanaphy-trout-run',
+    name: 'Upper Iowa River',
+    reach: 'Malanaphy Springs to Trout Run Park',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Country-to-Decorah Upper Iowa day from the Malanaphy Springs / Bluffton Road access to Trout Run Park, with riffles, springs, city bluffs, and a direct Bluffton gauge low-water floor.',
+    statusText:
+      'Use the Upper Iowa River at Bluffton gauge. Treat 125 cfs as the minimum to avoid a scrape-heavy day; 75 cfs was too low on the same route, and no trusted upper ceiling is published for this Decorah leg.',
+    latitude: 43.34508,
+    longitude: -91.843,
+    gaugeSource: {
+      id: 'usgs-05387440',
+      provider: 'usgs',
+      siteId: '05387440',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Upper Iowa River at Bluffton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 125,
+      thresholdSource: {
+        label: 'Miles Paddled Upper Iowa River V minimum-flow note',
+        url: 'https://milespaddled.com/upper-iowa-river-v/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton gauge is above the scrape-prone floor. Summer lows expose riffles, while fresh rain can make the Decorah bends faster and can move new wood into bridge and park approaches.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly easy Class I riffles at sensible levels, but the 11-mile distance, shallow ledges, city bridge approaches, private banks, and cold spring inflows make it more than a lazy park float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa minimum-only add: Miles Paddled documents the exact Malanaphy Springs / Bluffton Road-to-Trout Run Park route, endpoint GPS points, route distance, and direct Bluffton-gauge observation; the Upper Iowa River Paddler\'s Guide names Malanaphy Springs Access, Chattahoochie Park Access, and Trout Run Park Access in the official Decorah corridor sequence; Travel Iowa confirms Trout Run Park has Upper Iowa River boat access and parking; and USGS 05387440 is a live same-river gauge in the route corridor. The app stays minimum-only because the exact-route source publishes a low-water floor but not a complete high-water ceiling.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Malanaphy Springs to Trout Run Park',
+        note: 'Miles Paddled documents this as an 11-mile Upper Iowa River route from the Bluffton Road bridge / Malanaphy Springs access area to Trout Run Park in Decorah.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-v/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '125 cfs',
+        note: 'Miles Paddled ran the route at 75 cfs on the Bluffton gauge, called that too low to recommend, and says 125 cfs is the minimum to avoid the worst scraping.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-v/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05387440',
+        note: 'USGS operates Upper Iowa River at Bluffton, IA, a live same-river gauge in the same Bluffton-to-Decorah corridor and the gauge cited by the route report.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+      },
+      {
+        label: 'Official access sequence',
+        value: 'Malanaphy, Chattahoochie, Trout Run',
+        note: 'The Upper Iowa River Paddler\'s Guide identifies Malanaphy Springs Access, Chattahoochie Park Access, and Trout Run Park Access in the downstream Decorah water-trail sequence.',
+        sourceUrl: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Trout Run Park boat access',
+        note: 'Travel Iowa describes Trout Run Park on the east edge of Decorah, where Trout Run enters the Upper Iowa River, and says the park provides boat access and parking.',
+        sourceUrl: 'https://www.traveliowa.com/places/trout-run-park/7638/',
+      },
+      {
+        label: 'Access caveat',
+        value: 'Limited Malanaphy parking',
+        note: 'Miles Paddled describes the Malanaphy Springs / Bluffton Road river access as doable but muddy with limited parking, and suggests using the downstream Pole Line Road bridge if the small lot is full.',
+        sourceUrl: 'https://milespaddled.com/upper-iowa-river-v/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Upper Iowa River V',
+        url: 'https://milespaddled.com/upper-iowa-river-v/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05387440 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05387440/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Upper Iowa River Paddler\'s Guide',
+        url: 'https://www.winneshiekwild.com/wp-content/uploads/2019/12/Upper-Iowa-River-Paddlers-Guide-Web.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Travel Iowa Trout Run Park',
+        url: 'https://www.traveliowa.com/places/trout-run-park/7638/',
+        provider: 'local',
+      },
+      {
+        label: 'Visit Decorah Malanaphy Springs',
+        url: 'https://visitdecorah.com/trail/malanaphy-springs/',
         provider: 'local',
       },
     ],
@@ -13373,6 +14350,392 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'volga-river-klocks-island-heron-road',
+    slug: 'volga-river-klocks-island-heron-road',
+    name: 'Volga River',
+    reach: "Klock's Island Park to Heron Road Access",
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      "Upper-Volga route from Fayette's Klock's Island Park into Volga River State Recreation Area, with clear water, frequent Class I riffles, limestone bluffs, and a guarded Littleport gauge minimum.",
+    statusText:
+      'Use the Volga River at Littleport gauge as the best live same-river signal. Treat about 5.0 ft as the practical floor for this shallow upper route; 5.5 ft had strong same-route support, but no trusted upper band is published.',
+    latitude: 42.84288,
+    longitude: -91.81917,
+    gaugeSource: {
+      id: 'usgs-05412400',
+      provider: 'usgs',
+      siteId: '05412400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Volga River at Littleport, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 5,
+      thresholdSource: {
+        label: 'Miles Paddled Volga River Fayette-to-Heron Road level note',
+        url: 'https://milespaddled.com/volga-river/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and timely post-rain windows are best. Miles Paddled calls the upper Volga shallow and hard to catch with enough water, and Iowa DNR says spring trail crossings in the state recreation area can be impassable, so same-day level and weather checks matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly Class I riffles, but this is an intermediate small-river run because the channel is narrow, shallow, swift in spots, and strainer-prone near Heron Road. The last mile can be skipped by using the easier state-park picnic-area access if conditions look messy.',
+      confidenceNotes:
+        "Confidence is good for a guarded Iowa minimum-only add: Klock's Island Park has public kayak/canoe access to the Volga River, Iowa DNR confirms Volga River State Recreation Area river access points and a kayak/canoe float corridor through the park, Miles Paddled documents the exact Klock's Island-to-Heron Road route with endpoint GPS points and a Littleport gauge observation, and USGS 05412400 is a direct same-river live gauge downstream. The app stays minimum-only because the best source gives a low-water floor and one strong observed level, not a complete upper-Volga ideal/high ladder.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: "Klock's Island Park",
+        note: "Klock's Island Park in Fayette lists an access point to the Volga River for kayaks, canoes, and tubes; Miles Paddled uses it as the exact put-in and gives launch coordinates.",
+        sourceUrl: 'https://www.camping.org/campgrounds/iowa/fayette/klocks-island-park',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Heron Road / Volga River Access',
+        note: 'Miles Paddled describes a dedicated but not conspicuous Heron Road landing on river left downstream of the bridge, and the named Volga River Access topo feature sits in the same Heron Road corridor.',
+        sourceUrl: 'https://milespaddled.com/volga-river/',
+      },
+      {
+        label: 'State recreation area context',
+        value: 'Marked river access points',
+        note: 'Iowa DNR says the Volga River meanders through the southern part of Volga River State Recreation Area, provides a kayak/canoe float trip through timber and rock outcrops, and has marked, easily accessible river access points.',
+        sourceUrl: 'https://www.iowadnr.gov/media/6641/download?inline=',
+      },
+      {
+        label: 'Route-specific level',
+        value: '5.5 ft / 380 cfs observed',
+        note: 'Miles Paddled reports the Fayette-to-Heron Road route at 5.5 ft / 380 cfs on the Littleport gauge and recommends that level for this shallow upper-Volga section.',
+        sourceUrl: 'https://milespaddled.com/volga-river/',
+      },
+      {
+        label: 'Low-water floor',
+        value: 'About 5.0 ft',
+        note: 'The same route report says below 5 ft will invite scraping and below 4.5 ft would be a fool\'s errand, so the app uses 5.0 ft as a conservative minimum-only floor.',
+        sourceUrl: 'https://milespaddled.com/volga-river/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412400',
+        note: 'USGS operates Volga River at Littleport, IA on the same river downstream of the upper-Volga route, with current discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: "Klock's Island 42.84288, -91.81917; Heron Road 42.86453, -91.74071",
+        note: 'Miles Paddled publishes GPS points for both endpoints; the Heron Road coordinate is corroborated by the named Volga River Access topo feature at 42.8680364, -91.7418258.',
+        sourceUrl: 'https://www.topozone.com/iowa/fayette-ia/locale/volga-river-access/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Volga River',
+        url: 'https://milespaddled.com/volga-river/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: "Klock's Island Park",
+        url: 'https://www.camping.org/campgrounds/iowa/fayette/klocks-island-park',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa DNR Volga River State Recreation Area',
+        url: 'https://www.iowadnr.gov/places-go/state-parks/all-parks/volga-river-state-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa DNR Volga River State Recreation Area map',
+        url: 'https://www.iowadnr.gov/media/6641/download?inline=',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05412400 Volga River at Littleport',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Volga River Access topo feature',
+        url: 'https://www.topozone.com/iowa/fayette-ia/locale/volga-river-access/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'volga-river-osborne-mederville',
+    slug: 'volga-river-osborne-mederville',
+    name: 'Volga River',
+    reach: 'Osborne Canoe Access to Mederville Canoe Access',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Short lower-Volga day from Clayton County\'s Osborne Canoe Access to the hidden Mederville landing, with clear water, gravel bars, easy Class I riffles, and a direct Littleport gauge ladder.',
+    statusText:
+      'Use the Volga River at Littleport gauge. Treat about 4.4 to 4.9 ft as the broad target, below 4.1 ft as too shallow, and 5.4+ ft as high enough for experienced paddlers only.',
+    latitude: 42.7897657,
+    longitude: -91.442417,
+    gaugeSource: {
+      id: 'usgs-05412400',
+      provider: 'usgs',
+      siteId: '05412400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Volga River at Littleport, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 4.4,
+      idealMax: 4.9,
+      tooLow: 4.1,
+      tooHigh: 5.4,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Volga River Osborne gauge-height ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/volga-river/osborne',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall give the best mix of clarity and exposed rock. Dry summer spells can make the riffles scrape-prone, while rain can quickly make the Mederville gorge, low branches, and steep take-out more consequential.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is mostly easy moving water with several light Class I riffles. The practical difficulty comes from hidden access roads, steep banks, and the need to identify the Mederville take-out before the downstream gorge continues.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa community-source add: Clayton County Conservation lists Osborne Canoe Access as a county-managed area, Wisconsin River Trips documents the Osborne/Hwy 13-to-Mederville route, access details, hazards, and Littleport gauge-height ladder, USGS 05412400 is a direct same-river live gauge downstream at Littleport, and Water Quality Portal/Iowa DNR records support the Mederville access coordinates. The route uses Osborne Canoe Access rather than the rougher Hwy 13 bridge launch because the county-managed landing is cleaner public-access evidence.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Osborne to Mederville, about 4.8 to 5.3 miles',
+        note: 'Wisconsin River Trips documents the lower-Volga route from Hwy 13 / Osborne Park Landing to Mederville Canoe Access, including clear water, gravel bars, several Class I riffles, and a scenic Mederville gorge finish.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/volga-river/osborne',
+      },
+      {
+        label: 'County access support',
+        value: 'Osborne Canoe Access',
+        note: 'Clayton County Conservation\'s annual report lists Osborne Canoe Access at 29576 Hwy 13 as a county-managed area with canoe, fishing, and restroom amenities.',
+        sourceUrl: 'https://www.claytoncountyconservation.org/_files/ugd/155093_74badccc039042c9b23261221c12324e.pdf',
+      },
+      {
+        label: 'Target range',
+        value: '4.4 to 4.9 ft',
+        note: 'The Osborne route ladder treats 4.4 to 4.6 ft as shallow but fine, 4.7 to 4.9 ft as above average but okay, and uses the same Littleport gauge as the downstream Mederville route.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/volga-river/osborne',
+      },
+      {
+        label: 'Low and high cutoffs',
+        value: '<4.1 ft / 5.4+ ft',
+        note: 'The route ladder says less than 4.1 ft is likely too shallow, 5.4 to 5.8 ft is high and perhaps experienced-only, and 5.9 ft and higher is very high / expert-only.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/volga-river/osborne',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412400',
+        note: 'USGS operates Volga River at Littleport, IA on the same river downstream of the route, with current discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+      },
+      {
+        label: 'Take-out coordinate support',
+        value: 'Volga River at Mederville Access',
+        note: 'The Water Quality Portal / Iowa DNR site named Volga River at Mederville Access places the access at 42.7637267, -91.4218817, matching the Mederville bridge-area landing described by the route report.',
+        sourceUrl: 'https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-11220006/',
+      },
+      {
+        label: 'General Volga paddling context',
+        value: 'Good paddling stream with access points',
+        note: 'Iowa DNR Fish Iowa describes the Volga River as a good paddling stream for most of the year with put-in and take-out points along much of its length.',
+        sourceUrl: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RVR22',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wisconsin River Trips Volga River - Osborne',
+        url: 'https://www.wisconsinrivertrips.com/segments/volga-river/osborne',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05412400 Volga River at Littleport',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Clayton County Conservation 2024 annual report',
+        url: 'https://www.claytoncountyconservation.org/_files/ugd/155093_74badccc039042c9b23261221c12324e.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Water Quality Portal Volga River at Mederville Access',
+        url: 'https://www.waterqualitydata.us/provider/STORET/21IOWA/21IOWA-11220006/',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa DNR Fish Iowa Volga River',
+        url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RVR22',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'maquoketa-river-mon-maq-pictured-rocks',
+    slug: 'maquoketa-river-mon-maq-pictured-rocks',
+    name: 'Maquoketa River',
+    reach: 'Mon-Maq Dam Access to Pictured Rocks Park',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Classic lower-Maquoketa water-trail run from the Mon-Maq sandbar launch to Pictured Rocks Park, with steady current, limestone bluffs, wooded public land, and a direct Maquoketa gauge ladder.',
+    statusText:
+      'Use the Maquoketa River near Maquoketa gauge. Treat 701 to 1,000 cfs as the best broad target, below 500 cfs as too low for enjoyable paddling, and 2,001+ cfs as very high and pushy.',
+    latitude: 42.24511929,
+    longitude: -91.17077245,
+    gaugeSource: {
+      id: 'usgs-05418500',
+      provider: 'usgs',
+      siteId: '05418500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Maquoketa River near Maquoketa, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 701,
+      idealMax: 1000,
+      tooLow: 500,
+      tooHigh: 2001,
+      thresholdSource: {
+        label: 'Wisconsin River Trips lower Maquoketa gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and post-rain windows are the most reliable. The lower Maquoketa can still be paddleable in summer, but dry periods expose gravel shallows and very high water reduces clarity and makes landings more consequential.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The DNR-backed water-trail guide describes this eight-mile section as appropriate for all skill levels, though it is long for beginners. Treat high water, strainers, and the steep Pictured Rocks access road as real planning factors.',
+      confidenceNotes:
+        'Confidence is good for an Iowa community-source add: the Iowa DNR/Jones County water-trail map names the Mon-Maq-to-Pictured-Rocks section and describes the launch/take-out amenities; Jones County confirms Pictured Rocks public paddling access and hard-surface river access; WRT identifies Monticello Dam Lower Access to Pictured Rocks as one of the popular scenic lower-Maquoketa legs and publishes a Maquoketa-gauge ladder for the lower river; USGS 05418500 is a direct same-river live gauge downstream near Maquoketa. Coordinates are from Water Quality Portal named monitoring sites at Mon-Maq Dam and Pictured Rocks Park, so paddlers should still follow posted access signs.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water-trail route',
+        value: 'Mon-Maq Dam to Pictured Rocks Park',
+        note: 'The Iowa DNR/Jones County water-trail guide describes the sandbar access below Mon-Maq Dam, the Pictured Rocks stone boat ramp, amenities at both accesses, and the eight-mile route as suitable for all skill levels though long for beginners.',
+        sourceUrl: 'https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_maquoketa.pdf',
+      },
+      {
+        label: 'County paddling access',
+        value: 'Pictured Rocks Park',
+        note: 'Jones County describes Pictured Rocks along the Maquoketa River, notes paddling among steep limestone bluffs, and confirms hard-surface river access.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/parks/pictured_rocks/',
+      },
+      {
+        label: 'DNR lower-river access context',
+        value: 'Pictured Rocks hard-surface boat ramp',
+        note: 'Iowa DNR Fish Iowa lists Pictured Rocks Park among the hard surface boat ramps on the lower Maquoketa and describes the upper part of the below-Monticello segment as more accessible by canoe or small jon boat.',
+        sourceUrl: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RMR49',
+      },
+      {
+        label: 'Published route context',
+        value: 'Monticello Dam Lower Access to Pictured Rocks Boat Ramp',
+        note: 'Wisconsin River Trips identifies this 8.1-mile leg as the start of one of the more popular and scenic lower-Maquoketa stretches with elevated limestone outcrops and possible summer-weekend crowds.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+      },
+      {
+        label: 'Target range',
+        value: '701 to 1,000 cfs',
+        note: 'WRT describes 701 to 1,000 cfs on the Maquoketa near Maquoketa gauge as an average fall depth and good target range for the lower river.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+      },
+      {
+        label: 'Low-water floor',
+        value: '500 cfs',
+        note: 'The same WRT ladder treats less than 500 cfs as likely too low for enjoyable paddling and 501 to 700 cfs as mostly okay but with grounding risk.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '2,001+ cfs',
+        note: 'WRT treats 2,001+ cfs as very high, pushy, dirty water that may be beyond enjoyable paddling on the lower Maquoketa.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05418500',
+        note: 'USGS operates Maquoketa River near Maquoketa, IA downstream on the same river, and WRT uses this gauge for its lower-Maquoketa ladder.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418500/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'Mon-Maq 42.24511929, -91.17077245; Pictured Rocks 42.20569962, -91.10253825',
+        note: 'Water Quality Portal sites named AWARE 9 Mon-Maq Dam Maquoketa River and AWARE 10 Pictured Rocks Park Maquoketa River provide NAD83 coordinates for the named endpoint corridors.',
+        sourceUrl: 'https://www.waterqualitydata.us/provider/STORET/IOWATER_WQX/IOWATER_WQX-953030/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Length, crowds, access road, high water',
+        note: 'The route is not technical, but eight miles can be long for beginners, Pictured Rocks has a steep seasonal access road, summer weekends can be busy, and very high water makes the lower river pushier and dirtier.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/parks/pictured_rocks/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Iowa DNR Maquoketa River Water Trail',
+        url: 'https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/watertrails/watertrail_maquoketa.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County Pictured Rocks',
+        url: 'https://www.jonescountyiowa.gov/conservation/parks/pictured_rocks/',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa DNR Fish Iowa Maquoketa below Monticello',
+        url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RMR49',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Maquoketa River - Buzzard Ridge',
+        url: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/buzzard-ridge-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Water Quality Portal Mon-Maq Dam',
+        url: 'https://www.waterqualitydata.us/provider/STORET/IOWATER_WQX/IOWATER_WQX-953030/',
+        provider: 'local',
+      },
+      {
+        label: 'Water Quality Portal Pictured Rocks Park',
+        url: 'https://www.waterqualitydata.us/provider/STORET/IOWATER_WQX/IOWATER_WQX-953031/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS public-domain Maquoketa River image',
+        url: 'https://www.usgs.gov/media/images/maquoketa-river',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'volga-river-mederville-littleport',
     slug: 'volga-river-mederville-littleport',
     name: 'Volga River',
@@ -13496,6 +14859,114 @@ export const rivers: River[] = [
       {
         label: 'Iowa DNR Volga River State Recreation Area',
         url: 'https://www.iowadnr.gov/places-go/state-parks/all-parks/volga-river-state-recreation-area',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'turkey-river-big-spring-elkader',
+    slug: 'turkey-river-big-spring-elkader',
+    name: 'Turkey River',
+    reach: 'Big Spring Campground to Elkader Access',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Short spring-fed Turkey River water-trail leg from Big Spring Campground to the upper Elkader take-out, with riffles, gravel bars, wooded bluffs, and a direct Elkader gauge.',
+    statusText:
+      'Use the Turkey River above French Hollow Creek at Elkader gauge. Treat about 220 cfs / 5.25 ft as very shallow but recommended for Big Spring to Elkader, and prefer roughly 250+ cfs for more margin.',
+    latitude: 42.91229,
+    longitude: -91.483,
+    gaugeSource: {
+      id: 'usgs-05412020',
+      provider: 'usgs',
+      siteId: '05412020',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Turkey River above French Hollow Cr at Elkader, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 220,
+      thresholdSource: {
+        label: 'Miles Paddled Turkey River IV Big Spring-to-Elkader level note',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Big Spring adds reliable coldwater inflow, so this shorter lower leg can hold up better than the shallower Elgin-to-Big-Spring approach. Dry spells can still expose gravel and scrape-prone riffles, while rain can make the Elkader dam approach and landing faster.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly beginner-friendly quietwater and riffles at normal levels, but the Elkader take-out sits upstream of a dam. Identify Access #39A early, land on river left, and never drift past posted portage warnings.',
+      confidenceNotes:
+        'Confidence is good for a narrow Iowa add: the Iowa DNR-backed Turkey River Water Trail names Big Spring Trout Hatchery / Access #47 or nearby Frieden Park #46 to Elkader #39A as the official 7.6-mile section, MyCountyParks confirms Big Spring Campground is right along the Turkey River and includes Canoe/Kayak Water Trail Access #47, Miles Paddled documents the exact Big Spring Campground to Elkader Access 39A trip with GPS points and route-specific Elkader-gauge guidance, and USGS 05412020 is a direct live gauge at Elkader just downstream of the route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water-trail section',
+        value: 'Big Spring #47 to Elkader #39A',
+        note: 'The Turkey River Water Trail describes Big Spring Trout Hatchery or Frieden Park to Elkader as a 7.6-mile section and warns paddlers to take out before the Elkader dam.',
+        sourceUrl: 'https://turkeyriver.org/map/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Big Spring Campground / Water Trail Access #47',
+        note: 'MyCountyParks says Big Spring Campground is right along the Turkey River, lists canoeing and kayaking, and identifies it as Water Trail Access #47.',
+        sourceUrl: 'https://www.mycountyparks.com/county/Clayton/Park/Big-Spring-Campground',
+      },
+      {
+        label: 'Published route report',
+        value: 'Big Spring Campground to Access 39A',
+        note: 'Miles Paddled documents this exact 7.25-mile trip with Big Spring Campground as the put-in and Elkader Access 39A off Sandpit Road as the take-out.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Route-specific minimum',
+        value: '5.25 ft / 220 cfs recommended but very shallow',
+        note: 'Miles Paddled reports 5.25 ft / 220 cfs on the Elkader gauge and recommends that level for Big Spring to Elkader, while noting the upstream Elgin-to-Big-Spring leg needs more water and 220 cfs is very shallow.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05412020',
+        note: 'USGS operates Turkey River above French Hollow Creek at Elkader, IA on the same river at the downstream end of this route corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.91229, -91.483 to 42.8618, -91.40877',
+        note: 'Miles Paddled publishes GPS points for Big Spring Campground and the official Elkader Access 39A take-out; official water-trail and county-park sources corroborate the access names.',
+        sourceUrl: 'https://milespaddled.com/turkey-river-iv/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Turkey River Water Trail map and guide',
+        url: 'https://turkeyriver.org/map/',
+        provider: 'local',
+      },
+      {
+        label: 'MyCountyParks Big Spring Campground',
+        url: 'https://www.mycountyparks.com/county/Clayton/Park/Big-Spring-Campground',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Turkey River IV',
+        url: 'https://milespaddled.com/turkey-river-iv/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05412020 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Turkey River Big Spring Trout Hatchery',
+        url: 'https://turkeyriver.org/big-spring-trout-hatchery/',
         provider: 'local',
       },
     ],
@@ -13629,6 +15100,443 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-turkey-river-gouldsburg-eldorado',
+    slug: 'little-turkey-river-gouldsburg-eldorado',
+    name: 'Little Turkey River',
+    reach: 'Gouldsburg Park to Eldorado Bridge Access',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Official upper Turkey River Water Trail starter section from Gouldsburg Park down the Little Turkey to Eldorado. This is a pretty Driftless riffle run, but seasonal fences, wires, and shallow water keep it guarded.',
+    statusText:
+      'Use USGS 05411850 Turkey River near Eldorado as the best live corridor gauge. Treat 6.0 ft as the conservative scrape-prone floor; around 6.6 ft / 680 cfs was a strong same-route report, but no trusted upper ceiling is published.',
+    latitude: 43.012796,
+    longitude: -91.958595,
+    gaugeSource: {
+      id: 'usgs-05411850',
+      provider: 'usgs',
+      siteId: '05411850',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Turkey River near Eldorado, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05411850/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 6,
+      thresholdSource: {
+        label: 'Miles Paddled Little Turkey River Eldorado gauge guidance',
+        url: 'https://milespaddled.com/little-turkey-river/',
+        provider: 'miles_paddled',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and after-rain windows are most reliable. The route can get scrapey below the Eldorado 6 ft mark, while fresh rain can quickly raise current around fences, wires, riffles, and bridge landings.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The paddling is mostly riffles and occasional Class I water, but Miles Paddled and Paddling Iowa warnings about seasonal fences and wires make this an intermediate judgment call rather than a casual beginner float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: the Turkey River Water Trail names Gouldsburg Park Access #98 to Eldorado Access #86 as the official 12.2-mile first section, Fayette County confirms Gouldsburg Park has Little Turkey River and Crane Creek canoe/kayak use, Miles Paddled documents the same Little Turkey corridor and Eldorado take-out with route-specific gauge observations, and USGS 05411850 is a direct downstream Turkey River gauge 3.6 miles below the Little Turkey confluence. The route stays minimum-only because current public evidence gives a scrape-prone floor and good observed level, not a full low/ideal/high ladder.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official water-trail section',
+        value: 'Gouldsburg #98 to Eldorado #86',
+        note: 'The Turkey River Water Trail guide identifies Gouldsburg Park as the official put-in and beginning of the water trail, then describes 12.2 miles down the Little Turkey River before it joins the main Turkey at Eldorado.',
+        sourceUrl: 'https://turkeyriver.org/map/',
+      },
+      {
+        label: 'Public park access',
+        value: 'Gouldsburg Park',
+        note: 'Fayette County/MyCountyParks lists Gouldsburg Park at the confluence of the Little Turkey River and Crane Creek, with kayaking and canoeing among the park uses.',
+        sourceUrl: 'https://www.mycountyparks.com/county/fayette/Park/Gouldsburg-Park',
+      },
+      {
+        label: 'Route-specific minimum',
+        value: '6 ft at Eldorado',
+        note: 'Miles Paddled recommends the reported 6.6 ft / 680 cfs level and says below 6 ft will invite occasional scraping on this Little Turkey route.',
+        sourceUrl: 'https://milespaddled.com/little-turkey-river/',
+      },
+      {
+        label: 'Direct corridor gauge',
+        value: 'USGS 05411850',
+        note: 'USGS operates Turkey River near Eldorado, IA 3.6 miles downstream from the Little Turkey confluence, with current discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05411850/',
+      },
+      {
+        label: 'Fence and wire cautions',
+        value: 'Seasonal hazards near Gouldsburg and downstream pastures',
+        note: 'Miles Paddled reports seasonal fences and wires near Gouldsburg Park and cites Paddling Iowa warnings; scout and portage rather than forcing a line under wire.',
+        sourceUrl: 'https://milespaddled.com/little-turkey-river/',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Eldorado / Highway 150 bridge access',
+        note: 'The official water-trail guide names Eldorado Access #86, and Miles Paddled documents the practical public take-out at Highway 150 / 292nd Street just below the Little Turkey confluence.',
+        sourceUrl: 'https://milespaddled.com/little-turkey-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Turkey River Water Trail map and guide',
+        url: 'https://turkeyriver.org/map/',
+        provider: 'local',
+      },
+      {
+        label: 'Fayette County Gouldsburg Park',
+        url: 'https://www.mycountyparks.com/county/fayette/Park/Gouldsburg-Park',
+        provider: 'local',
+      },
+      {
+        label: 'Miles Paddled Little Turkey River',
+        url: 'https://milespaddled.com/little-turkey-river/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'USGS 05411850 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05411850/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Turkey River near Eldorado river levels',
+        url: 'https://turkeyriver.org/river-levels/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-maquoketa-river-ozark-caven',
+    slug: 'north-fork-maquoketa-river-ozark-caven',
+    name: 'North Fork Maquoketa River',
+    reach: 'Ozark Bridge / 21st Ave to Caven Bridge Access',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Short Ozark Wildlife Area run on the North Fork Maquoketa, with steep Driftless bluffs, boulders, easy riffles, and a direct Fulton gauge ladder.',
+    statusText:
+      'Use the North Fork Maquoketa near Fulton gauge. Treat 231 to 400 cfs as the best broad target, below 150 cfs as likely too shallow, and 701+ cfs as beyond the normal recreational recommendation.',
+    latitude: 42.19,
+    longitude: -90.87,
+    gaugeSource: {
+      id: 'usgs-05418400',
+      provider: 'usgs',
+      siteId: '05418400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'North Fork Maquoketa River near Fulton, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 231,
+      idealMax: 400,
+      tooLow: 150,
+      tooHigh: 701,
+      thresholdSource: {
+        label: 'Wisconsin River Trips North Fork Maquoketa Ozark gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are the best scenery windows because leaf-off conditions expose more cliffs and boulders. Heavy rain can quickly make the North Fork pushy and turbid, while dry late-summer periods can make riffles too shallow.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The run is short and mostly Class I at normal levels, but the accesses are undeveloped, the current stays swift, and higher water makes the narrow bends and bridge-area landings less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a guarded Iowa add: Jackson County Conservation lists Ozark Bridge and Caven Bridge Access on the North Fork water trail, Jones County describes the Cascade-to-Ozark/Caven corridor as a scenic paddling stretch, Wisconsin River Trips documents the exact 21st Ave-to-60th Ave Ozark Wildlife Area route and publishes Fulton-gauge cfs bands, and USGS 05418400 is a direct same-river live gauge downstream near Fulton. Coordinates are from Jackson County water-trail table coordinates rounded to two decimals, so paddlers should use posted access signs and the route caveats to find the practical east-bank landings.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official access table',
+        value: 'Ozark Bridge and Caven Bridge Access',
+        note: 'Jackson County Conservation lists Ozark Bridge as an undeveloped North Fork water-trail access near 21st Ave / 187th Street and Caven Bridge Access at 60th Ave, with coordinates published for both access areas.',
+        sourceUrl: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+      },
+      {
+        label: 'County river context',
+        value: 'Cascade to Ozark / Caven corridor',
+        note: 'Jones County describes the North Fork below Cascade as a remote scenic paddling corridor and says paddlers can take out in Jackson County at Ozark Bridge on 21st Ave or Caven Bridge Access on 60th Ave.',
+        sourceUrl: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+      },
+      {
+        label: 'Published route report',
+        value: '21st Ave / 185th Street to 60th Ave',
+        note: 'Wisconsin River Trips documents this 4.4-mile Ozark Wildlife Area route with steep bluffs, boulders, swift current, easy Class I riffles, and undeveloped public east-bank access notes.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+      },
+      {
+        label: 'Target range',
+        value: '231 to 400 cfs',
+        note: 'WRT treats 231 to 300 cfs as average and good for paddling, and 301 to 400 cfs as above average but still good, using the North Fork Maquoketa River near Fulton gauge.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+      },
+      {
+        label: 'Low and high cutoffs',
+        value: '<150 cfs / 701+ cfs',
+        note: 'The same route ladder says less than 150 cfs may be too shallow and 701 to 1000 cfs is very high, perhaps only suitable for advanced paddlers; the app uses 701+ cfs as the broad recreational high-water cutoff.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05418400',
+        note: 'USGS operates North Fork Maquoketa River near Fulton, IA, a live same-river gauge downstream of the Ozark Wildlife Area route and the gauge used by the route report.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Jackson County Maquoketa River Water Trail access table',
+        url: 'https://content.mycountyparks.com/Production/RelatedItem/Content/abb43783-a1f1-495a-9490-9542bf53fe5d',
+        provider: 'local',
+      },
+      {
+        label: 'Jones County North Fork Maquoketa River',
+        url: 'https://www.jonescountyiowa.gov/conservation/rivers/maquoketa_river_north_fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips North Fork Maquoketa Ozark Wildlife Area',
+        url: 'https://www.wisconsinrivertrips.com/segments/north-fork-maquoketa-river/ozark-wildlife-area',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05418400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Jackson County Maquoketa River Water Trail overview',
+        url: 'https://www.mycountyparks.com/County/Jackson/Park/Maquoketa-River-Water-Trail',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'boone-river-riverside-albright',
+    slug: 'boone-river-riverside-albright',
+    name: 'Boone River',
+    reach: "Riverside Park Access to Albright's Canoe Access",
+    state: 'Iowa',
+    region: 'North Central Iowa',
+    summary:
+      "Webster City water-trail run from Riverside Park through Briggs Woods to Albright's Canoe Access, with wooded banks, riffles, boulders, and a direct Boone River gauge in the corridor.",
+    statusText:
+      'Use the Boone River near Webster City gauge. Treat 200 cfs as the low floor, 200 to 1,100 cfs as the broad recreational window, and 1,500+ cfs as advanced-only high water.',
+    latitude: 42.4677519,
+    longitude: -93.8118872,
+    gaugeSource: {
+      id: 'usgs-05481000',
+      provider: 'usgs',
+      siteId: '05481000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Boone River near Webster City, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05481000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 1100,
+      tooLow: 200,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'Hamilton County Boone River touring guidance and Paddling.com trip report',
+        url: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and early summer usually offer the best depth. Long dry spells can leave the Boone scrapable around riffles and boulder gardens, while high water makes strainers, low dams, and ledges more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The first city reach is generally beginner-friendly at normal levels, but the Briggs Woods-to-Albright section has faster gradient, rocks, boulders, and moderate swiftwater. Treat the full eight-mile combination as a guarded novice-to-intermediate day.',
+      confidenceNotes:
+        "Confidence is good for a mixed official/community Iowa add: Hamilton County's Boone River touring guide names Riverside City Park to Briggs Woods and Briggs Woods to Albright's Canoe Access as consecutive water-trail sections, gives mileage/gradient/hazard notes, and publishes cfs safety guidance. Paddling.com documents the same Webster City park-to-Albright trip with 200 cfs minimum and 200-400 cfs normal-level guidance. Webster City and MyCountyParks confirm public canoe-access context, and USGS 05481000 is a direct live Boone River gauge in the route corridor.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Route sections',
+        value: '4.5 mi + 3.6 mi',
+        note: "Hamilton County's Boone River touring guide lists Riverside City Park to Briggs Woods Park at 4.5 miles and Briggs Woods Park to Albright's Canoe Access at 3.6 miles.",
+        sourceUrl: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718',
+      },
+      {
+        label: 'Public city access',
+        value: 'Riverside Park Access',
+        note: 'Terrain360 records the DNR source name as Riverside Park Access, and Webster City describes the Boone River Trail corridor as having canoe access and parking.',
+        sourceUrl: 'https://www.terrain360.com/trail/riverside-park',
+      },
+      {
+        label: 'Public take-out',
+        value: "Albright's Canoe Access",
+        note: "MyCountyParks says Albright's Canoe Access is an Iowa DNR-owned 11-acre area managed by Hamilton County Conservation and is an excellent area to launch canoes or boats.",
+        sourceUrl: 'https://www.mycountyparks.com/County/Hamilton/Park/Albrights-Canoe-Access',
+      },
+      {
+        label: 'Gauge and safety ceiling',
+        value: '<=1,100 cfs novice, 1,500+ cfs advanced',
+        note: 'The Hamilton County touring guide tells paddlers to check current Boone River conditions and says 1,100 cfs or below is good for inexperienced canoeists, while 1,500 cfs and above is recommended for advanced canoeists only.',
+        sourceUrl: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum',
+        note: 'The Paddling.com Boone River trip report recommends at least 200 cfs and describes 200-400 cfs as normal enjoyable levels for the Webster City park to Albright route.',
+        sourceUrl: 'https://paddling.com/paddle/trips/boone-river-iowa',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05481000',
+        note: 'USGS operates Boone River near Webster City, IA, with surveyed coordinates in the route corridor downstream of Webster City and upstream of Albright Bridge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05481000/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Hamilton County Boone River touring information',
+        url: 'https://portal.mycountyparks.com/Handler.ashx?Item_ID=372BE434-1C3F-4D49-9719-43870481A718',
+        provider: 'local',
+      },
+      {
+        label: 'Paddling.com Boone River in Iowa',
+        url: 'https://paddling.com/paddle/trips/boone-river-iowa',
+        provider: 'local',
+      },
+      {
+        label: 'Webster City Boone River Trail',
+        url: 'https://www.webstercity.com/Facilities/Facility/Details/Boone-River-Trail-14',
+        provider: 'local',
+      },
+      {
+        label: "MyCountyParks Albright's Canoe Access",
+        url: 'https://www.mycountyparks.com/County/Hamilton/Park/Albrights-Canoe-Access',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05481000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05481000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'cedar-river-charles-city-whitewater',
+    slug: 'cedar-river-charles-city-whitewater',
+    name: 'Cedar River',
+    reach: 'Charles City Whitewater Park',
+    state: 'Iowa',
+    region: 'North Central Iowa',
+    summary:
+      'Downtown Charles City play-park run on the Cedar River, with a signed public whitewater/kayak area, three constructed features, large eddies, and a direct USGS gauge.',
+    statusText:
+      'Use the Cedar River at Charles City gauge. Treat 2,000 to 4,000 cfs as the prime all-feature window, 500 cfs as the practical low floor, and 8,000+ cfs as expert-only high water with poor eddy access.',
+    latitude: 43.064968,
+    longitude: -92.677829,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05457700',
+      provider: 'usgs',
+      siteId: '05457700',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cedar River at Charles City, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05457700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2000,
+      idealMax: 4000,
+      tooLow: 500,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Iowa Whitewater Charles City level guidance',
+        url: 'https://www.iowawhitewater.org/featurePage.php?pageId=charlesCity',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The park is open year-round, but American Whitewater notes the rain-fed course is generally best in spring and early summer, can come back with fall rain, and is commonly lowest in late July through September.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The city lists the 1,200-foot whitewater/kayak area as Class II-III. Large eddies make laps manageable at normal levels, but the constructed features are still whitewater; helmets, PFDs, swimming ability, and feature-specific judgment matter.',
+      confidenceNotes:
+        'Confidence is high for a whitewater-play route: the City of Charles City identifies Riverside Park as a public Cedar River whitewater/kayak area with a canoe/boat launch, Iowa Whitewater publishes the put-in/take-out GPS coordinate, direct USGS 05457700 gauge, usable/prime/high-water bands, and upstream dam warning, and American Whitewater documents the exact 0.3-mile Charles City Whitewater reach with feature-specific flow behavior. The app treats this as a play-park route rather than a downstream float.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public park access',
+        value: 'Riverside Park whitewater / kayak area',
+        note: 'Charles City lists Riverside Park along the downtown Cedar River and names a 1,200-foot whitewater/kayak area, canoe/boat launch, and other public park amenities.',
+        sourceUrl: 'https://www.cityofcharlescity.org/facilities/facility/details/Riverside-Park-8',
+      },
+      {
+        label: 'Access coordinates',
+        value: '43.064968, -92.677829',
+        note: 'Iowa Whitewater publishes the put-in and take-out GPS coordinate for Charles City Whitewater Park, matching the downtown Riverfront/Riverside Park course area.',
+        sourceUrl: 'https://www.iowawhitewater.org/featurePage.php?pageId=charlesCity',
+      },
+      {
+        label: 'Prime range',
+        value: '2,000 to 4,000 cfs',
+        note: 'Iowa Whitewater says the features are usable from 500 to 8,000 cfs and gives 2,000 to 4,000 cfs as the prime river-level range for all three features.',
+        sourceUrl: 'https://www.iowawhitewater.org/featurePage.php?pageId=charlesCity',
+      },
+      {
+        label: 'High-water cutoff',
+        value: '8,000+ cfs',
+        note: 'Iowa Whitewater warns that above 8,000 cfs there is minimal eddy access and the features become random whitewater waves and holes requiring solid whitewater skills.',
+        sourceUrl: 'https://www.iowawhitewater.org/featurePage.php?pageId=charlesCity',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05457700',
+        note: 'USGS operates the Cedar River at Charles City monitoring location, and Iowa Whitewater names USGS 05457700 as the applicable gauge for the whitewater park.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05457700/',
+      },
+      {
+        label: 'AW reach context',
+        value: '0.3 mi Class II(III)',
+        note: 'American Whitewater identifies the Charles City Whitewater reach as a 0.3-mile Cedar River run with three features, rain-fed flows, and feature-specific behavior across the Charles City gauge range.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10267/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Iowa Whitewater Charles City Whitewater Park',
+        url: 'https://www.iowawhitewater.org/featurePage.php?pageId=charlesCity',
+        provider: 'local',
+      },
+      {
+        label: 'City of Charles City Riverside Park',
+        url: 'https://www.cityofcharlescity.org/facilities/facility/details/Riverside-Park-8',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Cedar - Charles City Whitewater',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10267/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05457700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05457700/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'yellow-river-volney-sixteen-bridge',
     slug: 'yellow-river-volney-sixteen-bridge',
     name: 'Yellow River',
@@ -13752,6 +15660,129 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'yellow-river-sixteen-bridge-highway-76',
+    slug: 'yellow-river-sixteen-bridge-highway-76',
+    name: 'Yellow River',
+    reach: 'Bridge Sixteen to Highway 76',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Long lower Yellow River day from the public Bridge Sixteen launch through rugged Driftless bluffs, faster riffles, Yellow River State Forest, and Effigy Mounds bottomlands to the Highway 76 mouth-area access.',
+    statusText:
+      'Use the Yellow River near Ion gauge. Treat 201 to 300 cfs as the best broad target, 100 cfs as the low floor, and 600+ cfs as too high for a normal recreational recommendation because rapids, strainers, and Mississippi backwater debris get more consequential.',
+    latitude: 43.1277592,
+    longitude: -91.3140227,
+    gaugeSource: {
+      id: 'usgs-05389000',
+      provider: 'usgs',
+      siteId: '05389000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Yellow River near Ion, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05389000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 201,
+      idealMax: 300,
+      tooLow: 100,
+      tooHigh: 601,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Yellow River Iowa gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring and fall are best for this long Driftless day. Summer can be workable when the Ion gauge stays above the low floor, but the lower river can be affected by recent rain, reduced clarity, and Mississippi backwater near the mouth.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Miles Paddled rates this reach intermediate with riffles and Class I+ water. Wisconsin River Trips describes the Sixteen-to-Ion leg as faster and more rugged than the popular upstream reach, with bigger Class II-style rapids possible as water rises.',
+      confidenceNotes:
+        'Confidence is good for a community-source Iowa add: Miles Paddled documents the exact Old Sixteen Road-to-Highway-76 route with GPS points, distance, hazards, and an Ion gauge observation; Wisconsin River Trips publishes the same-river Ion gauge ladder and identifies Bridge Sixteen as a public paddler launch; USGS operates the Ion gauge in the route corridor; NPS and Iowa DNR materials confirm public lower-corridor context around Effigy Mounds, Yellow River State Forest, canoe access, parking, and the Highway 76 area.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published route report',
+        value: 'Old Sixteen Road to Highway 76, 16.75 miles',
+        note: 'Miles Paddled documents the lower Yellow River from Old Sixteen Road to the Highway 76 railroad bridge near the Mississippi mouth, with put-in/take-out GPS points and a five-hour trip time.',
+        sourceUrl: 'https://milespaddled.com/yellow-river-ii/',
+      },
+      {
+        label: 'Lower route character',
+        value: 'Riffles, Class I+, public-land lower miles',
+        note: 'Miles Paddled describes swift riffles, rock outcrops, strainers and sweepers, then public land through Yellow River State Forest and Effigy Mounds in the final lower section.',
+        sourceUrl: 'https://milespaddled.com/yellow-river-ii/',
+      },
+      {
+        label: 'Target range',
+        value: '201 to 300 cfs',
+        note: 'Wisconsin River Trips describes 201 to 300 cfs at the Ion gauge as average depth and a good target range for a well-padded Yellow River.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs',
+        note: 'The WRT Yellow River ladder treats below 50 cfs as likely too low and 51 to 100 cfs as very shallow; Miles Paddled separately says this lower route needs enough water and gives 80 cfs as a minimum caution.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+      },
+      {
+        label: 'High-water ceiling',
+        value: '601+ cfs',
+        note: 'WRT treats 601 to 1000 cfs as very high and perhaps only suitable for expert paddlers, with 1001+ cfs maybe too high for kayaking. The app keeps 601+ cfs outside broad recommendation.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05389000',
+        note: 'USGS operates Yellow River near Ion, IA with current discharge and gage-height observations, and both lower-Yellow route reports tie their conditions to the Ion gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05389000/',
+      },
+      {
+        label: 'Put-in support',
+        value: 'Bridge Sixteen public launch',
+        note: 'Wisconsin River Trips says paddlers should use the public launch downstream and left of Sixteen Bridge, not the nearby private campground. Existing app research also identifies Bridge Sixteen Canoe Access as a named public access.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+      },
+      {
+        label: 'Take-out support',
+        value: 'Highway 76 / Yellow River mouth access context',
+        note: 'Miles Paddled used the Highway 76 and railroad bridge area as the safer take-out. NPS describes the Yellow River boardwalk and South Unit highway access area, while Iowa DNR maps canoe access and parking in the Yellow River State Forest lower corridor.',
+        sourceUrl: 'https://milespaddled.com/yellow-river-ii/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Miles Paddled Yellow River II',
+        url: 'https://milespaddled.com/yellow-river-ii/',
+        provider: 'miles_paddled',
+      },
+      {
+        label: 'Wisconsin River Trips Yellow River Iowa',
+        url: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05389000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05389000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Effigy Mounds Yellow River Boardwalk',
+        url: 'https://home.nps.gov/efmo/planyourvisit/accessibility.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Iowa DNR Yellow River State Forest map',
+        url: 'https://www.iowadnr.gov/Portals/idnr/uploads/forestry/YRSF/YRSFMap.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'turtle-creek-east-creek-road-highway-140',
     slug: 'turtle-creek-east-creek-road-highway-140',
     name: 'Turtle Creek',
@@ -13859,6 +15890,118 @@ export const rivers: River[] = [
         label: 'Miles Paddled Turtle Creek paddle guide',
         url: 'https://milespaddled.com/turtle-creek-paddle-guide/',
         provider: 'miles_paddled',
+      },
+    ],
+  },
+  {
+    id: 'maquoketa-river-manchester-whitewater',
+    slug: 'maquoketa-river-manchester-whitewater',
+    name: 'Maquoketa River',
+    reach: 'Manchester Whitewater Park',
+    state: 'Iowa',
+    region: 'Northeast Iowa',
+    summary:
+      'Downtown Manchester whitewater-play course on the Maquoketa River, with six constructed drops, public city access, a walk-back trail, and a direct Manchester gauge.',
+    statusText:
+      'Use the Maquoketa River at Manchester gauge. Treat 200 to 1,200 cfs as the best broad play window, below 100 cfs as extremely shallow, and 5,000+ cfs as high-water whitewater only.',
+    latitude: 42.482137,
+    longitude: -91.458424,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05416900',
+      provider: 'usgs',
+      siteId: '05416900',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Maquoketa River at Manchester, IA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 1200,
+      tooLow: 100,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'American Whitewater Manchester Whitewater Park gauge ladder',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10410',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The city says the park is open year-round, but Maquoketa River levels respond quickly to rain. Summer low water can leave features very shallow, while high water changes eddy access and raises consequences.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the park I-II at normal play levels and II+ to III as flows rise. The city stresses that the river is not an amusement park; PFDs, helmets, water shoes, and shore scouting are appropriate even for short laps.',
+      confidenceNotes:
+        'Confidence is high for a whitewater-play route: the City of Manchester confirms public 300 West Main Street parking and access beside the first feature, Iowa Whitewater publishes the whitewater-park coordinates and Maquoketa River location, American Whitewater documents the exact Manchester Whitewater Park reach and flow ladder, and USGS 05416900 is the direct same-river gauge about one mile downstream.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public access',
+        value: '300 West Main Street',
+        note: 'The City of Manchester says public parking is available at 300 West Main Street adjacent to the whitewater park access point and first feature.',
+        sourceUrl: 'https://www.manchester-ia.org/vnews/display.v/SEC/Parks%20%26%20Recreation%7CWhitewater%20Park',
+      },
+      {
+        label: 'Course design',
+        value: 'Six 18-inch drops / 800+ ft',
+        note: 'The city describes six 18-inch drops over more than 800 feet, with a paved trail for walking back to the start of the course.',
+        sourceUrl: 'https://www.manchester-ia.org/vnews/display.v/SEC/Parks%20%26%20Recreation%7CWhitewater%20Park',
+      },
+      {
+        label: 'Access coordinates',
+        value: '42.482137, -91.458424',
+        note: 'Iowa Whitewater identifies Manchester Whitewater Park on the Maquoketa River in Manchester and publishes these latitude/longitude coordinates.',
+        sourceUrl: 'https://www.iowawhitewater.org/lhd/LHDmanchester1.html',
+      },
+      {
+        label: 'Target range',
+        value: '200 to 1,200 cfs',
+        note: 'American Whitewater describes 200-500 cfs as decent low-level play and 500-1,200 cfs as moderate play, while the city recommends below 250 cfs for tubers and recreational kayakers reducing risk.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10410',
+      },
+      {
+        label: 'Low and high cutoffs',
+        value: '<100 cfs / 5,000+ cfs',
+        note: 'American Whitewater marks 0-100 cfs as extreme low flow with scrapey features and 5,000-20,000 cfs as high Class III whitewater; the app uses 5,000+ cfs as beyond broad recommendation.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10410',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 05416900',
+        note: 'USGS operates Maquoketa River at Manchester, IA, and American Whitewater says the gauge is about one mile downstream and accurately reflects the playpark flow.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'City of Manchester Whitewater Park',
+        url: 'https://www.manchester-ia.org/vnews/display.v/SEC/Parks%20%26%20Recreation%7CWhitewater%20Park',
+        provider: 'local',
+      },
+      {
+        label: 'Iowa Whitewater Manchester Whitewater Park',
+        url: 'https://www.iowawhitewater.org/lhd/LHDmanchester1.html',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Manchester Whitewater Park',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10410/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Manchester gauge ladder',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=10410',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05416900 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
+        provider: 'usgs',
       },
     ],
   },

@@ -406,7 +406,7 @@ Remaining gap:
 - The numeric band still needs stronger repeated same-reach evidence.
 - The upstream put-in is less official than the Lake Zumbro take-out, so route-confidence and gauge-confidence are not equally strong.
 
-## Upper Iowa River: Kendallville Park to Decorah
+## Upper Iowa River: Kendallville Park to Bluffton Fir Stand Access
 
 Working thresholds:
 
@@ -416,7 +416,7 @@ Working thresholds:
 Evidence used:
 
 - MilesPaddled gives the clearest current numeric guidance for this reach and says to avoid it below `200` cfs.
-- Winneshiek County Conservation supports the segment as a marquee Upper Iowa paddle and reinforces that this is a long scenic Driftless float rather than a tiny local run.
+- Winneshiek County Conservation and the Upper Iowa River Paddler's Guide support the segment as a marquee Upper Iowa paddle and reinforce that this is a long scenic Driftless float rather than a tiny local run.
 - Iowa DNR Water Trails materials support the river as a paddling corridor, but do not publish a reach-specific upper target band.
 
 Interpretation:
@@ -427,7 +427,7 @@ Interpretation:
 
 Remaining gap:
 
-- The reach still lacks a defendable high-water cutoff or preferred upper band tied to the Decorah gauge.
+- The reach still lacks a defendable high-water cutoff or preferred upper band tied to the Bluffton gauge.
 - The next upgrade would be repeated same-segment observations or a stronger local paddling source that distinguishes merely runnable water from truly good conditions.
 
 ## Sugar River: Belleville Community Park to County Road X

@@ -154,7 +154,7 @@ Route contributions and moderation:
 - Rice Creek: Peltier Lake to Long Lake
 - Kettle River: #5 trailer access to #6 trailer access
 - South Fork Zumbro: 90th Street NW to Lake Zumbro
-- Upper Iowa River: Kendallville Park to Decorah
+- Upper Iowa River: Kendallville Park to Bluffton Fir Stand Access
 - Sugar River: Belleville Community Park to County Road X
 - Black Hawk Creek: Ranchero Road to Hope Martin Park
 - Bark River: Highway 164 to Merton Millpond
