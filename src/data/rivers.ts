@@ -16005,4 +16005,1065 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'jacks-fork-river-buck-hollow-rymers',
+    slug: 'jacks-fork-river-buck-hollow-rymers',
+    name: 'Jacks Fork River',
+    reach: 'Buck Hollow / Highway 17 Bridge to Rymers',
+    aliases: [
+      'Jacks Fork - Highway 17 to Rymers',
+      'Jacks Fork - Buck Hollow to Rymers',
+      'Upper Jacks Fork - Buck Hollow to Rymers',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Remote upper Jacks Fork day float from the Highway 17 bridge at Buck Hollow to Rymers, with NPS access at both ends, bluff-and-cave scenery, and a direct Mountain View gauge used as a conservative low-water check.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge as the route signal. Treat about 100 cfs as the conservative low-water floor; below that, expect shallow riffles, dragging, and possible poling or lining. No ideal range or upper cutoff is claimed.',
+    latitude: 37.057183,
+    longitude: -91.664061,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and Buck Hollow-to-Rymers trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal. NPS says portions of the Jacks Fork are only navigable at certain times because of low water, and local route evidence shows Buck Hollow-to-Rymers can become a poling-and-lining trip near 80 cfs. Spring and post-rain windows are more reliable, but storms can raise this narrow valley quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a remote upper-river Ozark float with fast riffles, shoals, tight bends, bluff pools, and Class I-II character. Treat it as a moving-water route rather than a casual summer tube float, especially below the 100 cfs floor or when thunderstorms are possible.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: NPS names Highway 17 / Buck Hollow to Rymers as a standard Jacks Fork float and lists both as park river access points; NPS brochure directions place Buck Hollow at the Highway 17 bridge and Rymers at the end of the Highway M gravel access road; USGS 07065200 is the direct upper-Jacks gauge near Mountain View and showed same-day May 26, 2026 discharge and gage-height observations; and Rivers.MOHERP has Mountain View gauge ratings plus Buck Hollow-to-Rymers trip evidence. Coordinates are from published paddling-location coordinate sources rather than an NPS coordinate table, so users should still follow park signs at both access roads. The app uses minimum-only scoring because the numeric level support is community-calibrated rather than an official manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Hwy 17 to Rymers, 5 hr',
+        note: 'NPS lists Highway 17 to Rymers as an estimated 5-hour Jacks Fork float and names Highway 17 Bridge / Buck Hollow and Rymers as popular Jacks Fork put-in locations.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'NPS access context',
+        value: 'Buck Hollow and Rymers park accesses',
+        note: 'The NPS park brochure lists Buck Hollow and Rymers in the Jacks Fork river-access inventory, with Rymers at river mile 82 and Buck Hollow at river mile 88.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Access directions',
+        value: 'Highway 17 bridge to Highway M gravel road end',
+        note: 'NPS directions place Buck Hollow where Highway 17 crosses the Jacks Fork about 6 miles north of Mountain View, and Rymers by traveling east from Mountain View on US 60, then north on Highway M until pavement ends and continuing on gravel to the road end.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07065200',
+        note: 'USGS operates Jacks Fork near Mountain View, MO. The legacy current-conditions page showed same-day May 26, 2026 discharge and gage-height observations during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge good beginning at 100 cfs. Buck Hollow-to-Rymers trip rows include a good report at 253 cfs and poor reports around 80 cfs where all drops required poling or lining.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Route mileage and coordinates',
+        value: 'About 9.4 mi',
+        note: 'Rivers.MOHERP and public paddling-location guides place Buck Hollow to Rymers at about 9.4 miles. Southwest Paddler publishes access coordinates for the Highway 17 / Buck Hollow bridge and Rymer Landing, corroborated by a separate Rymers paddling-location coordinate listing.',
+        sourceUrl: 'https://www.southwestpaddler.com/docs/current4.html',
+      },
+      {
+        label: 'River character',
+        value: 'Seasonal Class I-II upper Ozark river',
+        note: 'Southwest Paddler describes the Jacks Fork as a Class I-II river with remoteness, rapids that are generally not highly technical, and seasonal flow dependence. MDC also describes the upper Jacks Fork as wild, scenic, and best suited to spring paddling when water is adequate.',
+        sourceUrl: 'https://mdc.mo.gov/magazines/conservationist/2013-04/heaven-back-upper-jacks-fork',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'Southwest Paddler Jacks Fork River guide',
+        url: 'https://www.southwestpaddler.com/docs/current4.html',
+        provider: 'local',
+      },
+      {
+        label: 'Paddling.com Rymers Access',
+        url: 'https://paddling.com/paddle/locations/rymers-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC upper Jacks Fork feature',
+        url: 'https://mdc.mo.gov/magazines/conservationist/2013-04/heaven-back-upper-jacks-fork',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-whitten-riverton',
+    slug: 'eleven-point-river-whitten-riverton',
+    name: 'Eleven Point River',
+    reach: 'Whitten Access to Riverton East River Access',
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Classic lower Eleven Point day float from Whitten to Riverton on the National Wild and Scenic River, with Forest Service access at both ends, cold clear spring-fed water, shoals, Halls Bay, and a direct Bardley gauge.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a direct lower-river signal. Treat about 300 cfs as the conservative low-water floor; below that, expect more dragging in shoals. No broad high-water cutoff is claimed yet, so rising water deserves extra caution.',
+    latitude: 36.732356,
+    longitude: -91.214837,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Whitten-to-Riverton trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower Eleven Point is spring-fed and often floatable beyond the wettest months, but the Forest Service still warns that the river can rise rapidly. Cold water, rain pulses, and post-storm wood can change an otherwise easy day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Forest Service materials and American Whitewater describe this as mostly Class I water with shoals and fast-water spots. Halls Bay has a faster ledge/right-channel option at above-normal water, and motorized users are also allowed on this reach under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good but intentionally conservative: the Forest Service explicitly names Whitten to Riverton as a popular 8-mile day float and publishes coordinates, access details, and open status for both endpoints; USGS 07071500 is a direct same-river lower-Eleven-Point gauge; American Whitewater documents the broader Highway 19-to-Highway 160 reach and identifies the Bardley gauge as runnable context; and Rivers.MOHERP provides a usable community low-water floor plus exact Whitten-to-Riverton trip evidence. The app uses minimum-only scoring because the 300 cfs floor is community guidance rather than an official manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official day-float shape',
+        value: 'Whitten to Riverton, about 8 miles',
+        note: 'The Forest Service says Whitten is a popular launch/take-out and specifically notes visitors travelling downriver 8 miles from Whitten to Riverton.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Whitten River Access',
+        note: 'The Forest Service lists Whitten as open, located on the right bank, with a vault toilet, single-lane concrete boat ramp, parking for vehicles with trailers, and coordinates 36.732356, -91.214837.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Riverton East River Access',
+        note: 'The Forest Service lists Riverton East as open and 7.6 miles downriver of Whitten, with a paved road, concrete boat ramp, parking, canoe launch, vault toilet, no fee, and coordinates 36.649183, -91.199614.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07071500',
+        note: 'USGS operates Eleven Point River near Bardley, MO, downstream in the same lower Eleven Point corridor; American Whitewater also ties the broader Highway 19-to-Highway 160 reach to the Bardley gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge good beginning at 300 cfs and includes Whitten-to-Riverton trip evidence at 644 cfs where the paddler notes the water was just high enough to carry nearly every riffle without hitting rocks.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Shoals, cold water, Halls Bay',
+        note: 'Forest Service river-mile notes call out Conner Chute, Boze Mill Spring, and Halls Bay, where the river divides and the right channel is best above normal water while the left is a tricky shallow S-curve with swift water.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton East River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Eleven Point',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3007/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-white-river-north-fork-blair',
+    slug: 'north-fork-white-river-north-fork-blair',
+    name: 'North Fork of the White River',
+    reach: 'North Fork Recreation Area to Blair Bridge Access',
+    aliases: [
+      'North Fork River - Hammond Camp to Blair Bridge',
+      'North Fork White River - Hammond to Blair',
+      'Northfork River - North Fork to Blair Bridge',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Spring-fed North Fork day float from the Forest Service North Fork Recreation Area, also known as Hammond Camp, to MDC Blair Bridge Access, with bluffs, cold water, Blue Spring, The Falls, and a downstream Tecumseh gauge used conservatively.',
+    statusText:
+      'Use the North Fork River near Tecumseh gauge as a downstream proxy. Treat about 300 cfs as the conservative low-water floor; below that, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers.',
+    latitude: 36.758606,
+    longitude: -92.152801,
+    gaugeSource: {
+      id: 'usgs-07057500',
+      provider: 'usgs',
+      siteId: '07057500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'North Fork River near Tecumseh, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Tecumseh gauge rating and Hammond-to-Blair trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service says the North Fork-to-Blair section can be floated all year, but shallow summer water, cold spring flow, rain pulses, and post-storm wood can still change the trip quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a popular Ozark float, but it is not a flat pool route. Expect swift riffles, cold spring water, shoals, and The Falls, which the Forest Service describes as an average two-foot drop about 7 miles below North Fork Recreation Area.',
+      confidenceNotes:
+        'Confidence is good for a conservative proxy-gauge Missouri add: the Forest Service lists North Fork Recreation Area as open, publishes coordinates and boat-access details, and explicitly says Blair Bridge is the take-out about 10 river miles downstream; MDC confirms Blair Bridge as public floating access with a concrete boat ramp; USGS 07057500 is a standard live North Fork gauge downstream at Tecumseh; and Rivers.MOHERP includes exact Hammond Camp-to-Blair Bridge trip evidence at 368 cfs plus broader North Fork trip ratings. The app uses minimum-only scoring because the gauge is downstream and community-calibrated rather than an official reach-specific paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'North Fork Recreation Area to Blair Bridge, about 10 river miles',
+        note: 'The Forest Service says access south of North Fork is at Blair Bridge, operated by MDC, about 10 miles by river, and says this section can be floated all year.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/north-fork-recreation-area',
+      },
+      {
+        label: 'Public put-in',
+        value: 'North Fork Recreation Area / Hammond Camp',
+        note: 'The Forest Service lists the site as open, with a boat access area, day-use parking, a concrete ramp to a stepped river entry, and coordinates 36.758606, -92.152801.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/north-fork-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Blair Bridge Access',
+        note: 'MDC says Blair Bridge Access offers fishing and floating access to the North Fork of the White River, with picnic tables, privy, campfire rings, and a concrete boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/blair-bridge-access',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 07057500',
+        note: 'USGS operates the North Fork River near Tecumseh gauge downstream of Blair Bridge. It is a same-river live gauge, but it is still a downstream proxy rather than a gauge inside the North Fork-to-Blair reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Tecumseh gauge good at 120 cfs and above, but the app uses a more conservative 300 cfs floor because the exact Hammond Camp-to-Blair Bridge trip was logged good at 368 cfs and the gauge is downstream.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+      },
+      {
+        label: 'Route character',
+        value: 'Cold spring flow, Blue Spring, The Falls',
+        note: 'The Forest Service notes multiple springs, Blue Spring near the route, and The Falls about 7 miles downriver, with an average two-foot drop on the way to Blair Bridge.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/north-fork-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service North Fork Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/north-fork-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Blair Bridge Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/blair-bridge-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Northfork Tecumseh gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07057500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'meramec-river-sappington-bridge-meramec-state-park',
+    slug: 'meramec-river-sappington-bridge-meramec-state-park',
+    name: 'Meramec River',
+    reach: 'Sappington Bridge Access to Meramec State Park',
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short Meramec day float from MDC Sappington Bridge Access to the Meramec State Park river ramp, with bluffs, clear Ozark pools, state-managed endpoints, and the Sullivan gauge in the route corridor.',
+    statusText:
+      'Use the Meramec River near Sullivan gauge as the route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
+    latitude: 38.157948,
+    longitude: -91.109295,
+    gaugeSource: {
+      id: 'usgs-07014500',
+      provider: 'usgs',
+      siteId: '07014500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Meramec River near Sullivan, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Sullivan gauge rating and Meramec trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed Meramec commonly supports warm-season floating, but shallow late-summer riffles, heavy weekend use, and quick rain rises can still change the trip. Check state park advisories and same-day gauge trend before launching.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short mainstream Ozark float with normal riffles, gravel bars, bends, and occasional wood. It is suitable for broad recreational planning at ordinary levels, but high water can make obstacles and landings much less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Sappington Bridge Access as public Meramec boat/fishing access, the MDC area plan explicitly says the float from Sappington Bridge Access to Meramec State Park is 5 miles, Missouri State Parks confirms public canoe and concrete boat launches near the River Stop Store, USGS 07014500 is the live Meramec River near Sullivan gauge in this exact corridor, and Rivers.MOHERP publishes Sullivan-gauge condition ratings with multiple nearby Meramec trip logs. The app uses minimum-only scoring because the level source is community-calibrated rather than an official manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Sappington Bridge Access to Meramec State Park, 5 miles',
+        note: 'MDC planning material for Sappington Bridge Access says the float from Sappington Bridge Access to Meramec State Park in Sullivan is 5 miles.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Sappington Bridge Access',
+        note: 'MDC says Sappington Bridge Access provides boat and fishing access to the Meramec River, with directions from Sullivan via Route D and Sappington Bridge Road.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/sappington-bridge-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Meramec State Park river launch',
+        note: 'Missouri State Parks says visitors can use one concrete motorboat launch or the canoe launch near River Stop Store to access the Meramec River during park hours, with no launch fees.',
+        sourceUrl: 'https://mostateparks.com/park/meramec-state-park/boating',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07014500',
+        note: 'USGS operates Meramec River near Sullivan, MO, the live Meramec gauge for this Sullivan-area route corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Sullivan gauge good beginning at 200 cfs and includes nearby Meramec trip logs rated good between 294 and 543 cfs, plus a low but floatable Huzzah-to-Ozark-Outdoors trip at 238 cfs.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'High-water caution',
+        value: 'High and flood categories are not casual-float water',
+        note: 'Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips because obstacles can be treacherous or deadly.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Sappington Bridge Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/sappington-bridge-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC St. Louis Region southern small river accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri State Parks Meramec boating',
+        url: 'https://mostateparks.com/park/meramec-state-park/boating',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri State Parks River Stop Store',
+        url: 'https://mostateparks.com/key-location/river-stop-store',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Meramec Sullivan gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07014500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'bryant-creek-sycamore-warren-bridge',
+    slug: 'bryant-creek-sycamore-warren-bridge',
+    name: 'Bryant Creek',
+    reach: 'Sycamore Access to Warren Bridge Access',
+    aliases: [
+      'Bryant Creek - Hodgson Mill to Warren Bridge',
+      'Bryant Creek - Sycamore to Warren Bridge',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Clear spring-fed Bryant Creek day float from MDC Sycamore Access below Hodgson Mill to MDC Warren Bridge Access, with a direct Tecumseh gauge and a conservative low-water floor from route-specific local trip evidence.',
+    statusText:
+      'Use Bryant Creek near Tecumseh as the route signal. Treat about 300 cfs as the conservative low-water floor; below that, expect shallow shoals, dragging, and slower travel. Rising water deserves extra caution because Bryant is narrow, swift, and debris-prone after storms.',
+    latitude: 36.70778,
+    longitude: -92.26639,
+    gaugeSource: {
+      id: 'usgs-07058000',
+      provider: 'usgs',
+      siteId: '07058000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Bryant Creek near Tecumseh, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07058000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Tecumseh gauge rating and Bryant Creek trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07058000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Bryant Creek is spring-fed enough to be a common Ozark float, but low summer water can make shoals scrapey and slow. Heavy rain can make this narrow creek rise quickly and add fresh wood or pushy bends.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Local Bryant Creek guidance describes a narrow, swift stream with limestone bluffs, occasional wider pools, and easy-to-medium difficulty. Treat it as moving-water Ozark paddling rather than a lazy tube float, especially near low-water bridges, shoals, and post-storm wood.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Sycamore Access as a public Bryant Creek access and popular launch for upper-Bryant paddlers, MDC currently lists Warren Bridge Access as public fishing and floating access, public Bryant Creek mileage guides identify Hodgson/Sycamore to Warren Bridge as a normal 7- to 7.6-mile float, USGS 07058000 is a live same-creek gauge downstream near Tecumseh with same-day observations, and Rivers.MOHERP ties Bryant Creek condition ratings and exact route trip evidence to that gauge. The app uses minimum-only scoring because the threshold source is community-calibrated rather than an official manager-published paddling band, and the access notes preserve the older flood-damage/rough-access history.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Sycamore Access / Hodgson Mill',
+        note: 'MDC says Sycamore Access is on Bryant Creek downstream of the Highway 181 bridge, adjacent to historic Hodgson Water Mill, and serves as a popular launching point for canoeists and kayakers floating the upper Bryant.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/sycamore-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Warren Bridge Access',
+        note: 'MDC says Warren Bridge Access provides fishing and floating access to Bryant Creek and gives directions from Dora via Highway 181, Route H, and County Road 328.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/warren-bridge-access',
+      },
+      {
+        label: 'Route shape',
+        value: 'About 7 to 7.6 river miles',
+        note: 'Public Bryant Creek guides identify Hodgson Mill or Sycamore Access to Warren Bridge as a standard day float, with mileage around 7 to 7.6 miles and typical travel time around 4 to 5 hours.',
+        sourceUrl: 'https://www.watersheds.org/outdoors/boating.htm',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07058000',
+        note: 'USGS operates Bryant Creek near Tecumseh, MO. The legacy current-conditions page showed same-day discharge and gage-height observations during the May 26, 2026 review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07058000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bryant Creek Tecumseh gauge good beginning at 300 cfs and includes exact Hodgson Mill-to-Warren Bridge trip evidence plus nearby Bryant Creek good-condition trips around that floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07058000&hours=168',
+      },
+      {
+        label: 'Access history',
+        value: 'Flood-damage caution',
+        note: 'Older local reporting after the 2017 floods described Warren Bridge as officially closed and Sycamore as rough with loose gravel and deep sand. Current MDC pages list both areas as public access, but the route notes keep a same-day access/scouting caution.',
+        sourceUrl: 'https://www.ozarkcountytimes.com/node/22441',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Sycamore Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/sycamore-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Warren Bridge Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/warren-bridge-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Bryant Creek Tecumseh gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07058000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07058000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07058000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Bryant Watershed boating and floating guide',
+        url: 'https://www.watersheds.org/outdoors/boating.htm',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri Float Trips Bryant Creek guide',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/bryant-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'Ozark County Times Bryant Creek access report',
+        url: 'https://www.ozarkcountytimes.com/node/22441',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'james-river-shelvin-rock-hooten-town',
+    slug: 'james-river-shelvin-rock-hooten-town',
+    name: 'James River',
+    reach: 'Shelvin Rock Access to Hooten Town Access',
+    aliases: [
+      'James River - Shelvin Rock to Hootentown',
+      'James River - Shelvin Rock Access to Hooten Town Access',
+    ],
+    state: 'Missouri',
+    region: 'Southwest Missouri',
+    summary:
+      'Popular lower James day float from MDC Shelvin Rock Access to MDC Hooten Town Access, using two public boat-ramp accesses and the Galena gauge downstream as a conservative low-water check.',
+    statusText:
+      'Use the James River at Galena gauge as the lower-James route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect dragging in riffles and slow pools. No broad ideal range or upper cutoff is claimed yet.',
+    latitude: 36.99564609,
+    longitude: -93.3697183,
+    gaugeSource: {
+      id: 'usgs-07052500',
+      provider: 'usgs',
+      siteId: '07052500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River at Galena, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Galena gauge trip evidence for Shelvin Rock to Hooten Town',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower James is commonly floated in spring through fall, but low summer water can mean slow pools and scraping. Rain can improve depth while also adding pushy current, cloudy water, fresh wood, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad recreational Ozark river segment with riffles, pools, gravel bars, bluffs, and heavy warm-season boat and tube traffic. It remains an easy route only at ordinary levels; high or rising water can make bends, strainers, and landings less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Shelvin Rock and Hooten Town as public James River day-use accesses with boat ramps and parking, Rivers.MOHERP includes exact Shelvin Rock-to-Hootentown trip evidence tied to USGS 07052500, and the Galena gauge showed current same-day values during the May 26, 2026 review after earlier stale-data checks. The app uses minimum-only scoring because the threshold source is community trip evidence rather than an official manager-published paddling band, and no upper cutoff is claimed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Shelvin Rock Access',
+        note: 'MDC says Shelvin Rock Access provides access to the James River, with two parking lots and a boat ramp. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/shelvin-rock-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Hooten Town Access',
+        note: 'MDC says Hooten Town Access is on the James River, with a boat ramp and large parking lot. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/hooten-town-access',
+      },
+      {
+        label: 'Route-specific trip evidence',
+        value: 'Shelvin Rock to Hooten Town, 6.2 miles',
+        note: 'Rivers.MOHERP lists exact Shelvin Rock-to-Hootentown trip rows at 6.2 miles, including good-condition reports at 194, 370, and 467 cfs on the Galena gauge.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=0',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Exact-route good reports around 194 cfs and broader lower-James reports around 180 to 300 cfs support a conservative 200 cfs floor. The app does not infer an ideal range or high-water cutoff from those trip rows.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=0',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 07052500',
+        note: 'USGS operates James River at Galena, MO. During this review, the MoHERP gauge page exposed current same-day Galena values after earlier stale-data checks had blocked the route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+      },
+      {
+        label: 'Access rules',
+        value: 'MDC day-use access areas',
+        note: 'MDC area regulations allow boat use on waters located on department areas, prohibit leaving boats unattended overnight, and require users to follow posted signs, maps, and area rules.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/shelvin-rock-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Shelvin Rock Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/shelvin-rock-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Hooten Town Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/hooten-town-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP James River Galena gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=0',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07052500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'James River Basin Partnership Shelvin Rock to Hooten Town float',
+        url: 'https://www.jamesriverbasin.com/calendar/aug-37north-float',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'skunk-creek-legacy-park-farm-field',
+    slug: 'skunk-creek-legacy-park-farm-field',
+    name: 'Skunk Creek',
+    reach: 'Legacy Park to Farm Field Park',
+    state: 'South Dakota',
+    region: 'Sioux Falls',
+    summary:
+      'Short Sioux Falls Skunk Creek paddle from Legacy Park to Farm Field Park, using city park access points and the direct USGS Skunk Creek gauge. This is an urban creek route with low-water, debris, and water-quality caveats.',
+    statusText:
+      'Use the Skunk Creek at Sioux Falls gauge as the route signal. Treat about 4.5 ft as the conservative low-water floor; below that, expect shallow scraping, walking, and poor urban-creek conditions. No ideal range or upper cutoff is claimed.',
+    latitude: 43.5435603,
+    longitude: -96.8111739,
+    gaugeSource: {
+      id: 'usgs-06481500',
+      provider: 'usgs',
+      siteId: '06481500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Skunk Creek at Sioux Falls, SD',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06481500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 4.5,
+      thresholdSource: {
+        label: 'Sioux Empire Paddlers Skunk Creek Sioux Falls route guidance',
+        url: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Skunk Creek is an urban prairie creek that often needs spring water or recent rain to avoid dragging. Rain can improve depth but can also worsen bacteria, stormwater runoff, debris, and landing conditions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short urban flatwater-to-easy-current paddle between Sioux Falls parks. Treat it as easy only at ordinary levels; low water means scraping and walking, while high or rising water can hide debris, sharpen bridge approaches, and complicate the Farm Field take-out near the Big Sioux confluence.',
+      confidenceNotes:
+        'Confidence is good for a conservative South Dakota add: Sioux Empire Paddlers names Skunk Creek from Legacy Park to Farm Field Park as a 5-mile route, ties it to the Skunk Creek Sioux Falls USGS flow link, and gives a 4.5 ft good-paddling floor. City of Sioux Falls confirms both Legacy Park and Farm Field Park as public parks with boat/canoe/kayak access and coordinates, and USGS 06481500 showed same-day May 26, 2026 discharge and gage-height observations during review. The app uses minimum-only scoring because the level support is local-community guidance rather than an official manager-published paddling band, and route copy keeps water-quality and urban-creek caveats prominent.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: 'Legacy Park to Farm Field Park, 5 mi',
+        note: 'Sioux Empire Paddlers lists Skunk Creek at Legacy Park as point 1 on the Sioux Falls in-town map, says it flows into the Big Sioux River, and gives 5 miles to Farm Field Park.',
+        sourceUrl: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '4.5 ft minimum-only',
+        note: 'Sioux Empire Paddlers says 4.5 ft and up is a good paddling level for the Skunk Creek Sioux Falls flow link. The app uses only that conservative floor and does not infer an ideal or high-water band.',
+        sourceUrl: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 06481500',
+        note: 'USGS operates Skunk Creek at Sioux Falls, SD. During the May 26, 2026 review, the legacy current-conditions page showed same-day discharge and gage-height observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06481500',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Legacy Park boat/canoe/kayak access',
+        note: 'City of Sioux Falls lists Legacy Park with boat/canoe/kayak access, restrooms, public park hours, and coordinates at 7001 W. 12th St.',
+        sourceUrl: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/legacy',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Farm Field Park kayak and canoe access',
+        note: 'City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, public park hours, and coordinates at 4401 S Western Ave.',
+        sourceUrl: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field',
+      },
+      {
+        label: 'Water quality',
+        value: 'Weekly city monitoring May-Sep for E. coli',
+        note: 'City of Sioux Falls monitors Big Sioux River and Skunk Creek water quality, including one Skunk Creek location and E. coli from May through September. Check the city dashboard and avoid contact after heavy rain or known poor results.',
+        sourceUrl: 'https://www.siouxfalls.gov/resident-services/utilities-billing/water/water-quality/surface-water-quality',
+      },
+      {
+        label: 'South Dakota stream hazard',
+        value: 'Fence caution',
+        note: 'South Dakota GFP warns that fences cross many navigable streams in the state. Scout any unexpected obstruction rather than forcing it.',
+        sourceUrl: 'https://gfp.sd.gov/paddling/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Sioux Empire Paddlers rivers and creeks',
+        url: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06481500 Skunk Creek at Sioux Falls',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06481500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06481500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06481500',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Sioux Falls Legacy Park',
+        url: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/legacy',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sioux Falls Farm Field Park',
+        url: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sioux Falls Big Sioux River water quality',
+        url: 'https://www.siouxfalls.gov/resident-services/utilities-billing/water/water-quality/surface-water-quality',
+        provider: 'local',
+      },
+      {
+        label: 'South Dakota GFP paddling',
+        url: 'https://gfp.sd.gov/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-sioux-river-farm-field-rotary',
+    slug: 'big-sioux-river-farm-field-rotary',
+    name: 'Big Sioux River',
+    reach: 'Farm Field Park to Rotary Park',
+    state: 'South Dakota',
+    region: 'Sioux Falls',
+    summary:
+      'Short Sioux Falls Big Sioux paddle from Farm Field Park to Rotary Park, using city-managed kayak/canoe accesses and the direct USGS Sioux Falls gauge at the put-in. This is an urban river route with water-quality and low-water caveats.',
+    statusText:
+      'Use the Big Sioux River at Sioux Falls gauge as the route signal. Treat about 250 cfs as the conservative low-water floor; below that, expect dragging, shallow riffles, and poor urban-water conditions. No ideal range or upper cutoff is claimed.',
+    latitude: 43.5028832,
+    longitude: -96.749131,
+    gaugeSource: {
+      id: 'usgs-06482000',
+      provider: 'usgs',
+      siteId: '06482000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Sioux River at Sioux Falls, SD',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 250,
+      thresholdSource: {
+        label: 'Sioux Empire Paddlers Big Sioux River Sioux Falls route guidance',
+        url: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Sioux Empire Paddlers says the favored Lien Park-to-Newton Hills stretch can usually be paddled spring and summer. For this shorter city reach, recent rain can improve depth but can also worsen debris, bacteria, stormwater, and landing conditions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short urban flatwater-to-easy-current paddle between city park accesses. Treat it as easy only at ordinary levels; low water means scraping and walking, while high or rising water can hide debris, sharpen bridge approaches, and complicate landings.',
+      confidenceNotes:
+        'Confidence is good for a conservative South Dakota add: City of Sioux Falls confirms Farm Field Park and Rotary Park both have kayak/canoe access with coordinates, Sioux Empire Paddlers names the exact Farm Field-to-Rotary segment and gives a 250 cfs low-water floor tied to the Big Sioux River Sioux Falls USGS flow link, and USGS 06482000 is located essentially at the put-in. The app uses minimum-only scoring because the level support is local-community guidance rather than an official manager-published paddling band, and route copy keeps the water-quality and urban-river caveats prominent.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: 'Farm Field Park to Rotary Park, 4.15 mi',
+        note: 'Sioux Empire Paddlers lists Farm Field Park as point 2 on the Big Sioux in-town map, Rotary Park as point 3, and gives 4.15 miles between them.',
+        sourceUrl: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '250 cfs minimum-only',
+        note: 'Sioux Empire Paddlers says 250 cfs and up is a good paddling level for the Big Sioux River Sioux Falls flow link used for the in-town Big Sioux access points.',
+        sourceUrl: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 06482000',
+        note: 'USGS operates Big Sioux River at Sioux Falls, SD. The gauge is the local Sioux Falls Big Sioux flow source linked by the paddling guide and sits next to the Farm Field Park put-in corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482000/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Farm Field Park kayak and canoe access',
+        note: 'City of Sioux Falls lists Farm Field Park with kayak and canoe access, a boat-launch photo, public park hours, and coordinates at 4401 S Western Ave.',
+        sourceUrl: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Rotary Park kayak and canoe access',
+        note: 'City of Sioux Falls lists Rotary Park on both sides of the Big Sioux River with kayak and canoe access, restrooms, public park hours, and coordinates.',
+        sourceUrl: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/rotary',
+      },
+      {
+        label: 'Water quality',
+        value: 'Weekly city monitoring May-Sep for E. coli',
+        note: 'City of Sioux Falls monitors Big Sioux River and Skunk Creek water quality, including E. coli from May through September. Check the city dashboard and avoid contact after heavy rain or known poor results.',
+        sourceUrl: 'https://www.siouxfalls.gov/resident-services/utilities-billing/water/water-quality/surface-water-quality',
+      },
+      {
+        label: 'Broader trail context',
+        value: 'Jay Heath water trail access network',
+        note: 'South Dakota GFP identifies the Jay Heath Canoe and Kayak Trail as a Big Sioux River water trail with launch sites, campgrounds, and site information. This app route intentionally uses one short city segment rather than the full corridor.',
+        sourceUrl: 'https://gfp.sd.gov/paddling/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Sioux Empire Paddlers rivers and creeks',
+        url: 'https://siouxempirepaddlers.org/rivers-and-creeks/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06482000 Big Sioux River at Sioux Falls',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Sioux Falls Farm Field Park',
+        url: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/farm-field',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sioux Falls Rotary Park',
+        url: 'https://www.siouxfalls.gov/activities-recreation/parks-trails/directory/parks/rotary',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sioux Falls Big Sioux River water quality',
+        url: 'https://www.siouxfalls.gov/resident-services/utilities-billing/water/water-quality/surface-water-quality',
+        provider: 'local',
+      },
+      {
+        label: 'South Dakota GFP paddling',
+        url: 'https://gfp.sd.gov/paddling/',
+        provider: 'local',
+      },
+      {
+        label: 'South Dakota GFP Jay Heath Trail map PDF',
+        url: 'https://gfp.sd.gov/userdocs/JayHeathTrail_85x11.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'split-rock-creek-split-rock-park-palisades',
+    slug: 'split-rock-creek-split-rock-park-palisades',
+    name: 'Split Rock Creek',
+    reach: 'Split Rock Park to Palisades State Park',
+    state: 'South Dakota',
+    region: 'Southeast South Dakota',
+    summary:
+      'Short, scenic Garretson run from Split Rock Park to Palisades State Park with quartzite walls, riffles, ledges, and a direct USGS Corson gauge. This is a moving-water creek route, not a casual lake paddle.',
+    statusText:
+      'Use the Split Rock Creek at Corson gauge as the route signal. Treat about 4.5 ft as the conservative low-water floor; below that, expect shallow, scrapey creek conditions. No broad ideal range or upper cutoff is claimed.',
+    latitude: 43.713056,
+    longitude: -96.503056,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-06482610',
+      provider: 'usgs',
+      siteId: '06482610',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Split Rock Creek at Corson, SD',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482610/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 4.5,
+      thresholdSource: {
+        label: 'Sioux Empire Paddlers Split Rock Creek gauge and route guidance',
+        url: 'https://siouxempirepaddlers.org/split-rock-creek/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Split Rock Creek is small and rain-sensitive. Spring and post-rain windows are the most reliable; summer can be too shallow, while high water quickly raises the consequence of ledges, fences, wood, and tight banks.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Sioux Empire Paddlers describes this 2.8-mile route as Class I to II, with some Class III features around 1,000 cfs. The short mileage does not make it beginner water; scout ledges and avoid the route if fences, strainers, or high water exceed the group.',
+      confidenceNotes:
+        'Confidence is good for a conservative first South Dakota add: local route guidance names the exact Split Rock Park to Palisades State Park run, ties it to the direct USGS Corson gauge, and gives a numeric 4.5 ft low-water floor; South Dakota GFP confirms Split Rock Creek as a canoeing/kayaking option at Palisades State Park, and Visit Garretson confirms Split Rock Park has a canoe/kayak launch below the dam. The app uses minimum-only scoring because the numeric guidance is local-community support rather than an official manager-published paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route-specific guide',
+        value: '2.8 mi; Split Rock Park to Palisades State Park',
+        note: 'Sioux Empire Paddlers describes the standard 2.8-mile route from the city park to Palisades State Park and ties it to the Split Rock Creek at Corson gauge.',
+        sourceUrl: 'https://siouxempirepaddlers.org/split-rock-creek/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '4.5 ft minimum-only',
+        note: 'Sioux Empire Paddlers says 4.5 ft or up on the USGS Corson gauge is best for this route. The app uses only that conservative floor and does not infer an ideal or high-water band.',
+        sourceUrl: 'https://siouxempirepaddlers.org/split-rock-creek/',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 06482610',
+        note: 'USGS operates Split Rock Creek at Corson, SD, the gauge named by the local route guide for the Split Rock Creek run.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482610/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Split Rock Park canoe/kayak launch',
+        note: 'Visit Garretson describes Split Rock Park as a city park along Split Rock Creek and notes a canoe/kayak launch downstream from the dam.',
+        sourceUrl: 'https://visitgarretsonsd.com/directory/split-rock-park/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Palisades State Park',
+        note: 'South Dakota Game, Fish and Parks lists canoeing and kayaking on Split Rock Creek as an activity at Palisades State Park.',
+        sourceUrl: 'https://gfp.sd.gov/parks/detail/palisades-state-park/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Ledges, fences, wood, high-water wave',
+        note: 'Local route guidance calls out ledges, possible fences across the creek, and stronger Class III behavior near 1,000 cfs; GFP also broadly warns that fences cross many navigable South Dakota streams.',
+        sourceUrl: 'https://siouxempirepaddlers.org/split-rock-creek/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Sioux Empire Paddlers Split Rock Creek',
+        url: 'https://siouxempirepaddlers.org/split-rock-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06482610 Split Rock Creek at Corson',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06482610/',
+        provider: 'usgs',
+      },
+      {
+        label: 'South Dakota GFP Palisades State Park',
+        url: 'https://gfp.sd.gov/parks/detail/palisades-state-park/',
+        provider: 'local',
+      },
+      {
+        label: 'Visit Garretson Split Rock Park',
+        url: 'https://visitgarretsonsd.com/directory/split-rock-park/',
+        provider: 'local',
+      },
+      {
+        label: 'South Dakota GFP paddling rules and hazards',
+        url: 'https://gfp.sd.gov/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
 ];

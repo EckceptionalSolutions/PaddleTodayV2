@@ -5175,4 +5175,317 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-buck-hollow-rymers': {
+    putIn: {
+      name: 'Buck Hollow / Highway 17 Bridge Access',
+      latitude: 37.057183,
+      longitude: -91.664061,
+    },
+    takeOut: {
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    logistics: {
+      distanceLabel: 'About 9.4 mi',
+      estimatedPaddleTime: 'About 5 hr, longer if low water forces dragging, poling, or lining',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between the Highway 17 bridge access north of Mountain View and Rymers at the end of the Highway M gravel access road. Scout the Rymers take-out before launching because it is remote and gravel-road dependent.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Rymers has primitive NPS camping context, but treat this app route as a day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks away from public accesses or lawful gravel-bar stops are available.',
+      summary:
+        'Launch at Buck Hollow where Highway 17 crosses the Jacks Fork and take out at Rymers for the NPS-listed upper Jacks Fork day float. Use the Mountain View gauge as a same-river low-water check, and be ready for shallow riffles if the gauge is near or below the 100 cfs floor.',
+      accessCaveats: [
+        'NPS names both Buck Hollow and Rymers as Jacks Fork river access points, but the published coordinates used here come from paddling-location guides rather than an NPS coordinate table. Follow park signs and road-end access layout on arrival.',
+        'Buck Hollow is the Highway 17 bridge access north of Mountain View. Do not confuse it with the upstream Prongs / Highway Y section, which is a separate, more seasonal reach.',
+        'Rymers is a remote access at the end of the Highway M gravel road system. Weather, washboarding, flood damage, or temporary park management can change practical access conditions.',
+      ],
+      watchFor: [
+        'Dragging, shallow shoals, and possible poling or lining when the Mountain View gauge is below the 100 cfs floor.',
+        'Fast riffles, tight bends, boulder runs, strainers, and Class I-II moving-water consequences on a remote upper-river route.',
+        'Rapid rises after thunderstorms, especially in the narrow upper Jacks Fork valley.',
+        'Cold spring-fed water, limited cell service, long rural shuttle friction, and private land away from public accesses or lawful gravel-bar stops.',
+      ],
+    },
+  },
+  'eleven-point-river-whitten-riverton': {
+    putIn: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    takeOut: {
+      name: 'Riverton East River Access / Highway 160',
+      latitude: 36.649183,
+      longitude: -91.199614,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level, stops, and wind',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Whitten Access and Riverton East at Highway 160. The Forest Service route to Whitten includes gravel and a steep descent into the access.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. The Forest Service prohibits overnight camping in day-use access areas, while designated float camps and dispersed camping have separate rules.',
+      summary:
+        'Launch at Whitten River Access and take out at Riverton East River Access for the Forest Service-supported lower Eleven Point day float. Expect clear cold water, shoals, spring-fed current, and a direct Bardley gauge used conservatively as a low-water check.',
+      accessCaveats: [
+        'Whitten and Riverton East are official Forest Service river accesses, but day-use access areas have posted rules and no overnight camping.',
+        'Riverton East is the cleaner canoe/kayak take-out on river left just above the Highway 160 bridge; Riverton West is a separate river-right day-use area.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and occasional scraping when the Bardley gauge falls near the 300 cfs floor.',
+        'Halls Bay near the end of the route: the right channel is a fast ledge line above normal water, while the left is a tricky shallow S-curve with swift current.',
+        'Cold spring-fed water, rapid rises after rain, fresh wood, boat traffic, and the 25 hp motor allowance on this part of the National Wild and Scenic River.',
+      ],
+    },
+  },
+  'north-fork-white-river-north-fork-blair': {
+    putIn: {
+      name: 'North Fork Recreation Area / Hammond Camp',
+      latitude: 36.758606,
+      longitude: -92.152801,
+    },
+    takeOut: {
+      name: 'Blair Bridge Access',
+      latitude: 36.65403,
+      longitude: -92.22959,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, stops, and scouting',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between North Fork Recreation Area on Route CC and MDC Blair Bridge Access. Roads are rural and partly narrow, so scout the Blair Bridge take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Pay any posted Forest Service day-use or launch fee at North Fork Recreation Area, and follow MDC rules and posted signs at Blair Bridge.',
+      camping:
+        'North Fork Recreation Area has a seasonal first-come campground, and Blair Bridge has designated MDC camping context. Treat camping as a separate plan and do not assume overnight use in day-use parking or undesignated riverbank areas.',
+      summary:
+        'Launch at the Forest Service North Fork Recreation Area, locally known as Hammond Camp, and take out at MDC Blair Bridge Access for the official 10-mile North Fork day float. Expect cold spring-fed water, bluffs, shoals, Blue Spring access, The Falls, and a downstream Tecumseh gauge used as a conservative low-water proxy.',
+      accessCaveats: [
+        'North Fork Recreation Area is open and has a boat access, but the Forest Service notes a ramp-to-steps transition and a drop between the ramp end and riverbed, so expect a carry-down style launch rather than an easy trailer ramp.',
+        'Blair Bridge is public MDC floating access with a concrete boat ramp, but summer demand can be high and local signage should control parking and camping choices.',
+        'The Tecumseh gauge is downstream of the route and below additional inflow. Use it as a same-river proxy, not a perfect measure of every shoal between North Fork and Blair.',
+      ],
+      watchFor: [
+        'Dragging and slow shoals when the Tecumseh gauge falls near the 300 cfs floor.',
+        'The Falls about 7 miles below North Fork Recreation Area; scout if the level, group skill, or boat load makes the two-foot drop feel questionable.',
+        'Cold spring-fed water, swift riffles, fresh wood, strainers on bends, and faster current after rain.',
+      ],
+    },
+  },
+  'meramec-river-sappington-bridge-meramec-state-park': {
+    putIn: {
+      name: 'Sappington Bridge Access',
+      latitude: 38.157948,
+      longitude: -91.109295,
+    },
+    takeOut: {
+      name: 'Meramec State Park River Stop Store / river launch',
+      latitude: 38.20379,
+      longitude: -91.099735,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level and stops',
+      shuttle:
+        'Use a short Sullivan-area two-car shuttle between MDC Sappington Bridge Access and the Meramec State Park River Stop Store launch area. Meramec State Park also operates rentals and shuttles seasonally, but confirm availability before relying on concession service.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules at Sappington Bridge, Missouri State Parks day-use and launch rules at Meramec State Park, and all posted parking or river-use signs.',
+      camping:
+        'Meramec State Park has campground and lodging options, but treat overnight use as a separate reservation or park-rule question rather than an assumed float-camp stop.',
+      summary:
+        'Launch at MDC Sappington Bridge Access and take out at the Meramec State Park river launch near River Stop Store. This is a short, state-supported Meramec day float with a direct Sullivan gauge used as a conservative low-water check.',
+      accessCaveats: [
+        'Sappington Bridge is an MDC river access with public boating and fishing access, but same-day signs and area rules still control parking, hours, and use.',
+        'Meramec State Park has both a concrete boat launch and canoe launch near River Stop Store. Use the public launch area rather than campground-only gravel launches unless you are a camping patron.',
+        'Coordinates are practical access anchors from public paddling/location records and Missouri State Parks River Stop Store context; follow on-site signs for the exact ramp or canoe-launch landing.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging when the Sullivan gauge falls near or below the 200 cfs floor.',
+        'High water, fresh wood, pushy bends, and harder landings after rain; MoHERP high and flood categories are not broad casual-float conditions.',
+        'Busy summer weekend traffic from rentals, tubes, anglers, swimmers, and motorized users near state park access areas.',
+        'Private land away from public accesses and legal gravel-bar stops; stay within Missouri stream-access rules and respect posted land.',
+      ],
+    },
+  },
+  'bryant-creek-sycamore-warren-bridge': {
+    putIn: {
+      name: 'Sycamore Access / Hodgson Mill',
+      latitude: 36.70778,
+      longitude: -92.26639,
+    },
+    takeOut: {
+      name: 'Warren Bridge Access',
+      latitude: 36.6678,
+      longitude: -92.28198,
+    },
+    logistics: {
+      distanceLabel: 'About 7 to 7.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr depending on level, stops, and shoal scraping',
+      shuttle:
+        'Use a rural two-car or local outfitter shuttle between MDC Sycamore Access on Highway 181 and MDC Warren Bridge Access on County Road 328. Roads are narrow and remote, so look at the Warren Bridge take-out before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules at Sycamore and Warren Bridge, respect posted access hours and signs, and do not leave watercraft unattended overnight.',
+      camping:
+        'Treat this as a day trip. MDC area rules prohibit camping at Warren Bridge, and no on-route legal campsite is assumed for this short Bryant Creek run.',
+      summary:
+        'Launch at MDC Sycamore Access just downstream of the Highway 181 bridge by Hodgson Mill and take out at MDC Warren Bridge Access. This is the standard upper-to-middle Bryant Creek day float, with a direct Tecumseh gauge used as a conservative low-water check.',
+      accessCaveats: [
+        'Sycamore Access is the public MDC launch; nearby Hodgson Water Mill is private, so use the access area and posted signs rather than mill property.',
+        'Warren Bridge Access is currently listed by MDC as fishing and floating access, but older flood-damage reporting described rough or closed conditions there. Scout the take-out before committing and obey any current closures or signs.',
+        'Put-in coordinates are anchored to the adjacent Hodgson-Aid Mill / Highway 181 crossing context because MDC describes Sycamore Access by its position below that bridge; use on-site signage for the exact gravel launch.',
+      ],
+      watchFor: [
+        'Shallow shoals, gravel scraping, and slower travel when the Tecumseh gauge falls near or below the 300 cfs floor.',
+        'Swift narrow-channel current, tight bends, limestone bluffs, low-water bridge areas, and possible strainers or fresh wood after storms.',
+        'Loose gravel, deep sand, changed banks, and limited recovery options at access roads after floods or high-water events.',
+        'Private property along Bryant Creek away from public access points and lawful gravel-bar stops.',
+      ],
+    },
+  },
+  'james-river-shelvin-rock-hooten-town': {
+    putIn: {
+      name: 'Shelvin Rock Access',
+      latitude: 36.99564609,
+      longitude: -93.3697183,
+    },
+    takeOut: {
+      name: 'Hooten Town Access',
+      latitude: 36.939901,
+      longitude: -93.386162,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on level, stops, and boat traffic',
+      shuttle:
+        'Use a short two-car or local outfitter shuttle between MDC Shelvin Rock Access and MDC Hooten Town Access. Stage the Hooten Town take-out first, because warm-weather weekends can bring heavy river traffic and busy parking.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, day-use restrictions, and boat-use rules at Shelvin Rock and Hooten Town.',
+      camping:
+        'Do not plan to camp at either endpoint. MDC lists both Shelvin Rock and Hooten Town as day-use access areas, and camping is not allowed on those areas.',
+      summary:
+        'Launch at MDC Shelvin Rock Access and take out at MDC Hooten Town Access for the 6.2-mile lower James segment tracked by Rivers.MOHERP. Use the Galena gauge as a conservative low-water check rather than a full preferred-range recommendation.',
+      accessCaveats: [
+        'Shelvin Rock and Hooten Town are MDC public day-use accesses with boat ramps and parking, but posted signs and area maps control exact use.',
+        'Both endpoints prohibit camping, and MDC rules prohibit leaving boats unattended overnight on department areas.',
+        'Coordinates are practical access anchors from public paddling/location records paired with MDC access confirmation; follow on-site signs for the exact ramp and parking layout.',
+      ],
+      watchFor: [
+        'Dragging, slow pools, and shallow riffles when the Galena gauge is near or below the 200 cfs floor.',
+        'High or rising water after rain, fresh wood, strainers on bends, cloudy water, and more difficult landings.',
+        'Busy summer boat, tube, rental, swimming, and angling traffic around Shelvin Rock, Hooten Town, and downstream James River Outfitters corridors.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
+  'skunk-creek-legacy-park-farm-field': {
+    putIn: {
+      name: 'Legacy Park boat/canoe/kayak access',
+      latitude: 43.5435603,
+      longitude: -96.8111739,
+    },
+    takeOut: {
+      name: 'Farm Field Park kayak and canoe access',
+      latitude: 43.5028832,
+      longitude: -96.749131,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on level, scraping, and wind',
+      shuttle:
+        'Use a short city shuttle between Legacy Park on W 12th St and Farm Field Park on S Western Ave. Both are Sioux Falls parks with posted hours; stage the Farm Field take-out first and use designated access areas.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sioux Falls park hours and posted rules at Legacy Park and Farm Field Park.',
+      camping:
+        'No on-route camping applies. Treat this as a short city day paddle only.',
+      summary:
+        'Launch at Legacy Park and take out at Farm Field Park for the short Sioux Falls Skunk Creek segment named by Sioux Empire Paddlers. The USGS Skunk Creek gauge is the direct same-creek low-water check.',
+      accessCaveats: [
+        'Legacy Park and Farm Field Park are city-managed public parks with boat/canoe/kayak access, but park hours, events, construction, or temporary creek-bank conditions can affect parking and landing space.',
+        'This route ends at Farm Field Park near the Big Sioux River corridor. Do not continue onto the Big Sioux, downtown channels, Falls Park, or any low-head-dam area without separate route planning and current local hazard information.',
+        'Urban water quality is part of the go/no-go decision. Check the City of Sioux Falls water-quality dashboard when available, avoid immersion, and be especially cautious after heavy rain or visible pollution.',
+      ],
+      watchFor: [
+        'Dragging, walking, and shallow riffles when the Skunk Creek gauge is below the 4.5 ft floor.',
+        'Storm debris, strainers, bridge approaches, exposed rocks, trash, and tight bends after rain or high water.',
+        'Limited-contact urban water, including E. coli risk during the May-to-September monitoring season.',
+        'Fences or other obstructions can occur on South Dakota navigable streams; scout any unexpected obstruction rather than forcing it.',
+      ],
+    },
+  },
+  'big-sioux-river-farm-field-rotary': {
+    putIn: {
+      name: 'Farm Field Park kayak and canoe access',
+      latitude: 43.5028832,
+      longitude: -96.749131,
+    },
+    takeOut: {
+      name: 'Rotary Park kayak and canoe access',
+      latitude: 43.5308299,
+      longitude: -96.6967328,
+    },
+    logistics: {
+      distanceLabel: 'About 4.15 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on level, wind, and scraping',
+      shuttle:
+        'Use a short city shuttle between Farm Field Park on S Western Ave and Rotary Park on E 26th St. Both are Sioux Falls parks with posted hours; stage the take-out first and use the designated canoe/kayak access areas.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sioux Falls park hours and posted rules at Farm Field Park and Rotary Park.',
+      camping:
+        'No on-route camping applies. Treat this as a short city day paddle only.',
+      summary:
+        'Launch at Farm Field Park and take out at Rotary Park for the short Sioux Falls Big Sioux segment named by Sioux Empire Paddlers. The USGS Sioux Falls gauge is next to the put-in corridor, so use it as a direct same-day low-water check.',
+      accessCaveats: [
+        'Farm Field Park and Rotary Park are city-managed public parks with kayak/canoe access, but park hours, events, construction, or temporary riverbank conditions can affect parking and landing space.',
+        'This route intentionally stops at Rotary Park. Do not continue downstream into downtown, diversion channels, Falls Park, or any low-head-dam area without separate route planning and current local hazard information.',
+        'Urban water quality is part of the go/no-go decision. Check the City of Sioux Falls water-quality dashboard when available, avoid immersion, and be especially cautious after heavy rain or visible pollution.',
+      ],
+      watchFor: [
+        'Dragging, walking, and shallow riprap when the Sioux Falls gauge is below the 250 cfs floor.',
+        'Storm debris, strainers, bridge approaches, exposed rocks, and trash after rain or high water.',
+        'Limited-contact urban water, including E. coli risk during the May-to-September monitoring season.',
+        'Fences or other obstructions can occur on South Dakota navigable streams; scout any unexpected obstruction rather than forcing it.',
+      ],
+    },
+  },
+  'split-rock-creek-split-rock-park-palisades': {
+    putIn: {
+      name: 'Split Rock Park canoe/kayak launch',
+      latitude: 43.713056,
+      longitude: -96.503056,
+    },
+    takeOut: {
+      name: 'Palisades State Park / Split Rock Creek access',
+      latitude: 43.725833,
+      longitude: -96.509167,
+    },
+    logistics: {
+      distanceLabel: 'About 2.8 mi',
+      estimatedPaddleTime: 'Short moving-water run; time varies with level, scouting, and portages',
+      shuttle:
+        'Use a short Garretson-area two-car shuttle between Split Rock Park and Palisades State Park. Check Palisades State Park entry requirements and scout the take-out before launching because state-park traffic and creek levels can change the practical landing.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Garretson rules at Split Rock Park and pay any required South Dakota state park entrance fee at Palisades.',
+      camping:
+        'Palisades State Park has separate campground and lodging options, but this route should be treated as a short day run unless you have a state-park reservation or other legal overnight plan.',
+      summary:
+        'Launch from the city park access below the Split Rock Park dam and paddle the short quartzite creek corridor to Palisades State Park. Use the USGS Corson gauge as a direct same-creek low-water check, but make the final call by scouting ledges, fences, and wood.',
+      accessCaveats: [
+        'Split Rock Park is a city park with a canoe/kayak launch downstream from the dam; do not launch above or near dam hydraulics without separate local scouting.',
+        'Palisades State Park is a fee state park. Confirm the practical landing and parking location on arrival, especially during busy warm-weather weekends.',
+        'Coordinates are practical access anchors derived from named park/access map context, not a substitute for on-site signs and current park rules.',
+      ],
+      watchFor: [
+        'Shallow scraping below the 4.5 ft Corson-gauge floor used by the app.',
+        'Class I-II ledges and riffles, with Class III behavior possible near high flows around 1,000 cfs.',
+        'Fences, strainers, downed trees, tight banks, and fast rain-driven rises on a small creek.',
+        'Cold water in spring and shoulder seasons, plus busy state-park users near the take-out.',
+      ],
+    },
+  },
 };

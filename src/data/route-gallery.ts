@@ -542,6 +542,96 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
+  'jacks-fork-river-buck-hollow-rymers': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-buck-hollow-rymers/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'eleven-point-river-whitten-riverton': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-whitten-riverton/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'north-fork-white-river-north-fork-blair': [
+    {
+      id: 'upper-north-fork-bridge-commons',
+      src: '/gallery/north-fork-white-river-north-fork-blair/upper-north-fork-bridge.jpg',
+      alt: 'A county road bridge crosses the narrow upper North Fork River between wooded banks.',
+      caption: 'Upper North Fork River bridge',
+      credit: 'Vsmith via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'meramec-river-sappington-bridge-meramec-state-park': [
+    {
+      id: 'meramec-valley-park-commons',
+      src: '/gallery/meramec-river-sappington-bridge-meramec-state-park/meramec-valley-park.jpg',
+      alt: 'The Meramec River bends below a wooded bank in Missouri under a broad summer sky.',
+      caption: 'Meramec River in Missouri',
+      credit: 'JDMcGreg via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'bryant-creek-sycamore-warren-bridge': [
+    {
+      id: 'bryant-creek-state-park-commons',
+      src: '/gallery/bryant-creek-sycamore-warren-bridge/bryant-creek-state-park.jpg',
+      alt: 'Bryant Creek flows through a wooded Missouri state park corridor with gravel bars and clear shallow water.',
+      caption: 'Bryant Creek State Park',
+      credit: 'Missouri State Parks via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'james-river-shelvin-rock-hooten-town': [
+    {
+      id: 'james-river-springfield-commons',
+      src: '/gallery/james-river-shelvin-rock-hooten-town/james-river-springfield.jpg',
+      alt: 'The James River flows past a wooded bank in southwest Missouri with shallow water near the shore.',
+      caption: 'James River in southwest Missouri',
+      credit: 'Cold417 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'skunk-creek-legacy-park-farm-field': [
+    {
+      id: 'skunk-creek-big-sioux-confluence-commons',
+      src: '/gallery/skunk-creek-legacy-park-farm-field/skunk-creek-big-sioux-confluence.jpg',
+      alt: 'Skunk Creek meets the Big Sioux River in Sioux Falls below grassy banks and a cloudy sky.',
+      caption: 'Skunk Creek and Big Sioux River confluence',
+      credit: 'BrianHagan via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'big-sioux-river-farm-field-rotary': [
+    {
+      id: 'big-sioux-southern-sioux-falls-bridge-commons',
+      src: '/gallery/big-sioux-river-farm-field-rotary/big-sioux-southern-sioux-falls-bridge.jpg',
+      alt: 'A former railroad bridge crosses the Big Sioux River in southern Sioux Falls, now used as a pathway.',
+      caption: 'Big Sioux River in southern Sioux Falls',
+      credit: 'Jerry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'split-rock-creek-split-rock-park-palisades': [
+    {
+      id: 'palisades-split-rock-creek-commons',
+      src: '/gallery/split-rock-creek-split-rock-park-palisades/palisades-split-rock-creek.jpg',
+      alt: 'Split Rock Creek runs between pink quartzite walls at Palisades State Park in South Dakota.',
+      caption: 'Split Rock Creek at Palisades State Park',
+      credit: 'inkknife_2000 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

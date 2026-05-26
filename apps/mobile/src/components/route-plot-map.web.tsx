@@ -44,10 +44,25 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   return (
     <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
       <View style={[styles.mapCanvas, { height }]}>
-        <View style={styles.gridLineHorizontal} />
-        <View style={styles.gridLineVertical} />
+        <View style={styles.mapLandPatchNorth} />
+        <View style={styles.mapLandPatchSouth} />
+        <View style={styles.mapLakeWest} />
+        <View style={styles.mapLakeEast} />
         <View style={styles.riverRibbonOne} />
         <View style={styles.riverRibbonTwo} />
+        <View style={styles.riverRibbonThree} />
+        <View style={styles.primaryRoadNorth} />
+        <View style={styles.primaryRoadCentral} />
+        <View style={styles.primaryRoadSouth} />
+        <View style={styles.secondaryRoadOne} />
+        <View style={styles.secondaryRoadTwo} />
+        <View style={styles.secondaryRoadThree} />
+        <View style={styles.secondaryRoadFour} />
+        <MapLabel label="Mississippi River" style={styles.labelMississippi} />
+        <MapLabel label="Minnesota River" style={styles.labelMinnesota} />
+        <MapLabel label="St. Croix River" style={styles.labelStCroix} />
+        <MapLabel label="Minneapolis" style={styles.labelMinneapolis} />
+        <MapLabel label="St. Paul" style={styles.labelSaintPaul} />
 
         {userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude) ? (
           <View
@@ -93,6 +108,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     </View>
   );
 });
+
+function MapLabel({ label, style }: { label: string; style: object }) {
+  return (
+    <Text style={[styles.mapLabel, style]} numberOfLines={1}>
+      {label}
+    </Text>
+  );
+}
 
 function MapFooter({ selectedPoint }: { selectedPoint: RoutePlotPoint | null }) {
   return (
@@ -228,45 +251,187 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   mapCanvas: {
-    backgroundColor: '#DDE7E0',
+    backgroundColor: '#E6ECDF',
     position: 'relative',
     overflow: 'hidden',
   },
-  gridLineHorizontal: {
+  mapLandPatchNorth: {
     position: 'absolute',
-    left: 0,
-    right: 0,
-    top: '50%',
-    height: 1,
-    backgroundColor: 'rgba(31, 42, 36, 0.09)',
+    left: '-12%',
+    right: '-18%',
+    top: '-8%',
+    height: '34%',
+    borderRadius: 999,
+    backgroundColor: 'rgba(205, 221, 193, 0.62)',
+    transform: [{ rotate: '-7deg' }],
   },
-  gridLineVertical: {
+  mapLandPatchSouth: {
     position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: '50%',
-    width: 1,
-    backgroundColor: 'rgba(31, 42, 36, 0.09)',
+    left: '-15%',
+    right: '-12%',
+    bottom: '-7%',
+    height: '29%',
+    borderRadius: 999,
+    backgroundColor: 'rgba(205, 221, 193, 0.48)',
+    transform: [{ rotate: '9deg' }],
+  },
+  mapLakeWest: {
+    position: 'absolute',
+    left: '-18%',
+    top: '19%',
+    width: '42%',
+    height: '19%',
+    borderRadius: 999,
+    backgroundColor: 'rgba(129, 178, 197, 0.28)',
+    transform: [{ rotate: '-16deg' }],
+  },
+  mapLakeEast: {
+    position: 'absolute',
+    right: '-14%',
+    bottom: '18%',
+    width: '36%',
+    height: '17%',
+    borderRadius: 999,
+    backgroundColor: 'rgba(129, 178, 197, 0.22)',
+    transform: [{ rotate: '13deg' }],
   },
   riverRibbonOne: {
     position: 'absolute',
-    left: '-10%',
-    right: '-8%',
-    top: '34%',
-    height: 40,
+    left: '-18%',
+    right: '-12%',
+    top: '28%',
+    height: 24,
     borderRadius: 999,
-    backgroundColor: 'rgba(77, 132, 159, 0.18)',
-    transform: [{ rotate: '-12deg' }],
+    backgroundColor: 'rgba(55, 133, 168, 0.35)',
+    transform: [{ rotate: '-18deg' }],
   },
   riverRibbonTwo: {
     position: 'absolute',
-    left: '-8%',
-    right: '-12%',
-    top: '58%',
-    height: 32,
+    left: '-12%',
+    right: '-16%',
+    top: '55%',
+    height: 20,
     borderRadius: 999,
-    backgroundColor: 'rgba(77, 132, 159, 0.14)',
-    transform: [{ rotate: '17deg' }],
+    backgroundColor: 'rgba(55, 133, 168, 0.28)',
+    transform: [{ rotate: '15deg' }],
+  },
+  riverRibbonThree: {
+    position: 'absolute',
+    left: '38%',
+    top: '-6%',
+    width: 22,
+    height: '120%',
+    borderRadius: 999,
+    backgroundColor: 'rgba(55, 133, 168, 0.22)',
+    transform: [{ rotate: '3deg' }],
+  },
+  primaryRoadNorth: {
+    position: 'absolute',
+    left: '-8%',
+    right: '-6%',
+    top: '22%',
+    height: 10,
+    borderRadius: 999,
+    backgroundColor: 'rgba(250, 250, 244, 0.92)',
+    borderWidth: 1,
+    borderColor: 'rgba(200, 184, 141, 0.65)',
+    transform: [{ rotate: '8deg' }],
+  },
+  primaryRoadCentral: {
+    position: 'absolute',
+    left: '-10%',
+    right: '-8%',
+    top: '47%',
+    height: 12,
+    borderRadius: 999,
+    backgroundColor: 'rgba(250, 250, 244, 0.92)',
+    borderWidth: 1,
+    borderColor: 'rgba(200, 184, 141, 0.7)',
+    transform: [{ rotate: '-9deg' }],
+  },
+  primaryRoadSouth: {
+    position: 'absolute',
+    left: '-14%',
+    right: '-12%',
+    top: '72%',
+    height: 9,
+    borderRadius: 999,
+    backgroundColor: 'rgba(250, 250, 244, 0.86)',
+    borderWidth: 1,
+    borderColor: 'rgba(200, 184, 141, 0.55)',
+    transform: [{ rotate: '16deg' }],
+  },
+  secondaryRoadOne: {
+    position: 'absolute',
+    top: '-4%',
+    bottom: '-6%',
+    left: '23%',
+    width: 4,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 251, 0.7)',
+    transform: [{ rotate: '-11deg' }],
+  },
+  secondaryRoadTwo: {
+    position: 'absolute',
+    top: '-8%',
+    bottom: '-10%',
+    left: '61%',
+    width: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 251, 0.68)',
+    transform: [{ rotate: '10deg' }],
+  },
+  secondaryRoadThree: {
+    position: 'absolute',
+    left: '-8%',
+    right: '-8%',
+    top: '36%',
+    height: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 251, 0.62)',
+    transform: [{ rotate: '-2deg' }],
+  },
+  secondaryRoadFour: {
+    position: 'absolute',
+    left: '-8%',
+    right: '-8%',
+    top: '63%',
+    height: 5,
+    borderRadius: 999,
+    backgroundColor: 'rgba(255, 255, 251, 0.62)',
+    transform: [{ rotate: '-13deg' }],
+  },
+  mapLabel: {
+    position: 'absolute',
+    color: 'rgba(70, 86, 77, 0.58)',
+    fontSize: 11,
+    fontWeight: '800',
+    textShadowColor: 'rgba(255, 255, 255, 0.85)',
+    textShadowOffset: { width: 0, height: 1 },
+    textShadowRadius: 3,
+  },
+  labelMississippi: {
+    left: '42%',
+    top: '25%',
+    transform: [{ rotate: '83deg' }],
+  },
+  labelMinnesota: {
+    left: '12%',
+    top: '50%',
+    transform: [{ rotate: '-9deg' }],
+  },
+  labelStCroix: {
+    right: '4%',
+    top: '37%',
+    transform: [{ rotate: '68deg' }],
+  },
+  labelMinneapolis: {
+    left: '26%',
+    top: '39%',
+  },
+  labelSaintPaul: {
+    left: '52%',
+    top: '41%',
   },
   markerTarget: {
     position: 'absolute',

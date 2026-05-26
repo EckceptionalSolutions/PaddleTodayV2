@@ -35,7 +35,6 @@ export function ExploreSearchBar({
         placeholderTextColor={colors.textMuted}
         value={query}
         onChangeText={onQueryChange}
-        onChange={(event) => onQueryChange(textFromInputEvent(event))}
         {...webInputProps(onQueryChange)}
         style={styles.searchInput}
         returnKeyType="search"
@@ -145,6 +144,7 @@ function webInputProps(onText: (value: string) => void) {
   return {
     // React Native Web can miss onChangeText in some nested scroll layouts.
     onInput: (event: { currentTarget?: { value?: string } }) => onText(event.currentTarget?.value ?? ''),
+    onChange: (event: { nativeEvent?: { text?: string }; target?: unknown }) => onText(textFromInputEvent(event)),
   };
 }
 

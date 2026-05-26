@@ -3,7 +3,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
@@ -276,6 +276,7 @@ function FullScreenExploreMap({
           height={mapHeight}
           showFooter={false}
           fullBleed
+          markerMode={Platform.OS === 'web' ? 'score' : 'pin'}
         />
       ) : (
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
