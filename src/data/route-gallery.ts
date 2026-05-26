@@ -262,6 +262,56 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'upper-iowa-river-cattle-creek-bluffton': [
+    {
+      id: 'upper-iowa-river-new-albin-commons',
+      src: '/gallery/upper-iowa-river-cattle-creek-bluffton/upper-iowa-river-new-albin.jpg',
+      alt: 'An aerial view looks down at the Upper Iowa River winding between wooded bluffs and farm fields.',
+      caption: 'Upper Iowa River bluff-country corridor',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'maquoketa-river-backbone-dundee': [
+    {
+      id: 'backbone-state-park-usgs',
+      src: '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
+      alt: 'Clear water spills through a rocky green stream channel in Backbone State Park.',
+      caption: 'Backbone State Park stream corridor',
+      credit: 'USGS Central Midwest Water Science Center',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'volga-river-mederville-littleport': [
+    {
+      id: 'mederville-bridge-volga-river-loc',
+      src: '/gallery/volga-river-mederville-littleport/mederville-bridge-volga-river.jpg',
+      alt: 'The Mederville Bridge spans the Volga River from a river-edge view, with wooded banks around the crossing.',
+      caption: 'Volga River at Mederville Bridge',
+      credit: 'Bruce A. Harms / HAER via Library of Congress',
+      takenLabel: 'Library of Congress: no known restrictions',
+    },
+  ],
+  'turkey-river-elkader-motor-mill': [
+    {
+      id: 'elkader-keystone-bridge-loc',
+      src: '/gallery/turkey-river-elkader-motor-mill/elkader-keystone-bridge.jpg',
+      alt: 'Elkader Keystone Bridge crosses the Turkey River with stone arches, town buildings, and riverbank trees in view.',
+      caption: 'Turkey River at Elkader Keystone Bridge',
+      credit: 'HAER via Library of Congress',
+      takenLabel: 'Library of Congress: no known restrictions',
+    },
+  ],
+  'yellow-river-volney-sixteen-bridge': [
+    {
+      id: 'yellow-river-effigy-mounds-goodfreephotos',
+      src: '/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg',
+      alt: 'The Yellow River curves through a wooded valley below a high overlook in northeast Iowa.',
+      caption: 'Yellow River in northeast Iowa',
+      credit: 'Yinan Chen / GoodFreePhotos via Wikimedia Commons',
+      takenLabel: 'Public domain dedication',
+    },
+  ],
   'milwaukee-river-newburg-fredonia': [
     {
       id: 'milwaukee-river-january-2026-commons',

@@ -1,7 +1,17 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-25T23:55:44Z",
+  "updatedAt": "2026-05-26T02:08:00Z",
   "notes": [
+    "2026-05-25 21:08 America/Chicago Iowa route pass. No app route added. Re-read automation memory, route data, trip details, gallery wiring, image audit, and the structured ledger. The prompted Turkey, Maquoketa Canton, Maquoketa Backbone, Volga, Upper Iowa, Black Hawk Creek, Iowa River, Wapsipinicon, and Yellow River route work is already present in uncommitted app data or ledger. Reviewed the remaining Cedar River / Cedar Valley Paddlers Trail secondary candidate against the Iowa DNR / Cedar Valley water-trail PDF, Cedar Falls official trail map leads, Cedar Valley Trails access context, and USGS 05463050 Cedar River at Cedar Falls. Deferred it because the official guidance is a maximum-only safety ceiling below 7,500 cfs, while PaddleTodayV2 currently supports two-sided and minimum-only threshold models; adding the route would require inventing a low/ideal band or changing scoring semantics.",
+    "2026-05-25 20:59 America/Chicago Iowa reconciliation pass. No duplicate app route was added because the prompted Turkey, Maquoketa Canton, Maquoketa Backbone, Volga, Upper Iowa, Black Hawk Creek, Iowa River, and Wapsipinicon route work was already present in uncommitted app data. Completed one missing structured ledger record for Wapsipinicon River - Wapsipinicon State Park to Newport Mills. Used Iowa DNR Wapsipinicon State Park, Jones County Newport Mills Access and Wapsipinicon State Park boat ramp pages, Jones County's Paddling the Wapsi event route note, USGS 05421740 Wapsipinicon River at Anamosa, and MilesPaddled's exact-route low-water guidance. No route-gallery asset was added because the image audit already records no clearly reusable representative route photo.",
+    "2026-05-26 03:35 America/Chicago Iowa implementation pass. The prompted Turkey, Maquoketa Canton, Maquoketa Backbone, and Volga candidates were already implemented in uncommitted automation work, so this pass added Upper Iowa River - Cattle Creek Road / Daley Bridge access area to Bluffton Fir Stand Access. Used the Upper Iowa River Paddler's Guide developed with Iowa DNR Fisheries Bureau input for the public access sequence and official corridor context; Wisconsin River Trips' exact Cattle Creek-to-Bluffton route report for access notes, hazards, and Bluffton-gauge flow guidance; USGS 05387440 Upper Iowa River at Bluffton as the direct same-corridor live gauge; Iowa DNR Fish Iowa for Upper Iowa public paddling context; The Gazette for Daley Bridge Canoe Access naming; and Commons/local searches for photo leads. No route-gallery asset was added because no exact-route reusable image was downloaded and verified in this pass.",
+    "2026-05-25 23:52 America/Chicago Iowa implementation pass. The top two prompted Iowa candidates, Turkey River - Elkader to Motor Mill and Maquoketa River - Canton to Royertown, were already staged in app data and ledger, so this pass added Maquoketa River - Highway 410 / Backbone State Park to Dundee Access. Used Wisconsin River Trips' exact Backbone route report, hazards, and Manchester-gauge ladder; USGS 05416900 Maquoketa River at Manchester as the direct same-river live gauge; Iowa DNR for Backbone State Park public context; Delaware County Tourism's Upper Maquoketa River Water Trail map for Backbone State Park and Dundee Access; Delaware County/MyCountyParks for Dundee Wildlife Area canoe/kayak access; and Water Quality Portal Dundee coordinates. Found a public-domain USGS Backbone State Park image, but no local gallery asset was added because the runtime could not fetch the binary image file.",
+    "2026-05-25 20:21 America/Chicago Iowa implementation pass. Added Maquoketa River - Canton Bridge Access to Royertown Bridge Access as a Northeast Iowa route. Used Jackson County/MyCountyParks for public Canton and Royertown water-trail access names, Iowa DNR for the Canton-to-Royertown dedication paddle, Wisconsin River Trips' exact Canton County Park-to-50th Ave/Royertown route report and Maquoketa-gauge ladder, USGS 05418500 Maquoketa River near Maquoketa as the direct live gauge, AnyplaceAmerica/USGS-topo context for Canton County Park coordinates, and Water Quality Portal Royerton Bridge Access coordinates for the take-out. No route-gallery asset was added because no clearly reusable representative route photo was selected.",
+    "2026-05-25 20:08 America/Chicago Iowa implementation pass. Added Turkey River - Elkader Whitewater Park to Motor Mill Access as a Northeast Iowa route. Used the Iowa DNR-backed Turkey River Water Trail guide for Elkader Access #39B to Motor Mill Access #32 route/access support; Wisconsin River Trips' exact Elkader-to-Motor-Mill route report, hazards, and Elkader-gauge ladder; USGS 05412020 Turkey River above French Hollow Creek at Elkader as the direct live gauge; Iowa Whitewater Coalition / Paddling.com for Elkader launch coordinates; Clayton County Conservation and named map-feature records for Motor Mill access context and coordinates. No route-gallery asset was added because no clearly reusable representative route photo was selected.",
+    "2026-05-26 01:10 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Wolf River - Markton County M Landing to Big Smokey Falls Landing as an expert-only Section IV route. Used Wisconsin Trail Guide's exact W6 route page/PDF for endpoint WGS84 coordinates, Menominee pass requirement, hazards, and full Langlade-gauge ladder; USGS 04074950 Wolf River at Langlade as the same-river live gauge; American Whitewater Section IV for gauge/reach corroboration; and Rivers.gov for tribal/Wild-and-Scenic context. No route-gallery asset was added because route/outfitter images were not rights-clean and no clearly reusable exact-route photo was selected.",
+    "2026-05-25 20:01 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Turtle Creek - East Creek Road to Highway 140. Used Wisconsin River Trips' exact 6.8-mile route report, East Creek/Hwy 140 access notes, hazards, and Carvers Rock Road gauge ladder; USGS 05431486 Turtle Creek at Carvers Rock Road near Clinton as the direct same-creek live gauge; Wisconsin DNR Turtle Creek Wildlife Area for public paddling/access context; and the WRT shuttle map for endpoint coordinates. No route-gallery asset was added because targeted Commons/federal/local search found no clearly reusable representative route photo.",
+    "2026-05-25 19:47 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked, and the remaining image-audit gaps were duplicate or blocked, so this pass added Wisconsin River - Muscoda Landing West to Woodman Landing. Used Wisconsin Trail Guide's exact LWSR3 route page/PDF for the 24.5-mile route, WGS84 endpoint coordinates, landing amenities, route cautions, and Muscoda-gauge ladder; Wisconsin DNR Lower Wisconsin boating page for public access corroboration; and USGS 05407000 Wisconsin River at Muscoda as the direct live gauge at the put-in town. No route-gallery asset was added because targeted Commons/federal/local search found no clearly reusable representative exact-route photo.",
+    "2026-05-25 19:20 America/Chicago Iowa implementation pass. Added Yellow River - Volney Canoe Access to Bridge Sixteen as a guarded Northeast Iowa route. Used Wisconsin River Trips' exact Volney-to-Sixteen route report and Ion-gauge ladder, USGS 05389000 Yellow River near Ion as the direct live gauge, Iowa DNR Fish Iowa for Volney public carry-down launch context, Monona Chamber / Big Foot Canoe route naming for Volney-to-Sixteen, and a named Bridge Sixteen Canoe Access map record for take-out coordinates. No gallery asset added; route/report images and local pages remain discovery leads only until reusable rights are verified.",
     "2026-05-25 18:55 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, Black Earth Creek remained blocked, and the remaining Wisconsin audit gaps were duplicate or blocked, so this pass added Red Cedar River - Tom Prince Memorial Park to Russian Slough County Park. Used Wisconsin River Trips' exact Red Cedar Colfax route report, route-specific Colfax gauge ladder, hazards, access notes, and shuttle coordinates; USGS 05367500 Red Cedar River near Colfax as the direct same-river live gauge; Paddling.com for Tom Prince coordinate corroboration; Dunn County and Wisconsin DNR for Russian Slough / Red Cedar public-access context. No route-gallery asset was added because the targeted Commons/federal/local search found no clearly reusable representative route photo.",
     "2026-05-25 19:42 America/Chicago Wisconsin implementation pass. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica routes were already implemented, and Black Earth Creek remained blocked, so this pass added Big Eau Pleine River - Cherokee Park to March Rapids Park. Used Marathon County Cherokee Park access context, AnyplaceAmerica/USGS-topo endpoint coordinates for Cherokee Park and March Rapids County Park, Wisconsin River Trips adjacent Cherokee-to-Hazelnut and Hazelnut-to-March Rapids route reports plus the shared Stratford-gauge ladder, and USGS 05399500 Big Eau Pleine River at Stratford as the direct live same-river gauge. No route-gallery asset was added because no clearly reusable representative route photo was found.",
     "2026-05-25 18:34 America/Chicago Wisconsin route pass. No app route added. Re-read automation memory, live route data, trip details, gallery wiring, image audit, and structured ledger. The prompted Bark River - Prince's Point to Burnt Village Park and Sugar River - Highway X to Attica Highway C Access routes are already implemented and marked added. Rechecked the remaining prompted hold, Black Earth Creek - Cross Plains to Salmo Pond County Park, with another targeted clearance search. Wisconsin River Trips still carries the July 2, 2025 field report of two full blockages near Scherbel Road / Salmo Pond, including one impossible to get around; newer public results still confirm Salmo Pond access and local creek context but not corridor clearance. Black Earth stays research_later; no gallery asset added.",
@@ -117,6 +127,107 @@
   ],
   "candidates": [
     {
+      "candidateId": "ia-wapsipinicon-river-state-park-newport-mills",
+      "river": "Wapsipinicon River",
+      "route": "Wapsipinicon State Park boat launch to Newport Mills Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wapsipinicon-river-state-park-newport-mills. Revisit only if an official manager publishes fuller flow bands, access status changes at either landing, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Iowa DNR Wapsipinicon State Park page",
+        "Jones County Wapsipinicon State Park boat ramp page",
+        "Jones County Newport Mills Access page",
+        "Jones County Paddling the Wapsi event route note",
+        "USGS 05421740 Wapsipinicon River at Anamosa, IA monitoring location",
+        "MilesPaddled Wapsipinicon River",
+        "Wikimedia Commons / USGS / county-local photo search"
+      ],
+      "aliases": [
+        "Wapsipinicon River - Wapsipinicon State Park to Newport Mills",
+        "Wapsi - State Park to Newport Mills",
+        "Wapsipinicon River - Anamosa to Newport Mills"
+      ],
+      "v2Slug": "wapsipinicon-river-state-park-newport-mills",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05421740 Wapsipinicon River at Anamosa, IA. The gauge is on the same river in the route corridor near the upstream state-park launch, and MilesPaddled ties the exact Wapsipinicon State Park-to-Newport Mills trip to this gauge."
+      },
+      "thresholdSupport": {
+        "strength": "community_minimum_only",
+        "notes": "MilesPaddled reports 4.77 ft at the Anamosa gauge as the lowest recommended level for this exact route and says 5.0 to 5.25 ft would be more ideal for avoiding frequent scraping. The app therefore uses a conservative minimum-only model: 4.77 ft as the low-water floor, with 5.0-5.25 ft documented as a better target but no trusted upper ceiling."
+      },
+      "endpoints": {
+        "putIn": "Wapsipinicon State Park boat launch",
+        "takeOut": "Newport Mills Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.09819,
+          "longitude": -91.28755
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.04515,
+          "longitude": -91.20014
+        },
+        "coordinateSource": "The app route uses the named Iowa DNR state-park boat launch near Anamosa and Jones County's named Newport Mills Access. Jones County publishes both access pages and uses this exact Wapsipinicon State Park-to-Newport Mills shuttle in county paddling programming; coordinates are anchored to the named launch/access map context already present in app data."
+      },
+      "notes": "Reconciled 2026-05-25 after finding this Iowa route already present in app data, trip details, and the image audit but absent from the structured ledger. This route clears a guarded Iowa quality bar with named public endpoints, a direct same-river live USGS gauge, exact-route community low-water guidance, public state/county access support, and explicit low-water scraping cautions. Confidence remains below the best Iowa additions because the current threshold model is minimum-only and no rights-clean representative route photo has been selected."
+    },
+    {
+      "candidateId": "ia-upper-iowa-river-cattle-creek-bluffton",
+      "river": "Upper Iowa River",
+      "route": "Cattle Creek Road / Daley Bridge canoe access area to Bluffton Fir Stand Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-26",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as upper-iowa-river-cattle-creek-bluffton. Revisit only if a manager publishes official paddling bands, access/parking changes at Cattle Creek or Bluffton Fir Stand, or a rights-clean exact-route photo improves on the current broad Upper Iowa corridor asset.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Upper Iowa River - Cattle Creek Road to Bluffton Road/W20",
+        "USGS 05387440 Upper Iowa River at Bluffton, IA monitoring location",
+        "Upper Iowa River Paddler's Guide / Winneshiek County / Northeast Iowa RC&D",
+        "Iowa DNR Fish Iowa Upper Iowa River above Decorah page",
+        "The Gazette Daley Bridge Canoe Access article",
+        "Wikimedia Commons Upper Iowa River category and Upper Iowa River 2 CC0 file",
+        "Winneshiek County MyCountyParks Bluffton Bluffs page"
+      ],
+      "aliases": [
+        "Upper Iowa River - Cattle Creek Road Bridge to Bluffton Road/W20 Canoe Ramp",
+        "Upper Iowa River - Cattle Creek Road to Bluffton Fir Stand Access",
+        "Upper Iowa River - Daley Bridge Canoe Access to Bluffton Fir Stand",
+        "Upper Iowa River - Chimney Rock and Bluffton Palisades run"
+      ],
+      "v2Slug": "upper-iowa-river-cattle-creek-bluffton",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05387440 Upper Iowa River at Bluffton, IA, a live same-river gauge in the Bluffton corridor. Wisconsin River Trips ties the exact route to the Bluffton gauge."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Bluffton-gauge guidance for this Cattle Creek-to-Bluffton route: 305 cfs was more than plenty, 200 cfs is low, 150 cfs is scrape-prone, and roughly 700 cfs and up is likely too pushy. The app uses 200-500 cfs as the broad preferred window, 150 cfs as too low/scrapey, and 700+ cfs as beyond broad recreational recommendation."
+      },
+      "endpoints": {
+        "putIn": "Cattle Creek Road / Daley Bridge canoe access area",
+        "takeOut": "Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.4149,
+          "longitude": -91.95874
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.3996,
+          "longitude": -91.8884
+        },
+        "coordinateSource": "Put-in coordinates are anchored to the Cattle Creek Road / former Gilliece-Daley Bridge public bridge/access context; Wisconsin River Trips and The Gazette corroborate this as the route access area. Take-out coordinates are anchored to the public Bluffton Fir Stand / Bluffton Road-W20 canoe ramp context from Wisconsin River Trips and the Upper Iowa River Paddler's Guide, which lists Bluffton Fir Stand Access at river mile 73.4 and approach road 244th Avenue. Both endpoint coordinates should be treated as access-area coordinates and checked against posted parking on arrival."
+      },
+      "notes": "Implemented 2026-05-26 as a secondary Iowa route after the initial prompted Iowa candidates were already present in uncommitted app data. This route clears a guarded Iowa quality bar with named public/plausible accesses, a direct live same-river gauge, route-specific community flow guidance, official water-trail/access-sequence support, and explicit high-water/low-water cautions. The main caveat is endpoint precision: the public sources name and map the access sequence, but Cattle Creek has had bridge/access changes and the app presents same-day access confirmation as a logistics caveat. Supplemental image pass added a Commons CC0 Upper Iowa River corridor asset; it is same-river/same-region but not exact Cattle Creek-to-Bluffton coverage."
+    },
+    {
       "candidateId": "wi-jump-river-wayside-park-sheldon",
       "river": "Jump River",
       "route": "Wayside Park / Highway 73 to Haley Park",
@@ -216,6 +327,56 @@
         "coordinateSource": "Wisconsin Trail Guide LWSR2 PDF publishes NAD83 / WGS84 coordinates for Buena Vista Landing and Muscoda Landing West; Wisconsin DNR lists both Buena Vista Boat Landing (Gotham) and Muscoda west side of Highway 80 as major Lower Wisconsin public access points."
       },
       "notes": "Implemented 2026-05-25 as a fresh Lower Wisconsin route after the prompted Bark and Sugar candidates were already implemented and Black Earth Creek stayed blocked. This route clears the quality bar with named public landings, direct Muscoda live gauge support, a published route-corridor flow ladder, route-specific Wisconsin River Trips mileage/access/hazard context, DNR public-access corroboration, and explicit high-water / strainer / sandbar caveats. No gallery asset was added because no clearly reusable representative route photo was found."
+    },
+    {
+      "candidateId": "wi-wisconsin-river-muscoda-woodman",
+      "river": "Wisconsin River",
+      "route": "Muscoda Landing West to Woodman Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wisconsin-river-muscoda-woodman. Revisit only if official DNR landing-level coordinate tables, newer access changes, or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide LWSR3 Muscoda to Woodman page",
+        "Wisconsin Trail Guide LWSR3 PDF",
+        "Wisconsin DNR Lower Wisconsin boating and canoeing",
+        "USGS 05407000 Wisconsin River at Muscoda monitoring location",
+        "Wisconsin River Trips Wisconsin River Woodman overview",
+        "Targeted reusable image search across Wikimedia Commons, USGS, Wisconsin DNR, and local/route pages"
+      ],
+      "aliases": [
+        "Lower Wisconsin Riverway LWSR3",
+        "Wisconsin River - Muscoda to Woodman",
+        "Wisconsin River - Muscoda Landing West to Woodman Landing",
+        "Lower Wisconsin - Muscoda to Woodman"
+      ],
+      "v2Slug": "wisconsin-river-muscoda-woodman",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05407000 Wisconsin River at Muscoda, WI, a direct same-river live gauge at the put-in town and the gauge named by Wisconsin Trail Guide for LWSR3 level interpretation."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a Muscoda-gauge ladder for LWSR3: below 4,000 cfs is very shallow with many large sandbars and possible pushing; 4,000-10,000 cfs is normal summer flow with sandbars; 10,000-14,000 cfs is above normal with undercurrents; 14,000-17,000 cfs is high and sandbar camping is not recommended; 17,000-20,000 cfs is high day-trip-only water with powerful undercurrents; and above 20,000 cfs is not recommended."
+      },
+      "endpoints": {
+        "putIn": "Muscoda Landing West",
+        "takeOut": "Woodman Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.198,
+          "longitude": -90.44576
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.07699,
+          "longitude": -90.84597
+        },
+        "coordinateSource": "Wisconsin Trail Guide LWSR3 PDF publishes NAD83 / WGS84 coordinates for Muscoda Landing West and Woodman Landing. Wisconsin DNR corroborates Muscoda west side of Highway 80, Boscobel Landings, and Woodman Lake as major Lower Wisconsin public access points, while Wisconsin Trail Guide describes both endpoint landings with parking and launch amenities."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Lower Wisconsin route after the prompted Bark and Sugar candidates were already implemented, Black Earth Creek remained blocked, and the remaining image-audit gaps were duplicate or blocked. This route clears the quality bar with named public landings, direct Muscoda live gauge support, a published LWSR3 flow ladder, WGS84 endpoint coordinates, Wisconsin DNR access corroboration, and explicit high-water / strainer / sandbar caveats. No gallery asset was added because no clearly reusable representative route photo was found."
     },
     {
       "candidateId": "wi-sugar-river-highway-69-paoli",
@@ -1035,6 +1196,261 @@
       "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek stayed blocked. This route clears the quality bar with named public endpoints, public/official access context, endpoint coordinates, a direct same-river USGS gauge story, and route-specific community level guidance. No approved reusable route photo was found during the targeted Commons/federal/local-government search."
     },
     {
+      "candidateId": "ia-turkey-river-elkader-motor-mill",
+      "river": "Turkey River",
+      "route": "Elkader Whitewater Park to Motor Mill Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as turkey-river-elkader-motor-mill. Revisit only if an official coordinate table for both access points, stronger official paddling bands, or a rights-clean paddling/on-water exact-route photo improves on the current Elkader bridge asset.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Turkey River Water Trail map and guide",
+        "Wisconsin River Trips Turkey River - Elkader",
+        "USGS 05412020 Turkey River above French Hollow Creek at Elkader, IA monitoring location",
+        "Iowa Whitewater Coalition Elkader Whitewater Park page",
+        "Paddling.com #39B Elkader Access page",
+        "Clayton County Conservation Motor Mill Historic Site page",
+        "Motor Mill Access named map record",
+        "Wikimedia Commons / USGS / Iowa DNR / county and local photo search",
+        "Library of Congress HAER Elkader Bridge survey"
+      ],
+      "aliases": [
+        "Turkey River - Elkader to Motor Mill",
+        "Turkey River - Elkader Access #39B to Motor Mill Access #32",
+        "Turkey River - Elkader Whitewater Park to Motor Mill Landing"
+      ],
+      "v2Slug": "turkey-river-elkader-motor-mill",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05412020 Turkey River above French Hollow Creek at Elkader, IA. The gauge is on the same river in the Elkader route corridor, and Wisconsin River Trips uses the Elkader gauge for its route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific Elkader-gauge ladder: below 100 cfs maybe too shallow, 101-250 cfs low but doable with bumpy riffles, 251-450 cfs average, 451-600 cfs above normal but navigable, 601-850 cfs well above normal, 851-1200 cfs high, 1201-1500 cfs extremely high and perhaps experienced-only, and 1501+ cfs maybe too high / probably dangerous."
+      },
+      "endpoints": {
+        "putIn": "Elkader Whitewater Park / Elkader Access #39B",
+        "takeOut": "Motor Mill Access #32",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.853356,
+          "longitude": -91.402402
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.8088,
+          "longitude": -91.3531
+        },
+        "coordinateSource": "Iowa Whitewater Coalition publishes Elkader Whitewater Park coordinates; Paddling.com separately maps #39B Elkader Access nearby at 42.851397, -91.400725. Motor Mill Access coordinates are from the named Motor Mill Access map feature, corroborated by the Turkey River Water Trail's #32 access and Clayton County Conservation's Turkey River water-access page for Motor Mill."
+      },
+      "notes": "Implemented 2026-05-25. This route clears the Iowa bar with official water-trail access names, public/manager support for Motor Mill water access, a direct same-corridor USGS gauge, and route-specific community threshold guidance. The app uses the Whitewater Park as the scenic put-in while noting the adjacent water-trail Elkader Access #39B naming. Supplemental image pass added a public-domain HAER/Library of Congress Elkader Bridge photo over the Turkey River; it is exact put-in-town river context but bridge-focused rather than paddling-focused."
+    },
+    {
+      "candidateId": "ia-maquoketa-river-canton-royertown",
+      "river": "Maquoketa River",
+      "route": "Canton Bridge Access to Royertown Bridge Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as maquoketa-river-canton-royertown. Revisit only if Jackson County publishes exact official access coordinates, an official flow ladder appears, or a rights-clean exact-route photo becomes available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Jackson County / MyCountyParks Maquoketa River Water Trail page",
+        "Iowa DNR Maquoketa and North Fork Maquoketa Water Trail dedication notice",
+        "Wisconsin River Trips Maquoketa River - Buzzard Ridge Wildlife Area",
+        "USGS 05418500 Maquoketa River near Maquoketa, IA monitoring location",
+        "AnyplaceAmerica Canton County Park topo feature",
+        "Water Quality Portal AWARE 13 Royerton Bridge Access Maquoketa River",
+        "Maquoketa River Paddlers Guide PDF",
+        "Wikimedia Commons / USGS / Iowa DNR / county and local photo search"
+      ],
+      "aliases": [
+        "Maquoketa River - Canton County Park to 50th Ave",
+        "Maquoketa River - Canton to Royertown",
+        "Maquoketa River - Canton Bridge Access to Royertown Access #45"
+      ],
+      "v2Slug": "maquoketa-river-canton-royertown",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05418500 Maquoketa River near Maquoketa, IA. The gauge is downstream on the same river, and Wisconsin River Trips uses it for the Canton County Park-to-50th Ave / Royertown route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Maquoketa-gauge guidance: below 500 cfs likely too low for enjoyable paddling, 501-700 cfs mostly okay with grounding risk, 701-1000 cfs average fall depth and good target range, 1001-1400 cfs average summer depth and fine for paddling, 1401-2000 cfs high but likely fine, and 2001+ cfs very high, pushy, and dirty."
+      },
+      "endpoints": {
+        "putIn": "Canton Bridge Access / Canton County Park",
+        "takeOut": "Royertown Bridge Access / Water Trail Access #45",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.1627901,
+          "longitude": -90.8918068
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.1198989,
+          "longitude": -90.828304
+        },
+        "coordinateSource": "Canton coordinates come from the named Canton County Park USGS/topographic feature, corroborated by Jackson County's Canton Bridge Access water-trail listing and WRT's Canton County Park put-in. Royertown coordinates come from the Water Quality Portal site named AWARE 13 Royerton Bridge Access Maquoketa River, corroborated by Jackson County's Royertown Bridge Access listing and WRT's 50th Ave / Royertown Canoe Access take-out."
+      },
+      "notes": "Implemented 2026-05-25. This route clears the Iowa bar with county/DNR water-trail route support, named public bridge accesses, a direct same-river USGS gauge, and route-specific community threshold guidance. No route-gallery asset was added because the targeted search found WRT/MyCountyParks/local photos but no clearly reusable representative photo with compatible rights."
+    },
+    {
+      "candidateId": "ia-maquoketa-river-backbone-dundee",
+      "river": "Maquoketa River",
+      "route": "Highway 410 / Backbone State Park to Dundee Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as maquoketa-river-backbone-dundee. Revisit if Iowa DNR or Delaware County publishes exact official access coordinates for the Highway 410 bridge launch, if manager guidance favors ending at the Backbone Lake dam instead of Dundee, or if a rights-clean on-water Maquoketa image improves on the current USGS Backbone asset.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Maquoketa River - Backbone State Park",
+        "USGS 05416900 Maquoketa River at Manchester, IA monitoring location",
+        "Iowa DNR Backbone State Park page",
+        "Delaware County Tourism Upper Maquoketa River Water Trail map PDF",
+        "Delaware County / MyCountyParks Dundee Wildlife Area page",
+        "Water Quality Portal Maquoketa River (Dundee) site",
+        "USGS public-domain Backbone State Park image",
+        "Wikimedia Commons / USGS / Iowa DNR / county and local photo search"
+      ],
+      "aliases": [
+        "Maquoketa River - Backbone State Park",
+        "Maquoketa River - Hwy 410 to Dundee Access",
+        "Upper Maquoketa River - Backbone to Dundee"
+      ],
+      "v2Slug": "maquoketa-river-backbone-dundee",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05416900 Maquoketa River at Manchester, IA. The gauge is downstream on the same river, and Wisconsin River Trips uses it for the exact Highway 410-to-Dundee route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Manchester-gauge guidance: 0-50 cfs likely too shallow for the pre-South-Fork stretch, 51-100 cfs wade-heavy before the South Fork, 101-200 cfs average with possible shallow spots, 201-250 cfs above average, 251-350 cfs high and a good target range for the upper parts, 351-450 cfs very high and rough below the dam, and 451+ cfs maybe too high for safe paddling."
+      },
+      "endpoints": {
+        "putIn": "Highway 410 bridge access / Backbone State Park",
+        "takeOut": "Dundee Access / Dundee Wildlife Area",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.6331,
+          "longitude": -91.5617
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.5793779,
+          "longitude": -91.5485886
+        },
+        "coordinateSource": "The put-in coordinate is the named Backbone State Park map context near the Highway 410 bridge access, corroborated by WRT's exact route report and Iowa DNR's public Backbone State Park page. The take-out coordinate comes from the Water Quality Portal site named Maquoketa River (Dundee), corroborated by Delaware County/MyCountyParks' Dundee Wildlife Area canoe/kayak access page and the Upper Maquoketa River Water Trail map's Dundee Access label."
+      },
+      "notes": "Implemented 2026-05-25 as a guarded Iowa route. This route clears the bar with a direct same-river live gauge, route-specific community threshold guidance, official public state-park/county access context, and explicit hazards. It is guarded because the Highway 410 launch is a bridge access inside a state park rather than a developed named ramp, and because many broad-audience paddlers may be better served by taking out at the Backbone Lake dam/ramp before the dam-to-Dundee strainers. Supplemental image pass downloaded and wired the public-domain USGS Backbone State Park asset; it is route-corridor/park context rather than an on-water Maquoketa main-channel photo."
+    },
+    {
+      "candidateId": "ia-volga-river-mederville-littleport",
+      "river": "Volga River",
+      "route": "Mederville Canoe Access to Littleport Canoe Access",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-26",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as volga-river-mederville-littleport. Revisit only if Clayton County publishes exact official access coordinates, an official flow ladder appears, or a rights-clean paddling/on-water route photo improves on the current Mederville Bridge asset.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Volga River - Mederville",
+        "USGS 05412400 Volga River at Littleport, IA monitoring location",
+        "Water Quality Portal Volga River at Mederville Access",
+        "Iowa DNR AQuIA Volga River at Littleport (32)",
+        "Water Quality Portal Volga River at Littleport (32)",
+        "Clayton County Trout Fishing Guide map PDF",
+        "Iowa DNR Volga River State Recreation Area page and map PDF",
+        "Wikimedia Commons / USGS / Iowa DNR / county and local photo search",
+        "Library of Congress HAER Mederville Bridge survey"
+      ],
+      "aliases": [
+        "Volga River - Mederville to Littleport",
+        "Volga River - Mederville Canoe Access to Littleport Canoe Access",
+        "Volga River - Mederville Dells to Littleport"
+      ],
+      "v2Slug": "volga-river-mederville-littleport",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05412400 Volga River at Littleport, IA, a same-river live gauge at the take-out bridge. Wisconsin River Trips uses this exact gauge for the Mederville-to-Littleport route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Littleport gauge-height guidance: below 4.1 ft likely too shallow, 4.2-4.3 ft maybe too shallow, 4.4-4.6 ft shallow but fine, 4.7 ft average and a good target, 4.8-4.9 ft above average but okay, 5.0-5.3 ft high-ish and potentially pushy, 5.4-5.8 ft high and perhaps experienced-only, and 5.9+ ft very high / expert-only. The app uses 4.4-4.9 ft as the broad target and 5.4+ ft as above broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "Mederville Canoe Access",
+        "takeOut": "Littleport Canoe Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.7637267,
+          "longitude": -91.4218817
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.7536533,
+          "longitude": -91.3690117
+        },
+        "coordinateSource": "Put-in coordinates come from the Water Quality Portal / Iowa DNR site named Volga River at Mederville Access. Take-out coordinates come from the Iowa DNR AQuIA / Water Quality Portal site named Volga River at Littleport (32), which matches the USGS Littleport bridge/gauge corridor. Wisconsin River Trips corroborates both named canoe accesses and describes their bridge-area landing details; Clayton County map context marks canoe access in the Mederville/Littleport lower-Volga corridor."
+      },
+      "notes": "Implemented 2026-05-26 as a secondary Iowa candidate after the first three prompted candidates were already present. This route clears the Iowa bar with named public access points, coordinate-bearing Iowa DNR/Water Quality Portal records, a direct same-river live USGS gauge at the take-out, and route-specific community threshold guidance. It is guarded for access ergonomics because both landings are hidden and steep rather than developed ramps. Supplemental image pass added a no-known-restrictions HAER/Library of Congress photo from the Volga River edge at Mederville Bridge; it is exact put-in bridge-area context but historic/bridge-focused."
+    },
+    {
+      "candidateId": "ia-yellow-river-volney-sixteen-bridge",
+      "river": "Yellow River",
+      "route": "Volney Canoe Access to Bridge Sixteen",
+      "state": "IA",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as yellow-river-volney-sixteen-bridge. Revisit if an official Iowa DNR water-trail map with exact access coordinates or a rights-clean exact-route photo improves on the current downstream Yellow River image.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Yellow River - Volney Iowa",
+        "USGS 05389000 Yellow River near Ion, IA monitoring location",
+        "Iowa DNR Fish Iowa Yellow River trout section page",
+        "Monona Chamber canoeing/kayaking/tubing page",
+        "Bridge Sixteen Canoe Access map record",
+        "Wikimedia Commons / GoodFreePhotos public-domain Yellow River image"
+      ],
+      "aliases": [
+        "Yellow River - Volney to Sixteen",
+        "Yellow River - Volney Canoe Launch to Sixteen Bridge",
+        "Yellow River - Volney to Bridge 16"
+      ],
+      "v2Slug": "yellow-river-volney-sixteen-bridge",
+      "gauge": {
+        "quality": "direct",
+        "notes": "Wisconsin River Trips uses USGS 05389000 Yellow River near Ion, IA for the route ladder. The gauge is downstream on the same river and reports discharge and gage height."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes a route-specific Ion-gauge ladder: below 50 cfs likely too low, 51-100 cfs very shallow, 101-200 cfs doable/shallow, 201-300 cfs good target, 301-400 cfs suitable but above average, 401-600 cfs high with strainers more difficult, 601-1000 cfs very high/expert-only, and 1001+ cfs maybe too high."
+      },
+      "endpoints": {
+        "putIn": "Volney Canoe Access",
+        "takeOut": "Bridge Sixteen Canoe Access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 43.08663222,
+          "longitude": -91.18097453
+        },
+        "takeOutCoordinates": {
+          "latitude": 43.1277592,
+          "longitude": -91.3140227
+        },
+        "coordinateSource": "Iowa DNR Fish Iowa Yellow River coordinates for the Volney access context and AnyplaceAmerica/USGS topo coordinates for Bridge Sixteen Canoe Access."
+      },
+      "notes": "Implemented 2026-05-25. The route has a clean direct gauge story, a route-specific community threshold ladder, public/official Volney access support, named Bridge Sixteen take-out support, and local paddling-route corroboration from Monona Chamber / Big Foot Canoe Rentals. It is guarded as moderate because higher levels make strainers and frequent rapids more consequential. Supplemental image pass added a public-domain Yellow River image from Effigy Mounds; it is same-river Northeast Iowa context but downstream from the Volney-to-Sixteen reach."
+    },
+    {
       "candidateId": "ia-little-turkey-river-u-avenue-eldorado",
       "river": "Little Turkey River",
       "route": "U Avenue to Eldorado",
@@ -1140,6 +1556,47 @@
         "coordinatesPresent": false
       },
       "notes": "Re-reviewed at 12:40 America/Chicago on 2026-04-26; status unchanged and still below implementation bar."
+    },
+    {
+      "candidateId": "ia-cedar-river-cedar-valley-paddlers-trail",
+      "river": "Cedar River",
+      "route": "Cedar Valley Paddlers Trail / George Wyth State Park and Waterloo-Cedar Falls corridor",
+      "state": "IA",
+      "status": "threshold_weak",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": "Official Cedar Valley water-trail guidance gives a useful high-water safety ceiling below 7,500 cfs at USGS 05463050, but it does not publish a defensible low-water floor or ideal range for a clean point-to-point Cedar River route. PaddleTodayV2 currently supports two-sided and minimum-only threshold models, not a maximum-only route model.",
+      "retryCondition": "Retry only if Iowa DNR, Cedar Falls/Waterloo, Black Hawk County, Cedar Valley Paddlers Trail managers, or a strong route-specific paddling source publishes a low/ideal range tied to USGS 05463050, or if the app adds explicit maximum-only scoring semantics.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Iowa DNR Cedar Valley / Black Hawk County water-trail PDF",
+        "Cedar Valley Paddlers Trail map PDF hosted by Cedar Falls Tourism",
+        "Cedar Falls official trail maps page",
+        "Cedar Valley Trails Cedar River Water Trail page",
+        "USGS 05463050 Cedar River at Cedar Falls, IA monitoring location",
+        "USGS Cedar River Basin realtime gages page"
+      ],
+      "aliases": [
+        "Cedar Valley Paddlers Trail",
+        "Cedar River - George Wyth State Park / Hartman Reserve corridor",
+        "Cedar River - Cedar Falls / Waterloo water trail"
+      ],
+      "v2Slug": null,
+      "gauge": {
+        "quality": "direct",
+        "notes": "USGS 05463050 Cedar River at Cedar Falls, IA is a direct same-river live gauge in the Cedar Falls / Waterloo corridor and is the gauge linked from the Iowa DNR Cedar Valley water-trail PDF."
+      },
+      "thresholdSupport": {
+        "strength": "official_maximum_only",
+        "notes": "The Iowa DNR / Cedar Valley water-trail PDF says Cedar River travel is recommended at less than 7,500 cfs at the Cedar Falls gauge. That is a useful official high-water ceiling, but it is not a full route range and does not establish a low-water floor or preferred band."
+      },
+      "endpoints": {
+        "putIn": "George Wyth State Park / Cedar River access corridor",
+        "takeOut": "Waterloo-Cedar Falls Cedar Valley Paddlers Trail access corridor",
+        "coordinatesPresent": false,
+        "coordinateSource": "Official maps identify multiple public Cedar Valley Paddlers Trail accesses including George Wyth State Park, Tourist's Park, Cedar Bend Park, Exchange Park, and related Cedar River/lake accesses, but this pass did not pin a single point-to-point route with coordinate-level endpoint authority because threshold support remains below implementation bar."
+      },
+      "notes": "Reviewed 2026-05-25 as the remaining secondary Iowa prompt candidate. The corridor has real public access context and a direct gauge, but it was intentionally not added to app data because the current evidence would force a maximum-only safety model into scoring code that only understands two-sided or minimum-only guidance. No photo search was pursued beyond source discovery because the route is not implementation-ready."
     },
     {
       "candidateId": "mn-big-fork-river-highway-6-s-highway-6-n",
@@ -4528,6 +4985,56 @@
       "notes": "Implemented 2026-05-25 as a guarded whitewater route after the prompted Bark River and Sugar River routes were confirmed already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public/DNR access context, endpoint coordinates, a direct live USGS gauge at the put-in bridge, route-specific flow bands, and documented Class II-III hazards. The app uses a conservative 1200 cfs broad-audience ceiling even though Wisconsin Trail Guide lists higher advanced-only runnable bands. No gallery asset was added because the photo search found no clearly reusable exact-route image; broad Wolf/guide/outfitter images are discovery-only unless rights are explicit."
     },
     {
+      "candidateId": "wi-wolf-river-markton-big-smokey-falls",
+      "river": "Wolf River",
+      "route": "Markton County M Landing to Big Smokey Falls Landing",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-26",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as wolf-river-markton-big-smokey-falls. Revisit only if Menominee access rules change, official manager flow bands appear, or a rights-clean exact-route gorge photo becomes available.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin Trail Guide Wolf River - Markton to Big Smokey Falls page",
+        "Wisconsin Trail Guide Wolf W6 PDF",
+        "USGS 04074950 Wolf River at Langlade, WI monitoring location",
+        "American Whitewater Wolf Section IV Otter Slide to Big Smokey Falls reach 2316",
+        "Rivers.gov Wolf River page",
+        "Wikimedia Commons / USGS / local-government / outfitter photo search"
+      ],
+      "aliases": [
+        "Wolf River - Markton to Big Smokey Falls",
+        "Wolf River Section IV",
+        "Wolf River - County M to Big Smokey Falls",
+        "Wolf River - Otter Slide to Big Smokey Falls"
+      ],
+      "v2Slug": "wolf-river-markton-big-smokey-falls",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 04074950 Wolf River at Langlade, WI. Wisconsin Trail Guide says this same-river gauge is about 9.5 miles upstream of the Markton-to-Big-Smokey section and should accurately indicate current conditions in the reach."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin Trail Guide publishes a full route-specific Langlade-gauge ladder for Section IV: below 250 cfs not recommended, 250-400 cfs low runnable, 400-700 cfs very good, 700-1000 cfs advanced challenging water, 1000-1500 cfs high Class IV water, and above 1500 cfs rare extreme flow. The app uses 400-700 cfs as the preferred target and 1000+ cfs as beyond broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "Markton County M DNR Landing",
+        "takeOut": "Big Smokey Falls Landing",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 45.12518,
+          "longitude": -88.66322
+        },
+        "takeOutCoordinates": {
+          "latitude": 45.01644,
+          "longitude": -88.63758
+        },
+        "coordinateSource": "Wisconsin Trail Guide Wolf W6 PDF GPS table, NAD83 / WGS84. The guide describes County M as a DNR landing with parking/trailer turnaround and Big Smokey Falls Landing as hand-carry/trailer access with parking/concessions; it also documents the required Menominee access pass for paddling through tribal lands."
+      },
+      "notes": "Implemented 2026-05-26 as a guarded expert-only Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named access points, endpoint coordinates, a direct same-river USGS gauge, route-specific flow bands, explicit Menominee permit requirements, and documented Class III-IV hazards. No gallery asset was added because the search found route/guide/outfitter imagery but no clearly reusable exact-route photo with compatible rights."
+    },
+    {
       "candidateId": "wi-bois-brule-river-pine-tree-highway-13",
       "river": "Bois Brule River",
       "route": "Pine Tree Landing to Highway 13 Canoe Landing",
@@ -4784,6 +5291,55 @@
         "coordinateSource": "AnyplaceAmerica publishes USGS/topographic-place coordinates for Cherokee Park and March Rapids County Park. Marathon County corroborates Cherokee Park as a public county park on the Big Eau Pleine River, and Wisconsin River Trips corroborates March Rapids Park as the public take-out with paths and pull-off space."
       },
       "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public county-park endpoints, endpoint coordinates from public topo context, route-specific community level guidance, a direct live same-river USGS gauge, and detailed hazards. No gallery asset was added because the photo search found WRT route imagery and broad river/category leads but no clearly reusable representative route photo."
+    },
+    {
+      "candidateId": "wi-turtle-creek-east-creek-road-highway-140",
+      "river": "Turtle Creek",
+      "route": "East Creek Road to Highway 140",
+      "state": "WI",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as turtle-creek-east-creek-road-highway-140. Revisit only if an official manager publishes stronger route-specific flow bands or a rights-clean exact-route photo appears.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "Wisconsin River Trips Turtle Creek - East Creek Road",
+        "Wisconsin River Trips Turtle Creek overview",
+        "USGS 05431486 Turtle Creek at Carvers Rock Road Near Clinton, WI monitoring location",
+        "Wisconsin DNR Turtle Creek Wildlife Area",
+        "Miles Paddled Turtle Creek paddle guide",
+        "Wikimedia Commons / USGS / DNR / local-government photo search"
+      ],
+      "aliases": [
+        "Turtle Creek - East Creek Road to Hwy 140",
+        "Turtle Creek - East Creek to Highway 140",
+        "Turtle Creek Wildlife Area lower route"
+      ],
+      "v2Slug": "turtle-creek-east-creek-road-highway-140",
+      "gauge": {
+        "quality": "direct",
+        "notes": "The route uses USGS 05431486 Turtle Creek at Carvers Rock Road Near Clinton, WI, a live same-creek gauge inside the East Creek Road-to-Highway 140 corridor. Wisconsin River Trips uses this exact gauge for the route ladder."
+      },
+      "thresholdSupport": {
+        "strength": "strong_community",
+        "notes": "Wisconsin River Trips publishes route-specific Carvers Rock Road gauge guidance: 0-100 cfs low but often paddleable with clear water and possible weed congestion, 101-150 cfs good depth, 151-250 cfs decent depth, 251-350 cfs still navigable but more submerged, 351-500 cfs high and less scenic, and 501+ cfs possibly too high for enjoyable paddling. The app uses 101-250 cfs as the preferred broad window and 501+ cfs as beyond recommendation."
+      },
+      "endpoints": {
+        "putIn": "East Creek Road public pull-off",
+        "takeOut": "Highway 140 Turtle Creek access",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 42.6113321,
+          "longitude": -88.7804249
+        },
+        "takeOutCoordinates": {
+          "latitude": 42.5965016,
+          "longitude": -88.8637665
+        },
+        "coordinateSource": "Wisconsin River Trips route and shuttle-map context resolves the named East Creek Road put-in and Highway 140 take-out. Wisconsin DNR corroborates Turtle Creek Wildlife Area as a public paddling corridor with road crossings, parking, and primitive canoe/kayak launches."
+      },
+      "notes": "Implemented 2026-05-25 as a fresh Wisconsin route after the prompted Bark and Sugar routes were already implemented and Black Earth Creek remained blocked. This route clears the quality bar with named public bridge-area accesses, endpoint coordinates from the route shuttle map, a direct live same-creek USGS gauge, route-specific community level guidance, and DNR public paddling/access context. No route-gallery asset was added because no clearly reusable representative route photo was found."
     }
   ]
 }

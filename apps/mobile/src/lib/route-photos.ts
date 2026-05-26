@@ -78,6 +78,21 @@ const routeGalleryImages: Record<string, string[]> = {
   'wisconsin-river-muscoda-blue-river': [
     '/gallery/wisconsin-river-muscoda-blue-river/wisconsin-river-muscoda-nara.jpg',
   ],
+  'upper-iowa-river-cattle-creek-bluffton': [
+    '/gallery/upper-iowa-river-cattle-creek-bluffton/upper-iowa-river-new-albin.jpg',
+  ],
+  'maquoketa-river-backbone-dundee': [
+    '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
+  ],
+  'volga-river-mederville-littleport': [
+    '/gallery/volga-river-mederville-littleport/mederville-bridge-volga-river.jpg',
+  ],
+  'turkey-river-elkader-motor-mill': [
+    '/gallery/turkey-river-elkader-motor-mill/elkader-keystone-bridge.jpg',
+  ],
+  'yellow-river-volney-sixteen-bridge': [
+    '/gallery/yellow-river-volney-sixteen-bridge/yellow-river-effigy-mounds.jpg',
+  ],
   'kinnickinnic-river-glen-park-state-park': [
     '/gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg',
   ],

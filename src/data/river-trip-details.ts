@@ -471,6 +471,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wolf-river-markton-big-smokey-falls': {
+    putIn: {
+      name: 'Markton County M DNR Landing',
+      latitude: 45.12518,
+      longitude: -88.66322,
+    },
+    takeOut: {
+      name: 'Big Smokey Falls Landing',
+      latitude: 45.01644,
+      longitude: -88.63758,
+    },
+    logistics: {
+      distanceLabel: '12.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 6 hr for advanced whitewater paddlers',
+      shuttle:
+        'Arrange the shuttle and required Menominee access pass before launching. Local rafting/shuttle operators commonly manage this corridor; self-supported paddlers should call ahead and confirm where vehicles may be staged.',
+      permits:
+        'A Menominee Indian Tribe pass is required for paddling through this tribal-lands section. Wisconsin Trail Guide says passes are available through Big Smokey Falls Rafting or Shotgun Eddy Campground and Rafting; do not paddle downstream from Markton without current permission.',
+      camping:
+        'No on-route camping is assumed. Treat this as a permitted expert day run unless a local outfitter or the Tribe confirms separate overnight options.',
+      summary:
+        'Launch at the County M DNR Landing near Markton and run Wolf River Section IV to Big Smokey Falls Landing. This is the advanced lower-Wolf whitewater classic, with long boulder gardens, multiple Class III drops, the Dalles Gorge, and Class IV Big Smokey Falls.',
+      accessCaveats: [
+        'County M has a large DNR landing with hand-carry paths and trailer turnaround, but the downstream corridor enters Menominee Tribal lands and requires a pass.',
+        'Big Smokey Falls has upper and lower landing options. Use the upper landing and left fork if portaging the falls; the left-fork slide below the footbridge is closed to running.',
+        'Do not treat reservation roads, shorelines, or outfitter landings as general public access. Confirm current rules before the shuttle.',
+      ],
+      watchFor: [
+        'Class III-IV features including Gilmore\'s Mistake, Pismire Falls, Sullivan Falls, Duck\'s Nest, Lunch Rock, Tea Kettle / Upper Dells, Lower Dells, and Big Smokey Falls.',
+        'Powerful hydraulics, sticky holes, big waves, and fast rescue scenarios as the Langlade gauge rises above the broad 400-700 cfs target.',
+        'Bony lines at Shotgun Eddy, Pismire, and Big Smokey below about 400 cfs.',
+        'Deadfall, strainers, cold water, remote rescue logistics, and tribal access enforcement if you miss the planned take-out.',
+      ],
+    },
+  },
   'white-river-maple-ridge-highway-112': {
     putIn: {
       name: 'Maple Ridge Road Access',
@@ -1938,6 +1973,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers or logjams after high water.',
         'Cold-water exposure in spring or fall.',
         'Faster current and fewer margins when levels rise.',
+      ],
+    },
+  },
+  'upper-iowa-river-cattle-creek-bluffton': {
+    putIn: {
+      name: 'Cattle Creek Road / Daley Bridge canoe access area',
+      latitude: 43.4149,
+      longitude: -91.95874,
+    },
+    takeOut: {
+      name: 'Bluffton Fir Stand Access / Bluffton Road-W20 canoe ramp',
+      latitude: 43.3996,
+      longitude: -91.8884,
+    },
+    logistics: {
+      distanceLabel: '9.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, plus stops for bluffs and springs',
+      shuttle:
+        'Use a car or outfitter shuttle between Cattle Creek Road and the Bluffton Fir Stand / W20 landing. The direct bike shuttle is hilly, partly gravel, and not a good default plan.',
+      permits:
+        'No route-specific paddling permit is known. Iowa registration rules can apply to longer boats, and all paddlers should follow posted county, road-end, and access-area rules.',
+      camping:
+        'Nearby private campgrounds and liveries cluster around Bluffton, but no public watercraft campsite is assumed for this day route. Arrange camping separately before relying on it.',
+      summary:
+        'Launch at the Cattle Creek Road / Daley Bridge access area and take out at the public Bluffton Fir Stand / W20 canoe ramp after Chimney Rock, Bluffton Palisades, clear riffles, and the busiest scenic core of the Upper Iowa.',
+      accessCaveats: [
+        'The Cattle Creek bridge/access area has changed since older trip reports, so confirm current parking and the launch path before unloading.',
+        'The Bluffton-area take-out is deliberately downstream of the private campground launches so paddlers keep the final bluff section and finish at the public W20 / Bluffton Fir Stand access.',
+        'Summer weekends can be crowded with liveries, tubes, campground traffic, and limited parking patience at the access points.',
+      ],
+      watchFor: [
+        'Scraping in riffles near or below 150 cfs at the Bluffton gauge.',
+        'Pushy current at roughly 700 cfs and above, plus faster consequences around wood, bridge approaches, and crowded landings.',
+        'Minor Class I riffles, strainers after storms, cold-water exposure outside midsummer, and private-bank boundaries along the corridor.',
       ],
     },
   },
@@ -3484,6 +3553,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wisconsin-river-muscoda-woodman': {
+    putIn: {
+      name: 'Muscoda Landing West',
+      latitude: 43.198,
+      longitude: -90.44576,
+    },
+    takeOut: {
+      name: 'Woodman Landing',
+      latitude: 43.07699,
+      longitude: -90.84597,
+    },
+    logistics: {
+      distanceLabel: '24.5 mi',
+      estimatedPaddleTime: 'Full day or multi-day trip; about 8 hr to 12+ hr depending on stops and wind',
+      shuttle:
+        'Plan a long two-car Lower Wisconsin shuttle from Muscoda to Woodman. Intermediate landings at Port Andrew, Blue River, and Boscobel can shorten the day if weather, daylight, or group pace changes.',
+      permits:
+        'No route-specific day paddling permit is known. Follow Lower Wisconsin State Riverway rules, posted landing rules, boating safety requirements, and current camping/trash guidance.',
+      camping:
+        'Sandbar camping can work at low to moderate flows, but Wisconsin Trail Guide warns that sandbars shrink or disappear as flows rise. Do not plan an overnight when the Muscoda gauge is in the high-water bands.',
+      summary:
+        'Launch at Muscoda Landing West and paddle the LWSR3 corridor past island braids, Blue River, Boscobel, and wooded lower-river bluffs before taking out up the Big Green River at Woodman Landing.',
+      accessCaveats: [
+        'Wisconsin Trail Guide lists Muscoda Landing West as a developed ramp with trailer turnaround and parking, reached from West River Road west of Highway 80.',
+        'Woodman Landing is a short distance up the Big Green River / Little Green River confluence area from the Wisconsin River; do not miss the turn near Highway 133.',
+        'The route is intentionally scored as one long route even though Port Andrew, Blue River, and Boscobel are viable bailout or shorter-route landings.',
+      ],
+      watchFor: [
+        'Long-distance fatigue, storms, heat, broad-river wind, and limited quick exits late in the route.',
+        'Side-channel strainers around Columbe Island, Allen Island, Gillis Island, and other wooded island forks.',
+        'Steep sandbar drop-offs and strong current, especially in the lee of islands and sandbars.',
+        'High-water undercurrents and reduced sandbar camping when the Muscoda gauge rises above the normal range.',
+      ],
+    },
+  },
   'wisconsin-river-boscobel-bridgeport': {
     putIn: {
       name: 'Boscobel Landing / Floyd Von Haden Boat Landing',
@@ -4209,6 +4313,212 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Class II or Class II+ rapids two miles above March Rapids, with the best line reported along the left; scout before running.',
         'March Rapids at the take-out, which is scenic and scoutable but still deserves attention before tired paddlers commit.',
         'Fast current under low branches, strainers, and rapidly changing levels after rain on this flashy rocky watershed.',
+      ],
+    },
+  },
+  'maquoketa-river-backbone-dundee': {
+    putIn: {
+      name: 'Highway 410 bridge access / Backbone State Park',
+      latitude: 42.6331,
+      longitude: -91.5617,
+    },
+    takeOut: {
+      name: 'Dundee Access / Dundee Wildlife Area',
+      latitude: 42.5793779,
+      longitude: -91.5485886,
+    },
+    logistics: {
+      distanceLabel: '6.2 mi',
+      estimatedPaddleTime: 'About 3 hr plus portage and scouting time',
+      shuttle:
+        'Use a two-car shuttle between the Highway 410 bridge inside Backbone State Park and Dundee Access at Dundee Wildlife Area. The road shuttle is short but hilly, and park gates can close in snowy/off-season conditions, so confirm Backbone State Park road access before staging.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa DNR state-park rules inside Backbone State Park and Delaware County Conservation rules at Dundee Wildlife Area.',
+      camping:
+        'Backbone State Park has separate campground and cabin facilities, but this route should be planned as a day paddle unless camping is reserved or separately confirmed through Iowa DNR.',
+      summary:
+        'Launch at the Highway 410 bridge access in Backbone State Park and paddle through the upper Maquoketa bluff corridor, Backbone Lake, and the dam-portage area before finishing at Dundee Access.',
+      accessCaveats: [
+        'The put-in is a bridge access inside Backbone State Park rather than a developed ramp; parking is reported at either end of the bridge, but seasonal gate closures can block vehicle access.',
+        'Many paddlers should consider the Backbone Lake dam/ramp as the safer take-out, because the dam-to-Dundee leg has tricky current, low branches, and strainers.',
+        'Dundee Access is the stronger public endpoint: Delaware County confirms Dundee Wildlife Area has canoe and kayak access on the Maquoketa River.',
+      ],
+      watchFor: [
+        'Three easy-portage logjams above the South Fork confluence can still change after storms.',
+        'Backbone Lake wind exposure, especially in open-water conditions above roughly 14 mph.',
+        'The Backbone Lake dam portage, split channels below the dam, low branches, tricky strainers, and a two-foot ledge near 129th Street.',
+        'Very low flows that make the pre-South-Fork section wade-heavy and high/rising flows that make the dam-to-Dundee strainers more consequential.',
+      ],
+    },
+  },
+  'maquoketa-river-canton-royertown': {
+    putIn: {
+      name: 'Canton Bridge Access / Canton County Park',
+      latitude: 42.1627901,
+      longitude: -90.8918068,
+    },
+    takeOut: {
+      name: 'Royertown Bridge Access / Water Trail Access #45',
+      latitude: 42.1198989,
+      longitude: -90.828304,
+    },
+    logistics: {
+      distanceLabel: '8.9 mi',
+      estimatedPaddleTime: 'About 4 hr at normal recreational levels',
+      shuttle:
+        'Use a two-car shuttle between Canton and the 50th Ave / Royertown bridge access. Wisconsin River Trips describes the bike shuttle as about 5.9 miles with notable hills but paved roads.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Jackson County Conservation and water-trail rules at Canton, Buzzard Ridge, Millertown, and Royertown accesses.',
+      camping:
+        'Jackson County lists primitive paddle-in camping along the Maquoketa River Water Trail, including Buzzard Ridge; treat camping as a separate water-trail plan and confirm current county rules before relying on it.',
+      summary:
+        'Launch at Canton Bridge Access by Canton County Park and paddle the South Fork Maquoketa through the Buzzard Ridge bluff corridor, past the Millertown option, and down to Royertown Bridge Access on 50th Ave.',
+      accessCaveats: [
+        'Canton is the clean upstream public access for this route; Jackson County signs the water-trail accesses along the road and at the landings.',
+        'Royertown is also called 50th Ave, Royertown Canoe Access, or Water Trail Access #45. The access drive can be steep and rutted, so scout vehicle clearance before committing.',
+        'Millertown Access at 30th Ave is a public intermediate take-out about 2.9 miles upstream from Royertown if weather, flow, or time argues for a shorter day.',
+      ],
+      watchFor: [
+        'Shallow gravel riffles and grounding below about 500 cfs on the Maquoketa near Maquoketa gauge.',
+        'Open reaches where a strong headwind can slow an otherwise straightforward current-assisted trip.',
+        'Pushier, dirtier water above about 2,000 cfs, especially around outside bends, bridge landings, and strainers after storms.',
+      ],
+    },
+  },
+  'volga-river-mederville-littleport': {
+    putIn: {
+      name: 'Mederville Canoe Access',
+      latitude: 42.7637267,
+      longitude: -91.4218817,
+    },
+    takeOut: {
+      name: 'Littleport Canoe Access',
+      latitude: 42.7536533,
+      longitude: -91.3690117,
+    },
+    logistics: {
+      distanceLabel: '5.7 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on level and stops',
+      shuttle:
+        'Use a short rural two-car shuttle between the hidden Mederville access and the Littleport bridge. Wisconsin River Trips describes the bike shuttle as about 4.6 miles with gravel roads, one steep climb, and possible loose-dog friction.',
+      permits:
+        'No route-specific paddling permit is known. Use only established bridge-area and canoe-access landings, follow posted Clayton County or local parking rules, and respect private banks along the corridor.',
+      camping:
+        'No on-route campsite is documented for this short day route. Treat nearby parks or campgrounds as separate base-camp planning rather than river-camp permission.',
+      summary:
+        'Launch at Mederville Canoe Access below the Evergreen Road / Eclipse Road bridge corridor and take out at Littleport Canoe Access by the Bridge Street / X21 bridge. This short Volga River leg has limestone outcrops, wooded banks, sandbars, and quick Class I riffles.',
+      accessCaveats: [
+        'Mederville Canoe Access is hidden below the bridge corridor and reached from Eclipse Road; the path to the water is steep enough that rope or a second person is useful.',
+        'Littleport Canoe Access uses steep stairs near the southeast corner of the bridge, and boats may need to be carried or dragged under the bridge because of the guardrail and shoulder parking pattern.',
+        'Both endpoints are named public-access locations in route and water-quality records, but they are not polished ramp launches. Scout the take-out before launching if you have not used it before.',
+      ],
+      watchFor: [
+        'About 15 easy Class I riffle pitches that become scrape-prone near the low band and pushier above the broad target window.',
+        'Low branches over faster current, especially after storms or when the Littleport gauge is in the high band.',
+        'Steep, slippery banks and stairs at both landings, cold spring/fall water, and fast rises after heavy rain in the Driftless hills.',
+      ],
+    },
+  },
+  'turkey-river-elkader-motor-mill': {
+    putIn: {
+      name: 'Elkader Whitewater Park / Elkader Access #39B',
+      latitude: 42.853356,
+      longitude: -91.402402,
+    },
+    takeOut: {
+      name: 'Motor Mill Access #32',
+      latitude: 42.8088,
+      longitude: -91.3531,
+    },
+    logistics: {
+      distanceLabel: '6.5 to 7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr depending on level and stops',
+      shuttle:
+        'Use a two-car shuttle between downtown Elkader and Motor Mill, or arrange a local livery shuttle. The road shuttle is hilly enough that a bike shuttle is a bigger commitment than the river mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted City of Elkader, water-trail, and Clayton County Conservation rules at the whitewater park, Elkader Access, and Motor Mill.',
+      camping:
+        'Motor Mill has primitive county campground options across the road from the access area. Treat camping as a separate county-park reservation or first-come plan rather than an assumed part of the day trip.',
+      summary:
+        'Launch at Elkader Whitewater Park or the adjacent Elkader Access corridor and take out at Motor Mill Access. This is a popular Turkey River Water Trail section with riffles, wooded bluffs, Robert Creek, and a historic mill finish.',
+      accessCaveats: [
+        'Casual paddlers can launch below or away from the whitewater feature; the engineered ledges at Elkader should be scouted before running.',
+        'The water-trail guide names the corridor as Elkader Access #39B, while route reports often use Elkader Whitewater Park as the cleaner scenic put-in.',
+        'Motor Mill Access is downstream of the historic mill on river left. Identify it before continuing, because the next water-trail take-out at Garber is a much longer 12-plus-mile extension.',
+      ],
+      watchFor: [
+        'The Elkader whitewater-park ledges at the start, including more consequential lines that are not appropriate for unprepared flatwater paddlers.',
+        'Frequent Class I riffles that become bumpy near the low band and pushier as the Elkader gauge rises.',
+        'High-water loss of clarity, stronger current around outside bends, and more consequential landings at Motor Mill.',
+      ],
+    },
+  },
+  'yellow-river-volney-sixteen-bridge': {
+    putIn: {
+      name: 'Volney Canoe Access',
+      latitude: 43.08663222,
+      longitude: -91.18097453,
+    },
+    takeOut: {
+      name: 'Bridge Sixteen Canoe Access',
+      latitude: 43.1277592,
+      longitude: -91.3140227,
+    },
+    logistics: {
+      distanceLabel: 'About 4.6 to 5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr depending on level and stops',
+      shuttle:
+        'Use a rural two-car shuttle between Volney Canoe Access and Bridge Sixteen. Roads are steep and gravelly enough that bike shuttles are a commitment; local shuttle/rental services commonly serve this corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow Iowa DNR fishing/access rules and respect private property along the Yellow River.',
+      camping:
+        'No on-route camping assumed for this short day run. Use established campground or state-forest options only with separate planning.',
+      summary:
+        'Launch at Volney Canoe Access and take out at Bridge Sixteen. This is the popular short Yellow River leg with clear water, fast riffles, trout-stream character, and limestone outcrops.',
+      accessCaveats: [
+        'Volney is the cleaner public put-in than the upstream Volney Road bridge used for the longer WRT trip report.',
+        'Use the public Bridge Sixteen access downstream of the bridge. Do not use nearby Scenic View Campground facilities unless you are a customer.',
+        'Much of the river corridor is private. Stay with established access points and do not assume gravel bars or banks are public picnic sites.',
+      ],
+      watchFor: [
+        'Frequent Class I riffles and fast current; at high water some rapids can approach Class II consequences.',
+        'Three or four strainers are noted on the route, including at least one that may require an easy portage at normal levels.',
+        'Cold water, trout anglers, cloudy post-rain water, and fast rises after heavy rain.',
+      ],
+    },
+  },
+  'turtle-creek-east-creek-road-highway-140': {
+    putIn: {
+      name: 'East Creek Road public pull-off',
+      latitude: 42.6113321,
+      longitude: -88.7804249,
+    },
+    takeOut: {
+      name: 'Highway 140 Turtle Creek access',
+      latitude: 42.5965016,
+      longitude: -88.8637665,
+    },
+    logistics: {
+      distanceLabel: '6.8 mi',
+      estimatedPaddleTime: 'About 3 hr at normal levels',
+      shuttle:
+        'Use a short rural shuttle between the East Creek Road access west of the bridge and the Highway 140 parking area north of the bridge. Wisconsin River Trips describes the bike shuttle as about 4.5 miles with modest climbing.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted Wisconsin DNR wildlife-area rules and any local parking signs at East Creek Road, O Riley Landing, South Carvers Rock Road, and Highway 140.',
+      camping:
+        'No on-route camping is documented for this short day route. Treat the Turtle Creek Wildlife Area corridor as day-use paddling unless a land manager separately confirms overnight use.',
+      summary:
+        'Launch from the East Creek Road public pull-off and paddle Turtle Creek past wild rice beds, O Riley Landing, Little Turtle Creek, South Carvers Rock Road, Spring Brook, and a short Class I riffle before taking out at Highway 140.',
+      accessCaveats: [
+        'East Creek Road is a bridge-area public pull-off with a roughly 280-foot carry to the creek and no restroom.',
+        'Highway 140 has a parking area north of the bridge and a short path to the water, but it can be busy on good paddling days.',
+        'The route begins in the lower Turtle Creek Wildlife Area corridor and continues beyond the wildlife-area segments; stay with established bridge and landing access points.',
+      ],
+      watchFor: [
+        'Aquatic weeds and possible shallow congestion in the low band below about 100 cfs.',
+        'One easy Class I riffle just downstream from South Carvers Rock Road.',
+        'Strainers or fresh wood after storms, despite the clean route report.',
+        'High water above about 350 cfs reducing clarity and making bends, low branches, and shoreline strainers less forgiving.',
       ],
     },
   },
