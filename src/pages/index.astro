@@ -500,13 +500,25 @@ const homepageStructuredData = [
             </div>
           </div>
 
-          <figure class="home-featured__gallery" data-featured-gallery hidden>
+          <figure class="home-featured__gallery route-photo-preview" data-featured-gallery hidden>
             <img
               class="home-featured__gallery-image"
               data-featured-gallery-image
               alt=""
               loading="lazy"
             />
+            <span class="route-photo-preview__badge" data-featured-gallery-placeholder hidden>
+              Placeholder
+            </span>
+            <a
+              class="route-photo-preview__contribute"
+              href="/contribute/"
+              data-featured-gallery-contribute
+              data-analytics-event="Open photo contribution"
+            >
+              <span aria-hidden="true">+</span>
+              Contribute Photos
+            </a>
           </figure>
 
           <div class="home-featured__map-shell" data-featured-map-shell hidden>

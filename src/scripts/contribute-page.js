@@ -21,6 +21,19 @@ const uploadGrid = document.querySelector('[data-contribute-upload-grid]');
 
 let selectedUploads = [];
 
+function prefillRouteFromQuery() {
+  if (!(routeSelect instanceof HTMLSelectElement)) return;
+
+  const params = new URLSearchParams(window.location.search);
+  const slug = String(params.get('riverSlug') || params.get('route') || '').trim();
+  if (!slug) return;
+
+  const option = Array.from(routeSelect.options).find((entry) => entry.value === slug);
+  if (!option) return;
+
+  routeSelect.value = slug;
+}
+
 function setStatus(message, tone = '') {
   if (!(statusNode instanceof HTMLElement)) return;
   statusNode.textContent = message;
@@ -183,6 +196,8 @@ if (
   rightsInput instanceof HTMLInputElement &&
   consentInput instanceof HTMLInputElement
 ) {
+  prefillRouteFromQuery();
+
   filesInput.addEventListener('change', syncSelectedUploads);
 
   form.addEventListener('submit', async (event) => {

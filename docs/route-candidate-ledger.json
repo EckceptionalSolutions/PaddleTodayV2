@@ -9730,6 +9730,61 @@
             },
             "notes": "Fresh 2026-05-26 17:15 review. Keep as research_later; do not ship without a much cleaner access and water-quality package.",
             "lastReviewed": "2026-05-26"
-        }
+        }    {
+      "candidateId": "il-vermilion-river-lowell-oglesby",
+      "river": "Vermilion River",
+      "route": "Lowell to Oglesby Boat Launch",
+      "state": "IL",
+      "status": "added",
+      "lastReviewed": "2026-05-25",
+      "reviewCount": 1,
+      "blocker": null,
+      "retryCondition": "Already implemented as vermilion-river-lowell-oglesby. Revisit only if Illinois DNR, American Whitewater, the City of Oglesby, or local outfitter access guidance changes.",
+      "retryDate": null,
+      "sourcesChecked": [
+        "American Whitewater Vermilion / Wildcat Canyon reach 651",
+        "USGS 05555300 Vermilion River Near Leonore, IL",
+        "City of Oglesby Vermilion River Boat Ramp",
+        "Enjoy Illinois Vermillion River Rafting",
+        "Vermillion River Rafting",
+        "Paddling.com Lowell Canoe Launch",
+        "Wikimedia Commons Vermilion River image search"
+      ],
+      "aliases": [
+        "Vermilion River - N.2249th Road to Ed Hand Highway",
+        "Vermilion River - Wildcat Canyon",
+        "Big Vermilion River - Lowell to Oglesby",
+        "Vermillion River - Lowell to Oglesby"
+      ],
+      "v2Slug": "vermilion-river-lowell-oglesby",
+      "gauge": {
+        "quality": "direct",
+        "notes": "American Whitewater ties the exact Wildcat Canyon reach to USGS 05555300 Vermilion River Near Leonore, IL."
+      },
+      "thresholdSupport": {
+        "strength": "mixed",
+        "notes": "American Whitewater exposes a 500 to 12,000 cfs low-runnable to high-runnable correlation. The app narrows the best zone to 1,000 to 3,000 cfs because AW says the river becomes good and pushy over 1,000 cfs and older trip evidence around 3,000 cfs reads as high-water whitewater rather than a broad recommendation."
+      },
+      "endpoints": {
+        "putIn": "Lowell / Vermillion River Rafting put-in",
+        "takeOut": "Oglesby Vermilion River Boat Launch",
+        "coordinatesPresent": true,
+        "putInCoordinates": {
+          "latitude": 41.255211,
+          "longitude": -89.014118
+        },
+        "takeOutCoordinates": {
+          "latitude": 41.302108,
+          "longitude": -89.038255
+        },
+        "coordinateSource": "American Whitewater embedded point-of-interest data, cross-checked against Paddling.com for the Lowell launch."
+      },
+      "image": {
+        "status": "usable_context_image_added",
+        "notes": "No clearly licensed exact Wildcat Canyon route image was found. Added a CC BY-SA 4.0 Wikimedia Commons Vermilion River image from Pontiac as same-river context, with caption text making the upstream location explicit."
+      },
+      "notes": "First Illinois implementation pass. This was added as routeType whitewater so it is excluded from default casual Explore discovery. The route clears the live gauge, numeric threshold, endpoint, and access-context bar, but messaging stays explicit about II-III whitewater, private-property-sensitive access, and the need to verify local closure/outfitter status."
+    }
+
     ]
 }
