@@ -187,6 +187,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       routeType: result.river.routeType ?? 'recreational',
       gaugeSource: {
         provider: result.river.gaugeSource.provider,
+        metric: result.river.gaugeSource.metric,
         unit: result.river.gaugeSource.unit,
         detailUrl: result.river.gaugeSource.detailUrl,
         hydrographUrl: result.river.gaugeSource.hydrographUrl,

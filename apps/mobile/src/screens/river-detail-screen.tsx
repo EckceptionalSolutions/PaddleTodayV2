@@ -493,11 +493,11 @@ export default function RiverDetailScreen() {
           <>
             <RouteBasicsCard detail={detail} />
 
-            <SectionCard title="Flow, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
+            <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
               <View style={styles.conditionList}>
                 <ConditionRow
                   icon="waves"
-                  label="Flow"
+                  label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
                   value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
                   subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
                   detail={normalizeApiText(detail.liveData.gauge.detail)}
@@ -645,7 +645,7 @@ export default function RiverDetailScreen() {
             </SectionCard>
 
             <SectionCard
-              title="USGS recent trend"
+              title="Recent gauge trend"
               subtitle={
                 detail.gauge?.gaugeSource
                   ? `${detail.gauge.gaugeSource} - observed ${formatTimestamp(detail.gauge.observedAt)}`
@@ -1274,7 +1274,7 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
   const samples = (detail.gauge?.recentSamples ?? []).slice(-10);
 
   if (samples.length === 0) {
-    return <Text style={styles.emptyText}>Recent USGS samples are unavailable right now.</Text>;
+    return <Text style={styles.emptyText}>Recent gauge samples are unavailable right now.</Text>;
   }
 
   const values = samples.map((sample) => sample.value);
@@ -1286,11 +1286,11 @@ function GaugeTrendChart({ detail }: { detail: RiverDetailApiResult }) {
     <View style={styles.gaugeChartWrap}>
       <View style={styles.gaugeSummaryRow}>
         <GaugeSummaryPill
-          label="Current"
+          label={detail.river.gaugeSource.display.primaryMetricLabel || 'Current gauge'}
           value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : 'No reading'}
         />
         <GaugeSummaryPill
-          label="24h delta"
+          label={detail.river.gaugeSource.unit === 'cfs' ? '24h flow change' : '24h gauge change'}
           value={
             detail.gauge?.delta24h !== null && detail.gauge
               ? formatGaugeValue(detail.gauge.delta24h, detail.gauge.unit, '0')

@@ -11,7 +11,7 @@ export const rivers: River[] = [
     summary:
       'Remote Koochiching State Forest day on the Big Fork, with a direct DNR gauge at the put-in and an official DNR recommended-trip listing. This is a long northern river day, not a casual park float.',
     statusText:
-      'Treat 4.5 to 8.5 ft at Craigsville / Highway 6 as the best zone. Below 4.0 ft is scrapable, and above 9.5 ft is beyond the broad-audience recommendation for this remote wooded reach.',
+      'The Craigsville / Highway 6 gauge is best from 4.5 to 8.5 ft. Below 4.0 ft, expect scraping; above 9.5 ft, this remote wooded reach is too high for a general recommendation.',
     latitude: 47.953023,
     longitude: -93.754988,
     gaugeSource: {
@@ -122,7 +122,7 @@ export const rivers: River[] = [
     summary:
       'Long northern Little Fork day from Veterans Park in Cook to the Highway 73 bridge. MN DNR recommends the exact route for experienced paddlers, and the Highway 73 gauge gives it a direct official flow ladder.',
     statusText:
-      'Treat 175 to 500 cfs at Linden Grove / Highway 73 as the best zone. Below 100 cfs is scrapable, and above 1,000 cfs is beyond the broad-audience recommendation for this rapids-sensitive route.',
+      'The Linden Grove / Highway 73 gauge is best from 175 to 500 cfs. Below 100 cfs, expect scraping; above 1,000 cfs, the rapids are too pushy for a general recommendation.',
     latitude: 47.854286,
     longitude: -92.688289,
     gaugeSource: {
@@ -209,7 +209,7 @@ export const rivers: River[] = [
     summary:
       'Gentle Red Lake River day from Smiley Bridge into Thief River Falls, ending at Centennial Park. MN DNR recommends the exact route for beginner paddlers and provides a direct Thief River Falls level ladder.',
     statusText:
-      'Treat 1,099 to 1,103 ft at Thief River Falls as the best zone. Below 1,098 ft is scrapable, and above 1,105 ft is beyond the broad-audience recommendation for this route.',
+      'The Thief River Falls gauge is best around 1,099 to 1,103 ft of gauge elevation. Below 1,098 ft, expect scraping; above 1,105 ft, this route is too high for a general recommendation.',
     latitude: 48.077331,
     longitude: -96.034388,
     gaugeSource: {
@@ -218,6 +218,7 @@ export const rivers: River[] = [
       siteId: '179',
       metric: 'gage_height_ft',
       unit: 'ft',
+      metricLabel: 'Gauge elevation',
       kind: 'direct',
       siteName: 'Red Lake River at Thief River Falls, Zeh St W',
       detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=179',
@@ -248,8 +249,8 @@ export const rivers: River[] = [
     evidenceNotes: [
       {
         label: 'DNR bands',
-        value: '1,098 / 1,099-1,103 / 1,105 ft',
-        note: 'MN DNR interprets the Thief River Falls gauge as Scrapable below 1,098 ft, Low from 1,098 to 1,099, Medium from 1,099 to 1,103, High from 1,103 to 1,105, and Very High above 1,105.',
+        value: '1,098 / 1,099-1,103 / 1,105 ft gauge elevation',
+        note: 'MN DNR interprets the Thief River Falls gauge elevation as Scrapable below 1,098 ft, Low from 1,098 to 1,099, Medium from 1,099 to 1,103, High from 1,103 to 1,105, and Very High above 1,105. This is not river depth.',
         sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
       },
       {
@@ -296,7 +297,7 @@ export const rivers: River[] = [
     summary:
       'Official MN DNR day trip near Frazee with clear public access at both ends and a simple low-water decision. The gauge is a downstream proxy, so this route is best used as a conservative spring-water check rather than a precise daily forecast.',
     statusText:
-      'Use the Battle Lake DNR gauge as a downstream proxy. Below about 1320.5 ft, expect this upper Otter Tail trip to be shallow enough that DNR warns low flows may require walking; late spring water is the safer bet.',
+      'There is not a gauge on this exact stretch, so Paddle Today uses the downstream Battle Lake DNR reading as a rough level check. Below about 1320.5 ft of gauge elevation, expect shallow water and possible walking; late spring water is the safer bet.',
     latitude: 46.7847573,
     longitude: -95.6962111,
     gaugeSource: {
@@ -305,6 +306,7 @@ export const rivers: River[] = [
       siteId: '344',
       metric: 'gage_height_ft',
       unit: 'ft',
+      metricLabel: 'Gauge elevation',
       kind: 'proxy',
       siteName: 'Otter Tail River nr Battle Lake, CR72',
       detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=344',
@@ -832,7 +834,7 @@ export const rivers: River[] = [
     summary:
       'Longer Driftless day with mostly gentle current, wooded banks, and one main decision first: is the Houston gauge comfortably above late-low-water conditions without recent rain turning easy miles into a debris check?',
     statusText:
-      'Treat about 300 cfs at Houston as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the Houston gauge does not have a published paddling range.',
+      'Around 300 cfs at Houston is the low-water marker for this route. It may improve with more water, but there is not enough published guidance yet to name a full ideal range.',
     latitude: 43.78358,
     longitude: -91.83403,
     gaugeSource: {
@@ -952,7 +954,7 @@ export const rivers: River[] = [
     summary:
       'Upper North Branch Driftless day with riffles, bluffs, and a cleaner gauge question than most small rivers: is Pilot Mound at or above the lower edge of the published preferred band without recent rain turning a pretty easy run into a wood-and-current check?',
     statusText:
-      'Treat 8.25 ft at Pilot Mound as a conservative minimum, not a hard published cutoff. Around 8.7 ft was described as a strong day, but the app stays minimum-only because the source trail does not define true low and high shoulders.',
+      'Around 8.25 ft at Pilot Mound is the low-water marker. A report near 8.7 ft described a strong day, but the source guidance does not define a full low-to-high range.',
     latitude: 43.81641,
     longitude: -92.13924,
     gaugeSource: {
@@ -1060,7 +1062,7 @@ export const rivers: River[] = [
     summary:
       'Classic bluff-country Root day where the branches gather, the valley opens up, and the decision stays practical: is Lanesboro comfortably above late-low-water conditions without recent rain turning an easy family-style trip into a debris check?',
     statusText:
-      'Treat about 300 cfs at Lanesboro as a conservative low-water floor. This route is officially supported, but the app does not claim a full sweet spot because the gauge story is still stronger on the low side than on the high side.',
+      'Around 300 cfs at Lanesboro is the low-water marker. This route is officially supported, but the available guidance is clearer about too-low water than about the upper end of the range.',
     latitude: 43.782576,
     longitude: -92.0317899,
     gaugeSource: {
@@ -1276,7 +1278,7 @@ export const rivers: River[] = [
     summary:
       'Classic upper Wolf Section II run from West Hollister Road to the Highway 64 DNR landing at Langlade. Expect repeated Class I-II boulder gardens, clear water, and quiet forested banks; this is a beginner-friendly whitewater route only for paddlers ready to read rapids and swim safely.',
     statusText:
-      'Use the Wolf River at Langlade gauge. Treat 250 to 500 cfs as the conservative target window, 150 to 250 cfs as marginal and scrapey, 500 to 1,000 cfs as pushier whitewater-only water, and 1,000+ cfs as beyond the broad-audience recommendation.',
+      'Use the Wolf River at Langlade gauge. The most broadly useful window is 250 to 500 cfs. From 150 to 250 cfs, expect marginal, scrapey water; from 500 to 1,000 cfs, expect pushier whitewater; above 1,000 cfs is too high for a general recommendation.',
     latitude: 45.248,
     longitude: -88.8062,
     routeType: 'whitewater',
@@ -1393,7 +1395,7 @@ export const rivers: River[] = [
     summary:
       'Upper Wolf Section III run from the Highway 64 DNR landing at Langlade to the Markton County M landing. This is a compact whitewater day with long boulder gardens, Class II rapids, and a direct gauge at the put-in bridge.',
     statusText:
-      'Use the Wolf River at Langlade gauge. Treat 600 to 950 cfs as the best Section III whitewater window, 250 to 600 cfs as runnable but lower and bumpier, 950 to 1,200 cfs as experienced-paddler water, and 1,200+ cfs as beyond the broad app recommendation.',
+      'Use the Wolf River at Langlade gauge. Section III is best around 600 to 950 cfs. From 250 to 600 cfs, expect a lower, bumpier run; from 950 to 1,200 cfs, this becomes experienced-paddler water; above 1,200 cfs is too high for a general recommendation.',
     latitude: 45.18977,
     longitude: -88.73369,
     routeType: 'whitewater',
@@ -1622,7 +1624,7 @@ export const rivers: River[] = [
     summary:
       'Fast-moving Northwoods run with nearly continuous class I-II current, clay banks, and a dam finish. This is a moving-water decision first, not a lazy scenic float.',
     statusText:
-      'Treat about 1.47 ft as the best same-route reference point we have today. Lower water gets scrapier fast, and higher water raises consequence before the app can claim a fully official sweet spot.',
+      'Around 1.47 ft is the best route-specific reference point available right now. Lower water gets scrapier fast, and higher water raises the consequences before there is enough guidance to call it an ideal range.',
     latitude: 46.43755,
     longitude: -91.0261,
     routeType: 'whitewater',
@@ -1930,7 +1932,7 @@ export const rivers: River[] = [
     summary:
       'Trusted Riverway day trip with a mellow wooded opening, a more scenic midsection near Earl Park, and a clear main decision first: is the official Leonards gauge comfortably above the scrape zone without current conditions hinting at a high-water day?',
     statusText:
-      'Treat about 150 cfs at Leonards as the practical floor. NPS calls 150 to 230 cfs normal and 650+ cfs high, but the app stays conservative and uses this route as a minimum-only call because that gauge is an upstream same-river reference rather than an exact reach gauge.',
+      'Around 150 cfs at Leonards is the practical low-water marker. NPS calls 150 to 230 cfs normal and 650+ cfs high, but this gauge is upstream of the route, so Paddle Today keeps the recommendation conservative.',
     latitude: 45.9320719,
     longitude: -91.7516647,
     gaugeSource: {
@@ -2471,7 +2473,7 @@ export const rivers: River[] = [
     summary:
       'Wide, winding middle-Rum day with wooded banks, moderate current, and a cleaner beginner/intermediate feel than many smaller rivers. The product question is mostly whether the river is clearly above skinny conditions, not whether it has a narrow ideal band.',
     statusText:
-      'Treat the St. Francis gauge as a downstream proxy, not a perfect reach gauge. If that proxy is below about 600 cfs, this middle Rum route is too close to scrape territory for a confident easy-day recommendation.',
+      'There is not a gauge on this exact middle Rum reach, so Paddle Today uses the downstream St. Francis gauge as a rough level check. Below about 600 cfs, expect water too close to scrape territory for a confident easy-day recommendation.',
     latitude: 45.579123,
     longitude: -93.322856,
     gaugeSource: {
@@ -2925,7 +2927,7 @@ export const rivers: River[] = [
     summary:
       'Lower Snake run below Cross Lake where the main question is simple: is Pine City clearly above the official low-water floor for the rapids below County Road 9? This is a stronger trust-first add than many lower-river candidates because the route, gauge, and low-water warning are all official.',
     statusText:
-      'Treat 2.3 ft at Pine City as the conservative floor. This route improves with more water, but the app stays minimum-only because the official source is much clearer on the low side than on a polished ideal band.',
+      'Around 2.3 ft at Pine City is the low-water marker. The route usually improves with more water, but the official guidance is clearer about the low end than about a full ideal range.',
     latitude: 45.8395826,
     longitude: -92.9363969,
     gaugeSource: {
@@ -3145,7 +3147,7 @@ export const rivers: River[] = [
     summary:
       'Strong northern Minnesota day trip with a real official route shape, named public endpoints, and a same-river gauge story that is conservative enough to trust. The main product question is simple: is the Nimrod reading clearly above scrape territory for this sandy lower-middle reach?',
     statusText:
-      'Treat the Nimrod gauge as an upstream same-river proxy, not a perfect on-route gauge. Below 300 cfs is too scrape-prone for a confident recommendation; more water usually helps, but wood and current still matter after rain.',
+      'There is not a gauge on this exact reach, so Paddle Today uses the upstream Nimrod gauge as a rough same-river check. Below 300 cfs is too scrape-prone for a confident recommendation; more water usually helps, but wood and current still matter after rain.',
     latitude: 46.5462495,
     longitude: -94.814994,
     gaugeSource: {
@@ -3252,7 +3254,7 @@ export const rivers: River[] = [
     summary:
       'Short upper Cottonwood route with a rare direct DNR gauge at the put-in and official access records at both ends. It is a smaller, quieter south-central Minnesota add, useful mainly as a level-first local day-trip decision.',
     statusText:
-      'Treat 13.0 to 17.0 ft at Springfield / County Road 2 as the best zone. Below 12.5 ft is scrapable, and above 19.0 ft is beyond the broad-audience recommendation for this short wooded reach.',
+      'The Springfield / County Road 2 gauge is best from 13.0 to 17.0 ft. Below 12.5 ft, expect scraping; above 19.0 ft, this short wooded reach is too high for a general recommendation.',
     latitude: 44.2034723,
     longitude: -95.0485134,
     gaugeSource: {
@@ -3353,7 +3355,7 @@ export const rivers: River[] = [
     summary:
       'Long lower Pine River day from Rock Dam to Harvey Drake Public Water Access, with official DNR route support and a direct DNR level ladder near Jenkins. This is a wooded full-day paddle, not a quick lake-country float.',
     statusText:
-      'Treat 50 to 200 cfs at Jenkins as the best zone. Below 35 cfs is scrapable, and above 500 cfs is beyond the broad-audience recommendation for this wooded lower Pine route.',
+      'The Jenkins gauge is best from 50 to 200 cfs. Below 35 cfs, expect scraping; above 500 cfs, this wooded lower Pine route is too high for a general recommendation.',
     latitude: 46.635762,
     longitude: -94.092075,
     gaugeSource: {
@@ -3564,7 +3566,7 @@ export const rivers: River[] = [
     summary:
       'Shorter upper Minnesota River day with a cleaner beginner-friendly DNR route story than most big-river candidates. The Morton DNR gauge is upstream of the put-in, so the call is conservative, but the route itself has official access, camping, and distance support.',
     statusText:
-      'Treat 1,330 to 3,750 cfs at Morton as the best working band. Below 307 cfs gets too shallow and slow, and above 10,900 cfs is beyond the broad-audience recommendation for this wooded valley reach.',
+      'The Morton gauge is best from 1,330 to 3,750 cfs. Below 307 cfs gets too shallow and slow; above 10,900 cfs is too high for a general recommendation on this wooded valley reach.',
     latitude: 44.5177553,
     longitude: -94.8845377,
     gaugeSource: {
@@ -3714,7 +3716,7 @@ export const rivers: River[] = [
     summary:
       'Long lower Minnesota shuttle with a much better trust story than the old draft. It is not technical whitewater, but mileage, wind, and big-river pacing matter enough that a clean gauge read alone does not make it automatic.',
     statusText:
-      'Treat 9.0 to 12.0 ft at Jordan as the best working band. Below 4.0 ft drags the pace down, and above 16.0 ft is beyond the level this route should be sold for.',
+      'The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general recommendation.',
     latitude: 44.5244176,
     longitude: -93.8862799,
     gaugeSource: {
@@ -3834,7 +3836,7 @@ export const rivers: River[] = [
     summary:
       'Shorter lower Minnesota River day from Thompson Ferry north of Jordan to Carver. It uses the official Jordan DNR gauge ladder and keeps the route length more approachable than the longer Henderson-to-Belle Plaine run.',
     statusText:
-      'Treat 9.0 to 12.0 ft at Jordan as the best working band. Below 4.0 ft drags the pace down, and above 16.0 ft is beyond the level this route should be promoted for a broad lower-river day.',
+      'The Jordan gauge is best from 9.0 to 12.0 ft. Below 4.0 ft, expect a slower, draggy day; above 16.0 ft is too high for a general lower-river recommendation.',
     latitude: 44.692386,
     longitude: -93.641157,
     gaugeSource: {
@@ -3945,7 +3947,7 @@ export const rivers: River[] = [
     summary:
       'Short urban Mississippi day with a much stronger trust story than most metro additions. The route itself is officially recommended by DNR, but swift current, large wakes, and Lock and Dam 1 logistics matter more here than the mileage suggests.',
     statusText:
-      'Treat 6,000 to 30,000 cfs at St. Paul as the best working band. Below 2,000 cfs gets too low for this route model, and above 40,000 cfs is beyond the level this route should be sold for.',
+      'The St. Paul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this route, and above 40,000 cfs is too high for a general recommendation.',
     latitude: 44.9703514,
     longitude: -93.2350599,
     gaugeSource: {
@@ -4079,7 +4081,7 @@ export const rivers: River[] = [
     summary:
       'Downstream Saint Paul Mississippi day from Hidden Falls to Kelley\'s Landing at Harriet Island. MN DNR recommends the exact route, and the St. Paul gauge gives this metro reach an official level ladder.',
     statusText:
-      'Treat 6,000 to 30,000 cfs at St. Paul as the best working band. Below 2,000 cfs gets too low for this route model, and above 40,000 cfs is beyond the level this urban route should be promoted for.',
+      'The St. Paul gauge is best from 6,000 to 30,000 cfs. Below 2,000 cfs is too low for this urban route, and above 40,000 cfs is too high for a general recommendation.',
     latitude: 44.904029,
     longitude: -93.190748,
     gaugeSource: {
@@ -4304,7 +4306,7 @@ export const rivers: River[] = [
     summary:
       'Upper North Fork Crow day with a narrower, woodier feel than the lower Dayton route. It has a real DNR-recommended route and an official Cokato level ladder, but strainers, tight bends, and steep access keep it from being a blind beginner yes.',
     statusText:
-      'Treat 300 to 600 cfs at Cokato as the best zone. Below 241 cfs gets too scrapey, and above 800 cfs is beyond the level this tight, obstruction-prone reach should be promoted for.',
+      'The Cokato gauge is best from 300 to 600 cfs. Below 241 cfs gets too scrapey, and above 800 cfs is too high for this tight, obstruction-prone reach.',
     latitude: 45.189062,
     longitude: -94.1900403,
     gaugeSource: {
@@ -4417,7 +4419,7 @@ export const rivers: River[] = [
     summary:
       'Shorter lower North Fork Crow day that fills the gap between the upper Wright County reach and the long Riverside-to-Dayton run. The route has DNR access-guide support, official public-access records, and the same Rockford DNR level ladder as the downstream route.',
     statusText:
-      'Treat 500 to 1,500 cfs at Rockford as the best zone. Below 345 cfs gets too shallow and slow, and above 1,750 cfs is beyond the level this route should be promoted for a broad day-trip audience.',
+      'The Rockford gauge is best from 500 to 1,500 cfs. Below 345 cfs gets too shallow and slow, and above 1,750 cfs is too high for a general day-trip recommendation.',
     latitude: 45.0927624,
     longitude: -93.7294189,
     gaugeSource: {
@@ -4660,7 +4662,7 @@ export const rivers: River[] = [
     summary:
       'Long west-metro Crow River day that starts below the Watertown dam, passes Delano, and finishes at the Lake Rebecca Crow River carry-in. DNR recommends the exact trip, and the Delano DNR gauge gives it an official level ladder.',
     statusText:
-      'Treat 200 to 600 cfs at Delano as the best zone. Below 26 cfs is scrapable, and above 800 cfs is beyond the broad-audience recommendation for this long wooded route.',
+      'The Delano gauge is best from 200 to 600 cfs. Below 26 cfs, expect scraping; above 800 cfs, this long wooded route is too high for a general recommendation.',
     latitude: 44.965047,
     longitude: -93.845448,
     gaugeSource: {
@@ -6178,7 +6180,7 @@ export const rivers: River[] = [
     summary:
       'DNR-recommended Crow Wing day through forested bends and small islands. The Nimrod DNR gauge is upstream but on the same lower-water-trail corridor, giving this route an official level story that the older USGS-only draft lacked.',
     statusText:
-      'Treat 400 to 800 cfs at Nimrod as the best zone. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is outside the broad-audience recommendation.',
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
     latitude: 46.58698,
     longitude: -94.82262,
     gaugeSource: {
@@ -6294,7 +6296,7 @@ export const rivers: River[] = [
     summary:
       'Narrow Driftless creek-style Whitewater run with bluff-country scenery and real wood hazard. DNR level bands at Beaver make the go/no-go call more defensible, but this is still a maneuvering route rather than a lazy float.',
     statusText:
-      'Treat 692.3 to 697 ft at Beaver as the normal working band. Below 690 ft gets too thin, and above 698 ft is beyond the level this wood-sensitive route should be promoted for.',
+      'The Beaver gauge is best around 692.3 to 697 ft of gauge elevation. Below 690 ft gets too thin, and above 698 ft is too high for this wood-sensitive route.',
     latitude: 44.09185,
     longitude: -92.01381,
     gaugeSource: {
@@ -6303,6 +6305,7 @@ export const rivers: River[] = [
       siteId: '265',
       metric: 'gage_height_ft',
       unit: 'ft',
+      metricLabel: 'Gauge elevation',
       kind: 'direct',
       siteName: 'Whitewater River nr Beaver, CSAH30',
       detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=265',
@@ -6344,8 +6347,8 @@ export const rivers: River[] = [
     evidenceNotes: [
       {
         label: 'DNR bands',
-        value: '690 / 692.3-697 / 698 ft',
-        note: 'MN DNR interprets the Beaver gauge as Scrapable below 690 ft, Low from 690 to 692.3, Medium from 692.3 to 697, High from 697 to 698, and Very High above 698.',
+        value: '690 / 692.3-697 / 698 ft gauge elevation',
+        note: 'MN DNR interprets the Beaver gauge elevation as Scrapable below 690 ft, Low from 690 to 692.3, Medium from 692.3 to 697, High from 697 to 698, and Very High above 698. This is not river depth.',
         sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
       },
       {
@@ -8720,7 +8723,7 @@ export const rivers: River[] = [
     summary:
       'Classic southern-Minnesota day trip with mostly easy current, good scenery, and one clear question first: is there enough water to avoid a scrape-heavy slog without storm damage pushing the day out of bounds?',
     statusText:
-      'Treat about 202 cfs at Northfield as the low-water floor. Around 1,050 cfs has a strong trip-report endorsement, but the app does not claim a tighter sweet spot yet.',
+      'Around 202 cfs at Northfield is the low-water marker. A report around 1,050 cfs described a strong day, but there is not enough guidance yet to name a tighter ideal range.',
     latitude: 44.31067,
     longitude: -93.27087,
     gaugeSource: {
@@ -9049,7 +9052,7 @@ export const rivers: River[] = [
     summary:
       'Grafton-to-Thiensville Milwaukee run with a livelier opening than most easy river shuttles. The main decision is still water level first, but this route also deserves an honest skill check because the opening island split and Class I ledge are not beginner-flatwater features.',
     statusText:
-      'Treat about 260 cfs at Cedarburg as a conservative floor. That level is route-specific and recommendable, but the app stays minimum-only because there is no stronger published range for this exact Lime Kiln to Thiensville segment.',
+      'Around 260 cfs at Cedarburg is the low-water marker for this route. That level is route-specific and usable, but there is not enough published guidance yet to name a full ideal range for Lime Kiln to Thiensville.',
     latitude: 43.30534,
     longitude: -87.95358,
     gaugeSource: {
@@ -9150,7 +9153,7 @@ export const rivers: River[] = [
     summary:
       'Longer lower-Milwaukee day with mostly easy current, a few livelier upper stretches, and a simple main question first: is Cedarburg comfortably above the skinny-water floor without levels climbing high enough to turn a mellow day into a murkier faster river run?',
     statusText:
-      'Treat about 390 cfs at Cedarburg as a conservative floor. This route can work below the high-water zone, but the source trail is still much stronger on the low side than on a polished ideal band.',
+      'Around 390 cfs at Cedarburg is the low-water marker. This route can work below the high-water zone, but the source guidance is clearer about the low end than about a full ideal range.',
     latitude: 43.46838,
     longitude: -87.97317,
     gaugeSource: {
@@ -9610,7 +9613,7 @@ export const rivers: River[] = [
     summary:
       'Long Marathon County whitewater day through wooded banks, boulder gardens, the Dells of the Eau Claire, and the lower Island Dells. This is a whitewater route with mandatory scouting and a normal Dells portage, not a casual beginner float.',
     statusText:
-      'Use the Eau Claire River at Kelly gauge. Below 300 cfs is not recommended; 600 to 1,500 cfs is the best broad whitewater window; 1,500 to 2,000 cfs is high and pushy; 2,000+ cfs is beyond the broad-audience recommendation.',
+      'Use the Eau Claire River at Kelly gauge. Below 300 cfs is not recommended; 600 to 1,500 cfs is the best broad whitewater window; 1,500 to 2,000 cfs is high and pushy; above 2,000 cfs is too high for a general recommendation.',
     latitude: 45.0586,
     longitude: -89.27024,
     routeType: 'whitewater',
@@ -12816,7 +12819,7 @@ export const rivers: River[] = [
     summary:
       "Popular Waupaca day trip from the Cobbtown Road / County Q canoe launch to Brainard's Bridge Park, with clear water, boulder gardens, riffles, and an official county tourism route description for the 8-mile corridor.",
     statusText:
-      'Use the Waupaca River near Waupaca gauge. Treat roughly 150 to 320 cfs as the normal runnable window, 121 to 149 cfs as shallow and scrapey, 321 to 400 cfs as pushier high water, and 401+ cfs as above the broad app recommendation.',
+      'Use the Waupaca River near Waupaca gauge. The normal runnable window is roughly 150 to 320 cfs. From 121 to 149 cfs, expect shallow, scrapey water; from 321 to 400 cfs, expect pushier high water; above 401 cfs is too high for a general recommendation.',
     latitude: 44.37413,
     longitude: -89.18548,
     gaugeSource: {
@@ -13847,7 +13850,7 @@ export const rivers: River[] = [
     summary:
       'Fast northwest-Wisconsin Red Cedar day below Colfax, with easy Class I riffles, gravel bars, tall sand banks, and a direct Colfax gauge ladder. The route is scenic but strainer-sensitive, so it is best treated as an intermediate moving-water run.',
     statusText:
-      'Use the Red Cedar River near Colfax gauge. Treat about 401 to 600 cfs as the best normal window, below 400 cfs as low but still navigable, 601 to 800 cfs as pushy, and 801+ cfs as expert-only or beyond the broad app recommendation because of strainers.',
+      'Use the Red Cedar River near Colfax gauge. The best normal window is about 401 to 600 cfs. Below 400 cfs is low but often navigable; 601 to 800 cfs is pushy; above 801 cfs is expert-only or too high for a general recommendation because of strainers.',
     latitude: 45.0026972,
     longitude: -91.729812,
     gaugeSource: {
@@ -16020,7 +16023,7 @@ export const rivers: River[] = [
     summary:
       'Remote upper Jacks Fork day float from the Highway 17 bridge at Buck Hollow to Rymers, with NPS access at both ends, bluff-and-cave scenery, and a direct Mountain View gauge used as a conservative low-water check.',
     statusText:
-      'Use the Jacks Fork near Mountain View gauge as the route signal. Treat about 100 cfs as the conservative low-water floor; below that, expect shallow riffles, dragging, and possible poling or lining. No ideal range or upper cutoff is claimed.',
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the low-water marker; below that, expect shallow riffles, dragging, and possible poling or lining. Paddler reports will help tune the useful range.',
     latitude: 37.057183,
     longitude: -91.664061,
     routeType: 'whitewater',
@@ -16150,7 +16153,7 @@ export const rivers: River[] = [
     summary:
       'Classic lower Eleven Point day float from Whitten to Riverton on the National Wild and Scenic River, with Forest Service access at both ends, cold clear spring-fed water, shoals, Halls Bay, and a direct Bardley gauge.',
     statusText:
-      'Use the Eleven Point near Bardley gauge as a direct lower-river signal. Treat about 300 cfs as the conservative low-water floor; below that, expect more dragging in shoals. No broad high-water cutoff is claimed yet, so rising water deserves extra caution.',
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect more dragging in shoals. There is not enough guidance yet to name a high-water cutoff, so rising water deserves extra caution.',
     latitude: 36.732356,
     longitude: -91.214837,
     gaugeSource: {
@@ -16268,7 +16271,7 @@ export const rivers: River[] = [
     summary:
       'Spring-fed North Fork day float from the Forest Service North Fork Recreation Area, also known as Hammond Camp, to MDC Blair Bridge Access, with bluffs, cold water, Blue Spring, The Falls, and a downstream Tecumseh gauge used conservatively.',
     statusText:
-      'Use the North Fork River near Tecumseh gauge as a downstream proxy. Treat about 300 cfs as the conservative low-water floor; below that, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers.',
+      'There is not a gauge on this exact North Fork reach, so Paddle Today uses the downstream Tecumseh gauge as a rough level check. Around 300 cfs is the low-water marker; below that, expect more dragging and a slower day. Rising or high water deserves extra caution at The Falls, shoals, bends, and strainers.',
     latitude: 36.758606,
     longitude: -92.152801,
     gaugeSource: {
@@ -16371,7 +16374,7 @@ export const rivers: River[] = [
     summary:
       'Short Meramec day float from MDC Sappington Bridge Access to the Meramec State Park river ramp, with bluffs, clear Ozark pools, state-managed endpoints, and the Sullivan gauge in the route corridor.',
     statusText:
-      'Use the Meramec River near Sullivan gauge as the route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
+      'Use the Meramec River near Sullivan gauge. Around 200 cfs is the low-water marker; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
     latitude: 38.157948,
     longitude: -91.109295,
     gaugeSource: {
@@ -16489,7 +16492,7 @@ export const rivers: River[] = [
     summary:
       'Clear spring-fed Bryant Creek day float from MDC Sycamore Access below Hodgson Mill to MDC Warren Bridge Access, with a direct Tecumseh gauge and a conservative low-water floor from route-specific local trip evidence.',
     statusText:
-      'Use Bryant Creek near Tecumseh as the route signal. Treat about 300 cfs as the conservative low-water floor; below that, expect shallow shoals, dragging, and slower travel. Rising water deserves extra caution because Bryant is narrow, swift, and debris-prone after storms.',
+      'Use the Bryant Creek near Tecumseh gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals, dragging, and slower travel. Rising water deserves extra caution because Bryant is narrow, swift, and debris-prone after storms.',
     latitude: 36.70778,
     longitude: -92.26639,
     gaugeSource: {
@@ -16611,7 +16614,7 @@ export const rivers: River[] = [
     summary:
       'Popular lower James day float from MDC Shelvin Rock Access to MDC Hooten Town Access, using two public boat-ramp accesses and the Galena gauge downstream as a conservative low-water check.',
     statusText:
-      'Use the James River at Galena gauge as the lower-James route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect dragging in riffles and slow pools. No broad ideal range or upper cutoff is claimed yet.',
+      'Use the James River at Galena gauge. Around 200 cfs is the low-water marker for this lower-James route; below that, expect dragging in riffles and slow pools. Paddler reports will help tune the useful range.',
     latitude: 36.99564609,
     longitude: -93.3697183,
     gaugeSource: {
@@ -16724,7 +16727,7 @@ export const rivers: River[] = [
     summary:
       'Short Galena-area James River float from MDC H.L. Kerr Access to MDC Ralph Cox Memorial Access near the Y-Bridge, using the direct Galena gauge as a conservative low-water check.',
     statusText:
-      'Use the James River at Galena gauge as the route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect dragging, slow pools, and exposed riffles. No broad ideal range or upper cutoff is claimed yet.',
+      'Use the James River at Galena gauge. Around 200 cfs is the low-water marker; below that, expect dragging, slow pools, and exposed riffles. Paddler reports will help tune the useful range.',
     latitude: 36.832233,
     longitude: -93.446571,
     gaugeSource: {
@@ -16832,7 +16835,7 @@ export const rivers: River[] = [
     summary:
       'Short Sioux Falls Skunk Creek paddle from Legacy Park to Farm Field Park, using city park access points and the direct USGS Skunk Creek gauge. This is an urban creek route with low-water, debris, and water-quality caveats.',
     statusText:
-      'Use the Skunk Creek at Sioux Falls gauge as the route signal. Treat about 4.5 ft as the conservative low-water floor; below that, expect shallow scraping, walking, and poor urban-creek conditions. No ideal range or upper cutoff is claimed.',
+      'Use the Skunk Creek at Sioux Falls gauge. Around 4.5 ft is the low-water marker; below that, expect shallow scraping, walking, and poor urban-creek conditions. Paddler reports will help tune the useful range.',
     latitude: 43.5435603,
     longitude: -96.8111739,
     gaugeSource: {
@@ -16956,7 +16959,7 @@ export const rivers: River[] = [
     summary:
       'Short Sioux Falls Big Sioux paddle from Farm Field Park to Rotary Park, using city-managed kayak/canoe accesses and the direct USGS Sioux Falls gauge at the put-in. This is an urban river route with water-quality and low-water caveats.',
     statusText:
-      'Use the Big Sioux River at Sioux Falls gauge as the route signal. Treat about 250 cfs as the conservative low-water floor; below that, expect dragging, shallow riffles, and poor urban-water conditions. No ideal range or upper cutoff is claimed.',
+      'Use the Big Sioux River at Sioux Falls gauge. Around 250 cfs is the low-water marker; below that, expect dragging, shallow riffles, and poor urban-water conditions. Paddler reports will help tune the useful range.',
     latitude: 43.5028832,
     longitude: -96.749131,
     gaugeSource: {
@@ -17080,7 +17083,7 @@ export const rivers: River[] = [
     summary:
       'Short, scenic Garretson run from Split Rock Park to Palisades State Park with quartzite walls, riffles, ledges, and a direct USGS Corson gauge. This is a moving-water creek route, not a casual lake paddle.',
     statusText:
-      'Use the Split Rock Creek at Corson gauge as the route signal. Treat about 4.5 ft as the conservative low-water floor; below that, expect shallow, scrapey creek conditions. No broad ideal range or upper cutoff is claimed.',
+      'Use the Split Rock Creek at Corson gauge. Around 4.5 ft is the low-water marker; below that, expect shallow, scrapey creek conditions. Paddler reports will help tune the useful range.',
     latitude: 43.713056,
     longitude: -96.503056,
     routeType: 'whitewater',
@@ -17301,7 +17304,7 @@ export const rivers: River[] = [
     summary:
       'State-forest North Fork Flambeau day or overnight from the Highway W landing to Hervas Camp Landing, with public landings, canoe camps, Porcupine Rapids, Wannigan Rapids, and Flambeau Falls. The route is scenic and established, but the gauge story is only a downstream proxy.',
     statusText:
-      'Use the Flambeau River near Bruce gauge only as a conservative downstream trend check. Treat about 1,000 cfs as a proxy low-water floor; below that, expect scrapier boulder gardens and less reliable whitewater. No ideal range or high-water cutoff is claimed.',
+      'There is not a gauge on this exact stretch, so Paddle Today uses the downstream Bruce gauge as a rough trend check. Around 1,000 cfs is the current low-water marker; below that, expect more scraping in the boulder gardens and less dependable whitewater. Paddler reports will help tune the useful range.',
     latitude: 45.76812,
     longitude: -90.76075,
     routeType: 'whitewater',
@@ -17436,7 +17439,7 @@ export const rivers: River[] = [
     summary:
       'Short, concentrated Flambeau whitewater run from Hervas Camp Landing to Beaver Dam Landing. Cedar Rapids and Beaver Dam Rapids make this a real Class II route with a stronger AW gauge ladder than the longer upstream North Fork segments.',
     statusText:
-      'Use the Flambeau River near Bruce gauge as the AW-backed signal. Treat 1,320 to 3,420 cfs as the best broad window, 680 to 1,320 cfs as low but runnable, and 5,000+ cfs as beyond the broad-audience recommendation.',
+      'Use the Flambeau River near Bruce gauge. American Whitewater points to 1,320 to 3,420 cfs as the best broad window. From 680 to 1,320 cfs, expect low but runnable water; above 5,000 cfs is too high for a general recommendation.',
     latitude: 45.64051,
     longitude: -90.83491,
     routeType: 'whitewater',

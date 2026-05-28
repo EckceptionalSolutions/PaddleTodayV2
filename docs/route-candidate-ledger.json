@@ -1,7 +1,9 @@
 {
     "version": 1,
-    "updatedAt": "2026-05-28T09:33:00-05:00",
+    "updatedAt": "2026-05-28T09:43:00-05:00",
     "notes": [
+        "2026-05-28 09:43 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and James River H.L.-Kerr-to-Ralph-Cox are already implemented. Fresh gauge-first review rechecked South Fabius Dunn-Ford-to-Black-Hawk and Missouri River Washington/New-Haven. South Fabius remains no_live_gauge because MDC route/access support is strong, but official USGS 05500000 still exposed latest values only from 2026-05-19, MoHERP lists zero South Fabius trip rows, and no numeric paddling threshold surfaced. Missouri River Washington/New-Haven remains threshold_weak because MDC ties New Haven Access to the Washington gauge and MoHERP exposes gauge ratings, but the gauge page showed no trip rows plus mixed big-river condition signals rather than route-specific go/no-go thresholds. No app code changed, and no npm validation was run.",
+        "2026-05-28 09:42 America/Chicago South Dakota no-add pass. Reconciled live South Dakota inventory first and confirmed Split Rock Creek Split-Rock-Park-to-Palisades, Big Sioux Farm-Field-to-Rotary, and Skunk Creek Legacy-Park-to-Farm-Field are already implemented with matching added ledger records. Fresh narrow source review did not produce a route: Jay Heath / broader Big Sioux remains threshold_weak because GFP and the Jay Heath PDF support the corridor but not another exact endpoint-plus-threshold package; Big Sioux Recreation Area North-to-South remains gauge_proxy_weak because exact official canoe-access coordinates and manager-published thresholds are still unresolved and current search-visible USGS 06482020 evidence did not establish a clean same-day product-ready package; Spearfish Creek City-Park-to-Evans remains threshold_weak because AW still ties the town section to USGS 06431500 but gauge detail remains stale and the threshold evidence is low-flow anecdote rather than a stable range; Missouri National Recreational River remains research_later because NPS/official material is still access/release/corridor guidance, not a specific day route with an app-fetchable gauge model. No app code changed, and no npm validation was run.",
         "2026-05-28 09:33 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and James River H.L.-Kerr-to-Ralph-Cox are already implemented. Fresh gauge-first review did not produce a route: Finley River/Riverdale was changed from research_later to no_live_gauge because MoHERP has route-family trip evidence but USGS 07052345 still did not expose same-day May 28 product-ready official current values, USGS graph/search context includes a discontinuance warning, and public endpoint authority remains mixed around Johns Ford/Reed Road/Lindenlure/Ozark accesses; Salt River/New-London/Indian-Camp was rechecked but not promoted because MDC confirms Indian Camp and limited mainstem access while MoHERP/New London evidence does not define a clean public day-trip threshold package, and visible New London current evidence was stale/secondary. Also repaired pre-existing unresolved conflict markers in the ledger by preserving the Missouri HEAD entries and the Illinois Vermilion added entry. No app code changed, and no npm validation was run.",
         "2026-05-28 09:23 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and James River H.L.-Kerr-to-Ralph-Cox are already implemented. Rechecked Big Piney Sand/Sandy-Shoals-to-Boiling-Spring after fresh MDC/MoHERP review; it remains no_live_gauge because MoHERP now exposes a stale 2025-11-07 latest update and no trend data, while the automation shell still cannot reach USGS Water Services for 06930000. Logged Eleven Point Greer-Crossing-to-Turner-Mill as threshold_weak: Forest Service supports the public endpoints and 4.9-mile route, and MDC/Forest Service support the spring-fed floatability story, but no route-specific numeric threshold stronger than borrowing the already-live lower Eleven Point Bardley-gauge model surfaced. No app code changed, and no npm validation was run.",
         "2026-05-28 09:13 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and the already-uncommitted James River H.L.-Kerr-to-Ralph-Cox route are already implemented or staged. Reviewed Current River Cedar-Grove-to-Akers and Big River Washington-State-Park-to-Mammoth without adding a route. Current remains no_live_gauge because NPS route context and MoHERP trip evidence are promising, but USGS Water Services for 07064533 still failed from the automation shell and no same-day May 28 product-fetchable current values were established. Big River remains threshold_weak because MDC/Missouri State Parks public endpoint evidence is excellent, but Byrnesville is a downstream proxy and MoHERP/RiverScout evidence remains broad lower-Big guidance rather than exact Washington-to-Mammoth threshold support; freshest visible MoHERP current evidence found was still May 26. No app code changed during this run, and no npm validation was run.",
@@ -7586,8 +7588,8 @@
             "state": "SD",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-28",
-            "reviewCount": 17,
-            "blocker": "Fresh 2026-05-28 09:12 America/Chicago recheck preserved the blocker. GFP confirms the Jay Heath Canoe and Kayak Trail is designed for canoe/kayak navigation on the Big Sioux and the PDF gives access-to-access mileage, while Sioux Empire Paddlers still supplies broad Big Sioux corridor flow floors and circuit context. The evidence is still corridor-level for additional V2 routes: no new exact public endpoint pair with route-specific threshold support surfaced, downstream Big Sioux hazards and low-head dams need tighter segmentation, and another split would still rely on community gauge floors already represented by the implemented Sioux Falls Big Sioux route. The most plausible Big Sioux Recreation Area gauge lead, USGS 06482020, exposed latest visible values from 2026-05-26 11:30 CDT, not same-day May 28 data.",
+            "reviewCount": 18,
+            "blocker": "Fresh 2026-05-28 09:42 America/Chicago recheck preserved the blocker. GFP confirms the Jay Heath Canoe and Kayak Trail is designed for canoe/kayak navigation on the Big Sioux and the PDF gives access-to-access mileage, while Sioux Empire Paddlers still supplies broad Big Sioux corridor flow floors and circuit context. The evidence is still corridor-level for additional V2 routes: no new exact public endpoint pair with route-specific threshold support surfaced, downstream Big Sioux hazards and low-head dams need tighter segmentation, and another split would still rely on community gauge floors already represented by the implemented Sioux Falls Big Sioux route. Fresh search-visible USGS 06482020 evidence still did not establish a same-day product-ready gauge package for the Big Sioux Recreation Area/Jay Heath segment.",
             "retryCondition": "Retry only if official site details or another strong public source provides exact endpoint coordinates for a selected Jay Heath day segment and a numeric threshold model tied cleanly to that segment. Do not split the corridor just from mileage on the PDF.",
             "retryDate": null,
             "sourcesChecked": [
@@ -7614,7 +7616,8 @@
                 "May 26 19:25 South Dakota recheck of GFP paddling/Jay Heath page, Jay Heath PDF access mileage, and Sioux Empire Paddlers Big Sioux corridor guidance",
                 "May 26 19:55 South Dakota recheck of Sioux Empire Paddlers Big Sioux river/creeks page, Big Sioux Circuit list, City of Sioux Falls Lien Park page, GFP Big Sioux Recreation Area page, Jay Heath PDF search result, and USGS 06482020 North Cliff Ave context",
                 "May 28 08:42 South Dakota recheck of GFP paddling/Jay Heath page, Jay Heath PDF access mileage, Sioux Empire Paddlers river flow rates, and Big Sioux current-condition search results",
-                "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF access spacing, Sioux Empire Paddlers River Flow Rates, and USGS 06482020 North Cliff Ave current-conditions page"
+                "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF access spacing, Sioux Empire Paddlers River Flow Rates, and USGS 06482020 North Cliff Ave current-conditions page",
+                "May 28 09:42 South Dakota recheck of GFP/Jay Heath search results, USGS 06482020 search-visible current-condition context, and duplicate inventory reconciliation"
             ],
             "aliases": [
                 "Jay Heath Canoe and Kayak Trail",
@@ -7642,7 +7645,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because route segmentation and threshold support did not clear the bar."
             },
-            "notes": "Rechecked during the 2026-05-28 09:12 South Dakota pass. Keep as threshold_weak; official corridor mapping and community circuit legs are not enough to add another day-trip split without cleaner access, hazard, same-day gauge, and threshold support."
+            "notes": "Rechecked during the 2026-05-28 09:42 South Dakota pass. Keep as threshold_weak; official corridor mapping and community circuit legs are not enough to add another day-trip split without cleaner access, hazard, same-day gauge, and threshold support."
         },
         {
             "candidateId": "sd-big-sioux-recreation-area-north-south",
@@ -7651,8 +7654,8 @@
             "state": "SD",
             "status": "gauge_proxy_weak",
             "lastReviewed": "2026-05-28",
-            "reviewCount": 14,
-            "blocker": "Fresh 2026-05-28 09:12 America/Chicago recheck preserved the blocker. GFP still confirms Big Sioux Recreation Area supports canoeing and kayaking, the Jay Heath PDF still gives the official 2.4-mile North-to-South spacing, and Sioux Empire Paddlers lists the Big Sioux River Cliff Ave gauge as ideal above 300 cfs. The route was not added because exact official canoe-access coordinates and manager-published route thresholds remain unresolved, and the likely same-river USGS 06482020 North Cliff Ave current page exposed latest visible discharge and gage-height data only through 2026-05-26 11:30 CDT during this May 28 run. Do not implement from park-level paddling support plus a broad community gauge floor alone.",
+            "reviewCount": 15,
+            "blocker": "Fresh 2026-05-28 09:42 America/Chicago recheck preserved the blocker. GFP still confirms Big Sioux Recreation Area supports canoeing and kayaking, the Jay Heath PDF still gives the official 2.4-mile North-to-South spacing, and Sioux Empire Paddlers lists the Big Sioux River Cliff Ave gauge as ideal above 300 cfs. The route was not added because exact official canoe-access coordinates and manager-published route thresholds remain unresolved, and fresh search-visible USGS 06482020 North Cliff Ave evidence still did not establish a clean same-day product-ready route package. Do not implement from park-level paddling support plus a broad community gauge floor alone.",
             "retryCondition": "Retry if official GFP site details, GIS data, park map coordinates, or another strong source resolves both Big Sioux Recreation Area canoe access coordinates. Keep the route gauge_proxy_weak unless threshold support improves beyond the local 300 cfs Cliff Ave floor.",
             "retryDate": null,
             "sourcesChecked": [
@@ -7675,7 +7678,8 @@
                 "May 26 19:25 South Dakota recheck of GFP Big Sioux Recreation Area page, GFP paddling/Jay Heath page, Jay Heath PDF spacing, and Sioux Empire Paddlers Big Sioux corridor guidance",
                 "May 26 19:55 South Dakota recheck of GFP Big Sioux Recreation Area page, GFP campground map search snippet, Jay Heath PDF search result, Sioux Empire Paddlers 300 cfs Cliff Ave flow guidance, City of Sioux Falls Lien Park page, and USGS 06482020 North Cliff Ave context",
                 "May 28 08:42 South Dakota recheck of GFP paddling/Jay Heath page, Jay Heath PDF 2.4-mile spacing, GFP Big Sioux Recreation Area rules/map snippets confirming two canoe launches, Sioux Empire Paddlers flow-rate guidance, USGS 06481000 near Dell Rapids, and USGS 06482000 at Sioux Falls current-condition snippets",
-                "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF, GFP/SDCKA dedication search result, Sioux Empire Paddlers 300 cfs Cliff Ave guidance, and USGS 06482020 North Cliff Ave legacy current conditions"
+                "May 28 09:12 South Dakota recheck of GFP Big Sioux Recreation Area page, Jay Heath PDF, GFP/SDCKA dedication search result, Sioux Empire Paddlers 300 cfs Cliff Ave guidance, and USGS 06482020 North Cliff Ave legacy current conditions",
+                "May 28 09:42 South Dakota recheck of GFP Big Sioux Recreation Area/Jay Heath search results and USGS 06482020 search-visible current-condition context"
             ],
             "aliases": [
                 "Big Sioux Recreation Area North to South",
@@ -7687,7 +7691,7 @@
                 "quality": "same_river_proxy",
                 "id": "06482020",
                 "provider": "USGS",
-                "notes": "USGS 06482020 Big Sioux River at North Cliff Ave remains the most plausible same-river gauge lead for a Big Sioux Recreation Area North-to-South route, but this May 28 recheck saw latest visible observations only from 2026-05-26 11:30 CDT. The exact gauge-to-route relationship also remains a proxy question."
+                "notes": "USGS 06482020 Big Sioux River at North Cliff Ave remains the most plausible same-river gauge lead for a Big Sioux Recreation Area North-to-South route, but the May 28 09:42 recheck did not establish a clean same-day product-ready current-data package. The exact gauge-to-route relationship also remains a proxy question."
             },
             "thresholdSupport": {
                 "strength": "community_gauge_floor_not_route_specific",
@@ -7701,7 +7705,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured. GFP page publishes a general park coordinate, and GFP/SDCKA news gives the north access address, but exact north and south canoe access coordinates were not resolved from an official map during this run."
             },
-            "notes": "Rechecked during the 2026-05-28 09:12 South Dakota pass. Keep as gauge_proxy_weak until exact official canoe-access coordinates, route-specific threshold support, and a fresh product-ready gauge path are resolved."
+            "notes": "Rechecked during the 2026-05-28 09:42 South Dakota pass. Keep as gauge_proxy_weak until exact official canoe-access coordinates, route-specific threshold support, and a fresh product-ready gauge path are resolved."
         },
         {
             "candidateId": "sd-big-sioux-farm-field-rotary",
@@ -7762,8 +7766,8 @@
             "state": "SD",
             "status": "research_later",
             "lastReviewed": "2026-05-28",
-            "reviewCount": 14,
-            "blocker": "Fresh 2026-05-28 08:42 America/Chicago recheck preserved the blocker. NPS river-access pages provide named access points, river miles, and coordinates, and NPS current-conditions guidance remains useful reach-level release context below Gavins Point, but no practical access-to-access day trip with a direct app-fetchable gauge/release threshold package cleared. The SDCKA/NPS Missouri River Water Trail Project is still described as 2026-2027 mapping work, so this remains a big-water, dam-release, wind, channel, and sparse-access problem rather than a simple day-float split.",
+            "reviewCount": 15,
+            "blocker": "Fresh 2026-05-28 09:42 America/Chicago recheck preserved the blocker. NPS river-access pages provide named access points, river miles, and coordinates, and NPS/current official material remains useful reach-level release context below Gavins Point, but no practical access-to-access day trip with a direct app-fetchable gauge/release threshold package cleared. The SDCKA/NPS Missouri River Water Trail Project is still described as 2026-2027 mapping work, so this remains a big-water, dam-release, wind, channel, and sparse-access problem rather than a simple day-float split.",
             "retryCondition": "Retry after the NPS/SDCKA mapping effort publishes route-ready day-trip segments or if NPS/official partners publish gauge/release guidance for a specific access-to-access paddle. Any future add needs wind, dam-release, big-water, sparse-access, and channel-shift caveats.",
             "retryDate": null,
             "sourcesChecked": [
@@ -7786,7 +7790,8 @@
                 "May 26 18:55 South Dakota search rotation of NPS MNRR water trail, river access points, current conditions, USGS 06467500 Yankton current conditions, and Missouri River access-to-access day-trip searches",
                 "May 26 19:25 South Dakota recheck of NPS Missouri National Recreational River current conditions, NPS water-trail/access context, USGS 06467500 Yankton inventory/search evidence, and USACE Missouri River current-conditions context",
                 "May 26 19:55 South Dakota no-add carry-forward after Big Sioux/Spearfish checks; no new NPS/official partner route-specific day-trip gauge/release package surfaced during the narrow pass",
-                "May 28 08:42 South Dakota recheck of NPS MNRR access points, water trail/canoeing pages, current-condition context, 39-mile guide search result, and SDCKA NPS Missouri River Water Trail Project 2026-2027 page"
+                "May 28 08:42 South Dakota recheck of NPS MNRR access points, water trail/canoeing pages, current-condition context, 39-mile guide search result, and SDCKA NPS Missouri River Water Trail Project 2026-2027 page",
+                "May 28 09:42 South Dakota recheck of NPS MNRR water-trail/access/release search results and current 2026 official context"
             ],
             "aliases": [
                 "MNRR",
@@ -7812,7 +7817,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because no exact day-trip route cleared the bar."
             },
-            "notes": "Rechecked during the 2026-05-28 08:42 South Dakota pass. Keep as research_later until NPS/official partners publish route-ready day-trip and gauge/release guidance."
+            "notes": "Rechecked during the 2026-05-28 09:42 South Dakota pass. Keep as research_later until NPS/official partners publish route-ready day-trip and gauge/release guidance."
         },
         {
             "candidateId": "mo-huzzah-creek-huzzah-ca-meramec",
@@ -8051,8 +8056,8 @@
             "state": "SD",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-28",
-            "reviewCount": 16,
-            "blocker": "Fresh 2026-05-28 09:12 America/Chicago recheck preserved the blocker. American Whitewater still identifies the Spearfish town section from the City Park / D.C. Booth Fish Hatchery area to Old US 14 and ties it to USGS 06431500; City of Spearfish confirms Evans Park has creek access, and the gauge remains real. The latest visible USGS current-conditions evidence remains stale to 2026-05-13, AW gauge detail/search snippets remain stale, and the usable threshold evidence still remains low-flow anecdote around 47-50 cfs rather than a stable route-specific runnable floor/range suitable for PaddleTodayV2 scoring.",
+            "reviewCount": 17,
+            "blocker": "Fresh 2026-05-28 09:42 America/Chicago recheck preserved the blocker. American Whitewater still identifies the Spearfish town section from the City Park / D.C. Booth Fish Hatchery area to Old US 14 and ties it to USGS 06431500; City of Spearfish confirms Evans Park has creek access, and the gauge remains real. Fresh search-visible AW gauge detail still shows stale values, and the usable threshold evidence remains low-flow anecdote around 47-50 cfs rather than a stable route-specific runnable floor/range suitable for PaddleTodayV2 scoring.",
             "retryCondition": "Retry only if American Whitewater or another credible source exposes a stable numeric minimum/range for the Spearfish town section tied to USGS 06431500, or if current USGS/AW gauge detail plus route-specific threshold text becomes clean enough for a whitewater routeType implementation.",
             "retryDate": null,
             "sourcesChecked": [
@@ -8081,7 +8086,8 @@
                 "May 26 19:25 web recheck of American Whitewater Spearfish town section, AW gauge detail, USGS 06431500 streamgage context, and South Dakota Spearfish threshold searches",
                 "May 26 19:55 web recheck of American Whitewater Spearfish town section, AW 2771 gauge detail, USGS 06431500 streamgage/media context, Snoflo current snippet, City of Spearfish Evans Park page, and Spearfish threshold searches",
                 "May 28 08:42 web recheck of American Whitewater Spearfish town section and gauge detail, USGS 06431500 legacy current conditions, USGS streamgage media page, Snoflo current snippet, City of Spearfish Evans Park page, and Spearfish Creek threshold searches",
-                "May 28 09:12 search recheck of USGS 06431500 legacy current conditions, Snoflo Spearfish Creek stale snippet, American Whitewater gauge detail, and Spearfish threshold context"
+                "May 28 09:12 search recheck of USGS 06431500 legacy current conditions, Snoflo Spearfish Creek stale snippet, American Whitewater gauge detail, and Spearfish threshold context",
+                "May 28 09:42 search recheck of American Whitewater Spearfish town section, AW 2771 gauge detail, USGS streamgage context, and Spearfish threshold context"
             ],
             "aliases": [
                 "Spearfish Creek - City Park to Evans Park",
@@ -8093,7 +8099,7 @@
                 "quality": "direct",
                 "id": "06431500",
                 "provider": "USGS",
-                "notes": "USGS 06431500 Spearfish Creek at Spearfish, SD is a direct same-creek gauge near the short urban route. The May 28 search-visible USGS current page showed latest values from 2026-05-13, AW gauge-detail pages still exposed stale readings, and no defensible numeric route threshold was found."
+                "notes": "USGS 06431500 Spearfish Creek at Spearfish, SD is a direct same-creek gauge near the short urban route. The May 28 09:42 search-visible AW gauge detail still exposed stale readings, and no defensible numeric route threshold was found."
             },
             "thresholdSupport": {
                 "strength": "weak",
@@ -8113,7 +8119,7 @@
                 },
                 "coordinateSource": "Riverfacts map coordinates were captured as provisional only; route not shipped because threshold support is weak."
             },
-            "notes": "Rechecked during the 2026-05-28 09:12 South Dakota pass. Still the closest Black Hills lead, but do not implement until a stable route-specific threshold model and fresh product-ready gauge path appear."
+            "notes": "Rechecked during the 2026-05-28 09:42 South Dakota pass. Still the closest Black Hills lead, but do not implement until a stable route-specific threshold model and fresh product-ready gauge path appear."
         },
         {
             "candidateId": "sd-rapid-creek-heisga-dark-canyon",
@@ -10250,12 +10256,12 @@
         },
         {
             "candidateId": "mo-missouri-river-washington-new-haven-family",
-            "reviewCount": 1,
+            "reviewCount": 2,
             "river": "Missouri River",
             "route": "Washington / New Haven lower-Missouri access family",
             "state": "MO",
             "status": "threshold_weak",
-            "blocker": "MDC confirms New Haven Access as a public Missouri River boat ramp at river mile 82 and points users to the USGS Washington gauge; Missouri River Water Trail and Missouri River Relief provide strong broad paddling and access-planning context; and MoHERP exposes Washington gauge context. The route was not added because no conservative route-specific paddling threshold model surfaced for a broad-audience PaddleToday route, and big-river hazards, commercial traffic, wing dikes, wind, and landing difficulty need more than generic stage context.",
+            "blocker": "Fresh 2026-05-28 09:43 America/Chicago recheck preserved the blocker. MDC confirms New Haven Access at Missouri River mile 82 and directly links users to the USGS Washington gauge. MoHERP exposes Washington-gauge condition context, but it showed no trip rows and mixed big-river signals rather than a route-specific go/no-go model. The route was not added because no conservative paddling threshold model surfaced for a broad-audience PaddleToday route, and big-river hazards, commercial traffic, wing dikes, wind, and landing difficulty need more than generic stage context.",
             "retryCondition": "Retry only if a Missouri River water-trail manager, outfitter, MDC/Missouri State Parks source, or similarly credible guide identifies a specific Washington/New Haven-area day trip and numeric go/no-go guidance tied to USGS 06935450 or another official gauge.",
             "retryDate": null,
             "sourcesChecked": [
@@ -10264,7 +10270,8 @@
                 "Missouri River Relief paddling resources",
                 "Float Missouri Missouri River guide",
                 "Rivers.MOHERP Missouri River Washington gauge search result",
-                "Missouri River Water Trail access-points dataset search result"
+                "Missouri River Water Trail access-points dataset search result",
+                "Fresh 2026-05-28 09:43 recheck: MDC New Haven Access page, MoHERP Washington gauge page, Missouri River Water Trail/Missouri River Relief search context, and public Washington-to-New-Haven threshold searches"
             ],
             "aliases": [
                 "Missouri River - Washington to New Haven",
@@ -10276,11 +10283,11 @@
                 "quality": "direct_but_threshold_not_route_ready",
                 "id": "06935450",
                 "provider": "USGS",
-                "notes": "MDC ties New Haven Access to the Washington gauge, and MoHERP exposes stage context for that gauge, but gauge existence is not enough for a broad-audience Missouri River route."
+                "notes": "MDC ties New Haven Access to the Washington gauge, and MoHERP exposes stage/discharge context for that gauge, but gauge existence and broad big-river ratings are not enough for a broad-audience Missouri River route."
             },
             "thresholdSupport": {
                 "strength": "weak_big_river_stage_context",
-                "notes": "No route-specific low-water floor, ideal range, or upper cutoff suitable for PaddleToday scoring was found. Big-river stage affects ramp usability and hazards differently than Ozark stream floatability."
+                "notes": "MoHERP exposed no Washington-gauge trip rows, and the visible condition text mixed discharge and stage interpretations. No route-specific low-water floor, ideal range, or upper cutoff suitable for PaddleToday scoring was found."
             },
             "endpoints": {
                 "putIn": "Washington City Access or another unselected lower-Missouri public access",
@@ -10290,18 +10297,18 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because threshold model failed before implementation."
             },
-            "notes": "Fresh 2026-05-26 17:55 review. Keep as threshold_weak; public access and water-trail context are real, but do not ship without route-specific numeric stage guidance and stronger big-river safety framing.",
-            "lastReviewed": "2026-05-26"
+            "notes": "Rechecked 2026-05-28 at 09:43 America/Chicago. Keep as threshold_weak; public access and water-trail context are real, but do not ship without route-specific numeric stage guidance and stronger big-river safety framing.",
+            "lastReviewed": "2026-05-28"
         },
         {
             "candidateId": "mo-south-fabius-river-dunn-ford-blackhawk",
-            "reviewCount": 1,
+            "reviewCount": 2,
             "river": "South Fabius River",
             "route": "Dunn Ford Access to Blackhawk Access",
             "state": "MO",
             "status": "no_live_gauge",
-            "blocker": "MDC gives strong public route support: Dunn Ford Access is public South Fabius River access, MDC says the next access for canoeists is Blackhawk Access 10 river miles downstream, and the Fabius watershed inventory names Dunn Ford to Blackhawk as a one-day fishing/float trip. The route was not added because the likely downstream USGS 05500000 Taylor gauge showed latest official search-visible instantaneous discharge and gage height from 2026-05-19 rather than same-day May 26, and no credible numeric paddling floor or range tied to the gauge surfaced.",
-            "retryCondition": "Retry only if USGS 05500000 or another direct South Fabius gauge exposes product-fetchable same-day instantaneous data and MDC, MoHERP, an outfitter, or a strong public route guide provides numeric paddling guidance for Dunn Ford to Blackhawk or a clearly equivalent South Fabius reach.",
+            "blocker": "Fresh 2026-05-28 09:43 America/Chicago recheck preserved the blocker. MDC still gives strong public route support: Dunn Ford Access is suitable for floating, MDC says Black Hawk Access is about 10 river miles downstream and a convenient destination for a day float, and the Fabius watershed inventory names Dunn Ford to Blackhawk as a day trip. The route was not added because official USGS 05500000 current-conditions output still exposed latest instantaneous discharge/stage only from 2026-05-19, MoHERP lists South Fabius River with 0 trip rows, and no credible numeric paddling floor or range tied to the gauge surfaced.",
+            "retryCondition": "Retry only if USGS 05500000 or another direct South Fabius gauge exposes product-fetchable same-day instantaneous data and MDC, MoHERP, an outfitter, or a strong public route guide provides numeric paddling guidance for Dunn Ford to Black Hawk or a clearly equivalent South Fabius reach.",
             "retryDate": null,
             "sourcesChecked": [
                 "MDC Dunn Ford Access page",
@@ -10309,7 +10316,8 @@
                 "USGS 05500000 South Fabius River near Taylor current-conditions search result",
                 "Missouri DNR/USGS South Fabius River above Newark fact sheet",
                 "Rivergages South Fabius River near Taylor station result",
-                "Public searches for South Fabius River MoHERP and threshold guidance"
+                "Public searches for South Fabius River MoHERP and threshold guidance",
+                "Fresh 2026-05-28 09:43 recheck: MDC Dunn Ford page, MDC Black Hawk page, USGS 05500000 legacy current conditions, MoHERP river list showing South Fabius River with 0 rows, and public South Fabius threshold searches"
             ],
             "aliases": [
                 "South Fabius River - Dunn Ford to Blackhawk",
@@ -10321,22 +10329,22 @@
                 "quality": "direct_but_no_same_day_product_data_visible",
                 "id": "05500000",
                 "provider": "USGS",
-                "notes": "USGS 05500000 is downstream near Taylor and appears to be the practical same-river gauge family, but official search-visible current data was stale to 2026-05-19 during this run."
+                "notes": "USGS 05500000 is downstream near Taylor and appears to be the practical same-river gauge family, but official USGS current-conditions output still showed latest discharge/stage from 2026-05-19 during this 2026-05-28 recheck."
             },
             "thresholdSupport": {
                 "strength": "weak_without_numeric_paddling_floor",
-                "notes": "MDC supports the route shape and says low water can be limiting in the broader basin, but this run found no route-ready numeric floor, range, or high-water cutoff."
+                "notes": "MDC supports the route shape, but MoHERP lists 0 South Fabius trip rows and this run found no route-ready numeric floor, range, or high-water cutoff."
             },
             "endpoints": {
                 "putIn": "Dunn Ford Access",
-                "takeOut": "Blackhawk Access",
+                "takeOut": "Black Hawk Access",
                 "coordinatesPresent": false,
                 "putInCoordinates": null,
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-data freshness and threshold support failed before implementation."
             },
-            "notes": "Fresh 2026-05-26 18:25 review. Strong public endpoint and route-shape lead, but do not implement until live gauge freshness and numeric threshold support improve.",
-            "lastReviewed": "2026-05-26"
+            "notes": "Rechecked 2026-05-28 at 09:43 America/Chicago. Strong public endpoint and route-shape lead, but do not implement until official live gauge freshness and numeric threshold support improve.",
+            "lastReviewed": "2026-05-28"
         },
         {
             "candidateId": "mo-wyaconda-river-crossing-sunnyside-family",

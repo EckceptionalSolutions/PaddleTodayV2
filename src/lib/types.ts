@@ -83,6 +83,7 @@ export interface RiverGaugeSource {
   siteId: string;
   metric: GaugeMetric;
   unit: GaugeUnit;
+  metricLabel?: string;
   kind: GaugeKind;
   siteName: string;
   detailUrl?: string;

@@ -5,6 +5,7 @@ import { getApprovedRoutePhotos } from '../../data/route-gallery';
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers } from '../../lib/rivers';
+import { gaugeDisplayForSource } from '../../lib/source-adapters';
 
 export function getStaticPaths() {
   return listRivers().map((river) => ({
@@ -14,6 +15,7 @@ export function getStaticPaths() {
 }
 
 const { river } = Astro.props;
+const gaugeDisplay = gaugeDisplayForSource(river.gaugeSource);
 const thresholdConfidenceLabel =
   river.profile.thresholdSourceStrength === 'official'
     ? 'Official data source'
@@ -316,38 +318,12 @@ const routeFaqStructuredData = {
 
         <div class="river-detail__meta-row">
           <span class="pill" data-field="decision">Checking live data</span>
-          <a
-            class="pill river-detail__jump-pill"
-            href="#why-this-call"
-            data-field="confidence"
-            data-detail-jump="why-this-call"
-            data-detail-expand="confidence"
-          >
-            Loading data confidence
-          </a>
-          <span class="pill" data-field="data-status">Loading sources</span>
-          <span class="pill">{river.statusText}</span>
         </div>
 
-        {isMinimumOnlyRoute ? (
-          <aside class="route-calibration-callout" aria-label="Ideal range missing">
-            <div>
-              <p class="route-calibration-callout__kicker">Ideal range missing</p>
-              <h2>We know the low-water floor, but still need paddler reports to find the best range.</h2>
-              <p>
-                If you paddle this route, tell us whether the level felt low, good, pushy, or too high. Those notes help turn a conservative floor into a useful target window.
-              </p>
-            </div>
-            <a
-              class="river-link river-link--inline"
-              href="#share-trip"
-              data-route-report-cta
-              data-analytics-event="Open route report"
-            >
-              Send a level report
-            </a>
-          </aside>
-        ) : null}
+        <aside class="river-detail__gauge-note" aria-label="Gauge note">
+          <p class="river-detail__gauge-note-label">Gauge note</p>
+          <p>{river.statusText}</p>
+        </aside>
 
         <div class="river-detail__hero-map-shell" data-detail-hero-map-shell>
           <div class="river-detail__hero-map-frame">
@@ -561,10 +537,7 @@ const routeFaqStructuredData = {
             </div>
           </div>
         </details>
-        <div class="river-call-panel__reliability">
-          <span class="pill" data-field="rail-reliability">Loading sources</span>
-        </div>
-          <dl class="river-call-panel__meta">
+        <dl class="river-call-panel__meta">
             <div>
             <dt>Latest live read</dt>
               <dd data-field="observed-at">Checking</dd>
@@ -573,7 +546,7 @@ const routeFaqStructuredData = {
             <dt>Paddle Today updated</dt>
               <dd data-field="generated-at">Checking</dd>
             </div>
-          </dl>
+        </dl>
         <a
           class="river-link river-link--wide"
           href={river.profile.thresholdSource.url}
@@ -1263,9 +1236,9 @@ const routeFaqStructuredData = {
                   <a
                     class="river-link river-link--inline"
                     href="#share-trip"
-                    data-analytics-event="Open route report"
+                    data-analytics-event="Open condition report"
                   >
-                    Share photos or a trip report
+                    Share photos or report conditions
                   </a>
                 </div>
               </div>
@@ -1391,11 +1364,11 @@ const routeFaqStructuredData = {
                 <td>{river.gaugeSource.siteName}</td>
               </tr>
               <tr>
-                <td data-field="primary-gauge-label">Current gauge</td>
+                <td data-field="primary-gauge-label">{gaugeDisplay.primaryMetricLabel}</td>
                 <td data-field="gauge-now">Checking</td>
               </tr>
               <tr>
-                <td data-field="secondary-gauge-label">Current discharge</td>
+                <td data-field="secondary-gauge-label">{gaugeDisplay.secondaryMetricLabel ?? 'Secondary gauge metric'}</td>
                 <td data-field="discharge-now">Checking</td>
               </tr>
               <tr>
@@ -1548,7 +1521,7 @@ const routeFaqStructuredData = {
         <div class="route-gallery__intro-copy">
           <p class="eyebrow section-label">
             <FeatureIcon name="compass" size={16} />
-            Route reports
+            Paddler reports
           </p>
           <h2 class="section-title">Recent notes from paddlers</h2>
           <p class="muted route-gallery__lede">
@@ -1566,9 +1539,9 @@ const routeFaqStructuredData = {
           class="river-link river-link--inline"
           href="#share-trip"
           data-route-report-cta
-          data-analytics-event="Open route report"
+          data-analytics-event="Open condition report"
         >
-          Send a route report
+          Report recent conditions
         </a>
       </div>
     </section>
@@ -1577,9 +1550,29 @@ const routeFaqStructuredData = {
       <p class="eyebrow section-label">Reports</p>
       <h2 class="river-detail__chapter-title">Photos, paddler notes, and updates.</h2>
       <p class="muted river-detail__chapter-copy">
-        See what others have shared, then add a trip report, upload photos, or flag anything that needs fixing.
+        See what others have shared, then add a condition report, upload photos, or flag anything that needs fixing.
       </p>
     </section>
+
+    {isMinimumOnlyRoute ? (
+      <aside class="route-calibration-callout" aria-label="More level reports needed">
+        <div>
+          <p class="route-calibration-callout__kicker">More level reports needed</p>
+          <h2>Only a low-water floor is known.</h2>
+          <p>
+            We can tell when this route is likely too low, but we do not yet have enough reports to define a best range. If you paddled it recently, send a condition report with how the level felt.
+          </p>
+        </div>
+        <a
+          class="river-link river-link--inline"
+          href="#share-trip"
+          data-route-report-cta
+          data-analytics-event="Open condition report"
+        >
+          Report recent conditions
+        </a>
+      </aside>
+    ) : null}
 
     <section class="river-detail__panel river-report-panel" data-detail-section="share-trip" data-detail-nav-group="reports">
       <p class="eyebrow section-label">
@@ -1589,7 +1582,7 @@ const routeFaqStructuredData = {
       <div class="river-report-panel__content route-contribute" id="share-trip">
         <div class="route-contribute__intro">
           <h2 class="river-subtitle river-subtitle--compact">Help build the route page</h2>
-          <p class="muted">Add photos or send a quick route report.</p>
+          <p class="muted">Add photos or send a quick condition report.</p>
         </div>
 
         <div class="route-contribute__tabs" role="tablist" aria-label="Contribution options">
@@ -1736,15 +1729,15 @@ const routeFaqStructuredData = {
             hidden
           >
             <div class="route-contribute__panel-head">
-              <p class="route-contribute__panel-kicker">Route report</p>
-              <h3>Send a route report</h3>
+              <p class="route-contribute__panel-kicker">Condition report</p>
+              <h3>Report recent conditions</h3>
               <p class="muted">A few honest notes about level, pace, wood, or access changes go a long way.</p>
             </div>
 
             <form
               class="request-form route-photo-form"
               data-route-report-form
-              data-analytics-event="Submit route report"
+              data-analytics-event="Submit condition report"
               novalidate
             >
               <div class="route-photo-form__grid">
@@ -1785,8 +1778,8 @@ const routeFaqStructuredData = {
               </div>
 
               <label>
-                Route report
-                <span class="request-form__hint">Share how it paddled and what others should know.</span>
+                Condition report
+                <span class="request-form__hint">Share the level, pace, access, wood, and anything others should know.</span>
                 <textarea
                   name="tripReport"
                   rows="5"
@@ -1840,7 +1833,7 @@ const routeFaqStructuredData = {
               </label>
 
               <div class="request-form__actions">
-                <button class="filter-chip" type="submit" data-route-report-submit>Send route report</button>
+                <button class="filter-chip" type="submit" data-route-report-submit>Send condition report</button>
               </div>
 
               <p class="muted request-form__status route-photo-form__status" data-route-report-status aria-live="polite"></p>

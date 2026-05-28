@@ -3,6 +3,7 @@ export type ConfidenceLabel = 'Low' | 'Medium' | 'High';
 export type LiveDataState = 'live' | 'stale' | 'unavailable';
 export type LiveDataOverall = 'live' | 'degraded' | 'offline';
 export type GaugeUnit = 'cfs' | 'ft';
+export type GaugeMetric = 'discharge_cfs' | 'gage_height_ft';
 export type GaugeProvider = 'usgs' | 'mn_dnr';
 export type SourceProvider =
   | 'usgs'
@@ -344,6 +345,7 @@ export interface RiverDetailApiResult {
     routeType: RouteType;
     gaugeSource: {
       provider: GaugeProvider;
+      metric: GaugeMetric;
       unit: GaugeUnit;
       detailUrl?: string;
       hydrographUrl?: string;

@@ -2031,12 +2031,12 @@ function simpleSentence(text, fallback) {
   }
 
   const lowered = normalized.toLowerCase();
-  if (lowered.includes('perfect level')) return 'Flow is in the preferred range.';
-  if (lowered.includes('slightly low')) return 'Flow is a little low but still workable.';
-  if (lowered.includes('too low')) return 'Flow looks too low to be worth the drive.';
-  if (lowered.includes('stable')) return 'Flow looks steady right now.';
-  if (lowered.includes('rising')) return 'Flow is rising; re-check the gauge before you launch.';
-  if (lowered.includes('falling')) return 'Flow is dropping; re-check the gauge before you launch.';
+  if (lowered.includes('perfect level')) return 'Water level is in the preferred range.';
+  if (lowered.includes('slightly low')) return 'Water level is a little low but still workable.';
+  if (lowered.includes('too low')) return 'Water level looks too low to be worth the drive.';
+  if (lowered.includes('stable')) return 'The gauge looks steady right now.';
+  if (lowered.includes('rising')) return 'The gauge is rising; re-check before you launch.';
+  if (lowered.includes('falling')) return 'The gauge is dropping; re-check before you launch.';
   if (lowered.includes('rain soon') || lowered.includes('rain incoming') || lowered.includes('rain later')) {
     return 'Rain may change conditions later today.';
   }

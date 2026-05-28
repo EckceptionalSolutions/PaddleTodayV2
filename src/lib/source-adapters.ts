@@ -133,7 +133,7 @@ export function gaugeDisplayForSource(source: RiverGaugeSource): GaugeSourceDisp
     provider: source.provider,
     label: adapter.label,
     shortLabel: adapter.shortLabel,
-    primaryMetricLabel: source.metric === 'gage_height_ft' ? 'Gauge height' : 'Discharge',
+    primaryMetricLabel: source.metricLabel ?? (source.metric === 'gage_height_ft' ? 'Gauge height' : 'Discharge'),
     secondaryMetricLabel: source.metric === 'gage_height_ft' ? 'Discharge' : 'Gauge height',
     interpretationLabel: adapter.interpretationLabel,
     supportsRecentSamples: adapter.supportsRecentSamples,

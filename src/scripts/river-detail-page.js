@@ -415,7 +415,7 @@ function renderApprovedRouteGallery() {
             Start the gallery with shots of the access, river character, or any detail that helps paddlers know what this run actually looks like.
           </p>
           <div class="route-gallery__cta-row">
-            <a class="river-link river-link--inline" href="#share-trip">Share photos or a trip report</a>
+            <a class="river-link river-link--inline" href="#share-trip">Share photos or report conditions</a>
           </div>
         </div>
       </div>
@@ -644,13 +644,13 @@ function renderCommunityReports(reports) {
           ${
             reportPhotos.length > 0
               ? `
-                <div class="route-community__photos" aria-label="Photos from this route report">
+                <div class="route-community__photos" aria-label="Photos from this condition report">
                   ${reportPhotos
                     .slice(0, 3)
                     .map(
                       (photo) => `
                         <a class="route-community__photo" href="${escapeHtml(photo.src)}" target="_blank" rel="noreferrer">
-                          <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || photo.caption || 'Route report photo')}" loading="lazy" />
+                          <img src="${escapeHtml(photo.src)}" alt="${escapeHtml(photo.alt || photo.caption || 'Condition report photo')}" loading="lazy" />
                         </a>
                       `
                     )
@@ -838,7 +838,7 @@ function setRouteReportSubmitting(isSubmitting) {
   }
 
   routeReportSubmitButton.disabled = isSubmitting;
-  routeReportSubmitButton.textContent = isSubmitting ? 'Sending...' : 'Send route report';
+  routeReportSubmitButton.textContent = isSubmitting ? 'Sending...' : 'Send condition report';
 }
 
 function summarizeReportPhotos(fileList) {
@@ -1108,7 +1108,7 @@ function bindRouteReportForm() {
     }
 
     if (tripReport.length < 12) {
-      setRouteReportStatus('Add a little more detail to the route report.', 'error');
+      setRouteReportStatus('Add a little more detail to the condition report.', 'error');
       routeReportTextInput.focus();
       return;
     }
@@ -1137,7 +1137,7 @@ function bindRouteReportForm() {
     }
 
     setRouteReportSubmitting(true);
-    setRouteReportStatus(reportFiles.length > 0 ? `Sending route report with ${reportFiles.length} photo${reportFiles.length === 1 ? '' : 's'}...` : 'Sending route report...');
+    setRouteReportStatus(reportFiles.length > 0 ? `Sending condition report with ${reportFiles.length} photo${reportFiles.length === 1 ? '' : 's'}...` : 'Sending condition report...');
 
     try {
       const files = await Promise.all(
@@ -1173,18 +1173,18 @@ function bindRouteReportForm() {
 
       const payload = await response.json().catch(() => ({}));
       if (!response.ok || payload?.ok !== true) {
-        throw new Error(payload?.message || 'Could not store this route report.');
+        throw new Error(payload?.message || 'Could not store this condition report.');
       }
 
       window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
       routeReportForm.reset();
       summarizeReportPhotos([]);
       setRouteReportStatus('Thank you for your submission.', 'success');
-      setRouteActionStatus('Route report sent.', 'success');
+      setRouteActionStatus('Condition report sent.', 'success');
     } catch (error) {
-      console.error('Failed to submit route report.', error);
+      console.error('Failed to submit condition report.', error);
       setRouteReportStatus(
-        error instanceof Error ? error.message : 'Could not send this route report right now.',
+        error instanceof Error ? error.message : 'Could not send this condition report right now.',
         'error'
       );
     } finally {
@@ -2021,7 +2021,7 @@ function renderDetailBanner(result) {
   titleEl.textContent = 'Reads are current.';
   detailEl.textContent = 'Gauge and weather are fresh enough for today\'s recommendation.';
   if (railReliability instanceof HTMLElement) {
-    railReliability.textContent = 'Reads live';
+    railReliability.textContent = 'Fresh';
     railReliability.classList.add('data-status-pill--live');
     railReliability.classList.remove('data-status-pill--degraded', 'data-status-pill--offline');
   }
@@ -2395,13 +2395,19 @@ function gaugeSourceDisplay(result) {
   }
 
   const provider = result?.river?.gaugeSource?.provider;
+  const source = result?.river?.gaugeSource;
+  const primaryMetricLabel =
+    source?.display?.primaryMetricLabel ||
+    (source?.metric === 'gage_height_ft' || source?.unit === 'ft' ? 'Gauge height' : 'Discharge');
+  const secondaryMetricLabel =
+    source?.metric === 'gage_height_ft' || source?.unit === 'ft' ? 'Discharge' : 'Gauge height';
   if (provider === 'mn_dnr') {
     return {
       provider: 'mn_dnr',
       label: 'MN DNR River Levels',
       shortLabel: 'MN DNR',
-      primaryMetricLabel: 'Gauge height',
-      secondaryMetricLabel: 'Discharge',
+      primaryMetricLabel,
+      secondaryMetricLabel,
       interpretationLabel: 'DNR interpretation',
       supportsRecentSamples: false,
       supportsHydrograph: true,
@@ -2412,8 +2418,8 @@ function gaugeSourceDisplay(result) {
     provider: provider || 'usgs',
     label: 'USGS Water Data',
     shortLabel: 'USGS',
-    primaryMetricLabel: 'Discharge',
-    secondaryMetricLabel: 'Gauge height',
+    primaryMetricLabel,
+    secondaryMetricLabel,
     interpretationLabel: null,
     supportsRecentSamples: true,
     supportsHydrograph: false,
@@ -2549,10 +2555,6 @@ function renderDecisionSummary(result) {
       : result.rating === 'Fair'
         ? "Why it is still paddleable"
         : 'Why it works';
-  const confidenceNote =
-    result.river?.profile?.thresholdModel === 'minimum-only'
-      ? 'This route has a known low-water floor, not a full ideal range, so the score stays conservative.'
-      : '';
   const beforeCommitting = result.liveData?.overall === 'live'
     ? 'Refresh this page, scan access notes, and confirm the route still matches your skill, boat, and shuttle plan.'
     : 'Refresh this page and open the source link before relying on this route call.';
@@ -2562,7 +2564,6 @@ function renderDecisionSummary(result) {
       <p><strong>Today's call:</strong> ${escapeHtml(todaysCall)} <span class="river-detail__decision-score">${escapeHtml(scoreLine)}</span></p>
       ${why.length > 0 ? `<p><strong>${whyLabel}:</strong> ${escapeHtml(why.join(' '))}</p>` : ''}
       ${watchouts.length > 0 ? `<p><strong>What to watch:</strong> ${escapeHtml(watchouts.slice(0, 3).join(' '))}</p>` : ''}
-      ${confidenceNote ? `<p><strong>Confidence:</strong> ${escapeHtml(confidenceNote)}</p>` : ''}
       <p><strong>Before committing:</strong> ${escapeHtml(beforeCommitting)}</p>
     </div>
   `;

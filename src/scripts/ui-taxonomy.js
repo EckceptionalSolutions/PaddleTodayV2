@@ -1,7 +1,7 @@
 export function confidenceDisplayLabel(label) {
   if (label === 'High') return 'High data confidence';
   if (label === 'Medium') return 'Some uncertainty';
-  if (label === 'Low') return 'Cautious call';
+  if (label === 'Low') return 'Low confidence';
   return 'Data confidence unclear';
 }
 

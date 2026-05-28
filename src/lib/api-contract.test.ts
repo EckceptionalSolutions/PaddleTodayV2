@@ -244,6 +244,7 @@ describe('api-contract serializers', () => {
 
     expect(detail.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
     expect(detail.river.gaugeSource.provider).toBe('usgs');
+    expect(detail.river.gaugeSource.metric).toBe('discharge_cfs');
     expect(detail.river.gaugeSource.detailUrl).toBeUndefined();
     expect(detail.river.profile.idealMin).toBe(300);
     expect(detail.river.profile.tooHigh).toBe(900);
