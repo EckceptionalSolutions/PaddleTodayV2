@@ -5383,6 +5383,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'james-river-hl-kerr-ralph-cox': {
+    putIn: {
+      name: 'H.L. Kerr Access',
+      latitude: 36.832233,
+      longitude: -93.446571,
+    },
+    takeOut: {
+      name: 'Ralph Cox Memorial Access',
+      latitude: 36.8069331518,
+      longitude: -93.4617516103,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 to 5.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and boat traffic',
+      shuttle:
+        'Use a short Galena-area two-car or local outfitter shuttle between MDC H.L. Kerr Access and MDC Ralph Cox Memorial Access. Stage the Cox take-out first, because the access is close to town and can be busy on warm weekends.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, day-use restrictions, and boat-use rules at H.L. Kerr and Ralph Cox Memorial Access.',
+      camping:
+        'Do not plan to camp at either endpoint. MDC lists both H.L. Kerr and Ralph Cox Memorial as day-use access areas, and camping is not allowed on those areas.',
+      summary:
+        'Launch at MDC H.L. Kerr Access and take out at MDC Ralph Cox Memorial Access near Galena for a short lower-James float. Use the Galena gauge as a conservative low-water check rather than a full preferred-range recommendation.',
+      accessCaveats: [
+        'H.L. Kerr and Ralph Cox Memorial are MDC public day-use accesses with boat ramps and parking, but posted signs and area maps control exact use.',
+        'Both endpoints prohibit camping, and MDC rules prohibit leaving boats unattended overnight on department areas.',
+        'Coordinates are practical access anchors from public paddling/location records paired with MDC access confirmation; follow on-site signs for the exact ramp and parking layout.',
+      ],
+      watchFor: [
+        'Dragging, slow pools, and shallow riffles when the Galena gauge is near or below the 200 cfs floor.',
+        'High or rising water after rain, fresh wood, strainers on bends, cloudy water, and more difficult landings.',
+        'Busy summer boat, tube, rental, swimming, and angling traffic around Galena, the Y-Bridge, and local outfitter corridors.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
   'skunk-creek-legacy-park-farm-field': {
     putIn: {
       name: 'Legacy Park boat/canoe/kayak access',

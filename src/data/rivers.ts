@@ -16710,6 +16710,119 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'james-river-hl-kerr-ralph-cox',
+    slug: 'james-river-hl-kerr-ralph-cox',
+    name: 'James River',
+    reach: 'H.L. Kerr Access to Ralph Cox Memorial Access',
+    aliases: [
+      'James River - Kerr Access to Cox Access',
+      'James River - H.L. Kerr Access to Ralph Cox Memorial Access',
+      'James River - Kerr to Galena Y Bridge',
+    ],
+    state: 'Missouri',
+    region: 'Southwest Missouri',
+    summary:
+      'Short Galena-area James River float from MDC H.L. Kerr Access to MDC Ralph Cox Memorial Access near the Y-Bridge, using the direct Galena gauge as a conservative low-water check.',
+    statusText:
+      'Use the James River at Galena gauge as the route signal. Treat about 200 cfs as the conservative low-water floor; below that, expect dragging, slow pools, and exposed riffles. No broad ideal range or upper cutoff is claimed yet.',
+    latitude: 36.832233,
+    longitude: -93.446571,
+    gaugeSource: {
+      id: 'usgs-07052500',
+      provider: 'usgs',
+      siteId: '07052500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River at Galena, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Galena gauge trip evidence for Kerr to Cox',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=72',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Galena-area James is commonly floated in spring through fall. Low summer water can make the short route slow and scrapey; rain can improve depth but can also add cloudy water, fresh wood, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short recreational Ozark river segment with riffles, pools, gravel bars, rock features, and town-side access near Galena. It remains easy only at ordinary levels; high or rising water can make bends, strainers, and the Cox landing less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms H.L. Kerr and Ralph Cox Memorial as public James River day-use accesses with boat ramps and parking, James River Basin Partnership identifies Kerr-to-Ralph-Cox as a scenic local James float, Rivers.MOHERP includes exact Kerr-to-Cox trip evidence tied to USGS 07052500, and this app already fetches the Galena gauge for the adjacent Shelvin Rock-to-Hooten Town route. The app uses minimum-only scoring because the threshold source is community trip evidence rather than an official manager-published paddling band, and no upper cutoff is claimed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC H.L. Kerr Access',
+        note: 'MDC says H.L. Kerr Access provides access to the James River, with a parking lot and boat ramp. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/h-l-kerr-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Ralph Cox Memorial Access',
+        note: 'MDC says Ralph Cox Memorial Access provides James River access just east of Galena, with an ADA-accessible concrete boat ramp, privy, and large parking lot. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/ralph-cox-memorial-access',
+      },
+      {
+        label: 'Route shape',
+        value: 'Kerr to Ralph Cox / Galena',
+        note: 'James River Basin Partnership describes the float from H.L. Kerr Access to Ralph Cox Access as one of the scenic James River floats near the historic Y-Bridge.',
+        sourceUrl: 'https://www.jamesriverbasin.com/river-ramblings/explore-the-watershed-y-bridge',
+      },
+      {
+        label: 'Route-specific trip evidence',
+        value: 'Kerr to Cox, about 4.8 to 5.5 miles',
+        note: 'Rivers.MOHERP lists exact Kerr-to-Cox trip rows on the Galena gauge, including good-condition reports around 306, 361, and 417 cfs.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=72',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Exact Kerr-to-Cox good reports plus broader lower-James Galena-gauge evidence support reusing the conservative 200 cfs floor used for the adjacent lower-James route. The app does not infer an ideal range or high-water cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=72',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 07052500',
+        note: 'USGS operates James River at Galena, MO. This route uses the same direct Galena gauge already configured for the adjacent Shelvin Rock-to-Hooten Town route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC H.L. Kerr Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/h-l-kerr-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Ralph Cox Memorial Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/ralph-cox-memorial-access',
+        provider: 'local',
+      },
+      {
+        label: 'James River Basin Partnership Y-Bridge float context',
+        url: 'https://www.jamesriverbasin.com/river-ramblings/explore-the-watershed-y-bridge',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP James River Galena gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7052500&hours=72',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07052500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'skunk-creek-legacy-park-farm-field',
     slug: 'skunk-creek-legacy-park-farm-field',
     name: 'Skunk Creek',
