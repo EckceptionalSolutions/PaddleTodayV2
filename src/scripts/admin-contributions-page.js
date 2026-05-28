@@ -8,11 +8,11 @@ const loginForm = root.querySelector('[data-admin-login-form]');
 const passwordInput = root.querySelector('[data-admin-password]');
 const loginStatus = root.querySelector('[data-admin-login-status]');
 const toolbar = root.querySelector('[data-admin-toolbar]');
-const toolbarStatus = root.querySelector('[data-admin-toolbar-status]');
+const toolbarStatus = document.querySelector('[data-admin-toolbar-status]');
 const refreshButton = root.querySelector('[data-admin-refresh]');
 const logoutButton = root.querySelector('[data-admin-logout]');
-const statusFilter = root.querySelector('[data-admin-status-filter]');
-const typeFilter = root.querySelector('[data-admin-type-filter]');
+const statusFilter = document.querySelector('[data-admin-status-filter]');
+const typeFilter = document.querySelector('[data-admin-type-filter]');
 const list = document.querySelector('[data-admin-submission-list]');
 const emptyState = document.querySelector('[data-admin-empty]');
 const statsPanel = document.querySelector('[data-admin-stats]');
@@ -24,6 +24,22 @@ const routeAuditsStatus = document.querySelector('[data-admin-route-audits-statu
 const routeAuditList = document.querySelector('[data-admin-route-audit-list]');
 const scoringDebugPanel = document.querySelector('[data-admin-scoring-debug]');
 const sectionNav = document.querySelector('[data-admin-section-nav]');
+const tabButtons = Array.from(document.querySelectorAll('[data-admin-tab-target]'));
+const tabPanels = Array.from(document.querySelectorAll('[data-admin-tab-panel]'));
+let activeAdminTab = 'submissions';
+
+function setActiveAdminTab(tabName = activeAdminTab) {
+  activeAdminTab = tabName;
+  for (const button of tabButtons) {
+    if (!(button instanceof HTMLButtonElement)) continue;
+    const selected = button.dataset.adminTabTarget === activeAdminTab;
+    button.setAttribute('aria-selected', selected ? 'true' : 'false');
+  }
+  for (const panel of tabPanels) {
+    if (!(panel instanceof HTMLElement)) continue;
+    panel.hidden = panel.dataset.adminTabPanel !== activeAdminTab;
+  }
+}
 
 function freshnessText(isoString, fallback) {
   if (typeof isoString !== 'string' || !isoString) return fallback;
@@ -204,7 +220,6 @@ async function loadStats() {
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(payload?.message || 'Could not load stats.');
   const stats = payload?.stats?.riverAlerts || {};
-  statsPanel.hidden = false;
   setText('[data-admin-alert-active]', stats.active ?? 0);
   setText('[data-admin-alert-total]', `${stats.total ?? 0} total alerts`);
   setText('[data-admin-alert-strong]', stats.strong ?? 0);
@@ -222,7 +237,6 @@ async function loadRouteRequests() {
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(payload?.message || 'Could not load route requests.');
   const requests = Array.isArray(payload?.requests) ? payload.requests : [];
-  routeRequestsPanel.hidden = false;
   routeRequestsList.innerHTML = requests.length ? requests.map(routeRequestMarkup).join('') : '<p class="muted">No route requests yet.</p>';
   bindRouteRequestReplyActions();
   if (payload?.warning) {
@@ -291,7 +305,6 @@ async function loadRouteAudits() {
     applyRouteAuditState(row, audit);
   }
 
-  routeAuditsPanel.hidden = false;
   bindRouteAuditActions();
   updateRouteAuditCounts();
   setStatus(routeAuditsStatus, `${audits.filter((audit) => audit?.audited === true).length} route audits complete.`, 'success');
@@ -403,13 +416,9 @@ async function loadSubmissions() {
   const selectedType = typeFilter instanceof HTMLSelectElement ? typeFilter.value : 'all';
   const filteredSubmissions =
     selectedType === 'all' ? submissions : submissions.filter((submission) => submissionKind(submission) === selectedType);
-  list.hidden = false;
   list.innerHTML = filteredSubmissions.map(contributionCardMarkup).join('');
   if (emptyState instanceof HTMLElement) {
     emptyState.hidden = filteredSubmissions.length > 0;
-    if (!emptyState.hidden) {
-      list.appendChild(emptyState);
-    }
   }
   bindCardActions();
   setStatus(
@@ -469,12 +478,10 @@ async function refreshAdminState() {
   const authenticated = ok && payload?.authenticated === true;
   if (loginPanel instanceof HTMLElement) loginPanel.hidden = authenticated;
   if (toolbar instanceof HTMLElement) toolbar.hidden = !authenticated;
-  if (list instanceof HTMLElement) list.hidden = !authenticated;
-  if (statsPanel instanceof HTMLElement) statsPanel.hidden = !authenticated;
-  if (routeRequestsPanel instanceof HTMLElement) routeRequestsPanel.hidden = !authenticated;
-  if (routeAuditsPanel instanceof HTMLElement) routeAuditsPanel.hidden = !authenticated;
-  if (scoringDebugPanel instanceof HTMLElement) scoringDebugPanel.hidden = !authenticated;
   if (sectionNav instanceof HTMLElement) sectionNav.hidden = !authenticated;
+  for (const panel of tabPanels) {
+    if (panel instanceof HTMLElement) panel.hidden = true;
+  }
 
   if (payload?.configured === false && loginPanel instanceof HTMLElement) {
     setStatus(loginStatus, 'Admin access is not configured yet. Set PADDLETODAY_ADMIN_PASSWORD on the server.', 'error');
@@ -482,6 +489,7 @@ async function refreshAdminState() {
 
   if (authenticated) {
     await Promise.all([loadSubmissions(), loadStats(), loadRouteRequests(), loadRouteAudits()]);
+    setActiveAdminTab(activeAdminTab);
   }
 }
 
@@ -522,6 +530,14 @@ if (logoutButton instanceof HTMLButtonElement) {
     await fetch('/api/admin/logout', { method: 'POST', headers: { accept: 'application/json' } });
     await refreshAdminState();
     setStatus(toolbarStatus, 'Signed out.');
+  });
+}
+
+for (const button of tabButtons) {
+  if (!(button instanceof HTMLButtonElement)) continue;
+  button.addEventListener('click', () => {
+    const tabName = button.dataset.adminTabTarget;
+    if (tabName) setActiveAdminTab(tabName);
   });
 }
 

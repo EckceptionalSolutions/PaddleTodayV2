@@ -81,40 +81,21 @@ const routeAuditGroups = Array.from(
 
     <div class="admin-review__toolbar" data-admin-toolbar hidden>
       <div class="admin-review__toolbar-row">
-        <label>
-          Contributions
-          <select data-admin-status-filter>
-            <option value="pending">Pending</option>
-            <option value="approved">Approved</option>
-            <option value="rejected">Rejected</option>
-            <option value="all">All</option>
-          </select>
-        </label>
-        <label>
-          Type
-          <select data-admin-type-filter>
-            <option value="all">All</option>
-            <option value="photo">Photos only</option>
-            <option value="report">Reports only</option>
-            <option value="mixed">Photos + report</option>
-          </select>
-        </label>
         <button class="river-inline-button" type="button" data-admin-refresh>Refresh</button>
         <button class="river-inline-button" type="button" data-admin-logout>Sign out</button>
       </div>
-      <p class="muted request-form__status" data-admin-toolbar-status aria-live="polite"></p>
     </div>
 
-    <nav class="admin-section-nav" aria-label="Admin sections" data-admin-section-nav hidden>
-      <a href="#admin-submissions">Submissions</a>
-      <a href="#admin-requests">Requests</a>
-      <a href="#admin-alerts">Alerts</a>
-      <a href="#admin-route-audits">Route audits</a>
-      <a href="#admin-reality-checks">Reality checks</a>
+    <nav class="admin-section-nav" aria-label="Admin sections" role="tablist" data-admin-section-nav data-admin-tab-list hidden>
+      <button type="button" role="tab" data-admin-tab-target="submissions" aria-controls="admin-submissions" aria-selected="true">Submissions</button>
+      <button type="button" role="tab" data-admin-tab-target="requests" aria-controls="admin-requests" aria-selected="false">Requests</button>
+      <button type="button" role="tab" data-admin-tab-target="alerts" aria-controls="admin-alerts" aria-selected="false">Alerts</button>
+      <button type="button" role="tab" data-admin-tab-target="audits" aria-controls="admin-route-audits" aria-selected="false">Route audits</button>
+      <button type="button" role="tab" data-admin-tab-target="checks" aria-controls="admin-reality-checks" aria-selected="false">Reality checks</button>
     </nav>
   </section>
 
-  <section class="admin-review__stats" id="admin-alerts" data-admin-stats hidden>
+  <section class="admin-review__stats admin-tab-panel" id="admin-alerts" role="tabpanel" data-admin-stats data-admin-tab-panel="alerts" hidden>
     <article class="snapshot-card">
       <span class="snapshot-card__label">Active alerts</span>
       <strong data-admin-alert-active>0</strong>
@@ -135,7 +116,7 @@ const routeAuditGroups = Array.from(
     </article>
   </section>
 
-  <section class="admin-route-audits" id="admin-route-audits" data-admin-route-audits hidden>
+  <section class="admin-route-audits admin-tab-panel" id="admin-route-audits" role="tabpanel" data-admin-route-audits data-admin-tab-panel="audits" hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Route audits</p>
@@ -198,7 +179,7 @@ const routeAuditGroups = Array.from(
     </div>
   </section>
 
-  <section class="admin-scoring-debug" id="admin-reality-checks" data-admin-scoring-debug hidden>
+  <section class="admin-scoring-debug admin-tab-panel" id="admin-reality-checks" role="tabpanel" data-admin-scoring-debug data-admin-tab-panel="checks" hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Reality checks</p>
@@ -266,20 +247,42 @@ const routeAuditGroups = Array.from(
     </div>
   </section>
 
-  <section class="admin-review__list" id="admin-submissions" data-admin-submission-list hidden>
+  <section class="admin-review__list admin-tab-panel" id="admin-submissions" role="tabpanel" data-admin-submissions-panel data-admin-tab-panel="submissions" hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Submissions</p>
         <h2>Trip reports and photo uploads</h2>
       </div>
+      <p class="muted request-form__status" data-admin-toolbar-status aria-live="polite"></p>
     </div>
+    <div class="admin-review__filters">
+      <label>
+        Contributions
+        <select data-admin-status-filter>
+          <option value="pending">Pending</option>
+          <option value="approved">Approved</option>
+          <option value="rejected">Rejected</option>
+          <option value="all">All</option>
+        </select>
+      </label>
+      <label>
+        Type
+        <select data-admin-type-filter>
+          <option value="all">All</option>
+          <option value="photo">Photos only</option>
+          <option value="report">Reports only</option>
+          <option value="mixed">Photos + report</option>
+        </select>
+      </label>
+    </div>
+    <div class="admin-review__submission-list" data-admin-submission-list></div>
     <div class="admin-review__empty" data-admin-empty hidden>
       <h2>No submissions in this view</h2>
-      <p class="muted">Once paddlers start sending trip reports and photos, they�ll show up here.</p>
+      <p class="muted">Once paddlers start sending trip reports and photos, they'll show up here.</p>
     </div>
   </section>
 
-  <section class="admin-review__requests" id="admin-requests" data-admin-route-requests hidden>
+  <section class="admin-review__requests admin-tab-panel" id="admin-requests" role="tabpanel" data-admin-route-requests data-admin-tab-panel="requests" hidden>
     <div class="admin-review__section-head">
       <div>
         <p class="eyebrow">Requests</p>
