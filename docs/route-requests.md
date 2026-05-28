@@ -8,8 +8,13 @@ Set these on the Node API App Service:
 
 - `ROUTE_REQUESTS_CONTAINER_SAS_URL`
 - `ROUTE_REQUESTS_BLOB_PREFIX=route-requests`
+- `ACS_EMAIL_CONNECTION_STRING`
+- `ROUTE_REPLIES_FROM_EMAIL`
+- `ROUTE_REPLIES_REPLY_TO_EMAIL`
 
 The SAS must be container-scoped and include at least read, create, write, and list permissions. Use `racwdl` so the admin page can list requests and reply metadata can be written back to the request blob.
+
+`ROUTE_REPLIES_FROM_EMAIL` must use a sender username configured on the Azure Communication Services Email domain. For the current Paddle Today email domain, use `DoNotReply@paddletoday.com` unless another sender username is added in Azure first.
 
 If `ROUTE_REQUESTS_CONTAINER_SAS_URL` is not set, the app falls back to local storage under `.local/route-requests`.
 
