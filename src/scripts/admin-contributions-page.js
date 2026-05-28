@@ -151,7 +151,9 @@ function routeRequestMarkup(request) {
   const replies = Array.isArray(request.replies) ? request.replies : [];
   const latestReply = replies.length > 0 ? replies[replies.length - 1] : null;
   const latestReplyLine = latestReply?.sentAt
-    ? `Last replied ${new Date(latestReply.sentAt).toLocaleString()} from ${latestReply.from || 'Paddle Today'}`
+    ? latestReply.provider === 'manual'
+      ? `Marked replied ${new Date(latestReply.sentAt).toLocaleString()}`
+      : `Last replied ${new Date(latestReply.sentAt).toLocaleString()} from ${latestReply.from || 'Paddle Today'}`
     : '';
   return `
     <article class="admin-submission-card admin-submission-card--request" data-route-request-key="${escapeAttribute(requestKey)}">
@@ -165,6 +167,15 @@ function routeRequestMarkup(request) {
       ${request.notes ? `<div class="admin-submission-card__block"><h3>Notes</h3><p>${escapeHtml(request.notes)}</p></div>` : ''}
       ${(request.putIn || request.takeOut) ? `<div class="admin-submission-card__block"><h3>Access</h3><p>${escapeHtml([request.putIn, request.takeOut].filter(Boolean).join(' to '))}</p></div>` : ''}
       ${request.sources ? `<div class="admin-submission-card__block"><h3>Sources</h3><p>${escapeHtml(request.sources)}</p></div>` : ''}
+      ${
+        requestKey
+          ? `
+            <div class="admin-route-request-reply__actions">
+              <button class="river-inline-button" type="button" data-route-request-mark-replied>Mark replied</button>
+            </div>
+          `
+          : ''
+      }
       ${
         request.replyEmail && requestKey
           ? `
@@ -186,11 +197,11 @@ function routeRequestMarkup(request) {
               <div class="admin-route-request-reply__actions">
                 <button class="filter-chip" type="submit">Send reply</button>
               </div>
-              <p class="muted request-form__status" data-route-request-reply-status aria-live="polite"></p>
             </form>
           `
           : `<p class="muted">No reply email was provided for this request.</p>`
       }
+      <p class="muted request-form__status" data-route-request-reply-status aria-live="polite"></p>
     </article>
   `;
 }
@@ -254,8 +265,38 @@ function bindRouteRequestReplyActions() {
     card.dataset.replyBound = 'true';
     const form = card.querySelector('[data-route-request-reply-form]');
     const status = card.querySelector('[data-route-request-reply-status]');
+    const markRepliedButton = card.querySelector('[data-route-request-mark-replied]');
     const requestKey = card.dataset.routeRequestKey || '';
-    if (!(form instanceof HTMLFormElement) || !requestKey) continue;
+    if (!requestKey) continue;
+
+    if (markRepliedButton instanceof HTMLButtonElement) {
+      markRepliedButton.addEventListener('click', async () => {
+        markRepliedButton.disabled = true;
+        setStatus(status, 'Marking replied...');
+        try {
+          const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestKey)}/mark-replied`, {
+            method: 'POST',
+            headers: {
+              accept: 'application/json',
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify({ note: 'Marked replied manually' }),
+          });
+          const payload = await response.json().catch(() => ({}));
+          if (!response.ok) {
+            throw new Error(payload?.message || 'Could not mark replied.');
+          }
+          setStatus(status, 'Marked replied.', 'success');
+          await loadRouteRequests();
+        } catch (error) {
+          setStatus(status, error instanceof Error ? error.message : 'Could not mark replied.', 'error');
+        } finally {
+          markRepliedButton.disabled = false;
+        }
+      });
+    }
+
+    if (!(form instanceof HTMLFormElement)) continue;
 
     form.addEventListener('submit', async (event) => {
       event.preventDefault();

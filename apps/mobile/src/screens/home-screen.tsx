@@ -84,6 +84,7 @@ export default function HomeScreen() {
     [bestPicks, certainPicks, closestPicks, mode, scorePicks]
   );
   const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
+  const headlineMode = data[0] ? mode : 'best';
   const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
 
   useEffect(() => {
@@ -132,7 +133,7 @@ export default function HomeScreen() {
     >
       <View style={styles.headerStack}>
         <BoardHero
-          mode={mode}
+          mode={headlineMode}
           headline={headline}
           snapshot={snapshot}
           snapshotContext={snapshotContext}
@@ -568,7 +569,7 @@ function EmptyMode({
 
   return (
     <View style={styles.emptyCard}>
-      <Text style={styles.emptyTitle}>Nothing here yet</Text>
+      <Text style={styles.emptyTitle}>{emptyTitleForMode(mode, hasLocation, locationStatus)}</Text>
       <Text style={styles.emptyText}>{message}</Text>
     </View>
   );
@@ -694,6 +695,14 @@ function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'score') return 'Rivers ordered by score';
   if (mode === 'certain') return 'Highest-confidence calls';
   return 'Recommended routes';
+}
+
+function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus: string) {
+  if (mode === 'closest' && !hasLocation) {
+    return locationStatus === 'requesting' ? 'Finding nearby routes' : 'Location needed';
+  }
+
+  return 'Nothing here yet';
 }
 
 function homeFactItems(river: BoardItem) {

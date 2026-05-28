@@ -34,8 +34,8 @@ jobs:
           RIVER_ALERTS_CONTAINER_SAS_URL: ${{ secrets.RIVER_ALERTS_CONTAINER_SAS_URL }}
           RIVER_ALERTS_BLOB_PREFIX: ${{ vars.RIVER_ALERTS_BLOB_PREFIX || 'river-alerts' }}
           ALERTS_EMAIL_PROVIDER: azure
-          ALERTS_FROM_EMAIL: ${{ vars.ALERTS_FROM_EMAIL }}
-          ALERTS_REPLY_TO_EMAIL: ${{ vars.ALERTS_REPLY_TO_EMAIL }}
+          ALERTS_FROM_EMAIL: ${{ vars.ALERTS_FROM_EMAIL || 'river-alerts@paddletoday.com' }}
+          ALERTS_REPLY_TO_EMAIL: ${{ vars.ALERTS_REPLY_TO_EMAIL || 'river-alerts@paddletoday.com' }}
           ALERTS_SIGNING_SECRET: ${{ secrets.ALERTS_SIGNING_SECRET }}
           ACS_EMAIL_CONNECTION_STRING: ${{ secrets.ACS_EMAIL_CONNECTION_STRING }}
         run: |

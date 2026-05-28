@@ -88,7 +88,7 @@ export default function RiverDetailScreen() {
   const { email: storedEmail, setEmail } = useAlertPreferences();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [draftEmail, setDraftEmail] = useState(storedEmail);
-  const [alertStatus, setAlertStatus] = useState('Choose native notifications or email for route alerts.');
+  const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -716,8 +716,8 @@ export default function RiverDetailScreen() {
                   }}
                   onTakeOutChange={(point) => setSelectedTakeOutId(point.id)}
                 />
-                <AccessCard label="Put-in" point={selectedPutIn} fallback="Put-in not mapped yet." />
-                <AccessCard label="Take-out" point={selectedTakeOut} fallback="Take-out not mapped yet." />
+                <AccessCard label="Put-in" point={selectedPutIn} emptyLabel="Put-in not mapped yet." />
+                <AccessCard label="Take-out" point={selectedTakeOut} emptyLabel="Take-out not mapped yet." />
                 {accessPoints.length <= 2 ? (
                   <AccessMetrics detail={detail} distanceLabel={detail.river.distanceLabel || 'Check source'} />
                 ) : null}
@@ -755,7 +755,7 @@ export default function RiverDetailScreen() {
                 </View>
                 <View style={styles.alertCtaCopy}>
                   <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
-                  <Text style={styles.alertCtaText}>Use native notifications first, or add email as a fallback.</Text>
+                  <Text style={styles.alertCtaText}>Choose phone notifications or email for this route.</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
@@ -1411,7 +1411,7 @@ function AlertSetupSheet({
           </View>
 
           <View style={styles.alertSheetSection}>
-            <Text style={styles.alertSheetSectionTitle}>Native notifications</Text>
+            <Text style={styles.alertSheetSectionTitle}>Phone notifications</Text>
             <View style={styles.alertButtonRow}>
               {(['good', 'strong'] as const).map((threshold) => {
                 const isPending = pendingThreshold === threshold && mutationPending;
@@ -1431,12 +1431,12 @@ function AlertSetupSheet({
               })}
             </View>
             <Text style={styles.alertHelper}>
-              Native alerts open this route when tapped. Android push notifications require a development or preview build, not Expo Go.
+              {nativeAlertHelperText()}
             </Text>
           </View>
 
           <View style={styles.alertSheetSection}>
-            <Text style={styles.alertSheetSectionTitle}>Email fallback</Text>
+            <Text style={styles.alertSheetSectionTitle}>Email</Text>
             <TextInput
               autoCapitalize="none"
               autoCorrect={false}
@@ -1476,6 +1476,18 @@ function AlertSetupSheet({
   );
 }
 
+function nativeAlertHelperText() {
+  if (Platform.OS === 'android') {
+    return 'Phone alerts open this route when tapped. Android requires a development or preview build, not Expo Go.';
+  }
+
+  if (Platform.OS === 'ios') {
+    return 'Phone alerts open this route when tapped. iOS will ask for notification permission the first time you enable one.';
+  }
+
+  return 'Phone alerts open this route when tapped. Push notifications require a preview or production build.';
+}
+
 function ChecklistRow({ item }: { item: DecisionChecklistItem }) {
   return (
     <View style={styles.checklistRow}>
@@ -1493,18 +1505,18 @@ function ChecklistRow({ item }: { item: DecisionChecklistItem }) {
 function AccessCard({
   label,
   point,
-  fallback,
+  emptyLabel,
 }: {
   label: string;
   point: RiverAccessPoint | undefined;
-  fallback: string;
+  emptyLabel: string;
 }) {
   const url = mapUrlForAccessPoint(point);
 
   return (
     <View style={styles.accessCard}>
       <Text style={styles.accessLabel}>{label}</Text>
-      <Text style={styles.accessName}>{point?.name ?? fallback}</Text>
+      <Text style={styles.accessName}>{point?.name ?? emptyLabel}</Text>
       <Text style={styles.accessCoords}>
         {point?.latitude && point?.longitude
           ? `${point.latitude.toFixed(4)}, ${point.longitude.toFixed(4)}`
@@ -1984,7 +1996,7 @@ function weatherSubvalue(detail: RiverDetailApiResult) {
   return normalizeApiText(detail.weather.conditionLabel || detail.weather.rainTimingLabel || 'Today');
 }
 
-function formatHourLabel(value: string, fallback: string | null | undefined) {
+function formatHourLabel(value: string, defaultLabel: string | null | undefined) {
   const parsed = new Date(value);
   if (Number.isFinite(parsed.getTime())) {
     return parsed.toLocaleTimeString('en-US', {
@@ -1992,7 +2004,7 @@ function formatHourLabel(value: string, fallback: string | null | undefined) {
     });
   }
 
-  return fallback ? normalizeApiText(fallback) : 'Later';
+  return defaultLabel ? normalizeApiText(defaultLabel) : 'Later';
 }
 
 function formatShortTime(value: string) {

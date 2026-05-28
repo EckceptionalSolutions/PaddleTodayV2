@@ -143,7 +143,7 @@ Request intake env vars:
 Route request storage needs a container SAS with read, create, write, and list permissions. See [route request storage](./docs/route-requests.md).
 
 If request storage is not configured or the write fails, the request page falls back to opening the user's email client with a prefilled message to `routes@paddletoday.com`.
-When ACS Email and `ROUTE_REPLIES_FROM_EMAIL` are configured, the admin page can send a one-off reply to route requests that include a reply email. The sender must match a configured Azure Email sender username, such as `DoNotReply@paddletoday.com`. Local development can set `ROUTE_REPLIES_EMAIL_PROVIDER=log` to exercise the flow without sending mail.
+When ACS Email and `ROUTE_REPLIES_FROM_EMAIL` are configured, the admin page can send a one-off reply to route requests that include a reply email. The sender must match a configured Azure Email sender username, such as `route-requests@paddletoday.com`. Local development can set `ROUTE_REPLIES_EMAIL_PROVIDER=log` to exercise the flow without sending mail.
 
 Route contributions and moderation:
 

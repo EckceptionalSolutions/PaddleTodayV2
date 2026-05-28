@@ -94,6 +94,7 @@ const server = createServer(async (request, response) => {
   const isAdminContributionsPath = requestUrl.pathname === '/api/admin/route-contributions';
   const isAdminRouteRequestsPath = requestUrl.pathname === '/api/admin/route-requests';
   const adminRouteRequestReplyMatch = requestUrl.pathname.match(/^\/api\/admin\/route-requests\/(.+)\/reply$/);
+  const adminRouteRequestMarkRepliedMatch = requestUrl.pathname.match(/^\/api\/admin\/route-requests\/(.+)\/mark-replied$/);
   const isAdminRouteAuditsPath = requestUrl.pathname === '/api/admin/route-audits';
   const adminRouteAuditMatch = requestUrl.pathname.match(/^\/api\/admin\/route-audits\/([^/]+)$/);
   const isAdminStatsPath = requestUrl.pathname === '/api/admin/stats';
@@ -178,6 +179,16 @@ const server = createServer(async (request, response) => {
       requestId,
       includeBody,
       decodeURIComponent(adminRouteRequestReplyMatch[1])
+    );
+  }
+
+  if (adminRouteRequestMarkRepliedMatch && request.method === 'POST') {
+    return handleAdminRouteRequestMarkReplied(
+      request,
+      response,
+      requestId,
+      includeBody,
+      decodeURIComponent(adminRouteRequestMarkRepliedMatch[1])
     );
   }
 
@@ -1242,6 +1253,63 @@ async function handleAdminRouteRequestReply(
       response,
       502,
       { requestId, error: 'request_failed', message: error instanceof Error ? error.message : 'Could not send route request reply.' },
+      includeBody,
+      'no-store'
+    );
+  }
+}
+
+async function handleAdminRouteRequestMarkReplied(
+  request: Parameters<typeof createServer>[0],
+  response: ServerResponse,
+  requestId: string,
+  includeBody: boolean,
+  storageKey: string
+) {
+  if (!isAdminRequestAuthorized(request.headers.cookie)) {
+    return sendJson(response, 401, { requestId, error: 'unauthorized', message: 'Admin login required.' }, includeBody, 'no-store');
+  }
+
+  try {
+    const routeRequest = await getRouteRequestByStorageKey(storageKey);
+    if (!routeRequest) {
+      return sendJson(
+        response,
+        404,
+        { requestId, error: 'not_found', message: 'Route request not found.' },
+        includeBody,
+        'no-store'
+      );
+    }
+
+    const body = await readJsonBody(request).catch(() => ({}));
+    const note = clean(body?.note, 500);
+    const updated = await appendRouteRequestReply(storageKey, {
+      sentAt: new Date().toISOString(),
+      to: routeRequest.replyEmail.trim().toLowerCase(),
+      from: 'Admin',
+      subject: note || 'Marked replied manually',
+      provider: 'manual',
+      providerId: `manual_${Date.now()}`,
+    });
+
+    return sendJson(
+      response,
+      200,
+      {
+        requestId,
+        ok: true,
+        routeRequest: updated,
+      },
+      includeBody,
+      'no-store'
+    );
+  } catch (error) {
+    console.error('[admin-route-requests] mark replied failed', { requestId, error });
+    return sendJson(
+      response,
+      502,
+      { requestId, error: 'request_failed', message: error instanceof Error ? error.message : 'Could not mark route request replied.' },
       includeBody,
       'no-store'
     );

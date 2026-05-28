@@ -3,7 +3,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { Platform, Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
@@ -276,7 +276,6 @@ function FullScreenExploreMap({
           height={mapHeight}
           showFooter={false}
           fullBleed
-          markerMode={Platform.OS === 'web' ? 'score' : 'pin'}
         />
       ) : (
         <View style={[styles.fullMapEmptyCanvas, { height: mapHeight }]}>
@@ -289,7 +288,12 @@ function FullScreenExploreMap({
       <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.sm }]}>
         <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
         <View style={styles.mapUnderSearchRow}>
-          <Pressable style={[styles.mapFilterButton, activeFilterCount > 0 ? styles.mapFilterButtonActive : null]} onPress={onFilterPress}>
+          <Pressable
+            style={[styles.mapFilterButton, activeFilterCount > 0 ? styles.mapFilterButtonActive : null]}
+            onPress={onFilterPress}
+            accessibilityRole="button"
+            accessibilityLabel={activeFilterCount > 0 ? `${activeFilterCount} active filters` : 'Filters'}
+          >
             <MaterialCommunityIcons
               name="tune-variant"
               color={activeFilterCount > 0 ? colors.surfaceStrong : colors.accent}
@@ -304,7 +308,12 @@ function FullScreenExploreMap({
               </View>
             ) : null}
           </Pressable>
-          <Pressable style={styles.mapStatusChip} onPress={onRefresh}>
+          <Pressable
+            style={styles.mapStatusChip}
+            onPress={onRefresh}
+            accessibilityRole="button"
+            accessibilityLabel={`Refresh route map. ${results.length} routes, updated ${compactUpdatedLabel(generatedAt)}`}
+          >
             <Text style={styles.mapStatusChipText} numberOfLines={1}>
               {results.length} routes - {compactUpdatedLabel(generatedAt)}
             </Text>
@@ -323,13 +332,28 @@ function FullScreenExploreMap({
       ) : null}
 
       <View style={[styles.mapOverlayActions, { top: topInset + (userOutOfRange ? 210 : 154) }]}>
-        <Pressable style={styles.mapFab} onPress={() => mapRef.current?.focusSelected()}>
+        <Pressable
+          style={styles.mapFab}
+          onPress={() => mapRef.current?.focusSelected()}
+          accessibilityRole="button"
+          accessibilityLabel="Center selected route"
+        >
           <MaterialCommunityIcons name="crosshairs" color={colors.accent} size={20} />
         </Pressable>
-        <Pressable style={styles.mapFab} onPress={() => mapRef.current?.focusAll()}>
+        <Pressable
+          style={styles.mapFab}
+          onPress={() => mapRef.current?.focusAll()}
+          accessibilityRole="button"
+          accessibilityLabel="Show all routes"
+        >
           <MaterialCommunityIcons name="map-marker-multiple" color={colors.accent} size={20} />
         </Pressable>
-        <Pressable style={styles.mapFab} onPress={onFocusNearest}>
+        <Pressable
+          style={styles.mapFab}
+          onPress={onFocusNearest}
+          accessibilityRole="button"
+          accessibilityLabel="Focus nearest route"
+        >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
         </Pressable>
       </View>
@@ -339,6 +363,8 @@ function FullScreenExploreMap({
           style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
           disabled={requesting}
           onPress={onUseLocation}
+          accessibilityRole="button"
+          accessibilityLabel={requesting ? 'Finding location' : status === 'denied' ? 'Location off' : 'Use location'}
         >
           <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>
@@ -346,7 +372,12 @@ function FullScreenExploreMap({
           </Text>
         </Pressable>
       ) : (
-        <Pressable style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]} onPress={onClearLocation}>
+        <Pressable
+          style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
+          onPress={onClearLocation}
+          accessibilityRole="button"
+          accessibilityLabel="Clear current location"
+        >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>Near you</Text>
         </Pressable>

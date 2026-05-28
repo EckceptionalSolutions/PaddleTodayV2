@@ -44,7 +44,7 @@ function appName() {
 }
 
 function appVersion() {
-  return Constants.nativeApplicationVersion ?? Constants.expoConfig?.version ?? 'unknown';
+  return Constants.expoConfig?.version ?? Constants.nativeApplicationVersion ?? 'unknown';
 }
 
 function nativeBuildLabel() {

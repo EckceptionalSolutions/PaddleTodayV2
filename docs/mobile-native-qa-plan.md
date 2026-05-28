@@ -57,6 +57,17 @@ Use this before TestFlight, Google internal testing, and final MVP release.
 5. Use Directions if present.
 6. Navigate back without losing the previous tab state.
 
+## iOS Route Alerts
+
+1. Install an EAS preview build or TestFlight build on a physical iPhone. Do not use Expo Go for this check.
+2. Open any river detail page and open Route alerts.
+3. Tap a phone notification alert for Good or Strong and accept the iOS notification permission prompt.
+4. Confirm the app reports that the alert was saved.
+5. From a machine with access to the same alert store, run `npm run alert:mock-push -- --slug=<route-slug> --threshold=good`.
+6. Confirm the notification appears on the iPhone.
+7. Tap the notification and confirm it opens the matching route.
+8. Repeat with notifications denied in iOS Settings and confirm the app shows a clear settings message.
+
 ## Saved
 
 1. Start with no saved rivers and confirm the empty state is clear.

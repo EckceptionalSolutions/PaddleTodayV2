@@ -40,7 +40,12 @@ export function ExploreSearchBar({
         returnKeyType="search"
       />
       {query.trim() ? (
-        <Pressable hitSlop={10} onPress={() => onQueryChange('')}>
+        <Pressable
+          hitSlop={10}
+          onPress={() => onQueryChange('')}
+          accessibilityRole="button"
+          accessibilityLabel="Clear search"
+        >
           <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={18} />
         </Pressable>
       ) : null}
@@ -84,6 +89,8 @@ export function ExploreSortFilterBar({
       <Pressable
         style={[styles.filterButton, filterActive ? styles.filterButtonActive : null]}
         onPress={onFilterPress}
+        accessibilityRole="button"
+        accessibilityLabel={filterActive ? `${activeFilterCount} active filters` : 'Filters'}
         android_ripple={{ color: colors.canvasMuted }}
       >
         <MaterialCommunityIcons
@@ -116,6 +123,9 @@ export function ChoiceChip({
         pressed ? styles.choiceChipPressed : null,
       ]}
       onPress={onPress}
+      accessibilityRole="button"
+      accessibilityLabel={label}
+      accessibilityState={{ selected }}
       android_ripple={{ color: colors.canvasMuted }}
     >
       <Text style={[styles.choiceChipText, selected ? styles.choiceChipTextSelected : null]}>{label}</Text>

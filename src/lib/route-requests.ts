@@ -28,7 +28,7 @@ export interface RouteRequestReplyRecord {
   from: string;
   replyTo?: string;
   subject: string;
-  provider: 'azure' | 'log';
+  provider: 'azure' | 'log' | 'manual';
   providerId: string;
 }
 

@@ -95,7 +95,9 @@ export default function WeekendScreen() {
               <Text style={styles.featuredSummary}>{weekendHeroSummary(featured)}</Text>
             </View>
           ) : (
-            <Text style={styles.emptyText}>No supported weekend picks are available yet.</Text>
+            <Text style={styles.emptyText}>
+              No strong weekend picks are available right now. Use Today or Explore for current route calls and check back as the forecast changes.
+            </Text>
           )}
         </View>
       </View>
@@ -153,7 +155,7 @@ export default function WeekendScreen() {
         subtitle={
           watchList.length > 0
             ? 'Possible options to re-check as the forecast settles.'
-            : 'No maybe routes today.'
+            : 'No watch-list routes right now.'
         }
       >
         {watchList.length > 0 ? (
@@ -163,7 +165,7 @@ export default function WeekendScreen() {
             ))}
           </View>
         ) : (
-          <Text style={styles.emptyText}>No weekend routes are in the maybe range.</Text>
+          <Text style={styles.emptyText}>No weekend routes are in the maybe range right now.</Text>
         )}
       </SectionCard>
 

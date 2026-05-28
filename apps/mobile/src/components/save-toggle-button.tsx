@@ -23,6 +23,10 @@ export function SaveToggleButton({
         style={styles.compactButton}
         onPress={handlePress}
         hitSlop={10}
+        accessibilityRole="button"
+        accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
+        accessibilityHint={saved ? 'Removes this route from Saved.' : 'Adds this route to Saved.'}
+        accessibilityState={{ selected: saved }}
         android_ripple={{ color: colors.canvasMuted, borderless: true }}
       >
         <MaterialCommunityIcons
@@ -38,6 +42,10 @@ export function SaveToggleButton({
     <Pressable
       style={[styles.button, saved ? styles.buttonSaved : null]}
       onPress={handlePress}
+      accessibilityRole="button"
+      accessibilityLabel={saved ? 'Remove saved route' : 'Save route'}
+      accessibilityHint={saved ? 'Removes this route from Saved.' : 'Adds this route to Saved.'}
+      accessibilityState={{ selected: saved }}
       android_ripple={{ color: colors.accentSoft }}
     >
       <View style={styles.row}>

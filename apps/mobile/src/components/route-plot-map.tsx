@@ -1,5 +1,5 @@
 import type { default as NativeMapView } from 'react-native-maps';
-import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react';
 import { Platform, Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -41,13 +41,17 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 }, ref) {
   const bounds = getBounds(points, userLocation);
   const visiblePoints = points.filter(isFinitePoint);
+  const nativeMarkerPoints = useMemo(
+    () => [...visiblePoints].sort(compareMapPointIds),
+    [visiblePoints]
+  );
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
   const nativeMaps = getNativeMaps();
   const mapRef = useRef<NativeMapView | null>(null);
   const previousSelectedIdRef = useRef<string | null | undefined>(selectedId);
   const previousPointSignatureRef = useRef<string | null>(null);
   const initialRegion = regionFromBounds(bounds);
-  const pointSignature = visiblePoints.map((point) => point.id).join('|');
+  const pointSignature = nativeMarkerPoints.map((point) => point.id).join('|');
   const [regionDelta, setRegionDelta] = useState({
     latitudeDelta: initialRegion.latitudeDelta,
     longitudeDelta: initialRegion.longitudeDelta,
@@ -163,7 +167,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             </Marker>
           ) : null}
 
-          {visiblePoints.map((point) => {
+          {nativeMarkerPoints.map((point) => {
             const selected = point.id === selectedId;
             const dimmed = Boolean(selectedId && !selected);
             const showScore = selected || showScoreMarkers;
@@ -182,7 +186,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
 
             return (
               <Marker
-                key={`${point.id}-${selected ? 'selected' : 'idle'}-${showScore ? 'score' : 'dot'}`}
+                key={point.id}
                 coordinate={{ latitude: point.latitude, longitude: point.longitude }}
                 onPress={() => onSelectPoint?.(point)}
                 zIndex={selected ? 10 : 1}
@@ -310,6 +314,10 @@ function LegendDot({ color, label }: { color: string; label: string }) {
 
 function isFinitePoint(point: RoutePlotPoint) {
   return Number.isFinite(point.latitude) && Number.isFinite(point.longitude);
+}
+
+function compareMapPointIds(left: RoutePlotPoint, right: RoutePlotPoint) {
+  return left.id.localeCompare(right.id);
 }
 
 function getBounds(

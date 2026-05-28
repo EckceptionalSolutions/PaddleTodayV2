@@ -61,7 +61,15 @@ export function ExploreRouteDrawer({
             </Text>
           </View>
         </View>
-        <Pressable style={styles.mapPreviewSave} onPress={() => onToggleSaved(selectedRiver)} hitSlop={8}>
+        <Pressable
+          style={styles.mapPreviewSave}
+          onPress={() => onToggleSaved(selectedRiver)}
+          hitSlop={8}
+          accessibilityRole="button"
+          accessibilityLabel={isSaved(selectedRiver.river.slug) ? 'Remove saved route' : 'Save route'}
+          accessibilityHint={isSaved(selectedRiver.river.slug) ? 'Removes this route from Saved.' : 'Adds this route to Saved.'}
+          accessibilityState={{ selected: isSaved(selectedRiver.river.slug) }}
+        >
           <MaterialCommunityIcons
             name={isSaved(selectedRiver.river.slug) ? 'bookmark' : 'bookmark-outline'}
             color={colors.accent}
@@ -87,15 +95,30 @@ export function ExploreRouteDrawer({
         </View>
       ) : null}
       <View style={styles.mapSheetActions}>
-        <Pressable style={styles.mapPreviewOpenButton} onPress={() => onOpenRoute(selectedRiver.river.slug)}>
+        <Pressable
+          style={styles.mapPreviewOpenButton}
+          onPress={() => onOpenRoute(selectedRiver.river.slug)}
+          accessibilityRole="button"
+          accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
+        >
           <Text style={styles.mapPreviewOpenText}>Open route</Text>
         </Pressable>
         {selectedDirectionsUrl ? (
-          <Pressable style={styles.mapDirectionsButton} onPress={() => void Linking.openURL(selectedDirectionsUrl)}>
+          <Pressable
+            style={styles.mapDirectionsButton}
+            onPress={() => void Linking.openURL(selectedDirectionsUrl)}
+            accessibilityRole="button"
+            accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
+          >
             <MaterialCommunityIcons name="directions" color={colors.accent} size={19} />
           </Pressable>
         ) : null}
-        <Pressable style={styles.mapSheetSnapButton} onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}>
+        <Pressable
+          style={styles.mapSheetSnapButton}
+          onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
+          accessibilityRole="button"
+          accessibilityLabel={sheetSnap === 'full' ? 'Collapse route drawer' : 'Expand route drawer'}
+        >
           <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
         </Pressable>
       </View>

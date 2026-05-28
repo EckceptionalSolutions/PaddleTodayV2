@@ -1,6 +1,6 @@
 import type { RiverDetailApiResult, ScoreBreakdown } from '@paddletoday/api-contract';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
@@ -14,6 +14,8 @@ export default function RiverHubScreen() {
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const [expandedRoutes, setExpandedRoutes] = useState<Set<string>>(() => new Set());
+  const [selectedRouteSlug, setSelectedRouteSlug] = useState<string | null>(null);
+  const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
   const result = groupQuery.data?.result ?? null;
@@ -21,6 +23,21 @@ export default function RiverHubScreen() {
   const bestRoute = useMemo(() => [...allRoutes].sort(compareBestRoute)[0] ?? null, [allRoutes]);
   const routes = useMemo(() => [...allRoutes].sort(compareBestRoute), [allRoutes]);
   const routePoints = useMemo(() => routeMapPoints(allRoutes), [allRoutes]);
+
+  useEffect(() => {
+    if (routes.length === 0) {
+      setSelectedRouteSlug(null);
+      return;
+    }
+
+    setSelectedRouteSlug((current) => {
+      if (current && routes.some((route) => route.river.slug === current)) {
+        return current;
+      }
+
+      return bestRoute?.river.slug ?? routes[0].river.slug;
+    });
+  }, [bestRoute?.river.slug, routes]);
 
   if (!riverId) {
     return (
@@ -67,12 +84,21 @@ export default function RiverHubScreen() {
     });
   }
 
+  function selectRouteFromMap(slug: string) {
+    setSelectedRouteSlug(slug);
+    const index = routes.findIndex((route) => route.river.slug === slug);
+    if (index >= 0) {
+      listRef.current?.scrollToIndex({ index, animated: true, viewPosition: 0.2 });
+    }
+  }
+
   function renderRoute({ item: route, index }: { item: RiverDetailApiResult; index: number }) {
     return (
       <RouteChoiceCard
         route={route}
         rank={index + 1}
         recommended={index === 0}
+        selected={route.river.slug === selectedRouteSlug}
         expanded={expandedRoutes.has(route.river.slug)}
         onToggleExpanded={() => toggleExpandedRoute(route.river.slug)}
         onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
@@ -84,6 +110,7 @@ export default function RiverHubScreen() {
     <>
       <Stack.Screen options={{ title: result.group.name }} />
       <FlatList
+        ref={listRef}
         data={routes}
         keyExtractor={(route) => route.river.slug}
         renderItem={renderRoute}
@@ -93,6 +120,12 @@ export default function RiverHubScreen() {
         maxToRenderPerBatch={6}
         windowSize={7}
         removeClippedSubviews
+        onScrollToIndexFailed={({ index, averageItemLength }) => {
+          listRef.current?.scrollToOffset({
+            offset: Math.max(0, averageItemLength * index),
+            animated: true,
+          });
+        }}
         refreshControl={
           <RefreshControl
             tintColor={colors.accent}
@@ -124,7 +157,14 @@ export default function RiverHubScreen() {
           <View style={styles.footerSection}>
             <SectionCard title="Route score map" subtitle="Approximate put-ins by today's score.">
               <View style={styles.mapFrame}>
-                <RoutePlotMap points={routePoints} selectedId={bestRoute?.river.slug ?? null} height={158} showFooter={false} fullBleed />
+                <RoutePlotMap
+                  points={routePoints}
+                  selectedId={selectedRouteSlug}
+                  height={158}
+                  showFooter={false}
+                  fullBleed
+                  onSelectPoint={(point) => selectRouteFromMap(point.id)}
+                />
               </View>
             </SectionCard>
           </View>
@@ -138,6 +178,7 @@ function RouteChoiceCard({
   route,
   rank,
   recommended = false,
+  selected,
   expanded,
   onToggleExpanded,
   onOpen,
@@ -145,12 +186,13 @@ function RouteChoiceCard({
   route: RiverDetailApiResult;
   rank?: number;
   recommended?: boolean;
+  selected: boolean;
   expanded: boolean;
   onToggleExpanded: () => void;
   onOpen: () => void;
 }) {
   return (
-    <View style={[styles.routeCard, recommended ? styles.routeCardRecommended : null]}>
+    <View style={[styles.routeCard, recommended ? styles.routeCardRecommended : null, selected ? styles.routeCardSelected : null]}>
       <Pressable style={styles.routeMainRow} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
         <View style={styles.routeThumb}>
           <ImageBackground
@@ -493,6 +535,9 @@ const styles = StyleSheet.create({
   routeCardRecommended: {
     backgroundColor: colors.accentSoft,
     borderColor: '#BFD6CC',
+  },
+  routeCardSelected: {
+    borderColor: colors.accent,
   },
   routeMainRow: {
     flexDirection: 'row',

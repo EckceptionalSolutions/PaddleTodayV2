@@ -16,6 +16,7 @@
     "dev": "astro dev",
     "typecheck": "node scripts/typecheck.mjs",
     "alert:mock-email": "tsx scripts/send-mock-river-alert.ts",
+    "alert:mock-push": "tsx scripts/send-mock-river-push.ts",
     "build": "npm run typecheck && astro build",
     "preview": "npm run build && npm run serve",
     "preview:local": "npm run build && npm run serve:local",
