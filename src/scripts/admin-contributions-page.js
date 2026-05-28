@@ -129,8 +129,16 @@ function contributionCardMarkup(submission) {
 
 function routeRequestMarkup(request) {
   const submitted = request.submittedAt ? new Date(request.submittedAt).toLocaleString() : 'Unknown time';
+  const requestKey = typeof request._blobName === 'string' ? request._blobName : '';
+  const subject = `Re: Paddle Today route request - ${request.routeName || 'requested route'}`;
+  const defaultMessage = `Hi,\n\nThanks for sending this route request. I wanted to follow up from Paddle Today.\n\n`;
+  const replies = Array.isArray(request.replies) ? request.replies : [];
+  const latestReply = replies.length > 0 ? replies[replies.length - 1] : null;
+  const latestReplyLine = latestReply?.sentAt
+    ? `Last replied ${new Date(latestReply.sentAt).toLocaleString()} from ${latestReply.from || 'Paddle Today'}`
+    : '';
   return `
-    <article class="admin-submission-card admin-submission-card--request">
+    <article class="admin-submission-card admin-submission-card--request" data-route-request-key="${escapeAttribute(requestKey)}">
       <header class="admin-submission-card__head">
         <div>
           <p class="eyebrow">${escapeHtml(request.state || 'State not set')}</p>
@@ -141,6 +149,32 @@ function routeRequestMarkup(request) {
       ${request.notes ? `<div class="admin-submission-card__block"><h3>Notes</h3><p>${escapeHtml(request.notes)}</p></div>` : ''}
       ${(request.putIn || request.takeOut) ? `<div class="admin-submission-card__block"><h3>Access</h3><p>${escapeHtml([request.putIn, request.takeOut].filter(Boolean).join(' to '))}</p></div>` : ''}
       ${request.sources ? `<div class="admin-submission-card__block"><h3>Sources</h3><p>${escapeHtml(request.sources)}</p></div>` : ''}
+      ${
+        request.replyEmail && requestKey
+          ? `
+            <form class="admin-route-request-reply" data-route-request-reply-form>
+              <div class="admin-route-request-reply__head">
+                <div>
+                  <h3>Reply from Paddle Today</h3>
+                  <p class="muted">${escapeHtml(latestReplyLine || 'Send a one-off reply using Azure Communication Services Email.')}</p>
+                </div>
+              </div>
+              <label>
+                Subject
+                <input type="text" name="subject" maxlength="180" value="${escapeAttribute(subject)}" required />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows="6" required>${escapeHtml(defaultMessage)}</textarea>
+              </label>
+              <div class="admin-route-request-reply__actions">
+                <button class="filter-chip" type="submit">Send reply</button>
+              </div>
+              <p class="muted request-form__status" data-route-request-reply-status aria-live="polite"></p>
+            </form>
+          `
+          : `<p class="muted">No reply email was provided for this request.</p>`
+      }
     </article>
   `;
 }
@@ -190,7 +224,51 @@ async function loadRouteRequests() {
   const requests = Array.isArray(payload?.requests) ? payload.requests : [];
   routeRequestsPanel.hidden = false;
   routeRequestsList.innerHTML = requests.length ? requests.map(routeRequestMarkup).join('') : '<p class="muted">No route requests yet.</p>';
+  bindRouteRequestReplyActions();
   setStatus(routeRequestsStatus, `${requests.length} route request${requests.length === 1 ? '' : 's'} loaded.`, 'success');
+}
+
+function bindRouteRequestReplyActions() {
+  if (!(routeRequestsList instanceof HTMLElement)) return;
+  const cards = Array.from(routeRequestsList.querySelectorAll('[data-route-request-key]'));
+  for (const card of cards) {
+    if (!(card instanceof HTMLElement) || card.dataset.replyBound === 'true') continue;
+    card.dataset.replyBound = 'true';
+    const form = card.querySelector('[data-route-request-reply-form]');
+    const status = card.querySelector('[data-route-request-reply-status]');
+    const requestKey = card.dataset.routeRequestKey || '';
+    if (!(form instanceof HTMLFormElement) || !requestKey) continue;
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = form.querySelector('button[type="submit"]');
+      const formData = new FormData(form);
+      const subject = String(formData.get('subject') || '').trim();
+      const message = String(formData.get('message') || '').trim();
+      if (submitButton instanceof HTMLButtonElement) submitButton.disabled = true;
+      setStatus(status, 'Sending reply...');
+      try {
+        const response = await fetch(`/api/admin/route-requests/${encodeURIComponent(requestKey)}/reply`, {
+          method: 'POST',
+          headers: {
+            accept: 'application/json',
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify({ subject, message }),
+        });
+        const payload = await response.json().catch(() => ({}));
+        if (!response.ok) {
+          throw new Error(payload?.message || 'Could not send reply.');
+        }
+        setStatus(status, payload?.provider === 'log' ? 'Reply logged locally.' : 'Reply sent.', 'success');
+        await loadRouteRequests();
+      } catch (error) {
+        setStatus(status, error instanceof Error ? error.message : 'Could not send reply.', 'error');
+      } finally {
+        if (submitButton instanceof HTMLButtonElement) submitButton.disabled = false;
+      }
+    });
+  }
 }
 
 async function loadRouteAudits() {

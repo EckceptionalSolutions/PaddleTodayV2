@@ -135,8 +135,13 @@ Request intake env vars:
 - `ROUTE_CONTRIBUTIONS_BLOB_PREFIX`
 - `PADDLETODAY_ADMIN_PASSWORD`
 - `PADDLETODAY_ADMIN_SESSION_SECRET`
+- `ACS_EMAIL_CONNECTION_STRING`
+- `ROUTE_REPLIES_FROM_EMAIL`
+- `ROUTE_REPLIES_REPLY_TO_EMAIL` (optional)
+- `ROUTE_REPLIES_EMAIL_PROVIDER` (optional, `azure` or `log`)
 
 If request storage is not configured or the write fails, the request page falls back to opening the user's email client with a prefilled message to `routes@paddletoday.com`.
+When ACS Email and `ROUTE_REPLIES_FROM_EMAIL` are configured, the admin page can send a one-off reply to route requests that include a reply email. Local development can set `ROUTE_REPLIES_EMAIL_PROVIDER=log` to exercise the flow without sending mail.
 
 Route contributions and moderation:
 

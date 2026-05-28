@@ -17,8 +17,8 @@ const { group } = Astro.props;
 const stateSummary = group.states.join(', ');
 const regionSummary = group.regions.join(', ');
 const routeLabel = group.routeCount === 1 ? 'route' : 'routes';
-const heroLede = `Compare ${group.routeCount} scored ${group.name} ${routeLabel}, including water-level context, live route scores, weather, access, and difficulty.`;
-const heroDetail = `These reaches share a river, not a verdict. Gauge fit, access, and difficulty can change from one stretch to the next.`;
+const heroLede = `There are ${group.routeCount} ${group.name} ${routeLabel} scored right now. Use this page to choose the stretch that fits today's water, weather, access, distance, and difficulty.`;
+const heroDetail = `The routes share a river, but each stretch gets its own call. Start with the cards below, then open the route you are considering for launch details.`;
 const groupTitle = `${group.name} Water Levels, Paddle Conditions & Routes | Paddle Today`;
 const groupDescription = `Compare ${group.name} paddle routes with current water levels, Paddle Today scores, weather, access details, and route difficulty.`;
 const gaugeNames = [...new Set(group.routes.map((route) => route.gaugeSource.siteName))];
@@ -26,7 +26,7 @@ const difficultyLabels = [...new Set(group.routes.map((route) => route.profile.d
   .map((difficulty) => difficulty.charAt(0).toUpperCase() + difficulty.slice(1))
   .sort();
 const routeDistanceLabels = group.routes.map((route) => route.logistics?.distanceLabel).filter(Boolean);
-const riverHubIntro = `Use this ${group.name} hub to compare routes on the same river before you choose a paddle plan. Each route has its own score because water level, weather, access, distance, and difficulty can vary by stretch.`;
+const routeListClass = `river-group-page__route-list${group.routeCount <= 2 ? ' river-group-page__route-list--compact' : ''}`;
 const faqItems = [
   {
     question: `Where can I paddle the ${group.name}?`,
@@ -96,17 +96,7 @@ const groupStructuredData = [
         <p class="muted river-group-page__summary" data-group-detail>
           {heroDetail}
         </p>
-        <p class="muted river-group-page__summary river-group-page__summary--seo">
-          {riverHubIntro}
-        </p>
 
-        <div class="hero__meta river-group-page__meta">
-          <span class="stat-chip">{group.routeCount} routes</span>
-          <span class="stat-chip">{gaugeNames.length} {gaugeNames.length === 1 ? 'gauge reference' : 'gauge references'}</span>
-          {difficultyLabels.length > 0 ? <span class="stat-chip">{difficultyLabels.join(' / ')} difficulty</span> : null}
-          {routeDistanceLabels.length > 0 ? <span class="stat-chip">{routeDistanceLabels.length} route distances</span> : null}
-          <span class="stat-chip">Each route is scored separately</span>
-        </div>
         <div class="river-group-page__actions">
           <button class="filter-chip" type="button" data-group-refresh>
             Refresh river
@@ -114,6 +104,13 @@ const groupStructuredData = [
           <p class="muted river-group-page__refresh-note" data-group-refresh-note>
             Auto-refreshes every 5 minutes.
           </p>
+        </div>
+        <div class="hero__meta river-group-page__meta">
+          <span class="stat-chip">{group.routeCount} routes</span>
+          <span class="stat-chip">{gaugeNames.length} {gaugeNames.length === 1 ? 'gauge reference' : 'gauge references'}</span>
+          {difficultyLabels.length > 0 ? <span class="stat-chip">{difficultyLabels.join(' / ')} difficulty</span> : null}
+          {routeDistanceLabels.length > 0 ? <span class="stat-chip">{routeDistanceLabels.length} route distances</span> : null}
+          <span class="stat-chip">Separate calls by stretch</span>
         </div>
       </div>
     </section>
@@ -142,7 +139,7 @@ const groupStructuredData = [
         </p>
       </div>
 
-      <div class="river-group-page__route-list" data-group-route-list>
+      <div class={routeListClass} data-group-route-list>
         {group.routes.map((route) => (
           <article
             class="route-choice"
@@ -197,6 +194,37 @@ const groupStructuredData = [
       </div>
     </section>
 
+    <section class="river-group-page__panel river-group-page__panel--map">
+      <div class="river-group-page__section-head river-group-page__section-head--map">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="map" size={16} />
+            Route map
+          </p>
+          <h2 class="section-title">See the route locations</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Starts and finishes for each stretch.
+        </p>
+        <button
+          class="filter-chip river-group-page__map-toggle"
+          type="button"
+          data-group-map-toggle
+          hidden
+          aria-expanded="true"
+        >
+          Hide map
+        </button>
+      </div>
+
+      <div class="river-group-page__map-shell">
+        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
+        <p class="muted river-group-page__map-status" data-group-map-status>
+          Loading route map.
+        </p>
+      </div>
+    </section>
+
     <section class="river-group-page__panel river-hub-context" aria-labelledby="river-hub-context-title">
       <div class="river-group-page__section-head">
         <div>
@@ -207,7 +235,7 @@ const groupStructuredData = [
           <h2 class="section-title" id="river-hub-context-title">{group.name} paddle planning</h2>
         </div>
         <p class="muted river-group-page__section-note">
-          Pick the route first, then confirm the same-day details.
+          What to verify before you commit.
         </p>
       </div>
 
@@ -234,37 +262,6 @@ const groupStructuredData = [
               : `Difficulty varies by stretch, water level, weather, and access logistics.`}
           </p>
         </article>
-      </div>
-    </section>
-
-    <section class="river-group-page__panel river-group-page__panel--map">
-      <div class="river-group-page__section-head river-group-page__section-head--map">
-        <div>
-          <p class="eyebrow section-label">
-            <FeatureIcon name="map" size={16} />
-            Route map
-          </p>
-          <h2 class="section-title">Where these routes sit</h2>
-        </div>
-        <p class="muted river-group-page__section-note">
-          Starts and finishes for each route.
-        </p>
-        <button
-          class="filter-chip river-group-page__map-toggle"
-          type="button"
-          data-group-map-toggle
-          hidden
-          aria-expanded="true"
-        >
-          Hide map
-        </button>
-      </div>
-
-      <div class="river-group-page__map-shell">
-        <div class="river-group-page__map" data-group-map aria-label={`${group.name} route map`}></div>
-        <p class="muted river-group-page__map-status" data-group-map-status>
-          Loading route map.
-        </p>
       </div>
     </section>
 

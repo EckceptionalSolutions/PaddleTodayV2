@@ -1,5 +1,6 @@
 import { useRef, type PropsWithChildren } from 'react';
 import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { ChoiceChip, isExploreSort, sortOptions, type ExploreSort } from './explore-controls';
 import { isRecord } from '../lib/storage';
@@ -227,10 +228,10 @@ function FilterPanel({
 
       <FilterGroup title="Quick picks">
         {presetOptions.map((preset) => (
-          <ChoiceChip
+          <PresetChip
             key={preset.id}
             label={preset.label}
-            selected={false}
+            selected={presetIsActive(preset.id, filters, locationReady)}
             onPress={() => onApplyPreset((current) => preset.apply(current, { locationReady }))}
           />
         ))}
@@ -325,6 +326,29 @@ function FilterGroup({ title, children }: PropsWithChildren<{ title: string }>) 
       <Text style={styles.filterGroupTitle}>{title}</Text>
       <View style={styles.chipWrap}>{children}</View>
     </View>
+  );
+}
+
+function PresetChip({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  return (
+    <Pressable
+      style={({ pressed }) => [
+        styles.presetChip,
+        selected ? styles.presetChipSelected : null,
+        pressed ? styles.presetChipPressed : null,
+      ]}
+      onPress={onPress}
+      android_ripple={{ color: colors.accentSoft }}
+    >
+      <View style={[styles.presetIcon, selected ? styles.presetIconSelected : null]}>
+        <MaterialCommunityIcons
+          name={selected ? 'check' : 'lightning-bolt-outline'}
+          color={selected ? colors.accent : colors.accentDeep}
+          size={14}
+        />
+      </View>
+      <Text style={[styles.presetChipText, selected ? styles.presetChipTextSelected : null]}>{label}</Text>
+    </Pressable>
   );
 }
 
@@ -434,6 +458,34 @@ function parsePaddleHours(label: string) {
 
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
+}
+
+function presetIsActive(id: string, filters: ExploreFilters, locationReady: boolean) {
+  if (id === 'quick-float') {
+    return (
+      filters.difficulty === 'easy' &&
+      filters.routeType === 'non-whitewater' &&
+      filters.paddleTime === 'up-to-3' &&
+      filters.rating === 'any' &&
+      filters.sort === 'best'
+    );
+  }
+
+  if (id === 'full-day') {
+    return (
+      filters.difficulty === 'any' &&
+      filters.routeType === 'all' &&
+      filters.paddleTime === '5-to-7' &&
+      filters.rating === 'Good' &&
+      filters.sort === 'score'
+    );
+  }
+
+  if (id === 'best-nearby') {
+    return filters.distance === (locationReady ? '100' : 'any') && filters.rating === 'Good' && filters.sort === 'nearest';
+  }
+
+  return false;
 }
 
 const styles = StyleSheet.create({
@@ -560,6 +612,44 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
+  },
+  presetChip: {
+    minHeight: 44,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: '#BFD6CC',
+    backgroundColor: colors.accentSoft,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  presetChipPressed: {
+    opacity: 0.82,
+  },
+  presetChipSelected: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  presetIcon: {
+    width: 22,
+    height: 22,
+    borderRadius: 11,
+    backgroundColor: colors.surfaceStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  presetIconSelected: {
+    backgroundColor: colors.surfaceStrong,
+  },
+  presetChipText: {
+    color: colors.accentDeep,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  presetChipTextSelected: {
+    color: colors.surfaceStrong,
   },
   activeFilters: {
     gap: spacing.sm,

@@ -3638,10 +3638,6 @@ body.site-search-open {
   gap: 1rem;
 }
 
-.river-group-page__summary--seo {
-  max-width: 48rem;
-}
-
 .river-hub-context__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -7454,6 +7450,11 @@ body.site-search-open {
   gap: 0.7rem;
 }
 
+.river-group-page__route-list--compact {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 45rem;
+}
+
 .river-group-page__map-shell {
   display: grid;
   gap: 0.45rem;
@@ -7696,6 +7697,10 @@ body.site-search-open {
 
   .river-group-page__route-list {
     grid-template-columns: 1fr;
+  }
+
+  .river-group-page__route-list--compact {
+    max-width: none;
   }
 }
 
@@ -9846,10 +9851,6 @@ body.site-search-open {
     font-size: 0.8rem;
   }
 
-  .river-group-page__panel--map {
-    order: 4;
-  }
-
   .river-group-page__section-head {
     margin-bottom: 0.62rem;
   }
@@ -10537,10 +10538,6 @@ body.site-search-open {
 
   .river-group-page__refresh-note {
     font-size: 0.77rem;
-  }
-
-  .river-group-page__panel--map {
-    order: 4;
   }
 
   .river-group-page__section-head {
@@ -13790,6 +13787,33 @@ body.site-search-open {
 .admin-submission-card__photo figcaption {
   font-size: 0.82rem;
   color: var(--muted);
+}
+
+.admin-route-request-reply {
+  display: grid;
+  gap: 0.75rem;
+  padding: 0.85rem;
+  border: 1px solid rgba(16, 35, 45, 0.08);
+  border-radius: 18px;
+  background: rgba(244, 250, 252, 0.72);
+}
+
+.admin-route-request-reply__head,
+.admin-route-request-reply__actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: start;
+}
+
+.admin-route-request-reply h3,
+.admin-route-request-reply p {
+  margin: 0;
+}
+
+.admin-route-request-reply textarea {
+  min-height: 9rem;
+  resize: vertical;
 }
 
 .route-community__list {

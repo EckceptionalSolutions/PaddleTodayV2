@@ -1,4 +1,4 @@
-import { readFile, readdir } from 'node:fs/promises';
+import { readFile, readdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { isOptionalString, isRecord, isString, safeParseJson } from './json-guards';
 
@@ -18,7 +18,18 @@ export interface RouteRequestRecord {
     ua?: string;
     referer?: string;
   };
+  replies?: RouteRequestReplyRecord[];
   _blobName?: string;
+}
+
+export interface RouteRequestReplyRecord {
+  sentAt: string;
+  to: string;
+  from: string;
+  replyTo?: string;
+  subject: string;
+  provider: 'azure' | 'log';
+  providerId: string;
 }
 
 type BlobContainer = {
@@ -49,6 +60,7 @@ function isRouteRequestRecord(value: unknown): value is RouteRequestRecord {
     isString(value.notes) &&
     isString(value.replyEmail) &&
     (value.meta === undefined || isRouteRequestMeta(value.meta)) &&
+    (value.replies === undefined || Array.isArray(value.replies)) &&
     (value._blobName === undefined || isString(value._blobName))
   );
 }
@@ -62,18 +74,22 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
       blobNames
         .filter((name) => name.endsWith('.json'))
         .map(async (blobName) => {
-          const response = await fetch(blobUrl(container, blobName), {
-            method: 'GET',
-            headers: { accept: 'application/json' },
-        });
-        if (!response.ok) return null;
-        const payload: unknown = await response.json();
-        if (!isRouteRequestRecord(payload)) {
-          throw new Error(`Invalid route request blob ${blobName}`);
-        }
-        payload._blobName = blobName;
-        return payload;
-      })
+          try {
+            const response = await fetch(blobUrl(container, blobName), {
+              method: 'GET',
+              headers: { accept: 'application/json' },
+            });
+            if (!response.ok) return null;
+            const payload: unknown = await response.json();
+            if (!isRouteRequestRecord(payload)) {
+              return null;
+            }
+            payload._blobName = blobName;
+            return payload;
+          } catch {
+            return null;
+          }
+        })
     );
     return items.filter((item): item is RouteRequestRecord => item !== null).sort(sortNewestFirst);
   }
@@ -95,6 +111,31 @@ export async function listRouteRequests(): Promise<RouteRequestRecord[]> {
     })
   );
   return items.filter((item): item is RouteRequestRecord => item !== null).sort(sortNewestFirst);
+}
+
+export async function getRouteRequestByStorageKey(storageKey: string): Promise<RouteRequestRecord | null> {
+  const requests = await listRouteRequests();
+  return requests.find((request) => request._blobName === storageKey) ?? null;
+}
+
+export async function appendRouteRequestReply(storageKey: string, reply: RouteRequestReplyRecord): Promise<RouteRequestRecord> {
+  const routeRequest = await getRouteRequestByStorageKey(storageKey);
+  if (!routeRequest) {
+    throw new Error('Route request not found.');
+  }
+
+  const next: RouteRequestRecord = {
+    ...routeRequest,
+    replies: [...(Array.isArray(routeRequest.replies) ? routeRequest.replies : []), reply],
+  };
+  delete next._blobName;
+
+  await writeRouteRequest(storageKey, next);
+
+  return {
+    ...next,
+    _blobName: storageKey,
+  };
 }
 
 async function listLocalJsonFiles(dir: string): Promise<string[]> {
@@ -145,6 +186,26 @@ function parseContainerSas(value: string): BlobContainer | null {
 
 function blobUrl(container: BlobContainer, blobName: string) {
   return `${container.base}/${blobName}${container.query}`;
+}
+
+async function writeRouteRequest(storageKey: string, routeRequest: RouteRequestRecord) {
+  const container = parseContainerSas(process.env.ROUTE_REQUESTS_CONTAINER_SAS_URL || '');
+  if (container) {
+    const response = await fetch(blobUrl(container, storageKey), {
+      method: 'PUT',
+      headers: {
+        'x-ms-blob-type': 'BlockBlob',
+        'content-type': 'application/json; charset=utf-8',
+      },
+      body: JSON.stringify(routeRequest, null, 2),
+    });
+    if (!response.ok) {
+      throw new Error(`Failed to update route request blob: HTTP ${response.status}`);
+    }
+    return;
+  }
+
+  await writeFile(storageKey, JSON.stringify(routeRequest, null, 2), 'utf8');
 }
 
 function cleanPathSegment(value: string) {

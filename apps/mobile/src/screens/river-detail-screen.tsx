@@ -22,6 +22,7 @@ import {
   Pressable,
   RefreshControl,
   ScrollView,
+  Share,
   StyleProp,
   StyleSheet,
   Text,
@@ -101,6 +102,7 @@ export default function RiverDetailScreen() {
   const [reportStatus, setReportStatus] = useState('Reports are reviewed before they appear on Paddle Today.');
   const [activeSection, setActiveSection] = useState<DetailSection>('Today');
   const [reportSheetVisible, setReportSheetVisible] = useState(false);
+  const [alertSheetVisible, setAlertSheetVisible] = useState(false);
   const [selectedPutInId, setSelectedPutInId] = useState<string | null>(null);
   const [selectedTakeOutId, setSelectedTakeOutId] = useState<string | null>(null);
 
@@ -440,18 +442,34 @@ export default function RiverDetailScreen() {
                   <Text style={styles.kicker}>{detail.river.name}</Text>
                   <Text style={styles.title}>{detail.river.reach}</Text>
                 </View>
-                <SaveToggleButton
-                  compact
-                  saved={isSaved(detail.river.slug)}
-                  onPress={() =>
-                    void toggleSavedRiver({
-                      slug: detail.river.slug,
-                      riverId: detail.river.riverId,
-                      name: detail.river.name,
-                      reach: detail.river.reach,
-                    })
-                  }
-                />
+                <View style={styles.heroActions}>
+                  <HeroIconButton
+                    icon="bell-outline"
+                    selected={alertSheetVisible}
+                    accessibilityLabel="Set route alert"
+                    onPress={() => {
+                      trackAppEvent('route_alert_sheet_opened', { slug: riverSlug, source: 'hero' });
+                      setAlertSheetVisible(true);
+                    }}
+                  />
+                  <HeroIconButton
+                    icon="share-variant-outline"
+                    accessibilityLabel="Share route"
+                    onPress={() => void shareRoute(detail)}
+                  />
+                  <SaveToggleButton
+                    compact
+                    saved={isSaved(detail.river.slug)}
+                    onPress={() =>
+                      void toggleSavedRiver({
+                        slug: detail.river.slug,
+                        riverId: detail.river.riverId,
+                        name: detail.river.name,
+                        reach: detail.river.reach,
+                      })
+                    }
+                  />
+                </View>
               </View>
               <Text style={styles.subtitle}>
                 {verdictForRating(detail.rating)} - {detailMessageForRating(detail.rating)}
@@ -723,59 +741,24 @@ export default function RiverDetailScreen() {
 
             <SectionCard
               title="Route alerts"
-              subtitle="Get alerts when this route improves. Native alerts require notification permission."
+              subtitle="Get a notification when this route improves."
             >
-              <View style={styles.alertButtonRow}>
-                {(['good', 'strong'] as const).map((threshold) => {
-                  const isPending = pendingThreshold === threshold && createAlertMutation.isPending;
-                  return (
-                    <Pressable
-                      key={`native-${threshold}`}
-                      style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
-                      disabled={isPending}
-                      onPress={() => void submitNativeRiverAlert(threshold)}
-                    >
-                      <Text style={styles.alertButtonText}>
-                        {isPending ? 'Saving...' : `Native at ${alertThresholdLabel(threshold)}`}
-                      </Text>
-                    </Pressable>
-                  );
-                })}
-              </View>
-              <Text style={styles.alertHelper}>
-                Native alerts open this route when tapped. Android push notifications require a development or preview build, not Expo Go.
-              </Text>
-              <Text style={styles.alertEmailLabel}>Email fallback</Text>
-              <TextInput
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                placeholder="you@example.com"
-                placeholderTextColor={colors.textMuted}
-                style={styles.alertInput}
-                value={draftEmail}
-                onChangeText={setDraftEmail}
-              />
-              <View style={styles.alertButtonRow}>
-                {(['good', 'strong'] as const).map((threshold) => {
-                  const isPending = pendingThreshold === threshold;
-                  return (
-                    <Pressable
-                      key={threshold}
-                      style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
-                      disabled={isPending}
-                      onPress={() => void submitRiverAlert(threshold)}
-                    >
-                      <Text style={styles.alertButtonText}>
-                        {isPending ? 'Saving...' : `Notify at ${alertThresholdLabel(threshold)}`}
-                      </Text>
-                    </Pressable>
-                  );
-                })}
-              </View>
-              <Text style={styles.alertHelper}>
-                Your email is used for route alerts and stored locally on this device for the next alert form.
-              </Text>
+              <Pressable
+                style={styles.alertCta}
+                onPress={() => {
+                  trackAppEvent('route_alert_sheet_opened', { slug: riverSlug, source: 'access' });
+                  setAlertSheetVisible(true);
+                }}
+              >
+                <View style={styles.alertCtaIcon}>
+                  <MaterialCommunityIcons name="bell-outline" color={colors.accent} size={20} />
+                </View>
+                <View style={styles.alertCtaCopy}>
+                  <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
+                  <Text style={styles.alertCtaText}>Use native notifications first, or add email as a fallback.</Text>
+                </View>
+                <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
+              </Pressable>
               <Text style={styles.alertStatus}>{alertStatus}</Text>
             </SectionCard>
           </>
@@ -808,6 +791,20 @@ export default function RiverDetailScreen() {
         onTogglePhotoRights={() => setReportPhotoRights((current) => !current)}
         onToggleContactConsent={() => setReportConsent((current) => !current)}
         onSubmit={() => void submitRouteReport()}
+      />
+
+      <AlertSetupSheet
+        visible={alertSheetVisible}
+        routeName={detail.river.name}
+        routeReach={detail.river.reach}
+        draftEmail={draftEmail}
+        status={alertStatus}
+        pendingThreshold={pendingThreshold}
+        mutationPending={createAlertMutation.isPending}
+        onClose={() => setAlertSheetVisible(false)}
+        onEmailChange={setDraftEmail}
+        onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
+        onEmailAlert={(threshold) => void submitRiverAlert(threshold)}
       />
     </>
   );
@@ -1196,7 +1193,7 @@ function TripPlanningCard({ detail }: { detail: RiverDetailApiResult }) {
           <View key={row.label} style={styles.tripPlanningRow}>
             <MaterialCommunityIcons name={row.icon as never} color={colors.accent} size={18} />
             <Text style={styles.tripPlanningLabel}>{row.label}</Text>
-            <Text style={styles.tripPlanningValue} numberOfLines={1}>{row.value}</Text>
+            <Text style={styles.tripPlanningValue} numberOfLines={2}>{row.value}</Text>
           </View>
         ))}
       </View>
@@ -1339,9 +1336,143 @@ function GaugeSummaryPill({ label, value }: { label: string; value: string }) {
 function MetricPill({ label, value }: { label: string; value: string }) {
   return (
     <View style={styles.metricPill}>
-      <Text style={styles.metricPillLabel}>{label}</Text>
-      <Text style={styles.metricPillValue}>{value}</Text>
+      <Text style={styles.metricPillLabel} numberOfLines={1}>{label}</Text>
+      <Text style={styles.metricPillValue} numberOfLines={2}>{value}</Text>
     </View>
+  );
+}
+
+function HeroIconButton({
+  icon,
+  selected = false,
+  accessibilityLabel,
+  onPress,
+}: {
+  icon: string;
+  selected?: boolean;
+  accessibilityLabel: string;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      style={[styles.heroIconButton, selected ? styles.heroIconButtonSelected : null]}
+      onPress={onPress}
+      hitSlop={10}
+      accessibilityRole="button"
+      accessibilityLabel={accessibilityLabel}
+      android_ripple={{ color: colors.canvasMuted, borderless: true }}
+    >
+      <MaterialCommunityIcons name={icon as never} size={20} color={selected ? colors.surfaceStrong : colors.accent} />
+    </Pressable>
+  );
+}
+
+function AlertSetupSheet({
+  visible,
+  routeName,
+  routeReach,
+  draftEmail,
+  status,
+  pendingThreshold,
+  mutationPending,
+  onClose,
+  onEmailChange,
+  onNativeAlert,
+  onEmailAlert,
+}: {
+  visible: boolean;
+  routeName: string;
+  routeReach: string;
+  draftEmail: string;
+  status: string;
+  pendingThreshold: RiverAlertThreshold | null;
+  mutationPending: boolean;
+  onClose: () => void;
+  onEmailChange: (email: string) => void;
+  onNativeAlert: (threshold: RiverAlertThreshold) => void;
+  onEmailAlert: (threshold: RiverAlertThreshold) => void;
+}) {
+  return (
+    <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
+      <View style={styles.alertSheetScrim}>
+        <View style={styles.alertSheet}>
+          <View style={styles.alertSheetHandle} />
+          <View style={styles.alertSheetHeader}>
+            <View style={styles.alertSheetTitleWrap}>
+              <Text style={styles.alertSheetKicker}>{routeName}</Text>
+              <Text style={styles.alertSheetTitle}>Route alerts</Text>
+              <Text style={styles.alertSheetSubtitle} numberOfLines={2}>
+                Get notified when {routeReach} reaches Good or Strong.
+              </Text>
+            </View>
+            <Pressable style={styles.alertSheetClose} onPress={onClose} accessibilityLabel="Close route alerts">
+              <MaterialCommunityIcons name="close" color={colors.textMuted} size={20} />
+            </Pressable>
+          </View>
+
+          <View style={styles.alertSheetSection}>
+            <Text style={styles.alertSheetSectionTitle}>Native notifications</Text>
+            <View style={styles.alertButtonRow}>
+              {(['good', 'strong'] as const).map((threshold) => {
+                const isPending = pendingThreshold === threshold && mutationPending;
+                return (
+                  <Pressable
+                    key={`native-${threshold}`}
+                    style={[styles.alertButton, isPending ? styles.alertButtonDisabled : null]}
+                    disabled={isPending}
+                    onPress={() => onNativeAlert(threshold)}
+                  >
+                    <MaterialCommunityIcons name="bell-ring-outline" color={colors.surfaceStrong} size={16} />
+                    <Text style={styles.alertButtonText}>
+                      {isPending ? 'Saving...' : `At ${alertThresholdLabel(threshold)}`}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            <Text style={styles.alertHelper}>
+              Native alerts open this route when tapped. Android push notifications require a development or preview build, not Expo Go.
+            </Text>
+          </View>
+
+          <View style={styles.alertSheetSection}>
+            <Text style={styles.alertSheetSectionTitle}>Email fallback</Text>
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              placeholder="you@example.com"
+              placeholderTextColor={colors.textMuted}
+              style={styles.alertInput}
+              value={draftEmail}
+              onChangeText={onEmailChange}
+            />
+            <View style={styles.alertButtonRow}>
+              {(['good', 'strong'] as const).map((threshold) => {
+                const isPending = pendingThreshold === threshold && mutationPending;
+                return (
+                  <Pressable
+                    key={threshold}
+                    style={[styles.alertButtonSecondary, isPending ? styles.alertButtonDisabled : null]}
+                    disabled={isPending}
+                    onPress={() => onEmailAlert(threshold)}
+                  >
+                    <Text style={styles.alertButtonSecondaryText}>
+                      {isPending ? 'Saving...' : `Email at ${alertThresholdLabel(threshold)}`}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            <Text style={styles.alertHelper}>
+              Your email is used for route alerts and stored locally on this device for the next alert form.
+            </Text>
+          </View>
+
+          <Text style={styles.alertStatus}>{status}</Text>
+        </View>
+      </View>
+    </Modal>
   );
 }
 
@@ -1735,6 +1866,35 @@ function openGaugeSource(detail: RiverDetailApiResult, url: string, target: 'det
   void Linking.openURL(url);
 }
 
+async function shareRoute(detail: RiverDetailApiResult) {
+  const url = `https://paddletoday.com/rivers/${detail.river.slug}/`;
+  const title = `${detail.river.name}: ${detail.river.reach}`;
+  const message = `${title}\n${verdictForRating(detail.rating)} - ${detailMessageForRating(detail.rating)}\n${url}`;
+
+  try {
+    trackAppEvent('route_share_started', {
+      slug: detail.river.slug,
+      rating: detail.rating,
+    });
+    await Share.share(
+      Platform.select({
+        ios: { title, url },
+        default: { title, message },
+      }) ?? { title, message }
+    );
+    trackAppEvent('route_share_completed', {
+      slug: detail.river.slug,
+    });
+  } catch (error) {
+    captureAppException(error, {
+      name: 'route_share_failed',
+      extra: {
+        slug: detail.river.slug,
+      },
+    });
+  }
+}
+
 function CommunityPhotoCard({ photo }: { photo: ApprovedCommunityPhoto }) {
   const imageUrl = resolveApiUrl(photo.src);
 
@@ -2035,7 +2195,28 @@ const styles = StyleSheet.create({
   },
   heroTitleCopy: {
     flex: 1,
+    minWidth: 0,
     gap: 4,
+  },
+  heroActions: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flexShrink: 0,
+    gap: spacing.xs,
+  },
+  heroIconButton: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  heroIconButtonSelected: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
   },
   kicker: {
     color: colors.accentDeep,
@@ -2353,8 +2534,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 6,
+    minWidth: 0,
   },
   routeBasicLabel: {
+    flexShrink: 1,
     color: colors.textMuted,
     fontSize: 11,
     fontWeight: '900',
@@ -2366,6 +2549,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
     fontWeight: '900',
+    flexShrink: 1,
   },
   routeInfoPanel: {
     borderRadius: radius.md,
@@ -2455,15 +2639,17 @@ const styles = StyleSheet.create({
     gap: spacing.xs,
   },
   tripPlanningRow: {
-    minHeight: 34,
+    minHeight: 38,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     gap: spacing.sm,
   },
   tripPlanningLabel: {
     width: 68,
+    paddingTop: 2,
     color: colors.textMuted,
     fontSize: 12,
+    lineHeight: 16,
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.3,
@@ -2472,6 +2658,7 @@ const styles = StyleSheet.create({
     flex: 1,
     color: colors.text,
     fontSize: 13,
+    lineHeight: 18,
     fontWeight: '800',
     textAlign: 'right',
   },
@@ -2826,17 +3013,124 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     paddingVertical: 10,
     gap: 2,
+    minWidth: 116,
+    flexGrow: 1,
+    flexBasis: 116,
   },
   metricPillLabel: {
     color: colors.textMuted,
     fontSize: 11,
     textTransform: 'uppercase',
     letterSpacing: 0.4,
+    fontWeight: '900',
   },
   metricPillValue: {
     color: colors.text,
     fontSize: 14,
+    lineHeight: 18,
     fontWeight: '800',
+  },
+  alertCta: {
+    minHeight: 70,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: '#BFD6CC',
+    backgroundColor: colors.accentSoft,
+    padding: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.md,
+  },
+  alertCtaIcon: {
+    width: 38,
+    height: 38,
+    borderRadius: 19,
+    backgroundColor: colors.surfaceStrong,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  alertCtaCopy: {
+    flex: 1,
+    minWidth: 0,
+    gap: 3,
+  },
+  alertCtaTitle: {
+    color: colors.accentDeep,
+    fontSize: 15,
+    lineHeight: 19,
+    fontWeight: '900',
+  },
+  alertCtaText: {
+    color: colors.text,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '700',
+  },
+  alertSheetScrim: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(10, 24, 29, 0.34)',
+  },
+  alertSheet: {
+    backgroundColor: colors.surfaceStrong,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+    padding: spacing.md,
+    paddingBottom: spacing.lg,
+    gap: spacing.md,
+  },
+  alertSheetHandle: {
+    alignSelf: 'center',
+    width: 42,
+    height: 5,
+    borderRadius: 999,
+    backgroundColor: colors.border,
+  },
+  alertSheetHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.md,
+  },
+  alertSheetTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+    gap: 3,
+  },
+  alertSheetKicker: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  alertSheetTitle: {
+    color: colors.text,
+    fontSize: 20,
+    lineHeight: 25,
+    fontWeight: '900',
+  },
+  alertSheetSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+  },
+  alertSheetClose: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: colors.surface,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  alertSheetSection: {
+    gap: spacing.sm,
+  },
+  alertSheetSectionTitle: {
+    color: colors.text,
+    fontSize: 14,
+    lineHeight: 18,
+    fontWeight: '900',
   },
   alertInput: {
     borderWidth: 1,
@@ -2861,6 +3155,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 6,
+  },
+  alertButtonSecondary: {
+    flex: 1,
+    minWidth: 140,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    borderRadius: radius.pill,
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   alertButtonDisabled: {
     opacity: 0.6,
@@ -2868,7 +3177,12 @@ const styles = StyleSheet.create({
   alertButtonText: {
     color: colors.surfaceStrong,
     fontSize: 13,
-    fontWeight: '700',
+    fontWeight: '900',
+  },
+  alertButtonSecondaryText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
   },
   alertStatus: {
     color: colors.textMuted,
