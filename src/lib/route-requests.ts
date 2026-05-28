@@ -161,7 +161,8 @@ async function listBlobNames(container: BlobContainer, prefix: string) {
     method: 'GET',
   });
   if (!response.ok) {
-    throw new Error(`Failed to list route request blobs: HTTP ${response.status}`);
+    const detail = await response.text().catch(() => '');
+    throw new Error(`Failed to list route request blobs: HTTP ${response.status}${detail ? ` ${detail.slice(0, 300)}` : ''}`);
   }
   const xml = await response.text();
   return [...xml.matchAll(/<Name>([^<]+)<\/Name>/g)].map((match) => decodeXml(match[1]));

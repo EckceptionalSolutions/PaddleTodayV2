@@ -1147,8 +1147,13 @@ async function handleAdminRouteRequestList(
     console.error('[admin-route-requests] list failed', { requestId, error });
     return sendJson(
       response,
-      502,
-      { requestId, error: 'request_failed', message: 'Could not load route requests.' },
+      200,
+      {
+        requestId,
+        requests: [],
+        warning: 'route_request_storage_unavailable',
+        message: 'Route request storage is unavailable. Check the production storage SAS has List and Read permissions.',
+      },
       includeBody,
       'no-store'
     );

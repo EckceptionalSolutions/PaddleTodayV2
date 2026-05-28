@@ -225,6 +225,10 @@ async function loadRouteRequests() {
   routeRequestsPanel.hidden = false;
   routeRequestsList.innerHTML = requests.length ? requests.map(routeRequestMarkup).join('') : '<p class="muted">No route requests yet.</p>';
   bindRouteRequestReplyActions();
+  if (payload?.warning) {
+    setStatus(routeRequestsStatus, payload?.message || 'Route request storage is unavailable.', 'error');
+    return;
+  }
   setStatus(routeRequestsStatus, `${requests.length} route request${requests.length === 1 ? '' : 's'} loaded.`, 'success');
 }
 
