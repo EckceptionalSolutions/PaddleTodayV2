@@ -7,6 +7,32 @@ export interface RouteGalleryPhoto {
   takenLabel?: string;
 }
 
+export interface RoutePreviewPhoto extends RouteGalleryPhoto {
+  isPlaceholder: boolean;
+}
+
+interface RoutePhotoTarget {
+  riverId?: string;
+  slug: string;
+  name?: string;
+  reach?: string;
+}
+
+const placeholderRoutePhotos: RouteGalleryPhoto[] = [
+  {
+    id: 'river-fallback-stream',
+    src: '/gallery/fallbacks/river-fallback-stream.jpg',
+    alt: 'A representative river scene used as a placeholder until a route photo is available.',
+    caption: 'Representative river scene',
+  },
+  {
+    id: 'river-fallback-wide',
+    src: '/gallery/fallbacks/river-fallback-wide.jpg',
+    alt: 'A representative wide river scene used as a placeholder until a route photo is available.',
+    caption: 'Representative river scene',
+  },
+];
+
 const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
   'des-moines-river-bentonsport-bonaparte': [
     {
@@ -632,8 +658,73 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'vermilion-river-lowell-oglesby': [
+    {
+      id: 'vermilion-river-pontiac-commons',
+      src: '/gallery/vermilion-river-lowell-oglesby/vermilion-river-pontiac.jpg',
+      alt: 'The Vermilion River reflects autumn trees and a pale sky along a wooded Illinois riverbank.',
+      caption: 'Vermilion River at Pontiac, upstream of the whitewater reach',
+      credit: 'Guyute82 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'flambeau-river-highway-w-hervas': [
+    {
+      id: 'flambeau-river-state-forest-commons',
+      src: '/gallery/flambeau-river-highway-w-hervas/flambeau-river-state-forest.jpg',
+      alt: 'The Flambeau River flows through forested banks with autumn color reflected in calm water.',
+      caption: 'Flambeau River State Forest',
+      credit: 'Jeff the quiet via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'flambeau-river-hervas-beaver-dam': [
+    {
+      id: 'flambeau-river-near-bruce-usgs',
+      src: '/gallery/flambeau-river-hervas-beaver-dam/flambeau-river-near-bruce-usgs.jpg',
+      alt: 'The Flambeau River near Bruce flows between wooded banks with a light riffled surface.',
+      caption: 'Flambeau River near Bruce',
+      credit: 'Kim Wickland / USGS',
+      takenLabel: 'USGS image: public domain',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {
   return [...(approvedRoutePhotosBySlug[slug] ?? [])];
+}
+
+function stablePhotoIndex(key: string, length: number): number {
+  if (length <= 1) {
+    return 0;
+  }
+
+  let hash = 0;
+  for (let index = 0; index < key.length; index += 1) {
+    hash = (hash * 31 + key.charCodeAt(index)) % length;
+  }
+  return hash;
+}
+
+export function getRoutePreviewPhoto(route: RoutePhotoTarget): RoutePreviewPhoto {
+  const approvedPhotos = getApprovedRoutePhotos(route.slug);
+  const key = `${route.riverId ?? 'route'}:${route.slug}`;
+
+  if (approvedPhotos.length > 0) {
+    const photo = approvedPhotos[stablePhotoIndex(key, approvedPhotos.length)];
+    return {
+      ...photo,
+      isPlaceholder: false,
+    };
+  }
+
+  const fallback = placeholderRoutePhotos[stablePhotoIndex(key, placeholderRoutePhotos.length)];
+  const routeLabel = [route.name, route.reach].filter(Boolean).join(' - ');
+  return {
+    ...fallback,
+    alt: routeLabel
+      ? `Placeholder river image for ${routeLabel}.`
+      : fallback.alt,
+    isPlaceholder: true,
+  };
 }

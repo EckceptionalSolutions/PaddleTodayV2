@@ -5523,4 +5523,168 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'vermilion-river-lowell-oglesby': {
+    putIn: {
+      name: 'Lowell / Vermillion River Rafting put-in',
+      latitude: 41.255211,
+      longitude: -89.014118,
+    },
+    takeOut: {
+      name: 'Oglesby Vermilion River Boat Launch',
+      latitude: 41.302108,
+      longitude: -89.038255,
+    },
+    logistics: {
+      distanceLabel: '8.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr for a competent whitewater group',
+      shuttle:
+        'Use a two-car shuttle from the Lowell / N.2249th Road rafting access to the City of Oglesby boat launch below Ed Hand Highway. Commercial rafting traffic may affect launch timing and parking.',
+      permits:
+        'No separate app-known paddling permit is assumed, but private boaters should verify current access rules, outfitter requirements, and any Illinois DNR or local closure notices before launching.',
+      camping:
+        'Treat this as a day run. Do not assume legal riverside camping or scouting access on private or not-yet-open state land along the corridor.',
+      summary:
+        'Launch at the Lowell-side rafting put-in and take out at the Oglesby Vermilion River Boat Launch. The route follows American Whitewater\'s Wildcat Canyon reach through Matthiessen-area bluffs, pool-drop rapids, and the former cement-dam corridor.',
+      accessCaveats: [
+        'American Whitewater specifically says access from N.2219th Road is no longer advised because of private-property concerns; use the Lowell rafting access instead.',
+        'The take-out is a city-built public boat ramp with limited parking, so leave room for other boaters and rafting groups.',
+        'Some side canyons and former industrial/state-addition lands are not necessarily open for public hiking, scouting, or portaging even when the river itself is runnable.',
+      ],
+      watchFor: [
+        'Wildcat, a Class III rapid that changes character with flow and has multiple lines depending on level.',
+        'Pushy current, large wave trains, and harder swims when the Leonore gauge climbs above the conservative target window.',
+        'Cold water, strainers, wood piles, limited legal scout/portage options, and commercial rafting traffic.',
+      ],
+    },
+  },
+  'flambeau-river-highway-w-hervas': {
+    putIn: {
+      id: 'highway-w',
+      name: 'Highway W Landing',
+      latitude: 45.76812,
+      longitude: -90.76075,
+    },
+    takeOut: {
+      id: 'hervas-camp',
+      name: 'Hervas Camp Landing',
+      latitude: 45.64051,
+      longitude: -90.83491,
+    },
+    logistics: {
+      distanceLabel: '14.2 mi',
+      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level, wind, scouting, and stops',
+      shuttle:
+        'Plan a remote Flambeau River State Forest shuttle between the Highway W landing and the end of River Road at Hervas. Camp 41 is the main practical split point if you want a shorter day or an overnight plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin DNR state-forest landing rules, posted parking rules, and Flambeau River glass-container restrictions.',
+      camping:
+        'Canoe camps are available along this corridor and nearby segments, including Headquarters, Boy Scout, George\'s Island, Camp 41, Wannigan, Forks, Bear Run, and Hervas. Sites are first-come, first-served; confirm current WI DNR rules before relying on them for an overnight.',
+      summary:
+        'Launch at the Highway W landing downstream of Babb\'s Island and finish at Hervas Camp Landing. This creates a route-sized North Fork Flambeau trip with Porcupine Rapids in the upper half and Wannigan Rapids plus Flambeau Falls below Camp 41.',
+      accessCaveats: [
+        'Use the County W landing on the east bank for the put-in, not the State Forest Headquarters landing across the river, unless signs or DNR staff direct otherwise.',
+        'Hervas is a small state-forest landing with limited parking, water, and toilets. Identify the take-out before launching if you have not used it before.',
+        'The live gauge is downstream at Bruce and is only a proxy; local DNR level information and visual checks at the landings matter more than on direct-gauge routes.',
+      ],
+      watchFor: [
+        'Porcupine Rapids above Camp 41, including a third pitch that Wisconsin Trail Guide says should be scouted.',
+        'Wannigan Rapids, Flambeau Falls, boulder gardens, shallow scrape risk at lower flows, and pushier waves after rain.',
+        'Remote shoreline, cold water, wood, long-mileage fatigue, and limited quick exits between landings.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'highway-w',
+        name: 'Highway W Landing',
+        latitude: 45.76812,
+        longitude: -90.76075,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full route start on the east bank downstream of the Highway W bridge.',
+      },
+      {
+        id: 'camp-41',
+        name: 'Camp 41 Landing',
+        latitude: 45.69208,
+        longitude: -90.81288,
+        mileFromStart: 8.3,
+        segmentKind: 'creek',
+        note: 'Primary split point between the Porcupine Rapids upper half and the Wannigan / Flambeau Falls lower half.',
+      },
+      {
+        id: 'hervas-camp',
+        name: 'Hervas Camp Landing',
+        latitude: 45.64051,
+        longitude: -90.83491,
+        mileFromStart: 14.2,
+        segmentKind: 'creek',
+        note: 'Full downstream finish at the end of River Road, shortly after the South Fork confluence and Bear Run Camp.',
+      },
+    ],
+  },
+  'flambeau-river-hervas-beaver-dam': {
+    putIn: {
+      id: 'hervas-camp',
+      name: 'Hervas Camp Landing',
+      latitude: 45.64051,
+      longitude: -90.83491,
+    },
+    takeOut: {
+      id: 'beaver-dam',
+      name: 'Beaver Dam Landing',
+      latitude: 45.6166,
+      longitude: -90.90623,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr for a prepared whitewater group',
+      shuttle:
+        'Use a short but rural two-car shuttle between the end of River Road at Hervas and Beaver Dam Road off West Lane. The landings are on opposite banks of the river, so the road shuttle is less direct than the river mileage suggests.',
+      permits:
+        'No route-specific paddling permit is known. Follow Wisconsin DNR state-forest landing rules, posted parking rules, and Flambeau River glass-container restrictions.',
+      camping:
+        'Hervas, Cedar Rapids, and nearby North Fork canoe camps can support an overnight plan, but this route works best in the app as a short day run. Confirm current first-come campsite rules before relying on them.',
+      summary:
+        'Launch at Hervas Camp Landing and take out at Beaver Dam Landing for the short, concentrated lower-FN4 whitewater run. Cedar Rapids and Beaver Dam Rapids are the main decision points.',
+      accessCaveats: [
+        'Hervas is a small state-forest landing at the end of River Road; check parking before unloading if the landing is busy with campers or through-paddlers.',
+        'Beaver Dam is a hand-carry canoe landing on river right near Beaver Dam Rapids, with parking and pit toilets but no drinking water listed by WI DNR.',
+        'The Bruce gauge is AW-backed for this reach but still a proxy. Dams and local releases can make the actual river feel different from the number.',
+      ],
+      watchFor: [
+        'Cedar Rapids, especially the first pitch where Wisconsin Trail Guide recommends scouting from river left and portaging if in doubt.',
+        'Beaver Dam Rapids, a river-wide ledge with a large submerged boulder and a short left-bank scout or portage option.',
+        'Pushier waves and harder swims above the broad target window, shallow boulder gardens below it, cold water, and wood after storms.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'hervas-camp',
+        name: 'Hervas Camp Landing',
+        latitude: 45.64051,
+        longitude: -90.83491,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Put-in at the state-forest ramp and canoe camp at the end of River Road.',
+      },
+      {
+        id: 'cedar-rapids-camp',
+        name: 'Cedar Rapids Camp',
+        latitude: 45.63104,
+        longitude: -90.84995,
+        mileFromStart: 1,
+        segmentKind: 'creek',
+        note: 'On-route canoe camp near the first pitch of Cedar Rapids; useful as a scouting landmark, not a normal road-shuttle endpoint.',
+      },
+      {
+        id: 'beaver-dam',
+        name: 'Beaver Dam Landing',
+        latitude: 45.6166,
+        longitude: -90.90623,
+        mileFromStart: 4.9,
+        segmentKind: 'creek',
+        note: 'Take-out on river right within view of Beaver Dam Rapids.',
+      },
+    ],
+  },
 };

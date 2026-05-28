@@ -19,7 +19,7 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
-import { getApprovedRoutePhotos } from '../data/route-gallery.ts';
+import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 
 const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
@@ -152,6 +152,8 @@ const featuredMapStatus = document.querySelector('[data-featured-map-status]');
 const featuredMapCaption = document.querySelector('[data-featured-map-caption]');
 const featuredGallery = document.querySelector('[data-featured-gallery]');
 const featuredGalleryImage = document.querySelector('[data-featured-gallery-image]');
+const featuredGalleryPlaceholder = document.querySelector('[data-featured-gallery-placeholder]');
+const featuredGalleryContribute = document.querySelector('[data-featured-gallery-contribute]');
 const recommendationSection = document.querySelector('.decision-section--recommended');
 const exploreSection = document.querySelector('.decision-section--explore');
 const homeFreshness = document.querySelector('[data-home-freshness]');
@@ -2179,18 +2181,27 @@ function updateFeaturedGallery(item) {
     return;
   }
 
-  const slug = item?.cardRoute?.river?.slug;
-  const photo = typeof slug === 'string' ? getApprovedRoutePhotos(slug)[0] : null;
-  if (!photo) {
+  const river = item?.cardRoute?.river;
+  if (!river?.slug) {
     featuredGallery.hidden = true;
     featuredGalleryImage.removeAttribute('src');
     featuredGalleryImage.alt = '';
+    if (featuredGalleryPlaceholder instanceof HTMLElement) {
+      featuredGalleryPlaceholder.hidden = true;
+    }
     return;
   }
 
+  const photo = getRoutePreviewPhoto(river);
   featuredGallery.hidden = false;
   featuredGalleryImage.src = photo.src;
-  featuredGalleryImage.alt = photo.alt || `${item.cardRoute.river.name} gallery photo`;
+  featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
+  if (featuredGalleryPlaceholder instanceof HTMLElement) {
+    featuredGalleryPlaceholder.hidden = !photo.isPlaceholder;
+  }
+  if (featuredGalleryContribute instanceof HTMLAnchorElement) {
+    featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
+  }
 }
 
 function renderTagMarkup(labels) {

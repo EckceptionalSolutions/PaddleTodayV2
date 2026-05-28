@@ -66,6 +66,27 @@ const structuredData = [
       <p class="hero-call__reason" data-weekend-featured-reason>Loading summary</p>
       <ul class="hero-call__reasons" data-weekend-featured-reasons></ul>
 
+      <figure class="weekend-featured__gallery route-photo-preview" data-weekend-featured-gallery hidden>
+        <img
+          class="weekend-featured__gallery-image route-photo-preview__image"
+          data-weekend-featured-gallery-image
+          alt=""
+          loading="lazy"
+        />
+        <span class="route-photo-preview__badge" data-weekend-featured-gallery-placeholder hidden>
+          Placeholder
+        </span>
+        <a
+          class="route-photo-preview__contribute"
+          href="/contribute/"
+          data-weekend-featured-gallery-contribute
+          data-analytics-event="Open photo contribution"
+        >
+          <span aria-hidden="true">+</span>
+          Contribute Photos
+        </a>
+      </figure>
+
       <p class="hero-call__summary muted" data-weekend-featured-explanation>
         Pulling the strongest weekend pick from the latest stored snapshot.
       </p>

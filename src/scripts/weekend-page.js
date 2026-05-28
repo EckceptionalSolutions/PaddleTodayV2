@@ -3,6 +3,7 @@ import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const WEEKEND_CACHE_KEY = 'weekend-summary:v1';
@@ -38,6 +39,10 @@ const featuredToggle = document.querySelector('[data-weekend-featured-toggle]');
 const featuredLink = document.querySelector('[data-weekend-featured-link]');
 const featuredFactsSection = document.querySelector('[data-weekend-featured-facts-section]');
 const featuredFacts = document.querySelector('[data-weekend-featured-facts]');
+const featuredGallery = document.querySelector('[data-weekend-featured-gallery]');
+const featuredGalleryImage = document.querySelector('[data-weekend-featured-gallery-image]');
+const featuredGalleryPlaceholder = document.querySelector('[data-weekend-featured-gallery-placeholder]');
+const featuredGalleryContribute = document.querySelector('[data-weekend-featured-gallery-contribute]');
 
 const strongCount = document.querySelector('[data-weekend-strong-count]');
 const goodCount = document.querySelector('[data-weekend-good-count]');
@@ -486,8 +491,37 @@ function updateFeaturedSummaryToggle(text) {
     : 'Details';
 }
 
+function updateFeaturedGallery(item) {
+  if (!(featuredGallery instanceof HTMLElement) || !(featuredGalleryImage instanceof HTMLImageElement)) {
+    return;
+  }
+
+  const river = item?.river;
+  if (!river?.slug) {
+    featuredGallery.hidden = true;
+    featuredGalleryImage.removeAttribute('src');
+    featuredGalleryImage.alt = '';
+    if (featuredGalleryPlaceholder instanceof HTMLElement) {
+      featuredGalleryPlaceholder.hidden = true;
+    }
+    return;
+  }
+
+  const photo = getRoutePreviewPhoto(river);
+  featuredGallery.hidden = false;
+  featuredGalleryImage.src = photo.src;
+  featuredGalleryImage.alt = photo.alt || `${river.name} route photo`;
+  if (featuredGalleryPlaceholder instanceof HTMLElement) {
+    featuredGalleryPlaceholder.hidden = !photo.isPlaceholder;
+  }
+  if (featuredGalleryContribute instanceof HTMLAnchorElement) {
+    featuredGalleryContribute.href = `/contribute/?riverSlug=${encodeURIComponent(river.slug)}`;
+  }
+}
+
 function renderFeatured(item, worthWatchingCount = 0) {
   if (!item) {
+    updateFeaturedGallery(null);
     setText(featuredLabel, 'Top weekend pick');
     setText(featuredState, 'Conservative planning mode');
     setText(
@@ -556,6 +590,7 @@ function renderFeatured(item, worthWatchingCount = 0) {
   }
 
   setText(featuredLabel, 'Top weekend pick');
+  updateFeaturedGallery(item);
   setText(featuredState, item.weekend.label);
   setText(featuredName, item.river.name);
   setText(featuredReach, item.river.reach);

@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-05-28T09:23:00-05:00",
+    "updatedAt": "2026-05-28T09:33:00-05:00",
     "notes": [
+        "2026-05-28 09:33 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and James River H.L.-Kerr-to-Ralph-Cox are already implemented. Fresh gauge-first review did not produce a route: Finley River/Riverdale was changed from research_later to no_live_gauge because MoHERP has route-family trip evidence but USGS 07052345 still did not expose same-day May 28 product-ready official current values, USGS graph/search context includes a discontinuance warning, and public endpoint authority remains mixed around Johns Ford/Reed Road/Lindenlure/Ozark accesses; Salt River/New-London/Indian-Camp was rechecked but not promoted because MDC confirms Indian Camp and limited mainstem access while MoHERP/New London evidence does not define a clean public day-trip threshold package, and visible New London current evidence was stale/secondary. Also repaired pre-existing unresolved conflict markers in the ledger by preserving the Missouri HEAD entries and the Illinois Vermilion added entry. No app code changed, and no npm validation was run.",
         "2026-05-28 09:23 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and James River H.L.-Kerr-to-Ralph-Cox are already implemented. Rechecked Big Piney Sand/Sandy-Shoals-to-Boiling-Spring after fresh MDC/MoHERP review; it remains no_live_gauge because MoHERP now exposes a stale 2025-11-07 latest update and no trend data, while the automation shell still cannot reach USGS Water Services for 06930000. Logged Eleven Point Greer-Crossing-to-Turner-Mill as threshold_weak: Forest Service supports the public endpoints and 4.9-mile route, and MDC/Forest Service support the spring-fed floatability story, but no route-specific numeric threshold stronger than borrowing the already-live lower Eleven Point Bardley-gauge model surfaced. No app code changed, and no npm validation was run.",
         "2026-05-28 09:13 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed Jacks Fork Buck-Hollow-to-Rymers, Eleven Point Whitten-to-Riverton, North Fork/Hammond-to-Blair, Meramec Sappington-to-State-Park, Bryant Creek Sycamore-to-Warren, James River Shelvin-Rock-to-Hooten-Town, and the already-uncommitted James River H.L.-Kerr-to-Ralph-Cox route are already implemented or staged. Reviewed Current River Cedar-Grove-to-Akers and Big River Washington-State-Park-to-Mammoth without adding a route. Current remains no_live_gauge because NPS route context and MoHERP trip evidence are promising, but USGS Water Services for 07064533 still failed from the automation shell and no same-day May 28 product-fetchable current values were established. Big River remains threshold_weak because MDC/Missouri State Parks public endpoint evidence is excellent, but Byrnesville is a downstream proxy and MoHERP/RiverScout evidence remains broad lower-Big guidance rather than exact Washington-to-Mammoth threshold support; freshest visible MoHERP current evidence found was still May 26. No app code changed during this run, and no npm validation was run.",
         "2026-05-28 09:12 America/Chicago South Dakota no-add pass. Reconciled live South Dakota inventory first and confirmed Split Rock Creek Split-Rock-Park-to-Palisades, Big Sioux Farm-Field-to-Rotary, and Skunk Creek Legacy-Park-to-Farm-Field are already implemented with matching added ledger records. Rechecked Jay Heath / Big Sioux Recreation Area evidence: GFP confirms Big Sioux Recreation Area canoeing/kayaking and the Jay Heath PDF gives North-to-South spacing, Sioux Empire Paddlers gives a 300 cfs Cliff Ave floor, and USGS 06482020 is the likely same-river gauge, but the visible USGS current page only exposed values through 2026-05-26 11:30 CDT during this May 28 run and exact official canoe-launch coordinates remain unresolved. Rechecked Spearfish Creek City-Park-to-Evans; USGS 06431500 remains stale to May 13 and threshold evidence is still low-flow anecdote rather than a stable route range. Added Battle Creek Hermosa/Keystone gauge family as no_live_gauge/research blocker: USGS/AW gauge context exists, but official current data is stale/discontinued-looking and no public endpoint pair or numeric route threshold surfaced. No app code changed, and no npm validation was run.",
@@ -9378,10 +9379,10 @@
             "route": "See Spillway to Cincinnati Road",
             "state": "MO",
             "status": "no_live_gauge",
-            "lastReviewed": "2026-05-26",
-            "reviewCount": 3,
-            "blocker": "Fresh 2026-05-26 19:35 America/Chicago recheck preserved the same blocker. A Paddler's Guide / USACE endpoint support and MoHERP exact-trip evidence remain promising, but direct USGS Water Services for 05507800 still failed from the automation shell and the route also needs release-aware framing below Mark Twain Lake before any implementation.",
-            "retryCondition": "Retry only if USGS 05507800 exposes same-day product-fetchable instantaneous data and a credible source clarifies a conservative Salt River low-water floor or release-aware range for the See Spillway-to-Cincinnati Road day trip. Keep USACE generation, re-regulation dam, no-boating-zone, and long slow-pool caveats explicit if it ever advances.",
+            "lastReviewed": "2026-05-28",
+            "reviewCount": 4,
+            "blocker": "Fresh 2026-05-28 09:33 America/Chicago recheck preserved no_live_gauge. The See-Spillway-to-Cincinnati-Road lead still needs fresh product-ready official live data and release-aware thresholds. A related New London / Indian Camp check did not produce a better add: MDC confirms Indian Camp as a concrete boat-ramp access and says mainstem Salt River public access is limited, but the New London gauge/MoHERP evidence found during this pass does not define a clean public day-trip threshold package, and visible current evidence was stale or secondary rather than same-day official data.",
+            "retryCondition": "Retry only if USGS 05507800 or 05508000 exposes same-day product-fetchable instantaneous data and a credible source clarifies a conservative Salt River low-water floor or release-aware range for one exact public endpoint pair. Keep USACE generation, re-regulation dam, no-boating-zone, limited mainstem access, and long slow-pool caveats explicit if it ever advances.",
             "retryDate": null,
             "sourcesChecked": [
                 "Rivers.MOHERP Salt River Center gauge page",
@@ -9394,7 +9395,11 @@
                 "USGS monitoring-location page maintenance notice and USACE cooperation listing for 05507800",
                 "USACE 2024 Mark Twain Lake Master Plan Warren G. See Spillway / Bluff View recreation facilities",
                 "A Paddler's Guide to Missouri Salt River map PDF showing See Spillway RM 0.0 and Cincinnati Road RM 7.0",
-                "USGS Water Services IV fetch for 05507800 failed from automation runtime on 2026-05-26 19:35 America/Chicago"
+                "USGS Water Services IV fetch for 05507800 failed from automation runtime on 2026-05-26 19:35 America/Chicago",
+                "MDC Salt River downstream of Mark Twain Lake prospect page rechecked 2026-05-28; it confirms limited mainstem public access at Indian Camp and Ted Shanks plus dam/re-regulation context",
+                "MDC Indian Camp Access page rechecked 2026-05-28; concrete boat ramp and Salt River access confirmed, camping prohibited",
+                "Rivers.MOHERP Salt River New London gauge search result rechecked 2026-05-28; trip evidence did not define a clean conservative V2 threshold package",
+                "USGS 05508000 New London search/current evidence rechecked 2026-05-28; visible data was stale or secondary rather than same-day official product-ready observations"
             ],
             "aliases": [
                 "Salt River - See Spillway to Cincinnati Road",
@@ -9406,7 +9411,7 @@
                 "quality": "direct_but_no_same_day_product_data_visible",
                 "id": "05507800",
                 "provider": "USGS",
-                "notes": "USGS 05507800 remains the route gauge lead, but the automation shell still could not verify product-fetchable current observations on 2026-05-26 at 19:35 America/Chicago. Future work must also account for Cannon Dam generation and re-regulation effects."
+                "notes": "USGS 05507800 remains the original See Spillway route gauge lead; USGS 05508000 New London was rechecked as a related downstream cluster on 2026-05-28 but did not produce a route-ready live-data/threshold/access package."
             },
             "thresholdSupport": {
                 "strength": "community_release_influenced_if_live_recovers",
@@ -9420,7 +9425,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because same-day live gauge freshness and threshold model failed first."
             },
-            "notes": "Fresh 2026-05-26 19:35 America/Chicago recheck. Keep as no_live_gauge until the Center gauge product path is fresh and release-aware thresholds can be framed honestly."
+            "notes": "Fresh 2026-05-28 09:33 America/Chicago recheck. Keep as no_live_gauge; New London/Indian Camp access context is real but not route-ready."
         },
         {
             "candidateId": "mo-current-river-cedar-grove-akers",
@@ -9700,11 +9705,11 @@
             "river": "Finley River",
             "route": "Riverdale / Ozark public-access day-trip family",
             "state": "MO",
-            "status": "research_later",
-            "lastReviewed": "2026-05-26",
-            "reviewCount": 2,
-            "blocker": "Fresh 2026-05-26 17:35 America/Chicago recheck preserved the blocker. MoHERP has substantial route and level evidence for the Finley River using the Riverdale gauge, and MDC confirms the Finley as a real canoeable stream, but this pass still did not find a conservative, manager-published exact public endpoint pair with coordinates. Search-visible USGS 07052345 evidence showed latest values only through May 25, the automation shell could not reach USGS Water Services, and Lindenlure access remains conflict-prone rather than a clean V2 public put-in.",
-            "retryCondition": "Retry only if USGS 07052345 exposes same-day product-fetchable instantaneous observations and a manager, city, county, access inventory, or strong public route source identifies one exact public put-in/take-out pair with coordinates. Do not ship from informal road-bridge or out-and-back fishing rows alone.",
+            "status": "no_live_gauge",
+            "lastReviewed": "2026-05-28",
+            "reviewCount": 3,
+            "blocker": "Fresh 2026-05-28 09:33 America/Chicago recheck changed this from research_later to no_live_gauge. MoHERP has substantial Riverdale-gauge route-family evidence, including Johns-Ford-to-Reed-Road and Lindenlure/Ozark rows, and Ozark-area planning material supports the Finley as a paddling corridor. The route was not added because official same-day product-ready USGS 07052345 current values were not established, USGS graph/search context includes a discontinued-or-at-risk data-collection warning, and the public endpoint story remains mixed: some rows are road/access-local rather than manager-confirmed endpoints, Lindenlure remains access-conflict-prone, and the cleaner Ozark/Jim Turner/Finley River Park access context does not yet pair with a route-specific numeric threshold package.",
+            "retryCondition": "Retry only if USGS 07052345 exposes same-day product-fetchable instantaneous observations and a manager, city, county, access inventory, or strong public route source identifies one exact public put-in/take-out pair with coordinates and numeric Riverdale-gauge guidance. Do not ship from informal road-bridge, out-and-back fishing rows, or Lindenlure access assumptions alone.",
             "retryDate": null,
             "sourcesChecked": [
                 "USGS 07052345 Finley Creek below Riverdale current-conditions text view",
@@ -9714,7 +9719,12 @@
                 "Paddling.com Finley River trip and Finley River Public Access pages",
                 "Fresh 2026-05-26 search-visible USGS 07052345 current-conditions snippet",
                 "KY3 reporting that private owners closed Lindenlure public access",
-                "Ozarks Alive Lindenlure access-conflict background"
+                "Ozarks Alive Lindenlure access-conflict background",
+                "USGS 07052345 modern monitoring-location page opened by web on 2026-05-28; fetched text exposed station metadata but not current values",
+                "USGS 07052345 graph/search context found 2026-05-28 warning that data collection would be discontinued on July 1, 2025 due to loss of funding",
+                "Snoflo/search-visible 07052345 evidence found 2026-05-28 showed secondary latest update from 2026-05-21, not same-day official current data",
+                "Rivers.MOHERP Finley River Riverdale gauge page rechecked 2026-05-28 with many Johns-Ford-to-Reed-Road and Lindenlure/Ozark route-family rows",
+                "MDC Jim Turner Public Fishing Access map PDF and City/Ozark planning search results rechecked for Ozark-area public access context"
             ],
             "aliases": [
                 "Finley River - Lindenlure to Ozark",
@@ -9724,10 +9734,10 @@
             ],
             "v2Slug": null,
             "gauge": {
-                "quality": "direct_but_current_freshness_unverified",
+                "quality": "direct_but_no_same_day_product_data_visible",
                 "id": "07052345",
                 "provider": "USGS",
-                "notes": "USGS 07052345 Finley Creek below Riverdale is the direct lower-Finley gauge used by MoHERP trip rows, but fresh search-visible official evidence still showed latest values through May 25 rather than same-day May 26, and direct shell fetch to USGS Water Services failed."
+                "notes": "USGS 07052345 Finley Creek below Riverdale is the direct lower-Finley gauge used by MoHERP trip rows, but fresh 2026-05-28 review did not establish same-day product-ready official observations, and USGS graph/search context includes a discontinued-or-at-risk collection warning."
             },
             "thresholdSupport": {
                 "strength": "community_route_family_if_live_recovers",
@@ -9739,9 +9749,9 @@
                 "coordinatesPresent": false,
                 "putInCoordinates": null,
                 "takeOutCoordinates": null,
-                "coordinateSource": "Not captured because no exact manager-published public endpoint pair cleared the access gate; Lindenlure should not be treated as resolved public access without a fresh manager/legal source."
+                "coordinateSource": "Not captured because no exact manager-published public endpoint pair and current live gauge package cleared the gate; Lindenlure should not be treated as resolved public access without a fresh manager/legal source."
             },
-            "notes": "Rechecked 2026-05-26 at 17:35 America/Chicago. The Finley is a useful future gauge cluster, but it should remain research_later until public endpoints, access legality, and live-data freshness are cleaner."
+            "notes": "Rechecked 2026-05-28 at 09:33 America/Chicago. Keep as no_live_gauge until the Riverdale gauge is clearly product-live again and one clean public endpoint pair is selected."
         },
         {
             "reviewCount": 2,
@@ -10682,6 +10692,61 @@
                 "coordinateSource": "Not captured because the numeric threshold gate failed first; Forest Service pages should be used for coordinates if threshold evidence improves."
             },
             "notes": "Fresh 2026-05-28 review logged this cluster to avoid repeatedly treating the already-live lower Eleven Point calibration as enough for a second route."
+        },
+        {
+            "candidateId": "il-vermilion-river-lowell-oglesby",
+            "river": "Vermilion River",
+            "route": "Lowell to Oglesby Boat Launch",
+            "state": "IL",
+            "status": "added",
+            "lastReviewed": "2026-05-25",
+            "reviewCount": 1,
+            "blocker": null,
+            "retryCondition": "Already implemented as vermilion-river-lowell-oglesby. Revisit only if Illinois DNR, American Whitewater, the City of Oglesby, or local outfitter access guidance changes.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "American Whitewater Vermilion / Wildcat Canyon reach 651",
+                "USGS 05555300 Vermilion River Near Leonore, IL",
+                "City of Oglesby Vermilion River Boat Ramp",
+                "Enjoy Illinois Vermillion River Rafting",
+                "Vermillion River Rafting",
+                "Paddling.com Lowell Canoe Launch",
+                "Wikimedia Commons Vermilion River image search"
+            ],
+            "aliases": [
+                "Vermilion River - N.2249th Road to Ed Hand Highway",
+                "Vermilion River - Wildcat Canyon",
+                "Big Vermilion River - Lowell to Oglesby",
+                "Vermillion River - Lowell to Oglesby"
+            ],
+            "v2Slug": "vermilion-river-lowell-oglesby",
+            "gauge": {
+                "quality": "direct",
+                "notes": "American Whitewater ties the exact Wildcat Canyon reach to USGS 05555300 Vermilion River Near Leonore, IL."
+            },
+            "thresholdSupport": {
+                "strength": "mixed",
+                "notes": "American Whitewater exposes a 500 to 12,000 cfs low-runnable to high-runnable correlation. The app narrows the best zone to 1,000 to 3,000 cfs because AW says the river becomes good and pushy over 1,000 cfs and older trip evidence around 3,000 cfs reads as high-water whitewater rather than a broad recommendation."
+            },
+            "endpoints": {
+                "putIn": "Lowell / Vermillion River Rafting put-in",
+                "takeOut": "Oglesby Vermilion River Boat Launch",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 41.255211,
+                    "longitude": -89.014118
+                },
+                "takeOutCoordinates": {
+                    "latitude": 41.302108,
+                    "longitude": -89.038255
+                },
+                "coordinateSource": "American Whitewater embedded point-of-interest data, cross-checked against Paddling.com for the Lowell launch."
+            },
+            "image": {
+                "status": "usable_context_image_added",
+                "notes": "No clearly licensed exact Wildcat Canyon route image was found. Added a CC BY-SA 4.0 Wikimedia Commons Vermilion River image from Pontiac as same-river context, with caption text making the upstream location explicit."
+            },
+            "notes": "First Illinois implementation pass. This was added as routeType whitewater so it is excluded from default casual Explore discovery. The route clears the live gauge, numeric threshold, endpoint, and access-context bar, but messaging stays explicit about II-III whitewater, private-property-sensitive access, and the need to verify local closure/outfitter status."
         }
     ]
 }

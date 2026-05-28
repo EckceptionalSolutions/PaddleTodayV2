@@ -17179,4 +17179,368 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'vermilion-river-lowell-oglesby',
+    slug: 'vermilion-river-lowell-oglesby',
+    name: 'Vermilion River',
+    reach: 'Lowell to Oglesby Boat Launch',
+    aliases: ['Big Vermilion River', 'Vermillion River'],
+    state: 'Illinois',
+    region: 'North-Central Illinois',
+    summary:
+      'Illinois whitewater run from the Lowell / N.2249th Road rafting put-in to the Oglesby boat launch below Ed Hand Highway. This is a real II-III route with Wildcat and other named rapids, not a casual flatwater float.',
+    statusText:
+      'Use the Leonore USGS gauge. Treat 1,000 to 3,000 cfs as the best broad whitewater window, 500 cfs as the low runnable floor, and anything much above 12,000 cfs as beyond the American Whitewater high-runnable range.',
+    latitude: 41.255211,
+    longitude: -89.014118,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05555300',
+      provider: 'usgs',
+      siteId: '05555300',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Vermilion River Near Leonore, IL',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05555300/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 3000,
+      tooLow: 500,
+      tooHigh: 12000,
+      thresholdSource: {
+        label: 'American Whitewater Vermilion / Wildcat Canyon flow correlation',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/651/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This rain-responsive whitewater reach can be runnable outside the usual summer recreation pattern. Check the Leonore hydrograph, recent rain, water temperature, outfitter status, and local closure or access notices before committing.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates the reach II-III, with Wildcat as the signature Class III feature. The route is pool-drop, but high water gets pushy and private boaters should be comfortable scouting, swimming, and recovering gear in moving water.',
+      confidenceNotes:
+        'Confidence is high enough for a conservative whitewater listing: American Whitewater ties the exact reach to USGS 05555300, publishes a 500 to 12,000 cfs runnable correlation, and lists the public take-out at the Oglesby boat launch. The app narrows the best window to 1,000 to 3,000 cfs because the source narrative says the river becomes good and pushy over 1,000 cfs, while older trip evidence treats 3,000 cfs as a high-water day rather than a broad recommendation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Whitewater reach',
+        value: '8.15 miles, Class II-III',
+        note: 'American Whitewater lists the route as N.2249th Road to the landing off Ed Hand Highway, with II-III difficulty and named features including Wildcat, Railroad, and The Narrows.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/651/main',
+      },
+      {
+        label: 'Gauge range',
+        value: '500 to 12,000 cfs runnable correlation',
+        note: 'American Whitewater ties the reach to USGS 05555300 at Leonore and exposes a low-runnable to high-runnable flow correlation in cfs.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/651/main',
+      },
+      {
+        label: 'Best-zone rationale',
+        value: '1,000 to 3,000 cfs conservative target',
+        note: 'The app uses a narrower target than the full AW runnable range: AW says the river becomes good and pushy over 1,000 cfs, and trip-report evidence at roughly 3,000 cfs reads as high-water whitewater rather than a normal broad recommendation.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/651/main',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Oglesby Vermilion River Boat Ramp',
+        note: 'The City of Oglesby describes the lower Vermilion boat ramp as a take-out for rafting, canoeing, and kayaking, with a launch and parking.',
+        sourceUrl: 'https://oglesbyil.gov/vermilion-river-boat-ramp/',
+      },
+      {
+        label: 'Public-facing route context',
+        value: '14 rapids, 9.5-mile outfitter trip',
+        note: 'Enjoy Illinois and Vermillion River Rafting describe guided/self-guided rafting on this Lowell-to-Oglesby corridor, supporting the route as a normal local paddling use pattern rather than a speculative line.',
+        sourceUrl: 'https://www.enjoyillinois.com/explore/listing/vermillion-river-rafting/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Vermilion / Wildcat Canyon',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/651/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 05555300 Vermilion River Near Leonore',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05555300/',
+        provider: 'usgs',
+      },
+      {
+        label: 'City of Oglesby Vermilion River Boat Ramp',
+        url: 'https://oglesbyil.gov/vermilion-river-boat-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Enjoy Illinois Vermillion River Rafting',
+        url: 'https://www.enjoyillinois.com/explore/listing/vermillion-river-rafting/',
+        provider: 'local',
+      },
+      {
+        label: 'Vermillion River Rafting',
+        url: 'https://vermillionriverrafting.com/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'flambeau-river-highway-w-hervas',
+    slug: 'flambeau-river-highway-w-hervas',
+    name: 'Flambeau River',
+    reach: 'County Highway W to Hervas Camp Landing',
+    aliases: [
+      'North Fork Flambeau - Highway W to Hervas',
+      'Flambeau North Fork - Babbs Island to Hervas',
+      'Flambeau River - County W to Hervas Camp Landing',
+    ],
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'State-forest North Fork Flambeau day or overnight from the Highway W landing to Hervas Camp Landing, with public landings, canoe camps, Porcupine Rapids, Wannigan Rapids, and Flambeau Falls. The route is scenic and established, but the gauge story is only a downstream proxy.',
+    statusText:
+      'Use the Flambeau River near Bruce gauge only as a conservative downstream trend check. Treat about 1,000 cfs as a proxy low-water floor; below that, expect scrapier boulder gardens and less reliable whitewater. No ideal range or high-water cutoff is claimed.',
+    latitude: 45.76812,
+    longitude: -90.76075,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05360500',
+      provider: 'usgs',
+      siteId: '05360500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Flambeau River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1000,
+      thresholdSource: {
+        label: 'Manual downstream-proxy floor from WI DNR, Wisconsin Trail Guide, and American Whitewater route context',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'manual',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Wisconsin Trail Guide says this North Fork corridor is generally good in spring, summer, and fall, but several rapids become scrappy at low flows. Less experienced paddlers should avoid winter melt-off, early spring surges, and sustained heavy-rain periods.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates Babbs Island / County W to Hervas as Class I-II, and Wisconsin Trail Guide adds Porcupine Rapids, Wannigan Rapids, and Flambeau Falls context. It is approachable whitewater for prepared moving-water paddlers, not a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is moderate for route shape and access but limited for scoring. WI DNR confirms Highway W, Camp 41, and Hervas as established public Flambeau River State Forest landings; Wisconsin Trail Guide publishes WGS84 coordinates, river-mile context, rapids notes, and camping information across FN3 and FN4; and American Whitewater identifies the exact Babbs Island / County W to Hervas reach at 14.2 miles. The weak point is water-level calibration: WTG says there is no USGS gauge for this segment, so the app uses the downstream Bruce gauge only as a conservative trend proxy and does not claim an ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'County W to Hervas, about 14.2-15 mi',
+        note: 'American Whitewater lists Babbs Island / CTH W to Hervas Camp Landing as 14.2 miles. Wisconsin DNR describes the comparable County Highway W to Hervas Camp Landing trip as 15 miles.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2293/main',
+      },
+      {
+        label: 'Public landings',
+        value: 'Highway W, Camp 41, Hervas',
+        note: 'Wisconsin DNR lists Highway W, Camp 41, and Hervas ramp as established North Fork Flambeau River State Forest landings with water/toilet access and overnight parking allowed for river camping.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.76812, -90.76075 to 45.64051, -90.83491',
+        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 waypoints for Highway W Landing, Camp 41 Landing, and Hervas Camp Landing across the FN3 and FN4 guide PDFs.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth3.pdf',
+      },
+      {
+        label: 'Whitewater character',
+        value: 'Class I-II boulder-bed rapids',
+        note: 'American Whitewater describes the reach as having many marked, named low-grade boulder-bed rapids. Wisconsin Trail Guide names Porcupine Rapids, Wannigan Rapids, and Flambeau Falls in the Highway W-to-Hervas corridor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2293/main',
+      },
+      {
+        label: 'Camp 41 split option',
+        value: 'About 8.3 mi from Highway W',
+        note: 'Wisconsin Trail Guide river-mile markers place Highway W Landing around mile 60.7 and Camp 41 Landing around mile 52.4, making Camp 41 the main split point before the final 6-mile run to Hervas.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/map-flambeauNorth3.pdf',
+      },
+      {
+        label: 'Gauge limitation',
+        value: 'No direct USGS gauge for this segment',
+        note: 'Wisconsin Trail Guide explicitly says there is no USGS river gauge for the FN3/FN4 North Fork segments. The Bruce gauge is downstream on the main Flambeau and should be treated as a trend proxy, not a direct reach gauge.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/flambeau-river-north-dix-dox.html',
+      },
+      {
+        label: 'Proxy live gauge',
+        value: 'USGS 05360500 near Bruce',
+        note: 'USGS operates the Flambeau River near Bruce monitoring location downstream of the route and below the forked-river corridor. It provides live discharge and stage for a cautious broader-corridor trend check.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'WI DNR Paddling the Flambeau River',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'WI DNR Paddle the Flambeau River booklet',
+        url: 'https://widnr.widen.net/view/pdf/kbe5smyrgp/PR358_FlambeauRiverSF_PaddleTheFlambeau.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater North Fork Flambeau - Babbs Island to Hervas',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2293/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Wisconsin Trail Guide Flambeau FN3',
+        url: 'https://wisconsintrailguide.com/paddle/flambeau-river-north-dix-dox.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide FN3 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth3.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide Flambeau FN4',
+        url: 'https://wisconsintrailguide.com/paddle/flambeau-river-north-camp41.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide FN4 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05360500 Flambeau River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'flambeau-river-hervas-beaver-dam',
+    slug: 'flambeau-river-hervas-beaver-dam',
+    name: 'Flambeau River',
+    reach: 'Hervas Camp Landing to Beaver Dam Landing',
+    aliases: [
+      'North Fork Flambeau - Hervas to Beaver Dam',
+      'Flambeau River - Hervas Landing to Beaver Dam Landing',
+      'Flambeau Cedar Rapids and Beaver Dam Rapids',
+    ],
+    state: 'Wisconsin',
+    region: 'Northwoods Wisconsin',
+    summary:
+      'Short, concentrated Flambeau whitewater run from Hervas Camp Landing to Beaver Dam Landing. Cedar Rapids and Beaver Dam Rapids make this a real Class II route with a stronger AW gauge ladder than the longer upstream North Fork segments.',
+    statusText:
+      'Use the Flambeau River near Bruce gauge as the AW-backed signal. Treat 1,320 to 3,420 cfs as the best broad window, 680 to 1,320 cfs as low but runnable, and 5,000+ cfs as beyond the broad-audience recommendation.',
+    latitude: 45.64051,
+    longitude: -90.83491,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-05360500',
+      provider: 'usgs',
+      siteId: '05360500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Flambeau River Near Bruce, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1320,
+      idealMax: 3420,
+      tooLow: 680,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'American Whitewater Hervas-to-Beaver Dam gauge ladder',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2292',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The North Fork is generally paddleable through spring, summer, and fall, but this short whitewater section is more level-sensitive than the flatwater reaches. Low water makes boulder gardens scrapey, while high or rising water increases push and hydraulic consequence.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach Class II. Wisconsin Trail Guide describes Cedar Rapids and Beaver Dam Rapids as the key hazards, with Beaver Dam becoming Class II-III in high flows and worth scouting or portaging for less experienced paddlers.',
+      confidenceNotes:
+        'Confidence is good for a guarded whitewater add: American Whitewater documents Hervas Landing to Beaver Dam Landing as a 4.9-mile Class II reach and publishes a Bruce-gauge flow ladder; WI DNR lists both Hervas and Beaver Dam as established Flambeau State Forest landings; and Wisconsin Trail Guide publishes WGS84 endpoint coordinates plus detailed Cedar Rapids and Beaver Dam Rapids notes. The gauge is still a proxy because AW notes the put-in drainage is about five percent less than the gauge and that three dams can create variance, so the route stays explicitly whitewater and conservative.',
+    },
+    evidenceNotes: [
+      {
+        label: 'AW route and gauge',
+        value: '4.9 mi; Class II',
+        note: 'American Whitewater lists Hervas Landing to Beaver Dam Landing as a 4.9-mile Class II Flambeau reach and ties it to the Flambeau River near Bruce gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2292/main',
+      },
+      {
+        label: 'AW gauge bands',
+        value: '680 / 1,320-3,420 / 5,000 cfs',
+        note: 'American Whitewater lists 680-1,320 cfs as barely to medium runnable, 1,320-3,420 cfs as medium to a bit pushy runnable, 3,420-5,000 cfs as high runnable, and 5,000+ cfs as very high.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2292',
+      },
+      {
+        label: 'Gauge caveat',
+        value: 'Proxy with dam variance',
+        note: 'American Whitewater says drainage at the put-in is about five percent less than at the Bruce gauge and that three intervening dams can cause variance between gauge reading and actual flow on the section.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2292',
+      },
+      {
+        label: 'Public landings',
+        value: 'Hervas and Beaver Dam',
+        note: 'Wisconsin DNR lists Hervas ramp and Beaver Dam as established Flambeau River State Forest landings, with Hervas supporting motorized/boat/canoe access and Beaver Dam supporting canoe access.',
+        sourceUrl: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '45.64051, -90.83491 to 45.61660, -90.90623',
+        note: 'Wisconsin Trail Guide FN4 publishes WGS84 waypoints for Hervas Camp Landing and Beaver Dam Landing.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth4.pdf',
+      },
+      {
+        label: 'Key rapids',
+        value: 'Cedar Rapids and Beaver Dam Rapids',
+        note: 'Wisconsin Trail Guide describes the first pitch of Cedar Rapids as a challenging Class II rapid and Beaver Dam Rapids as a Class II-III ledge at higher flows, with scout or portage options on river left.',
+        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Hervas to Beaver Dam',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2292/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Hervas to Beaver Dam gauge ladder',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2292',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'WI DNR Paddling the Flambeau River',
+        url: 'https://dnr.wisconsin.gov/topic/StateForests/flambeauriver/recreation/paddle',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin Trail Guide Flambeau FN4',
+        url: 'https://wisconsintrailguide.com/paddle/flambeau-river-north-camp41.html',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'Wisconsin Trail Guide FN4 PDF',
+        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-flambeauNorth4.pdf',
+        provider: 'wisconsin_trail_guide',
+      },
+      {
+        label: 'USGS 05360500 Flambeau River Near Bruce',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];
