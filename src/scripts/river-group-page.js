@@ -9,6 +9,7 @@ import { favoriteButtonMarkup as buildFavoriteButtonMarkup } from './favorite-bu
 import { bindFavoriteButtons, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
+import { ratingVerdictLabel } from '@paddletoday/api-contract';
 
 const root = document.querySelector('[data-river-group-page]');
 
@@ -59,10 +60,13 @@ function setText(field, value) {
 }
 
 function decisionLabel(rating, score = null) {
-  if (rating === 'Strong') return score >= 100 ? 'Ideal today' : 'Great today';
-  if (rating === 'Good') return 'Solid option';
-  if (rating === 'Fair') return 'Paddleable with tradeoffs';
-  return 'Skip today';
+  return ratingVerdictLabel(rating, Number(score), {
+    strongMaxLabel: 'Ideal today',
+    strongLabel: 'Great today',
+    goodLabel: 'Solid option',
+    fairLabel: 'Paddleable with tradeoffs',
+    noGoLabel: 'Skip today',
+  });
 }
 
 function ratingToneKey(rating) {

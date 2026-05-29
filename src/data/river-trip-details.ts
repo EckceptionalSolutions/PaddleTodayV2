@@ -3394,39 +3394,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'crow-wing-river-little-white-dog-carry-in-cottingham-county-park': {
-    putIn: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.58698,
-      longitude: -94.82262,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.5044417,
-      longitude: -94.8107221,
-    },
-    logistics: {
-      distanceLabel: '9.8 river mi',
-      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
-      shuttle:
-        'Standard Wadena County self-shuttle. Confirm the Cottingham parking and camping setup before leaving a vehicle, especially if you are pairing the paddle with an overnight.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp.',
-      camping:
-        'MN DNR identifies primitive camping/rest-area context at both Little White Dog and Cottingham. Confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
-      summary:
-        'Launch at Little White Dog and finish at Cottingham County Park for the DNR-recommended Crow Wing day trip. The river character is friendly, but use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
-      accessCaveats: [
-        'Both endpoints are named by MN DNR and backed by Wadena County campground/access pages, but saved coordinates should still defer to on-site signage.',
-        'Cottingham and Little White Dog are county campground/access sites, so parking, camping, fees, and seasonal details should be checked before the shuttle.',
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
-        'Fresh wood, strainers, and debris after high water.',
-        'Tubing traffic on popular summer weekends in the lower part of the route.',
-      ],
-    },
-  },
   'menomonee-river-hoyt-park-bluemound': {
     putIn: {
       name: 'Hoyt Park / TOSA Pool river access',
@@ -3669,8 +3636,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
     takeOut: {
       name: 'Dekorra Park landing',
-      latitude: 43.3868,
-      longitude: -89.5142,
+      latitude: 43.457484,
+      longitude: -89.46762,
     },
     logistics: {
       distanceLabel: '7.8 mi',
@@ -5048,7 +5015,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -91.458424,
     },
     logistics: {
-      distanceLabel: 'About 800 to 1,000 ft',
+      distanceLabel: 'About 0.15 to 0.2 mi / 800 to 1,000 ft',
       estimatedPaddleTime: 'Play-park session; laps vary by level and skill',
       shuttle:
         'No vehicle shuttle is needed for normal park laps. Park at 300 West Main Street, use the access near the first feature, and walk the paved trail back upstream between laps.',
@@ -5074,8 +5041,8 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
   'yellow-river-volney-sixteen-bridge': {
     putIn: {
       name: 'Volney Canoe Access',
-      latitude: 43.08663222,
-      longitude: -91.18097453,
+      latitude: 43.13022,
+      longitude: -91.37586,
     },
     takeOut: {
       name: 'Bridge Sixteen Canoe Access',
@@ -5686,5 +5653,560 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         note: 'Take-out on river right within view of Beaver Dam Rapids.',
       },
     ],
+  },
+  'pine-river-edgetts-lincoln': {
+    putIn: {
+      id: 'edgetts',
+      name: 'Edgetts Pine River launch',
+      latitude: 44.062496,
+      longitude: -85.583206,
+    },
+    takeOut: {
+      id: 'lincoln-bridge',
+      name: 'Lincoln Bridge Campground Boat Launch',
+      latitude: 44.13303,
+      longitude: -85.69622,
+    },
+    logistics: {
+      distanceLabel: 'About 13.1 mi',
+      estimatedPaddleTime: 'Long day, roughly 4 hr to 5.5 hr depending on level, wood, and stops',
+      shuttle:
+        'Use a two-car upper Pine shuttle from Lincoln Bridge back to Edgetts. Meadow Brook Bridge, Skookum, and Walker Bridge are intermediate Pine River access landmarks, but plan the route as a committed moving-water day unless you have confirmed shorter access and parking.',
+      permits:
+        'American Whitewater says Edgetts to Lincoln Bridge does not require the downstream Pine National Scenic River permit. Still check current Michigan DNR, Forest Service, and local access signage before launch, especially if continuing below Lincoln.',
+      camping:
+        'Treat this as a day trip unless you have separately confirmed a legal campground or designated site. American Whitewater notes Silver Creek State Forest Campground just upstream of Lincoln Bridge, but do not assume riverbank camping or private-shore stops.',
+      summary:
+        'Launch at Edgetts and take out at Lincoln Bridge for the upper Pine River moving-water reach above the federal permit corridor. Use the Hoxeyville USGS gauge as a conservative low-water check, then make same-day decisions from access signage, wood, and weather.',
+      accessCaveats: [
+        'Edgetts is mapped and coordinate-backed by the Cadillac Area Visitors Bureau / Forest Service Pine River map and named by American Whitewater, but it is not as cleanly documented as Lincoln in Outdoor Michigan. Follow current signs and do not use private land if access has changed.',
+        'Lincoln Bridge is a Michigan DNR carry-in launch with limited parking in Outdoor Michigan. Stage the take-out first so the exit and parking are clear before launch.',
+        'The Hoxeyville gauge is downstream on the same Pine River corridor. American Whitewater says it may vary slightly from the upper reach, so treat 170 cfs as a low-water screen rather than a full quality guarantee.',
+      ],
+      watchFor: [
+        'Shallow fast current, tight bends, occasional low Class II spots, and logs or stumps piled into turns.',
+        'Scraping and harder boat control when the Hoxeyville gauge falls below the 170 cfs floor used by the app.',
+        'Sweepers, logjams, cold water, storm damage, and limited legal stops away from named public access points.',
+        'Do not continue below Lincoln without checking the downstream Pine Scenic River permit rules and route plan.',
+      ],
+    },
+  },
+  'pine-river-peterson-low-bridge': {
+    putIn: {
+      id: 'peterson-bridge',
+      name: 'Peterson Bridge River Access',
+      latitude: 44.203235,
+      longitude: -85.799124,
+    },
+    takeOut: {
+      id: 'low-bridge',
+      name: 'Low Bridge River Access',
+      latitude: 44.218493,
+      longitude: -85.901885,
+    },
+    logistics: {
+      distanceLabel: 'About 8.25 to 8.6 mi',
+      estimatedPaddleTime: 'About 3.5 hr on-water time, plus scouting, wood delays, and landing congestion',
+      shuttle:
+        'Use a two-car Manistee National Forest shuttle between Peterson Bridge River Access and Low Bridge River Access. The corridor uses forest roads and permit-managed landings, so stage the Low Bridge take-out before launching.',
+      permits:
+        'A Pine National Scenic River permit is required during the Forest Service permit season. Recreation.gov manages Pine River permits and lists both Peterson Bridge and Low Bridge as access choices; check current availability, parking limits, and launch timing before the trip.',
+      camping:
+        'Do not assume on-route camping for this day run. Use only Forest Service-designated sites or separately reserved campgrounds if you are building an overnight plan.',
+      summary:
+        'Launch at Peterson Bridge River Access and take out at Low Bridge River Access for a permit-managed Pine River day in the Huron-Manistee National Forests. Use the Hoxeyville USGS gauge as a conservative low-water check, not a full ideal-range promise.',
+      accessCaveats: [
+        'Both endpoints are official Pine River access points, but permit rules, launch windows, parking capacity, and temporary storm-damage notices can change the practical plan.',
+        'Published Pine River maps and route guides list Peterson Bridge to Low Bridge at roughly 8.25 to 8.6 miles, with travel time varying substantially by level, wood, stops, and boat traffic.',
+        'The Hoxeyville gauge is a direct same-river gauge downstream of the route. It is useful for same-day flow, but local wood and storm damage can matter as much as the number.',
+      ],
+      watchFor: [
+        'Fast current, sharp bends, narrow passages, sweepers, downed trees, and logjams.',
+        'Scraping and more difficult maneuvering when the Hoxeyville gauge is below the 170 cfs floor used by the app.',
+        'Cold water, strainers after storms, busy summer permit traffic, and limited quick exits between access sites.',
+        'Do not launch without checking current Forest Service alerts, permit status, and recent Pine River hazard reports.',
+      ],
+    },
+  },
+  'pine-river-lincoln-peterson': {
+    putIn: {
+      id: 'lincoln-bridge',
+      name: 'Lincoln Bridge Campground Boat Launch',
+      latitude: 44.13303,
+      longitude: -85.69622,
+    },
+    takeOut: {
+      id: 'peterson-bridge',
+      name: 'Peterson Bridge Boat Launch',
+      latitude: 44.20708,
+      longitude: -85.80027,
+    },
+    logistics: {
+      distanceLabel: '15.8 mi',
+      estimatedPaddleTime: 'Long day, about 5.25 hr on-water before stops, wood delays, or scouting',
+      shuttle:
+        'Use a two-car Pine River shuttle from Peterson Bridge back to Lincoln Bridge. This is a long forest-road day with intermediate access at Elm Flats and Dobson Bridge if the group needs shorter options.',
+      permits:
+        'Check current Pine National Scenic River permit and day-use rules before launch. Rivers.gov describes a Forest Service watercraft permit system and access fees in the corridor, and Recreation.gov/Forest Service rules can change by season and access point.',
+      camping:
+        'Treat this as a long day trip unless you have separately confirmed legal camping. Rivers.gov says camping on National Forest lands within the corridor is allowed only at designated sites, and access/campground fees may apply.',
+      summary:
+        'Launch at Lincoln Bridge Campground Boat Launch and take out at Peterson Bridge Boat Launch for the upper half of the managed Pine Scenic River corridor. Use the Hoxeyville USGS gauge as a conservative low-water check and plan around fast current, wood, and a long shuttle.',
+      accessCaveats: [
+        'Lincoln Bridge is a Michigan DNR carry-in launch with limited parking; Peterson Bridge is a U.S. Forest Service carry-in launch with larger parking, restroom, and fee details in Outdoor Michigan.',
+        'Elm Flats and Dobson Bridge are official U.S. Forest Service carry-in launches between the endpoints and can be used to shorten the day if permits, parking, and group logistics allow.',
+        'The Hoxeyville gauge is downstream on the same Pine River corridor. It is useful for same-day flow, but storm damage, wood, and landing congestion still need a same-day local check.',
+      ],
+      watchFor: [
+        'Fast current, tight bends, shallow riffles, sweepers, logjams, and stumps piled into outside turns.',
+        'Scraping and more technical boat control when the Hoxeyville gauge falls below the 170 cfs floor used by the app.',
+        'Busy summer permit traffic, cold water, narrow passages, limited quick exits, and private land away from designated access points.',
+        'Do not launch without checking current Forest Service / Recreation.gov rules, access fees, and recent Pine River hazard reports.',
+      ],
+    },
+  },
+  'shiawassee-river-byron-walnut-hills': {
+    putIn: {
+      id: 'byron-high-school-ball-fields',
+      name: 'Byron High School Ball Fields concrete launch',
+      latitude: 42.840348,
+      longitude: -83.945658,
+    },
+    takeOut: {
+      id: 'walnut-hills-family-campground',
+      name: 'Walnut Hills Family Campground dirt launch',
+      latitude: 42.840348,
+      longitude: -84.009418,
+    },
+    logistics: {
+      distanceLabel: '4.87 mi',
+      estimatedPaddleTime: 'Short beginner day trip; time varies with low-water shallows and debris',
+      shuttle:
+        'Use the short water-trail road shuttle from Walnut Hills Family Campground back to the Byron High School Ball Fields area. Stage Walnut Hills first because it is a private seasonal campground access with fee and permission details to confirm.',
+      permits:
+        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before leaving a vehicle there.',
+      camping:
+        'Walnut Hills is a campground, but this route is treated as a short day trip. Do not assume camping or off-season access without a current campground reservation or permission.',
+      summary:
+        'Launch from the concrete launch by Byron High School Ball Fields and take out at the Walnut Hills Family Campground dirt launch for a 4.87-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify Walnut Hills access and same-day shallows before launching.',
+      accessCaveats: [
+        'The route sheet identifies the Byron launch as a concrete launch by the High School ball fields, with nearby Byron services.',
+        'Walnut Hills Family Campground is private seasonal access open May 1 through October 1 in the route sheet, with parking for a small fee.',
+        'Respect houses, private property, and shoreline along this rural residential reach, and stop only at designated launches or landings.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'Debris in the water, rural residential shoreline, and private-property constraints.',
+        'Sand-and-silt bottom through most of the reach, with deeper water reported after the New Lothrop bridge under average conditions.',
+        'The Owosso gauge is a downstream corridor proxy for this Byron segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+  'shiawassee-river-walnut-hills-geeck-road': {
+    putIn: {
+      id: 'walnut-hills-family-campground',
+      name: 'Walnut Hills Family Campground dirt launch',
+      latitude: 42.840348,
+      longitude: -84.009418,
+    },
+    takeOut: {
+      id: 'geeck-road-county-park',
+      name: 'Geeck Road County Park cement ramp',
+      latitude: 42.884522,
+      longitude: -84.045106,
+    },
+    logistics: {
+      distanceLabel: '6.98 mi',
+      estimatedPaddleTime: 'Beginner day trip; time varies with low-water shallows and debris',
+      shuttle:
+        'Use the water-trail road shuttle from Walnut Hills Family Campground to Geeck Road County Park via Lehring Road, Grand River Road, Geeck Road, Byam Road, and Exchange Road. Stage the Geeck Road take-out first because it is the public county-park endpoint.',
+      permits:
+        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch availability, seasonal dates, parking fee, and campground rules before staging a vehicle there.',
+      camping:
+        'Walnut Hills is a campground and outfitter access, but this route is treated as a day trip. Do not assume camping or off-season launch use without a current campground reservation or permission.',
+      summary:
+        'Launch from the Walnut Hills Family Campground dirt and gravel launch and take out at the Geeck Road County Park cement ramp for a 6.98-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify campground access and same-day shallows before launching.',
+      accessCaveats: [
+        'Walnut Hills Family Campground is a private site open to public paddlers seasonally, with a small vehicle fee; the local guide says no off-season use is possible when the facility is gated.',
+        'Geeck Road County Park is the downstream public park endpoint, with a visible cement ramp on river right, picnic facilities, and seasonal bathrooms.',
+        'Respect private docks and shoreline property, and stop only at designated launches or landings.',
+      ],
+      watchFor: [
+        'Shallow water between Vernon Road and Grand River Road, especially when the Owosso gauge trends toward 2.0 ft or below.',
+        'Debris, private docks, sandy and stony bottom, occasional aquatic vegetation, and three bridge crossings.',
+        'Low water can turn a beginner-rated trip into an experienced-navigation day.',
+        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+  'shiawassee-river-geeck-road-shiatown': {
+    putIn: {
+      id: 'geeck-road-county-park',
+      name: 'Geeck Road County Park launch',
+      latitude: 42.884522,
+      longitude: -84.045106,
+    },
+    takeOut: {
+      id: 'shiatown-county-park',
+      name: 'Shiatown County Park take-out above the dam',
+      latitude: 42.929408,
+      longitude: -84.071308,
+    },
+    logistics: {
+      distanceLabel: '6.21 mi',
+      estimatedPaddleTime: 'Beginner day trip; time varies with low-water riffles, debris, and take-out caution',
+      shuttle:
+        'Use the water-trail road shuttle from Shiatown County Park back to Geeck Road County Park via Newberry Road, Newburg Road, and Geeck Road. Stage the Shiatown take-out first so the river-right exit above the dam is familiar before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
+      camping:
+        'Treat this as a day trip. The route sheet notes park amenities at both endpoints, but no on-route camping plan is assumed.',
+      summary:
+        'Launch at Geeck Road County Park and take out at Shiatown County Park for a 6.21-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because submerged rocks, riffles, debris, and the dam-adjacent take-out can change the day.',
+      accessCaveats: [
+        'The route sheet identifies Geeck Road as the start and Shiatown as the end, with parking and portable toilets at both access areas.',
+        'Exit on river right above the Shiatown dam and use the footpath up to the gravel parking lot; do not continue past the take-out without separate dam and downstream-route planning.',
+        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
+      ],
+      watchFor: [
+        'Low-water navigation around large submerged rocks and riffles.',
+        'Debris, three bridge crossings, and a transition from developed rural-residential shoreline to wooded wetland after the freeway.',
+        'High water, cold water, or poor visibility can make the Shiatown take-out above the dam more consequential.',
+        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+  'shiawassee-river-shiatown-lytle': {
+    putIn: {
+      id: 'shiatown-county-park',
+      name: 'Shiatown County Park launch below the partially removed dam',
+      latitude: 42.929408,
+      longitude: -84.071308,
+    },
+    takeOut: {
+      id: 'lytle-road-county-park',
+      name: 'Lytle Road County Park bank launch',
+      latitude: 42.9766,
+      longitude: -84.069441,
+    },
+    logistics: {
+      distanceLabel: '7.83 mi',
+      estimatedPaddleTime: 'Intermediate day trip; time varies with low-water scraping, debris, and bridge approaches',
+      shuttle:
+        'Use the water-trail road shuttle from Shiatown County Park to Lytle Road County Park via Bennington Road, Bancroft / Parmenter Road, Hibbard Road, South Kerby Road, and Lytle Road. Stage the Lytle Road take-out first because access sites are far apart on this segment.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
+      camping:
+        'Treat this as a day trip. No on-route camping plan is assumed between Shiatown and Lytle Road.',
+      summary:
+        'Launch downstream of the partially removed dam at Shiatown County Park and take out at Lytle Road County Park for a 7.83-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because this route has dam-adjacent fast water, rocks, and debris.',
+      accessCaveats: [
+        'The route sheet identifies Shiatown County Park as the start and Lytle Road County Park as the end, with parking at both endpoints and a seasonal portable toilet at Shiatown.',
+        'Begin downstream of the partially removed Shiatown dam; do not treat the dam itself as a runnable feature.',
+        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
+      ],
+      watchFor: [
+        'Fast moving rapids and a split channel immediately after the partially removed Shiatown dam.',
+        'Rocky shallow water after Bennington Road, faster current near the railroad tracks, six bridge crossings, and debris or vegetation covering rocks.',
+        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'High water can make the dam-adjacent start, bridge approaches, debris, and private-dock corridor unsuitable even though the app only scores a conservative low-water floor.',
+      ],
+    },
+  },
+  'shiawassee-river-lytle-brady-street': {
+    putIn: {
+      id: 'lytle-road-county-park',
+      name: 'Lytle Road County Park bank launch',
+      latitude: 42.9766,
+      longitude: -84.069441,
+    },
+    takeOut: {
+      id: 'brady-street',
+      name: 'Brady Street dirt launch',
+      latitude: 42.9766,
+      longitude: -84.116539,
+    },
+    logistics: {
+      distanceLabel: '3.2 mi',
+      estimatedPaddleTime: 'About 1 hr, longer if low water or causeway decisions slow the trip',
+      shuttle:
+        'Use the short water-trail road shuttle from Lytle Road County Park to Brady Street Landing in Corunna via Lytle Road, South Shiawassee Street, West Mack Street, and North Brady Street.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, City of Corunna access rules, posted parking rules, and water-trail safety guidance.',
+      camping:
+        'Treat this as a short day trip. No on-route camping plan is assumed for this Corunna-area segment.',
+      summary:
+        'Launch from the bank at Lytle Road County Park and take out at the Brady Street dirt launch in Corunna. This 3.2-mile Shiawassee River Water Trail section is short but still asks paddlers to manage split channels, wood, and a causeway.',
+      accessCaveats: [
+        'The route sheet identifies Lytle Road as the start and Brady Street as the end, with parking at both ends and a porta-john / nearby town services at the Brady Street end.',
+        'Lytle Road County Park has no services at the launch and requires a carry to the bank.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'A causeway about 1.75 miles in; stay left to pass under it during low water and portage over it during high water.',
+        'Downed trees, islands, and split channels that require route-finding despite the short mileage.',
+        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'High water can change the causeway decision and may make this short route unsuitable even though the app only scores a conservative low-water floor.',
+      ],
+    },
+  },
+  'shiawassee-river-mccurdy-harmon-patridge': {
+    putIn: {
+      id: 'mccurdy-park',
+      name: 'Corunna McCurdy Park carry-in launch',
+      latitude: 42.98614,
+      longitude: -84.124008,
+    },
+    takeOut: {
+      id: 'harmon-patridge',
+      name: 'Harmon Patridge Park launch',
+      latitude: 43.020112,
+      longitude: -84.184547,
+    },
+    logistics: {
+      distanceLabel: '6.49 mi',
+      estimatedPaddleTime: 'About 2 hr to 2.5 hr if portages and downtown stops are smooth',
+      shuttle:
+        'Use the water-trail road shuttle from McCurdy Park in Corunna to the Harmon Patridge / Chippewa Trail launch in Owosso via Corunna Avenue, Washington Street, Main Street, M-52, and Getman Road. Stage the Harmon Patridge take-out first because the final launch is on river right before the park.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Corunna, City of Owosso, and water-trail access rules, and use only designated launches or landings.',
+      camping:
+        'Treat this as a trail-town day trip. The route has nearby services in Corunna and Owosso, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Corunna McCurdy Park and take out at Harmon Patridge Park for the 6.49-mile Shiawassee River Water Trail segment into Owosso. Use the Owosso USGS gauge as a conservative depth and high-water check, then make dam decisions by scouting in person.',
+      accessCaveats: [
+        'The route sheet identifies McCurdy Park as the start and Harmon Patridge Park as the end, with parking, restrooms or porta-johns, park access, and nearby services.',
+        'The route can be shortened at Oakwood Avenue, a developed City of Owosso launch, before the full set of Owosso dam decisions.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Three low-head dams or weirs through Owosso. Beginning paddlers should portage; only experienced paddlers should consider running passable spillways after scouting.',
+        'Scraping, rocky shallows, and harder boat control when the Owosso gauge trends toward 2.5 ft or below, especially around the weirs.',
+        'High water above 7 ft, faster urban current, strainers, and bridge-clearance problems.',
+        'Urban landings, downtown stops, and the James Miner River Walk corridor can make this a busier trail-town paddle than the downstream rural Shiawassee segments.',
+      ],
+    },
+  },
+  'shiawassee-river-harmon-patridge-henderson': {
+    putIn: {
+      id: 'harmon-patridge',
+      name: 'Harmon Patridge Park launch',
+      latitude: 43.020112,
+      longitude: -84.184547,
+    },
+    takeOut: {
+      id: 'henderson-county-park',
+      name: 'Henderson County Park cement launch',
+      latitude: 43.087788,
+      longitude: -84.181933,
+    },
+    logistics: {
+      distanceLabel: '7.78 mi',
+      estimatedPaddleTime: 'About 2 hr 20 min at relaxed kayak pace, longer in low water',
+      shuttle:
+        'Use the water-trail road shuttle from Harmon Patridge Park near Owosso to Henderson County Park via Chippewa Trail, Curwood Road, M-52, and Henderson Road. Stage the Henderson take-out first because the launch and parking are back in the wooded park area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Harmon Patridge Park and take out at Henderson County Park for the 7.78-mile Shiawassee River Water Trail segment north of Owosso. Use the Owosso USGS gauge as a stage-based check for enough depth and bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Harmon Patridge Park as the start and Henderson County Park as the end, with parking and restroom/porta-john amenities noted for the route.',
+        'The route sheet says the Henderson County Park launch is back in the woods and describes the take-out as a designated cement launch with seasonal restrooms, playground, and picnic area.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Scraping, sand bars, large rocks, and harder riffle navigation when the Owosso gauge trends toward 2.5 ft or below.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Two islands before Juddville Road, shallow rocky sections, late-summer aquatic vegetation, and changing depth in pools and riffles.',
+        'Use good judgment in high water or flood conditions and scout unfamiliar obstructions before committing.',
+      ],
+    },
+  },
+  'shiawassee-river-henderson-ditch-road': {
+    putIn: {
+      id: 'henderson-county-park',
+      name: 'Henderson County Park cement launch',
+      latitude: 43.087788,
+      longitude: -84.181933,
+    },
+    takeOut: {
+      id: 'ditch-road',
+      name: 'Ditch Road gravel launch',
+      latitude: 43.143842,
+      longitude: -84.13413,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'Intermediate day trip; time varies with level, remoteness, and weir scouting',
+      shuttle:
+        'Use the water-trail road shuttle from Henderson County Park to the Ditch Road launch near Oakley and Parshallburg via Henderson Road, M-52, Johnstone Road, and Niver Road. Stage the Ditch Road take-out first because the launch and parking are just off the road.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Henderson County Park and take out at the Ditch Road gravel launch for the 9.2-mile Shiawassee River Water Trail segment toward Oakley and Parshallburg. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Henderson County Park as the start and Ditch Road as the end, with parking and restroom amenities at both endpoints.',
+        'The Ditch Road take-out is a gravel launch just before the bridge and near a wooden observation deck; identify it before launching so the weir and bridge area do not become a rushed decision.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'A weir near Ditch Road that must be maneuvered skillfully; use the right-side portage when needed.',
+        'Sand bars, stone bars, riffles, rapids, and harder boat control when the Owosso gauge trends toward 2.5 ft or below.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Three bridges, two islands, remoteness between landings, late-summer vegetation, and changing depth through pools and riffles.',
+      ],
+    },
+  },
+  'shiawassee-river-ditch-road-cole-park': {
+    putIn: {
+      id: 'ditch-road',
+      name: 'Ditch Road gravel launch',
+      latitude: 43.143859,
+      longitude: -84.134264,
+    },
+    takeOut: {
+      id: 'cole-park',
+      name: 'Cole Park launch',
+      latitude: 43.185325,
+      longitude: -84.112656,
+    },
+    logistics: {
+      distanceLabel: '5.48 mi',
+      estimatedPaddleTime: 'Short day trip; time varies with level, shallow riffles, and the Cole Park portage',
+      shuttle:
+        'Use the water-trail road shuttle from the Ditch Road launch near Oakley and Parshallburg to Cole Park in Chesaning via Ditch Road, Corunna Road / Main Street, and Canal Street. Stage the Cole Park take-out first so the river-right portage and rock walk are not a surprise at the finish.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access rules, Chesaning park rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a short day trip. Chesaning has nearby park and lodging options, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at the Ditch Road gravel launch and take out at Cole Park for the final 5.48-mile Shiawassee River Water Trail segment into Chesaning. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Ditch Road as the start and Cole Park as the end, with parking and restroom amenities at both endpoints.',
+        'The route PDF text extraction reverses the coordinate labels in one place; the Ditch Road coordinate is reconciled against the adjacent upstream route endpoint, and the Cole Park coordinate is the downstream Chesaning endpoint.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Rocky bottom, riffles, shallow spots, and a large island where the right channel has deeper water.',
+        'Rock rapids near Showboat Park / Cole Park; portage on river right and expect a slippery rock walk to reach the Cole Park launch.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Low summer water can make the short mileage slower than expected and increase scraping in riffles.',
+      ],
+    },
+  },
+  'huron-river-argo-gallup': {
+    putIn: {
+      id: 'argo-park-canoe-livery',
+      name: 'Argo Park Canoe Livery public launch',
+      latitude: 42.29148,
+      longitude: -83.74444,
+    },
+    takeOut: {
+      id: 'gallup-park-livery',
+      name: 'Gallup Park Livery public launch',
+      latitude: 42.277699,
+      longitude: -83.699883,
+    },
+    logistics: {
+      distanceLabel: '3.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr, longer with crowds, low water, or repeated Cascades laps',
+      shuttle:
+        'Use the City of Ann Arbor livery shuttle when operating, or stage a two-car shuttle between Gallup Park and Argo. Parking at Argo is limited, so check city parking guidance before unloading on busy weekends.',
+      permits:
+        'No route-specific paddling permit is known for private boats. Follow City of Ann Arbor livery, launch, parking, and park rules, and confirm seasonal hours if relying on rentals or shuttle service.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Argo and Gallup.',
+      summary:
+        'Launch at Argo Park Canoe Livery, run the Argo Cascades or use the appropriate city launch option for your craft, then continue through Ann Arbor parkland to Gallup Park Livery. Use the Ann Arbor USGS gauge and make a visual check because the Cascades are dam-adjacent and can be crowded.',
+      accessCaveats: [
+        'Argo and Gallup are City of Ann Arbor facilities with seasonal livery operations, launches, parking, restrooms, and rentals; hours and shuttle availability change by season.',
+        'Canoes may be launched downstream of the Cascades under city livery operations, while kayaks, rafts, tubes, and properly skilled private paddlers use the Cascades according to current rules and signage.',
+        'The Barton Dam / Barton Pond closure is upstream of this route, but it affects longer Huron River trip planning and should not be treated as a usable upstream portage.',
+      ],
+      watchFor: [
+        'Argo Cascades drops, rock chutes, and pools; scout from the adjacent path if you have not run them before.',
+        'Crowded summer weekends with kayaks, rafts, tubes, paddleboards, rowboats, and livery traffic sharing a short corridor.',
+        'Erratic gauge changes from dam operations; American Whitewater says visual confirmation is required even with the Ann Arbor gauge.',
+        'PFAS advisories on the Huron River include avoiding contact with foam and washing hands, pets, and gear after exposure.',
+      ],
+    },
+  },
+  'clinton-river-north-clinton-rotary': {
+    putIn: {
+      id: 'north-clinton-river-park',
+      name: 'North Clinton River Park accessible launch',
+      latitude: 42.607767,
+      longitude: -83.024447,
+    },
+    takeOut: {
+      id: 'rotary-park-sterling-heights',
+      name: 'Rotary Park accessible launch',
+      latitude: 42.570595,
+      longitude: -82.971459,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Rotary Park, then drive back to North Clinton River Park off Riverland Drive. Rotary has a longer carry from the water to parking, but the city provides a rail system for moving boats.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sterling Heights park, launch, parking, and posted water-trail rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between North Clinton River Park and Rotary Park.',
+      summary:
+        'Launch at North Clinton River Park and take out at Rotary Park for the Sterling Heights Clinton River Water Trail run. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
+      accessCaveats: [
+        'Both endpoints are City of Sterling Heights accessible kayak/canoe launches, but park hours, events, and launch conditions can still change.',
+        'The route passes Dodge Park before Rotary Park, so Dodge can serve as a check-in or earlier exit if conditions are worse than expected.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Golf-course crossing signs, bridges, blind bends, and other city-park traffic in the Sterling Heights corridor.',
+      ],
+    },
+  },
+  'clinton-river-downtown-utica-north-clinton': {
+    putIn: {
+      id: 'downtown-utica',
+      name: 'Downtown Utica water-trail access',
+      latitude: 42.625576,
+      longitude: -83.037665,
+    },
+    takeOut: {
+      id: 'north-clinton-river-park',
+      name: 'North Clinton River Park accessible launch',
+      latitude: 42.607767,
+      longitude: -83.024447,
+    },
+    logistics: {
+      distanceLabel: 'About 2.2 mi',
+      estimatedPaddleTime: 'Short trip, roughly 1 hr to 1.5 hr depending on level and wood',
+      shuttle:
+        'Stage the take-out at North Clinton River Park off Riverland Drive, then drive back to Downtown Utica. Heritage Park is an intermediate access about a half mile below Downtown Utica if you need a very short check-out point.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Utica and City of Sterling Heights park, launch, parking, and posted water-trail rules at the public access sites.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Downtown Utica and North Clinton River Park.',
+      summary:
+        'Launch at Downtown Utica and take out at North Clinton River Park for the short upstream link into the Sterling Heights Clinton River Water Trail. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
+      accessCaveats: [
+        'CRWC and Michigan Water Trails list Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River Water Trail access points, but city parking and launch conditions can still change.',
+        'North Clinton River Park has the stronger take-out setup because the City of Sterling Heights confirms a public accessible EZDock launch there.',
+        'Do not extend upstream toward Rochester, Yates, or dam-adjacent reaches from this route without separate planning; this record is only the Downtown Utica-to-North Clinton segment.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Short mileage does not remove the need to scout wood, blind bends, bridges, and the landing before launching.',
+      ],
+    },
   },
 };

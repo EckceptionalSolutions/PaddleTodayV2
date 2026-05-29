@@ -6,10 +6,10 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const mobileRoot = join(root, 'apps/mobile');
 const checks = [];
 
-check('apps/mobile/app.json parses', () => readJson(join(mobileRoot, 'app.json')));
+check('apps/mobile/app.config.base.json parses', () => readJson(join(mobileRoot, 'app.config.base.json')));
 check('apps/mobile/eas.json parses', () => readJson(join(mobileRoot, 'eas.json')));
 
-const appConfig = readJson(join(mobileRoot, 'app.json')).expo;
+const appConfig = readJson(join(mobileRoot, 'app.config.base.json')).expo;
 const easConfig = readJson(join(mobileRoot, 'eas.json'));
 const mobilePackage = readJson(join(mobileRoot, 'package.json'));
 
@@ -34,6 +34,16 @@ checkFile('source brand icon asset', join(root, 'public/brand/paddle-today-logo-
 checkFile('mobile app config', join(mobileRoot, 'app.config.js'));
 checkFile('Firebase diagnostics config', join(mobileRoot, 'firebase.json'));
 checkFile('Firebase native config instructions', join(mobileRoot, 'firebase/README.md'));
+check('Firebase Android config matches app package', () => {
+  const firebaseConfig = readJson(join(mobileRoot, 'firebase/google-services.json'));
+  return firebaseConfig.client?.some(
+    (client) => client.client_info?.android_client_info?.package_name === appConfig.android?.package
+  );
+});
+check('Firebase iOS config matches bundle identifier', () => {
+  const plist = readFileSync(join(mobileRoot, 'firebase/GoogleService-Info.plist'), 'utf8');
+  return plistValue(plist, 'BUNDLE_ID') === appConfig.ios?.bundleIdentifier;
+});
 checkFile('Metro config', join(mobileRoot, 'metro.config.js'));
 
 for (const profile of ['development', 'preview', 'production']) {
@@ -43,7 +53,7 @@ for (const profile of ['development', 'preview', 'production']) {
 }
 
 check('production Android build creates app bundle', () => easConfig.build?.production?.android?.buildType === 'app-bundle');
-check('production build auto-increments native versions', () => easConfig.build?.production?.autoIncrement === true);
+check('production build uses explicit native versions', () => easConfig.build?.production?.autoIncrement !== true);
 
 for (const file of [
   'docs/mobile-store-release-checklist.md',
@@ -145,4 +155,10 @@ function hasDependency(packageName) {
 function fileIncludes(path, needles) {
   const text = readFileSync(path, 'utf8');
   return needles.every((needle) => text.includes(needle));
+}
+
+function plistValue(text, key) {
+  const escapedKey = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = text.match(new RegExp(`<key>${escapedKey}</key>\\s*<string>([^<]+)</string>`));
+  return match?.[1] ?? '';
 }

@@ -1,6 +1,6 @@
 const { existsSync } = require('node:fs');
 const { join } = require('node:path');
-const appJson = require('./app.json');
+const baseAppConfig = require('./app.config.base.json');
 
 const androidGoogleMapsApiKey = process.env.GOOGLE_MAPS_ANDROID_API_KEY?.trim();
 const appEnvironment = process.env.EXPO_PUBLIC_APP_ENV?.trim();
@@ -25,41 +25,67 @@ if (firebaseDiagnosticsEnabled) {
   }
 }
 
-module.exports = {
-  expo: {
-    ...appJson.expo,
-    plugins: [
-      ...(appJson.expo.plugins ?? []),
-      ...(firebaseDiagnosticsEnabled
-        ? ['@react-native-firebase/app', '@react-native-firebase/crashlytics']
-        : []),
-    ],
-    ios: {
-      ...appJson.expo.ios,
-      ...(firebaseDiagnosticsEnabled
-        ? {
-            googleServicesFile: firebaseIosConfig,
-          }
-        : {}),
-    },
+module.exports = ({ config }) => {
+  const baseConfig = {
+    ...config,
+    ...baseAppConfig.expo,
     android: {
-      ...appJson.expo.android,
-      ...(firebaseDiagnosticsEnabled
-        ? {
-            googleServicesFile: firebaseAndroidConfig,
-          }
-        : {}),
-      ...(androidGoogleMapsApiKey
-        ? {
-            config: {
-              ...(appJson.expo.android?.config ?? {}),
-              googleMaps: {
-                ...(appJson.expo.android?.config?.googleMaps ?? {}),
-                apiKey: androidGoogleMapsApiKey,
-              },
-            },
-          }
-        : {}),
+      ...config.android,
+      ...baseAppConfig.expo.android,
+      blockedPermissions: [
+        ...new Set([
+          ...(config.android?.blockedPermissions ?? []),
+          ...(baseAppConfig.expo.android?.blockedPermissions ?? []),
+          'android.permission.RECORD_AUDIO',
+        ]),
+      ],
     },
-  },
+    ios: {
+      ...config.ios,
+      ...baseAppConfig.expo.ios,
+    },
+    web: {
+      ...config.web,
+      ...baseAppConfig.expo.web,
+    },
+  };
+
+  return {
+    expo: {
+      ...baseConfig,
+      plugins: [
+        ...(baseConfig.plugins ?? []),
+        ...(firebaseDiagnosticsEnabled
+          ? ['@react-native-firebase/app', '@react-native-firebase/crashlytics']
+          : []),
+      ],
+      ios: {
+        ...baseConfig.ios,
+        ...(firebaseDiagnosticsEnabled
+          ? {
+              googleServicesFile: firebaseIosConfig,
+            }
+          : {}),
+      },
+      android: {
+        ...baseConfig.android,
+        ...(firebaseDiagnosticsEnabled
+          ? {
+              googleServicesFile: firebaseAndroidConfig,
+            }
+          : {}),
+        ...(androidGoogleMapsApiKey
+          ? {
+              config: {
+                ...(baseConfig.android?.config ?? {}),
+                googleMaps: {
+                  ...(baseConfig.android?.config?.googleMaps ?? {}),
+                  apiKey: androidGoogleMapsApiKey,
+                },
+              },
+            }
+          : {}),
+      },
+    },
+  };
 };

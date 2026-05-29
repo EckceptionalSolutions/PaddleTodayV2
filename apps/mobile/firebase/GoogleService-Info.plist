@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.paddletoday.com</string>
+	<string>com.paddletoday.mobile</string>
 	<key>PROJECT_ID</key>
 	<string>paddletoday-9933a</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:378411608143:ios:487fc68bddc63eedfd623a</string>
+	<string>1:378411608143:ios:8eb321f8ba3e8ff4fd623a</string>
 </dict>
 </plist>

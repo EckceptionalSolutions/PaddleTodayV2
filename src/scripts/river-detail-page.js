@@ -1000,7 +1000,7 @@ function bindRoutePhotoForm() {
         }))
       );
 
-      const response = await fetch('/api/route-photo-submissions', {
+      const response = await fetch('/api/route-contributions', {
         method: 'POST',
         headers: {
           accept: 'application/json',
@@ -1150,7 +1150,7 @@ function bindRouteReportForm() {
         }))
       );
 
-      const response = await fetch('/api/route-photo-submissions', {
+      const response = await fetch('/api/route-contributions', {
         method: 'POST',
         headers: {
           accept: 'application/json',

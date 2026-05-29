@@ -1,6 +1,7 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
 import { useRouter } from 'expo-router';
 import { RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { SectionCard } from '../components/section-card';
@@ -12,6 +13,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export default function WeekendScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const weekendQuery = useWeekendSummaryQuery();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
 
@@ -54,7 +56,7 @@ export default function WeekendScreen() {
   return (
     <ScrollView
       style={styles.screen}
-      contentContainerStyle={styles.content}
+      contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}

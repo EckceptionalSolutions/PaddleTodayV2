@@ -1,4 +1,8 @@
-import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import {
+  compareTodayCertainty,
+  compareTodayScore,
+  type RiverSummaryApiItem,
+} from '@paddletoday/api-contract';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
@@ -11,6 +15,7 @@ import {
   Text,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useRiverSummaryQuery } from '../api/queries';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
@@ -50,6 +55,7 @@ const modeLabels: Record<BoardMode, string> = {
 
 export default function HomeScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const summaryQuery = useRiverSummaryQuery();
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
@@ -67,11 +73,11 @@ export default function HomeScreen() {
   const snapshot = buildBoardSnapshot(snapshotRoutes);
   const snapshotContext = location && nearbyPicks.length > 0 ? 'In your range' : 'Across supported routes';
   const scorePicks = useMemo(
-    () => [...rivers].sort(compareHomeScore).slice(0, 24),
+    () => [...rivers].sort(compareTodayScore).slice(0, 24),
     [rivers]
   );
   const certainPicks = useMemo(
-    () => [...rivers].sort(compareHomeCertainty).slice(0, 24),
+    () => [...rivers].sort(compareTodayCertainty).slice(0, 24),
     [rivers]
   );
   const closestPicks = useMemo(
@@ -122,7 +128,7 @@ export default function HomeScreen() {
   return (
     <ScrollView
       style={styles.screen}
-      contentContainerStyle={styles.listContent}
+      contentContainerStyle={[styles.listContent, { paddingTop: spacing.md + insets.top }]}
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
@@ -642,30 +648,6 @@ function isBoardPreferences(value: unknown): value is BoardPreferences {
 
 function isBoardMode(value: unknown): value is BoardMode {
   return value === 'best' || value === 'closest' || value === 'score' || value === 'certain';
-}
-
-const homeConfidenceWeight = {
-  High: 3,
-  Medium: 2,
-  Low: 1,
-};
-
-function compareHomeScore(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
-  if (left.score !== right.score) {
-    return right.score - left.score;
-  }
-
-  return left.river.name.localeCompare(right.river.name);
-}
-
-function compareHomeCertainty(left: RiverSummaryApiItem, right: RiverSummaryApiItem) {
-  const leftConfidence = homeConfidenceWeight[left.confidence.label] ?? 0;
-  const rightConfidence = homeConfidenceWeight[right.confidence.label] ?? 0;
-  if (leftConfidence !== rightConfidence) {
-    return rightConfidence - leftConfidence;
-  }
-
-  return compareHomeScore(left, right);
 }
 
 function sectionSubtitleForMode(mode: BoardMode) {

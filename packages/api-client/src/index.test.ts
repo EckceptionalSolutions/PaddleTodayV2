@@ -93,7 +93,7 @@ describe('@paddletoday/api-client', () => {
 
   it('posts route contribution reports as JSON', async () => {
     const fetchImpl = async (_input: URL | RequestInfo, init?: RequestInit) => {
-      expect(String(_input)).toBe('https://api.example.com/api/route-photo-submissions');
+      expect(String(_input)).toBe('https://api.example.com/api/route-contributions');
       expect(init?.method).toBe('POST');
       expect(init?.headers).toEqual({
         accept: 'application/json',

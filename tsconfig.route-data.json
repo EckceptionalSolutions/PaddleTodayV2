@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": [
+    "src/data/rivers.ts",
+    "src/data/river-trip-details.ts",
+    "src/lib/types.ts"
+  ]
+}

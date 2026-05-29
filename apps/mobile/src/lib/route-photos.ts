@@ -138,6 +138,33 @@ const routeGalleryImages: Record<string, string[]> = {
   'yellow-river-sixteen-bridge-highway-76': [
     '/gallery/yellow-river-sixteen-bridge-highway-76/yellow-river-effigy-mounds.jpg',
   ],
+  'shiawassee-river-byron-walnut-hills': [
+    '/gallery/shiawassee-river-byron-walnut-hills/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-walnut-hills-geeck-road': [
+    '/gallery/shiawassee-river-walnut-hills-geeck-road/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-geeck-road-shiatown': [
+    '/gallery/shiawassee-river-geeck-road-shiatown/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-shiatown-lytle': [
+    '/gallery/shiawassee-river-shiatown-lytle/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-lytle-brady-street': [
+    '/gallery/shiawassee-river-lytle-brady-street/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-mccurdy-harmon-patridge': [
+    '/gallery/shiawassee-river-mccurdy-harmon-patridge/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-harmon-patridge-henderson': [
+    '/gallery/shiawassee-river-harmon-patridge-henderson/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-henderson-ditch-road': [
+    '/gallery/shiawassee-river-henderson-ditch-road/shiawassee-river-paddle.jpg',
+  ],
+  'shiawassee-river-ditch-road-cole-park': [
+    '/gallery/shiawassee-river-ditch-road-cole-park/shiawassee-river-paddle.jpg',
+  ],
   'kinnickinnic-river-glen-park-state-park': [
     '/gallery/kinnickinnic-river-glen-park-state-park/kinnickinnic-winter-sunset.jpg',
   ],

@@ -52,6 +52,11 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const previousPointSignatureRef = useRef<string | null>(null);
   const initialRegion = regionFromBounds(bounds);
   const pointSignature = nativeMarkerPoints.map((point) => point.id).join('|');
+  const hasUserLocation = Boolean(
+    userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude)
+  );
+  const nativeUserLocation = hasUserLocation ? userLocation : null;
+  const nativeMapKey = `${markerMode}:${hasUserLocation ? 'user' : 'nouser'}:${pointSignature}`;
   const [regionDelta, setRegionDelta] = useState({
     latitudeDelta: initialRegion.latitudeDelta,
     longitudeDelta: initialRegion.longitudeDelta,
@@ -135,6 +140,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     return (
       <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
         <MapView
+          key={nativeMapKey}
           ref={mapRef}
           style={[styles.nativeMap, { height }]}
           initialRegion={initialRegion}
@@ -155,10 +161,10 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
           showsScale
           toolbarEnabled={false}
         >
-          {userLocation && Number.isFinite(userLocation.latitude) && Number.isFinite(userLocation.longitude) ? (
+          {nativeUserLocation ? (
             <Marker
-              coordinate={{ latitude: userLocation.latitude, longitude: userLocation.longitude }}
-              title={userLocation.label ?? 'Current location'}
+              coordinate={{ latitude: nativeUserLocation.latitude, longitude: nativeUserLocation.longitude }}
+              title={nativeUserLocation.label ?? 'Current location'}
               zIndex={999}
             >
               <View style={styles.nativeUserMarker}>
@@ -428,12 +434,12 @@ function toneForRating(rating: string | null | undefined) {
 }
 
 function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
-  if (selected) {
-    return colors.accent;
+  if (point.meta === 'Take-out') {
+    return colors.noGo;
   }
 
-  if (point.meta === 'Take-out') {
-    return colors.textMuted;
+  if (selected) {
+    return colors.accent;
   }
 
   if (point.rating === 'Strong' || point.rating === 'Good') {

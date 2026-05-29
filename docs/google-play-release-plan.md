@@ -17,6 +17,7 @@ Goal: prepare PaddleToday for a first Google Play release using the existing Exp
 - Category/content rating notes: `docs/mobile-store-category-content-rating.md`.
 - Screenshot plan: `docs/mobile-store-screenshot-plan.md`.
 - Android platform warning audit: `docs/google-play-android-platform-warnings.md`.
+- Play Console operations runbook: `docs/google-play-console-ops.md`.
 
 ## Release Phases
 
@@ -56,7 +57,7 @@ Goal: prepare PaddleToday for a first Google Play release using the existing Exp
 ## Current Blockers
 
 - Google Play Console access and app record status still need confirmation.
-- Google Play upload/service account credentials are not configured in `apps/mobile/eas.json`, so EAS Submit may need manual console upload first.
+- Google Play service account credentials are not configured, so EAS Submit may prompt for credentials or require manual console upload first.
 - Store screenshots still need to be captured from a current build.
 
 ## Commands

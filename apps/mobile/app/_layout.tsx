@@ -62,6 +62,7 @@ function RootLayout() {
               color: colors.text,
               fontWeight: '700',
             },
+            headerBackTitle: 'Back',
             contentStyle: { backgroundColor: colors.canvas },
           }}
         >

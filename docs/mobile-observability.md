@@ -44,6 +44,7 @@ Configured provider:
 - Firebase Crashlytics for native crashes and handled JavaScript errors.
 
 See `docs/mobile-firebase-setup.md` for setup and verification.
+See `docs/firebase-diagnostics-ops.md` for event names, dashboard checks, and issue triage.
 
 ## Privacy Notes
 

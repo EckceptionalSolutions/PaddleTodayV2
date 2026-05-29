@@ -85,7 +85,7 @@ export default function RiverDetailScreen() {
   const communityQuery = useRouteCommunityQuery(slug);
   const createAlertMutation = useCreateRiverAlertMutation();
   const createContributionMutation = useCreateRouteContributionMutation();
-  const { email: storedEmail, setEmail } = useAlertPreferences();
+  const { email: storedEmail, setEmail, recordRouteAlert } = useAlertPreferences();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [draftEmail, setDraftEmail] = useState(storedEmail);
   const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
@@ -196,6 +196,7 @@ export default function RiverDetailScreen() {
         riverSlug,
         threshold,
       });
+      await recordRouteAlert({ riverSlug, threshold, deliveryMethod: 'email' });
       trackAppEvent('alert_create_succeeded', {
         slug: riverSlug,
         threshold,
@@ -240,6 +241,7 @@ export default function RiverDetailScreen() {
         deliveryMethod: 'push',
         expoPushToken: registration.expoPushToken,
       });
+      await recordRouteAlert({ riverSlug, threshold, deliveryMethod: 'push' });
       trackAppEvent('native_alert_create_succeeded', {
         slug: riverSlug,
         threshold,
@@ -948,18 +950,21 @@ function DecisionStrip({
       value: detail.rating,
       icon: detail.rating === 'No-go' ? 'close-circle-outline' : 'check-circle-outline',
       tone: ratingBackground(detail.rating),
+      iconColor: colors.text,
     },
     {
       label: 'Gauge',
       value: detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel,
       icon: 'waves-arrow-up',
       tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Gauge window')),
+      iconColor: colors.surfaceStrong,
     },
     {
       label: 'Weather',
       value: compactWeatherValue(detail),
       icon: 'weather-partly-cloudy',
       tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Weather window')),
+      iconColor: colors.surfaceStrong,
     },
   ];
 
@@ -968,7 +973,7 @@ function DecisionStrip({
       {items.map((item) => (
         <View key={item.label} style={styles.decisionStripItem}>
           <View style={[styles.decisionStripIcon, item.tone]}>
-            <MaterialCommunityIcons name={item.icon as never} color={colors.text} size={15} />
+            <MaterialCommunityIcons name={item.icon as never} color={item.iconColor} size={15} />
           </View>
           <Text style={styles.decisionStripValue} numberOfLines={1}>{item.value}</Text>
           <Text style={styles.decisionStripLabel}>{item.label}</Text>
@@ -1002,7 +1007,7 @@ function ConditionRow({
   return (
     <View style={styles.conditionRow}>
       <View style={[styles.conditionIcon, tone]}>
-        <MaterialCommunityIcons name={icon} color={colors.text} size={18} />
+        <MaterialCommunityIcons name={icon} color={colors.surfaceStrong} size={18} />
       </View>
       <View style={styles.conditionCopy}>
         <Text style={styles.conditionLabel}>{label}</Text>

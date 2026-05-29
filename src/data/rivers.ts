@@ -3138,113 +3138,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'crow-wing-river-little-white-dog-carry-in-cottingham-county-park',
-    slug: 'crow-wing-river-little-white-dog-carry-in-cottingham-county-park',
-    name: 'Crow Wing River',
-    reach: 'Little White Dog carry-in access to Cottingham County Park',
-    state: 'Minnesota',
-    region: 'Wadena Area',
-    summary:
-      'Strong northern Minnesota day trip with a real official route shape, named public endpoints, and a same-river gauge story that is conservative enough to trust. The main product question is simple: is the Nimrod reading clearly above scrape territory for this sandy lower-middle reach?',
-    statusText:
-      'There is not a gauge on this exact reach, so Paddle Today uses the upstream Nimrod gauge as a rough same-river check. Below 300 cfs is too scrape-prone for a confident recommendation; more water usually helps, but wood and current still matter after rain.',
-    latitude: 46.5462495,
-    longitude: -94.814994,
-    gaugeSource: {
-      id: 'usgs-05244000',
-      provider: 'usgs',
-      siteId: '05244000',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'proxy',
-      siteName: 'Crow Wing River at Nimrod, MN',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 300,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod used as an upstream proxy',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through early fall is the practical window. This reach is usually paddleable through much of the warm season, but storms can add wood and a faster push in a hurry.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'Mostly an easy scenic paddle, but it is still a moving river with occasional rapids, downed wood risk, and a nearly 10-mile day between county-park accesses.',
-      confidenceNotes:
-        'Confidence is high because MN DNR names this exact recommended trip, both endpoints are backed by official public-access records, and the Nimrod gauge has official DNR interpretation bands. The remaining caveat is the gauge: it sits upstream at Nimrod rather than on the exact Little White Dog-to-Cottingham reach, so the app stays conservative and minimum-only.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route shape',
-        value: '9.8 river miles',
-        note: 'MN DNR names Little White Dog to Cottingham County Park as a recommended day trip on the Crow Wing River map, from river mile 59.3 to 49.5.',
-        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
-      },
-      {
-        label: 'Official low-water floor',
-        value: '300 cfs at Nimrod',
-        note: 'MN DNR interprets the Nimrod gauge as Scrapable below 300 cfs and Low from 300 to 400 cfs. The app uses that official low-water floor without pretending the downstream route has a cleaner polished range than the evidence supports.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
-      },
-      {
-        label: 'Gauge context',
-        value: 'Upstream same-river proxy',
-        note: 'The live gauge sits at Nimrod upstream of the Little White Dog put-in on the same river system. That is a defensible same-river signal for this route, but it is not an exact on-route gauge, so the product stays conservative.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
-      },
-      {
-        label: 'Route character',
-        value: 'Gentle current with occasional rapids',
-        note: 'MN DNR describes this part of the Crow Wing as crystal clear water with a gentle path rarely interrupted by rapids, while still warning paddlers to know the locations of rapids and dams on the trail.',
-        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
-      },
-      {
-        label: 'Access confidence',
-        value: 'Verified in official GIS',
-        note: 'Minnesota public-water-access data includes both Crow Wing River, Little White Dog, #9 Public Water Access Site and Crow Wing River, Cottingham Co. Park, #11 Public Water Access Site with matching river miles on this route.',
-        sourceUrl: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR Crow Wing River overview',
-        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
-      },
-      {
-        label: 'MN DNR Crow Wing River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Crow Wing River Map 2 PDF',
-        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
-      },
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'Minnesota public water access dataset (GeoPackage zip)',
-        url: 'https://resources.gisdata.mn.gov/pub/gdrs/data/pub/us_mn_state_dnr/struc_water_access_sites/gpkg_struc_water_access_sites.zip',
-      },
-      {
-        label: 'Wadena County Little White Dog Campground',
-        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
-      },
-      {
-        label: 'Wadena County Cottingham Park Campground',
-        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
-      },
-      {
-        label: 'USGS 05244000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05244000/',
-      },
-    ],
-  },
-  {
     id: 'cottonwood-river-juenemann-springfield',
     slug: 'cottonwood-river-juenemann-springfield',
     name: 'Cottonwood River',
@@ -5243,12 +5136,12 @@ export const rivers: River[] = [
       {
         label: 'Iowa DNR Lower Des Moines River Water Trail plan',
         url: 'https://www.iowadnr.gov/Portals/idnr/uploads/riverprograms/plans/wtplan_lower_dsm.pdf',
-        provider: 'iowa_dnr',
+        provider: 'local',
       },
       {
         label: 'Van Buren County Bentonsport Park',
         url: 'https://www.mycountyparks.com/county/Van-Buren/Park/Bentonsport-Park',
-        provider: 'county',
+        provider: 'local',
       },
       {
         label: 'Villages of Van Buren Des Moines River Trail',
@@ -5268,7 +5161,7 @@ export const rivers: River[] = [
       {
         label: 'Iowa DNR Fish Iowa Des Moines River Ottumwa Dam to Farmington',
         url: 'https://programs.iowadnr.gov/lakemanagement/FishIowa/RiverStreamDetails/RDM89',
-        provider: 'iowa_dnr',
+        provider: 'local',
       },
       {
         label: 'NPS Bonaparte Riverfront Park',
@@ -5278,7 +5171,7 @@ export const rivers: River[] = [
       {
         label: 'Bonaparte City Park map record',
         url: 'https://mapcarta.com/22043716',
-        provider: 'osm',
+        provider: 'local',
       },
     ],
   },
@@ -10426,6 +10319,7 @@ export const rivers: River[] = [
       siteName: 'Kinnickinnic River near River Falls, WI',
     },
     profile: {
+      thresholdModel: 'two-sided',
       idealMin: 175,
       idealMax: 225,
       tooLow: 125,
@@ -13186,7 +13080,7 @@ export const rivers: River[] = [
       seasonMonths: [4, 5, 6, 9, 10],
       seasonNotes:
         'Target spring or fall runoff windows, or summer only after recent rain. The Pike is rainfall and snowmelt dependent, and this lower route is less forgiving than the upstream novice-whitewater day because Yellow Bridge Falls gets bony at low water and pushy at high water.',
-      difficulty: 'advanced',
+      difficulty: 'hard',
       difficultyNotes:
         'Wisconsin Trail Guide calls Yellow Bridge Falls a short Class III run with 2- to 5-foot drops, a long rocky Class II runout, and a river-wide ledge. This route is for experienced whitewater paddlers who are comfortable scouting, portaging, and managing private-bank constraints.',
       confidenceNotes:
@@ -13532,7 +13426,7 @@ export const rivers: River[] = [
       seasonMonths: [5, 6, 7, 8, 9, 10],
       seasonNotes:
         'The reach is influenced by Little Quinnesec Falls Dam releases, so same-day gauge and release checks matter more than season alone. Warm-weather commercial rafting and experienced private boating are common when dam releases put the Niagara gauge in range.',
-      difficulty: 'expert',
+      difficulty: 'hard',
       difficultyNotes:
         'Wisconsin Trail Guide rates Missicot Falls as Class IV and repeatedly limits higher ranges to advanced or expert paddlers. Powerful holes at Terminal Surfer, 2 Sisters, Volkswagen Rock, and 4th Pier can punish mistakes even when the run is short.',
       confidenceNotes:
@@ -15550,8 +15444,8 @@ export const rivers: River[] = [
       'Short Driftless Iowa run with clear water, frequent Class I riffles, limestone outcrops, coldwater-trout character, and a direct Ion gauge ladder from a detailed route report.',
     statusText:
       'Use the Yellow River near Ion gauge. Treat 201 to 300 cfs as the best broad target, 100 cfs as the low floor, and 600+ cfs as too high for a normal recreational recommendation because strainers and rapids get more consequential.',
-    latitude: 43.08663222,
-    longitude: -91.18097453,
+    latitude: 43.13022,
+    longitude: -91.37586,
     gaugeSource: {
       id: 'usgs-05389000',
       provider: 'usgs',
@@ -15588,8 +15482,8 @@ export const rivers: River[] = [
       {
         label: 'Route support',
         value: 'Volney to Sixteen, about 5 river miles',
-        note: 'The Monona Chamber / Big Foot Canoe Rentals page names Volney to Sixteen as a main Yellow River paddling access section of about five river miles.',
-        sourceUrl: 'https://www.mononachamber.com/canoeing-kayaking-tubing.html',
+        note: 'Wisconsin River Trips documents Volney Canoe Launch to Sixteen Bridge as the popular 4.6-mile Yellow River leg and notes the longer Volney Road bridge start at 5.3 miles.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/yellow-river-iowa/volney',
       },
       {
         label: 'Published route report',
@@ -15630,8 +15524,8 @@ export const rivers: River[] = [
       {
         label: 'Take-out support',
         value: 'Bridge Sixteen Canoe Access',
-        note: 'The named Bridge Sixteen Canoe Access is independently mapped at the downstream take-out used by the route report.',
-        sourceUrl: 'https://www.anyplaceamerica.com/directory/ia/allamakee-county-19005/locales/bridge-sixteen-canoe-access-1948774/',
+        note: 'The named Bridge Sixteen Canoe Access is independently mapped at the downstream take-out used by the route report. Volney Park / Yellow River Canoe Access is mapped beside Volney Park and county material confirms canoe access there.',
+        sourceUrl: 'https://mapcarta.com/N2520494167',
       },
     ],
     sourceLinks: [
@@ -15651,13 +15545,13 @@ export const rivers: River[] = [
         provider: 'local',
       },
       {
-        label: 'Monona Chamber Yellow River paddling',
-        url: 'https://www.mononachamber.com/canoeing-kayaking-tubing.html',
+        label: 'Allamakee County Volney Park canoe access',
+        url: 'https://www.mycountyparks.com/county/allamakee/Park/Volney-Park',
         provider: 'local',
       },
       {
-        label: 'Bridge Sixteen Canoe Access map record',
-        url: 'https://www.anyplaceamerica.com/directory/ia/allamakee-county-19005/locales/bridge-sixteen-canoe-access-1948774/',
+        label: 'Volney Yellow River Canoe Access map record',
+        url: 'https://mapcarta.com/N2520494167',
         provider: 'local',
       },
     ],
@@ -17542,6 +17436,1649 @@ export const rivers: River[] = [
       {
         label: 'USGS 05360500 Flambeau River Near Bruce',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05360500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-edgetts-lincoln',
+    slug: 'pine-river-edgetts-lincoln',
+    name: 'Pine River',
+    reach: 'Edgetts to Lincoln Bridge',
+    state: 'Michigan',
+    region: 'Northern Lower Michigan',
+    summary:
+      'Upper Pine River moving-water day from Edgetts to Lincoln Bridge, above the federal permit corridor. American Whitewater documents the exact reach, and the Hoxeyville USGS gauge gives it the same conservative Pine River flow check used by the downstream Pine routes.',
+    statusText:
+      'Use the Pine River at High School Bridge gauge near Hoxeyville as the live check. Treat 170 cfs as the conservative low-water floor; below that, expect shallow fast turns, scraping, and harder wood avoidance.',
+    latitude: 44.062496,
+    longitude: -85.583206,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04125460',
+      provider: 'usgs',
+      siteId: '04125460',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pine River at High School Bridge near Hoxeyville, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 170,
+      thresholdSource: {
+        label: 'American Whitewater Pine River flow correlation for the Hoxeyville gauge',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main practical window. This upper Pine section is less permit-crowded than the Scenic River corridor downstream, but rain can quickly make the fast wooded turns, sweepers, and logjams more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates Edgetts to Lincoln Bridge Class I-II and describes shallow fast current, tight turns, occasional low Class II spots, and logs or stumps piled into bends. It is a skilled moving-water route, not a casual tube float.',
+      confidenceNotes:
+        'Confidence is good but intentionally caveated: American Whitewater publishes the exact Edgetts-to-Lincoln reach, route character, Class I-II rating, and Hoxeyville gauge relationship; the Cadillac Area Visitors Bureau / Forest Service Pine map gives named launch coordinates from Edgetts through Lincoln; Outdoor Michigan confirms Lincoln Bridge as a Michigan DNR carry-in boat launch; and the same USGS 04125460 / AW 170 cfs floor is already used by the downstream Pine implementations. The main caveat is that Edgetts is supported by the Pine map and AW route notes rather than a standalone Outdoor Michigan access page, so same-day access signage should control.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact AW reach',
+        value: 'Edgetts to Lincoln Bridge',
+        note: 'American Whitewater documents the Pine River Edgetts-to-Lincoln Bridge reach, rates it Class I-II, lists it at 13.1 miles, and says this upper section does not require the downstream permit.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3223/main',
+      },
+      {
+        label: 'Map coordinates',
+        value: 'Edgetts 44.062496, -85.583206; Lincoln 44.133377, -85.695248',
+        note: 'The Cadillac Area Visitors Bureau / Forest Service Pine River map names Edgetts, Meadow Brook, Skookum, Walker, and Lincoln Bridge and provides GPS coordinates for each launch location.',
+        sourceUrl:
+          'https://cadillacmichigan.com/wp-content/uploads/2018/10/CAVB-Trailmaps_2019-pineriver-update.pdf',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Lincoln Bridge DNR carry-in launch',
+        note: 'Outdoor Michigan identifies Lincoln Bridge Campground Boat Launch as a Michigan DNR carry-in boat launch on the Pine River with parking.',
+        sourceUrl: 'https://outdoormichigan.org/feature/5315',
+      },
+      {
+        label: 'Gauge and threshold',
+        value: '170 cfs low floor',
+        note: 'American Whitewater ties Pine River conditions to USGS 04125460 and lists 170 cfs as the lower runnable floor. The gauge is downstream of this reach and may vary slightly, so the app uses only a conservative minimum floor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+      },
+      {
+        label: 'Route character',
+        value: 'Fast shallow turns and wood',
+        note: 'AW describes this section as shallow fast current with many tight turns, a sand/clay bottom with occasional rock, and logs or stumps jammed into bends that can be hazardous for paddlers with little moving-water experience.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3223/main',
+      },
+      {
+        label: 'Downstream context',
+        value: 'Scenic River corridor begins at Lincoln',
+        note: 'Rivers.gov says the federally designated Pine River reach begins at Lincoln Bridge and describes Forest Service permit, access-fee, and designated-camping controls downstream. This route ends at Lincoln before entering that managed downstream corridor.',
+        sourceUrl: 'https://www.rivers.gov/rivers/river/pine',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Pine River Edgetts to Lincoln',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3223/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Pine River gauge detail',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Cadillac Area Visitors Bureau / Forest Service Pine River map',
+        url: 'https://cadillacmichigan.com/wp-content/uploads/2018/10/CAVB-Trailmaps_2019-pineriver-update.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Lincoln Bridge Campground Boat Launch',
+        url: 'https://outdoormichigan.org/feature/5315',
+        provider: 'local',
+      },
+      {
+        label: 'Outdoor Michigan Meadow Brook Bridge Boat Launch',
+        url: 'https://outdoormichigan.org/feature/5375',
+        provider: 'local',
+      },
+      {
+        label: 'Outdoor Michigan Skookum South Bank Boat Launch',
+        url: 'https://outdoormichigan.org/feature/5376',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.gov Pine River profile',
+        url: 'https://www.rivers.gov/rivers/river/pine',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 04125460 Pine River at High School Bridge',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-peterson-low-bridge',
+    slug: 'pine-river-peterson-low-bridge',
+    name: 'Pine River',
+    reach: 'Peterson Bridge to Low Bridge',
+    state: 'Michigan',
+    region: 'Northern Lower Michigan',
+    summary:
+      'National Scenic River day through the Huron-Manistee National Forests from Peterson Bridge to Low Bridge. This is a permit-managed, fast, wooded Pine River run with a direct downstream USGS gauge and American Whitewater flow guidance.',
+    statusText:
+      'Use the Pine River at High School Bridge gauge near Hoxeyville as the live check. Treat 170 cfs as the conservative low-water floor; below that, expect scraping and more difficult boat control. Higher flows make this wooded Class I-II river faster and less forgiving.',
+    latitude: 44.203235,
+    longitude: -85.799124,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04125460',
+      provider: 'usgs',
+      siteId: '04125460',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pine River at High School Bridge near Hoxeyville, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 170,
+      thresholdSource: {
+        label: 'American Whitewater Pine River flow correlation for the Hoxeyville gauge',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Pine is commonly paddleable spring through fall, but it responds to rain and recent storm damage. Check the Forest Service river permit page, same-day gauge, and recent logjam reports before launching.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The Forest Service describes the Pine as swift with challenging rapids, sharp turns, and narrow passages. Treat Peterson to Low Bridge as a skilled moving-water trip, especially for canoes, loaded boats, cold water, or groups unfamiliar with quick wood-choked turns.',
+      confidenceNotes:
+        'Confidence is good for a guarded first Michigan add: the Huron-Manistee National Forests publish the Peterson Bridge and Low Bridge access points, the official Pine River map gives coordinates and travel-time context, permits are managed through Recreation.gov, and American Whitewater ties the Pine River flow guidance to USGS 04125460. The app uses only a conservative minimum floor because the strongest numeric source is AW community guidance for the Pine gauge family rather than a Forest Service route-specific band for Peterson-to-Low Bridge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public route context',
+        value: 'Peterson Bridge to Low Bridge',
+        note: 'Published Pine River maps identify Peterson Bridge and Low Bridge as river access sites and list the reach at roughly 8.25 to 8.6 miles, with Forest Service permit rules applying in this corridor.',
+        sourceUrl:
+          'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
+      },
+      {
+        label: 'Permit-managed river',
+        value: 'Forest Service Pine River permits',
+        note: 'Recreation.gov administers Pine National Scenic River permits and lists Peterson Bridge and Low Bridge among the selectable access points.',
+        sourceUrl:
+          'https://www.recreation.gov/permits/233336/registration/detailed-availability',
+      },
+      {
+        label: 'Gauge and threshold',
+        value: '170 cfs low floor',
+        note: 'American Whitewater publishes Pine River gauge guidance for USGS 04125460, with 170 cfs as the lower runnable floor and higher bands above that. The app uses the lower floor only and avoids claiming an ideal range for this specific Forest Service day trip.',
+        sourceUrl:
+          'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+      },
+      {
+        label: 'Route character',
+        value: 'Fast wooded Class I-II river',
+        note: 'Forest Service Pine River material warns about swift current, sharp turns, narrow passages, downed trees, and logjams; American Whitewater characterizes the Pine as a beginner to intermediate whitewater river with downstream sections continuing toward Low Bridge.',
+        sourceUrl: 'https://www.recreation.gov/permits/249990',
+      },
+      {
+        label: 'Current-data caveat',
+        value: 'USGS 04125460 product-supported',
+        note: 'USGS publishes Pine River at High School Bridge near Hoxeyville as monitoring location 04125460, and product code supports USGS gauges by site ID. Same-day gauge freshness, Forest Service alerts, and local wood reports should still be checked before launch.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Pine National Scenic River permit page',
+        url: 'https://www.recreation.gov/permits/249990',
+        provider: 'local',
+      },
+      {
+        label: 'Pine National Scenic River map PDF',
+        url: 'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Recreation.gov Pine National Scenic River permit',
+        url: 'https://www.recreation.gov/permits/233336',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Pine River gauge detail',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04125460 Pine River at High School Bridge',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pine-river-lincoln-peterson',
+    slug: 'pine-river-lincoln-peterson',
+    name: 'Pine River',
+    reach: 'Lincoln Bridge to Peterson Bridge',
+    state: 'Michigan',
+    region: 'Northern Lower Michigan',
+    summary:
+      'Long Pine National Scenic River day from Lincoln Bridge through Elm Flats and Dobson Bridge to Peterson Bridge. Official access records identify the landings, and the same Hoxeyville USGS gauge used by the lower Pine route supports a conservative flow check.',
+    statusText:
+      'Use the Pine River at High School Bridge gauge near Hoxeyville as the live check. Treat 170 cfs as the conservative low-water floor; below that, expect scraping, shallow riffles, and harder boat control on this fast wooded river.',
+    latitude: 44.13303,
+    longitude: -85.69622,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04125460',
+      provider: 'usgs',
+      siteId: '04125460',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pine River at High School Bridge near Hoxeyville, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 170,
+      thresholdSource: {
+        label: 'American Whitewater Pine River flow correlation for the Hoxeyville gauge',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main practical window. Summer permit traffic is managed in the National Scenic River corridor, while rain can quickly make the Pine faster and less forgiving around wood, sharp bends, and narrow passages.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long fast-current Pine River day, not a casual flatwater float. American Whitewater describes the broader reach as Class I-II, and local/federal sources emphasize swift current, light rapids, tight turns, logjams, and an experienced-paddler posture.',
+      confidenceNotes:
+        'Confidence is high for route shape and access: Outdoor Michigan identifies Lincoln Bridge, Elm Flats, Dobson Bridge, and Peterson Bridge as Pine River carry-in boat launches with ownership, coordinates, parking, fees, and amenities; the Pine Scenic River map gives Lincoln-to-Peterson as 15.8 miles split into official subsegments; Rivers.gov confirms the federally managed Scenic River corridor begins at Lincoln Bridge; and American Whitewater ties Pine River conditions to USGS 04125460. The app uses the same conservative minimum-only 170 cfs model as the already-live downstream Pine route and avoids claiming an ideal range or high cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: '15.8 river miles',
+        note: 'The Pine Scenic River map lists Lincoln Bridge to Elm Flats at 3.3 miles, Elm Flats to Dobson Bridge at 6.3 miles, and Dobson Bridge to Peterson Bridge at 6.2 miles, for a 15.8-mile Lincoln-to-Peterson day.',
+        sourceUrl: 'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Lincoln, Elm Flats, Dobson, Peterson',
+        note: 'Outdoor Michigan identifies Lincoln Bridge Campground, Elm Flats, Dobson Bridge, and Peterson Bridge as Pine River boat launches. Lincoln Bridge is Michigan DNR carry-in access; the downstream three are U.S. Forest Service carry-in launches with listed parking and fee/restroom details where applicable.',
+        sourceUrl: 'https://outdoormichigan.org/feature/5309',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '44.13303, -85.69622 to 44.20708, -85.80027',
+        note: 'Outdoor Michigan gives coordinates for the Lincoln Bridge Campground Boat Launch and Peterson Bridge Boat Launch, with Peterson also listed as a U.S. Forest Service website-linked access.',
+        sourceUrl: 'https://outdoormichigan.org/feature/5315',
+      },
+      {
+        label: 'Gauge and threshold',
+        value: '170 cfs low floor',
+        note: 'American Whitewater publishes Pine River gauge guidance for USGS 04125460, with 170 cfs as the lower runnable floor. The app uses only that conservative floor for this exact day-route implementation.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+      },
+      {
+        label: 'Scenic River management',
+        value: 'Designated reach starts at Lincoln Bridge',
+        note: 'Rivers.gov says the Pine River designated reach begins at Lincoln Bridge and describes canoeing as a key recreation use, with Forest Service permits, access fees, designated camping limits, and year-round plowed access sites.',
+        sourceUrl: 'https://www.rivers.gov/rivers/river/pine',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Pine River Outdoor Michigan access map',
+        url: 'https://outdoormichigan.org/feature/5309',
+        provider: 'local',
+      },
+      {
+        label: 'Lincoln Bridge Campground Boat Launch',
+        url: 'https://outdoormichigan.org/feature/5315',
+        provider: 'local',
+      },
+      {
+        label: 'Peterson Bridge Boat Launch',
+        url: 'https://outdoormichigan.org/feature/5401',
+        provider: 'local',
+      },
+      {
+        label: 'Pine National Scenic River map PDF',
+        url: 'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.gov Pine River profile',
+        url: 'https://www.rivers.gov/rivers/river/pine',
+        provider: 'nps',
+      },
+      {
+        label: 'American Whitewater Pine River gauge detail',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04125460 Pine River at High School Bridge',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-byron-walnut-hills',
+    slug: 'shiawassee-river-byron-walnut-hills',
+    name: 'Shiawassee River',
+    reach: 'Byron High School Ball Fields to Walnut Hills Family Campground',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Beginner Shiawassee River Water Trail segment from the concrete launch by Byron High School Ball Fields to seasonal Walnut Hills Family Campground. The route sheet gives exact endpoint coordinates, a 4.87-mile distance, and practical shallow-water and debris context.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says the Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal campground access with a small parking fee.',
+    latitude: 42.840348,
+    longitude: -83.945658,
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Plan this as a warm-season trip. The route sheet says Walnut Hills is open May 1 through October 1, and low summer water can expose shallow sand-and-silt sections even on this beginner-rated reach.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The water-trail route sheet labels this 4.87-mile reach beginner and suitable for new paddlers, large groups, and children. It is still a moving-water trip with private shoreline, possible debris, and a private seasonal take-out that must be verified before launch.',
+      confidenceNotes:
+        'Confidence is high for the route shape and access names: the Shiawassee River Water Trail Coalition publishes the exact Byron High School Ball Fields-to-Walnut Hills route with endpoint coordinates, distance, beginner rating, route character, amenities, and access notes. Threshold confidence is intentionally conservative because the Owosso USGS gauge is downstream of this upstream Byron segment; the Friends/Shiawassee County guide says the gauge is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments, so the app uses only a minimum floor and does not claim an ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '4.87 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Byron High School Ball Fields to Walnut Hills Family Campground as a 4.87-mile beginner trip with endpoint coordinates and service notes.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.840348, -83.945658 to 42.840348, -84.009418',
+        note: 'The route PDF gives Byron High School Ball Fields as the start and Walnut Hills Family Campground as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+      },
+      {
+        label: 'Gauge corridor',
+        value: 'Byron to Chesaning',
+        note: 'The Friends/Shiawassee County guide says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Access and character',
+        value: 'Concrete launch to private campground',
+        note: 'The route begins at a concrete launch by the Byron High School ball fields, passes rural residential and forested shoreline, and ends at the Walnut Hills dirt launch on river right.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+      },
+      {
+        label: 'Walnut Hills access',
+        value: 'Private seasonal access',
+        note: 'The route sheet says Walnut Hills Family Campground is open May 1 through October 1, with parking available for a small fee.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Byron High School to Walnut Hills route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-walnut-hills-geeck-road',
+    slug: 'shiawassee-river-walnut-hills-geeck-road',
+    name: 'Shiawassee River',
+    reach: 'Walnut Hills Family Campground to Geeck Road County Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Beginner Shiawassee River Water Trail segment from seasonal Walnut Hills Family Campground access to Geeck Road County Park. The route sheet gives exact endpoint coordinates, a 6.98-mile distance, shallow-water cautions, and the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal campground access with a small parking fee.',
+    latitude: 42.840348,
+    longitude: -84.009418,
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Walnut Hills is usually open seasonally from May 1 to October 1, so this route is framed for the campground access season. Low summer water can make the Vernon Road-to-Grand River Road shallows harder, while high water can add debris, stronger bridge approaches, and private-dock consequences.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The water-trail sheet labels this 6.98-mile reach beginner and suitable for newer paddlers, groups, and children in normal water. Low water raises the skill requirement because the route sheet says experienced navigation is needed when levels are low.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Walnut Hills-to-Geeck Road trip with endpoint coordinates, distance, access amenities, route character, shallow-water notes, and private-property guidance. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app uses that only as a corridor low-water check, not as a precise ideal range. The main caveat is access: Walnut Hills Family Campground is a private access open to the public seasonally with a small vehicle fee, so paddlers must verify current campground access before staging a shuttle.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '6.98 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Walnut Hills Family Campground to Geeck Road as a 6.98-mile beginner trip with rural residential character, parking, portable toilets, and campground access context.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.840348, -84.009418 to 42.884522, -84.045106',
+        note: 'The route PDF gives Walnut Hills Family Campground as the start and Geeck Road as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+      },
+      {
+        label: 'Seasonal private access',
+        value: 'Public seasonal use with fee',
+        note: 'The broader Friends/Shiawassee County guide says Walnut Hills Campground is private, open to the public seasonally, usually April through October, with no off-season use possible and a small vehicle parking fee. The route PDF says parking is available for a fee and Cheff\'s Canoe Rental is on site.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Rural residential, sandy and shallow',
+        note: 'The route sheet describes developed shoreline with private docks, sandy and stony bottom, water from about 6 inches to over 3 feet, shallows between Vernon Road and Grand River Road, possible debris, and three bridges.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Walnut Hills to Geeck Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-geeck-road-shiatown',
+    slug: 'shiawassee-river-geeck-road-shiatown',
+    name: 'Shiawassee River',
+    reach: 'Geeck Road County Park to Shiatown County Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Beginner Shiawassee River Water Trail segment from Geeck Road County Park to the Shiatown County Park take-out above the dam. The route sheet gives exact endpoint coordinates, a 6.21-mile distance, and low-water rock/riffle cautions, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; take out at Shiatown on river right above the dam.',
+    latitude: 42.884522,
+    longitude: -84.045106,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can expose submerged rocks and riffles, while high water raises the consequence of wood, bridge approaches, and the dam-adjacent Shiatown take-out.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route sheet labels this 6.21-mile reach beginner and suitable for newer paddlers, groups, and children, but the app keeps it guarded because the take-out is on river right above the Shiatown dam. Low water requires active navigation around submerged rocks and riffles.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Geeck Road-to-Shiatown trip with endpoint coordinates, distance, access amenities, route character, and low-water rock/riffle cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim the downstream Owosso-to-Chesaning ideal band for this upstream-of-Owosso segment; it uses the gauge only as a corridor low-water check and marks the route guarded because the take-out is immediately above a dam.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '6.21 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Geeck Road County Park to Shiatown County Park as a 6.21-mile trip with beginner skill guidance.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.884522, -84.045106 to 42.929408, -84.071308',
+        note: 'The route PDF gives Geeck Road as the start and Shiatown as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
+      },
+      {
+        label: 'Route character',
+        value: 'Rural residential to woodland wetland',
+        note: 'The route sheet describes developed shoreline early, wooded wetland after the freeway, three bridges, possible debris, and low-water navigation around large submerged rocks and riffles.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
+      },
+      {
+        label: 'Dam-adjacent take-out',
+        value: 'Exit above Shiatown dam',
+        note: 'The route sheet instructs paddlers to exit on river right above the dam at Shiatown County Park, using a footpath to the gravel parking lot.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Geeck Road to Shiatown route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-shiatown-lytle',
+    slug: 'shiawassee-river-shiatown-lytle',
+    name: 'Shiawassee River',
+    reach: 'Shiatown County Park to Lytle Road County Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Intermediate Shiawassee River Water Trail segment from below the partially removed Shiatown dam to Lytle Road County Park. The route sheet gives exact endpoint coordinates, a 7.83-mile distance, rapid and rocky-shallow cautions, and the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water, fast current below Shiatown dam, rocks, and debris still require judgment.',
+    latitude: 42.929408,
+    longitude: -84.071308,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can make the Bennington Road shallows, rocky sections, and debris avoidance harder; high water can make the fast water below Shiatown dam and bridge clearances more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water-trail route sheet labels this 7.83-mile reach intermediate and says it is too long for first-time paddlers. Fast water below Shiatown dam, a river split, rocky shallows, debris, six bridges, and far-apart access sites call for boat control and route-finding.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Shiatown County Park-to-Lytle Road County Park trip with endpoint coordinates, distance, intermediate skill rating, route character, and specific rapid/rock/debris cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim the downstream Owosso-to-Chesaning ideal band for this upstream-of-Owosso route; it uses the gauge only as a corridor low-water check and keeps the route out of casual Explore discovery because of the dam-adjacent fast-water start.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '7.83 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Shiatown County Park to Lytle Road County Park as a 7.83-mile rural-residential trip with intermediate skill guidance.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.929408, -84.071308 to 42.976600, -84.069441',
+        note: 'The route PDF gives Shiatown County Park as the start and Lytle Road County Park as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+      },
+      {
+        label: 'Fast-water and low-water cautions',
+        value: 'Dam-adjacent rapids, rocks, debris',
+        note: 'The route sheet says to begin downstream of the partially removed Shiatown dam, warns of fast moving rapids and a river split immediately after the dam, rocky shallow water after Bennington Road, increased speed near the railroad tracks, and rocks/debris as the hardest part of the segment.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Shiatown to Lytle Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-lytle-brady-street',
+    slug: 'shiawassee-river-lytle-brady-street',
+    name: 'Shiawassee River',
+    reach: 'Lytle Road County Park to Brady Street Landing',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Short rural-residential Shiawassee River Water Trail segment into Corunna. The route sheet gives exact endpoint coordinates, a 3.2-mile distance, and causeway guidance, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water can require a causeway portage.',
+    latitude: 42.9766,
+    longitude: -84.069441,
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2,
+      thresholdSource: {
+        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can make the causeway and shallow channels slower; high water can make the causeway unsafe to pass under and may require a portage.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water-trail route sheet labels this 3.2-mile reach intermediate to beginner. It is short, but islands, split channels, downed trees, and the causeway mean paddlers need active boat control and judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Lytle Road-to-Brady Street trip with endpoint coordinates, distance, access notes, route character, and causeway cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim an ideal range or high cutoff for this upstream-of-Owosso segment; it uses the Owosso gauge only as a corridor low-water check and tells paddlers to use judgment around high water and the causeway.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '3.2 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Lytle Road to Brady Street as a 3.2-mile rural-residential trip with intermediate-to-beginner skill guidance.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.0 ft low-water floor at Owosso',
+        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.976600, -84.069441 to 42.976600, -84.116539',
+        note: 'The route PDF gives Lytle Road as the start and Brady Street as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+      },
+      {
+        label: 'Causeway caution',
+        value: 'Causeway about 1.75 miles in',
+        note: 'The route sheet says to stay left under the causeway during low water and to portage over the causeway during high water.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Lytle Road to Brady Street route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-mccurdy-harmon-patridge',
+    slug: 'shiawassee-river-mccurdy-harmon-patridge',
+    name: 'Shiawassee River',
+    reach: 'McCurdy Park to Harmon Patridge Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Trail-town Shiawassee River Water Trail segment from Corunna into Owosso. The route sheet gives exact endpoints and warns that the three Owosso low-head dams require skill or portages, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge as a stage check. The local guidance supports the Byron-to-Chesaning corridor, with the best published band above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, some segments may be too shallow.',
+    latitude: 42.98614,
+    longitude: -84.124008,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Shiawassee River Water Trail / Friends of the Shiawassee Owosso-gauge guidance',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can expose rocks and make the Owosso weirs scrape; high water above the local 7 ft ceiling can make current faster, bridge clearances unsafe, and low-head-dam portages more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route sheet calls this beginner to intermediate, but the app treats it as guarded moving water because paddlers encounter three low-head dams through Owosso. Beginning paddlers should shorten the route at Oakwood Avenue or portage the dams instead of running the spillways.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Corunna McCurdy Park-to-Harmon Patridge Park route with endpoint coordinates, 6.49-mile distance, public amenities, river character, and specific three-dam cautions. The Friends of the Shiawassee brochure says the Owosso USGS gauge is fairly reflective of conditions from Byron to Chesaning, which includes this route, and the coalition river-flow page provides the 2.5-to-7.0 ft enjoyable band for the downstream Owosso-to-Chesaning corridor. The main caveat is that this route sits partly upstream of the gauge and includes low-head-dam features, so the app uses the gauge conservatively and keeps the route out of casual Explore discovery.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '6.49 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Corunna McCurdy Park to Harmon Patridge Park as a 6.49-mile trail-town route with endpoint coordinates, parking, restrooms, services, and beginner-to-intermediate skill guidance.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
+      },
+      {
+        label: 'Gauge corridor',
+        value: 'Owosso gauge reflects Byron to Chesaning',
+        note: 'The Friends of the Shiawassee guide says paddlers planning low-water or high-water decisions may check USGS 04144500 and that the gauge is fairly reflective from Byron to Chesaning; it warns that 2 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.5 to 7.0 ft at Owosso',
+        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
+        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.986140, -84.124008 to 43.020112, -84.184547',
+        note: 'The route PDF gives Corunna McCurdy Park as the start and Harmon Patridge Park as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
+      },
+      {
+        label: 'Low-head dams',
+        value: 'Three Owosso weirs',
+        note: 'The route sheet warns that passing through the three Owosso weirs requires skill, recommends portaging for beginning paddlers, and notes that paddlers may scrape and get wet.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Corunna McCurdy Park to Harmon Patridge Park route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-harmon-patridge-henderson',
+    slug: 'shiawassee-river-harmon-patridge-henderson',
+    name: 'Shiawassee River',
+    reach: 'Harmon Patridge Park to Henderson County Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'National Water Trail day from Owosso-area Harmon Patridge Park to Henderson County Park. The local water-trail coalition publishes the exact route, endpoint coordinates, and stage guidance for the Owosso USGS gauge.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, some segments may be too shallow.',
+    latitude: 43.020112,
+    longitude: -84.184547,
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can mean scraping and slower travel; high water above the local 7 ft ceiling can make current faster and bridges too low to pass safely.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water-trail map labels this 7.78-mile reach intermediate because of length, riffles, rocky shallows, sand bars, islands, and changing depth. It is not whitewater, but it needs boat control and enough water.',
+      confidenceNotes:
+        'Confidence is high for a conservative stage-based route: the Shiawassee River Water Trail Coalition publishes this exact Harmon Patridge Park-to-Henderson County Park trip with endpoint coordinates, distance, route character, amenities, and safety guidance, and its river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning. The app uses the published 2.5-to-7.0 ft enjoyable band, with the coalition brochure\'s 2.0 ft shallow warning as the hard low threshold. The main caveat is that the automation shell could not fetch USGS Water Services directly, so same-day freshness relies on PaddleTodayV2\'s existing USGS provider path and search-visible current-flow context.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '7.78 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Harmon Patridge Park to Henderson County Park as a 7.78-mile intermediate trip with endpoint coordinates and access amenities.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.5 to 7.0 ft at Owosso',
+        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
+        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
+      },
+      {
+        label: 'Low-water floor',
+        value: '2.0 ft or lower may be too shallow',
+        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.020112, -84.184547 to 43.087788, -84.181933',
+        note: 'The route PDF gives Harmon Patridge Park as the start and Henderson County Park as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
+      },
+      {
+        label: 'Route character',
+        value: 'Riffles, rocks, sand bars, islands',
+        note: 'The route sheet warns that paddlers may scrape in low water and must navigate sand bars, large rocks, riffles, and two islands before Henderson County Park.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      {
+        label: 'Harmon Patridge Park to Henderson County Park route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'National Recreation Trail profile',
+        url: 'https://www.nrtapplication.org/trails/shiawassee-river',
+        provider: 'nps',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-henderson-ditch-road',
+    slug: 'shiawassee-river-henderson-ditch-road',
+    name: 'Shiawassee River',
+    reach: 'Henderson County Park to Ditch Road',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Scenic Shiawassee River Water Trail day from Henderson County Park toward Oakley and Parshallburg. The route sheet gives exact endpoint coordinates, and the local water-trail gauge guidance applies to this Owosso-to-Chesaning corridor.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, sand bars, stone bars, riffles, and rapids become harder.',
+    latitude: 43.087788,
+    longitude: -84.181933,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can expose sand bars, stone bars, riffles, and rapids; high water above the local 7 ft ceiling can make current faster and bridge clearances unsafe.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water-trail sheet labels this 9.2-mile route intermediate because of length, remoteness, riffles, rocky sections, islands, and a weir near Ditch Road. The app hides it from casual Explore discovery because that weir/partially demolished dam requires skilled maneuvering or a right-side portage.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Henderson County Park-to-Ditch Road route with endpoint coordinates, distance, amenities, intermediate skill rating, route character, and weir/low-water cautions. The coalition river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning, which includes this route, and the broader route brochure reinforces the 2.5 ft shallow-water warning. The main caveat is operational: the route passes one weir near the end, so paddlers should scout and use the right-side portage when needed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '9.2 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Henderson County Park to Ditch Road as a 9.2-mile intermediate trip with endpoint coordinates and access amenities.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.5 to 7.0 ft at Owosso',
+        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
+        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
+      },
+      {
+        label: 'Low-water floor',
+        value: '2.0 ft or lower may be too shallow',
+        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.087788, -84.181933 to 43.143842, -84.134130',
+        note: 'The route PDF gives Henderson County Park as the start and Ditch Road as the end, with latitude/longitude for both points.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+      },
+      {
+        label: 'Weir and low-water cautions',
+        value: 'One weir near Ditch Road',
+        note: 'The route sheet warns that low water can make sand bars, stone bars, riffles, and rapids difficult, and says the weir before Ditch Road must be maneuvered skillfully with a portage on river right if needed.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      {
+        label: 'Henderson County Park to Ditch Road route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shiawassee-river-ditch-road-cole-park',
+    slug: 'shiawassee-river-ditch-road-cole-park',
+    name: 'Shiawassee River',
+    reach: 'Ditch Road to Cole Park',
+    state: 'Michigan',
+    region: 'Central Michigan',
+    summary:
+      'Short final Shiawassee River Water Trail day from the Ditch Road launch near Parshallburg into Chesaning. The route sheet gives exact endpoints, beginner trip context, and a required right-side portage around the Cole Park rapids.',
+    statusText:
+      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, rocky riffles and shallow spots become harder.',
+    latitude: 43.143859,
+    longitude: -84.134264,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04144500',
+      provider: 'usgs',
+      siteId: '04144500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Shiawassee River at Owosso, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.5,
+      idealMax: 7,
+      tooLow: 2,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main paddling window. Low summer water can expose rocks and shallow riffles; high water above the local 7 ft ceiling can make current faster, bridge clearances unsafe, and the Cole Park rapids/portage more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water-trail sheet labels the 5.48-mile route beginner, but the app keeps it out of casual Explore discovery because paddlers must portage the rock rapids on river right near Cole Park and walk across slippery, shifting rocks to reach the launch.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Ditch Road-to-Cole Park route with endpoint coordinates, distance, amenities, beginner skill rating, route character, rocky-riffle notes, and the required right-side portage at the Cole Park rapids. The coalition river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning, which includes this route, and the broader route brochure reinforces the 2.0 ft shallow-water warning. The only implementation caveat is that the PDF text extraction reverses the two endpoint labels in one place; coordinates were reconciled against the upstream Ditch Road coordinate from the adjacent already-live route and the Cole Park / Chesaning map position.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route map',
+        value: '5.48 river miles',
+        note: 'The Shiawassee River Water Trail Coalition publishes Ditch Road to Cole Park as a 5.48-mile trip from Oakley / Parshallburg into Chesaning, with parking, restrooms, route character, and beginner skill guidance.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+      },
+      {
+        label: 'Gauge guidance',
+        value: '2.5 to 7.0 ft at Owosso',
+        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
+        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
+      },
+      {
+        label: 'Low-water floor',
+        value: '2.0 ft or lower may be too shallow',
+        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
+        sourceUrl:
+          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '43.143859, -84.134264 to 43.185325, -84.112656',
+        note: 'The route PDF provides the Ditch Road and Cole Park coordinate pair. The Ditch Road coordinate matches the adjacent upstream route endpoint, and the downstream coordinate resolves to the Chesaning / Cole Park end of the route.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+      },
+      {
+        label: 'Cole Park rapids',
+        value: 'Portage on river right',
+        note: 'The route sheet warns of rock rapids near Showboat / Cole Park, says paddlers need to exit on the right bank or navigate around them, and later states that the rapids must be portaged on the right side.',
+        sourceUrl:
+          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Shiawassee River Water Trail river flow',
+        url: 'https://www.shiawasseewatertrail.org/riverflow',
+        provider: 'local',
+      },
+      {
+        label: 'Ditch Road to Cole Park route PDF',
+        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River Water Trail trip maps',
+        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        provider: 'local',
+      },
+      {
+        label: 'Shiawassee River guide brochure',
+        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04144500 Shiawassee River at Owosso',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'huron-river-argo-gallup',
+    slug: 'huron-river-argo-gallup',
+    name: 'Huron River',
+    reach: 'Argo Park Canoe Livery to Gallup Park Livery',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Popular Ann Arbor Huron River trip from city-managed Argo Park to Gallup Park. The route includes the Argo Cascades bypass channel, public liveries at both ends, and a direct USGS Ann Arbor gauge in the urban river corridor.',
+    statusText:
+      'Use the Huron River at Ann Arbor gauge. American Whitewater lists 400 to 1,700 cfs as the runnable/play range for the Ann Arbor / Argo Cascades gauge family; below 400 cfs, expect shallow, less useful drops, and above 1,700 cfs the feature is generally washed out.',
+    latitude: 42.29148,
+    longitude: -83.74444,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-04174500',
+      provider: 'usgs',
+      siteId: '04174500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Huron River at Ann Arbor, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04174500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 1700,
+      tooLow: 80,
+      tooHigh: 1700,
+      thresholdSource: {
+        label: 'American Whitewater Huron River at Ann Arbor gauge bands',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3801',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The city livery season generally runs spring through fall. Summer weekends can be crowded, and rain or dam operations can change the Argo Cascades and downstream current quickly enough that paddlers should still make a visual check before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a short urban river trip, but the Argo Cascades are a manmade series of drops, rock chutes, and pools. HRWC calls the Cascades a moderate rapid run, and American Whitewater treats the Ann Arbor feature as Class I(II), so the route is hidden from casual Explore discovery.',
+      confidenceNotes:
+        'Confidence is high enough for a guarded whitewater-style route: the City of Ann Arbor operates both Argo and Gallup liveries and lists boat launches, parking, restrooms, rentals, and public paddling use; the Huron River Water Trail names Argo-to-Gallup as the city\'s most popular 1.5-hour trip; HRWC documents the Argo Cascades as a moderate rapid run; and USGS 04174500 is the Ann Arbor Huron River gauge used by American Whitewater for the Ann Arbor / Argo Cascades gauge family. Unlike the upstream Dexter-Huron-to-Delhi lead, this route starts below Argo Dam and uses the Ann Arbor gauge as a same-city corridor gauge; still, AW warns that dam operations can cause erratic readings, so visual confirmation remains part of the route copy.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official trip shape',
+        value: '3.5 miles / about 1.5 hours',
+        note: 'The Huron River Water Trail / HRWC Washtenaw trips page lists Argo to Gallup as a 3.5-mile, 1.5-hour trip, and the Ann Arbor page says it is the Huron River\'s most popular trip with a paddle down the Cascades drops and pools to Gallup Livery.',
+        sourceUrl: 'https://huronriverwatertrail.org/trail-towns/ann-arbor/',
+      },
+      {
+        label: 'Public endpoints',
+        value: 'City of Ann Arbor liveries',
+        note: 'City pages identify Argo Park Canoe Livery at 1055 Longshore Drive and Gallup Park Livery at 3000 Fuller Road, with boat launches, canoe/kayak rentals, parking, and restrooms.',
+        sourceUrl: 'https://www.a2gov.org/parks-and-recreation/parks-and-places/argo-park-canoe-livery/',
+      },
+      {
+        label: 'Gauge bands',
+        value: '80 / 400-1,700 / 1,700 cfs',
+        note: 'American Whitewater lists 80-400 cfs as less ideal, 400-1,700 cfs as runnable/playable, and 1,700 cfs and above as generally washed out for the Huron River at Ann Arbor gauge family.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3801',
+      },
+      {
+        label: 'Whitewater feature',
+        value: 'Argo Cascades',
+        note: 'HRWC describes Argo Cascades as a moderate manmade series of 1.5- to 2-foot drops between pools that bypass Argo Dam, with a paved path for walking back to the top.',
+        sourceUrl: 'https://huronriverwatertrail.org/trip-planner/trip-wash/',
+      },
+      {
+        label: 'Current-condition support',
+        value: 'USGS 04174500',
+        note: 'The City of Ann Arbor points paddlers and residents to the USGS Huron River gauge for discharge, gauge height, temperature, dissolved oxygen, pH, conductivity, and turbidity.',
+        sourceUrl: 'https://www.a2gov.org/systems-planning/stream-gauges/',
+      },
+      {
+        label: 'Closures and advisories',
+        value: 'Barton closure upstream; PFAS foam advisory',
+        note: 'HRWC river conditions list the Barton Dam / Barton Pond access closure through 2027 upstream of this route and PFAS advisories that include avoiding contact with river foam.',
+        sourceUrl: 'https://huronriverwatertrail.org/river-conditions/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Huron River Water Trail Ann Arbor',
+        url: 'https://huronriverwatertrail.org/trail-towns/ann-arbor/',
+        provider: 'local',
+      },
+      {
+        label: 'Huron River Water Trail Washtenaw trips',
+        url: 'https://huronriverwatertrail.org/trip-planner/trip-wash/',
+        provider: 'local',
+      },
+      {
+        label: 'Huron River Water Trail river conditions',
+        url: 'https://huronriverwatertrail.org/river-conditions/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Ann Arbor Argo Park Canoe Livery',
+        url: 'https://www.a2gov.org/parks-and-recreation/parks-and-places/argo-park-canoe-livery/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Ann Arbor Gallup Park Livery',
+        url: 'https://www.a2gov.org/parks-and-recreation/parks-and-places/gallup-park-livery/',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Huron River Ann Arbor gauge',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3801',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04174500 Huron River at Ann Arbor',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04174500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-downtown-utica-north-clinton',
+    slug: 'clinton-river-downtown-utica-north-clinton',
+    name: 'Clinton River',
+    reach: 'Downtown Utica to North Clinton River Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Short Utica-to-Sterling Heights water-trail segment ending at the accessible North Clinton River Park launch. CRWC and Michigan Water Trails document the public access points, and CRWC publishes a Sterling Heights USGS warning ladder for low and high water.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge near the take-out. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check the launch for wood, fast current, and urban stormwater effects.',
+    latitude: 42.625576,
+    longitude: -83.037665,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. This urban section can rise quickly after rain, and CRWC warns that high water can carry woody debris, create blocked passages, and raise water-quality concerns from sewage overflows.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is short and this is downstream of the steeper Rochester-to-Utica water, but it is still an urban moving-water trip. Macomb County describes the broader downtown-Utica-to-Rotary corridor as accessible and moderate with conditions varying, so this segment needs same-day level, wood, and weather checks.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists Downtown Utica, Heritage Park, and North Clinton River Park with coordinates and access spacing; Michigan Water Trails confirms Downtown Utica and North Clinton River Park as Clinton River Water Trail assets; the City of Sterling Heights confirms the public accessible EZDock at North Clinton River Park; and CRWC publishes Sterling Heights USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than claiming an ideal recreation band, and this route should not be extended upstream toward the faster Rochester/Yates corridor without separate access and dam-safety work.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official access map',
+        value: 'Downtown Utica to North Clinton River Park via Heritage Park',
+        note: 'The 2024 CRWC water-trail map lists Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River access sites, with about 0.5 mile from Downtown Utica to Heritage Park and 1.7 miles from Heritage Park to North Clinton River Park.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.625576, -83.037665 to 42.607767, -83.024447',
+        note: 'The CRWC map table gives source coordinates for Downtown Utica, Heritage Park, and North Clinton River Park; Michigan Water Trails also lists Downtown Utica at 42.625570, -83.037640.',
+        sourceUrl: 'https://www.michiganwatertrails.org/location.asp?aid=1893&ait=av',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Water-trail access points',
+        note: 'Michigan Water Trails lists Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River Water Trail assets, and the City of Sterling Heights says North Clinton River Park has a public universally accessible EZDock kayak/canoe launch.',
+        sourceUrl: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Route character',
+        value: 'Short urban water-trail segment',
+        note: 'Macomb County describes downtown Utica to Rotary Park as an accessible moderate paddle where conditions vary; this route uses the upstream portion and exits at North Clinton River Park before the longer Sterling Heights segment.',
+        sourceUrl:
+          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Michigan Water Trails Downtown Utica',
+        url: 'https://www.michiganwatertrails.org/location.asp?aid=1893&ait=av',
+        provider: 'local',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sterling Heights canoe and kayak page',
+        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County Clinton River overview',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-north-clinton-rotary',
+    slug: 'clinton-river-north-clinton-rotary',
+    name: 'Clinton River',
+    reach: 'North Clinton River Park to Rotary Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Sterling Heights urban water-trail run between two city-supported accessible kayak launches. CRWC publishes Clinton River Water Trail access coordinates and a Sterling Heights USGS gauge warning ladder for low and high water.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still make a visual check for fast current, wood, and urban stormwater effects.',
+    latitude: 42.607767,
+    longitude: -83.024447,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the main practical paddling season. The Clinton is flashy after rain, and CRWC warns that high water can carry woody debris, create blocked passages, and raise water-quality concerns from sewage overflows.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a short urban water-trail run, but it is not a hands-off lazy float. Macomb County describes the Utica-to-Rotary corridor as a moderate paddle where conditions vary, and CRWC warns that some Clinton River sections can run fast and high with woody debris after rain.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists North Clinton River Park, Dodge Park, and Rotary Park with coordinates, river miles, and access spacing; the City of Sterling Heights confirms public accessible kayak launches at North Clinton River Park and Rotary Park; and CRWC publishes Sterling Heights USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than claiming an ideal recreation band. The main caveat is that the automation shell could not reach USGS Water Services directly during this run, although the official USGS monitoring-location page and CRWC gauge link are stable and product-supported.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official access map',
+        value: 'North Clinton River Park RM 23.2 to Rotary Park RM 17.2',
+        note: 'The 2024 CRWC water-trail map lists North Clinton River Park, Dodge Park, and Rotary Park as Sterling Heights launch sites, with 1.8 miles from North Clinton to Dodge and 4.2 miles from Dodge to Rotary.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.607767, -83.024447 to 42.570595, -82.971459',
+        note: 'The CRWC map table gives source coordinates for North Clinton River Park, Dodge Park, and Rotary Park.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Accessible launches at both ends',
+        note: 'The City of Sterling Heights says North Clinton River Park and Rotary Park have public universally accessible EZDock kayak/canoe launches, and that Rotary Park parking is free for residents and non-residents.',
+        sourceUrl: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Route character',
+        value: 'Moderate urban water-trail corridor',
+        note: 'Macomb County describes downtown Utica to Rotary Park as an accessible moderate paddle where conditions vary; CRWC warns that high, fast water after rain can move woody debris and create blocked passages.',
+        sourceUrl:
+          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'CRWC Clinton River Water Trail guide book',
+        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sterling Heights canoe and kayak page',
+        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County Clinton River overview',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
         provider: 'usgs',
       },
     ],

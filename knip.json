@@ -1,7 +1,6 @@
 {
   "ignoreDependencies": [
-    "astro",
-    "@azure/communication-email"
+    "astro"
   ],
   "workspaces": {
     ".": {
@@ -30,6 +29,9 @@
         "@expo/ngrok",
         "@paddletoday/api-client",
         "@paddletoday/api-contract",
+        "@react-native-firebase/analytics",
+        "@react-native-firebase/app",
+        "@react-native-firebase/crashlytics",
         "@react-native-async-storage/async-storage",
         "@react-navigation/native",
         "@sentry/react-native",
@@ -41,14 +43,18 @@
         "expo-location",
         "expo-notifications",
         "expo-status-bar",
+        "expo-build-properties",
+        "expo-dev-client",
         "react-native-maps",
         "react-native-worklets"
       ],
       "entry": [
+        "app.config.js",
         "app.json",
         "app/**/*.{js,jsx,ts,tsx}"
       ],
       "project": [
+        "app.config.js",
         "app.json",
         "app/**/*.{js,jsx,ts,tsx}",
         "src/**/*.{js,jsx,ts,tsx}",

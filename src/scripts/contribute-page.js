@@ -268,7 +268,7 @@ if (
         }))
       );
 
-      const response = await fetch('/api/route-photo-submissions', {
+      const response = await fetch('/api/route-contributions', {
         method: 'POST',
         headers: {
           accept: 'application/json',

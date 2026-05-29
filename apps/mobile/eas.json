@@ -32,7 +32,6 @@
       }
     },
     "production": {
-      "autoIncrement": true,
       "buildArtifactPaths": [
         "ios/build/**/*.dSYM",
         "ios/build/**/*.dSYM.zip"
@@ -51,8 +50,13 @@
   },
   "submit": {
     "production": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "draft"
+      },
       "ios": {
-        "ascAppId": "6769542734"
+        "ascAppId": "6769542734",
+        "appleTeamId": "F73XS8FMPL"
       }
     }
   }

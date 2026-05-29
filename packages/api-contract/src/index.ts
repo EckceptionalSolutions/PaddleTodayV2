@@ -42,6 +42,22 @@ export type SourceTone =
   | 'derived'
   | 'minimum';
 
+export {
+  buildTodayBoardSnapshot,
+  compareTodayBoardQuality,
+  compareTodayCertainty,
+  compareTodayScore,
+  compareTodayScoreThenConfidence,
+  ratingDetailMessage,
+  ratingVerdictLabel,
+  todayBoardConfidenceWeight,
+  todayBoardRank,
+  todayBoardStatusWeight,
+  type RatingVerdictOptions,
+  type TodayBoardItem,
+  type TodayBoardSnapshot,
+} from './today-board';
+
 export interface GaugeSourceDisplay {
   provider: GaugeProvider;
   label: string;

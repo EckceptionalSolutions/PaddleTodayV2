@@ -3,6 +3,14 @@ import { execSync } from "node:child_process";
 
 const mobileWorkspace = "apps/mobile/package.json";
 
+execSync("npm run typecheck:routes", {
+  stdio: "inherit",
+});
+
+execSync("npm run routes:audit", {
+  stdio: "inherit",
+});
+
 if (!existsSync(mobileWorkspace)) {
   console.log(`[typecheck] Skipping mobile typecheck; missing ${mobileWorkspace}.`);
   process.exit(0);

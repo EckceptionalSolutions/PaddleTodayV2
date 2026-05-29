@@ -17,6 +17,7 @@ Add an iOS app:
 - App nickname: `PaddleToday iOS`
 - Download `GoogleService-Info.plist`
 - Save it to `apps/mobile/firebase/GoogleService-Info.plist`
+- Confirm the plist `BUNDLE_ID` is exactly `com.paddletoday.mobile`.
 
 Add an Android app:
 
@@ -24,6 +25,7 @@ Add an Android app:
 - App nickname: `PaddleToday Android`
 - Download `google-services.json`
 - Save it to `apps/mobile/firebase/google-services.json`
+- Confirm the Android config package name is exactly `com.paddletoday.mobile`.
 
 The preview and production Expo config fails fast if either file is missing.
 
@@ -67,3 +69,5 @@ Review store privacy forms before submitting any build with Firebase enabled.
 5. Run the API diagnostic.
 6. Confirm events appear in Firebase Analytics after processing delay.
 7. Confirm non-fatal errors appear in Crashlytics after triggering a handled failure in QA.
+
+Operational monitoring, event names, and triage rules live in `docs/firebase-diagnostics-ops.md`.

@@ -2,6 +2,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SectionCard } from '../components/section-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
@@ -12,6 +13,7 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 
 export default function SupportScreen() {
   const router = useRouter();
+  const insets = useSafeAreaInsets();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
 
@@ -68,7 +70,7 @@ export default function SupportScreen() {
   }
 
   return (
-    <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+    <ScrollView style={styles.screen} contentContainerStyle={[styles.content, { paddingTop: spacing.md + insets.top }]}>
       <View style={styles.hero}>
         <Text style={styles.kicker}>More</Text>
         <Text style={styles.title}>Safety, support, and app checks</Text>

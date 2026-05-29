@@ -16,6 +16,7 @@ Status as of 2026-05-22.
 - Privacy policy: `https://paddletoday.com/privacy/`
 - Support/contact email: `hello@paddletoday.com`
 - App Store Connect app ID: `6769542734`
+- App Store Connect operations runbook: `docs/app-store-connect-ops.md`
 
 ## Completed Local Checks
 

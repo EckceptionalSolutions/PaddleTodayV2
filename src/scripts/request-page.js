@@ -57,7 +57,7 @@ if (form instanceof HTMLFormElement) {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/river-request', {
+      const response = await fetch('/api/route-request', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

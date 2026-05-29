@@ -1,4 +1,9 @@
-import type { GaugeUnit, ScoreRating } from '@paddletoday/api-contract';
+import {
+  ratingDetailMessage,
+  ratingVerdictLabel,
+  type GaugeUnit,
+  type ScoreRating,
+} from '@paddletoday/api-contract';
 
 export function formatTimestamp(value: string | null | undefined) {
   if (!value) return 'Unavailable';
@@ -58,16 +63,11 @@ export function formatTemperature(value: number | null | undefined, empty = 'No 
 }
 
 export function verdictForRating(rating: ScoreRating) {
-  if (rating === 'Strong' || rating === 'Good') return 'Paddle today';
-  if (rating === 'Fair') return 'Watch closely';
-  return 'Skip today';
+  return ratingVerdictLabel(rating);
 }
 
 export function detailMessageForRating(rating: ScoreRating) {
-  if (rating === 'Strong') return 'Conditions line up well.';
-  if (rating === 'Good') return 'Good with normal checks.';
-  if (rating === 'Fair') return 'Possible paddle with caution.';
-  return 'Not a clean yes today.';
+  return ratingDetailMessage(rating);
 }
 
 export function normalizeApiText(value: string | null | undefined) {

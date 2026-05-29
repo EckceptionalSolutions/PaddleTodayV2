@@ -1,7 +1,6 @@
 import type {
   ConfidenceResult,
   DecisionChecklistItem,
-  GaugeReading,
   GaugeSample,
   GaugeUnit,
   LiveDataStatus,
@@ -22,7 +21,6 @@ export type {
   DataFreshness,
   DecisionChecklistItem,
   ForecastWindow,
-  GaugeReading,
   GaugeSample,
   GaugeSourceDisplay,
   GaugeUnit,

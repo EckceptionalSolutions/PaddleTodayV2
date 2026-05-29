@@ -10,6 +10,8 @@ Use this after TestFlight, Google internal testing, and public launch so user re
 - Route requests: app Request route flow or `https://paddletoday.com/request-river/`
 - Route reports/photos: River detail -> Reports -> Report
 
+Outlook mailbox setup, folder/category conventions, and reply templates live in `docs/outlook-support-ops.md`.
+
 ## Triage Levels
 
 ### P0: Safety-Critical Route Issue

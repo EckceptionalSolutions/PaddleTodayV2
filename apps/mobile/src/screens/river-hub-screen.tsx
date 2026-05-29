@@ -1,27 +1,35 @@
 import type { RiverDetailApiResult, ScoreBreakdown } from '@paddletoday/api-contract';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, FlatList, ImageBackground, Pressable, RefreshControl, StyleSheet, Text, View } from 'react-native';
 import { useRiverGroupQuery } from '../api/queries';
 import { RoutePlotMap, type RoutePlotPoint } from '../components/route-plot-map';
+import { SaveToggleButton } from '../components/save-toggle-button';
 import { SectionCard } from '../components/section-card';
 import { StatusPill } from '../components/status-pill';
 import { formatRelativeTime, normalizeApiText, verdictForRating } from '../lib/format';
 import { photoForRiver } from '../lib/route-photos';
+import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, shadow, spacing } from '../theme/tokens';
+
+const SORT_MODES = ['Best', 'Shortest', 'Easiest', 'Confidence'] as const;
+type SortMode = (typeof SORT_MODES)[number];
 
 export default function RiverHubScreen() {
   const params = useLocalSearchParams<{ riverId?: string | string[] }>();
   const router = useRouter();
   const [expandedRoutes, setExpandedRoutes] = useState<Set<string>>(() => new Set());
   const [selectedRouteSlug, setSelectedRouteSlug] = useState<string | null>(null);
+  const [sortMode, setSortMode] = useState<SortMode>('Best');
   const listRef = useRef<FlatList<RiverDetailApiResult> | null>(null);
   const riverId = Array.isArray(params.riverId) ? params.riverId[0] : params.riverId ?? '';
   const groupQuery = useRiverGroupQuery(riverId);
+  const { isSaved, toggleSavedRiver } = useSavedRivers();
   const result = groupQuery.data?.result ?? null;
   const allRoutes = result?.routes ?? [];
   const bestRoute = useMemo(() => [...allRoutes].sort(compareBestRoute)[0] ?? null, [allRoutes]);
-  const routes = useMemo(() => [...allRoutes].sort(compareBestRoute), [allRoutes]);
+  const routes = useMemo(() => sortedRoutes(allRoutes, sortMode), [allRoutes, sortMode]);
   const routePoints = useMemo(() => routeMapPoints(allRoutes), [allRoutes]);
 
   useEffect(() => {
@@ -71,6 +79,7 @@ export default function RiverHubScreen() {
   }
 
   const summary = routeStatusSummary(allRoutes);
+  const planningStats = routePlanningStats(allRoutes);
 
   function toggleExpandedRoute(slug: string) {
     setExpandedRoutes((current) => {
@@ -99,8 +108,17 @@ export default function RiverHubScreen() {
         rank={index + 1}
         recommended={index === 0}
         selected={route.river.slug === selectedRouteSlug}
+        saved={isSaved(route.river.slug)}
         expanded={expandedRoutes.has(route.river.slug)}
         onToggleExpanded={() => toggleExpandedRoute(route.river.slug)}
+        onToggleSaved={() =>
+          void toggleSavedRiver({
+            slug: route.river.slug,
+            riverId: route.river.riverId,
+            name: route.river.name,
+            reach: route.river.reach,
+          })
+        }
         onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
       />
     );
@@ -150,6 +168,26 @@ export default function RiverHubScreen() {
             <View style={styles.listIntro}>
               <Text style={styles.listIntroTitle}>Choose a stretch</Text>
               <Text style={styles.listIntroSubtitle}>{comparisonSubtitle(summary)}</Text>
+              <View style={styles.sortTabs}>
+                {SORT_MODES.map((mode) => (
+                  <Pressable
+                    key={mode}
+                    style={[styles.sortTab, sortMode === mode ? styles.sortTabSelected : null]}
+                    onPress={() => setSortMode(mode)}
+                    accessibilityRole="tab"
+                    accessibilityState={{ selected: sortMode === mode }}
+                  >
+                    <MaterialCommunityIcons name={sortIcon(mode) as never} color={sortMode === mode ? colors.surfaceStrong : colors.accent} size={15} />
+                    <Text style={[styles.sortTabText, sortMode === mode ? styles.sortTabTextSelected : null]}>{mode}</Text>
+                  </Pressable>
+                ))}
+              </View>
+              <View style={styles.planningGrid}>
+                <PlanningStat label="Shortest" value={planningStats.shortestLabel} />
+                <PlanningStat label="Easiest" value={planningStats.easyCountLabel} />
+                <PlanningStat label="Best confidence" value={planningStats.bestConfidenceLabel} />
+                <PlanningStat label="Source mix" value={planningStats.sourceMixLabel} />
+              </View>
             </View>
           </>
         }
@@ -179,16 +217,20 @@ function RouteChoiceCard({
   rank,
   recommended = false,
   selected,
+  saved,
   expanded,
   onToggleExpanded,
+  onToggleSaved,
   onOpen,
 }: {
   route: RiverDetailApiResult;
   rank?: number;
   recommended?: boolean;
   selected: boolean;
+  saved: boolean;
   expanded: boolean;
   onToggleExpanded: () => void;
+  onToggleSaved: () => void;
   onOpen: () => void;
 }) {
   return (
@@ -211,6 +253,7 @@ function RouteChoiceCard({
           <View style={styles.routeBadgeRow}>
             {recommended ? <Text style={styles.recommendedBadge}>Best today</Text> : null}
             {rank ? <Text style={styles.routeRank}>Rank #{rank}</Text> : null}
+            <SaveToggleButton compact saved={saved} onPress={onToggleSaved} />
           </View>
           <Text style={styles.routeName} numberOfLines={2}>{route.river.reach}</Text>
           <Text style={styles.routeVerdict}>{verdictForRating(route.rating)}</Text>
@@ -222,6 +265,7 @@ function RouteChoiceCard({
         <StatusPill status={route.liveData.overall} />
         <ReasonChip label={normalizeApiText(route.gaugeBandLabel)} />
         <ReasonChip label={`${route.confidence.label} confidence`} />
+        <ReasonChip label={sourceStrengthLabel(route)} />
         {route.weather?.windMph ? <ReasonChip label={`${Math.round(route.weather.windMph)} mph wind`} /> : null}
       </View>
 
@@ -299,6 +343,15 @@ function routeMapPoints(routes: RiverDetailApiResult[]): RoutePlotPoint[] {
   }));
 }
 
+function PlanningStat({ label, value }: { label: string; value: string }) {
+  return (
+    <View style={styles.planningStat}>
+      <Text style={styles.planningStatLabel}>{label}</Text>
+      <Text style={styles.planningStatValue} numberOfLines={1}>{value}</Text>
+    </View>
+  );
+}
+
 function routeStatusSummary(routes: RiverDetailApiResult[]) {
   return routes.reduce(
     (summary, route) => {
@@ -329,10 +382,64 @@ function compareBestRoute(left: RiverDetailApiResult, right: RiverDetailApiResul
   return right.score - left.score || right.confidence.score - left.confidence.score || comparableDistance(left) - comparableDistance(right);
 }
 
+function sortedRoutes(routes: RiverDetailApiResult[], sortMode: SortMode) {
+  const sorted = [...routes];
+  if (sortMode === 'Shortest') {
+    return sorted.sort((left, right) => comparableDistance(left) - comparableDistance(right) || compareBestRoute(left, right));
+  }
+
+  if (sortMode === 'Easiest') {
+    return sorted.sort((left, right) => difficultyRank(left) - difficultyRank(right) || compareBestRoute(left, right));
+  }
+
+  if (sortMode === 'Confidence') {
+    return sorted.sort((left, right) => right.confidence.score - left.confidence.score || compareBestRoute(left, right));
+  }
+
+  return sorted.sort(compareBestRoute);
+}
+
 function comparableDistance(route: RiverDetailApiResult) {
   const match = route.river.distanceLabel.match(/(\d+(?:\.\d+)?)/);
   const value = match ? Number(match[1]) : Number.POSITIVE_INFINITY;
   return Number.isFinite(value) ? value : Number.POSITIVE_INFINITY;
+}
+
+function difficultyRank(route: RiverDetailApiResult) {
+  if (route.river.profile.difficulty === 'easy') return 0;
+  if (route.river.profile.difficulty === 'moderate') return 1;
+  return 2;
+}
+
+function routePlanningStats(routes: RiverDetailApiResult[]) {
+  const shortest = [...routes].sort((left, right) => comparableDistance(left) - comparableDistance(right))[0];
+  const easyCount = routes.filter((route) => route.river.profile.difficulty === 'easy').length;
+  const bestConfidence = [...routes].sort((left, right) => right.confidence.score - left.confidence.score)[0];
+  const officialishCount = routes.filter((route) =>
+    route.river.profile.thresholdSourceStrength === 'official' || route.river.profile.thresholdSourceStrength === 'mixed'
+  ).length;
+
+  return {
+    shortestLabel: shortest?.river.distanceLabel || 'Unknown',
+    easyCountLabel: `${easyCount} easy`,
+    bestConfidenceLabel: bestConfidence ? bestConfidence.confidence.label : 'Unknown',
+    sourceMixLabel: `${officialishCount}/${routes.length} official/mixed`,
+  };
+}
+
+function sortIcon(sortMode: SortMode) {
+  if (sortMode === 'Shortest') return 'map-marker-distance';
+  if (sortMode === 'Easiest') return 'paddle';
+  if (sortMode === 'Confidence') return 'shield-check-outline';
+  return 'star-outline';
+}
+
+function sourceStrengthLabel(route: RiverDetailApiResult) {
+  const strength = route.river.profile.thresholdSourceStrength;
+  if (strength === 'official') return 'Official thresholds';
+  if (strength === 'mixed') return 'Mixed sources';
+  if (strength === 'derived') return 'Derived thresholds';
+  return 'Community thresholds';
 }
 
 function compactUpdatedLabel(value: string | undefined) {
@@ -519,6 +626,65 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  sortTabs: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+    marginTop: spacing.sm,
+  },
+  sortTab: {
+    minHeight: 34,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  sortTabSelected: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
+  },
+  sortTabText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  sortTabTextSelected: {
+    color: colors.surfaceStrong,
+  },
+  planningGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+    marginTop: spacing.sm,
+  },
+  planningStat: {
+    flexGrow: 1,
+    flexBasis: '47%',
+    minHeight: 50,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 8,
+    gap: 3,
+  },
+  planningStatLabel: {
+    color: colors.textMuted,
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  planningStatValue: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
   },
   footerSection: {
     marginTop: spacing.md,

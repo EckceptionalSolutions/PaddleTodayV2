@@ -168,21 +168,21 @@ export function createPaddleTodayApiClient(args: {
       });
     },
     createRiverRequest(input, options) {
-      return requestJson<CreateRiverRequestResponse>('/api/river-request', {
+      return requestJson<CreateRiverRequestResponse>('/api/route-request', {
         ...options,
         method: 'POST',
         body: input,
       });
     },
     createRouteReport(input, options) {
-      return requestJson<CreateRouteReportResponse>('/api/route-photo-submissions', {
+      return requestJson<CreateRouteReportResponse>('/api/route-contributions', {
         ...options,
         method: 'POST',
         body: input,
       });
     },
     createRouteContribution(input, options) {
-      return requestJson<CreateRouteContributionResponse>('/api/route-photo-submissions', {
+      return requestJson<CreateRouteContributionResponse>('/api/route-contributions', {
         ...options,
         method: 'POST',
         body: input,

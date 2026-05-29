@@ -18,6 +18,7 @@ import {
 import { freshnessLabel, readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons, decorateFavoriteButton, refreshFavoriteButtons } from './favorites-ui.js';
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
+import { ratingVerdictLabel } from '@paddletoday/api-contract';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 import { getRoutePreviewPhoto } from '../data/route-gallery.ts';
 
@@ -2030,11 +2031,19 @@ function recommendationReasons(item) {
 }
 
 function recommendationVerdict(item) {
-  if (item.cardRoute.rating === 'Strong') return item.cardRoute.score >= 100 ? 'Ideal today' : 'Great today';
-  if (item.cardRoute.rating === 'Good') return 'Solid option';
-  if (item.cardRoute.rating === 'Fair') return 'Paddleable with tradeoffs';
-  if (item.cardRoute.rating === 'No-go' && item.cardRoute.liveData?.overall === 'offline') return 'Manual check needed';
-  return 'Consider with caution';
+  return ratingVerdictLabel(
+    item.cardRoute.rating,
+    item.cardRoute.score,
+    {
+      strongMaxLabel: 'Ideal today',
+      strongLabel: 'Great today',
+      goodLabel: 'Solid option',
+      fairLabel: 'Paddleable with tradeoffs',
+      noGoOfflineLabel: 'Manual check needed',
+      noGoLabel: 'Consider with caution',
+    },
+    item.cardRoute.liveData?.overall
+  );
 }
 
 function recommendationTagLabels(item, index, nearbyReady) {

@@ -62,7 +62,7 @@ export default function ExploreScreen() {
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
-  const { location, status, requestLocation, clearLocation } = useStoredLocation();
+  const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filters, setFilters] = useState<ExploreFilters>(defaultFilters);
@@ -154,7 +154,6 @@ export default function ExploreScreen() {
         topInset={insets.top}
         userLocation={location}
         routeCounts={routeCounts}
-        onClearLocation={() => void clearLocation()}
         onFilterPress={() => setFiltersOpen(true)}
         onContributePhotos={(slug) => {
           trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
@@ -221,7 +220,6 @@ function FullScreenExploreMap({
   topInset,
   userLocation,
   routeCounts,
-  onClearLocation,
   onFilterPress,
   onFocusNearest,
   onContributePhotos,
@@ -245,7 +243,6 @@ function FullScreenExploreMap({
   topInset: number;
   userLocation: { latitude: number; longitude: number; label: string } | null;
   routeCounts: ReadonlyMap<string, number>;
-  onClearLocation: () => void;
   onFilterPress: () => void;
   onFocusNearest: () => void;
   onContributePhotos: (slug: string) => void;
@@ -285,7 +282,7 @@ function FullScreenExploreMap({
         </View>
       )}
 
-      <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.sm }]}>
+      <View style={[styles.fullMapTopControls, { paddingTop: topInset + spacing.md }]}>
         <ExploreSearchBar query={filters.query} onQueryChange={onSearchChange} />
         <View style={styles.mapUnderSearchRow}>
           <Pressable
@@ -374,9 +371,9 @@ function FullScreenExploreMap({
       ) : (
         <Pressable
           style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
-          onPress={onClearLocation}
+          onPress={onFocusNearest}
           accessibilityRole="button"
-          accessibilityLabel="Clear current location"
+          accessibilityLabel="Focus nearest routes"
         >
           <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={18} />
           <Text style={styles.fullMapLocationText}>Near you</Text>
