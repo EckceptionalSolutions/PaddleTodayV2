@@ -17184,6 +17184,131 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kishwaukee-river-hickory-bills-distillery',
+    slug: 'kishwaukee-river-hickory-bills-distillery',
+    name: 'Kishwaukee River',
+    reach: 'Hickory Bills Canoe Launch to Distillery Road Conservation Area',
+    aliases: [
+      'Kishwaukee River - Belvidere to Distillery Road',
+      'Kishwaukee River - Hickory Bills to Distillery Road',
+      'Kishwaukee River Water Trail - Hickory Bills to Distillery',
+    ],
+    state: 'Illinois',
+    region: 'Northern Illinois',
+    summary:
+      'Short lower-Belvidere Kishwaukee River Water Trail run from Hickory Bills Canoe Launch to Distillery Road Conservation Area. Public access is unusually well documented for Illinois, and the Belvidere USGS gauge has route-specific local flow bands.',
+    statusText:
+      'Use the Belvidere USGS gauge. The most useful window is roughly 201 to 600 cfs. Below 200 cfs, expect low but usually passable water with scraping; above 600 cfs, the river is very high, less attractive, and less appropriate for a broad recommendation.',
+    latitude: 42.255487,
+    longitude: -88.861792,
+    gaugeSource: {
+      id: 'usgs-05438500',
+      provider: 'usgs',
+      siteId: '05438500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kishwaukee River at Belvidere, IL',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05438500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 201,
+      idealMax: 600,
+      tooLow: 200,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'Wisconsin River Trips Belvidere-gauge navigability estimates for the Kishwaukee River',
+        url: 'https://www.wisconsinrivertrips.com/segments/kishwaukee-river/belvidere',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the normal paddling window, with late fall still possible when water temperature and daylight are managed. The Kishwaukee responds to rain, and high water can make this normally easy reach dirty, pushy, and less suitable for casual paddlers.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This short reach is generally calm with gravel bars, wooded banks, and only easy riffles, but it is still a natural Illinois river. Strainers, shallow riffles, high-water current, wind, and limited legal exits keep the easy rating conditional.',
+      confidenceNotes:
+        'Confidence is high enough for a conservative Illinois add: the BCCD/Openlands water-trail materials identify Hickory Bills Island and Distillery Road as established public access points, Boone County Conservation District tells paddlers at its Distillery-area sites to use USGS 05438500 at Belvidere for real-time flow and stage, and Wisconsin River Trips gives numeric Belvidere-gauge bands for the lower Belvidere corridor including the Hickory Bills-to-Distillery segment. The main limits are Illinois public-water complexity and threshold precision: the app treats the water-trail/access package as the public-use authority and does not imply permission to land on private banks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Water-trail segment',
+        value: '4.35 to 4.7 miles',
+        note: 'The BCCD/Openlands Kishwaukee water-trail map lists Hickory Bills Island to Distillery Road as a 4.35-mile trip, while Wisconsin River Trips rounds the Hickory Bills-to-Distillery segment to 4.7 miles.',
+        sourceUrl:
+          'https://www.bccdil.org/wp-content/uploads/2016/05/Kishwaukee_112906_LowRes2-2016_01_19-17_26_45-UTC.pdf',
+      },
+      {
+        label: 'Public access',
+        value: 'Belvidere Park District and BCCD launches',
+        note: 'The water-trail map identifies Hickory Bills Island as a Belvidere Park District launch and Distillery Road as a Boone County Conservation District launch with public access amenities.',
+        sourceUrl:
+          'https://www.bccdil.org/wp-content/uploads/2016/05/Kishwaukee_112906_LowRes2-2016_01_19-17_26_45-UTC.pdf',
+      },
+      {
+        label: 'Take-out authority',
+        value: 'Distillery Road canoe launch',
+        note: 'Boone County Conservation District lists Distillery Road Conservation Area with a canoe launch, parking, portable restroom, picnic tables, and public access to fishing on the Kishwaukee River.',
+        sourceUrl:
+          'https://www.bccdil.org/explore/kishwaukee-bottoms-conservation-area/distillery-road-conservation-area/',
+      },
+      {
+        label: 'Gauge tie',
+        value: 'USGS 05438500 at Belvidere',
+        note: 'BCCD tells paddlers using Distillery Road or County Line East to check real-time data from the Belvidere stream gage for current water level and flow conditions.',
+        sourceUrl:
+          'https://www.bccdil.org/wp-content/uploads/2017/04/USGS-Information-for-Paddling-post-on-website-04-2017-Rev1.pdf',
+      },
+      {
+        label: 'Flow bands',
+        value: '201-600 cfs target, 600+ very high',
+        note: 'Wisconsin River Trips estimates 0-200 cfs as low but mostly navigable, 201-400 cfs as average/good, 401-600 cfs as high but likely navigable, 601-1000 cfs as very high and less attractive, and 1001+ cfs as possible flood level.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/kishwaukee-river/belvidere',
+      },
+      {
+        label: 'Closure check',
+        value: 'Lower Kishwaukee open effective 2026-04-24',
+        note: 'IDNR River Closures currently lists the lower Kishwaukee closure reach downstream of Cherry Valley as open. This Hickory Bills-to-Distillery route is upstream of that notice, but closure checks remain important for Kishwaukee trips.',
+        sourceUrl: 'https://dnr.illinois.gov/closures/riverclosures.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'BCCD / Openlands Kishwaukee River Water Trail map',
+        url: 'https://www.bccdil.org/wp-content/uploads/2016/05/Kishwaukee_112906_LowRes2-2016_01_19-17_26_45-UTC.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'BCCD Distillery Road Conservation Area',
+        url: 'https://www.bccdil.org/explore/kishwaukee-bottoms-conservation-area/distillery-road-conservation-area/',
+        provider: 'local',
+      },
+      {
+        label: 'BCCD Kishwaukee USGS paddling guidance',
+        url: 'https://www.bccdil.org/wp-content/uploads/2017/04/USGS-Information-for-Paddling-post-on-website-04-2017-Rev1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Kishwaukee River - Belvidere',
+        url: 'https://www.wisconsinrivertrips.com/segments/kishwaukee-river/belvidere',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05438500 Kishwaukee River at Belvidere',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05438500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'IDNR River Closures',
+        url: 'https://dnr.illinois.gov/closures/riverclosures.html',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'flambeau-river-highway-w-hervas',
     slug: 'flambeau-river-highway-w-hervas',
     name: 'Flambeau River',
@@ -19080,6 +19205,594 @@ export const rivers: River[] = [
         label: 'USGS 04161820 Clinton River at Sterling Heights',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-rotary-budd',
+    slug: 'clinton-river-rotary-budd',
+    name: 'Clinton River',
+    reach: 'Rotary Park to Budd Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Short lower Clinton River link from the Sterling Heights accessible launch at Rotary Park to Budd Park in Clinton Township. CRWC documents the access pair, mileage, and coordinates, and its Sterling Heights USGS warning ladder gives this urban reach a clear same-day stage check.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check for wood, fast current after rain, and urban water-quality advisories.',
+    latitude: 42.570595,
+    longitude: -82.971459,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. This is below the steeper Rochester and Utica water, but the Clinton still reacts quickly to rain and can carry wood, strainers, and stormwater pollutants through the corridor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The 3.6-mile distance is short and Macomb County describes the broader lower Clinton as more beginner-friendly, but this is still an urban moving-water route. Treat it as a guarded easy-to-moderate trip that needs a same-day gauge, weather, wood, and water-quality check.',
+      confidenceNotes:
+        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists Rotary Park and Budd Park with coordinates, river miles, and a 3.6-mile access spacing; Michigan Water Trails lists both as Clinton River Water Trail assets; the City of Sterling Heights confirms Rotary Park as a public universally accessible kayak/canoe launch; Outdoor Michigan lists Budd Park as a Clinton River carry-in; and CRWC publishes USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than a polished recreation ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official access map',
+        value: 'Rotary Park RM 17.2 to Budd Park RM 13.6',
+        note: 'The 2024 CRWC water-trail map lists Rotary Park and Budd Park as Clinton River launch sites, with 3.6 miles from Rotary Park to Budd Park.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.570595, -82.971459 to 42.586506, -82.927598',
+        note: 'The CRWC map table gives source coordinates for Rotary Park and Budd Park.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Water-trail access points',
+        note: 'Michigan Water Trails lists Rotary Park and Budd Park as Clinton River Water Trail assets, the City of Sterling Heights confirms Rotary Park has a public accessible EZDock launch, and Outdoor Michigan lists Budd Park as a Clinton River carry-in boat launch.',
+        sourceUrl: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Route character',
+        value: 'Short lower Clinton connector',
+        note: 'Macomb County describes the middle river from downtown Utica to Rotary Park as moderate and the lower river around Budd Park to Mount Clemens as the best beginner stretch; this route bridges those areas and keeps urban-river cautions prominent.',
+        sourceUrl:
+          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+      {
+        label: 'City of Sterling Heights canoe and kayak page',
+        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
+        provider: 'local',
+      },
+      {
+        label: 'Outdoor Michigan Clinton River',
+        url: 'https://outdoormichigan.org/feature/7986',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County Clinton River overview',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-budd-shadyside',
+    slug: 'clinton-river-budd-shadyside',
+    name: 'Clinton River',
+    reach: 'Budd Park to Shadyside Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Beginner-oriented lower Clinton River water-trail trip from Budd Park in Clinton Township to Shadyside Park in Mount Clemens. CRWC recommends the route, maps the access points, and publishes a Sterling Heights USGS warning ladder for low and high water.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge as CRWC\'s warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check for wood, fast current after rain, and urban water-quality advisories.',
+    latitude: 42.586506,
+    longitude: -82.927598,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. This lower section is slower than the Rochester and Utica reaches, but the Clinton is still urban and flashy after rain, with wood, strainers, and stormwater pollutants possible.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'CRWC lists Budd Park to Shadyside Park as a slow/beginner suggested paddling route. Keep the easy rating guarded: this is still a moving urban river where high water, log jams, strainers, and water quality can change the trip quickly.',
+      confidenceNotes:
+        'Confidence is high for a guarded lower-river add: CRWC names Budd Park to Shadyside Park as a slow/beginner suggested route, the 2024 CRWC Clinton River Water Trail map lists Budd Park, George George Park, and Shadyside Park with coordinates and access spacing, Mount Clemens confirms Shadyside Park has a boat and canoe launch, and CRWC publishes USGS 04161820 low/high warning stages. The gauge is treated as a proxy warning gauge because the route is downstream from Sterling Heights; the app does not claim a precise ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Suggested route',
+        value: 'Budd Park to Shadyside Park, about 2 hr',
+        note: 'CRWC lists Budd Park in Clinton Township to Shadyside Park in Mount Clemens as a slow/beginner suggested paddling route, with an option to continue to MacArthur Park for paddlers who intentionally extend the trip.',
+        sourceUrl: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
+      },
+      {
+        label: 'Access map',
+        value: 'Budd Park RM 13.6 to Shadyside Park RM 9.2',
+        note: 'The 2024 CRWC water-trail map places Budd Park at 13.6 miles from Lake St. Clair, George George Park at 11.0, and Shadyside Park at 9.2, making this about a 4.4-mile lower-river route.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.586506, -82.927598 to 42.582529, -82.880104',
+        note: 'The 2024 CRWC water-trail map table gives coordinates for Budd Park and Shadyside Park, with George George Park as an intermediate access.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Shadyside boat and canoe launch',
+        note: 'The City of Mount Clemens describes Shadyside Park as a city park on the banks of the Clinton River with fishing facilities and a handicapped-accessible pier with a boat and canoe launch.',
+        sourceUrl: 'https://mountclemens.gov/parks/',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft. The app uses this as a conservative proxy warning window for the downstream lower-river route.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: 'CRWC Clinton River Water Trail guide book',
+        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'City of Mount Clemens parks',
+        url: 'https://mountclemens.gov/parks/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-shadyside-macarthur',
+    slug: 'clinton-river-shadyside-macarthur',
+    name: 'Clinton River',
+    reach: 'Shadyside Park to MacArthur Park',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Short Mount Clemens lower Clinton River water-trail link from Shadyside Park to the Neil Dempsey launch at MacArthur Park. CRWC maps both access points and uses the Sterling Heights USGS gauge for low and high water warnings.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge as CRWC\'s warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still inspect wood, weir signage, urban runoff, and the MacArthur landing before launching.',
+    latitude: 42.582529,
+    longitude: -82.880104,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. The lower Clinton is slower near Mount Clemens than the upstream swiftwater reaches, but it still rises quickly after rain and can carry wood, strainers, and stormwater pollutants.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short beginner-oriented lower-river link, but keep the easy rating guarded. CRWC warns that Clinton River hazards change constantly, and the Mount Clemens map panels flag a weir hazard and mandatory-portage area that should be identified before committing downstream.',
+      confidenceNotes:
+        'Confidence is high for a guarded lower-river add: the 2024 CRWC Clinton River Water Trail map lists Shadyside Park and Neil Dempsey at MacArthur Park with coordinates, river miles, and a 2.0-mile spacing; the CRWC guide says paddlers can continue from Shadyside to MacArthur Park; Mount Clemens confirms both parks have boat/canoe or kayak launch support; Outdoor Michigan lists MacArthur Park / Dempsey as a Mount Clemens-owned carry-in with an ADA kayak launch; and CRWC publishes USGS 04161820 low/high warning stages. The gauge is treated as a proxy warning gauge because this route is downstream from Sterling Heights; the app does not claim a precise ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Water-trail extension',
+        value: 'Shadyside Park to MacArthur Park, about 45 min',
+        note: 'CRWC lists Budd Park to Shadyside Park as a slow/beginner suggested route and says paddlers can add about 45 minutes by continuing downriver to MacArthur Park in downtown Mount Clemens.',
+        sourceUrl: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
+      },
+      {
+        label: 'Access map',
+        value: 'Shadyside Park RM 9.2 to Neil Dempsey Launch RM 7.2',
+        note: 'The 2024 CRWC water-trail map lists Shadyside Park and Neil Dempsey at MacArthur Park as launch sites, with 2.0 miles from Shadyside to Neil Dempsey.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.582529, -82.880104 to 42.597338, -82.871104',
+        note: 'The 2024 CRWC water-trail map table gives coordinates for Shadyside Park and Neil Dempsey at MacArthur Park.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Public launch support',
+        value: 'Mount Clemens park launches',
+        note: 'Mount Clemens describes Shadyside Park as having a boat and canoe launch and MacArthur Park as having a universally accessible kayak launch installed along the Clinton River.',
+        sourceUrl: 'https://mountclemens.gov/parks/',
+      },
+      {
+        label: 'MacArthur launch confirmation',
+        value: 'Mount Clemens-owned ADA carry-in',
+        note: 'Outdoor Michigan lists Clinton River - MacArthur Park / Dempsey Boat Launch as a Mount Clemens-owned carry-in with an ADA kayak launch.',
+        sourceUrl: 'https://outdoormichigan.org/feature/14360',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft. The app uses this as a conservative proxy warning window for this downstream lower-river route.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: 'CRWC Clinton River Water Trail guide book',
+        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'City of Mount Clemens parks',
+        url: 'https://mountclemens.gov/parks/',
+        provider: 'local',
+      },
+      {
+        label: 'Outdoor Michigan MacArthur Park launch',
+        url: 'https://outdoormichigan.org/feature/14360',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County Main Branch Clinton River',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/trail-network/water-trails/main-branch-clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'clinton-river-macarthur-harley-ensign',
+    slug: 'clinton-river-macarthur-harley-ensign',
+    name: 'Clinton River',
+    reach: 'MacArthur Park to Harley Ensign',
+    state: 'Michigan',
+    region: 'Southeast Michigan',
+    summary:
+      'Lower Clinton River water-trail finish from the Neil Dempsey launch at MacArthur Park to the DNR Harley Ensign access at Lake St. Clair. CRWC maps both access points and publishes a Sterling Heights USGS low/high warning ladder, but this mouth section also needs a wind, waves, and motorboat check.',
+    statusText:
+      'Use the Clinton River at Sterling Heights gauge as CRWC\'s warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; also check Lake St. Clair wind, waves, boat traffic, and the Harley Ensign landing before committing.',
+    latitude: 42.597338,
+    longitude: -82.871104,
+    gaugeSource: {
+      id: 'usgs-04161820',
+      provider: 'usgs',
+      siteId: '04161820',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Clinton River at Sterling Heights, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 10,
+      tooLow: 8,
+      tooHigh: 10,
+      thresholdSource: {
+        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical paddling season. This lowest Clinton reach is slower than upstream swiftwater, but rain can still push wood and stormwater through the river while Lake St. Clair conditions can add wind, waves, and motorboat exposure near the finish.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river mileage is straightforward, but this is not the same beginner call as the protected Budd-to-Mount-Clemens reach. Treat the final approach to Harley Ensign as exposed lower-river paddling where motorboat traffic, wind, waves, open-water proximity, and urban water quality matter.',
+      confidenceNotes:
+        'Confidence is high for a guarded water-trail add: the 2024 CRWC Clinton River Water Trail map lists Neil Dempsey at MacArthur Park and Harley Ensign (DNR) with coordinates, river miles, and a 7.2-mile spacing; Michigan Water Trails lists both as Clinton River Water Trail assets; Macomb County identifies Harley Ensign as a county launch location; and CRWC publishes USGS 04161820 low/high warning stages. The gauge is treated as a proxy warning gauge because this route is downstream from Sterling Heights and ends at Lake St. Clair; the app does not claim a precise ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Access map',
+        value: 'Neil Dempsey Launch RM 7.2 to Harley Ensign RM 0.0',
+        note: 'The 2024 CRWC water-trail map lists Neil Dempsey at MacArthur Park and Harley Ensign (DNR) as launch sites, with 7.2 miles from Neil Dempsey to Harley Ensign at the river mouth.',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '42.597338, -82.871104 to 42.593327, -82.774834',
+        note: 'The 2024 CRWC water-trail map table gives coordinates for Neil Dempsey at MacArthur Park and Harley Ensign (DNR).',
+        sourceUrl:
+          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+      },
+      {
+        label: 'Water-trail assets',
+        value: 'MacArthur Park and Harley Ensign',
+        note: 'Michigan Water Trails lists MacArthur Park and Harley Ensign as Clinton River Water Trail access assets.',
+        sourceUrl: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+      },
+      {
+        label: 'Lower-river character',
+        value: 'Slow-moving lower Clinton to Lake St. Clair',
+        note: 'CRWC describes the lower Clinton as slow-moving waters through forested riverbanks and parks before emptying into Lake St. Clair, while warning that the river can still run high and carry woody debris after rain.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Gauge warnings',
+        value: '8.0 ft low warning / 10.0 ft high warning',
+        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft. The app uses this as a conservative proxy warning window for the downstream mouth reach.',
+        sourceUrl: 'https://www.crwc.org/recreation/paddling',
+      },
+      {
+        label: 'Launch context',
+        value: 'Macomb County launch list',
+        note: 'Macomb County paddling guidance identifies MacArthur Park and Harley Ensign Memorial among county-area kayak, canoe, and paddleboard launch locations.',
+        sourceUrl:
+          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'CRWC paddling and gauge warnings',
+        url: 'https://www.crwc.org/recreation/paddling',
+        provider: 'local',
+      },
+      {
+        label: '2024 Clinton River Water Trail map PDF',
+        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Michigan Water Trails Clinton River Water Trail',
+        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
+        provider: 'local',
+      },
+      {
+        label: 'Macomb County Clinton River overview',
+        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 04161820 Clinton River at Sterling Heights',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'green-river-flaming-gorge-dam-little-hole',
+    slug: 'green-river-flaming-gorge-dam-little-hole',
+    name: 'Green River',
+    reach: 'Flaming Gorge Dam / Spillway Boat Launch to Little Hole',
+    aliases: ['Green River A Section', 'Spillway Boat Launch to Little Hole'],
+    state: 'Utah',
+    region: 'Northeastern Utah',
+    routeType: 'whitewater',
+    summary:
+      'Cold, clear tailwater day float on the Green River A Section below Flaming Gorge Dam. Ashley National Forest and Recreation.gov document the exact 7-mile Spillway-to-Little-Hole route, and the Greendale USGS gauge is immediately below the dam.',
+    statusText:
+      'Use the Green River near Greendale gauge as the direct tailwater check. American Whitewater showed this reach runnable around 1,000 cfs; Paddle Today treats 1,000 cfs as a conservative minimum and does not claim an ideal or high-water band.',
+    latitude: 40.90885,
+    longitude: -109.422256,
+    gaugeSource: {
+      id: 'usgs-09234500',
+      provider: 'usgs',
+      siteId: '09234500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Green River near Greendale, UT',
+      detailUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1000,
+      thresholdSource: {
+        label: 'American Whitewater Flaming Gorge-to-Lodore runnable-flow context on the Greendale gauge',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1852/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'low',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'Flaming Gorge Dam gives this tailwater year-round release support, but daily release changes can raise the river quickly. Check current dam-release/gauge conditions, weather, and cold-water gear even in summer.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Section A is generally Class I-II, but it is cold, swift dam-release water with required safety gear, heavy commercial dory traffic, busy ramps, and limited quick exits. It is hidden from default casual discovery because American Whitewater is the numeric threshold source and the route is swift tailwater rather than a simple flatwater float.',
+      confidenceNotes:
+        'Confidence is high for a guarded Section A add: Ashley National Forest publishes coordinates for Spillway Boat Launch and Little Hole Boat Launch, Recreation.gov and Forest Service pages describe the exact 7-mile Flaming Gorge Dam-to-Little-Hole Section A route, USGS 09234500 is a direct gauge just below the dam with same-day May 30, 2026 discharge and stage on the legacy current-conditions page, and American Whitewater ties the broader Flaming Gorge reach to the same Greendale gauge. Threshold confidence is intentionally conservative because the source package supports a runnable minimum, not a full ideal/high band for this exact 7-mile app route.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Live gauge',
+        value: 'USGS 09234500 at 1,520 cfs / 9.01 ft',
+        note: 'USGS legacy current conditions showed discharge and gage height at 07:30 MDT on May 30, 2026 for Green River near Greendale, UT, operated immediately below Flaming Gorge Dam.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500',
+      },
+      {
+        label: 'Route shape',
+        value: 'Section A, 7 miles',
+        note: 'Recreation.gov describes Section A as beginning just below Flaming Gorge Dam and proceeding seven miles through a narrow canyon to Little Hole, with Class I-II rapids.',
+        sourceUrl: 'https://www.recreation.gov/camping/campgrounds/250036',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.90885, -109.422256 to 40.910719, -109.315144',
+        note: 'Ashley National Forest publishes latitude/longitude for both Spillway Boat Launch Area and Little Hole Boat Launch Area.',
+        sourceUrl: 'https://www.fs.usda.gov/r04/ashley/recreation/spillway-boat-launch-area',
+      },
+      {
+        label: 'Access and fees',
+        value: 'Flaming Gorge recreation use pass',
+        note: 'The BLM/Forest Service Green River brochure says a Flaming Gorge Use Pass is required at Spillway and Little Hole, while Recreation.gov lists the route as non-motorized river running with required launch gear.',
+        sourceUrl: 'https://www.blm.gov/sites/default/files/documents/files/floating_the_green_river_brochure.pdf',
+      },
+      {
+        label: 'Safety rules',
+        value: 'PFD, bailer, throw rope, spare oar/paddle',
+        note: 'The BLM/Forest Service brochure and Recreation.gov warn that the river can rise without warning and require or recommend river-running safety equipment; inflatable PFDs are not allowed where PFD wear is required.',
+        sourceUrl: 'https://www.blm.gov/sites/default/files/documents/files/floating_the_green_river_brochure.pdf',
+      },
+      {
+        label: 'No camping',
+        value: 'No camping on Section A',
+        note: 'The BLM/Forest Service brochure states that River Section A has no camping, and the Little Hole trail guidance also prohibits camping and fires along the Spillway-to-Little-Hole trail section.',
+        sourceUrl: 'https://www.blm.gov/sites/default/files/documents/files/floating_the_green_river_brochure.pdf',
+      },
+      {
+        label: 'Threshold posture',
+        value: 'Minimum-only at 1,000 cfs',
+        note: 'American Whitewater tied the reach to the Greendale gauge and showed the broader Flaming Gorge-to-Lodore reach runnable at 1,000 cfs during review. The app uses that as a conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1852/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USGS 09234500 Green River near Greendale current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=09234500',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ashley National Forest Spillway Boat Launch Area',
+        url: 'https://www.fs.usda.gov/r04/ashley/recreation/spillway-boat-launch-area',
+        provider: 'local',
+      },
+      {
+        label: 'Ashley National Forest Little Hole Boat Launch Area',
+        url: 'https://www.fs.usda.gov/r04/ashley/recreation/little-hole-boat-launch-area',
+        provider: 'local',
+      },
+      {
+        label: 'Recreation.gov Green River Float-In Campsites',
+        url: 'https://www.recreation.gov/camping/campgrounds/250036',
+        provider: 'local',
+      },
+      {
+        label: 'BLM / Forest Service Floating the Green River brochure',
+        url: 'https://www.blm.gov/sites/default/files/documents/files/floating_the_green_river_brochure.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Green River Flaming Gorge to Lodore',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1852/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Utah DWR stream access guidance',
+        url: 'https://wildlife.utah.gov/streamaccess',
+        provider: 'local',
       },
     ],
   },

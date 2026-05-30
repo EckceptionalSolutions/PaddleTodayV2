@@ -12,7 +12,19 @@ function ensureAsset(tagName, attrs) {
       .join('');
     const existing = document.head.querySelector(`${tagName}${selector}`);
     if (existing) {
-      resolve(existing);
+      if (tagName.toLowerCase() !== 'script' || window.maplibregl) {
+        resolve(existing);
+        return;
+      }
+
+      existing.addEventListener('load', () => resolve(existing), { once: true });
+      existing.addEventListener(
+        'error',
+        () => reject(new Error(`Failed to load ${attrs.href || attrs.src || tagName}`)),
+        {
+          once: true,
+        }
+      );
       return;
     }
 

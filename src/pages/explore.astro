@@ -3,11 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FeatureIcon from '../components/FeatureIcon.astro';
 import SummaryMapPanel from '../components/SummaryMapPanel.astro';
 import RouteBoardCardTemplate from '../components/RouteBoardCardTemplate.astro';
-import { listRiverGroups, listRivers } from '../lib/rivers';
+import { listRiverGroups, listRiverStateGroups, listRivers } from '../lib/rivers';
 
 const rivers = listRivers();
 const riverGroups = listRiverGroups();
-const states = [...new Set(rivers.map((river) => river.state))].sort();
+const stateGroups = listRiverStateGroups();
+const states = stateGroups.map((state) => state.name);
 const trackedRouteCount = rivers.length;
 const trackedRiverCount = riverGroups.length;
 ---
@@ -219,6 +220,27 @@ const trackedRiverCount = riverGroups.length;
       <section class="home-board-inline home-board-inline--wide" aria-label="Route requests">
         <p class="home-board-inline__copy">Don&apos;t see a route you paddle?</p>
         <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
+      </section>
+
+      <section class="river-group-page__panel explore-state-links" aria-labelledby="explore-state-links-title">
+        <div class="section-head section-head--stacked">
+          <div>
+            <p class="eyebrow">Browse by state</p>
+            <h2 class="section-title" id="explore-state-links-title">State route pages</h2>
+          </div>
+          <a class="river-link river-link--inline river-link--ghost" href="/states/">View all states</a>
+        </div>
+        <div class="explore-state-links__grid">
+          {stateGroups.map((state) => (
+            <a class="explore-state-link" href={`/states/${state.slug}/`}>
+              <span>
+                <strong>{state.name}</strong>
+                <span>{state.regions.length} {state.regions.length === 1 ? 'region' : 'regions'}</span>
+              </span>
+              <span>{state.routeCount} {state.routeCount === 1 ? 'route' : 'routes'}</span>
+            </a>
+          ))}
+        </div>
       </section>
 
       <section class="home-board-inline home-board-inline--wide guide-link-strip" aria-label="Paddling guides">

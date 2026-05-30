@@ -7,6 +7,7 @@
 - The Node server reads:
   - `PORT` or `CANOE_API_PORT`
   - `CANOE_API_HOST`
+- Web analytics is optional at build/runtime. Plausible loads only when `PUBLIC_PLAUSIBLE_DOMAIN` is set; set `PUBLIC_PLAUSIBLE_SCRIPT_SRC` only for a custom or proxied Plausible script.
 
 ## Health endpoints
 
@@ -41,6 +42,7 @@ Both endpoints now also expose in-memory cache stats so a deploy can distinguish
 - `/health` shows sane cache counters and no runaway `loadErrors`.
 - Logo and map assets load under the deploy origin.
 - At least one detail page loads score, checklist, outlooks, map, and gauge chart.
+- Plausible is absent in local builds without analytics env vars, and present in production only when `PUBLIC_PLAUSIBLE_DOMAIN` is configured.
 - Logs show normal request flow without repeated upstream failures.
 
 ## Current constraints

@@ -1,0 +1,96 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { listRiverStateGroups } from '../../lib/rivers';
+
+const stateGroups = listRiverStateGroups();
+const routeCount = stateGroups.reduce((sum, state) => sum + state.routeCount, 0);
+const riverCount = stateGroups.reduce((sum, state) => sum + state.riverCount, 0);
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const statesUrl = new URL('/states/', siteUrl).href;
+const title = 'Browse Paddle Routes by State | Paddle Today';
+const description = `Browse Paddle Today state pages for ${routeCount} tracked paddle routes with live river conditions, water levels, weather, and route scores.`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${statesUrl}#collection`,
+    name: title,
+    description,
+    url: statesUrl,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: stateGroups.length,
+      itemListElement: stateGroups.map((state, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: state.name,
+        url: new URL(`/states/${state.slug}/`, siteUrl).href,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${statesUrl}#breadcrumbs`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: new URL('/', siteUrl).href,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'States',
+        item: statesUrl,
+      },
+    ],
+  },
+];
+---
+
+<BaseLayout title={title} description={description} structuredData={structuredData}>
+  <article class="state-page states-index">
+    <section class="river-group-page__hero state-page__hero">
+      <div class="river-group-page__hero-main">
+        <p class="eyebrow">State route pages</p>
+        <h1 class="river-group-page__title">Browse Paddle Today by state</h1>
+        <p class="river-group-page__lede">
+          Find crawlable state directories for tracked paddle routes, then open individual route pages for live scores, gauge context, water levels, and weather.
+        </p>
+        <div class="river-group-page__actions">
+          <a class="river-link river-link--inline" href="/explore/">Browse all routes</a>
+          <a class="river-link river-link--inline river-link--ghost" href="/request-river/">Request a route</a>
+        </div>
+        <div class="hero__meta river-group-page__meta">
+          <span class="stat-chip">{stateGroups.length} states</span>
+          <span class="stat-chip">{routeCount} routes</span>
+          <span class="stat-chip">{riverCount} state river listings</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel" aria-labelledby="states-index-title">
+      <div class="section-head section-head--stacked">
+        <div>
+          <p class="eyebrow">Coverage</p>
+          <h2 class="section-title" id="states-index-title">Tracked state pages</h2>
+        </div>
+      </div>
+      <div class="states-index-grid">
+        {stateGroups.map((state) => (
+          <a class="states-index-card" href={`/states/${state.slug}/`}>
+            <span>
+              <strong>{state.name}</strong>
+              <span>{state.regions.join(' / ')}</span>
+            </span>
+            <span>
+              {state.routeCount} {state.routeCount === 1 ? 'route' : 'routes'}
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
+  </article>
+</BaseLayout>

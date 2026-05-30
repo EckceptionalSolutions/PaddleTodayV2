@@ -19,6 +19,15 @@ export interface RiverGroup {
   routes: River[];
 }
 
+export interface RiverStateGroup {
+  slug: string;
+  name: string;
+  routeCount: number;
+  riverCount: number;
+  regions: string[];
+  routes: River[];
+}
+
 export function listRivers(): River[] {
   return rivers.map(enrichRiver);
 }
@@ -69,6 +78,38 @@ export function listRiverGroups(): RiverGroup[] {
       };
     })
     .sort((left, right) => left.name.localeCompare(right.name));
+}
+
+export function listRiverStateGroups(): RiverStateGroup[] {
+  const grouped = new Map<string, River[]>();
+
+  for (const river of listRivers()) {
+    const bucket = grouped.get(river.state) ?? [];
+    bucket.push(river);
+    grouped.set(river.state, bucket);
+  }
+
+  return [...grouped.entries()]
+    .map(([state, routes]) => {
+      const sortedRoutes = [...routes].sort((left, right) => {
+        const nameSort = left.name.localeCompare(right.name);
+        return nameSort === 0 ? left.reach.localeCompare(right.reach) : nameSort;
+      });
+
+      return {
+        slug: slugifyState(state),
+        name: state,
+        routeCount: sortedRoutes.length,
+        riverCount: new Set(sortedRoutes.map((route) => route.riverId)).size,
+        regions: [...new Set(sortedRoutes.map((route) => route.region))].sort(),
+        routes: sortedRoutes,
+      };
+    })
+    .sort((left, right) => left.name.localeCompare(right.name));
+}
+
+export function getRiverStateGroupBySlug(slug: string): RiverStateGroup | undefined {
+  return listRiverStateGroups().find((group) => group.slug === slug);
 }
 
 export function getRiverGroupById(riverId: string): RiverGroup | undefined {
@@ -162,6 +203,14 @@ function getValidAccessCoordinates(accessPoint?: RiverAccessPoint) {
 
 function deriveRiverId(name: string) {
   return name
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+function slugifyState(state: string) {
+  return state
     .trim()
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')

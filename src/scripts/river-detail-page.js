@@ -6,6 +6,7 @@
 } from './map-runtime.js';
 import { readCachedPayload, writeCachedPayload } from './client-cache.js';
 import { bindFavoriteButtons } from './favorites-ui.js';
+import { trackEvent } from './analytics.js';
 import { confidenceDisplayLabel, liveDataWarning, ratingDisplayLabel } from './ui-taxonomy.js';
 import { createRequestGuard, isAbortError } from './request-guard.js';
 
@@ -127,6 +128,7 @@ const activeFactDistance = root.querySelector('[data-field="active-fact-distance
 const activePutInCopy = root.querySelector('[data-field="active-putin-copy"]');
 const activeTakeOutCopy = root.querySelector('[data-field="active-takeout-copy"]');
 const riverContext = {
+  slug,
   name: root.dataset.riverName ?? 'River',
   reach: root.dataset.riverReach ?? 'Reach',
   state: root.dataset.riverState ?? '',
@@ -181,6 +183,16 @@ const historyRequestGuard = createRequestGuard();
 let approvedRoutePhotos = parseApprovedRoutePhotos(routeGallery instanceof HTMLElement ? routeGallery.dataset.approvedPhotos : '[]');
 let selectedRoutePhotoFiles = [];
 let submittedRoutePhotoPreviews = [];
+
+function routeAnalyticsProperties(extra = {}) {
+  return {
+    route: slug,
+    river: riverContext.name,
+    state: riverContext.state,
+    region: riverContext.region,
+    ...extra,
+  };
+}
 
 function setText(field, value) {
   const elements = Array.from(root.querySelectorAll(`[data-field="${field}"]`));
@@ -1026,6 +1038,7 @@ function bindRoutePhotoForm() {
         throw new Error(payload?.message || 'Could not store this photo submission.');
       }
 
+      const photoCount = selectedRoutePhotoFiles.length;
       window.localStorage.setItem(routePhotoCooldownKey, String(nowTs));
       clearSubmittedRoutePhotoPreviews();
       submittedRoutePhotoPreviews = selectedRoutePhotoFiles.map(({ file, previewUrl }) => ({
@@ -1039,6 +1052,10 @@ function bindRoutePhotoForm() {
       renderRoutePhotoPendingGrid('submitted');
       setRoutePhotoStatus('Thank you for your submission.', 'success');
       setRouteActionStatus('Photo upload sent.', 'success');
+      trackEvent('Submit route photos', routeAnalyticsProperties({
+        label: 'photos',
+        photo_count: String(photoCount),
+      }));
     } catch (error) {
       console.error('Failed to submit route photos.', error);
       setRoutePhotoStatus(
@@ -1181,6 +1198,9 @@ function bindRouteReportForm() {
       summarizeReportPhotos([]);
       setRouteReportStatus('Thank you for your submission.', 'success');
       setRouteActionStatus('Condition report sent.', 'success');
+      trackEvent('Submit condition report', routeAnalyticsProperties({
+        label: reportFiles.length > 0 ? 'with_photos' : 'report_only',
+      }));
     } catch (error) {
       console.error('Failed to submit condition report.', error);
       setRouteReportStatus(
@@ -4477,6 +4497,10 @@ function bindAlertForm() {
           : `Saved a ${threshold === 'good' ? 'Good' : 'Strong'} alert for this route.`,
         'success'
       );
+      trackEvent('Submit route alert', routeAnalyticsProperties({
+        label: payload?.duplicate ? 'duplicate' : 'created',
+        threshold,
+      }));
     } catch (error) {
       console.error('Failed to create river alert.', error);
       setAlertStatus(
@@ -4586,6 +4610,7 @@ bindRouteReportCtas();
 bindScoreFeedbackButtons();
 bindRoutePhotoForm();
 bindRouteReportForm();
+trackEvent('Route view', routeAnalyticsProperties());
 bindFavoriteButtons(document, {
   onToggle({ saved }) {
     setRouteActionStatus(saved ? 'Saved to Favorites.' : 'Removed from Favorites.', 'success');

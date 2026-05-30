@@ -63,12 +63,21 @@ const structuredData = [
       <p class="guide-hero__status" data-guide-weekend-status>
         Checking weekend route recommendations...
       </p>
+      <div class="guide-hero__actions">
+        <a class="river-link river-link--inline" href="/weekend/">Open weekend board</a>
+        <a class="river-link river-link--inline river-link--ghost" href="/states/minnesota/">Browse Minnesota routes</a>
+      </div>
     </div>
     <aside class="guide-hero__note">
       <p class="eyebrow">How this list works</p>
       <p>
         Routes only appear here when the weekend read is Good or Strong and today&apos;s Paddle Today score is also Good or Strong.
       </p>
+      <div class="guide-criteria">
+        <span>Good+ weekend</span>
+        <span>Good+ today</span>
+        <span>Minnesota routes</span>
+      </div>
     </aside>
   </section>
 
@@ -104,21 +113,24 @@ const structuredData = [
     </div>
     <div class="guide-explainer__grid">
       <article class="guide-explainer__item">
+        <span class="guide-explainer__icon">1</span>
         <h3>Start with the live shortlist</h3>
         <p>
-          These routes come from the weekend recommendation feed, then narrow to Minnesota routes with Good or Strong current scores.
+          These routes come from the weekend recommendation feed, narrowed to Minnesota routes.
         </p>
       </article>
       <article class="guide-explainer__item">
+        <span class="guide-explainer__icon">2</span>
         <h3>Check the route page before driving</h3>
         <p>
-          Open the route for current water level, trend, weather, access notes, source confidence, and nearby alternatives.
+          Open the route for water level, trend, weather, source confidence, and nearby alternatives.
         </p>
       </article>
       <article class="guide-explainer__item">
+        <span class="guide-explainer__icon">3</span>
         <h3>Use conditions over habit</h3>
         <p>
-          A familiar river can still be a bad call after rain, during high wind, or when the gauge is outside the route&apos;s target band.
+          A familiar river can still be a bad call after rain, high wind, or an out-of-band gauge.
         </p>
       </article>
     </div>
@@ -128,6 +140,9 @@ const structuredData = [
     <p class="home-board-inline__copy">Want broader route ideas beyond this weekend&apos;s score filter?</p>
     <a class="river-link river-link--inline river-link--ghost" href="/guides/best-minnesota-paddle-trips/">
       View the full Minnesota paddle trip guide
+    </a>
+    <a class="river-link river-link--inline river-link--ghost" href="/states/minnesota/">
+      Browse Minnesota route directory
     </a>
   </section>
 

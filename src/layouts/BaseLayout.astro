@@ -1,6 +1,6 @@
 ---
 import FeatureIcon from '../components/FeatureIcon.astro';
-import { listRiverGroups, listRivers } from '../lib/rivers';
+import { listRiverGroups, listRivers, listRiverStateGroups } from '../lib/rivers';
 
 type Props = {
   title: string;
@@ -107,6 +107,7 @@ const searchRiverItems = listRiverGroups()
   }))
   .sort((left, right) => left.title.localeCompare(right.title));
 const searchIndexJson = JSON.stringify([...searchRiverItems, ...searchRouteItems]);
+const footerStateLinks = listRiverStateGroups();
 const pageClass =
   Astro.url.pathname === '/'
     ? 'page-home'
@@ -117,6 +118,15 @@ const pageClass =
         .toLowerCase() || 'page'}`;
 const plausibleDomain = import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN;
 const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https://plausible.io/js/script.js';
+const appleAppId = import.meta.env.PUBLIC_APPLE_APP_ID || '';
+const appStoreUrl = import.meta.env.PUBLIC_APP_STORE_URL || (appleAppId ? `https://apps.apple.com/app/id${appleAppId}` : '');
+const playStoreUrl =
+  import.meta.env.PUBLIC_PLAY_STORE_URL || 'https://play.google.com/store/apps/details?id=com.paddletoday.mobile';
+const appDownloadConfigJson = JSON.stringify({
+  appStoreUrl,
+  playStoreUrl,
+  appleAppId,
+});
 ---
 
 <!doctype html>
@@ -142,6 +152,14 @@ const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https
     <meta name="twitter:description" content={socialDescription} />
     {socialImage && <meta name="twitter:image" content={socialImage} />}
     {socialImage && <meta name="twitter:image:alt" content={socialImageAlt} />}
+    {
+      appleAppId && (
+        <meta
+          name="apple-itunes-app"
+          content={`app-id=${appleAppId}`}
+        />
+      )
+    }
     {
       plausibleDomain && (
         <>
@@ -217,6 +235,33 @@ const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https
         </div>
       </header>
 
+      <section class="app-download-prompt" data-app-download-prompt hidden aria-label="Paddle Today app download">
+        <div class="app-download-prompt__icon" aria-hidden="true">
+          <img src="/brand/paddle-today-logo-transparent-512.png" alt="" />
+        </div>
+        <div class="app-download-prompt__copy">
+          <strong>Paddle Today app</strong>
+          <span>Save rivers, check nearby routes, and get alerts faster.</span>
+        </div>
+        <a
+          class="app-download-prompt__cta"
+          href="#"
+          data-app-download-link
+          data-analytics-event="Open app download"
+          rel="noopener"
+        >
+          Download
+        </a>
+        <button
+          class="app-download-prompt__dismiss"
+          type="button"
+          data-app-download-dismiss
+          aria-label="Dismiss app download prompt"
+        >
+          &times;
+        </button>
+      </section>
+
       <main class="main-shell">
         <slot />
       </main>
@@ -224,10 +269,20 @@ const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https
       <footer class="site-footer">
         <nav class="site-footer__nav" aria-label="Footer">
           <a class="site-footer__link" href="/about/">About</a>
-          <a class="site-footer__link" href="/guides/best-minnesota-paddle-trips/">Guides</a>
+          <a class="site-footer__link" href="/weekend/">Weekend</a>
+          <a class="site-footer__link" href="/explore/">Explore</a>
+          <a class="site-footer__link" href="/states/">States</a>
+          <a class="site-footer__link" href="/guides/">Guides</a>
+          <a class="site-footer__link" href="/request-river/">Request a Route</a>
           <a class="site-footer__link" href="/contact/">Contact</a>
           <a class="site-footer__link" href="/privacy/">Privacy</a>
           <a class="site-footer__link" href="/terms/">Terms</a>
+        </nav>
+        <nav class="site-footer__nav site-footer__nav--states" aria-label="State route pages">
+          <span class="site-footer__label">State pages</span>
+          {footerStateLinks.map((state) => (
+            <a class="site-footer__link" href={`/states/${state.slug}/`}>{state.name}</a>
+          ))}
         </nav>
       </footer>
 
@@ -259,6 +314,7 @@ const plausibleScriptSrc = import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT_SRC || 'https
       </section>
     </div>
     <script type="application/json" data-site-search-index set:html={searchIndexJson}></script>
+    <script type="application/json" data-app-download-config set:html={appDownloadConfigJson}></script>
     <script>
       import '../scripts/site-shell.js';
       import '../scripts/analytics.js';

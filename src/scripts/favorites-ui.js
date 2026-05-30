@@ -4,6 +4,7 @@ import {
   subscribeFavorites,
   toggleFavorite,
 } from './favorites-store.js';
+import { trackEvent } from './analytics.js';
 
 const FAVORITE_BUTTON_SELECTOR = '[data-favorite-button]';
 const boundRoots = new WeakSet();
@@ -112,6 +113,13 @@ export function bindFavoriteButtons(root = document, { onToggle } = {}) {
 
     const saved = toggleFavorite(favorite);
     refreshFavoriteButtons(root);
+    trackEvent('Toggle favorite', {
+      route: favorite.slug,
+      river: favorite.name,
+      state: favorite.state,
+      region: favorite.region,
+      label: saved ? 'save' : 'unsave',
+    });
     if (typeof onToggle === 'function') {
       onToggle({
         button,

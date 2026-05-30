@@ -5524,6 +5524,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kishwaukee-river-hickory-bills-distillery': {
+    putIn: {
+      id: 'hickory-bills-canoe-launch',
+      name: 'Hickory Bills Canoe Launch',
+      latitude: 42.255487,
+      longitude: -88.861792,
+    },
+    takeOut: {
+      id: 'distillery-road-conservation-area',
+      name: 'Distillery Road Conservation Area canoe launch',
+      latitude: 42.25686,
+      longitude: -88.9112,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer in low water or headwind',
+      shuttle:
+        'Use a short Belvidere-area shuttle from Distillery Road Conservation Area back to Hickory Bills Canoe Launch. Stage the Distillery Road take-out first because the conservation area can close during hunting seasons or winter conditions.',
+      permits:
+        'No route-specific paddling permit is known. Follow Belvidere Park District and Boone County Conservation District rules, posted hours, parking limits, hunting-season closures, and any current Illinois DNR river notices.',
+      camping:
+        'Treat this as a short day trip. No legal on-route camping plan is assumed, and paddlers should not land on private banks except for emergency safety needs.',
+      summary:
+        'Launch at Hickory Bills Canoe Launch in Belvidere and take out at the Distillery Road Conservation Area canoe launch. This avoids the upstream Belvidere Dam portage and uses the Belvidere USGS gauge that local Kishwaukee access managers point paddlers toward.',
+      accessCaveats: [
+        'Illinois public-water access rules are stricter and more confusing than many nearby states. Use the established public launches and do not assume permission to land on private banks along the route.',
+        'The BCCD/Openlands water-trail map identifies Hickory Bills and Distillery Road as established launch sites, but Distillery Road is a conservation area with posted hours and hunting-season closures.',
+        'Inspect the Distillery Road take-out before launching if you have not used it before; the shoreline is natural rather than a large concrete ramp.',
+      ],
+      watchFor: [
+        'Shallow riffles and gravel-bar scraping when the Belvidere gauge is 200 cfs or lower.',
+        'Very high, dirty, pushier water when the gauge rises above 600 cfs, especially after storms.',
+        'Strainers, wood, blind bends, wind on open bends, and changing natural-bank landings.',
+        'Wastewater-treatment-plant discharge context near Belvidere; avoid paddling after heavy rain or when water quality looks poor.',
+      ],
+    },
+  },
   'flambeau-river-highway-w-hervas': {
     putIn: {
       id: 'highway-w',
@@ -6206,6 +6243,196 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
         'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
         'Short mileage does not remove the need to scout wood, blind bends, bridges, and the landing before launching.',
+      ],
+    },
+  },
+  'clinton-river-rotary-budd': {
+    putIn: {
+      id: 'rotary-park-sterling-heights',
+      name: 'Rotary Park accessible launch',
+      latitude: 42.570595,
+      longitude: -82.971459,
+    },
+    takeOut: {
+      id: 'budd-park',
+      name: 'Budd Park carry-in launch',
+      latitude: 42.586506,
+      longitude: -82.927598,
+    },
+    logistics: {
+      distanceLabel: '3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Budd Park in Clinton Township, then drive back to Rotary Park in Sterling Heights. Rotary has an accessible launch and a longer carry from parking; check local park hours and event traffic before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sterling Heights, Clinton Township, and Clinton River Water Trail access rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Rotary Park and Budd Park.',
+      summary:
+        'Launch at Rotary Park and take out at Budd Park for a short lower Clinton River connector. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because wood, rain, and urban runoff can change this corridor quickly.',
+      accessCaveats: [
+        'Rotary Park is a City of Sterling Heights accessible launch and Budd Park is listed by CRWC, Michigan Water Trails, and Outdoor Michigan as a Clinton River access point.',
+        'Budd Park has historically been a carry-in / informal launch area, so inspect the take-out before launching and respect posted parking or construction limits.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Blind bends, bridge approaches, and changing wood between the Sterling Heights park corridor and Clinton Township.',
+      ],
+    },
+  },
+  'clinton-river-budd-shadyside': {
+    putIn: {
+      id: 'budd-park',
+      name: 'Budd Park carry-in launch',
+      latitude: 42.586506,
+      longitude: -82.927598,
+    },
+    takeOut: {
+      id: 'shadyside-park',
+      name: 'Shadyside Park boat and canoe launch',
+      latitude: 42.582529,
+      longitude: -82.880104,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Shadyside Park in Mount Clemens, then drive back to Budd Park in Clinton Township. George George Park is an intermediate access about 2.6 miles below Budd Park if conditions warrant an earlier exit.',
+      permits:
+        'No route-specific paddling permit is known. Follow Clinton Township, Mount Clemens, and Clinton River Water Trail access rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Budd Park and Shadyside Park.',
+      summary:
+        'Launch at Budd Park and take out at Shadyside Park for CRWC\'s slow/beginner lower Clinton River route into Mount Clemens. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, and urban runoff can still change the trip quickly.',
+      accessCaveats: [
+        'CRWC maps Budd Park, George George Park, and Shadyside Park as Clinton River Water Trail access points with coordinates and access spacing.',
+        'The City of Mount Clemens confirms Shadyside Park has fishing facilities and a handicapped-accessible pier with a boat and canoe launch, but park events, construction, or shoreline conditions can still affect the landing.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'A slower lower-river character does not remove the need to inspect log jams, blind bends, bridges, and the Shadyside take-out before committing.',
+      ],
+    },
+  },
+  'clinton-river-shadyside-macarthur': {
+    putIn: {
+      id: 'shadyside-park',
+      name: 'Shadyside Park boat and canoe launch',
+      latitude: 42.582529,
+      longitude: -82.880104,
+    },
+    takeOut: {
+      id: 'neil-dempsey-macarthur-park',
+      name: 'Neil Dempsey Launch at MacArthur Park',
+      latitude: 42.597338,
+      longitude: -82.871104,
+    },
+    logistics: {
+      distanceLabel: 'About 2.0 mi',
+      estimatedPaddleTime: 'About 45 min to 1 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at MacArthur Park in downtown Mount Clemens, then drive back to Shadyside Park. The road shuttle is short, but inspect the MacArthur landing and nearby river signage before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mount Clemens park rules, launch rules, parking signs, and Clinton River Water Trail safety guidance at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Shadyside Park and MacArthur Park.',
+      summary:
+        'Launch at Shadyside Park and take out at the Neil Dempsey launch in MacArthur Park for a short Mount Clemens lower Clinton River link. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, urban runoff, and weir signage can change the trip quickly.',
+      accessCaveats: [
+        'CRWC maps Shadyside Park and Neil Dempsey at MacArthur Park as Clinton River Water Trail access points with coordinates and a 2.0-mile access spacing.',
+        'The City of Mount Clemens confirms Shadyside Park has a boat and canoe launch and MacArthur Park has a universally accessible kayak launch, but park events, construction, or shoreline conditions can still affect landing space.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'CRWC map panels flag a dam/weir hazard in the Mount Clemens lower-river corridor. Identify the safe line, obey posted portage or warning signs, and do not enter dam or weir structures.',
+        'Do not continue toward Harley Ensign or Lake St. Clair without separate planning for motorboat traffic, wind, waves, and open-water exposure.',
+      ],
+    },
+  },
+  'clinton-river-macarthur-harley-ensign': {
+    putIn: {
+      id: 'neil-dempsey-macarthur-park',
+      name: 'Neil Dempsey Launch at MacArthur Park',
+      latitude: 42.597338,
+      longitude: -82.871104,
+    },
+    takeOut: {
+      id: 'harley-ensign-dnr',
+      name: 'Harley Ensign DNR launch',
+      latitude: 42.593327,
+      longitude: -82.774834,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with wind, current, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Harley Ensign in Harrison Township, then drive back to MacArthur Park in Mount Clemens. Check the Harley Ensign landing, wind direction, and Lake St. Clair conditions before leaving a vehicle because this finish is close to open water.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mount Clemens, Harrison Township, DNR, and Clinton River Water Trail access rules, plus any posted launch or parking requirements at Harley Ensign.',
+      camping:
+        'Treat this as a day trip. No on-route camping plan is assumed between MacArthur Park and Harley Ensign.',
+      summary:
+        'Launch at the Neil Dempsey launch in MacArthur Park and follow the lower Clinton River to Harley Ensign at the Lake St. Clair end of the water trail. Use the Sterling Heights USGS stage as a warning check, then make a separate wind, waves, boat-traffic, and water-quality decision for the mouth section.',
+      accessCaveats: [
+        'CRWC maps Neil Dempsey at MacArthur Park and Harley Ensign (DNR) as Clinton River Water Trail access points with coordinates and a 7.2-mile access spacing.',
+        'Harley Ensign is at the Lake St. Clair end of the route, so inspect the take-out and do not let river current push the group into open-water exposure without an intentional plan.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Motorboat traffic, wind, waves, marina or channel traffic, and open-water consequences near Lake St. Clair.',
+        'Do not continue onto Lake St. Clair unless your group has the weather window, craft, navigation, and rescue plan for open-water paddling.',
+      ],
+    },
+  },
+  'green-river-flaming-gorge-dam-little-hole': {
+    putIn: {
+      id: 'spillway-boat-launch-area',
+      name: 'Spillway Boat Launch Area below Flaming Gorge Dam',
+      latitude: 40.90885,
+      longitude: -109.422256,
+    },
+    takeOut: {
+      id: 'little-hole-boat-launch-area',
+      name: 'Little Hole Boat Launch Area',
+      latitude: 40.910719,
+      longitude: -109.315144,
+    },
+    logistics: {
+      distanceLabel: 'About 7.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with fishing traffic, wind, or low release',
+      shuttle:
+        'Stage the take-out at Little Hole, then drive back to the Spillway Boat Launch below Flaming Gorge Dam. Local outfitters commonly support shuttles, but private groups should still verify ramp access, pass requirements, and vehicle logistics before launching.',
+      permits:
+        'Private boaters do not need a route-specific river permit for Section A, but a Flaming Gorge recreation use pass is required at Spillway and Little Hole. Commercial outfitters have separate permit requirements.',
+      camping:
+        'No camping is allowed on Section A between Spillway and Little Hole. Treat this as a day trip and use only designated downstream camps if you intentionally continue into Section B with the proper plan and required toilet system.',
+      summary:
+        'Launch at Spillway Boat Launch below Flaming Gorge Dam and take out seven miles downstream at Little Hole for the Green River A Section. This is a cold, dam-release tailwater with Class I-II rapids, clear water, heavy fishing traffic, and federal fee-area rules.',
+      accessCaveats: [
+        'Both endpoints are Ashley National Forest / Flaming Gorge National Recreation Area boat-launch facilities with published coordinates and fee/pass requirements.',
+        'Spillway can be very busy with commercial drift boats and has a long, steep stair/carry between parking and the launch area. Do not block the ramp while rigging.',
+        'Little Hole has multiple ramps, restrooms, picnic areas, and potable water seasonally, but busy fishing days can make landing and loading slow.',
+        'Utah DWR stream-access guidance was rechecked for this run. Stay with the public launches, trail corridor, and legal public stops; do not assume private-bank access away from the managed corridor.',
+      ],
+      watchFor: [
+        'Cold tailwater and release changes from Flaming Gorge Dam; the river can rise quickly and push harder even near shore.',
+        'Required river-running safety gear: wearable PFD where required, no inflatable PFDs in those required-wear sections, bailer, throw rope, and spare oar or paddle.',
+        'Class I-II wave trains and swift current that are friendly for prepared paddlers but not a lazy tube float.',
+        'Commercial dory and guide traffic, anglers wading from shore, and congestion at both ramps.',
+        'No camping, fires, or horse use on Section A; mountain biking on the Little Hole trail is seasonally restricted.',
+        'New Zealand mudsnail decontamination guidance applies to boats, wading boots, and river gear.',
       ],
     },
   },

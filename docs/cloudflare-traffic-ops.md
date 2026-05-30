@@ -2,6 +2,8 @@
 
 Use this if `paddletoday.com` or the API origin is proxied through Cloudflare.
 
+For Search Console, Plausible, event naming, and dashboard conventions, see `docs/growth-measurement-ops.md`.
+
 ## Goal
 
 Use Cloudflare for edge-level traffic analysis:

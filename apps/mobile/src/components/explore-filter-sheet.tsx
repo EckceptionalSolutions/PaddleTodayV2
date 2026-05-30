@@ -2,6 +2,7 @@ import { useRef, type PropsWithChildren } from 'react';
 import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ChoiceChip, isExploreSort, sortOptions, type ExploreSort } from './explore-controls';
 import { isRecord } from '../lib/storage';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -131,6 +132,7 @@ export function ExploreFilterSheet({
   onReset: () => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
+  const insets = useSafeAreaInsets();
   const translateY = useRef(new Animated.Value(0)).current;
   const panResponder = useRef(
     PanResponder.create({
@@ -193,7 +195,7 @@ export function ExploreFilterSheet({
               onApplyPreset={onApplyPreset}
             />
           </ScrollView>
-          <View style={styles.sheetFooter}>
+          <View style={[styles.sheetFooter, { paddingBottom: Math.max(insets.bottom, spacing.md) }]}>
             <Pressable style={styles.sheetResetButton} onPress={onReset}>
               <Text style={styles.sheetResetText}>Clear filters</Text>
             </Pressable>

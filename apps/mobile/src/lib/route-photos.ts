@@ -180,6 +180,21 @@ const routeGalleryImages: Record<string, string[]> = {
   'milwaukee-river-newburg-fredonia': [
     '/gallery/milwaukee-river-newburg-fredonia/milwaukee-river-january-2026.jpg',
   ],
+  'kishwaukee-river-hickory-bills-distillery': [
+    '/gallery/kishwaukee-river-hickory-bills-distillery/kishwaukee-river-state-fish-wildlife-area.jpg',
+  ],
+  'clinton-river-rotary-budd': [
+    '/gallery/clinton-river-rotary-budd/clinton-river-macomb-county.jpg',
+  ],
+  'clinton-river-budd-shadyside': [
+    '/gallery/clinton-river-budd-shadyside/clinton-river-macomb-county.jpg',
+  ],
+  'clinton-river-shadyside-macarthur': [
+    '/gallery/clinton-river-shadyside-macarthur/clinton-river-macomb-county.jpg',
+  ],
+  'clinton-river-macarthur-harley-ensign': [
+    '/gallery/clinton-river-macarthur-harley-ensign/clinton-river-macomb-county.jpg',
+  ],
   'grand-river-harpersfield-hidden-valley': [
     '/gallery/grand-river-harpersfield-hidden-valley/grand-river-harpersfield-covered-bridge.jpg',
   ],

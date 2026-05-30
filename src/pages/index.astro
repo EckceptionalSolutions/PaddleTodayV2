@@ -3,11 +3,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import FeatureIcon from "../components/FeatureIcon.astro";
 import SummaryMapPanel from "../components/SummaryMapPanel.astro";
 import RouteBoardCardTemplate from "../components/RouteBoardCardTemplate.astro";
+import { listRiverStateGroups } from "../lib/rivers";
 
 const siteUrl = Astro.site?.href ?? "https://paddletoday.com/";
 const homeUrl = new URL("/", siteUrl).href;
 const organizationId = new URL("/#organization", siteUrl).href;
 const websiteId = new URL("/#website", siteUrl).href;
+const stateGroups = listRiverStateGroups();
 const homepageStructuredData = [
   {
     "@context": "https://schema.org",
@@ -685,6 +687,24 @@ const homepageStructuredData = [
   </section>
 
   <section class="home-overview" aria-label="Board overview">
+    <section class="home-state-strip" aria-labelledby="home-state-strip-title">
+      <div class="home-state-strip__head">
+        <div>
+          <p class="eyebrow">Browse by state</p>
+          <h2 class="home-state-strip__title" id="home-state-strip-title">State paddle route pages</h2>
+        </div>
+        <a class="river-link river-link--inline river-link--ghost" href="/states/">View all states</a>
+      </div>
+      <div class="home-state-strip__grid">
+        {stateGroups.map((state) => (
+          <a class="home-state-strip__link" href={`/states/${state.slug}/`}>
+            <span>{state.name}</span>
+            <span>{state.routeCount} {state.routeCount === 1 ? 'route' : 'routes'}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
     <section class="home-board-inline" aria-label="Route requests">
       <p class="home-board-inline__copy">Don&apos;t see a route you paddle?</p>
       <a

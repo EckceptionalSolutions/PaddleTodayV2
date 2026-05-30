@@ -5,6 +5,7 @@ import {
   minnesotaPaddleGuideEntries,
   type MinnesotaPaddleGuideCategory,
 } from '../../data/minnesota-paddle-guide';
+import { getRoutePreviewPhoto } from '../../data/route-gallery';
 
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const guideUrl = new URL('/guides/best-minnesota-paddle-trips/', siteUrl).href;
@@ -20,6 +21,12 @@ const categories: MinnesotaPaddleGuideCategory[] = [
 ];
 const getEntriesForCategory = (category: MinnesotaPaddleGuideCategory) =>
   minnesotaPaddleGuideEntries.filter((entry) => entry.categories.includes(category));
+const photoForEntry = (entry: (typeof minnesotaPaddleGuideEntries)[number]) =>
+  getRoutePreviewPhoto({
+    slug: entry.trackedSlug ?? entry.id,
+    name: entry.riverName,
+    reach: entry.routeName,
+  });
 const trackedCount = minnesotaPaddleGuideEntries.filter((entry) => entry.trackedSlug).length;
 const structuredData = [
   {
@@ -78,6 +85,10 @@ const structuredData = [
       <p class="guide-hero__status" data-minnesota-guide-status>
         Loading live Paddle Today scores for tracked routes...
       </p>
+      <div class="guide-hero__actions">
+        <a class="river-link river-link--inline" href="/states/minnesota/">Browse Minnesota live routes</a>
+        <a class="river-link river-link--inline river-link--ghost" href="/guides/best-weekend-paddle-trips-minnesota/">Weekend picks</a>
+      </div>
     </div>
     <aside class="guide-hero__note">
       <p class="eyebrow">Guide scope</p>
@@ -86,6 +97,12 @@ const structuredData = [
       </p>
     </aside>
   </section>
+
+  <nav class="guide-jump-nav" aria-label="Minnesota guide sections">
+    {categories.map((category) => (
+      <a href={`#guide-${category}-title`}>{minnesotaPaddleGuideCategoryLabels[category]}</a>
+    ))}
+  </nav>
 
   <section class="guide-section guide-explainer" aria-labelledby="minnesota-guide-how-title">
     <div class="section-head section-head--stacked">
@@ -100,16 +117,19 @@ const structuredData = [
 
     <div class="guide-explainer__grid">
       <article class="guide-explainer__item">
-        <h3>Use categories first</h3>
-        <p>Choose a long day, camping route, beginner paddle, or near-metro option based on your group and weekend plan.</p>
+        <span class="guide-explainer__icon">1</span>
+        <h3>Pick the trip type</h3>
+        <p>Start with a long day, camping route, beginner paddle, or near-metro option.</p>
       </article>
       <article class="guide-explainer__item">
-        <h3>Read the live score second</h3>
-        <p>Tracked routes show the current Paddle Today score, gauge read, and route link so a good idea does not become a blind yes.</p>
+        <span class="guide-explainer__icon">2</span>
+        <h3>Check today&apos;s read</h3>
+        <p>Tracked routes show the live score, gauge read, and route link before you commit.</p>
       </article>
       <article class="guide-explainer__item">
-        <h3>Verify rules and access</h3>
-        <p>Camping, permits, water levels, and landings can change. Use the source links and route pages before you drive.</p>
+        <span class="guide-explainer__icon">3</span>
+        <h3>Open the source</h3>
+        <p>Use route pages and source links for access, permits, camping, and changing conditions.</p>
       </article>
     </div>
   </section>
@@ -126,6 +146,20 @@ const structuredData = [
       <div class="minnesota-guide-grid">
         {getEntriesForCategory(category).map((entry) => (
           <article class="minnesota-guide-card" data-minnesota-guide-entry data-guide-slug={entry.trackedSlug}>
+            {(() => {
+              const photo = photoForEntry(entry);
+              return (
+                <a
+                  class="minnesota-guide-card__media"
+                  href={entry.trackedSlug ? `/rivers/${entry.trackedSlug}/` : entry.sourceUrl}
+                  target={entry.trackedSlug ? undefined : '_blank'}
+                  rel={entry.trackedSlug ? undefined : 'noreferrer'}
+                  aria-label={`Open ${entry.title}`}
+                >
+                  <img src={photo.src} alt={photo.alt} loading="lazy" />
+                </a>
+              );
+            })()}
             <div class="minnesota-guide-card__top">
               <div>
                 <p class="eyebrow">{entry.riverName}</p>
@@ -160,7 +194,16 @@ const structuredData = [
 
             <div class="minnesota-guide-card__actions">
               {entry.trackedSlug ? (
-                <a class="river-link river-link--inline" href={`/rivers/${entry.trackedSlug}/`} data-guide-route-link>
+                <a
+                  class="river-link river-link--inline"
+                  href={`/rivers/${entry.trackedSlug}/`}
+                  data-guide-route-link
+                  data-analytics-event="Guide-to-route click"
+                  data-analytics-guide="best-minnesota-paddle-trips"
+                  data-analytics-route={entry.trackedSlug}
+                  data-analytics-river={entry.riverName}
+                  data-analytics-source-page="/guides/best-minnesota-paddle-trips/"
+                >
                   View route
                 </a>
               ) : null}
@@ -173,6 +216,12 @@ const structuredData = [
       </div>
     </section>
   ))}
+
+  <section class="home-board-inline home-board-inline--wide guide-link-strip" aria-label="Minnesota live route directory">
+    <p class="home-board-inline__copy">Want the full live directory instead of curated ideas?</p>
+    <a class="river-link river-link--inline" href="/states/minnesota/">Open Minnesota state routes</a>
+    <a class="river-link river-link--inline river-link--ghost" href="/explore/">Explore all routes</a>
+  </section>
 
   <section class="guide-section route-faq" aria-labelledby="minnesota-guide-faq-title">
     <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">

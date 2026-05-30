@@ -1,3 +1,5 @@
+import { trackEvent } from './analytics.js';
+
 const form = document.querySelector('[data-request-form]');
 const status = document.querySelector('[data-request-status]');
 const submitButton = document.querySelector('[data-request-submit]');
@@ -80,6 +82,10 @@ if (form instanceof HTMLFormElement) {
       window.localStorage.setItem(COOLDOWN_KEY, String(nowTs));
       form.reset();
       setStatus('Request received. Thank you.');
+      trackEvent('Submit route request', {
+        state,
+        label: requestModeLabel(),
+      });
       setSubmitting(false);
       return;
     } catch {
@@ -251,8 +257,12 @@ function clearFieldError(field) {
 }
 
 function defaultSubmitLabel() {
+  return requestModeLabel() === 'update' ? 'Send update' : 'Send request';
+}
+
+function requestModeLabel() {
   const params = new URLSearchParams(window.location.search);
-  return String(params.get('mode') || '').trim().toLowerCase() === 'update' ? 'Send update' : 'Send request';
+  return String(params.get('mode') || '').trim().toLowerCase() === 'update' ? 'update' : 'request';
 }
 
 function setText(element, value) {

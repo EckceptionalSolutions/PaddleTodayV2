@@ -1,4 +1,5 @@
 import { favoriteCount, subscribeFavorites } from './favorites-store.js';
+import { trackEvent } from './analytics.js';
 
 const favoritesLink = document.querySelector('[data-site-favorites-link]');
 const favoritesCount = document.querySelector('[data-site-favorites-count]');
@@ -9,9 +10,17 @@ const searchHint = document.querySelector('[data-site-search-hint]');
 const searchOpenButtons = Array.from(document.querySelectorAll('[data-site-search-open]'));
 const searchCloseButtons = Array.from(document.querySelectorAll('[data-site-search-close], [data-site-search-dismiss]'));
 const searchIndexNode = document.querySelector('[data-site-search-index]');
+const appDownloadPrompt = document.querySelector('[data-app-download-prompt]');
+const appDownloadLink = document.querySelector('[data-app-download-link]');
+const appDownloadDismiss = document.querySelector('[data-app-download-dismiss]');
+const appDownloadConfigNode = document.querySelector('[data-app-download-config]');
 
 let searchIndex = [];
 let lastFocusedElement = null;
+
+const APP_DOWNLOAD_DISMISSED_KEY = 'paddleTodayAppPromptDismissedAt';
+const APP_DOWNLOAD_DISMISS_DAYS = 30;
+const APP_DOWNLOAD_EXCLUDED_PATHS = ['/admin/', '/privacy/', '/terms/'];
 
 function renderFavoritesNav() {
   if (!(favoritesLink instanceof HTMLAnchorElement)) {
@@ -225,6 +234,102 @@ function bindSearch() {
   });
 }
 
+function appDownloadConfig() {
+  if (!(appDownloadConfigNode instanceof HTMLScriptElement)) {
+    return {};
+  }
+
+  try {
+    const parsed = JSON.parse(appDownloadConfigNode.textContent || '{}');
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch (error) {
+    console.error('Could not parse app download config.', error);
+    return {};
+  }
+}
+
+function mobilePlatform() {
+  const userAgent = navigator.userAgent || '';
+  const isAndroid = /Android/i.test(userAgent);
+  const isAppleMobile = /iPhone|iPad|iPod/i.test(userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  if (isAndroid) {
+    return 'android';
+  }
+
+  if (isAppleMobile) {
+    return 'ios';
+  }
+
+  return null;
+}
+
+function appPromptDismissed() {
+  try {
+    const dismissedAt = Number(window.localStorage.getItem(APP_DOWNLOAD_DISMISSED_KEY) || '0');
+    if (!Number.isFinite(dismissedAt) || dismissedAt <= 0) {
+      return false;
+    }
+
+    const dismissedMs = APP_DOWNLOAD_DISMISS_DAYS * 24 * 60 * 60 * 1000;
+    return Date.now() - dismissedAt < dismissedMs;
+  } catch {
+    return false;
+  }
+}
+
+function dismissAppPrompt() {
+  if (appDownloadPrompt instanceof HTMLElement) {
+    appDownloadPrompt.hidden = true;
+  }
+
+  try {
+    window.localStorage.setItem(APP_DOWNLOAD_DISMISSED_KEY, String(Date.now()));
+  } catch {
+    // Ignore private browsing and storage-denied environments.
+  }
+
+  trackEvent('Dismiss app download', {
+    path: window.location.pathname,
+    platform: appDownloadPrompt instanceof HTMLElement ? appDownloadPrompt.dataset.platform : undefined,
+  });
+}
+
+function bindAppDownloadPrompt() {
+  if (!(appDownloadPrompt instanceof HTMLElement) || !(appDownloadLink instanceof HTMLAnchorElement)) {
+    return;
+  }
+
+  const path = window.location.pathname;
+  if (APP_DOWNLOAD_EXCLUDED_PATHS.some((excludedPath) => path === excludedPath || path.startsWith(excludedPath))) {
+    return;
+  }
+
+  if (appPromptDismissed()) {
+    return;
+  }
+
+  const platform = mobilePlatform();
+  const config = appDownloadConfig();
+  const href = platform === 'ios' ? config.appStoreUrl : platform === 'android' ? config.playStoreUrl : '';
+
+  if (!href || typeof href !== 'string') {
+    return;
+  }
+
+  appDownloadLink.href = href;
+  appDownloadLink.dataset.analyticsLabel = platform;
+  appDownloadLink.dataset.analyticsPlatform = platform;
+  appDownloadPrompt.dataset.platform = platform;
+  appDownloadPrompt.hidden = false;
+  trackEvent('View app download', { path, platform });
+
+  if (appDownloadDismiss instanceof HTMLButtonElement) {
+    appDownloadDismiss.addEventListener('click', dismissAppPrompt);
+  }
+}
+
 renderFavoritesNav();
 subscribeFavorites(renderFavoritesNav);
 bindSearch();
+bindAppDownloadPrompt();

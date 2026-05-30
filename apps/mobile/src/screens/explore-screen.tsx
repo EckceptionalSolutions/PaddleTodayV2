@@ -159,7 +159,8 @@ export default function ExploreScreen() {
           trackAppEvent('route_photo_contribution_started', { slug, source: 'explore_tray' });
           router.push({ pathname: '/contribute-photo/[slug]', params: { slug } });
         }}
-        onOpenRoute={openExploreRoute}
+        onOpenRiverRoutes={openExploreRiverRoutes}
+        onOpenRoute={(route) => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
         onRefresh={() => summaryQuery.refetch()}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
@@ -196,14 +197,11 @@ export default function ExploreScreen() {
     }
   }
 
-  function openExploreRoute(route: ExploreRiver) {
+  function openExploreRiverRoutes(route: ExploreRiver) {
     const routeCount = routeGroupMetaForRoute(route, routeCounts).routeCount;
     if (route.river.riverId && routeCount > 1) {
       router.push({ pathname: '/river-hub/[riverId]', params: { riverId: route.river.riverId } });
-      return;
     }
-
-    router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } });
   }
 }
 
@@ -223,6 +221,7 @@ function FullScreenExploreMap({
   onFilterPress,
   onFocusNearest,
   onContributePhotos,
+  onOpenRiverRoutes,
   onOpenRoute,
   onRefresh,
   onSearchChange,
@@ -246,6 +245,7 @@ function FullScreenExploreMap({
   onFilterPress: () => void;
   onFocusNearest: () => void;
   onContributePhotos: (slug: string) => void;
+  onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
   onRefresh: () => void;
   onSearchChange: (query: string) => void;
@@ -260,6 +260,7 @@ function FullScreenExploreMap({
   const requesting = status === 'requesting';
   const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length > 0 && results.every((route) => (route.distanceMiles ?? 0) > 180));
+  const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
 
   return (
     <View style={styles.fullMapScreen}>
@@ -345,14 +346,6 @@ function FullScreenExploreMap({
         >
           <MaterialCommunityIcons name="map-marker-multiple" color={colors.accent} size={20} />
         </Pressable>
-        <Pressable
-          style={styles.mapFab}
-          onPress={onFocusNearest}
-          accessibilityRole="button"
-          accessibilityLabel="Focus nearest route"
-        >
-          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
-        </Pressable>
       </View>
 
       {!userLocation ? (
@@ -386,10 +379,16 @@ function FullScreenExploreMap({
           sheetSnap={sheetSnap}
           setSheetSnap={setSheetSnap}
           bottomInset={bottomInset}
+          routeCount={selectedRouteCount}
           isSaved={isSaved}
           onOpenRoute={() => {
             if (selectedRiver) {
               onOpenRoute(selectedRiver);
+            }
+          }}
+          onOpenRiverRoutes={() => {
+            if (selectedRiver) {
+              onOpenRiverRoutes(selectedRiver);
             }
           }}
           onContributePhotos={onContributePhotos}

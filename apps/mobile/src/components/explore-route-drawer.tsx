@@ -20,8 +20,10 @@ interface ExploreRouteDrawerProps {
   sheetSnap: MapSheetSnap;
   setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>;
   bottomInset?: number;
+  routeCount?: number;
   isSaved: (slug: string) => boolean;
-  onOpenRoute: (slug: string) => void;
+  onOpenRoute: () => void;
+  onOpenRiverRoutes?: () => void;
   onContributePhotos: (slug: string) => void;
   onToggleSaved: (river: ExploreDrawerRiver) => void;
 }
@@ -31,8 +33,10 @@ export function ExploreRouteDrawer({
   sheetSnap,
   setSheetSnap,
   bottomInset = 0,
+  routeCount = 1,
   isSaved,
   onOpenRoute,
+  onOpenRiverRoutes,
   onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
@@ -97,12 +101,22 @@ export function ExploreRouteDrawer({
       <View style={styles.mapSheetActions}>
         <Pressable
           style={styles.mapPreviewOpenButton}
-          onPress={() => onOpenRoute(selectedRiver.river.slug)}
+          onPress={onOpenRoute}
           accessibilityRole="button"
           accessibilityLabel={`Open ${selectedRiver.river.name}, ${selectedRiver.river.reach}`}
         >
-          <Text style={styles.mapPreviewOpenText}>Open route</Text>
+          <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
         </Pressable>
+        {routeCount > 1 && onOpenRiverRoutes ? (
+          <Pressable
+            style={styles.mapPreviewCompareButton}
+            onPress={onOpenRiverRoutes}
+            accessibilityRole="button"
+            accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
+          >
+            <Text style={styles.mapPreviewCompareText} numberOfLines={1}>Compare routes</Text>
+          </Pressable>
+        ) : null}
         {selectedDirectionsUrl ? (
           <Pressable
             style={styles.mapDirectionsButton}
@@ -398,6 +412,22 @@ const styles = StyleSheet.create({
   mapPreviewOpenText: {
     color: colors.surfaceStrong,
     fontSize: 13,
+    fontWeight: '900',
+  },
+  mapPreviewCompareButton: {
+    flex: 1,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
+    minHeight: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: spacing.sm,
+  },
+  mapPreviewCompareText: {
+    color: colors.accent,
+    fontSize: 12,
     fontWeight: '900',
   },
   mapDirectionsButton: {

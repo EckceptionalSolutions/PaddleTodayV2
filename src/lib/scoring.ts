@@ -20,6 +20,7 @@ import type {
 import { staleMinutesForGaugeProvider } from './source-adapters';
 
 const WEATHER_STALE_MINUTES = 180;
+const MINIMUM_ONLY_SCORE_CAP = 82;
 
 export function scoreRiverCondition(args: {
   river: River;
@@ -367,7 +368,7 @@ function assessGauge(river: River, gauge: GaugeReading): {
     }
 
     const marginAboveMinimum = (current - minimum) / Math.max(minimum, 1);
-    const marginBonus = clamp(marginAboveMinimum * 10, 0, 8);
+    const marginBonus = clamp(marginAboveMinimum * 12, 0, 12);
 
     return {
       points: 60 + marginBonus,
@@ -804,7 +805,7 @@ function computeRiverQuality(
   trendAssessment: { points: number },
   dnrInterpretationAssessment: { points: number }
 ): number {
-  const scoreCap = river.profile.thresholdModel === 'minimum-only' ? 74 : 100;
+  const scoreCap = river.profile.thresholdModel === 'minimum-only' ? MINIMUM_ONLY_SCORE_CAP : 100;
   return clamp(
     Math.round(gaugeAssessment.points + trendAssessment.points + dnrInterpretationAssessment.points),
     0,
@@ -1116,8 +1117,8 @@ function buildScoreBreakdown(args: {
   }
 
   if (args.river.profile.thresholdModel === 'minimum-only') {
-    finalScore = Math.min(finalScore, 74);
-    capReasons.push('Minimum-only guidance caps the trip score at 74.');
+    finalScore = Math.min(finalScore, MINIMUM_ONLY_SCORE_CAP);
+    capReasons.push(`Minimum-only guidance caps the trip score at ${MINIMUM_ONLY_SCORE_CAP}.`);
   }
 
   finalScore = clamp(finalScore, 0, 100);
@@ -1489,7 +1490,7 @@ function buildOutlook(args: {
   projectedScore += trendAdjustmentForOutlook(args.gaugeBand, args.gauge, args.id);
   projectedScore += weatherAdjustmentForWindow(args.window, args.id);
 
-  const scoreCap = args.river.profile.thresholdModel === 'minimum-only' ? 74 : 100;
+  const scoreCap = args.river.profile.thresholdModel === 'minimum-only' ? MINIMUM_ONLY_SCORE_CAP : 100;
   projectedScore = clamp(Math.round(projectedScore), 0, scoreCap);
 
   return {

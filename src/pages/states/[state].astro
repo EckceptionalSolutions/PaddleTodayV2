@@ -1,0 +1,601 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FeatureIcon from '../../components/FeatureIcon.astro';
+import { getRoutePreviewPhoto } from '../../data/route-gallery';
+import { listRiverGroups, listRiverStateGroups } from '../../lib/rivers';
+import type { River } from '../../lib/types';
+
+export function getStaticPaths() {
+  return listRiverStateGroups().map((stateGroup) => ({
+    params: { state: stateGroup.slug },
+    props: { stateGroup },
+  }));
+}
+
+const { stateGroup } = Astro.props;
+const allRiverGroups = listRiverGroups();
+const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
+const homeUrl = new URL('/', siteUrl).href;
+const stateUrl = new URL(`/states/${stateGroup.slug}/`, siteUrl).href;
+const routeLabel = stateGroup.routeCount === 1 ? 'route' : 'routes';
+const riverLabel = stateGroup.riverCount === 1 ? 'river' : 'rivers';
+const regionLabel = stateGroup.regions.length === 1 ? 'region' : 'regions';
+const stateRouteNames = stateGroup.routes.map((route) => `${route.name}: ${route.reach}`);
+const stateTitle = `Best ${stateGroup.name} Rivers to Paddle Today | Paddle Today`;
+const stateDescription = `Compare ${stateGroup.routeCount} ${stateGroup.name} paddle ${routeLabel} with live paddle conditions, water levels, weather, route scores, and coverage across ${stateGroup.regions.length} ${regionLabel}.`;
+const requestStateHref = `/request-river/?state=${encodeURIComponent(stateGroup.name)}`;
+const formatDifficulty = (difficulty: River['profile']['difficulty']) =>
+  difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+const slugifyFragment = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+const routeFacts = (route: River) =>
+  [formatDifficulty(route.profile.difficulty), route.logistics?.distanceLabel, route.logistics?.estimatedPaddleTime]
+    .filter(Boolean)
+    .join(' | ');
+const routeCardSummary = (route: River) => route.logistics?.summary || route.summary;
+const shortRouteSummary = (route: River) => {
+  const summary = routeCardSummary(route);
+  return summary.length > 155 ? `${summary.slice(0, 152).trim()}...` : summary;
+};
+const sourceStrengthRank: Record<River['profile']['thresholdSourceStrength'], number> = {
+  official: 4,
+  mixed: 3,
+  community: 2,
+  derived: 1,
+};
+const difficultyRank: Record<River['profile']['difficulty'], number> = {
+  easy: 3,
+  moderate: 2,
+  hard: 1,
+};
+const routeMetadataScore = (route: River) =>
+  sourceStrengthRank[route.profile.thresholdSourceStrength] * 10 +
+  difficultyRank[route.profile.difficulty] * 4 +
+  (route.profile.thresholdModel === 'two-sided' ? 4 : 0) +
+  (route.logistics ? 3 : 0) +
+  (route.routeType === 'whitewater' ? 0 : 2) +
+  Math.min(route.sourceLinks.length, 3);
+const bestRoutes = [...stateGroup.routes]
+  .sort((left, right) => {
+    const scoreSort = routeMetadataScore(right) - routeMetadataScore(left);
+    return scoreSort === 0 ? left.name.localeCompare(right.name) : scoreSort;
+  })
+  .slice(0, 6);
+const bestRouteCards = bestRoutes.map((route) => ({
+  route,
+  photo: getRoutePreviewPhoto(route),
+}));
+const allBeginnerRoutes = stateGroup.routes.filter((route) => route.profile.difficulty === 'easy');
+const beginnerRoutes = allBeginnerRoutes.slice(0, 8);
+const planningRoutes = [...stateGroup.routes]
+  .filter((route) => route.logistics)
+  .sort((left, right) => {
+    const campingSort =
+      Number(!left.logistics?.camping.toLowerCase().includes('no')) -
+      Number(!right.logistics?.camping.toLowerCase().includes('no'));
+    return campingSort === 0 ? left.name.localeCompare(right.name) : campingSort;
+  })
+  .slice(0, 6);
+const routeGroupsByRiver = allRiverGroups
+  .map((group) => ({
+    ...group,
+    routes: group.routes.filter((route) => route.state === stateGroup.name),
+  }))
+  .filter((group) => group.routes.length > 0)
+  .sort((left, right) => {
+    const countSort = right.routes.length - left.routes.length;
+    return countSort === 0 ? left.name.localeCompare(right.name) : countSort;
+  });
+const routesByRegion = stateGroup.regions.map((region) => ({
+  region,
+  routes: stateGroup.routes.filter((route) => route.region === region),
+}));
+const featuredRegions = [...routesByRegion].sort((left, right) => right.routes.length - left.routes.length).slice(0, 8);
+const multiRouteRiverCount = routeGroupsByRiver.filter((group) => group.routes.length > 1).length;
+const stateMapRoutes = stateGroup.routes.map((route) => ({
+  slug: route.slug,
+  name: route.name,
+  reach: route.reach,
+  region: route.region,
+  difficulty: route.profile.difficulty,
+  routeType: route.routeType ?? 'flatwater',
+  distanceLabel: route.logistics?.distanceLabel ?? '',
+  latitude: route.latitude,
+  longitude: route.longitude,
+  putIn: route.putIn
+    ? {
+        latitude: route.putIn.latitude,
+        longitude: route.putIn.longitude,
+        name: route.putIn.name,
+      }
+    : null,
+  takeOut: route.takeOut
+    ? {
+        latitude: route.takeOut.latitude,
+        longitude: route.takeOut.longitude,
+        name: route.takeOut.name,
+      }
+    : null,
+}));
+const stateMapPoint = (route: (typeof stateMapRoutes)[number]) => route.putIn ?? { latitude: route.latitude, longitude: route.longitude };
+const stateMapPoints = stateMapRoutes
+  .map((route) => ({ route, point: stateMapPoint(route) }))
+  .filter(({ point }) => Number.isFinite(point.latitude) && Number.isFinite(point.longitude));
+const stateMapLatitudes = stateMapPoints.map(({ point }) => point.latitude);
+const stateMapLongitudes = stateMapPoints.map(({ point }) => point.longitude);
+const stateMapBounds = {
+  minLatitude: Math.min(...stateMapLatitudes),
+  maxLatitude: Math.max(...stateMapLatitudes),
+  minLongitude: Math.min(...stateMapLongitudes),
+  maxLongitude: Math.max(...stateMapLongitudes),
+};
+const stateMapLatitudeSpan = Math.max(stateMapBounds.maxLatitude - stateMapBounds.minLatitude, 0.01);
+const stateMapLongitudeSpan = Math.max(stateMapBounds.maxLongitude - stateMapBounds.minLongitude, 0.01);
+const stateMapFallbackMarkers = stateMapPoints.map(({ route, point }) => ({
+  slug: route.slug,
+  label: route.difficulty === 'easy' ? 'E' : route.difficulty === 'moderate' ? 'M' : 'D',
+  difficulty: route.difficulty,
+  title: `${route.name}: ${route.reach}`,
+  left: 8 + ((point.longitude - stateMapBounds.minLongitude) / stateMapLongitudeSpan) * 84,
+  top: 8 + ((stateMapBounds.maxLatitude - point.latitude) / stateMapLatitudeSpan) * 84,
+}));
+const stateMapRoutesJson = JSON.stringify(stateMapRoutes);
+const guideLinks =
+  stateGroup.name === 'Minnesota'
+    ? [
+        {
+          href: '/guides/best-minnesota-paddle-trips/',
+          label: 'Best Minnesota paddle trips',
+        },
+        {
+          href: '/guides/best-weekend-paddle-trips-minnesota/',
+          label: 'Minnesota weekend paddle trips',
+        },
+      ]
+    : [];
+const faqItems = [
+  {
+    question: `How does Paddle Today choose ${stateGroup.name} paddle routes?`,
+    answer: `Paddle Today lists ${stateGroup.name} routes when the route has enough defensible gauge, threshold, source, and logistics support to make a live route score useful. The current ${stateGroup.name} page includes ${stateGroup.routeCount} tracked ${routeLabel} across ${stateGroup.riverCount} ${riverLabel}.`,
+  },
+  {
+    question: `Are these ${stateGroup.name} river conditions live?`,
+    answer: `The route links on this page are server-rendered and crawlable. Each route page then checks live gauge readings, weather, water-level context, and route score data before you make a same-day call.`,
+  },
+  {
+    question: `Can I request another ${stateGroup.name} route?`,
+    answer: `Yes. Use the request form to send the river, reach, access points, and any source links. Paddle Today prioritizes routes where a public gauge or defensible threshold support can back the live score.`,
+  },
+];
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${stateUrl}#collection`,
+    name: stateTitle,
+    description: stateDescription,
+    url: stateUrl,
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: stateGroup.routeCount,
+      itemListElement: stateGroup.routes.map((route, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: `${route.name}: ${route.reach}`,
+        url: new URL(`/rivers/${route.slug}/`, siteUrl).href,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    '@id': `${stateUrl}#breadcrumbs`,
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: homeUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: stateGroup.name,
+        item: stateUrl,
+      },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${stateUrl}#faq`,
+    mainEntity: faqItems.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  },
+];
+---
+
+<BaseLayout title={stateTitle} description={stateDescription} structuredData={structuredData}>
+  <article class="state-page">
+    <section class="river-group-page__hero state-page__hero">
+      <div class="river-group-page__hero-main">
+        <p class="eyebrow">State routes</p>
+        <h1 class="river-group-page__title">{stateGroup.name} Rivers</h1>
+        <p class="river-group-page__lede">
+          Compare {stateGroup.routeCount} tracked {stateGroup.name} paddle {routeLabel} with route links, water-level context, difficulty, and access planning details.
+        </p>
+        <p class="muted river-group-page__summary">
+          Paddle Today only lists routes when the gauge, threshold, and source support are defensible enough for live route scoring.
+        </p>
+        <div class="river-group-page__actions">
+          <a class="river-link river-link--inline" href={requestStateHref}>Request a missing {stateGroup.name} route</a>
+          <a class="river-link river-link--inline river-link--ghost" href="/explore/">Browse all routes</a>
+        </div>
+        <div class="hero__meta river-group-page__meta">
+          <span class="stat-chip">{stateGroup.routeCount} {routeLabel}</span>
+          <span class="stat-chip">{stateGroup.riverCount} {riverLabel}</span>
+          <span class="stat-chip">{stateGroup.regions.length} {regionLabel}</span>
+          <span class="stat-chip">{allBeginnerRoutes.length} beginner routes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel state-coverage" aria-labelledby="state-coverage-title" data-state-page data-state-name={stateGroup.name}>
+      <div class="state-coverage__map-shell">
+        <div class="state-coverage__map" data-state-map aria-label={`${stateGroup.name} tracked route map`}>
+          <div class="state-coverage__map-fallback" aria-hidden="true">
+            {stateMapFallbackMarkers.map((marker) => (
+              <span
+                class={`state-map-marker state-map-marker--${marker.difficulty} state-map-marker--fallback`}
+                style={`left: ${marker.left.toFixed(2)}%; top: ${marker.top.toFixed(2)}%;`}
+                title={marker.title}
+                data-route-slug={marker.slug}
+              >
+                {marker.label}
+              </span>
+            ))}
+          </div>
+        </div>
+        <p class="muted state-coverage__map-status" data-state-map-status>
+          Showing route starts. Interactive map loading.
+        </p>
+      </div>
+      <div class="state-coverage__copy">
+        <p class="eyebrow section-label">
+          <FeatureIcon name="map" size={16} />
+          Coverage snapshot
+        </p>
+        <h2 class="section-title" id="state-coverage-title">Where Paddle Today tracks {stateGroup.name}</h2>
+        <p class="muted state-coverage__lede">
+          Use the map to scan route density, then start with beginner routes, planning routes, or the full directory below.
+        </p>
+        <div class="state-coverage__stats">
+          <span class="stat-chip">{stateGroup.routeCount} route markers</span>
+          <span class="stat-chip">{multiRouteRiverCount} multi-route rivers</span>
+          <span class="stat-chip">{allBeginnerRoutes.length} beginner routes</span>
+        </div>
+        <div class="state-map-legend" aria-label="Map difficulty key">
+          <span class="state-map-legend__item">
+            <span class="state-map-legend__marker state-map-legend__marker--easy">E</span>
+            Easy
+          </span>
+          <span class="state-map-legend__item">
+            <span class="state-map-legend__marker state-map-legend__marker--moderate">M</span>
+            Moderate
+          </span>
+          <span class="state-map-legend__item">
+            <span class="state-map-legend__marker state-map-legend__marker--hard">D</span>
+            Difficult
+          </span>
+        </div>
+        <div class="state-region-chips" aria-label={`${stateGroup.name} region shortcuts`}>
+          {featuredRegions.map(({ region, routes }) => (
+            <a class="filter-chip filter-chip--subtle" href={`#region-${slugifyFragment(region)}`}>
+              {region} <span>{routes.length}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel state-live-picks" aria-labelledby="state-live-picks-title" data-state-live-root>
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="gauge" size={16} />
+            Live conditions
+          </p>
+          <h2 class="section-title" id="state-live-picks-title">Best {stateGroup.name} routes today</h2>
+        </div>
+        <p class="muted river-group-page__section-note" data-state-live-status>
+          Loading current scores, gauge reads, and weather signals.
+        </p>
+      </div>
+      <div class="state-live-picks__grid" data-state-live-list>
+        {bestRoutes.slice(0, 4).map((route) => (
+          <article class="state-live-card state-live-card--static">
+            <div class="state-live-card__score state-live-card__score--pending" aria-label="Live score loads when available">
+              <span>--</span>
+              <span>Live</span>
+            </div>
+            <div class="state-live-card__body">
+              <span class="route-choice__eyebrow">{route.region}</span>
+              <h3>{route.name}</h3>
+              <p>{route.reach}</p>
+              <span>{routeFacts(route)}</span>
+            </div>
+            <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>View route</a>
+          </article>
+        ))}
+      </div>
+      <p class="muted state-live-picks__note">
+        This panel hydrates from live Paddle Today scores. The route links above remain useful when JavaScript or the score API is unavailable.
+      </p>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel" aria-labelledby="state-best-routes-title">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">
+            <FeatureIcon name="compass" size={16} />
+            Best route options
+          </p>
+          <h2 class="section-title" id="state-best-routes-title">Good starting points in {stateGroup.name}</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Ranked from route metadata, source support, difficulty, and logistics.
+        </p>
+      </div>
+      <div class="river-group-page__route-list">
+        {bestRouteCards.map(({ route, photo }) => (
+          <article class="route-choice state-route-card">
+            <a class="state-route-card__media" href={`/rivers/${route.slug}/`} aria-label={`View ${route.name}: ${route.reach}`}>
+              <img src={photo.src} alt={photo.alt} loading="lazy" />
+            </a>
+            <div class="state-route-card__body">
+              <span class="route-choice__kind">{route.state} route</span>
+              <span class="route-choice__eyebrow">{route.region}</span>
+              <strong class="route-choice__title">{route.name}</strong>
+              <span class="route-choice__verdict">{route.reach}</span>
+              <span class="route-choice__summary">{shortRouteSummary(route)}</span>
+            </div>
+            <div class="route-choice__facts-section">
+              <p class="route-choice__facts-label">Route facts</p>
+              <div class="route-choice__facts">
+                <span class="route-choice__fact">{routeFacts(route)}</span>
+                <span class="route-choice__fact">{route.profile.thresholdSourceStrength} source support</span>
+              </div>
+            </div>
+            <div class="route-choice__footer">
+              <span class="route-choice__selection">Live score on route page</span>
+              <a class="river-link river-link--inline route-choice__link" href={`/rivers/${route.slug}/`}>View route</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {beginnerRoutes.length > 0 ? (
+      <section class="river-group-page__panel state-page__panel state-page__panel--priority" aria-labelledby="state-beginner-routes-title">
+        <div class="river-group-page__section-head">
+          <div>
+            <p class="eyebrow section-label">Beginner routes</p>
+            <h2 class="section-title" id="state-beginner-routes-title">{stateGroup.name} beginner routes</h2>
+          </div>
+          <p class="muted river-group-page__section-note">
+            These routes are tagged easy in the route data. Today&apos;s water can still change the call.
+          </p>
+        </div>
+        <div class="state-route-list state-route-list--featured">
+          {beginnerRoutes.map((route) => (
+            <a class="state-route-list__item" href={`/rivers/${route.slug}/`} data-state-map-route={route.slug}>
+              <span>
+                <strong>{route.name}</strong>
+                <span>{route.reach}</span>
+              </span>
+              <span>{route.region} | {route.logistics?.distanceLabel ?? 'Distance varies'}</span>
+            </a>
+          ))}
+        </div>
+        {allBeginnerRoutes.length > beginnerRoutes.length ? (
+          <p class="muted state-page__section-foot">
+            Showing {beginnerRoutes.length} of {allBeginnerRoutes.length} beginner routes. Use the Easy difficulty filter below to see the full set.
+          </p>
+        ) : null}
+      </section>
+    ) : null}
+
+    <section class="river-group-page__panel state-page__panel" aria-labelledby="state-planning-routes-title">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">Weekend planning</p>
+          <h2 class="section-title" id="state-planning-routes-title">Routes with practical logistics</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Use the live weekend board for score-based recommendations.
+        </p>
+      </div>
+      <div class="state-route-list state-route-list--featured">
+        {planningRoutes.map((route) => (
+          <a class="state-route-list__item" href={`/rivers/${route.slug}/`} data-state-map-route={route.slug}>
+            <span>
+              <strong>{route.name}</strong>
+              <span>{route.reach}</span>
+            </span>
+            <span>{route.logistics?.distanceLabel} | {route.logistics?.estimatedPaddleTime}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel" aria-labelledby="state-river-groups-title">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">Browse coverage</p>
+          <h2 class="section-title" id="state-river-groups-title">Rivers and regions</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          Compact directory links for crawlers and planners.
+        </p>
+      </div>
+      <nav class="state-browse-nav" aria-label={`${stateGroup.name} browse shortcuts`}>
+        <a href="#state-rivers">By river</a>
+        <a href="#state-regions">By region</a>
+        <a href="#state-all-routes-title">All routes</a>
+      </nav>
+      <div class="state-browse-grid">
+        <section class="state-browse-column" id="state-rivers" aria-labelledby="state-rivers-title">
+          <h3 id="state-rivers-title">By river</h3>
+          <div class="state-accordion-list">
+            {routeGroupsByRiver.map((group) => (
+              <details class="state-directory-group" open>
+                <summary>
+                  <span>{group.name}</span>
+                  <span>{group.routes.length}</span>
+                </summary>
+                <div class="state-directory-group__links">
+                  {group.routeCount > 1 ? (
+                    <a class="state-directory-group__hub" href={`/rivers/by-river/${group.riverId}/`}>{group.name} hub</a>
+                  ) : null}
+                  {group.routes.map((route) => (
+                    <a href={`/rivers/${route.slug}/`}>{route.reach}</a>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+        <section class="state-browse-column" id="state-regions" aria-labelledby="state-region-groups-title">
+          <h3 id="state-region-groups-title">By region</h3>
+          <div class="state-accordion-list">
+            {routesByRegion.map(({ region, routes }) => (
+              <details class="state-directory-group" id={`region-${slugifyFragment(region)}`} open>
+                <summary>
+                  <span>{region}</span>
+                  <span>{routes.length}</span>
+                </summary>
+                <div class="state-directory-group__links">
+                  {routes.map((route) => (
+                    <a href={`/rivers/${route.slug}/`}>{route.name}: {route.reach}</a>
+                  ))}
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="home-board-inline home-board-inline--wide state-page__links" aria-label="More planning links">
+      <p class="home-board-inline__copy">Need broader planning context?</p>
+      <a class="river-link river-link--inline river-link--ghost" href="/weekend/">Weekend board</a>
+      <a class="river-link river-link--inline river-link--ghost" href="/explore/">Explore all routes</a>
+      {guideLinks.map((link) => (
+        <a class="river-link river-link--inline river-link--ghost" href={link.href}>{link.label}</a>
+      ))}
+      <a class="river-link river-link--inline river-link--ghost" href={requestStateHref}>Request a route</a>
+    </section>
+
+    <section class="river-group-page__panel state-page__panel" aria-labelledby="state-all-routes-title">
+      <div class="river-group-page__section-head">
+        <div>
+          <p class="eyebrow section-label">All tracked routes</p>
+          <h2 class="section-title" id="state-all-routes-title">Every {stateGroup.name} route on Paddle Today</h2>
+        </div>
+        <p class="muted river-group-page__section-note">
+          {stateRouteNames.length} server-rendered route links.
+        </p>
+      </div>
+      <form class="state-route-filters" data-state-route-filters aria-label={`${stateGroup.name} route filters`}>
+        <label class="filter-select">
+          <span class="sr-only">Filter by difficulty</span>
+          <select class="filter-select__input" name="difficulty" data-state-filter="difficulty">
+            <option value="">Any difficulty</option>
+            <option value="easy">Easy</option>
+            <option value="moderate">Moderate</option>
+            <option value="hard">Hard</option>
+          </select>
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Filter by region</span>
+          <select class="filter-select__input" name="region" data-state-filter="region">
+            <option value="">All regions</option>
+            {stateGroup.regions.map((region) => <option value={region}>{region}</option>)}
+          </select>
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Filter by river</span>
+          <select class="filter-select__input" name="river" data-state-filter="river">
+            <option value="">All rivers</option>
+            {routeGroupsByRiver.map((group) => <option value={group.riverId}>{group.name}</option>)}
+          </select>
+        </label>
+        <label class="filter-select">
+          <span class="sr-only">Filter by route type</span>
+          <select class="filter-select__input" name="routeType" data-state-filter="routeType">
+            <option value="">All route types</option>
+            <option value="flatwater">Flatwater / moving water</option>
+            <option value="whitewater">Whitewater</option>
+          </select>
+        </label>
+        <button class="filter-chip filter-chip--quiet" type="reset" data-state-filter-reset>Reset</button>
+      </form>
+      <p class="muted state-route-filter-status" data-state-filter-status>
+        Showing all {stateGroup.routeCount} {routeLabel}.
+      </p>
+      <div class="state-route-list state-route-list--all" data-state-route-list>
+        {stateGroup.routes.map((route) => (
+          <a
+            class="state-route-list__item"
+            href={`/rivers/${route.slug}/`}
+            data-state-route-item
+            data-state-map-route={route.slug}
+            data-difficulty={route.profile.difficulty}
+            data-region={route.region}
+            data-river={route.riverId}
+            data-route-type={route.routeType ?? 'flatwater'}
+          >
+            <span>
+              <strong>{route.name}</strong>
+              <span>{route.reach}</span>
+            </span>
+            <span>{route.region} | {formatDifficulty(route.profile.difficulty)}</span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <section class="river-group-page__panel route-faq state-page__panel" aria-labelledby="state-faq-title">
+      <div class="river-detail__chapter-head river-detail__chapter-head--plan route-faq__head">
+        <p class="eyebrow section-label">Quick answers</p>
+        <h2 class="river-detail__chapter-title" id="state-faq-title">{stateGroup.name} paddling FAQ</h2>
+      </div>
+      <div class="route-faq__list">
+        {faqItems.map((item) => (
+          <details class="river-accordion route-faq__item">
+            <summary class="river-accordion__summary">
+              <span><strong>{item.question}</strong></span>
+            </summary>
+            <div class="river-accordion__body">
+              <p class="muted">{item.answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+    <script type="application/json" data-state-map-routes set:html={stateMapRoutesJson}></script>
+    <script>
+      import '../../scripts/state-page.js';
+    </script>
+  </article>
+</BaseLayout>

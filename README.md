@@ -8,7 +8,7 @@ The product question is simple:
 
 This app is intentionally narrow. The MVP currently ships:
 
- - 15 river reaches
+- 178 tracked river routes across the Midwest
 - a live summary page
 - a dedicated About page for methodology and trust notes
 - a dedicated Request a river page for new reach submissions
@@ -101,6 +101,8 @@ npm run mobile:typecheck
 ```
 
 Set `EXPO_PUBLIC_API_BASE_URL` in `apps/mobile/.env.local` when you want the app to point at a specific local or deployed API origin. If you do not set it, the mobile app falls back to the Expo dev host with port `4322`.
+
+For the mobile web download prompt, set `PUBLIC_APPLE_APP_ID` or `PUBLIC_APP_STORE_URL` for iOS, and optionally set `PUBLIC_PLAY_STORE_URL` for Android. Android defaults to the `com.paddletoday.mobile` Play Store package URL.
 
 ## Azure deployment
 

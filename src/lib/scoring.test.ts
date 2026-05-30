@@ -603,7 +603,7 @@ describe('scoreRiverCondition', () => {
     expect(hardResult.explanation).toContain('needs more margin');
   });
 
-it('treats minimum-only guidance as workable but capped below a full two-sided strong-day call', () => {
+  it('treats minimum-only guidance as workable but capped below a full two-sided strong-day call', () => {
     const minimumOnlyRiver: River = {
       ...baseRiver,
       profile: {
@@ -631,8 +631,9 @@ it('treats minimum-only guidance as workable but capped below a full two-sided s
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeLessThanOrEqual(74);
-  expect(result.rating).toBe('Fair');
+    expect(result.score).toBeGreaterThanOrEqual(75);
+    expect(result.score).toBeLessThanOrEqual(82);
+    expect(result.rating).toBe('Good');
     expect(result.confidence.label).toBe('Medium');
     expect(result.explanation).toContain('minimum level');
   });
@@ -895,7 +896,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-  expect(result.rating).toBe('Fair');
+    expect(result.rating).toBe('Good');
+    expect(result.score).toBeLessThanOrEqual(82);
     expect(result.confidence.label).toBe('Medium');
   });
 
@@ -1166,8 +1168,9 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-    expect(result.score).toBeLessThanOrEqual(74);
-    expect(result.rating).toBe('Fair');
+    expect(result.score).toBeGreaterThanOrEqual(75);
+    expect(result.score).toBeLessThanOrEqual(82);
+    expect(result.rating).toBe('Good');
   });
 
   it('keeps the downstream Black Hawk reach inside the official DNR range with a high-confidence but conservative call', () => {
@@ -1203,7 +1206,9 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
 
     expect(result.gaugeBand).toBe('minimum-met');
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
-    expect(result.score).toBeLessThanOrEqual(74);
+    expect(result.score).toBeGreaterThanOrEqual(75);
+    expect(result.score).toBeLessThanOrEqual(82);
+    expect(result.rating).toBe('Good');
   });
 
   it('treats Kickapoo in the 70 to 100 cfs sweet spot as ideal while keeping the route guarded', () => {
@@ -1237,7 +1242,8 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     });
 
     expect(result.gaugeBand).toBe('minimum-met');
-  expect(result.rating).toBe('Fair');
+    expect(result.rating).toBe('Good');
+    expect(result.score).toBeLessThanOrEqual(82);
     expect(result.outlooks.find((outlook) => outlook.id === 'weekend')?.availability).toBe('withheld');
   });
 });

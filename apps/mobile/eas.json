@@ -58,6 +58,12 @@
         "ascAppId": "6769542734",
         "appleTeamId": "F73XS8FMPL"
       }
+    },
+    "play-production": {
+      "android": {
+        "track": "production",
+        "releaseStatus": "draft"
+      }
     }
   }
 }

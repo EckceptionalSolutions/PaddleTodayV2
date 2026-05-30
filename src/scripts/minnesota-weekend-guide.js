@@ -144,12 +144,26 @@ function createCard(item, index) {
   if (titleLink instanceof HTMLAnchorElement) {
     titleLink.href = `/rivers/${item.river.slug}/`;
     titleLink.textContent = item.river.name;
+    titleLink.dataset.analyticsEvent = 'Guide-to-route click';
+    titleLink.dataset.analyticsGuide = 'best-weekend-paddle-trips-minnesota';
+    titleLink.dataset.analyticsRoute = item.river.slug;
+    titleLink.dataset.analyticsRiver = item.river.name;
+    titleLink.dataset.analyticsState = item.river.state;
+    titleLink.dataset.analyticsRegion = item.river.region;
+    titleLink.dataset.analyticsSourcePage = '/guides/best-weekend-paddle-trips-minnesota/';
   }
 
   const link = card.querySelector('[data-card-link]');
   if (link instanceof HTMLAnchorElement) {
     link.href = `/rivers/${item.river.slug}/`;
     link.textContent = 'View route';
+    link.dataset.analyticsEvent = 'Guide-to-route click';
+    link.dataset.analyticsGuide = 'best-weekend-paddle-trips-minnesota';
+    link.dataset.analyticsRoute = item.river.slug;
+    link.dataset.analyticsRiver = item.river.name;
+    link.dataset.analyticsState = item.river.state;
+    link.dataset.analyticsRegion = item.river.region;
+    link.dataset.analyticsSourcePage = '/guides/best-weekend-paddle-trips-minnesota/';
   }
 
   decorateFavoriteButton(card.querySelector('[data-favorite-button]'), favoriteRecord(item));

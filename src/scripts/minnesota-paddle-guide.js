@@ -51,13 +51,13 @@ async function loadScores() {
   }
 
   try {
-    const response = await fetch('/api/summary.json', {
+    const response = await fetch('/api/rivers/summary.json', {
       headers: { accept: 'application/json' },
       cache: 'no-store',
     });
 
     if (!response.ok) {
-      throw new Error(`API request failed for /api/summary.json: HTTP ${response.status}`);
+      throw new Error(`API request failed for /api/rivers/summary.json: HTTP ${response.status}`);
     }
 
     const payload = await response.json();

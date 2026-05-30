@@ -4,7 +4,7 @@ import FeatureIcon from '../../components/FeatureIcon.astro';
 import { getApprovedRoutePhotos } from '../../data/route-gallery';
 import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
-import { listRivers } from '../../lib/rivers';
+import { listRivers, listRiverStateGroups } from '../../lib/rivers';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
 
 export function getStaticPaths() {
@@ -147,6 +147,15 @@ const hasSameRiverRoutes = siblingRoutes.length > 0;
 const hasNearbyRoutes = nearbyRoutes.length > 0;
 const routeDiscoveryGridClass =
   hasSameRiverRoutes && hasNearbyRoutes ? 'route-discovery__grid' : 'route-discovery__grid route-discovery__grid--single';
+const slugifyFragment = (value: string) =>
+  value
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+const stateGroup = listRiverStateGroups().find((group) => group.name === river.state);
+const stateHref = stateGroup ? `/states/${stateGroup.slug}/` : null;
+const regionHref = stateGroup ? `/states/${stateGroup.slug}/#region-${slugifyFragment(river.region)}` : null;
 const siteUrl = Astro.site?.href ?? 'https://paddletoday.com/';
 const homeUrl = new URL('/', siteUrl).href;
 const routeUrl = new URL(`/rivers/${river.slug}/`, siteUrl).href;
@@ -370,8 +379,6 @@ const routeFaqStructuredData = {
             data-favorite-url={`/rivers/${river.slug}/`}
             data-unsaved-label="Save"
             data-saved-label="Saved"
-            data-analytics-event="Toggle favorite"
-            data-analytics-label={river.slug}
           >
             <span class="route-action-button__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
@@ -573,7 +580,7 @@ const routeFaqStructuredData = {
             We'll email you when this route climbs into Good or Strong. Every email includes an unsubscribe link.
           </p>
 
-          <form class="river-alerts__form" data-alert-form data-analytics-event="Submit route alert" novalidate>
+          <form class="river-alerts__form" data-alert-form novalidate>
             <label class="river-alerts__field">
               <span class="sr-only">Email address for river alerts</span>
               <input
@@ -1640,7 +1647,6 @@ const routeFaqStructuredData = {
             <form
               class="request-form route-photo-form"
               data-route-photo-form
-              data-analytics-event="Submit route photos"
               novalidate
             >
               <div class="route-photo-form__grid">
@@ -1737,7 +1743,6 @@ const routeFaqStructuredData = {
             <form
               class="request-form route-photo-form"
               data-route-report-form
-              data-analytics-event="Submit condition report"
               novalidate
             >
               <div class="route-photo-form__grid">
@@ -1856,6 +1861,39 @@ const routeFaqStructuredData = {
       </div>
 
       <div class={routeDiscoveryGridClass}>
+        {stateHref ? (
+          <section class="route-discovery__group" aria-labelledby="state-region-routes-title">
+            <div class="route-discovery__group-head">
+              <h3 id="state-region-routes-title">More in {river.state}</h3>
+              <a href={stateHref}>All {stateGroup?.routeCount} routes</a>
+            </div>
+            <div class="route-discovery__list">
+              <a
+                class="route-discovery__link"
+                href={stateHref}
+                data-analytics-event="Open related route"
+                data-analytics-label="state"
+              >
+                <span class="route-discovery__route">{river.state} route guide</span>
+                <span class="route-discovery__meta">Browse every tracked {river.state} route.</span>
+                <span class="route-discovery__cta" aria-hidden="true">View state</span>
+              </a>
+              {regionHref ? (
+                <a
+                  class="route-discovery__link"
+                  href={regionHref}
+                  data-analytics-event="Open related route"
+                  data-analytics-label="region"
+                >
+                  <span class="route-discovery__route">{river.region}</span>
+                  <span class="route-discovery__meta">Jump to routes in this region.</span>
+                  <span class="route-discovery__cta" aria-hidden="true">View region</span>
+                </a>
+              ) : null}
+            </div>
+          </section>
+        ) : null}
+
         {hasSameRiverRoutes ? (
           <section class="route-discovery__group" aria-labelledby="same-river-routes-title">
             <div class="route-discovery__group-head">
