@@ -19696,6 +19696,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'james-river-delaware-town-shelvin-rock',
+    slug: 'james-river-delaware-town-shelvin-rock',
+    name: 'James River',
+    reach: 'Delaware Town Access to Shelvin Rock Access',
+    aliases: [
+      'James River - Delaware Town to Shelvin Rock',
+      'James River - Delaware to Shelvin',
+      'Middle James River - Delaware Town to Shelvin Rock',
+    ],
+    state: 'Missouri',
+    region: 'Southwest Missouri',
+    summary:
+      'Middle James River day float from MDC Delaware Town Access to MDC Shelvin Rock Access. It uses the direct Boaz USGS gauge and route-specific MoHERP evidence, with conservative low-water-only scoring.',
+    statusText:
+      'Use the James River near Boaz gauge. Around 275 cfs is the low-water marker for this reach; below that, expect dragging through shallow riffles and slow pools. No ideal range or high-water cutoff is claimed, so treat recent rain and rising water cautiously.',
+    latitude: 37.0511,
+    longitude: -93.3914,
+    gaugeSource: {
+      id: 'usgs-07052250',
+      provider: 'usgs',
+      siteId: '07052250',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River near Boaz, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052250/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 275,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Boaz gauge Delaware-to-Shelvin trip evidence',
+        url: 'https://mail.rivers.moherp.org/gauge/?gauge=07052250&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The middle James is commonly floated in spring through fall. Summer dry spells can make this route shallow and tedious, while storms can quickly add cloudy water, pushier ledges, fresh wood, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a recreational Ozark float with long pools, riffles, gravel bars, and a couple of ledge-rock drops noted in trip evidence. It is easy only at ordinary levels; high or rising water can make ledges, bends, and strainers less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Delaware Town and Shelvin Rock as public James River day-use accesses with boat ramps and parking, James River Basin Partnership names Delaware Town-to-Shelvin Rock as a float-series route, Rivers.MOHERP lists exact 6.5-mile Delaware-to-Shelvin rows on the Boaz gauge including an about-minimum-water report at 275 cfs, and the official USGS legacy current page exposed same-day May 30, 2026 discharge and gage-height values for 07052250 during this run. The app uses minimum-only scoring because the threshold source is community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Delaware Town Access',
+        note: 'MDC says Delaware Town Access provides access to the James River, with a boat ramp and two parking lots. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/delaware-town-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Shelvin Rock Access',
+        note: 'MDC says Shelvin Rock Access provides access to the James River, with two parking lots and a boat ramp. The area is day use only and camping is not allowed.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/shelvin-rock-access',
+      },
+      {
+        label: 'Route shape',
+        value: 'Delaware Town to Shelvin Rock, 6.5 miles',
+        note: 'Rivers.MOHERP lists Delaware-to-Shelvin Rock trip rows at 6.5 miles, and James River Basin Partnership names Delaware Town to Shelvin Rock Access as a float-series route.',
+        sourceUrl: 'https://mail.rivers.moherp.org/gauge/?gauge=07052250&hours=168',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07052250',
+        note: 'USGS James River near Boaz showed same-day May 30, 2026 discharge and gage-height observations during this review. The gauge is on the middle James route corridor and is the gauge used by MoHERP for Delaware-to-Shelvin rows.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07052250',
+      },
+      {
+        label: 'Low-water floor',
+        value: '275 cfs minimum-only',
+        note: 'MoHERP exact-route evidence includes a Delaware-to-Shelvin trip at 275 cfs on the Boaz gauge where most of the river was fine but a few low areas required dragging; the report calls that about the minimum recommended water level for this section.',
+        sourceUrl: 'https://mail.rivers.moherp.org/gauge/?gauge=07052250&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Ledge-rock drops and long pools',
+        note: 'MoHERP Delaware-to-Shelvin trip notes mention at least two ledge-rock drops, and broader James River sources describe this middle reach as a mix of riffles, calm stretches, gravel bars, and scenic Ozark water.',
+        sourceUrl: 'https://www.jamesriverbasin.com/explore',
+      },
+      {
+        label: 'Coordinates',
+        value: '37.0511, -93.3914 to 36.99564609, -93.3697183',
+        note: 'Delaware Town is anchored to a public paddling directory coordinate that cites USGS ScienceBase location data and MDC confirms the access name. Shelvin Rock uses the existing V2 Shelvin Rock access coordinate paired with MDC access confirmation.',
+        sourceUrl: 'https://thepaddlinghub.com/directory/missouri/delaware-town-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Delaware Town Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/delaware-town-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Shelvin Rock Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/shelvin-rock-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP James River Boaz gauge',
+        url: 'https://mail.rivers.moherp.org/gauge/?gauge=07052250&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07052250 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052250/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07052250 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07052250',
+        provider: 'usgs',
+      },
+      {
+        label: 'James River Basin Partnership Delaware Town to Shelvin Rock float',
+        url: 'https://www.jamesriverbasin.com/calendar/jul24-37north-float-7a7ke',
+        provider: 'local',
+      },
+      {
+        label: 'James River Basin Partnership explore map',
+        url: 'https://www.jamesriverbasin.com/explore',
+        provider: 'local',
+      },
+      {
+        label: 'Delaware Town Access coordinate record',
+        url: 'https://thepaddlinghub.com/directory/missouri/delaware-town-access',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'james-river-shelvin-rock-hooten-town',
     slug: 'james-river-shelvin-rock-hooten-town',
     name: 'James River',

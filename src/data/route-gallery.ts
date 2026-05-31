@@ -938,6 +938,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
+  'james-river-delaware-town-shelvin-rock': [
+    {
+      id: 'james-river-springfield-commons',
+      src: '/gallery/james-river-delaware-town-shelvin-rock/james-river-springfield.jpg',
+      alt: 'The James River flows past a wooded bank in southwest Missouri with shallow water near the shore.',
+      caption: 'James River in southwest Missouri',
+      credit: 'Cold417 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'james-river-shelvin-rock-hooten-town': [
     {
       id: 'james-river-springfield-commons',

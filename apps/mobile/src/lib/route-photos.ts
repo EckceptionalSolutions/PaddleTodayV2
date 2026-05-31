@@ -282,6 +282,9 @@ const routeGalleryImages: Record<string, string[]> = {
   'big-piney-river-sandy-shoals-boiling-spring': [
     '/gallery/big-piney-river-sandy-shoals-boiling-spring/big-piney-river-mo-17.jpg',
   ],
+  'james-river-delaware-town-shelvin-rock': [
+    '/gallery/james-river-delaware-town-shelvin-rock/james-river-springfield.jpg',
+  ],
   'shoal-creek-tipton-ford-wildcat': [
     '/gallery/shoal-creek-tipton-ford-wildcat/shoal-creek-inspiration-point.jpg',
   ],

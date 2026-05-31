@@ -31,6 +31,13 @@ Use this file to bootstrap Indiana route expansion with access-law and dam hazar
 
 ## Run Log
 
+- 2026-05-30 23:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Fresh reviewed `White River - Indianapolis White River Canoe Trail family` because it has better official public-access context than many bridge-launch leads. Visit Indy documents the 16-mile White River Canoe Trail and named launch locations, and Indy Parks confirms Art's Center Canoe Launch as a public White River access with parking.
+  - No route was added because the only numeric paddling range found was RiverScout's broad 400-3000 cfs range on USGS `03353000`, and RiverScout explicitly labels its CFS ranges/access points as community-verified and needing correction. Workspace USGS Water Services and legacy USGS requests for `03353000` also failed unable to connect.
+  - Logged `in-white-river-indianapolis-canoe-trail-family` as `threshold_weak`. Before any future implementation, select one exact public endpoint pair and clear route-specific low-head-dam, OHWM/private-bank, urban water-quality, and take-out safety context.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
 - 2026-05-30 22:39 America/Chicago: No route added.
   - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
   - Rechecked `Blue River - White Cloud to Blue River Chapel` because it remains the strongest short AW-listed Indiana lead. AW's Indiana river index search result showed the exact 2.4-mile I(II) reach at 548 cfs updated 1 hour ago, and official USGS legacy current conditions for `03303000` exposed recent May 29, 2026 values: 1,230 cfs and 4.33 ft at 15:15 EDT.

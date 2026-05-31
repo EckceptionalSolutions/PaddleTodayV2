@@ -6154,6 +6154,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'james-river-delaware-town-shelvin-rock': {
+    putIn: {
+      name: 'Delaware Town Access',
+      latitude: 37.0511,
+      longitude: -93.3914,
+    },
+    takeOut: {
+      name: 'Shelvin Rock Access',
+      latitude: 36.99564609,
+      longitude: -93.3697183,
+    },
+    logistics: {
+      distanceLabel: 'About 6.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, stops, and wind',
+      shuttle:
+        'Use a short two-car shuttle between MDC Delaware Town Access and MDC Shelvin Rock Access. Stage the Shelvin Rock take-out first, then drive back through the Highway 14 / Route M corridor to Delaware Town.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, day-use restrictions, and boat-use rules at Delaware Town and Shelvin Rock.',
+      camping:
+        'Do not plan to camp at either endpoint. MDC lists both Delaware Town and Shelvin Rock as day-use access areas, and camping is not allowed on those areas.',
+      summary:
+        'Launch at MDC Delaware Town Access and take out at MDC Shelvin Rock Access for a 6.5-mile middle-James day float. Use the Boaz gauge as a conservative low-water check, and make a same-day visual call because the scoring model has no defended high-water cutoff.',
+      accessCaveats: [
+        'Delaware Town and Shelvin Rock are MDC public day-use accesses with boat ramps and parking, but posted signs and area maps control exact use.',
+        'Both endpoints prohibit camping, and MDC rules prohibit leaving boats unattended overnight on department areas.',
+        'The Delaware Town coordinate is a practical access anchor from a public paddling directory paired with MDC access confirmation; follow MDC signs and the current ramp layout on arrival.',
+      ],
+      watchFor: [
+        'Dragging, slow pools, and shallow riffles when the Boaz gauge is near or below the 275 cfs floor.',
+        'Two ledge-rock drops noted in route evidence; scout or walk if the level, load, or group skill makes them questionable.',
+        'High or rising water after rain, cloudy water, fresh wood, strainers on bends, and more difficult landings.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
   'james-river-shelvin-rock-hooten-town': {
     putIn: {
       name: 'Shelvin Rock Access',

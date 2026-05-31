@@ -1,7 +1,14 @@
 {
     "version": 1,
-    "updatedAt": "2026-05-30T22:50:00-05:00",
+    "updatedAt": "2026-05-30T23:31:00-05:00",
     "notes": [
+        "2026-05-30 23:31 America/Chicago Missouri no-add pass. Reconciled nineteen existing Missouri V2 routes after the James River Delaware-to-Shelvin add and added no duplicate. Fresh gauge-first review rechecked Current River Van Buren-to-Big Spring, Pomme de Terre Hermitage-to-Cross Timbers, and Castor River Maple Flats/Zalma. Current/Big Spring remains needs_manual_coordinates because the NPS-supported Big Spring (upper) floater landing still lacks source-backed coordinates and the lower Big Spring Boat Ramp is trailered-boats-only/no-floater-access. Pomme de Terre remains no_live_gauge because USACE/MDC route evidence and 100-800 cfs release guidance are strong, but official same-day product-ready USGS data did not clear. Castor remains no_live_gauge because MDC Maple Flats and USGS 07021000 are real, but same-day product-ready current data and numeric route-specific thresholds remain unresolved. No app route data changed.",
+        "2026-05-30 23:22 America/Chicago Missouri implementation pass. Reconciled eighteen existing Missouri V2 routes and added James River Delaware Town Access-to-Shelvin Rock Access as james-river-delaware-town-shelvin-rock. This resolves the prior Boaz-gauge blocker: official USGS 07052250 legacy current conditions exposed same-day May 30, 2026 discharge/stage values, and MoHERP uses the same Boaz gauge for exact Delaware-to-Shelvin rows. Qualification path: MDC confirms Delaware Town and Shelvin Rock as public James River day-use accesses with boat ramps and parking, James River Basin Partnership names Delaware Town-to-Shelvin Rock as a float-series route, MoHERP lists exact 6.5-mile rows including an about-minimum-water report at 275 cfs, and the app can use the standard USGS provider path. Implemented minimum-only at 275 cfs; no ideal range or high cutoff was inferred. Caveats include community threshold support, Delaware coordinate from a public paddling directory paired with MDC access confirmation, ledge-rock drops, shallow summer riffles, high/rising water, and private banks. Later image audit wired the existing CC BY-SA 3.0 Wikimedia Commons James River in Springfield asset as a same-river representative image, with upstream/not-exact-route limitation documented. Validation: typecheck passed, build passed, git diff --check passed with line-ending warnings only; npm test failed after typecheck in the existing Vitest/esbuild sandbox config-loading path.",
+        "2026-05-30 23:10 America/Chicago Utah no-add pass. Reconciled live Utah inventory first and confirmed the only Utah V2 route remains Green River Flaming Gorge Dam / Spillway Boat Launch to Little Hole as green-river-flaming-gorge-dam-little-hole; no duplicate was added. Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026, and kept lawful-access, no-stopping/private-bed, public-access-point, and upper-Weber special-case constraints in force. Rechecked Weber Henefer-to-Taggarts: American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, private-property/low-bridge/high-flow caveats, and a 360 cfs medium-runnable reading. Utah WRI still describes Taggarts as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited/congested parking and unresolved shared-rule context; Utah Commerce Advisory Opinion 286 still documents county/private boundary and right-of-way dispute context. Workspace USGS Water Services IV fetches for 10132000 and already-live 09234500 again failed unable to connect. No route was added; kept ut-weber-river-henefer-taggarts as needs_manual_coordinates.",
+        "2026-05-30 23:10 America/Chicago Missouri no-add pass. Reconciled eighteen live Missouri V2 routes and added no duplicate. Fresh gauge-first rotation rechecked Niangua Bennett Spring-to-Barclay, lower Huzzah/Courtois-to-Meramec, and Maries River Westphalia/Burns-to-Mari-Osa. No route cleared the add bar: Niangua remains gauge_proxy_weak because Windyville 06923250 is upstream of Bennett Spring inflow and no source validates it as a tight below-spring scoring proxy despite exact MoHERP rows; Huzzah remains research_later because the useful rows still end at unnamed Meramec River and current search-visible gauge context was not same-day; Maries remains no_live_gauge because 06927000 still lacks same-day product-ready official current data, manager-published exact route support, and numeric threshold guidance.",
+        "2026-05-30 23:09 America/Chicago Indiana no-add pass. Reconciled live Indiana inventory first and confirmed no Indiana routes are implemented in src/data/rivers.ts or src/data/river-trip-details.ts. Fresh reviewed White River Indianapolis canoe-trail family: Visit Indy documents the 16-mile White River Canoe Trail and launch locations including Broad Ripple Park, Cornell Avenue, Holliday Park/Meridian, Friedmann Park/Kessler, and 30th Street; Indy Parks confirms Art's Center Canoe Launch as a public White River access; RiverScout exposes current-looking USGS 03353000 live values and a 400-3000 cfs range, but it explicitly says CFS ranges and access points are community-verified and need local correction. No route was added because the threshold package is third-party/community-level rather than official/AW/manager route-specific, the workspace shell still cannot connect to USGS Water Services or legacy USGS pages for 03353000, and the urban White River corridor needs a route-specific low-head-dam, public endpoint, OHWM/private-bank, and water-quality review before implementation.",
+        "2026-05-30 23:09 America/Chicago Kansas no-add pass for kansas-route-additions-2. Reconciled live Kansas inventory first and confirmed fourteen existing Kansas V2 routes, all Kansas River routes: kansas-river-lawrence-8th-eudora, kansas-river-eudora-de-soto, kansas-river-de-soto-edwardsville, kansas-river-junction-city-ogden, kansas-river-ogden-manhattan, kansas-river-manhattan-st-george, kansas-river-st-george-wamego, kansas-river-wamego-belvue, kansas-river-belvue-kaw-river-state-park, kansas-river-topeka-water-plant-seward, kansas-river-lecompton-lawrence-riverfront, kansas-river-turner-bridge-kaw-point, kansas-river-seward-lecompton, and kansas-river-edwardsville-turner-bridge. No duplicate route was added. Rechecked the strongest remaining Kansas River connector, Kaw River State Park-to-Topeka Water Plant; official USGS legacy current conditions for 06888990 still showed discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, with page last modified 2026-05-27 09:42 EDT, and the modern monitoring-location page exposed station context and maintenance messaging rather than fresh values in accessible HTML. Kept the candidate no_live_gauge. Arkansas River Wichita/Lincoln/47th and Wichita/Hutchinson families remain deferred because they still lack an exact manager-grade endpoint pair with source-backed coordinates and a selected product-supported USGS gauge/threshold relationship. Missouri River Kaw Point/Leavenworth and Atchison/Leavenworth families remain threshold_weak because they still lack a conservative private-paddlecraft threshold package, Kansas-side downstream endpoint package, and big-river safety framing.",
+        "2026-05-30 23:00 America/Chicago Missouri no-add pass. Reconciled eighteen live Missouri V2 routes and added no duplicate. Fresh gauge-first review rechecked Pomme de Terre Hermitage-to-Cross Timbers, upper Meramec Short Bend-to-Cook Station, Current River Van Buren-to-Big Spring, and South Fabius Dunn Ford-to-Black Hawk. No route cleared the add bar: Pomme de Terre still has strong MDC/USACE public-access support and USACE 100-800 cfs release guidance, but USGS Water Services remained unreachable from the automation shell and official/search-visible 06921500 evidence did not prove same-day product-ready current data; upper Meramec still needs source-backed Cook Station low-water bridge take-out coordinates/access and high-water-only framing; Current/Big Spring still lacks source-backed Big Spring upper floater landing coordinates; South Fabius still lacks same-day product-ready 05500000 proof and a numeric threshold model.",
         "2026-05-30 22:50 America/Chicago Missouri no-add pass. Reconciled eighteen live Missouri V2 routes and added no duplicate. Fresh gauge-first review rechecked Eleven Point Greer-to-Turner, Current River Van Buren-to-Big Spring, Big River Washington State Park-to-Mammoth, and Platte Falls/Duck Head loop. No route cleared the add bar: Eleven Point Greer-to-Turner has strong Forest Service endpoint/route support but USGS 07071500 legacy current conditions only showed latest values from 2026-05-27 and still lacks a route-specific numeric threshold; Current/Big-Spring still lacks a source-backed Big Spring upper floater landing coordinate despite USGS 07067000 showing 2026-05-30 11:30 CDT values; Big River Washington-to-Mammoth still has stale USGS 07018500 values from 2026-05-22 and weak proxy thresholds; Platte Falls still lacks numeric gauge-tied paddling thresholds and USGS 06821190 showed latest values from 2026-05-27.",
         "2026-05-30 22:39 America/Chicago Kansas no-add pass for kansas-route-additions-2. Reconciled live Kansas inventory first and confirmed fourteen existing Kansas V2 routes, all Kansas River routes: kansas-river-lawrence-8th-eudora, kansas-river-eudora-de-soto, kansas-river-de-soto-edwardsville, kansas-river-junction-city-ogden, kansas-river-ogden-manhattan, kansas-river-manhattan-st-george, kansas-river-st-george-wamego, kansas-river-wamego-belvue, kansas-river-belvue-kaw-river-state-park, kansas-river-topeka-water-plant-seward, kansas-river-lecompton-lawrence-riverfront, kansas-river-turner-bridge-kaw-point, kansas-river-seward-lecompton, and kansas-river-edwardsville-turner-bridge. No duplicate route was added. Rechecked the strongest remaining Kansas River connector, Kaw River State Park-to-Topeka Water Plant; official USGS legacy current conditions for 06888990 still showed latest discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, the modern monitoring-location page exposed only station context and maintenance messaging in accessible HTML, and workspace Water Services/API fetches failed unable to connect. Kept the candidate no_live_gauge. Arkansas River Wichita/Lincoln/47th and Wichita/Hutchinson families remain deferred because they still lack an exact manager-grade endpoint pair with source-backed coordinates and a selected product-supported gauge/threshold relationship. Missouri River Kaw Point/Leavenworth and Atchison/Leavenworth families remain threshold_weak because they still lack conservative private-paddlecraft thresholds, Kansas-side downstream endpoint packages, and big-river safety framing.",
         "2026-05-30 22:40 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory after the Big Piney Boiling-to-Mason add and confirmed eighteen existing V2 Missouri routes. No duplicate route was added. Fresh gauge-first review rechecked South Fabius Dunn Ford-to-Black Hawk, Platte Falls Duck Head loop, and Wyaconda Crossing/Sunnyside family. No route cleared the add bar: South Fabius has strong MDC route/access support but USGS 05500000 visible current data remained stale to 2026-05-19 and no numeric paddling threshold surfaced; Platte Falls has strong MDC two-ramp loop support but no gauge-tied numeric threshold model; Wyaconda has MDC public-access/boat-use context but USGS 05496000 visible data remained stale to 2026-05-11 and no exact route plus threshold package surfaced.",
@@ -451,6 +458,52 @@
     ],
     "candidates": [
         {
+            "candidateId": "in-white-river-indianapolis-canoe-trail-family",
+            "river": "White River",
+            "route": "Indianapolis White River Canoe Trail family",
+            "state": "IN",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-05-30",
+            "reviewCount": 1,
+            "blocker": "2026-05-30 23:09 America/Chicago review. The Indianapolis corridor has useful official access context: Visit Indy describes the White River Canoe Trail as 16 miles and lists multiple launch locations, and Indy Parks confirms Art's Center Canoe Launch has parking and White River access. RiverScout surfaces USGS 03353000 current-looking values and a 400-3000 cfs optimal range, but the same page flags its CFS ranges, difficulty ratings, and access points as community-verified and needing local correction. No route was added because the threshold package is not manager/AW/official route-specific, the workspace shell still cannot reach USGS Water Services or the USGS legacy current-conditions page for 03353000, and the urban route needs a specific endpoint pair plus low-head-dam, OHWM/private-bank, water-quality, and take-out safety review before implementation. Do not ship from the broad canoe-trail listing plus RiverScout range alone.",
+            "retryCondition": "Retry only if an official/local water-trail manager, American Whitewater, or similarly strong route-specific source publishes numeric paddling thresholds tied to a selected product-supported USGS gauge, and one exact public endpoint pair is cleared against low-head-dam, water-quality, and private-bank constraints.",
+            "retryDate": "2026-07-01",
+            "sourcesChecked": [
+                "Visit Indy White River Canoe Trail page opened 2026-05-30; documents a 16-mile canoe trail and listed launch locations including 96th St, 86th St, Broad Ripple Park, Cornell Ave, Holliday Park at Meridian St, Friedmann Park at Kessler Blvd, and 30th St.",
+                "Indy Parks Art's Center Canoe Launch page opened 2026-05-30; confirms a public Indy Parks site at 900 E 67th St with a small parking lot and White River access.",
+                "Indiana DNR Water Trails page opened 2026-05-30; confirms water trails require at least two public access points and links current water flow, low-head-dam, public-access, and safety resources.",
+                "Indiana DNR Water Trail Safety page opened 2026-05-30; says to use designated public access sites, check current water flow, and never run low-head dams.",
+                "Indiana DNR River Rights and Usage page opened 2026-05-30; confirms navigable rivers/beds are held in trust while banks should be treated as private and OHWM matters.",
+                "RiverScout White River page opened 2026-05-30; shows USGS 03353000 current-looking values and a 400-3000 cfs range but explicitly labels CFS ranges/access points as community-verified and needing correction.",
+                "Workspace shell USGS Water Services and legacy USGS requests for 03353000 failed unable to connect on 2026-05-30."
+            ],
+            "aliases": [
+                "White River Canoe Trail Indianapolis",
+                "White River - Broad Ripple / Art Center / Riverside / 30th Street family",
+                "Indianapolis White River paddle trail"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "direct_candidate_unverified_in_shell",
+                "id": "03353000",
+                "provider": "USGS",
+                "notes": "USGS 03353000 at Indianapolis is the obvious route-corridor gauge and RiverScout exposes current-looking values, but product-fetchable USGS data could not be verified from the workspace shell during this run."
+            },
+            "thresholdSupport": {
+                "strength": "weak_community",
+                "notes": "RiverScout publishes 400-3000 cfs for broad White River conditions, but the page explicitly says CFS ranges and access points are community-verified and may need correction. No official/AW/manager route-specific threshold model surfaced for a selected Indianapolis endpoint pair."
+            },
+            "endpoints": {
+                "putIn": "Unselected Indianapolis White River public access, likely Broad Ripple / Art Center corridor",
+                "takeOut": "Unselected downstream Indianapolis White River public access, likely 30th Street / Riverside corridor",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Official pages list access names/addresses, but this pass did not select and dam-check one exact route pair."
+            },
+            "notes": "Fresh Indiana Indianapolis lead logged for rotation. The broad canoe-trail access story is real, but route-specific scoring and dam/water-quality safety are not clean enough for V2 implementation."
+        },
+        {
             "candidateId": "in-blue-river-white-cloud-blue-river-chapel",
             "river": "Blue River",
             "route": "White Cloud to Blue River Chapel",
@@ -755,7 +808,7 @@
             "state": "IN",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 3,
+            "reviewCount": 4,
             "blocker": "Fresh 2026-05-30 21:09 America/Chicago recheck preserved threshold_weak. Northeast Indiana Water Trails still publishes a specific Cedar Creek suggested trip from Tonkel Road to State Road 1 with coordinates, just-over-5-mile distance, about 3-hour paddle time, scenic-river context, seasonal qualitative water-level notes, fallen-tree/portage warnings, and small rapids before the exit. ACRES repeats the route and says it ends at the DNR access site on State Road 1. Indiana DNR confirms Cedar Creek is a designated scenic/recreational river-system stream. No route was added because the level guidance remains qualitative only: NEIWT's water-level page recommends checking USGS and learning local effects, but publishes no numeric low/ideal/high or minimum-only threshold model tied to a selected gauge. The automation shell still could not connect to USGS Water Services for NE Indiana / recurring Indiana gauges. Access also starts from a road carry-down/narrow parking area, so public-access legitimacy should be reconfirmed against DNR/manager map context before implementation.",
             "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
             "retryDate": null,
@@ -952,8 +1005,8 @@
             "state": "UT",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 22,
-            "blocker": "Fresh 2026-05-30 22:40 America/Chicago no-add pass kept the candidate blocked. American Whitewater still supports the exact 5-mile Class II(III) route shape, Echo gauge relationship, hazards, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, and private-property/low-bridge/high-flow caveats. The implementation blocker remains endpoint quality and access legitimacy: no official/manager/AW text source exposed exact coordinates for both endpoints, especially the Taggarts river-right take-out below Taggarts Falls. Utah DWR stream-access guidance remains current as of March 10, 2026 and makes lawful access, floating without stopping, private beds/banks, public access points, and the upper Weber special case first-class constraints. Utah WRI still describes the take-out as county-owned old highway off the Taggart Exit, not an officially established boat ramp, with limited/congested parking and unclear unified rules. Utah Commerce Advisory Opinion 286 adds caution by documenting the county/private boundary and right-of-way dispute around the Taggart takeout. Workspace USGS Water Services fetches for 10132000 and 09234500 again failed unable to connect, although official WDFN/AW context still indicates the Echo gauge relationship. Do not ship from inferred river-line coordinates, the supplemental Outbound coordinate, or a generic Taggarts locality.",
+            "reviewCount": 23,
+            "blocker": "Fresh 2026-05-30 23:10 America/Chicago no-add pass kept the candidate blocked. American Whitewater still supports the exact 5-mile Class II(III) route shape, Echo gauge relationship, hazards, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, and private-property/low-bridge/high-flow caveats, with 360 cfs shown as medium runnable. The implementation blocker remains endpoint quality and access legitimacy: no official/manager/AW text source exposed exact coordinates for both endpoints, especially the Taggarts river-right take-out below Taggarts Falls. Utah DWR stream-access guidance remains current as of March 10, 2026 and makes lawful access, floating without stopping, private beds/banks, public access points, and the upper Weber special case first-class constraints. Utah WRI still describes the take-out as county-owned old highway off the Taggart Exit, not an officially established boat ramp, with limited/congested parking and unclear unified rules. Utah Commerce Advisory Opinion 286 adds caution by documenting the county/private boundary and right-of-way dispute around the Taggart takeout. Workspace USGS Water Services fetches for 10132000 and 09234500 again failed unable to connect, although AW context still indicates the Echo gauge relationship. Do not ship from inferred river-line coordinates, the supplemental Outbound coordinate, or a generic Taggarts locality.",
             "retryCondition": "Retry only if source-backed coordinates are captured for the Henefer-Echo Angler Access WMA/main parking/launch plus the Taggarts river-right take-out below Taggarts Falls, and current access/parking legitimacy is confirmed by manager, county, AW map feature, official GIS/map data, or similarly strong access evidence. Also reconfirm USGS 10132000 through the product-fetchable Water Services path before shipping.",
             "retryDate": null,
             "sourcesChecked": [
@@ -1058,7 +1111,12 @@
                 "USGS WDFN graph context for 10132000 Weber River at Echo, UT, rechecked May 30 2026 at 22:40 America/Chicago",
                 "USGS Water Services IV shell fetches for 10132000 and 09234500, attempted May 30 2026 at 22:40 America/Chicago and blocked by runtime network",
                 "Utah Watershed Restoration Initiative Weber River Hen-Tag Action Plan, rechecked May 30 2026 at 22:40 America/Chicago",
-                "Utah Commerce Advisory Opinion 286 Taggart takeout dispute context, rechecked May 30 2026 at 22:40 America/Chicago"
+                "Utah Commerce Advisory Opinion 286 Taggart takeout dispute context, rechecked May 30 2026 at 22:40 America/Chicago",
+                "Utah DWR Stream Access guidance, last updated March 10 2026, rechecked May 30 2026 at 23:10 America/Chicago",
+                "American Whitewater Weber - Henefer to Taggarts route page, rechecked May 30 2026 at 23:10 America/Chicago",
+                "Utah Watershed Restoration Initiative Weber River Hen-Tag Action Plan, rechecked May 30 2026 at 23:10 America/Chicago",
+                "Utah Commerce Advisory Opinion 286 Taggart takeout dispute context, rechecked May 30 2026 at 23:10 America/Chicago",
+                "USGS Water Services IV shell fetches for 10132000 and 09234500, attempted May 30 2026 at 23:10 America/Chicago and blocked by runtime network"
             ],
             "aliases": [
                 "Weber River - Henefer to Taggart",
@@ -1070,11 +1128,11 @@
                 "quality": "direct",
                 "id": "10132000",
                 "provider": "USGS",
-                "notes": "USGS 10132000 Weber River at Echo is the direct gauge tied to the AW reach. During the 21:40 America/Chicago pass, AW displayed 360 cfs medium runnable. Future implementation must still confirm the product Water Services path from the app runtime before shipping."
+                "notes": "USGS 10132000 Weber River at Echo is the direct gauge tied to the AW reach. During the 23:10 America/Chicago pass, AW displayed 360 cfs medium runnable. Future implementation must still confirm the product Water Services path from the app runtime before shipping."
             },
             "thresholdSupport": {
                 "strength": "american_whitewater_route_specific_current_plus_trip_report_floor",
-                "notes": "AW provides direct reach/gauge linkage and current runnable state. Recent AW trip reports suggest 205 cfs is low/scrapy and around 250 cfs is better for packrafts; a May 18, 2026 report described 644 cfs as engaging but noted the low-bridge portage and Taggarts flip risk. The route page warns around 600-700 cfs may make the Croyden bridge impassable and notes higher-flow holes at 1400+ cfs. The 21:40 pass showed 360 cfs as medium runnable. Use conservative whitewater scoring; do not overclaim a polished broad-audience ideal range without implementation review."
+                "notes": "AW provides direct reach/gauge linkage and current runnable state. Recent AW trip reports suggest 205 cfs is low/scrapy and around 250 cfs is better for packrafts; a May 18, 2026 report described 644 cfs as engaging but noted the low-bridge portage and Taggarts flip risk. The route page warns around 600-700 cfs may make the Croyden bridge impassable and notes higher-flow holes at 1400+ cfs. The 23:10 pass showed 360 cfs as medium runnable. Use conservative whitewater scoring; do not overclaim a polished broad-audience ideal range without implementation review."
             },
             "endpoints": {
                 "putIn": "Henefer-Echo Angler Access WMA / western Henefer Exit 112 main dirt parking access",
@@ -2611,9 +2669,9 @@
             "state": "MO",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 14,
-            "blocker": "Fresh 2026-05-30 21:40 America/Chicago recheck found official USGS 07010350 current data again: 41.1 cfs and 2.25 ft at 2026-05-30 10:00 CDT. MoHERP Cook Station bands and Short Bend route context remain useful, but Cook Station low-water bridge access/coordinates and conservative high-water-only upper-Meramec framing remain unresolved.",
-            "retryCondition": "Retry only after Cook Station low-water bridge access coordinates/practical public access are confirmed from a source-backed map or access inventory and USGS 07010350 still exposes fresh product-fetchable current observations. Do not substitute the Highway M gauge-bridge coordinate for the take-out.",
+            "reviewCount": 15,
+            "blocker": "2026-05-30 23:00 America/Chicago recheck kept needs_manual_coordinates. Official/search-visible USGS 07010350 evidence still showed May 30 discharge/stage, and MoHERP Cook Station bands remain useful, but Cook Station low-water bridge access/coordinates and conservative high-water-only upper-Meramec framing remain unresolved.",
+            "retryCondition": "Retry only after Cook Station low-water bridge access coordinates/practical public access are confirmed from a source-backed map or access inventory and USGS 07010350 still exposes fresh product-fetchable current observations. Do not substitute the Highway M gauge bridge coordinate for the take-out.",
             "retryDate": null,
             "sourcesChecked": [
                 "MDC Short Bend Access page",
@@ -2636,7 +2694,8 @@
                 "Fresh 2026-05-30 20:40 web recheck: official USGS 07010350 legacy page still exposed 41.1 cfs and 2.25 ft at 2026-05-30 10:00 CDT. No new source-backed Cook Station low-water bridge coordinate or public-access authority was found in this pass.",
                 "Fresh 2026-05-30 20:50 web recheck: official USGS 07010350 legacy page still exposed 41.1 cfs and 2.25 ft at 2026-05-30 10:00 CDT. No new source-backed Cook Station low-water bridge coordinate or public-access authority was captured.",
                 "2026-05-30 21:20 web recheck: official USGS 07010350 legacy current-conditions page showed 46.8 cfs and 2.30 ft at 2026-05-19 07:00 CDT; Cook Station low-water bridge access/coordinates remain unresolved.",
-                "2026-05-30 21:40 web recheck: official USGS 07010350 legacy current-conditions page exposed 41.1 cfs and 2.25 ft at 2026-05-30 10:00 CDT; FloatMissouri/Southwest Paddler still distinguish Cook Station low-water bridge from the Highway M gauge bridge; no source-backed Cook Station low-water bridge coordinate/access package was captured."
+                "2026-05-30 21:40 web recheck: official USGS 07010350 legacy current-conditions page exposed 41.1 cfs and 2.25 ft at 2026-05-30 10:00 CDT; FloatMissouri/Southwest Paddler still distinguish Cook Station low-water bridge from the Highway M gauge bridge; no source-backed Cook Station low-water bridge coordinate/access package was captured.",
+                "2026-05-30 23:00 recheck: USGS 07010350 search-visible legacy current conditions still showed May 30 discharge/stage, but no source-backed Cook Station low-water bridge coordinate/access package was captured."
             ],
             "aliases": [
                 "Meramec River - Short Bend to Cook Station",
@@ -2662,7 +2721,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured. MDC confirms Short Bend Access public use, and FloatMissouri lists Cook Station low-water bridge access, but source-backed endpoint coordinates were not captured before the route was deferred."
             },
-            "notes": "Rechecked 2026-05-30 21:40 America/Chicago. No add; official USGS 07010350 current data recovered, but Cook Station low-water bridge take-out coordinates/access and high-water-only upper-Meramec framing remain unresolved. Keep as needs_manual_coordinates and do not substitute the Highway M gauge bridge."
+            "notes": "Rechecked 2026-05-30 23:00 America/Chicago. No add; coordinate/access and upper-Meramec framing blockers remain. Do not substitute the Highway M gauge bridge."
         },
         {
             "candidateId": "ia-cedar-river-charles-city-whitewater",
@@ -9716,8 +9775,8 @@
             "state": "MO",
             "status": "gauge_proxy_weak",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 8,
-            "blocker": "Fresh 2026-05-30 20:40 America/Chicago recheck preserved gauge_proxy_weak. MDC strongly confirms Barclay Conservation Area Access as public Niangua River access with concrete boat ramp, canoe launching area, parking, and river frontage; Missouri State Parks/MDC support Bennett Spring access context; USGS 06923250 Windyville opened with same-day May 30 discharge/gage-height values; and MoHERP has exact Bennett Spring-to-Barclay trip rows tied to Windyville. The route was not added because Windyville remains upstream of Bennett Spring inflow, the MoHERP source trail itself notes the gauge is quite a ways upstream from some lower Niangua trips, and no manager/AW/outfitter source validates the proxy tightly enough for V2 scoring below the spring.",
+            "reviewCount": 9,
+            "blocker": "2026-05-30 23:10 America/Chicago recheck preserved gauge_proxy_weak. MDC strongly confirms Barclay Conservation Area Access as public Niangua River access with concrete boat ramp, canoe launching area, parking, and river frontage; Missouri State Parks/MDC support Bennett Spring access context; and MoHERP has exact Bennett Spring-to-Barclay trip rows tied to Windyville. The route was not added because Windyville remains upstream of Bennett Spring inflow, the MoHERP source trail itself notes the gauge is quite a ways upstream from some lower Niangua trips, no manager/AW/outfitter source validates the proxy tightly enough for V2 scoring below the spring, and the workspace USGS Water Services fetch still failed.",
             "retryCondition": "Retry only if a credible source validates USGS 06923250 Windyville as an acceptable scoring proxy for Bennett Spring-to-Barclay despite Bennett Spring inflow, or if a direct lower-Niangua live gauge/official release source appears. If that clears, source-backed Barclay ramp/canoe-launch coordinates still need capture before implementation.",
             "retryDate": null,
             "sourcesChecked": [
@@ -9742,7 +9801,8 @@
                 "2026-05-30 automation-shell USGS Water Services IV fetch for 06923250 failed with Unable to connect to the remote server",
                 "2026-05-30 16:10 web recheck of USGS 06923250 legacy current page: discharge and gage-height availability both extended through 2026-05-30, but this improved only live-data confidence and did not resolve the upstream-of-Bennett-Spring proxy relationship",
                 "2026-05-30 17:59 recheck: MDC Barclay Conservation Area page, MDC managed boat-ramp/access layer search result, MoHERP Niangua Windyville Bennett-Spring-to-Barclay rows, Snoflo/RiverApp Windyville current-looking context, and public coordinate searches for Barclay Access.",
-                "2026-05-30 20:40 recheck: USGS 06923250 legacy current conditions showed 2770 cfs and 6.02 ft at 2026-05-30 09:00 CDT, but the source trail still did not validate Windyville as a scoring proxy below Bennett Spring inflow."
+                "2026-05-30 20:40 recheck: USGS 06923250 legacy current conditions showed 2770 cfs and 6.02 ft at 2026-05-30 09:00 CDT, but the source trail still did not validate Windyville as a scoring proxy below Bennett Spring inflow.",
+                "2026-05-30 23:10 recheck: Snoflo/search-visible context suggested recent Windyville readings, but workspace USGS Water Services IV fetch for 06923250 failed unable to connect and no source validated the upstream gauge as a below-Bennett-Spring scoring proxy."
             ],
             "aliases": [
                 "Niangua River - Bennett Spring to Barclay",
@@ -9758,7 +9818,7 @@
             },
             "thresholdSupport": {
                 "strength": "community_proxy",
-                "notes": "MoHERP has many Bennett Spring-to-Barclay rows and gauge bands, including good exact-route rows near 43-332 cfs and high rows above that, but that is not enough without product-fetchable USGS freshness plus stronger validation of Windyville as the route gauge below Bennett Spring."
+                "notes": "MoHERP has many Bennett Spring-to-Barclay rows and gauge bands, including good exact-route rows near 43-332 cfs and high rows above that, but that is not enough without stronger validation of Windyville as the route gauge below Bennett Spring."
             },
             "endpoints": {
                 "putIn": "Bennett Spring Access",
@@ -9771,7 +9831,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Missouri State Parks publishes Bennett Spring boat-launch coordinates, and MDC confirms Barclay facilities and access, but this run still did not capture source-backed Barclay ramp/canoe-launch coordinates cleanly enough to ship."
             },
-            "notes": "Fresh 2026-05-30 20:40 review preserved gauge_proxy_weak. USGS same-day availability and Bennett Spring coordinates are source-backed, but Windyville proxy validation remains below the conservative ship bar; do not implement without a better below-spring gauge relationship."
+            "notes": "Rechecked 2026-05-30 23:10 America/Chicago. Keep gauge_proxy_weak; do not implement without a better below-spring gauge relationship."
         },
         {
             "candidateId": "mo-big-piney-east-gate-bookers-bend",
@@ -10358,8 +10418,8 @@
             "state": "MO",
             "status": "research_later",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 4,
-            "blocker": "Fresh 2026-05-30 19:19 America/Chicago recheck preserved research_later. MDC / Visit Missouri support Huzzah Conservation Area as public paddling/fishing/floating access across the Meramec River, Huzzah Creek, and Courtois Creek, and the live-gauge side remains promising on USGS 07014000 with MoHERP lower-Huzzah/Courtois trip evidence. RiverScout also surfaces a 140-425 cfs Huzzah range on USGS 07014000, but labels its ranges community-verified / needing local knowledge. The route still lacks a clean named public take-out/access package: the useful MoHERP rows end at Meramec River rather than a managed landing, and no public take-out coordinates or authority surfaced.",
+            "reviewCount": 5,
+            "blocker": "2026-05-30 23:10 America/Chicago recheck preserved research_later. MDC / Visit Missouri support Huzzah Conservation Area as public paddling/fishing/floating access across the Meramec River, Huzzah Creek, and Courtois Creek, and USGS 07014000 / MoHERP lower-Huzzah/Courtois evidence remains promising. This pass did not clear the route because the useful MoHERP rows still end at Meramec River rather than a named managed landing, no public take-out coordinates or authority surfaced, and search-visible current context did not prove same-day official product-ready data for this run.",
             "retryCondition": "Retry if MDC, a county/city source, MoHERP, an authorized outfitter, or another credible source names a public Huzzah/Courtois-to-Meramec endpoint pair with coordinates or clear landing guidance. If that clears, USGS 07014000 is a verified gauge candidate and thresholds should stay conservative; do not rely on RiverScout alone for an ideal range.",
             "retryDate": null,
             "sourcesChecked": [
@@ -10373,7 +10433,8 @@
                 "Rivers.MOHERP 07014000 page rechecked May 30 18:19; matching 110 cfs / 3.46 ft and lower Huzzah/Courtois trip rows",
                 "2026-05-30 19:19 web recheck: Visit Missouri / MDC Huzzah Conservation Area page confirms sections of the Meramec River, Huzzah Creek, and Courtois Creek and says canoes/kayaks can access these streams for floating and fishing.",
                 "2026-05-30 19:19 web recheck: MDC Conservationist Huzzah Conservation Area article confirms a Meramec River access downstream from the Huzzah confluence and two campgrounds adjacent to Courtois Creek, but this still does not define one clean route endpoint pair.",
-                "2026-05-30 19:19 web recheck: RiverScout Huzzah Creek shows USGS 07014000 and a 140-425 cfs optimal range, but its own data-quality note says ranges are community-verified and may not reflect every flow or access condition."
+                "2026-05-30 19:19 web recheck: RiverScout Huzzah Creek shows USGS 07014000 and a 140-425 cfs optimal range, but its own data-quality note says ranges are community-verified and may not reflect every flow or access condition.",
+                "2026-05-30 23:10 recheck: MoHERP search-visible Huzzah 07014000 context still showed useful Huzzah Conservation Area / Courtois trip rows, but the visible current context was not same-day and the endpoint remained unnamed Meramec River rather than a public managed take-out."
             ],
             "aliases": [
                 "Huzzah Creek - Huzzah Conservation Area to Meramec River",
@@ -10382,10 +10443,10 @@
             ],
             "v2Slug": null,
             "gauge": {
-                "quality": "direct_current_verified_but_endpoint_unclear",
+                "quality": "direct_but_current_unverified_today_endpoint_unclear",
                 "id": "07014000",
                 "provider": "USGS",
-                "notes": "USGS 07014000 Huzzah Creek near Steelville is the obvious live-gauge candidate for lower Huzzah Creek. Prior May 30 review found official same-day USGS/MoHERP values; the May 30 19:19 review found additional RiverScout context, but endpoint definition still blocks implementation."
+                "notes": "USGS 07014000 Huzzah Creek near Steelville is the obvious live-gauge candidate for lower Huzzah Creek. Prior May 30 review found official same-day USGS/MoHERP values, but the May 30 23:10 rotation did not prove fresh product-ready current data and endpoint definition still blocks implementation."
             },
             "thresholdSupport": {
                 "strength": "community_minimum_promising_but_endpoint_unclear",
@@ -10399,7 +10460,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because the public endpoint pair did not clear the route-definition bar."
             },
-            "notes": "Rechecked 2026-05-30 at 19:19 America/Chicago. Useful lower-Huzzah gauge cluster with improving threshold context, but no route added because the take-out/access definition remains too vague."
+            "notes": "Rechecked 2026-05-30 23:10 America/Chicago. Useful lower-Huzzah gauge cluster, but no route added because the take-out/access definition remains too vague."
         },
         {
             "candidateId": "mo-black-river-lesterville-route-k",
@@ -11835,9 +11896,9 @@
             "state": "MO",
             "status": "no_live_gauge",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 16,
-            "blocker": "Fresh 2026-05-30 21:40 America/Chicago recheck preserved no_live_gauge. USACE access/release guidance and 100-800 cfs floating guidance remain strong if a reliable live feed returns, but official USGS 06921350 showed latest values from 2026-05-05 and USGS 06921500 showed latest values from 2026-04-15. No product-ready current gauge/release feed cleared.",
-            "retryCondition": "Retry only if USGS 06921350, USGS 06921500, or an official USACE release feed exposes product-fetchable current discharge/release data. If live data clears, use the official USACE 100-800 cfs release guidance conservatively and capture source-backed Hermitage and Cross Timbers coordinates before implementation.",
+            "reviewCount": 18,
+            "blocker": "2026-05-30 23:31 America/Chicago recheck kept no_live_gauge. MDC/USACE route and access support remains strong, and USACE 100-800 cfs floating-release guidance remains useful threshold evidence, but the official USGS 06921500 legacy search-visible page showed data availability ending 2025-12-03, the automation shell still could not reach USGS Water Services, and third-party/NWS current-looking values are not enough for a product-ready live-data path.",
+            "retryCondition": "Retry only when USGS 06921500 or 06921350 exposes reliable same-day discharge/gage-height data through the product-supported USGS path. Keep the USACE 100-800 cfs release guidance as threshold support only after the live-data gate clears.",
             "retryDate": null,
             "sourcesChecked": [
                 "USACE Pomme de Terre River Adventures PDF / brochure",
@@ -11866,7 +11927,11 @@
                 "2026-05-30 20:50 web recheck: official USGS 06921500 legacy page showed 547 cfs and 4.13 ft at 2026-04-15 22:45 CDT; official USGS 06921350 legacy page showed 1,980 cfs and 7.00 ft at 2026-05-05 10:45 CDT. No product-ready current gauge path cleared.",
                 "2026-05-30 21:10 web recheck: official USGS 06921500 legacy page still showed 547 cfs and 4.13 ft at 2026-04-15 22:45 CDT; official USGS 06921350 legacy page still showed 1,980 cfs and 7.00 ft at 2026-05-05 10:45 CDT. Kept no_live_gauge.",
                 "2026-05-30 21:20 web recheck: official USGS 06921350 showed 1980 cfs / 6.96 ft at 2026-04-17 04:45 CDT and USGS 06921500 showed 2080 cfs at 2026-04-17 04:45 CDT.",
-                "2026-05-30 21:40 web recheck: official USGS 06921350 showed 1980 cfs / 7.00 ft at 2026-05-05 10:45 CDT and USGS 06921500 showed 547 cfs / 4.13 ft at 2026-04-15 22:45 CDT."
+                "2026-05-30 21:40 web recheck: official USGS 06921350 showed 1980 cfs / 7.00 ft at 2026-05-05 10:45 CDT and USGS 06921500 showed 547 cfs / 4.13 ft at 2026-04-15 22:45 CDT.",
+                "2026-05-30 23:00 web/shell recheck: MDC Hermitage and Cross Timbers pages still support public Pomme de Terre access; USACE brochure still provides 100-800 cfs optimal release guidance; USGS Water Services fetch for 06921500 failed unable to connect; search-visible official 06921500 evidence did not prove same-day current values.",
+                "2026-05-30 23:31 web recheck: official USGS 06921500 legacy search-visible evidence showed available discharge and gage-height data ending 2025-12-03, not same-day current data.",
+                "2026-05-30 23:31 web recheck: NWS Missouri River Basin latest-conditions search result showed 06921500 values from 2026-05-25, not same-day product-ready USGS data.",
+                "2026-05-30 23:31 shell recheck: USGS Water Services IV fetch including 06921500 failed with Unable to connect to the remote server."
             ],
             "aliases": [
                 "Pomme de Terre River - Hermitage to Cross Timbers",
@@ -11879,7 +11944,7 @@
                 "quality": "stale_or_unverified_current_data",
                 "id": "06921500 / 06921350",
                 "provider": "USGS",
-                "notes": "USGS 06921500 at Hermitage and USGS 06921350 near Hermitage remain plausible direct lower-Pomme gauge leads, but neither cleared the live-data gate. Fresh May 30 21:10 official legacy pages still showed stale April 15 and May 5 instantaneous values, respectively."
+                "notes": "USGS 06921500 at Hermitage and USGS 06921350 near Hermitage remain plausible direct lower-Pomme gauge leads, but neither cleared the live-data gate. Fresh May 30 23:31 search-visible official 06921500 legacy evidence showed available discharge and gage-height data ending 2025-12-03, while shell Water Services fetch failed unable to connect."
             },
             "thresholdSupport": {
                 "strength": "official_if_live_recovers",
@@ -11893,7 +11958,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because same-day live gauge freshness did not clear the implementation bar."
             },
-            "notes": "Rechecked 2026-05-30 21:20 America/Chicago. No add; both candidate USGS pages exposed April 17 latest values."
+            "notes": "Rechecked 2026-05-30 23:31 America/Chicago. Keep out of implementation despite strong route/access/threshold context because the live-data path still is not product-ready."
         },
         {
             "candidateId": "mo-jacks-fork-bay-creek-alley-spring",
@@ -12890,47 +12955,56 @@
         },
         {
             "candidateId": "mo-james-river-delaware-town-shelvin-rock",
-            "reviewCount": 2,
+            "reviewCount": 3,
             "river": "James River",
             "route": "Delaware Town Access to Shelvin Rock Access",
             "state": "MO",
-            "status": "no_live_gauge",
-            "blocker": "Fresh 2026-05-30 reconciliation preserved the blocker. The route/access evidence remains strong, but USGS 07052250 Boaz is discontinued and the already-live downstream Galena gauge is not a defensible proxy for Delaware-to-Shelvin without explicit source support. No duplicate or adjacent James route was added.",
-            "retryCondition": "Retry only if a live official middle-James gauge replaces USGS 07052250 or another credible source explicitly ties Delaware-to-Shelvin to a product-fetchable live gauge with numeric guidance.",
+            "status": "added",
+            "blocker": null,
+            "retryCondition": "Already added as james-river-delaware-town-shelvin-rock. Revisit only if USGS 07052250 live data disappears again, MDC access rules change, stronger official thresholds appear, or a rights-clean exact-route image replaces the representative same-river Commons asset.",
             "retryDate": null,
             "sourcesChecked": [
-                "MDC Delaware Town Access page",
-                "MDC Shelvin Rock Access page",
-                "James River Basin Partnership Delaware Town to Shelvin Rock Access float-series page",
-                "Rivers.MOHERP classic trip rows for Delaware to Shelvin Rock on the James River",
-                "USGS 07052250 James River near Boaz monitoring-location page; data collection discontinued on 2025-10-01",
-                "2026-05-30 inventory reconciliation confirmed downstream Galena-gauge James routes are already live, but Delaware-to-Shelvin remains blocked by discontinued Boaz gauge and weak Galena proxy fit"
+                "MDC Delaware Town Access page reviewed 2026-05-30; confirms James River access, boat ramp, two parking lots, day-use-only, and no camping",
+                "MDC Shelvin Rock Access page reviewed 2026-05-30; confirms James River access, two parking lots, boat ramp, day-use-only, and no camping",
+                "James River Basin Partnership Delaware Town to Shelvin Rock Access float-series page reviewed 2026-05-30; names the exact Delaware Town-to-Shelvin Rock route",
+                "Rivers.MOHERP Boaz gauge page reviewed 2026-05-30; lists Delaware-to-Shelvin Rock at 6.5 miles and exact-route evidence at 439, 275, 203, and 118 cfs on USGS 07052250",
+                "USGS 07052250 James River near Boaz legacy current conditions reviewed 2026-05-30; exposed 1990 cfs and 5.23 ft at 2026-05-30 22:45 CDT, page modified 2026-05-31 00:18 EDT",
+                "Paddling Hub Delaware Town Access coordinate record reviewed 2026-05-30; supplies 37.0511, -93.3914 and cites USGS ScienceBase location data",
+                "Existing V2 Shelvin Rock coordinate carried forward from james-river-shelvin-rock-hooten-town and paired with MDC Shelvin Rock confirmation",
+                "Current V2 Missouri inventory in src/data/rivers.ts and trip details checked before implementation; no duplicate Delaware-to-Shelvin route existed",
+                "Image audit 2026-05-31 reused the existing Wikimedia Commons File:James River in Springfield Missouri USA.jpg asset already present for the adjacent James route; license CC BY-SA 3.0 by Cold417, same river but upstream/urban rather than exact Delaware-to-Shelvin framing"
             ],
             "aliases": [
                 "James River - Delaware Town to Shelvin Rock",
                 "James River - Delaware to Shelvin",
                 "Middle James Boaz gauge day trip"
             ],
-            "v2Slug": null,
+            "v2Slug": "james-river-delaware-town-shelvin-rock",
             "gauge": {
-                "quality": "discontinued_direct_gauge",
+                "quality": "direct",
                 "id": "07052250",
                 "provider": "USGS",
-                "notes": "USGS 07052250 near Boaz is the route-fit gauge named by MoHERP evidence, but USGS states data collection was discontinued on 2025-10-01."
+                "notes": "USGS 07052250 James River near Boaz is the direct middle-James route gauge used by MoHERP for Delaware-to-Shelvin rows. The official legacy current page exposed same-day May 30, 2026 discharge and gage-height values during this run, resolving the prior discontinued/stale-data blocker for implementation purposes."
             },
             "thresholdSupport": {
-                "strength": "community_route_specific_but_gauge_discontinued",
-                "notes": "MoHERP exact-route rows suggest a conservative floor near 150 to 200 cfs on the Boaz gauge, but that gauge is no longer live. Do not transfer this threshold to Galena without route-specific proxy support."
+                "strength": "community_minimum_only",
+                "notes": "Implemented minimum-only at 275 cfs. MoHERP exact-route evidence includes a Delaware-to-Shelvin row at 275 cfs where most of the river was fine but the group dragged through a few low areas and called it about the minimum recommended water level for the section. No ideal range or high cutoff was inferred."
             },
             "endpoints": {
                 "putIn": "Delaware Town Access",
                 "takeOut": "Shelvin Rock Access",
-                "coordinatesPresent": false,
-                "putInCoordinates": null,
-                "takeOutCoordinates": null,
-                "coordinateSource": "Not captured because the live gauge failed before implementation; MDC pages provide directions and area maps for future coordinate work if a live gauge returns."
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.0511,
+                    "longitude": -93.3914
+                },
+                "takeOutCoordinates": {
+                    "latitude": 36.99564609,
+                    "longitude": -93.3697183
+                },
+                "coordinateSource": "Delaware Town coordinate from a public paddling directory that cites USGS ScienceBase location data, paired with MDC access confirmation. Shelvin Rock coordinate carried forward from the existing V2 Shelvin Rock route and paired with MDC access confirmation."
             },
-            "notes": "Fresh 2026-05-28 review. Strong route/access evidence, but blocked by the discontinued Boaz gauge.",
+            "notes": "Added to V2 on 2026-05-30 as james-river-delaware-town-shelvin-rock. Conservative minimum-only route. Gallery now uses an existing rights-clean Wikimedia Commons same-river image from upstream Springfield, not exact-route photography. Caveats cover community threshold support, ledge-rock drops, shallow summer water, high/rising water, MDC day-use/no-camping rules, and private banks away from public accesses or lawful stops.",
             "lastReviewed": "2026-05-30"
         },
         {
@@ -12987,7 +13061,7 @@
             "route": "Dr. Bernard Burns Access / Westphalia to Mari-Osa / lower Maries family",
             "state": "MO",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-05-30 20:40 America/Chicago recheck preserved no_live_gauge. USGS 06927000 is still the obvious direct Maries River gauge at Westphalia, and MDC confirms Mari-Osa Access as public Osage River boat-ramp access near the Maries confluence, but fresh search did not surface same-day official product-ready USGS current data. The route also still lacks a manager-published exact Burns/Westphalia-to-Mari-Osa day-trip definition and a credible numeric paddling floor or range tied to the gauge.",
+            "blocker": "2026-05-30 23:10 America/Chicago recheck preserved no_live_gauge. USGS 06927000 is still the obvious direct Maries River gauge at Westphalia, and MDC confirms Mari-Osa Access as public Osage River boat-ramp access near the Maries confluence, but fresh search still did not surface same-day official product-ready USGS current data. The route also still lacks a manager-published exact Burns/Westphalia-to-Mari-Osa day-trip definition and a credible numeric paddling floor or range tied to the gauge.",
             "retryCondition": "Retry only if USGS 06927000 exposes same-day product-fetchable instantaneous data and MDC, Osage County, a water-trail manager, outfitter, or strong public route guide identifies a specific Maries River public put-in/take-out pair with numeric paddling guidance tied to that gauge.",
             "retryDate": null,
             "sourcesChecked": [
@@ -12998,7 +13072,8 @@
                 "Snoflo Maries River at Westphalia gauge snippets",
                 "Local Reddit thread mentioning Burns Access to Mari-Osa as a local Maries kayak trip",
                 "Fresh 2026-05-28 web/source recheck: USGS 06927000 current-conditions search snippet showed latest visible discharge/stage from 2026-04-26 08:00 CDT; MDC Mari-Osa Access page still confirms public boat-ramp access; no manager-published exact Maries day trip or numeric threshold surfaced.",
-                "Fresh 2026-05-30 20:40 recheck: Maries searches again found MDC Mari-Osa access, USGS/Maries gauge context, Snoflo/RiverApp third-party gauge context, and local anecdotal Burns-to-Mari-Osa mentions, but no official current product path or manager-grade route/threshold package."
+                "Fresh 2026-05-30 20:40 recheck: Maries searches again found MDC Mari-Osa access, USGS/Maries gauge context, Snoflo/RiverApp third-party gauge context, and local anecdotal Burns-to-Mari-Osa mentions, but no official current product path or manager-grade route/threshold package.",
+                "2026-05-30 23:10 recheck: MDC Mari-Osa access context and RiverApp/Snoflo gauge snippets remain discoverable, but no same-day official USGS 06927000 current data, manager-published exact lower-Maries route, or numeric paddling threshold surfaced."
             ],
             "aliases": [
                 "Maries River - Westphalia gauge family",
@@ -13025,7 +13100,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because no exact source-backed public endpoint pair and threshold model cleared the gate."
             },
-            "notes": "Fresh 2026-05-30 20:40 recheck preserved no_live_gauge; do not reopen until the Westphalia gauge has product-fetchable current data plus route-specific threshold support.",
+            "notes": "Rechecked 2026-05-30 23:10 America/Chicago. Keep no_live_gauge; do not reopen until the Westphalia gauge has product-fetchable current data plus route-specific threshold support.",
             "lastReviewed": "2026-05-30"
         },
         {
@@ -13124,13 +13199,13 @@
         },
         {
             "candidateId": "mo-south-fabius-river-dunn-ford-blackhawk",
-            "reviewCount": 3,
+            "reviewCount": 4,
             "river": "South Fabius River",
             "route": "Dunn Ford Access to Blackhawk Access",
             "state": "MO",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-05-30 22:40 America/Chicago recheck preserved no_live_gauge. MDC still gives unusually strong public route support: Dunn Ford says the next access for canoeists is Black Hawk Access 10 river miles downstream, and Black Hawk says it is about 10 miles downstream from Dunn Ford and a convenient day-float destination. Official USGS 05500000 legacy current conditions still showed latest discharge/stage at 2026-05-19 08:30 CDT rather than same-day data, and no credible numeric paddling floor or range tied to the gauge surfaced.",
-            "retryCondition": "Retry only if USGS 05500000 or another direct South Fabius gauge exposes product-fetchable same-day instantaneous data and MDC, MoHERP, an outfitter, or a strong public route guide provides numeric paddling guidance for Dunn Ford to Black Hawk or a clearly equivalent South Fabius reach.",
+            "blocker": "2026-05-30 23:00 America/Chicago recheck kept no_live_gauge. MDC still gives strong Dunn Ford-to-Black Hawk route/access support, but search-visible current evidence did not prove same-day official/product-fetchable USGS 05500000 data and no credible numeric paddling threshold tied to the gauge surfaced.",
+            "retryCondition": "Retry only when USGS 05500000 exposes reliable same-day product-fetchable current observations and a credible numeric low-water floor or range tied to Dunn Ford-to-Black Hawk surfaces.",
             "retryDate": null,
             "sourcesChecked": [
                 "MDC Dunn Ford Access page",
@@ -13144,7 +13219,8 @@
                 "2026-05-30 16:50 recheck: American Whitewater Missouri index showed South Fabius Hester Wildlife Area-to-Hwy-61 current-looking context at 46 cfs updated about 1 hour ago, but official USGS 05500000 legacy current conditions still showed latest visible discharge 73.4 cfs and gage height 2.13 ft at 2026-05-19 08:30 CDT.",
                 "Fresh 2026-05-30 18:29 web recheck: MDC Black Hawk Access still says the access is about 10 miles downstream from Dunn Ford and a convenient day-float destination; official USGS 05500000 monitoring/current-conditions search results still lacked same-day May 30 values, with the visible legacy current page showing May 19, 2026.",
                 "Fresh 2026-05-30 22:20 web/search and product-path recheck: MDC Dunn Ford and Black Hawk pages still strongly support the 10-mile day-float route; USGS 05500000 search-visible evidence remained stale or non-current, and automation-shell USGS Water Services IV fetch failed unable to connect. Public searches still did not surface route-specific numeric threshold guidance.",
-                "2026-05-30 22:40 web recheck: MDC Dunn Ford and Black Hawk pages still strongly support the 10-mile day-float route; official USGS 05500000 legacy current conditions showed latest visible discharge 73.4 cfs and gage height 2.13 ft at 2026-05-19 08:30 CDT; public searches still did not surface route-specific numeric threshold guidance."
+                "2026-05-30 22:40 web recheck: MDC Dunn Ford and Black Hawk pages still strongly support the 10-mile day-float route; official USGS 05500000 legacy current conditions showed latest visible discharge 73.4 cfs and gage height 2.13 ft at 2026-05-19 08:30 CDT; public searches still did not surface route-specific numeric threshold guidance.",
+                "2026-05-30 23:00 search recheck: South Fabius / USGS 05500000 visible current evidence remained stale/insufficient, and no numeric paddling threshold surfaced."
             ],
             "aliases": [
                 "South Fabius River - Dunn Ford to Blackhawk",
@@ -13170,7 +13246,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-data freshness and threshold support failed before implementation."
             },
-            "notes": "Rechecked 2026-05-30 at 22:40 America/Chicago. Strong public endpoint and route-shape lead, but do not implement until official live gauge freshness and numeric threshold support improve.",
+            "notes": "Rechecked 2026-05-30 23:00 America/Chicago. Keep out of implementation until both live data and threshold support improve.",
             "lastReviewed": "2026-05-30"
         },
         {
@@ -13473,12 +13549,12 @@
         },
         {
             "candidateId": "mo-castor-river-maple-flats-zalma-family",
-            "reviewCount": 2,
+            "reviewCount": 3,
             "river": "Castor River",
             "route": "Maple Flats / Zalma public-access family",
             "state": "MO",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-05-31 00:20 America/Chicago recheck preserved no_live_gauge. USGS 07021000 Castor River at Zalma is a real same-river gauge and MDC confirms Maple Flats Access as public access to the Castor River with boat-ramp imagery near Zalma. The route was not added because the automation shell still could not reach USGS Water Services, search-visible third-party gauge evidence was stale or non-authoritative, and no credible route-specific numeric paddling floor or range surfaced. National Rivers Project context for Highway 72-to-Maple-Flats describes a near-flood-stage, skill-dependent upper Castor reach rather than a conservative broad-audience threshold package.",
+            "blocker": "2026-05-30 23:31 America/Chicago recheck preserved no_live_gauge. MDC confirms Maple Flats Access as public Castor River access with boat-ramp imagery near Zalma, and USGS 07021000 remains a real same-river gauge. The route was not added because search-visible USGS legacy evidence still did not prove same-day current data, the automation shell still could not reach USGS Water Services, and no credible route-specific numeric paddling floor or range surfaced. National Rivers Project context for Highway 72-to-Maple-Flats remains near-flood-stage / skill-dependent rather than conservative broad-audience guidance.",
             "retryCondition": "Retry only if USGS 07021000 exposes same-day product-fetchable instantaneous data and MDC, a county/city source, outfitter, American Whitewater, MoHERP, or another strong route guide publishes numeric Castor River paddling guidance for a specific public endpoint pair.",
             "retryDate": null,
             "sourcesChecked": [
@@ -13489,7 +13565,10 @@
                 "Public searches for Castor River Maple Flats, Zalma, canoe, kayak, USGS, and threshold guidance",
                 "2026-05-31 web recheck: MDC Maple Flats Access page confirms public access to the Castor River and boat-ramp/photo context near Zalma.",
                 "2026-05-31 web recheck: American Whitewater Castor River at Zalma gauge search result remained stale by months and did not provide route threshold bands.",
-                "2026-05-31 web recheck: National Rivers Project Highway 72 to Maple Flats context describes the Castor as not perpetual-flow and navigable near flood-stage conditions after significant rain, with ledges/chutes/shoals requiring skills; this does not support a broad PaddleToday minimum-only route."
+                "2026-05-31 web recheck: National Rivers Project Highway 72 to Maple Flats context describes the Castor as not perpetual-flow and navigable near flood-stage conditions after significant rain, with ledges/chutes/shoals requiring skills; this does not support a broad PaddleToday minimum-only route.",
+                "2026-05-30 23:31 web recheck: MDC Maple Flats Access still confirms public access to the Castor River with boat-ramp/photo context near Zalma.",
+                "2026-05-30 23:31 web recheck: official USGS 07021000 legacy search-visible evidence still did not prove same-day current discharge/stage, and American Whitewater search context did not provide route threshold bands.",
+                "2026-05-30 23:31 shell recheck: USGS Water Services IV fetch including 07021000 failed with Unable to connect to the remote server."
             ],
             "aliases": [
                 "Castor River - Maple Flats Access",
@@ -13501,7 +13580,7 @@
                 "quality": "direct_but_no_current_product_data_visible",
                 "id": "07021000",
                 "provider": "USGS",
-                "notes": "USGS 07021000 is a direct Castor River gauge at Zalma, but same-day product-ready current data was not established during this pass."
+                "notes": "USGS 07021000 is a direct Castor River gauge at Zalma, but same-day product-ready current data was not established during this pass; Water Services fetch from the automation shell failed unable to connect."
             },
             "thresholdSupport": {
                 "strength": "not_found",
@@ -13515,8 +13594,8 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live data and threshold support failed before implementation."
             },
-            "notes": "Rechecked 2026-05-31 00:20 America/Chicago. Keep this southeast Missouri Castor cluster out of implementation until official live gauge freshness and numeric route-specific threshold support improve.",
-            "lastReviewed": "2026-05-31"
+            "notes": "Rechecked 2026-05-30 23:31 America/Chicago. Keep this southeast Missouri Castor cluster out of implementation until official live gauge freshness and numeric route-specific threshold support improve.",
+            "lastReviewed": "2026-05-30"
         },
         {
             "candidateId": "mo-eleven-point-greer-crossing-turner-mill",
@@ -18225,8 +18304,8 @@
             "state": "KS",
             "status": "no_live_gauge",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 5,
-            "blocker": "2026-05-30 22:39 America/Chicago. Access, route shape, endpoint coordinates, and hazard documentation remain strong, but official USGS 06888990 Topeka Weir discharge and gage-height values are still not product-fresh. The legacy current page showed discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, with page last modified 2026-05-27 09:42 EDT. The modern monitoring-location page exposed station context and maintenance messaging but no fresh values in accessible HTML, and workspace Water Services/API fetches failed unable to connect. Do not add this scoreable route until current discharge/stage data is visible through an app-supported path.",
+            "reviewCount": 6,
+            "blocker": "2026-05-30 23:09 America/Chicago. Access, route shape, endpoint coordinates, and hazard documentation remain strong, but official USGS 06888990 Topeka Weir discharge and gage-height values are still not product-fresh. The legacy current page still showed discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, with page last modified 2026-05-27 09:42 EDT. The modern monitoring-location page exposed station context and maintenance messaging but no fresh values in accessible HTML. Do not add this scoreable route until current discharge/stage data is visible through an app-supported path.",
             "retryCondition": "Revisit when USGS 06888990 exposes current same-day discharge and gage-height data through an app-supported path; keep the route non-novice because it ends at or uses the Topeka Water Plant low-head-dam portage/paddler chute.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18241,7 +18320,8 @@
                 "USGS Water Data API latest-continuous endpoint context opened 2026-05-30 22:10 America/Chicago; it documents latest continuous observations, but this run did not obtain a filtered fresh 06888990 discharge/stage result.",
                 "Workspace shell Water Services IV fetch for USGS 06888990 discharge and gage height failed 2026-05-30 22:10 America/Chicago with unable to connect to the remote server.",
                 "USGS 06888990 modern monitoring-location page and legacy current page re-opened 2026-05-30 22:39 America/Chicago; legacy current page still showed discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, and the modern page did not expose fresh discharge/stage values in accessible HTML.",
-                "Workspace shell Water Services IV, new API, and monitoring-location fetches for USGS 06888990 failed 2026-05-30 22:39 America/Chicago with unable to connect to the remote server."
+                "Workspace shell Water Services IV, new API, and monitoring-location fetches for USGS 06888990 failed 2026-05-30 22:39 America/Chicago with unable to connect to the remote server.",
+                "USGS 06888990 modern monitoring-location page and legacy current page re-opened 2026-05-30 23:09 America/Chicago; legacy current page still showed discharge 6,560 cfs and gage height 6.70 ft at 2026-05-27 08:30 CDT, and the modern page did not expose fresh discharge/stage values in accessible HTML."
             ],
             "aliases": [
                 "Kaw River - Kaw River State Park to Topeka Weir",
@@ -18273,7 +18353,7 @@
                 },
                 "coordinateSource": "Friends of the Kaw access pages publish the Kaw River State Park GPS coordinate and Topeka Water Plant portage/ramp coordinate."
             },
-            "notes": "Rechecked 2026-05-30 22:39 America/Chicago and not added. This remains the obvious missing Topeka Kansas River connector, but the direct gauge is still not product-fresh from this runtime, so the automation standard favors no route over shipping it."
+            "notes": "Rechecked 2026-05-30 23:09 America/Chicago and not added. This remains the obvious missing Topeka Kansas River connector, but the direct gauge is still not product-fresh from this runtime, so the automation standard favors no route over shipping it."
         },
         {
             "candidateId": "ks-arkansas-river-wichita-hutchinson-family",
@@ -18282,8 +18362,8 @@
             "state": "KS",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 4,
-            "blocker": "2026-05-30 22:39 America/Chicago while reconciling the Wichita/Lincoln Arkansas River family. Kansas public-river legality and Wichita/Hutchinson paddling interest remain real, but no official route-specific numeric threshold model tied to a selected app-supported live gauge was found. The Arkansas can be shallow, braided, or dry in Kansas, so access points alone are still not enough.",
+            "reviewCount": 5,
+            "blocker": "2026-05-30 23:09 America/Chicago while reconciling the Wichita/Lincoln Arkansas River family. Kansas public-river legality and Wichita/Hutchinson paddling interest remain real, but no official route-specific numeric threshold model tied to a selected app-supported live gauge was found. The Arkansas can be shallow, braided, or dry in Kansas, so access points alone are still not enough.",
             "retryCondition": "Revisit when a specific public endpoint pair has official/current access support plus numeric low-water and high-water guidance tied to a current USGS or other official live gauge.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18321,8 +18401,8 @@
             "state": "KS",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 4,
-            "blocker": "2026-05-30 22:39 America/Chicago while reviewing Kansas-side Missouri River families. Public-river status and access leads remain real, but no conservative, route-specific big-river gauge threshold package cleared this run. The Atchison-to-Leavenworth source remains a broad changing-channel corridor rather than a precise scoreable route.",
+            "reviewCount": 5,
+            "blocker": "2026-05-30 23:09 America/Chicago while reviewing Kansas-side Missouri River families. Public-river status and access leads remain real, but no conservative, route-specific big-river gauge threshold package cleared this run. The Atchison-to-Leavenworth source remains a broad changing-channel corridor rather than a precise scoreable route.",
             "retryCondition": "Revisit only with named public endpoints, commercial-traffic/wing-dam/current hazard review, and numeric stage/flow guidance tied to a current official Missouri River gauge.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18664,9 +18744,9 @@
             "state": "MO",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 15,
-            "blocker": "Fresh 2026-05-30 22:50 America/Chicago recheck preserved needs_manual_coordinates. USGS 07067000 legacy current conditions exposed 1,420 cfs and 3.47 ft at 2026-05-30 11:30 CDT, and prior NPS/compendium evidence still supports the Van Buren-to-Big Spring route concept. The route was not added because the Big Spring upper floater landing coordinate remains unsourced, and the lower Big Spring Boat Ramp remains trailered-boats-only / no-floater-access context that should not be substituted.",
-            "retryCondition": "Retry when Big Spring upper river landing coordinates are source-backed from an NPS map/GIS source, authoritative OSM-derived landing record, or another manager-quality access source. Keep USGS 07067000 as the direct gauge if still fresh; use minimum-only 700 cfs with NPS Van Buren 5.00 ft closure level as high-water caution only.",
+            "reviewCount": 17,
+            "blocker": "2026-05-30 23:31 America/Chicago recheck kept needs_manual_coordinates. NPS still supports Van Buren-to-Big Spring as a 4.3-mile / 2-hour lower Current float, and the 2026 NPS superintendent compendium still distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered-boats-only / no floater access. Targeted searches again did not surface source-backed coordinates for the Big Spring upper floater landing, and the automation shell still could not reach USGS Water Services for a fresh product-path verification.",
+            "retryCondition": "Retry when Big Spring upper river landing coordinates are source-backed from an NPS map/GIS source, authoritative OSM-derived landing record, or another manager-quality access source. Do not substitute the lower Big Spring Boat Ramp. Keep USGS 07067000 as the direct gauge if still fresh; use minimum-only 700 cfs with NPS Van Buren 5.00 ft closure level as high-water caution only.",
             "retryDate": null,
             "sourcesChecked": [
                 "NPS Estimated Float Times page reviewed 2026-05-30; lists Van Buren to Big Spring as 4.3 miles / 2 hours",
@@ -18698,7 +18778,11 @@
                 "2026-05-30 22:10 web recheck: NPS Paddle the Lower Current River still lists Van Buren to Big Spring as a 2-hour route and names Big Spring as lower-Current access context.",
                 "2026-05-30 22:10 shell recheck: USGS Water Services IV fetch for 07067000 failed unable to connect from the automation environment.",
                 "2026-05-30 22:50 web recheck: official USGS 07067000 legacy current conditions showed 1,420 cfs and 3.47 ft at 2026-05-30 11:30 CDT.",
-                "2026-05-30 22:50 decision note: do not substitute lower Big Spring Boat Ramp coordinates for the NPS Big Spring (upper) floater landing."
+                "2026-05-30 22:50 decision note: do not substitute lower Big Spring Boat Ramp coordinates for the NPS Big Spring (upper) floater landing.",
+                "2026-05-30 23:00 recheck: targeted Big Spring upper/floater landing search still did not surface source-backed coordinates; NPS materials continue to distinguish Big Spring lower-current access context from lower motorized boat-ramp limits.",
+                "2026-05-30 23:31 web recheck: NPS Paddle the Lower Current River still lists Van Buren to Big Spring as a 2-hour lower-Current route, and NPS estimated float times still lists 4.3 miles / 2 hours.",
+                "2026-05-30 23:31 web recheck: NPS superintendent compendium search result still lists Big Spring (upper) as a Current River landing and Big Spring Boat Ramp (lower) as trailered boats only / no floater access.",
+                "2026-05-30 23:31 shell recheck: USGS Water Services IV fetch including 07067000 failed with Unable to connect to the remote server."
             ],
             "aliases": [
                 "Current River - Van Buren to Big Spring",
@@ -18710,7 +18794,7 @@
                 "quality": "direct",
                 "id": "07067000",
                 "provider": "USGS",
-                "notes": "USGS 07067000 Current River at Van Buren is a direct same-river gauge at the put-in town corridor and is already product-used by current-river-waymeyer-van-buren."
+                "notes": "USGS 07067000 Current River at Van Buren is a direct same-river gauge at the put-in town corridor and is already product-used by current-river-waymeyer-van-buren. This run could not verify Water Services from the shell because the request failed unable to connect."
             },
             "thresholdSupport": {
                 "strength": "community_route_specific_minimum_only_with_official_high_caution",
@@ -18727,7 +18811,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Put-in coordinate carried forward from the implemented Waymeyer-to-Van-Buren route. Take-out coordinate intentionally left null because this run did not capture a source-backed coordinate for NPS Big Spring (upper) river landing, and the lower motorized-only boat ramp should not be substituted."
             },
-            "notes": "Rechecked 2026-05-30 22:50 America/Chicago. No add; live-gauge evidence is acceptable today, but Big Spring upper floater landing coordinates remain the blocker."
+            "notes": "Rechecked 2026-05-30 23:31 America/Chicago. No add; live/threshold story remains promising, but source-backed Big Spring upper floater landing coordinates remain the blocker."
         },
         {
             "candidateId": "mo-jacks-fork-rymers-bay-creek-alley-family",
@@ -19190,8 +19274,8 @@
             "state": "KS",
             "status": "research_later",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 5,
-            "blocker": "2026-05-30 22:39 America/Chicago. KDWP still confirms the Arkansas River as a public Kansas river and the 192-mile Arkansas River National Water Trail context remains useful, while City of Wichita access planning and Arkansas River Coalition 200 cfs downstream-of-Lincoln guidance remain only partial support. The blocker remains unchanged: no source-clean exact route from a named public put-in to a named public take-out with manager-grade endpoint coordinates and a numeric threshold model tied to one product-supported USGS gauge cleared the V2 bar.",
+            "reviewCount": 6,
+            "blocker": "2026-05-30 23:09 America/Chicago. KDWP still confirms the Arkansas River as a public Kansas river and the 192-mile Arkansas River National Water Trail context remains useful, while City of Wichita access planning and Arkansas River Coalition 200 cfs downstream-of-Lincoln guidance remain only partial support. The blocker remains unchanged: no source-clean exact route from a named public put-in to a named public take-out with manager-grade endpoint coordinates and a numeric threshold model tied to one product-supported USGS gauge cleared the V2 bar.",
             "retryCondition": "Retry only with a manager-grade Arkansas River Water Trail access-point pair, source-backed endpoint coordinates, product-supported current USGS data for the selected Wichita/Derby gauge, and threshold guidance that clearly applies to that exact reach rather than only to the broad post-Lincoln corridor.",
             "retryDate": null,
             "sourcesChecked": [
@@ -19208,7 +19292,8 @@
                 "City of Wichita Arkansas River Corridor Access Plan search result rechecked 2026-05-30 21:39 America/Chicago; access-planning context remains real but does not provide a score-ready paddling threshold package.",
                 "Arkansas River Coalition current web/search context rechecked 2026-05-30 21:39 America/Chicago; downstream-of-Lincoln 200 cfs guidance remains too broad for an exact V2 route.",
                 "Reconciled again 2026-05-30 22:10 America/Chicago during Kansas no-add pass; no new exact endpoint/gauge-threshold package was found in the current ledger and inventory review.",
-                "Reconciled again 2026-05-30 22:39 America/Chicago during Kansas no-add pass; no new exact endpoint/gauge-threshold package was found in the current ledger and inventory review."
+                "Reconciled again 2026-05-30 22:39 America/Chicago during Kansas no-add pass; no new exact endpoint/gauge-threshold package was found in the current ledger and inventory review.",
+                "Reconciled again 2026-05-30 23:09 America/Chicago during Kansas no-add pass; no new exact endpoint/gauge-threshold package was found in the current ledger and inventory review."
             ],
             "aliases": [
                 "Arkansas River - Wichita",
@@ -19236,7 +19321,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "No manager-grade exact endpoint pair with coordinates was selected in this pass."
             },
-            "notes": "Rechecked 2026-05-30 22:39 America/Chicago. Do not add as a generic Wichita Arkansas River route; start any future pass by selecting one exact below-Lincoln public access pair and proving the selected gauge/threshold relationship."
+            "notes": "Rechecked 2026-05-30 23:09 America/Chicago. Do not add as a generic Wichita Arkansas River route; start any future pass by selecting one exact below-Lincoln public access pair and proving the selected gauge/threshold relationship."
         },
         {
             "candidateId": "ks-missouri-river-kaw-point-leavenworth-family",
@@ -19245,8 +19330,8 @@
             "state": "KS",
             "status": "threshold_weak",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 5,
-            "blocker": "2026-05-30 22:39 America/Chicago. KDWP still confirms the Missouri River is public in Kansas and lists Kansas City / Kaw Point as access; Kaw Point Park / Friends of the Kaw context still confirms a public ramp used by recreational boaters, paddlers, and the MR340 start. No route was added because this remains a big-river commercial-navigation corridor without a conservative route-specific threshold model, a public Kansas-side downstream endpoint package, or local-manager guidance sufficient to score a Kaw Point-to-Leavenworth route. Wing dams, wind, barge traffic, fast current, and long access spacing remain first-order blockers.",
+            "reviewCount": 6,
+            "blocker": "2026-05-30 23:09 America/Chicago. KDWP still confirms the Missouri River is public in Kansas and lists Kansas City / Kaw Point as access; Kaw Point Park / Friends of the Kaw context still confirms a public ramp used by recreational boaters, paddlers, and the MR340 start. No route was added because this remains a big-river commercial-navigation corridor without a conservative route-specific threshold model, a public Kansas-side downstream endpoint package, or local-manager guidance sufficient to score a Kaw Point-to-Leavenworth route. Wing dams, wind, barge traffic, fast current, and long access spacing remain first-order blockers.",
             "retryCondition": "Retry only if an official Missouri River Water Trail or local-manager source identifies an exact public Kansas-side route with endpoint coordinates, a direct product-supported Missouri River gauge, and defensible paddling thresholds or safety bands for private paddlecraft.",
             "retryDate": null,
             "sourcesChecked": [
@@ -19259,7 +19344,8 @@
                 "Kaw Point Park Boat Ramp page rechecked 2026-05-30; confirms public recreational ramp use including kayaks/canoes and MR340 context, but not a downstream route threshold model.",
                 "KDWP Rivers and Streams Access and Kaw Point public-ramp web/search context rechecked 2026-05-30 21:39 America/Chicago; access support remains useful, but no route-specific Missouri River threshold model or Kansas-side downstream endpoint package surfaced.",
                 "Reconciled again 2026-05-30 22:10 America/Chicago during Kansas no-add pass; no conservative private-paddlecraft threshold package or Kansas-side downstream endpoint package surfaced in the current ledger and inventory review.",
-                "Reconciled again 2026-05-30 22:39 America/Chicago during Kansas no-add pass; no conservative private-paddlecraft threshold package or Kansas-side downstream endpoint package surfaced in the current ledger and inventory review."
+                "Reconciled again 2026-05-30 22:39 America/Chicago during Kansas no-add pass; no conservative private-paddlecraft threshold package or Kansas-side downstream endpoint package surfaced in the current ledger and inventory review.",
+                "Reconciled again 2026-05-30 23:09 America/Chicago during Kansas no-add pass; no conservative private-paddlecraft threshold package or Kansas-side downstream endpoint package surfaced in the current ledger and inventory review."
             ],
             "aliases": [
                 "Missouri River - Kaw Point to Leavenworth",
@@ -19289,7 +19375,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Friends of the Kaw publishes Kaw Point GPS; downstream endpoint was not source-cleanly selected."
             },
-            "notes": "Rechecked 2026-05-30 22:39 America/Chicago. Keep Missouri River Kansas candidates out of app data until a route-specific big-river safety and threshold package exists."
+            "notes": "Rechecked 2026-05-30 23:09 America/Chicago. Keep Missouri River Kansas candidates out of app data until a route-specific big-river safety and threshold package exists."
         }
     ]
 }
