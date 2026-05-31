@@ -31,6 +31,13 @@ Use this file to bootstrap Indiana route expansion with access-law and dam hazar
 
 ## Run Log
 
+- 2026-05-30 21:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Cedar Creek - Tonkel Road to State Road 1 / Leo-Cedarville` as the strongest fresh route-shape lead. Northeast Indiana Water Trails publishes exact endpoint coordinates, just-over-5-mile distance, about 3-hour paddle time, seasonal qualitative level notes, fallen-tree/portage warnings, and small rapids before the exit. ACRES repeats the route and says it ends at the DNR access site on State Road 1, and Indiana DNR confirms Cedar Creek is a designated scenic/recreational river-system stream.
+  - No route was added because the level guidance remains qualitative only: NEIWT's water-level page recommends checking USGS and learning local effects, but publishes no numeric threshold bands or minimum-only floor tied to a selected gauge. USGS Water Services IV requests from the automation shell still failed unable to connect for NE Indiana / recurring Indiana gauges.
+  - Kept public-access legitimacy at the Tonkel Road carry-down, OHWM/private-bank limits, current logjam status, and low-head-dam map context as explicit blockers before implementation.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only; no npm validation because no app data changed.
+
 - 2026-05-30 20:39 America/Chicago: No route added.
   - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
   - USGS Water Services IV fetches from the automation shell still failed unable to connect for recurring Indiana gauges `03339500`, `03303000`, `03334000`, and `03335000`.
