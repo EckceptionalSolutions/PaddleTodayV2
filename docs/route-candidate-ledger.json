@@ -11546,8 +11546,8 @@
             "state": "MO",
             "status": "no_live_gauge",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 6,
-            "blocker": "Fresh 2026-05-30 16:19 America/Chicago recheck preserved no_live_gauge. MDC still supports Beaver Creek as a floating destination with Brownbranch/Bradleyville access context, and MoHERP route-specific Brownbranch-to-Bradleyville rows remain useful if live data ever recovers. The official USGS 07054080 WDFN page/search result still shows no continuous data available, and recent route notes keep endpoint/access conditions unsettled after flood/channel change. Do not ship until current product-fetchable USGS data and access usability both recover.",
+            "reviewCount": 7,
+            "blocker": "Fresh 2026-05-30 21:10 America/Chicago recheck preserved no_live_gauge. MDC still supports Beaver Creek as a floating destination with Brownbranch/Bradleyville access context, and MoHERP route-specific Brownbranch-to-Bradleyville rows remain useful if live data ever recovers. The official USGS 07054080 legacy current page still opened with latest instantaneous values from 2026-05-25, and recent route notes keep endpoint/access conditions unsettled after flood/channel change. Do not ship until current product-fetchable USGS data and access usability both recover.",
             "retryCondition": "Retry when USGS 07054080 Beaver Creek at Bradleyville exposes current product-fetchable instantaneous observations and Brownbranch/Bradleyville access remains usable. If live data recovers, use only a conservative minimum-only model around the MoHERP 200 cfs Good floor, with strong caveats for fee/private campground access, post-flood strainers, shallow riffles, final riffle, and take-out degradation.",
             "retryDate": null,
             "sourcesChecked": [
@@ -11563,7 +11563,8 @@
                 "2026-05-30 opened Rivers.MOHERP Beaver Creek Bradleyville page; visible current data was stale to 2025-11-07, but condition bands and Brownbranch-to-Bradleyville trip rows remain useful",
                 "2026-05-30 opened MDC Beaver Creek fishing prospects page; MDC says Beaver Creek is a floating destination, most floats begin at Brownbranch and downstream, and visitors can pay a fee at Beaver Creek Campground or launch at the Highway 76 bridge at Bradleyville",
                 "2026-05-30 USGS Water Services IV fetch for 07054080 failed from automation shell with Unable to connect to the remote server",
-                "2026-05-30 16:19 web recheck: USGS 07054080 WDFN/search result still showed no continuous data available; kept no_live_gauge despite useful MDC and MoHERP route context"
+                "2026-05-30 16:19 web recheck: USGS 07054080 WDFN/search result still showed no continuous data available; kept no_live_gauge despite useful MDC and MoHERP route context",
+                "2026-05-30 21:10 web recheck: official USGS 07054080 legacy current-conditions page showed 82.3 cfs and 2.51 ft at 2026-05-25 12:15 CDT, not current enough for this Missouri run."
             ],
             "aliases": [
                 "Beaver Creek - Brownbranch to Bradleyville",
@@ -11575,7 +11576,7 @@
                 "quality": "direct_but_no_continuous_data_visible",
                 "id": "07054080",
                 "provider": "USGS",
-                "notes": "USGS 07054080 is the direct same-creek Bradleyville gauge historically used by MoHERP, but fresh 2026-05-30 WDFN/search evidence still shows no continuous data available. This fails the current PaddleTodayV2 live-data gate."
+                "notes": "USGS 07054080 is the direct same-creek Bradleyville gauge historically used by MoHERP, but fresh 2026-05-30 legacy current evidence still showed latest observations from 2026-05-25. This fails the current PaddleTodayV2 live-data gate."
             },
             "thresholdSupport": {
                 "strength": "community_route_specific_if_live_recovers",
@@ -11589,7 +11590,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because same-day live gauge freshness did not clear the implementation bar."
             },
-            "notes": "Rechecked 2026-05-26 at 15:35 America/Chicago. Route and threshold evidence remain promising, but no route should ship while direct product-fetchable Bradleyville gauge data is unverified."
+            "notes": "Rechecked 2026-05-30 at 21:10 America/Chicago. Route and threshold evidence remain promising, but no route should ship while direct product-fetchable Bradleyville gauge data is stale or unverified."
         },
         {
             "candidateId": "mo-meramec-river-steelville-scotts-ford-indian-springs-family",
@@ -18509,8 +18510,8 @@
             "state": "MO",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 9,
-            "blocker": "Fresh 2026-05-30 20:50 America/Chicago recheck preserved needs_manual_coordinates. NPS Lower Current still lists Van Buren to Big Spring as a 2-hour paddle, and the April 22, 2026 superintendent compendium still lists Big Spring (upper) as a Current River landing while distinguishing Big Spring Boat Ramp (lower) as trailered boats only / no floater access. The gauge/threshold story remains viable on USGS 07067000 with a conservative 700 cfs floor from MoHERP exact-trip evidence; the official USGS legacy page still exposed 1,420 cfs and 3.47 ft at 2026-05-30 11:30 CDT. The blocker remains source-backed coordinates: no reusable coordinate specifically for the upper floater landing was captured, so the lower motorized-only ramp, Big Spring spring/natural-area coordinates, and visually inferred points must not be substituted.",
+            "reviewCount": 10,
+            "blocker": "Fresh 2026-05-30 21:10 America/Chicago recheck preserved needs_manual_coordinates. NPS Lower Current still lists Van Buren to Big Spring as a 2-hour paddle, and the April 22, 2026 superintendent compendium still lists Big Spring (upper) as a Current River landing while distinguishing Big Spring Boat Ramp (lower) as trailered boats only / no floater access. The gauge/threshold story remains viable on USGS 07067000 with a conservative 700 cfs floor from MoHERP exact-trip evidence; the official USGS legacy page still exposed 1,420 cfs and 3.47 ft at 2026-05-30 11:30 CDT. The blocker remains source-backed coordinates: no reusable coordinate specifically for the upper floater landing was captured, so the lower motorized-only ramp, Big Spring spring/natural-area coordinates, and visually inferred points must not be substituted.",
             "retryCondition": "Retry when Big Spring upper river landing coordinates are source-backed from an NPS map/GIS source, authoritative OSM-derived landing record, or another manager-quality access source. Do not use the lower Big Spring Boat Ramp as a floater take-out unless NPS rules change. If coordinates are resolved, use minimum-only 700 cfs on USGS 07067000 with NPS Van Buren 5.00 ft closure level as high-water caution only.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18532,7 +18533,8 @@
                 "2026-05-30 19:19 web recheck: NPS Big Spring place and Big Spring planning/historic-district search leads confirm public Big Spring area/canoe-access context but did not expose a source-backed upper landing coordinate.",
                 "2026-05-30 20:30 web recheck: searched NPS Big Spring upper landing, floater access, Current River coordinate, and compendium leads again. NPS still confirms Big Spring (upper) as a river landing and the lower boat ramp as trailered-boats-only/no-floater-access, but no source-backed upper landing coordinate surfaced.",
                 "2026-05-30 20:40 web recheck: official USGS 07067000 legacy current-conditions page exposed discharge 1,420 cfs and gage height 3.47 ft at 2026-05-30 11:30 CDT; fresh Big Spring upper / Current River landing searches still did not produce a source-backed upper landing coordinate.",
-                "2026-05-30 20:50 web recheck: official USGS 07067000 legacy current-conditions page still exposed discharge 1,420 cfs and gage height 3.47 ft at 2026-05-30 11:30 CDT; no source-backed Big Spring upper landing coordinate was captured."
+                "2026-05-30 20:50 web recheck: official USGS 07067000 legacy current-conditions page still exposed discharge 1,420 cfs and gage height 3.47 ft at 2026-05-30 11:30 CDT; no source-backed Big Spring upper landing coordinate was captured.",
+                "2026-05-30 21:10 web recheck: official USGS 07067000 legacy current-conditions page still exposed discharge 1,420 cfs and gage height 3.47 ft at 2026-05-30 11:30 CDT; no source-backed Big Spring upper landing coordinate was captured."
             ],
             "aliases": [
                 "Current River - Van Buren to Big Spring",
@@ -18561,7 +18563,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Put-in coordinate carried forward from the implemented Waymeyer-to-Van-Buren route. Take-out coordinate intentionally left null because this run did not capture a source-backed coordinate for NPS Big Spring (upper) river landing, and the lower motorized-only boat ramp should not be substituted."
             },
-            "notes": "Strong likely follow-on once the upper Big Spring landing coordinate is resolved. Fresh 2026-05-30 20:50 review found no acceptable coordinate source, so do not implement yet. Keep route copy caveated for lower Current motorboats, private banks, high/rising water, NPS closure checks, no-glass/no-polystyrene rules, and the upper-vs-lower Big Spring access distinction. Do not use the lower motorized-only ramp, the Big Spring natural-area/spring coordinate, or a visually inferred map point as the take-out coordinate."
+            "notes": "Strong likely follow-on once the upper Big Spring landing coordinate is resolved. Fresh 2026-05-30 21:10 review found no acceptable coordinate source, so do not implement yet. Keep route copy caveated for lower Current motorboats, private banks, high/rising water, NPS closure checks, no-glass/no-polystyrene rules, and the upper-vs-lower Big Spring access distinction. Do not use the lower motorized-only ramp, the Big Spring natural-area/spring coordinate, or a visually inferred map point as the take-out coordinate."
         },
         {
             "candidateId": "mo-jacks-fork-rymers-bay-creek-alley-family",
@@ -18570,8 +18572,8 @@
             "state": "MO",
             "status": "no_live_gauge",
             "lastReviewed": "2026-05-30",
-            "reviewCount": 3,
-            "blocker": "Fresh 2026-05-30 20:40 America/Chicago recheck preserved no_live_gauge. NPS clearly supports the mid-Jacks route family, listing Rymers to Bay Creek as 9 miles / 4 hours and Bay Creek to Alley as 5.8 miles / 2 hours. Bay Creek-to-Alley is the cleaner day-trip shape if this advances, and MoHERP exposes a direct Alley Spring gauge page with a 100 cfs Good floor plus nearby upper-Jacks trip evidence. However, the official USGS 07065495 legacy page opened with latest discharge/stage values from 2026-05-29 13:30 CDT, not current for this run. The downstream Eminence gauge 07066000 is already used below Alley Spring, but Alley Spring inflow makes it a weak proxy for above-Alley reaches. No route was added.",
+            "reviewCount": 4,
+            "blocker": "Fresh 2026-05-30 21:10 America/Chicago recheck preserved no_live_gauge. NPS clearly supports the mid-Jacks route family, listing Rymers to Bay Creek as 9 miles / 4 hours and Bay Creek to Alley as 5.8 miles / 2 hours. Bay Creek-to-Alley is the cleaner day-trip shape if this advances, and MoHERP exposes a direct Alley Spring gauge page with a 100 cfs Good floor plus nearby upper-Jacks trip evidence. However, the official USGS 07065495 legacy page opened with latest discharge/stage values from 2026-05-29 13:30 CDT, not current for this run. The downstream Eminence gauge 07066000 is already used below Alley Spring, but Alley Spring inflow makes it a weak proxy for above-Alley reaches. No route was added.",
             "retryCondition": "Retry only if USGS 07065495 exposes fresh product-fetchable discharge/gage-height data and MoHERP, NPS, AW, or another strong route source provides a conservative low-water floor or range for the selected Rymers/Bay Creek/Alley endpoint pair. Reconfirm Buck Hollow/Rymers/Alley existing coverage to avoid duplicate corridor additions.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18583,7 +18585,8 @@
                 "2026-05-30 20:30 web recheck: NPS Estimated Float Times still lists Rymers to Bay Creek 9 miles / 4 hours and Bay Creek to Alley 5.8 miles / 2 hours.",
                 "2026-05-30 20:30 web recheck: USGS 07065495 legacy current conditions opened with 129 cfs and 1.54 ft at 2026-05-29 13:30 CDT, with available discharge and gage-height period ending 2026-05-29.",
                 "2026-05-30 20:30 web recheck: Rivers.MOHERP Alley Spring gauge page shows useful condition bands including Good beginning at 100 cfs and upper-Jacks trip rows, but latest search-visible data was May 25 and official USGS freshness remains the gate.",
-                "2026-05-30 20:40 web recheck: USGS 07065495 legacy current conditions still showed 129 cfs and 1.54 ft at 2026-05-29 13:30 CDT."
+                "2026-05-30 20:40 web recheck: USGS 07065495 legacy current conditions still showed 129 cfs and 1.54 ft at 2026-05-29 13:30 CDT.",
+                "2026-05-30 21:10 web recheck: USGS 07065495 legacy current conditions still showed 129 cfs and 1.54 ft at 2026-05-29 13:30 CDT."
             ],
             "aliases": [
                 "Jacks Fork - Rymers to Bay Creek",
@@ -18595,7 +18598,7 @@
                 "quality": "direct_but_stale",
                 "id": "07065495",
                 "provider": "USGS",
-                "notes": "USGS 07065495 Jacks Fork at Alley Spring is the direct route-family gauge lead, but visible official current data was stale to 2026-05-29 during this 2026-05-30 20:40 run."
+                "notes": "USGS 07065495 Jacks Fork at Alley Spring is the direct route-family gauge lead, but visible official current data was stale to 2026-05-29 during this 2026-05-30 21:10 run."
             },
             "thresholdSupport": {
                 "strength": "promising_community_minimum_if_live_recovers",
@@ -18609,7 +18612,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because the live-gauge gate failed first and the route split remains unselected."
             },
-            "notes": "Promising corridor if Alley Spring gauge freshness returns. Bay Creek-to-Alley is the cleanest short day-trip shape from current evidence. Do not use Eminence as a clean above-Alley proxy without a source validating the spring-inflow difference."
+            "notes": "Promising corridor if Alley Spring gauge freshness returns. Bay Creek-to-Alley is the cleanest short day-trip shape from current evidence. Do not use Eminence as a clean above-Alley proxy without a source validating the spring-inflow difference. Rechecked 2026-05-30 21:10 America/Chicago with no add."
         },
         {
             "candidateId": "in-flatrock-river-st-omer-st-paul-family",
