@@ -658,6 +658,236 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
+  'kansas-river-seward-lecompton': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-seward-lecompton/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
+      caption: 'Kansas River at Lawrence',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-lecompton-lawrence-riverfront': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-lecompton-lawrence-riverfront/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
+      caption: 'Kansas River at Lawrence',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-lawrence-8th-eudora': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-lawrence-8th-eudora/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
+      caption: 'Kansas River at Lawrence',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-eudora-de-soto': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-eudora-de-soto/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
+      caption: 'Kansas River at Lawrence, upstream of this lower-Kaw route',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-de-soto-edwardsville': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'kansas-river-edwardsville-turner-bridge': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-edwardsville-turner-bridge/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'kansas-river-junction-city-ogden': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-junction-city-ogden/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-ogden-manhattan': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-ogden-manhattan/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-manhattan-st-george': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-st-george-wamego': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-st-george-wamego/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-wamego-belvue': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-wamego-belvue/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-belvue-kaw-river-state-park': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-belvue-kaw-river-state-park/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-topeka-water-plant-seward': [
+    {
+      id: 'kansas-river-lawrence-commons',
+      src: '/gallery/kansas-river-topeka-water-plant-seward/kansas-river-lawrence.jpg',
+      alt: 'An aerial view shows the Kansas River with broad sandbars, wooded banks, and bridges in the distance.',
+      caption: 'Kansas River corridor context',
+      credit: 'Dicklyon via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'kansas-river-turner-bridge-kaw-point': [
+    {
+      id: 'kansas-river-kansas-city-commons',
+      src: '/gallery/kansas-river-turner-bridge-kaw-point/kansas-river-kansas-city.jpg',
+      alt: 'The Kansas River flows through Kansas City with exposed sand and a low bridge crossing the wide channel.',
+      caption: 'Kansas River near Kansas City',
+      credit: 'James St. John via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'current-river-cedar-grove-akers': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-cedar-grove-akers/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills between Welch Spring and Akers Ferry.',
+      caption: 'Current River between Welch Spring and Akers Ferry',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'jacks-fork-river-alley-spring-chilton': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-alley-spring-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'current-river-waymeyer-van-buren': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'eleven-point-river-turner-mill-south-whitten': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-turner-mill-south-whitten/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'meramec-river-onondaga-campbell-bridge': [
+    {
+      id: 'meramec-river-onondaga-commons',
+      src: '/gallery/meramec-river-onondaga-campbell-bridge/meramec-river-onondaga.jpg',
+      alt: 'The Meramec River runs past Onondaga Cave State Park with wooded banks and low gravel edges.',
+      caption: 'Meramec River at Onondaga Cave State Park',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'meramec-river-campbell-bridge-sappington-bridge': [
+    {
+      id: 'meramec-river-onondaga-commons',
+      src: '/gallery/meramec-river-campbell-bridge-sappington-bridge/meramec-river-onondaga.jpg',
+      alt: 'The Meramec River runs past Onondaga Cave State Park with wooded banks and low gravel edges.',
+      caption: 'Meramec River near Onondaga Cave State Park',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'big-piney-river-east-gate-bookers-bend': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-east-gate-bookers-bend/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River flows through a green Missouri corridor with wooded banks and a shallow gravel edge.',
+      caption: 'Big Piney River in Missouri',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'big-piney-river-sandy-shoals-boiling-spring': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-sandy-shoals-boiling-spring/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River flows through a green Missouri corridor with wooded banks and a shallow gravel edge.',
+      caption: 'Big Piney River in Missouri',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'shoal-creek-tipton-ford-wildcat': [
+    {
+      id: 'shoal-creek-inspiration-point-commons',
+      src: '/gallery/shoal-creek-tipton-ford-wildcat/shoal-creek-inspiration-point.jpg',
+      alt: 'Shoal Creek bends below a wooded overlook near Joplin with a shallow riffled channel visible through the trees.',
+      caption: 'Shoal Creek from Inspiration Point',
+      credit: 'AbeEzekowitz via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
   'jacks-fork-river-buck-hollow-rymers': [
     {
       id: 'jacks-fork-upper-commons',

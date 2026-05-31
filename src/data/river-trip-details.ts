@@ -1,6 +1,563 @@
 import type { RiverTripDetails } from '../lib/types';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
+  'kansas-river-seward-lecompton': {
+    putIn: {
+      name: "Seward Avenue / Fool's Landing Access Ramp",
+      latitude: 39.06036,
+      longitude: -95.59468,
+    },
+    takeOut: {
+      name: 'Lecompton / Rising Sun Access Ramp',
+      latitude: 39.05057,
+      longitude: -95.38764,
+    },
+    logistics: {
+      distanceLabel: 'About 12.7 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 6 hr, longer with low water, wind, scouting, or a conservative dam decision',
+      shuttle:
+        "Stage the take-out at Lecompton / Rising Sun, then drive back to Seward Avenue / Fool's Landing. Inspect both ramps first, and do not launch unless the group has already reviewed the Tecumseh low-head-dam structure one mile below Seward and has a current plan for skipping the route if the passage looks wrong.",
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a committed day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, portage, or scout from adjacent private land without permission.',
+      summary:
+        "Launch at Seward Avenue / Fool's Landing and take out at Lecompton / Rising Sun for a 12.7-mile Kansas River day. The route includes the Tecumseh low-head-dam structure one mile downstream of Seward, so it is only for experienced paddlers making a same-day hazard call.",
+      accessCaveats: [
+        "Seward Avenue / Fool's Landing has a dusk-to-dawn gate, and Friends of the Kaw says the ramp can silt in after rising or falling water. Inspect it before leaving a vehicle.",
+        'The Tecumseh low-head dam is about one mile downstream from Seward. Friends of the Kaw says the structure is barely visible under most conditions, is not suitable for novices, and has no public bank portage or road access.',
+        'Lecompton / Rising Sun has a dirt or gravel parking area, no restrooms or lighting, and a ramp that can collect mud after rain or during summer low-water periods.',
+        'The Topeka Weir gauge is upstream of this route. Treat it as a Topeka-corridor proxy and make a same-day visual call at Seward before committing.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, gates, high-water cleanup, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Tecumseh low-head-dam structure at river mile 76. Approach slowly, avoid the route if the group cannot identify a conservative line, and do not assume a bank portage is available.',
+        'Low flows below about 1,000 cfs can expose structure, shallow channels, and slow sandbar navigation.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-lecompton-lawrence-riverfront': {
+    putIn: {
+      name: 'Lecompton / Rising Sun Access Ramp',
+      latitude: 39.05057,
+      longitude: -95.38764,
+    },
+    takeOut: {
+      name: 'Lawrence Riverfront Park Access Ramp',
+      latitude: 38.97474,
+      longitude: -95.23522,
+    },
+    logistics: {
+      distanceLabel: 'About 10.2 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, wind, or sandbar stops',
+      shuttle:
+        'Stage the take-out at Lawrence Riverfront Park above Bowersock Dam, then drive back to the Lecompton / Rising Sun access. Inspect Lawrence first because this is the required exit before the dam; do not assume you can continue downstream through Lawrence.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at Lecompton / Rising Sun and take out at Lawrence Riverfront Park above Bowersock Dam for a 10.2-mile lower-Kaw day. The app uses the downstream De Soto USGS gauge as a proxy because the Lecompton route-corridor station did not have current visible instantaneous data during review.',
+      accessCaveats: [
+        'Lawrence Riverfront Park is above Bowersock Dam. Take out here before the dam unless your group has a separate expert plan with current local guide support.',
+        'Friends of the Kaw says only highly skilled paddlers with Kaw River Guides should consider continuing through the Bowersock chute; this route does not include that chute or the downstream 8th Street access.',
+        'Lecompton / Rising Sun has a dirt or gravel parking area, no restrooms or lighting, and a ramp that can collect mud after rain or during summer low-water periods.',
+        'The De Soto gauge is downstream of this reach and downstream of Lawrence. Treat it as a broad lower-Kaw proxy and make a same-day visual call at Lecompton before committing.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, events, high-water cleanup, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'The Lawrence take-out is mandatory for this route. Do not drift past Riverfront Park toward Bowersock Dam.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-junction-city-ogden': {
+    putIn: {
+      name: 'Junction City Access Ramp / Grant Park',
+      latitude: 39.06029,
+      longitude: -96.80341,
+    },
+    takeOut: {
+      name: 'Ogden Access Ramp',
+      latitude: 39.10503,
+      longitude: -96.69633,
+    },
+    logistics: {
+      distanceLabel: 'A little over 9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with low water, wind, or confluence scouting',
+      shuttle:
+        'Stage the take-out at Ogden, then drive back to Grant Park in Junction City. Inspect both ramps before launching because the Junction City ramp is on the Republican River and the Ogden ramp can be affected by sand, mud, high-water cleanup, or local parking conditions.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at the Junction City ramp on the Republican River, paddle about one-third mile to the Smoky Hill confluence where the Kansas River begins, and take out at Ogden. The Wamego USGS gauge is downstream of the route, so use it as a broad upper-Kaw proxy and make a same-day visual call at the launch.',
+      accessCaveats: [
+        'The Junction City ramp is in Grant Park on the Republican River, not directly on the Kansas River. The Kansas River begins about one-third mile downstream where the Republican and Smoky Hill rivers meet.',
+        'Friends of the Kaw warns of unusual currents where the clearer Republican outflow meets the sediment-loaded Smoky Hill; identify the confluence line before relaxing into the downstream Kaw channel.',
+        'The Junction City ramp has no restroom or lighting, though overnight parking is allowed; do not assume nearby services at the launch.',
+        'Ogden has a wide concrete river-left ramp, trailer-capable gravel parking, restrooms, a picnic shelter, trash can, and an informational kiosk, but same-day mud, sand, local parking, and high-water cleanup still control.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical, especially near the upper-river confluence.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Republican, Smoky Hill, and Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+        'The Wamego gauge is downstream of this reach. Treat it as a broad same-river proxy and make a same-day visual call at Junction City before committing.',
+      ],
+    },
+  },
+  'kansas-river-lawrence-8th-eudora': {
+    putIn: {
+      name: 'Lawrence Riverfront Park East / 8th Street Access Ramp',
+      latitude: 38.972,
+      longitude: -95.21639,
+    },
+    takeOut: {
+      name: 'Eudora Access Ramp',
+      latitude: 38.94999,
+      longitude: -95.09963,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with low water, wind, stops, or the Wakarusa turn',
+      shuttle:
+        'Stage the take-out at the Eudora Public Works / Main Street ramp, then drive back to the Lawrence 8th Street access. Inspect the Eudora take-out first because it requires an upstream paddle on the Wakarusa River from the Kansas River confluence.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch below the Lawrence dam complex at the Riverfront Park East / 8th Street ramp and take out at Eudora. This is a public Kansas River Water Trail segment with a downstream De Soto gauge proxy and special attention needed for Wakarusa releases at the take-out.',
+      accessCaveats: [
+        'The 8th Street ramp is below Bowersock Dam; do not start from the upstream Lawrence Riverfront Park ramp unless you have a separate dam-portage plan.',
+        'The Eudora ramp is on the Wakarusa River. From the Kansas River, turn hard right upstream into the Wakarusa and paddle about three-quarters of a mile to the ramp.',
+        'Friends of the Kaw warns that Clinton Reservoir releases into the Wakarusa at 250 cfs and above can make the Eudora upstream take-out paddle difficult to impossible.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw and Wakarusa; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-eudora-de-soto': {
+    putIn: {
+      name: 'Eudora Access Ramp',
+      latitude: 38.94999,
+      longitude: -95.09963,
+    },
+    takeOut: {
+      name: 'De Soto Access Ramp / Riverfest Park',
+      latitude: 38.98496,
+      longitude: -94.9746,
+    },
+    logistics: {
+      distanceLabel: 'About 10.7 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, wind, or sandbar stops',
+      shuttle:
+        'Stage the take-out at De Soto Riverfest Park, then drive back to the Eudora ramp at the Public Works / Main Street access. Inspect De Soto first because Friends of the Kaw notes city-event closures and a recurring sandbar at the toe of the ramp.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch from the Eudora ramp on the Wakarusa River, paddle downstream to the Kansas River, and take out at De Soto. The De Soto USGS gauge is in the take-out corridor, and both endpoints are Friends of the Kaw public access ramps.',
+      accessCaveats: [
+        'The Eudora ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River. This route launches there and paddles downstream to the Kaw rather than requiring the harder upstream take-out turn.',
+        'Check Clinton Reservoir releases before launching because Wakarusa current, debris, and confluence conditions can still affect the first part of the trip.',
+        'Friends of the Kaw notes that the De Soto ramp can close for city events and that a sandbar regularly forms at the toe of the ramp, sometimes requiring portage or a different landing angle.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Wakarusa and Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-de-soto-edwardsville': {
+    putIn: {
+      name: 'De Soto Access Ramp / Riverfest Park',
+      latitude: 38.98496,
+      longitude: -94.9746,
+    },
+    takeOut: {
+      name: 'Edwardsville Access Ramp / River Front Park',
+      latitude: 39.05056,
+      longitude: -94.81665,
+    },
+    logistics: {
+      distanceLabel: 'About 14.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr, longer with low water, wind, or sandbar stops',
+      shuttle:
+        'Stage the take-out at Edwardsville River Front Park, then drive back to the De Soto ramp at Riverfest Park. Inspect both ramps before launching because sand, mud, city events, or maintenance can change parking and launch conditions.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a long day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at De Soto and take out at Edwardsville for a longer lower-Kaw day. The De Soto USGS gauge is in the put-in corridor, Cedar Creek is closed, and the WaterOne low-head dam is downstream of the Edwardsville take-out.',
+      accessCaveats: [
+        'The De Soto ramp is public, but Friends of the Kaw notes city-event closures and a sandbar that can form at the toe of the ramp.',
+        'Cedar Creek Access is closed due to storm damage, so do not plan on it as a normal bailout or take-out.',
+        'End the trip at Edwardsville. Friends of the Kaw warns that the WaterOne low-head dam is downstream and should not be run in any vessel.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across long open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-edwardsville-turner-bridge': {
+    putIn: {
+      name: 'Edwardsville Access Ramp / River Front Park',
+      latitude: 39.05056,
+      longitude: -94.81665,
+    },
+    takeOut: {
+      name: 'Turner Bridge Access Ramp',
+      latitude: 39.09396,
+      longitude: -94.71176,
+    },
+    logistics: {
+      distanceLabel: 'About 7.4 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4 hr including the WaterOne portage, longer with low water, wind, or a slow carry',
+      shuttle:
+        'Stage the take-out at Turner Bridge, then drive back to Edwardsville River Front Park. Inspect the WaterOne portage plan before launching; this route is not appropriate unless everyone can carry their boat over loose rock on river left.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a short day trip with a dam portage, not an overnight. Friends of the Kaw says the controlled lower reach has almost no sandbars, and banks above the river are private; do not camp, picnic, or portage onto adjacent private land away from the documented dam portage.',
+      summary:
+        'Launch at Edwardsville and take out at Turner Bridge for a lower-Kaw link that includes the WaterOne low-head dam. Portage river left only, never use the river-right notch, and skip the route if the group cannot safely land, carry, and relaunch around the dam.',
+      accessCaveats: [
+        'Edwardsville has strong public-ramp amenities, but same-day city, park, ramp, mud, debris, or event conditions still control.',
+        'The WaterOne low-head dam is about 1.8 miles below Edwardsville. Friends of the Kaw says not to go over it in any vessel and to portage on the north bank, river left, only.',
+        'The WaterOne portage is a rough 100+ yard carry over large loose rocks. Wheels and carts are not useful, and high water can require an earlier landing on slick mud upstream.',
+        'Turner Bridge has no amenities and a small gravel parking lot that Friends of the Kaw says is not often well graded and can be muddy after recent high water.',
+      ],
+      watchFor: [
+        'WaterOne low-head dam at river mile 14.8. Land river left well above the structure, avoid the river-right low-water notch, and do not enter the dam hydraulic.',
+        'Low flows below about 1,000 cfs can expose mud, rocks, and awkward carry footing while making lower-channel travel slow.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'This lower reach has well-defined banks and almost no sandbars, so do not count on easy mid-route stops beyond the required portage.',
+        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
+        'Private banks along the Kaw; stay with public ramps, the documented dam portage, and legal stops rather than climbing banks elsewhere.',
+      ],
+    },
+  },
+  'kansas-river-ogden-manhattan': {
+    putIn: {
+      name: 'Ogden Access Ramp',
+      latitude: 39.10503,
+      longitude: -96.69633,
+    },
+    takeOut: {
+      name: 'Manhattan K-177 / Fairmont Access Ramp',
+      latitude: 39.17428,
+      longitude: -96.55318,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr, longer with low water, wind, stops, or ramp sand',
+      shuttle:
+        'Stage the take-out at the Manhattan K-177 / Fairmont ramp below the K-177 bridge, then drive back to the Ogden ramp. Inspect Manhattan first because Friends of the Kaw notes a sandbar often forms at the toe of the ramp as paddlers approach from the west.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a long day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at Ogden and take out at the Manhattan K-177 / Fairmont ramp for a 14-mile upper-Kaw day. Friends of the Kaw describes this as a beautiful, relatively untouched section near Manhattan, while the app uses the downstream Wamego USGS gauge as a proxy rather than a precise Ogden-stage reading.',
+      accessCaveats: [
+        'Ogden has a wide concrete river-left ramp, trailer-capable gravel parking, restrooms, a picnic shelter, trash can, and an informational kiosk, but same-day mud, sand, local parking, and high-water cleanup still control.',
+        'The Manhattan K-177 / Fairmont ramp has limited parking and no restroom; do not block the packed gravel approach under the bridge.',
+        'Friends of the Kaw notes that there is often a sandbar at the toe of the Manhattan ramp as paddlers approach from the west, so inspect the landing angle before launching from Ogden.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, high-water cleanup, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+        'The Wamego gauge is downstream of this reach. Treat it as a broad same-river proxy and make a same-day visual call at Ogden before committing to the full 14 miles.',
+      ],
+    },
+  },
+  'kansas-river-manhattan-st-george': {
+    putIn: {
+      name: 'Manhattan K-177 / Fairmont Access Ramp',
+      latitude: 39.17428,
+      longitude: -96.55318,
+    },
+    takeOut: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr, longer with low water, wind, stops, or Big Blue release effects',
+      shuttle:
+        'Stage the take-out at St. George / Boggs Landing, then drive back to the Manhattan K-177 / Fairmont ramp below the K-177 bridge. Inspect both ramps before launching because sand, mud, local parking, or high-water cleanup can change ramp usability.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch below the Manhattan K-177 bridge at the Fairmont ramp and take out at St. George / Boggs Landing for a 12-mile upper-Kaw day. The Wamego USGS gauge is downstream of the take-out and should be treated as a proxy rather than a precise Manhattan-stage reading.',
+      accessCaveats: [
+        'The Manhattan K-177 / Fairmont ramp has limited parking and no restroom; do not block the packed gravel approach under the bridge.',
+        'Friends of the Kaw notes that the nearby Linear Park / Big Blue access requires an upstream Big Blue paddle from the Kansas River and can be difficult when Tuttle Creek Reservoir releases exceed 500 cfs; this route avoids that take-out but still needs a release check near Manhattan.',
+        'St. George / Boggs Landing has strong amenities, but local events, mud, high-water cleanup, and ramp condition still need a same-day check.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-st-george-wamego': {
+    putIn: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    takeOut: {
+      name: 'Wamego Access Ramp',
+      latitude: 39.19828,
+      longitude: -96.30537,
+    },
+    logistics: {
+      distanceLabel: 'About 8.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with low water, wind, stops, or the Wamego bridge turn',
+      shuttle:
+        'Stage the take-out at the Wamego ramp beneath the K-99 bridge, then drive back to St. George / Boggs Landing. Inspect the Wamego landing before launching because the approach often involves passing under the bridge and turning upstream next to the bank.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at St. George / Boggs Landing and take out at Wamego for an 8.5-mile public Kansas River Water Trail segment. The Wamego USGS gauge is in the take-out corridor, and the route stays upstream of the Belvue low-head-dam reach.',
+      accessCaveats: [
+        'St. George / Boggs Landing is a public river-left ramp with strong amenities, but local parking, events, mud, and ramp condition still need a same-day check.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp.',
+        'Do not continue downstream toward Belvue without separate dam planning; Friends of the Kaw flags the Belvue Low-Head Dam at river mile 120 on the Wamego-to-Belvue segment.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-wamego-belvue': {
+    putIn: {
+      name: 'Wamego Access Ramp',
+      latitude: 39.19828,
+      longitude: -96.30537,
+    },
+    takeOut: {
+      name: 'Belvue Access Ramp',
+      latitude: 39.21644,
+      longitude: -96.17678,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr, longer with low water, wind, scouting, or dam-area caution',
+      shuttle:
+        'Stage the take-out at Belvue before driving back to the Wamego ramp beneath the K-99 bridge. Inspect Belvue first because the take-out is just downstream of the partial low-head dam hazard and ramp usability can change with sand, mud, or high-water cleanup.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip unless you have a current Belvue city camping reservation. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch at Wamego and take out at Belvue for a guarded 9.5-mile Kansas River Water Trail segment. The Wamego USGS gauge is in the put-in corridor, and the reach includes the Belvue partial low-head dam about one mile above the take-out.',
+      accessCaveats: [
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp; launching is simpler, but inspect bridge current and ramp condition before committing.',
+        'The Belvue partial low-head dam is at river mile 120, about one mile above the Belvue ramp. Friends of the Kaw says the dam begins on river right and extends more than halfway across the river; stay river left and watch for exposed or submerged rocks.',
+        'Belvue has primitive camping only by reservation through the city; do not assume overnight parking, camping, or adjacent-bank use is allowed without checking current local rules.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, event closures, high-water cleanup, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'The partial low-head dam and associated exposed or submerged rocks near Belvue. Do not run right-side dam structures, and do not attempt this reach if visibility, flow, or group skill makes the left-side line uncertain.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar or rock navigation slow and technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-belvue-kaw-river-state-park': {
+    putIn: {
+      name: 'Belvue Access Ramp',
+      latitude: 39.20284,
+      longitude: -96.17552,
+    },
+    takeOut: {
+      name: 'Kaw River State Park Access Ramp',
+      latitude: 39.06907,
+      longitude: -95.75342,
+    },
+    logistics: {
+      distanceLabel: 'About 29 mi',
+      estimatedPaddleTime:
+        'Best planned as an overnight; roughly 9.5 hr to 11 hr of moving time before wind, low water, scouting, or camp logistics',
+      shuttle:
+        'Stage the take-out at Kaw River State Park in Topeka before driving back to Belvue. This is the longest normal access gap on the Kansas River Water Trail, so confirm both ramps, vehicle access, weather, and the group plan before launching.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted state-park and city/county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Plan overnight stops only on exposed sandbars and only when current law and same-day river conditions support it. Banks above the river are private; do not camp, picnic, portage, or climb banks without permission. High flows can remove sandbar camp options entirely.',
+      summary:
+        'Launch at Belvue and take out at Kaw River State Park in Topeka for a 29-mile public Kansas River Water Trail segment. Friends of the Kaw describes this as non-novice and suitable as an overnight when sandbars are available; the Topeka Weir USGS gauge is near the downstream end.',
+      accessCaveats: [
+        'Friends of the Kaw says Belvue to Kaw River State Park is a 29-mile stretch with no normal intermediate access. Do not launch unless the group can complete the distance or has a legal emergency plan.',
+        'Kaw River State Park gates are locked at night even though Friends of the Kaw says parking is allowed 24 hours; verify current state-park access, parking, and retrieval logistics before leaving a vehicle.',
+        'The Kaw River State Park ramp can have a sandbar at its base after high water, and low water may require carrying boats and gear across sand.',
+        'The Topeka Water Plant low-head dam is two miles below Kaw River State Park. End at the state park unless your group has a separate dam portage or paddler-chute plan.',
+        'All access and parking are subject to same-day city, county, state-park, and ramp conditions. Mud, silt, high-water closures, locked gates, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Long exposed mileage, fatigue, heat, storms, and wind across open bends. This is not a novice day-trip distance.',
+        'Low flows below about 1,000 cfs can make the channel narrow and make sandbar navigation slow, while very low water can turn 29 miles into a much longer effort.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce, which also undermines overnight camp planning.',
+        'Floating wood, strainers, bank hooks and fishing lines, changing sandbars, and private banks along the Kaw.',
+        'Use only public ramps and legal sandbar stops; do not rely on private banks or road bridges as planned exits.',
+      ],
+    },
+  },
+  'kansas-river-topeka-water-plant-seward': {
+    putIn: {
+      name: 'Topeka Water Plant downstream access ramp',
+      latitude: 39.07421,
+      longitude: -95.71637,
+    },
+    takeOut: {
+      name: 'Seward Avenue / Fool\'s Landing Access Ramp',
+      latitude: 39.06036,
+      longitude: -95.59468,
+    },
+    logistics: {
+      distanceLabel: 'About 10.6 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr, longer with low water, wind, dredge traffic, or bridge scouting',
+      shuttle:
+        'Stage the take-out at Seward Avenue / Fool\'s Landing before launching below the Topeka Water Plant low-head dam. Do not start from Kaw River State Park unless your group has a separate Topeka dam portage or paddler-chute plan.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, or portage onto adjacent private land without permission.',
+      summary:
+        'Launch from the downstream ramp at the Topeka Water Plant access and take out at Seward Avenue / Fool\'s Landing for a guarded Topeka-area Kaw trip. The route uses the direct USGS Topeka Weir gauge but is not a novice float because of old railroad bridge debris and nearby low-head-dam hazards.',
+      accessCaveats: [
+        'The Topeka Water Plant access has ramps above and below the low-head dam. Launch below the dam for this route; do not go over the dam in any vessel.',
+        'The upstream Kaw River State Park ramp is only two miles above the Topeka Water Plant dam and requires portage or use of the paddler chute; that is a separate, more technical plan.',
+        'Seward Avenue / Fool\'s Landing has a gate that Friends of the Kaw says is locked from dusk to dawn and is not a good overnight parking location.',
+        'End the trip at Seward. The Tecumseh low-head dam is about one mile downstream and has no nearby public road access for an easy portage.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, high-water closures, gates, and shifted sand can change ramp usability.',
+      ],
+      watchFor: [
+        'Old railroad bridge remains at river miles 85.3 and 84.5. Friends of the Kaw says exposed steel is especially hazardous at low water and boaters should pass close to river right.',
+        'Low flows below about 1,000 cfs can make the channel narrow, expose debris, and make sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Active sand dredging near Seward, downtown bridge current, wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
+        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'kansas-river-turner-bridge-kaw-point': {
+    putIn: {
+      name: 'Turner Bridge Access Ramp',
+      latitude: 39.09396,
+      longitude: -94.71176,
+    },
+    takeOut: {
+      name: 'Kaw Point Park Access Ramp',
+      latitude: 39.11601,
+      longitude: -94.61203,
+    },
+    logistics: {
+      distanceLabel: 'About 9.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr, longer with low water, wind, or a slow Kaw Point take-out',
+      shuttle:
+        'Stage the take-out at Kaw Point Park before driving back to Turner Bridge. Check Kaw Point park hours, event closures, and the upper parking requirement before leaving a vehicle, and inspect the Turner Bridge ramp for mud or high-water cleanup.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'Treat this as a day trip. Friends of the Kaw says this controlled lower reach has almost no sandbars, and banks above the river are private; do not plan on camping, picnicking, or portaging onto adjacent private land without permission.',
+      summary:
+        'Launch at Turner Bridge and take out at Kaw Point Park for the final lower-Kaw segment before the Missouri River. The route uses the upstream De Soto USGS gauge as a conservative discharge proxy and ends at Kaw Point, not downstream on the Missouri River.',
+      accessCaveats: [
+        'Turner Bridge has no amenities and a small gravel parking lot that Friends of the Kaw says is not often well graded and can be muddy after recent high water.',
+        'Kaw Point Park is temporarily closed from 10:00 pm to 7:00 am daily, though Friends of the Kaw notes that twenty-four hour river access remains available at Turner Bridge. Special events may block access.',
+        'Park in the upper lot at Kaw Point and keep the ramp/loading area clear. The ramp and access road are often busy.',
+        'Make the Kaw Point take-out cleanly. The Missouri River is about 200 yards downstream and is a separate, faster, big-river environment generally not recommended for novice paddlers.',
+        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, high-water cleanup, events, and shifted debris can change ramp usability.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can expose mud, slow the lower channel, and make ramp edges awkward.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'This section has well-defined banks and almost no sandbars, so do not count on easy mid-route stops.',
+        'Wind in the open lower valley, storms, rising water, floating wood, strainers, bridge current, bank hooks and fishing lines, and industrial riverfront traffic.',
+        'Private banks along the Kaw; stay with public ramps and legal stops rather than climbing banks or using private land.',
+      ],
+    },
+  },
+  'current-river-cedar-grove-akers': {
+    putIn: {
+      name: 'Cedar Grove Boat Launch / access',
+      latitude: 37.42238,
+      longitude: -91.6083,
+    },
+    takeOut: {
+      name: 'Akers Lower / Akers Ferry access',
+      latitude: 37.37591,
+      longitude: -91.55148,
+    },
+    logistics: {
+      distanceLabel: '7.7 mi',
+      estimatedPaddleTime: 'About 3 hr for canoes and kayaks; longer with stops, low water, wind, rafts, or tubes',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Cedar Grove and Akers Ferry. Cell service is limited in the park, so set the take-out vehicle and pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'Treat this as a day float unless you have a separate legal camping plan. Cedar Grove has a small NPS campground, and gravel-bar camping has NPS rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      summary:
+        'Launch at Cedar Grove and take out at Akers Ferry for the NPS-listed 7.7-mile Upper Current River day float. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.',
+      accessCaveats: [
+        'Cedar Grove and Akers are standard Ozark National Scenic Riverways access points, but practical launch lanes, parking, outfitter traffic, and temporary flood or maintenance restrictions can change. Follow current NPS signs on arrival.',
+        'Endpoint coordinates are practical access anchors from Mapcarta / OpenStreetMap slipway records paired with NPS route and access confirmation, not a substitute for on-site signs.',
+        'NPS private-vessel guidance says to use designated river access points, unload promptly, and park only in designated areas; extended parking in loading zones can lead to towing or fines.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and possible dragging when the Akers gauge is near or below the 230 cfs floor.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft as a non-motorized closure level in flood conditions.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
   'big-fork-river-highway-6-south-north': {
     putIn: {
       name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
@@ -5177,6 +5734,110 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-alley-spring-chilton': {
+    putIn: {
+      name: 'Alley Spring Access',
+      latitude: 37.147975,
+      longitude: -91.444906,
+    },
+    takeOut: {
+      name: 'Joshua T. Chilton Memorial Landing / Eminence',
+      latitude: 37.152717,
+      longitude: -91.353486,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime: 'About 4 hr, longer with stops, crowds, wind, or low water',
+      shuttle:
+        'Stage the take-out at Joshua T. Chilton Memorial Landing in Eminence, then drive west on Highway 106 to the Alley Spring access area. Summer weekends can be crowded, so inspect parking, landing room, and any posted park or city rules before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at Alley Spring, MDC/cooperative-area rules at Joshua T. Chilton, Missouri boating laws, no-glass/no-polystyrene rules, and any posted closures or advisories.',
+      camping:
+        'Treat this as a day float. Alley Spring has developed campground context, but this route ends at Eminence; do not assume private banks, commercial campgrounds, or gravel bars near town are available for camping without a separate legal plan.',
+      summary:
+        'Launch at Alley Spring and take out at Joshua T. Chilton Memorial Landing in Eminence for the NPS-listed classic lower Jacks Fork day. Use the direct Eminence gauge as a conservative low-water check and expect heavy recreation traffic in peak season.',
+      accessCaveats: [
+        'Alley Spring is an NPS river access with campground and ranger-station context; follow the signed launch and parking layout rather than informal bank paths.',
+        'Joshua T. Chilton is an MDC-listed Jacks Fork access operated under a cooperative agreement; posted owner or local rules may apply beyond the MDC-listed boating regulations.',
+        'The Jacks Fork has a park-boundary gap around Eminence. Stay with public accesses and lawful stops rather than using private banks near town.',
+      ],
+      watchFor: [
+        'Shallow riffles and scraping when the Eminence gauge is near or below the 200 cfs conservative floor.',
+        'Heavy canoe, kayak, raft, tube, and motorboat traffic in summer, especially between Alley Spring and Eminence.',
+        'High or rising water, fresh wood, faster bridge approaches, and harder landings after storms.',
+        'Cold spring water, bluff jumps and swimmers, fishing lines, private banks near Eminence, and changing gravel at the take-out.',
+      ],
+    },
+  },
+  'current-river-waymeyer-van-buren': {
+    putIn: {
+      name: 'Waymeyer Access',
+      latitude: 37.054302,
+      longitude: -91.055459,
+    },
+    takeOut: {
+      name: 'Van Buren Riverfront Park Access',
+      latitude: 36.9939,
+      longitude: -91.014,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 3 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Van Buren Riverfront Park before driving north on State Route M to Waymeyer. Waymeyer has documented erosion and crowding limits, so inspect the signed access layout and unloading room before committing.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules at Waymeyer, MDC/cooperative-area and city rules at Van Buren Riverfront Park, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Treat this as a day float. Do not assume private banks near Van Buren, commercial campgrounds, or gravel bars are available for camping without a separate legal plan and current NPS rules.',
+      summary:
+        'Launch at Waymeyer and take out at Van Buren Riverfront Park for the NPS-listed lower Current River day section. Use the direct Van Buren gauge as a conservative low-water check and expect a busier, more motorized lower-river character than the upper Current.',
+      accessCaveats: [
+        'NPS has described Waymeyer as a non-commercial floater access, but also warned that erosion leaves limited safe unloading room on summer weekends. Follow current NPS signs and avoid blocking the access.',
+        'Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.',
+        'The Van Buren coordinate is a practical ramp anchor from MDC map/directions context, not an official coordinate table. Use the signed ramp, parking, and loading zones on arrival.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick ramps, swimmers, fishing lines, and crowded loading at Van Buren.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks near town and limited cell service outside Van Buren; arrange the shuttle before launching.',
+      ],
+    },
+  },
+  'eleven-point-river-turner-mill-south-whitten': {
+    putIn: {
+      name: 'Turner Mill South River Access',
+      latitude: 36.76456,
+      longitude: -91.26653037,
+    },
+    takeOut: {
+      name: 'Whitten River Access',
+      latitude: 36.732356,
+      longitude: -91.214837,
+    },
+    logistics: {
+      distanceLabel: 'About 6.1 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, stops, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Turner Mill South and Whitten. Both approaches include rural Forest Service roads, and the Whitten descent is steep, so inspect the take-out before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. Turner Mill South has limited campsites, but the Forest Service prohibits overnight camping in day-use access areas and designated float camps have separate rules.',
+      summary:
+        'Launch at Turner Mill South and take out at Whitten for the spring-fed Eleven Point link above the existing Whitten-to-Riverton route. Use the Bardley USGS gauge as a conservative low-water check, then make a same-day visual call at the launch.',
+      accessCaveats: [
+        'Turner Mill South and Whitten are official Forest Service river accesses with published coordinates, but access roads are rural and conditions can change after storms.',
+        'The Forest Service river-mile notes imply about 6.1 miles from Turner Mill to Whitten, while MoHERP exact-trip evidence rounds Turner Mill to Whitten to 8.0 miles. Plan time conservatively.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and occasional dragging when the Bardley gauge falls near the 300 cfs floor.',
+        'Cold spring-fed water, rapid rises after rain, fresh wood, blind bends, and remote-feeling gaps between accesses.',
+        'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit.',
+      ],
+    },
+  },
   'eleven-point-river-whitten-riverton': {
     putIn: {
       name: 'Whitten River Access',
@@ -5242,6 +5903,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Dragging and slow shoals when the Tecumseh gauge falls near the 300 cfs floor.',
         'The Falls about 7 miles below North Fork Recreation Area; scout if the level, group skill, or boat load makes the two-foot drop feel questionable.',
         'Cold spring-fed water, swift riffles, fresh wood, strainers on bends, and faster current after rain.',
+      ],
+    },
+  },
+  'meramec-river-onondaga-campbell-bridge': {
+    putIn: {
+      name: 'Onondaga Cave State Park canoe launch / boat launch',
+      latitude: 38.059859,
+      longitude: -91.221584,
+    },
+    takeOut: {
+      name: 'Campbell Bridge Access',
+      latitude: 38.08113567,
+      longitude: -91.14989519,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and weekend traffic',
+      shuttle:
+        'Use a short two-car shuttle between Onondaga Cave State Park and MDC Campbell Bridge Access on Highway N. Check Onondaga Cave State Park status and inspect the Campbell Bridge landing before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri State Parks rules at Onondaga Cave State Park, MDC rules at Campbell Bridge Access, and any posted launch, parking, hours, or temporary-closure signs.',
+      camping:
+        'Onondaga Cave State Park has camping by reservation or park rules, but this river reach should be treated as a day float unless you have a separate legal overnight plan.',
+      summary:
+        'Launch at the Onondaga Cave State Park Meramec River canoe launch or boat ramp and take out at MDC Campbell Bridge Access. MDC documents this as a five-mile canoe float, with the downstream Sullivan USGS gauge used as a conservative low-water check.',
+      accessCaveats: [
+        'Missouri State Parks says the canoe launch is downstream from the Meramec River bridge and the boat ramp is upstream from the bridge; choose the signed launch that matches your craft and current park rules.',
+        'Campbell Bridge is an MDC river access with a concrete boat ramp, dedicated canoe launch, restroom, and parking, but same-day signs and local conditions still control use.',
+        'The Campbell Bridge coordinate is a practical public paddling-location anchor paired with MDC route and map evidence; verify the take-out from the road before launching.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging when the Sullivan gauge falls near or below the 200 cfs floor.',
+        'High water, fresh wood, bridge current, and faster bends after rain; MoHERP high and flood categories are not broad casual-float conditions.',
+        'Bluff-lined bends, gravel bars, swimmers, anglers, rental traffic, and motorized users in the broader Sullivan-area Meramec corridor.',
+        'Private land away from public accesses and legal gravel-bar stops; stay within Missouri stream-access rules and respect posted land.',
+      ],
+    },
+  },
+  'meramec-river-campbell-bridge-sappington-bridge': {
+    putIn: {
+      name: 'Campbell Bridge Access',
+      latitude: 38.08113567,
+      longitude: -91.14989519,
+    },
+    takeOut: {
+      name: 'Sappington Bridge Access',
+      latitude: 38.157948,
+      longitude: -91.109295,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, stops, wind, and weekend traffic',
+      shuttle:
+        'Use a two-car shuttle between MDC Campbell Bridge Access on Highway N and MDC Sappington Bridge Access near Sullivan. Inspect Sappington first because it is the mandatory public take-out before deciding whether the group has enough daylight for the full ten miles.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules at Campbell Bridge and Sappington Bridge, plus any posted launch, parking, hours, or temporary-closure signs.',
+      camping:
+        'Treat this as a day float. No on-route legal campsite is assumed between Campbell Bridge and Sappington Bridge, and private banks should not be used without permission.',
+      summary:
+        'Launch at MDC Campbell Bridge Access and take out at MDC Sappington Bridge Access for the middle Meramec link through Blue Springs Creek. MDC documents the access spacing as two five-mile legs, and the app uses the Sullivan USGS gauge at the take-out corridor as a conservative low-water check.',
+      accessCaveats: [
+        'Campbell Bridge and Sappington Bridge are MDC river accesses with concrete ramps, dedicated canoe launches, restrooms, and parking, but same-day signs and local access conditions still control use.',
+        'Blue Springs Creek is an intermediate route landmark, not a recommended take-out in this app route. Plan to continue to Sappington unless you have a separate legal access plan.',
+        'Coordinates are practical public paddling-location anchors paired with MDC route and map evidence; verify both landings from the road before leaving vehicles.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging when the Sullivan gauge falls near or below the 200 cfs floor.',
+        'High water, fresh wood, bridge current, pushy bends, and harder landings after rain; MoHERP high and flood categories are not broad casual-float conditions.',
+        'Ten-mile pacing, warm-weather crowds, anglers, swimmers, rental traffic, and occasional motorized users in the Sullivan-area Meramec corridor.',
+        'Private land away from public accesses and legal gravel-bar stops; stay within Missouri stream-access rules and respect posted land.',
       ],
     },
   },
@@ -5315,6 +6046,78 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-piney-river-east-gate-bookers-bend': {
+    putIn: {
+      name: 'East Gate Access',
+      latitude: 37.764515,
+      longitude: -92.058539,
+    },
+    takeOut: {
+      name: 'Bookers Bend Access',
+      latitude: 37.80746153,
+      longitude: -92.0702596,
+    },
+    logistics: {
+      distanceLabel: '11 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, dragging, wind, or stops',
+      shuttle:
+        'Use a rural two-car shuttle between East Gate Access and Bookers Bend Access. Both Forest Service sites have small gravel launches and limited parking, so inspect Bookers Bend before launching and avoid blocking the short ramp area.',
+      permits:
+        'No route-specific paddling permit or Forest Service day-use fee is listed for these accesses. Follow Mark Twain National Forest site rules, Missouri boating laws, posted signs, no-glass/no-polystyrene rules, leash rules, and current access hours.',
+      camping:
+        'Treat this as a day trip. East Gate lists no camping, and Bookers Bend says no overnight camping in day-use areas; use a separately confirmed legal campground such as Slabtown if you are planning an overnight.',
+      summary:
+        'Launch at Forest Service East Gate Access and take out at Forest Service Bookers Bend Access for the official 11-mile Big Piney day float. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
+      accessCaveats: [
+        'East Gate and Bookers Bend are small Forest Service gravel boat/canoe accesses with limited parking for about three vehicles with trailers.',
+        'Bookers Bend has no restroom or potable water. East Gate also lists no restroom or potable water.',
+        'Most land along the lower Big Piney corridor is private. Stay with public accesses and clearly legal gravel-bar stops rather than climbing banks or using private land.',
+        'The Forest Service notes that there are no outfitters authorized to operate at these locations, so private shuttle logistics need to be settled before launch.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and a slower 11-mile day when the Big Piney gauge is below the MoHERP low-water floor.',
+        'Runs, riffles, pools, gravel-bottom shoals, and occasional murky water after rain.',
+        'Rapid rises after storms, fresh wood, harder landings, and no defended high-water cutoff in the current model.',
+        'Small gravel ramps, limited parking, motorized users, fishing traffic, and private shorelines between the accesses.',
+      ],
+    },
+  },
+  'big-piney-river-sandy-shoals-boiling-spring': {
+    putIn: {
+      name: 'Sandy Shoals Ford access',
+      latitude: 37.4108792,
+      longitude: -91.9501555,
+    },
+    takeOut: {
+      name: 'Boiling Spring Access',
+      latitude: 37.4594894,
+      longitude: -91.9893237,
+    },
+    logistics: {
+      distanceLabel: 'Just over 6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, dragging, fishing, or stops',
+      shuttle:
+        'Use a two-car shuttle between Sandy Shoals Ford and MDC Boiling Spring Access. Inspect the Boiling Spring take-out first, because the saved coordinate is a practical spring/access anchor and paddlers should follow the posted MDC ramp and parking layout on arrival.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri boating laws, posted MDC area rules at Boiling Spring Access, no-glass/no-polystyrene rules, vehicle hours, and any current signs at Sandy Shoals Ford.',
+      camping:
+        'Treat this as a day trip. MDC lists camping as prohibited at Boiling Spring Access, and private land borders parts of the corridor; use only separately confirmed legal camping if extending the trip.',
+      summary:
+        'Launch at Sandy Shoals Ford access and take out at MDC Boiling Spring Access for the MDC-described quick Big Piney day float. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
+      accessCaveats: [
+        'MDC names Sandy Shoals Ford access as the put-in for this day trip, but the coordinate is anchored from topo/GeoNames-style ford mapping rather than an MDC-published latitude and longitude.',
+        'Boiling Spring Access is an MDC public area with a boat ramp, picnic area, privy, parking, and disabled-accessible features shown on the area map.',
+        'Camping is prohibited at Boiling Spring Access, and vehicle use is limited to roads and established parking areas unless posted otherwise.',
+        'Private land borders portions of the Big Piney corridor. Stay with the public access, lawful gravel-bar stops, and posted rules rather than climbing banks or using private land.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and slower travel when the Big Piney gauge is below the MoHERP low-water floor.',
+        'Mostly Class I Ozark floating water, with MDC noting occasional Class II sections on the Big Piney after a good rain.',
+        'Rapid rises after storms, murky water, fresh wood, and harder landings. The current model has no defended high-water cutoff.',
+        'Ford-area access judgment at the put-in, ramp traffic at Boiling Spring, fishing traffic, and limited cell service.',
+      ],
+    },
+  },
   'james-river-shelvin-rock-hooten-town': {
     putIn: {
       name: 'Shelvin Rock Access',
@@ -5381,6 +6184,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Dragging, slow pools, and shallow riffles when the Galena gauge is near or below the 200 cfs floor.',
         'High or rising water after rain, fresh wood, strainers on bends, cloudy water, and more difficult landings.',
         'Busy summer boat, tube, rental, swimming, and angling traffic around Galena, the Y-Bridge, and local outfitter corridors.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
+  'shoal-creek-tipton-ford-wildcat': {
+    putIn: {
+      name: 'Tipton Ford Access',
+      latitude: 36.98367,
+      longitude: -94.441028,
+    },
+    takeOut: {
+      name: 'Wildcat Access',
+      latitude: 37.02972461,
+      longitude: -94.5209093,
+    },
+    logistics: {
+      distanceLabel: 'About 6.9 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on level, wood, stops, and bridge scouting',
+      shuttle:
+        'Use a Joplin-area two-car shuttle between MDC Tipton Ford Access off Old Highway 71 and MDC Wildcat Access through the Shoal Creek Conservation Education Center / Wildcat Glade corridor. Stage and inspect Wildcat first because it is the planned public take-out and local park traffic can affect parking.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, day-use restrictions, and boat-use rules at Tipton Ford and Wildcat Access.',
+      camping:
+        'Treat this as a day float. Do not plan to camp at either MDC access, and do not use private banks without permission.',
+      summary:
+        'Launch at MDC Tipton Ford Access and take out at MDC Wildcat Access for a 6.9-mile lower Shoal Creek day in the Joplin area. Use the Joplin USGS gauge as a conservative low-water check, then make a same-day call for wood, high-water current, and bridge approaches.',
+      accessCaveats: [
+        'Tipton Ford is an MDC public access with a small-boat concrete ramp and parking, but posted signs and area maps control exact use.',
+        'Wildcat Access is an MDC / City of Joplin public access with a boat ramp and parking, but it sits in a busy recreation corridor; inspect the landing before launching upstream.',
+        'Coordinates are practical access anchors from public paddling/location records paired with MDC access confirmation; follow on-site signs for the exact ramp, parking, and any temporary restrictions.',
+      ],
+      watchFor: [
+        'Dragging, shallow chert riffles, and possible walking when the Joplin gauge is near or below the 225 cfs floor.',
+        'High or rising water after rain, especially split channels, pushy bridge current, strainers, and log jams.',
+        'The Highway 171 area, where MoHERP high-water trip notes warn of a treacherous split channel and capsizes.',
+        'Class I-II riffles, chert ledges, brush piles, root wads, anglers, swimmers, and local park users near Wildcat.',
         'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
       ],
     },

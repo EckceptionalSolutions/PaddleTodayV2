@@ -15903,6 +15903,2174 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'kansas-river-seward-lecompton',
+    slug: 'kansas-river-seward-lecompton',
+    name: 'Kansas River',
+    reach: "Seward Avenue / Fool's Landing to Lecompton / Rising Sun",
+    aliases: [
+      "Kaw River - Fool's Landing to Lecompton",
+      'Kansas River - Seward Avenue to Rising Sun',
+      "Seward Avenue / Fool's Landing Access Ramp to Lecompton / Rising Sun Access Ramp",
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      "Experienced-paddler Kansas River day from Seward Avenue / Fool's Landing to Lecompton / Rising Sun. Friends of the Kaw documents both public ramps and the 12.7-mile spacing, but this route includes the Tecumseh low-head-dam structure one mile below Seward and is not a novice float.",
+    statusText:
+      'Use the Kansas River above Topeka Weir gauge as an upstream corridor check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect exposed dam structure, shallow channels, and sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.06036,
+    longitude: -95.59468,
+    gaugeSource: {
+      id: 'usgs-06888990',
+      provider: 'usgs',
+      siteId: '06888990',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River above Topeka Weir at Topeka, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. Low summer water can expose more of the Tecumseh structure and make the channel braided, while high water hides hazards, removes sandbar rests, and raises the consequence of a missed line.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is not a novice Kansas River day. The Tecumseh low-head-dam structure is one mile below the put-in, has no public bank portage or road access, and Friends of the Kaw says the area should only be paddled by people with extensive river experience. Scout from reliable maps before committing, approach slowly, and skip the route if the group cannot make a conservative dam-passage decision.',
+      confidenceNotes:
+        "Confidence is high for access and route shape: Friends of the Kaw documents Seward Avenue / Fool's Landing at river mile 77, Lecompton / Rising Sun at river mile 64.3, both GPS coordinates, the 12.7-mile downstream spacing, and the Tecumseh low-head-dam hazard one mile below Seward. Confidence is moderate for scoring because the Topeka Weir gauge is upstream of the route and the level bands are broad Kansas River guidance rather than a route-specific official ladder. The app applies the same conservative Kaw calibration used by adjacent Topeka-area routes and foregrounds the dam hazard instead of presenting the route as a broad-audience float.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: "Seward Avenue / Fool's Landing, RM 77",
+        note: "Friends of the Kaw lists Seward Avenue / Fool's Landing with GPS 39.06036, -95.59468, river-right concrete ramp, paved parking, lighting, trash, Shawnee County maintenance, a dusk-to-dawn gate, and a ramp-silt caveat.",
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Lecompton / Rising Sun, RM 64.3',
+        note: 'Friends of the Kaw lists the Lecompton / Rising Sun access with GPS 39.05057, -95.38764, river-left concrete ramp, gravel parking, kiosk, no restrooms or lighting, and rain/mud caveats.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 12.7 river miles',
+        note: 'The Seward access page says the next downstream access is Lecompton / Rising Sun 12.7 miles downstream at river mile 64.3.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+      },
+      {
+        label: 'Tecumseh low-head dam',
+        value: 'RM 76, one mile below Seward',
+        note: 'Friends of the Kaw says the Tecumseh structure is a low wall spanning two-thirds of the river from river left, is barely visible under most conditions, has no public bank portage or road access, and is not recommended for novices.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 06888990 above Topeka Weir',
+        note: 'USGS operates Kansas River above Topeka Weir upstream of Seward. Use it as a Topeka-corridor proxy rather than a precise Seward-to-Lecompton reading.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: "Friends of the Kaw Seward Avenue / Fool's Landing access",
+        url: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Lecompton / Rising Sun access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Tecumseh low-head dam',
+        url: 'https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river access tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06888990 Kansas River above Topeka Weir',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-lecompton-lawrence-riverfront',
+    slug: 'kansas-river-lecompton-lawrence-riverfront',
+    name: 'Kansas River',
+    reach: 'Lecompton / Rising Sun to Lawrence Riverfront Park',
+    aliases: [
+      'Kaw River - Lecompton to Lawrence Riverfront Park',
+      'Kansas River - Rising Sun to Lawrence Riverfront Park',
+      'Lecompton Access Ramp to Lawrence Riverfront Park',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Lower-Kaw day from the Lecompton / Rising Sun access to Lawrence Riverfront Park above Bowersock Dam. Friends of the Kaw documents both public ramps, the 10.2-mile spacing, and the mandatory Lawrence take-out before the dam; the downstream De Soto USGS gauge is used only as a conservative proxy.',
+    statusText:
+      'Use the downstream Kansas River at De Soto gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and slow channel finding, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.05057,
+    longitude: -95.38764,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. Low summer water can make the channel slow and braided, while high water removes sandbar rests and increases the consequence of missing the Lawrence Riverfront Park take-out above Bowersock Dam.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The river miles are straightforward for prepared paddlers, but the route is not a casual drift: the gauge is a downstream proxy, winds can be strong, sandbars shift, banks are private, and paddlers must take out at Lawrence Riverfront Park before Bowersock Dam.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Lecompton / Rising Sun at river mile 64.3, Lawrence Riverfront Park at river mile 54.1, both GPS coordinates, the 10.2-mile downstream spacing, and the need to exit at Lawrence Riverfront Park before Bowersock Dam. Confidence is moderate for scoring because the route-specific Lecompton USGS station was not selected after visible instantaneous data ended on May 23, 2026 during this review. The app instead uses the downstream De Soto discharge gauge as an explicit proxy, paired with the same broad Kaw calibration used by adjacent lower-Kaw routes.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Lecompton / Rising Sun, RM 64.3',
+        note: 'Friends of the Kaw lists the Lecompton / Rising Sun access with GPS 39.05057, -95.38764, river-left concrete ramp, gravel parking, kiosk, no restrooms or lighting, and rain/mud caveats.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Lawrence Riverfront Park, RM 54.1',
+        note: 'Friends of the Kaw lists Lawrence Riverfront Park above Bowersock Dam with GPS 38.97474, -95.23522 and warns that paddlers should take out here before continuing downstream toward the dam.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-54-lawrence-riverfront-park-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 10.2 river miles',
+        note: 'The Lecompton access page says the next access is Lawrence Riverfront Park 10.2 miles downstream at river mile 54.1.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 06892350 at De Soto',
+        note: 'USGS operates Kansas River at De Soto downstream of Lawrence. Use it as a lower-Kaw proxy rather than a precise Lecompton-to-Lawrence reading.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+      {
+        label: 'Gauge rejected',
+        value: 'USGS 06891000 stale during review',
+        note: 'The route-corridor Lecompton USGS station was reviewed but not selected because the official legacy page showed latest visible instantaneous data from May 23, 2026 during this May 30 review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06891000',
+      },
+      {
+        label: 'Dam exit',
+        value: 'Take out before Bowersock Dam',
+        note: 'Friends of the Kaw says Lawrence Riverfront Park is the take-out above Bowersock Dam and that only highly skilled paddlers with Kaw River Guides should continue through the chute.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-54-lawrence-riverfront-park-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Lecompton / Rising Sun access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Lawrence Riverfront Park access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-54-lawrence-riverfront-park-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06891000 Kansas River at Lecompton legacy current page',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06891000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-lawrence-8th-eudora',
+    slug: 'kansas-river-lawrence-8th-eudora',
+    name: 'Kansas River',
+    reach: 'Lawrence 8th Street to Eudora',
+    aliases: [
+      'Kaw River - Lawrence 8th Street to Eudora',
+      'Kansas River - Lawrence Riverfront Park East to Eudora',
+      'Kaw - Lawrence to Eudora',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Nine-mile Kansas River Water Trail day from the Lawrence Riverfront Park East / 8th Street ramp to the Eudora ramp on the Wakarusa River. Friends of the Kaw documents both public ramps, the route distance, and the key flow cautions, while the downstream De Soto USGS gauge gives a conservative Kaw level check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge as a downstream Kaw check. The best broad window is about 1,500 to 5,000 cfs; below 1,000 cfs the channel can get narrow and sandbar picking increases, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 38.972,
+    longitude: -95.21639,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season, but the Kaw is a sand-bottom prairie river whose channel, bars, and ramp toes shift after high water. Check De Soto flow, Clinton Reservoir / Wakarusa releases, wind, storms, and ramp conditions before using the Eudora take-out.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The reach avoids the Lawrence dams by starting below Bowersock, but this is still a big, shallow, moving river with shifting sandbars, wind exposure, wood, private banks, and a tricky upstream turn into the Wakarusa at Eudora. Treat it as a guarded moderate day unless flows are low, weather is calm, and the group already knows Kaw navigation.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents the 8th Street access at river mile 51, the Eudora access at river mile 42, and about 9 miles between them; it also states that all Kansas River ramps are public and that the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas. Confidence is moderate for scoring because the exact route does not have a route-specific official gauge ladder. The app uses the downstream De Soto USGS gauge as a conservative proxy, Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Lawrence Riverfront Park East / 8th Street, RM 51',
+        note: 'Friends of the Kaw lists the Lawrence Riverfront Park East / 8th Street ramp with GPS 38.972, -95.21639, river-left access, parking, restroom, trash can, and kiosk.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-51-lawrence-8th-street-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Eudora Access Ramp, RM 42',
+        note: 'Friends of the Kaw lists the Eudora ramp with GPS 38.94999, -95.09963, public parking, picnic shelter, fishing platform, and kiosk. The ramp sits on the Wakarusa River about three-quarters of a mile upstream from the Kansas River.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 9 miles',
+        note: 'The 8th Street access page says the next access is about 9 miles downriver to Eudora at river mile 42.',
+        sourceUrl:
+          'https://kansasriver.org/river-access-map/river-mile-51-lawrence-8th-street-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06892350 at De Soto',
+        note: 'USGS operates Kansas River at De Soto, KS, downstream of Eudora and near river mile 31. Use it as a lower-Kaw proxy rather than a precise Lawrence-to-Eudora reach gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+      {
+        label: 'Eudora take-out caveat',
+        value: 'Wakarusa upstream paddle',
+        note: 'Friends of the Kaw warns that taking out at Eudora requires turning upstream into the Wakarusa River and paddling about three-quarters of a mile; Clinton Reservoir releases of 250 cfs and above can make that upstream paddle difficult to impossible.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw 8th Street access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-51-lawrence-8th-street-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Eudora access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-eudora-de-soto',
+    slug: 'kansas-river-eudora-de-soto',
+    name: 'Kansas River',
+    reach: 'Eudora to De Soto',
+    aliases: [
+      'Kaw River - Eudora to De Soto',
+      'Kansas River - Eudora Access Ramp to De Soto Access Ramp',
+      'Eudora Access Ramp to De Soto Riverfest Park',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Lower-Kaw day from the Eudora ramp on the Wakarusa River to the De Soto ramp at Riverfest Park. Friends of the Kaw documents both public ramps and the 10.7-mile access spacing, while the De Soto USGS gauge sits in the take-out corridor for a same-day level check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect narrow-channel sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 38.94999,
+    longitude: -95.09963,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. Check De Soto flow, Clinton Reservoir / Wakarusa releases for the launch paddle, wind, storms, rising water, and same-day ramp conditions before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a moderate Kaw day because the route starts with a short downstream Wakarusa paddle, then follows a big shallow sand-bottom river for about 10.7 miles. Shifting sandbars, wind exposure, private banks, wood, and the De Soto ramp sandbar caveat matter even though both endpoints are public ramps.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Eudora at river mile 42, De Soto at river mile 31.3, both GPS coordinates, and the 10.7-mile downstream access sequence. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than a route-specific official ladder. The app uses USGS 06892350 at De Soto as the direct take-out-corridor gauge, Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Eudora Access Ramp, RM 42',
+        note: 'Friends of the Kaw lists the Eudora ramp with GPS 38.94999, -95.09963, public parking, picnic shelter, fishing platform, and kiosk. The ramp is on the Wakarusa River about three-quarters of a mile upstream from the Kansas River.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'De Soto Access Ramp, RM 31.3',
+        note: 'Friends of the Kaw lists the De Soto ramp next to Riverfest Park with GPS 38.98496, -94.9746, public access, plentiful parking, restroom, trash can, and kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: '10.7 river miles',
+        note: 'The Eudora access page says the next downstream access is De Soto Access Ramp, 10.7 miles downstream at river mile 31.3.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06892350 at De Soto',
+        note: 'USGS operates Kansas River at De Soto, KS in the take-out corridor, making it a direct same-river gauge for the downstream end of this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+      {
+        label: 'Ramp condition caveat',
+        value: 'De Soto sandbar and event closures',
+        note: 'Friends of the Kaw notes that De Soto can be closed for city events and that a sandbar regularly forms at the toe of the ramp, so a pre-paddle scouting trip is worthwhile.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Eudora access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-42-eudora-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-de-soto-edwardsville',
+    slug: 'kansas-river-de-soto-edwardsville',
+    name: 'Kansas River',
+    reach: 'De Soto to Edwardsville',
+    aliases: [
+      'Kaw River - De Soto to Edwardsville',
+      'Kansas River - Riverfest Park to Edwardsville River Front Park',
+      'De Soto Access Ramp to Edwardsville Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long lower-Kaw day from the De Soto ramp at Riverfest Park to Edwardsville River Front Park. Friends of the Kaw documents both public ramps and the closed Cedar Creek gap, while the De Soto USGS gauge sits at the put-in for a direct same-day level check.',
+    statusText:
+      'Use the Kansas River at De Soto gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and possible slow channel finding, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 38.98496,
+    longitude: -94.9746,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.85,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This lower-Kaw reach is longer than novice day guidance, and wind, storms, rising water, shifted sandbars, and urban take-out logistics can turn it into a slow or exposed day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The reach uses public ramps and avoids planned dam passage, but it is about 14.7 river miles with open bends, shifting sandbars, private banks, possible wood, and the WaterOne low-head dam downstream of Edwardsville. Treat it as a committed moderate day for paddlers who already understand Kaw navigation.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents De Soto at river mile 31.3, Edwardsville at river mile 16.6, Cedar Creek as closed, and the WaterOne dam downstream of Edwardsville. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The De Soto USGS gauge is direct at the put-in, and the same conservative Kaw calibration used elsewhere in the app is applied here.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'De Soto Access Ramp, RM 31.3',
+        note: 'Friends of the Kaw lists the De Soto ramp next to Riverfest Park with GPS 38.98496, -94.9746, public access, plentiful parking, restroom, trash can, and kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Edwardsville Access Ramp, RM 16.6',
+        note: 'Friends of the Kaw lists the Edwardsville ramp at River Front Park with GPS 39.05056, -94.81665, concrete ramp, large lighted parking lot, restroom, trash can, picnic tables, and lighting.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 14.7 river miles',
+        note: 'The access pages place De Soto at river mile 31.3 and Edwardsville at river mile 16.6. Cedar Creek at river mile 26.1 is closed, so this route continues to the next open public ramp.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06892350 at De Soto',
+        note: 'USGS operates Kansas River at De Soto, KS in the put-in corridor, making it a direct same-river gauge for the upstream end of this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+      {
+        label: 'Downstream dam caveat',
+        value: 'WaterOne low-head dam below Edwardsville',
+        note: 'Friends of the Kaw warns that the WaterOne low-head dam is 2.5 miles downstream from Edwardsville and should not be run in any vessel. This route ends at Edwardsville before that hazard.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw De Soto access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-31-de-soto-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-edwardsville-turner-bridge',
+    slug: 'kansas-river-edwardsville-turner-bridge',
+    name: 'Kansas River',
+    reach: 'Edwardsville to Turner Bridge',
+    aliases: [
+      'Kaw River - Edwardsville to Turner Bridge',
+      'Kansas River - Edwardsville Access Ramp to Turner Bridge Access Ramp',
+      'Edwardsville River Front Park to Turner Bridge',
+    ],
+    state: 'Kansas',
+    region: 'Kansas City Metro',
+    summary:
+      'Short lower-Kaw link from Edwardsville River Front Park to Turner Bridge, with a mandatory WaterOne low-head-dam portage in the middle. Friends of the Kaw documents both public ramps, the dam, and the river-left portage; the upstream De Soto gauge is used as a conservative lower-Kaw discharge check.',
+    statusText:
+      'Use the upstream Kansas River at De Soto gauge as a lower-Kaw proxy. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow channel picking and awkward portage footing, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce and the WaterOne portage can become slicker and more consequential.',
+    latitude: 39.05056,
+    longitude: -94.81665,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season, but the WaterOne portage controls this route more than mileage does. Same-day gauge, weather, wind, ramp, and portage checks matter because high water changes the take-out line above the dam and low water can expose unstable rock footing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The paddling mileage is short, but this is not a novice float. Paddlers must identify the WaterOne low-head dam, avoid the river-right notch, land on river left, carry boats over a rough 100+ yard rock portage, and relaunch before continuing to Turner Bridge.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Edwardsville at river mile 16.6, Turner Bridge at river mile 9.2, and the WaterOne low-head dam at river mile 14.8 with a river-left-only portage. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, and the app uses the upstream De Soto discharge gauge as a conservative lower-Kaw proxy.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Edwardsville Access Ramp, RM 16.6',
+        note: 'Friends of the Kaw lists the Edwardsville ramp at River Front Park with GPS 39.05056, -94.81665, concrete ramp, large lighted parking lot, restroom, trash can, picnic tables, and lighting.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Bridge Access Ramp, RM 9.2',
+        note: 'Friends of the Kaw lists Turner Bridge Access Ramp near 32 Highway and Turner Diagonal with GPS 39.09396, -94.71176, a river-left concrete ramp, and a gravel parking lot for about 10 vehicles.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 7.4 river miles',
+        note: 'The access map places Edwardsville at river mile 16.6 and Turner Bridge at river mile 9.2. The Edwardsville page names Turner Bridge as the next day-trip access ramp downstream.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+      },
+      {
+        label: 'Mandatory portage',
+        value: 'WaterOne dam, RM 14.8',
+        note: 'Friends of the Kaw says the WaterOne low-head dam should not be run in any vessel. Portage river left only, over a rough 100+ yard carry with loose rock and no useful wheels or carts.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/waterone-dam/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06892350 De Soto proxy',
+        note: 'USGS operates Kansas River at De Soto, KS upstream of this lower-Kaw reach. The closer Kansas City gauge is stage-only and does not compute discharge, so the app uses De Soto as the conservative cfs proxy.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Edwardsville access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-16-edwardsville-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw WaterOne low-head dam',
+        url: 'https://kansasriver.org/river-access-map/waterone-dam/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Turner Bridge access',
+        url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-junction-city-ogden',
+    slug: 'kansas-river-junction-city-ogden',
+    name: 'Kansas River',
+    reach: 'Junction City Access Ramp to Ogden Access Ramp',
+    aliases: [
+      'Kaw River - Junction City to Ogden',
+      'Kansas River - Junction City to Ogden',
+      'Junction City Grant Park to Ogden Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Uppermost Kansas River Water Trail day from the Junction City ramp in Grant Park to Ogden. Friends of the Kaw documents both public ramps, the Republican-Smoky Hill confluence just below the launch, and the little-over-9-mile spacing, while the downstream Wamego gauge keeps scoring conservative.',
+    statusText:
+      'Use the downstream Kansas River at Wamego gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and possible shallow confluence channels, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.06029,
+    longitude: -96.80341,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This uppermost Kaw reach starts on the Republican River just above the Smoky Hill confluence, so same-day Milford and upstream-release context, Wamego flow, wind, storms, and ramp checks matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is within Friends of the Kaw novice-distance guidance, but this is still a big-river route with a confluence current line, shifting sandbars, private banks, wind exposure, possible wood, and a proxy gauge. Treat it as a guarded upper-Kaw day, not a casual park float.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Junction City at river mile 173, Ogden at river mile 163.4, both GPS coordinates, the Republican-to-Kansas confluence context, and a little over 9 miles to Ogden. Confidence is moderate for scoring because there is not a current direct discharge gauge in the Junction City-to-Ogden reach; the app uses the downstream Wamego USGS gauge as a broad same-river proxy and keeps the mixed Kaw calibration visible.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Junction City Access Ramp, RM 173',
+        note: 'Friends of the Kaw lists the Junction City ramp in Grant Park with GPS 39.06029, -96.80341, river-left access, a wide concrete ramp on the Republican River, overnight parking, trash cans, and an informational kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Ogden Access Ramp, RM 163.4',
+        note: 'Friends of the Kaw lists Ogden Access Ramp with GPS 39.10503, -96.69633, river-left access, a wide concrete ramp, gravel parking with trailer space, restrooms, picnic shelter, trash can, and an informational kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'A little over 9 river miles',
+        note: 'The Junction City access page says the Ogden ramp is a little over 9 miles downstream at river mile 163.4.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+      },
+      {
+        label: 'Confluence character',
+        value: 'Republican to Smoky Hill to Kansas River',
+        note: 'Friends of the Kaw says the launch is on the Republican River about one-third mile above the Smoky Hill confluence, where the Kansas River begins, and warns paddlers to watch unusual currents crossing the clear sediment line.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 06887500 at Wamego',
+        note: 'USGS operates Kansas River at Wamego, KS downstream of this reach. Use it as a broad same-river proxy, not a precise Junction City or Ogden stage reading.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Junction City access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-173-junction-city-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Ogden access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-ogden-manhattan',
+    slug: 'kansas-river-ogden-manhattan',
+    name: 'Kansas River',
+    reach: 'Ogden Access Ramp to Manhattan K-177 / Fairmont',
+    aliases: [
+      'Kaw River - Ogden to Manhattan',
+      'Kansas River - Ogden Access Ramp to Manhattan Fairmont',
+      'Ogden Access Ramp to Manhattan K-177 Bridge/Fairmont Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Fourteen-mile upper-Kaw day from the Ogden public ramp to the Manhattan K-177 / Fairmont ramp. Friends of the Kaw documents both public ramps and calls this a relatively untouched section near Manhattan, but the mileage and downstream Wamego proxy gauge keep it a guarded trip.',
+    statusText:
+      'Use the downstream Kansas River at Wamego gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and possible slow channel finding, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.10503,
+    longitude: -96.69633,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This reach is upstream of the Big Blue confluence but still needs Wamego flow, nearby reservoir-release context, wind, storms, and ramp-condition checks before committing to a 14-mile day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Friends of the Kaw describes Ogden to Manhattan as a beautiful, relatively untouched section, but the 14-mile spacing is beyond its novice day-distance guidance. Treat it as a longer big-river day with shifting sandbars, wind exposure, possible wood, private banks, and limited normal exits.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Ogden at river mile 163.4, Manhattan K-177 / Fairmont at river mile 150.7, both GPS coordinates, and the about-14-mile downstream spacing. Confidence is moderate for scoring because there is not a current direct discharge gauge in the Ogden-to-Manhattan reach; the closer Manhattan gauge does not compute discharge and was stale in prior review, so the app uses the downstream Wamego USGS gauge as a conservative same-river proxy and keeps the broad Kaw calibration visible.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Ogden Access Ramp, RM 163.4',
+        note: 'Friends of the Kaw lists Ogden Access Ramp with GPS 39.10503, -96.69633, river-left access, a wide concrete ramp, gravel parking with trailer space, restrooms, picnic shelter, trash can, and an informational kiosk.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Manhattan K-177 / Fairmont, RM 150.7',
+        note: 'Friends of the Kaw lists the Manhattan K-177 / Fairmont ramp below the K-177 bridge with GPS 39.17428, -96.55318, river-right access, parking for 5-8 cars, lighting, trash can, kiosk, and a concrete ramp.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 14 river miles',
+        note: 'The Ogden access page says the Manhattan K-177 / Fairmont ramp is about 14 miles downriver and describes the route as a beautiful section that is relatively untouched despite its proximity to Manhattan.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 06887500 at Wamego',
+        note: 'USGS operates Kansas River at Wamego, KS downstream of this reach. Use it as a same-river proxy; the closer Manhattan gauge does not compute discharge and prior review found stale visible data.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+      },
+      {
+        label: 'Take-out approach',
+        value: 'Sandbar often at toe of Manhattan ramp',
+        note: 'Friends of the Kaw notes that as paddlers approach the Manhattan access from the west, there is often a sandbar at the toe of the ramp that must be skirted.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Ogden access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-163-5-ogden-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-manhattan-st-george',
+    slug: 'kansas-river-manhattan-st-george',
+    name: 'Kansas River',
+    reach: 'Manhattan K-177 / Fairmont to St. George / Boggs Landing',
+    aliases: [
+      'Kaw River - Manhattan to St. George',
+      'Kansas River - Manhattan Fairmont to Boggs Landing',
+      'Manhattan K-177 Bridge/Fairmont Access Ramp to St. George/Boggs Landing Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Twelve-mile upper-Kaw day from the Manhattan K-177 / Fairmont ramp to St. George / Boggs Landing. Friends of the Kaw documents both public ramps and calls this a nice beginner paddle with city services nearby, but the app treats it as a longer guarded day and uses the downstream Wamego USGS gauge as a conservative proxy.',
+    statusText:
+      'Use the downstream Kansas River at Wamego gauge as a proxy check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and possible slow channel finding, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.17428,
+    longitude: -96.55318,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.75,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This reach starts near the Big Blue confluence, so check Tuttle Creek / Big Blue releases, Wamego flow, wind, storms, and ramp conditions before committing to the full 12-mile day.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Friends of the Kaw calls this a nice beginner paddle, but it is also 12 miles, longer than its own novice day-distance guidance. The Kaw is a big, shallow, moving river with shifting sandbars, wind exposure, possible wood, private banks, and release effects from the Big Blue/Tuttle Creek system near the start.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Manhattan K-177 / Fairmont at river mile 150.7, St. George / Boggs Landing at river mile 137, both GPS coordinates, and the 12-mile downstream spacing. Confidence is moderate for scoring because the route does not have a current direct discharge gauge: the Manhattan stage-only page was stale to May 24, 2026 and says discharge is not computed, while Fort Riley discharge/stage visible evidence was stale to October 2025. The app therefore uses the downstream Wamego USGS gauge as a conservative same-river proxy and keeps the broad Kaw calibration visible.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Manhattan K-177 / Fairmont, RM 150.7',
+        note: 'Friends of the Kaw lists the Manhattan K-177 / Fairmont ramp below the K-177 bridge with GPS 39.17428, -96.55318, river-right access, parking for 5-8 cars, lighting, trash can, kiosk, and a concrete ramp.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'St. George / Boggs Landing, RM 137',
+        note: 'Friends of the Kaw lists St. George / Boggs Landing with GPS 39.18726, -96.42202, river-left concrete ramp, restrooms, trash can, picnic table, informational kiosk, lighting, and ample parking.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 12 river miles',
+        note: 'The Manhattan access page says St. George / Boggs Landing is 12 miles downstream on river left and describes the reach as a nice beginner paddle with city services nearby at both ends, while noting the mileage makes it one of the longer day trips.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 06887500 at Wamego',
+        note: 'USGS operates Kansas River at Wamego, KS downstream of the St. George take-out. Use it as a same-river proxy; the closer Manhattan gauge does not compute discharge and was stale during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+      },
+      {
+        label: 'Big Blue release caveat',
+        value: 'Tuttle Creek releases can affect nearby access choices',
+        note: 'Friends of the Kaw warns that paddling from the Kansas River up the Big Blue to the Linear Park access can be difficult if Tuttle Creek Reservoir releases exceed 500 cfs; check reservoir releases before planning any Manhattan-area variation.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Manhattan K-177 / Fairmont access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-149-manhattan-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06879820 Kansas River at Manhattan',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06879820/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-st-george-wamego',
+    slug: 'kansas-river-st-george-wamego',
+    name: 'Kansas River',
+    reach: 'St. George / Boggs Landing to Wamego',
+    aliases: [
+      'Kaw River - St. George to Wamego',
+      'Kansas River - Boggs Landing to Wamego',
+      'St. George/Boggs Landing Access Ramp to Wamego Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Eight-and-a-half-mile upper-Kaw day from St. George / Boggs Landing to the Wamego ramp under the K-99 bridge. Friends of the Kaw documents both public ramps and the exact access spacing, while the Wamego USGS gauge sits at the take-out for a direct same-day level check.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect sandbar picking and possible slow channel finding, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.18726,
+    longitude: -96.42202,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.7,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This St. George-to-Wamego reach stays within the 10-mile novice distance guidance, but the Kaw remains a sand-bottom prairie river whose channel, bars, ramp toes, and bank conditions shift after high water.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Friends of the Kaw frames this as the next access-to-access segment and does not flag a dam in the reach, but it is still a big, shallow, moving river with shifting sandbars, wind exposure, possible wood, private banks, and a bridge-area take-out approach at Wamego. Treat it as a guarded moderate day unless flows are low, weather is calm, and the group already knows Kaw navigation.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents St. George / Boggs Landing at river mile 137, Wamego at river mile 128.5, both GPS coordinates, and the 8.5-mile downstream spacing; the Wamego USGS gauge is at the take-out town. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The app applies the same conservative Kaw calibration used elsewhere: Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'St. George / Boggs Landing, RM 137',
+        note: 'Friends of the Kaw lists St. George / Boggs Landing with GPS 39.18726, -96.42202, river-left concrete ramp, restrooms, trash can, picnic table, informational kiosk, lighting, and ample parking.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Wamego Access Ramp, RM 128.5',
+        note: 'Friends of the Kaw lists the Wamego ramp beneath the Kansas Highway 99 bridge with GPS 39.19828, -96.30537, river-left concrete ramp, parking, trash can, picnic table, kiosk, and downtown services nearby.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 8.5 river miles',
+        note: 'The St. George access page says the next access is Wamego 8.5 miles downriver at river mile 128.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06887500 at Wamego',
+        note: 'USGS operates Kansas River at Wamego, KS, with discharge and gage-height observations at the take-out town; the legacy current page showed discharge and stage available through May 29, 2026 during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06887500',
+      },
+      {
+        label: 'Wamego approach',
+        value: 'Bridge-area take-out turn',
+        note: 'Friends of the Kaw says that when approaching Wamego from the west, it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw St. George / Boggs Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-137-st-george-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-wamego-belvue',
+    slug: 'kansas-river-wamego-belvue',
+    name: 'Kansas River',
+    reach: 'Wamego to Belvue',
+    aliases: [
+      'Kaw River - Wamego to Belvue',
+      'Kansas River - Wamego Access Ramp to Belvue Access Ramp',
+      'Wamego Access Ramp to Belvue Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Guarded upper-Kaw day from Wamego to Belvue. Friends of the Kaw documents both public ramps, the 9.5-mile access spacing, and the Belvue partial low-head dam hazard one mile above the take-out, while the Wamego USGS gauge gives a direct put-in-corridor level check.',
+    statusText:
+      'Use the Kansas River at Wamego gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect rock and sandbar picking near Belvue, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce. This reach includes the Belvue partial low-head dam and is not a novice float.',
+    latitude: 39.19828,
+    longitude: -96.30537,
+    gaugeSource: {
+      id: 'usgs-06887500',
+      provider: 'usgs',
+      siteId: '06887500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River at Wamego, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.7,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This reach is short enough for a day trip, but the partial low-head dam and exposed or submerged rock near Belvue make low water and poor visibility more consequential than on simpler Kaw access-to-access segments.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a guarded moderate route, not a beginner float. Friends of the Kaw flags the Belvue partial low-head dam at river mile 120 and instructs paddlers to stay river left because the hazard starts on river right and extends more than halfway across the river. Add shifting sandbars, wind exposure, possible wood, private banks, and same-day ramp uncertainty.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents Wamego at river mile 128.5, Belvue at river mile 119, both GPS coordinates, the 9.5-mile downstream spacing, and the Belvue partial low-head dam hazard in the reach. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The app applies the same conservative Kaw calibration used elsewhere: Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Wamego Access Ramp, RM 128.5',
+        note: 'Friends of the Kaw lists the Wamego ramp beneath the Kansas Highway 99 bridge with GPS 39.19828, -96.30537, river-left concrete ramp, parking, trash can, picnic table, kiosk, and downtown services nearby.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Belvue Access Ramp, RM 119',
+        note: 'Friends of the Kaw lists Belvue with GPS 39.21644, -96.17678, a river-left concrete ramp, parking, portable toilet, trash can, picnic table, kiosk, and primitive camping by reservation through the city.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 9.5 river miles',
+        note: 'The Wamego access page says the next access is Belvue, 9.5 miles downriver at river mile 119.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Dam hazard',
+        value: 'Belvue partial low-head dam at RM 120',
+        note: 'Friends of the Kaw flags a partial low-head dam about one mile above Belvue. It starts on river right and extends more than halfway across the river, so paddlers should stay river left and watch for exposed or submerged rocks.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06887500 at Wamego',
+        note: 'USGS operates Kansas River at Wamego, KS in the put-in corridor with discharge and gage-height observations used by PaddleTodayV2 as the live same-river gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Wamego access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-128-wamego-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Belvue access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06887500 Kansas River at Wamego',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-belvue-kaw-river-state-park',
+    slug: 'kansas-river-belvue-kaw-river-state-park',
+    name: 'Kansas River',
+    reach: 'Belvue to Kaw River State Park',
+    aliases: [
+      'Kaw River - Belvue to Kaw River State Park',
+      'Kansas River - Belvue Access Ramp to Kaw River State Park',
+      'Belvue Access Ramp to Kaw River State Park Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Long upper-Kaw overnight-style trip from Belvue to Kaw River State Park in Topeka. Friends of the Kaw documents both public ramps and calls out the 29-mile gap with no intermediate access, while the Topeka Weir USGS gauge gives a lower-route level check near the take-out corridor.',
+    statusText:
+      'Use the Kansas River above Topeka Weir gauge as the lower-route check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect slow sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce. This 29-mile reach is not a novice day trip.',
+    latitude: 39.20284,
+    longitude: -96.17552,
+    gaugeSource: {
+      id: 'usgs-06888990',
+      provider: 'usgs',
+      siteId: '06888990',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River above Topeka Weir at Topeka, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.9,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. Friends of the Kaw specifically frames Belvue to Kaw River State Park as a non-novice overnight when the river is low enough to expose sandbars for camping; high water can remove rest and camp options, while very low water can make the long reach slow and physically demanding.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is a committed 29-mile Kansas River reach with no normal intermediate ramp. Treat it as an experienced-paddler overnight or very long endurance day, with wind exposure, shifting sandbars, private banks, limited bailout options, possible wood, and a Topeka take-out only two miles above the Topeka Water Plant low-head dam.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Belvue at river mile 119, Kaw River State Park at river mile 90, both GPS coordinates, all Kansas River ramps as public, and the 29-mile downstream spacing. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The app uses USGS 06888990 above Topeka Weir as the lower-route same-river gauge near the take-out corridor, Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands, and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Belvue Access Ramp, RM 119',
+        note: 'Friends of the Kaw lists Belvue with GPS 39.20284, -96.17552, a river-left access ramp, gravel parking, picnic tables, kiosk, trash can, fire ring, and no restrooms or lighting.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Kaw River State Park, RM 90',
+        note: 'Friends of the Kaw lists Kaw River State Park with GPS 39.06907, -95.75342, a river-right wide concrete ramp, paved parking for 20 or more vehicles, kiosk, trash can, and state-park context.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-90-kaw-river-state-park/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 29 river miles',
+        note: 'The Belvue access page says the next access is Kaw River State Park at Topeka, 29 miles downstream, and says this section is not recommended for novice boaters but can be a good overnight when sandbars are exposed.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+      },
+      {
+        label: 'No intermediate ramp',
+        value: 'Belvue-to-Kaw River State Park gap',
+        note: 'Friends of the Kaw says Kansas River ramps are generally about every 10 miles except De Soto to Cedar Creek and Belvue to Kaw River State Park, the latter being a 29-mile stretch.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06888990 above Topeka Weir',
+        note: 'USGS operates Kansas River above Topeka Weir at Topeka, KS near the downstream end of this route. Use it as the lower-route same-river gauge, with PaddleTodayV2 handling live USGS observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+      },
+      {
+        label: 'Downstream dam caveat',
+        value: 'Topeka dam two miles below take-out',
+        note: 'Friends of the Kaw says the next access below Kaw River State Park is the Topeka Water Plant Low-Head Dam and Access Ramp two miles downriver and that paddlers should not go over the dam in any vessel.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-90-kaw-river-state-park/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Belvue access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-119-belvue-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Kaw River State Park access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-90-kaw-river-state-park/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06888990 Kansas River above Topeka Weir',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-topeka-water-plant-seward',
+    slug: 'kansas-river-topeka-water-plant-seward',
+    name: 'Kansas River',
+    reach: 'Topeka Water Plant to Seward Avenue / Fool\'s Landing',
+    aliases: [
+      'Kaw River - Topeka Water Plant to Seward Avenue',
+      'Kansas River - Topeka Weir to Fool\'s Landing',
+      'Topeka Water Plant Low-Head Dam Access Ramp to Seward Avenue Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Northeast Kansas',
+    summary:
+      'Guarded Topeka-area Kansas River day from the downstream Topeka Water Plant access ramp to Seward Avenue / Fool\'s Landing. Friends of the Kaw documents both public ramps, the 10.6-mile spacing, and the old railroad bridge hazards, while the Topeka Weir USGS gauge gives a direct level check at the put-in corridor.',
+    statusText:
+      'Use the Kansas River above Topeka Weir gauge. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs exposed bridge debris and sandbar picking become more likely, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
+    latitude: 39.07421,
+    longitude: -95.71637,
+    gaugeSource: {
+      id: 'usgs-06888990',
+      provider: 'usgs',
+      siteId: '06888990',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Kansas River above Topeka Weir at Topeka, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This reach starts just downstream of the Topeka Water Plant low-head dam, passes old railroad bridge debris, and ends just upstream of the Tecumseh low-head-dam reach, so same-day gauge, weather, wind, sandbar, ramp, and hazard checks matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Friends of the Kaw says this trip is not recommended for novice paddlers because of in-river hazards. The route has a direct gauge and public ramps, but paddlers must avoid the Topeka dam by launching below it, pass the old bridge remains on the correct side, watch active sand dredging near Seward, and stop before the Tecumseh low-head dam downstream.',
+      confidenceNotes:
+        'Confidence is high for access, gauge placement, and route shape: Friends of the Kaw documents the Topeka Water Plant access / portage at river mile 87.6 with coordinates, Seward Avenue / Fool\'s Landing at river mile 77 with coordinates, and the 10.6-mile downstream spacing. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder. The app applies the same conservative Kaw calibration used elsewhere: Friends of the Kaw safety guidance for the 5,000 / 8,000 cfs high-side bands and USACE recreation flow-impact ranges for the 1,000 / 1,500 cfs low-side calibration.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Topeka Water Plant downstream ramp, RM 87.6',
+        note: 'Friends of the Kaw lists the Topeka Water Plant low-head dam and access area with portage coordinates 39.07421, -95.71637, river-left ramps above and below the dam, and parking for shuttling and launching.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Seward Avenue / Fool\'s Landing, RM 77',
+        note: 'Friends of the Kaw lists Seward Avenue / Fool\'s Landing with GPS 39.06036, -95.59468, river-right concrete ramp, paved parking, lighting, trash can, and Shawnee County Parks & Recreation maintenance context.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 10.6 river miles',
+        note: 'The Topeka Water Plant access page says the next access is Seward Avenue / Fool\'s Landing 10.6 miles downstream at river mile 77.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06888990 above Topeka Weir',
+        note: 'USGS operates Kansas River above Topeka Weir at Topeka, KS in the put-in corridor. Use it as a direct Topeka reach gauge, with PaddleTodayV2\'s existing USGS provider handling live observations.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+      },
+      {
+        label: 'In-river hazards',
+        value: 'Old railroad bridges and active dredge',
+        note: 'Friends of the Kaw warns that old railroad bridge remains at river miles 85.3 and 84.5 include exposed steel, especially at low water; boaters should pass close to river right. It also notes an active sand dredge approaching Seward.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/',
+      },
+      {
+        label: 'Downstream dam caveat',
+        value: 'Tecumseh low-head dam below Seward',
+        note: 'Friends of the Kaw says the Tecumseh low-head dam is about one mile downstream from Seward Avenue / Fool\'s Landing and should be reviewed closely before any separate downstream trip planning.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Topeka Water Plant access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-87-topeka-coffer-dam/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Seward Avenue / Fool\'s Landing access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06888990 Kansas River above Topeka Weir',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kansas-river-turner-bridge-kaw-point',
+    slug: 'kansas-river-turner-bridge-kaw-point',
+    name: 'Kansas River',
+    reach: 'Turner Bridge to Kaw Point Park',
+    aliases: [
+      'Kaw River - Turner Bridge to Kaw Point',
+      'Kansas River - Turner Bridge Access Ramp to Kaw Point Park',
+      'Turner Bridge Access Ramp to Kaw Point Park Access Ramp',
+    ],
+    state: 'Kansas',
+    region: 'Kansas City Metro',
+    summary:
+      'Lower Kansas River day from the Turner Bridge ramp to Kaw Point Park, ending just above the Missouri River confluence. Friends of the Kaw documents both public ramps and the 9.2-mile lower-river reach, while the upstream De Soto USGS gauge gives a conservative lower-Kaw discharge check.',
+    statusText:
+      'Use the upstream Kansas River at De Soto gauge as a lower-Kaw proxy. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect mud, exposed banks, and slow channel picking, while above 8,000 cfs Friends of the Kaw says rest-stop sandbars are scarce and the lower river pushes harder toward the Missouri.',
+    latitude: 39.09396,
+    longitude: -94.71176,
+    gaugeSource: {
+      id: 'usgs-06892350',
+      provider: 'usgs',
+      siteId: '06892350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Kansas River at De Soto, KS',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1500,
+      idealMax: 5000,
+      tooLow: 1000,
+      tooHigh: 8000,
+      thresholdSource: {
+        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 0.8,
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical season. This lower-Kaw reach is controlled, has few sandbar stops, and ends just above the Missouri River, so same-day gauge, weather, wind, ramp, park-hour, and confluence checks matter.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is within Friends of the Kaw novice-distance guidance, but the lower-river setting is not a casual float: banks are well defined with almost no sandbars, Kaw Point is only about 200 yards above the Missouri River, and paddlers must make the take-out cleanly rather than continuing into faster big-river traffic and current.',
+      confidenceNotes:
+        'Confidence is high for access and route shape: Friends of the Kaw documents Turner Bridge at river mile 9.2 with coordinates, Kaw Point Park at river mile 0 with coordinates, and the downstream access sequence. Confidence is moderate for scoring because the level bands are broad Kansas River guidance rather than an exact route-specific ladder, and the Kansas City USGS gauge is stage-only, so the app uses the upstream De Soto discharge gauge as a conservative same-river lower-Kaw proxy.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Turner Bridge Access Ramp, RM 9.2',
+        note: 'Friends of the Kaw lists Turner Bridge Access Ramp near 32 Highway and Turner Diagonal with GPS 39.09396, -94.71176, a river-left concrete ramp, and a gravel parking lot for about 10 vehicles.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Kaw Point Park, RM 0',
+        note: 'Friends of the Kaw lists Kaw Point Park with GPS 39.11601, -94.61203, a river-left concrete ramp, restrooms, lighting, a large parking lot, and public access managed with park-hour and event caveats.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+      },
+      {
+        label: 'Route distance',
+        value: 'About 9.2 river miles',
+        note: 'The Turner Bridge page says the next access is Kaw Point Park at river mile 0 on river left. Friends of the Kaw also says the lower reach is fully controlled, with well-defined banks and almost no sandbars.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/15861-2/',
+      },
+      {
+        label: 'Public river and ramps',
+        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
+        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
+        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+      },
+      {
+        label: 'Flow safety bands',
+        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
+        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
+        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+      },
+      {
+        label: 'Low-flow recreation impacts',
+        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
+        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
+        sourceUrl:
+          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+      },
+      {
+        label: 'Gauge',
+        value: 'USGS 06892350 De Soto proxy',
+        note: 'USGS operates Kansas River at De Soto, KS upstream of this lower-Kaw reach. The closer Kansas City gauge is stage-only and does not compute discharge, so the app uses De Soto as the conservative cfs proxy.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+      },
+      {
+        label: 'Confluence caveat',
+        value: 'Missouri River 200 yards below Kaw Point',
+        note: 'Friends of the Kaw says the Missouri River is about 200 yards downstream from the Kaw Point ramp and generally is not recommended for novice paddlers. This route ends at Kaw Point, not on the Missouri River.',
+        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Friends of the Kaw Kansas River access map',
+        url: 'https://kansasriver.org/river-access-map/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Turner Bridge access',
+        url: 'https://kansasriver.org/river-access-map/15861-2/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Kaw Point Park access',
+        url: 'https://kansasriver.org/river-access-map/river-mile-0-kaw-point-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw River Access Tips',
+        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw Paddle FAQ',
+        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
+        provider: 'local',
+      },
+      {
+        label: 'Friends of the Kaw river and sandbar safety',
+        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Kansas River recreation appendix',
+        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06892350 Kansas River at De Soto',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'current-river-cedar-grove-akers',
+    slug: 'current-river-cedar-grove-akers',
+    name: 'Current River',
+    reach: 'Cedar Grove to Akers Ferry',
+    aliases: [
+      'Upper Current River - Cedar Grove to Akers',
+      'Current River - Cedargrove to Akers',
+      'Current River - Cedar Grove Access to Akers Ferry',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Classic upper Current River day float from Cedar Grove to Akers Ferry inside Ozark National Scenic Riverways. NPS lists the 7.7-mile trip, the Akers gauge is live in the take-out corridor, and the level model stays conservative because the low-water floor comes from local trip evidence.',
+    statusText:
+      'Use the Current River above Akers gauge. Around 230 cfs is the low-water marker for Cedar Grove to Akers; below that, expect shallow riffles and possible dragging. Do not treat high or rising water as a casual float, and respect NPS closure notices.',
+    latitude: 37.42238,
+    longitude: -91.6083,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 230,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge trip evidence for Cedar Grove to Akers',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Current is spring-fed and commonly floated beyond peak spring runoff, but low summer water can make shoals slow and scrapey. Heavy rain can raise the river quickly, add debris, and trigger NPS flood closures or access restrictions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS treats Cedar Grove to Akers as a standard 3-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water, motorized traffic rules, crowding, wood, and high-water closure thresholds still matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: NPS lists Cedar Grove to Akers as a 7.7-mile / 3-hour Upper Current route, NPS floating guidance directs private boaters to designated accesses, USGS 07064533 is a direct live gauge at the Akers corridor and showed same-day May 30, 2026 discharge and gage-height observations, and Rivers.MOHERP includes exact Cedar Grove-to-Akers trip evidence with a good report at 233 cfs plus broader Upper Current good-condition reports. The app uses minimum-only scoring because the numeric low-water floor is community-calibrated rather than an official paddling band, and no ideal range or upper cutoff is inferred.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Cedar Grove to Akers, 7.7 mi / 3 hr',
+        note: 'NPS Estimated Float Times lists Cedar Grove to Akers as a 7.7-mile Upper Current River float with an estimated 3-hour canoe/kayak time.',
+        sourceUrl: 'https://home.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Upper Current route context',
+        value: 'NPS standard put-ins',
+        note: 'NPS Paddle the Upper Current River names Cedar Grove and Akers among the popular Upper Current put-in locations and lists Cedar Grove-to-Akers as a 3-hour float.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07064533 at 311 cfs / 1.09 ft',
+        note: 'USGS Current River above Akers showed discharge and gage height at 12:30 CDT on May 30, 2026. The gauge is in the Akers take-out corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+      },
+      {
+        label: 'Low-water floor',
+        value: '230 cfs minimum-only',
+        note: 'Rivers.MOHERP lists exact Cedar Grove-to-Akers trip evidence at 233 cfs described as just enough water to classify as good, with broader Upper Current good-condition reports nearby. Paddle Today uses 230 cfs as a conservative floor and does not infer an ideal or high-water band.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Akers average 2.00 ft / closed 4.00 ft',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Akers at 2.00 ft average and 4.00 ft closed level. Use this as high-water caution, not an ideal range.',
+        sourceUrl: 'https://home.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Access rules',
+        value: 'Designated access points',
+        note: 'NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should arrange their own transport, use designated river access points, follow posted signs, and park only in designated areas.',
+        sourceUrl: 'https://home.nps.gov/ozar/planyourvisit/floating.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.42238, -91.6083 to 37.37591, -91.55148',
+        note: 'Mapcarta / OpenStreetMap lists Cedar Grove Boat Launch and Akers Lower as Current River slipways. Coordinates are practical access anchors; NPS signs and current access layout should control on arrival.',
+        sourceUrl: 'https://mapcarta.com/N12516648353',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://home.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Paddle the Upper Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://home.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://home.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS River Levels',
+        url: 'https://home.nps.gov/ozar/planyourvisit/levels.htm',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Cedar Grove Boat Launch',
+        url: 'https://mapcarta.com/N12516648353',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Akers Lower',
+        url: 'https://mapcarta.com/N1785576990',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-buck-hollow-rymers',
     slug: 'jacks-fork-river-buck-hollow-rymers',
     name: 'Jacks Fork River',
@@ -16034,6 +18202,393 @@ export const rivers: River[] = [
         label: 'MDC upper Jacks Fork feature',
         url: 'https://mdc.mo.gov/magazines/conservationist/2013-04/heaven-back-upper-jacks-fork',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-alley-spring-chilton',
+    slug: 'jacks-fork-river-alley-spring-chilton',
+    name: 'Jacks Fork River',
+    reach: 'Alley Spring Access to Joshua T. Chilton Memorial Landing',
+    aliases: [
+      'Jacks Fork - Alley Spring to Eminence',
+      'Jacks Fork - Alley to Eminence',
+      'Lower Jacks Fork - Alley Spring to Chilton Landing',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Popular lower Jacks Fork day float from Alley Spring into Eminence. NPS names Alley Spring to Eminence as the classic summer float, MDC confirms the Joshua T. Chilton public landing, and the direct Eminence gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Jacks Fork at Eminence gauge. Around 200 cfs is a conservative low-water floor from MoHERP; below that, expect more shallow riffles and shorter-trip judgment. No ideal range or high cutoff is claimed, so treat high or rising water cautiously.',
+    latitude: 37.147975,
+    longitude: -91.444906,
+    gaugeSource: {
+      id: 'usgs-07066000',
+      provider: 'usgs',
+      siteId: '07066000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Eminence, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Eminence gauge rating and Alley Spring-to-Eminence trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says paddling is available year-round but summer is busiest, and portions of the Jacks Fork can be limited by low water. Alley Spring adds dependable water below the spring, but dry spells can still expose shallow riffles and storms can quickly change current, wood, and landing conditions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a Class I lower Jacks Fork day with shoals, clear pools, bluff scenery, heavy summer boat and tube traffic, and motorboat allowances below Alley Spring. It is easier than the upper Jacks Fork, but low water, crowds, private banks near Eminence, and rising water still require judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: NPS identifies Alley Spring to Eminence as the most popular summer Jacks Fork float and lists it as a 4-hour section; MDC confirms Joshua T. Chilton Memorial Landing as a Jacks Fork river access where boats may be used; Rivers.MOHERP shows same-day May 30, 2026 Eminence-gauge conditions and exact lower-Jacks trip rows including Alley Spring-to-Eminence. Southwest Paddler supplies practical access coordinates for Alley Spring and Joshua T. Chilton. The main caveat is threshold precision: the app uses the MoHERP 200 cfs good-condition floor and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Alley to Eminence, 4 hr',
+        note: 'NPS says the most popular summer float on the Jacks Fork is Alley Spring to Eminence and lists the estimated float time as 4 hours.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Alley Spring, river mile 69',
+        note: 'The NPS park brochure lists Alley Spring as a Jacks Fork river access with campground, ranger station, picnic area, and hiking trails.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Joshua T. Chilton Memorial Landing',
+        note: 'MDC identifies Joshua T. Chilton Memorial Landing in Eminence as a Jacks Fork River access and says boats may be used there under the cooperative-area regulations.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+      },
+      {
+        label: 'Access coordinates',
+        value: '37.147975, -91.444906 to 37.152717, -91.353486',
+        note: 'Southwest Paddler publishes coordinates for Alley Spring Access and Joshua T. Chilton Memorial Landing on the Jacks Fork.',
+        sourceUrl: 'https://www.southwestpaddler.com/docs/current4.html',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07066000',
+        note: 'The route uses the Jacks Fork at Eminence gauge at the take-out corridor. Rivers.MOHERP surfaced same-day May 30, 2026 Eminence-gauge conditions during review.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Eminence gauge Good beginning at 200 cfs and lists lower-Jacks trip rows, including Alley Spring-to-Eminence at 183 cfs marked Good. The app keeps a conservative 200 cfs floor and does not claim an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I lower Jacks Fork',
+        note: 'CurrentRiver.net maps Alley Spring to Two Rivers as 13.6 miles, places Eminence 6.3 miles below Alley Spring, and describes this lower Jacks Fork map section as Class I-II with the take-out at Eminence on river right.',
+        sourceUrl: 'https://currentriver.net/jacks_fork_printmap2.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Joshua T. Chilton Memorial Landing',
+        url: 'https://mdc.mo.gov/discover-nature/places/joshua-t-chilton-memorial-landing-eminence',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Eminence gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07066000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07066000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07066000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Southwest Paddler Jacks Fork River guide',
+        url: 'https://www.southwestpaddler.com/docs/current4.html',
+        provider: 'local',
+      },
+      {
+        label: 'CurrentRiver.net Jacks Fork map 2',
+        url: 'https://currentriver.net/jacks_fork_printmap2.htm',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-waymeyer-van-buren',
+    slug: 'current-river-waymeyer-van-buren',
+    name: 'Current River',
+    reach: 'Waymeyer Access to Van Buren Riverfront Park',
+    aliases: [
+      'Lower Current River - Waymeyer to Van Buren',
+      'Current River - Waymeyer Landing to Van Buren',
+      'Current River - Waymeyer to Van Buren Riverfront Park Access',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Lower Current River day float from Waymeyer into Van Buren. NPS lists Waymeyer to Van Buren as a standard lower-river section, MDC confirms the Van Buren Riverfront Park boat ramp, and the direct Van Buren gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor from MoHERP and exact-route trip evidence; below that, expect shallow shoals, slower travel, and possible dragging. No ideal range or high cutoff is claimed.',
+    latitude: 37.054302,
+    longitude: -91.055459,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and Waymeyer-to-Van Buren trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower Current is spring-fed and NPS lists the Lower Current season as year-round, but low summer levels can make shoals slow and high or rising water can trigger closures, add debris, and make crowded landings harder. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS lists Waymeyer to Van Buren as a standard 3-hour Lower Current section. It is generally an easy moving-water float at normal levels, but this lower reach can have motorboat traffic, heavy summer recreation use, slick ramps, private-bank issues near town, and stronger current after rain.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only Missouri route: NPS identifies Waymeyer and Van Buren as lower Current put-in locations and lists Waymeyer to Van Buren as a 3-hour section; NPS separately says Waymeyer remains a non-commercial floater access, with crowding and erosion caveats; MDC confirms Van Buren Riverfront Park and says boats may be used there; USGS 07067000 showed same-day May 30, 2026 discharge and gage-height observations; and Rivers.MOHERP ties Van Buren-gauge ratings plus exact Waymeyer-to-Van Buren trip evidence to the selected gauge. The app uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Waymeyer to Van Buren, 3 hr',
+        note: 'NPS Paddle the Lower Current River lists Waymeyer to Van Buren as an estimated 3-hour lower Current float and names Waymeyer as a popular lower Current put-in.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Waymeyer access',
+        value: 'Non-commercial floater access',
+        note: 'NPS says Waymeyer access is about 10 miles north of Van Buren on State Route M and continues to serve non-commercial floaters, while noting erosion and summer-weekend crowding limits.',
+        sourceUrl:
+          'https://home.nps.gov/ozar/learn/news/update-on-river-access-areas-at-waymeyer-chilton-boat-launch-and-pin-oak.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Van Buren Riverfront Park',
+        note: 'MDC lists Van Buren Riverfront Park, gives directions to the riverfront access, and says boats may be used on the area under cooperative regulations. The area map identifies parking, a privy, picnic shelter, and boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/van-buren-riverfront-park',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day May 30, 2026 discharge and gage-height observations. The gauge is in the take-out town corridor for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning at about 700 cfs and lists an exact Waymeyer-to-Van Buren trip marked Good at 707 cfs. Paddle Today uses 700 cfs as a conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.054302, -91.055459 to 36.9939, -91.0140',
+        note: 'Paddling.com publishes coordinates for Waymeyer Access. The Van Buren coordinate is a practical ramp anchor derived from the MDC area map and riverfront street directions; use current MDC/city signs and ramp layout on arrival.',
+        sourceUrl: 'https://paddling.com/paddle/locations/waymeyer-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Waymeyer access update',
+        url: 'https://home.nps.gov/ozar/learn/news/update-on-river-access-areas-at-waymeyer-chilton-boat-launch-and-pin-oak.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://home.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'MDC Van Buren Riverfront Park',
+        url: 'https://mdc.mo.gov/discover-nature/places/van-buren-riverfront-park',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Van Buren Riverfront Park area map',
+        url: 'https://mdc.mo.gov/media/80062',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Paddling.com Waymeyer Access',
+        url: 'https://paddling.com/paddle/locations/waymeyer-access',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-turner-mill-south-whitten',
+    slug: 'eleven-point-river-turner-mill-south-whitten',
+    name: 'Eleven Point River',
+    reach: 'Turner Mill South River Access to Whitten River Access',
+    aliases: [
+      'Eleven Point River - Turner Mill to Whitten',
+      'Eleven Point River - Turners Mill to Whitten',
+      'Eleven Point River - Turner Mill South to Whitten',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Spring-fed Eleven Point day from Turner Mill South to Whitten, using Forest Service access points on the National Wild and Scenic River and the direct Bardley gauge as a conservative low-water check.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect more dragging through shoals. There is not enough route-specific support to name an ideal range or high-water cutoff, so treat rising water as a caution flag.',
+    latitude: 36.76456,
+    longitude: -91.26653037,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Turner Mill-to-Whitten trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring keeps this part of the Eleven Point colder and more dependable than the upper river, but the Forest Service still warns that the river can rise rapidly. Spring and fall usually provide the best margin; summer low water can make shoals slower.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is generally Class I spring-fed Ozark water with shoals, cold water, and a remote feel. It is still a natural river: low water means dragging, high or rising water can make bends and wood consequential, and motorized users are allowed under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Eleven Point add: the Forest Service lists Turner Mill South as open, gives coordinates and a concrete boat launch, says Whitten is the next access downriver, and publishes Whitten coordinates and ramp details. USGS 07071500 is the same direct Bardley gauge already used by the existing Whitten-to-Riverton route, and Rivers.MOHERP gives a 300 cfs Good-condition floor plus exact Turner Mill-to-Whitten trip evidence. The app uses minimum-only scoring because the threshold source is community-calibrated and the official Forest Service route-mile markers differ from MoHERP trip mileage.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Turner Mill South to Whitten',
+        note: 'The Forest Service says Turner Mill South is 4.9 miles below Greer Crossing and that Whitten is the next access downriver. Its river-mile notes place Turner Mill near mile 21.5 and Whitten at mile 27.6.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Turner Mill South River Access',
+        note: 'The Forest Service lists Turner Mill South as open, on the right bank, with a rustic day-use area, limited campsites, a single-lane concrete boat launch, toilet facilities, parking for 12 vehicles, and coordinates 36.76456, -91.26653037.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Whitten River Access',
+        note: 'The Forest Service lists Whitten as open, on the right bank, with a vault toilet, single-lane concrete boat ramp, parking for vehicles with trailers, and coordinates 36.732356, -91.214837.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07071500',
+        note: 'USGS operates Eleven Point River near Bardley, MO, downstream in the same lower Eleven Point corridor already used by the existing Whitten-to-Riverton V2 route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes Turner Mill-to-Whitten trip evidence marked Good at 797 cfs.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Spring-fed trout reach',
+        note: 'MDC says Greer Spring transforms the river into a coldwater fishery and that the Turner Mill-to-Riverton reach remains cold White Ribbon Trout Area water; the Forest Service notes the river is shared by motorized and nonmotorized users.',
+        sourceUrl: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Turner Mill South River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-south-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Whitten River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/whitten-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
       },
     ],
   },
@@ -16254,6 +18809,244 @@ export const rivers: River[] = [
       {
         label: 'USGS 07057500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'meramec-river-onondaga-campbell-bridge',
+    slug: 'meramec-river-onondaga-campbell-bridge',
+    name: 'Meramec River',
+    reach: 'Onondaga Cave State Park to Campbell Bridge Access',
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Five-mile Meramec float from the Onondaga Cave State Park canoe launch to MDC Campbell Bridge Access. Missouri State Parks and MDC document the public access pair, and the Sullivan USGS gauge supports a conservative same-day level check.',
+    statusText:
+      'Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
+    latitude: 38.059859,
+    longitude: -91.221584,
+    gaugeSource: {
+      id: 'usgs-07014500',
+      provider: 'usgs',
+      siteId: '07014500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Meramec River near Sullivan, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Sullivan gauge rating and Meramec trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed Meramec often supports warm-season floating, but low late-summer riffles, weekend traffic, and fast rain rises still matter. Check Onondaga Cave State Park status, MDC access conditions, and the same-day gauge trend before launching.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short Ozark mainstream float with normal riffles, gravel bars, bluffs, bends, and occasional wood. It is broadly approachable at ordinary levels, but high water can make obstacles, bridges, and the Campbell landing much less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: Missouri State Parks confirms Onondaga Cave State Park has Meramec River canoe and boat access and publishes boat-launch coordinates, MDC planning material explicitly names Onondaga Cave State Park to Campbell Bridge Access as a 5-mile canoe float, MDC confirms Campbell Bridge has a concrete boat ramp, dedicated canoe launch, restroom, and parking, and USGS 07014500 is the same product-supported Sullivan gauge already used for the adjacent Meramec route. The app uses minimum-only scoring because the level source is community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Onondaga Cave State Park to Campbell Bridge Access, 5 miles',
+        note: 'MDC planning material for Campbell Bridge Access says a canoe float from Onondaga Cave State Park to Campbell Bridge Access is 5 miles.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Onondaga Cave State Park canoe launch / boat ramp',
+        note: 'Missouri State Parks says paddlers can access the Meramec River from the park canoe launch or boat ramp, and its boat-launch page publishes coordinates for the Onondaga launch.',
+        sourceUrl: 'https://mostateparks.com/park/onondaga-cave-state-park/boating',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Campbell Bridge Access',
+        note: 'MDC says Campbell Bridge Access provides Meramec River access with a concrete boat ramp, dedicated canoe launch, restroom, and ample parking.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07014500',
+        note: 'USGS operates Meramec River near Sullivan, MO, the live Meramec gauge downstream in this route corridor and the same gauge already configured for the neighboring Sullivan-area Meramec route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Sullivan gauge good beginning at 200 cfs and includes nearby Meramec trip logs rated good from roughly 294 to 543 cfs, with a low but floatable report at 238 cfs.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'Current check',
+        value: '574 cfs / 3.38 ft at 2026-05-30 04:30',
+        note: 'Rivers.MOHERP showed same-day Sullivan gauge data during this run, confirming the selected USGS gauge path is live for current route scoring. The app does not use that snapshot as a fixed recommendation.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'High-water caution',
+        value: 'High and flood categories are not casual-float water',
+        note: 'Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips because obstacles can be treacherous or deadly.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Missouri State Parks Onondaga boating',
+        url: 'https://mostateparks.com/park/onondaga-cave-state-park/boating',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri State Parks Onondaga boat launch',
+        url: 'https://mostateparks.com/key-location/boat-launch-onondaga',
+        provider: 'local',
+      },
+      {
+        label: 'MDC St. Louis Region southern small river accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Campbell Bridge Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/8402map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Meramec Sullivan gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07014500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'meramec-river-campbell-bridge-sappington-bridge',
+    slug: 'meramec-river-campbell-bridge-sappington-bridge',
+    name: 'Meramec River',
+    reach: 'Campbell Bridge Access to Sappington Bridge Access',
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Ten-mile middle Meramec day float from MDC Campbell Bridge Access to MDC Sappington Bridge Access. MDC documents the access chain through Blue Springs Creek, and the Sullivan USGS gauge sits at the take-out corridor.',
+    statusText:
+      'Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles and dragging. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
+    latitude: 38.08113567,
+    longitude: -91.14989519,
+    gaugeSource: {
+      id: 'usgs-07014500',
+      provider: 'usgs',
+      siteId: '07014500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Meramec River near Sullivan, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Sullivan gauge rating and Meramec trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed Meramec often supports warm-season floating, but this is a longer ten-mile day between MDC accesses. Check same-day gauge trend, weather, access conditions, and whether the group has enough daylight before launching.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is mainstream Ozark floating water with normal riffles, gravel bars, bends, bluffs, swimmers, anglers, and occasional wood. It is broadly approachable at ordinary levels, but the longer distance and high-water landings make it more committed than the neighboring five-mile segments.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Meramec add: MDC planning material confirms Campbell Bridge and Sappington Bridge are public Meramec accesses with concrete ramps, dedicated canoe launches, parking, and restrooms; the same plan identifies Campbell Bridge to Blue Springs Creek as 5 miles and Blue Springs Creek to Sappington Bridge as another 5 miles; USGS 07014500 is the same product-supported Sullivan gauge already used by neighboring V2 Meramec routes; and Rivers.MOHERP showed current Sullivan data with a 200 cfs good-condition floor during review. The app uses minimum-only scoring because the level source is community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Campbell Bridge to Sappington Bridge, about 10 miles',
+        note: 'MDC planning material says continued floating from Campbell Bridge Access to Blue Springs Creek is 5 miles and from Blue Springs Creek to Sappington Bridge Access is another 5 miles.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Campbell Bridge Access',
+        note: 'MDC says Campbell Bridge Access provides Meramec River access with a concrete boat ramp, dedicated canoe launch, restroom, and ample parking.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Sappington Bridge Access',
+        note: 'MDC says Sappington Bridge Access provides Meramec River access with a concrete boat ramp, dedicated canoe launch, restroom, and parking.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07014500',
+        note: 'USGS operates Meramec River near Sullivan, MO, the live Meramec gauge at the Sappington / Sullivan route corridor and the same gauge already configured for neighboring V2 routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Sullivan gauge good beginning at 200 cfs and includes a Campbell Bridge to Blue Springs Creek trip rated good at 506 cfs, plus nearby Meramec trip logs rated good from roughly 294 to 543 cfs.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'Current check',
+        value: '574 cfs / 3.38 ft at 2026-05-30 16:30',
+        note: 'Rivers.MOHERP showed same-day Sullivan gauge data during this run, supporting the same USGS gauge path already used for adjacent Meramec route scoring. The app does not use that snapshot as a fixed recommendation.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'High-water caution',
+        value: 'High and flood categories are not casual-float water',
+        note: 'Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips because obstacles can be treacherous or deadly.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC St. Louis Region southern small river accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Campbell Bridge Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/8402map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Sappington Bridge Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/sappington-bridge-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Meramec Sullivan gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07014500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
         provider: 'usgs',
       },
     ],
@@ -16495,6 +19288,264 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-piney-river-east-gate-bookers-bend',
+    slug: 'big-piney-river-east-gate-bookers-bend',
+    name: 'Big Piney River',
+    reach: 'East Gate Access to Bookers Bend Access',
+    aliases: [
+      'Big Piney - East Gate to Bookers Bend',
+      'Big Piney River - East Gate to Booker Bend',
+      'Big Piney River - East Gate to Bookers Bend',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Forest Service Big Piney day float from East Gate to Bookers Bend, using two Mark Twain National Forest gravel accesses and a direct downstream USGS Big Piney gauge. The scoring stays conservative because the level model comes from MoHERP community gauge bands rather than official paddling thresholds.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and a longer day. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.',
+    latitude: 37.764515,
+    longitude: -92.058539,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service describes this as a spring-fed river that is usually floatable year-round unless it has been particularly dry. Low water can still turn the 11-mile day into a scrape-and-drag trip, and rain can make the river murky, rising, and less forgiving at landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad recreational Ozark river segment with riffles, gravel, pools, limestone bluffs, and gravel access ramps. The mileage, limited parking, private shorelines, possible motorboats, and same-day level changes keep it from being a no-check casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the Forest Service lists East Gate and Bookers Bend as open Big Piney boat/canoe accesses, publishes both coordinates, and identifies East Gate-to-Bookers Bend as an 11-mile trip; USGS 06930000 is a direct same-river Big Piney gauge with same-day May 30, 2026 discharge and gage-height observations; and Rivers.MOHERP refreshed from that gauge on May 30 with numeric Big Piney condition bands. The main caveat is threshold precision: MoHERP bands are broad community river bands, not an official route-specific ladder, so the app uses only a low-water floor and no ideal range or upper cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'East Gate to Bookers Bend, 11 mi',
+        note: 'The Forest Service East Gate page says paddlers can take a short 3-mile trip to Crossroads or a longer 11-mile trip to Bookers Bend.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/east-gate',
+      },
+      {
+        label: 'Public put-in',
+        value: 'East Gate Access',
+        note: 'The Forest Service lists East Gate as an open small gravel boat/canoe access for the Big Piney, with coordinates, parking for three vehicles with trailers, and no fee.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/east-gate',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Bookers Bend Access',
+        note: 'The Forest Service lists Bookers Bend as an open small gravel boat/canoe access for the Big Piney, with coordinates, parking for three vehicles with trailers, no fee, and no restroom or potable water.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/bookers-bend',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed same-day May 30, 2026 discharge and gage-height observations, with 251 cfs and 2.79 ft at 08:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP refreshed the Big Piney gauge on May 30, 2026 and showed the river rated Poor at 251 cfs, with the Low band beginning at 309 cfs and Good beginning at 519 cfs. Paddle Today uses only the low-water floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'River character',
+        value: 'Spring-fed, gravel-bottom Ozark river',
+        note: 'The Forest Service says the Big Piney is spring fed, usually floatable year-round unless particularly dry, and has runs, riffles, pools, gravel bottom, limestone bluffs, and pine-topped scenery.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river',
+      },
+      {
+        label: 'Access and high-water cautions',
+        value: 'Private land and rapid rises',
+        note: 'The Forest Service warns that most land along the lower Bookers Bend stretch is private and says the river can rise rapidly; use public accesses and legal stops only.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/bookers-bend',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service East Gate',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/east-gate',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Bookers Bend',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/bookers-bend',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Big Piney River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06930000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'big-piney-river-sandy-shoals-boiling-spring',
+    slug: 'big-piney-river-sandy-shoals-boiling-spring',
+    name: 'Big Piney River',
+    reach: 'Sandy Shoals Ford to Boiling Spring Access',
+    aliases: [
+      'Big Piney - Sandy Shoals to Boiling Spring',
+      'Big Piney River - Sand Shoals to Boiling Spring',
+      'Big Piney River - Sandy Shoals Ford to Boiling Springs',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short MDC-described Big Piney day float from Sandy Shoals Ford access to Boiling Spring Access. The same downstream Big Piney USGS gauge supports a conservative low-water check, but the route does not have an official paddling range.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and a slower day. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.',
+    latitude: 37.4108792,
+    longitude: -91.9501555,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'MDC frames this as a quick Big Piney day trip, and the river is spring fed enough to hold water in normal seasons. Dry spells can still make shoals scrape-heavy, while rain can add murky water, faster current, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is mostly Class I Ozark floating water with riffles, gravel bars, pools, and bluff scenery. MDC notes occasional Class II sections on the Big Piney after a good rain, so high or rising water should not be treated as a casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: MDC specifically recommends Sandy Shoals Ford access to Boiling Spring Access as a little-over-6-mile Big Piney day trip, MDC confirms Boiling Spring Access as a public Big Piney access with a boat ramp and picnic area, USGS 06930000 showed same-day May 30, 2026 discharge and gage-height observations, and Rivers.MOHERP has exact Sand/Sandy Shoals-to-Boiling Spring trip rows on the same gauge. The main caveats are threshold precision and coordinate authority: Sandy Shoals Ford is anchored to topo/GeoNames-style coordinates rather than an MDC coordinate, and the app uses only the existing Big Piney low-water floor with no ideal range or upper cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'MDC route shape',
+        value: 'Just over 6 mi',
+        note: 'MDC recommends dropping in at Sandy Shoals Ford access and floating just over 6 miles down to Boiling Spring for a quick Big Piney day trip.',
+        sourceUrl: 'https://mdc.mo.gov/magazines/missouri-conservationist/2024-07/path-less-paddled',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Boiling Spring Access',
+        note: 'MDC lists Boiling Spring Access as a public area on the Big Piney River with a boat ramp and picnic area, and its area map marks parking, privy, picnic area, and boat ramp features.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/boiling-spring-access',
+      },
+      {
+        label: 'Put-in coordinates',
+        value: '37.4108792, -91.9501555',
+        note: 'TopoZone / USGS-topo-derived mapping places Sandy Shoals Ford in Texas County at this coordinate. MDC supplies the access and route name; the coordinate is used only as the practical ford anchor.',
+        sourceUrl: 'https://www.topozone.com/missouri/texas-mo/locale/sandy-shoals-ford/',
+      },
+      {
+        label: 'Take-out coordinate anchor',
+        value: '37.4594894, -91.9893237',
+        note: 'USGS-topo-derived spring mapping places Boiling Spring on the Big Piney at this coordinate, and MDC confirms the adjacent Boiling Spring Access and area map. Use posted MDC access layout on arrival.',
+        sourceUrl: 'https://www.anyplaceamerica.com/directory/mo/texas-county-29215/springs/boiling-spring-748951/',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed same-day May 30, 2026 discharge and gage-height observations, with 251 cfs and 2.79 ft at 08:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. Exact Sand/Sandy Shoals-to-Boiling Spring trip rows are useful context, but not enough to claim an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Route-specific reports',
+        value: '125 and 486 cfs rows',
+        note: 'Rivers.MOHERP includes Sand/Sandy Shoals-to-Boiling Spring rows on USGS 06930000, including a 486 cfs report that described the level as nearly perfect with only a few drags. The app keeps the broader low-water floor until more calibration exists.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Path Less Paddled',
+        url: 'https://mdc.mo.gov/magazines/missouri-conservationist/2024-07/path-less-paddled',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Boiling Spring Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/boiling-spring-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Boiling Spring Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6422map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06930000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Sandy Shoals Ford topo map',
+        url: 'https://www.topozone.com/missouri/texas-mo/locale/sandy-shoals-ford/',
+        provider: 'local',
+      },
+      {
+        label: 'Boiling Spring topo map',
+        url: 'https://www.anyplaceamerica.com/directory/mo/texas-county-29215/springs/boiling-spring-748951/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'james-river-shelvin-rock-hooten-town',
     slug: 'james-river-shelvin-rock-hooten-town',
     name: 'James River',
@@ -16716,6 +19767,141 @@ export const rivers: River[] = [
         label: 'USGS 07052500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07052500/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'shoal-creek-tipton-ford-wildcat',
+    slug: 'shoal-creek-tipton-ford-wildcat',
+    name: 'Shoal Creek',
+    reach: 'Tipton Ford Access to Wildcat Access',
+    aliases: [
+      'Shoal Creek - Tipton Ford to Wildcat',
+      'Shoal Creek - Tipton Ford to Wildcat Glade',
+      'Shoal Creek Joplin day trip',
+    ],
+    state: 'Missouri',
+    region: 'Southwest Missouri',
+    summary:
+      'Swift lower Shoal Creek day from MDC Tipton Ford Access to MDC Wildcat Access in the Joplin area. MDC documents both public accesses and the 6.9-mile spacing, while the direct Joplin USGS gauge gives a conservative low-water check.',
+    statusText:
+      'Use the Shoal Creek above Joplin gauge. Around 225 cfs is the conservative low-water floor; below that, expect dragging, tight riffles, and possible walking. High or rising water can make channels, wood, and bridge approaches dangerous.',
+    latitude: 36.98367,
+    longitude: -94.441028,
+    gaugeSource: {
+      id: 'usgs-07187000',
+      provider: 'usgs',
+      siteId: '07187000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Shoal Creek above Joplin, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07187000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 225,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Joplin gauge ratings and lower Shoal Creek trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07187000&hours=24',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Shoal Creek can be a good spring-through-fall Joplin-area float when it has enough water, but it responds quickly to rain. Treat rising water as a serious warning because split channels, strainers, bridge current, and chert ledges get less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'National Rivers Project lists Shoal Creek as Class I-II, and lower-Shoal trip notes mention log jams, brush piles, and a treacherous split channel at high water. At ordinary levels this is a practical day float, but it is not a lazy pool-to-pool novice route.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Tipton Ford and Wildcat as public Shoal Creek accesses, the MDC Shoal Creek Accesses plan says Wildcat is 6.9 river miles below Tipton Ford, USGS 07187000 now exposes same-day May 30, 2026 discharge and gage-height values on the official current-conditions page, and Rivers.MOHERP ties lower-Shoal trip evidence and gauge ratings to that Joplin gauge. The app uses minimum-only scoring because the threshold support is community-calibrated rather than an official manager-published paddling band, and high-water guidance stays qualitative.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Tipton Ford Access',
+        note: 'MDC says Tipton Ford Access was acquired to provide Shoal Creek access and includes a concrete ramp and parking lot for small boats.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/tipton-ford-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Wildcat Access',
+        note: 'MDC says Wildcat Access provides Shoal Creek access through a City of Joplin partnership, with a parking lot and boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/wildcat-access',
+      },
+      {
+        label: 'Official route spacing',
+        value: '6.9 river miles',
+        note: 'MDC planning material says Wildcat Access lies 6.9 river miles downstream of Tipton Ford Access.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-11/2014%20Shoal%20Creek%20Accesses%20Conservation%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07187000',
+        note: 'USGS operates Shoal Creek above Joplin, MO, and the official legacy page showed same-day May 30, 2026 discharge and gage-height values during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07187000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '225 cfs minimum-only',
+        note: 'Rivers.MOHERP lower-Shoal trip rows include good-condition reports around 229, 240, 408, and 765 cfs on the Joplin gauge. The app uses a conservative 225 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07187000&hours=24',
+      },
+      {
+        label: 'High-water caution',
+        value: 'High reports include capsizes',
+        note: 'A MoHERP Tipton-Ford-to-Wildcat trip at 1,370 cfs was marked high and noted a treacherous split channel with many capsizes after the Highway 171 bridge. Treat high or rising water as unsuitable for casual trips.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07187000&hours=24',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I-II chert-bed creek',
+        note: 'National Rivers Project describes the broader Smack Out-to-Wildcat Shoal Creek corridor as swift-flowing Class I-II water with chert bedrock, pools, runs, and public MDC access points including Tipton Ford and Wildcat Glade.',
+        sourceUrl: 'https://www.nationalriversproject.com/mo/shoal-creek-shoal-creek',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Tipton Ford Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/tipton-ford-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Wildcat Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/wildcat-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Shoal Creek Accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-11/2014%20Shoal%20Creek%20Accesses%20Conservation%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Shoal Creek Joplin gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07187000&hours=24',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07187000 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07187000',
+        provider: 'usgs',
+      },
+      {
+        label: 'National Rivers Project Shoal Creek',
+        url: 'https://www.nationalriversproject.com/mo/shoal-creek-shoal-creek',
+        provider: 'local',
+      },
+      {
+        label: 'Paddling.com Tipton Ford coordinate record',
+        url: 'https://paddling.com/paddle/locations/tipton-ford-fishing-access',
+        provider: 'local',
+      },
+      {
+        label: 'BoatRampFinder Wildcat Access coordinate record',
+        url: 'https://boatrampfinder.com/ramps/wildcat-access/',
+        provider: 'local',
       },
     ],
   },

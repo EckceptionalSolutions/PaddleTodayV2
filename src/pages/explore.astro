@@ -87,7 +87,7 @@ const trackedRiverCount = riverGroups.length;
                 <h3 class="board-filters__group-title" id="explore-controls-heading">Filters</h3>
               </div>
 
-              <div class="board-filters__controls">
+              <div class="board-filters__controls board-filters__controls--primary">
                 <label class="filter-select filter-select--sort">
                   <span class="sr-only">Sort the board</span>
                   <select class="filter-select__input" data-sort-select>
@@ -107,63 +107,72 @@ const trackedRiverCount = riverGroups.length;
                     <span class="sr-only">Search results</span>
                     <input class="filter-search__input" type="search" placeholder="Search a river or route" data-filter-search />
                 </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by state</span>
-                  <select class="filter-select__input" data-filter-state>
-                    <option value="">All states</option>
-                    {states.map((state) => <option value={state}>{state}</option>)}
-                  </select>
-                </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by difficulty</span>
-                  <select class="filter-select__input" data-filter-difficulty>
-                    <option value="">Any difficulty</option>
-                    <option value="easy">Easy</option>
-                    <option value="moderate">Moderate</option>
-                    <option value="hard">Hard</option>
-                  </select>
-                </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by whitewater routes</span>
-                  <select class="filter-select__input" data-filter-route-type>
-                    <option value="non-whitewater" selected>Non-whitewater routes</option>
-                    <option value="whitewater">Whitewater only</option>
-                    <option value="all">All route types</option>
-                  </select>
-                </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by drive distance</span>
-                  <select class="filter-select__input" data-filter-distance>
-                    <option value="">Any drive distance</option>
-                    <option value="25">Within 25 miles</option>
-                    <option value="50">Within 50 miles</option>
-                    <option value="75">Within 75 miles</option>
-                    <option value="100">Within 100 miles</option>
-                    <option value="150">Within 150 miles</option>
-                    <option value="200">Within 200 miles</option>
-                  </select>
-                </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by paddle time</span>
-                  <select class="filter-select__input" data-filter-paddle-time>
-                    <option value="">Any paddle time</option>
-                    <option value="up-to-3">Under 3 hr</option>
-                    <option value="3-to-5">3-5 hr</option>
-                    <option value="5-to-7">5-7 hr</option>
-                    <option value="7-plus">7+ hr</option>
-                  </select>
-                </label>
-                <label class="filter-select">
-                  <span class="sr-only">Filter by Paddle Today Score</span>
-                  <select class="filter-select__input" data-filter-rating>
-                    <option value="">Paddle Today Score</option>
-                    <option value="Strong">Strong only</option>
-                    <option value="Good">Good only</option>
-                    <option value="Fair">Fair: tradeoffs</option>
-                    <option value="No-go">No-go only</option>
-                  </select>
-                </label>
               </div>
+
+              <details class="board-filters__advanced">
+                <summary>
+                  <span>More filters</span>
+                  <span class="board-filters__advanced-note">State, difficulty, route type, distance, time, score</span>
+                </summary>
+                <div class="board-filters__controls board-filters__controls--secondary">
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by state</span>
+                    <select class="filter-select__input" data-filter-state>
+                      <option value="">All states</option>
+                      {states.map((state) => <option value={state}>{state}</option>)}
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by difficulty</span>
+                    <select class="filter-select__input" data-filter-difficulty>
+                      <option value="">Any difficulty</option>
+                      <option value="easy">Easy</option>
+                      <option value="moderate">Moderate</option>
+                      <option value="hard">Hard</option>
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by whitewater routes</span>
+                    <select class="filter-select__input" data-filter-route-type>
+                      <option value="non-whitewater" selected>Non-whitewater routes</option>
+                      <option value="whitewater">Whitewater only</option>
+                      <option value="all">All route types</option>
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by drive distance</span>
+                    <select class="filter-select__input" data-filter-distance>
+                      <option value="">Any drive distance</option>
+                      <option value="25">Within 25 miles</option>
+                      <option value="50">Within 50 miles</option>
+                      <option value="75">Within 75 miles</option>
+                      <option value="100">Within 100 miles</option>
+                      <option value="150">Within 150 miles</option>
+                      <option value="200">Within 200 miles</option>
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by paddle time</span>
+                    <select class="filter-select__input" data-filter-paddle-time>
+                      <option value="">Any paddle time</option>
+                      <option value="up-to-3">Under 3 hr</option>
+                      <option value="3-to-5">3-5 hr</option>
+                      <option value="5-to-7">5-7 hr</option>
+                      <option value="7-plus">7+ hr</option>
+                    </select>
+                  </label>
+                  <label class="filter-select">
+                    <span class="sr-only">Filter by Paddle Today Score</span>
+                    <select class="filter-select__input" data-filter-rating>
+                      <option value="">Paddle Today Score</option>
+                      <option value="Strong">Strong only</option>
+                      <option value="Good">Good only</option>
+                      <option value="Fair">Fair: tradeoffs</option>
+                      <option value="No-go">No-go only</option>
+                    </select>
+                  </label>
+                </div>
+              </details>
 
               <div class="board-filters__actions">
                 <button class="filter-chip filter-chip--quiet" type="button" data-explore-reset>Reset all filters</button>
