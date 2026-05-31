@@ -31,6 +31,27 @@ Use this file to bootstrap Indiana route expansion with access-law and dam hazar
 
 ## Run Log
 
+- 2026-05-30 22:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Blue River - White Cloud to Blue River Chapel` because it remains the strongest short AW-listed Indiana lead. AW's Indiana river index search result showed the exact 2.4-mile I(II) reach at 548 cfs updated 1 hour ago, and official USGS legacy current conditions for `03303000` exposed recent May 29, 2026 values: 1,230 cfs and 4.33 ft at 15:15 EDT.
+  - No route was added because AW's gauge-detail page remains stale by months, product-fetchable USGS Water Services data from this runtime is still not proven, the only captured numeric guidance is forum/community-level rather than manager/AW threshold bands, and the public White Cloud put-in plus old breached mill / low-head-dam context still need manager-grade confirmation.
+  - Moved `in-blue-river-white-cloud-blue-river-chapel` from `no_live_gauge` to `threshold_weak` so future runs focus on threshold/access proof rather than treating the gauge as entirely absent.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-30 22:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access` because it remains the strongest scenic-access lead. Indiana DNR confirms Sugar Creek Conservation Area water recreation and PFD rules, IndianaOutfitters search-visible pages identify Deer's Mill and Cox Ford as public/DNR-style access points, and third-party RiverScout surfaces a 300-1500 cfs range.
+  - No route was added because product-fetchable official current data did not clear: automation-shell USGS Water Services and legacy current-condition requests for `03339500` failed unable to connect, the official WDFN monitoring page opened without current values in this tooling, and search-visible official USGS inventory evidence says current/historical observations end 2025-11-07.
+  - Moved `in-sugar-creek-shades-turkey-run-family` to `no_live_gauge`. The threshold package also remains mixed third-party/community guidance rather than manager/AW/official route-specific guidance; official access/parking/permit, OHWM/private-bank, state-park closure, and dam/obstruction checks remain required before any future implementation.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-30 21:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Fresh rechecked `Kankakee River National Water Trail Indiana family`; NWIPA lists Indiana access points with GPS coordinates and segment spacing, and the NIRPC Kankakee River Water Trail map identifies Kingsbury Access and Route 8 Access as DNR-owned sites with a 15.5-mile segment between them.
+  - No route was added because the threshold package still does not clear: no official/AW/manager-published numeric low-water floor, ideal range, high-water cutoff, or conservative minimum-only model tied to a selected live USGS gauge surfaced.
+  - Updated the structured ledger from `research_later` to `threshold_weak` for `in-kankakee-national-water-trail-family`, with Kingsbury-to-Route-8 as the best future reach lead. Kept NWIPA flood-stage, logjam, hunting-preserve, few-services, portage-limit, OHWM/private-bank, and low-head-dam/obstruction checks as blockers before implementation.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only; no npm validation because no app data changed.
+
 - 2026-05-30 21:09 America/Chicago: No route added.
   - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
   - Rechecked `Cedar Creek - Tonkel Road to State Road 1 / Leo-Cedarville` as the strongest fresh route-shape lead. Northeast Indiana Water Trails publishes exact endpoint coordinates, just-over-5-mile distance, about 3-hour paddle time, seasonal qualitative level notes, fallen-tree/portage warnings, and small rapids before the exit. ACRES repeats the route and says it ends at the DNR access site on State Road 1, and Indiana DNR confirms Cedar Creek is a designated scenic/recreational river-system stream.

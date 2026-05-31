@@ -6118,6 +6118,42 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-piney-river-boiling-spring-mason-bridge': {
+    putIn: {
+      name: 'Boiling Spring Access',
+      latitude: 37.4594894,
+      longitude: -91.9893237,
+    },
+    takeOut: {
+      name: 'Mason Bridge Access',
+      latitude: 37.50581,
+      longitude: -91.98319,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or stops',
+      shuttle:
+        'Use a two-car shuttle between MDC Boiling Spring Access and Mason Bridge Access. Inspect Mason Bridge first because the saved coordinate is an OSM-derived ramp anchor paired with MDC map confirmation, not an MDC-published latitude and longitude.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri boating laws, posted MDC area rules, no-glass/no-polystyrene rules, access hours, and current signs at both access areas.',
+      camping:
+        'Treat this as a day trip. MDC lists camping as prohibited at Boiling Spring Access; do not assume on-route camping without separately confirmed legal access.',
+      summary:
+        'Launch at MDC Boiling Spring Access and take out at Mason Bridge Access for the MDC-described six-mile Big Piney day float. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
+      accessCaveats: [
+        'Boiling Spring Access is an MDC public area with a boat ramp, picnic area, privy, parking, and disabled-accessible features shown on the area map.',
+        'MDC map material confirms Mason Bridge Access has a parking lot and boat ramp, but the coordinate is sourced from Mapcarta / OpenStreetMap rather than an MDC coordinate feed.',
+        'Camping is prohibited at Boiling Spring Access, and vehicle use is limited to roads and established parking areas unless posted otherwise.',
+        'Private land borders portions of the Big Piney corridor. Stay with public accesses, lawful gravel-bar stops, and posted rules rather than climbing banks or using private land.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and slow pools when the Big Piney gauge is below the MoHERP low-water floor.',
+        'Mostly Class I Ozark floating water, with higher-water push and occasional Class II-style current after rain.',
+        'Rapid rises after storms, murky water, fresh wood, and harder landings. The current model has no defended high-water cutoff.',
+        'Ramp and gravel-bar congestion at Boiling Spring, Mason Bridge parking limits, fishing traffic, and limited cell service.',
+      ],
+    },
+  },
   'james-river-shelvin-rock-hooten-town': {
     putIn: {
       name: 'Shelvin Rock Access',

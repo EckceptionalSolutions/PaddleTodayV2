@@ -19546,6 +19546,156 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-piney-river-boiling-spring-mason-bridge',
+    slug: 'big-piney-river-boiling-spring-mason-bridge',
+    name: 'Big Piney River',
+    reach: 'Boiling Spring Access to Mason Bridge Access',
+    aliases: [
+      'Big Piney - Boiling Spring to Mason Bridge',
+      'Big Piney River - Boiling Spring to Mason Bridge',
+      'Big Piney River - Boiling Springs to Mason Bridge',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'MDC-described six-mile Big Piney day float from Boiling Spring Access to Mason Bridge Access. It uses the same direct Big Piney USGS gauge as the adjacent V2 Big Piney routes, with conservative low-water-only scoring.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and slow pools. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.',
+    latitude: 37.4594894,
+    longitude: -91.9893237,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'MDC frames this as a daylong Big Piney float, and public guides describe the river as spring fed and normally floatable outside especially dry periods. Dry spells can still make this upper-middle reach scrapey; rain can add murky water, faster current, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'MDC calls the Boiling Spring-to-Mason Bridge float Category I / Easy except during high water. Expect Ozark riffles, pools, gravel bars, fishing traffic, and occasional wood; high or rising water should not be treated as beginner-friendly.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC specifically describes Boiling Spring Access to Mason Bridge Access as a six-mile daylong Big Piney float, MDC confirms Boiling Spring Access as public Big Piney access, MDC map material confirms Mason Bridge Access with parking and a boat ramp, USGS 06930000 showed same-day May 30, 2026 discharge and gage-height observations, and the same Big Piney gauge is already product-supported by adjacent V2 routes. The app uses only the existing Big Piney 309 cfs low-water floor from MoHERP community bands; it does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'MDC route shape',
+        value: 'About 6 mi',
+        note: 'MDC describes Boiling Spring Access to the Conservation Department Mason Bridge Access as a decent daylong Big Piney float through six scenic miles, rated Category I / Easy except during high water.',
+        sourceUrl: 'https://mdc.mo.gov/magazines/conservationist/2008-06/outdoor-recreation',
+      },
+      {
+        label: 'Segment mileage',
+        value: 'Mile 26.6 to 32.5',
+        note: 'Big Piney River Stream Team Watershed Association lists Boiling Spring to Mason Bridge as river mile 26.6 to 32.5, matching the six-mile MDC route description.',
+        sourceUrl: 'https://bigpineyriverstwa.org/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Boiling Spring Access',
+        note: 'MDC lists Boiling Spring Access as a public Big Piney River area with a boat ramp and picnic area, and its area map marks parking, privy, picnic area, and boat ramp features.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/boiling-spring-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Mason Bridge Access',
+        note: 'MDC map material identifies Mason Bridge Access in Texas County on the Big Piney River, with parking lot and boat ramp symbols.',
+        sourceUrl: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6110map.pdf',
+      },
+      {
+        label: 'Take-out coordinate anchor',
+        value: '37.50581, -91.98319',
+        note: 'Mapcarta / OpenStreetMap locates Mason Bridge Access as a Big Piney slipway at this coordinate. Pair the coordinate with MDC area-map confirmation and follow posted access layout on arrival.',
+        sourceUrl: 'https://mapcarta.com/N5395506490',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed same-day May 30, 2026 discharge and gage-height observations, with 251 cfs and 2.79 ft at 08:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I, seldom II except high water',
+        note: 'Missouri Float Trips describes the Big Piney as mostly Class I, seldom Class II except in high water, and marks Boiling Spring Access and Mason Bridge Access in the same mile-by-mile sequence.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/big-piney-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Outdoor Recreation: Access to Access',
+        url: 'https://mdc.mo.gov/magazines/conservationist/2008-06/outdoor-recreation',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Boiling Spring Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/boiling-spring-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Boiling Spring Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6422map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Mason Bridge Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6110map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Big Piney River Stream Team Watershed Association',
+        url: 'https://bigpineyriverstwa.org/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06930000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mason Bridge Access map coordinate',
+        url: 'https://mapcarta.com/N5395506490',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri Float Trips Big Piney River',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/big-piney-river/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'james-river-shelvin-rock-hooten-town',
     slug: 'james-river-shelvin-rock-hooten-town',
     name: 'James River',

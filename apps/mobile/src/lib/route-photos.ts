@@ -204,6 +204,87 @@ const routeGalleryImages: Record<string, string[]> = {
   'la-crosse-river-veterans-holiday-heights': [
     '/gallery/la-crosse-river-veterans-holiday-heights/la-crosse-river-trail-bridge.jpg',
   ],
+  'kansas-river-seward-lecompton': [
+    '/gallery/kansas-river-seward-lecompton/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-lecompton-lawrence-riverfront': [
+    '/gallery/kansas-river-lecompton-lawrence-riverfront/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-lawrence-8th-eudora': [
+    '/gallery/kansas-river-lawrence-8th-eudora/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-eudora-de-soto': [
+    '/gallery/kansas-river-eudora-de-soto/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-de-soto-edwardsville': [
+    '/gallery/kansas-river-de-soto-edwardsville/kansas-river-kansas-city.jpg',
+  ],
+  'kansas-river-edwardsville-turner-bridge': [
+    '/gallery/kansas-river-edwardsville-turner-bridge/kansas-river-kansas-city.jpg',
+  ],
+  'kansas-river-junction-city-ogden': [
+    '/gallery/kansas-river-junction-city-ogden/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-ogden-manhattan': [
+    '/gallery/kansas-river-ogden-manhattan/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-manhattan-st-george': [
+    '/gallery/kansas-river-manhattan-st-george/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-st-george-wamego': [
+    '/gallery/kansas-river-st-george-wamego/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-wamego-belvue': [
+    '/gallery/kansas-river-wamego-belvue/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-belvue-kaw-river-state-park': [
+    '/gallery/kansas-river-belvue-kaw-river-state-park/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-topeka-water-plant-seward': [
+    '/gallery/kansas-river-topeka-water-plant-seward/kansas-river-lawrence.jpg',
+  ],
+  'kansas-river-turner-bridge-kaw-point': [
+    '/gallery/kansas-river-turner-bridge-kaw-point/kansas-river-kansas-city.jpg',
+  ],
+  'current-river-cedar-grove-akers': [
+    '/gallery/current-river-cedar-grove-akers/current-river-welch-spring.jpg',
+  ],
+  'jacks-fork-river-buck-hollow-rymers': [
+    '/gallery/jacks-fork-river-buck-hollow-rymers/jacks-fork-upper.jpg',
+  ],
+  'jacks-fork-river-alley-spring-chilton': [
+    '/gallery/jacks-fork-river-alley-spring-chilton/jacks-fork-upper.jpg',
+  ],
+  'current-river-waymeyer-van-buren': [
+    '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+  ],
+  'eleven-point-river-turner-mill-south-whitten': [
+    '/gallery/eleven-point-river-turner-mill-south-whitten/eleven-point-river-missouri.jpg',
+  ],
+  'eleven-point-river-whitten-riverton': [
+    '/gallery/eleven-point-river-whitten-riverton/eleven-point-river-missouri.jpg',
+  ],
+  'north-fork-white-river-north-fork-blair': [
+    '/gallery/north-fork-white-river-north-fork-blair/upper-north-fork-bridge.jpg',
+  ],
+  'meramec-river-onondaga-campbell-bridge': [
+    '/gallery/meramec-river-onondaga-campbell-bridge/meramec-river-onondaga.jpg',
+  ],
+  'meramec-river-campbell-bridge-sappington-bridge': [
+    '/gallery/meramec-river-campbell-bridge-sappington-bridge/meramec-river-onondaga.jpg',
+  ],
+  'bryant-creek-sycamore-warren-bridge': [
+    '/gallery/bryant-creek-sycamore-warren-bridge/bryant-creek-state-park.jpg',
+  ],
+  'big-piney-river-east-gate-bookers-bend': [
+    '/gallery/big-piney-river-east-gate-bookers-bend/big-piney-river-mo-17.jpg',
+  ],
+  'big-piney-river-sandy-shoals-boiling-spring': [
+    '/gallery/big-piney-river-sandy-shoals-boiling-spring/big-piney-river-mo-17.jpg',
+  ],
+  'shoal-creek-tipton-ford-wildcat': [
+    '/gallery/shoal-creek-tipton-ford-wildcat/shoal-creek-inspiration-point.jpg',
+  ],
 };
 
 const placeholderImages = [
