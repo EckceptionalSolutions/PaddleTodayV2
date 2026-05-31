@@ -1,6 +1,18 @@
 name: Paddle Today River Snapshots
 
 on:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - '.github/workflows/river-snapshots.yml'
+      - 'package-lock.json'
+      - 'package.json'
+      - 'packages/**'
+      - 'src/data/**'
+      - 'src/lib/**'
+      - 'src/server/**'
   schedule:
     - cron: '*/30 * * * *'
   workflow_dispatch:
