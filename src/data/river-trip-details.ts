@@ -6188,6 +6188,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'gasconade-river-rollins-ferry-pointers-creek': {
+    putIn: {
+      name: 'Rollins Ferry Access',
+      latitude: 38.393528,
+      longitude: -91.820729,
+    },
+    takeOut: {
+      name: 'Pointers Creek Access',
+      latitude: 38.424847,
+      longitude: -91.742545,
+    },
+    logistics: {
+      distanceLabel: 'About 7.0 to 7.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on level, wind, stops, and boat traffic',
+      shuttle:
+        'Use a two-car shuttle between MDC Rollins Ferry Access near Highway 89 and MDC Pointers Creek Access off Route RA. Stage and inspect Pointers Creek first because Route RA can be affected by flood-stage conditions on Pointers Creek.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, boat-use rules, camping rules, and parking restrictions at both department access areas.',
+      camping:
+        'Primitive camping is listed at both MDC access areas, but this route is intended as a day float. Confirm current MDC rules, posted signs, and campsite availability before treating either endpoint as an overnight plan.',
+      summary:
+        'Launch at MDC Rollins Ferry Access and take out at MDC Pointers Creek Access for a 7-mile lower Gasconade day. Use the Rich Fountain gauge as a conservative low-water check rather than a full preferred-range recommendation.',
+      accessCaveats: [
+        'Rollins Ferry and Pointers Creek are MDC public access areas with Gasconade River boat-ramp context, but posted signs and area maps control exact use.',
+        'MDC notes that Route RA to Pointers Creek is impassable when Pointers Creek is at flood stage; inspect the take-out and road access before launching upstream.',
+        'Coordinates are practical public paddling/location anchors paired with MDC access confirmation; follow on-site signs for the exact ramp, parking, camping, and closure conditions.',
+      ],
+      watchFor: [
+        'Dragging, shallow riffles, and slow pools when the Rich Fountain gauge is near or below the 1,100 cfs floor.',
+        'High or rising water after rain, floating wood, muddy current, island splits, strainers on bends, and harder landings.',
+        'Motorboats, anglers, gravel bars, private banks, and long exposed pools where wind can slow the trip.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
   'shoal-creek-tipton-ford-wildcat': {
     putIn: {
       name: 'Tipton Ford Access',

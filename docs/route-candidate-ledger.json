@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-05-30T20:50:00-05:00",
+    "updatedAt": "2026-05-30T21:05:00-05:00",
     "notes": [
+        "2026-05-30 21:05 America/Chicago Missouri implementation pass. Reconciled live Missouri inventory first and confirmed sixteen existing Missouri V2 routes before this add; no exact or obvious duplicate of Gasconade Rollins Ferry-to-Pointers Creek was present. Added Gasconade River Rollins Ferry Access to Pointers Creek Access as gasconade-river-rollins-ferry-pointers-creek. Qualification path: official USGS 06934000 Rich Fountain current conditions recovered with same-day May 30, 2026 discharge and gage-height observations, MDC documents the exact Rollins Ferry-to-Pointers Creek 7-mile paddling route and both endpoint access areas, and Rivers.MOHERP provides Rich Fountain gauge condition bands. Implemented minimum-only 1,100 cfs from the Low band floor; no ideal range or upper cutoff was inferred because MoHERP had no exact trip rows for this route. Endpoint coordinates are public paddling/location anchors paired with MDC access confirmation. Caveats include community threshold support, high/rising water, Route RA flood-stage road access, motorboat traffic, private banks, and no rights-clean gallery image selected.",
         "2026-05-30 20:50 America/Chicago Missouri no-add pass. Reconciled live Missouri inventory first and confirmed sixteen existing Missouri V2 routes: current-river-cedar-grove-akers, jacks-fork-river-buck-hollow-rymers, jacks-fork-river-alley-spring-chilton, current-river-waymeyer-van-buren, eleven-point-river-turner-mill-south-whitten, eleven-point-river-whitten-riverton, north-fork-white-river-north-fork-blair, meramec-river-onondaga-campbell-bridge, meramec-river-campbell-bridge-sappington-bridge, meramec-river-sappington-bridge-meramec-state-park, bryant-creek-sycamore-warren-bridge, big-piney-river-east-gate-bookers-bend, big-piney-river-sandy-shoals-boiling-spring, james-river-shelvin-rock-hooten-town, james-river-hl-kerr-ralph-cox, and shoal-creek-tipton-ford-wildcat. No duplicate route was added. Fresh gauge-first recheck focused on the strongest deferred Missouri leads: Jacks Fork Bay Creek-to-Alley / Rymers-Bay-Alley, Current River Van Buren-to-Big Spring, upper Meramec Short Bend-to-Cook Station, lower Pomme de Terre Hermitage-to-Cross-Timbers, Bourbeuse Reiker-Ford/Mayers/Union, and Niangua Bennett-Spring-to-Barclay. No route cleared the add bar. Jacks Fork remains no_live_gauge because official USGS 07065495 still shows latest values from 2026-05-29 13:30 CDT; Current River remains needs_manual_coordinates because Big Spring (upper) landing coordinates are still not source-backed; upper Meramec remains needs_manual_coordinates because Cook Station low-water bridge access/coordinates and high-water-only framing are unresolved; Pomme de Terre remains no_live_gauge because USGS 06921500 and 06921350 still expose stale April 15 and May 5 values; Bourbeuse remains research_later because Mayers Landing access is still unsettled and USGS 07016500 remains stale to 2026-05-28; Niangua remains gauge_proxy_weak because Windyville is upstream of Bennett Spring inflow and no exact proxy validation was found.",
         "2026-05-30 20:40 America/Chicago Kansas no-add pass for kansas-route-additions-2. Reconciled live Kansas inventory first and confirmed fourteen existing Kansas V2 routes, all Kansas River routes: kansas-river-lawrence-8th-eudora, kansas-river-eudora-de-soto, kansas-river-de-soto-edwardsville, kansas-river-junction-city-ogden, kansas-river-ogden-manhattan, kansas-river-manhattan-st-george, kansas-river-st-george-wamego, kansas-river-wamego-belvue, kansas-river-belvue-kaw-river-state-park, kansas-river-topeka-water-plant-seward, kansas-river-lecompton-lawrence-riverfront, kansas-river-turner-bridge-kaw-point, kansas-river-seward-lecompton, and kansas-river-edwardsville-turner-bridge. No duplicate route was added. Fresh conservative review checked Arkansas River Wichita/Lincoln/47th access-family leads and Missouri River Kaw Point-to-Leavenworth / Kansas-side access-family leads. No route cleared the add bar: Arkansas River evidence has KDWP public-river and National Water Trail support plus Arkansas River Coalition 200 cfs below-Lincoln guidance, but no exact manager-grade endpoint pair with coordinates and gauge-tied threshold model was selected; Missouri River evidence confirms Kaw Point access and legal/public context, but no route-specific big-river paddlecraft threshold package or Kansas-side downstream endpoint cleared the standard. Added ledger candidates ks-arkansas-river-wichita-lincoln-47th-family and ks-missouri-river-kaw-point-leavenworth-family with blockers.",
         "2026-05-30 20:40 America/Chicago Utah no-add pass. Reconciled live Utah inventory first and confirmed the only Utah V2 route remains Green River Flaming Gorge Dam / Spillway Boat Launch to Little Hole as green-river-flaming-gorge-dam-little-hole; no duplicate was added. Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026, and kept lawful-access, no-stopping/private-bed, and upper-Weber special-case constraints in force. Rechecked Weber Henefer-to-Taggarts: American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, private-property caveats, and current 308 cfs medium-runnable context. Utah WRI still describes the Taggarts take-out as county-owned old highway off Taggart Exit rather than an officially established boat ramp, with serious congestion and unclear unified rules. Shell USGS Water Services IV fetches for 10132000 and the already-live Green River 09234500 again failed unable to connect. No route was added because source-backed endpoint coordinates and current access legitimacy remain unresolved for the Taggarts river-right take-out below Taggarts Falls. Kept ut-weber-river-henefer-taggarts as needs_manual_coordinates.",
@@ -13070,13 +13071,13 @@
         },
         {
             "candidateId": "mo-gasconade-river-rollins-ferry-pointers-creek",
-            "reviewCount": 10,
+            "reviewCount": 11,
             "river": "Gasconade River",
             "route": "Rollins Ferry Access to Pointers Creek Access",
             "state": "MO",
-            "status": "no_live_gauge",
-            "blocker": "Fresh 2026-05-30 16:40 America/Chicago recheck preserved no_live_gauge. Rollins Ferry / lower-Gasconade access context remains promising, but the official USGS product path still did not clear: USGS 06933500 legacy text showed most recent instantaneous values from 2026-01-23, prior 06934000 Rich Fountain evidence remained stale/unverified, and the automation shell still could not reach USGS Water Services. Third-party current-looking values are not enough because PaddleTodayV2 fetches USGS directly.",
-            "retryCondition": "Retry only if USGS 06934000 at Rich Fountain or another defensible lower-Gasconade gauge exposes same-day product-fetchable instantaneous discharge and gage height, then capture source-backed endpoint coordinates and apply MoHERP bands conservatively.",
+            "status": "added",
+            "blocker": null,
+            "retryCondition": "Already implemented as gasconade-river-rollins-ferry-pointers-creek. Revisit if official or exact-route threshold guidance appears, endpoint GIS coordinates improve, access rules change, or a rights-clean exact-route image becomes available.",
             "retryDate": null,
             "sourcesChecked": [
                 "MDC event/search result for Rollins Ferry to Pointers Creek paddle, about 7 miles",
@@ -13103,33 +13104,44 @@
                 "2026-05-30 NWS Missouri River Basin latest-conditions table: Rich Fountain 06934000 row visible at 2026-05-28 08:30, not same-day May 30",
                 "2026-05-30 15:30 web search recheck for USGS 06934000 current discharge did not surface same-day official current values",
                 "2026-05-30 15:30 automation-shell USGS Water Services IV fetch for 06934000 failed with Unable to connect to the remote server",
-                "2026-05-30 16:40 recheck: USGS 06933500 Jerome legacy page opened with most recent instantaneous discharge/stage dated 2026-01-23; MoHERP/Snoflo/RiverApp context was current-looking but third-party only; USGS Water Services IV fetch for 06933500 failed from automation shell. Kept lower-Gasconade implementation blocked on product-fetchable official data."
+                "2026-05-30 16:40 recheck: USGS 06933500 Jerome legacy page opened with most recent instantaneous discharge/stage dated 2026-01-23; MoHERP/Snoflo/RiverApp context was current-looking but third-party only; USGS Water Services IV fetch for 06933500 failed from automation shell. Kept lower-Gasconade implementation blocked on product-fetchable official data.",
+                "2026-05-30 USGS 06934000 legacy current conditions exposed same-day discharge/gage-height values",
+                "2026-05-30 MDC Paddling page exact Rollins Ferry to Pointers Creek 7-mile route",
+                "2026-05-30 MDC Rollins Ferry Access map and Pointers Creek Access page",
+                "2026-05-30 Rivers.MOHERP Rich Fountain gauge bands and zero displayed trip rows",
+                "2026-05-30 Paddling.com / Camping.org public coordinate anchors for Rollins Ferry and Pointers Creek"
             ],
             "aliases": [
                 "Gasconade River - Rollins Ferry to Pointers Creek",
                 "Gasconade River - Rich Fountain gauge day trip",
                 "Gasconade River Highway 89 to Pointers Creek"
             ],
-            "v2Slug": null,
+            "v2Slug": "gasconade-river-rollins-ferry-pointers-creek",
             "gauge": {
-                "quality": "direct_but_no_same_day_product_data_visible",
+                "quality": "direct",
                 "id": "06934000",
                 "provider": "USGS",
-                "notes": "USGS 06934000 at Rich Fountain remains the better direct route-corridor gauge for Rollins Ferry to Pointers Creek; USGS 06933500 Jerome was also checked as a broader Gasconade gauge. Do not ship until official USGS current data is product-fetchable and fresh enough for charting."
+                "notes": "USGS 06934000 Gasconade River near Rich Fountain, MO is a direct same-river gauge in the Rollins Ferry / lower-Gasconade corridor. The official legacy page exposed same-day May 30, 2026 discharge and gage-height values during implementation review."
             },
             "thresholdSupport": {
-                "strength": "community_gauge_bands_pending_live_data",
-                "notes": "MoHERP appears to provide numeric Rich Fountain condition bands, but this pass did not rely on them for implementation because the official live-data gate failed first."
+                "strength": "community_gauge_bands_minimum_only",
+                "notes": "Rivers.MOHERP Rich Fountain gauge bands put the start of Low near 1,074 cfs and the start of Good near 1,994 cfs. The app uses a rounded 1,100 cfs minimum-only floor. No ideal range or upper cutoff was inferred because MoHERP had zero exact trip rows for Rollins Ferry to Pointers Creek during this review."
             },
             "endpoints": {
                 "putIn": "Rollins Ferry Access",
                 "takeOut": "Pointers Creek Access",
-                "coordinatesPresent": false,
-                "putInCoordinates": null,
-                "takeOutCoordinates": null,
-                "coordinateSource": "Not captured because same-day official live data failed before implementation."
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 38.393528,
+                    "longitude": -91.820729
+                },
+                "takeOutCoordinates": {
+                    "latitude": 38.424847,
+                    "longitude": -91.742545
+                },
+                "coordinateSource": "Public paddling/location records provide practical access coordinates, paired with MDC access pages/map material confirming the named public access areas and route context. Follow MDC maps and posted signs for exact ramp/parking layout."
             },
-            "notes": "Fresh 2026-05-30 16:40 recheck: still no_live_gauge; current-looking third-party values do not satisfy the V2 live-data gate.",
+            "notes": "Implemented 2026-05-30 as a conservative minimum-only Missouri route after the Rich Fountain USGS live-data blocker cleared. MDC supports the exact 7-mile route and both endpoint access areas; MoHERP supports a gauge-level low-water floor but no exact route rows, so threshold confidence remains community/minimum-only.",
             "lastReviewed": "2026-05-30"
         },
         {

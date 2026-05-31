@@ -19771,6 +19771,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'gasconade-river-rollins-ferry-pointers-creek',
+    slug: 'gasconade-river-rollins-ferry-pointers-creek',
+    name: 'Gasconade River',
+    reach: 'Rollins Ferry Access to Pointers Creek Access',
+    aliases: [
+      'Gasconade River - Rollins Ferry to Pointers Creek',
+      'Gasconade River - Rich Fountain to Pointers Creek',
+      'Gasconade River Highway 89 to Pointers Creek',
+    ],
+    state: 'Missouri',
+    region: 'Central Missouri',
+    summary:
+      'Seven-mile lower Gasconade day from MDC Rollins Ferry Access to MDC Pointers Creek Access. MDC uses this exact route for a guided paddling program, and the Rich Fountain USGS gauge sits in the put-in corridor.',
+    statusText:
+      'Use the Gasconade River near Rich Fountain gauge. Around 1,100 cfs is the conservative low-water floor; below that, expect dragging, slow pools, and reduced float length. High or rising water can make this broad river unsafe for casual trips.',
+    latitude: 38.393528,
+    longitude: -91.820729,
+    gaugeSource: {
+      id: 'usgs-06934000',
+      provider: 'usgs',
+      siteId: '06934000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Gasconade River near Rich Fountain, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06934000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Rich Fountain gauge bands for the Gasconade River',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower Gasconade is commonly paddled in spring through fall. Low water can make this short route slow and scrapey, while rain or releases can turn the river pushy, muddy, and debris-filled.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad recreational Gasconade segment with pools, gravel bars, motorboat traffic, and ordinary Class I moving-water decisions. It should stay an easy route only at ordinary, stable levels; high or rising water raises the consequence of bends, strainers, islands, and landings.',
+      confidenceNotes:
+        'Confidence is good but intentionally conservative: MDC confirms both Rollins Ferry and Pointers Creek as public Gasconade River accesses, MDC advertises the exact Rollins-Ferry-to-Pointers-Creek route as a 7-mile guided paddling trip, USGS 06934000 exposed same-day May 30, 2026 discharge and gage-height values during review, and Rivers.MOHERP provides gauge-level condition bands for the Rich Fountain gauge. The app uses only a minimum-only floor because MoHERP had no exact trip rows for this route, and no ideal range or upper cutoff is claimed.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Rollins Ferry Access',
+        note: 'MDC map material identifies Rollins Ferry Access on the Gasconade River with a boat ramp, privy, parking, and primitive camping area.',
+        sourceUrl: 'https://mdc.mo.gov/media/79794',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Pointers Creek Access',
+        note: 'MDC confirms Pointers Creek Access on the Gasconade River, with directions, area rules, boat-use rules, camping, fishing, and photo documentation of the boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/pointers-creek-access',
+      },
+      {
+        label: 'Official route shape',
+        value: 'Rollins Ferry to Pointers Creek, 7 miles',
+        note: 'MDC describes a guided Gasconade River paddling outing from Rollins Ferry to Pointers Creek Access as a 7-mile route.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/activities/paddling',
+      },
+      {
+        label: 'River-mile support',
+        value: 'About 7.4 river miles',
+        note: 'Missouri Float Trips places Rollins Ferry Access at river mile 203.4 and Pointers Creek Access at river mile 210.8 on the Gasconade River.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/gasconade-river/',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06934000',
+        note: 'USGS operates Gasconade River near Rich Fountain, MO. The official legacy current-conditions page showed same-day May 30, 2026 discharge and gage-height observations during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06934000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '1,100 cfs minimum-only',
+        note: 'Rivers.MOHERP Rich Fountain gauge bands put the start of Low near 1,074 cfs and the start of Good near 1,994 cfs. The app uses a rounded 1,100 cfs low-water floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+      },
+      {
+        label: 'High-water caution',
+        value: 'No numeric cutoff claimed',
+        note: 'MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat high or rising water as unsuitable for casual trips.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Paddling programs',
+        url: 'https://mdc.mo.gov/discover-nature/activities/paddling',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Rollins Ferry Access map',
+        url: 'https://mdc.mo.gov/media/79794',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Pointers Creek Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/pointers-creek-access',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Gasconade River Rich Fountain gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06934000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06934000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Missouri Float Trips Gasconade River guide',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/gasconade-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Rollins Ferry public paddling-location coordinates',
+        url: 'https://paddling.com/paddle/locations/rich-fountain-access',
+        provider: 'local',
+      },
+      {
+        label: 'Pointers Creek public location coordinates',
+        url: 'https://www.camping.org/campgrounds/missouri/linn/pointers-creek-access',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'shoal-creek-tipton-ford-wildcat',
     slug: 'shoal-creek-tipton-ford-wildcat',
     name: 'Shoal Creek',
