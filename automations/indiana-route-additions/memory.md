@@ -31,6 +31,133 @@ Use this file to bootstrap Indiana route expansion with access-law and dam hazar
 
 ## Run Log
 
+- 2026-05-31 08:18 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`. The only `Indiana` app-data matches remain Wisconsin route copy.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - Workspace USGS Water Services IV fetch for `03323000`, `03339500`, `03303000`, and `03334000` still failed unable to connect. Official USGS legacy pages still leave the strongest leads below the bar: Wabash `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Sugar Creek `03339500` remains recent but not same-day at `265 cfs / 3.88 ft` from `2026-05-30 16:45 EDT` and still lacks a manager/AW/official route-specific threshold model; Blue River `03303000` remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT`; Wildcat Creek `03334000` remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 07:46 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - Workspace USGS Water Services IV fetch for `03323000`, `03339500`, `03303000`, and `03334000` still failed unable to connect. Official USGS legacy pages still leave the strongest leads below the bar: Wabash `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Sugar Creek `03339500` remains recent but not same-day at `265 cfs / 3.88 ft` from `2026-05-30 16:45 EDT` and still lacks a manager/AW/official route-specific threshold model; Blue River `03303000` remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT`; Wildcat Creek `03334000` remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 07:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - Workspace USGS Water Services IV fetch for `03323000`, `03339500`, `03303000`, and `03334000` still failed unable to connect. Official USGS legacy pages still leave the strongest leads below the bar: Wabash `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Sugar Creek `03339500` remains recent but not same-day at `265 cfs / 3.88 ft` from `2026-05-30 16:45 EDT` and still lacks a manager/AW/official route-specific threshold model; Blue River `03303000` remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT`; Wildcat Creek `03334000` remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 06:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`. The only `Indiana` app-data match remains Wisconsin hazard copy.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - Workspace USGS Water Services IV fetch for `03323000`, `03339500`, `03303000`, and `03334000` still failed unable to connect. Official USGS legacy pages also did not improve enough to add a route: Wabash remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Sugar Creek remains recent but not same-day at `265 cfs / 3.88 ft` from `2026-05-30 16:45 EDT` and still lacks a manager/AW/official route-specific threshold model; Blue River remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT` plus unresolved access/dam proof; Wildcat remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 06:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`. The only `Indiana` matches in app data are Wisconsin hazard copy.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - Workspace USGS Water Services IV fetch for `03323000`, `03339500`, `03303000`, and `03334000` still failed unable to connect. No route was added: Wabash and Wildcat still lack product-fresh official live-data evidence, Blue River still lacks same-day official data plus manager-grade access/dam proof, and Sugar Creek still lacks a manager/AW/official route-specific threshold model despite useful access context.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 05:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - No route was added. Official USGS legacy pages still leave the strongest leads below the bar: Wabash `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Sugar Creek `03339500` remains recent but not same-day at `265 cfs / 3.88 ft` from `2026-05-30 16:45 EDT` and still lacks a manager/AW/official route-specific threshold model; Blue River `03303000` remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT`; Wildcat Creek `03334000` remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 05:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - No route was added. Official USGS legacy pages still leave the strongest leads below the bar: Wabash `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`; Blue River `03303000` remains not same-day at `1,230 cfs / 4.33 ft` from `2026-05-29 15:15 EDT`; Wildcat `03334000` remains stale at `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`; Sugar Creek `03339500` still has recent values (`265 cfs / 3.88 ft` at `2026-05-30 16:45 EDT`) but no manager/AW/official route-specific threshold model.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 04:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - No route was added. Wabash remains `no_live_gauge`: official/search-visible USGS `03323000` evidence still does not expose product-usable fresh current data, and third-party snippets cannot substitute for the app's USGS live-gauge source.
+  - Sugar Creek remains `threshold_weak`: fresh third-party indexing surfaced current-looking `466 cfs / 4.39 ft` for USGS `03339500`, but the threshold package still mixes legacy 75 cfs, livery stage cutoff, and third-party 300-1500 cfs guidance rather than one manager/AW/official route-specific model.
+  - Blue River remains `threshold_weak`: official/search-visible USGS `03303000` context still does not prove same-day current product data, and the White Cloud access plus Milltown/old-mill low-head-dam context remains below manager-grade.
+  - Wildcat remains `threshold_weak`: third-party Owasco flow context was stale to April and the local 5 ft / about 1160 cfs excellent-level note is not enough for a defensible threshold model.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 04:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, `Blue River - White Cloud to Blue River Chapel`, and `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family`.
+  - No route was added. Wabash remains blocked at the live-gauge gate: official USGS `03323000` still exposes only `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`.
+  - Sugar Creek remains `threshold_weak`: official USGS `03339500` still exposes recent values (`265 cfs / 3.88 ft` at `2026-05-30 16:45 EDT`), but threshold support still mixes legacy 75 cfs, stage/livery cutoff, and third-party 300-1500 cfs guidance rather than a manager/AW/official route-specific model.
+  - Blue River remains `threshold_weak`: official USGS `03303000` still only exposes values through `2026-05-29`, and the White Cloud access plus Milltown/old-mill low-head-dam context remains below manager-grade.
+  - Wildcat remains `threshold_weak` / stale-live-data blocked: official USGS `03334000` still exposes only `466 cfs / 2.90 ft` from `2026-05-19 22:15 EDT`, and the local 5 ft / about 1160 cfs note is not enough for a defensible threshold model.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 03:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family`, `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access`, and `Blue River - White Cloud to Blue River Chapel`.
+  - No route was added. Wabash still has the best flatwater public-access and local-stage package, but official USGS `03323000` remains stale at `143 cfs / 1.97 ft` from `2026-05-18 07:45 EDT`.
+  - Sugar Creek still has recent official USGS `03339500` evidence (`265 cfs / 3.88 ft` at `2026-05-30 16:45 EDT`), but threshold support remains mixed legacy/community guidance rather than a manager/AW/official route-specific model. Official public-access, parking/permit, OHWM/private-bank, state-park closure, and low-head-dam/obstruction review remain required.
+  - Blue River still only exposes official USGS `03303000` values through `2026-05-29`, AW gauge detail remains stale, and the White Cloud access plus Milltown/old-mill low-head-dam context remains below manager-grade.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 03:08 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family` because it remains the strongest flatwater public-access plus local-stage lead. Wells County Trails still documents public launches, 4.2 miles from Vera Cruz to White Bridge, launch/parking notes, 1.5-3 ft ideal kayaking stage guidance, Action/Flood Stage warnings, and the downstream small-waterfall/no-access warning near Markle. The NEI Water Trails 2024 newsletter search result still gives Vera Cruz and White Bridge coordinates for the 4.3-mile route.
+  - No route was added because the official USGS `03323000` modern monitoring page opened during this run did not expose fresh current values in text, the searchable legacy USGS result remained stale to mid-May, and workspace USGS Water Services remains unable to connect. PaddleTodayV2 currently supports only `usgs` and `mn_dnr` gauge providers, so NWS/NOAA stage context cannot substitute without a provider change.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 02:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wildcat Creek - Knop Lake to Mis-So-La / lower North Fork family` because fresh source-visible evidence strengthened the access story: the Wildcat Creek Stream Guide documents the 9.3-mile Knop Lake-to-Mis-So-La segment as a better canoeing section with reliable water, and NICHES confirms Mis-So-Lah as a public paddling access to the State Scenic & Recreation portion of the North Fork.
+  - No route was added because official USGS `03334000` Wildcat Creek at Owasco still showed only stale May 19, 2026 22:15 EDT values (`466 cfs / 2.90 ft`) during this May 31 run. The local 5 ft / about 1160 cfs note remains useful context for a reported excellent level, but it is not a defensible route-specific low/ideal/high or conservative minimum-only threshold model.
+  - Rechecked `Kankakee River National Water Trail / Kingsbury to Route 8` only as a comparison. NIRPC/NWIPA map context still supports DNR-owned access and the 15.5-mile segment, but no numeric threshold model tied to a selected live USGS gauge surfaced.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 02:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Wabash River - Wells County / Vera Cruz to White Bridge Picnic Area family` because it remains the strongest flatwater public-access plus local-threshold lead. Wells County Trails still lists public Wabash launches, 4.2 miles from Vera Cruz to White Bridge, and 1.5-3 ft ideal kayaking stage guidance, and NEI Water Trails material corroborates the 4.3-mile route with coordinate leads.
+  - No route was added because official USGS `03323000` Wabash River at Bluffton still showed only stale May 18, 2026 07:45 EDT values (`143 cfs / 1.97 ft`) during this May 31 recheck, and workspace USGS Water Services fetch still failed unable to connect. Threshold support remains local/partner guidance rather than DNR/AW/official scoring, and low-head-dam/small-waterfall, OHWM/private-bank, parking, and launch-rule review remains required.
+  - Rechecked `Blue River - White Cloud to Blue River Chapel` because current-looking third-party/search evidence surfaced. Official USGS `03303000` still only exposed data through May 29, 2026, workspace Water Services fetch failed, RiverScout's 200-800 cfs range is explicitly community-verified, and the White Cloud put-in plus old breached mill / low-head-dam context remains below the Indiana bar.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 01:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Sugar Creek - Deer's Mill Public Access to Cox Ford Public Access` because it remains the strongest scenic-access lead with official DNR recreation context and a direct USGS gauge.
+  - Indiana DNR confirms Sugar Creek Conservation Area water recreation, canoe/kayak/PFD rules, and public-access map context. IndianaOutfitters/DNR-derived access material identifies Deer's Mill and Cox Ford public access coordinates and route spacing. Official USGS `03339500` legacy current conditions exposed recent May 30, 2026 16:45 EDT values during this May 31 run: 265 cfs and 3.88 ft.
+  - No route was added because threshold support remains mixed and below the Indiana bar: older guide material mixes a possible 75 cfs lower-bound idea with stage-based livery cutoff language, while third-party 300-1500 cfs guidance is not manager/AW/official route-specific. State-park/parking rules, OHWM/private-bank limits, and low-head-dam/obstruction context still need route-specific review before implementation.
+  - Rechecked `Flatrock River - St. Omer / Old 421 to Conns Creek / St. Paul family` only as a comparison; it still has recent USGS `03363500` / AW flow context but remains blocked by old bridge/roadside endpoint legitimacy and unresolved hazard checks.
+  - Moved `in-sugar-creek-shades-turkey-run-family` from `no_live_gauge` to `threshold_weak`, kept `in-flatrock-river-st-omer-st-paul-family` as `research_later`, and updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 01:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Fresh reviewed `Trail Creek - Michigan City / Lake Michigan to Friendship Botanic Gardens family` because NWIPA says it maintains Trail Creek from Lake Michigan to Friendship Gardens as a 3-mile water trail, and Michigan City watershed material confirms recreational boating/fishing context, public fishing sites, and a canoe-launch improvement history.
+  - No route was added because official USGS `04095300` Trail Creek at Michigan City legacy current conditions exposed only stale May 26, 2026 discharge and gage-height observations during this May 31 run, no manager/AW/official numeric paddling threshold model surfaced, and the route still needs source-clean endpoint coordinates, public-launch rules, harbor/current/water-quality context, OHWM/private-bank review, and low-head-dam/obstruction checks.
+  - Logged `in-trail-creek-michigan-city-friendship-gardens-family` as `no_live_gauge`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 00:39 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Flatrock River - St. Omer / Old 421 to Conns Creek / St. Paul family` because it has one of the better direct-gauge leads among Indiana candidates.
+  - American Whitewater documents the Old U.S. Hwy 421-to-Conns Creek reach as 6.8-7 miles, Class I(III), tied to the Flatrock River at St. Paul gauge, and its route page showed a current-looking medium runnable value. Official USGS `03363500` legacy current conditions exposed recent May 30, 2026 discharge and gage-height observations at St. Paul.
+  - No route was added because AW gauge detail still showed stale gauge rows, durable threshold support remains community/legacy rather than a clean AW range or manager-published band, and endpoint legitimacy is still below the Indiana bar: old bridge/roadside and Conns Creek directions, limited/uncertain parking, plus Hidden Paradise/private-campground alternatives rather than a modern official public-access pair.
+  - Kept `in-flatrock-river-st-omer-st-paul-family` as `research_later`; low-head-dam/barrier, OHWM/private-bank, downed-wood, high-water standing-wave/strainer, and Conns Creek parking checks remain required.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 00:09 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Fresh reviewed `Wabash River - Wells County / Vera Cruz to White Bridge / Bluffton family` because it has stronger public-launch and local stage guidance than many Indiana bridge-launch leads.
+  - Wells County Trails lists public Wabash launches at Vera Cruz, White Bridge Picnic Area, Crosby Bridge, Hale St, and Markle; gives 4.2 miles from Vera Cruz to White Bridge; and publishes 1.5 to 3 ft as ideal kayaking height with Action/Flood Stage warnings. Northeast Indiana Water Trails corroborates the Vera Cruz put-in with 4.3-mile White Bridge and 6.4-mile Main Street/Crosby options.
+  - No route was added because official USGS `03323000` Wabash River at Bluffton opened with stale May 18, 2026 values during this May 31 run, endpoint coordinates were not source-clean from a manager map, the threshold support is local/partner guidance rather than DNR/AW/official scoring, and the corridor still needs low-head-dam/small-waterfall, OHWM/private-bank, and public-parking review.
+  - Logged `in-wabash-river-wells-county-vera-cruz-white-bridge` as `no_live_gauge`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
+- 2026-05-31 00:31 America/Chicago: No route added.
+  - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
+  - Rechecked `Tippecanoe River - Tippecanoe River State Park / Winamac family` because it has official DNR paddling context and NIPSCO publishes regulated-river condition context for the corridor.
+  - Indiana DNR confirms Tippecanoe River State Park is a canoe/kayak destination with boat-launch and canoe-camp context. NIPSCO publishes plant lake/discharge levels, county emergency contacts, links to Norway/Oakdale/Delphi/Winamac/Buffalo USGS gauges, and an Oakdale abnormal-low-flow provision triggered when the previous day's 24-hour average at the Buffalo USGS gauge is at or below 260 cfs.
+  - No route was added because the NIPSCO values are hydropower/FERC operations and emergency context, not paddling-specific thresholds for a selected access-to-access route. No official/AW/manager numeric low/ideal/high or minimum-only paddling model surfaced, and the exact public endpoint pair, dam/regulated-flow implications, OHWM/private-bank limits, launch/parking rules, and low-head-dam context still need route-specific review.
+  - Kept `in-tippecanoe-river-state-park-winamac-family` as `threshold_weak`.
+  - Updated the structured ledger, Midwest memory, repo Indiana memory, and Codex automation memory. Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only.
+
 - 2026-05-30 23:09 America/Chicago: No route added.
   - Reconciled live inventory first; no Indiana routes are implemented in `src/data/rivers.ts` / `src/data/river-trip-details.ts`.
   - Fresh reviewed `White River - Indianapolis White River Canoe Trail family` because it has better official public-access context than many bridge-launch leads. Visit Indy documents the 16-mile White River Canoe Trail and named launch locations, and Indy Parks confirms Art's Center Canoe Launch as a public White River access with parking.

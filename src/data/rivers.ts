@@ -18071,6 +18071,305 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'current-river-akers-ferry-pulltite',
+    slug: 'current-river-akers-ferry-pulltite',
+    name: 'Current River',
+    reach: 'Akers Ferry to Pulltite',
+    aliases: [
+      'Upper Current River - Akers to Pulltite',
+      'Current River - Akers Ferry to Pulltite Campground',
+      'Current River - Akers Lower to Pulltite',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Classic Upper Current River day float from Akers Ferry to Pulltite inside Ozark National Scenic Riverways. NPS lists the 9.6-mile route, the Akers gauge is in the put-in corridor, and the level model stays conservative because the low-water floor is community-calibrated.',
+    statusText:
+      'Use the Current River above Akers gauge. Around 230 cfs is the low-water marker for Akers to Pulltite; below that, expect shallow riffles and possible dragging. Do not treat high or rising water as casual, and check NPS closure notices before launching.',
+    latitude: 37.37591,
+    longitude: -91.55148,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 230,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge trip evidence for Akers to Pulltite',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Current is spring-fed and commonly floated beyond peak spring runoff, but low summer water can make shoals slow and scrape-heavy. Heavy rain can raise the river quickly, add debris, and trigger NPS flood closures or access restrictions.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS treats Akers to Pulltite as a standard 4-hour upper-Current canoe/kayak float. The route is easy at ordinary levels, but shallow riffles, cold spring water, busy warm-season access areas, wood, caves, and high-water closure thresholds still matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: NPS lists Akers to Pulltite as a 9.6-mile / 4-hour Upper Current route, NPS floating guidance directs private boaters to designated accesses, Recreation.gov currently describes Pulltite as a year-round campground with flood-damaged facilities reduced after October 15, 2025 rather than an active closure, USGS 07064533 is a direct live gauge in the Akers put-in corridor and showed same-day May 31, 2026 discharge and gage-height observations, and Rivers.MOHERP includes exact Akers-to-Pulltite good-condition trip evidence down to about 213 cfs plus broader Upper Current reports around the same floor. The app uses minimum-only scoring because the numeric low-water floor is community-calibrated rather than an official paddling band, and no ideal range or upper cutoff is inferred.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Akers to Pulltite, 9.6 mi / 4 hr',
+        note: 'NPS Estimated Float Times lists Akers to Pulltite as a 9.6-mile Upper Current River float with an estimated four-hour canoe/kayak time.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public floating rules',
+        value: 'Designated NPS river access points',
+        note: 'NPS private-vessel guidance says there is no fee for private floating inside park boundaries, but paddlers should arrange their own transport, use designated river access points, follow posted signs, and park only in designated areas.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+      },
+      {
+        label: 'Pulltite status',
+        value: 'Year-round campground with reduced facilities after October 15, 2025',
+        note: 'Recreation.gov describes Pulltite as year-round and says flood damage will reduce facilities to one vault toilet after October 15, 2025. Treat that as access-caveat support, not a promise that every ramp, road, or restroom is normal on arrival.',
+        sourceUrl: 'https://www.recreation.gov/camping/campgrounds/234357',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07064533 at 311 cfs / 1.09 ft',
+        note: 'USGS Current River above Akers showed same-day discharge and gage height at 15:30 CDT on May 31, 2026. The gauge is in the Akers put-in corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+      },
+      {
+        label: 'Low-water floor',
+        value: '230 cfs minimum-only',
+        note: 'Rivers.MOHERP includes exact Akers-to-Pulltite trip evidence rated Good at 213 cfs, plus nearby Upper Current Good reports around 213 to 233 cfs. Paddle Today uses 230 cfs as a conservative floor and does not infer an ideal or high-water band.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Akers 4.00 ft / Pulltite 4.20 ft',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Akers and Pulltite closure stages. Use this as high-water caution, not an ideal range.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.37591, -91.55148 to 37.33505, -91.47959',
+        note: 'Coordinates reuse the already implemented Akers Lower and Pulltite access-area anchors from adjacent Current River routes. They are practical access anchors; NPS signs and current access layout should control on arrival.',
+        sourceUrl: 'https://mapcarta.com/N1785576990',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Floating in the Ozarks',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floating.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS River Levels',
+        url: 'https://www.nps.gov/places/river-levels.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Recreation.gov Pulltite',
+        url: 'https://www.recreation.gov/camping/campgrounds/234357',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Akers Lower',
+        url: 'https://mapcarta.com/N1785576990',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Pulltite Campground',
+        url: 'https://mapcarta.com/21155320',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-pulltite-round-spring',
+    slug: 'current-river-pulltite-round-spring',
+    name: 'Current River',
+    reach: 'Pulltite to Round Spring',
+    aliases: [
+      'Upper Current River - Pulltite to Round Spring',
+      'Current River - Pulltite Landing to Round Spring',
+      'Current River - Pulltite Campground to Round Spring Campground',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Popular Upper Current River day float from Pulltite to Round Spring inside Ozark National Scenic Riverways. NPS lists the 8.9-mile route, the Akers gauge is fresh and already supports nearby Upper Current routes, and the scoring stays low-water-only because the gauge is upstream.',
+    statusText:
+      'Use the Current River above Akers gauge as an upstream proxy. Around 300 cfs is the conservative low-water floor for this reach; below that, expect shallow riffles and slower travel. Do not treat high or rising water as casual, and check NPS closure notices before launching.',
+    latitude: 37.33505,
+    longitude: -91.47959,
+    gaugeSource: {
+      id: 'usgs-07064533',
+      provider: 'usgs',
+      siteId: '07064533',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Current River above Akers, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Akers gauge bands and Pulltite-to-Round-Spring trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Upper Current is spring-fed and NPS lists private paddling year-round, but low summer levels can still make shoals slow and scrape-heavy. Heavy rain can raise the river quickly, add floating wood, and trigger NPS non-motorized closures.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS lists Pulltite to Round Spring as a standard four-hour canoe/kayak float. It is generally easy at ordinary levels, but cold spring water, weekend crowding, limited cell service, shallow riffles, and high-water closure thresholds still matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: NPS lists Pulltite to Round Spring as an 8.9-mile / 4-hour Upper Current float, NPS brochure text identifies Pulltite and Round Spring as Upper Current river access points, USGS 07064533 showed same-day May 31, 2026 discharge and gage-height observations, and Rivers.MOHERP ties exact Pulltite-to-Round-Spring trip rows to the Akers gauge. The caveat is the gauge relationship: Akers is upstream of the route, so the app uses only a 300 cfs low-water floor and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Pulltite to Round Spring, 8.9 mi / 4 hr',
+        note: 'NPS Estimated Float Times lists Pulltite to Round Spring as an 8.9-mile Upper Current River float with an estimated four-hour canoe/kayak time.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Upper Current route context',
+        value: 'NPS standard access pair',
+        note: 'NPS Paddle the Upper Current River names Pulltite and Round Spring among popular Upper Current locations and lists Pulltite-to-Round-Spring as a four-hour route.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+      },
+      {
+        label: 'Public access context',
+        value: 'Pulltite RM 82 to Round Spring RM 71',
+        note: 'The NPS park brochure lists Round Spring at river mile 71 with a campground, picnic area, boat ramp, and ranger station, and Pulltite at river mile 82 with campground, picnic area, ranger station, and hiking.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live proxy gauge',
+        value: 'USGS 07064533 at 311 cfs / 1.09 ft',
+        note: 'USGS Current River above Akers showed same-day discharge and gage height at 06:30 CDT on May 31, 2026. The gauge is upstream of Pulltite, so it is used as a proxy rather than a precise route gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Akers gauge Good beginning at 150 cfs and includes exact Pulltite-to-Round-Spring Good reports at 321 and 336 cfs, plus nearby lower-Upper-Current Good reports around 288-346 cfs. Paddle Today uses 300 cfs as a conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+      },
+      {
+        label: 'NPS high-water closure context',
+        value: 'Pulltite 4.20 ft / Round Spring Bridge 5.20 ft',
+        note: 'The NPS Superintendent Compendium lists Current River closure levels for Pulltite and Round Spring Bridge during flood conditions. Use this as high-water caution, not as a scoring high cutoff for the Akers cfs gauge.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Flood-repair caveat',
+        value: 'Pulltite landing repair priority',
+        note: 'NPS reported 2025 flood-repair work at Pulltite and asked visitors to watch for construction zones and closures. Verify current access conditions before leaving a take-out vehicle or launching.',
+        sourceUrl: 'https://home.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.33505, -91.47959 to 37.27996, -91.40792',
+        note: 'Mapcarta / GeoNames / OpenStreetMap place Pulltite Campground and Round Spring Campground in the named NPS access areas. These are practical access-area anchors; current NPS signs and ramp layout should control on arrival.',
+        sourceUrl: 'https://mapcarta.com/21155320',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Estimated Float Times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle the Upper Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-upper-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Alerts and Conditions',
+        url: 'https://www.nps.gov/ozar/planyourvisit/conditions.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS 2025 campground and access repairs',
+        url: 'https://home.nps.gov/ozar/learn/news/2025-03-11-campground-repairs.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Akers gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07064533&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07064533 Current River above Akers',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07064533/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07064533 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07064533',
+        provider: 'usgs',
+      },
+      {
+        label: 'Mapcarta Pulltite Campground',
+        url: 'https://mapcarta.com/21155320',
+        provider: 'local',
+      },
+      {
+        label: 'Mapcarta Round Spring Campground',
+        url: 'https://mapcarta.com/N12663429799',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-buck-hollow-rymers',
     slug: 'jacks-fork-river-buck-hollow-rymers',
     name: 'Jacks Fork River',
@@ -18201,6 +18500,147 @@ export const rivers: River[] = [
       {
         label: 'MDC upper Jacks Fork feature',
         url: 'https://mdc.mo.gov/magazines/conservationist/2013-04/heaven-back-upper-jacks-fork',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-bay-creek-alley-spring',
+    slug: 'jacks-fork-river-bay-creek-alley-spring',
+    name: 'Jacks Fork River',
+    reach: 'Bay Creek to Alley Spring',
+    aliases: [
+      'Jacks Fork - Bay Creek to Alley Spring',
+      'Jacks Fork - Bay Creek to Alley',
+      'Upper Jacks Fork - Bay Creek to Alley Spring',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short upper Jacks Fork day from Bay Creek to Alley Spring. NPS lists the exact float, Recreation.gov confirms Bay Creek river-edge access, and the direct Alley Spring gauge now supports a conservative low-water check.',
+    statusText:
+      'Use the Jacks Fork at Alley Spring gauge. Around 100 cfs is the conservative low-water floor; below that, expect frequent dragging above Alley Spring. High or rising water deserves extra caution, and MoHERP marks current high and flood stages as unsuitable for casual trips.',
+    latitude: 37.1231,
+    longitude: -91.5018,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-07065495',
+      provider: 'usgs',
+      siteId: '07065495',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork at Alley Spring, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Alley Spring gauge rating and Bay-Creek-to-Alley trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS says portions of the Jacks Fork are only navigable at certain times because of low water. The reach immediately above Alley Spring is wide and shallow in dry spells, while storm runoff can turn this narrow valley high, fast, and woody. Check NPS closures before leaving vehicles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a short but seasonal upper Jacks Fork reach with Class I-II Ozark moving water, shoals, bluff pools, gravel bars, possible wood, and shallow ledges that can require poling or lining near the floor. It should not be treated like the easier spring-fed water below Alley Spring.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: NPS lists Bay Creek to Alley as a 4-hour Jacks Fork float and names both as popular park put-ins; Recreation.gov describes Bay Creek as a river-edge backcountry campground with boating activity and directions to the access road; the NPS park brochure lists Alley Spring as a river access; USGS 07065495 is the direct route-corridor gauge and exposed same-day May 31, 2026 values; and Rivers.MOHERP provides Alley Spring gauge bands plus a Bay-Creek-to-Alley low-water trip row. Coordinates are USGS-topo-derived access anchors rather than an NPS coordinate table, so same-day signs and park access rules still control.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Bay Creek to Alley, 4 hr',
+        note: 'NPS lists Bay Creek to Alley as an estimated 4-hour Jacks Fork float and names Bay Creek and Alley Spring among popular Jacks Fork put-in locations.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'Bay Creek access',
+        value: 'River-edge NPS backcountry campground',
+        note: 'Recreation.gov says the Jacks Fork / Middle Current backcountry campgrounds include sites on the river edge with quick water access, lists boating as an available activity, and gives directions to Bay Creek via County Road 106-425.',
+        sourceUrl: 'https://www.recreation.gov/camping/campgrounds/10344874',
+      },
+      {
+        label: 'Alley Spring access',
+        value: 'NPS river access',
+        note: 'The NPS park brochure lists Alley Spring in the Jacks Fork river-access inventory with campground, ranger station, picnic area, and hiking-trail context.',
+        sourceUrl: 'https://home.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07065495',
+        note: 'USGS operates Jacks Fork at Alley Spring, MO. The legacy current-conditions page showed 1,000 cfs and 3.91 ft at 2026-05-31 15:30 CDT during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Alley Spring gauge Good from 100 to 360 cfs and lists a Bay Creek-to-Alley Spring row at 61 cfs as Low/Poor with nearly every riffle stopping the boats. The app uses only the conservative 100 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+      },
+      {
+        label: 'High-water caution',
+        value: 'High/flood conditions are not casual-trip water',
+        note: 'Rivers.MOHERP describes High water as potentially dangerous for young or inexperienced paddlers and Flood water as avoidable for casual trips because obstacles can be treacherous or deadly.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Bay Creek River Access to Alley Spring River Access',
+        note: 'TopoQuest / USGS topo-derived records list Bay Creek River Access at 37.1231, -91.5018 and Alley Spring River Access at 37.1484, -91.4499.',
+        sourceUrl: 'https://topoquest.com/place-detail.php?id=713232',
+      },
+      {
+        label: 'Seasonal character',
+        value: 'Wide and shallow above Alley Spring',
+        note: 'FloatMissouri / MDC-derived Jacks Fork guidance says loaded-canoe trips above Alley Spring are recommended only in spring or after good summer rains, and that the few miles immediately above Alley Spring can be wide, shallow, and walkable in low water.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/jacks-fork-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Recreation.gov Jacks Fork / Middle Current Backcountry Campsites',
+        url: 'https://www.recreation.gov/camping/campgrounds/10344874',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://home.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Alley Spring gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065495&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065495 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065495/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065495 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065495',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Alley Spring area features',
+        url: 'https://topoquest.com/place-detail.php?id=713232',
+        provider: 'local',
+      },
+      {
+        label: 'FloatMissouri Jacks Fork River guide',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/jacks-fork-river/',
         provider: 'local',
       },
     ],
@@ -18476,6 +18916,398 @@ export const rivers: River[] = [
         label: 'Paddling.com Waymeyer Access',
         url: 'https://paddling.com/paddle/locations/waymeyer-access',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-van-buren-big-spring',
+    slug: 'current-river-van-buren-big-spring',
+    name: 'Current River',
+    reach: 'Van Buren Riverfront Park to Big Spring Upper River Landing',
+    aliases: [
+      'Lower Current River - Van Buren to Big Spring',
+      'Current River - Van Buren to Big Spring',
+      'Current River - Watercress Park to Big Spring',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short lower Current day from Van Buren to the Big Spring upper river landing. NPS lists this as a standard two-hour lower-river section, and the Van Buren USGS gauge gives a direct conservative low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is a conservative low-water floor from MoHERP and lower-Current trip evidence; below that, expect shallow shoals, slower travel, and possible dragging. No ideal range or high cutoff is claimed.',
+    latitude: 36.9939,
+    longitude: -91.014,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and Van-Buren-to-Big-Spring trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but low summer levels can make shoals slow and scrape-prone. High or rising water can trigger closures, add debris, and make the Big Spring landing harder to judge. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'NPS lists Van Buren to Big Spring as a two-hour lower-Current section. It is generally an easy moving-water float at normal levels, but this lower reach can have motorboat traffic, summer crowds, private-bank issues, slick landings, and stronger current after rain.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: NPS lists Van Buren to Big Spring as a lower Current float and identifies Big Spring as a lower-river access area; the 2026 NPS compendium distinguishes Big Spring (upper) as a Current River landing while reserving Big Spring Boat Ramp (lower) for trailered boats only with no floater access; USGS 07067000 showed same-day May 31, 2026 discharge and gage-height observations; Rivers.MOHERP ties the same gauge to an exact Van-Buren-to-Big-Spring Good trip at 707 cfs; and USGS-topo-derived Big Spring River Access coordinates resolve the prior coordinate blocker. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Van Buren to Big Spring, 2 hr',
+        note: 'NPS Paddle the Lower Current River lists Van Buren to Big Spring as an estimated two-hour lower Current float and names Big Spring as a popular lower-Current put-in location.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'NPS access distinction',
+        value: 'Big Spring upper river landing',
+        note: 'The NPS Superintendent Compendium lists Big Spring (upper) among Current River landings and separately lists Big Spring Boat Ramp (lower) as trailered boats only with no floater access.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+      {
+        label: 'Park brochure context',
+        value: 'Lower Current river mile 21 to 16',
+        note: 'The NPS park brochure places Watercress Park in Van Buren at Lower Current river mile 21 and Big Spring at river mile 16, with Big Spring including river access, boat access, campground, picnic area, ranger station, hiking trails, and the CCC historic district.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day May 31, 2026 discharge and gage-height observations, with 1,820 cfs and 3.87 ft at 06:30 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP lists an exact Van Buren-to-Big Spring trip marked Good at 707 cfs on the Van Buren gauge. Paddle Today uses 700 cfs as a conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.9939, -91.0140 to 36.9475519, -90.9901267',
+        note: 'The Van Buren coordinate is the existing V2 practical ramp anchor from MDC map/directions context. The Big Spring take-out uses the USGS-topo-derived Big Spring River Access point, corroborated by NPS access and compendium language; do not substitute the lower motorized-only boat ramp.',
+        sourceUrl:
+          'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/big-spring-river-access-741420/',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Big Spring River Access topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/carter-county-29035/locales/big-spring-river-access-741420/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'current-river-big-spring-gooseneck',
+    slug: 'current-river-big-spring-gooseneck',
+    name: 'Current River',
+    reach: 'Big Spring Upper River Landing to Gooseneck / Hawes Recreation Area',
+    aliases: [
+      'Lower Current River - Big Spring to Gooseneck',
+      'Current River - Big Spring to Gooseneck',
+      'Current River - Big Spring to Hawes',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long lower Current River day from Big Spring to Gooseneck / Hawes, ending near the Current River mouth. NPS lists this as a standard six-hour lower-river section, and the Van Buren USGS gauge gives a conservative same-river low-water check.',
+    statusText:
+      'Use the Current River at Van Buren gauge. Around 700 cfs is the conservative low-water floor for this lower-Current cluster; below that, expect shallow shoals, slower travel, and a very long day. No ideal range or high cutoff is claimed.',
+    latitude: 36.9475519,
+    longitude: -90.9901267,
+    gaugeSource: {
+      id: 'usgs-07067000',
+      provider: 'usgs',
+      siteId: '07067000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Current River at Van Buren, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 700,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Van Buren gauge rating and Big-Spring-to-Gooseneck trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'NPS lists the Lower Current season as year-round, but this is a long downstream leg where low summer levels can make shoals and headwinds drag out the day. High or rising water can trigger closures, add debris, and make Gooseneck harder to land cleanly. Check NPS closure notices before leaving vehicles.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'NPS lists Big Spring to Gooseneck as a six-hour lower-Current section. The water is generally approachable at ordinary levels, but the mileage, lower-river motorboat traffic, limited bailouts, private-bank issues, and end-of-river logistics make it more committed than a short easy float.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only add: NPS lists Big Spring to Gooseneck as a lower Current float and the park brochure places Big Spring at lower-river mile 16 and Gooseneck / Hawes at river mile 0; Recreation.gov confirms Hawes / Gooseneck as an NPS lower-Current campground and access area; USGS 07067000 showed same-day May 31, 2026 discharge and gage-height observations during the cluster review; and Rivers.MOHERP ties the same Van Buren gauge to exact Big-Spring-to-Gooseneck Good trip evidence. The app still uses only a 700 cfs low-water floor because the numeric threshold support is community-calibrated rather than an official manager band, and the Gooseneck coordinate is USGS-topo-derived rather than an NPS GIS point.',
+    },
+    evidenceNotes: [
+      {
+        label: 'NPS route shape',
+        value: 'Big Spring to Gooseneck, 6 hr',
+        note: 'NPS Paddle the Lower Current River lists Big Spring to Gooseneck as an estimated six-hour lower Current float and names Gooseneck as the end of the lower Current route sequence.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+      },
+      {
+        label: 'Park brochure context',
+        value: 'Lower Current river mile 16 to 0',
+        note: 'The NPS park brochure places Big Spring at lower Current river mile 16 and Gooseneck / Hawes at river mile 0, with Gooseneck / Hawes marked for primitive camping, picnic area, river access, and boat access.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gooseneck access context',
+        value: 'Hawes / Gooseneck NPS campground and river access',
+        note: 'Recreation.gov describes Hawes Campground as near the Current River on the lower Current, with access to the river and four primitive sites. This corroborates the NPS brochure and lower-Current route endpoint.',
+        sourceUrl: 'https://www.recreation.gov/camping/poi/258899',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 07067000',
+        note: 'USGS Current River at Van Buren showed same-day May 31, 2026 discharge and gage-height observations during review. The gauge is upstream of Big Spring but remains the same lower-Current gauge used by adjacent implemented routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '700 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Van Buren gauge Good beginning around 700 cfs and includes exact Big Spring-to-Gooseneck trip evidence marked Good at 1,190 cfs. Paddle Today uses only the conservative 700 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.9475519, -90.9901267 to 36.8194989, -90.9470707',
+        note: 'The Big Spring put-in uses the existing USGS-topo-derived Big Spring River Access point. The Gooseneck take-out uses the USGS-topo-derived Hawes Recreation Area point, corroborated by NPS Gooseneck / Hawes access naming and Recreation.gov campground context.',
+        sourceUrl:
+          'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+      },
+      {
+        label: 'High-water closure context',
+        value: 'Van Buren Bridge 5.00 ft closed level',
+        note: 'The NPS Superintendent Compendium says the Current and Jacks Fork close to non-motorized vessels during flood conditions and lists Van Buren Bridge at 3.00 ft average and 5.00 ft closed level. Use this as high-water caution, not a scoring high cutoff.',
+        sourceUrl: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle the Lower Current River',
+        url: 'https://www.nps.gov/thingstodo/paddle-the-lower-current-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Recreation.gov Hawes Campground',
+        url: 'https://www.recreation.gov/camping/poi/258899',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Ozark Superintendent Compendium',
+        url: 'https://www.nps.gov/ozar/learn/management/ozar-superintendent-s-compendium.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Current River Van Buren gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07067000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07067000 Current River at Van Buren',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07067000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07067000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07067000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Hawes Recreation Area topo coordinate',
+        url: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-greer-crossing-turner-mill',
+    slug: 'eleven-point-river-greer-crossing-turner-mill',
+    name: 'Eleven Point River',
+    reach: 'Greer Crossing Recreation Area to Turner Mill North River Access',
+    aliases: [
+      'Eleven Point River - Greer Crossing to Turner Mill',
+      'Eleven Point River - Greer Spring to Turner Mill',
+      'Upper Eleven Point - Greer to Turner',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short spring-supported Eleven Point day from Greer Crossing to Turner Mill, with Forest Service public access at both ends, Mary Decker Shoal, and the direct Bardley gauge used as a conservative low-water check.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the low-water marker; below that, expect shallow shoals and possible dragging. There is not enough official support to name an ideal range or high-water cutoff, so treat rising water as a caution flag.',
+    latitude: 36.79356389,
+    longitude: -91.32854167,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Greer-to-Turner trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Greer Spring more than doubles the river volume just upstream of this reach, so the Greer-to-Turner section is more dependable than the warmer upper Eleven Point. The Forest Service still warns that the river can rise rapidly after rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Forest Service materials describe this reach as having shoals rather than named rapids. Expect cold spring-fed water, Mary Decker Shoal, bouldery shallow spots near low water, rural access roads, and possible motorized users under the 25 hp limit.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Eleven Point add: the Forest Service lists Greer Crossing as a popular canoe launch with official coordinates, names Greer to Turner Mill as a 4.9-mile float, identifies Turner Mill access at river mile 21.5, and publishes Turner Mill North coordinates. USGS 07071500 is the same direct Bardley gauge already used by downstream Eleven Point V2 routes and showed same-day official data during this run. Rivers.MOHERP has exact Greer-to-Turner trip evidence in good conditions, but the app uses only a minimum-only 300 cfs floor because the threshold source is community-calibrated rather than an official manager band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Greer to Turner Mill, 4.9 miles',
+        note: 'The Forest Service names Greer to Turner Mill as a popular 4.9-mile float trip and says it passes Mary Decker Shoal, an area of shallow, faster moving water.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service identifies Greer Crossing as a popular canoe launch with a single-lane concrete boat ramp, water seasonally, toilets, parking, and coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Turner Mill North River Access',
+        note: 'The Forest Service says Turner Mill North is 4.9 miles downriver of Greer Crossing, has river access, toilets, picnic facilities, parking, and coordinates 36.765748, -91.266931. Turner Mill South is the major landing on river right.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-north-river-access',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07071500',
+        note: 'USGS operates Eleven Point River near Bardley, MO. During the May 31, 2026 review, the legacy current-conditions page showed 556 cfs and 2.74 ft at 15:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes exact Greer-to-Turner trip rows marked Good at 524 cfs and 988 cfs. The app does not infer an ideal range or upper cutoff from those reports.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Spring and hazard context',
+        value: 'Greer Spring, shoals, rapid rises',
+        note: 'The Forest Service says Greer Spring more than doubles the river volume, this reach includes the Blue Ribbon Trout Area to Turner Mill, and the river can rise rapidly after changing weather.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Turner Mill North River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/turner-mill-north-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
       },
     ],
   },
@@ -18810,6 +19642,270 @@ export const rivers: River[] = [
         label: 'USGS 07057500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'north-fork-white-river-blair-dawt',
+    slug: 'north-fork-white-river-blair-dawt',
+    name: 'North Fork of the White River',
+    reach: 'Blair Bridge Access to Dawt Mill',
+    aliases: [
+      'North Fork River - Blair Bridge to Dawt Mill',
+      'North Fork White River - Blair to Dawt',
+      'Northfork River - Blair Bridge to Dawt',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Lower North Fork day float from MDC Blair Bridge Access to private-fee Dawt Mill Resort. This is a spring-fed Ozark reach with riffles, private-bank discipline, a low dam/bridge finish, and a downstream Tecumseh gauge used conservatively.',
+    statusText:
+      'Use the North Fork River near Tecumseh gauge as a downstream proxy. Around 300 cfs is the conservative low-water floor; below that, expect more dragging and slow shoals. Rising or high water deserves extra caution at Blair Bridge, Dawt Mill Dam, the Dawt low-water bridge, riffles, and strainers.',
+    latitude: 36.65403,
+    longitude: -92.22959,
+    gaugeSource: {
+      id: 'usgs-07057500',
+      provider: 'usgs',
+      siteId: '07057500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'North Fork River near Tecumseh, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Tecumseh gauge rating and Blair-to-Dawt trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Dawt Mill says floating is available year-round with advance reservation, but North Fork conditions still vary with spring flow, rain pulses, Norfork Lake backwater, summer traffic, and post-storm wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The normal route is a popular Ozark float, but it includes swift riffles, cold spring-fed water, Blair Bridge current, Dawt Mill Dam, a low-water bridge, possible lake-backwater effects, and private-bank limits. It is not a casual no-scout route at high or rising levels.',
+      confidenceNotes:
+        'Confidence is good for a conservative private-fee Missouri add: MDC confirms Blair Bridge Access as public floating access, Dawt Mill publicly offers floating with direct river access and upstream shuttle service back to the resort, Float Missouri / MDC reprint mile notes place Blair Bridge and Dawt Mill in a 7.6-mile lower North Fork day reach, USGS 07057500 exposed same-day May 31, 2026 discharge and gage-height observations during review, and Rivers.MOHERP includes exact Blair-to-Dawt good-condition rows at 428 and 811 cfs. The app uses minimum-only scoring because the gauge is downstream near Tecumseh and the numeric threshold support is community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'Blair Bridge to Dawt, about 7.6 river miles',
+        note: 'Float Missouri republishes MDC North Fork mile notes that place Blair Bridge Access at river mile 39.4 and Dawt Mill / Dawt Bridge at river mile 47.0-47.1; MoHERP exact Blair-to-Dawt trip rows list 7.6 miles.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/north-fork/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'MDC Blair Bridge Access',
+        note: 'MDC says Blair Bridge Access offers fishing and floating access to the North Fork of the White River, with picnic tables, privy, campfire rings, and a concrete boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/blair-bridge-access',
+      },
+      {
+        label: 'Private-fee take-out',
+        value: 'Dawt Mill Resort',
+        note: 'Dawt Mill says it offers floating and lodging, direct river access, and transportation upstream so groups can float back to their vehicle or lodging at the resort. Use this route only with current permission, reservation, or fee terms.',
+        sourceUrl: 'https://dawtmill.com/',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 07057500',
+        note: 'USGS operates the North Fork River near Tecumseh gauge downstream of Dawt Mill. It showed same-day May 31, 2026 values of 1,220 cfs and 3.50 ft at 15:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07057500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Tecumseh gauge good beginning at 120 cfs and includes exact Blair-to-Dawt good rows at 428 and 811 cfs. The app keeps the same conservative 300 cfs floor used for adjacent North Fork coverage rather than claiming an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+      },
+      {
+        label: 'Hazards',
+        value: 'Blair Bridge, Dawt Mill Dam, low-water bridge',
+        note: 'Float Missouri / MDC mile notes warn to approach Blair Bridge cautiously, describe Dawt Mill Dam as a canoe-buster unless handled correctly, and warn that going under Dawt Bridge in high water is dangerous.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/north-fork/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Blair Bridge Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/blair-bridge-access',
+        provider: 'local',
+      },
+      {
+        label: 'Dawt Mill Resort',
+        url: 'https://dawtmill.com/',
+        provider: 'local',
+      },
+      {
+        label: 'Float Missouri North Fork mile notes',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/north-fork/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Northfork Tecumseh gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=7057500&hours=2190',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07057500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'meramec-river-scotts-ford-riverview',
+    slug: 'meramec-river-scotts-ford-riverview',
+    name: 'Meramec River',
+    reach: "Scotts Ford Access to Riverview Access",
+    aliases: [
+      "Meramec River - Scott's Ford to Riverview",
+      "Upper Meramec - Scotts Ford to Riverview",
+      'Meramec River Steelville gauge public access route',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Seven-mile upper Meramec day float between two MDC public accesses near Steelville. MDC names the exact canoe-float pair, and the Steelville USGS gauge gives a direct same-river level check.',
+    statusText:
+      'Use the Meramec River near Steelville gauge. Below about 340 cfs, expect shallow riffles, dragging, and a slower trip. No ideal range or high-water cutoff is claimed, so treat rising water and storms cautiously.',
+    latitude: 37.9783,
+    longitude: -91.4563,
+    gaugeSource: {
+      id: 'usgs-07013000',
+      provider: 'usgs',
+      siteId: '07013000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Meramec River near Steelville, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07013000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 343,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Steelville gauge bands and upper Meramec trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07013000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed upper Meramec is commonly floated in spring through fall, but it can still get shallow during dry spells. Recent rain can quickly add current, cloudy water, fresh wood, and harder landings at these small access areas.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a mainstream Ozark recreational float with pools, riffles, gravel bars, bluffs, and occasional wood. It is an easy route only at ordinary stable levels; high or rising water is not beginner water.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms both Scotts Ford and Riverview as public Meramec River access areas, MDC planning material explicitly says the canoe float from Scotts Ford Access to Riverview Access is 7 miles, USGS 07013000 exposed same-day May 31, 2026 discharge and gage-height observations during review, and Rivers.MOHERP publishes Steelville-gauge bands plus nearby upper-Meramec trip evidence. The app uses only the conservative start of the MoHERP Low band as a minimum floor and does not claim an ideal range or upper cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Scotts Ford to Riverview, 7 miles',
+        note: 'MDC planning material for Riverview Access says a canoe float from Scotts Ford Access to Riverview Access is 7 miles.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Public put-in',
+        value: 'MDC Scotts Ford Access',
+        note: 'MDC lists Scotts Ford Access as a public department area on the Meramec River, with area hours, directions from Steelville, parking, and river-access map material.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/scotts-ford-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Riverview Access',
+        note: 'MDC says Riverview Access provides fishing and boat access to the Meramec River, with a concrete boat ramp and parking lot described in MDC planning material.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/riverview-access',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07013000',
+        note: 'USGS Meramec River near Steelville showed same-day May 31, 2026 discharge and gage-height observations, including 358 cfs and 1.84 ft at 02:15 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07013000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '343 cfs minimum-only',
+        note: 'Rivers.MOHERP Steelville gauge bands put the start of Low near 343 cfs and the start of Good near 543 cfs. The app uses the start of Low as a conservative floor and does not infer a preferred range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07013000&hours=168',
+      },
+      {
+        label: 'Nearby trip evidence',
+        value: 'Upper Meramec rows at 200-420 cfs',
+        note: 'Rivers.MOHERP includes nearby upper-Meramec rows on the Steelville gauge, including Scott\'s Ford-to-Indian Springs at 200 cfs and Riverview-to-MO 19 at 420 cfs, both rated good. Those rows support the gauge relationship but are not used to claim an ideal range for this exact route.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07013000&hours=168',
+      },
+      {
+        label: 'High-water caution',
+        value: 'No shipped upper cutoff',
+        note: 'Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips. This route should be skipped on rising or storm-swollen water even though the app does not claim a numeric high cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07013000&hours=168',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: '37.9783, -91.4563 to 37.9924, -91.4255',
+        note: 'The Paddling Hub publishes access coordinates while MDC supplies the public-access authority. Mapcarta / OpenStreetMap independently places the Scotts Ford slipway at essentially the same put-in coordinate.',
+        sourceUrl: 'https://thepaddlinghub.com/directory/missouri/scotts-ford-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC St. Louis Region southern small river accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Scotts Ford Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/scotts-ford-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Scotts Ford Access map',
+        url: 'https://mdc.mo.gov/media/79842',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Riverview Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/riverview-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Riverview Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6904map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Meramec Steelville gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07013000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07013000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07013000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07013000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07013000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Scotts Ford Access coordinate record',
+        url: 'https://thepaddlinghub.com/directory/missouri/scotts-ford-access',
+        provider: 'local',
+      },
+      {
+        label: 'Riverview Access coordinate record',
+        url: 'https://thepaddlinghub.com/directory/missouri/riverview-access',
+        provider: 'local',
       },
     ],
   },
@@ -19166,6 +20262,131 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'meramec-river-state-park-sand-ford',
+    slug: 'meramec-river-state-park-sand-ford',
+    name: 'Meramec River',
+    reach: 'Meramec State Park to Sand Ford Access',
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Public Meramec day float from the Meramec State Park river launch to MDC Sand Ford Access near Stanton. This links two managed access areas in the Sullivan corridor, using the live Sullivan gauge as a conservative low-water check.',
+    statusText:
+      'Use the Meramec River near Sullivan gauge. Around 200 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and a longer day. Rising water deserves extra caution, and MoHERP marks high and flood stages as unsuitable for casual trips.',
+    latitude: 38.20379,
+    longitude: -91.099735,
+    gaugeSource: {
+      id: 'usgs-07014500',
+      provider: 'usgs',
+      siteId: '07014500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Meramec River near Sullivan, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Sullivan gauge rating and Meramec trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed Sullivan-area Meramec is commonly floated in spring through fall, but it can still get shallow in dry late-summer spells. Weekend rental traffic, storms, and quick rises after rain are the main operational checks.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a mainstream Ozark recreational float with riffles, pools, gravel bars, bluffs, swimmers, anglers, and occasional wood. It is easy at ordinary stable levels, but high or rising water can make bends, obstacles, and landings much less forgiving.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Meramec add: Missouri State Parks confirms public canoe and concrete boat launches near River Stop Store, MDC confirms Sand Ford Access as a public Meramec River boat access, MDC planning material places Sand Ford about 12 miles downstream from Sappington Bridge, the existing official Sappington-to-Meramec-State-Park segment is 5 miles, and USGS 07014500 exposed same-day May 31, 2026 discharge and gage-height observations during review. The app uses minimum-only scoring because the level source is community-calibrated rather than an official manager-published paddling band, and the mileage is documented as an approximate access-to-access derivation rather than a standalone official float listing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'Meramec State Park river launch',
+        note: 'Missouri State Parks says visitors can use the concrete motorboat launch or the canoe launch near River Stop Store to access the Meramec River during park hours, with no launch fees.',
+        sourceUrl: 'https://mostateparks.com/park/meramec-state-park/boating',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Sand Ford Access',
+        note: 'MDC says Sand Ford Access provides fishing and boat access to the Meramec River and is reached from Stanton via Route W.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/sand-ford-access',
+      },
+      {
+        label: 'Route shape',
+        value: 'About 7 miles',
+        note: 'MDC planning material places Sand Ford Access about 12 miles downstream from Sappington Bridge Access. The same plan lists Sappington Bridge to Meramec State Park as 5 miles, so this downstream continuation is treated as an approximate 7-mile public-access day float.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07014500',
+        note: 'USGS Meramec River near Sullivan exposed same-day May 31, 2026 observations during review, including 585 cfs and 3.40 ft at 09:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07014500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Sullivan gauge good beginning at 200 cfs and includes nearby Meramec trip logs rated good from roughly 294 to 543 cfs. The app uses only a conservative floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'High-water caution',
+        value: 'No shipped upper cutoff',
+        note: 'Rivers.MOHERP describes high water as potentially dangerous for young or inexperienced paddlers and flood water as avoidable for casual trips. Skip this route on rising or storm-swollen water even though the app does not claim a numeric high cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: '38.20379, -91.099735 to 38.2527, -91.0798',
+        note: 'The put-in uses the existing River Stop Store / Meramec State Park launch coordinate anchor. The take-out coordinate comes from a public Sand Ford Access paddling directory entry that cites USGS ScienceBase location data, with MDC supplying the public-access authority.',
+        sourceUrl: 'https://thepaddlinghub.com/directory/missouri/sand-ford-access-1',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Missouri State Parks Meramec boating',
+        url: 'https://mostateparks.com/park/meramec-state-park/boating',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Sand Ford Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/sand-ford-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC St. Louis Region southern small river accesses plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2016%20St.%20Louis%20Region%20Southern%20Small%20River%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Meramec Sullivan gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07014500&hours=0',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07014500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07014500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07014500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07014500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Sand Ford Access coordinate record',
+        url: 'https://thepaddlinghub.com/directory/missouri/sand-ford-access-1',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'bryant-creek-sycamore-warren-bridge',
     slug: 'bryant-creek-sycamore-warren-bridge',
     name: 'Bryant Creek',
@@ -19283,6 +20504,133 @@ export const rivers: River[] = [
       {
         label: 'Ozark County Times Bryant Creek access report',
         url: 'https://www.ozarkcountytimes.com/node/22441',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'beaver-creek-brownbranch-bradleyville',
+    slug: 'beaver-creek-brownbranch-bradleyville',
+    name: 'Beaver Creek',
+    reach: 'Beaver Creek Campground / Brownbranch to Highway 76 Bridge at Bradleyville',
+    aliases: [
+      'Beaver Creek - Brownbranch to Bradleyville',
+      'Beaver Creek Campground to Bradleyville',
+      'Beaver Creek - Brownbranch to Highway 76 Bridge',
+    ],
+    state: 'Missouri',
+    region: 'Southwest Missouri',
+    summary:
+      'Ozark creek day float from the fee launch at Beaver Creek Campground in Brownbranch to the Highway 76 bridge at Bradleyville. MDC confirms the access pair, USGS 07054080 is live at the take-out corridor, and MoHERP provides route-specific level evidence.',
+    statusText:
+      'Use the Beaver Creek at Bradleyville gauge. MoHERP rates about 200 to 395 cfs as the best broad window, with 100 cfs as a low-water warning and about 727 cfs as the high-water caution line. Expect scraping below the floor and pushy, debris-prone water above the window.',
+    latitude: 36.79540057,
+    longitude: -92.83080082,
+    gaugeSource: {
+      id: 'usgs-07054080',
+      provider: 'usgs',
+      siteId: '07054080',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Beaver Creek at Bradleyville, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07054080/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 395,
+      tooLow: 100,
+      tooHigh: 727,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bradleyville gauge bands and Brownbranch-to-Bradleyville trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07054080&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Beaver Creek is rain-sensitive and can swing from scrapey summer riffles to fast, muddy, debris-laden current after storms. Recent flood history and 2025 trip notes make the same-day trend and access inspection especially important.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a narrow Ozark creek with riffles, gravel bars, tree strainers, possible portages, and a steeper final riffle into Bradleyville. It can be a pleasant day float at ordinary levels, but it is not a beginner recommendation when high, rising, or freshly altered by floods.',
+      confidenceNotes:
+        'Confidence is good but intentionally guarded: MDC says Beaver Creek has long been a floating destination, most floats begin at Brownbranch and downstream, and visitors can pay a fee to park and launch at Beaver Creek Campground or launch at the Highway 76 bridge in Bradleyville; USGS 07054080 showed same-day May 31, 2026 discharge and gage-height values; and Rivers.MOHERP has exact Brownbranch-to-Bradleyville rows plus Bradleyville-gauge bands. The main caveat is access and channel volatility: MoHERP trip notes include post-flood strainers, a degrading Bradleyville take-out, and a 2019 warning about MO 76 access confusion, so the route copy requires same-day inspection and does not treat the highway bridge as a guaranteed easy landing.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public / fee access pair',
+        value: 'Brownbranch campground to Highway 76 bridge',
+        note: 'MDC says most Beaver Creek floats begin at Brownbranch and downstream, and that visitors can pay a small fee to park and launch at Beaver Creek Campground in Brownbranch or launch at the Highway 76 bridge in Bradleyville.',
+        sourceUrl: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/beaver-creek',
+      },
+      {
+        label: 'Route-specific trip rows',
+        value: 'Brownbranch to Bradleyville, 7.9 miles',
+        note: 'Rivers.MOHERP lists exact Brownbranch-to-Bradleyville rows at 7.9 miles, including Good reports at 210, 241, 258, 276, 442, 496, and 532 cfs and Low / Poor reports in the mid-70 cfs range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07054080&hours=168',
+      },
+      {
+        label: 'Gauge bands',
+        value: '100 / 200-395 / 727 cfs',
+        note: 'MoHERP rates the Bradleyville gauge as Poor around 50 cfs, Low beginning around 100 cfs, Good beginning around 200 cfs, High beginning around 727 cfs, and Flood around 1,610 cfs. The app uses those community bands conservatively.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07054080&hours=168',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07054080',
+        note: 'USGS Beaver Creek at Bradleyville showed same-day May 31, 2026 observations during review, including 1,080 cfs and 5.26 ft at 10:15 CDT. That reading is above the app high-water caution line, not a current recommendation.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07054080',
+      },
+      {
+        label: 'Put-in coordinate',
+        value: '36.79540057, -92.83080082',
+        note: 'The Dyrt publishes coordinates for Beaver Creek Canoe Rental, Campground & Cabins, and describes the private campground as river-accessible with boat-in access and canoe-rental context. MDC supplies the stronger access authority.',
+        sourceUrl: 'https://thedyrt.com/camping/missouri/beaver-creek-canoe-rental-campground-and-cabins',
+      },
+      {
+        label: 'Take-out coordinate',
+        value: '36.77963889, -92.90727778',
+        note: 'USGS publishes the Beaver Creek at Bradleyville monitoring-location coordinate at the Highway 76 bridge corridor. MDC supplies the paddling-access authority for the Bradleyville bridge; this is not a separate managed-ramp coordinate.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/07054080/',
+      },
+      {
+        label: 'Access caveat',
+        value: 'Bradleyville / MO 76 can be rough or confusing',
+        note: 'MoHERP notes include a 2025 report that the Bradleyville take-out continues to degrade after floods and a 2019 warning about MO 76 access confusion. Paddle Today keeps the MDC access wording but requires scouting the take-out before committing.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07054080&hours=168',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Beaver Creek fishing prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/beaver-creek',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Beaver Creek Bradleyville gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07054080&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07054080 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07054080/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07054080 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07054080',
+        provider: 'usgs',
+      },
+      {
+        label: 'Beaver Creek Campground coordinate record',
+        url: 'https://thedyrt.com/camping/missouri/beaver-creek-canoe-rental-campground-and-cabins',
+        provider: 'local',
+      },
+      {
+        label: 'Paddling.com Beaver Creek Brownbranch trip report',
+        url: 'https://paddling.com/paddle/trips/beaver-creek-in-missouri',
         provider: 'local',
       },
     ],
@@ -19691,6 +21039,420 @@ export const rivers: River[] = [
       {
         label: 'Missouri Float Trips Big Piney River',
         url: 'https://www.floatmissouri.com/plan/missouri-rivers/big-piney-river/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-piney-river-mason-bridge-slabtown',
+    slug: 'big-piney-river-mason-bridge-slabtown',
+    name: 'Big Piney River',
+    reach: 'Mason Bridge Access to Slabtown Recreation Area',
+    aliases: [
+      'Big Piney - Mason Bridge to Slabtown',
+      'Big Piney River - Mason Bridge to Slabtown',
+      'Big Piney River - Mason Bridge Access to Slabtown Recreation Area',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Nine-mile Big Piney follow-on from MDC Mason Bridge Access to Forest Service Slabtown Recreation Area. The direct Big Piney USGS gauge is live again, and the route stays conservative with low-water-only scoring.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and you should expect shallow riffles, dragging, and slower travel. This route has no defended high-water cutoff, so treat rising water and recent storms cautiously.',
+    latitude: 37.50581,
+    longitude: -91.98319,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service describes the Big Piney as spring fed and usually floatable year-round unless it has been especially dry. This Mason-to-Slabtown reach can still scrape in dry spells, while rain can make the river murky, rising, and harder to manage at gravel launches.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Expect an Ozark day float with riffles, pools, gravel bottom, fishing traffic, limited services, and a longer nine-mile pace than the upstream six-mile Big Piney links. High or rising water can exceed the easy rating quickly.',
+      confidenceNotes:
+        'Confidence is good for a conservative follow-on: MDC map material confirms Mason Bridge Access with parking and a boat ramp, the Forest Service confirms Slabtown as a Big Piney access and camping area with official coordinates and non-motorized boating support, the Big Piney River Stream Team Watershed Association lists Mason Bridge to Slabtown as river mile 32.5 to 42.0, official USGS 06930000 showed same-day May 31, 2026 discharge and gage-height observations, and MoHERP has exact Mason-to-Slabtown trip rows plus the Big Piney low-water band. The app uses only the existing 309 cfs low-water floor and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Segment mileage',
+        value: 'Mile 32.5 to 42.0',
+        note: 'Big Piney River Stream Team Watershed Association lists Mason Bridge to Slabtown as river mile 32.5 to 42.0, making this about a 9.5-mile day segment.',
+        sourceUrl: 'https://bigpineyriverstwa.org/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Mason Bridge Access',
+        note: 'MDC map material identifies Mason Bridge Access in Texas County on the Big Piney River, with parking lot and boat ramp symbols.',
+        sourceUrl: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6110map.pdf',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Slabtown Recreation Area',
+        note: 'The Forest Service describes Slabtown as a small access and camping area on the Big Piney, about eight miles downriver from Mason Bridge, with a boat launch and parking.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/slabtown-recreation-area',
+      },
+      {
+        label: 'Take-out coordinates',
+        value: '37.561549, -92.03214279',
+        note: 'The Forest Service publishes this latitude and longitude for Slabtown Recreation Area.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/slabtown-recreation-area',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed same-day May 31, 2026 discharge and gage-height observations, with 375 cfs and 3.16 ft at 06:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Exact route reports',
+        value: 'Mason Bridge to Slabtown rows',
+        note: 'Rivers.MOHERP includes exact Mason Bridge-to-Slabtown trip rows on the Big Piney gauge, including good-condition rows below and near the app low-water floor. The app keeps the broader low-water floor for consistency with adjacent Big Piney records.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Riffles, pools, gravel bottom',
+        note: 'The Forest Service says the Big Piney has runs or riffles with pools and a mostly gravel bottom, can be murky after rain, and can rise rapidly.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/big-piney-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Slabtown Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/slabtown-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Big Piney River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/big-piney-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Mason Bridge Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6110map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Big Piney River Stream Team Watershed Association',
+        url: 'https://bigpineyriverstwa.org/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06930000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'big-piney-river-slabtown-ross',
+    slug: 'big-piney-river-slabtown-ross',
+    name: 'Big Piney River',
+    reach: 'Slabtown Recreation Area to Ross Access',
+    aliases: [
+      'Big Piney - Slabtown to Ross',
+      'Big Piney River - Slabtown to Ross Bridge',
+      'Big Piney River - Slabtown Access to Ross Access',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Long Big Piney day or light overnight from Forest Service Slabtown Recreation Area to MDC Ross Access. Public endpoints, same-day USGS data, and an exact MoHERP trip row support conservative low-water-only scoring.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge. Below about 310 cfs, MoHERP rates the river poor and long riffles can mean dragging or portages. This route has no defended high-water cutoff, so treat rising water, storms, and the long mileage cautiously.',
+    latitude: 37.561549,
+    longitude: -92.03214279,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney and exact Slabtown-to-Ross trip row',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service says the spring-fed Big Piney is usually floatable year-round unless especially dry, but it also notes the Slabtown-to-Ross section is narrower, shallower, and riffly. Low water can stretch this into a slow, draggy day; rain can make the river rise rapidly and muddy the landings.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The water is generally Ozark Class I-style floating, but 15-plus miles, shallow riffles, limited bailout choices, and a remote shuttle make this more committed than the shorter Big Piney day segments. Treat it as moderate unless your group intentionally plans a light overnight.',
+      confidenceNotes:
+        'Confidence is good for a conservative follow-on route: the Forest Service confirms Slabtown as a Big Piney access and describes the Slabtown-to-Ross character, MDC confirms Ross Access as public Big Piney floating/fishing access, Big Piney River Stream Team Watershed Association lists Slabtown to Six Crossings and Six Crossings to Ross Access mileages, Rivers.MOHERP has an exact Slabtown-to-Ross trip row on USGS 06930000, and official USGS 06930000 showed same-day May 31, 2026 discharge and gage-height observations. The app uses only the established 309 cfs Big Piney low-water floor and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route mileage',
+        value: 'About 15.6 to 17 mi',
+        note: 'Big Piney River Stream Team Watershed Association lists Slabtown to Six Crossings as mile 42.0 to 50.8 and Six Crossings to Ross Access as mile 50.8 to 57.6, while the MoHERP exact trip row records Slabtown to Ross Bridge as 17.0 miles.',
+        sourceUrl: 'https://bigpineyriverstwa.org/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Slabtown Recreation Area',
+        note: 'The Forest Service describes Slabtown as a small access and camping area on the Big Piney with a boat launch, limited parking, vault toilet, picnic tables, and official coordinates.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/slabtown-recreation-area',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Ross Access',
+        note: 'MDC lists Ross Access as a public area that provides access for floating and fishing on the Big Piney River, with parking and directions from Duke.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/ross-access',
+      },
+      {
+        label: 'Take-out coordinate anchor',
+        value: '37.66414, -92.05157',
+        note: 'Mapcarta / OpenStreetMap identifies the Ross-area MDC slipway near the access at this coordinate. Pair the coordinate with MDC access authority and follow signs and current ramp layout on arrival.',
+        sourceUrl: 'https://mapcarta.com/N12547066739',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed same-day May 31, 2026 discharge and gage-height observations, including 395 cfs and 3.21 ft at 15:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app reuses this conservative floor from adjacent Big Piney routes and does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Exact route evidence',
+        value: 'Slabtown to Ross Bridge row',
+        note: 'Rivers.MOHERP includes an exact Slabtown-to-Ross Bridge row rated Good at 317 cfs / 2.93 ft, recorded as a combined two-day trip. That supports the gauge relationship but the app still warns that this is a long reach.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Narrower, shallower, riffly below Slabtown',
+        note: 'The Forest Service says the Big Piney is usually floatable unless particularly dry and specifically notes that downriver from Slabtown the river is narrow and shallower, with multiple riffles, before widening below Ross Bridge.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/big-piney-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Slabtown Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/slabtown-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Big Piney River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/big-piney-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Ross Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/ross-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Ross Access map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/6306map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Big Piney River Stream Team Watershed Association',
+        url: 'https://bigpineyriverstwa.org/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 06930000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ross Access coordinate record',
+        url: 'https://mapcarta.com/N12547066739',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-piney-river-dogs-bluff-mineral-springs',
+    slug: 'big-piney-river-dogs-bluff-mineral-springs',
+    name: 'Big Piney River',
+    reach: 'Dogs Bluff Access to Mineral Springs Access',
+    aliases: [
+      "Big Piney River - Dog's Bluff to Mineral Springs",
+      'Big Piney - Dogs Bluff to Mineral Springs',
+      'Big Piney River Houston day float',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short upper Big Piney day near Houston between two MDC public accesses. The route has clear public ramps, a named 4.9-mile Big Piney route listing, and the same direct USGS gauge used conservatively by adjacent Big Piney routes.',
+    statusText:
+      'Use the Big Piney River near Big Piney gauge as a same-river level check. Below about 310 cfs, MoHERP rates the Big Piney poor and shallow riffles can mean dragging. No ideal range or high-water cutoff is claimed, so treat rising water and storms cautiously.',
+    latitude: 37.327222,
+    longitude: -92.001944,
+    gaugeSource: {
+      id: 'usgs-06930000',
+      provider: 'usgs',
+      siteId: '06930000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Piney River near Big Piney, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06930000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 309,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Big Piney River gauge bands at Big Piney and Dogs-Bluff-to-Mineral-Springs trip row',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=72',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The spring-fed Big Piney is usually a spring-through-fall float, but dry spells can expose riffles and post-rain rises can quickly make landings and bends less forgiving. Use this as a same-day low-water check, not a full preferred-range forecast.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short Ozark day float with public ramps at both ends. Keep the easy rating conditional on ordinary stable water; high or rising flows, wood, rural access limits, and private-bank discipline can raise the consequence quickly.',
+      confidenceNotes:
+        'Confidence is good for a conservative Big Piney follow-on: MDC confirms Dogs Bluff and Mineral Springs as public Big Piney River accesses with boat ramps, Big Piney River Stream Team Watershed Association lists Dogs Bluff to Mineral Springs as mile 10.7 to 15.6, Rivers.MOHERP includes an exact Dogs Bluff-to-Mineral Springs row on USGS 06930000, and official USGS 06930000 exposed recent May 31, 2026 discharge and gage-height observations during review. The app reuses the established 309 cfs Big Piney low-water floor from adjacent V2 routes and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route mileage',
+        value: 'About 4.9 to 6 mi',
+        note: 'Big Piney River Stream Team Watershed Association lists Dogs Bluff to Mineral Springs as mile 10.7 to 15.6. MoHERP records the exact Dogs Bluff-to-Mineral Springs trip as 6.0 miles.',
+        sourceUrl: 'https://www.bigpineyriverstwa.org/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'MDC Dogs Bluff Access',
+        note: 'MDC says Dogs Bluff Access offers Big Piney River access with a boat ramp, picnic area, privy, and directions from Houston.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/dogs-bluff-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Mineral Springs Access',
+        note: 'MDC says Mineral Springs Access offers Big Piney River access with a boat ramp and directions from the north Houston city limit.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/mineral-springs-access',
+      },
+      {
+        label: 'Live same-river gauge',
+        value: 'USGS 06930000',
+        note: 'USGS Big Piney River near Big Piney showed recent discharge and gage-height observations during review, including 729 cfs and 3.87 ft at 2026-05-31 20:00 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '309 cfs minimum-only',
+        note: 'Rivers.MOHERP Big Piney gauge bands put the start of Low at 309 cfs. The app uses this same conservative floor as adjacent Big Piney routes and does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=72',
+      },
+      {
+        label: 'Exact route row',
+        value: 'Dogs Bluff to Mineral Springs',
+        note: 'Rivers.MOHERP includes an exact Dogs Bluff-to-Mineral Springs row on the Big Piney gauge, marked High at 1,840 cfs / 5.23 ft. That supports the gauge relationship and reinforces high-water caution, but it is not converted into a high cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=72',
+      },
+      {
+        label: 'River character',
+        value: 'Spring-fed Ozark float',
+        note: 'The Forest Service describes the Big Piney as a family-friendly, spring-fed river with limestone bluffs, and says it is usually floatable year-round unless it has been particularly dry.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Dogs Bluff Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/dogs-bluff-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Mineral Springs Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/mineral-springs-access',
+        provider: 'local',
+      },
+      {
+        label: 'Big Piney River Stream Team Watershed Association',
+        url: 'https://www.bigpineyriverstwa.org/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Big Piney gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06930000&hours=72',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06930000 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06930000',
+        provider: 'usgs',
+      },
+      {
+        label: 'Forest Service Big Piney River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/big-piney-river',
+        provider: 'local',
+      },
+      {
+        label: 'Dogs Bluff coordinate record',
+        url: 'https://wikimapia.org/27056906/Dogs-Bluff-Access',
+        provider: 'local',
+      },
+      {
+        label: 'Mineral Springs coordinate record',
+        url: 'https://boatrampfinder.com/ramps/mineral-springs-access/',
         provider: 'local',
       },
     ],
@@ -20184,6 +21946,250 @@ export const rivers: River[] = [
       {
         label: 'Pointers Creek public location coordinates',
         url: 'https://www.camping.org/campgrounds/missouri/linn/pointers-creek-access',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'gasconade-river-pointers-creek-cooper-hill',
+    slug: 'gasconade-river-pointers-creek-cooper-hill',
+    name: 'Gasconade River',
+    reach: 'Pointers Creek Access to Cooper Hill Conservation Area',
+    aliases: [
+      'Gasconade River - Pointers Creek to Cooper Hill',
+      'Gasconade River - Pointers Creek to Third Creek',
+      'Lower Gasconade River - Pointers Creek to Cooper Hill',
+    ],
+    state: 'Missouri',
+    region: 'Central Missouri',
+    summary:
+      'Short lower Gasconade day from MDC Pointers Creek Access to the hand-launch river access at Cooper Hill Conservation Area. Public endpoints are clear, and the Rich Fountain USGS gauge gives the same lower-river level check used by the adjacent upstream segment.',
+    statusText:
+      'Use the Gasconade River near Rich Fountain gauge. Around 1,100 cfs is the conservative low-water floor; below that, expect dragging, slow pools, and shortened float plans. High or rising water can make this broad river unsafe for casual trips.',
+    latitude: 38.424847,
+    longitude: -91.742545,
+    gaugeSource: {
+      id: 'usgs-06934000',
+      provider: 'usgs',
+      siteId: '06934000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Gasconade River near Rich Fountain, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06934000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 1100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Rich Fountain gauge bands for the Gasconade River',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The lower Gasconade is commonly paddled in spring through fall. Low water can make this route slow and scrapey, while rain can turn the river pushy, muddy, and debris-filled.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a broad recreational Gasconade segment with pools, gravel bars, motorboat traffic, and ordinary Class I moving-water decisions. It stays easy only at ordinary, stable levels; high or rising water raises the consequence of bends, strainers, islands, and hand-launch landings.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Gasconade add: MDC confirms Pointers Creek as a public Gasconade River access, MDC confirms Cooper Hill has hand-launch access to the Gasconade from the parking lot and CR 821, Missouri Float Trips / MDC-reprint mile notes place Pointers Creek and Cooper Hill about 5.8 river miles apart, and USGS 06934000 exposed same-day May 31, 2026 discharge and gage-height observations during review. Threshold confidence is intentionally limited because Rivers.MOHERP has gauge-level Rich Fountain bands but zero exact trip rows for this reach, so the app uses minimum-only scoring and does not claim an ideal range or upper cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Pointers Creek Access',
+        note: 'MDC confirms Pointers Creek Access on the Gasconade River, with directions, area rules, boat-use rules, camping, fishing, and photo documentation of the boat ramp.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/pointers-creek-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Cooper Hill Conservation Area hand launch',
+        note: 'MDC says Cooper Hill includes Gasconade River access and that boats are hand-launched after a short walk from the parking area; a separate MDC feature says floaters can access the river from the parking lot and CR 821, but there is no trailered-boat access.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/cooper-hill-conservation-area',
+      },
+      {
+        label: 'River-mile support',
+        value: 'About 5.8 river miles',
+        note: 'Missouri Float Trips / MDC-reprint mile notes place Pointers Creek Access at river mile 210.8 and Third Creek / Cooper Hill Access at river mile 216.6.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/gasconade-river/',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 06934000',
+        note: 'USGS operates Gasconade River near Rich Fountain, MO. The official legacy current-conditions page showed 1,640 cfs and 3.36 ft at 2026-05-31 10:30 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06934000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '1,100 cfs minimum-only',
+        note: 'Rivers.MOHERP Rich Fountain gauge bands put the start of Low near 1,074 cfs and the start of Good near 1,994 cfs. The app uses a rounded 1,100 cfs low-water floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+      },
+      {
+        label: 'High-water caution',
+        value: 'No numeric cutoff claimed',
+        note: 'MoHERP labels higher Rich Fountain levels as High and Flood with strong caution language, but exact-route high-water calibration is missing. Treat high or rising water as unsuitable for casual trips.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Pointers Creek Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/pointers-creek-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Cooper Hill Conservation Area',
+        url: 'https://mdc.mo.gov/discover-nature/places/cooper-hill-conservation-area',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Cooper Hill feature',
+        url: 'https://mdc.mo.gov/node/256137',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Gasconade River Rich Fountain gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06934000&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06934000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06934000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Missouri Float Trips Gasconade River guide',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/gasconade-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Cooper Hill public location coordinates',
+        url: 'https://www.camping.org/campgrounds/missouri/linn/cooper-hill-conservation-area',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-river-mammoth-merrill-horse',
+    slug: 'big-river-mammoth-merrill-horse',
+    name: 'Big River',
+    reach: 'Mammoth Access to Merrill Horse Access',
+    aliases: [
+      'Big River - Mammoth to Merrill Horse',
+      'Big River - Mammoth MDC Access to Merrill Horse MDC Access',
+      'Big River Richwoods gauge section',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short Big River day between two MDC public accesses west of De Soto. MDC confirms the access spacing, and the Richwoods gauge sits in the route corridor with route-specific local navigability bands.',
+    statusText:
+      'Use the Big River near Richwoods gauge. The practical float window is roughly 100 to 800 cfs; below 100 cfs, expect scraping, and above 1,200 cfs this section is too high for a general recommendation.',
+    latitude: 38.121076,
+    longitude: -90.676055,
+    gaugeSource: {
+      id: 'usgs-07018100',
+      provider: 'usgs',
+      siteId: '07018100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big River near Richwoods, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07018100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 800,
+      tooLow: 100,
+      tooHigh: 1200,
+      thresholdSource: {
+        label: 'OzarkAnglers Big River section guidance for the Richwoods gauge',
+        url: 'https://forums.ozarkanglers.com/waters/rivers/big-river/big-river-sections-r318/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the normal paddling window. This short reach can scrape during summer low water, while rain can quickly push it into high, muddy, debris-filled water where the current is unsuitable for casual groups.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At ordinary levels this is a short recreational Big River float with gravel riffles, wooded bends, anglers, and MDC access points. It should not be treated as easy when the Richwoods gauge is high or rising, especially above the local 800 cfs caution band.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Mammoth Access is 5.40 river miles upstream from Merrill Horse Access and provides public department-area boat-use rules for both endpoints; OzarkAnglers names the Mammoth-to-Merrill Horse section, ties it directly to USGS 07018100 at the Highway H / Richwoods corridor, and publishes numeric navigability bands; and the official USGS legacy current-conditions page exposed same-day June 1, 2026 discharge and gage-height observations during review. Threshold confidence remains community-grade, so the app uses a broad two-sided model with practical high-water warnings rather than a polished ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Mammoth Access',
+        note: 'MDC says Mammoth Access is on the Big River, was acquired to provide better public access, and is 5.40 river miles upstream from Merrill Horse Access and the Route H bridge.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/mammoth-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'MDC Merrill Horse Access',
+        note: 'MDC says Merrill Horse Access is on the Big River, 5.40 river miles downstream from Mammoth Access and 5.30 miles upstream from Browns Ford Access, with public department-area boat-use rules.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/merrill-horse-access',
+      },
+      {
+        label: 'Route shape',
+        value: 'Mammoth to Merrill Horse, 5.4 miles',
+        note: 'OzarkAnglers lists Mammoth MDC Access at mile 0.0 and Merrill Horse MDC Access at mile 5.4 for this Big River section. MDC independently gives the same spacing.',
+        sourceUrl: 'https://forums.ozarkanglers.com/waters/rivers/big-river/big-river-sections-r318/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07018100',
+        note: 'USGS Big River near Richwoods showed same-day June 1, 2026 values of 1,490 cfs and 5.76 ft at 07:00 CDT during review.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07018100',
+      },
+      {
+        label: 'Gauge fit',
+        value: 'Richwoods / Highway H corridor',
+        note: 'OzarkAnglers identifies the Richwoods gauge as the reliable gauge for the Mammoth / Merrill Horse section. USGS site metadata places the gauge at 38.159611, -90.706056, effectively in the Merrill Horse / Highway H take-out corridor.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07018100/',
+      },
+      {
+        label: 'Threshold bands',
+        value: '100-800 cfs ordinary float window, 1,200 cfs too high',
+        note: 'OzarkAnglers describes under 100 cfs as low but floatable with scraping, 100-800 cfs as floatable, 800-1,200 cfs as very high and dangerous for inexperienced paddlers, and over 1,200 cfs as too high.',
+        sourceUrl: 'https://forums.ozarkanglers.com/waters/rivers/big-river/big-river-sections-r318/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Mammoth Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/mammoth-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Merrill Horse Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/merrill-horse-access',
+        provider: 'local',
+      },
+      {
+        label: 'OzarkAnglers Big River sections',
+        url: 'https://forums.ozarkanglers.com/waters/rivers/big-river/big-river-sections-r318/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07018100 current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07018100',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07018100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07018100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Paddling.com Mammoth Access coordinate record',
+        url: 'https://paddling.com/paddle/locations/mammoth-access-big-river',
         provider: 'local',
       },
     ],
@@ -23397,6 +25403,2494 @@ export const rivers: River[] = [
         label: 'Utah DWR stream access guidance',
         url: 'https://wildlife.utah.gov/streamaccess',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-kay-wood-fish-creek',
+    slug: 'south-fork-kentucky-river-kay-wood-fish-creek',
+    name: 'South Fork Kentucky River',
+    reach: 'Kay Wood Road Access to Fish Creek Boat Ramp',
+    aliases: [
+      'South Fork Kentucky River - Kay Wood to Fish Creek',
+      'South Fork Kentucky River Booneville float',
+      'KDFWR South Fork Kentucky River Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Near-Booneville South Fork Kentucky River day from KDFWR Kay Wood Road Access to Fish Creek Boat Ramp. KDFWR documents both public access sites, the 7.9-mile segment, and official Booneville gauge bands.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely shallow; above that is high and deserves extra moving-water caution.',
+    latitude: 37.4594,
+    longitude: -83.6509,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR describes the South Fork as broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. Spring and post-rain windows are more reliable, but storms can raise the Booneville reach quickly and add wood or harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a KDFWR public-access fishing and paddling corridor with occasional riffles, rock bars, limited amenities, and private-adjacent banks. Treat it as easy only when the Booneville gauge is stable in the KDFWR good band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists Kay Wood Road Access to Fish Creek Boat Ramp as a 7.9-mile South Fork Kentucky River segment, publishes coordinates and access details for both endpoints, links the river to USGS 03281500, and gives official Low/Good/High cfs and stage bands for the Booneville gauge. The official USGS legacy current-conditions page showed same-day June 1, 2026 discharge and gage-height observations during this run, clearing the previous live-gauge blocker.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Kay Wood Road Access to Fish Creek Boat Ramp, 7.9 miles',
+        note: 'KDFWR lists Kay Wood Road Access to Fish Creek Boat Ramp as a 7.9-mile public-access segment on the South Fork Kentucky River access mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Kay Wood Road Access, 37.4594, -83.6509',
+        note: 'KDFWR identifies Kay Wood Road Access as a free carry-down site off KY 28 / Kay Wood Road with unpaved parking, no amenities, and canoe/kayak suitability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Fish Creek Boat Ramp, 37.4906, -83.6894',
+        note: 'KDFWR identifies Fish Creek Boat Ramp as a free single-lane paved ramp off Fish Creek Road with unpaved parking and year-round 24-hour boat-ramp availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500',
+        note: 'The official USGS legacy current-conditions page showed 605 cfs and 5.41 ft at 2026-06-01 05:30 EDT for South Fork Kentucky River at Booneville during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=124',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Kay Wood Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1121',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fish Creek Boat Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=994',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'russell-creek-hatcher-todd-ford-milltown',
+    slug: 'russell-creek-hatcher-todd-ford-milltown',
+    name: 'Russell Creek',
+    reach: 'Hatcher Road / Todd Ford Road Access to Milltown Road Bridge Access',
+    aliases: [
+      'Russell Creek - Hatcher Road to Milltown',
+      'Russell Creek - Todd Ford to Milltown',
+      'KDFWR Russell Creek Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Remote Russell Creek day from the Hatcher Road / Todd Ford Road ford access to Milltown Road Bridge. KDFWR documents the 7.8-mile public-access segment, official Columbia gauge bands, and both endpoint coordinates.',
+    statusText:
+      'Use the Russell Creek near Columbia gauge. KDFWR rates 100 to 350 cfs, or 3.5 to 4.5 ft, as good for boating and fishing. Below that, expect shallow riffles, dragging, and a harder day; above that, this narrow creek gets pushier around wood, fords, and bends.',
+    latitude: 37.1242,
+    longitude: -85.3395,
+    gaugeSource: {
+      id: 'usgs-03307000',
+      provider: 'usgs',
+      siteId: '03307000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Russell Creek near Columbia, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 350,
+      tooLow: 100,
+      tooHigh: 350,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Russell Creek near Columbia',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Russell Creek is rain-responsive and can be too shallow outside wet periods. Spring and wetter fall windows are most reliable; summer can work after rain, but low water exposes riffles, gravel bars, and ford approaches quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'KDFWR describes Russell Creek as narrow, fairly remote, and access points as far apart. The route is not technical whitewater, but 7.8 miles of riffle/run habitat, limited amenities, private-adjacent banks, wood, fords, and low-water dragging make it more committed than an easy park float.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists Hatcher Road / Todd Ford Road Access to Milltown Access as a 7.8-mile Russell Creek segment, publishes coordinates and access details for both endpoints, links the river to USGS 03307000, and gives official Low/Good/High cfs and stage bands for the Columbia gauge. USGS Water Services showed same-day June 1, 2026 discharge and gage-height observations during this retry, clearing the previous live-gauge blocker. Current review flow was below the good band, but that affects today\'s score rather than route readiness.',
+    },
+    evidenceNotes: [
+      {
+        label: 'KDFWR bands',
+        value: '100-350 cfs / 3.5-4.5 ft good',
+        note: 'KDFWR rates Russell Creek near Columbia as Low below 100 cfs or 3.5 ft, Good from 100 to 350 cfs or 3.5 to 4.5 ft, and High above 350 cfs or 4.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Public route shape',
+        value: 'Hatcher Road / Todd Ford Road to Milltown, 7.8 mi',
+        note: 'KDFWR lists Hatcher Road / Todd Ford Road Access to Milltown Access as a 7.8-mile Russell Creek public-access segment.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Access character',
+        value: 'Carry-down ford and bridge accesses',
+        note: 'KDFWR says both endpoints provide canoe/kayak access with limited parking and no amenities; bank fishing is limited near each access because adjacent property is private. Hatcher/Todd Ford users should not block the ford.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03307000 at 68.6 cfs / 2.72 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 08:30 CDT on June 1, 2026 for Russell Creek near Columbia. That value is below KDFWR\'s good band, so the route should score low today.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '37.1242, -85.3395 to 37.1237, -85.4049',
+        note: 'KDFWR access-detail records provide coordinates for Hatcher Road / Todd Ford Road Access and Milltown Road Bridge Access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Russell Creek',
+        url: 'https://fw.ky.gov/Fish/Pages/Russell_Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Russell Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/waterbodydetail.aspx?wid=499',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03307000 Russell Creek near Columbia',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03307000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03307000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03307000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'tygarts-creek-olive-hill-carter-caves',
+    slug: 'tygarts-creek-olive-hill-carter-caves',
+    name: 'Tygarts Creek',
+    reach: 'Olive Hill Depot Trailhead and Campground Access to Carter Caves State Park',
+    aliases: [
+      'Tygarts Creek - Olive Hill to Carter Caves',
+      'Tygarts Creek Gorge float',
+      'KDFWR Tygarts Creek Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Scenic Tygarts Creek Gorge day from downtown Olive Hill to the KY 182 bridge at Carter Caves State Resort Park. KDFWR documents the 12.5-mile Blue Water Trail, both public carry-down accesses, endpoint coordinates, and practical flow cutoffs.',
+    statusText:
+      'Use the Tygarts Creek near Greenup gauge as the same-creek flow check. KDFWR says flows below 150 cfs make this long reach hard to finish in a day, while flows above 300 cfs add borderline Class II rapids, strong bluff current, and more demanding boat control.',
+    latitude: 38.2993,
+    longitude: -83.1745,
+    gaugeSource: {
+      id: 'usgs-03217000',
+      provider: 'usgs',
+      siteId: '03217000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Tygarts Creek near Greenup, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03217000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 150,
+      idealMax: 300,
+      tooLow: 150,
+      tooHigh: 300,
+      thresholdSource: {
+        label: 'KDFWR Tygarts Creek Blue Water Trail level guidance',
+        url: 'https://fw.ky.gov/Education/Pages/Tygarts-Creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 9, 10, 11],
+      seasonNotes:
+        'Tygarts Creek is often low and skinny in summer. KDFWR points to mid-September through November as a better floating window once water cools, while spring and wetter shoulder-season periods can also provide enough flow.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'At normal levels KDFWR describes the float as beginner- and family-suitable, but the 12.5-mile length, shallow riffles, remote gorge, tight bluff turns, wood, and borderline Class II behavior above 300 cfs make it a guarded moving-water route rather than a casual park float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Kentucky add: KDFWR documents Olive Hill Depot Trailhead and Campground Access to Carter Caves State Park as a 12.5-mile Tygarts Creek Gorge float, publishes the 150 cfs low-water floor and 300 cfs higher-water caution, identifies the left-bank wooden-step take-out cue above the KY 182 bridge, and lists both public carry-down accesses with coordinates. USGS Water Services returned same-day June 1, 2026 discharge and gage-height observations for the same-creek Greenup gauge, clearing the prior live-gauge blocker.',
+    },
+    evidenceNotes: [
+      {
+        label: 'KDFWR level guidance',
+        value: '150-300 cfs guarded window',
+        note: 'KDFWR says less than 150 cfs makes this reach hard to finish in a day and more than 300 cfs increases difficulty with borderline Class II rapids and strong current against overhanging bluffs.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Tygarts-Creek.aspx',
+      },
+      {
+        label: 'Public route shape',
+        value: 'Olive Hill Depot to Carter Caves, 12.5 mi',
+        note: 'KDFWR describes a 12.5-mile Blue Water Trail float from Olive Hill Depot Trailhead and Campground Access to the KY 182 bridge at Carter Caves State Resort Park.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Tygarts-Creek.aspx',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '38.2993, -83.1745 to 38.3676, -83.1089',
+        note: 'KDFWR access-detail records list Olive Hill Carrydown and Carter Caves State Park as public carry-down-only Tygarts Creek accesses with coordinates and parking information.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/WaterbodyDetail.aspx?wid=170',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03217000 at 222 cfs / 3.68 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 09:45 EDT on June 1, 2026 for Tygarts Creek near Greenup.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Take-out cue',
+        value: 'Wooden steps on river left before KY 182',
+        note: 'KDFWR says to look for wooden steps cut into the left bank about 150 yards upstream of the KY 182 bridge after the Devil\'s Backbone turns and Smoky Creek confluence.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Tygarts-Creek.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tygarts Creek',
+        url: 'https://fw.ky.gov/Education/Pages/Tygarts-Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Tygarts Creek map PDF',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailtygartscreek.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Tygarts Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/WaterbodyDetail.aspx?wid=170',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03217000 Tygarts Creek near Greenup',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03217000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03217000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03217000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'floyds-fork-fisherville-cane-run',
+    slug: 'floyds-fork-fisherville-cane-run',
+    name: 'Floyds Fork',
+    reach: 'Fisherville Canoe Access to Cane Run Canoe Access',
+    aliases: [
+      'Floyds Fork - Fisherville to Cane Run',
+      'Floyds Fork Parklands Fisherville to Cane Run',
+      'KDFWR Floyds Fork Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Short Parklands-area Floyds Fork day from Fisherville to Cane Run. KDFWR documents both public carry-down accesses, the 4.2-mile segment, and official Fisherville gauge bands; The Parklands adds practical moving-water and strainer cautions.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR rates 50 to 300 cfs, or 1.3 to 2.5 ft, as good for boating and fishing. Below that is low and draggy; above that is high, faster, and better left to experienced moving-water paddlers.',
+    latitude: 38.1887,
+    longitude: -85.4779,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 50,
+      tooHigh: 300,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Floyds Fork is rain-sensitive and The Parklands warns that levels rise and fall quickly. Spring and post-rain windows are more reliable, while summer lows can turn shallow shoals and chutes into a creek walk.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'KDFWR presents this as a public canoe/kayak access chain, but The Parklands classifies Floyds Fork as Class I+ moving water with small rapids, waves, obstructions, strainers, sharp turns, and overhanging brush. Treat it as moderate for boat-control requirements, not as a flatwater park float.',
+      confidenceNotes:
+        'Confidence is high for a guarded Kentucky add: KDFWR lists Fisherville Canoe Access to Cane Run Canoe Access as a 4.2-mile public-access segment, publishes official coordinates and carry-down access records for both endpoints, links Floyds Fork to USGS 03298000, and gives official Low/Good/High cfs and stage bands for the Fisherville gauge. The official USGS legacy current-conditions page showed same-day May 31, 2026 discharge and gage-height observations during this run, clearing the prior live-gauge blocker. The Parklands route guide adds segment-specific hazards and the broader public-park paddling context.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Fisherville Canoe Access to Cane Run Canoe Access, 4.2 miles',
+        note: 'KDFWR lists Fisherville Canoe Access to Cane Run Canoe Access as a public-access Floyds Fork segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Blue Water Trail map',
+        value: 'Fisherville to Cane Run mapped as about 4.5 miles',
+        note: 'The KDFWR Blue Water Trail map identifies Fisherville Access and Cane Run Access in the public Floyds Fork access chain and labels Fisherville-to-Cane Run as a ramp-to-ramp route.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/BlueWaterTrailFloydsFork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Fisherville Canoe Access, 38.1887, -85.4779',
+        note: 'KDFWR identifies Fisherville Canoe Access as a free carry-down site off Old Taylorsville Road with unpaved parking and year-round 24-hour boat-ramp and shoreline availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cane Run Canoe Access, 38.1519, -85.5026',
+        note: 'KDFWR identifies Cane Run Canoe Access as a free carry-down site off Echo Trail with unpaved parking and Floyds Fork access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1092',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000',
+        note: 'The official USGS legacy current-conditions page showed 108 cfs and 1.52 ft at 2026-05-31 11:20 EDT for Floyds Fork at Fisherville during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03298000',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Class I+ moving water, chutes, waves, strainers',
+        note: 'The Parklands warns that Floyds Fork is Class I+ moving water with small rapids, waves, obstructions, sharp turns, overhanging brush, strainers, and quickly changing water levels.',
+        sourceUrl: 'https://theparklands.org/app/uploads/2020/11/PaddlingTheFork_Final-11.11.16.pdf',
+      },
+      {
+        label: 'Segment notes',
+        value: 'Pool-and-drop channel to Cane Run',
+        note: 'The Parklands Fisherville-to-Cane Run guide describes islands, narrow chutes, a six-inch ledge, a remote pool-and-drop stretch, wave features near the end, and a signed take-out up the Cane Run side channel.',
+        sourceUrl: 'https://theparklands.org/app/uploads/2020/11/Creek-Guide-and-Description_1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Blue Water Trail Floyds Fork map',
+        url: 'https://fw.ky.gov/Education/Documents/BlueWaterTrailFloydsFork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fisherville Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cane Run Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1092',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03298000',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands Paddling the Fork safety sheet',
+        url: 'https://theparklands.org/app/uploads/2020/11/PaddlingTheFork_Final-11.11.16.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'The Parklands Floyds Fork route descriptions',
+        url: 'https://theparklands.org/app/uploads/2020/11/Creek-Guide-and-Description_1.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'slate-creek-lions-club-old-slate-furnace',
+    slug: 'slate-creek-lions-club-old-slate-furnace',
+    name: 'Slate Creek',
+    reach: 'Lions Club Park to Old Slate Furnace Park',
+    aliases: [
+      'Slate Creek - Lions Club Park to Old Slate Furnace Park',
+      'Slate Creek - Owingsville to Bourbon Furnace',
+      'KDFWR Slate Creek Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Northeastern Kentucky',
+    summary:
+      'Short Bath County half-day float from the Owingsville Lions Club access to Old Slate Furnace Park. KDFWR documents the public carry-down endpoints, 3.7-mile mileage, and official Slate Creek flow band, but this shallow creek needs enough water and a conservative low-head-dam check at the start.',
+    statusText:
+      'Use the Slate Creek at Highway 713 near Mt. Sterling gauge. KDFWR rates 100 to 200 cfs as good for boating and fishing from Howards Mill downstream to the Licking River. Below 100 cfs, expect shallow rock bars and dragging; above 200 cfs, treat the creek as high and more pushy.',
+    latitude: 38.1305,
+    longitude: -83.7665,
+    gaugeSource: {
+      id: 'usgs-03250190',
+      provider: 'usgs',
+      siteId: '03250190',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Slate Creek at Highway 713 near Mt. Sterling, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03250190/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 200,
+      tooLow: 100,
+      tooHigh: 200,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Slate Creek downstream of Howards Mill',
+        url: 'https://fw.ky.gov/Fish/pages/slate-creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR describes Slate Creek as shallow with abundant rock bars, so spring rain and recent storms matter. The creek can drag below the official good band and can rise into fast, woody, dam-influenced water after heavy rain.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short half-day Blue Water Trail segment at normal levels, but the put-in sits near a low-head dam and the creek has shallow rock bars, wood, and private-bank limits. Treat it as easy only when the gauge is in range and stable.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists Lions Club Park to Old Slate Furnace Park as a 3.7-mile Slate Creek segment, publishes carry-down access records and coordinates for both endpoints, links the corridor to USGS 03250190, and gives official Low/Good/High cfs bands for Howards Mill downstream to the Licking River. Official USGS legacy evidence showed May 31, 2026 instantaneous discharge and gage-height values during this run, clearing the live-gauge blocker that previously held this candidate back.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '100-200 cfs',
+        note: 'KDFWR rates Slate Creek from Howards Mill downstream to the Licking River as Low below 100 cfs, Good from 100 to 200 cfs, and High above 200 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/pages/slate-creek.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Lions Club Park to Old Slate Furnace Park, 3.7 miles',
+        note: 'KDFWR lists Lions Club Park to Old Slate Furnace Park as a 3.7-mile public-access segment on Slate Creek.',
+        sourceUrl: 'https://fw.ky.gov/Fish/pages/slate-creek.aspx',
+      },
+      {
+        label: 'Blue Water Trail context',
+        value: 'Excellent half-day float',
+        note: 'KDFWR Blue Water Trails describes the Lions Club access-to-Old Slate Furnace Park float as nearly four miles with a quick shuttle, ending at the park on river right just below Mill Creek.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Slate-Creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Lions Club Park, 38.1305, -83.7665',
+        note: 'KDFWR identifies Slate Creek - Lions Club as a free carry-down site with unpaved parking, year-round 24-hour boat-ramp availability, and a dam note for the creek here.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=39',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Old Slate Furnace Park, 38.1148, -83.7475',
+        note: 'KDFWR identifies Slate Creek - Old Slate Furnace as a free carry-down site with unpaved parking, picnic-area availability, and a canoe/kayak launch suitable for carry-down use.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=38',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03250190',
+        note: 'The official USGS legacy current-conditions page showed May 31, 2026 instantaneous discharge and gage-height values for Slate Creek at Highway 713 near Mt. Sterling during this run.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03250190',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Slate Creek',
+        url: 'https://fw.ky.gov/Fish/pages/slate-creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Blue Water Trails Slate Creek',
+        url: 'https://fw.ky.gov/Education/Pages/Slate-Creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Lions Club access detail',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=39',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Old Slate Furnace access detail',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=38',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03250190 Slate Creek at Highway 713 near Mt. Sterling',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03250190/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03250190 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03250190',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-cedar-creek-thompson-road',
+    slug: 'levisa-fork-cedar-creek-thompson-road',
+    name: 'Levisa Fork',
+    reach: 'Cedar Creek Ramp to Thompson Road Ramp',
+    aliases: [
+      'Levisa Fork - Cedar Creek to Thompson Road',
+      'Hatfield-McCoy River Trail - Cedar Creek to Thompson Road',
+      'Pikeville Cut-Through float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short Pikeville day float through the Hatfield-McCoy River Trail corridor. KDFWR documents both public access ramps, the 3-mile segment, and official Pikeville gauge bands, but the route still needs same-day judgment around woody debris and dam-release changes.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.',
+    latitude: 37.4802,
+    longitude: -82.5446,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR says the Pikeville reach has dependable flow from Fishtrap Lake releases and Russell Fork inflow, but high water, releases, and storms can still add swift current, fresh wood, and harder landings.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR and Visit Pikeville frame the Hatfield-McCoy River Trail as gentle Class I water suitable for beginners at normal levels. It becomes a more serious moving-water route above the KDFWR good band or after rain.',
+      confidenceNotes:
+        'Confidence is high for this short segment: KDFWR publishes the Cedar Creek-to-Thompson Road mileage, official access descriptions and coordinates for both endpoints, and a two-sided Pikeville gauge band. Same-day live confirmation is slightly indirect because the USGS inventory page is stale, but RiverApp showed May 31 values and states that this station imports from USGS Water Services, the same product path used by the app.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Cedar Creek Ramp to Thompson Road Ramp, 3.0 miles',
+        note: 'KDFWR lists Cedar Creek Ramp to Thompson Road Ramp as a 3.0-mile public-access segment on the Levisa Fork access mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
+        note: 'KDFWR identifies Cedar Creek Canoe Access under the KY-1384 bridge in Pikeville as a free carry-down site with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Thompson Road Canoe Access, 37.5096, -82.5435',
+        note: 'KDFWR identifies Thompson Road Canoe Access as a free single-lane ramp with year-round 24-hour boat-ramp availability and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I beginner-friendly at normal levels',
+        note: 'Visit Pikeville describes the Hatfield-McCoy River Trail trip through the Pikeville Cut-Through as Class I water suitable for beginners and families.',
+        sourceUrl: 'https://visitpikeville.com/packages/hatfield-mccoy-river-trail/',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'RiverApp showed same-day May 31, 2026 Pikeville readings and says values for this station are imported from USGS Water Services. The official USGS inventory page remains stale, so this route keeps that caveat visible.',
+        sourceUrl: 'https://www.riverapp.net/en/station/5452aa01e4b07179033c7664',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1011',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Thompson Road Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1010',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'RiverApp Levisa Fork at Pikeville',
+        url: 'https://www.riverapp.net/en/station/5452aa01e4b07179033c7664',
+        provider: 'local',
+      },
+      {
+        label: 'Visit Pikeville Hatfield-McCoy River Trail',
+        url: 'https://visitpikeville.com/packages/hatfield-mccoy-river-trail/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'elkhorn-creek-vpa-3-aw-access',
+    slug: 'elkhorn-creek-vpa-3-aw-access',
+    name: 'Elkhorn Creek',
+    reach: 'Elkhorn Creek VPA #3 to American Whitewater Access',
+    aliases: [
+      'Elkhorn Creek - VPA #3 to American Whitewater Access',
+      'Elkhorn Creek - Peaks Mill VPA to Elkhorn Acres',
+      'Elkhorn Creek Gorge short run',
+    ],
+    state: 'Kentucky',
+    region: 'Bluegrass Region',
+    routeType: 'whitewater',
+    summary:
+      'Short central-Kentucky Elkhorn run between two KDFWR-listed public-use access sites. KDFWR gives an official level band for the Frankfort gauge, but this is swift Class II water with private-property rules at the accesses.',
+    statusText:
+      'Use the Elkhorn Creek near Frankfort gauge. KDFWR rates 100 to 600 cfs, or 2.5 to 4.0 ft, as good for boating and fishing. Below that is low; above that is high and this route deserves whitewater judgment.',
+    latitude: 38.2517,
+    longitude: -84.8158,
+    gaugeSource: {
+      id: 'usgs-03289500',
+      provider: 'usgs',
+      siteId: '03289500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Elkhorn Creek near Frankfort, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03289500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 600,
+      tooLow: 100,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Elkhorn Creek near Frankfort',
+        url: 'https://fw.ky.gov/Fish/pages/elkhorn-creek.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Elkhorn Creek can be scratchy below the KDFWR low-water line and pushy after rain. Check the same-day hydrograph trend, recent storms, and access rules before committing.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater describes the Elkhorn Gorge as Class II with occasional Class III features. Treat this as a short whitewater practice run, not a casual tube float.',
+      confidenceNotes:
+        'Confidence is high for the narrow route package: KDFWR lists the exact VPA #3-to-American Whitewater Access mileage, publishes coordinates and access rules for both endpoints, and gives official cfs and stage bands tied to the Elkhorn Creek near Frankfort USGS gauge. The main caveat is practical and legal: VPA #3 is private land open through KDFWR rules, the American Whitewater access is boating-only, and the route should be hidden from casual discovery because the gorge has swift Class II water.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '100-600 cfs / 2.5-4.0 ft',
+        note: 'KDFWR rates Elkhorn Creek near Frankfort as Low below 100 cfs or 2.5 ft, Good from 100 to 600 cfs or 2.5 to 4.0 ft, and High above 600 cfs or 4.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/pages/elkhorn-creek.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'VPA #3 to American Whitewater Access, 2.6 miles',
+        note: 'KDFWR lists Elkhorn Creek VPA #3 to American Whitewater Access as a 2.6-mile access-to-access segment on the main Elkhorn Creek access table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/pages/elkhorn-creek.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Elkhorn Creek VPA #3, 38.2517, -84.8158',
+        note: 'KDFWR identifies VPA #3 as a Voluntary Public Access site on private property with daylight-hours-only rules, unpaved limited parking, bank access, and canoe/kayak access.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=996',
+      },
+      {
+        label: 'Take-out access',
+        value: 'American Whitewater / Elkhorn Acres Access, 38.2676, -84.8155',
+        note: 'KDFWR lists the American Whitewater / Elkhorn Acres site as a free carry-down boating access just downstream of Knight\'s Bridge, with unpaved parking and no bank or wade fishing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1105',
+      },
+      {
+        label: 'Whitewater character',
+        value: 'Class II(III)',
+        note: 'American Whitewater identifies the Elkhorn Gorge reach as Class II with occasional Class III rapids and ties it to the same Frankfort gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/661/main',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03289500',
+        note: 'USGS lists Elkhorn Creek near Frankfort with discharge and gage-height availability through May 26, 2026 in the search-visible legacy page, and RiverApp showed same-day May 31 values imported from USGS Water Services during this run. Workspace direct fetches to Water Services were blocked by network restrictions.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=03289500',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Elkhorn Creek',
+        url: 'https://fw.ky.gov/Fish/pages/elkhorn-creek.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Elkhorn Creek VPA #3 access detail',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=996',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR American Whitewater / Elkhorn Acres access detail',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1105',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03289500 Elkhorn Creek near Frankfort',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03289500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03289500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?agency_cd=USGS&legacy=1&site_no=03289500',
+        provider: 'usgs',
+      },
+      {
+        label: 'American Whitewater Elkhorn Gorge',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/661/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'RiverApp Elkhorn Creek near Frankfort',
+        url: 'https://www.riverapp.net/en/station/5452aa02e4b07179033c77c0',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'drakes-creek-romanza-johnson-phil-moore',
+    slug: 'drakes-creek-romanza-johnson-phil-moore',
+    name: 'Drakes Creek',
+    reach: 'Romanza Johnson Park to Phil Moore Park',
+    aliases: [
+      'Trammel Fork / Drakes Creek - Romanza Johnson to Phil Moore',
+      'Drakes Creek - Johnson County Park to Phil Moore Park',
+      'Warren County Blueways Drakes Creek',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Popular Warren County Blueways trip from Romanza Johnson Park on Trammel Fork into Drakes Creek and down to Phil Moore Park. Warren County and KDFWR support the public accesses, and the Drakes Creek USGS gauge is now product-live.',
+    statusText:
+      'Use the Drakes Creek near Alvaton gauge. Treat about 100 cfs as the low-water floor for Trammel Fork and Drakes Creek; below that, expect dragging. Avoid high or rising water, the Romanza ford hydraulic, strainers, and any red-flag or posted park/access closure.',
+    latitude: 36.873116,
+    longitude: -86.372368,
+    gaugeSource: {
+      id: 'usgs-03314000',
+      provider: 'usgs',
+      siteId: '03314000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Drakes Creek near Alvaton, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03314000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'KDFWR Drakes Creek Blue Water Trails minimum-flow guidance',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailtrammelforkdrakescreek.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall can work when the creek has enough water, but this route responds quickly to storms. Summer lows can expose shoals, while fresh rain can add swift current, strainers, hydraulics, debris, and water-quality concerns.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Warren County and local blueway material frame Romanza Johnson Park to Phil Moore Park as a common six-mile recreational float. It is generally approachable at ordinary levels, but the Romanza ford hydraulic, strainers, low-water dragging, and quick rises require more judgment than a flatwater park paddle.',
+      confidenceNotes:
+        'Confidence is good for a minimum-only Kentucky add: Warren County identifies Romanza Johnson Park to Phil Moore Park as a common canoe/kayak trip and publishes safety guidance for Drakes Creek users; KDFWR and Warren County records confirm public carry-down access at Phil Moore Park and creek access at Romanza Johnson Park; KDFWR Blue Water Trail material gives a 100 cfs low-water floor for Trammel Fork and Drakes Creek; and USGS 03314000 showed same-day June 1, 2026 discharge and gage-height observations. The app does not infer an ideal range or high cutoff because the strongest numeric support is a minimum rather than a full route band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'Romanza Johnson Park to Phil Moore Park, about 6 mi',
+        note: 'Warren County Parks says Romanza Johnson Park is popular with canoe and kayak users for a 3-4 hour trip ending at Phil Moore Park, and Warren County Blueways material lists the route at about six miles.',
+        sourceUrl: 'https://www.warrencountyky.gov/departments/parks-and-recreation/romanza-johnson-park/',
+      },
+      {
+        label: 'Minimum-flow guidance',
+        value: '100 cfs minimum-only',
+        note: 'KDFWR Drakes Creek Blue Water Trail material says at least 100 cfs is best for minimal dragging on Trammel Fork and Drakes Creek. Paddle Today uses that as a conservative low-water floor.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertrailtrammelforkdrakescreek.pdf',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03314000 at 279 cfs / 5.28 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 08:45 CDT on June 1, 2026 for Drakes Creek near Alvaton.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'County safety system',
+        value: 'Flags, park closures at dark, ford hydraulic, strainers',
+        note: 'Warren County tells paddlers to check the USGS Drakes Creek gauge, warns that Romanza Johnson and Phil Moore close at dark, and calls out the Romanza ford hydraulic as very dangerous when water flows over the ford.',
+        sourceUrl: 'https://www.warrencountyky.gov/departments/parks-and-recreation/river-access/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '36.873116, -86.372368 to 36.8954, -86.3807',
+        note: 'Warren County Blueways map text lists the Romanza/Johnson County Park coordinate, and the KDFWR Phil Moore Park access record lists Phil Moore Park at 36.8954, -86.3807.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=879',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Warren County river access and Drakes Creek safety',
+        url: 'https://www.warrencountyky.gov/departments/parks-and-recreation/river-access/',
+        provider: 'local',
+      },
+      {
+        label: 'Warren County Romanza Johnson Park',
+        url: 'https://www.warrencountyky.gov/departments/parks-and-recreation/romanza-johnson-park/',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Drakes Creek access records',
+        url: 'https://app.fw.ky.gov/fisheries/WaterbodyDetail.aspx?wid=427',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Phil Moore Park access record',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=879',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Drakes Creek Blue Water Trail PDF',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertrailtrammelforkdrakescreek.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03314000 Drakes Creek near Alvaton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03314000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03314000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-ponca-kyles-landing',
+    slug: 'buffalo-river-ponca-kyles-landing',
+    name: 'Buffalo River',
+    reach: "Ponca to Kyle's Landing",
+    aliases: [
+      "Buffalo National River - Ponca to Kyle's Landing",
+      "Buffalo River - Ponca to Kyles Landing",
+      'Upper Buffalo River - Ponca to Kyles',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Classic upper Buffalo National River day from Ponca to Kyle's Landing through the Ponca Wilderness. NPS documents the access chain and USGS operates the direct Ponca gauge, but this is rain-dependent Class II water with remote shuttle and wood risk.",
+    statusText:
+      'Use the Buffalo River at Ponca gauge. Around 130 cfs is the conservative low-water floor for this route; below that, expect scraping, dragging, and missed lines. NPS says levels above 1,600 cfs at Ponca are unsafe.',
+    latitude: 36.0225,
+    longitude: -93.354722,
+    gaugeSource: {
+      id: 'usgs-07055660',
+      provider: 'usgs',
+      siteId: '07055660',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Ponca, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 130,
+      thresholdSource: {
+        label: "American Whitewater Ponca-to-Kyle's Landing reach and same-gauge trip evidence",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says the upper Buffalo is largely rainfall dependent, usually begins in spring, and can move downstream quickly in dry years. Treat this as a recent-rain and cool-season opportunity, not a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "American Whitewater rates Ponca to Kyle's Landing as Class II. NPS describes the upper district as narrow and fast, and says more water makes it attractive for whitewater kayaking. This route is not a casual tube float.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS identifies Ponca and Kyle's Landing in the official Buffalo River access/mileage chart, NPS publishes access-area coordinates for Kyle's Landing and the Ponca corridor, USGS 07055660 showed same-day discharge and gage-height values during review, and American Whitewater has an exact Ponca-to-Kyle's Landing Class II reach tied to the Ponca gauge. The app uses only a conservative minimum-only floor because low-water calibration is based on AW/current-condition labels and same-gauge trip evidence rather than an official low/ideal paddling band. NPS's 1,600 cfs unsafe value is preserved as a route caveat, not treated as a full two-sided scoring model.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Route mileage',
+        value: "Ponca to Kyle's Landing, 10.7 miles",
+        note: "NPS lists Ponca and Kyle's Landing in the Buffalo River mileage chart with 10.7 miles between those access points.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055660',
+        note: 'USGS Buffalo River at Ponca showed same-day May 31, 2026 discharge and gage-height data during review, including 209 cfs and 4.20 ft at 15:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055660',
+      },
+      {
+        label: 'Low-water floor',
+        value: '130 cfs minimum-only',
+        note: "American Whitewater's exact Ponca-to-Kyle's Landing reach uses the Ponca gauge and labeled 206 cfs as medium runnable during review; its trip evidence describes 130 cfs as close to the minimum for a loaded tandem canoe. The app uses 130 cfs as a conservative floor and does not infer an ideal range.",
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+      },
+      {
+        label: 'High-water cutoff',
+        value: 'NPS unsafe above 1,600 cfs at Ponca',
+        note: 'NPS says Buffalo River levels greater than 1,600 cfs at the Ponca gage are unsafe. Use that as a hard caution even though this route ships as minimum-only scoring.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Ponca 36.0225, -93.354722; Kyle's Landing 36.055756, -93.2813",
+        note: "USGS station metadata places the Ponca gauge at the put-in corridor, and NPS Getting Around coordinates identify Kyle's Landing campground/access area.",
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+      {
+        label: 'River character',
+        value: 'Class II, narrow and fast upper district',
+        note: "American Whitewater rates the reach Class II, and NPS describes the upper district as narrow and fast with higher-challenge whitewater kayaking when water is up.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055660 Buffalo River at Ponca',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055660/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055660 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055660',
+        provider: 'usgs',
+      },
+      {
+        label: "American Whitewater Ponca to Kyle's Landing",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3962/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS Buffalo River Guidance',
+        url: 'https://apps.usgs.gov/lmg/buffaloriver/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-pruitt-hasty',
+    slug: 'buffalo-river-pruitt-hasty',
+    name: 'Buffalo River',
+    reach: 'Pruitt to Hasty',
+    aliases: [
+      'Buffalo National River - Pruitt to Hasty',
+      'Buffalo River - Pruitt Landing to Hasty',
+      'Upper Buffalo River - Pruitt to Hasty',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Seven-mile Buffalo National River day from Pruitt to Hasty, often used when the river above Pruitt is too low. NPS documents the exact trip and the direct Pruitt gauge is live, but this remains swift, rain-dependent Ozark water with sharp bends, wood, and remote-service caveats.',
+    statusText:
+      'Use the Buffalo River at Pruitt gauge. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.',
+    latitude: 36.057666,
+    longitude: -93.135032,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS Buffalo National River Float Guide Pruitt gauge bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says the Buffalo is largely rainfall dependent, with upper-river paddling usually beginning in spring and shifting downstream as dry weather arrives. Pruitt-to-Hasty is the fallback when reaches above Pruitt are too low, but it still needs recent water and a stable or falling gauge.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'NPS says this section is not recommended for beginners and requires paddlers who can maneuver in swift water with sharp bends and occasional obstacles. American Whitewater lists the reach as Class I-II, so the route is hidden behind the whitewater route type rather than treated as a casual Explore float.',
+      confidenceNotes:
+        'Confidence is good for a guarded Arkansas add: NPS publishes the exact 7-mile Pruitt-to-Hasty trip, identifies Hasty as the take-out across from Chimney Rock Bluff, confirms the route is a common lower-water alternative, and links the official Float Guide from the park homepage; USGS 07055680 showed same-day May 31, 2026 discharge and gage-height values during review; and the NPS/ArcGIS Float Guide publishes numeric Pruitt cfs bands. The app uses only the start of Low as a conservative minimum floor and keeps the 2,000 cfs unsafe/flood value as a caveat rather than claiming an ideal range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Pruitt to Hasty, 7 miles',
+        note: 'NPS describes Pruitt to Hasty as a 7-mile Buffalo National River trip, usually taking 3 to 5 hours, and says it is a popular alternative when conditions upriver are too low for paddling.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+      },
+      {
+        label: 'Access and mileage',
+        value: 'Pruitt to Hasty, 6.8 miles on the NPS mileage chart',
+        note: 'NPS lists Pruitt and Hasty as Buffalo River access points and gives 6.8 river miles between them.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07055680',
+        note: 'USGS Buffalo River at Pruitt showed same-day May 31, 2026 data during review, including 442 cfs and 4.85 ft at 16:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055680',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'The NPS-linked Buffalo National River Float Guide uses Pruitt bands of Very Low below 100 cfs, Low from 100 to 200 cfs, Moderate from 200 to 1,000 cfs, High from 1,000 to 2,000 cfs, and Flood above 2,000 cfs. Paddle Today uses only the start of Low as a conservative floor.',
+        sourceUrl: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+      },
+      {
+        label: 'High-water cutoff',
+        value: 'NPS unsafe above 2,000 cfs at Pruitt',
+        note: 'NPS says Buffalo River levels greater than 2,000 cfs at the Pruitt / Highway 7 gage are unsafe. The app does not turn that into an ideal scoring range.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Route character',
+        value: 'Swift water, sharp bends, Little Buffalo inflow',
+        note: 'NPS says the Little Buffalo River enters halfway through the trip and the river typically gains velocity from there; NPS also says the section is not recommended for beginners.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Pruitt 36.057666, -93.135032; Hasty 36.008993, -93.08242',
+        note: 'NPS Getting Around lists Pruitt-Launch coordinates. Hasty is identified by NPS route text and access charts, with the coordinate anchored from map-verified public access records pending a better NPS coordinate table.',
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Pruitt to Hasty',
+        url: 'https://www.nps.gov/thingstodo/paddle-pruitt-to-hasty.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 Buffalo River at Pruitt',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055680 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055680',
+        provider: 'usgs',
+      },
+      {
+        label: 'American Whitewater Pruitt to Hasty',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3964/main',
+        provider: 'american_whitewater',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-kyles-landing-pruitt',
+    slug: 'buffalo-river-kyles-landing-pruitt',
+    name: 'Buffalo River',
+    reach: "Kyle's Landing to Pruitt",
+    aliases: [
+      "Buffalo National River - Kyle's Landing to Pruitt",
+      'Buffalo River - Kyles Landing to Pruitt',
+      'Upper Buffalo River - Kyles to Pruitt',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      "Long upper Buffalo National River day from Kyle's Landing to Pruitt, linking the Erbie and Ozark access corridor before the Highway 7 take-out. NPS supports the access chain and mileage, AW identifies the exact I-II reach, and the Pruitt gauge gives a guarded low-water check.",
+    statusText:
+      'Use the Buffalo River at Pruitt gauge as a downstream corridor check. Around 100 cfs is the conservative low-water floor; below that, the Buffalo float guide marks Pruitt as very low. NPS says levels above 2,000 cfs at Pruitt are unsafe.',
+    latitude: 36.055756,
+    longitude: -93.2813,
+    gaugeSource: {
+      id: 'usgs-07055680',
+      provider: 'usgs',
+      siteId: '07055680',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River at Pruitt, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'NPS Buffalo National River Float Guide Pruitt gauge bands',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [2, 3, 4, 5, 6, 11, 12],
+      seasonNotes:
+        'NPS says upper Buffalo paddling is extremely rainfall dependent and usually practical in spring and early summer when consistent rainfall feeds the watershed. This route should be treated as a recent-water, stable-or-falling-gauge trip, not a dependable summer float.',
+      difficulty: 'hard',
+      difficultyNotes:
+        "American Whitewater lists Kyle's to Pruitt as Class I-II. The route is longer than the common Ponca-to-Kyle's and Pruitt-to-Hasty day trips, includes remote gravel-road access at Kyle's, Erbie, and Ozark, and should stay behind the whitewater route type because swift water, wood, rough shuttles, and quick rises are first-class decisions.",
+      confidenceNotes:
+        "Confidence is good for a guarded Arkansas add: NPS identifies Kyle's Landing, Erbie, Ozark, and Pruitt in the official Buffalo River access/mileage chart; NPS Getting Around supplies Kyle's and Pruitt coordinate anchors; AW documents the exact 13.2-mile I-II Kyle's-to-Pruitt reach with Erbie and Ozark intermediate access points; and USGS 07055680 exposed recent official Pruitt discharge and gage-height values during review. The app uses the NPS-linked Pruitt Float Guide's 100 cfs low-water floor as minimum-only scoring and keeps the NPS 2,000 cfs unsafe level as a caveat rather than an ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: "Kyle's Landing to Pruitt, 13.2 miles",
+        note: "NPS lists Kyle's Landing and Pruitt as Buffalo River access points and gives 13.2 river miles between them, with Erbie and Ozark as intermediate access points.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Exact reach context',
+        value: "AW Kyle's to Pruitt, I-II",
+        note: "American Whitewater identifies the exact Kyle's-to-Pruitt reach as 13.2 to 13.4 miles, Class I-II, with Erbie Campground and Ozark Campground as intermediate access points.",
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3963/main',
+      },
+      {
+        label: 'Direct corridor gauge',
+        value: 'USGS 07055680',
+        note: 'USGS Buffalo River at Pruitt is the take-out corridor gauge. Its legacy current page exposed recent official data during review, including 442 cfs and 4.85 ft at 2026-05-31 16:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055680',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'The NPS-linked Buffalo National River Float Guide uses Pruitt bands of Very Low below 100 cfs, Low from 100 to 200 cfs, Moderate from 200 to 1,000 cfs, High from 1,000 to 2,000 cfs, and Flood above 2,000 cfs. Paddle Today uses only the start of Low as a conservative floor.',
+        sourceUrl: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+      },
+      {
+        label: 'High-water cutoff',
+        value: 'NPS unsafe above 2,000 cfs at Pruitt',
+        note: 'NPS says Buffalo River levels greater than 2,000 cfs at the Pruitt / Highway 7 gage are unsafe. The app does not turn that into an ideal scoring range.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+      },
+      {
+        label: 'Access coordinates',
+        value: "Kyle's Landing 36.055756, -93.2813; Pruitt 36.057666, -93.135032",
+        note: "NPS Getting Around lists Kyle's Landing and Pruitt launch coordinate anchors. Use the signed landings and current park access conditions rather than GPS alone.",
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo National River paddling',
+        url: 'https://www.nps.gov/buff/planyourvisit/paddling.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: "American Whitewater Kyle's to Pruitt",
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3963/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'NPS Buffalo National River Float Guide',
+        url: 'https://www.arcgis.com/apps/dashboards/3606e2401fdd428cbbdff9518cbe11af',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07055680 Buffalo River at Pruitt',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07055680/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07055680 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07055680',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'kings-river-rockhouse-trigger-gap',
+    slug: 'kings-river-rockhouse-trigger-gap',
+    name: 'Kings River',
+    reach: 'Rockhouse Access to Trigger Gap',
+    aliases: [
+      'Kings River - Rockhouse to Trigger Gap',
+      'Kings River - Rockhouse Access to Arkansas Highway 221',
+      'Kings River - Rockhouse to Kings River Outfitters',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    summary:
+      'Clear Ozark day float from AGFC-owned Rockhouse Access through the Kings River Preserve corridor to the private fee access at Trigger Gap. Use this as a conservative stage check, not a full ideal-range recommendation.',
+    statusText:
+      'Use the Kings River near Berryville gauge. Around 3.2 ft is the local minimum float stage for Rockhouse to Trigger Gap; below that, expect shallow riffles and dragging. Rising or storm-fed water can change this private-bank reach quickly.',
+    latitude: 36.269833,
+    longitude: -93.664,
+    gaugeSource: {
+      id: 'usgs-07050500',
+      provider: 'usgs',
+      siteId: '07050500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Kings River near Berryville, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07050500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3.2,
+      thresholdSource: {
+        label: 'Kings River Arkansas Rockhouse-to-Trigger-Gap route guidance',
+        url: 'https://kingsriverarkansas.com/access-points/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7],
+      seasonNotes:
+        'AGFC describes the lower Kings as a year-round floating corridor, but the route-level guide recommends Rockhouse to Trigger Gap mainly from early spring to June for good water. Summer trips need a same-day gauge and visual low-water check.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not advanced whitewater, but it is a seven-plus-mile Ozark stream day with shallow gravel riffles, occasional rapids, a low-water bridge portage near the end, private banks, and a private fee take-out.',
+      confidenceNotes:
+        'Confidence is good for a conservative minimum-only Arkansas add: AGFC identifies Rockhouse to Trigger Gap / Arkansas Highway 221 as a popular year-round 7.7-mile float, The Nature Conservancy says AGFC owns Rockhouse Access just upstream of the Kings River Preserve, USGS 07050500 showed same-day May 31, 2026 discharge and gage-height values during review, and Kings River Arkansas publishes exact Rockhouse-to-Trigger-Gap route guidance with a 3.2 ft minimum on the USGS gauge plus public/private access notes. Confidence is intentionally limited on thresholds because the numeric floor is local route-guide evidence rather than an official AGFC paddling band, so the app does not infer an ideal range or high cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route context',
+        value: 'Rockhouse to Trigger Gap, 7.7 miles',
+        note: 'AGFC identifies Rockhouse to Trigger Gap / Arkansas Highway 221 as a popular year-round 7.7-mile Kings River float and warns that much of the river flows through private property.',
+        sourceUrl: 'https://www.agfc.com/wp-content/uploads/2023/05/kingsriveroverlook.pdf',
+      },
+      {
+        label: 'Rockhouse access',
+        value: 'AGFC-owned public access',
+        note: 'The Nature Conservancy says the Arkansas Game and Fish Commission owns Rockhouse Access, the public access closest to the Kings River Preserve.',
+        sourceUrl: 'https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/kings-river/',
+      },
+      {
+        label: 'Private take-out',
+        value: 'Trigger Gap / Kings River Outfitters fee access',
+        note: 'Kings River Arkansas describes the Trigger Gap take-out as private access where paddlers need to pay a small fee and make arrangements with Kings River Outfitters.',
+        sourceUrl: 'https://kingsriverarkansas.com/access-points/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07050500',
+        note: 'USGS Kings River near Berryville showed same-day May 31, 2026 data during review, including 1,720 cfs and 6.23 ft at 15:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07050500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '3.2 ft minimum-only',
+        note: 'Kings River Arkansas lists Rockhouse to Trigger Gap as a 7.5-mile route taking about four hours at a minimum float level of 3.2 ft per the USGS gauge. The app uses only that low-water floor.',
+        sourceUrl: 'https://kingsriverarkansas.com/access-points/',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: 'Rockhouse 36.269833, -93.664; Trigger Gap 36.314833, -93.6635',
+        note: 'Kings River Arkansas publishes degree-minute coordinates for the Rockhouse-to-Trigger-Gap route and the downstream Trigger-Gap-to-Hwy-62 route. Trigger Gap Outfitters corroborates the Trigger Gap access via CR 509 off Highway 221.',
+        sourceUrl: 'https://kingsriverarkansas.com/access-points/',
+      },
+      {
+        label: 'River character',
+        value: 'Clear pools, gravel riffles, occasional rapids',
+        note: 'Arkansas Tourism describes the Kings as clear, cool water with deep pools, overhanging trees, occasional rapids, large bluffs, and gravel bars in the lower stretch.',
+        sourceUrl: 'https://www.arkansas.com/experiences/discover/attraction-listings/kings-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Kings River Overlook',
+        url: 'https://www.agfc.com/wp-content/uploads/2023/05/kingsriveroverlook.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'The Nature Conservancy Kings River Preserve',
+        url: 'https://www.nature.org/en-us/get-involved/how-to-help/places-we-protect/kings-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Kings River Arkansas access points',
+        url: 'https://kingsriverarkansas.com/access-points/',
+        provider: 'local',
+      },
+      {
+        label: 'Trigger Gap Outfitters contact and directions',
+        url: 'https://triggergapoutfitters.com/contact',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07050500 Kings River near Berryville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07050500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07050500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07050500',
+        provider: 'usgs',
+      },
+      {
+        label: 'Arkansas Tourism Kings River',
+        url: 'https://www.arkansas.com/experiences/discover/attraction-listings/kings-river',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'buffalo-river-tyler-bend-gilbert',
+    slug: 'buffalo-river-tyler-bend-gilbert',
+    name: 'Buffalo River',
+    reach: 'Tyler Bend to Gilbert',
+    aliases: [
+      'Buffalo National River - Tyler Bend to Gilbert',
+      "Buffalo River - Tyler Bend to Grinder's Ferry and Gilbert",
+      'Middle Buffalo River - Tyler Bend to Gilbert',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Popular middle Buffalo National River day from Tyler Bend to Gilbert, with Grinder\'s Ferry as an optional short take-out. NPS supports the route and the direct St. Joe gauge is live, but this is still rain-sensitive Ozark moving water with swift I-II current, wood, and high-water judgment.',
+    statusText:
+      'Use the Buffalo River near St. Joe gauge. Around 120 cfs is the conservative low-water floor; below that, expect dragging and shortened float plans. Treat 2,000 cfs and higher as high or flood-stage water for casual paddlers.',
+    latitude: 35.986715,
+    longitude: -92.763903,
+    gaugeSource: {
+      id: 'usgs-07056000',
+      provider: 'usgs',
+      siteId: '07056000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Buffalo River near St. Joe, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07056000/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 120,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Buffalo River St. Joe gauge bands and same-route trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 11],
+      seasonNotes:
+        'NPS says the Buffalo is largely rainfall dependent and that paddling seasons move downstream as dry weather arrives. The middle district usually holds water longer than the upper district, but same-day level and trend still matter.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'NPS calls Tyler Bend to Gilbert the most popular middle-district float and describes Tyler Bend to Grinder\'s Ferry as mostly flat, but American Whitewater rates the full Tyler Bend-to-Gilbert reach I-II. The route is marked whitewater so casual discovery does not hide the swiftwater and high-stage hazards.',
+      confidenceNotes:
+        "Confidence is good for a guarded minimum-only add: NPS identifies Tyler Bend to Gilbert as the popular 5.5-mile middle-district float, documents Tyler Bend launch logistics, and lists 5.4 miles from Tyler Bend to Gilbert in the access mileage chart; NPS coordinate tables identify Tyler Bend and Gilbert anchors; USGS 07056000 showed same-day May 31, 2026 discharge and gage-height values during review; AW matches the exact Tyler Bend-to-Gilbert I-II reach to the St. Joe gauge; and Rivers.MOHERP publishes St. Joe low/high bands plus same-route Tyler Bend-to-Gilbert good-condition evidence. The threshold remains community-calibrated, so the app uses only a conservative 120 cfs floor and does not claim an ideal range.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Tyler Bend to Gilbert, about 5.4 to 5.5 miles',
+        note: 'NPS describes Tyler Bend to Gilbert as the most popular Middle District float and says it can take about 3 to 4 hours at moderate river levels.',
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/full-day-adventure-middle-district.htm',
+      },
+      {
+        label: 'Access and mileage',
+        value: "Tyler Bend to Grinder's Ferry 1.1 miles; Tyler Bend to Gilbert 5.4 miles",
+        note: "NPS lists Tyler Bend, Grinder's Ferry, and Gilbert in the Buffalo River mileage chart, with Grinder's Ferry as the short optional access and Gilbert as the full-day take-out.",
+        sourceUrl: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07056000',
+        note: 'USGS Buffalo River near St. Joe showed same-day May 31, 2026 data during review, including 3,020 cfs and 7.75 ft at 18:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07056000',
+      },
+      {
+        label: 'Low-water floor',
+        value: '120 cfs minimum-only',
+        note: 'Rivers.MOHERP lists the St. Joe gauge Low band beginning at 120 cfs and records Tyler Bend-to-Gilbert as good at 2,470 cfs / 7.41 ft, plus nearby middle-Buffalo good-condition trips down to 778 cfs. Paddle Today uses only the 120 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+      },
+      {
+        label: 'High-water caveat',
+        value: '2,000 cfs high; 4,313 cfs flood marker in MOHERP bands',
+        note: 'MOHERP labels 2,000 cfs and higher as high water for the St. Joe gauge and describes high/flood conditions as potentially dangerous for young or inexperienced paddlers. The app preserves this as a hard caveat, not a two-sided scoring model.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I-II middle Buffalo reach',
+        note: 'American Whitewater lists Tyler Bend to Gilbert as a 5.3-mile I-II reach on the Buffalo River near St. Joe gauge, with Grinder\'s Ferry as an access point about 1.4 miles downstream.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3968/main',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Tyler Bend 35.986715, -92.763903; Gilbert 35.987738, -92.715563',
+        note: 'NPS Getting Around lists Tyler Bend campground coordinates and a Gilbert trail/access coordinate. Use these as practical access-area anchors and make a same-day visual landing check.',
+        sourceUrl: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Full Day Adventure: Middle District',
+        url: 'https://www.nps.gov/buff/planyourvisit/full-day-adventure-middle-district.htm',
+        provider: 'nps',
+      },
+      {
+        label: "NPS Paddling Tyler Bend to Grinder's Ferry",
+        url: 'https://www.nps.gov/thingstodo/paddling-tyler-bend-to-grinder-s-ferry.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo River accesses and mileage',
+        url: 'https://www.nps.gov/buff/planyourvisit/river-accesses-mileage.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Buffalo getting around / coordinates',
+        url: 'https://home.nps.gov/buff/planyourvisit/getting-around.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 07056000 Buffalo River near St. Joe',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07056000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07056000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07056000',
+        provider: 'usgs',
+      },
+      {
+        label: 'American Whitewater Tyler Bend to Gilbert',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3968/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Rivers.MOHERP St. Joe gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07056000&hours=0',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'cossatot-river-ed-banks-highway-278',
+    slug: 'cossatot-river-ed-banks-highway-278',
+    name: 'Cossatot River',
+    reach: 'Ed Banks Access to Highway 278 Access',
+    aliases: [
+      'Cossatot River - Falls Section',
+      'Cossatot River - Ed Banks Road to Highway 278',
+      'Cossatot River - Ed Banks to U.S. 278',
+    ],
+    state: 'Arkansas',
+    region: 'Ouachita Mountains',
+    routeType: 'whitewater',
+    summary:
+      'Expert-only Cossatot Falls Section run from Ed Banks Access to the Highway 278 access. Arkansas State Parks publishes a stage table for the direct USGS gauge, and American Whitewater matches the exact reach, but this is remote Class III-IV+ water with low-water bridges, sieves, holes, and difficult rescue.',
+    statusText:
+      'Use the Cossatot River near Vandervoort gauge. Around 3.3 ft is the guarded low-water floor, 3.8 to 4.8 ft is the conservative expert window, and 5.4 ft or higher is too high for a Paddle Today recommendation.',
+    latitude: 34.33975,
+    longitude: -94.25069,
+    gaugeSource: {
+      id: 'usgs-07340300',
+      provider: 'usgs',
+      siteId: '07340300',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Cossatot River near Vandervoort, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07340300/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.8,
+      idealMax: 4.8,
+      tooLow: 3.3,
+      tooHigh: 5.4,
+      thresholdSource: {
+        label: 'Arkansas State Parks Cossatot River floater stage table and American Whitewater Falls Section reach',
+        url: 'https://www.arkansas.com/sites/default/files/2025-12/5e77db3f54c44ca91f583ef536aeab44_cossatotriverfloaterinformationbrochure.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [1, 2, 3, 4, 11, 12],
+      seasonNotes:
+        'Arkansas State Parks says floatable levels depend on rain events and are generally limited to winter and spring. Summer and early fall are normally too low, while storms can make the river rise quickly and unpredictably.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates the Falls Section II-IV, and Arkansas State Parks describes Cossatot Falls as Class III-IV+V water. This route is for experienced whitewater paddlers with rescue skills, proper cold-water and whitewater gear, and a no-solo plan.',
+      confidenceNotes:
+        'Confidence is high enough only for a guarded expert-whitewater add: Arkansas State Parks documents the Ed Banks-to-U.S. 278 float distance, access areas, seasonal/rain-dependent safety rules, mandatory PFDs, low-water-bridge hazards, and a numeric Hwy 246 stage table tied to USGS 07340300; American Whitewater matches the exact Ed Banks Road-to-Highway 278 Falls Section to the same gauge; USGS exposed same-day May 31, 2026 discharge and stage values during review; and OSM/Mapcarta access-point records resolve Ed Banks Access and the Highway 278 access corridor against the state park map. The scoring is deliberately conservative and should be revisited if Arkansas State Parks publishes survey-grade access coordinates or updated stage guidance.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Ed Banks low-water bridge to U.S. 278, about 6 miles',
+        note: 'Arkansas State Parks says the Cossatot is a 6-mile float from the Ed Banks low-water bridge to the U.S. 278 take-out, with the park corridor running from Highway 246 to U.S. 278.',
+        sourceUrl: 'https://www.arkansasstateparks.com/sites/default/files/2025-10/cossatotriver_2014pibweb.pdf',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07340300',
+        note: 'USGS Cossatot River near Vandervoort showed same-day May 31, 2026 data during review, including 92.5 cfs and 2.79 ft at 16:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07340300',
+      },
+      {
+        label: 'Stage model',
+        value: '3.3 / 3.8-4.8 / 5.4 ft',
+        note: 'Arkansas State Parks floater guidance lists 3.6-3.3 ft as lower levels, 4.0-3.8 ft as traditional normal levels, 4.2 ft as normal with routes in all six falls rapids, 4.5-4.8 ft for strong intermediates with those who know the river, and 5.4 ft and up as high to very high expert water. Paddle Today uses 5.4 ft as the conservative upper cutoff.',
+        sourceUrl:
+          'https://www.arkansas.com/sites/default/files/2025-12/5e77db3f54c44ca91f583ef536aeab44_cossatotriverfloaterinformationbrochure.pdf',
+      },
+      {
+        label: 'Whitewater reach match',
+        value: '6.4 mi II-IV Falls Section',
+        note: 'American Whitewater identifies Ed Banks Road to Highway 278/4 as the Cossatot Falls Section, rates it II-IV, ties it to the Cossatot River near Vandervoort gauge, and lists the major rapids and access directions.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/92/main',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Ed Banks 34.33975, -94.25069; Highway 278 access 34.29388, -94.17704',
+        note: 'Mapcarta/OpenStreetMap places Ed Banks Access as an Arkansas park access parking area, and Arkansas Natural Heritage Commission records place the developed Cossatot State Park / Highway 278 access corridor at 34.29388, -94.17704. Treat both as practical access-area anchors, not survey-grade ramp points.',
+        sourceUrl: 'https://mapcarta.com/N12957921429',
+      },
+      {
+        label: 'Safety posture',
+        value: 'Not for beginners; no solo runs',
+        note: 'Arkansas State Parks says the Cossatot is not recommended for inexperienced or ill-equipped paddlers, requires PFDs, highly recommends helmets, warns not to drive across low-water bridges during high water, and says paddlers should never attempt the river alone.',
+        sourceUrl: 'https://www.arkansasstateparks.com/sites/default/files/2025-10/cossatotriver_2014pibweb.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Arkansas State Parks Cossatot River brochure',
+        url: 'https://www.arkansasstateparks.com/sites/default/files/2025-10/cossatotriver_2014pibweb.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Arkansas State Parks Cossatot River floater information',
+        url: 'https://www.arkansas.com/sites/default/files/2025-12/5e77db3f54c44ca91f583ef536aeab44_cossatotriverfloaterinformationbrochure.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Cossatot Falls Section',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/92/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07340300 Cossatot River near Vandervoort',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07340300/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07340300 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07340300',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ed Banks Access map record',
+        url: 'https://mapcarta.com/N12957921429',
+        provider: 'local',
+      },
+      {
+        label: 'Arkansas Natural Heritage Commission Cossatot State Park record',
+        url: 'https://www.arkleg.state.ar.us/Home/FTPDocument?path=%2FAssembly%2FMeeting+Attachments%2F000%2FI12184%2FExhibit+H.11+-+ANHC+Annual+Report+for+Fiscal+Year+2013.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'mulberry-river-redding-turner-bend',
+    slug: 'mulberry-river-redding-turner-bend',
+    name: 'Mulberry River',
+    reach: 'Redding Recreation Area to Turner Bend',
+    aliases: [
+      'Mulberry River - Redding to Turner Bend',
+      'Mulberry River - Redding Campground to Highway 23',
+      'Mulberry River - Redding Campground to Turner Bend Landing',
+    ],
+    state: 'Arkansas',
+    region: 'Ozark Highlands',
+    routeType: 'whitewater',
+    summary:
+      'Short Wild and Scenic Mulberry River run from the Forest Service Redding Recreation Area to the private-fee Turner Bend landing. American Whitewater ties the exact reach to the USGS Mulberry gauge, but this is rain-sensitive Class I-III water with fast rises and fee-access logistics.',
+    statusText:
+      'Use the Mulberry River near Mulberry gauge. American Whitewater marks roughly 1.55 to 6.0 ft as the runnable range for this reach; below that, expect scraping, and above that the route is too high for a Paddle Today recommendation.',
+    latitude: 35.68282778,
+    longitude: -93.78651111,
+    gaugeSource: {
+      id: 'usgs-07252000',
+      provider: 'usgs',
+      siteId: '07252000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Mulberry River near Mulberry, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07252000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.55,
+      idealMax: 6,
+      tooLow: 1.55,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'American Whitewater Redding-to-Turner-Bend reach gauge range',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2583',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 10, 11, 12],
+      seasonNotes:
+        'The National Rivers Project says traditional floating months are late fall to June and conditions vary with local rainfall. Treat this as a recent-rain route; summer and early fall often need a fresh storm, while storms can push the river up quickly.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates Redding Campground to Highway 23 / Turner Bend as Class I-III. Turner Bend local guidance says even moderate levels can become challenging for beginners, and higher water produces powerful current, big waves, and few pools.',
+      confidenceNotes:
+        'Confidence is good for a protected whitewater add: the Forest Service confirms Redding Recreation Area has a rock canoe launch, river access, fees, and official coordinates; American Whitewater identifies the exact Redding Campground-to-Highway-23 / Turner Bend reach and publishes a USGS 07252000 stage range; official USGS current conditions showed same-day May 31, 2026 stage and discharge values during review; National Rivers Project documents Redding-to-Turner Bend route context, late-fall-to-June seasonality, and sudden-rise warnings; and Turner Bend documents private-boater shuttle, access wristband, parking, and local level hazards. Confidence is intentionally limited because the high-quality detailed local gauge ladder is Turner Bend staff-gauge based, while Paddle Today scores from the downstream USGS stage range published by American Whitewater.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official put-in',
+        value: 'Redding Recreation Area',
+        note: 'The Forest Service says Redding Recreation Area sits next to the Wild and Scenic Mulberry River and offers a rock canoe launch and river access. The page lists the site as open all year with a day-use fee and official coordinates.',
+        sourceUrl: 'https://www.fs.usda.gov/r08/ozark-stfrancis/recreation/redding-recreation-area',
+      },
+      {
+        label: 'Route shape',
+        value: 'Redding to Turner Bend, about 3.6 to 4.0 miles',
+        note: 'American Whitewater identifies Redding Campground to Highway 23 / Turner Bend as a 3.6-mile Mulberry reach. National Rivers Project lists Redding to Turner Bend as a 4-mile section managed by the Ozark-St. Francis National Forest.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2583/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07252000',
+        note: 'USGS Mulberry River near Mulberry showed same-day May 31, 2026 data during review, including 1,050 cfs and 2.84 ft at 16:30 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07252000',
+      },
+      {
+        label: 'Stage model',
+        value: '1.55 / 1.55-6.0 / 6.0 ft',
+        note: 'American Whitewater ties the exact Redding-to-Turner-Bend reach to USGS 07252000 and lists 1.55 to 6.00 ft as barely runnable to high runnable for Class I-III water. Paddle Today uses that as a conservative two-sided stage envelope without adding a stronger ideal subrange.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2583',
+      },
+      {
+        label: 'Private-fee take-out',
+        value: 'Turner Bend landing',
+        note: 'Turner Bend documents private-boater shuttles, access wristbands, parking permits, a loading/unloading landing, and the requirement to buy access for use of its landings.',
+        sourceUrl: 'https://www.turnerbend.com/BOATING-SHUTTLE.html',
+      },
+      {
+        label: 'Local hazard context',
+        value: 'Fast rises, technical water, and beginner limits',
+        note: 'National Rivers Project warns that heavy rain can quickly transform the Mulberry into a rampaging torrent. Turner Bend local guidance says 2.7-2.8 ft is challenging for beginners, 2.9-3.0 ft is not a casual picnic float, and 4.5-5.0 ft is too much water for most boaters on its local staff gauge.',
+        sourceUrl: 'https://www.turnerbend.com/WaterLevel.html',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: 'Redding 35.68282778, -93.78651111; Turner Bend 35.671667, -93.829444',
+        note: 'The put-in uses Forest Service Redding coordinates. The take-out uses the Turner Bend / Highway 23 bridge corridor coordinate from the Commons NRHP bridge record, backed by Turner Bend access pages that place the landing at the Highway 23 / Mulberry River junction.',
+        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Mulberry_River_Bridge.JPG',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Redding Recreation Area',
+        url: 'https://www.fs.usda.gov/r08/ozark-stfrancis/recreation/redding-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Redding to Turner Bend',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2583/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Mulberry gauge information',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=2583',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07252000 Mulberry River near Mulberry',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07252000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07252000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07252000',
+        provider: 'usgs',
+      },
+      {
+        label: 'National Rivers Project Redding to Turner Bend',
+        url: 'https://www.nationalriversproject.com/ar/mulberry-river-redding-to-turner-bend',
+        provider: 'local',
+      },
+      {
+        label: 'Turner Bend private boating shuttle and access',
+        url: 'https://www.turnerbend.com/BOATING-SHUTTLE.html',
+        provider: 'local',
+      },
+      {
+        label: 'Turner Bend water level guidance',
+        url: 'https://www.turnerbend.com/WaterLevel.html',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'ouachita-river-remmel-whitewater-park',
+    slug: 'ouachita-river-remmel-whitewater-park',
+    name: 'Ouachita River',
+    reach: 'Remmel Dam to Ouachita River Whitewater Park',
+    aliases: [
+      'Ouachita River - Remmel Dam to Rockport',
+      'Ouachita River - Remmel Dam to I-30 at Malvern',
+      'Lower Ouachita River - Remmel Dam to Malvern Whitewater Park',
+    ],
+    state: 'Arkansas',
+    region: 'Ouachita Mountains',
+    routeType: 'whitewater',
+    summary:
+      'Dam-release Ouachita day from the Remmel Dam tailrace to the Whitewater Park at Rockport in Malvern. Entergy documents the public float logistics and release guidance, and American Whitewater ties the route to the direct Remmel Dam USGS gauge, but Rockport Ledge, cold tailwater, dam operations, and strong take-out current keep this out of casual discovery.',
+    statusText:
+      'Use the Ouachita River at Remmel Dam gauge. Around 200 cfs is only a scrape-through floor, 3,500 to 4,000 cfs is the normal recreational release window, and flows above 4,000 cfs are not recommended for floating.',
+    latitude: 34.426111,
+    longitude: -92.890833,
+    gaugeSource: {
+      id: 'usgs-07359002',
+      provider: 'usgs',
+      siteId: '07359002',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Ouachita River at Remmel Dam above Jones Mill, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07359002/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3500,
+      idealMax: 4000,
+      tooLow: 200,
+      tooHigh: 4000,
+      thresholdSource: {
+        label: 'Entergy recreational-flow guidance and American Whitewater Remmel-to-I-30 gauge notes',
+        url: 'https://www.entergy.com/blog/great-day-for-float/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Entergy says recreational releases normally run on summer weekends between Memorial Day and Labor Day, but the schedule can change for weather, system demand, or emergencies. Outside release windows, kayaks may still scrape through at much lower flows, but the route is slower and more technical.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the reach Class I-II. Most of the run is moving Class I water, but Rockport Ledge at the take-out, the Lion\'s Den / Tiger chute, strong currents, cold dam-release water, and changing generation make this a guarded whitewater route rather than a casual float recommendation.',
+      confidenceNotes:
+        'Confidence is good for a guarded Arkansas add: Entergy documents the Remmel Dam float, the 170 Remmel Dam Road / 489 McGuire Road access context, the Whitewater Park take-out at 904 Riverview Drive, summer release timing, 3,200 cfs low-float context, 3,500-4,000 cfs recreational guidance, and a >4,000 cfs not-recommended warning; American Whitewater matches the exact 5.9-mile Remmel Dam-to-I-30 reach to USGS 07359002 and supplies the 200-500 cfs scrape-through floor plus Rockport Ledge hazards; official USGS legacy current conditions exposed same-day June 1, 2026 discharge and stage; and Mapcarta/OpenStreetMap resolves the Whitewater Park coordinates. Coordinates are practical access-area anchors, so paddlers still need to follow posted Entergy and park signs on arrival.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official float logistics',
+        value: 'Remmel Dam to Whitewater Park',
+        note: 'Entergy says weekend summer floaters bring tubes, kayaks, and canoes to Remmel Dam and exit at Ouachita River Whitewater Park in Malvern, with the access gate just past the Remmel Dam operations entrance and the exit at 904 Riverview Drive.',
+        sourceUrl: 'https://www.entergy.com/blog/great-day-for-float/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07359002',
+        note: 'USGS Ouachita River at Remmel Dam above Jones Mill showed same-day June 1, 2026 values during review, including 363 cfs and 2.88 ft at 00:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07359002',
+      },
+      {
+        label: 'Threshold model',
+        value: '200 / 3,500-4,000 / 4,000 cfs',
+        note: 'American Whitewater says 200-500 cfs is enough to make it downriver with scraping and that normal generation is 3,500-4,000 cfs. Entergy says flows lower than 3,200 cfs may be too low for an enjoyable tube float, 3,500-4,000 cfs is good for recreation, and flows above 4,000 cfs are not recommended for floating.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3052/main',
+      },
+      {
+        label: 'Whitewater reach match',
+        value: '5.9 mi Class I-II',
+        note: 'American Whitewater identifies Remmel Dam to I-30 at Malvern as a 5.9-mile I-II reach on the Ouachita River, with Rockport Ledge near the take-out and a warning that some chutes can flip, pin, or swamp canoes.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3052/main',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Remmel gauge/access area 34.426111, -92.890833; Whitewater Park 34.39427, -92.84158',
+        note: 'The put-in coordinate is the USGS/AW Remmel Dam gauge/access-area anchor adjacent to Entergy\'s below-dam access instructions. Mapcarta/OpenStreetMap places Ouachita River Whitewater Park at 904 Riverview Drive with coordinates 34.39427, -92.84158.',
+        sourceUrl: 'https://mapcarta.com/W967690136',
+      },
+      {
+        label: 'Dam-release safety',
+        value: 'Gate hours, release changes, and cold tailwater',
+        note: 'Entergy warns release plans can change without notice, the Remmel Dam gate closes nightly at 10 p.m., no-parking zones are marked at the dam, and the take-out current can push paddlers past the Whitewater Park ramp if they miss the left-bank exit.',
+        sourceUrl: 'https://www.entergy.com/blog/great-day-for-float/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Entergy Remmel Dam float guidance',
+        url: 'https://www.entergy.com/blog/great-day-for-float/',
+        provider: 'local',
+      },
+      {
+        label: 'Entergy hydro lake and flow news',
+        url: 'https://www.entergy.com/operations/hydro/data',
+        provider: 'local',
+      },
+      {
+        label: 'Entergy hydro public safety addresses',
+        url: 'https://www.entergy.com/operations/hydro/safety/',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Remmel Dam to I-30',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3052/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07359002 Ouachita River at Remmel Dam',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07359002/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07359002 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07359002',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ouachita River Whitewater Park map record',
+        url: 'https://mapcarta.com/W967690136',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-south-fork-burnt-mill-leatherwood',
+    slug: 'big-south-fork-burnt-mill-leatherwood',
+    name: 'Big South Fork',
+    reach: 'Burnt Mill Bridge to Leatherwood Ford',
+    aliases: [
+      'Clear Fork / Big South Fork Gorge - Burnt Mill to Leatherwood',
+      'Big South Fork gorge run',
+      'Burnt Mill Bridge to Leatherwood Ford Bridge',
+    ],
+    state: 'Tennessee',
+    region: 'Cumberland Plateau',
+    routeType: 'whitewater',
+    summary:
+      'Advanced Big South Fork gorge day that links the Clear Fork put-in at Burnt Mill Bridge with the Leatherwood Ford take-out. NPS documents the route and level descriptions, and the direct Leatherwood Ford USGS gauge gives a live same-day check.',
+    statusText:
+      'Use the Leatherwood Ford gauge. Around 1,000 to 2,500 cfs is the guarded target window for skilled whitewater groups; below 500 cfs the gorge gets very rocky and technical, and above about 3,500 cfs the run is too powerful for a Paddle Today recommendation.',
+    latitude: 36.38,
+    longitude: -84.62,
+    gaugeSource: {
+      id: 'usgs-03410210',
+      provider: 'usgs',
+      siteId: '03410210',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South FK Cumberland River at Leatherwood Ford, TN',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410210/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1000,
+      idealMax: 2500,
+      tooLow: 500,
+      tooHigh: 3500,
+      thresholdSource: {
+        label: 'NPS Big South Fork river-level descriptions for the Leatherwood Ford gauge',
+        url: 'https://www.nps.gov/biso/planyourvisit/riverlevels.htm',
+        provider: 'nps',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [1, 2, 3, 4, 5, 10, 11, 12],
+      seasonNotes:
+        'NPS lists the Burnt Mill to Leatherwood gorge run as fall, winter, and spring water, and the park warns that Cumberland Plateau streams can rise very quickly after rain. Early summer can work only when the same-day gauge, weather, and group skill all line up.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'This is not a recreational float. NPS rates Burnt Mill Bridge to Leatherwood Ford as Class III-IV, and American Whitewater describes the downstream Big South Fork gorge as a wilderness whitewater adventure with undercuts, sieves, Class III-IV rapids, long pools, and limited exits.',
+      confidenceNotes:
+        'Confidence is high for a protected whitewater add, not for casual discovery. NPS names the exact Burnt Mill Bridge to Leatherwood Ford run, publishes access directions, and hosts numeric Leatherwood Ford level descriptions. USGS 03410210 is a direct live gauge at the take-out and showed same-day May 31, 2026 discharge and gage-height data during review. Endpoint coordinates are anchored to USGS-topo-derived Burnt Mill Bridge coordinates and the Leatherwood Ford USGS gauge/access corridor. The threshold source is marked mixed because the numeric descriptions are NPS-hosted but originally provided by whitewater clubs and are broad gorge guidance rather than a modern manager-issued go/no-go table.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Burnt Mill Bridge to Leatherwood Ford, 11 miles',
+        note: 'NPS lists Burnt Mill Bridge to Leatherwood Ford as an 11-mile Big South Fork gorge run with Class III-IV difficulty, 20 feet per mile average drop, and fall/winter/spring use season.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/riverrundescriptions.htm',
+      },
+      {
+        label: 'Level model',
+        value: '500 / 1,000-2,500 / 3,500 cfs',
+        note: 'NPS-hosted Leatherwood Ford descriptions call 500 cfs very low and technical, 1,000 cfs optimum for open canoes, 1,800 to 2,500 cfs increasingly big Class III-IV water, and 3,500 cfs powerful with difficult rescue. The app uses a guarded whitewater target range and high cutoff from those descriptions.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/riverlevels.htm',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03410210',
+        note: 'USGS South FK Cumberland River at Leatherwood Ford showed current May 31, 2026 discharge and gage-height observations during review, including 3,860 cfs and 9.80 ft at 14:30 EDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03410210',
+      },
+      {
+        label: 'Access support',
+        value: 'NPS Burnt Mill Bridge and Leatherwood Ford access directions',
+        note: 'NPS publishes driving directions for both Burnt Mill Bridge and Leatherwood Ford, and separately lists Leatherwood Ford as the most accessible take-out for the Big South Fork gorge run.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/riveraccesspoints.htm',
+      },
+      {
+        label: 'Whitewater hazards',
+        value: 'Undercuts, sieves, Class III-IV drops, limited exits',
+        note: 'American Whitewater identifies the Confluence-to-Leatherwood reach as Class II-IV wilderness whitewater with deep undercuts, sieves, major rapids, long pools, and limited access. NPS safety material also warns about strainers, hydraulics, fast-water foot entrapment, and difficult rescue.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1719/main',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: '36.3800, -84.6200 to 36.4710, -84.6730',
+        note: 'Burnt Mill Bridge is anchored to USGS-topo-derived public bridge coordinates. The take-out is anchored to the Leatherwood Ford access/gauge corridor, where the USGS gauge and NPS access are at the planned finish.',
+        sourceUrl: 'https://www.yellowmaps.com/usgs/topo.cfm?map=tn-1279100-burnt-mill-bridge',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Big South Fork river run descriptions',
+        url: 'https://www.nps.gov/biso/planyourvisit/riverrundescriptions.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Big South Fork river levels',
+        url: 'https://www.nps.gov/biso/planyourvisit/riverlevels.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Big South Fork river gauges',
+        url: 'https://home.nps.gov/biso/planyourvisit/rivergauges.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Big South Fork river access points',
+        url: 'https://www.nps.gov/biso/planyourvisit/riveraccesspoints.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'USGS 03410210 Leatherwood Ford monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410210/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03410210 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03410210',
+        provider: 'usgs',
+      },
+      {
+        label: 'American Whitewater Big South Fork gorge',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1719/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Clear Fork Burnt Mill to Confluence',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/4786/main',
+        provider: 'american_whitewater',
+      },
+    ],
+  },
+  {
+    id: 'pigeon-river-waterville-hartford',
+    slug: 'pigeon-river-waterville-hartford',
+    name: 'Pigeon River',
+    reach: 'Waterville / Big Creek Bridge to Hartford Bridge',
+    aliases: [
+      'Pigeon Gorge - Waterville to Hartford',
+      'Pigeon River - Walters Power Plant to Hartford',
+      'Upper Pigeon River',
+      'The Dirty Bird',
+    ],
+    state: 'Tennessee',
+    region: 'East Tennessee',
+    routeType: 'whitewater',
+    summary:
+      'Dam-release Pigeon Gorge whitewater run from the current Waterville / Big Creek bridge put-in to the Hartford Bridge take-out. American Whitewater documents the exact 4.3-mile Class II-III+ route and live USGS gauge, while the Forest Service confirms the upper Pigeon route to Hartford.',
+    statusText:
+      'Use the Pigeon River below Power Plant near Waterville gauge. American Whitewater marks about 300 to 4,500 cfs as the runnable range; current release timing, post-Helene channel changes, construction access, and group skill matter as much as the number.',
+    latitude: 35.775461,
+    longitude: -83.099988,
+    gaugeSource: {
+      id: 'usgs-03460795',
+      provider: 'usgs',
+      siteId: '03460795',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pigeon River below Power Plant near Waterville, NC',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03460795/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 4500,
+      tooLow: 300,
+      tooHigh: 4500,
+      thresholdSource: {
+        label: 'American Whitewater Pigeon Gorge runnable range',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'high',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'The Pigeon is dam controlled. American Whitewater says scheduled recreational releases normally run Memorial Day through Labor Day on Tuesday, Wednesday, Thursday, and Saturday afternoons, with occasional winter and spring releases. Always confirm the current release schedule before driving.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'American Whitewater rates the upper Pigeon as Class II-III+ and describes several big-water Class III to III+ rapids. Hurricane Helene reshaped the gorge, construction access can change, and this route should stay in competent whitewater hands rather than casual discovery.',
+      confidenceNotes:
+        'Confidence is good for a guarded whitewater add: American Whitewater identifies the exact Waterville/Big Creek-to-Hartford Bridge route, publishes Class II-III+ difficulty, route length, a direct USGS gauge, and a 300-4,500 cfs runnable range; the Forest Service confirms the upper dam-controlled Pigeon section from below Walters Power Plant to Hartford; and USGS Water Services returned same-day June 1, 2026 discharge and gage-height observations for 03460795. The app carries unusually strong caveats because AW says Hurricane Helene severely changed rapids and access, with the 2026 put-in at the bridge just off the Waterville exit while roadwork continues.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact whitewater route',
+        value: 'Waterville / Big Creek to Hartford Bridge, 4.3 mi',
+        note: 'American Whitewater lists the Pigeon Gorge route as Walters Power Plant at Waterville / Big Creek to Hartford Bridge, 4.3 miles, Class II-III+.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/main',
+      },
+      {
+        label: 'Manager route context',
+        value: 'Upper Pigeon to Hartford',
+        note: 'The Forest Service describes the dam-controlled upper Pigeon as running from just below Walters Power Plant at Waterville through Class III and III+ rapids to the Hartford, Tennessee take-out.',
+        sourceUrl: 'https://www.fs.usda.gov/r08/cherokee/recreation/pigeon-river',
+      },
+      {
+        label: 'AW runnable range',
+        value: '300-4,500 cfs',
+        note: 'American Whitewater exposes the USGS 03460795 gauge correlation for this reach with begin-low-runnable 300 cfs and end-high-runnable 4,500 cfs.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/main',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03460795 at 1,450 cfs / 9.04 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 10:30 EDT on June 1, 2026 for Pigeon River below Power Plant near Waterville.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03460795&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Post-Helene access and hazard caveat',
+        value: '2026 bridge put-in, construction and changed rapids',
+        note: 'American Whitewater says Hurricane Helene dramatically changed rapids and access, that roadwork may continue into 2027 or 2028, and that the 2026 put-in is at the bridge just off the Waterville exit rather than farther upstream near the powerhouse.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/main',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: '35.7755, -83.1000 to 35.8131, -83.1450',
+        note: 'American Whitewater route geometry anchors the current Waterville / Big Creek bridge put-in corridor and Hartford Bridge take-out.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/map',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Pigeon Gorge',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1782/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Forest Service Pigeon River',
+        url: 'https://www.fs.usda.gov/r08/cherokee/recreation/pigeon-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03460795 Pigeon River below Power Plant near Waterville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03460795/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03460795 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03460795&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pigeon-river-hartford-denton',
+    slug: 'pigeon-river-hartford-denton',
+    name: 'Pigeon River',
+    reach: 'Hartford Bridge to Denton',
+    aliases: [
+      'Lower Pigeon River',
+      'Pigeon River - Hartford to Denton',
+      'Pigeon River - Hartford Bridge to Greasy Cove',
+    ],
+    state: 'Tennessee',
+    region: 'East Tennessee',
+    routeType: 'whitewater',
+    summary:
+      'Lower Pigeon whitewater day from Hartford Bridge toward Denton. American Whitewater documents the 4.8-mile Class II(III) route, a direct Waterville USGS gauge, and a tighter 1,200-2,500 cfs runnable range; the Forest Service confirms the lower Pigeon section below Hartford.',
+    statusText:
+      'Use the Pigeon River below Power Plant near Waterville gauge and allow release water to travel downstream. American Whitewater marks about 1,200 to 2,500 cfs as runnable for the lower run; above that, holes and ledges get stronger, especially around Maytag.',
+    latitude: 35.817671,
+    longitude: -83.144967,
+    gaugeSource: {
+      id: 'usgs-03460795',
+      provider: 'usgs',
+      siteId: '03460795',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pigeon River below Power Plant near Waterville, NC',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03460795/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1200,
+      idealMax: 2500,
+      tooLow: 1200,
+      tooHigh: 2500,
+      thresholdSource: {
+        label: 'American Whitewater Lower Pigeon runnable range',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'The lower Pigeon depends on upstream release timing. American Whitewater trip notes say to allow about 1 to 1.5 hours for release water to arrive from the Waterville powerhouse; verify current release schedules, gauge trend, and access conditions before launching.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates the lower Pigeon as Class II(III). It is easier than the upper gorge but still has ledges, holes, fast current, commercial traffic, and the Maytag rapid, where lines and bridge supports matter at higher water.',
+      confidenceNotes:
+        'Confidence is good for a guarded Tennessee add: American Whitewater identifies the exact Hartford Bridge-to-Denton lower Pigeon route, publishes length, Class II(III) difficulty, a direct USGS gauge correlation, and a 1,200-2,500 cfs runnable range; the Forest Service confirms the lower Pigeon starts in Hartford and runs nearly five miles through Class II and III rapids toward Denton; and USGS Water Services returned same-day June 1, 2026 discharge and gage-height observations for 03460795. Access notes remain guarded because AW says to secure parking permission where needed and use the public take-out near Greasy Cove / the bridge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Exact whitewater route',
+        value: 'Hartford Bridge to Denton, 4.8 mi',
+        note: 'American Whitewater lists the lower Pigeon as Bridge at Hartford to Denton, 4.8 miles, Class II(III), using the Pigeon River below Power Plant near Waterville gauge.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/main',
+      },
+      {
+        label: 'Manager route context',
+        value: 'Lower Pigeon below Hartford',
+        note: 'The Forest Service describes the lower Pigeon as starting in Hartford and running almost five miles through Class II and III rapids to the lower take-out before Denton.',
+        sourceUrl: 'https://www.fs.usda.gov/r08/cherokee/recreation/pigeon-river',
+      },
+      {
+        label: 'AW runnable range',
+        value: '1,200-2,500 cfs',
+        note: 'American Whitewater exposes the USGS 03460795 gauge correlation for this reach with begin-low-runnable 1,200 cfs and end-high-runnable 2,500 cfs.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/main',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03460795 at 1,450 cfs / 9.04 ft',
+        note: 'USGS Water Services returned same-day discharge and gage height at 10:30 EDT on June 1, 2026 for Pigeon River below Power Plant near Waterville.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03460795&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Access and timing',
+        value: 'Hartford bridge put-in, Greasy Cove / lower public take-out',
+        note: 'American Whitewater describes putting in on river right just upstream of Hartford Bridge, taking out on river right a few hundred feet after the Greasy Cove bridge, and allowing 1 to 1.5 hours for release water to arrive from the Waterville powerhouse.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/main',
+      },
+      {
+        label: 'Coordinate anchors',
+        value: '35.8177, -83.1450 to 35.8443, -83.1865',
+        note: 'American Whitewater route geometry anchors the Hartford Bridge put-in and Denton / Greasy Cove lower take-out corridor.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/map',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Lower Pigeon',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/4398/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'Forest Service Pigeon River',
+        url: 'https://www.fs.usda.gov/r08/cherokee/recreation/pigeon-river',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03460795 Pigeon River below Power Plant near Waterville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03460795/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03460795 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03460795&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-chickamauga-creek-shallowford-sterchi',
+    slug: 'south-chickamauga-creek-shallowford-sterchi',
+    name: 'South Chickamauga Creek',
+    reach: 'Shallowford Road to Sterchi Farm Park',
+    aliases: [
+      'South Chickamauga Creek - Shallowford Road to Sterchi Farm',
+      'S. Chick Creek - Shallowford to Sterchi',
+      'Tennessee River Blueway South Chickamauga Creek',
+    ],
+    state: 'Tennessee',
+    region: 'Chattanooga',
+    summary:
+      'Urban greenway paddle on the Tennessee River Blueway from the Shallowford Road launch to Sterchi Farm Park. Outdoor Chattanooga lists the exact two-hour trip, the direct South Chickamauga USGS gauge is live, and the level model stays minimum-only from guidebook support.',
+    statusText:
+      'Use the South Chickamauga Creek near Chickamauga gauge. Around 180 cfs is the conservative low-water floor; below that, expect scraping and shallow bars. Do not treat high, rising, stormwater, sewer-overflow, or Tennessee River backwater conditions as casual.',
+    latitude: 35.049,
+    longitude: -85.214,
+    gaugeSource: {
+      id: 'usgs-03567500',
+      provider: 'usgs',
+      siteId: '03567500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Chickamauga Creek Near Chickamauga, TN',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03567500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 180,
+      thresholdSource: {
+        label: 'Canoeing & Kayaking Georgia South Chickamauga Creek minimum level',
+        url: 'https://adventurewithkeen.com/wp-content/uploads/2023/08/canoeing_kayaking_georgia_3e_9781634043366.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the normal paddle window, but this urban creek is highly rain-sensitive. Heavy rain can add stormwater, sewer-overflow concerns, floating debris, strainers, and stronger current; Chickamauga Dam and Tennessee River backwater can also affect the lower creek.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Outdoor Chattanooga frames the Shallowford-to-Sterchi trip as a two-hour South Chickamauga paddle and says the Sterchi Farm area is beginner-friendly. The route is still moving urban water, so low-water scraping, wood, debris, private banks, water quality, and fast post-rain changes matter.',
+      confidenceNotes:
+        'Confidence is good for a conservative Tennessee add: Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as a recommended two-hour paddle and confirms public canoe/kayak launches at both ends; Chattanooga Audubon points paddlers to the same USGS South Chick gauge and warns water levels can change rapidly; the guidebook access page provides coordinates for Shallowford and Sterchi plus a 180 cfs minimum; and USGS 03567500 showed same-day June 1, 2026 discharge and gage-height observations. The app uses minimum-only scoring because the numeric floor is guidebook/community support rather than an official paddling band, and no ideal range or high cutoff is inferred.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Shallowford Road to Sterchi Farm, 2-hour paddle',
+        note: 'Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as a recommended South Chickamauga Creek paddle and identifies canoe/kayak launches at Riverpoint, Sterchi Farm Park, Camp Jordan, and Shallowford Road.',
+        sourceUrl: 'https://outdoorchattanooga.com/south-chickamauga-creek/',
+      },
+      {
+        label: 'City paddle-program support',
+        value: 'About 6 miles',
+        note: 'A City of Chattanooga Parks & Outdoors Blueway Paddle Trails listing describes the Shallowford Road to Sterchi Farm Park route as a scenic six-mile kayak trip with gentle current and a Sterchi take-out.',
+        sourceUrl:
+          'https://chattanooga.perfectmind.com/32731/Classes/BookMe4LandingPages/CoursesLandingPage?courseId=beb90b70-f9ff-4e6e-96a8-c29a484b4201',
+      },
+      {
+        label: 'Live direct gauge',
+        value: 'USGS 03567500 at 385 cfs / 5.20 ft',
+        note: 'USGS Water Services and the legacy current-conditions page showed same-day discharge and gage height at 09:15 EDT on June 1, 2026 for South Chickamauga Creek near Chickamauga.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03567500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '180 cfs minimum-only',
+        note: 'Canoeing & Kayaking Georgia source material ties South Chickamauga Creek downstream at Chickamauga to a 180 cfs minimum runnable level. Paddle Today uses that as a conservative floor and does not infer an ideal range or high-water cutoff.',
+        sourceUrl:
+          'https://adventurewithkeen.com/wp-content/uploads/2023/08/canoeing_kayaking_georgia_3e_9781634043366.pdf',
+      },
+      {
+        label: 'Rapid-change and access cautions',
+        value: 'Urban creek, dam/backwater influence, debris, and swift current',
+        note: 'Outdoor Chattanooga warns creek levels and current can fluctuate due to Chickamauga Dam releases, while Chattanooga Audubon says levels can change rapidly and notes debris, swift current, flooding closures, and PFD requirements.',
+        sourceUrl: 'https://www.chattanoogaaudubon.org/paddle-south-chickamauga-creek.html',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '35.049, -85.214 to 35.084, -85.226',
+        note: 'The Canoeing & Kayaking Georgia access page lists Shallowford Road at river mile 8 and Sterchi Farm Park at river mile 3 with these coordinates; Outdoor Chattanooga corroborates the public launch/take-out context.',
+        sourceUrl:
+          'https://adventurewithkeen.com/wp-content/uploads/2023/08/canoeing_kayaking_georgia_3e_9781634043366.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Chattanooga South Chickamauga Creek',
+        url: 'https://outdoorchattanooga.com/south-chickamauga-creek/',
+        provider: 'local',
+      },
+      {
+        label: 'Chattanooga Audubon Paddle South Chickamauga Creek',
+        url: 'https://www.chattanoogaaudubon.org/paddle-south-chickamauga-creek.html',
+        provider: 'local',
+      },
+      {
+        label: 'City of Chattanooga Blueway Paddle Trails listing',
+        url: 'https://chattanooga.perfectmind.com/32731/Classes/BookMe4LandingPages/CoursesLandingPage?courseId=beb90b70-f9ff-4e6e-96a8-c29a484b4201',
+        provider: 'local',
+      },
+      {
+        label: 'Canoeing & Kayaking Georgia South Chickamauga source',
+        url: 'https://adventurewithkeen.com/wp-content/uploads/2023/08/canoeing_kayaking_georgia_3e_9781634043366.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03567500 South Chickamauga Creek monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03567500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03567500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03567500',
+        provider: 'usgs',
       },
     ],
   },

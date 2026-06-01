@@ -27,11 +27,13 @@ export function sendJson(
     'access-control-allow-origin': '*',
   });
   response.end(includeBody ? body : undefined);
+  return response;
 }
 
 export function sendEmpty(response: ServerResponse, status: number, headers: Record<string, string>) {
   response.writeHead(status, headers);
   response.end();
+  return response;
 }
 
 export function sendBinary(response: ServerResponse, status: number, payload: Buffer, contentType: string, cacheControl = 'no-store') {
@@ -42,6 +44,7 @@ export function sendBinary(response: ServerResponse, status: number, payload: Bu
     'access-control-allow-origin': '*',
   });
   response.end(payload);
+  return response;
 }
 
 export function requestIdFromPayload(payload: unknown): string {

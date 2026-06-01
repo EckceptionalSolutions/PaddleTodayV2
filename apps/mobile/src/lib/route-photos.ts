@@ -249,14 +249,32 @@ const routeGalleryImages: Record<string, string[]> = {
   'current-river-cedar-grove-akers': [
     '/gallery/current-river-cedar-grove-akers/current-river-welch-spring.jpg',
   ],
+  'current-river-akers-ferry-pulltite': [
+    '/gallery/current-river-akers-ferry-pulltite/current-river-welch-spring.jpg',
+  ],
+  'current-river-pulltite-round-spring': [
+    '/gallery/current-river-pulltite-round-spring/current-river-welch-spring.jpg',
+  ],
   'jacks-fork-river-buck-hollow-rymers': [
     '/gallery/jacks-fork-river-buck-hollow-rymers/jacks-fork-upper.jpg',
   ],
   'jacks-fork-river-alley-spring-chilton': [
     '/gallery/jacks-fork-river-alley-spring-chilton/jacks-fork-upper.jpg',
   ],
+  'jacks-fork-river-bay-creek-alley-spring': [
+    '/gallery/jacks-fork-river-bay-creek-alley-spring/jacks-fork-upper.jpg',
+  ],
   'current-river-waymeyer-van-buren': [
     '/gallery/current-river-waymeyer-van-buren/ozark-riverways-canoeing.jpg',
+  ],
+  'current-river-van-buren-big-spring': [
+    '/gallery/current-river-van-buren-big-spring/ozark-riverways-canoeing.jpg',
+  ],
+  'current-river-big-spring-gooseneck': [
+    '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+  ],
+  'eleven-point-river-greer-crossing-turner-mill': [
+    '/gallery/eleven-point-river-greer-crossing-turner-mill/eleven-point-river-missouri.jpg',
   ],
   'eleven-point-river-turner-mill-south-whitten': [
     '/gallery/eleven-point-river-turner-mill-south-whitten/eleven-point-river-missouri.jpg',
@@ -267,11 +285,23 @@ const routeGalleryImages: Record<string, string[]> = {
   'north-fork-white-river-north-fork-blair': [
     '/gallery/north-fork-white-river-north-fork-blair/upper-north-fork-bridge.jpg',
   ],
+  'north-fork-white-river-blair-dawt': [
+    '/gallery/north-fork-white-river-blair-dawt/upper-north-fork-bridge.jpg',
+  ],
   'meramec-river-onondaga-campbell-bridge': [
     '/gallery/meramec-river-onondaga-campbell-bridge/meramec-river-onondaga.jpg',
   ],
+  'meramec-river-scotts-ford-riverview': [
+    '/gallery/meramec-river-scotts-ford-riverview/meramec-river-onondaga.jpg',
+  ],
   'meramec-river-campbell-bridge-sappington-bridge': [
     '/gallery/meramec-river-campbell-bridge-sappington-bridge/meramec-river-onondaga.jpg',
+  ],
+  'meramec-river-sappington-bridge-meramec-state-park': [
+    '/gallery/meramec-river-sappington-bridge-meramec-state-park/meramec-valley-park.jpg',
+  ],
+  'meramec-river-state-park-sand-ford': [
+    '/gallery/meramec-river-state-park-sand-ford/meramec-valley-park.jpg',
   ],
   'bryant-creek-sycamore-warren-bridge': [
     '/gallery/bryant-creek-sycamore-warren-bridge/bryant-creek-state-park.jpg',
@@ -282,11 +312,98 @@ const routeGalleryImages: Record<string, string[]> = {
   'big-piney-river-sandy-shoals-boiling-spring': [
     '/gallery/big-piney-river-sandy-shoals-boiling-spring/big-piney-river-mo-17.jpg',
   ],
+  'big-piney-river-mason-bridge-slabtown': [
+    '/gallery/big-piney-river-mason-bridge-slabtown/big-piney-river-mo-17.jpg',
+  ],
+  'big-piney-river-slabtown-ross': [
+    '/gallery/big-piney-river-slabtown-ross/big-piney-river-mo-17.jpg',
+  ],
+  'big-piney-river-boiling-spring-mason-bridge': [
+    '/gallery/big-piney-river-boiling-spring-mason-bridge/big-piney-river-mo-17.jpg',
+  ],
+  'big-piney-river-dogs-bluff-mineral-springs': [
+    '/gallery/big-piney-river-dogs-bluff-mineral-springs/big-piney-river-mo-17.jpg',
+  ],
   'james-river-delaware-town-shelvin-rock': [
     '/gallery/james-river-delaware-town-shelvin-rock/james-river-springfield.jpg',
   ],
+  'james-river-shelvin-rock-hooten-town': [
+    '/gallery/james-river-shelvin-rock-hooten-town/james-river-springfield.jpg',
+  ],
+  'james-river-hl-kerr-ralph-cox': [
+    '/gallery/james-river-hl-kerr-ralph-cox/james-river-springfield.jpg',
+  ],
+  'skunk-creek-legacy-park-farm-field': [
+    '/gallery/skunk-creek-legacy-park-farm-field/skunk-creek-big-sioux-confluence.jpg',
+  ],
+  'big-sioux-river-farm-field-rotary': [
+    '/gallery/big-sioux-river-farm-field-rotary/big-sioux-southern-sioux-falls-bridge.jpg',
+  ],
+  'split-rock-creek-split-rock-park-palisades': [
+    '/gallery/split-rock-creek-split-rock-park-palisades/palisades-split-rock-creek.jpg',
+  ],
+  'vermilion-river-lowell-oglesby': [
+    '/gallery/vermilion-river-lowell-oglesby/vermilion-river-pontiac.jpg',
+  ],
+  'flambeau-river-highway-w-hervas': [
+    '/gallery/flambeau-river-highway-w-hervas/flambeau-river-state-forest.jpg',
+  ],
+  'flambeau-river-hervas-beaver-dam': [
+    '/gallery/flambeau-river-hervas-beaver-dam/flambeau-river-near-bruce-usgs.jpg',
+  ],
   'shoal-creek-tipton-ford-wildcat': [
     '/gallery/shoal-creek-tipton-ford-wildcat/shoal-creek-inspiration-point.jpg',
+  ],
+  'buffalo-river-ponca-kyles-landing': [
+    '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+  ],
+  'buffalo-river-pruitt-hasty': [
+    '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+  ],
+  'buffalo-river-kyles-landing-pruitt': [
+    '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+  ],
+  'buffalo-river-tyler-bend-gilbert': [
+    '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
+  ],
+  'cossatot-river-ed-banks-highway-278': [
+    '/gallery/cossatot-river-ed-banks-highway-278/cossatot-river-usace.jpg',
+  ],
+  'mulberry-river-redding-turner-bend': [
+    '/gallery/mulberry-river-redding-turner-bend/mulberry-river-bridge.jpg',
+  ],
+  'ouachita-river-remmel-whitewater-park': [
+    '/gallery/ouachita-river-remmel-whitewater-park/remmel-dam.jpg',
+  ],
+  'gasconade-river-rollins-ferry-pointers-creek': [
+    '/gallery/gasconade-river-rollins-ferry-pointers-creek/gasconade-river-usgs.jpg',
+  ],
+  'gasconade-river-pointers-creek-cooper-hill': [
+    '/gallery/gasconade-river-pointers-creek-cooper-hill/gasconade-river-usgs.jpg',
+  ],
+  'big-south-fork-burnt-mill-leatherwood': [
+    '/gallery/big-south-fork-burnt-mill-leatherwood/big-south-fork-leatherwood-ford.jpg',
+  ],
+  'south-chickamauga-creek-shallowford-sterchi': [
+    '/gallery/south-chickamauga-creek-shallowford-sterchi/south-chickamauga-audubon-acres.jpg',
+  ],
+  'pigeon-river-waterville-hartford': [
+    '/gallery/pigeon-river-waterville-hartford/pigeon-river-hartford.jpg',
+  ],
+  'pigeon-river-hartford-denton': [
+    '/gallery/pigeon-river-hartford-denton/pigeon-river-hartford.jpg',
+  ],
+  'floyds-fork-fisherville-cane-run': [
+    '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+  ],
+  'slate-creek-lions-club-old-slate-furnace': [
+    '/gallery/slate-creek-lions-club-old-slate-furnace/slate-creek-owingsville-usgs.jpg',
+  ],
+  'levisa-fork-cedar-creek-thompson-road': [
+    '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+  ],
+  'elkhorn-creek-vpa-3-aw-access': [
+    '/gallery/elkhorn-creek-vpa-3-aw-access/north-fork-elkhorn-creek.jpg',
   ],
 };
 

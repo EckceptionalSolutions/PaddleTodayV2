@@ -808,10 +808,40 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'current-river-akers-ferry-pulltite': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-akers-ferry-pulltite/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars along the channel.',
+      caption: 'Upper Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'current-river-pulltite-round-spring': [
+    {
+      id: 'current-river-welch-spring-commons',
+      src: '/gallery/current-river-pulltite-round-spring/current-river-welch-spring.jpg',
+      alt: 'The clear Current River flows below wooded Ozark hills with gravel bars along the channel.',
+      caption: 'Current River corridor near Welch Spring',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'jacks-fork-river-alley-spring-chilton': [
     {
       id: 'jacks-fork-upper-commons',
       src: '/gallery/jacks-fork-river-alley-spring-chilton/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-bay-creek-alley-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-bay-creek-alley-spring/jacks-fork-upper.jpg',
       alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
@@ -826,6 +856,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Canoeing in Ozark National Scenic Riverways',
       credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
       takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-van-buren-big-spring': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-van-buren-big-spring/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'current-river-big-spring-gooseneck': [
+    {
+      id: 'ozark-riverways-canoeing-nps',
+      src: '/gallery/current-river-big-spring-gooseneck/ozark-riverways-canoeing.jpg',
+      alt: 'Visitors paddle canoes through a wooded Ozark National Scenic Riverways corridor.',
+      caption: 'Canoeing in Ozark National Scenic Riverways',
+      credit: 'Cecil W. Stoughton/NPS History Collection via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'eleven-point-river-greer-crossing-turner-mill': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-greer-crossing-turner-mill/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
   'eleven-point-river-turner-mill-south-whitten': [
@@ -844,6 +904,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/meramec-river-onondaga-campbell-bridge/meramec-river-onondaga.jpg',
       alt: 'The Meramec River runs past Onondaga Cave State Park with wooded banks and low gravel edges.',
       caption: 'Meramec River at Onondaga Cave State Park',
+      credit: 'Kbh3rd via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'meramec-river-scotts-ford-riverview': [
+    {
+      id: 'meramec-river-onondaga-commons',
+      src: '/gallery/meramec-river-scotts-ford-riverview/meramec-river-onondaga.jpg',
+      alt: 'The Meramec River runs past Onondaga Cave State Park with wooded banks and low gravel edges.',
+      caption: 'Meramec River near Onondaga Cave State Park',
       credit: 'Kbh3rd via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
@@ -872,6 +942,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'big-piney-river-mo-17-commons',
       src: '/gallery/big-piney-river-sandy-shoals-boiling-spring/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River flows through a green Missouri corridor with wooded banks and a shallow gravel edge.',
+      caption: 'Big Piney River in Missouri',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'big-piney-river-mason-bridge-slabtown': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-mason-bridge-slabtown/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River flows through a green Missouri corridor with wooded banks and a shallow gravel edge.',
+      caption: 'Big Piney River in Missouri',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'big-piney-river-slabtown-ross': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-slabtown-ross/big-piney-river-mo-17.jpg',
       alt: 'The Big Piney River flows through a green Missouri corridor with wooded banks and a shallow gravel edge.',
       caption: 'Big Piney River in Missouri',
       credit: 'Inklein via Wikimedia Commons',
@@ -918,10 +1008,30 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'north-fork-white-river-blair-dawt': [
+    {
+      id: 'upper-north-fork-bridge-commons',
+      src: '/gallery/north-fork-white-river-blair-dawt/upper-north-fork-bridge.jpg',
+      alt: 'A county road bridge crosses the narrow upper North Fork River between wooded banks.',
+      caption: 'Upper North Fork River bridge',
+      credit: 'Vsmith via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
   'meramec-river-sappington-bridge-meramec-state-park': [
     {
       id: 'meramec-valley-park-commons',
       src: '/gallery/meramec-river-sappington-bridge-meramec-state-park/meramec-valley-park.jpg',
+      alt: 'The Meramec River bends below a wooded bank in Missouri under a broad summer sky.',
+      caption: 'Meramec River in Missouri',
+      credit: 'JDMcGreg via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'meramec-river-state-park-sand-ford': [
+    {
+      id: 'meramec-valley-park-commons',
+      src: '/gallery/meramec-river-state-park-sand-ford/meramec-valley-park.jpg',
       alt: 'The Meramec River bends below a wooded bank in Missouri under a broad summer sky.',
       caption: 'Meramec River in Missouri',
       credit: 'JDMcGreg via Wikimedia Commons',
@@ -1066,6 +1176,206 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Flambeau River near Bruce',
       credit: 'Kim Wickland / USGS',
       takenLabel: 'USGS image: public domain',
+    },
+  ],
+  'buffalo-river-ponca-kyles-landing': [
+    {
+      id: 'buffalo-river-ponca-low-water-bridge-commons',
+      src: '/gallery/buffalo-river-ponca-kyles-landing/buffalo-river-ponca-low-water-bridge.jpg',
+      alt: 'The Buffalo River flows under the low-water bridge at Ponca with forested Ozark hills in the background.',
+      caption: 'Buffalo River at Ponca low-water bridge',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-pruitt-hasty': [
+    {
+      id: 'buffalo-river-pruitt-landing-commons',
+      src: '/gallery/buffalo-river-pruitt-hasty/buffalo-river-pruitt-landing.jpg',
+      alt: 'The Buffalo River flows past the Pruitt landing with wooded Ozark hills rising beyond the riverbank.',
+      caption: 'Buffalo River at Pruitt Landing',
+      credit: 'Chris Light via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'buffalo-river-kyles-landing-pruitt': [
+    {
+      id: 'buffalo-river-ozark-pruitt-trail-nps',
+      src: '/gallery/buffalo-river-kyles-landing-pruitt/buffalo-river-ozark-pruitt-trail.jpg',
+      alt: 'The Buffalo River corridor near the Ozark-to-Pruitt trail shows forested bluffs and a broad river bend.',
+      caption: 'Buffalo River corridor between Ozark and Pruitt',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'buffalo-river-tyler-bend-gilbert': [
+    {
+      id: 'buffalo-river-gilbert-aerial-nps',
+      src: '/gallery/buffalo-river-tyler-bend-gilbert/buffalo-river-gilbert-aerial.jpg',
+      alt: 'An aerial view shows the Buffalo River winding past Gilbert with wooded hills and gravel bars nearby.',
+      caption: 'Buffalo River at Gilbert',
+      credit: 'NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'cossatot-river-ed-banks-highway-278': [
+    {
+      id: 'cossatot-river-usace',
+      src: '/gallery/cossatot-river-ed-banks-highway-278/cossatot-river-usace.jpg',
+      alt: 'The Cossatot River runs over a rocky channel with clear water and wooded banks in southwest Arkansas.',
+      caption: 'Cossatot River in Arkansas',
+      credit: 'Jamie Camp/U.S. Army Corps of Engineers via Wikimedia Commons',
+      takenLabel: 'USACE asset: public domain',
+    },
+  ],
+  'mulberry-river-redding-turner-bend': [
+    {
+      id: 'mulberry-river-bridge-commons',
+      src: '/gallery/mulberry-river-redding-turner-bend/mulberry-river-bridge.jpg',
+      alt: 'A steel truss bridge crosses the Mulberry River above a rocky channel lined with spring-green trees.',
+      caption: 'Mulberry River bridge near Turner Bend',
+      credit: 'Valis55 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'ouachita-river-remmel-whitewater-park': [
+    {
+      id: 'remmel-dam-commons',
+      src: '/gallery/ouachita-river-remmel-whitewater-park/remmel-dam.jpg',
+      alt: 'Remmel Dam spans the Ouachita River with release water below the concrete spillway and wooded banks nearby.',
+      caption: 'Remmel Dam on the Ouachita River',
+      credit: 'Valis55 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'gasconade-river-rollins-ferry-pointers-creek': [
+    {
+      id: 'gasconade-river-usgs',
+      src: '/gallery/gasconade-river-rollins-ferry-pointers-creek/gasconade-river-usgs.jpg',
+      alt: 'The Gasconade River runs high near Hazelgreen, Missouri, beside a bridge and wooded riverbank.',
+      caption: 'Gasconade River near Hazelgreen',
+      credit: 'Larry D. Buschmann/USGS',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'gasconade-river-pointers-creek-cooper-hill': [
+    {
+      id: 'gasconade-river-usgs',
+      src: '/gallery/gasconade-river-pointers-creek-cooper-hill/gasconade-river-usgs.jpg',
+      alt: 'The Gasconade River runs high near Hazelgreen, Missouri, beside a bridge and wooded riverbank.',
+      caption: 'Gasconade River near Hazelgreen',
+      credit: 'Larry D. Buschmann/USGS',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'big-piney-river-boiling-spring-mason-bridge': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-boiling-spring-mason-bridge/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River bends below a wooded bluff and gravel bar near Missouri Route 17.',
+      caption: 'Big Piney River near Missouri Route 17',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'big-piney-river-dogs-bluff-mineral-springs': [
+    {
+      id: 'big-piney-river-mo-17-commons',
+      src: '/gallery/big-piney-river-dogs-bluff-mineral-springs/big-piney-river-mo-17.jpg',
+      alt: 'The Big Piney River bends below a wooded bluff and gravel bar near Missouri Route 17.',
+      caption: 'Big Piney River near Missouri Route 17',
+      credit: 'Inklein via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'james-river-hl-kerr-ralph-cox': [
+    {
+      id: 'james-river-springfield-commons',
+      src: '/gallery/james-river-hl-kerr-ralph-cox/james-river-springfield.jpg',
+      alt: 'The James River flows past a low wooded bank and calm water in Springfield, Missouri.',
+      caption: 'James River in Springfield',
+      credit: 'Cold417 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'floyds-fork-fisherville-cane-run': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'slate-creek-lions-club-old-slate-furnace': [
+    {
+      id: 'slate-creek-owingsville-usgs',
+      src: '/gallery/slate-creek-lions-club-old-slate-furnace/slate-creek-owingsville-usgs.jpg',
+      alt: 'A USGS crew works along Slate Creek at Owingsville, Kentucky, with shallow water and wooded banks behind them.',
+      caption: 'Slate Creek at Owingsville',
+      credit: 'Andre Ferguson/USGS',
+      takenLabel: 'USGS asset: public domain',
+    },
+  ],
+  'levisa-fork-cedar-creek-thompson-road': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'elkhorn-creek-vpa-3-aw-access': [
+    {
+      id: 'north-fork-elkhorn-creek-commons',
+      src: '/gallery/elkhorn-creek-vpa-3-aw-access/north-fork-elkhorn-creek.jpg',
+      alt: 'North Elkhorn Creek flows through a leafy Kentucky creek corridor with a low wooded bank beside the water.',
+      caption: 'North Elkhorn Creek in Georgetown',
+      credit: 'Sydney Poore and Russell Poore via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'big-south-fork-burnt-mill-leatherwood': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-burnt-mill-leatherwood/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through the wooded Leatherwood Ford gorge corridor in Tennessee.',
+      caption: 'Big South Fork at Leatherwood Ford',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'south-chickamauga-creek-shallowford-sterchi': [
+    {
+      id: 'south-chickamauga-audubon-acres-nps',
+      src: '/gallery/south-chickamauga-creek-shallowford-sterchi/south-chickamauga-audubon-acres.jpg',
+      alt: 'South Chickamauga Creek runs through a leafy corridor at Audubon Acres in Chattanooga, Tennessee.',
+      caption: 'South Chickamauga Creek at Audubon Acres',
+      credit: 'National Trails Office/NPS via Wikimedia Commons',
+      takenLabel: 'NPS asset: public domain',
+    },
+  ],
+  'pigeon-river-waterville-hartford': [
+    {
+      id: 'pigeon-river-hartford-commons',
+      src: '/gallery/pigeon-river-waterville-hartford/pigeon-river-hartford.jpg',
+      alt: 'The Pigeon River runs through Hartford, Tennessee, with forested banks and whitewater current below the road.',
+      caption: 'Pigeon River at Hartford',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'pigeon-river-hartford-denton': [
+    {
+      id: 'pigeon-river-hartford-commons',
+      src: '/gallery/pigeon-river-hartford-denton/pigeon-river-hartford.jpg',
+      alt: 'The Pigeon River runs through Hartford, Tennessee, with forested banks and whitewater current below the road.',
+      caption: 'Pigeon River at Hartford',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
 };

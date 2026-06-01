@@ -558,6 +558,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-akers-ferry-pulltite': {
+    putIn: {
+      name: 'Akers Lower / Akers Ferry access',
+      latitude: 37.37591,
+      longitude: -91.55148,
+    },
+    takeOut: {
+      name: 'Pulltite river access / campground area',
+      latitude: 37.33505,
+      longitude: -91.47959,
+    },
+    logistics: {
+      distanceLabel: '9.6 mi',
+      estimatedPaddleTime: 'About 4 hr for canoes and kayaks; longer with stops, low water, wind, rafts, or tubes',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Akers Ferry and Pulltite. Cell service is limited in the park, so stage the Pulltite take-out and confirm the pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'Treat this as a day float unless you have a separate legal camping plan. Pulltite has developed NPS camping context but flood damage has reduced facilities, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      summary:
+        'Launch at Akers Ferry and take out at Pulltite for the NPS-listed 9.6-mile Upper Current River day float. Use the Akers USGS gauge as a direct same-day low-water check, with the app using only a conservative 230 cfs minimum floor.',
+      accessCaveats: [
+        'Akers and Pulltite are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.',
+        'Recreation.gov currently describes Pulltite as year-round with flood-damaged facilities reduced after October 15, 2025. Inspect the take-out before launching and follow current NPS signs rather than assuming every facility is normal.',
+        'The coordinates reuse practical access-area anchors from adjacent implemented Current River routes, not official ramp-coordinate tables. Current NPS signs and ramp layout should control on arrival.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and possible dragging when the Akers gauge is near or below the 230 cfs floor.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Akers at 4.00 ft and Pulltite at 4.20 ft as non-motorized closure levels in flood conditions.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
+  'current-river-pulltite-round-spring': {
+    putIn: {
+      name: 'Pulltite river access / campground area',
+      latitude: 37.33505,
+      longitude: -91.47959,
+    },
+    takeOut: {
+      name: 'Round Spring river access / campground area',
+      latitude: 37.27996,
+      longitude: -91.40792,
+    },
+    logistics: {
+      distanceLabel: '8.9 mi',
+      estimatedPaddleTime: 'About 4 hr for canoes and kayaks; longer with stops, low water, wind, rafts, or tubes',
+      shuttle:
+        'Use a two-car or authorized outfitter shuttle between Pulltite and Round Spring. Cell service is limited in the park, so stage the take-out and confirm the pickup plan before launching.',
+      permits:
+        'No route-specific private-vessel paddling fee is known inside Ozark National Scenic Riverways. Follow NPS rules, posted signs, designated access layouts, parking limits, no-glass/no-polystyrene rules, and any current river closure notices.',
+      camping:
+        'Treat this as a day float unless you have a separate legal camping plan. Pulltite and Round Spring have developed NPS camping areas, and gravel-bar camping has park rules and location limits; do not assume any bank is public just because it is reachable from the river.',
+      summary:
+        'Launch at Pulltite and take out at Round Spring for the NPS-listed 8.9-mile Upper Current River day float. Use the upstream Akers USGS gauge as a conservative same-day low-water check, with the app using only a 300 cfs minimum floor.',
+      accessCaveats: [
+        'Pulltite and Round Spring are standard Ozark National Scenic Riverways access areas, but flood repairs, construction zones, parking, outfitter traffic, and temporary closure notices can change the practical launch or landing.',
+        'The coordinates are practical access-area anchors from Mapcarta / GeoNames / OpenStreetMap records paired with NPS route and access confirmation, not official ramp-coordinate tables. Follow current NPS signs and ramp layout on arrival.',
+        'The Akers gauge is upstream of this route. It is supported by MoHERP Pulltite-to-Round-Spring reports, but it should still be treated as a proxy and paired with a visual check at Pulltite.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and slower travel when the Akers gauge is near or below the 300 cfs floor.',
+        'High or rising water, fresh wood, cloudy water, and faster current after rain. NPS lists Pulltite at 4.20 ft and Round Spring Bridge at 5.20 ft as non-motorized closure levels during flood conditions.',
+        'Cold spring-fed water, crowding on warm weekends, motorized-boat interactions under park horsepower rules, and limited cell service.',
+        'Federal river rules: PFD requirements, children under 7 wearing PFDs, no glass or polystyrene, no vessel lashing, cave closures, and leash rules for dogs when on land.',
+      ],
+    },
+  },
   'big-fork-river-highway-6-south-north': {
     putIn: {
       name: 'Highway 6 South / State Hwy 6 Bridge carry-in access',
@@ -5804,6 +5874,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'current-river-van-buren-big-spring': {
+    putIn: {
+      name: 'Van Buren Riverfront Park Access',
+      latitude: 36.9939,
+      longitude: -91.014,
+    },
+    takeOut: {
+      name: 'Big Spring Upper River Landing',
+      latitude: 36.9475519,
+      longitude: -90.9901267,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 to 5 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out in the Big Spring river-access/campground area before driving back to Van Buren Riverfront Park. Use current NPS signs at Big Spring and do not confuse the upper river landing with the lower trailered-boat ramp.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, Van Buren city/cooperative-area rules, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Treat this as a short day float unless you have a separate legal camping plan. Big Spring has NPS campground facilities, but campground reservations, loop closures, hunt closures, and posted rules can change.',
+      summary:
+        'Launch at Van Buren Riverfront Park and take out at the Big Spring upper river landing for a short lower Current River day section. Use the direct Van Buren gauge as a conservative low-water check and expect lower-river motorboat traffic and summer crowds.',
+      accessCaveats: [
+        'NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Confirm the signed upper landing before leaving a vehicle.',
+        'The Big Spring coordinate is the USGS-topo-derived Big Spring River Access point in the access/campground area, not the spring overlook, natural-area point, or lower motorized-only boat ramp.',
+        'Van Buren Riverfront Park is MDC-listed under a cooperative agreement rather than MDC-owned land; posted city or owner rules may apply beyond the MDC-listed boating regulations.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, summer crowds, tubes, slick ramps, swimmers, fishing lines, and crowded loading near Van Buren and Big Spring.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service outside Van Buren, and confusion between the Big Spring upper landing and the lower motorized-only ramp.',
+      ],
+    },
+  },
+  'current-river-big-spring-gooseneck': {
+    putIn: {
+      name: 'Big Spring Upper River Landing',
+      latitude: 36.9475519,
+      longitude: -90.9901267,
+    },
+    takeOut: {
+      name: 'Gooseneck / Hawes Recreation Area',
+      latitude: 36.8194989,
+      longitude: -90.9470707,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime: 'About 6 hr, longer with low water, stops, wind, crowds, or motorboat traffic',
+      shuttle:
+        'Stage the take-out at Gooseneck / Hawes before driving back to the Big Spring river-access area. This is a long lower-river shuttle near the Current River mouth, so verify roads, parking, signed river access, and campground rules before launching.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, campground and day-use rules at Big Spring and Gooseneck / Hawes, Missouri boating laws, no-glass/no-polystyrene rules, and any posted NPS closure or access notices.',
+      camping:
+        'Treat this as a long day unless you have a separate legal camping plan. Gooseneck / Hawes has primitive NPS campground context, but campsite availability, closures, fees, and river conditions can change.',
+      summary:
+        'Launch at the Big Spring upper river landing and take out at Gooseneck / Hawes for the final long lower Current River section. Use the Van Buren gauge as a conservative low-water check and plan for motorboats, private banks, limited exits, and end-of-river logistics.',
+      accessCaveats: [
+        'NPS materials use both Gooseneck and Hawes naming for the lower-river endpoint. Confirm the signed Gooseneck / Hawes river access before leaving a vehicle.',
+        'The Gooseneck coordinate is a USGS-topo-derived Hawes Recreation Area point, not an NPS GIS landing table. Use current NPS signs and the actual river landing on arrival.',
+        'NPS distinguishes Big Spring (upper) as a Current River landing from Big Spring Boat Ramp (lower), which is trailered boats only with no floater access. Start from the signed upper landing.',
+        'This route ends near the Current River mouth. Do not continue onto the Black River or downstream big-river water without a separate plan.',
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and a slower six-hour day when the Van Buren gauge is near or below the 700 cfs conservative floor.',
+        'Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.',
+        'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
+        'Private banks, limited cell service, few easy exits, and confusion between Gooseneck and Hawes naming at the take-out.',
+      ],
+    },
+  },
+  'eleven-point-river-greer-crossing-turner-mill': {
+    putIn: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    takeOut: {
+      name: 'Turner Mill North River Access',
+      latitude: 36.765748,
+      longitude: -91.266931,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Greer Crossing and Turner Mill. Roads to Turner Mill are rural Forest Service roads, so inspect the take-out and parking before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, campground rules at Greer, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. Greer Crossing has campground facilities, Turner Mill North is day-use only, and designated float camps have separate rules.',
+      summary:
+        'Launch at Greer Crossing and take out at Turner Mill for a short spring-fed Eleven Point run through Mary Decker Shoal and the Blue Ribbon Trout Area. Use the Bardley gauge as a conservative low-water check, then make a visual call at the launch.',
+      accessCaveats: [
+        'Greer Crossing and Turner Mill North are official Forest Service river accesses with published coordinates, but road, parking, campground, and day-use rules can change.',
+        'Turner Mill North is on river left and Turner Mill South is the larger landing on river right. Confirm the intended side before staging vehicles and avoid crossing private land.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Mary Decker Shoal and shallow bouldery spots, especially when the Bardley gauge is near the 300 cfs floor.',
+        'Cold spring-fed water, rapid rises after rain, fresh wood, blind bends, and remote-feeling gaps between accesses.',
+        'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit.',
+      ],
+    },
+  },
   'eleven-point-river-turner-mill-south-whitten': {
     putIn: {
       name: 'Turner Mill South River Access',
@@ -5903,6 +6078,77 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Dragging and slow shoals when the Tecumseh gauge falls near the 300 cfs floor.',
         'The Falls about 7 miles below North Fork Recreation Area; scout if the level, group skill, or boat load makes the two-foot drop feel questionable.',
         'Cold spring-fed water, swift riffles, fresh wood, strainers on bends, and faster current after rain.',
+      ],
+    },
+  },
+  'north-fork-white-river-blair-dawt': {
+    putIn: {
+      name: 'Blair Bridge Access',
+      latitude: 36.65403,
+      longitude: -92.22959,
+    },
+    takeOut: {
+      name: 'Dawt Mill Resort private-fee river access',
+      latitude: 36.609853,
+      longitude: -92.27757,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, stops, and dam/bridge scouting',
+      shuttle:
+        'Use a two-car shuttle or arrange Dawt Mill service before launching. This route ends at private-fee Dawt Mill Resort access, so confirm current reservation, parking, fee, and take-out terms before leaving Blair Bridge.',
+      permits:
+        'No route-specific public paddling permit is known. Follow MDC rules at Blair Bridge, Missouri boating/PFD rules, and Dawt Mill posted access, parking, shuttle, and fee requirements at the take-out.',
+      camping:
+        'Treat this as a day trip unless you have a separate Dawt Mill lodging or camping reservation. Do not assume private-bank camping or access away from public Blair Bridge, the river, legal gravel bars, or arranged resort property.',
+      summary:
+        'Launch at MDC Blair Bridge Access and take out at private-fee Dawt Mill Resort for a 7.6-mile lower North Fork day. Use the downstream Tecumseh USGS gauge as a conservative low-water proxy, then make same-day calls around riffles, wood, Dawt Mill Dam, and the Dawt low-water bridge.',
+      accessCaveats: [
+        'Blair Bridge is public MDC floating access, but the route starts immediately around bridge current and old bridge-pier remnants. Inspect the launch and bridge approach before committing.',
+        'Dawt Mill is a private resort take-out. Current permission, reservation, shuttle, parking, and fee terms control; do not treat it as an unmanaged public access.',
+        'Dawt Mill Dam and the Dawt low-water bridge are near the finish. Low water can make the dam/bridge area awkward, while high water can make the bridge clearance and dam hydraulics dangerous.',
+        'The Tecumseh gauge is downstream of this route and near additional inflow/backwater influence. Treat it as a supported proxy, not a perfect reading for every Blair-to-Dawt shoal.',
+      ],
+      watchFor: [
+        'Dragging and slow shoals when the Tecumseh gauge falls near the 300 cfs floor.',
+        'Blair Bridge current, old bridge-pier remnants, swift riffles, root wads, fresh wood, and strainers on outside bends.',
+        'Dawt Mill Dam, the low-water bridge at Dawt, and possible Norfork Lake backwater effects near the lower end of the reach.',
+        'High or rising water after rain, when the dam, bridge, strainers, and resort landing become much less forgiving.',
+      ],
+    },
+  },
+  'meramec-river-scotts-ford-riverview': {
+    putIn: {
+      name: 'Scotts Ford Access',
+      latitude: 37.9783,
+      longitude: -91.4563,
+    },
+    takeOut: {
+      name: 'Riverview Access',
+      latitude: 37.9924,
+      longitude: -91.4255,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr depending on level, stops, and weekend traffic',
+      shuttle:
+        'Use a two-car shuttle between MDC Scotts Ford Access off Thurman Lake Road and MDC Riverview Access off Route O. Inspect Riverview first because the access road continues past the end of state maintenance and same-day ramp conditions control.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, hours, parking restrictions, and boat-use rules at both public access areas.',
+      camping:
+        'Treat this as a day float. No legal on-route campsite is assumed between Scotts Ford and Riverview, and private banks should not be used without permission.',
+      summary:
+        'Launch at MDC Scotts Ford Access and take out at MDC Riverview Access for a 7-mile upper Meramec day near Steelville. MDC documents the route, and the Steelville USGS gauge is used as a conservative low-water check.',
+      accessCaveats: [
+        'Scotts Ford is an MDC department area with posted 4 a.m. to 10 p.m. hours and local signs or area maps controlling exact use.',
+        'Riverview is an MDC access with a concrete boat ramp and small parking lot; the final road segment is beyond state maintenance, so inspect it before leaving a vehicle.',
+        'Coordinates are practical public paddling-location anchors paired with MDC access confirmation; follow on-site signs for exact ramp, parking, and closure conditions.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and a slower day when the Steelville gauge is near or below the 343 cfs floor.',
+        'High or rising water after rain, fresh wood, pushy bends, cloudy water, and harder landings at small access areas.',
+        'Warm-weather crowding from private paddlers, outfitters, anglers, swimmers, and gravel-bar users in the Steelville-area corridor.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
       ],
     },
   },
@@ -6011,6 +6257,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'meramec-river-state-park-sand-ford': {
+    putIn: {
+      name: 'Meramec State Park River Stop Store / river launch',
+      latitude: 38.20379,
+      longitude: -91.099735,
+    },
+    takeOut: {
+      name: 'Sand Ford Access',
+      latitude: 38.2527,
+      longitude: -91.0798,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level, stops, and traffic',
+      shuttle:
+        'Stage the take-out at MDC Sand Ford Access near Stanton, then drive back to the Meramec State Park river launch near River Stop Store. Confirm park hours, launch signs, and Sand Ford parking before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri State Parks day-use and launch rules at Meramec State Park, MDC area rules at Sand Ford Access, and all posted parking or river-use signs.',
+      camping:
+        'Treat this as a day trip unless you have separate Meramec State Park reservations or another legal camping plan. Do not assume camping is allowed at Sand Ford Access or on private banks.',
+      summary:
+        'Launch from the Meramec State Park public river launch near River Stop Store and take out downstream at MDC Sand Ford Access. This is a public-access Sullivan-area Meramec continuation with a direct Sullivan gauge used as a conservative low-water check.',
+      accessCaveats: [
+        'Meramec State Park has a concrete boat launch and canoe launch near River Stop Store. Use the public launch area rather than campground-only gravel launches unless you are a camping patron.',
+        'Sand Ford is an MDC river access with public boat and fishing access, but same-day signs and area rules still control parking, hours, and use.',
+        'The mileage is an approximate access-to-access derivation from MDC planning material. Inspect both landings and leave enough daylight rather than treating the distance as a precise outfitter schedule.',
+      ],
+      watchFor: [
+        'Shallow riffles and dragging when the Sullivan gauge falls near or below the 200 cfs floor.',
+        'High water, fresh wood, pushy bends, and harder landings after rain; MoHERP high and flood categories are not broad casual-float conditions.',
+        'Busy warm-season traffic from state park rentals, tubes, anglers, swimmers, Meramec Caverns-area users, and occasional motorized boats.',
+        'Private land away from public accesses and legal gravel-bar stops; stay within Missouri stream-access rules and respect posted land.',
+      ],
+    },
+  },
   'bryant-creek-sycamore-warren-bridge': {
     putIn: {
       name: 'Sycamore Access / Hodgson Mill',
@@ -6043,6 +6324,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Swift narrow-channel current, tight bends, limestone bluffs, low-water bridge areas, and possible strainers or fresh wood after storms.',
         'Loose gravel, deep sand, changed banks, and limited recovery options at access roads after floods or high-water events.',
         'Private property along Bryant Creek away from public access points and lawful gravel-bar stops.',
+      ],
+    },
+  },
+  'beaver-creek-brownbranch-bradleyville': {
+    putIn: {
+      name: 'Beaver Creek Campground / Brownbranch',
+      latitude: 36.79540057,
+      longitude: -92.83080082,
+    },
+    takeOut: {
+      name: 'Highway 76 Bridge at Bradleyville',
+      latitude: 36.77963889,
+      longitude: -92.90727778,
+    },
+    logistics: {
+      distanceLabel: 'About 7.9 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr, longer with low water, portages, wood, or slow fishing stops',
+      shuttle:
+        'Use a rural two-car or campground-supported shuttle between Beaver Creek Campground in Brownbranch and the Highway 76 bridge area in Bradleyville. Inspect the Bradleyville take-out before launching because flood changes, gravel, private drives, and bridge-area access can make the landing less obvious than the route name suggests.',
+      permits:
+        'No route-specific paddling permit is known. Budget for the campground access or parking fee at Brownbranch, follow campground rules, obey posted signs at the Highway 76 bridge area, and follow Missouri boating and fishing rules.',
+      camping:
+        'Treat this route as a day float unless you separately reserve or arrange camping at Beaver Creek Campground. Do not assume private banks or bridge approaches are legal campsites.',
+      summary:
+        'Launch at Beaver Creek Campground in Brownbranch and take out at the Highway 76 bridge area in Bradleyville for a 7.9-mile Beaver Creek day. Use the Bradleyville USGS gauge with MoHERP bands, and skip the route when the gauge is high, rising, or below the low-water floor.',
+      accessCaveats: [
+        'Brownbranch is a private fee-access campground, not an MDC area. Confirm current access fees, parking, shuttle options, and launch conditions before counting on it.',
+        'MDC currently describes the Highway 76 bridge in Bradleyville as a launch option, but MoHERP trip notes flag post-flood degradation and past confusion around MO 76 access. Scout the take-out first and obey any posted private-property limits.',
+        'The Bradleyville coordinate is anchored to the USGS gauge / Highway 76 bridge corridor rather than a separate managed-ramp coordinate. Use it for navigation to the take-out corridor, then follow current on-site access conditions.',
+      ],
+      watchFor: [
+        'Dragging, wading, slick riffles, and long shallow sections when the Bradleyville gauge is near or below 100 cfs.',
+        'High or rising water above the MoHERP high-water line, when this narrow creek can become pushy, muddy, and debris-prone.',
+        'Strainers, flood-deposited trees, braided gravel channels, and possible portages, especially after recent high water.',
+        'The final riffle into Bradleyville, bridge approaches, gravel-mining disturbance near the lower reach, and tight landing options.',
+        'Private land away from the fee campground, public bridge area, and lawful gravel-bar stops.',
       ],
     },
   },
@@ -6154,6 +6472,115 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-piney-river-mason-bridge-slabtown': {
+    putIn: {
+      name: 'Mason Bridge Access',
+      latitude: 37.50581,
+      longitude: -91.98319,
+    },
+    takeOut: {
+      name: 'Slabtown Recreation Area',
+      latitude: 37.561549,
+      longitude: -92.03214279,
+    },
+    logistics: {
+      distanceLabel: 'About 9 to 9.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, fishing, wind, or stops',
+      shuttle:
+        'Use a rural two-car shuttle between MDC Mason Bridge Access and Forest Service Slabtown Recreation Area. Stage and inspect Slabtown first because parking is limited and the gravel launch can be shallow from gravel build-up.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri boating laws, posted MDC area rules at Mason Bridge, Mark Twain National Forest rules at Slabtown, no-glass/no-polystyrene rules, day-use hours, and current signs at both access areas.',
+      camping:
+        'Treat this as a day trip unless you have separately planned legal camping. Slabtown has three Forest Service tent-camping sites, but availability, day-use hours, fire rules, and posted restrictions still control.',
+      summary:
+        'Launch at MDC Mason Bridge Access and take out at Forest Service Slabtown Recreation Area for the next Big Piney link below Mason Bridge. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
+      accessCaveats: [
+        'MDC map material confirms Mason Bridge Access has a parking lot and boat ramp, but the coordinate is sourced from Mapcarta / OpenStreetMap rather than an MDC coordinate feed.',
+        'Slabtown is a Forest Service access and camping area with a single-lane launch, limited boat-launch parking, vault toilet, picnic tables, and no potable water.',
+        'The Forest Service warns the bottom of the Slabtown ramp can be shallow from gravel build-up and that the river at the launch can be swift moving.',
+        'Private land borders portions of the Big Piney corridor. Stay with public accesses, lawful gravel-bar stops, and posted rules rather than climbing banks or using private land.',
+      ],
+      watchFor: [
+        'Shallow riffles, dragging, and slow pools when the Big Piney gauge is below the MoHERP low-water floor.',
+        'Mostly Class I Ozark floating water, but the longer mileage, remote roads, and limited take-out parking make pacing matter.',
+        'Rapid rises after storms, murky water, fresh wood, swift launch current, and harder landings. The current model has no defended high-water cutoff.',
+        'Gravel build-up at the Slabtown ramp, fishing traffic, limited cell service, no potable water, and campground/day-use conflicts at the take-out.',
+      ],
+    },
+  },
+  'big-piney-river-slabtown-ross': {
+    putIn: {
+      name: 'Slabtown Recreation Area',
+      latitude: 37.561549,
+      longitude: -92.03214279,
+    },
+    takeOut: {
+      name: 'Ross Access',
+      latitude: 37.66414,
+      longitude: -92.05157,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 to 17 mi',
+      estimatedPaddleTime:
+        'Long day or light overnight; allow 7 hr to 10 hr depending on level, load, stops, fishing, and wind',
+      shuttle:
+        'Use a rural two-car shuttle between Forest Service Slabtown Recreation Area and MDC Ross Access. Stage Ross first, then inspect the Slabtown launch before leaving a vehicle because both endpoints are small access areas with limited services.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest rules at Slabtown, MDC area rules at Ross Access, Missouri boating laws, no-glass/no-polystyrene rules, day-use hours, and all posted signs.',
+      camping:
+        'Treat this as a long day unless you have a legal overnight plan. Slabtown has three Forest Service tent sites, and the MoHERP exact route row was recorded as a two-day sandbar trip, but private land and manager rules still control where you can camp or stop.',
+      summary:
+        'Launch at Forest Service Slabtown Recreation Area and take out at MDC Ross Access for a long lower Big Piney link. The route uses the Big Piney USGS gauge with a conservative low-water floor, but the mileage and shallow riffles make same-day judgment important.',
+      accessCaveats: [
+        'Slabtown is a Forest Service access and camping area with a single-lane launch, limited boat-launch parking, vault toilet, picnic tables, and no potable water.',
+        'The Forest Service warns the bottom of the Slabtown ramp can be shallow from gravel build-up and that the river at the launch can be swift moving.',
+        'MDC confirms Ross Access as public floating and fishing access with parking, but the coordinate is an OSM-derived slipway anchor paired with MDC access authority rather than an MDC survey coordinate.',
+        'Private land borders portions of the Big Piney corridor. Stay with public accesses, lawful gravel-bar stops, and posted rules rather than climbing banks or using private land.',
+      ],
+      watchFor: [
+        'Long mileage and reduced daylight margin; low flows can turn the route into a very slow trip with dragging and portages.',
+        'Narrower, shallower, riffly water between Slabtown and Ross, with long pools and limited public bailout options.',
+        'Rapid rises after storms, murky water, fresh wood, strainers, swift launch current, and more difficult landings. The current model has no defended high-water cutoff.',
+        'Limited services, limited cell coverage, rural shuttle roads, fishing traffic, and legal-camping boundaries if the group turns this into an overnight.',
+      ],
+    },
+  },
+  'big-piney-river-dogs-bluff-mineral-springs': {
+    putIn: {
+      name: 'Dogs Bluff Access',
+      latitude: 37.327222,
+      longitude: -92.001944,
+    },
+    takeOut: {
+      name: 'Mineral Springs Access',
+      latitude: 37.36307014,
+      longitude: -91.96981655,
+    },
+    logistics: {
+      distanceLabel: 'About 4.9 to 6 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and wood',
+      shuttle:
+        'Use a short Houston-area two-car shuttle between MDC Dogs Bluff Access off Highway 17 and MDC Mineral Springs Access off Mineral Drive. Stage Mineral Springs first, then inspect Dogs Bluff before leaving a vehicle because both landings are small river-access areas.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, Missouri boating laws, day-use restrictions, and boat-use rules at Dogs Bluff and Mineral Springs.',
+      camping:
+        'Treat this as a short day float. Do not plan to camp at either MDC access unless current area rules and posted signs specifically allow your use.',
+      summary:
+        'Launch at MDC Dogs Bluff Access and take out at MDC Mineral Springs Access for a short upper Big Piney day near Houston. Use the Big Piney USGS gauge as a conservative low-water check, then make a same-day call for shallow riffles, wood, and rising water.',
+      accessCaveats: [
+        'Dogs Bluff is an MDC public access with a boat ramp, picnic area, privy, and directions from Houston, but posted signs and area maps control exact use.',
+        'Mineral Springs is an MDC public access with a boat ramp and parking, but same-day ramp, road, and crowding conditions still matter.',
+        'The endpoint coordinates are practical access anchors from public location records paired with MDC access authority, not survey-grade ramp points. Follow on-site signs and the current ramp layout on arrival.',
+        'Private land borders portions of the Big Piney corridor. Stay with public accesses, lawful gravel-bar stops, and posted rules rather than climbing banks or using private land.',
+      ],
+      watchFor: [
+        'Dragging, shallow riffles, and slower pools when the Big Piney gauge is near or below the 309 cfs floor.',
+        'High or rising water after rain. MoHERP has an exact Dogs Bluff-to-Mineral Springs row marked High at 1,840 cfs, but Paddle Today does not claim a defended high-water cutoff.',
+        'Fresh wood, strainers, root wads, gravel-bar turns, rural shuttle roads, anglers, and limited services at the accesses.',
+        'Private banks away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
   'james-river-delaware-town-shelvin-rock': {
     putIn: {
       name: 'Delaware Town Access',
@@ -6259,6 +6686,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-bay-creek-alley-spring': {
+    putIn: {
+      name: 'Bay Creek River Access / Backcountry Campground',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    takeOut: {
+      name: 'Alley Spring River Access',
+      latitude: 37.1484,
+      longitude: -91.4499,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4 hr, longer with low water, poling, scouting, or high-water caution',
+      shuttle:
+        'Use a rural two-car shuttle between Bay Creek and Alley Spring. Stage the Alley Spring take-out first, then drive west on Highway 106 and County Road 106-425 to Bay Creek. The Bay Creek road is gravel and remote; inspect the access before leaving a vehicle.',
+      permits:
+        'No private-vessel route permit is known. Follow Ozark National Scenic Riverways rules, NPS closure notices, no-glass/no-polystyrene rules, fishing regulations, posted campground/access rules, and any current parking or launch signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate NPS backcountry campsite reservation. Bay Creek is a reservable backcountry campground, and NPS rules and current availability control any overnight plan.',
+      summary:
+        'Launch at Bay Creek and take out at Alley Spring for the NPS-listed upper Jacks Fork day float. Use the Alley Spring USGS gauge as a direct low-water check, but keep the decision conservative because this reach is shallow above the spring and can get pushy after rain.',
+      accessCaveats: [
+        'Bay Creek is a remote NPS backcountry campground/access reached by about two miles of gravel road from Highway 106; low-clearance vehicles and wet roads can complicate the shuttle.',
+        'Alley Spring is a busy NPS access area with campground, visitor, swimming, hiking, and paddling traffic; inspect the landing and parking before launching upstream.',
+        'Endpoint coordinates are USGS-topo-derived access anchors rather than an NPS ramp-coordinate table. Follow park signs, posted closures, and the current access layout on arrival.',
+        'Only use designated access points and lawful gravel-bar stops. Private lands and scenic-easement boundaries in the Riverways corridor still matter.',
+      ],
+      watchFor: [
+        'Frequent dragging, poling, or lining when the Alley Spring gauge is below the 100 cfs floor.',
+        'Wide, shallow riffles in the few miles above Alley Spring, plus slick shelf rock, gravel bars, and occasional wood.',
+        'High or rising water after storms. MoHERP currently treats high/flood Alley Spring readings as unsuitable for casual or inexperienced trips.',
+        'Cold spring water near the take-out, limited cell service, remote-road shuttle logistics, and busy summer access traffic.',
+      ],
+    },
+  },
   'gasconade-river-rollins-ferry-pointers-creek': {
     putIn: {
       name: 'Rollins Ferry Access',
@@ -6291,6 +6755,77 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High or rising water after rain, floating wood, muddy current, island splits, strainers on bends, and harder landings.',
         'Motorboats, anglers, gravel bars, private banks, and long exposed pools where wind can slow the trip.',
         'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
+  'gasconade-river-pointers-creek-cooper-hill': {
+    putIn: {
+      name: 'Pointers Creek Access',
+      latitude: 38.424847,
+      longitude: -91.742545,
+    },
+    takeOut: {
+      name: 'Cooper Hill Conservation Area hand launch',
+      latitude: 38.4325614,
+      longitude: -91.6578519,
+    },
+    logistics: {
+      distanceLabel: 'About 5.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, wind, stops, and boat traffic',
+      shuttle:
+        'Use a two-car shuttle between MDC Pointers Creek Access off Route RA and Cooper Hill Conservation Area near the village of Cooper Hill. Stage and inspect Cooper Hill first because it is a hand launch with a short carry from the parking area or CR 821 rather than a trailer ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, boat-use rules, camping rules, and parking restrictions at both department areas.',
+      camping:
+        'Treat this as a short day float. Pointers Creek lists primitive camping, but Cooper Hill has limited parking and hand-launch access; confirm current MDC rules and posted signs before using either endpoint as part of an overnight plan.',
+      summary:
+        'Launch at MDC Pointers Creek Access and take out at Cooper Hill Conservation Area for a short lower Gasconade day. Use the Rich Fountain gauge as a conservative low-water check rather than a full preferred-range recommendation.',
+      accessCaveats: [
+        'Pointers Creek is an MDC public access with Gasconade River boat-ramp context, but posted signs and area maps control exact use.',
+        'Cooper Hill is a hand-launch access. MDC says floaters can access the river from the parking lot and CR 821, but there is no trailered-boat access.',
+        'MDC notes that Route RA to Pointers Creek is impassable when Pointers Creek is at flood stage; inspect the put-in road and river conditions before committing.',
+        'The Cooper Hill coordinate is a practical conservation-area/access anchor paired with MDC hand-launch confirmation. Follow on-site signs for the exact carry, parking, and any temporary restrictions.',
+      ],
+      watchFor: [
+        'Dragging, shallow riffles, and slow pools when the Rich Fountain gauge is near or below the 1,100 cfs floor.',
+        'High or rising water after rain, floating wood, muddy current, island splits, strainers on bends, and harder hand-launch landings.',
+        'Motorboats, anglers, gravel bars, private banks, and open pools where wind can slow the trip.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
+  'big-river-mammoth-merrill-horse': {
+    putIn: {
+      name: 'Mammoth Access',
+      latitude: 38.121076,
+      longitude: -90.676055,
+    },
+    takeOut: {
+      name: 'Merrill Horse Access / Highway H bridge',
+      latitude: 38.159611,
+      longitude: -90.706056,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on level, stops, and wood',
+      shuttle:
+        'Use a short two-car shuttle between MDC Mammoth Access off Mammoth Road and MDC Merrill Horse Access / the Highway H bridge west of De Soto. Stage and inspect Merrill Horse first because it is the planned take-out and also the Richwoods gauge corridor.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted signs, department-area boat-use rules, access hours, and parking restrictions at both public accesses.',
+      camping:
+        'Treat this as a short day float. Do not plan on camping at either access unless current MDC signage and area rules explicitly allow it, and do not use private banks without permission.',
+      summary:
+        'Launch at MDC Mammoth Access and take out at MDC Merrill Horse Access for a 5.4-mile Big River day west of De Soto. Use the Richwoods USGS gauge as the direct corridor gauge and skip this route when it is above the local high-water cutoff.',
+      accessCaveats: [
+        'Mammoth and Merrill Horse are MDC public access areas, but posted signs, road conditions, parking areas, and area maps control exact use.',
+        'The Mammoth coordinate is a public paddling-location coordinate paired with MDC access confirmation; the Merrill Horse coordinate uses the USGS Richwoods / Highway H gauge corridor as the practical take-out anchor. Follow on-site signs for the actual ramp or landing.',
+        'The app uses community threshold guidance from OzarkAnglers, not an official MDC paddling band. Make a same-day visual call before committing.',
+      ],
+      watchFor: [
+        'Scraping and shallow riffles when the Richwoods gauge is near or below 100 cfs.',
+        'High or rising water above about 800 cfs, with strong current, muddy water, floating wood, and harder landings.',
+        'Flows over 1,200 cfs at Richwoods; local guidance calls this section too high.',
+        'Anglers, jetboats or small motorboats, gravel bars, wooded bends, root wads, strainers, and private banks away from public accesses.',
       ],
     },
   },
@@ -7378,6 +7913,796 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Commercial dory and guide traffic, anglers wading from shore, and congestion at both ramps.',
         'No camping, fires, or horse use on Section A; mountain biking on the Little Hole trail is seasonally restricted.',
         'New Zealand mudsnail decontamination guidance applies to boats, wading boots, and river gear.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-kay-wood-fish-creek': {
+    putIn: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    takeOut: {
+      id: 'fish-creek-boat-ramp',
+      name: 'Fish Creek Boat Ramp',
+      latitude: 37.4906,
+      longitude: -83.6894,
+    },
+    logistics: {
+      distanceLabel: '7.9 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing stops, wind, or wood',
+      shuttle:
+        'Stage the take-out at Fish Creek Boat Ramp north of Booneville, then drive back to Kay Wood Road Access off KY 28. Inspect both access points before unloading because Kay Wood has roadside-style unpaved parking and Fish Creek has limited ramp parking.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public access sites, follow posted KDFWR and Kentucky boating rules, and carry required safety gear.',
+      camping:
+        'Treat this as a day trip. No camping plan is assumed between Kay Wood and Fish Creek, and banks away from public access areas should be treated as private unless clearly posted otherwise.',
+      summary:
+        'Launch at Kay Wood Road Access and take out 7.9 miles downstream at Fish Creek Boat Ramp for the near-Booneville South Fork Kentucky River segment. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Kay Wood Road Access is a KDFWR carry-down site with unpaved parking, no ramp, no listed amenities, and a canoe/kayak suitability note. Keep the launch compact and avoid blocking Kay Wood Road or nearby private land.',
+        'Fish Creek Boat Ramp is a KDFWR single-lane paved ramp with unpaved parking and no listed amenities. It is the planned exit; do not drift past Booneville without a separate downstream plan.',
+        'KDFWR notes that some South Fork access sites have private adjacent property and limited parking. Stay with the named public accesses and do not use private banks for scouting, parking, or picnics.',
+        'The Booneville gauge is close to this segment and directly tied to the KDFWR bands, but same-day rain, debris, and ramp conditions still control the launch decision.',
+      ],
+      watchFor: [
+        'Rock bars, shallow riffles, mud banks, and occasional dragging when the Booneville gauge is below 350 cfs or 4.8 ft.',
+        'High water above 900 cfs or 6.0 ft, when KDFWR moves the river out of the good band and current, wood, and landings require extra caution.',
+        'Strainers, fresh flood wood, undercut or muddy banks, bridge approaches, fishing lines, and limited eddies along private banks.',
+        'Rain-driven rises in the upper Kentucky River watershed, especially after storms on Red Bird River, Goose Creek, Bullskin Creek, or South Fork tributaries.',
+        'Remote rural shuttle logistics, limited amenities, spotty cell service, and late-day darkness if the group spends too long fishing or stopping.',
+      ],
+    },
+  },
+  'russell-creek-hatcher-todd-ford-milltown': {
+    putIn: {
+      id: 'hatcher-todd-ford',
+      name: 'Hatcher Road / Todd Ford Road Access',
+      latitude: 37.1242,
+      longitude: -85.3395,
+    },
+    takeOut: {
+      id: 'milltown-road-bridge',
+      name: 'Milltown Road Bridge Access',
+      latitude: 37.1237,
+      longitude: -85.4049,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime:
+        'Half-day to full-day creek trip, longer below the good band or with wood, scouting, and dragging',
+      shuttle:
+        'Stage the take-out at Milltown Road Bridge Access, then drive back to Hatcher Road / Todd Ford Road Access. Both are limited, no-amenity rural accesses; keep vehicles tight, avoid blocking the ford or road approaches, and confirm there is enough water before committing to the shuttle.',
+      permits:
+        'No route-specific private paddling permit is known. Use only the KDFWR-listed public access areas, follow Kentucky boating and PFD rules, obey posted signs, and respect private property around both access points.',
+      camping:
+        'Treat this as a daylight day trip. KDFWR notes private-adjacent banks around the accesses, and no public camping is known on this segment.',
+      summary:
+        'Launch at Hatcher Road / Todd Ford Road and take out at Milltown Road Bridge for the 7.8-mile KDFWR Russell Creek segment. Use the Columbia USGS gauge and skip or shorten the day when the creek is below the KDFWR good band.',
+      accessCaveats: [
+        'Hatcher Road / Todd Ford Road is a ford access with limited parking that can depend on water level and bank condition. Do not block the ford.',
+        'Milltown Road Bridge Access has limited parking, no amenities, and private-adjacent banks; use only the immediate public access area.',
+        'This is a rural creek with access points far apart. Have a complete shuttle and daylight margin before launching.',
+        'Low water can turn the route into a scrape-and-drag day before the gauge fully fails.',
+      ],
+      watchFor: [
+        'Shallow riffles, rock bars, ford approaches, and narrow bends below about 100 cfs.',
+        'Wood, strainers, floating debris, and blind corners, especially after rain.',
+        'High or rising water above KDFWR\'s good band, which can make a narrow creek pushy and reduce eddy and landing options.',
+        'Private banks and limited legal stops; stay with ordinary navigation and documented public access.',
+        'No amenities, limited parking, rural road approaches, and weak cell coverage in spots.',
+      ],
+    },
+  },
+  'tygarts-creek-olive-hill-carter-caves': {
+    putIn: {
+      id: 'olive-hill-carrydown',
+      name: 'Olive Hill Depot Trailhead and Campground Access',
+      latitude: 38.2993,
+      longitude: -83.1745,
+    },
+    takeOut: {
+      id: 'carter-caves-state-park',
+      name: 'Carter Caves State Park / KY 182 bridge access',
+      latitude: 38.3676,
+      longitude: -83.1089,
+    },
+    logistics: {
+      distanceLabel: 'About 12.5 mi',
+      estimatedPaddleTime:
+        'Long daylight day, often dawn-to-dusk at low water and faster but more demanding above 300 cfs',
+      shuttle:
+        'Stage the take-out at the Carter Caves State Park carry-down access by the KY 182 bridge, then drive back to Olive Hill Depot Trailhead and Campground Access on Tygart Street. This is a long one-way gorge shuttle; confirm the take-out steps and parking before launching.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow Kentucky boating and PFD rules, obey Carter Caves State Resort Park rules, and respect private property along the corridor.',
+      camping:
+        'Treat this as a long day trip unless separately arranging legal camping. The route starts at the Olive Hill trailhead/campground area and ends at Carter Caves, but no mid-route camping plan is assumed.',
+      summary:
+        'Launch at Olive Hill Depot Trailhead and Campground Access and take out 12.5 miles downstream at Carter Caves State Park near the KY 182 bridge. KDFWR warns that below 150 cfs the route is hard to finish in a day and above 300 cfs the gorge becomes more challenging.',
+      accessCaveats: [
+        'Olive Hill Carrydown is a KDFWR public carry-down site through Tygarts Creek Rail Trail Park with paved parking but no listed restrooms, dock, or ramp amenities.',
+        'Carter Caves State Park is a KDFWR public carry-down access with unpaved parking near the KY 182 bridge. Use the access area and wooden-step take-out cue rather than spreading out on park or private banks.',
+        'KDFWR says the take-out steps are on river left about 150 yards upstream of the KY 182 bridge after the Devil\'s Backbone turns and Smoky Creek confluence. Missing them can complicate the exit.',
+        'The 12.5-mile length leaves little margin for late starts, low-water dragging, fishing delays, or scouting stops.',
+      ],
+      watchFor: [
+        'Shallow riffles, shoals, and boat dragging below about 150 cfs.',
+        'Borderline Class II rapids, faster current, and harder ferry/eddy moves above about 300 cfs.',
+        'Strong current pushing into overhanging bluffs, especially through tight bends in the gorge.',
+        'Wood, fallen treetops, strainers, blind corners, and fresh storm debris.',
+        'Remote gorge logistics, limited intermediate exits, daylight pressure, and park/access rules at Carter Caves.',
+      ],
+    },
+  },
+  'floyds-fork-fisherville-cane-run': {
+    putIn: {
+      id: 'fisherville-canoe-access',
+      name: 'Fisherville Canoe Access',
+      latitude: 38.1887,
+      longitude: -85.4779,
+    },
+    takeOut: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 3.5 hr, longer with low water, scouting, fishing, or wood',
+      shuttle:
+        'Stage the take-out at Cane Run Canoe Access off Echo Trail, then drive back to Fisherville Canoe Access on Old Taylorsville Road. Inspect Cane Run first because The Parklands describes the final take-out as a signed side-channel exit that can be easy to miss.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short day trip. No camping plan is assumed between Fisherville and Cane Run, and banks away from public access areas should be treated as private or managed park land unless clearly posted otherwise.',
+      summary:
+        'Launch at Fisherville Canoe Access and take out 4.2 miles downstream at Cane Run Canoe Access for a short Floyds Fork day in The Parklands corridor. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs.',
+      accessCaveats: [
+        'Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities. Make a same-day visual check before unloading boats.',
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking. The Parklands route notes say the take-out is reached by going about 50 yards up the Cane Run side channel after the Fork bends hard right.',
+        'The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking rain, trend, and the launch channel before committing.',
+        'Stay on the creek and use named public accesses. Respect private property and managed park boundaries; do not climb banks, scout through yards, or assume gravel bars are legal stopping points.',
+      ],
+      watchFor: [
+        'Class I+ moving water, narrow chutes, small ledges, small waves, and pool-and-drop sections that require boat control.',
+        'Strainers, log jams, root balls, overhanging brush, sharp bends, bridge debris, and fresh storm wood.',
+        'Low water below 50 cfs or 1.3 ft, when shallow chutes, islands, and dragging become likely.',
+        'High water above 300 cfs or 2.5 ft, when KDFWR moves the creek out of the good band and The Parklands cautions that current can be swift with fewer landing beaches.',
+        'Water-quality and runoff concerns after storms in the Louisville metro watershed; avoid paddling after heavy rain or visible contamination.',
+      ],
+    },
+  },
+  'slate-creek-lions-club-old-slate-furnace': {
+    putIn: {
+      id: 'lions-club-park',
+      name: 'Lions Club Park carry-down access',
+      latitude: 38.1305,
+      longitude: -83.7665,
+    },
+    takeOut: {
+      id: 'old-slate-furnace-park',
+      name: 'Old Slate Furnace Park carry-down access',
+      latitude: 38.1148,
+      longitude: -83.7475,
+    },
+    logistics: {
+      distanceLabel: '3.7 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, fishing stops, or wood',
+      shuttle:
+        'Stage the take-out at Old Slate Furnace Park on KY 36 south of Owingsville, then drive back to the Lions Club / Kendall Springs Road access. Inspect the launch first because KDFWR notes a low-head dam at Lions Club Park and the downstream launch line uses the access below the dam.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed carry-down accesses, follow posted park and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short day trip. No camping plan is assumed between Lions Club Park and Old Slate Furnace Park, and banks away from public access areas should be treated as private unless clearly posted otherwise.',
+      summary:
+        'Launch from the Lions Club Park carry-down access below the low-head-dam area and take out 3.7 miles downstream at Old Slate Furnace Park. KDFWR gives a good Slate Creek boating and fishing band of 100 to 200 cfs.',
+      accessCaveats: [
+        'Lions Club Park sits by a low-head dam visible from the Kendall Springs Road bridge. Use the KDFWR-listed carry-down access below the dam and do not launch above the dam for this route.',
+        'Old Slate Furnace Park is a KDFWR carry-down site with unpaved parking, picnic tables, and a historic furnace. Land at the park access rather than spreading onto nearby banks.',
+        'KDFWR describes Slate Creek as shallow with abundant rock bars and water willow beds, so low water can turn this short float into a draggy creek walk.',
+        'KDFWR notes limited hours or event restrictions at Lions Club Park. Check same-day park access before leaving a shuttle vehicle.',
+      ],
+      watchFor: [
+        'Low-head-dam hydraulics and boils near Lions Club Park; stay below the dam for this segment and avoid fishing or scouting close to the structure.',
+        'Low water below 100 cfs, when rock bars, shallow shoals, and dragging become likely.',
+        'High water above 200 cfs, when KDFWR moves the creek out of the good band and current, wood, and landings deserve extra caution.',
+        'Woody debris, strainers, stained water, and quick rain response on this small creek.',
+        'Private-bank limits away from KDFWR access sites; use public parks and legal gravel-bar stops rather than climbing banks or yards.',
+      ],
+    },
+  },
+  'levisa-fork-cedar-creek-thompson-road': {
+    putIn: {
+      id: 'cedar-creek-canoe-access',
+      name: 'Cedar Creek Canoe Access',
+      latitude: 37.4802,
+      longitude: -82.5446,
+    },
+    takeOut: {
+      id: 'thompson-road-canoe-access',
+      name: 'Thompson Road Canoe Access',
+      latitude: 37.5096,
+      longitude: -82.5435,
+    },
+    logistics: {
+      distanceLabel: '3.0 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, wood, or a slow take-out',
+      shuttle:
+        'Stage the take-out at Thompson Road behind the Texas Roadhouse / nearby business area, then drive back to Cedar Creek under the KY 1384 bridge. Inspect both ramps before launching because Cedar Creek is a carry-down site and Thompson Road is the required take-out before the lower access gap.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public access sites, follow posted city and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short urban day trip. No camping plan is assumed between Cedar Creek and Thompson Road.',
+      summary:
+        'Launch at Cedar Creek Canoe Access and take out three miles downstream at Thompson Road Canoe Access for the short Pikeville / Hatfield-McCoy River Trail segment through the Cut-Through corridor. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs.',
+      accessCaveats: [
+        'Cedar Creek is a KDFWR carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
+        'Thompson Road is a KDFWR single-lane ramp with year-round availability, but land around the ramp is private or thickly vegetated; land at the signed access rather than spreading onto nearby banks.',
+        'KDFWR notes bank and wade fishing are limited at these sites because surrounding land is private, steep, rocky, or heavily vegetated. Stay with the documented public ramps and do not assume private-bank stops are allowed.',
+        'The app uses USGS 03209500 as the direct gauge. The official USGS inventory page was stale during review, so same-day live confirmation came from RiverApp text that says it imports this station from USGS Water Services.',
+      ],
+      watchFor: [
+        'Woody debris, root wads, strainers, and bridge approaches, especially after storms or release changes.',
+        'Low water below 800 cfs or 7.4 ft, when shallow shoals and dragging become more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the Pikeville reach out of the good band and swift current can make wood and landings dangerous.',
+        'Fishtrap Lake release changes and Russell Fork inflow upstream; do not treat a stable-looking ramp as a substitute for checking the gauge trend.',
+        'Private banks and urban corridor hazards; keep the trip to the named access points unless there is an emergency.',
+      ],
+    },
+  },
+  'elkhorn-creek-vpa-3-aw-access': {
+    putIn: {
+      id: 'elkhorn-creek-vpa-3',
+      name: 'Elkhorn Creek VPA #3',
+      latitude: 38.2517,
+      longitude: -84.8158,
+    },
+    takeOut: {
+      id: 'american-whitewater-elkhorn-acres',
+      name: 'American Whitewater / Elkhorn Acres Access',
+      latitude: 38.2676,
+      longitude: -84.8155,
+    },
+    logistics: {
+      distanceLabel: '2.6 mi',
+      estimatedPaddleTime: 'Short run; allow extra time for scouting, traffic, and access carries',
+      shuttle:
+        'Stage the take-out at the American Whitewater / Elkhorn Acres access downstream of Knight\'s Bridge, then drive back to Elkhorn Creek VPA #3 on KY 1900 / Peaks Mill Road. Both lots are small and unpaved, so keep the shuttle tight and avoid blocking signs, drives, or local traffic.',
+      permits:
+        'No route-specific paddling permit is known, but this route depends on posted access rules. VPA #3 is private land open through KDFWR Voluntary Public Access rules, and the American Whitewater access is for boating access, not general bank use.',
+      camping:
+        'No camping plan is assumed. VPA #3 rules prohibit camping, fires, alcohol, swimming, littering, ATVs, firearm discharge, and commercial use; treat this as a daylight-only day run.',
+      summary:
+        'Launch at KDFWR Elkhorn Creek VPA #3 and take out 2.6 miles downstream at the American Whitewater / Elkhorn Acres access. KDFWR gives a good boating band of 100 to 600 cfs at the Frankfort gauge, while American Whitewater frames the gorge as Class II with occasional Class III features.',
+      accessCaveats: [
+        'Elkhorn Creek VPA #3 is private property opened through KDFWR; continuing access depends on users following posted rules, daylight-hours limits, and boundary markers.',
+        'The American Whitewater / Elkhorn Acres take-out is a carry-down boating access with no bank or wade fishing; use the signed parking and do not spread onto neighboring private land.',
+        'KDFWR lists some nearby Elkhorn access sites as bank/wade-only with boats prohibited. Use only the named VPA #3 and American Whitewater access pair for this route.',
+        'The current app uses USGS 03289500 as the direct gauge. The local workspace could not fetch USGS Water Services during review, so same-day live confirmation came from RiverApp text that says it imports USGS Water Services data.',
+      ],
+      watchFor: [
+        'Class II ledges, wave trains, pushy bends, and occasional Class III moves in the Elkhorn Gorge.',
+        'Fast rises after rain, fresh wood, strainers, and limited eddies along private banks.',
+        'Low water below 100 cfs or 2.5 ft, when scraping and pinning risk increase.',
+        'High water above 600 cfs or 4.0 ft, when KDFWR moves the creek out of the good band and casual paddling judgment is not enough.',
+        'Respect private-bank boundaries and ordinary access limits; do not scout, picnic, or exit on private land away from documented access points unless there is an emergency.',
+      ],
+    },
+  },
+  'buffalo-river-ponca-kyles-landing': {
+    putIn: {
+      id: 'ponca-access',
+      name: 'Ponca access / Buffalo River at Ponca gauge corridor',
+      latitude: 36.0225,
+      longitude: -93.354722,
+    },
+    takeOut: {
+      id: 'kyles-landing',
+      name: "Kyle's Landing campground / river access",
+      latitude: 36.055756,
+      longitude: -93.2813,
+    },
+    logistics: {
+      distanceLabel: 'About 10.7 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, scouting, wood, or a side hike',
+      shuttle:
+        "Stage the take-out at Kyle's Landing, then drive back to Ponca. Roads in the Buffalo corridor can be steep, rough, or slow, and NPS warns that GPS can send visitors onto bad dirt roads. Check NPS access status, weather, and road conditions before leaving vehicles.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey campground and parking rules, and check whether any access, road, fire, or high-water closures are posted before launching.',
+      camping:
+        'Treat this as a committed day trip unless the group has a separate Buffalo backcountry plan. NPS allows backcountry camping on the river without a permit, but camps must still respect park rules, gravel-bar conditions, weather, and private/scenic-easement boundaries.',
+      summary:
+        "Launch at Ponca and take out at Kyle's Landing for the classic 10.7-mile upper Buffalo day through the Ponca Wilderness. Use the direct Ponca USGS gauge as a low-water check, and skip the route when the river is rising fast or above the NPS unsafe level.",
+      accessCaveats: [
+        'Ponca is a busy upper-district access area and the gauge is in the launch corridor. Make a visual low-water and wood check before committing.',
+        "Kyle's Landing is down a rural park road and can be slow to reach. Inspect the landing before launching and keep the shuttle conservative.",
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses a community-calibrated minimum-only threshold. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Class II shoals, sharp bends, swift current, wave trains, and cold-water swims on the upper Buffalo.',
+        'Fast rain rises, falling water after short rain windows, strainers, sweepers, fresh flood wood, and blind side channels.',
+        'Low water below about 130 cfs at Ponca, when dragging and missed lines become likely.',
+        'High water above the NPS 1,600 cfs Ponca unsafe level; do not treat that as appropriate private-boater water.',
+        'Limited or no cell service, remote rescue exposure, rough-road shuttle delays, and late-day darkness if the group adds side hikes.',
+      ],
+    },
+  },
+  'buffalo-river-pruitt-hasty': {
+    putIn: {
+      id: 'pruitt-launch',
+      name: 'Pruitt Landing / Highway 7 access',
+      latitude: 36.057666,
+      longitude: -93.135032,
+    },
+    takeOut: {
+      id: 'hasty-access',
+      name: 'Hasty river access / Chimney Rock Bluff take-out',
+      latitude: 36.008993,
+      longitude: -93.08242,
+    },
+    logistics: {
+      distanceLabel: 'About 6.8 to 7 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr at moderate water, longer with low water, wood, or stops',
+      shuttle:
+        'Stage the take-out at Hasty, then drive back to Pruitt Landing. NPS says shuttle time is about 25 minutes, but Buffalo access roads and parking can change with floods, rough gravel, congestion, or posted park direction. Inspect both accesses before launching.',
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Treat this as a day trip unless the group has a separate Buffalo backcountry plan. NPS allows backcountry camping on the river without a permit, but camps must still respect park rules, gravel-bar conditions, weather, and private/scenic-easement boundaries.',
+      summary:
+        'Launch at Pruitt Landing and take out at Hasty across from Chimney Rock Bluff for a 7-mile Buffalo National River day. Use the direct Pruitt USGS gauge as a low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.',
+      accessCaveats: [
+        'Pruitt is a busy Highway 7 access and NPS concession rules reference special handling when the Pruitt gauge is very low. Make a visual low-water and wood check before committing.',
+        'Hasty is the sandy river-right take-out across from Chimney Rock Bluff. It is a rural access with limited services; do not assume cell coverage or quick rescue response.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses a guarded minimum-only threshold from the NPS Float Guide bands. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift water, sharp bends, occasional obstacles, strainers, sweepers, and fresh flood wood.',
+        'The Little Buffalo River enters about halfway through the route and NPS says the river typically gains velocity from there.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or portage-like sections become likely.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Cold-water swims, remote rescue exposure, limited/no cell service, rough-road shuttle delays, and late-day darkness.',
+      ],
+    },
+  },
+  'buffalo-river-kyles-landing-pruitt': {
+    putIn: {
+      id: 'kyles-landing',
+      name: "Kyle's Landing campground / river access",
+      latitude: 36.055756,
+      longitude: -93.2813,
+    },
+    takeOut: {
+      id: 'pruitt-launch',
+      name: 'Pruitt Landing / Highway 7 access',
+      latitude: 36.057666,
+      longitude: -93.135032,
+    },
+    logistics: {
+      distanceLabel: 'About 13.2 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr, longer with low water, wood, scouting, or slow shuttle roads',
+      shuttle:
+        "Stage the take-out at Pruitt Landing, then drive back to Kyle's Landing. NPS access roads can be unpaved, rocky, slow, or unreliable for GPS navigation, and Kyle's Landing Road is a practical shuttle constraint. Inspect both accesses before launching.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Treat this as a committed day trip unless the group has a separate Buffalo backcountry plan. NPS allows backcountry camping on the river without a permit, but camps must still respect park rules, gravel-bar conditions, weather, and private/scenic-easement boundaries.',
+      summary:
+        "Launch at Kyle's Landing and take out at Pruitt for a long upper Buffalo day past Erbie and Ozark. Use the Pruitt USGS gauge as a downstream low-water check, and skip the route when the river is rising fast, very low, or above the NPS unsafe level.",
+      accessCaveats: [
+        "Kyle's Landing is a remote upper-district access reached by rough park road. Confirm road, parking, and landing conditions before committing to the shuttle.",
+        'Pruitt is a busy Highway 7 access with posted park and concession operations. Leave room for loading, trailers, and local traffic.',
+        'NPS says no road follows the river, access roads may be unpaved or rocky, and GPS can be unreliable in the park. Carry a real map and do not assume cell service.',
+        'This route uses the Pruitt gauge as a downstream corridor check with minimum-only scoring. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift Class I-II current, shoals, wave trains, sharp bends, side channels, and cold-water swims.',
+        'Fast rain rises, falling water after short rain windows, strainers, sweepers, fresh flood wood, and blind side channels.',
+        'Low water below about 100 cfs at Pruitt, when the Float Guide marks Pruitt very low and dragging or portage-like sections become likely.',
+        'High water above the NPS 2,000 cfs Pruitt unsafe level; do not treat flood or rising water as suitable private-boater conditions.',
+        'Long day mileage, limited/no cell service, remote rescue exposure, rough-road shuttle delays, and late-day darkness.',
+      ],
+    },
+  },
+  'kings-river-rockhouse-trigger-gap': {
+    putIn: {
+      id: 'rockhouse-access',
+      name: 'Rockhouse Access',
+      latitude: 36.269833,
+      longitude: -93.664,
+    },
+    takeOut: {
+      id: 'trigger-gap-private-access',
+      name: 'Trigger Gap / Kings River Outfitters private fee access',
+      latitude: 36.314833,
+      longitude: -93.6635,
+    },
+    logistics: {
+      distanceLabel: 'About 7.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, stops, or the bridge portage',
+      shuttle:
+        'Stage the take-out only after confirming Trigger Gap fee-access terms with the outfitter, then drive back to Rockhouse Access. Rockhouse is reached by gravel county-road access, and Trigger Gap sits off Highway 221 / CR 509; verify both landings, parking, and shuttle timing before launching.',
+      permits:
+        'No route-specific public paddling permit is known, but the take-out is private fee access. Pay posted access or parking fees, make arrangements before leaving a vehicle, follow Arkansas boating and PFD rules, and respect smallmouth bass regulations if fishing.',
+      camping:
+        'Treat this as a day trip. Gravel bars may look inviting, but AGFC and TNC emphasize private-property boundaries along the Kings corridor; do not camp or climb banks away from legal public or arranged access unless there is an emergency.',
+      summary:
+        'Launch at AGFC-owned Rockhouse Access and take out at the private Trigger Gap access for a 7.7-mile Kings River day through the preserve corridor. Use the Berryville USGS gauge as a conservative low-water stage check, then make a same-day visual call at Rockhouse.',
+      accessCaveats: [
+        'Rockhouse is public AGFC access just upstream from the Kings River Preserve, but the road is mostly gravel and same-day parking or launch conditions can change.',
+        'Trigger Gap is a private fee access associated with Kings River Outfitters / Trigger Gap-area outfitters. Do not assume unpaid parking, after-hours access, or public-bank use.',
+        'Much of the Kings River flows through private property. Stay on the water, gravel bars, and arranged access corridors; avoid posted, fenced, purple-painted, or developed private banks.',
+        'The 3.2 ft threshold is a local route-guide minimum, not an official AGFC paddling band. The app does not claim an ideal range or high-water cutoff.',
+      ],
+      watchFor: [
+        'Shallow gravel riffles and dragging when the Berryville gauge is near or below about 3.2 ft.',
+        'A low-water bridge near the end of the route; local guidance recommends portaging on river left for safety.',
+        'Fast rises after Ozark storms, rising water, fresh wood, strainers, and pushy bends against bluffs or gravel bars.',
+        'Private-bank limits, fee-access rules at Trigger Gap, limited cell coverage, rural shuttle roads, and seasonal hunting activity near AGFC lands.',
+        'Long pools, hot-weather slowdowns, afternoon storms, and late-day darkness if the group spends too long swimming or fishing.',
+      ],
+    },
+  },
+  'buffalo-river-tyler-bend-gilbert': {
+    putIn: {
+      id: 'tyler-bend-river-access',
+      name: 'Tyler Bend river access',
+      latitude: 35.986715,
+      longitude: -92.763903,
+    },
+    takeOut: {
+      id: 'gilbert-access',
+      name: 'Gilbert river access',
+      latitude: 35.987738,
+      longitude: -92.715563,
+    },
+    logistics: {
+      distanceLabel: 'About 5.4 to 5.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 4 hr at moderate water, longer with low water, crowds, or stops',
+      shuttle:
+        "Stage the take-out at Gilbert, then drive back to Tyler Bend. Grinder's Ferry is an optional short take-out about a mile downstream of Tyler Bend, but this route assumes the full middle-district day to Gilbert. Check NPS access status, parking, and posted launch restrictions before leaving vehicles.",
+      permits:
+        'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
+      camping:
+        'Treat this as a day trip. NPS allows backcountry camping on the Buffalo under park rules, but this short middle-district reach is normally planned as a daylight float with vehicles staged at established accesses.',
+      summary:
+        'Launch at Tyler Bend and take out at Gilbert for the popular 5.5-mile middle Buffalo float. Use the St. Joe USGS gauge as a conservative low-water check, and skip the route when water is rising fast or already in high/flood-stage bands for casual groups.',
+      accessCaveats: [
+        'NPS says Tyler Bend has two launch areas. The upper launch may be reserved for concession operations during busy-season hours, and the lower launch is loading/unloading only with parking up at the picnic area.',
+        'Gilbert is a rural river access on a gravel bar. Inspect the take-out before launching and avoid blocking local traffic, outfitter operations, or posted areas.',
+        'NPS says access roads may be unpaved, rocky, or unreliable for GPS navigation, and no road follows the river. Carry a real map and do not assume cell service.',
+        'This route uses a community-calibrated minimum-only threshold from MOHERP, supported by NPS route/access evidence and AW reach matching. It is not a full ideal-range recommendation.',
+      ],
+      watchFor: [
+        'Swift Class I-II current, wave trains, sharp bends, and pushier water when the St. Joe gauge is high or rising.',
+        'Strainers, sweepers, fresh flood wood, undercut banks, and blind side channels after Ozark storms.',
+        'Low water below about 120 cfs at St. Joe, when dragging and shortened plans become likely.',
+        'High water around and above 2,000 cfs at St. Joe; MOHERP labels this potentially dangerous for young or inexperienced paddlers, and flood-stage water should be avoided for casual trips.',
+        'Crowded peak-season access, tubing traffic near Tyler Bend / Grinder\'s Ferry, limited cell coverage, cold-water swims, and late-day darkness if the group lingers on gravel bars.',
+      ],
+    },
+  },
+  'cossatot-river-ed-banks-highway-278': {
+    putIn: {
+      id: 'ed-banks-access',
+      name: 'Ed Banks Access / low-water bridge',
+      latitude: 34.33975,
+      longitude: -94.25069,
+    },
+    takeOut: {
+      id: 'highway-278-cossatot-access',
+      name: 'Highway 278 Access / Cossatot State Park corridor',
+      latitude: 34.29388,
+      longitude: -94.17704,
+    },
+    logistics: {
+      distanceLabel: 'About 6 to 6.4 mi',
+      estimatedPaddleTime:
+        'Expert whitewater run; allow extra time for scouting, portages, rescue margin, and rough-road shuttle delays',
+      shuttle:
+        'Stage the take-out at the Highway 278 access corridor, then drive rough park/forest roads back to Ed Banks Access. Arkansas State Parks says Weyerhaeuser roads are used for timber hauling and signs guide visitors to interior river access points; inspect road, bridge, and parking conditions before leaving vehicles.',
+      permits:
+        'No private paddling permit is known for a normal day run, but this is managed park-natural-area land. Follow Arkansas State Parks rules, carry required whitewater safety gear, wear PFDs, use helmets, obey glass/container and bridge-parking rules, and check current stage, weather, and park guidance before launching.',
+      camping:
+        'Treat this as a committed day run unless the group has a separate park camping plan. Arkansas State Parks lists primitive camping at Ed Banks, Sandbar, Cossatot Falls, and U.S. 278 access areas, but this route should not depend on unplanned overnight stops or private-bank exits.',
+      summary:
+        'Launch at Ed Banks Access and take out at the Highway 278 access for the Cossatot Falls Section. This is not a casual float: use the USGS Vandervoort / Hwy 246 stage as a same-day decision point and skip the run when the river is below the rocky floor, above the expert cutoff, rising fast, or outside the group skill set.',
+      accessCaveats: [
+        'Ed Banks and the interior access roads are rough, remote, and subject to rain, flood, low-water-bridge, and timber-hauling conditions. Do not assume low-clearance vehicles can reach the launch after wet weather.',
+        'The Highway 278 take-out is the required exit for this route. Confirm the landing, parking, and route back to the vehicle before launching.',
+        'Arkansas State Parks warns not to drive across low-water bridges during high water and prohibits parking on bridges.',
+        'Endpoint coordinates are practical access-area anchors from public map and park/natural-area records, not survey-grade launch points. Make a same-day visual access check.',
+      ],
+      watchFor: [
+        'Class III-IV+ rapids, ledge holes, steep drops, pin rocks, sieves, undercuts, hydraulics, and the six-drop Cossatot Falls sequence.',
+        'The Esses, Cossatot Falls, Deer Camp Rapid, Devil Hollow Rapid, Devil Hollow Falls, and Sandbar Bridge low-clearance/hydraulic hazards.',
+        'Low water below about 3.3 ft at the Hwy 246 / Vandervoort gauge, when the route becomes rocky, technical, and boat-damaging.',
+        'High water around 5.4 ft and above, when Arkansas State Parks describes high/expert conditions and American Whitewater notes large holes and merged drops.',
+        'Fast rain rises, tributary inflow below the gauge, fresh wood, cold-water swims, limited cell service, remote rescue exposure, and no-solo consequences.',
+      ],
+    },
+  },
+  'mulberry-river-redding-turner-bend': {
+    putIn: {
+      id: 'redding-recreation-area',
+      name: 'Redding Recreation Area canoe launch',
+      latitude: 35.68282778,
+      longitude: -93.78651111,
+    },
+    takeOut: {
+      id: 'turner-bend-landing',
+      name: 'Turner Bend landing / Highway 23 bridge',
+      latitude: 35.671667,
+      longitude: -93.829444,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 to 4 mi',
+      estimatedPaddleTime:
+        'Short whitewater run; allow extra time for scouting, wood, access fees, and shuttle coordination',
+      shuttle:
+        'Stage the take-out only after confirming Turner Bend access, parking, wristband, and shuttle terms, then drive back to Redding Recreation Area. Inspect both landings before launching because high water, crowds, private-access rules, and rough forest roads can change the plan.',
+      permits:
+        'No route-specific private paddling permit is known, but both endpoints have access terms. Pay Forest Service day-use fees at Redding when required, buy Turner Bend access or parking permissions before using its landing, follow Arkansas boating and PFD rules, and check current weather, stage, and trend before launching.',
+      camping:
+        'Treat this as a short day run unless the group has a separate legal camping plan. Redding has Forest Service campground facilities and Turner Bend has private campground options, but do not depend on unplanned riverbank camping or private-bank exits.',
+      summary:
+        'Launch at the Forest Service Redding Recreation Area and take out at the private-fee Turner Bend landing for a short Mulberry River whitewater run. Use the downstream USGS Mulberry gauge as the Paddle Today scoring source, then make a same-day visual call at Redding and Turner Bend.',
+      accessCaveats: [
+        'Redding Recreation Area is an official Forest Service river access with a rock canoe launch and day-use fees, but road, parking, and flood cleanup conditions can still vary.',
+        'Turner Bend is a private-fee landing. Private boaters need current access wristbands, parking permits, or shuttle arrangements; do not assume unpaid or after-hours landing use.',
+        'The route uses the USGS Mulberry River near Mulberry stage range published by American Whitewater. Turner Bend also publishes a local staff-gauge ladder, but Paddle Today does not treat that as the live product gauge.',
+        'The take-out coordinate is a practical Highway 23 / Turner Bend bridge corridor anchor. Confirm the signed Turner Bend landing and loading rules before launching.',
+      ],
+      watchFor: [
+        'Class I-III rapids, wave trains, sharp bends, rocks, ledges, and pushy current when the river is up.',
+        'Low water below about 1.55 ft at the USGS gauge, when scraping, dragging, and pinning risk increase.',
+        'High water around and above 6.0 ft at the USGS gauge, outside the American Whitewater runnable envelope used by Paddle Today.',
+        'Fast rises after Ozark storms, fresh wood, strainers, muddy water, cold swims, and limited cell service in the forest corridor.',
+        'Private-access limits at Turner Bend, busy spring weekends, rural shuttle delays, and late-day darkness if the group waits on access logistics.',
+      ],
+    },
+  },
+  'ouachita-river-remmel-whitewater-park': {
+    putIn: {
+      id: 'remmel-dam-tailrace-access',
+      name: 'Remmel Dam tailrace / below-dam river access',
+      latitude: 34.426111,
+      longitude: -92.890833,
+    },
+    takeOut: {
+      id: 'ouachita-river-whitewater-park',
+      name: 'Ouachita River Whitewater Park / Rockport',
+      latitude: 34.39427,
+      longitude: -92.84158,
+    },
+    logistics: {
+      distanceLabel: 'About 5.9 to 6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4 hr during normal recreation releases, longer at low scrape-through flows or with take-out congestion',
+      shuttle:
+        'Stage the take-out at Ouachita River Whitewater Park, 904 Riverview Drive in Malvern, then drive back toward the Remmel Dam access. Entergy says the floating entrance is a boat ramp near the dam through the gate just past the operations entrance at 170 Remmel Dam Road, and its safety page also lists Ouachita River Access Below Remmel Dam at 489 McGuire Road. Follow current signs, gates, parking marks, and any Entergy access changes on arrival.',
+      permits:
+        'No route-specific private paddling permit is known for normal private use, but this is a dam-release corridor with posted access rules. Follow Entergy signs, Arkansas boating and PFD rules, no-glass and litter rules, park rules at the Whitewater Park, and any current release or closure notices.',
+      camping:
+        'Treat this as a daylight day trip. Entergy closes the Remmel Dam tailrace gate nightly and has specifically acted against unauthorized camping below the dam because water can rise rapidly during storms or operations.',
+      summary:
+        'Launch below Remmel Dam and take out at Ouachita River Whitewater Park for the standard Rockport / Malvern float. Use the Remmel Dam USGS gauge, Entergy release guidance, and same-day weather before launching, and make an active left-bank take-out plan before Rockport Ledge and the I-30 bridge.',
+      accessCaveats: [
+        'The put-in coordinate is a practical Remmel Dam gauge/access-area anchor, not a survey-grade boat-ramp point. Use Entergy signs and the posted gate/parking layout to find the active launch.',
+        'The Remmel Dam gate closes nightly at 10 p.m.; retrieve vehicles before the gate closes and do not depend on overnight access.',
+        'Entergy says some navigation apps may misroute users near Remmel Dam. From I-30, use Exit 98B / Highway 270 toward Hot Springs and confirm the signed dam access in daylight.',
+        'At the take-out, Entergy says to move to the left bank when the I-30 bridge comes into view. The boat ramp is on the left after the rapid but before the bridge; missing it can leave paddlers fighting current back upstream.',
+      ],
+      watchFor: [
+        'Rockport Ledge at the take-out, including chutes that can flip, pin, or swamp canoes and the far-right Lion\'s Den / Tiger hazard.',
+        'Dam-release changes, strong current, undertows, cold tailwater, sirens or warning signs, and fast water-level changes from weather or power operations.',
+        'Flows near 200-500 cfs may be kayakable but scrape-through and slow. Entergy says lower than about 3,200 cfs can be too low for an enjoyable tube float.',
+        'Flows above 4,000 cfs are outside Entergy\'s floating recommendation; skip the route if water is above the group skill set, rising quickly, or affected by storm runoff.',
+        'Crowded summer release windows, tubers tied together, swimmers at the Whitewater Park, rocks, slippery exits, limited rescue margin at the ledge, and late-day darkness.',
+      ],
+    },
+  },
+  'big-south-fork-burnt-mill-leatherwood': {
+    putIn: {
+      id: 'burnt-mill-bridge',
+      name: 'Burnt Mill Bridge access on Clear Fork',
+      latitude: 36.38,
+      longitude: -84.62,
+    },
+    takeOut: {
+      id: 'leatherwood-ford',
+      name: 'Leatherwood Ford access / USGS gauge corridor',
+      latitude: 36.477391,
+      longitude: -84.669351,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'Full gorge day; allow extra time for scouting, portage decisions, rescue margin, and the flatwater finish',
+      shuttle:
+        'Stage the take-out at Leatherwood Ford, then drive to Burnt Mill Bridge. NPS access roads include rural, steep, or gravel sections; check park alerts, weather, road condition, daylight, and whether every paddler is qualified for Class III-IV gorge water before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known for this normal Big South Fork day run. Follow NPS rules, carry required safety gear, check park closures or access alerts, and obey any posted restrictions at Burnt Mill Bridge, O&W, and Leatherwood Ford.',
+      camping:
+        'Treat this as a committed day run unless the group has a separate NPS backcountry plan. Do not assume easy bailout camping; the gorge has limited access and private or managed boundaries away from documented public corridors.',
+      summary:
+        'Launch at Burnt Mill Bridge on Clear Fork and take out at Leatherwood Ford for the classic Big South Fork gorge extension. Use the Leatherwood Ford USGS gauge, and skip the route when the water is below the rocky floor, above the high cutoff, rising quickly, or outside the group skill set.',
+      accessCaveats: [
+        'NPS publishes access directions for Burnt Mill Bridge and Leatherwood Ford, but this is still a remote gorge shuttle with limited exits and steep terrain.',
+        'Leatherwood Ford is the planned take-out and has the direct USGS gauge corridor; do not drift past the take-out without a separate downstream plan.',
+        'O&W Bridge and Pine Creek are potential intermediate access or emergency reference points, but they should not be treated as easy rescue substitutes.',
+        'Check NPS park alerts before launching. Big South Fork access, roads, trailheads, or river corridors can close after storms, floods, maintenance, or emergency conditions.',
+      ],
+      watchFor: [
+        'Class III-IV gorge rapids, undercut sandstone, sieves, hydraulics, pin rocks, ledges, and long pools that can slow the trip.',
+        'Very low water below about 500 cfs, when the NPS descriptions call the gorge technical and rocky with pinning potential.',
+        'Powerful water above about 3,500 cfs, when rescue gets difficult and waves, boils, whirlpools, and continuous current become much more consequential.',
+        'Fast rain rises on Cumberland Plateau streams; NPS documents dramatic rises after heavy precipitation and warns water can rise rapidly with little warning.',
+        'Strainers, fresh flood wood, cold-water swims, limited cell service, remote rescue exposure, and steep walk-outs.',
+      ],
+    },
+  },
+  'pigeon-river-waterville-hartford': {
+    putIn: {
+      id: 'waterville-big-creek-bridge',
+      name: 'Waterville / Big Creek bridge put-in',
+      latitude: 35.775461,
+      longitude: -83.099988,
+    },
+    takeOut: {
+      id: 'hartford-bridge',
+      name: 'Hartford Bridge public take-out',
+      latitude: 35.81309,
+      longitude: -83.144993,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr for competent whitewater groups during release water, longer with scouting, traffic, or changed post-Helene lines',
+      shuttle:
+        'Stage the take-out at Hartford Bridge, then drive to the current Waterville / Big Creek bridge put-in just off the Waterville exit. American Whitewater says the normal powerhouse-area access remains affected by roadwork, so use current signs, construction limits, and local river-control direction on arrival.',
+      permits:
+        'No route-specific private paddling permit is known, but this is a dam-release whitewater corridor with active construction and commercial outfitter traffic. Confirm Duke Energy release timing, respect any Forest Service, roadwork, outfitter, or river-control restrictions, and carry whitewater safety gear.',
+      camping:
+        'Treat this as a short whitewater day run. Do not camp or stage on construction, outfitter, private, or roadside areas unless clearly posted for public use.',
+      summary:
+        'Launch at the current Waterville / Big Creek bridge put-in and take out at Hartford Bridge for the upper Pigeon Gorge. Use USGS 03460795 and the active release schedule, and treat American Whitewater post-Helene notes as required pre-trip reading.',
+      accessCaveats: [
+        'American Whitewater says the 2026 put-in is at the bridge just off the Waterville exit rather than farther upstream near the powerhouse until roadwork is finished and the upper access area is reestablished.',
+        'Parking is limited and the corridor has ongoing construction impacts. Do not block work areas, commercial outfitters, emergency access, or narrow road shoulders.',
+        'Hartford Bridge is the planned take-out. Confirm the public take-out field/ramp and vehicle plan before launching, especially during busy release windows.',
+        'This route starts in North Carolina and ends in Tennessee; make sure every paddler understands the shuttle, release timing, and no-go alternatives before leaving vehicles.',
+      ],
+      watchFor: [
+        'Class II-III+ big-water rapids, holes, ledges, wave trains, changing surf waves, and stronger moves around Lost Guide, Double Reactionary, and Accelerator.',
+        'Post-Helene changes: shifted rocks, new holes, changed banks, construction material, metal/debris near banks, strainers, and evolving lines.',
+        'Dam-release timing and sudden changes. The gauge can look different before release water reaches the route or after generation changes.',
+        'Commercial raft traffic, limited eddies, swimmers, cold water, and difficult rescue in pushy current.',
+        'Flows outside American Whitewater\'s runnable range, rising water, storms, or any current access closure or construction restriction.',
+      ],
+    },
+  },
+  'pigeon-river-hartford-denton': {
+    putIn: {
+      id: 'hartford-bridge',
+      name: 'Hartford Bridge put-in',
+      latitude: 35.817671,
+      longitude: -83.144967,
+    },
+    takeOut: {
+      id: 'denton-greasy-cove',
+      name: 'Denton / Greasy Cove lower take-out',
+      latitude: 35.844291,
+      longitude: -83.186483,
+    },
+    logistics: {
+      distanceLabel: 'About 4.8 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr depending on release timing, traffic, scouting, and group skill',
+      shuttle:
+        'Stage the lower take-out near Greasy Cove / Denton, then drive back to the Hartford Bridge put-in. American Whitewater notes the put-in is river right just upstream of Hartford Bridge and says release water may take about 1 to 1.5 hours to arrive from the Waterville powerhouse.',
+      permits:
+        'No route-specific private paddling permit is known. Use public access areas, get permission before using outfitter property, follow Tennessee boating rules, and carry appropriate whitewater safety gear.',
+      camping:
+        'Treat this as a short day run. Do not camp or leave vehicles on outfitter, private, or roadside property unless it is clearly permitted.',
+      summary:
+        'Launch at Hartford Bridge and take out near Denton / Greasy Cove for the lower Pigeon. Use the Waterville USGS gauge and current release schedule, with extra caution around ledges and Maytag at higher water.',
+      accessCaveats: [
+        'American Whitewater says to make sure you have permission before parking at an outfitter and, at the take-out, to park near the bridge.',
+        'The Hartford Bridge access is also the upper-run take-out and can be busy during release windows. Keep staging compact and leave room for commercial traffic and emergency vehicles.',
+        'The lower take-out is on river right a few hundred feet after the Greasy Cove bridge. Identify it before launching so the group does not miss the exit.',
+        'Release water takes time to reach Hartford. Do not launch on a dry-looking river without confirming the schedule and expected arrival window.',
+      ],
+      watchFor: [
+        'Class I-II ledge drops, Class II+ ledges, fast shoals, holes, rocks, and Maytag at Class II(III).',
+        'Higher-water holes around the ledges and Maytag, especially above about 2,000 cfs where American Whitewater notes stronger features.',
+        'Bridge supports, commercial rafts, swimmers, mixed-skill private groups, and broad channels where rescue can be harder than the grade suggests.',
+        'Dam-release timing mismatches, sudden generation changes, storms, and any access restriction or river-control instruction.',
+        'Low water below American Whitewater\'s runnable range, which can expose ledges and make the route scrape, pin, or strand boats.',
+      ],
+    },
+  },
+  'south-chickamauga-creek-shallowford-sterchi': {
+    putIn: {
+      id: 'shallowford-road',
+      name: 'Shallowford Road canoe/kayak launch',
+      latitude: 35.049,
+      longitude: -85.214,
+    },
+    takeOut: {
+      id: 'sterchi-farm-park',
+      name: 'Sterchi Farm Park public boat launch',
+      latitude: 35.084,
+      longitude: -85.226,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr in normal levels, longer with low-water scraping, wood, or Tennessee River backwater',
+      shuttle:
+        'Stage the take-out at Sterchi Farm Park, then drive back to the Shallowford Road canoe/kayak launch. Use the signed public launches and current greenway/park parking areas, and check same-day access notices because nearby greenway, stormwater, or wastewater work can affect trail sections and approaches.',
+      permits:
+        'No route-specific private paddling permit is known for this public blueway route. Follow City of Chattanooga and Tennessee boating rules, carry required PFDs, obey posted park hours and launch signs, and skip the route if any access is closed or restricted.',
+      camping:
+        'Treat this as a daylight urban day trip. Do not camp on greenway, park, industrial, or private banks, and use only public launch and take-out areas for access.',
+      summary:
+        'Launch at Shallowford Road and take out at Sterchi Farm Park for a short South Chickamauga Creek blueway trip through the Chattanooga greenway corridor. Use the South Chickamauga near Chickamauga USGS gauge as the direct same-day check and keep the decision conservative after rain.',
+      accessCaveats: [
+        'Outdoor Chattanooga lists Shallowford Road to Sterchi Farm as a recommended paddle, but this is still an urban creek corridor with bridges, industrial edges, private banks, and changing debris.',
+        'Sterchi Farm Park is the planned take-out. Do not drift downstream toward the Tennessee River without a separate plan for backwater, current, river traffic, and a confirmed downstream landing.',
+        'The lower creek can be affected by Chickamauga Dam releases and Tennessee River backwater. The gauge is direct for South Chickamauga, but same-day visual judgment at the launch still matters.',
+        'Check Chattanooga greenway and park notices before committing to the shuttle, especially during stormwater, sewer-overflow reduction, trail, or access construction work.',
+      ],
+      watchFor: [
+        'Low water below about 180 cfs, when shallow bars and scraping become likely.',
+        'Fast rises after rain, stormwater runoff, sewer-overflow/water-quality concerns, floating trash, broken glass, and industrial corridor debris.',
+        'Strainers, fresh wood, bridge debris, tight bends, and swift current that can surprise casual paddlers even on a short route.',
+        'High or rising water, thunderstorms, poor visibility, cold water, and any posted flooding or sanctuary/access closure upstream or downstream.',
+        'Private banks and greenway users near launches; keep staging compact, use public access points only, and leave room for other trail and park users.',
+      ],
+    },
+  },
+  'drakes-creek-romanza-johnson-phil-moore': {
+    putIn: {
+      id: 'romanza-johnson-park',
+      name: 'Romanza Johnson Park creek access',
+      latitude: 36.873116,
+      longitude: -86.372368,
+    },
+    takeOut: {
+      id: 'phil-moore-park',
+      name: 'Phil Moore Park carry-down access',
+      latitude: 36.8954,
+      longitude: -86.3807,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr depending on water level, current, wood, and stops',
+      shuttle:
+        'Stage the take-out at Phil Moore Park, then drive to Romanza Johnson Park. Both parks close at dark, and Warren County warns vehicles left unattended may be locked in until morning, so leave a conservative daylight margin.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public park accesses, follow Warren County park rules and Kentucky boating/PFD requirements, and obey any flag-system, weather, or access warnings.',
+      camping:
+        'Treat this as a daylight county-park float. No camping is known at the access parks for this route.',
+      summary:
+        'Launch at Romanza Johnson Park on Trammel Fork and take out at Phil Moore Park on Drakes Creek for a common Warren County Blueways trip. Use the Drakes Creek near Alvaton USGS gauge as the same-day water check.',
+      accessCaveats: [
+        'Romanza Johnson Park and Phil Moore Park close at dark; do not leave the take-out vehicle past posted hours.',
+        'The Romanza ford hydraulic is dangerous when water flows over the ford. Avoid the downstream side and skip the route if the ford or current looks wrong.',
+        'Phil Moore Park has more than one carry-down/landing area. Make sure the group agrees on the exact take-out before launching.',
+        'County flag information is helpful but does not replace USGS gauge, weather, flood, and same-day visual checks.',
+      ],
+      watchFor: [
+        'Low water below about 100 cfs, when dragging over shoals becomes likely.',
+        'Strainers, downed trees, rocks, brush piles, and collected debris between islands or bends.',
+        'Romanza ford hydraulic, swift current after rain, high or rising water, and thunderstorms.',
+        'Park users, anglers, private-adjacent banks, and limited legal stops outside public access areas.',
+        'Water-quality concerns after storms and any county, weather-service, or emergency-management warnings.',
       ],
     },
   },

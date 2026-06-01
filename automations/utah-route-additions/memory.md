@@ -19,6 +19,161 @@ Use this file to avoid retrying the same blocked Utah routes unless new evidence
 
 ## Run Notes
 
+- 2026-05-31 07:47 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, 360 cfs medium-runnable context, and May 2026 trip-report context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+  - Current run time before return: 2026-05-31 07:47 America/Chicago.
+
+- 2026-05-31 07:16 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and recent May 2026 trip-report context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private right-of-way dispute context. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetches for `10132000` and comparison `09234500` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+  - Current run time before return: 2026-05-31 07:16 America/Chicago.
+
+- 2026-05-31 06:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private right-of-way dispute context. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+  - Current run time before return: 2026-05-31 06:40 America/Chicago.
+
+- 2026-05-31 06:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private right-of-way dispute context. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+  - Current run time before return: 2026-05-31 06:10 America/Chicago.
+
+- 2026-05-31 05:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Current run time before return: 2026-05-31 05:40 America/Chicago.
+
+- 2026-05-31 05:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Current run time before return: 2026-05-31 05:10 America/Chicago.
+
+- 2026-05-31 04:39 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 remains material boundary/right-of-way dispute context for the Taggarts takeout. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetches for `10132000` and comparison `09234500` both failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 04:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private boundary and public-right-of-way dispute context around the Taggarts takeout. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Search-visible USGS context for `10132000` was mixed/stale and the product Water Services confirmation remains unresolved.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 03:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and fresh search-visible 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private boundary and public-right-of-way dispute context around the Taggarts takeout. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 03:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current 360 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. Utah Commerce Advisory Opinion 286 still documents county/private boundary and public-right-of-way dispute context around the Taggarts takeout. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetches for `10132000` and comparison `09234500` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 02:39 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current 360 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, with limited parking and congestion. No new manager/AW/GIS coordinate authority surfaced for the Taggarts river-right take-out.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 02:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater/search-visible evidence still supports the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current 360 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp. Utah Commerce Advisory Opinion 286 still documents county/private boundary and right-of-way dispute context around the takeout.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+
+- 2026-05-31 01:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current 360 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp. Utah Commerce Advisory Opinion 286 still documents county/private boundary and right-of-way dispute context around the takeout. Supplemental coordinate or direction leads remain below the authority needed for this private-bank-sensitive corridor.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 01:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current runnable context around 275-308 cfs.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp. Utah Commerce Advisory Opinion 286 still documents county/private boundary and right-of-way dispute context around the takeout. Supplemental Outbound/RiverBrain coordinate or direction leads remain below the authority needed for this private-bank-sensitive corridor.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 00:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out below Taggarts Falls, Croyden bridge/portage, private-property/low-bridge/high-flow caveats, and current 308 cfs medium-runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp. Supplemental Outbound coordinates and RiverBrain directions were reviewed but are not enough authority for this private-bank-sensitive corridor.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, a generic Taggarts locality, or non-authoritative recreation pins.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-31 00:10 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, private-property/low-bridge/high-flow caveats, and current runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit rather than an officially established boat ramp. Utah Commerce Advisory Opinion 286 remains material because it documents county/private boundary and right-of-way dispute context around the takeout.
+  - Workspace USGS Water Services IV fetch for `10132000` again failed unable to connect from this runtime.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, the supplemental Outbound coordinate, or a generic Taggarts locality.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
+- 2026-05-30 23:40 America/Chicago: Conservative no-add pass.
+  - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
+  - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.
+  - Rechecked `ut-weber-river-henefer-taggarts`. American Whitewater still documents the exact 5-mile Class II(III) reach, Echo gauge relationship, Henefer put-in, Taggarts take-out, Croyden bridge/portage, Taggarts Falls, private-property/low-bridge/high-flow caveats, and current runnable context.
+  - Utah WRI still describes the Taggarts take-out as county-owned old highway off the Taggart Exit, not an officially established boat ramp, with limited/congested parking and unclear unified rules. Prior Utah Commerce Advisory Opinion 286 context still documents county/private boundary and right-of-way dispute context around the Taggart takeout.
+  - Workspace USGS Water Services IV fetches for `10132000` and the already-live Green River `09234500` again failed unable to connect from this runtime.
+  - No route was added. Kept the ledger status for `ut-weber-river-henefer-taggarts` as `needs_manual_coordinates`. Do not ship from inferred river-line coordinates, the supplemental Outbound coordinate, or a generic Taggarts locality.
+  - Validation: ledger JSON parse passed and `git diff --check` passed with line-ending warnings only. No npm validation was run because no app route code changed.
+
 - 2026-05-30 23:10 America/Chicago: Conservative no-add pass.
   - Reconciled live inventory and confirmed the only Utah route remains `green-river-flaming-gorge-dam-little-hole`. No duplicate was added.
   - Rechecked Utah DWR stream-access guidance, still last updated March 10, 2026. Weber remains sensitive around lawful access points, floating without stopping, private beds/banks, public access points, and the upper Weber special case.

@@ -13,10 +13,11 @@ export function sendStatic(response: ServerResponse, filePath: string, includeBo
 
   if (!includeBody) {
     response.end();
-    return;
+    return response;
   }
 
   createReadStream(filePath).pipe(response);
+  return response;
 }
 
 export function resolveStaticFile(pathname: string, rootDir: string): string | null {
