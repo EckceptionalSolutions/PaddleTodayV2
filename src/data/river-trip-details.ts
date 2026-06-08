@@ -6047,6 +6047,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'eleven-point-river-riverton-narrows': {
+    putIn: {
+      name: 'Riverton East River Access / Highway 160',
+      latitude: 36.649183,
+      longitude: -91.199614,
+    },
+    takeOut: {
+      name: 'Highway 142 River Access / The Narrows',
+      latitude: 36.550194,
+      longitude: -91.191532,
+    },
+    logistics: {
+      distanceLabel: 'About 8 to 8.7 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, stops, wind, and wood',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Riverton East at Highway 160 and Highway 142 River Access. The take-out is the last Forest Service access in the National Scenic River corridor, so inspect it before launching and do not plan on drifting past it without a separate downstream plan.',
+      permits:
+        'No route-specific private paddling permit is known. Follow Mark Twain National Forest access rules, day-use restrictions, no-glass/no-polystyrene river rules, Missouri boating rules, and posted parking signs.',
+      camping:
+        'Treat this as a day trip unless you have a separate legal camping plan. The Forest Service prohibits overnight camping in day-use access areas; Morgan Spring and other float-camp or dispersed options have separate rules.',
+      summary:
+        'Launch at Riverton East and take out at Highway 142 / The Narrows for the lower Eleven Point day float. Use the Bardley USGS gauge as a conservative low-water check and keep extra margin for the full-day distance, cold water, shoals, and limited developed exits.',
+      accessCaveats: [
+        'Riverton East and Highway 142 are official Forest Service river accesses with published coordinates, ramps, parking, and day-use rules.',
+        'Highway 142 / Narrows is the last access on the southern end of the Eleven Point National Scenic River Area. Missing it pushes the trip toward Myrtle or Arkansas and changes the route plan.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow shoals and slower travel when the Bardley gauge falls near the 300 cfs floor.',
+        'Snags, root wads, trees, fresh flood wood, blind bends, and cold-water swims on a full-day lower-river reach.',
+        'Rapid rises after rain, thunderstorms, limited developed bailouts, and motorized users under the 25 hp limit upstream from The Narrows.',
+      ],
+    },
+  },
   'north-fork-white-river-north-fork-blair': {
     putIn: {
       name: 'North Fork Recreation Area / Hammond Camp',
@@ -6114,6 +6148,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Blair Bridge current, old bridge-pier remnants, swift riffles, root wads, fresh wood, and strainers on outside bends.',
         'Dawt Mill Dam, the low-water bridge at Dawt, and possible Norfork Lake backwater effects near the lower end of the reach.',
         'High or rising water after rain, when the dam, bridge, strainers, and resort landing become much less forgiving.',
+      ],
+    },
+  },
+  'pomme-de-terre-river-outlet-cross-timbers': {
+    putIn: {
+      name: 'Outlet Park / Outlet Boat Ramp',
+      latitude: 37.906056,
+      longitude: -93.328917,
+    },
+    takeOut: {
+      name: 'Cross Timbers Access',
+      latitude: 38.020623,
+      longitude: -93.303582,
+    },
+    logistics: {
+      distanceLabel: 'About 13.6 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr when releases are in the USACE floating window, longer with low water, wind, stops, or debris',
+      shuttle:
+        'Use a two-car shuttle between Outlet Park below Pomme de Terre Dam and Cross Timbers Access off Route Y and County Road 281. Inspect Cross Timbers first because it is a rural gravel-road access and flood debris, lake backwater, or high releases can change the landing.',
+      permits:
+        'No route-specific private paddling permit is known. Follow MDC area rules at Hermitage and Cross Timbers, Missouri boating and PFD requirements, and any posted USACE, MDC, parking, camping, or temporary-closure signs.',
+      camping:
+        'Treat this as a long day float unless you have a separate legal camping plan. Outlet Park is a USACE campground by reservation or posted rules, and MDC says Cross Timbers allows camping in the northeast corner of the parking lot with vehicles kept on gravel.',
+      summary:
+        'Launch at Outlet Park below Pomme de Terre Dam and take out at MDC Cross Timbers Access for a 13.6-mile lower Pomme de Terre day. USACE publishes the 100-800 cfs optimal floating release window, and the app uses the direct Hermitage USGS gauge when current observations are fresh enough for a same-day decision.',
+      accessCaveats: [
+        'Outlet Park is a USACE recreation area below Pomme de Terre Dam with the Outlet Boat Ramp accessing the river. The coordinate is anchored to the USGS 06921350 / Outlet Park corridor; follow USACE signs for the exact ramp, parking, and any campground or day-use rules.',
+        'Cross Timbers Access is an MDC-managed, USACE-leased public access with a boat ramp and parking lot. The coordinate is a practical ramp-area anchor from public map context; follow MDC signs and the area map for exact parking and launch position.',
+        'This is a dam-release route. USACE says optimal floating is when the lake releases 100 to 800 cfs into the river, and high release rates can cause sudden rises and turbulence. Verify that the Hermitage USGS value is fresh before relying on it for a same-day go/no-go call.',
+      ],
+      watchFor: [
+        'Flows below about 100 cfs, when the USACE optimal floating window is not met and low-water dragging or slow travel becomes more likely.',
+        'Flows above about 800 cfs, high or changing dam releases, sudden rises, turbulence, stronger current, and harder take-out conditions.',
+        'Flood debris, strainers, rural access roads, limited services, hot-weather powerboat or angler traffic near accesses, and Truman Reservoir backwater effects near the lower end.',
+        'Private land away from public accesses and lawful gravel-bar stops; do not assume banks are public picnic or camping areas.',
+      ],
+    },
+  },
+  'niangua-river-bennett-spring-barclay': {
+    putIn: {
+      name: 'Bennett Spring Access / Bennett Spring boat launch',
+      latitude: 37.733683,
+      longitude: -92.861233,
+    },
+    takeOut: {
+      name: 'Barclay Conservation Area canoe launch',
+      latitude: 37.7872,
+      longitude: -92.86154,
+    },
+    logistics: {
+      distanceLabel: 'About 6.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr depending on level, stops, and traffic',
+      shuttle:
+        'Use a short two-car shuttle between Bennett Spring Access on Highway 64 and Barclay Conservation Area via Corkery Road and Barclay Spring Road. Inspect Barclay first because the access roads are rural and same-day parking, ramp, and flood-cleanup conditions control.',
+      permits:
+        'No route-specific paddling permit is known. Follow Missouri State Parks and MDC rules at Bennett Spring, MDC rules at Barclay Conservation Area, Missouri boating and PFD requirements, no-glass/no-polystyrene rules, and any posted trout-area or day-use signs.',
+      camping:
+        'Treat this as a day float unless you have a separate legal camping reservation or plan. Bennett Spring Access is day-use only, and private banks or campground land along the Niangua should not be used without permission.',
+      summary:
+        'Launch at Bennett Spring Access and take out at Barclay Conservation Area for a short 6.3-mile Niangua day below Bennett Spring. Use the upstream Windyville USGS gauge as a conservative low-water proxy, then make a same-day visual call for riffles, crowding, and rising water.',
+      accessCaveats: [
+        'Bennett Spring Access is a public MDC access with parking, a concrete ramp, and privies, while Missouri State Parks publishes the boat-launch coordinate inside the Bennett Spring park corridor.',
+        'Barclay Conservation Area is a public MDC access with a concrete boat ramp, canoe launching area, and parking, but the mapped canoe-launch coordinate is from OpenStreetMap/Mapcarta rather than an MDC coordinate table. Follow MDC signs and the area map on arrival.',
+        'The Windyville gauge is upstream of the route and upstream of Bennett Spring Branch inflow. MoHERP ties the gauge to exact Bennett Spring-to-Barclay trips, but the app still treats it as a proxy rather than a perfect reach reading.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and slower travel when the Windyville gauge is near or below the 40 cfs floor.',
+        'High or rising water after storms, cloudy water, fresh wood, swift bends, and stronger current around bridge or ramp approaches.',
+        'Cold spring water, trout anglers, tubers, private campgrounds and banks, loud summer weekend traffic, and limited legal exits away from public accesses.',
       ],
     },
   },
@@ -7952,6 +8056,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, fresh flood wood, undercut or muddy banks, bridge approaches, fishing lines, and limited eddies along private banks.',
         'Rain-driven rises in the upper Kentucky River watershed, especially after storms on Red Bird River, Goose Creek, Bullskin Creek, or South Fork tributaries.',
         'Remote rural shuttle logistics, limited amenities, spotty cell service, and late-day darkness if the group spends too long fishing or stopping.',
+      ],
+    },
+  },
+  'green-river-hh-wilson-stovall': {
+    putIn: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    takeOut: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    logistics: {
+      distanceLabel: 'About 3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with fishing stops, wind, or low current',
+      shuttle:
+        'Stage the take-out at Munfordville-Stovall Park, then drive back to H.H. Wilson Park Ramp. Both are KDFWR-listed public ramps, but H.H. Wilson has limited unpaved parking and Stovall is a busy city park access; keep the ramp clear for other boaters.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, obey city park rules at Stovall Park, and carry required safety gear.',
+      camping:
+        'Treat this as a short day trip. Stovall Park lists seasonal camping, but this route does not assume overnight use or any private-bank stopping between the ramps.',
+      summary:
+        'Launch at H.H. Wilson Park Ramp and take out about 3.6 miles downstream at Munfordville-Stovall Park Ramp. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for Green River Pool 6.',
+      accessCaveats: [
+        'H.H. Wilson Park Ramp is a single-lane paved ramp with a small gravel parking area. KDFWR warns that the end of the ramp does not extend far into the water and there is a drop at the end of the concrete.',
+        'Stovall Park Ramp is a city-owned single-lane paved ramp with paved parking, restrooms, picnic areas, and park traffic. Use the ramp efficiently and avoid blocking trailers or local park users.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Stay with the named public ramps and do not use private banks for lunch stops, scouting, or parking.',
+        'The Munfordville gauge is direct for this Hart County segment, but local wind, release timing, rain, and ramp conditions still control the launch decision.',
+      ],
+      watchFor: [
+        'High water above KDFWR\'s 600 cfs good band, when a broad river can push harder at ramps, rocky banks, and bends.',
+        'Low water below 300 cfs, which can expose shoals, ramp drops, and shallow edges around access points.',
+        'Motorboats, anglers, fishing lines, swimmers near parks, and other ramp users on a popular Pool 6 corridor.',
+        'Wind on open pools, hot-weather exposure, muddy banks, and limited legal stopping options away from public access.',
+        'Fresh woody debris, storm runoff, and changing release or lake-tailwater conditions upstream of the Munfordville reach.',
       ],
     },
   },

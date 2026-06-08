@@ -19538,6 +19538,129 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-riverton-narrows',
+    slug: 'eleven-point-river-riverton-narrows',
+    name: 'Eleven Point River',
+    reach: 'Riverton East River Access to Highway 142 River Access',
+    aliases: [
+      'Eleven Point River - Riverton to Narrows',
+      'Eleven Point River - Riverton East to Narrows',
+      'Eleven Point River - Highway 160 to Highway 142',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Lower Eleven Point day float from Riverton East to the Highway 142 / Narrows access. Forest Service sources identify the exact 8-plus-mile route, both endpoints are developed public accesses, and the Bardley USGS gauge gives the same conservative low-water check used by adjacent Eleven Point routes.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge. Around 300 cfs is the conservative low-water floor; below that, expect shallow shoals and a slower trip. No ideal range or upper cutoff is claimed, so treat high or rising water as a caution flag.',
+    latitude: 36.649183,
+    longitude: -91.199614,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and adjacent lower-Eleven-Point trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Forest Service lists this access corridor for year-round use, but the National Rivers Project frames Riverton East to Narrows as generally spring and early-June floatable. Use the app as a conservative level check and expect late-summer shoals to need more patience.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'National Rivers Project describes the Eleven Point as relatively easy Class I-II water for experienced canoeists. This lower reach has cold spring-fed water, a full-day distance, bluffs, shoals, wood, possible motor traffic under the 25 hp limit, and limited developed exits between public accesses.',
+      confidenceNotes:
+        'Confidence is good for a conservative adjacent Missouri add: Forest Service pages list Riverton East and Highway 142 / Narrows as open public accesses with coordinates, concrete ramps, parking, toilets, day-use rules, and an explicit Riverton-to-Highway-142 float route; National Rivers Project independently records Riverton East to Narrows as an 8.7-mile full-day water-trail section managed by the Forest Service; USGS 07071500 is the same direct lower Eleven Point gauge already used by adjacent V2 routes and exposed fresh discharge and gage-height observations during this run. The app uses minimum-only scoring because the numeric threshold source is community-calibrated and not a manager-published paddling band for this exact lower split.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Riverton to Highway 142, 8 to 8.7 miles',
+        note: 'The Forest Service says floaters can put in at Riverton and float to Highway 142 Access for take-out, and says Highway 142 / Narrows is 8.7 miles downriver of Riverton.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Riverton East River Access',
+        note: 'The Forest Service lists Riverton East as open on river left at Highway 160, with a paved road, single-lane concrete boat ramp, canoe launch, parking, vault toilet, no fee, and coordinates 36.649183, -91.199614.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Highway 142 River Access / The Narrows',
+        note: 'The Forest Service lists Highway 142 River Access as open, developed, and day-use only, with a single-lane concrete boat ramp, paved parking, vault toilet, and coordinates 36.550194, -91.191532.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 07071500',
+        note: 'USGS operates Eleven Point River near Bardley, MO. During the June 4, 2026 route-quality audit, the legacy current page showed 493 cfs and 2.62 ft at 10:30 CDT, with discharge and gage height available through June 4.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs. Adjacent Eleven Point V2 routes use the same conservative floor with exact lower-river trip evidence, but this route does not infer an ideal range or high cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Full-day water trail, bluffs, spring-fed current',
+        note: 'National Rivers Project records Riverton East to Narrows as an 8.7-mile full-day water-trail section, Class I-II for experienced canoeists, with snags, trees, root wads, motorboats, and cold-water distance caveats.',
+        sourceUrl: 'https://www.nationalriversproject.com/mo/eleven-point-river-riverton-east-to-narrows',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Highway 142 River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/highway-142-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Riverton East River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/riverton-east-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'National Rivers Project Riverton East to Narrows',
+        url: 'https://www.nationalriversproject.com/mo/eleven-point-river-riverton-east-to-narrows',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'north-fork-white-river-north-fork-blair',
     slug: 'north-fork-white-river-north-fork-blair',
     name: 'North Fork of the White River',
@@ -19641,6 +19764,251 @@ export const rivers: River[] = [
       {
         label: 'USGS 07057500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'niangua-river-bennett-spring-barclay',
+    slug: 'niangua-river-bennett-spring-barclay',
+    name: 'Niangua River',
+    reach: 'Bennett Spring Access to Barclay Conservation Area',
+    aliases: [
+      'Niangua River - Bennett Spring to Barclay',
+      'Niangua River - Bennett Spring Access to Barclay CA',
+      'Niangua River Windyville gauge day float',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short spring-fed Niangua day float from Bennett Spring Access to Barclay Conservation Area. Both ends are public, MoHERP has exact-trip gauge evidence, and the upstream Windyville USGS gauge gives a conservative level check.',
+    statusText:
+      'Use the Niangua River at Windyville gauge as an upstream proxy. Around 40 cfs is the conservative low-water floor for this short Bennett Spring-to-Barclay run; below that, expect more scraping and slow riffles. No ideal range or upper cutoff is claimed, so treat high or rising water cautiously.',
+    latitude: 37.733683,
+    longitude: -92.861233,
+    gaugeSource: {
+      id: 'usgs-06923250',
+      provider: 'usgs',
+      siteId: '06923250',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Niangua River at Windyville, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06923250/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 40,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Windyville gauge Bennett Spring-to-Barclay trip logs',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06923250&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Bennett Spring area adds dependable cold spring influence, but the Niangua still gets shallow in dry spells and can rise after Ozark storms. Summer weekends can be crowded around the park and private access corridor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a popular Class I-II Ozark float, not a technical route, but swift riffles, cold spring water, private-bank limits, crowding, and fast post-rain changes keep it from being a no-caution beginner listing.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: MDC confirms Bennett Spring Access as public Niangua River float-fishing access with a large parking lot, concrete boat ramp, and privies; Missouri State Parks publishes the Bennett Spring boat-launch coordinate; MDC confirms Barclay Conservation Area provides public Niangua River access with a concrete boat ramp, canoe launching area, and parking; Float Missouri / MDC mile notes place Bennett Spring Access at river mile 30.2 and Barclay at 36.5; USGS 06923250 continues to expose recent official discharge and gage-height values; and Rivers.MOHERP includes exact Bennett Spring-to-Barclay trip rows tied to that gauge. The app uses minimum-only scoring because the gauge is upstream of the route and before Bennett Spring Branch inflow, and the numeric threshold support is community-calibrated rather than an official paddling band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route shape',
+        value: 'Bennett Spring Access to Barclay, about 6.3 river miles',
+        note: 'Float Missouri republishes MDC Niangua mile notes that place Bennett Spring Access at river mile 30.2 and Barclay Conservation Area access at river mile 36.5.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/niangua-river/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Bennett Spring Access / Bennett Spring boat launch',
+        note: 'MDC says Bennett Spring Access provides wade and float-fishing access to the Niangua River, with a large parking lot, concrete boat ramp, and multiple privies. Missouri State Parks publishes the canoe-launch coordinate as 37.733683, -92.861233.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/bennett-spring-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Barclay Conservation Area Access',
+        note: 'MDC says Barclay Conservation Area was purchased to provide public access to the Niangua River and that Barclay CA Access has a concrete boat ramp, canoe launching area, and parking lot.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/barclay-conservation-area',
+      },
+      {
+        label: 'Proxy live gauge',
+        value: 'USGS 06923250',
+        note: 'USGS operates the Niangua River at Windyville gauge upstream of Bennett Spring. The legacy current page showed 393 cfs and 2.49 ft at 09:00 CDT on June 3, 2026 during the June 4 route-quality audit.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06923250',
+      },
+      {
+        label: 'Low-water floor',
+        value: '40 cfs minimum-only',
+        note: 'Rivers.MOHERP exact Bennett Spring-to-Barclay rows on the Windyville gauge are mixed at very low water, including a Low trip at 36 cfs and Good trips below and above 40 cfs. The app uses a conservative 40 cfs floor and does not infer an ideal range.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=06923250&hours=168',
+      },
+      {
+        label: 'Route character',
+        value: 'Class I-II, cold spring influence, busy summer corridor',
+        note: 'Float Missouri / MDC describes the Niangua as Class I-II, closely tied to Bennett Spring, and usually crowded on hot summer weekends.',
+        sourceUrl: 'https://www.floatmissouri.com/plan/missouri-rivers/niangua-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Bennett Spring Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/bennett-spring-access',
+        provider: 'local',
+      },
+      {
+        label: 'Missouri State Parks Bennett Spring boat launch',
+        url: 'https://mostateparks.com/key-location/boat-launch-bennett-spring',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Barclay Conservation Area',
+        url: 'https://mdc.mo.gov/discover-nature/places/barclay-conservation-area',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Barclay Conservation Area map',
+        url: 'https://mdc.mo.gov/sites/default/files/mo_nature/downloads/conservation-areas/9728map.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Float Missouri Niangua mile notes',
+        url: 'https://www.floatmissouri.com/plan/missouri-rivers/niangua-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Niangua Windyville gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=06923250&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06923250 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06923250/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'pomme-de-terre-river-outlet-cross-timbers',
+    slug: 'pomme-de-terre-river-outlet-cross-timbers',
+    name: 'Pomme de Terre River',
+    reach: 'Outlet Park to Cross Timbers Access',
+    aliases: [
+      'Pomme de Terre River - Outlet Park to Cross Timbers',
+      'Lower Pomme de Terre River - below dam to Cross Timbers',
+      'Pomme de Terre River Hermitage gauge route',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Lower Pomme de Terre day float from Outlet Park below the dam to Cross Timbers Access. USACE publishes the floating release guidance, and the Hermitage USGS gauge is the direct corridor check when current observations are available.',
+    statusText:
+      'Use the Pomme de Terre River near Hermitage gauge. USACE says optimal floating is when the lake is releasing 100 to 800 cfs into the river; below 100 cfs, expect low-water problems, and above 800 cfs the river can rise suddenly and turn turbulent.',
+    latitude: 37.906056,
+    longitude: -93.328917,
+    gaugeSource: {
+      id: 'usgs-06921350',
+      provider: 'usgs',
+      siteId: '06921350',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pomme de Terre River near Hermitage, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06921350/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 800,
+      tooLow: 100,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'USACE Pomme de Terre River Adventures floating release guidance',
+        url: 'https://usace.contentdm.oclc.org/digital/api/collection/p16021coll11/id/2754/download',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Summer is the main paddling season, but the route depends heavily on dam releases. Check the USGS gauge, USACE lake information, weather, and same-day ramp conditions before committing.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The lower Pomme de Terre is usually described as a gentle Class I river, but dam releases can create sudden rises, turbulence, stronger landings, and floating debris. Treat values above the USACE optimal window as a no-go for casual paddlers.',
+      confidenceNotes:
+        'Confidence is high enough for a conservative add: USACE says Outlet Park has a no-fee boat ramp accessing the Pomme de Terre River below the dam, lists Outlet Park and Cross Timbers as public-use river access points, and publishes the 100-800 cfs optimal floating guidance; MDC confirms Cross Timbers Access is a public Pomme de Terre River access with a boat ramp and parking; Float Missouri / MDC mile notes place the below-dam put-in and Cross Timbers in a 13.6-mile lower-river segment; and USGS 06921350 exposed same-day June 1, 2026 discharge and gage-height observations during the add review. The main caveats are operational and freshness-related: this is a dam-release route, the gauge can lag in visible current-condition output, and the app uses the official release window exactly without claiming a wider runnable range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official release window',
+        value: '100-800 cfs',
+        note: 'USACE says canoeing and kayaking are popular during summer and that optimal floating conditions are when Pomme de Terre Lake is releasing 100 to 800 cfs into the river. It also warns that high release rates can cause sudden rise and turbulence.',
+        sourceUrl: 'https://usace.contentdm.oclc.org/digital/api/collection/p16021coll11/id/2754/download',
+      },
+      {
+        label: 'Route shape',
+        value: 'Below-dam put-in to Cross Timbers, about 13.6 river miles',
+        note: 'Float Missouri republishes MDC mile notes that place the lower-river put-in at the west-side campsite below the dam and Cross Timbers public-use area access at river mile 13.6.',
+        sourceUrl: 'https://www.floatmissouri.com/missouri-rivers/pomme-de-terre-river/',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Outlet Park / Outlet Boat Ramp',
+        note: 'USACE says the Outlet Boat Ramp is within Outlet Park, accesses the Pomme de Terre River below the dam, has bathrooms within walking distance, and does not charge a boat-launch fee.',
+        sourceUrl: 'https://www.nwk.usace.army.mil/Locations/District-Lakes/Pomme-de-Terre-Lake/',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Cross Timbers Access',
+        note: 'MDC says Cross Timbers Access is leased from USACE to provide Pomme de Terre River access, with a boat ramp and parking lot.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/cross-timbers-access',
+      },
+      {
+        label: 'Cross Timbers management plan',
+        value: 'Managed for public river access',
+        note: 'The MDC Cross Timbers and Hermitage Accesses management plan says Cross Timbers is managed to provide public access to the Pomme de Terre River and lists a concrete ramp, privy, parking, and camping site.',
+        sourceUrl:
+          'https://mdc.mo.gov/sites/default/files/2020-12/2017%20Cross%20Timbers%20and%20Hermitage%20Accesses%20Area%20Plan.pdf',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06921350',
+        note: 'USGS operates the Pomme de Terre River near Hermitage gauge in the route corridor. The legacy current page showed 1,570 cfs and 6.37 ft at 08:45 CDT on June 1, 2026 during add review, which is above the USACE optimal floating window; a June 4 audit still found that as the most recent visible legacy value, so same-day freshness must be verified before relying on the gauge.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=06921350',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USACE Pomme de Terre River Adventures brochure',
+        url: 'https://usace.contentdm.oclc.org/digital/api/collection/p16021coll11/id/2754/download',
+        provider: 'local',
+      },
+      {
+        label: 'USACE Pomme de Terre Lake recreation page',
+        url: 'https://www.nwk.usace.army.mil/Locations/District-Lakes/Pomme-de-Terre-Lake/',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Cross Timbers Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/cross-timbers-access',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Cross Timbers and Hermitage Accesses management plan',
+        url: 'https://mdc.mo.gov/sites/default/files/2020-12/2017%20Cross%20Timbers%20and%20Hermitage%20Accesses%20Area%20Plan.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Float Missouri Pomme de Terre mile notes',
+        url: 'https://www.floatmissouri.com/missouri-rivers/pomme-de-terre-river/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06921350 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06921350/',
         provider: 'usgs',
       },
     ],
@@ -25523,6 +25891,127 @@ export const rivers: River[] = [
       {
         label: 'USGS 03281500 legacy current conditions',
         url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03281500',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'green-river-hh-wilson-stovall',
+    slug: 'green-river-hh-wilson-stovall',
+    name: 'Green River',
+    reach: 'H.H. Wilson Park Ramp to Stovall Park Ramp',
+    aliases: [
+      'Green River - HH Wilson to Stovall Park',
+      'Green River Hart County Blue Water Trail',
+      'Green River Pool 6 Munfordville',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Short Hart County Green River day from KDFWR H.H. Wilson Park Ramp to Munfordville-Stovall Park Ramp. KDFWR documents the 3.6-mile public-access segment, both endpoint coordinates, and official Munfordville gauge cfs bands.',
+    statusText:
+      'Use the Green River at Munfordville gauge. KDFWR rates 300 to 600 cfs as good for boating and fishing. Below that is low and may expose shoals or ramp edges; above that is high and deserves extra large-river caution around current, wind, and landings.',
+    latitude: 37.2979,
+    longitude: -85.8506,
+    gaugeSource: {
+      id: 'usgs-03308500',
+      provider: 'usgs',
+      siteId: '03308500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Green River at Munfordville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03308500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 600,
+      tooLow: 300,
+      tooHigh: 600,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Green River at Munfordville',
+        url: 'https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Pool 6 is regulated by Green River Lake upstream, but storms, dam releases, and broad-river wind can still change the practical day. Spring and wetter fall windows are more reliable; summer trips should be checked against the Munfordville gauge and local weather.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short KDFWR public-ramp segment on a broad Class I river corridor. Treat it as easy only when the Munfordville gauge is stable in the KDFWR good band; high water, wind, boat traffic, ramp drops, and private banks can make landings less forgiving.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR lists H.H. Wilson Park Ramp to Stovall Park Ramp as a 3.6-mile Green River Pool 6 segment, publishes coordinates and access details for both public ramps, links the route corridor to the Green River at Munfordville gauge, and gives official Low/Good/High cfs bands for USGS 03308500. The official USGS legacy current-conditions page showed same-day June 4, 2026 discharge and gage-height observations during route-quality audit, keeping the live-gauge support current for this selected Hart County segment.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '300-600 cfs good',
+        note: 'KDFWR rates the Green River Gauge at Munfordville as Low below 300 cfs, Good from 300 to 600 cfs, and High above 600 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'H.H. Wilson Park Ramp to Stovall Park Ramp, 3.6 mi',
+        note: 'KDFWR lists H.H. Wilson Park Ramp to Stovall Park Ramp as a 3.6-mile Green River Pool 6 access-to-access segment.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'H.H. Wilson Park Ramp, 37.2979, -85.8506',
+        note: 'KDFWR identifies H.H. Wilson Park as a free single-lane paved ramp with unpaved parking and year-round 24-hour boat-ramp availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Munfordville-Stovall Park Ramp, 37.2663, -85.8892',
+        note: 'KDFWR identifies Stovall Park as a city-owned free single-lane paved ramp with paved parking, restrooms, picnic area, and year-round 24-hour boat-ramp availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=241',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, shoals, long runs, rocky banks',
+        note: 'KDFWR describes nearby Pool 6 access reaches as shallow riffle and pool habitat with shoals, long runs, deep rocky banks, and a ramp drop at H.H. Wilson.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03308500 at 582 cfs / 3.31 ft',
+        note: 'The official USGS legacy current-conditions page showed 582 cfs and 3.31 ft at 2026-06-04 00:00 CDT for Green River at Munfordville during the June 4 route-quality audit. That is inside KDFWR\'s 300-600 cfs good band, with normal same-day checks for wind, ramp conditions, and trend still required.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03308500',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Pool 6 Green River',
+        url: 'https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Green River Hart County Blue Water Trail map',
+        url: 'https://fw.ky.gov/Education/Documents/BlueWaterTrail_GreenRiver_HartCounty.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR H.H. Wilson Park Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=240',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Munfordville-Stovall Park Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=241',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03308500 Green River at Munfordville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03308500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03308500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03308500',
         provider: 'usgs',
       },
     ],

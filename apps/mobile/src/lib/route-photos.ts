@@ -282,6 +282,9 @@ const routeGalleryImages: Record<string, string[]> = {
   'eleven-point-river-whitten-riverton': [
     '/gallery/eleven-point-river-whitten-riverton/eleven-point-river-missouri.jpg',
   ],
+  'eleven-point-river-riverton-narrows': [
+    '/gallery/eleven-point-river-riverton-narrows/eleven-point-river-missouri.jpg',
+  ],
   'north-fork-white-river-north-fork-blair': [
     '/gallery/north-fork-white-river-north-fork-blair/upper-north-fork-bridge.jpg',
   ],
