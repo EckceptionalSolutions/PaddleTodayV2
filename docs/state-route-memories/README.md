@@ -28,3 +28,6 @@ The counts below are from the current working tree on 2026-05-31. Recompute befo
 | Kentucky | 0 | Fresh expansion state, KDFWR Blue Water Trails first | [Kentucky](kentucky.md) |
 | Arkansas | 0 | Fresh Ozark expansion state, NPS/USFS/AW first | [Arkansas](arkansas.md) |
 | Tennessee | 0 | Fresh Southeast expansion state, state/federal/AW first | [Tennessee](tennessee.md) |
+| Indiana | 0 | Existing ledger backlog, threshold/gauge blockers first | [Indiana](indiana.md) |
+| Nebraska | 0 | Fresh expansion state, NGPC water trails first | [Nebraska](nebraska.md) |
+| Pennsylvania | 0 | Fresh expansion state, PFBC/DCNR water trails first | [Pennsylvania](pennsylvania.md) |

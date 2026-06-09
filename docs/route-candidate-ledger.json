@@ -1,7 +1,13 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-08",
+    "updatedAt": "2026-06-09",
     "notes": [
+        "2026-06-09 13:25 America/Chicago / 2026-06-09 18:25 UTC Indiana no-add blocker refresh. Rebuilt current Indiana inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed zero live Indiana routes; the only literal Indiana app-data hits remain Wisconsin route text mentioning Indiana Avenue. Reviewed existing Indiana ledger rows before discovery and rechecked Wabash Vera Cruz-to-White-Bridge, Blue River White Cloud-to-Blue-River-Chapel, Sugar Creek Shades/Turkey Run family, Wildcat Creek Knop-Lake-to-Mis-So-La, Cedar Creek Tonkel-to-State-Road-1, and Big Pine Creek Rainsville-to-Twin-Bridges. Workspace product-style USGS Water Services IV fetches for 03323000/03303000/03339500/03334000/033356848 failed with Unable to connect to the remote server, and the official WDFN page for Wabash opened only as station context without accessible current values. No route was added: Wabash remains no_live_gauge; Blue, Sugar, Wildcat, and Cedar remain threshold_weak; Big Pine remains a future routeType whitewater candidate with unresolved threshold/access-coordinate gates. No candidates were promoted to likely_addable; no app route data, trip details, gallery, or image-audit rows changed.",
+        "2026-06-09 13:25 America/Chicago / 2026-06-09 18:25 UTC Pennsylvania no-add blocker refresh. Rebuilt current Pennsylvania inventory from route objects and trip details and confirmed 0 live Pennsylvania routes; the structured PA ledger still has 3 candidate rows. Reviewed only the existing official-source PA seed set. Lower Yough remains the strongest lead, but product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches for USGS 03081500 all failed locally with Unable to connect to the remote server, so the product-live gate remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands. Lehigh White Haven-to-Rockport remains no_live_gauge: DCNR provides public access, exact 8.7-mile trip, whitewater hazards, release context, and numeric flow guidance, but the implementation still lacks a locally verified product-supported direct live gauge and the prior AW virtual gauge is not an app-supported live source. Three Rivers Water Trail remains threshold_weak because the official access package is broad and no specific endpoint pair plus numeric route-specific gauge model was selected. No route was added; no app route data, trip details, gallery, or image-audit rows changed.",
+        "2026-06-09 13:24 America/Chicago / 2026-06-09 18:24 UTC Nebraska no-add blocker refresh. Re-read Nebraska automation memory/prompt, Nebraska state memory, route data, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit. Rebuilt current Nebraska inventory from route objects and trip details: still 0 live Nebraska routes and 0 Nebraska trip-detail objects. Rechecked only the five existing Nebraska seed candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family. Local product-style USGS Water Services IV fetch for 06461500/06805500/06799350/06787500/06467500 still failed with Unable to connect to the remote server. No route was added because none of the reviewed candidates has source-backed numeric paddling thresholds tied to a selected product-supported gauge. No app route data, trip details, gallery, or image-audit rows changed.",
+        "2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC Pennsylvania seed no-add pass. Re-read Pennsylvania automation memory/prompt, Pennsylvania state memory, route data, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit. Rebuilt current Pennsylvania inventory from route objects and confirmed 0 live Pennsylvania routes and 0 prior Pennsylvania ledger rows. Created a small official-source candidate set from DCNR, PFBC, Friends of the Riverfront, NPS/USGS context, and American Whitewater: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White-Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh access family. No route was added: Lower Yough has strong DCNR route/access/launch-ticket and AW threshold evidence but local product-style USGS 03081500 IV fetch failed and visible official current text was stale; Lehigh uses an AW virtual gauge not directly product-supported by PaddleTodayV2; Three Rivers has strong access/designated-water-trail support but no selected endpoint pair with numeric gauge thresholds. No app route data, trip details, gallery, or image-audit rows changed.",
+        "2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC Indiana no-add blocker refresh. Rebuilt current Indiana inventory from src/data/rivers.ts and src/data/river-trip-details.ts and confirmed zero live Indiana routes; the only literal Indiana app-data hits were Wisconsin route text mentioning Indiana Avenue. Reviewed existing Indiana ledger rows before discovery and rechecked only the strongest existing leads: Wabash Vera Cruz-to-White-Bridge, Blue River White Cloud-to-Blue-River-Chapel, Sugar Creek Shades/Turkey Run family, Kankakee National Water Trail Kingsbury-to-Route-8, and Big Pine Creek Rainsville-to-Twin-Bridges. No route was added: Wabash USGS 03323000 still lacked source-visible same-day product-current observations; Blue River USGS 03303000 was source-visible only through 2026-05-31 and still lacks accepted manager/AW numeric thresholds plus endpoint/dam confirmation; Sugar Creek still lacks an accepted route-specific threshold model and current same-day product evidence; Kankakee access evidence remains strong but no numeric gauge-tied paddling threshold surfaced; and Big Pine AW context showed current-looking flow but not an implementation-grade threshold/access-coordinate package for a conservative whitewater add. No candidates were promoted to likely_addable or needs_manual_coordinates; no app route data, trip details, gallery, or image-audit rows changed.",
+        "2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC Nebraska seed no-add pass. Re-read Nebraska automation memory/prompt, Nebraska state memory, route data, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit. Rebuilt current Nebraska inventory from route objects and confirmed 0 live Nebraska routes and 0 prior Nebraska ledger rows. Created a small official-source candidate set from NGPC, NPS, USGS, and official access context: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA trail, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family. Local product-style USGS Water Services IV and api.waterdata.usgs.gov fetches for 06461500/06799350/06805500/06787500/06467500 failed with Unable to connect to the remote server. No route was added because no reviewed candidate cleared the full route bar with product-fetchable live gauge evidence plus numeric paddling thresholds tied to the selected gauge; Nebraska sandy/braided channels, wind, private land, irrigation/seasonal low water, access spacing, fences/low bridges, and federal big-river context remain first-class caveats.",
         "2026-06-08 15:32 America/Chicago / 2026-06-08 20:32 UTC South Dakota no-add targeted blocker refresh. Rebuilt the 3-route South Dakota V2 inventory (split-rock-creek-split-rock-park-palisades, big-sioux-river-farm-field-rotary, and skunk-creek-legacy-park-farm-field) and confirmed all three remain present with trip details and matching added ledger rows. Reviewed only high-value blockers: Big Sioux / Jay Heath day-trip segments, Big Sioux Recreation Area North-to-South, Missouri National Recreational River day-trip leads, Spearfish Creek City-Park-to-Evans, plus narrow product-live spot checks for Battle Creek and Redwater. Local product-style USGS IV fetch for 06482020/06431500/06467500/06406000/06433000 still failed with Unable to connect to the remote server. Official/source-visible evidence did not clear add gates: Big Sioux North Cliff 06482020 remained stale to 2026-05-26 11:30 CDT; Spearfish 06431500 now showed recent 2026-06-07 21:00 MDT values but still lacks stable route-specific numeric threshold support and local product fetchability; Missouri/Yankton 06467500 WDFN showed no continuous/daily/field/discrete data types available; Battle Creek 06406000 remained stale to 2026-04-10; and Redwater 06433000 remained stale to 2026-06-03, not same-day. Jay Heath remains threshold_weak; Big Sioux Recreation Area remains gauge_proxy_weak; MNRR remains research_later; Spearfish remains threshold_weak; Battle Creek and Redwater remain no_live_gauge. No route was added; no candidates were promoted to likely_addable or needs_manual_coordinates; no app route data or image-audit rows changed.",
         "2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC Illinois no-add targeted blocker refresh. Rebuilt the two-route Illinois V2 inventory (vermilion-river-lowell-oglesby and kishwaukee-river-hickory-bills-distillery), checked current IDNR River Closures, and rechecked only Des Plaines Van Patten-to-Sedge, Nippersink Keystone-to-Canoe-Base, Middle Fork Vermilion Kinney's/Bunker/Kickapoo, and Lusk Creek Canyon. Local product-style USGS IV fetch for 05527800/05548280/03336645/03384450 still failed with Unable to connect to the remote server. Official legacy pages showed Des Plaines 05527800 stale to 2026-05-25, Nippersink 05548280 stale to 2026-06-06, Middle Fork 03336645 current on 2026-06-08 at 392 cfs / 2.07 ft but still without a source-backed low-water floor, and Lusk 03384450 stale to 2026-05-15. No route was added; no candidates were promoted to likely_addable or needs_manual_coordinates; no app route data, trip details, gallery, or image-audit rows changed.",
         "2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC Michigan no-add targeted blocker refresh. Re-read the Michigan automation memory, Michigan state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context. Reconciled current Michigan coverage as 19 V2 routes concentrated on Pine, Shiawassee, Huron, and Clinton, with Michigan-border Menominee/Piers Gorge and Brule / Bois Brule already covered outside Michigan and not duplicated. Rechecked only Cass River Vassar-to-Tuscola, Paint River campground-to-Horserace, Cedar River Menominee County, Thunder Bay Long Rapids, Presque Isle Bottom Presque, Salmon Trout Big Bay, Ford River, and Two Hearted mouth/canoe-camping. Official/search-visible evidence still did not clear product-live or implementation gates: Cedar 04059750 remains stale to 2026-05-15; Salmon Trout 04043238 is daily-only/stale to 2026-01-18 with AW showing seven-month-stale values; Ford 04059500 official/search-visible evidence remains stale/non-current despite third-party current-looking snippets; Paint 04062000 has only third-party current-looking evidence while prior official USGS evidence remains stale; Cass still lacks official product-ready same-day Vassar-to-Tuscola discharge; Thunder Bay remains threshold-blocked; Presque Isle remains high-consequence threshold/product-live blocked; and Two Hearted still lacks a product-live gauge, numeric thresholds, and a selected upstream endpoint. No route was added, no candidates were promoted to likely_addable or needs_manual_coordinates, no app route data changed, and no image-audit rows changed.",
@@ -940,6 +946,155 @@
     ],
     "candidates": [
         {
+            "candidateId": "pa-youghiogheny-lower-yough-ohiopyle-bruner-run",
+            "river": "Youghiogheny River",
+            "route": "Lower Yough: Ohiopyle Falls Area to Bruner Run Take-out",
+            "state": "PA",
+            "status": "no_live_gauge",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 13:25 America/Chicago blocker refresh. Lower Yough remains the strongest PA lead: DCNR supports the exact Ohiopyle-to-Bruner-Run whitewater route, access/launch-ticket context, PFD/helmet rules, and hazards; AW supports numeric Ohiopyle stage bands tied to USGS 03081500. No route was added because local product-style checks for USGS 03081500 failed through Water Services IV, api.waterdata.usgs.gov observations, and the WDFN page with Unable to connect to the remote server. Keep product-live unsatisfied until the same app-supported USGS path can be verified.",
+            "retryCondition": "Retry when USGS 03081500 can be verified through the same product-supported path PaddleTodayV2 uses, then capture final Ohiopyle lower launch and Bruner Run coordinates plus current DCNR launch-ticket/access rules.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PA DCNR Ohiopyle State Park whitewater boating page",
+                "American Whitewater gauge information for Lower Yough / Ohiopyle stage bands",
+                "USGS 03081500 Youghiogheny River at Ohiopyle legacy current-condition page",
+                "PFBC Pennsylvania launch permit page",
+                "Workspace USGS Water Services IV fetch for 03081500",
+                "2026-06-09 local USGS Water Services IV retry for 03081500",
+                "2026-06-09 local api.waterdata.usgs.gov observations retry for USGS-03081500",
+                "2026-06-09 local WDFN page retry for USGS-03081500"
+            ],
+            "aliases": [
+                "Lower Yough",
+                "Youghiogheny River - Ohiopyle to Bruner Run",
+                "Lower Youghiogheny River - Ohiopyle Falls to Bruner Run"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "direct_but_product_unverified_this_run",
+                "id": "03081500",
+                "provider": "USGS",
+                "notes": "USGS 03081500 is in the Ohiopyle route corridor and is the gauge DCNR/AW context points toward, but local product-style IV, api.waterdata.usgs.gov observations, and WDFN fetches failed during the 2026-06-09 13:25 refresh."
+            },
+            "thresholdSupport": {
+                "strength": "american_whitewater_stage_bands_ready_if_gauge_fresh",
+                "notes": "American Whitewater lists Ohiopyle stage bands: 1.10-1.70 ft barely-to-medium runnable Class III, 1.70-4.00 ft medium-to-pushy runnable Class III, 4.00-7.00 ft pushy-to-high runnable Class III-IV, and 7.00 ft plus high-to-extremely-high Class IV-V. Do not implement until product-live USGS freshness is verified."
+            },
+            "endpoints": {
+                "putIn": "Lower Youghiogheny launch window / Ohiopyle Falls Area Visitor Center access",
+                "takeOut": "Bruner Run Take-out",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "DCNR identifies the Lower Yough beginning after Ohiopyle Falls and flowing seven miles to Bruner Run, but this no-add run did not perform final endpoint coordinate capture."
+            },
+            "notes": [
+                "Would require routeType whitewater if implemented.",
+                "DCNR states Lower Yough boaters must obtain launch tickets during the second weekend in April through Columbus Day window, and PFBC states unpowered boats need registration or a PFBC/DCNR launch permit to use PFBC or Pennsylvania State Park/Forest accesses.",
+                "Hazards to carry into implementation: Class III-IV rapids, Ohiopyle Falls access rules, undercut rocks, ledges, swift current, high-water hydraulics, crowded commercial/private traffic, mandatory PFD and helmet context, and take-out discipline at Bruner Run."
+            ],
+            "updatedAt": "2026-06-09"
+        },
+        {
+            "candidateId": "pa-lehigh-white-haven-rockport",
+            "river": "Lehigh River",
+            "route": "White Haven to Rockport",
+            "state": "PA",
+            "status": "no_live_gauge",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 13:25 America/Chicago blocker refresh. DCNR still strongly supports the White Haven-to-Rockport Lehigh Gorge trip as an 8.7-mile Class II-III route with designated state-park access areas, USACE Francis E. Walter Dam release influence, safety rules, and numeric flow guidance. No route was added because the implementation still lacks a locally verified product-supported direct live gauge for this exact route; the prior AW visible gauge remains a virtual Stream Team calculation rather than an app-supported live source.",
+            "retryCondition": "Retry only if a direct official USGS/USACE product gauge and numeric thresholds can be tied cleanly to White Haven-to-Rockport without relying on AW virtual calculated gauge as the live source.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PA DCNR Lehigh Gorge State Park whitewater boating page",
+                "American Whitewater Lehigh White Haven to Rockport reach page",
+                "American Whitewater virtual gauge detail for Lehigh White Haven to Rockport",
+                "PFBC Pennsylvania launch permit page",
+                "2026-06-09 PA DCNR Lehigh Gorge whitewater boating page recheck"
+            ],
+            "aliases": [
+                "Lehigh Gorge Upper",
+                "Lehigh River - White Haven to Rockport",
+                "Lehigh River Upper Section"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "virtual_not_product_supported",
+                "id": "AW-275654",
+                "provider": "American Whitewater virtual",
+                "notes": "AW displayed gauge is calculated through its Stream Team program, and no direct product-supported live gauge was verified locally during the 2026-06-09 13:25 refresh."
+            },
+            "thresholdSupport": {
+                "strength": "official_flow_bands_but_live_gauge_unverified",
+                "notes": "DCNR lists Lehigh Gorge flow bands: below 250 cfs very low/not deep enough in many places, 250-1,000 cfs better for boating, above 1,000 cfs progressively harder, and above 5,000 cfs expert-only. Do not implement until a direct product-supported live gauge is verified for the selected White Haven-to-Rockport reach."
+            },
+            "endpoints": {
+                "putIn": "White Haven DCNR access",
+                "takeOut": "Rockport access area",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "DCNR and AW identify the public access names, but final coordinates were not captured because the live-gauge gate failed first."
+            },
+            "notes": [
+                "Would require routeType whitewater if later implemented.",
+                "Carry DCNR access/parking/release-window changes and PFBC/DCNR launch-permit context into any future implementation.",
+                "Hazards include Class II-III rapids, dam-release timing, crowded release weekends, steep gorge terrain, rock outcrops, waterfalls, and designated-access-only rules."
+            ],
+            "updatedAt": "2026-06-09"
+        },
+        {
+            "candidateId": "pa-three-rivers-water-trail-pittsburgh-family",
+            "river": "Three Rivers Water Trail",
+            "route": "Pittsburgh-area Allegheny / Monongahela / Ohio access family",
+            "state": "PA",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 13:25 America/Chicago blocker refresh. Friends of the Riverfront and PFBC/NPS context still support the Three Rivers Water Trail as a broad Pittsburgh-area access network, but no specific day-trip endpoint pair with a product-supported official live gauge and route-specific numeric threshold model was selected. No route was added; do not infer thresholds from designated water-trail status.",
+            "retryCondition": "Retry by selecting one short public endpoint pair from the Friends map first, then require a direct official gauge plus numeric low/high model specific enough for that selected urban large-river segment.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC Three Rivers Water Trail page",
+                "Friends of the Riverfront 2025 Three Rivers Water Trail Map and Guide",
+                "NPS Three Rivers Water Trail page",
+                "PFBC Pennsylvania launch permit page",
+                "2026-06-09 Friends of the Riverfront Three Rivers Water Trail page recheck"
+            ],
+            "aliases": [
+                "Three Rivers Water Trail",
+                "Pittsburgh Three Rivers Water Trail",
+                "Allegheny Monongahela Ohio Water Trail"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "not_selected",
+                "id": null,
+                "provider": null,
+                "notes": "No single product-supported gauge was selected because no route-specific day segment was selected."
+            },
+            "thresholdSupport": {
+                "strength": "threshold_weak",
+                "notes": "Designated water-trail status and access-map support do not provide numeric route thresholds. Do not infer a threshold model from the designation alone."
+            },
+            "endpoints": {
+                "putIn": "Not selected",
+                "takeOut": "Not selected",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Friends map contains access coordinates and launch names, but this run stopped before selecting a specific scored day route."
+            },
+            "notes": [
+                "Friends 2025 map states non-motorized boats may use access points in red without a permit, while all boats using PFBC or DCNR launches require a permit; future route notes must be endpoint-specific.",
+                "Urban large-river hazards to carry forward: barge and motor traffic, locks and dams, bridge piers, confluence currents, wind fetch, islands, industrial debris, storm runoff, combined sewer / water-quality cautions, and limited safe bailout options."
+            ],
+            "updatedAt": "2026-06-09"
+        },
+        {
             "candidateId": "ar-buffalo-river-ponca-kyles-landing",
             "river": "Buffalo River",
             "route": "Ponca to Kyle's Landing",
@@ -1582,16 +1737,17 @@
             "route": "Wells County / Vera Cruz to White Bridge Picnic Area family",
             "state": "IN",
             "status": "no_live_gauge",
-            "lastReviewed": "2026-05-31",
-            "reviewCount": 13,
-            "blocker": "Fresh 2026-05-31 08:18 America/Chicago recheck. Wells County Trails still provides the strongest public-launch and local-stage lead for Vera Cruz to White Bridge, but workspace USGS Water Services IV for 03323000 still failed unable to connect and the official USGS legacy page still exposes only 143 cfs / 1.97 ft from 2026-05-18 07:45 EDT. This still fails the product live-gauge gate before the remaining coordinate, OHWM/private-bank, parking, and low-head-dam/small-waterfall checks matter.",
-            "retryCondition": "Retry when official USGS 03323000 exposes same-day current discharge/stage and the endpoint-coordinate plus low-head-dam/small-waterfall review can be completed from manager-grade sources.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 15,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck. Vera Cruz-to-White Bridge remains the best Indiana endpoint/coordinate/local-stage package, but workspace product-style USGS Water Services IV fetch for 03323000 failed with Unable to connect to the remote server, and the official WDFN page opened only as static station context without current values in accessible text. Third-party current-looking values remain non-authoritative. Keep blocked before remaining OHWM/private-bank, parking, low-head-dam/small-waterfall, and image decisions.",
+            "retryCondition": "Retry when official USGS 03323000 exposes same-day product-fetchable discharge/stage from the app/runtime and the route can be rechecked against Wells County/Northeast Indiana access, OHWM/private-bank, parking, and low-head-dam/small-waterfall context.",
             "retryDate": "2026-07-01",
             "sourcesChecked": [
-                "USGS legacy current conditions for 03323000",
-                "Wells County Trails / prior automation memory",
-                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
-                "Indiana DNR water-trail safety / guide context"
+                "USGS Water Data/WDFN and legacy search-visible evidence for 03323000 reviewed 2026-06-09; no same-day product-current official observations surfaced.",
+                "2026-06-09 13:25 America/Chicago workspace USGS Water Services IV fetch for 03323000 failed with Unable to connect to the remote server; WDFN opened but accessible static text did not expose current values.",
+                "Third-party Snoflo/current-looking snippets reviewed only as non-authoritative context and not accepted as the live source.",
+                "Existing Wells County Trails / Northeast Indiana Water Trails endpoint and local-stage notes in the ledger.",
+                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts."
             ],
             "aliases": [
                 "Wabash River - Vera Cruz to White Bridge Picnic Area",
@@ -1603,7 +1759,7 @@
                 "quality": "direct_but_stale",
                 "id": "03323000",
                 "provider": "USGS",
-                "notes": "USGS 03323000 Wabash River at Bluffton is the direct corridor gauge, but official evidence still exposes only 2026-05-18 observations in this run. Third-party snippets suggesting newer values are not accepted as the app live-gauge source."
+                "notes": "USGS 03323000 Wabash River at Bluffton remains the direct corridor gauge, but current official product evidence did not clear the same-day live gate in this run."
             },
             "thresholdSupport": {
                 "strength": "local_partner_guidance",
@@ -1671,16 +1827,17 @@
             "route": "White Cloud to Blue River Chapel",
             "state": "IN",
             "status": "threshold_weak",
-            "lastReviewed": "2026-05-31",
-            "reviewCount": 16,
-            "blocker": "Fresh 2026-05-31 08:18 America/Chicago recheck. Blue River White Cloud-to-Blue River Chapel remains a strong short Indiana lead, but workspace USGS Water Services IV for 03303000 still failed unable to connect and the official USGS legacy page still exposes only 1,230 cfs / 4.33 ft from 2026-05-29 15:15 EDT. The White Cloud put-in, Blue River Chapel access, and old-mill / Milltown low-head-dam context also remain below manager-grade for a conservative first Indiana route.",
-            "retryCondition": "Retry when official USGS 03303000 has same-day current data and route-specific threshold/access/dam evidence can be tied cleanly to the White Cloud-to-Blue-River-Chapel reach.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 18,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck. Workspace product-style USGS Water Services IV fetch for 03303000 failed with Unable to connect to the remote server. RiverScout-style 200-800 cfs context remains community/third-party, and the route still lacks accepted manager/AW/official numeric thresholds plus current public endpoint coordinates and old-mill/Milltown low-head-dam confirmation for White Cloud-to-Blue-River-Chapel.",
+            "retryCondition": "Retry when official USGS 03303000 is same-day product-current and a manager/AW/official or otherwise strong same-route source supplies numeric gauge-tied paddling guidance with source-clean public endpoints and dam/portage context.",
             "retryDate": null,
             "sourcesChecked": [
-                "USGS legacy current conditions for 03303000",
-                "American Whitewater / IndianaOutfitters context from prior automation memory",
-                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
-                "Indiana DNR water-trail safety / guide context"
+                "USGS legacy current-condition search result for 03303000 reviewed 2026-06-09; visible official values stopped 2026-05-31.",
+                "2026-06-09 13:25 America/Chicago workspace USGS Water Services IV fetch for 03303000 failed with Unable to connect to the remote server.",
+                "American Whitewater Blue River gauge/reach context carried forward from prior reviews.",
+                "RiverScout-style Blue River 200-800 cfs context reviewed only as weak community/third-party support.",
+                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts."
             ],
             "aliases": [
                 "Blue River - White Cloud to Blue River Chapel",
@@ -1689,10 +1846,10 @@
             ],
             "v2Slug": null,
             "gauge": {
-                "quality": "direct_recent_but_product_fetch_unverified",
+                "quality": "direct_but_stale",
                 "id": "03303000",
                 "provider": "USGS/American Whitewater",
-                "notes": "USGS 03303000 is the direct White Cloud gauge for the AW-listed reach. The official legacy page still exposes data only through 2026-05-29, with 1,230 cfs / 4.33 ft at 15:15 EDT. AW route/gauge identity remains useful, but threshold and access/dam gates are not implementation-ready."
+                "notes": "USGS 03303000 remains the direct White Cloud gauge lead, but official search-visible observations did not reach the 2026-06-09 same-day product-live bar."
             },
             "thresholdSupport": {
                 "strength": "weak",
@@ -1714,16 +1871,16 @@
             "route": "Shades State Park / Turkey Run State Park family",
             "state": "IN",
             "status": "threshold_weak",
-            "lastReviewed": "2026-05-31",
-            "reviewCount": 16,
-            "blocker": "Fresh 2026-05-31 08:18 America/Chicago recheck. Sugar Creek remains the strongest scenic Indiana access lead with Indiana DNR recreation/public-access context, but workspace USGS Water Services IV for 03339500 still failed unable to connect and the official USGS legacy page still exposes only 265 cfs / 3.88 ft from 2026-05-30 16:45 EDT. It still does not clear V2 because the threshold package remains mixed legacy/community guidance rather than one manager/AW/official route-specific model, and route-specific parking, OHWM/private-bank, state-park, and low-head-dam/obstruction checks remain unresolved.",
-            "retryCondition": "Retry only if a manager, AW, or official/public-water-trail source ties Deers Mill / Cox Ford or a selected Sugar Creek public-access pair to numeric paddling thresholds on USGS 03339500, or if a conservative minimum-only floor can be defended from strong same-route evidence.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 18,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck. Sugar Creek remains a strong scenic-access lead, but workspace product-style USGS Water Services IV fetch for 03339500 failed with Unable to connect to the remote server and the route still lacks one accepted route-specific numeric threshold model tied to that gauge. The older DNR/IndianaOutfitters-derived cfs/stage mix still needs current DNR/access confirmation plus state-park, parking, OHWM/private-bank, and obstruction checks.",
+            "retryCondition": "Retry only if current official USGS 03339500 product data is available and a manager/AW/official/public-water-trail or strong same-route source ties a selected Sugar Creek access pair to defensible numeric low/ideal/high or minimum-only thresholds.",
             "retryDate": null,
             "sourcesChecked": [
-                "USGS legacy current conditions for 03339500",
-                "Indiana DNR Sugar Creek recreation/public-access context from prior memory",
-                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
-                "Indiana DNR water-trail safety / guide context"
+                "USGS 03339500 search-visible Water Data / station context reviewed 2026-06-09; no same-day product-current observation text surfaced.",
+                "2026-06-09 13:25 America/Chicago workspace USGS Water Services IV fetch for 03339500 failed with Unable to connect to the remote server.",
+                "Existing Indiana DNR / IndianaOutfitters-derived Sugar Creek access and level notes in the ledger.",
+                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts."
             ],
             "aliases": [
                 "Sugar Creek - Shades to Turkey Run",
@@ -1763,19 +1920,16 @@
             "route": "Kankakee River National Water Trail Indiana family / Kingsbury to Route 8 lead",
             "state": "IN",
             "status": "threshold_weak",
-            "lastReviewed": "2026-05-31",
-            "reviewCount": 7,
-            "blocker": "Rechecked 2026-05-31 02:39 America/Chicago as comparison during the Wildcat pass. The NIRPC / Northwest Indiana Kankakee River Water Trail map still gives strong route/access context, including DNR-owned Kingsbury Access and Route 8 Access and the 15.5-mile segment between them, plus safety warnings about flood stage, logjams, hunting seasons, few services, and private shorelines. No route was added because no official/AW/manager-published numeric low-water floor, ideal range, high-water cutoff, or conservative minimum-only model tied to a selected live USGS gauge surfaced.",
-            "retryCondition": "Retry Kingsbury Access to Route 8 Access only if a direct or defensible same-river live USGS gauge is selected and Indiana DNR, NWIPA/Kankakee River Basin Commission, AW, or another strong manager/source publishes numeric paddling guidance tied to that gauge. Recheck DNR public-access details, OHWM/private-bank limits, wind, flood-stage avoidance, hunting-season constraints, logjam/bridge-obstruction status, and low-head-dam/obstruction context before implementation.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 8,
+            "blocker": "Fresh 2026-06-09 08:42 America/Chicago recheck. NWIPA/NIRPC/National Water Trail evidence still supports the Indiana Kankakee corridor and the Kingsbury-to-Route-8 access concept, but no official/AW/manager-published numeric low-water floor, ideal band, high-water cutoff, or conservative minimum-only model tied to a selected live USGS gauge surfaced. Access remains promising; scoring does not.",
+            "retryCondition": "Retry only if a direct or defensible same-river live gauge is selected and Indiana DNR, NWIPA/Kankakee River Basin Commission, AW, or another strong manager/source publishes numeric paddling guidance tied to that gauge.",
             "retryDate": null,
             "sourcesChecked": [
-                "Indiana DNR Water Trails Guide reviewed 2026-05-30; links Kankakee River National Water Trail Story Map and Northwest Indiana Access Site Map",
-                "Indiana DNR State Parks Water Trails page reviewed 2026-05-30; water-trail/public-access and safety resource context",
-                "Indiana DNR River Rights and Usage page reviewed 2026-05-30; navigability/OHWM context",
-                "General Kankakee route/gauge searches during 2026-05-30 Indiana pass; no selected route-specific threshold model cleared the bar",
-                "NWIPA Kankakee River National Water Trail page opened 2026-05-30 21:39; lists Indiana access points, GPS coordinates, segment spacing, easy rural paddling, and safety warnings about flood stage, logjams, hunting preserves, and few portage opportunities",
-                "NIRPC / Northwest Indiana Kankakee River Water Trail map PDF opened 2026-05-30 21:39; identifies Kingsbury Access and Route 8 Access as DNR-owned sites and names Kingsbury-to-Route-8 as a 15.5-mile segment",
-                "NIRPC / Northwest Indiana Kankakee River Water Trail map PDF rechecked 2026-05-31; DNR-owned access context remains strong but no numeric paddling threshold model surfaced."
+                "NWIPA Kankakee River National Water Trail page search-visible 2026-06-09; confirms 133-mile trail and easy rural Indiana paddling context.",
+                "OuterSpatial/NIRPC Kankakee River Water Trail map search-visible 2026-06-09; supports Indiana trail/access context but not numeric thresholds.",
+                "Existing ledger access-coordinate notes for Kingsbury Access and Route 8 Access.",
+                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts."
             ],
             "aliases": [
                 "Kankakee River National Water Trail",
@@ -1902,13 +2056,14 @@
             "route": "Knop Lake to Mis-So-La / lower North Fork family",
             "state": "IN",
             "status": "threshold_weak",
-            "lastReviewed": "2026-05-31",
-            "reviewCount": 11,
-            "blocker": "Fresh 2026-05-31 08:18 America/Chicago recheck. Wildcat Creek remains a useful route/access lead, with prior DNR scenic-river, Wildcat Creek Stream Guide, and NICHES Mis-So-Lah context, but workspace USGS Water Services IV for 03334000 still failed unable to connect and the official USGS legacy page still exposes only 466 cfs / 2.90 ft from 2026-05-19 22:15 EDT. The single local excellent-level note still is not a defensible route-specific low/ideal/high or minimum-only threshold model.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 12,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck. Wildcat Creek remains a useful route/access lead, but workspace USGS Water Services IV for 03334000 again failed with Unable to connect to the remote server. The prior single local excellent-level note still is not a defensible route-specific low/ideal/high or minimum-only threshold model, and coordinates/access/hazard gates remain unresolved.",
             "retryCondition": "Retry when official USGS 03334000 exposes same-day current data and a manager/AW/official or strong same-route source supplies numeric threshold support for the Knop Lake-to-Mis-So-La family.",
             "retryDate": null,
             "sourcesChecked": [
                 "USGS legacy current conditions for 03334000",
+                "2026-06-09 13:25 America/Chicago workspace USGS Water Services IV fetch for 03334000 failed with Unable to connect to the remote server.",
                 "Wildcat Creek Stream Guide and NICHES context from prior automation memory",
                 "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts",
                 "Indiana DNR water-trail safety / guide context"
@@ -1945,9 +2100,9 @@
             "route": "Tonkel Road to State Road 1 / Leo-Cedarville",
             "state": "IN",
             "status": "threshold_weak",
-            "lastReviewed": "2026-05-30",
-            "reviewCount": 5,
-            "blocker": "Fresh 2026-05-30 21:09 America/Chicago recheck preserved threshold_weak. Northeast Indiana Water Trails still publishes a specific Cedar Creek suggested trip from Tonkel Road to State Road 1 with coordinates, just-over-5-mile distance, about 3-hour paddle time, scenic-river context, seasonal qualitative water-level notes, fallen-tree/portage warnings, and small rapids before the exit. ACRES repeats the route and says it ends at the DNR access site on State Road 1. Indiana DNR confirms Cedar Creek is a designated scenic/recreational river-system stream. No route was added because the level guidance remains qualitative only: NEIWT's water-level page recommends checking USGS and learning local effects, but publishes no numeric low/ideal/high or minimum-only threshold model tied to a selected gauge. The automation shell still could not connect to USGS Water Services for NE Indiana / recurring Indiana gauges. Access also starts from a road carry-down/narrow parking area, so public-access legitimacy should be reconfirmed against DNR/manager map context before implementation.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 6,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck preserved threshold_weak. Cedar Creek still has a strong NEIWT/ACRES route-shape package for Tonkel Road to State Road 1, but no numeric low/ideal/high or minimum-only threshold model tied to a selected gauge surfaced. Workspace product-style USGS Water Services IV fetches for recurring Indiana gauges again failed with Unable to connect to the remote server. Access also starts from a road carry-down/narrow parking area, so public-access legitimacy should be reconfirmed against DNR/manager map context before implementation.",
             "retryCondition": "Retry only if a route-matching Cedar Creek gauge exposes product-fetchable current data and NEIWT, DNR, AW, a manager, or another strong source publishes numeric route-specific low/ideal/high or conservative minimum-only guidance. Recheck public access at Tonkel Road and SR 1, OHWM/private-bank limits, current logjam conditions, and low-head-dam map context before implementation.",
             "retryDate": null,
             "sourcesChecked": [
@@ -1958,7 +2113,8 @@
                 "2026-05-30 21:09 recheck: NEIWT Suggested Trips still gives the Tonkel Road and State Road 1 coordinates, distance, and qualitative seasonal water-level note but no numeric threshold bands.",
                 "2026-05-30 21:09 recheck: ACRES Cedar Creek Corridor page repeats the paddle and says it begins at Tonkel Road and ends at the DNR access site on State Road 1, while warning about fallen trees/logjams and higher spring water.",
                 "2026-05-30 21:09 recheck: NEIWT Water Levels and Weather page explains USGS gauges are relative and useful for planning but does not publish Cedar Creek numeric paddling thresholds.",
-                "2026-05-30 21:09 shell recheck: USGS Water Services IV requests for NE Indiana / recurring Indiana gauges failed unable to connect."
+                "2026-05-30 21:09 shell recheck: USGS Water Services IV requests for NE Indiana / recurring Indiana gauges failed unable to connect.",
+                "2026-06-09 13:25 America/Chicago recheck: no new numeric Cedar Creek threshold source surfaced, and workspace USGS Water Services IV fetches for recurring Indiana gauges again failed with Unable to connect to the remote server."
             ],
             "aliases": [
                 "Cedar Creek - Tonkel Road to State Road 1",
@@ -2045,18 +2201,16 @@
             "route": "Rainsville Bridge to Twin Bridges",
             "state": "IN",
             "status": "needs_manual_coordinates",
-            "lastReviewed": "2026-05-30",
-            "reviewCount": 1,
-            "blocker": "Fresh 2026-05-30 15:39 America/Chicago review. American Whitewater's Indiana index showed the exact Big Pine Creek Rainsville-to-Twin-Bridges II+(III) reach with a current-looking flow value updated within the hour, and Indiana DNR natural/scenic-river material describes the Rainsville-area Big Pine segment as Indiana's premier spring whitewater creek. The route was not added because AW's opened gauge detail page for the Big Pine reach was stale/disabled, official/search-visible USGS 033356848 Big Pine Creek at Pine Village evidence showed current/historical observations ending in 2025 rather than same-day product-ready data, and the access story rests on bridge/county-road access descriptions rather than a clean DNR public-access pair. Do not ship from AW index current snippets plus bridge-launch directions.",
-            "retryCondition": "Retry only if USGS 033356848 or another route-matching Big Pine Creek gauge exposes product-fetchable current observations and AW, Indiana DNR, a manager, or another strong source publishes a usable numeric low/ideal/high or conservative minimum-only model for this exact reach. Recheck Rainsville Bridge and Twin Bridges public-access legitimacy against DNR public-access/Where-to-Fish or manager context, and recheck Rocky Ford hydraulics, high-water whitewater risk, private-bank/OHWM limits, and low-head-dam/obstruction context before implementation.",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 3,
+            "blocker": "Fresh 2026-06-09 13:25 America/Chicago recheck. American Whitewater/route-index evidence still supports the Big Pine Creek Rainsville-to-Twin-Bridges whitewater concept, but the AW JavaScript app did not expose an accessible numeric threshold table and workspace product-style USGS Water Services IV fetch for 033356848 failed with Unable to connect to the remote server. Rainsville ford / Twin Bridges access coordinates and legitimacy still need manager-grade confirmation. Keep as a future routeType whitewater candidate, not a conservative first Indiana add.",
+            "retryCondition": "Retry only if AW or another strong source exposes a clear numeric gauge range for the selected product-supported gauge, both public endpoints are source-clean with defensible coordinates, and the route is implemented as routeType whitewater with explicit ledge/hole, bridge, private-bank, and rescue/skill caveats.",
             "retryDate": null,
             "sourcesChecked": [
-                "American Whitewater Indiana river index opened 2026-05-30; showed Big Pine Creek Rainsville to Twin Bridges II+(III), 0.5-6.7 miles, with a current-looking flow value updated within the hour",
-                "American Whitewater Big Pine Creek Rainsville-to-Twin-Bridges gauge detail opened 2026-05-30; gauge detail showed stale status from months earlier and the linked Big Pine Creek at Pine Village reading as unavailable",
-                "USGS 033356848 Big Pine Creek at Pine Village search-visible current/inventory evidence reviewed 2026-05-30; visible official evidence showed current/historical observations ending in 2025 rather than same-day product-ready data",
-                "Indiana DNR Natural and Scenic Rivers appendix reviewed 2026-05-30; identifies the Rainsville-area Big Pine Creek segment as a natural/scenic-river-quality corridor and notes spring whitewater popularity plus unreliable warm-weather water levels",
-                "Indiana DNR State Parks Water Trails page reviewed 2026-05-30; water trails require public access points and DNR points paddlers to current-flow, river-rights, low-head-dam, and public-access resources",
-                "IndianaOutfitters Big Pine Creek page reviewed 2026-05-30; describes the Rainsville Bridge to Twin Bridges route, Rocky Ford ledges, high-water hydraulics, and bridge/county-road access directions"
+                "American Whitewater Big Pine Creek Rainsville to Twin Bridges page opened 2026-06-09; documents II+(III), 6.4 miles, Pine Village gauge, features, put-in/take-out labels, and current-looking below-recommended flow.",
+                "American Whitewater flow tab opened 2026-06-09; gauge data loader did not expose a clean numeric threshold table in accessible text.",
+                "2026-06-09 13:25 America/Chicago workspace USGS Water Services IV fetch for 033356848 failed with Unable to connect to the remote server.",
+                "Current V2 inventory in src/data/rivers.ts and src/data/river-trip-details.ts."
             ],
             "aliases": [
                 "Big Pine Creek - Rainsville to Twin Bridges",
@@ -2065,10 +2219,10 @@
             ],
             "v2Slug": null,
             "gauge": {
-                "quality": "direct_but_no_product_ready_current_iv",
+                "quality": "direct_aw_current_context_but_threshold_incomplete",
                 "id": "033356848",
                 "provider": "USGS/American Whitewater",
-                "notes": "USGS 033356848 Big Pine Creek at Pine Village is the obvious same-creek gauge surfaced by AW and USGS search results, but this run did not verify product-ready current observations. AW's index looked current, while AW's gauge detail and official/search-visible USGS evidence did not clear the app-live gate."
+                "notes": "AW ties the reach to Big Pine Creek at Pine Village and exposes current-looking flow context, but this run did not capture product-ready official Water Services data plus a clear AW numeric range sufficient for implementation."
             },
             "thresholdSupport": {
                 "strength": "aw_index_only_not_captured",
@@ -3487,14 +3641,14 @@
             "notes": "Do not convert this into a Fox River float. It is a whitewater/dam feature with serious low-head-dam, wall, debris, and winter ice hazards. Any future product support would need explicit park-and-play route design and current public-manager access/closure review."
         },
         {
-            "reviewCount": 7,
+            "reviewCount": 8,
             "candidateId": "mi-thunder-bay-river-long-rapids-family",
             "river": "Thunder Bay River",
             "route": "Long Rapids / Thunder Bay River State Forest Campground to Alpena family",
             "state": "MI",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-08",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. DNR campground, Alpena Blueway, and Long Rapids route context remain useful, but local product-style USGS IV fetch for 04133501 failed, official USGS legacy evidence showed latest discharge/stage as 500 cfs / 12.15 ft at 2026-06-03 15:30 EST rather than same-day data, and the route still lacks source-backed numeric paddling thresholds tied to the selected gauge.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. DNR campground, Alpena Blueway, and Long Rapids route context remain useful, but local product-style USGS IV fetch for 04133501 failed again, official search-visible evidence still did not establish same-day product-ready values, and the route still lacks source-backed numeric paddling thresholds tied to the selected gauge.",
             "retryCondition": "Retry only if USGS 04133501 or another direct Thunder Bay gauge exposes same-day product-fetchable observations and a stronger source provides route-specific numeric paddling thresholds for a named public endpoint pair.",
             "retryDate": null,
             "sourcesChecked": [
@@ -3508,7 +3662,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04133501 failed with Unable to connect to the remote server; official/search-visible USGS 04133501 legacy current-conditions evidence showed latest visible discharge/stage values from 2026-05-29 20:30 EST, not same-day June 5 product-ready observations.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04133501 failed with Unable to connect to the remote server; search-visible official USGS 04133501 legacy evidence showed latest 635 cfs / 12.56 ft at 2026-05-29 20:30 EST.",
-                "Fresh 2026-06-08 official USGS 04133501 legacy current-conditions evidence showed 500 cfs / 12.15 ft at 2026-06-03 15:30 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS 04133501 legacy current-conditions evidence showed 500 cfs / 12.15 ft at 2026-06-03 15:30 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Search-visible official USGS 04133501 evidence remained non-current for this run and threshold support is still absent."
             ],
             "aliases": [
                 "Thunder Bay River - Long Rapids day trip",
@@ -3534,17 +3689,17 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-gauge freshness and threshold support failed first."
             },
-            "notes": "Keep as no_live_gauge/threshold blocked; useful route/access lead but not product-fresh today and still no numeric thresholds. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Keep as no_live_gauge/threshold blocked; useful route/access lead but not product-fresh today and still no numeric thresholds. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
-            "reviewCount": 8,
+            "reviewCount": 9,
             "candidateId": "mi-cedar-river-menominee-county-family",
             "river": "Cedar River",
             "route": "County Road 366 / Cedar River North State Forest Campground to Cedar River / Green Bay family",
             "state": "MI",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-08",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. Public/DNR Cedar River access leads remain useful, but local product-style USGS IV fetch for 04059750 failed, official USGS legacy evidence showed latest discharge/stage only as 183 cfs / 19.53 ft at 2026-05-15 17:45 CST, and no numeric route-specific threshold model or selected endpoint pair cleared the gate.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. Public/DNR Cedar River access leads remain useful, but local product-style USGS IV fetch for 04059750 failed again, same-day product-ready data was not established, and no numeric route-specific threshold model or selected endpoint pair cleared the gate.",
             "retryCondition": "Retry only if USGS 04059750 exposes same-day product-fetchable discharge/stage and a public route source identifies a specific Cedar River day-trip endpoint pair with numeric low-water/range guidance.",
             "retryDate": null,
             "sourcesChecked": [
@@ -3557,7 +3712,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04059750 failed with Unable to connect to the remote server; official/search-visible USGS 04059750 legacy current-conditions evidence showed stale May 15 instantaneous discharge/stage, not same-day June 5 product-ready data.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04059750 failed with Unable to connect to the remote server; search-visible official USGS 04059750 legacy evidence showed latest 183 cfs / 19.53 ft at 2026-05-15 17:45 CST.",
-                "Fresh 2026-06-08 official USGS 04059750 legacy current-conditions evidence showed 183 cfs / 19.53 ft at 2026-05-15 17:45 CST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS 04059750 legacy current-conditions evidence showed 183 cfs / 19.53 ft at 2026-05-15 17:45 CST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Cedar remains blocked by product-live failure plus no route-specific numeric paddling thresholds."
             ],
             "aliases": [
                 "Cedar River - Menominee County day-trip family",
@@ -3583,7 +3739,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-gauge freshness and threshold support failed first."
             },
-            "notes": "Keep as no_live_gauge until the USGS station is current and a route-specific threshold source appears. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Keep as no_live_gauge until the USGS station is current and a route-specific threshold source appears. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
             "reviewCount": 1,
@@ -3632,12 +3788,12 @@
         },
         {
             "candidateId": "mi-paint-river-dnr-campground-horserace",
-            "reviewCount": 9,
+            "reviewCount": 10,
             "river": "Paint River",
             "route": "MI DNR campground to Horserace Rapids",
             "state": "MI",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. American Whitewater remains a strong route-specific whitewater threshold lead, but official USGS legacy evidence for 04062000 showed 417 cfs / 3.69 ft at 2026-05-19 12:15 CST, not same-day on June 8; local product-style USGS IV fetch still failed; and campground / Horserace access coordinates still need source resolution before implementation.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. American Whitewater remains a strong route-specific whitewater threshold lead, but official USGS legacy evidence for 04062000 still showed May 19 data in search-visible results, the local product-style IV fetch failed again, and campground / Horserace access coordinates still need source resolution before implementation.",
             "retryCondition": "Retry only if USGS 04062000 exposes same-day product-fetchable instantaneous data again, or the app adds a supported AW gauge provider, and the campground / Horserace access coordinates can be source-resolved without guessing.",
             "retryDate": null,
             "sourcesChecked": [
@@ -3650,7 +3806,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04062000 failed with Unable to connect to the remote server; official/search-visible USGS 04062000 legacy current-conditions evidence showed stale May 19 instantaneous discharge/stage, not same-day June 5 product-ready data.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04062000 failed with Unable to connect to the remote server; search-visible official USGS legacy current-conditions evidence still showed discharge/gage-height availability ending 2026-05-19.",
-                "Fresh 2026-06-08 official USGS 04062000 legacy current-conditions evidence showed 417 cfs / 3.69 ft at 2026-05-19 12:15 CST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS 04062000 legacy current-conditions evidence showed 417 cfs / 3.69 ft at 2026-05-19 12:15 CST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Official/search-visible USGS 04062000 evidence still showed 417 cfs / 3.69 ft at 2026-05-19 12:15 CST rather than same-day data; third-party fresh-looking values were not accepted as a product-live substitute."
             ],
             "aliases": [
                 "Paint River - Horserace Rapids",
@@ -3676,7 +3833,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because the live-gauge gate failed before implementation; future retry should source-resolve campground and Horserace access coordinates."
             },
-            "notes": "Good whitewater candidate if USGS live data returns, but not route-ready today. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates.",
+            "notes": "Good whitewater candidate if USGS live data returns, but not route-ready today. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates.",
             "lastReviewed": "2026-06-08"
         },
         {
@@ -17162,12 +17319,12 @@
         },
         {
             "candidateId": "mi-cass-river-vassar-tuscola",
-            "reviewCount": 10,
+            "reviewCount": 11,
             "river": "Cass River",
             "route": "Vassar Canoe and Kayak Launch to Tuscola Township Park",
             "state": "MI",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. Cass River Water Trail access and 100 cfs tough-paddle guidance remain useful, but local product-style USGS IV fetches for 04150800/04151500 still failed. Official USGS legacy evidence showed 04150800 Wahjamega with no current discharge and only stage/NAVD through 2026-04-17, while 04151500 Frankenmuth showed 503 cfs / 5.73 ft at 2026-05-08 09:45 EST. Same-day product-ready discharge for Vassar-to-Tuscola was not established.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. Cass River Water Trail access and 100 cfs tough-paddle guidance remain useful, but local product-style USGS IV fetches for 04150800/04151500 still failed. Same-day product-ready discharge for Vassar-to-Tuscola was not established, so the route remains blocked before implementation.",
             "retryCondition": "Retry only if Cass River at Wahjamega, Cass City, Frankenmuth, or another route-relevant Cass River USGS station exposes product-fetchable current discharge/stage again and the 100 cfs Cass River Water Trail rule can be tied honestly to the selected Vassar-to-Tuscola route.",
             "retryDate": null,
             "sourcesChecked": [
@@ -17184,7 +17341,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04150800/04151500 failed with Unable to connect to the remote server; official/search-visible 04151500 Frankenmuth current-conditions evidence still showed stale May 8 instantaneous data rather than same-day June 5 product-ready discharge.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04150800/04151500 failed with Unable to connect to the remote server; search-visible official USGS legacy evidence still showed Wahjamega without current discharge and Frankenmuth latest 503 cfs / 5.73 ft at 2026-05-08 09:45 EST.",
-                "Fresh 2026-06-08 official USGS legacy current-conditions evidence: 04150800 Wahjamega no current discharge / stage 11.82 ft at 2026-04-17 22:15 EST; 04151500 Frankenmuth 503 cfs / 5.73 ft at 2026-05-08 09:45 EST. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS legacy current-conditions evidence: 04150800 Wahjamega no current discharge / stage 11.82 ft at 2026-04-17 22:15 EST; 04151500 Frankenmuth 503 cfs / 5.73 ft at 2026-05-08 09:45 EST. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Cass remains blocked because neither Wahjamega nor Frankenmuth was product-verified for the selected Vassar-to-Tuscola reach."
             ],
             "aliases": [
                 "Cass River - Vassar to Tuscola",
@@ -17216,7 +17374,7 @@
                 ],
                 "coordinateSource": "Outdoor Michigan feature pages/search-visible records for South Water Street Boat Launch and Tuscola Twp Park Boat Launch."
             },
-            "notes": "Strong route/access/100 cfs floor remains parked because no route-relevant product-ready live USGS current data was verified. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates.",
+            "notes": "Strong route/access/100 cfs floor remains parked because no route-relevant product-ready live USGS current data was verified. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates.",
             "lastReviewed": "2026-06-08"
         },
         {
@@ -18862,14 +19020,14 @@
             "notes": "Fresh 2026-05-29 review. Promising AW breadcrumb but not route-ready."
         },
         {
-            "reviewCount": 9,
+            "reviewCount": 10,
             "lastReviewed": "2026-06-08",
             "candidateId": "mi-ford-river-county-south-dakota-cedardale",
             "river": "Ford River",
             "route": "County Road South Dakota to Cedardale 28th Road family",
             "state": "MI",
             "status": "no_live_gauge",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. USGS 04059500 remains the obvious product-supported Ford River gauge candidate, but local product-style USGS IV fetch failed, official USGS search/open evidence did not expose current IV discharge/stage and inventory/daily records remained stale, and the route still lacks source-clean public endpoints plus numeric route-specific threshold support.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. USGS 04059500 remains the obvious product-supported Ford River gauge candidate, but local product-style USGS IV fetch failed again, official/search-visible evidence did not expose same-day current IV discharge/stage, and the route still lacks source-clean public endpoints plus numeric route-specific threshold support.",
             "retryCondition": "Retry only if USGS 04059500 exposes same-day product-fetchable current data and AW route pages plus Delta County, Michigan DNR, a water-trail source, or another strong source confirms public access at both endpoints with coordinates and numeric runnable guidance.",
             "retryDate": null,
             "sourcesChecked": [
@@ -18883,7 +19041,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04059500 failed with Unable to connect to the remote server; official/search-visible USGS 04059500 inventory evidence still showed current/historical observations ending 2025-12-04.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04059500 failed with Unable to connect to the remote server; search-visible official USGS 04059500 legacy evidence still showed latest 441 cfs / 2.95 ft at 2026-05-22 21:00 EST.",
-                "Fresh 2026-06-08 official/search-visible USGS 04059500 evidence did not expose product-ready current IV discharge/stage; search-visible daily discharge ended 2025-11-08/2025-12-03 and inventory current/historical observations ended 2025-12-04. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official/search-visible USGS 04059500 evidence did not expose product-ready current IV discharge/stage; search-visible daily discharge ended 2025-11-08/2025-12-03 and inventory current/historical observations ended 2025-12-04. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Ford remains blocked because third-party stale/current-looking snippets do not replace official product-ready IV data, and access/threshold evidence is still incomplete."
             ],
             "aliases": [
                 "Ford River - County Road South Dakota to Cedardale 28th Road",
@@ -18909,7 +19068,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because public access and threshold evidence failed first."
             },
-            "notes": "Keep as no_live_gauge because official USGS current evidence remains stale; access and threshold issues remain. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Keep as no_live_gauge because official USGS current evidence remains stale; access and threshold issues remain. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
             "reviewCount": 2,
@@ -19354,14 +19513,14 @@
             "notes": "Promising gauge-first Clinton lead, but event-specific and too weak for V2 route scoring."
         },
         {
-            "reviewCount": 7,
+            "reviewCount": 8,
             "candidateId": "mi-presque-isle-bottom-presque",
             "river": "Presque Isle River",
             "route": "Bottom Presque / South Boundary Road to Lake Superior",
             "state": "MI",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-08",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. American Whitewater still has the route-specific expert waterfall lead, but local product-style USGS IV fetch for 04032150 failed, official USGS legacy evidence showed latest discharge/stage as 1980 cfs / 7.61 ft at 2026-04-21 18:30 EST, and AW range caveats remain below grade for a high-consequence Class IV-V reach.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. American Whitewater still has the route-specific expert waterfall lead, but local product-style USGS IV fetch for 04032150 failed again, same-day product-ready discharge/stage was not established, and AW range caveats remain below grade for a high-consequence Class IV-V reach.",
             "retryCondition": "Retry only if official USGS 04032150 exposes same-day product-fetchable discharge/stage and AW or another credible whitewater source has a defensible range for the South Boundary Road gauge. Keep routeType whitewater and expert-only if ever added.",
             "retryDate": null,
             "sourcesChecked": [
@@ -19372,7 +19531,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04032150 failed with Unable to connect to the remote server; official/search-visible USGS 04032150 legacy evidence remained stale to April 2026 and did not expose current seven-day product data.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04032150 failed with Unable to connect to the remote server; search-visible official USGS legacy evidence showed latest April 2026 discharge/stage values and no current seven-day data.",
-                "Fresh 2026-06-08 official USGS 04032150 legacy current-conditions evidence showed 1980 cfs / 7.61 ft at 2026-04-21 18:30 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS 04032150 legacy current-conditions evidence showed 1980 cfs / 7.61 ft at 2026-04-21 18:30 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Presque Isle remains high-consequence whitewater blocked by product-live failure and weak range support."
             ],
             "aliases": [
                 "Presque Isle River - Bottom Presque",
@@ -19398,17 +19558,17 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-gauge and threshold gates failed first."
             },
-            "notes": "Expert waterfall run inside/near Porcupine Mountains context; not a casual route candidate and still no product-live gauge/defensible threshold package. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Expert waterfall run inside/near Porcupine Mountains context; not a casual route candidate and still no product-live gauge/defensible threshold package. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
-            "reviewCount": 8,
+            "reviewCount": 9,
             "candidateId": "mi-salmon-trout-river-big-bay-aw-family",
             "river": "Salmon Trout River",
             "route": "Big Bay / West Branch confluence to County Road 550 family",
             "state": "MI",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-08",
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. Local product-style USGS IV fetch for 04043238 failed, official USGS legacy evidence showed stale discharge/stage of 29.9 cfs / 1.26 ft at 2026-04-18 04:45 EST, and public endpoint plus route-threshold evidence remains incomplete.",
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. Local product-style USGS IV fetch for 04043238 failed again, official USGS daily evidence remains stale to 2026-01-18, AW still shows seven-month-stale gauge values, and public endpoint plus route-threshold evidence remains incomplete.",
             "retryCondition": "Retry only if official USGS 04043238 exposes same-day product-fetchable current data and a credible public route source confirms endpoint access, coordinates, and numeric threshold guidance.",
             "retryDate": null,
             "sourcesChecked": [
@@ -19419,7 +19579,8 @@
                 "Fresh 2026-06-05 08:03 targeted refresh: local USGS IV fetch for 04043238 failed with Unable to connect to the remote server; official/search-visible USGS 04043238 monitoring-location evidence reported no continuous, daily, or field measurement data types available.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04043238 failed with Unable to connect to the remote server; search-visible official USGS legacy evidence showed latest 29.9 cfs / 1.26 ft at 2026-04-18 04:45 EST and the WDFN page reported no current continuous data available.",
-                "Fresh 2026-06-08 official USGS 04043238 legacy current-conditions evidence showed 29.9 cfs / 1.26 ft at 2026-04-18 04:45 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official USGS 04043238 legacy current-conditions evidence showed 29.9 cfs / 1.26 ft at 2026-04-18 04:45 EST, not same-day. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. USGS daily evidence for 04043238 remains stale to 2026-01-18 and AW gauge detail remains seven-month-stale, so this is not product-live."
             ],
             "aliases": [
                 "Salmon Trout River near Big Bay",
@@ -19445,7 +19606,7 @@
                 "takeOutCoordinates": null,
                 "coordinateSource": "Not captured because live-gauge, access, and threshold gates failed first."
             },
-            "notes": "Whitewater lead only; do not add without a full public endpoint and live USGS package. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Whitewater lead only; do not add without a full public endpoint and live USGS package. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
             "reviewCount": 1,
@@ -19748,8 +19909,8 @@
             "state": "MI",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-08",
-            "reviewCount": 8,
-            "blocker": "Fresh 2026-06-08 09:37 America/Chicago targeted blocker refresh preserved the no-add decision. Michigan DNR / Outdoor Michigan access evidence for the Mouth of Two Hearted River State Forest Campground remains useful, but local product-style USGS IV fetch for 04044813 failed and fresh official/search-visible checks still did not show product-live IV discharge/stage for that inventory/field-measurement/peak-flow lead. No credible numeric paddling threshold model or exact upstream day-trip endpoint pair surfaced.",
+            "reviewCount": 9,
+            "blocker": "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh preserved the no-add decision. Michigan DNR / Outdoor Michigan access evidence for the Mouth of Two Hearted River State Forest Campground remains useful, but local product-style USGS IV fetch for 04044813 failed and official/search-visible evidence remains inventory/field-measurement/peak-flow only rather than product-live IV discharge/stage. No credible numeric paddling threshold model or exact upstream day-trip endpoint pair surfaced.",
             "retryCondition": "Retry only if a product-supported live gauge and credible numeric paddling guidance are found for a named Two Hearted River day trip with source-backed public endpoints.",
             "retryDate": null,
             "sourcesChecked": [
@@ -19763,7 +19924,8 @@
                 "Fresh 2026-06-05 08:22 targeted refresh: USGS 04044813 Two Hearted River near Paradise inventory lead exposes peak streamflow and field measurements, not product-live IV discharge/stage; local IV fetch including 04044813 failed with Unable to connect to the remote server.",
                 "Fresh 2026-06-05 08:32 targeted refresh: local product-style USGS IV fetch for the focused Michigan gauge list failed with Unable to connect to the remote server; fresh official/search-visible evidence did not clear product-live, threshold, endpoint, or route-definition gates.",
                 "Fresh 2026-06-05 09:13 America/Chicago targeted refresh: local USGS IV fetch for 04044813 failed with Unable to connect to the remote server; fresh searches still did not identify product-live IV discharge/stage, a numeric paddling threshold model, or a selected upstream endpoint for a Two Hearted day trip.",
-                "Fresh 2026-06-08 official/search-visible USGS 04044813 evidence remained an inventory lead rather than product-live IV discharge/stage for a selected day trip. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server."
+                "Fresh 2026-06-08 official/search-visible USGS 04044813 evidence remained an inventory lead rather than product-live IV discharge/stage for a selected day trip. Local USGS IV fetch for the focused gauge list still failed with Unable to connect to the remote server.",
+                "Fresh 2026-06-08 15:41 America/Chicago targeted blocker refresh: local product-style USGS IV fetch for 04150800/04151500/04062000/04059750/04133501/04032150/04043238/04059500/04044813 failed with Unable to connect to the remote server; search-visible official evidence still did not clear same-day product readiness or the remaining threshold/endpoint gates. Two Hearted 04044813 remains an inventory/field-measurement/peak-flow lead only, with no product-live IV data or selected upstream endpoint."
             ],
             "aliases": [
                 "Two Hearted River - river mouth campground",
@@ -19792,7 +19954,7 @@
                 },
                 "coordinateSource": "Michigan DNR campground page for river-mouth access coordinates"
             },
-            "notes": "Keep as a scenic/access lead only; do not implement without a live gauge and numeric thresholds. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
+            "notes": "Keep as a scenic/access lead only; do not implement without a live gauge and numeric thresholds. Fresh 2026-06-05 08:03 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 08:32 targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-05 09:13 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:41 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates. Fresh 2026-06-08 15:51 America/Chicago targeted refresh: no-add blocker preserved; no promotion to likely_addable or needs_manual_coordinates."
         },
         {
             "candidateId": "il-lusk-creek-canyon",
@@ -25867,6 +26029,224 @@
                 "coordinatesPresent": false,
                 "notes": "MDC supports access context at both sites, but this pass did not establish an implementation-grade paddling route shape or source-backed endpoint coordinate package."
             }
+        },
+        {
+            "candidateId": "ne-platte-river-schramm-louisville",
+            "river": "Platte River",
+            "route": "Schramm Park State Recreation Area to Louisville State Recreation Area",
+            "state": "NE",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 blocker refresh. NGPC confirms the Platte River Water Trail, the Schramm-to-Louisville segment, Schramm launch context, Louisville take-out context, and lower-Platte sandy/braided conditions. No route was added because local product-style USGS Water Services IV/api checks for likely lower-Platte gauges failed again with Unable to connect to the remote server, and no official or credible source surfaced numeric paddling thresholds tied to a selected Platte gauge. Do not infer runnable levels from water-trail designation alone.",
+            "retryCondition": "Retry only if an official manager, USGS/NRD product path, or credible route source publishes numeric low/ideal/high paddling guidance tied to a product-supported lower-Platte gauge and source-backed endpoint coordinates are captured.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "NGPC Water Trails page opened 2026-06-09; confirms Nebraska designated water trails, lower Platte braided-channel character, summer low-water/irrigation caution, wind/flow planning, and USGS streamflow check guidance.",
+                "NGPC Platte River trip planner opened 2026-06-09; confirms Schramm to Louisville SRA is 4.9 river miles / about 1 hour and notes the Nebraska 50 bridge access downstream.",
+                "NGPC Venture Parks page/search context opened 2026-06-09; confirms Schramm and Louisville river access improvements, parking, and Louisville concrete ramp context.",
+                "Local USGS Water Services IV and api.waterdata.usgs.gov checks for lower-Platte gauge family failed unable to connect.",
+                "2026-06-09 13:24 refresh: local product-style USGS Water Services IV fetch for Nebraska gauge set still failed unable to connect; no new numeric Platte paddling threshold evidence surfaced."
+            ],
+            "aliases": [
+                "Platte River Water Trail - Schramm to Louisville",
+                "Lower Platte River - Schramm Park to Louisville SRA",
+                "Schramm Park canoe/kayak access to Louisville SRA"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "product_fetch_failed",
+                "id": "06805500/06796000 lower-Platte gauge family",
+                "provider": "USGS",
+                "notes": "USGS lower-Platte gauges are plausible official live-gauge leads, but this run could not verify product-fetchable current app data from the workspace."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "NGPC says to check USGS flow and plan for river flow, wind, and summer low water, but no numeric paddling floor, preferred range, or high-water cutoff tied to a selected gauge surfaced."
+            },
+            "endpoints": {
+                "putIn": "Schramm Park State Recreation Area canoe/kayak access",
+                "takeOut": "Louisville State Recreation Area Platte River access",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Official endpoint names and access context reviewed; source-backed implementation coordinates were not captured because threshold/product-live gates failed first."
+            },
+            "notes": "Strong first Nebraska route-shape lead, but keep blocked until the app can fetch a selected lower-Platte gauge and a source-backed numeric threshold model exists. Caveats include braided sandy channels, few stable landmarks, wind, summer irrigation-related low water, private banks, and same-day ramp/channel checks."
+        },
+        {
+            "candidateId": "ne-niobrara-river-cornell-smith-brewer-norden-family",
+            "river": "Niobrara River",
+            "route": "Cornell Bridge / Smith Falls / Brewer Bridge / Norden Bridge family",
+            "state": "NE",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 blocker refresh. NPS and NGPC confirm the Niobrara National Scenic River is a major canoe/kayak/tubing corridor, and NGPC documents Cornell Bridge to Norden Bridge as a 30.4-mile water trail with public/private access, Smith Falls and Brewer Bridge stops, Class II-III hazards, Rocky Ford and Egelhoff portage warnings, and Norden Chute Class IV near the end. No route was added because product-fetchable USGS 06461500 evidence failed locally again and NPS states minimal/optimal recreational flows are still being studied rather than publishing numeric paddling thresholds.",
+            "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "NPS Niobrara Canoeing, Kayaking, and Tubing page opened 2026-06-09; confirms popular floating use and spring/fall/summer context.",
+                "NPS Niobrara FAQ opened 2026-06-09; says low levels usually occur mid-July to mid-September, drought can require dragging over shallow places, and studies are underway to determine minimal and optimal recreational floating flows.",
+                "NGPC Niobrara River trip planner opened 2026-06-09; confirms Cornell-to-Norden route, public/private access context, Smith Falls, Brewer Bridge NRD access, rapids and portage warnings, and low-flow dragging below Norden in hot summer.",
+                "Local USGS Water Services IV/api checks for 06461500 failed unable to connect.",
+                "2026-06-09 13:24 refresh: NPS FAQ still supports only seasonal/qualitative low-water caution, not app-ready minimal or optimal flow bands."
+            ],
+            "aliases": [
+                "Niobrara River Water Trail - Cornell Bridge to Norden Bridge",
+                "Niobrara National Scenic River day-float family",
+                "Smith Falls / Brewer Bridge Niobrara float"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "product_fetch_failed",
+                "id": "06461500",
+                "provider": "USGS",
+                "notes": "Niobrara River near Sparks is the obvious official gauge lead for the popular National Scenic River corridor, but local product fetch failed in this run."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "NPS provides seasonal low-water cautions but explicitly does not publish minimal/optimal recreational flow bands; no numeric app threshold model was accepted."
+            },
+            "endpoints": {
+                "putIn": "Cornell Bridge / Fort Niobrara National Wildlife Refuge access family",
+                "takeOut": "Smith Falls, Brewer Bridge, or Norden Bridge family",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
+            },
+            "notes": "High-value future family, but implementation needs a shorter selected route and a real gauge-threshold model. Caveats include federal/private access, refuge fees/rules, outfitter/private landings, low-water dragging, rock ledges, marked portages, Class II-III rapids, Norden Chute, crowds, and weather."
+        },
+        {
+            "candidateId": "ne-calamus-river-highway-7-calamus-sra",
+            "river": "Calamus River",
+            "route": "Nebraska Highway 7 to Calamus Reservoir State Recreation Area",
+            "state": "NE",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 blocker refresh. NGPC documents the Calamus River canoe trail from Nebraska Highway 7 to Calamus Reservoir SRA as 56.6 miles with limited access, private surrounding land, low bridges, culverts, fences, shallow tailwater, and primitive campsite context. No route was added because it is a long expedition-style trail rather than a narrow day route, product-fetchable USGS gauge evidence failed locally again, and no numeric paddling thresholds tied to an official gauge surfaced.",
+            "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "NGPC Calamus River trip planner opened 2026-06-09; confirms Highway 7 to Calamus Reservoir SRA is 56.6 miles, access is limited by surrounding private land, and the route includes culverts, low bridges, barbed-wire/electric fences, campsites, U.S. 183 access, and shallow tailwater.",
+                "NGPC Water Trails page opened 2026-06-09 for statewide flow, wind, low-water, and USGS streamflow context.",
+                "Local USGS Water Services IV/api checks for the Calamus gauge family failed unable to connect.",
+                "2026-06-09 13:24 refresh: no shorter official public day segment or numeric Calamus gauge-threshold package surfaced."
+            ],
+            "aliases": [
+                "Calamus River Canoe Trail",
+                "Calamus River Highway 7 to Calamus Reservoir",
+                "Calamus River Sandhills canoe route"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "product_fetch_failed",
+                "id": "06787500 Calamus River gauge family",
+                "provider": "USGS",
+                "notes": "A Calamus River USGS gauge family was considered, but workspace product fetches failed and no gauge-to-route threshold source was captured."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "No numeric paddling floor, preferred band, or high-water cutoff tied to a selected Calamus gauge surfaced."
+            },
+            "endpoints": {
+                "putIn": "Nebraska Highway 7 bridge access",
+                "takeOut": "Calamus Reservoir State Recreation Area / Hannaman Bayou tailwater",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
+            },
+            "notes": "Do not ship as a simple Explore route without a shorter selected day segment. Caveats include private land, no vehicle parking at the Highway 7 launch, sandy shallow channels, 12 bridges, low spans, culverts, barbed-wire/electric fences, portages, long shuttle, and reservoir tailwater slowdown."
+        },
+        {
+            "candidateId": "ne-elkhorn-river-public-access-family",
+            "river": "Elkhorn River",
+            "route": "Elkhorn public-access / Waterloo gauge family",
+            "state": "NE",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 blocker refresh. NGPC lists an Elkhorn River trip planner and official access context exists for Elkhorn Crossing, Graske Crossing, and Waterloo River Access, with USGS/official gauge leads along the river. No route was added because this pass still did not capture an exact official point-to-point route with source-backed endpoint coordinates, local USGS product fetches failed, and no numeric paddling thresholds tied to an Elkhorn gauge surfaced.",
+            "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "NGPC Water Trails page opened 2026-06-09; links the Elkhorn River trip planner and gives statewide flow/low-water/wind/USGS streamflow cautions.",
+                "Nebraska public fishing/access context reviewed 2026-06-09; identifies Elkhorn Crossing, Graske Crossing, and Waterloo River Access as canoe-launch/public-access leads.",
+                "USGS/official Elkhorn gauge family search reviewed 2026-06-09; West Point and Waterloo-area gauge leads exist but no route-threshold package surfaced.",
+                "Local USGS Water Services IV/api checks for 06799350 and other Nebraska gauge leads failed unable to connect.",
+                "2026-06-09 13:24 refresh: no selected Elkhorn endpoint pair plus numeric gauge-threshold package surfaced."
+            ],
+            "aliases": [
+                "Elkhorn River Water Trail",
+                "Elkhorn Crossing to Waterloo family",
+                "Elkhorn River Waterloo gauge family"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "product_fetch_failed",
+                "id": "06799350/Waterloo-Elkhorn gauge family",
+                "provider": "USGS",
+                "notes": "Official Elkhorn gauge leads exist, but this run did not verify product-fetchable app data or a selected same-reach gauge."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "No source-backed numeric paddling threshold model tied to a selected Elkhorn gauge surfaced."
+            },
+            "endpoints": {
+                "putIn": "Elkhorn Crossing / Graske Crossing / Waterloo access family",
+                "takeOut": "Unselected downstream public access",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Not captured; selected route and threshold gates failed first."
+            },
+            "notes": "Keep as a future access-first lead. Caveats include private banks, sandbars, variable summer levels, storm rises, strainers, bridge hazards, and selecting a reach that matches a live gauge."
+        },
+        {
+            "candidateId": "ne-missouri-river-mnrr-nebraska-family",
+            "river": "Missouri River",
+            "route": "Missouri National Recreational River Nebraska-side paddling family",
+            "state": "NE",
+            "status": "research_later",
+            "lastReviewed": "2026-06-09",
+            "reviewCount": 2,
+            "blocker": "2026-06-09 blocker refresh. NPS confirms the Missouri National Recreational River is paddleable and that river access is only at public launch sites that are few and unevenly spaced; it directs paddlers to MNRR water-trail/access guides and paddler guides. No route was added because no Nebraska-side day route with selected public endpoints, source-backed coordinates, product-fetchable gauge evidence, and numeric private-paddlecraft thresholds surfaced. Big-river wind, commercial/current hazards, federal corridor context, and long access spacing remain unresolved.",
+            "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "NPS Paddle the MNRR page opened 2026-06-09; confirms paddling activity, public-launch-only access, few and unevenly spaced sites, water-trail/access-guide references, paddler guides, year-round season, and state-park fee caveat.",
+                "NGPC Water Trails page opened 2026-06-09; links lower and upper Missouri River trip planners and statewide USGS flow/wind planning cautions.",
+                "Local USGS Water Services IV/api checks for 06467500 and Missouri River gauge family failed unable to connect.",
+                "2026-06-09 13:24 refresh: no specific Nebraska-side public MNRR day reach with numeric private-paddlecraft stage or flow guidance surfaced."
+            ],
+            "aliases": [
+                "Missouri National Recreational River water trail",
+                "Nebraska-side MNRR paddling",
+                "Upper/Lower Missouri River Nebraska water trail family"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "product_fetch_failed",
+                "id": "06467500/Missouri River gauge family",
+                "provider": "USGS",
+                "notes": "Missouri River gauge leads were considered, but local product fetch failed and no selected route threshold package was found."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "No route-specific numeric private-paddlecraft stage or flow guidance surfaced; do not adapt Kansas River or small-river bands to the Missouri River."
+            },
+            "endpoints": {
+                "putIn": "Unselected MNRR public launch",
+                "takeOut": "Unselected MNRR public launch",
+                "coordinatesPresent": false,
+                "putInCoordinates": null,
+                "takeOutCoordinates": null,
+                "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
+            },
+            "notes": "Keep as research_later until a specific public endpoint pair and big-river threshold/safety package exists. Caveats include wind exposure, few launches, long shuttles, federal/state access rules, sandbars, snags, wing-dams or channel structures where present, motor traffic, and weather."
         }
     ]
 }

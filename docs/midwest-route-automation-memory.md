@@ -1,5 +1,78 @@
 # Midwest Route Automation Memory
 
+- 2026-06-09 13:25 America/Chicago / 2026-06-09 18:25 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, and the only literal Indiana app-data hits remain incidental Wisconsin route copy mentioning Indiana Avenue.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then rechecked Wabash Vera Cruz-to-White-Bridge, Blue River White Cloud-to-Blue-River-Chapel, Sugar Creek Shades/Turkey Run family, Wildcat Creek Knop-Lake-to-Mis-So-La, Cedar Creek Tonkel-to-State-Road-1, and Big Pine Creek Rainsville-to-Twin-Bridges.
+  - Local product-style USGS Water Services IV fetches for `03323000`, `03303000`, `03339500`, `03334000`, and `033356848` failed with `Unable to connect to the remote server`; the official WDFN page for Wabash opened only as station context without accessible current values.
+  - No route was added. Wabash remains `no_live_gauge`; Blue, Sugar, Wildcat, and Cedar remain `threshold_weak`; Big Pine remains future `routeType: 'whitewater'` only because AW accessible text did not expose a clean numeric threshold table and the Rainsville/Twin-Bridges endpoint package is unresolved.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 13:25 America/Chicago / 2026-06-09 18:25 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes, with 3 structured PA ledger rows from the seed pass.
+  - No route was added. Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Lower Yough remains the strongest lead, but local product-style USGS checks for `03081500` failed through Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR and AW evidence.
+  - Lehigh remains `no_live_gauge`: DCNR route/flow-band evidence is strong, but no locally verified product-supported direct live gauge cleared the app gate, and the prior AW virtual gauge is not app-supported.
+  - Three Rivers remains `threshold_weak` because no specific public endpoint pair plus route-specific numeric gauge model was selected from the broad access network.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 13:24 America/Chicago / 2026-06-09 18:24 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five existing Nebraska seed candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Local product-style USGS Water Services IV fetch for `06461500`, `06805500`, `06799350`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC: Pennsylvania seed no-add pass (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes, and this run created the first three Pennsylvania structured ledger rows.
+  - No route was added. Reviewed only a small official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White-Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh access family.
+  - Local product-style USGS Water Services IV check for Lower Yough gauge `03081500` failed with `Unable to connect to the remote server`, while visible official USGS text was stale rather than same-day product-ready.
+  - Lower Yough is the strongest next recheck because DCNR route/access/launch-ticket evidence and AW Ohiopyle stage bands are strong, but it remains `no_live_gauge` until product-supported USGS freshness can be verified. Lehigh remains `no_live_gauge` because the visible AW live gauge is virtual rather than product-supported; Three Rivers remains `threshold_weak` because no specific endpoint pair plus numeric threshold model was selected.
+  - Pennsylvania-specific caveats to preserve on future runs: PFBC/DCNR launch permit or registration context at state accesses, whitewater route hiding with `routeType: 'whitewater'`, dam/release timing, urban water quality, locks/dams, barges, bridge piers, large-river wind/current, islands, and take-out discipline.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC: Nebraska seed no-add pass (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes, and this run created the first five Nebraska structured ledger rows.
+  - No route was added. Reviewed only a small official-source seed set: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA trail, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Local product-style USGS Water Services IV and api.waterdata.usgs.gov checks for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` failed with `Unable to connect to the remote server`.
+  - No candidate cleared the full implementation bar. Platte, Niobrara, Calamus, and Elkhorn were logged as `threshold_weak`; Missouri National Recreational River was logged as `research_later`.
+  - Nebraska-specific caveats to preserve on future runs: sandy/braided channels, wind, private land, irrigation/seasonal shallow water, long access spacing, low bridges/fences/culverts on Sandhills routes, and federal big-river context on Niobrara/Missouri reaches.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 08:42 America/Chicago / 2026-06-09 13:42 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, and the only literal Indiana app-data hits were Wisconsin route copy mentioning Indiana Avenue.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then rechecked only the strongest existing leads: Wabash Vera Cruz-to-White-Bridge, Blue River White Cloud-to-Blue-River-Chapel, Sugar Creek Shades/Turkey Run family, Kankakee National Water Trail Kingsbury-to-Route-8, and Big Pine Creek Rainsville-to-Twin-Bridges.
+  - No route was added. Wabash remains `no_live_gauge` because official/search-visible USGS `03323000` did not expose same-day product-current observations. Blue River remains `threshold_weak` because official `03303000` evidence was visible only through 2026-05-31 and route-specific thresholds, endpoints, and dam context remain below grade. Sugar Creek remains `threshold_weak` because the cfs/stage evidence is still mixed legacy/local guidance rather than an accepted route-specific threshold model. Kankakee remains `threshold_weak` because the access package is strong but no numeric gauge-tied threshold surfaced. Big Pine remains `needs_manual_coordinates` and future whitewater-only because AW context did not expose a clean accessible numeric range and endpoints/access still need manager-grade coordinates.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-08 15:51 America/Chicago / 2026-06-08 20:51 UTC: Michigan no-add targeted blocker refresh (`michigan-route-additions`).
+  - Re-read the Michigan automation memory path, Michigan state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Michigan coverage remains 19 V2 routes: Pine River 3, Shiawassee River 9, Huron River 1, and Clinton River 6. Michigan-border Menominee/Piers Gorge and Brule / Bois Brule records remain covered outside Michigan and were not duplicated.
+  - No route was added. Rechecked only Cass River Vassar-to-Tuscola, Paint River campground-to-Horserace, Cedar River Menominee County, Thunder Bay Long Rapids, Presque Isle Bottom Presque, Salmon Trout Big Bay, Ford River, and Two Hearted mouth/canoe-camping.
+  - Local product-style USGS IV fetch for `04150800`, `04151500`, `04062000`, `04059750`, `04133501`, `04032150`, `04043238`, `04059500`, and `04044813` failed again with `Unable to connect to the remote server`.
+  - Search-visible official evidence still did not expose product-ready same-day values or resolve hard gates: Cedar `04059750` remains stale to 2026-05-15; Salmon Trout `04043238` WDFN exposes no current data types and daily discharge remains stale to 2026-01-18; Ford `04059500` inventory remains non-current; Paint `04062000` still has only third-party current-looking evidence; Cass, Thunder Bay, Presque Isle, and Two Hearted did not expose product-ready same-day data, and their existing threshold/endpoint blockers remained.
+  - No candidates were promoted to `likely_addable` or `needs_manual_coordinates`, and no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-08 15:41 America/Chicago / 2026-06-08 20:41 UTC: Michigan no-add targeted blocker refresh (`michigan-route-additions`).
+  - Re-read the Michigan automation memory path, Michigan state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Michigan coverage remains 19 V2 routes: Pine River 3, Shiawassee River 9, Huron River 1, and Clinton River 6. Michigan-border Menominee/Piers Gorge and Brule / Bois Brule records remain covered outside Michigan and were not duplicated.
+  - No route was added. Rechecked only Cass River Vassar-to-Tuscola, Paint River campground-to-Horserace, Cedar River Menominee County, Thunder Bay Long Rapids, Presque Isle Bottom Presque, Salmon Trout Big Bay, Ford River, and Two Hearted mouth/canoe-camping.
+  - Local product-style USGS IV fetch for `04150800`, `04151500`, `04062000`, `04059750`, `04133501`, `04032150`, `04043238`, `04059500`, and `04044813` failed again with `Unable to connect to the remote server`.
+  - Search-visible official evidence still did not expose product-ready same-day values or resolve hard gates: Paint `04062000` remained stale to 2026-05-19 in official USGS evidence; Salmon Trout `04043238` daily evidence remained stale to 2026-01-18 and AW stayed seven-month-stale; Two Hearted `04044813` remained inventory/field-measurement/peak-flow only; Cass, Cedar, Thunder Bay, Presque Isle, and Ford did not expose product-ready same-day data, and their existing threshold/endpoint blockers remained.
+  - No candidates were promoted to `likely_addable` or `needs_manual_coordinates`, and no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-08 15:55 America/Chicago / 2026-06-08 20:55 UTC: Initialized no-route state automation briefs for Indiana, Nebraska, and Pennsylvania.
+  - Created external automation memory/prompt files for `indiana-route-additions`, `nebraska-route-additions`, and `pennsylvania-route-additions`.
+  - Created repo state memory files at `docs/state-route-memories/indiana.md`, `docs/state-route-memories/nebraska.md`, and `docs/state-route-memories/pennsylvania.md`, then added them to the state-memory README.
+  - Indiana should start as an existing-candidate blocker-refresh automation: 0 live Indiana routes and 21 existing ledger rows, with Sugar Creek, Blue River, Cedar Creek, Big Pine Creek, Kankakee, Wabash, and White River families as first refresh leads.
+  - Nebraska should start as a fresh official-source seed-and-implement automation using Nebraska Game and Parks, NPS, USACE/NRD/city-county sources, and USGS; key quirks are sandy/braided rivers, wind, private land, irrigation/diversion structures, and Niobrara/Missouri River federal context.
+  - Pennsylvania should start as a fresh official-source seed-and-implement automation using PFBC, DCNR/ExplorePAtrails, water-trail managers, NPS/USACE/county-city sources, USGS, and AW; key quirks are PFBC/DCNR launch-permit context, large-river segmentation, whitewater protection, and urban water quality.
+
 - 2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC: Illinois no-add targeted blocker refresh (`illinois-route-additions`).
   - Re-read the Illinois automation memory path, Illinois state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
   - Current Illinois coverage remains two V2 routes: `vermilion-river-lowell-oglesby` and `kishwaukee-river-hickory-bills-distillery`; no exact or obvious duplicate was promoted.
