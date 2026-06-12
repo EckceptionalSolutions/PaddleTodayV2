@@ -1,5 +1,218 @@
 # Midwest Route Automation Memory
 
+- 2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows before this pass.
+  - Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short public day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. Loup River remains promising but blocked by missing implementation-grade public endpoint coordinate pairs and an official high-water ceiling. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 12:22 America/Chicago / 2026-06-12 17:22 UTC: North Dakota Little Missouri implementation pass (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys before this pass, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 12 structured North Dakota ledger rows.
+  - Added `little-missouri-rough-rider-medora-bridge` as the third North Dakota route.
+  - NPS Theodore Roosevelt names Sully Creek State Park-to-Medora Bridge as a three-mile Little Missouri reach and publishes official Medora gauge boating guidance: at least `2.5 ft / 699 cfs` for fair boating and `2.5-3.5 ft / 699-1500 cfs` for good boating.
+  - Direct USGS `06336000` at Medora returned product-style current values of `66.3 cfs / 1.80 ft` at `2026-06-12 12:00 CDT`.
+  - ND Parks confirms Rough Rider / former Sully Creek State Park Little Missouri canoe/kayak access, and the take-out uses the official USGS Medora bridge/gauge coordinate for the NPS-named Medora Bridge endpoint.
+  - The route ships as guarded `minimum-only` with `tooLow: 699`; no app gallery image was added because no rights-clean exact-route local asset was selected.
+
+- 2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows before this pass.
+  - Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short public day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. Loup River remains promising but blocked by missing implementation-grade public endpoint coordinate pairs and an official high-water ceiling. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC: North Dakota Missouri River Washburn/Sanger blocker refresh (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 12 structured North Dakota ledger rows before this pass.
+  - No route was added. Rechecked `nd-missouri-river-washburn-sanger-landing`; it remains `threshold_weak`.
+  - North Dakota Parks and Recreation / Cross Ranch still confirm the nine-mile Washburn-to-Sanger Missouri River kayak/canoe run and park shuttle context.
+  - Direct corridor USGS `06341000` at Washburn returned product-style current stage-only data of `9.36 ft` at `2026-06-12 11:15 CDT`; no discharge series came back in the `00060/00065` IV response.
+  - No app route data, trip details, or gallery wiring changed because no route-specific numeric private-paddlecraft low/ideal/high bands tied to `06341000` or another accepted gauge surfaced.
+
+- 2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows before this pass.
+  - Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short public day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. Loup River remains promising but blocked by missing implementation-grade public endpoint coordinate pairs and an official high-water ceiling. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 12:03 America/Chicago / 2026-06-12 17:03 UTC: North Dakota Sheyenne National Grassland coordinate blocker refresh (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 12 structured North Dakota ledger rows before this pass.
+  - No route was added. Rechecked `nd-sheyenne-river-national-grassland-ylvisaker-brome`; it remains `needs_manual_coordinates`.
+  - USFS still confirms the Sheyenne River Water Trail in the Sheyenne National Grassland, names Ylvisaker Bridge, Brome Field, Mirror Pool, and East River as designated hand-launch/pull-out sites, and publishes route-wide Sheyenne 100/300/1000/2000 cfs bands.
+  - Product-live USGS checks succeeded for same-river gauges `05058700` Lisbon (`690 cfs / 5.17 ft` at 2026-06-12 11:45 CDT), `05058650` Fort Ransom State Park (`641 cfs / 19.04 ft` at 2026-06-12 11:15 CDT), and `05059000` Kindred (`637 cfs / 5.70 ft` at 2026-06-12 11:00 CDT).
+  - No app route data, trip details, or gallery wiring changed because the official USFS map/PDF stack and downloaded state grant PDF lead still did not verify exact source-backed coordinate pairs for a selected public day segment among the Grassland access sites.
+
+- 2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows before this pass.
+  - Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short public day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. Loup River remains promising but blocked by missing implementation-grade public endpoint coordinate pairs and an official high-water ceiling. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 11:53 America/Chicago / 2026-06-12 16:53 UTC: North Dakota Sheyenne National Grassland blocker refresh (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 12 structured North Dakota ledger rows before this pass.
+  - No route was added. Refreshed `nd-sheyenne-river-national-grassland-ylvisaker-brome` from `threshold_weak` to `needs_manual_coordinates`.
+  - USFS still confirms the Sheyenne River Water Trail in the Sheyenne National Grassland, names Ylvisaker Bridge, Brome Field, Mirror Pool, and East River as designated hand-launch/pull-out sites, and repeats the official Sheyenne 100/300/1000/2000 cfs bands.
+  - Product-live USGS checks succeeded for same-river gauges `05058700` Lisbon (`682 cfs / 5.14 ft` at 2026-06-12 10:45 CDT), `05058650` Fort Ransom State Park (`641 cfs / 19.04 ft` at 2026-06-12 11:15 CDT), and `05059000` Kindred (`637 cfs / 5.70 ft` at 2026-06-12 11:00 CDT).
+  - No app route data, trip details, or gallery wiring changed because exact source-backed coordinate pairs for a selected public day segment among the Grassland access sites still were not verified.
+
+- 2026-06-12 11:48 America/Chicago / 2026-06-12 16:48 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows before this pass.
+  - Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. Loup River remains promising but blocked by missing implementation-grade public endpoint coordinate pairs and a minimum-only threshold model with no official high-water ceiling. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 11:43 America/Chicago / 2026-06-12 16:43 UTC: North Dakota Sheyenne Bjornson/Riparian seed review (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 11 structured North Dakota ledger rows before this pass.
+  - No route was added. Seeded `nd-sheyenne-river-bjornson-riparian-site` as `needs_manual_coordinates`.
+  - Valley City Tourism identifies Bjornson Golf Course primitive launch at L-240 to Riparian Restoration Site accessible pull-out/canoe landing at L-234 as a 3-5 hour Sheyenne segment, with dangerous unmarked dams downstream. Valley City Tourism scenic-byway context confirms the Riparian Restoration Interpretive Site as a river education site, picnic area, and canoe landing.
+  - Direct same-city USGS `05058500` Sheyenne River at Valley City returned product-style current values of `556 cfs / 4.58 ft` at 2026-06-12 10:45 CDT, and USFS/Valley City official Sheyenne bands still support `300-1000 cfs` optimal with `100 cfs` low and `2000 cfs` avoid.
+  - No app route data, trip details, or gallery wiring changed because exact endpoint coordinates were not verified from official or accepted map sources, and the downstream dam hazard makes inferred endpoints unacceptable.
+
+- 2026-06-12 11:38 America/Chicago / 2026-06-12 16:38 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 6 structured Nebraska ledger rows before this pass.
+  - Rechecked only the five remaining unimplemented Nebraska candidates, then added one Nebraska-only official-source near-miss: Loup River Water Trail George D. Syas WMA-to-Monroe/Columbus family.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, `06770200` Platte near Kearney, and `06793000` Loup near Genoa; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains blocked because its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. The new Loup lead is promising on official route shape and minimum-flow evidence, but remains `needs_manual_coordinates` because exact public endpoint coordinate pairs were not verified and the threshold model would be conservative minimum-only. No app route data, trip details, gallery, or implemented-route image rows changed.
+
+- 2026-06-12 11:33 America/Chicago / 2026-06-12 16:33 UTC: North Dakota Red River Grand Forks seed review (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 10 structured North Dakota ledger rows before this pass.
+  - No route was added. Seeded `nd-red-river-lincoln-drive-lafave-park` as `threshold_weak`.
+  - Minnesota DNR map text identifies Lincoln Drive Park trailer access to LaFave Park trailer access as a 2-mile quick trip and lists Downtown Landing / Riverside Dam-Rapids context; Grand Forks Park District and Visit Grand Forks/Greenway sources confirm ND-side Red River ramp/non-motorized paddling context.
+  - Direct USGS `05082500` at Grand Forks returned product-style current values of `2930 cfs / 16.94 ft` at 2026-06-12 10:45 CDT, but no numeric low/ideal/high paddling bands tied to that gauge surfaced.
+  - No app route data, trip details, or gallery wiring changed; image audit records the deferred Red River lead with no selected rights-clean reusable asset.
+
+- 2026-06-12 11:29 America/Chicago / 2026-06-12 16:29 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 6 structured Nebraska ledger rows.
+  - Rechecked only the five remaining unimplemented Nebraska candidates: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, and `06770200` Platte near Kearney; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest unimplemented lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. USGS `06770200` remains a mainstem proxy, and direct Nebraska DWEE station URLs returned HTTP 404 after redirecting to `dwee.nebraska.gov`. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 11:23 America/Chicago / 2026-06-12 16:23 UTC: North Dakota Sheyenne National Grassland seed review (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 9 structured North Dakota ledger rows before this pass.
+  - No route was added. Refreshed `nd-sheyenne-river-fort-ransom-sportsman-landing` and seeded `nd-sheyenne-river-national-grassland-ylvisaker-brome`.
+  - Fort Ransom remains `needs_manual_coordinates`: named route, direct gauge, and official Sheyenne flow bands are strong, but a fresh named-map search still did not verify exact public coordinates for Sportsman Landing / Fort Ransom kayak-canoe access, and the dock-above-dam hazard makes inference unacceptable.
+  - The new National Grassland family remains `threshold_weak`: USFS/GovInfo confirm Ylvisaker Bridge, Brome Field, Mirror Pool, and East River hand-launch/pull-out access context and route-wide `100/300/1000/2000 cfs` Sheyenne bands, but no selected short public segment with exact endpoint coordinate pairs surfaced.
+  - No app route data, trip details, or gallery wiring changed; image audit records the deferred National Grassland lead with no selected rights-clean reusable asset.
+
+- 2026-06-12 11:18 America/Chicago / 2026-06-12 16:18 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Nebraska coverage from route data: 1 live route object and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 6 structured Nebraska ledger rows.
+  - Rechecked only the five remaining unimplemented Nebraska candidates: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500` Niobrara near Sparks, `06799350` Elkhorn at West Point, `06467500` Missouri at Yankton stage, and `06770200` Platte near Kearney; `06787500` Calamus still returned only stale 1994 discharge.
+  - No second Nebraska route was added. Niobrara and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current product data plus a selected short day route; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest unimplemented lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. USGS `06770200` remains a mainstem proxy, and a direct Nebraska DWEE station-detail probe returned HTTP 404. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 11:12 America/Chicago / 2026-06-12 16:12 UTC: North Dakota Fort Ransom seed review (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 2 live route objects and 2 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 8 structured North Dakota ledger rows before this pass.
+  - No route was added. Seeded `nd-sheyenne-river-fort-ransom-sportsman-landing` as `needs_manual_coordinates`.
+  - The lead is promising because Valley City Tourism names the Fort Ransom State Park-to-Fort Ransom town segment, Fort Ransom State Park accessible launch, Sportsman Landing dock above the dam, L-185 to L-181 river miles, and about 2-hour timing; USFS/Valley City provide official Sheyenne 100/300/1000/2000 cfs bands; direct USGS `05058650` returned `641 cfs / 19.04 ft` at 2026-06-12 10:15 CDT.
+  - It remains out of route data because exact source-backed coordinates for both endpoints were not verified, and the dock-above-dam context makes inferred take-out coordinates unacceptable. No app route data, trip details, or gallery wiring changed.
+
+- 2026-06-12 11:11 America/Chicago / 2026-06-12 16:11 UTC: Nebraska implementation pass (`nebraska-route-additions`).
+  - Rebuilt current Nebraska coverage from route data before editing: 0 live route objects and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Added `platte-river-schramm-louisville` for the Platte River from Schramm Park SRA canoe/kayak access to Louisville SRA Platte River boat ramp.
+  - The prior Platte blocker cleared because Nebraska Game and Parks/Nebraskaland documents the Schramm-to-Louisville water-trail route, public Schramm/Louisville access context, braided-channel/private-bed caveats, and numeric 5,000 / 7,000-12,000 / 16,000 cfs paddling guidance tied to USGS `06805500` Platte River at Louisville.
+  - Local product-live verification succeeded: USGS Water Services IV returned `06805500` at `8,270 cfs / 4.09 ft` at 2026-06-12 10:15 CDT.
+  - Endpoint coordinates are practical public-access anchors: Schramm Park SRA `41.02036, -96.24974` and Louisville SRA Platte River boat ramp `41.01471, -96.15787`. No route-gallery image was added; image audit records no selected rights-clean exact-route reusable asset.
+
+- 2026-06-12 11:04 America/Chicago / 2026-06-12 16:04 UTC: North Dakota Pembina implementation pass (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data before editing: 1 live route object and 1 trip-detail key, both for `sheyenne-river-fish-hatchery-chautauqua`, with 7 structured North Dakota ledger rows.
+  - Added `pembina-river-vang-riverside-park` for the Pembina River from Vang Bridge / County 55 access to Walhalla Riverside Park / White Bridge access.
+  - The route cleared because Pembina County/Walhalla sources confirm canoe/kayak access at Vang Bridge, Brickmine Bridge, White Bridge, and Riverside Park; ND Parks confirms Pembina River paddle options when water levels allow; American Whitewater supplies route-specific endpoint coordinates, direct USGS `05099600`, and 300/800/1400/3000 cfs bands.
+  - Local product-live verification succeeded: USGS Water Services IV returned `05099600` at `558 cfs / 3.02 ft` at 2026-06-12 10:00 CDT.
+  - Route ships as `routeType: 'whitewater'` because AW is the threshold source and the reach has Class I-II boulder gardens, strainers, unstable muddy banks, and rain-responsive conditions. No route-gallery image was added; image audit records leads but no selected rights-clean reusable asset.
+
+- 2026-06-12 10:58 America/Chicago / 2026-06-12 15:58 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 10:53 America/Chicago / 2026-06-12 15:53 UTC: North Dakota Little Missouri Rough Rider seed review (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 1 live route object and 1 trip-detail key, both for `sheyenne-river-fish-hatchery-chautauqua`, with 6 structured North Dakota ledger rows before this pass and 7 after seeding the new Rough Rider / Medora Bridge lead.
+  - No additional route was added. The earlier Sheyenne add remains the only North Dakota route.
+  - Seeded `nd-little-missouri-rough-rider-medora-bridge` as `needs_manual_coordinates`: NPS confirms Sully Creek State Park-to-Medora Bridge as a 3-mile Little Missouri reach, ND Parks confirms Rough Rider State Park canoe/kayak access, and direct USGS `06336000` returned `68.0 cfs / 1.81 ft` at 2026-06-12 10:00 CDT.
+  - NPS Medora gauge thresholds are strong (`>=2.5 ft / 699 cfs` fair; `2.5-3.5 ft / 699-1500 cfs` good), but exact public Medora Bridge take-out coordinates and normal private-paddler access remain unverified. No app route data, trip details, or gallery wiring changed.
+
+- 2026-06-12 10:48 America/Chicago / 2026-06-12 15:48 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 10:42 America/Chicago / 2026-06-12 15:42 UTC: North Dakota Little Missouri endpoint blocker refresh (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 1 live route object and 1 trip-detail key, both for `sheyenne-river-fish-hatchery-chautauqua`, with 6 structured North Dakota ledger rows.
+  - No additional route was added. The earlier Sheyenne add remains the only North Dakota route.
+  - Rechecked `nd-little-missouri-medora-cottonwood-campground`: NPS still confirms the 3.5-mile Medora Bridge-to-Cottonwood Campground reach and official Medora gauge thresholds, and USGS Water Services IV for `06336000` returned `68.0 cfs / 1.81 ft` at 2026-06-12 10:00 CDT.
+  - The candidate remains `needs_manual_coordinates` because exact public launch/take-out coordinates and normal private-paddler access for Medora Bridge and Cottonwood Campground still were not verified strongly enough for V2. No app route data, trip details, or gallery wiring changed.
+
+- 2026-06-12 10:38 America/Chicago / 2026-06-12 15:38 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 10:32 America/Chicago / 2026-06-12 15:32 UTC: North Dakota Little Missouri endpoint blocker refresh (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 1 live route object and 1 trip-detail key, both for `sheyenne-river-fish-hatchery-chautauqua`, with 6 structured North Dakota ledger rows.
+  - No additional route was added. The earlier Sheyenne add remains the only North Dakota route.
+  - Rechecked `nd-little-missouri-medora-cottonwood-campground`: NPS still confirms the 3.5-mile Medora Bridge-to-Cottonwood Campground reach and official Medora gauge thresholds, and USGS Water Services IV for `06336000` returned `68 cfs / 1.81 ft` at 2026-06-12 10:00 CDT.
+  - The candidate remains `needs_manual_coordinates` because exact public launch/take-out coordinates and normal private-paddler access for Medora Bridge and Cottonwood Campground still were not verified strongly enough for V2. No app route data, trip details, or gallery wiring changed.
+
+- 2026-06-12 10:28 America/Chicago / 2026-06-12 15:28 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 10:23 America/Chicago / 2026-06-12 15:23 UTC: North Dakota Little Missouri promotion audit (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 1 live route object and 1 trip-detail key, both for `sheyenne-river-fish-hatchery-chautauqua`.
+  - No additional route was added. The earlier Sheyenne add remains the only North Dakota route.
+  - Official NPS Theodore Roosevelt canoeing guidance now clears the Little Missouri numeric-threshold question for the Medora gauge: at least `2.5 ft / 699 cfs` for fair boating and `2.5-3.5 ft / 699-1500 cfs` for good boating. Local USGS Water Services IV returned `06336000` at `68 cfs / 1.81 ft` at 2026-06-12 10:00 CDT.
+  - The broad Medora-to-Long-X family remains `research_later` because it is a remote roughly 107.5-mile / five-day route package rather than a product-ready day route.
+  - Seeded `nd-little-missouri-medora-cottonwood-campground` as `needs_manual_coordinates`: NPS lists Medora Bridge-to-Cottonwood Campground as 3.5 miles, but public launch/take-out coordinates and normal private-paddler access were not verified strongly enough for V2.
+
+- 2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC: North Dakota blocker-refresh pass (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage from route data: 1 live route object and 1 trip-detail object, both for `sheyenne-river-fish-hatchery-chautauqua`.
+  - No additional route was added. The earlier Sheyenne add remains the only North Dakota route.
+  - Rechecked Missouri River Washburn-to-Sanger / Cross Ranch, Little Missouri Medora-to-Long-X, and Upper Souris NWR canoe trails; all retained their blockers because numeric live-gauge-tied paddling thresholds or selected day-route packages remain missing.
+  - Seeded J. Clark Salyer NWR Souris River Canoe Trail as `threshold_weak`: USFWS confirms Johnson Bridge, Thompson Well, Dam 1, mileage, timing, and designated-trail legality, but no selected gauge with official numeric canoe-trail water-level bands surfaced.
+
+- 2026-06-12 10:05 America/Chicago / 2026-06-12 15:05 UTC: North Dakota seed-and-implementation pass (`north-dakota-route-additions`).
+  - Rebuilt current North Dakota coverage before editing: 0 live North Dakota route objects, 0 North Dakota trip-detail objects, and 0 structured North Dakota ledger rows.
+  - Added `sheyenne-river-fish-hatchery-chautauqua` for the Sheyenne River from Valley City National Fish Hatchery launch to Chautauqua Park accessible launch.
+  - The route cleared because USFS names direct USGS gauge `05058000` below Baldhill Dam for the Sheyenne River Water Trail, publishes official 100/300/1000/2000 cfs flow bands, and Valley City Tourism identifies the National Fish Hatchery-to-Chautauqua Park segment with accessible launches, 1-2 hour timing, and downstream dam caution.
+  - Local product-live verification succeeded: USGS Water Services IV returned `05058000` at 511 cfs and 25.24 ft at 2026-06-12 09:00 CDT.
+  - Endpoint coordinates are practical access anchors: Valley City National Fish Hatchery `46.9662, -98.0302` and Chautauqua Park `46.939, -97.992`. No route-gallery image was added because the rights-clean Commons Sheyenne River photo download returned Wikimedia HTTP 429; the image audit records the candidate.
+  - Seeded three deferred North Dakota leads: Missouri River Washburn-to-Sanger / Cross Ranch remains `threshold_weak`, Little Missouri Medora/Long-X family remains `research_later`, and Upper Souris NWR canoe trails remain `threshold_weak`.
+
 - 2026-06-12 07:16 America/Chicago / 2026-06-12 12:16 UTC: Indiana implementation pass (`indiana-route-additions`).
   - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
   - Rebuilt current Indiana coverage before editing: 0 live Indiana routes and 0 Indiana trip-detail objects, with 21 structured Indiana ledger rows.

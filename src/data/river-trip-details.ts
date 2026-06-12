@@ -8890,6 +8890,129 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sheyenne-river-fish-hatchery-chautauqua': {
+    putIn: {
+      id: 'valley-city-national-fish-hatchery-launch',
+      name: 'Valley City National Fish Hatchery launch',
+      latitude: 46.9662,
+      longitude: -98.0302,
+    },
+    takeOut: {
+      id: 'chautauqua-park-accessible-launch',
+      name: 'Chautauqua Park accessible launch',
+      latitude: 46.939,
+      longitude: -97.992,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr at ordinary flow, longer with low-water dragging, wind, or a slow group',
+      shuttle:
+        'Stage the take-out at Chautauqua Park before driving to the National Fish Hatchery launch. Use the signed Sheyenne River Water Trail launches and inspect the Chautauqua landing before putting on because the next downstream access is the last chance before a dangerous dam.',
+      permits:
+        'No route-specific private paddling permit is known. Use public water-trail access points, follow North Dakota boating and PFD rules, obey posted park or hatchery signs, and skip the route when flows are outside the official Sheyenne guidance or the launch is closed.',
+      camping:
+        'Treat this as a short daylight city-area paddle. Do not camp or stop on private banks between the hatchery and Chautauqua Park unless a location is clearly public and open.',
+      summary:
+        'Launch at the Valley City National Fish Hatchery and take out at Chautauqua Park for a short Sheyenne River Water Trail segment through Valley City. Use the USGS Baldhill Dam discharge gauge and the official 300 to 1,000 cfs optimal band, with conservative low/high cutoffs.',
+      accessCaveats: [
+        'Valley City Tourism maps identify the National Fish Hatchery and Chautauqua Park as accessible launch sites on this Sheyenne River Water Trail segment.',
+        'The hatchery coordinate is a Recreation.gov/Outdooractive practical site anchor. The Chautauqua Park coordinate is from a National Scenic Byways public-domain Commons record, not a survey-grade ramp coordinate.',
+        'Valley City Tourism warns that the Valley City Eagles launch downstream from Chautauqua Park is the last chance before a dangerous dam. This route ends at Chautauqua Park and does not continue downstream through the city dam corridor.',
+        'USFS says the Sheyenne trail is primarily a summer paddling route and that winter freezing makes it unsuitable for watercraft.',
+        'Check same-day park, hatchery, construction, flood, and debris conditions before staging vehicles or launching.',
+      ],
+      watchFor: [
+        'Flows at or below 100 cfs, when USFS says the river is very low and many sand or gravel bars may be exposed.',
+        'Flows above 1,000 cfs, when current can become fast and shoreline trees, logs, and debris become more serious hazards.',
+        'Flows above 2,000 cfs, which USFS says paddlers should avoid on the Sheyenne.',
+        'The downstream dam hazard after the Chautauqua / Valley City Eagles area; make the planned take-out and do not drift into the dam corridor.',
+        'Bridge areas, floating wood, strainers, shallow bars, cold water, thunderstorms, wind, and limited legal bank access outside named public sites.',
+      ],
+    },
+  },
+  'pembina-river-vang-riverside-park': {
+    putIn: {
+      id: 'vang-bridge-county-55-access',
+      name: 'Vang Bridge / County 55 access',
+      latitude: 48.9169,
+      longitude: -98.056,
+    },
+    takeOut: {
+      id: 'walhalla-riverside-park-white-bridge-access',
+      name: 'Walhalla Riverside Park / White Bridge access',
+      latitude: 48.91360599,
+      longitude: -97.91712315,
+    },
+    logistics: {
+      distanceLabel: 'About 10.75 to 11 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr for competent moving-water paddlers, longer with low-water scraping, scouting, wood, or wind',
+      shuttle:
+        'Stage the take-out at Walhalla Riverside Park or the adjacent Highway 32 / White Bridge access area before driving west to the Vang Bridge / County 55 put-in. Confirm current dock, path, parking, and park conditions before leaving vehicles because the put-in is a bridge-area carry and the take-out layout can shift with maintenance or river conditions.',
+      permits:
+        'No route-specific private paddling permit is known. Use only signed or customary public access at Vang Bridge, Brickmine Bridge, White Bridge, and Riverside Park, follow North Dakota boating and PFD rules, and skip the run when the river is outside the American Whitewater range or local/state access is closed.',
+      camping:
+        'Treat this as a daylight Pembina Gorge day run. Riverside Park has city campground facilities, but do not camp or stop on private banks along the river unless a site is clearly public and open.',
+      summary:
+        'Launch at the Vang Bridge / County 55 access and take out at the Walhalla Highway 32 / Riverside Park access corridor for the main Pembina Gorge run. Use the direct USGS Walhalla gauge and American Whitewater range, with conservative caution for boulder gardens, strainers, muddy banks, and fast storm response.',
+      accessCaveats: [
+        'Pembina County and Walhalla/Rendezvous Region materials identify canoe and kayak access at Vang Bridge, Brickmine Bridge, White Bridge, and Riverside Park, but current dock placement, parking, and carry paths should be verified on arrival.',
+        'American Whitewater places the put-in near County 55 / 104th Street NE and describes a roadside carry to a rocky area. Do not block the bridge, road shoulder, field approaches, or private drives.',
+        'The take-out coordinate is American Whitewater feature data for the County 32 / Walhalla access area; some paddlers continue slightly to Riverside Park. Use current signs and local access boundaries.',
+        'ND Parks says Pembina River paddling is only when water levels allow. Rental operations, park notices, and local river reports may stop before the gauge reaches the absolute low cutoff used here.',
+        'Because American Whitewater is the primary threshold source and the reach includes Class I-II boulder-garden hazards, the route is whitewater-filtered in PaddleTodayV2.',
+      ],
+      watchFor: [
+        'Boulder gardens, small ledges or drops, shallow rocks, and scraping near the 300 cfs low end.',
+        'Strainers, overhanging trees, flood debris, blind bends, steep muddy banks, and limited escape options in parts of the gorge.',
+        'Quicksand-like mud or sand, unstable banks, and private property away from named access points.',
+        'Fast rises after rain, high or pushy water near and above the high runnable range, cold water, thunderstorms, wind, and bridge hazards.',
+        'Missing the intended Walhalla / Riverside Park take-out and drifting into an unplanned downstream reach.',
+      ],
+    },
+  },
+  'little-missouri-rough-rider-medora-bridge': {
+    putIn: {
+      id: 'rough-rider-state-park-canoe-kayak-access',
+      name: 'Rough Rider State Park canoe/kayak access',
+      latitude: 46.89263398,
+      longitude: -103.54044775,
+    },
+    takeOut: {
+      id: 'medora-bridge-usgs-gauge-access-anchor',
+      name: 'Medora Bridge / USGS gauge access anchor',
+      latitude: 46.91684167,
+      longitude: -103.53228333,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr when the Medora gauge is at or above the NPS floor, longer with shallow dragging, wind, scouting, or a slow group',
+      shuttle:
+        'Stage the Medora Bridge take-out before driving south to Rough Rider State Park. Confirm current park access, bridge-area parking, and the exact exit path before launching because the take-out coordinate is a practical USGS bridge/gauge anchor rather than a signed ramp point.',
+      permits:
+        'No route-specific private paddling permit is known for this short day reach. Pay any required state-park entrance fee, follow North Dakota boating and PFD rules, obey NPS/ND Parks notices, and skip the run when the Medora gauge is below the NPS fair-boating floor or rising quickly.',
+      camping:
+        'Treat this as a short daylight Badlands float. Do not camp or stop on private banks unless the site is clearly public and open; NPS says camping on private land adjacent to the Little Missouri is prohibited by most landowners.',
+      summary:
+        'Launch from the Rough Rider / former Sully Creek State Park Little Missouri access and take out at the Medora Bridge corridor for the short NPS-listed three-mile reach. Use USGS 06336000 at Medora and the NPS 2.5 ft / 699 cfs fair-boating floor, with high-water decisions kept conservative.',
+      accessCaveats: [
+        'NPS names Sully Creek State Park to Medora Bridge as a 3-mile Little Missouri River segment, and ND Parks identifies Rough Rider State Park as having canoe/kayak access on the Little Missouri.',
+        'Rough Rider was formerly Sully Creek State Park; current state-park signs and the ND Parks map should control the actual launch path.',
+        'The Medora take-out coordinate is the official USGS Little Missouri at Medora bridge/gauge coordinate used as a practical Medora Bridge anchor, not a surveyed public ramp coordinate.',
+        'This route uses an official minimum-only threshold. NPS publishes a fair-boating floor and good band at Medora, but Paddle Today does not infer a full high-water recommendation.',
+        'Check same-day NPS, ND Parks, weather, flood, road, bridge, and debris conditions before staging vehicles or launching.',
+      ],
+      watchFor: [
+        'Medora gauge readings below 2.5 ft / 699 cfs, when NPS says the river is below the fair-boating floor and dragging or impassable shallows are likely.',
+        'Fast rises after summer thunderstorms, which NPS says can turn the Little Missouri into a debris-carrying torrent.',
+        'Fences across the river, logs, flood debris, mud, cold water, rattlesnakes on banks, limited cell service, and delayed emergency response.',
+        'Private land along the river corridor; avoid unplanned stops unless necessary for safety or clearly allowed at a public site.',
+        'Bridge-area traffic, uncertain take-out footing, wind, shallow bars, and missing the planned Medora Bridge exit.',
+      ],
+    },
+  },
   'wabash-river-vera-cruz-white-bridge': {
     putIn: {
       id: 'vera-cruz-paddlesports-launch',
@@ -8969,6 +9092,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows above 1,000 cfs, when DCNR says difficulty progressively increases and better skill and equipment are needed.',
         'Flows above 5,000 cfs, which DCNR reserves for expert boaters in kayaks, closed canoes, or very large rafts.',
         'Dam-release timing, tributary rain, rising water, wood, strainer hazards, limited exits, release-day traffic changes, and missing the Rockport take-out.',
+      ],
+    },
+  },
+  'platte-river-schramm-louisville': {
+    putIn: {
+      id: 'schramm-park-sra-canoe-kayak-access',
+      name: 'Schramm Park SRA canoe/kayak access',
+      latitude: 41.02036,
+      longitude: -96.24974,
+    },
+    takeOut: {
+      id: 'louisville-sra-platte-river-boat-ramp',
+      name: 'Louisville SRA Platte River boat ramp',
+      latitude: 41.01471,
+      longitude: -96.15787,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr at ordinary current, longer with low-water dragging, channel scouting, wind, or a slow group',
+      shuttle:
+        'Stage the take-out at Louisville State Recreation Area, then drive back to the Schramm Park canoe/kayak access off Highway 31. Inspect both access points before launching because flood repairs, mud, shifted sand, park rules, or local closures can change the practical ramp or graded-bank layout.',
+      permits:
+        'A valid Nebraska state park vehicle permit is required for state park and recreation area vehicle access. No separate private-paddling permit is known for this water-trail segment. Follow Nebraska boating and PFD rules, posted NGPC access rules, and current park closure notices.',
+      camping:
+        'Treat this as a daylight water-trail run unless you have a legal, reserved campsite. NGPC/Nebraskaland warns that paddlers need permission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water.',
+      summary:
+        'Launch from Schramm Park SRA and take out at Louisville SRA for the short lower-Platte water-trail segment through Schramm, Platte River State Park, and Louisville. Use USGS 06805500 at Louisville and Nebraska Game and Parks/Nebraskaland flow guidance for the same-day go/no-go call.',
+      accessCaveats: [
+        'NGPC says Schramm has a canoe/kayak access point with graded bank and parking off Highway 31, but the launch was flood-damaged in 2019 and the bank drops off quickly. Make a same-day visual access check.',
+        'Louisville SRA has canoe/kayak access to the Platte River and a boat-ramp/parking area at the end of the water trail. Use current park signs, parking rules, and ramp conditions on arrival.',
+        'Endpoint coordinates are practical public-access anchors from named NGPC access context and public map records, not survey-grade ramp points. Follow current on-site signage and obvious public access boundaries.',
+        'The Nebraska Game and Parks private-bed/sandbar rule is stricter than many paddlers expect: do not stop on banks, sandbars, or the stream bed without permission except when necessary for shallow-water walking or obstacle portage.',
+        'The Platte is braided and sandy. The main channel can shift, and the best line can change after floods, summer low water, or wind-driven sand movement.',
+      ],
+      watchFor: [
+        'Flows below about 5,000 cfs at Louisville, when NGPC/Nebraskaland says there is too little water and low-channel choices can turn into dragging.',
+        'Flows above about 16,000 cfs, when NGPC/Nebraskaland says extreme caution is required; do not treat the route as an easy water-trail day at high water.',
+        'Flows near or above 18,000 cfs, which the NGPC/Nebraskaland source says to avoid.',
+        'Bridge pilings, especially the Lied Bridge area, where NGPC/Nebraskaland warns trees and debris can collect.',
+        'Shifting sandbars, shallow braided side channels, floating wood, private banks, wind across open bends, storms, fast rises after rain, anglers, and missing the Louisville take-out.',
       ],
     },
   },
