@@ -408,6 +408,9 @@ const routeGalleryImages: Record<string, string[]> = {
   'elkhorn-creek-vpa-3-aw-access': [
     '/gallery/elkhorn-creek-vpa-3-aw-access/north-fork-elkhorn-creek.jpg',
   ],
+  'youghiogheny-river-lower-yough-ohiopyle-bruner-run': [
+    '/gallery/youghiogheny-river-lower-yough-ohiopyle-bruner-run/lower-yough-kayaker.jpg',
+  ],
 };
 
 const placeholderImages = [

@@ -28383,4 +28383,339 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
+    slug: 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
+    name: 'Youghiogheny River',
+    reach: 'Lower Yough: Ohiopyle to Bruner Run',
+    aliases: [
+      'Lower Yough',
+      'Lower Youghiogheny River - Ohiopyle to Bruner Run',
+      'Youghiogheny River - Ohiopyle Falls Area to Bruner Run',
+    ],
+    state: 'Pennsylvania',
+    region: 'Laurel Highlands',
+    summary:
+      'Classic Lower Yough whitewater through Ohiopyle State Park, from the state-park launch below Ohiopyle Falls to Bruner Run. DCNR names the exact seven-mile route, American Whitewater ties it to the Ohiopyle USGS stage gauge, and the route is only for experienced whitewater boaters or guided groups.',
+    statusText:
+      'Use the Youghiogheny at Ohiopyle stage gauge. American Whitewater lists 1.1 to 7.0 ft as the runnable range, with the broadest intermediate window from about 1.7 to 4.0 ft. Above 4.0 ft the route gets pushier, and around 7.0 ft and above it is too high for a general recommendation.',
+    latitude: 39.866528,
+    longitude: -79.493395,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-03081500',
+      provider: 'usgs',
+      siteId: '03081500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Youghiogheny River at Ohiopyle, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03081500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.7,
+      idealMax: 4,
+      tooLow: 1.1,
+      tooHigh: 7,
+      thresholdSource: {
+        label: 'American Whitewater Lower Yough Ohiopyle gauge bands',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=1687',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DCNR manages launch tickets between the second weekend in April and Columbus Day, and dam releases make this a dependable warm-season whitewater run. Cold water, high water, storms, and release changes can still make the gorge more consequential.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DCNR describes the Lower Yough as a Class III-IV route for experienced whitewater boaters, and American Whitewater lists the reach as Class III with higher-stage Class III-IV consequences. This is not a casual recreational float.',
+      confidenceNotes:
+        'Confidence is high for a first Pennsylvania add: DCNR identifies the exact Lower Yough route from below Ohiopyle Falls to Bruner Run, AW identifies the same Ohiopyle-to-Bruner-Run reach and direct USGS 03081500 stage bands, and USGS Water Services returned same-day official stage and discharge values during the 2026-06-11 run. Endpoint coordinates are AW feature coordinates cross-checked against the DCNR route/access narrative; keep the coordinate caveat visible because DCNR names the sites but does not publish a coordinate table on the whitewater page.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'Seven miles to Bruner Run',
+        note: 'DCNR says the Lower Yough begins after Ohiopyle Falls and flows seven miles downstream to the Bruner Run Take-out, with numerous Class III-IV rapids.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 03081500 at Ohiopyle',
+        note: 'USGS operates Youghiogheny River at Ohiopyle, PA, 900 ft downstream from the Route 381 bridge and upstream from Meadow Run; Water Services returned same-day 2026-06-11 stage and discharge values during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03081500/',
+      },
+      {
+        label: 'AW stage bands',
+        value: '1.1 / 1.7-4.0 / 7.0 ft',
+        note: 'American Whitewater ties the Ohiopyle-to-Bruner-Run reach to USGS 03081500, lists 1.10-1.70 ft as barely to medium runnable, 1.70-4.00 ft as medium to a bit pushy runnable, 4.00-7.00 ft as pushy to high runnable, and 7.00 ft plus as high to extremely high Class IV-V.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=1687',
+      },
+      {
+        label: 'Access and permit context',
+        value: 'Launch ticket plus PA permit/registration context',
+        note: 'DCNR says Lower Yough boaters must obtain a launch ticket during the managed season, and PFBC says unpowered boats need registration, a PFBC launch permit, or a DCNR State Parks launch permit to use PFBC or Pennsylvania State Parks and Forests access areas.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+      },
+      {
+        label: 'Endpoint support',
+        value: 'AW feature coordinates',
+        note: 'American Whitewater places the Ohiopyle State Park put-in below the falls at 39.866528, -79.493395 and the Bruner Run take-out at 39.926672, -79.487236; DCNR independently names the same route endpoints.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/1687/main',
+      },
+      {
+        label: 'Core hazards',
+        value: 'Class III-IV gorge whitewater',
+        note: 'DCNR warns of undercut rocks, ledges, swift currents, injury and death potential, and required PFDs and helmets on the Lower Yough; AW highlights Dimple Rock entrapment risk and pushier hydraulics at higher stages.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PA DCNR Ohiopyle whitewater boating',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/ohiopyle-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Lower Yough reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/1687/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Lower Yough gauge information',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=1687',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 03081500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03081500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC registration vs launch permit',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'lehigh-river-white-haven-rockport',
+    slug: 'lehigh-river-white-haven-rockport',
+    name: 'Lehigh River',
+    reach: 'White Haven to Rockport',
+    aliases: [
+      'Lehigh Gorge Upper',
+      'Lehigh River - White Haven to Rockport',
+      'Lehigh River Upper Section',
+    ],
+    state: 'Pennsylvania',
+    region: 'Pocono Mountains',
+    summary:
+      'Lehigh Gorge whitewater from the DCNR White Haven access to Rockport. DCNR names this 8.7-mile Class II-III trip, publishes official flow bands, and points paddlers to the USGS/USACE White Haven flow story below Francis E. Walter Dam.',
+    statusText:
+      'Use the Lehigh River below Francis E. Walter Reservoir gauge near White Haven. DCNR says below 250 cfs is very low, 250 to 1,000 cfs is better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+    latitude: 41.05527,
+    longitude: -75.771581,
+    routeType: 'whitewater',
+    gaugeSource: {
+      id: 'usgs-01447800',
+      provider: 'usgs',
+      siteId: '01447800',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Lehigh River below Francis E. Walter Reservoir near White Haven, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 250,
+      idealMax: 1000,
+      tooLow: 250,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'PA DCNR Lehigh Gorge State Park flow rates',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'USACE Francis E. Walter Dam releases for fishing and recreational whitewater occur spring through fall, and DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko. Tributary rain, cold spring and fall water, and release timing still require same-day judgment.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'DCNR describes this Lehigh Gorge section as Class II-III whitewater through a steep-walled gorge. Inexperienced boaters should use qualified guides, and all private groups need whitewater craft, PFDs, helmets for canoe/kayak paddlers, and conservative release-day planning.',
+      confidenceNotes:
+        'Confidence is high for a second Pennsylvania add: DCNR identifies White Haven to Rockport as an 8.7-mile Lehigh Gorge route, publishes official cfs bands for the state-park gauges, and states that flow rates are measured at White Haven, Rockport, and Glen Onoko. USGS Water Services returned same-day 2026-06-12 discharge and stage for 01447800 below Francis E. Walter Reservoir near White Haven, and USACE Lehigh Basin data independently showed same-day WhiteHaven outflow. Endpoint coordinates use DCNR White Haven South Access GPS and a Rockport access coordinate cross-check because the DCNR Rockport page appears to publish the correct longitude with an impossible latitude typo.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route',
+        value: 'White Haven to Rockport, 8.7 miles',
+        note: 'DCNR lists White Haven to Rockport as an 8.7-mile private-trip option in Lehigh Gorge State Park, where boating is limited to designated access areas.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01447800 at White Haven outflow',
+        note: 'USGS operates Lehigh River below Francis E. Walter Reservoir near White Haven, four miles northeast of White Haven and 0.7 miles below the dam; Water Services returned same-day 2026-06-12 discharge and gage-height values during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+      },
+      {
+        label: 'DCNR flow bands',
+        value: '250 / 250-1,000 / 5,000 cfs',
+        note: 'DCNR says flows below 250 cfs are very low and many parts are not deep enough, 250 to 1,000 cfs becomes better for boating, difficulty rises above 1,000 cfs, and above 5,000 cfs is expert-only water.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+      {
+        label: 'USACE basin corroboration',
+        value: 'WhiteHaven outflow and Lehighton downstream gages',
+        note: 'The U.S. Army Corps of Engineers Lehigh Basin page exposed same-day 2026-06-12 WhiteHaven outflow, Lehighton downstream flow, and update time during this run.',
+        sourceUrl: 'https://www.nap-wc.usace.army.mil/nap/lehipub.html',
+      },
+      {
+        label: 'Access and permit context',
+        value: 'Designated state-park accesses',
+        note: 'DCNR says boaters must put on and take off only at designated Lehigh River access areas, and PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need registration, a PFBC launch permit, or a DCNR State Parks launch permit.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+      },
+      {
+        label: 'Core hazards',
+        value: 'Class II-III gorge whitewater',
+        note: 'DCNR highlights Class II-III whitewater, deep steep-walled gorge terrain, rock outcroppings, waterfalls, changing release traffic, whitewater craft rules, PFD requirements, helmets for canoes and kayaks, and cold-water gear recommendations for spring and fall.',
+        sourceUrl:
+          'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PA DCNR Lehigh Gorge whitewater boating',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park/whitewater-boating',
+        provider: 'local',
+      },
+      {
+        label: 'PA DCNR Lehigh Gorge State Park access directions',
+        url: 'https://www.pa.gov/agencies/dcnr/recreation/where-to-go/state-parks/find-a-park/lehigh-gorge-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01447800 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-01447800/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USACE Lehigh Basin data summary',
+        url: 'https://www.nap-wc.usace.army.mil/nap/lehipub.html',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC registration vs launch permit',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'wabash-river-vera-cruz-white-bridge',
+    slug: 'wabash-river-vera-cruz-white-bridge',
+    name: 'Wabash River',
+    reach: 'Vera Cruz Paddlesports Launch to White Bridge Picnic Area',
+    state: 'Indiana',
+    region: 'Northeast Indiana',
+    summary:
+      'Short Wells County Wabash paddle between two improved public launches. The local kayaking band is narrow, so use the Bluffton stage gauge and skip it when the river is outside the 1.5 to 3 ft window.',
+    statusText:
+      'Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below that means shallow dragging, and above 3 ft this app turns conservative because higher water adds stronger flow, debris, and obstacle hazards.',
+    latitude: 40.69890779,
+    longitude: -85.0828222,
+    gaugeSource: {
+      id: 'usgs-03323000',
+      provider: 'usgs',
+      siteId: '03323000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wabash River at Bluffton, IN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.5,
+      idealMax: 3,
+      tooLow: 1.5,
+      tooHigh: 3,
+      thresholdSource: {
+        label: 'Wells County Trails Wabash River kayaking stage guidance',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton stage is inside the local kayaking band. Heavy rain can push this slow rural river into stronger current, debris, and flood-stage hazards.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The reach is a short slow-river day with improved public concrete launches, but high water, debris, private banks, and limited bailout access make same-day judgment important.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: Wells County Trails names Vera Cruz Paddlesports Launch and White Bridge Picnic Area as public improved concrete Wabash launches, gives the 4.2-mile downstream spacing, and publishes a 1.5 to 3 ft ideal kayaking band tied from the page to the Bluffton river gauge. Northeast Indiana Water Trails exposes map coordinates for both endpoints, and USGS Water Services returned same-day 2026-06-12 values for 03323000. The route intentionally uses a strict upper cutoff because the local source warns that higher water increases flow, debris, and obstacle hazards rather than publishing a broader safe high range.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Local stage band',
+        value: '1.5 to 3 ft',
+        note: 'Wells County Trails says this is the ideal river height for kayaking and warns never to enter during Action or Flood Stages.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Public route shape',
+        value: '4.2 mi',
+        note: 'Wells County Trails lists Vera Cruz Paddlesports Launch as public and says the next improved launch is 4.2 miles downstream at White Bridge Picnic Area.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'NEI Water Trails map',
+        note: 'The Northeast Indiana Water Trails map lists Vera Cruz - Wabash River at 40.69890779, -85.0828222 and Wabash / White Bridge at 40.728082, -85.136707.',
+        sourceUrl: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 03323000',
+        note: 'USGS Water Services returned same-day 2026-06-12 stage and discharge values for Wabash River at Bluffton, IN during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'Indiana water-trail context',
+        value: 'DNR points to NEI Water Trails',
+        note: 'Indiana DNR says its old 1987 canoe-guide material was removed as outdated and lists Northeast Indiana Water Trails as a current regional resource that includes the Wabash River.',
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wells County Trails kayaking',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Northeast Indiana Water Trails map',
+        url: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Indiana DNR Water Trails Guide',
+        url: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+      {
+        label: 'USGS 03323000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+    ],
+  },
 ];

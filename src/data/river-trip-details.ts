@@ -8849,4 +8849,127 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'youghiogheny-river-lower-yough-ohiopyle-bruner-run': {
+    putIn: {
+      id: 'ohiopyle-state-park-lower-yough-launch',
+      name: 'Ohiopyle State Park Lower Yough launch',
+      latitude: 39.866528,
+      longitude: -79.493395,
+    },
+    takeOut: {
+      id: 'bruner-run-takeout',
+      name: 'Bruner Run Take-out',
+      latitude: 39.926672,
+      longitude: -79.487236,
+    },
+    logistics: {
+      distanceLabel: 'About 7 to 7.2 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr for qualified whitewater groups, longer with scouting, portages, crowds, or high-water spacing',
+      shuttle:
+        'Stage the take-out plan around Bruner Run and Old Mitchell Place before launching. DCNR says the Bruner gate is open weekdays, while American Whitewater notes that during weekend permit season boaters commonly take out at Bruner Run and use the park shuttle to Old Mitchell Place. Confirm the current launch-ticket, shuttle, gate, and parking setup with Ohiopyle State Park before leaving vehicles.',
+      permits:
+        'DCNR says Lower Yough boaters must obtain a launch ticket between the second weekend in April and Columbus Day. PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR, PFBC, park, PFD, helmet, and whitewater rules.',
+      camping:
+        'Treat this as a managed daylight whitewater day run inside Ohiopyle State Park. Do not camp, stage, or park outside posted state-park areas, and leave enough daylight for the take-out shuttle or road access plan.',
+      summary:
+        'Launch below Ohiopyle Falls at the state-park Lower Yough launch and take out at Bruner Run for the classic Lower Yough whitewater run. Use the Ohiopyle USGS stage gauge and current park rules, and skip the route when the water, weather, access status, or group skill is not clearly right.',
+      accessCaveats: [
+        'This route starts below Ohiopyle Falls; running the falls has separate DCNR access rules and is not part of the normal route recommendation.',
+        'Launch tickets are required during the DCNR managed season. Weekend and holiday launch tickets carry a fee, and current shuttle/gate operations can affect how you retrieve boats and vehicles.',
+        'The put-in and take-out coordinates are American Whitewater feature coordinates cross-checked against DCNR route names, not a DCNR coordinate table. Use current state-park signs and staff instructions on arrival.',
+        'Bruner Run access has had construction and closure history. Check current Ohiopyle State Park notices before assuming the take-out road, shuttle, or lower loading area is open.',
+        'Only whitewater-suitable craft belong on this route. DCNR says inexperienced whitewater boaters should use qualified guides, and all boaters must follow DCNR whitewater rules.',
+      ],
+      watchFor: [
+        'Class III-IV rapids, including Entrance, Cucumber, Railroad, Dimple, Swimmers, Schoolhouse, River End, and Bruner Run.',
+        'Dimple Rock and other undercut or entrapment hazards, ledges, hydraulics, pin rocks, swift current, and cold swims.',
+        'Low water near the bottom of the AW range, where rocks and pins become more exposed, and high water above about 4 ft where hydraulics and pushier current increase.',
+        'Water at or above about 7 ft on the Ohiopyle gauge, which AW classifies as high to extremely high Class IV-V and outside this general recommendation.',
+        'Crowded commercial/private traffic, limited eddies, group separation, bridge and trail spectators near Ohiopyle, storms, release changes, and missing the Bruner Run take-out.',
+      ],
+    },
+  },
+  'wabash-river-vera-cruz-white-bridge': {
+    putIn: {
+      id: 'vera-cruz-paddlesports-launch',
+      name: 'Vera Cruz Paddlesports Launch',
+      latitude: 40.69890779,
+      longitude: -85.0828222,
+    },
+    takeOut: {
+      id: 'white-bridge-picnic-area',
+      name: 'White Bridge Picnic Area',
+      latitude: 40.728082,
+      longitude: -85.136707,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 5.25 hr depending on stage, current, wind, shallow dragging, and debris',
+      shuttle:
+        'Stage the take-out at White Bridge Picnic Area, then drive back to Vera Cruz Paddlesports Launch. Inspect both concrete ramps and parking areas before launching; Wells County Trails lists both as public improved launches, but same-day mud, high water, debris, or local maintenance can change access.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a short daylight day trip. Banks outside public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      summary:
+        'Launch at Vera Cruz Paddlesports Launch and take out at White Bridge Picnic Area for a short Wells County Wabash River paddle between improved public concrete ramps. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Vera Cruz Paddlesports Launch and White Bridge Picnic Area as public, improved concrete Wabash River launches, with parking at each access.',
+        'Northeast Indiana Water Trails map coordinates are used for both endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Indiana DNR removed the old canoe-guide material as outdated and points users to current regional water-trail resources. This route relies on Wells County Trails and NEI Water Trails, not legacy canoe-guide text.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
+        'Private banks between launches; plan the short 4.2-mile trip without assuming legal intermediate take-outs.',
+      ],
+    },
+  },
+  'lehigh-river-white-haven-rockport': {
+    putIn: {
+      id: 'white-haven-south-access',
+      name: 'White Haven South Access Area',
+      latitude: 41.05527,
+      longitude: -75.771581,
+    },
+    takeOut: {
+      id: 'rockport-access-area',
+      name: 'Rockport Access Area',
+      latitude: 40.966616,
+      longitude: -75.755074,
+    },
+    logistics: {
+      distanceLabel: 'About 8.7 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr for qualified whitewater groups, longer with low water, release crowds, scouting, or a conservative take-out plan',
+      shuttle:
+        'Stage the take-out at Rockport, then drive back to the White Haven access. DCNR says release days can change parking and traffic patterns at White Haven, Rockport, and Glen Onoko, so confirm current Lehigh Gorge State Park alerts, posted signs, and access routing before leaving vehicles.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current DCNR/PFBC rules, posted Lehigh Gorge access rules, and whitewater equipment requirements.',
+      camping:
+        'Treat this as a managed daylight state-park whitewater day. Do not camp, stage, or park outside posted Lehigh Gorge State Park areas, and leave enough daylight for the shuttle and any release-day traffic delays.',
+      summary:
+        'Launch at White Haven and take out at Rockport for the upper Lehigh Gorge whitewater section. Use the USGS White Haven outflow gauge below Francis E. Walter Reservoir and DCNR flow bands, and skip the route when water, weather, access status, or group skill is not clearly right.',
+      accessCaveats: [
+        'DCNR says private boaters must put on and take off only at designated Lehigh River access areas in the state park.',
+        'White Haven access has had traffic and access routing changes; use current DCNR signs rather than stale directions.',
+        'The Rockport coordinate is a cross-checked access-area coordinate because the DCNR Rockport page appears to publish an impossible latitude typo. Verify the exact take-out with current park signs on arrival.',
+        'This is a whitewater route. DCNR says inexperienced boaters should not attempt the Lehigh River without qualified guides.',
+        'Release weekends can be crowded with commercial rafts, clubs, private boaters, cyclists, and shuttle traffic.',
+      ],
+      watchFor: [
+        'Class II-III rapids, ledges, rock outcrops, boulders, waterfalls, swift current, and cold-water swims in a steep-walled gorge.',
+        'Very low water below about 250 cfs, when DCNR says many parts are not deep enough for boating.',
+        'Flows above 1,000 cfs, when DCNR says difficulty progressively increases and better skill and equipment are needed.',
+        'Flows above 5,000 cfs, which DCNR reserves for expert boaters in kayaks, closed canoes, or very large rafts.',
+        'Dam-release timing, tributary rain, rising water, wood, strainer hazards, limited exits, release-day traffic changes, and missing the Rockport take-out.',
+      ],
+    },
+  },
 };

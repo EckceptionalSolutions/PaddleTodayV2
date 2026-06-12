@@ -1388,6 +1388,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
+  'youghiogheny-river-lower-yough-ohiopyle-bruner-run': [
+    {
+      id: 'lower-yough-kayaker-commons',
+      src: '/gallery/youghiogheny-river-lower-yough-ohiopyle-bruner-run/lower-yough-kayaker.jpg',
+      alt: 'A kayaker braces in whitewater on the Youghiogheny River in Ohiopyle State Park.',
+      caption: 'Lower Yough whitewater in Ohiopyle State Park',
+      credit: 'Andy from Pittsburgh via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
 };
 
 export function getApprovedRoutePhotos(slug: string): RouteGalleryPhoto[] {

@@ -1,5 +1,309 @@
 # Midwest Route Automation Memory
 
+- 2026-06-12 07:16 America/Chicago / 2026-06-12 12:16 UTC: Indiana implementation pass (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt current Indiana coverage before editing: 0 live Indiana routes and 0 Indiana trip-detail objects, with 21 structured Indiana ledger rows.
+  - Added `wabash-river-vera-cruz-white-bridge` for the Wabash River from Vera Cruz Paddlesports Launch to White Bridge Picnic Area.
+  - The previous Wabash blocker cleared because USGS Water Services IV returned same-day 2026-06-12 stage/discharge values for direct gauge `03323000`; Wells County Trails confirms both endpoints as public improved concrete Wabash launches, gives the 4.2-mile downstream spacing, links the page to the Bluffton river gauge, and publishes 1.5-3 ft as the ideal kayaking height; Northeast Indiana Water Trails exposes endpoint coordinates for Vera Cruz and White Bridge.
+  - Route ships as an easy Northeast Indiana route with a strict two-sided stage model: ideal 1.5-3.0 ft, too-low below 1.5 ft, and too-high above 3.0 ft. It includes high-water/debris, private-bank, and same-day access caveats.
+  - No route-gallery image was added; image audit records no rights-clean exact-route image selected in this pass. Big Pine remains the next strongest whitewater lead but still lacks manager-grade public access confirmation for Rainsville/Twin Bridges.
+
+- 2026-06-12 07:22 America/Chicago / 2026-06-12 12:22 UTC: Pennsylvania implementation pass (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Pennsylvania coverage before editing: 1 live Pennsylvania route and 1 Pennsylvania trip-detail object, with 3 structured PA ledger rows.
+  - Added `lehigh-river-white-haven-rockport` for the Lehigh River / Lehigh Gorge State Park from White Haven South Access Area to Rockport Access Area.
+  - The prior Lehigh blocker cleared because direct USGS Water Services IV for `01447800` returned same-day 2026-06-12 White Haven outflow discharge/stage values, and USACE Lehigh Basin data independently showed same-day WhiteHaven outflow. DCNR supports the 8.7-mile White Haven-to-Rockport route, Class II-III hazards, designated-access rules, release-day access caveats, whitewater craft/PFD/helmet rules, and official 250/1,000/5,000 cfs bands.
+  - Route ships as `routeType: 'whitewater'` with ideal 250-1,000 cfs, too-low 250 cfs, and too-high 5,000 cfs on USGS `01447800`. Endpoint coordinates use DCNR White Haven South Access GPS and a cross-checked Rockport access coordinate because the DCNR Rockport page appears to publish an impossible latitude typo. No route-gallery image was added; image audit records no rights-clean exact-route image selected.
+  - Three Rivers remains `threshold_weak` because no endpoint pair plus route-specific numeric model has been selected.
+
+- 2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects, with 6 structured Nebraska ledger rows.
+  - Rechecked only the existing Nebraska candidates: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, and Kearney Water Trail.
+  - USGS Water Services IV returned current product-style values for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus still returned only stale 1994 discharge.
+  - No route was added. Platte, Niobrara, and Elkhorn still lack source-backed numeric paddling thresholds tied to selected product-supported gauges; Calamus still lacks current gauge support, a short day reach, and thresholds; Missouri National Recreational River still lacks a selected Nebraska-side public day reach and private-paddlecraft threshold model.
+  - Kearney Water Trail remains the closest lead, but its direct official gauge is Nebraska DWEE `00145700`, while PaddleTodayV2 still supports only `usgs` and `mn_dnr` live providers. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-11 17:44 America/Chicago / 2026-06-11 22:44 UTC: Pennsylvania implementation pass (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Rebuilt current Pennsylvania coverage before editing: 0 live Pennsylvania routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows.
+  - Added `youghiogheny-river-lower-yough-ohiopyle-bruner-run` for the Lower Yough / Youghiogheny River from Ohiopyle State Park Lower Yough launch to Bruner Run Take-out.
+  - Lower Yough cleared the prior product-live blocker because USGS Water Services IV and the official USGS current page for `03081500` returned same-day 2026-06-11 Ohiopyle stage/discharge values. DCNR supports the exact seven-mile route, Class III-IV hazards, launch-ticket context, PFD/helmet rules, and Bruner Run take-out; AW supports the direct gauge relationship, stage bands, reach features, and endpoint coordinates.
+  - Route ships as `routeType: 'whitewater'` with ideal 1.7-4.0 ft, too-low 1.1 ft, and too-high 7.0 ft on the Ohiopyle stage gauge. A Wikimedia Commons CC BY 2.0 Ohiopyle whitewater image is wired into the route gallery at `/gallery/youghiogheny-river-lower-yough-ohiopyle-bruner-run/lower-yough-kayaker.jpg`; the image audit records the approved Commons source and attribution.
+  - Lehigh remains `no_live_gauge` because the visible AW gauge is virtual and no direct supported live gauge was selected; Three Rivers remains `threshold_weak` because no endpoint pair plus route-specific numeric model has been selected.
+
+- 2026-06-11 17:42 America/Chicago / 2026-06-11 22:42 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - This time 18 of 19 gauges returned same-day values; only `04100000` returned zero time series.
+  - No route was added. Big Pine Creek is the closest improved lead because USGS `033356848` and American Whitewater now expose current/product-live and a 250-5000 cfs runnable range, but it still lacks a current Indiana DNR/county/city/public-access-manager confirmation for the Rainsville and Twin Bridges bridge/ford access points. Other candidates remain below the bar on numeric thresholds, endpoint/access legitimacy, or explicit hazard handling.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-11 17:41 America/Chicago / 2026-06-11 22:41 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked the five seeded Nebraska candidates and added one Nebraska-only official-source lead to the ledger: Kearney Water Trail / Yanney Park to Central Avenue.
+  - USGS Water Services IV now returned product-style current readings for `06461500`, `06799350`, `06805500`, `06467500` stage, and `06770200`; `06787500` Calamus returned only stale 1994 discharge, and `api.waterdata.usgs.gov` observation probes returned 404.
+  - No route was added. Existing candidates still lack source-backed numeric paddling thresholds tied to selected product-supported gauges or, for Missouri National Recreational River, a selected Nebraska-side public day reach.
+  - Kearney Water Trail has strong City/NGPC endpoint context and numeric Turkey Creek flow guidance, but its direct official gauge is Nebraska DWEE `00145700`, which PaddleTodayV2 does not currently support as a live provider. No app route data, trip details, gallery, or image-audit rows changed.
+
+- 2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally with `Unable to connect to the remote server`, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 12:02 America/Chicago / 2026-06-10 17:02 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 10:02 America/Chicago / 2026-06-10 15:02 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 10:02 America/Chicago / 2026-06-10 15:02 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` observation fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 10:01 America/Chicago / 2026-06-10 15:01 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally with `Unable to connect to the remote server`, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 08:01 America/Chicago / 2026-06-10 13:01 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 08:02 America/Chicago / 2026-06-10 13:02 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally with `Unable to connect to the remote server`, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 08:01 America/Chicago / 2026-06-10 13:01 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` observation fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 05:35 America/Chicago / 2026-06-10 10:35 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys. The only Indiana text hits in route data are unrelated Wisconsin/Ohio route context.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 08:00 America/Chicago / 2026-06-10 13:00 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with DNS resolution errors (`remote name could not be resolved`), so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally with DNS resolution errors, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 05:35 America/Chicago / 2026-06-10 10:35 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` observation fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 03:31 America/Chicago / 2026-06-10 08:31 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 03:31 America/Chicago / 2026-06-10 08:31 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 03:30 America/Chicago / 2026-06-10 08:30 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 01:31 America/Chicago / 2026-06-10 06:31 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 01:31 America/Chicago / 2026-06-10 06:31 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed all existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, `03275600`, `04093000`, `04100000`, `03328000`, and `03328500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Product-live remains unsatisfied for the gauge-backed rows, and the remaining candidates still lack a source-backed numeric threshold model, endpoint-coordinate/access legitimacy package, or explicit hazard clearance.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-10 01:29 America/Chicago / 2026-06-10 06:29 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 23:30 America/Chicago / 2026-06-10 04:30 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then retried product-style USGS Water Services IV for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, `03349000`, `03303000`, `03334000`, and `03275600`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Pigeon, Whitewater, Trail Creek, Wabash, East Fork Whitewater tailwater/gorge, Flatrock, Big Blue, Blue, Wildcat, Sugar Creek, Indianapolis White River, Noblesville White River, and Big Pine remain blocked by product-live, threshold, access-coordinate, or access-legitimacy gates; Kankakee, Cedar, Tippecanoe, Deep, White Lick, Christiana, and Eel had no current gate-clearing evidence in the existing ledger review.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 23:29 America/Chicago / 2026-06-10 04:29 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN current-condition page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, direct USGS `01449000` Water Services and WDFN probes failed locally, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 23:27 America/Chicago / 2026-06-10 04:27 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 21:29 America/Chicago / 2026-06-10 02:29 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then did a bounded product-style USGS Water Services IV retry for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, and `03349000`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Pigeon, Whitewater, Trail Creek, Wabash, East Fork Whitewater tailwater, Flatrock, Big Blue, Sugar Creek, Indianapolis White River, Noblesville White River, and Big Pine remain blocked by product-live, threshold, access-coordinate, or access-legitimacy gates.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 21:28 America/Chicago / 2026-06-10 02:28 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes and 0 Pennsylvania trip-detail objects, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Workspace product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, a direct USGS `01449000` Water Services probe failed locally, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 21:26 America/Chicago / 2026-06-10 02:26 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 19:41 America/Chicago / 2026-06-10 00:41 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then did a bounded product-style USGS Water Services IV retry for `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, `03339500`, `03353000`, and `03349000`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Pigeon, Whitewater, Trail Creek, Wabash, East Fork Whitewater, Flatrock, Big Blue, Sugar Creek, Indianapolis White River, Noblesville White River, and Big Pine remain blocked by product-live, threshold, access-coordinate, or access-legitimacy gates.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 19:25 America/Chicago / 2026-06-10 00:26 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 19:26 America/Chicago / 2026-06-10 00:26 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Local product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge, a direct USGS `01449000` probe failed locally, and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 17:26 America/Chicago / 2026-06-09 22:26 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then did a bounded product-style USGS Water Services IV retry for older and strongest leads: `04099750`, `03363500`, `03276500`, `03361500`, `04095300`, `03276000`, `03335500`, `033356848`, `03323000`, and `03339500`.
+  - Every retry failed with `Unable to connect to the remote server`.
+  - No route was added. Pigeon, Whitewater, Trail Creek, Wabash, and East Fork Whitewater tailwater remain product-live blocked; Flatrock, Big Blue, and Sugar Creek remain threshold/access weak; Big Pine remains a future `routeType: 'whitewater'` candidate with unresolved product-live, threshold, endpoint-coordinate, and access-legitimacy gates.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 17:26 America/Chicago / 2026-06-09 22:26 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Local product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 17:25 America/Chicago / 2026-06-09 22:25 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 15:25 America/Chicago / 2026-06-09 20:25 UTC: Pennsylvania no-add blocker refresh (`pennsylvania-route-additions`).
+  - Re-read the Pennsylvania automation memory/prompt, Pennsylvania state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Pennsylvania coverage remains 0 V2 routes, with 3 structured PA ledger rows from the seed pass.
+  - Reviewed only the existing official-source seed set: Lower Yough Ohiopyle-to-Bruner-Run, Lehigh White Haven-to-Rockport, and Three Rivers Water Trail Pittsburgh family.
+  - Local product-style USGS Water Services IV, api.waterdata.usgs.gov observations, and WDFN page fetches for Lower Yough gauge `03081500` failed again with `Unable to connect to the remote server`, so product-live remains unsatisfied despite strong DCNR route/access evidence and AW Ohiopyle stage bands.
+  - No route was added. Lower Yough remains `no_live_gauge`; Lehigh remains `no_live_gauge` because the selected White Haven-to-Rockport reach still lacks a locally verified direct product-supported live gauge and the AW gauge is virtual; Three Rivers remains `threshold_weak` because no specific endpoint pair plus route-specific numeric gauge model was selected.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 15:25 America/Chicago / 2026-06-09 20:25 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
+  - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, with no Indiana route objects or trip-detail keys.
+  - Reviewed the existing 21 Indiana ledger rows before discovery, then rechecked Wabash Vera Cruz-to-White-Bridge, Blue River White Cloud-to-Blue-River-Chapel, Sugar Creek Shades/Turkey Run family, Kankakee National Water Trail Kingsbury-to-Route-8, Big Pine Creek Rainsville-to-Twin-Bridges, White River Indianapolis Canoe Trail family, and West Fork White River Noblesville family.
+  - Local product-style USGS Water Services IV fetches for `03323000`, `03303000`, `03339500`, `03334000`, `033356848`, `03353000`, and `03349000` failed with `Unable to connect to the remote server`.
+  - No route was added. Wabash remains `no_live_gauge`; Blue, Sugar, Kankakee, Indianapolis White River, and Noblesville White River remain `threshold_weak`; Big Pine remains future `routeType: 'whitewater'` only because product-live, accessible numeric AW threshold, and endpoint-coordinate/access gates are unresolved.
+  - No candidates were promoted to `likely_addable`; no app route data, trip details, route gallery, or image-audit rows changed.
+
+- 2026-06-09 15:24 America/Chicago / 2026-06-09 20:24 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit context.
+  - Current Nebraska coverage remains 0 V2 routes and 0 Nebraska trip-detail objects.
+  - Rechecked only the five seeded Nebraska candidates: Platte River Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV fetch for `06461500`, `06805500`, `06799350`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route was added. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`. No candidate has source-backed numeric paddling thresholds tied to a selected product-supported gauge.
+  - No app route data, trip details, route gallery, or image-audit rows changed.
+
 - 2026-06-09 13:25 America/Chicago / 2026-06-09 18:25 UTC: Indiana no-add blocker refresh (`indiana-route-additions`).
   - Re-read the Indiana automation memory/prompt, Indiana state memory, live route inventory, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
   - Rebuilt the current Indiana inventory from route objects and trip details; PaddleTodayV2 still has 0 live Indiana routes, and the only literal Indiana app-data hits remain incidental Wisconsin route copy mentioning Indiana Avenue.
@@ -7250,3 +7554,12 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
     - `Lamine River - Roberts Bluff / Harriman Hill / De Bourgmont access family` -> `threshold_weak`.
     - MDC confirms Roberts Bluff as a public Lamine River boat-ramp access, and MDC watershed material lists lower Lamine public accesses including Roberts Bluff, Harriman Hill, and de Bourgmont. `USGS 06906800` is the obvious direct Lamine gauge, and RiverScout surfaces current gauge values plus a 225-700 cfs optimal range, but RiverScout also flags its CFS ranges as needing community verification. MDC's own material says parts of the Lamine are floatable and that dry-summer riffles above Roberts Bluff may require walking, but it does not provide a numeric route-specific threshold model or one clean day-trip endpoint pair.
   - Net result: 1 Missouri candidate reviewed, 0 promoted to `likely_addable`, 0 promoted to `needs_manual_coordinates`, 0 routes added, no app code changes, and no npm validation run.
+
+- 2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC: Nebraska no-add blocker refresh (`nebraska-route-additions`).
+  - Re-read the Nebraska automation memory/prompt, Nebraska state memory, live route data, trip details, Midwest memory, structured ledger, route-addition requirements, and image audit.
+  - Rebuilt current Nebraska inventory: still 0 live Nebraska routes and no Nebraska trip-detail objects.
+  - Rechecked the five seeded Nebraska candidates only: Platte Schramm-to-Louisville, Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, and Missouri National Recreational River Nebraska family.
+  - Workspace product-style USGS Water Services IV and `api.waterdata.usgs.gov` observation fetches for `06461500`, `06799350`, `06805500`, `06787500`, and `06467500` still failed with `Unable to connect to the remote server`.
+  - No route qualified. Platte, Niobrara, Calamus, and Elkhorn remain `threshold_weak`; Missouri National Recreational River remains `research_later`.
+  - Decisive blockers remain missing source-backed numeric paddling thresholds tied to a selected product-supported gauge, with Missouri also lacking a selected Nebraska-side public day reach.
+  - No app route data, trip details, route gallery, or image-audit rows changed; validate as a docs-only/no-add run.
