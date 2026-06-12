@@ -5,7 +5,7 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 ## Current Inventory
 
 - Current live Nebraska routes in `src/data/rivers.ts`: 1 as of 2026-06-12 11:11 implementation pass (`platte-river-schramm-louisville`).
-- Current Nebraska candidate ledger rows: 7 as of 2026-06-12 11:58 blocker refresh.
+- Current Nebraska candidate ledger rows: 7 as of 2026-06-12 12:58 blocker refresh.
 - Automation posture: seed a small official-source candidate set, then add at most one route only if all gates clear.
 
 ## Source Priorities
@@ -27,6 +27,36 @@ Created 2026-06-08 for the `nebraska-route-additions` automation.
 - Start from official NGPC water-trail maps/pages.
 - Likely first families to evaluate: Platte River Water Trail / Schramm-to-Louisville area, Elkhorn River official access segments, Niobrara public day segments, Calamus River canoe trail, and Missouri National Recreational River day segments.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
+
+## 2026-06-12 12:58 Blocker Refresh
+
+- Rebuilt current Nebraska inventory from `src/data/rivers.ts` and `src/data/river-trip-details.ts`: 1 live Nebraska route and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows.
+- Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+- USGS Water Services IV returned product-style values for `06461500` Niobrara near Sparks (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), `06799350` Elkhorn at West Point (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), `06467500` Missouri at Yankton stage only (10.29 ft at 2026-06-12 12:30 CDT), `06770200` Platte near Kearney (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and `06793000` Loup near Genoa (352 cfs at 2026-06-12 12:45 CDT / 4.42 ft at 2026-06-12 11:45 CDT). `06787500` Calamus near Burwell still returned only stale 1994 discharge.
+- No second Nebraska route was added. Niobrara and Elkhorn remain `threshold_weak` because source-backed numeric paddling thresholds tied to selected product-supported gauges have not surfaced. Calamus remains blocked by stale gauge data, no selected short public day reach, and no numeric thresholds. Missouri National Recreational River remains `research_later` because no Nebraska-side public day reach with private-paddlecraft thresholds surfaced.
+- Kearney Water Trail remains `no_live_gauge`: the route shape and 180-250 cfs local flow guidance are strong, but the direct official live gauge remains Nebraska DWEE `00145700`, and app source still limits `GaugeProvider` to `usgs` and `mn_dnr`. USGS `06770200` Platte near Kearney remains an unacceptable mainstem proxy for the canal/Turkey Creek water trail.
+- Loup River Water Trail remains `needs_manual_coordinates`: NGPC/Nebraskaland supports the route family and minimum-flow evidence tied to the Genoa gauge, but implementation-grade public endpoint coordinate pairs and an official high-water ceiling remain unresolved for a selected George-Syas-to-Monroe or Monroe-to-Columbus day segment.
+- No app route data, trip details, route gallery, or implemented-route image rows changed.
+
+## 2026-06-12 12:48 Blocker Refresh
+
+- Rebuilt current Nebraska inventory from `src/data/rivers.ts` and `src/data/river-trip-details.ts`: 1 live Nebraska route and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows.
+- Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+- USGS Water Services IV returned product-style values for `06461500` Niobrara near Sparks (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), `06799350` Elkhorn at West Point (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), `06467500` Missouri at Yankton stage only (10.29 ft at 2026-06-12 12:30 CDT), `06770200` Platte near Kearney (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and `06793000` Loup near Genoa (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT). `06787500` Calamus near Burwell still returned only stale 1994 discharge.
+- No second Nebraska route was added. Niobrara and Elkhorn remain `threshold_weak` because source-backed numeric paddling thresholds tied to selected product-supported gauges have not surfaced. Calamus remains blocked by stale gauge data, no selected short public day reach, and no numeric thresholds. Missouri National Recreational River remains `research_later` because no Nebraska-side public day reach with private-paddlecraft thresholds surfaced.
+- Kearney Water Trail remains `no_live_gauge`: the route shape and 180-250 cfs local flow guidance are strong, but the direct official live gauge remains Nebraska DWEE `00145700`, and app source still limits `GaugeProvider` to `usgs` and `mn_dnr`. USGS `06770200` Platte near Kearney remains an unacceptable mainstem proxy for the canal/Turkey Creek water trail.
+- Loup River Water Trail remains `needs_manual_coordinates`: NGPC/Nebraskaland supports the route family and minimum-flow evidence tied to the Genoa gauge, but implementation-grade public endpoint coordinate pairs and an official high-water ceiling remain unresolved for a selected George-Syas-to-Monroe or Monroe-to-Columbus day segment.
+- No app route data, trip details, route gallery, or implemented-route image rows changed.
+
+## 2026-06-12 12:38 Blocker Refresh
+
+- Rebuilt current Nebraska inventory from `src/data/rivers.ts` and `src/data/river-trip-details.ts`: 1 live Nebraska route and 1 Nebraska trip-detail object, both `platte-river-schramm-louisville`, with 7 structured Nebraska ledger rows.
+- Rechecked the six unimplemented Nebraska candidates only: Niobrara Cornell/Smith/Brewer/Norden family, Calamus Highway-7-to-Calamus-SRA, Elkhorn public-access/gauge family, Missouri National Recreational River Nebraska family, Kearney Water Trail, and Loup River Water Trail family.
+- USGS Water Services IV returned product-style values for `06461500` Niobrara near Sparks (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), `06799350` Elkhorn at West Point (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), `06467500` Missouri at Yankton stage only (10.29 ft at 2026-06-12 12:30 CDT), `06770200` Platte near Kearney (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and `06793000` Loup near Genoa (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT). `06787500` Calamus near Burwell still returned only stale 1994 discharge.
+- No second Nebraska route was added. Niobrara and Elkhorn remain `threshold_weak` because source-backed numeric paddling thresholds tied to selected product-supported gauges have not surfaced. Calamus remains blocked by stale gauge data, no selected short public day reach, and no numeric thresholds. Missouri National Recreational River remains `research_later` because no Nebraska-side public day reach with private-paddlecraft thresholds surfaced.
+- Kearney Water Trail remains `no_live_gauge`: the route shape and 180-250 cfs local flow guidance are strong, but the direct official live gauge remains Nebraska DWEE `00145700`, and app source still limits `GaugeProvider` to `usgs` and `mn_dnr`. USGS `06770200` Platte near Kearney remains an unacceptable mainstem proxy for the canal/Turkey Creek water trail.
+- Loup River Water Trail remains `needs_manual_coordinates`: NGPC/Nebraskaland supports the route family and minimum-flow evidence tied to the Genoa gauge, but implementation-grade public endpoint coordinate pairs and an official high-water ceiling remain unresolved for a selected George-Syas-to-Monroe or Monroe-to-Columbus day segment.
+- No app route data, trip details, route gallery, or implemented-route image rows changed.
 
 ## 2026-06-12 12:29 Blocker Refresh
 

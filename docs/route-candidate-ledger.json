@@ -1,7 +1,13 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-12T17:29:00.000Z",
+    "updatedAt": "2026-06-12T17:58:00.000Z",
     "notes": [
+        "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 12:30 CDT), Platte near Kearney 06770200 (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and Loup River near Genoa 06793000 (352 cfs at 2026-06-12 12:45 CDT / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
+        "2026-06-12 12:53 America/Chicago / 2026-06-12 17:53 UTC North Dakota Little South Pembina seed review. Rebuilt current North Dakota inventory at 3 live route objects and 3 trip-detail keys, with 12 structured North Dakota ledger rows before this pass. Seeded Little South Pembina River 99th Street NE-to-123rd Avenue / confluence bridge family as threshold_weak: American Whitewater identifies the Little South Pembina reach, exact feature coordinates for 99th Street NE, 117th Avenue NE, and 123rd Avenue, direct USGS 05099400 gauge support, Class I-II character, and a 100 cfs low-runnable floor; USGS Water Services IV returned product-style values of 29.2 cfs / 1.63 ft at 2026-06-12 12:15 CDT; and the Walhalla/Rendezvous Region map labels canoe-access context in the Little South Pembina/Pembina Gorge area. No route was added because the public access-to-access route package remains too ambiguous for V2: AW presents a 5.6-19 mile family, bridge-use access is not corroborated by a clean official endpoint page, and the only numeric threshold model is community/AW guidance with an overly broad high-runnable ceiling rather than a defensible low/ideal/high product score.",
+        "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 12:30 CDT), Platte near Kearney 06770200 (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and Loup River near Genoa 06793000 (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
+        "2026-06-12 12:42 America/Chicago / 2026-06-12 17:42 UTC North Dakota Fort Ransom coordinate blocker refresh. Rebuilt current North Dakota inventory at 3 live route objects and 3 trip-detail keys, with 12 structured North Dakota ledger rows. Rechecked the Fort Ransom State Park-to-Sportsman Landing Sheyenne River lead. ND Parks still confirms Fort Ransom State Park canoe/kayak context and rentals, Valley City/USFS route guidance still supports the Sheyenne 100/300/1000/2000 cfs bands, and USGS Water Services IV returned product-style values for direct gauge 05058650 (633 cfs / 19.01 ft at 2026-06-12 12:15 CDT). No route was added because exact source-backed coordinates for both the Fort Ransom State Park kayak/canoe access and Sportsman Landing dock above the dam still did not surface; dam-adjacent take-out placement cannot be inferred.",
+        "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 12:30 CDT), Platte near Kearney 06770200 (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and Loup River near Genoa 06793000 (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
+        "2026-06-12 12:32 America/Chicago / 2026-06-12 17:32 UTC North Dakota Souris/J. Clark Salyer threshold refresh. Rebuilt current North Dakota inventory at 3 live route objects and 3 trip-detail keys, with 12 structured North Dakota ledger rows. Rechecked J. Clark Salyer Souris River Canoe Trail official route/access materials and current Souris USGS gauge family values. USFWS still confirms the 5.5-mile Johnson Bridge-to-Thompson Well and 13-mile Johnson Bridge-to-Dam 1 canoe trail options, and fishing/regulation materials confirm nonmotorized/electric-motor use from 100 yards upstream of Johnson Bridge to Dam 1. USGS Water Services IV returned current product-style values for 05117500 Souris above Minot (158 cfs / 4.76 ft at 12:15 CDT), 05122000 Souris near Bantry (59.8 cfs / 2.13 ft at 12:00 CDT), and 05124000 Souris near Westhope (30.8 cfs / 5.86 ft at 12:00 CDT). No route was added because no official refuge/USGS source-backed numeric canoe-trail water-level bands tied to one selected gauge surfaced.",
         "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (634 cfs / 4.10 ft at 2026-06-12 11:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 11:30 CDT), Platte near Kearney 06770200 (1670 cfs / 3.63 ft at 2026-06-12 11:15 CDT), and Loup River near Genoa 06793000 (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
         "2026-06-12 12:12 America/Chicago / 2026-06-12 17:12 UTC North Dakota Missouri River Washburn/Sanger blocker refresh. Rebuilt current North Dakota inventory at 2 live route objects and 2 trip-detail keys, with 12 structured North Dakota ledger rows. Rechecked the official ND Parks/Cross Ranch Washburn-to-Sanger route and direct USGS 06341000 Washburn gauge. USGS Water Services IV returned current product-style stage-only data of 9.36 ft at 2026-06-12 11:15 CDT, with no discharge time series in the 00060/00065 response. No route was added because official route text still gives distance/shuttle context but no route-specific numeric private-paddlecraft low/ideal/high guidance tied to the stage-only gauge or another accepted gauge.",
         "2026-06-12 12:03 America/Chicago / 2026-06-12 17:03 UTC North Dakota Sheyenne National Grassland coordinate blocker refresh. Rebuilt current North Dakota inventory at 2 live routes and 12 structured North Dakota ledger rows. Rechecked the USFS Sheyenne River Water Trail page, USFS Visitor Maps and Guides page, Forest Service Sheyenne River Water Trail brochure/map PDFs, GovInfo map PDF, and the state Outdoor Heritage Fund grant PDF lead for Ylvisaker Bridge / Brome Field / Mirror Pool / East River endpoint coordinate evidence. USGS Water Services IV returned product-style same-river values for 05058700 Lisbon (690 cfs / 5.17 ft at 2026-06-12 11:45 CDT), 05058650 Fort Ransom State Park (641 cfs / 19.04 ft at 11:15 CDT), and 05059000 Kindred (637 cfs / 5.70 ft at 11:00 CDT). No route was added because the official sources still identify access sites and route-wide 100/300/1000/2000 cfs bands but do not provide exact source-backed coordinate pairs for a selected public day segment.",
@@ -26420,8 +26426,8 @@
             "state": "NE",
             "status": "threshold_weak",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 27,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. NPS and NGPC corridor/access/hazard evidence remains strong, and USGS 06461500 Niobrara River near Sparks again returned product-style current IV values from the workspace (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT). No route was added because no source-backed numeric minimal or optimal recreational flow bands tied to the Sparks gauge surfaced; route selection and endpoint coordinates stay secondary until that threshold gate clears.",
+            "reviewCount": 30,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06461500 Niobrara near Sparks still returned product-style current IV values of 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, and NPS/NGPC corridor support remains strong. No route was added because no source-backed numeric paddling threshold model tied to a selected Cornell/Smith/Brewer/Norden public day segment has surfaced.",
             "retryCondition": "Retry only if NPS, NGPC, Middle Niobrara NRD, USGS, or another credible manager publishes numeric Niobrara paddling thresholds tied to Sparks or another product-supported gauge and a short public endpoint pair is selected with source-backed coordinates.",
             "retryDate": null,
             "sourcesChecked": [
@@ -26443,7 +26449,10 @@
                 "2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC refresh: workspace product-style USGS Water Services IV and api.waterdata.usgs.gov observation fetches for 06461500, 06799350, 06805500, 06787500, and 06467500 still failed with Unable to connect to the remote server; no Nebraska candidate gained source-backed numeric gauge thresholds.",
                 "2026-06-11 17:41 America/Chicago refresh: USGS Water Services IV returned 06461500 Niobrara River near Sparks current values of 702 cfs and 2.73 ft at 2026-06-11 16:45 CDT; api.waterdata.usgs.gov observation probe returned 404; no numeric Niobrara recreational flow-band evidence surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, but no NPS/NGPC/source-backed numeric paddling threshold package tied to Sparks surfaced.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no accepted numeric Niobrara recreational flow-band evidence surfaced."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no accepted numeric Niobrara recreational flow-band evidence surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no accepted numeric Niobrara recreational flow-band evidence surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no accepted numeric paddling bands tied to a selected public day segment surfaced.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no source-backed numeric Niobrara paddling threshold model surfaced."
             ],
             "aliases": [
                 "Niobrara River Water Trail - Cornell Bridge to Norden Bridge",
@@ -26470,8 +26479,8 @@
                 "coordinateSource": "Not captured because the route needs a selected public day segment and threshold/product-live gates failed first."
             },
             "notes": "High-value future family, but implementation needs a shorter selected route and a real gauge-threshold model. Caveats include federal/private access, refuge fees/rules, outfitter/private landings, low-water dragging, rock ledges, marked portages, Class II-III rapids, Norden Chute, crowds, and weather.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC refresh: USGS Water Services IV returned product-style current values for 06461500 Niobrara River near Sparks, 692 cfs and 2.72 ft at 2026-06-12 06:45 CDT; no app-ready numeric minimal or optimal recreational flow bands tied to Sparks surfaced.",
                 "2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC refresh: USGS Water Services IV returned product-style current values for 06461500 Niobrara River near Sparks, 671 cfs and 2.70 ft at 2026-06-12 09:45 CDT; no app-ready numeric minimal or optimal recreational flow bands tied to Sparks surfaced.",
@@ -26486,7 +26495,9 @@
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: USGS Water Services IV returned 06461500 Niobrara River near Sparks at 702 cfs and 2.73 ft at 2026-06-12 10:45 CDT; no source-backed numeric minimal or optimal recreational paddling flow bands tied to the Sparks gauge surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, but no NPS/NGPC/source-backed numeric paddling threshold package tied to Sparks surfaced.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT, but no NPS/NGPC/source-backed numeric paddling threshold package tied to Sparks surfaced.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no source-backed numeric paddling threshold bands tied to Sparks or another accepted gauge surfaced."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no source-backed numeric paddling threshold bands tied to Sparks or another accepted gauge surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06461500 Niobrara near Sparks at 692 cfs and 2.72 ft at 2026-06-12 11:45 CDT; no source-backed numeric paddling threshold bands tied to Sparks or another accepted gauge surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: product-live 06461500 values remained available, but the decisive blocker is still missing source-backed numeric thresholds for a selected public Niobrara day reach."
             ]
         },
         {
@@ -26496,8 +26507,8 @@
             "state": "NE",
             "status": "threshold_weak",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 27,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. NGPC continues to support the long Highway-7-to-Calamus-SRA canoe trail and its access/private-land/low-bridge/fence caveats, but no route was added because the candidate remains an expedition-style 56.6-mile trail without a selected short public day reach. USGS 06787500 Calamus River near Burwell again returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT from Water Services IV, and no numeric gauge-tied paddling thresholds surfaced.",
+            "reviewCount": 30,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added because current product data, a selected short public day route, and numeric paddling thresholds remain unresolved.",
             "retryCondition": "Retry only if a shorter public endpoint pair is source-backed, a product-supported Calamus gauge is selected, and numeric low/ideal/high paddling guidance is published by an official manager or credible route source.",
             "retryDate": null,
             "sourcesChecked": [
@@ -26518,7 +26529,10 @@
                 "2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC refresh: workspace product-style USGS Water Services IV and api.waterdata.usgs.gov observation fetches for 06461500, 06799350, 06805500, 06787500, and 06467500 still failed with Unable to connect to the remote server; no Nebraska candidate gained source-backed numeric gauge thresholds.",
                 "2026-06-11 17:41 America/Chicago refresh: USGS Water Services IV for 06787500 Calamus River near Burwell returned only one stale discharge value, 319 cfs at 1994-09-30 23:30 CDT; api.waterdata.usgs.gov observation probe returned 404; no shorter public day segment or numeric Calamus gauge-threshold package surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected shorter public day route or numeric Calamus paddling threshold surfaced.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected shorter public day route or numeric Calamus paddling threshold surfaced."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected shorter public day route or numeric Calamus paddling threshold surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected shorter public day route or numeric Calamus paddling threshold surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 1994 discharge; no short public route and no numeric Calamus paddling bands surfaced.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: USGS Water Services IV for 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no shorter public day segment or numeric Calamus threshold package surfaced."
             ],
             "aliases": [
                 "Calamus River Canoe Trail",
@@ -26545,8 +26559,8 @@
                 "coordinateSource": "Official endpoint text reviewed; no implementation coordinate package captured because the route is not yet threshold-ready."
             },
             "notes": "Do not ship as a simple Explore route without a shorter selected day segment. Caveats include private land, no vehicle parking at the Highway 7 launch, sandy shallow channels, 12 bridges, low spans, culverts, barbed-wire/electric fences, portages, long shuttle, and reservoir tailwater slowdown.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC refresh: USGS Water Services IV for 06787500 Calamus River near Burwell still returned only one stale discharge value, 319 cfs at 1994-09-30 23:30 CDT; no shorter public day segment or numeric Calamus gauge-threshold package surfaced.",
                 "2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC refresh: USGS Water Services IV for 06787500 Calamus River near Burwell returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected short public day route or numeric paddling threshold model surfaced.",
@@ -26561,7 +26575,9 @@
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: USGS Water Services IV still returned only stale 06787500 Calamus River near Burwell discharge of 319 cfs at 1994-09-30 23:30 CDT; no current product-ready data, selected short day reach, or numeric paddling threshold model surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV for 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected shorter public day route or numeric Calamus paddling threshold surfaced.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV for 06787500 Calamus River near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected short public day route or numeric Calamus paddling threshold surfaced.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV for 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected short public day reach or numeric threshold package surfaced."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV for 06787500 Calamus near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected short public day reach or numeric threshold package surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV for 06787500 Calamus River near Burwell still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT; no selected short public day route or numeric Calamus paddling threshold surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: Calamus remains blocked by stale gauge data plus missing route-specific numeric threshold support."
             ]
         },
         {
@@ -26571,8 +26587,8 @@
             "state": "NE",
             "status": "threshold_weak",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 27,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. Elkhorn public-access/gauge context remains useful, and USGS 06799350 Elkhorn River at West Point again returned product-style current IV values from the workspace (634 cfs / 4.10 ft at 2026-06-12 11:15 CDT). No route was added because no exact public segment with implementation-grade endpoint coordinates and source-backed numeric paddling thresholds tied to a selected Elkhorn gauge surfaced.",
+            "reviewCount": 30,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06799350 Elkhorn at West Point returned product-style current values of 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT. No route was added because no exact selected public reach with source-backed numeric paddling thresholds tied to the selected Elkhorn gauge has cleared.",
             "retryCondition": "Retry only if NGPC/NRD/local managers or a credible route source identifies a selected public Elkhorn segment with endpoint coordinates and numeric paddling guidance tied to a product-supported USGS or official live gauge.",
             "retryDate": null,
             "sourcesChecked": [
@@ -26594,7 +26610,10 @@
                 "2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC refresh: workspace product-style USGS Water Services IV and api.waterdata.usgs.gov observation fetches for 06461500, 06799350, 06805500, 06787500, and 06467500 still failed with Unable to connect to the remote server; no Nebraska candidate gained source-backed numeric gauge thresholds.",
                 "2026-06-11 17:41 America/Chicago refresh: USGS Water Services IV returned 06799350 Elkhorn River at West Point current values of 666 cfs and 4.15 ft at 2026-06-11 17:15 CDT; api.waterdata.usgs.gov observation probe returned 404; no selected Elkhorn endpoint pair plus numeric gauge-threshold package surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT, but no selected public segment plus numeric Elkhorn threshold package surfaced.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn River at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no implementation-grade Elkhorn endpoint/threshold package surfaced."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn River at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no implementation-grade Elkhorn endpoint/threshold package surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT; no app-ready Elkhorn gauge-threshold package surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT; no accepted numeric paddling thresholds tied to a selected public reach surfaced.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT; no selected Elkhorn endpoint pair plus numeric gauge-threshold package surfaced."
             ],
             "aliases": [
                 "Elkhorn River Water Trail",
@@ -26621,8 +26640,8 @@
                 "coordinateSource": "Not captured; selected route and threshold gates failed first."
             },
             "notes": "Keep as a future access-first lead. Caveats include private banks, sandbars, variable summer levels, storm rises, strainers, bridge hazards, and selecting a reach that matches a live gauge.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC refresh: USGS Water Services IV returned product-style current values for 06799350 Elkhorn River at West Point, 634 cfs and 4.10 ft at 2026-06-12 06:15 CDT; no selected Elkhorn endpoint pair plus numeric gauge-threshold package surfaced.",
                 "2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC refresh: USGS Water Services IV returned product-style current values for 06799350 Elkhorn River at West Point, 622 cfs and 4.08 ft at 2026-06-12 09:45 CDT; no exact public segment with endpoint coordinates and numeric paddling thresholds tied to a selected Elkhorn gauge surfaced.",
@@ -26637,7 +26656,9 @@
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn River at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no selected public segment with source-backed endpoint coordinates and gauge-tied numeric paddling thresholds surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT, but no selected public segment plus numeric Elkhorn threshold package surfaced.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn River at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no exact public Elkhorn segment with source-backed coordinates and numeric gauge thresholds surfaced.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no exact public segment with coordinates and source-backed gauge-tied thresholds surfaced."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 634 cfs and 4.10 ft at 2026-06-12 11:15 CDT; no exact public segment with coordinates and source-backed gauge-tied thresholds surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06799350 Elkhorn at West Point at 628 cfs and 4.09 ft at 2026-06-12 12:15 CDT; no selected Elkhorn public day reach gained source-backed numeric threshold bands.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: product-live Elkhorn data remains available, but route selection and source-backed threshold support remain unresolved."
             ]
         },
         {
@@ -26647,8 +26668,8 @@
             "state": "NE",
             "status": "research_later",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 27,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. NPS MNRR paddling/access context remains useful, and USGS 06467500 Missouri River at Yankton again returned product-style current stage from the workspace (10.29 ft at 2026-06-12 11:30 CDT). No route was added because no Nebraska-side public day reach with selected endpoints, source-backed coordinates, direct discharge or accepted stage model, and numeric private-paddlecraft thresholds surfaced. Big-river wind, commercial/current hazards, federal corridor context, and long access spacing remain unresolved.",
+            "reviewCount": 30,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. USGS 06467500 Missouri River at Yankton returned current stage-only data of 10.29 ft at 2026-06-12 12:30 CDT. No route was added because no selected Nebraska-side MNRR public day reach and no numeric private-paddlecraft threshold model tied to an accepted gauge surfaced.",
             "retryCondition": "Retry only if NPS, USACE, NGPC, or a water-trail manager identifies a specific Nebraska-side MNRR day reach with public endpoint coordinates, a direct product-supported Missouri River gauge, and numeric stage/flow go/no-go guidance for private paddlecraft.",
             "retryDate": null,
             "sourcesChecked": [
@@ -26669,7 +26690,10 @@
                 "2026-06-10 12:03 America/Chicago / 2026-06-10 17:03 UTC refresh: workspace product-style USGS Water Services IV and api.waterdata.usgs.gov observation fetches for 06461500, 06799350, 06805500, 06787500, and 06467500 still failed with Unable to connect to the remote server; no Nebraska candidate gained source-backed numeric gauge thresholds.",
                 "2026-06-11 17:41 America/Chicago refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton current stage of 10.20 ft at 2026-06-11 17:30 CDT but no discharge series in the request; api.waterdata.usgs.gov observation probe returned 404; no specific Nebraska-side public MNRR day reach with numeric private-paddlecraft stage or flow guidance surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06467500 Missouri at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side MNRR public day reach with numeric private-paddlecraft threshold model surfaced.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06467500 Missouri at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side public day reach and threshold package surfaced."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06467500 Missouri at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side public day reach and threshold package surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 12:30 CDT; no specific Nebraska-side MNRR day route with numeric private-paddlecraft guidance surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 12:30 CDT; no Nebraska-side public day reach with private-paddlecraft threshold package surfaced.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only at 10.29 ft at 2026-06-12 12:30 CDT; no Nebraska-side public MNRR day reach with numeric private-paddlecraft stage or flow guidance surfaced."
             ],
             "aliases": [
                 "Missouri National Recreational River water trail",
@@ -26696,8 +26720,8 @@
                 "coordinateSource": "Not captured because no selected day route cleared threshold/product-live gates."
             },
             "notes": "Keep as research_later until a specific public endpoint pair and big-river threshold/safety package exists. Caveats include wind exposure, few launches, long shuttles, federal/state access rules, sandbars, snags, wing-dams or channel structures where present, motor traffic, and weather.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC refresh: USGS Water Services IV returned product-style current stage for 06467500 Missouri River at Yankton, 10.31 ft at 2026-06-12 06:30 CDT, but no discharge series in the request; no specific Nebraska-side public MNRR day reach with numeric private-paddlecraft stage or flow guidance surfaced.",
                 "2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC refresh: USGS Water Services IV returned product-style current stage for 06467500 Missouri River at Yankton, 10.24 ft at 2026-06-12 09:30 CDT, but no discharge series in the request; no specific Nebraska-side public MNRR day reach with numeric private-paddlecraft stage or flow guidance surfaced.",
@@ -26712,7 +26736,9 @@
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side MNRR public day reach with numeric private-paddlecraft threshold model surfaced.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06467500 Missouri at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side MNRR public day reach with numeric private-paddlecraft threshold model surfaced.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side MNRR public day reach with numeric private-paddlecraft threshold model surfaced.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side public day reach and private-paddlecraft threshold package surfaced."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only current data at 10.29 ft at 2026-06-12 11:30 CDT; no Nebraska-side public day reach and private-paddlecraft threshold package surfaced.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06467500 Missouri River at Yankton stage-only data at 10.29 ft at 2026-06-12 12:30 CDT; no Nebraska-side public day reach and private-paddlecraft threshold package surfaced.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: Missouri National Recreational River remains research_later because stage-only data does not establish a private-paddlecraft scoring model or selected Nebraska-side day segment."
             ]
         },
         {
@@ -26722,8 +26748,8 @@
             "state": "NE",
             "status": "no_live_gauge",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 14,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. City of Kearney and NGPC/Nebraskaland sources still strongly support the 2.3-mile Kearney Water Trail from Yanney Park to the Central Avenue exit landing, with published local guidance around 180-250 cfs for best whitewater/surfing flows. No route was added because the direct official live gauge remains Nebraska DWEE 00145700 Turkey Creek near Kearney, while PaddleTodayV2 currently supports only USGS and MN DNR live gauge providers. USGS 06770200 Platte River near Kearney returned product-style current IV values (1670 cfs / 3.63 ft at 2026-06-12 11:15 CDT), but it remains a Platte mainstem proxy rather than the direct canal/Turkey Creek trail gauge and was not accepted for implementation.",
+            "reviewCount": 17,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. City of Kearney and NGPC/Nebraskaland sources still strongly support the 2.3-mile Yanney Park-to-Central Avenue Kearney Water Trail and local 180-250 cfs flow guidance. No route was added because the direct official live gauge remains Nebraska DWEE 00145700, while PaddleTodayV2 GaugeProvider still supports only usgs and mn_dnr. USGS 06770200 Platte near Kearney returned 1590 cfs and 3.59 ft at 2026-06-12 12:15 CDT, but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
             "retryCondition": "Retry only if PaddleTodayV2 adds Nebraska DWEE as a supported live gauge provider or a direct product-supported USGS gauge for the Kearney Water Trail is identified, and public endpoint coordinates plus hazard copy are captured.",
             "retryDate": null,
             "sourcesChecked": [
@@ -26734,7 +26760,10 @@
                 "Nebraska DWEE RealTime StationsList reviewed 2026-06-11; Turkey Creek near Kearney station 00145700 showed 169.54 cfs and 1.91 ft at 2026-06-11 16:00 CDT, but DWEE is not a PaddleTodayV2-supported gauge provider.",
                 "USGS Water Services IV reviewed 2026-06-11; 06770200 Platte River near Kearney returned 1,310 cfs and 3.42 ft at 2026-06-11 17:15 CDT, but this mainstem Platte station was not accepted as a direct Kearney Water Trail gauge.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1590 cfs and 3.59 ft at 2026-06-12 12:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte near Kearney returned 1590 cfs and 3.59 ft at 2026-06-12 12:15 CDT but remains an unacceptable mainstem proxy.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte near Kearney returned 1590 cfs and 3.59 ft at 2026-06-12 12:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route."
             ],
             "aliases": [
                 "Kearney Water Trail",
@@ -26761,8 +26790,8 @@
                 "coordinateSource": "Official endpoint names and map context reviewed; implementation-grade coordinates were not captured because live-provider support failed first."
             },
             "notes": "Potential future Nebraska route if DWEE support is added. Caveats include artificial/operational flow from Kearney Canal/NPPD operation, April-October season, whitewater/drop structures, helmets/footwear, novice portage options, urban access, and same-day debris/maintenance checks.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 07:15 America/Chicago / 2026-06-12 12:15 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains an unsupported direct provider; USGS 06770200 Platte River near Kearney returned product-style current values of 1590 cfs and 3.59 ft at 2026-06-12 06:15 CDT but remains a mainstem proxy rather than the direct Kearney Water Trail gauge.",
                 "2026-06-12 10:18 America/Chicago / 2026-06-12 15:18 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains an unsupported direct provider; USGS 06770200 Platte River near Kearney returned product-style current values of 1650 cfs and 3.62 ft at 2026-06-12 09:15 CDT but remains a mainstem proxy rather than the direct Kearney Water Trail gauge.",
@@ -26777,7 +26806,9 @@
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy for the canal/Turkey Creek route.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1670 cfs and 3.63 ft at 2026-06-12 11:15 CDT but remains an unacceptable mainstem proxy.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: app source still limits GaugeProvider to usgs and mn_dnr, so Nebraska DWEE 00145700 remains unsupported; USGS 06770200 Platte River near Kearney returned 1590 cfs and 3.59 ft at 2026-06-12 12:15 CDT but remains an unacceptable mainstem proxy.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: Kearney remains blocked by unsupported Nebraska DWEE live-provider status despite promising local numeric flow guidance."
             ]
         },
         {
@@ -27107,14 +27138,17 @@
             "state": "ND",
             "status": "threshold_weak",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 1,
-            "blocker": "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC seed review. USFWS confirms the National Recreation Trail, Johnson Bridge launch, Thompson Well launch at river mile 5.5, Dam 1 take-out for the 13-mile option, mile markers, and canoe/kayak-only designated-trail legality. USGS Souris/Mouse River gauges are product-visible nearby, but no official refuge/USGS source publishes numeric paddling water-level bands tied to one selected gauge, so the route is not scoreable yet.",
-            "retryCondition": "Retry only if USFWS, USGS, or refuge trail materials publish selected-gauge water-level guidance for the Johnson Bridge-to-Thompson Well or Johnson Bridge-to-Dam 1 canoe route.",
+            "reviewCount": 2,
+            "blocker": "2026-06-12 12:32 America/Chicago / 2026-06-12 17:32 UTC threshold refresh. USFWS still confirms the J. Clark Salyer Souris River Canoe Trail as a National Recreation Trail with a 5.5-mile Johnson Bridge launch-to-Thompson Well launch option and a 13-mile Johnson Bridge launch-to-Dam 1 take-out option, plus mile markers and 2-3 hour / 5-7 hour timing. Current USFWS/GovInfo fishing materials also confirm Souris River Canoe Trail boat/nonmotorized use from 100 yards upstream of Johnson Bridge to Dam 1. USGS Water Services IV returned current product-style values for nearby Souris stations 05117500 above Minot (158 cfs / 4.76 ft at 2026-06-12 12:15 CDT), 05122000 near Bantry (59.8 cfs / 2.13 ft at 12:00 CDT), and 05124000 near Westhope (30.8 cfs / 5.86 ft at 12:00 CDT). Not implemented because no official refuge/USGS source-backed numeric paddling low/ideal/high bands tied to one selected gauge surfaced; wetland/refuge water-control context makes gauge inference too weak for V2 scoring.",
+            "retryCondition": "Retry only if USFWS, USGS, or refuge trail materials publish selected-gauge numeric water-level guidance for the Johnson Bridge-to-Thompson Well or Johnson Bridge-to-Dam 1 canoe route.",
             "retryDate": null,
             "sourcesChecked": [
                 "USFWS J. Clark Salyer NWR Visit Us page opened 2026-06-12; confirms Souris River Canoe Trail National Recreation Trail, 5.5-mile Johnson Bridge-to-Thompson Well option, 13-mile Johnson Bridge-to-Dam 1 option, 2-3 hour and 5-7 hour timing, mile markers, and access names.",
                 "USFWS J. Clark Salyer NWR Rules & Policies page opened 2026-06-12; confirms canoeing and kayaking are allowed only on designated trails and water-control structures must be avoided.",
-                "USGS Water Services IV returned current Souris/Mouse River values for nearby stations on 2026-06-12, but no official numeric canoe-trail range tied to a selected gauge surfaced."
+                "USGS Water Services IV returned current Souris/Mouse River values for nearby stations on 2026-06-12, but no official numeric canoe-trail range tied to a selected gauge surfaced.",
+                "USFWS J. Clark Salyer NWR Visit Us page rechecked 2026-06-12; confirms 5.5-mile Johnson Bridge-to-Thompson Well and 13-mile Johnson Bridge-to-Dam 1 canoe trail options, timing, and mile markers.",
+                "GovInfo / USFWS J. Clark Salyer fishing information rechecked 2026-06-12; confirms Souris River Canoe Trail boat use from 100 yards upstream of Johnson Bridge down to Dam 1, but gives no gauge-tied paddling range.",
+                "USGS Water Services IV checked 2026-06-12 for 05117500, 05122000, and 05124000; all returned current Souris product values, but none was tied by official trail materials to numeric canoe-trail thresholds."
             ],
             "aliases": [
                 "J. Clark Salyer Souris River Canoe Trail",
@@ -27124,13 +27158,13 @@
             "v2Slug": null,
             "gauge": {
                 "quality": "gauge_lead_threshold_blocked",
-                "id": "Souris / Mouse River gauge family",
+                "id": "05117500 / 05122000 / 05124000 Souris gauge family",
                 "provider": "USGS",
-                "notes": "Nearby USGS Souris/Mouse gauges are product-visible, but no selected gauge has official canoe-trail bands for this refuge route."
+                "notes": "Current product-style values exist on the same river family, but no official source selects one gauge or publishes canoe-trail numeric bands for this refuge route."
             },
             "thresholdSupport": {
                 "strength": "not_ready",
-                "notes": "Official route/access text exists, but numeric water-level guidance tied to a live gauge is missing."
+                "notes": "Official route/access text exists, but numeric water-level guidance tied to a selected live gauge remains missing."
             },
             "endpoints": {
                 "putIn": "Johnson Bridge launch",
@@ -27141,10 +27175,11 @@
                 "coordinateSource": "Not captured because threshold model failed first."
             },
             "notes": "Strong official refuge route lead, but keep out of app data until gauge and numeric range guidance exist.",
-            "updatedAt": "2026-06-12T15:12:00.000Z",
-            "lastReviewedAt": "2026-06-12T15:12:00.000Z",
+            "updatedAt": "2026-06-12T17:32:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:32:00.000Z",
             "evidence": [
-                "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC seed review: official access and route shape found; numeric live-gauge threshold model remains missing."
+                "2026-06-12 10:12 America/Chicago / 2026-06-12 15:12 UTC seed review: official access and route shape found; numeric live-gauge threshold model remains missing.",
+                "2026-06-12 12:32 America/Chicago / 2026-06-12 17:32 UTC refresh: current Souris USGS gauges are product-live, but official J. Clark Salyer route materials still provide no numeric gauge-tied canoe-trail bands; candidate remains threshold_weak."
             ]
         },
         {
@@ -27209,15 +27244,73 @@
             ]
         },
         {
+            "candidateId": "nd-little-south-pembina-99th-123rd",
+            "river": "Little South Pembina River",
+            "route": "99th Street NE to 123rd Avenue / bridge just shy of Pembina River confluence family",
+            "state": "ND",
+            "status": "threshold_weak",
+            "lastReviewed": "2026-06-12",
+            "reviewCount": 1,
+            "blocker": "2026-06-12 12:53 America/Chicago / 2026-06-12 17:53 UTC official/community seed review. American Whitewater identifies the Little South Pembina 99th Street NE-to-bridge-just-shy-of-Pembina River confluence reach, lists Class I-II difficulty, exposes exact feature coordinates for the 99th Street NE put-in, optional 117th Avenue NE upper put-in, and 123rd Avenue take-out, and ties the reach to direct USGS gauge 05099400 Little South Pembina River near Walhalla. USGS Water Services IV returned product-style current values of 29.2 cfs and 1.63 ft at 2026-06-12 12:15 CDT, matching AW current-flow context that the river was below recommended. Walhalla/Rendezvous Region map materials show Little South Pembina/Pembina Gorge road and canoe-access context, but no clean official public endpoint page or route-specific local-government access text surfaced for the selected bridge-to-bridge package. Not implemented because the route package is internally ambiguous (AW title/metadata presents a 5.6-19 mile family), bridge-use access is not official-source corroborated enough, and the only numeric paddling thresholds are community/AW guidance with a 100 cfs low-runnable floor and an overly broad high-runnable ceiling rather than a defensible low/ideal/high model for PaddleTodayV2 scoring.",
+            "retryCondition": "Retry only if Pembina County, Walhalla/Rendezvous Region, ND Parks, American Whitewater, or another accepted source publishes a clean public access-to-access Little South Pembina day route with unambiguous mileage/endpoints plus a defensible gauge-tied low/ideal/high range, or if local official access materials clearly corroborate 99th Street NE and 123rd Avenue bridge use for paddlers.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "American Whitewater Little South Pembina reach opened 2026-06-12; identifies 99th Street NE to bridge just shy of Pembina River confluence, Class I-II, 19-mile metadata with 5.6-19 mile title/search context, direct Little South Pembina near Walhalla gauge, exact feature coordinates, and current flow status below recommended.",
+                "American Whitewater embedded reach data reviewed 2026-06-12; exposes 99th Street NE put-in at 48.84779739, -97.99817657, optional 117th Avenue NE upper put-in at 48.86924832, -98.14408922, and 123rd Avenue take-out at 48.89630127, -98.01950073.",
+                "USGS Water Services IV for 05099400 returned current product-style values of 29.2 cfs and 1.63 ft at 2026-06-12 12:15 CDT.",
+                "USGS monitoring-location page for 05099400 confirms Little South Pembina River near Walhalla, ND, with current/historical observation data availability.",
+                "Walhalla/Rendezvous Region map PDF search-visible text reviewed 2026-06-12; shows Little South Pembina River, surrounding road network, dams, Pembina Gorge context, and canoe-access map labeling, but did not provide clean text tying the selected AW bridge endpoints to public paddling access.",
+                "Fresh searches for exact 99th Street NE / 123rd Avenue Little South Pembina access corroboration found AW and map/PDF context only; no stronger official endpoint page surfaced during this pass."
+            ],
+            "aliases": [
+                "Little South Pembina 99th Street NE to 123rd Avenue",
+                "Little South Pembina River near Walhalla",
+                "Little South Pembina 99th Street to Pembina confluence"
+            ],
+            "v2Slug": null,
+            "gauge": {
+                "quality": "direct_product_live_verified_threshold_blocked",
+                "id": "05099400",
+                "provider": "USGS",
+                "notes": "Direct same-river Little South Pembina gauge returned current discharge and stage through USGS Water Services IV, and American Whitewater ties the reach to this gauge; scoring remains blocked by ambiguous community-only bands and route package."
+            },
+            "thresholdSupport": {
+                "strength": "not_ready",
+                "notes": "American Whitewater exposes a 100 cfs low-runnable floor and reports current 29 cfs as below recommended; trip reports mention 74 cfs barely passable, 100 cfs enough for shallow boats, 250 cfs higher end for the short lower reach, and 1000-3000 cfs high-water/event use. This is useful research evidence but not a stable low/ideal/high product model for an app route, especially with the 5.6-19 mile route-family ambiguity."
+            },
+            "endpoints": {
+                "putIn": "99th Street NE bridge / reported Little South Pembina put-in",
+                "takeOut": "123rd Avenue bridge / bridge just shy of Pembina River confluence",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 48.84779739,
+                    "longitude": -97.99817657
+                },
+                "takeOutCoordinates": {
+                    "latitude": 48.89630127,
+                    "longitude": -98.01950073
+                },
+                "coordinateSource": "American Whitewater embedded feature coordinates; official/local public access corroboration for bridge-use endpoints remains insufficient for implementation."
+            },
+            "notes": "Promising Pembina Gorge whitewater/community lead with direct live gauge and exact AW feature coordinates, but keep out of route data until route length/endpoints, public access authority, and gauge-tied threshold bands are stronger. Photo work was limited to source review; no rights-clean route image was selected.",
+            "updatedAt": "2026-06-12T17:53:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:53:00.000Z",
+            "evidence": {
+                "reviewedBy": "north-dakota-route-additions automation",
+                "reviewedAt": "2026-06-12T17:53:00.000Z",
+                "decision": "Seeded as threshold_weak; no route add."
+            }
+        },
+        {
             "candidateId": "nd-sheyenne-river-fort-ransom-sportsman-landing",
             "river": "Sheyenne River",
             "route": "Fort Ransom State Park accessible launch to Sportsman Landing / Fort Ransom town segment",
             "state": "ND",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 2,
-            "blocker": "2026-06-12 11:23 America/Chicago / 2026-06-12 16:23 UTC coordinate blocker refresh. Valley City Tourism and ND Parks still confirm the Fort Ransom State Park accessible launch to Sportsman Landing / Fort Ransom town segment, official Sheyenne flow bands remain strong, and direct USGS 05058650 was already product-live earlier this morning. A fresh named-map search for Sportsman Landing, Fort Ransom State Park kayak/canoe access, and the Fort Ransom dam/Sportsman Landing feature returned no accepted coordinate source. Not implemented because exact public launch/take-out coordinates remain unverified and the dock-above-dam hazard makes inferred take-out placement unacceptable.",
-            "retryCondition": "Retry only if official water-trail, state park, county, city, or accepted map sources publish verifiable coordinates for both the Fort Ransom State Park kayak/canoe access and Sportsman Landing dock above the dam, with access status still open.",
+            "reviewCount": 4,
+            "blocker": "2026-06-12 13:03 America/Chicago / 2026-06-12 18:03 UTC coordinate blocker refresh. Valley City Tourism and USFS still support the Fort Ransom Sheyenne River Water Trail segment and official 100/300/1000/2000 cfs flow bands; ND Parks/North Dakota Tourism still support Fort Ransom State Park canoeing/kayaking and rental context. USGS Water Services IV for direct gauge 05058650 again returned current product-style values of 633 cfs and 19.01 ft at 2026-06-12 12:15 CDT, inside the official Sheyenne 300-1000 cfs optimal band. Fresh web searches plus Nominatim named-feature checks for Sportsman Landing and the Fort Ransom State Park kayak/canoe launch still returned no accepted coordinate records. Not implemented because exact public launch/take-out coordinates remain unverified, and the Sportsman Landing dock-above-dam context makes inferred placement unacceptable.",
+            "retryCondition": "Retry only if official water-trail, state park, county, city, Google Maps/named-feature, or another accepted map/access source publishes verifiable coordinates for both the Fort Ransom State Park kayak/canoe access and Sportsman Landing dock above the dam, with access status still open.",
             "retryDate": null,
             "sourcesChecked": [
                 "Valley City Tourism Sheyenne River Water Trail page opened 2026-06-12; confirms Fort Ransom Segment map availability, water-trail hazard cautions, and route-wide 100/300/1000/2000 cfs flow bands.",
@@ -27226,7 +27319,11 @@
                 "USGS Water Services IV for 05058650 Sheyenne River at Fort Ransom State Park returned current product-style values of 641 cfs and 19.04 ft at 2026-06-12 10:15 CDT.",
                 "ND Parks Fort Ransom State Park page and map opened 2026-06-12; confirm canoeing/kayaking, kayak rentals, park river access context, and a kayak/canoe access symbol, but not exact coordinate text for the launch.",
                 "Search-visible Sportsman Landing results reviewed 2026-06-12; no official coordinate source surfaced, and 2024 local-news incident context reinforces the need to avoid inferred endpoints near the dam.",
-                "2026-06-12 11:23 coordinate refresh: Nominatim/OpenStreetMap named-feature searches for Sportsman Landing Fort Ransom, Fort Ransom State Park kayak/canoe access, and Fort Ransom dam/Sportsman Landing returned no usable feature coordinates."
+                "2026-06-12 11:23 coordinate refresh: Nominatim/OpenStreetMap named-feature searches for Sportsman Landing Fort Ransom, Fort Ransom State Park kayak/canoe access, and Fort Ransom dam/Sportsman Landing returned no usable feature coordinates.",
+                "ND Parks Fort Ransom State Park page rechecked 2026-06-12; confirms the Sheyenne River provides canoeing opportunities at the park. ND Parks paddling/fishing/event pages also confirm Fort Ransom Sheyenne paddling, kayak/canoe rentals, and RiverFest launch context, but no exact coordinate pair for the park launch surfaced.",
+                "USGS Water Services IV checked 2026-06-12 for 05058650; returned 633 cfs and 19.01 ft at 2026-06-12 12:15 CDT from the direct Fort Ransom State Park gauge.",
+                "Fresh web searches for Sportsman Landing Fort Ransom and Fort Ransom State Park kayak/canoe access on 2026-06-12 again did not surface accepted coordinate sources; 2024 local-news incident context continues to reinforce the dam-adjacent take-out risk.",
+                "2026-06-12 13:03 refresh: Valley City Tourism/USFS pages were rechecked for official segment and flow-band support; USGS Water Services IV for 05058650 remained product-live at 633 cfs / 19.01 ft; Nominatim named-feature checks for Sportsman Landing Fort Ransom and Fort Ransom State Park kayak launch returned no coordinate records."
             ],
             "aliases": [
                 "Sheyenne River Water Trail Fort Ransom Segment",
@@ -27238,11 +27335,11 @@
                 "quality": "direct_product_live_verified",
                 "id": "05058650",
                 "provider": "USGS",
-                "notes": "Direct same-river gauge at Fort Ransom State Park returned same-day discharge and stage; threshold guidance is the official Sheyenne water-trail CFS bands, but endpoint coordinates remain blocked."
+                "notes": "Direct same-river gauge at Fort Ransom State Park returned current discharge and stage again on 2026-06-12 at 13:03 America/Chicago; threshold guidance is the official Sheyenne water-trail CFS bands, but endpoint coordinates remain blocked."
             },
             "thresholdSupport": {
                 "strength": "strong_but_endpoint_blocked",
-                "notes": "USFS and Valley City Tourism publish route-wide Sheyenne bands: <=100 cfs very low, 100-300 cfs navigable with exposed obstacles, 300-1000 cfs optimal, 1000-2000 cfs caution, >2000 cfs avoid. Current 641 cfs is within the official optimal band, but no route ships without verified endpoints."
+                "notes": "USFS and Valley City Tourism publish route-wide Sheyenne bands: <=100 cfs very low, 100-300 cfs navigable with exposed obstacles, 300-1000 cfs optimal, 1000-2000 cfs caution, >2000 cfs avoid. Current 633 cfs at 05058650 remains within the official optimal band, but no route ships without verified endpoints."
             },
             "endpoints": {
                 "putIn": "Fort Ransom State Park accessible launch",
@@ -27250,14 +27347,16 @@
                 "coordinatesPresent": false,
                 "putInCoordinates": null,
                 "takeOutCoordinates": null,
-                "coordinateSource": "Named official segment endpoints are confirmed by the Valley City Tourism Fort Ransom Segment map and ND Parks park context, but this run did not verify exact public launch/take-out coordinates from official or accepted map sources."
+                "coordinateSource": "Named official segment endpoints are confirmed by the Valley City Tourism Fort Ransom Segment map and ND Parks park context, but exact public launch/take-out coordinate pairs still have not been verified from official or accepted map sources."
             },
             "notes": "Promising short Sheyenne follow-on route with strong gauge and threshold support; keep out of app data until both access coordinates are source-backed and the dam-adjacent take-out hazard is encoded cleanly.",
-            "updatedAt": "2026-06-12T16:23:00.000Z",
-            "lastReviewedAt": "2026-06-12T16:23:00.000Z",
+            "updatedAt": "2026-06-12T18:03:00.000Z",
+            "lastReviewedAt": "2026-06-12T18:03:00.000Z",
             "evidence": [
                 "2026-06-12 11:12 America/Chicago / 2026-06-12 16:12 UTC seed review: route shape, direct gauge, and numeric thresholds found; exact endpoint coordinates and safe take-out verification remain blocking.",
-                "2026-06-12 11:23 America/Chicago / 2026-06-12 16:23 UTC refresh: coordinate blocker persisted after named-map search; no route-data promotion."
+                "2026-06-12 11:23 America/Chicago / 2026-06-12 16:23 UTC refresh: coordinate blocker persisted after named-map search; no route-data promotion.",
+                "2026-06-12 12:42 America/Chicago / 2026-06-12 17:42 UTC refresh: direct USGS 05058650 remained product-live at 633 cfs / 19.01 ft and official Sheyenne bands still support range scoring, but exact source-backed coordinates for Fort Ransom State Park launch and Sportsman Landing dock remained unverified; candidate stays needs_manual_coordinates.",
+                "2026-06-12 13:03 America/Chicago / 2026-06-12 18:03 UTC refresh: official route and range support still holds and USGS 05058650 remained product-live at 633 cfs / 19.01 ft, but fresh web/Nominatim checks still did not verify exact endpoint coordinates; candidate stays needs_manual_coordinates."
             ]
         },
         {
@@ -27372,8 +27471,8 @@
             "state": "NE",
             "status": "needs_manual_coordinates",
             "lastReviewed": "2026-06-12",
-            "reviewCount": 6,
-            "blocker": "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC blocker refresh. NGPC/Nebraskaland continues to support the Loup River Water Trail access sequence and minimum-flow evidence tied to USGS 06793000 Loup River near Genoa, which returned product-style current values of 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT. No route was added because implementation-grade public coordinate pairs still are not verified for a selected George-Syas-to-Monroe or Monroe-to-Columbus day segment, and the threshold model remains conservative minimum-only with no official high-water ceiling.",
+            "reviewCount": 9,
+            "blocker": "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC blocker refresh. NGPC/Nebraskaland continues to support the Loup River Water Trail family and minimum-flow evidence tied to USGS 06793000 Loup River near Genoa, which returned product-style current values of 352 cfs at 2026-06-12 12:45 CDT and 4.42 ft at 2026-06-12 11:45 CDT. No route was added because implementation-grade public coordinate pairs still are not verified for a selected George-Syas-to-Monroe or Monroe-to-Columbus day segment, and the threshold model remains conservative minimum-only with no official high-water ceiling.",
             "retryCondition": "Retry only if official map records, county/city/NGPC pages, or Google Maps verification provide exact public coordinate pairs for a selected Loup segment, preferably George D. Syas-to-Monroe or a shorter Columbus-area reach, and the minimum-only Genoa-gauge model is accepted with conservative high-water/no-beginner caveats.",
             "retryDate": null,
             "sourcesChecked": [
@@ -27382,7 +27481,10 @@
                 "NGPC/Nebraskaland Loup article reviewed 2026-06-12; says Loup Power District maintains at least 275 cfs in the river, March-June often has more water, summer is low but navigable, and a 350 cfs Genoa test from George D. Syas WMA to Monroe required deep-channel work but rarely walking.",
                 "USGS Water Services IV reviewed 2026-06-12; 06793000 Loup River near Genoa returned 352 cfs and 4.43 ft at 2026-06-12 10:45 CDT.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
-                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; exact public endpoint coordinates and an official high-water ceiling remain unresolved."
+                "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
+                "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 352 cfs at 2026-06-12 12:45 CDT and 4.42 ft at 2026-06-12 11:45 CDT; exact public endpoint coordinates and an official high-water ceiling remain unresolved."
             ],
             "aliases": [
                 "Loup River Water Trail",
@@ -27410,15 +27512,17 @@
                 "coordinateSource": "Named public access context reviewed from NGPC/Nebraskaland; exact implementation coordinate pairs were not verified in this run."
             },
             "notes": "Promising future Nebraska route family. Caveats include braided sandy channels, shifting deepest channel, wind exposure, irrigation/power diversion effects, fresh snags after high water, long Monroe-to-Columbus distance, private banks/beds, no camping/picnicking without permission, and no beginner framing for the long segment.",
-            "updatedAt": "2026-06-12T17:29:00.000Z",
-            "lastReviewedAt": "2026-06-12T17:29:00.000Z",
+            "updatedAt": "2026-06-12T17:48:00.000Z",
+            "lastReviewedAt": "2026-06-12T17:48:00.000Z",
             "evidence": [
                 "2026-06-12 11:38 America/Chicago / 2026-06-12 16:38 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 352 cfs and 4.43 ft at 2026-06-12 10:45 CDT; NGPC/Nebraskaland supports the route family and lower-flow guidance, but exact public endpoint coordinates were not verified, so no route was added.",
                 "2026-06-12 11:48 America/Chicago / 2026-06-12 16:48 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 352 cfs and 4.43 ft at 2026-06-12 10:45 CDT; targeted coordinate search did not verify official or accepted public endpoint coordinate pairs for a selected Loup segment.",
                 "2026-06-12 11:58 America/Chicago / 2026-06-12 16:58 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs at 2026-06-12 11:45 CDT and 4.43 ft at 2026-06-12 10:45 CDT; exact public endpoint coordinate pairs and an official high-water ceiling remain unresolved.",
                 "2026-06-12 12:08 America/Chicago / 2026-06-12 17:08 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
                 "2026-06-12 12:18 America/Chicago / 2026-06-12 17:18 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
-                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved."
+                "2026-06-12 12:29 America/Chicago / 2026-06-12 17:29 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
+                "2026-06-12 12:38 America/Chicago / 2026-06-12 17:38 UTC refresh: USGS Water Services IV returned 06793000 Loup River near Genoa at 346 cfs and 4.42 ft at 2026-06-12 11:45 CDT; NGPC/Nebraskaland still supports the route family and low-flow evidence, but exact public endpoint coordinates and an official high-water ceiling remain unresolved.",
+                "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC refresh: Loup remains a promising future route, but exact public endpoint coordinate pairs and high-water ceiling are still unresolved."
             ]
         },
         {

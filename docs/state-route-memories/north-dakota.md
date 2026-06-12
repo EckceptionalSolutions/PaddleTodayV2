@@ -1,5 +1,41 @@
 # North Dakota Route Memory
 
+## 2026-06-12 Fort Ransom coordinate blocker refresh 13:03
+
+- Rebuilt current inventory from route data: North Dakota has 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 13 structured North Dakota ledger rows before this pass.
+- No route was added. Refreshed `nd-sheyenne-river-fort-ransom-sportsman-landing`; it remains `needs_manual_coordinates`.
+- Official route/range evidence still holds: Valley City Tourism and USFS support the Fort Ransom Sheyenne River Water Trail segment and the route-wide Sheyenne `<=100 / 100-300 / 300-1000 / 1000-2000 / >2000 cfs` bands. ND Parks and North Dakota Tourism still confirm Fort Ransom State Park canoeing/kayaking and rental context.
+- Gauge check: USGS Water Services IV returned current product-style values for direct same-river gauge `05058650` Sheyenne River at Fort Ransom State Park (`633 cfs / 19.01 ft` at 2026-06-12 12:15 CDT), inside the official optimal band.
+- Decisive blocker: fresh web searches and Nominatim named-feature checks still did not verify exact source-backed coordinate pairs for the Fort Ransom State Park kayak/canoe access or Sportsman Landing dock above the dam. Keep this route out of app data because the dam-adjacent take-out makes inferred endpoint placement unacceptable.
+- Photo status: no route-gallery image was added; the image audit records the deferred Fort Ransom lead without a selected rights-clean local asset.
+
+## 2026-06-12 Little South Pembina seed review 12:53
+
+- Rebuilt current inventory from route data: North Dakota has 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 12 structured North Dakota ledger rows before this pass.
+- No route was added. Seeded `nd-little-south-pembina-99th-123rd` as `threshold_weak`.
+- Promising evidence found: American Whitewater identifies the Little South Pembina 99th Street NE-to-bridge-just-shy-of-Pembina River confluence reach, exposes exact feature coordinates for the 99th Street NE put-in, optional 117th Avenue NE upper put-in, and 123rd Avenue take-out, and ties the reach to direct USGS `05099400` Little South Pembina River near Walhalla.
+- Gauge check: USGS Water Services IV returned current product-style values for `05099400` (`29.2 cfs / 1.63 ft` at 2026-06-12 12:15 CDT), matching AW's below-recommended status.
+- Decisive blocker: route-package and threshold confidence are still too weak for app data. AW presents a `5.6-19 mi` family rather than one clean public day route, bridge-use access is not corroborated by a clean official endpoint page, and the numeric model remains community/AW-only with a 100 cfs low-runnable floor and an overly broad high-runnable ceiling instead of defensible low/ideal/high bands.
+- Photo status: no route-gallery image was added; the image audit records the deferred Little South Pembina lead without a selected rights-clean local asset.
+
+## 2026-06-12 Fort Ransom coordinate blocker refresh 12:42
+
+- Rebuilt current inventory from route data: North Dakota has 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 12 structured North Dakota ledger rows before this pass.
+- No route was added. Refreshed `nd-sheyenne-river-fort-ransom-sportsman-landing`; it remains `needs_manual_coordinates`.
+- Official route/range evidence still holds: Valley City Tourism and USFS support the Fort Ransom Sheyenne River Water Trail segment and the route-wide Sheyenne `<=100 / 100-300 / 300-1000 / 1000-2000 / >2000 cfs` bands. ND Parks still confirms Fort Ransom State Park's Sheyenne River canoeing/kayaking context, kayak/canoe rentals, and park river context.
+- Gauge check: USGS Water Services IV returned current product-style values for direct same-river gauge `05058650` Sheyenne River at Fort Ransom State Park (`633 cfs / 19.01 ft` at 2026-06-12 12:15 CDT), inside the official optimal band.
+- Decisive blocker: exact source-backed coordinate pairs for both the Fort Ransom State Park kayak/canoe access and Sportsman Landing dock above the dam still did not surface. Keep this route out of app data because the dam-adjacent take-out makes inferred endpoint placement unacceptable.
+- Photo status: no route-gallery image was added; the image audit records the deferred Fort Ransom lead without a selected rights-clean local asset.
+
+## 2026-06-12 Souris / J. Clark Salyer threshold refresh 12:32
+
+- Rebuilt current inventory from route data: North Dakota has 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 12 structured North Dakota ledger rows before this pass.
+- No route was added. Refreshed `nd-souris-river-j-clark-salyer-canoe-trail`; it remains `threshold_weak`.
+- Official route/access evidence still holds: USFWS confirms the J. Clark Salyer Souris River Canoe Trail as a National Recreation Trail with a 5.5-mile Johnson Bridge-to-Thompson Well option, a 13-mile Johnson Bridge-to-Dam 1 option, mile markers, and 2-3 hour / 5-7 hour timing. Current USFWS/GovInfo fishing materials confirm boat/nonmotorized use from 100 yards upstream of Johnson Bridge to Dam 1.
+- Gauge checks: USGS Water Services IV returned current same-river family values for `05117500` Souris River above Minot (`158 cfs / 4.76 ft` at 2026-06-12 12:15 CDT), `05122000` Souris River near Bantry (`59.8 cfs / 2.13 ft` at 12:00 CDT), and `05124000` Souris River near Westhope (`30.8 cfs / 5.86 ft` at 12:00 CDT).
+- Decisive blocker: no official refuge/USGS source-backed numeric low/ideal/high paddling bands tied to one selected gauge surfaced. Keep the route out of app data because wetland/refuge water-control context makes threshold inference too weak for V2 scoring.
+- Photo status: no route-gallery image was added; the image audit records the deferred J. Clark Salyer lead without a selected rights-clean local asset.
+
 ## 2026-06-12 Little Missouri implementation pass 12:22
 
 - Rebuilt current inventory from route data: North Dakota had 2 live route objects and 2 trip-detail keys before this pass, `sheyenne-river-fish-hatchery-chautauqua` and `pembina-river-vang-riverside-park`, with 12 structured North Dakota ledger rows.
