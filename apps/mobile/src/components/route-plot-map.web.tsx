@@ -2,6 +2,8 @@ import { forwardRef, useImperativeHandle } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../theme/tokens';
 
+const SELECTED_MARKER_COLOR = '#2563EB';
+
 export interface RoutePlotPoint {
   id: string;
   label: string;
@@ -15,6 +17,7 @@ export interface RoutePlotPoint {
 export interface RoutePlotMapHandle {
   focusSelected: () => void;
   focusAll: () => void;
+  focusUserArea: () => void;
 }
 
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
@@ -39,7 +42,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
   const visiblePoints = points.filter(isFinitePoint);
   const selectedPoint = visiblePoints.find((point) => point.id === selectedId) ?? visiblePoints[0] ?? null;
 
-  useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined }), []);
+  useImperativeHandle(ref, () => ({ focusSelected: () => undefined, focusAll: () => undefined, focusUserArea: () => undefined }), []);
 
   return (
     <View style={[styles.shell, fullBleed ? styles.fullBleedShell : null]}>
@@ -92,7 +95,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
-              <View style={[showScore ? styles.marker : styles.dotMarker, dimmed ? styles.markerDimmed : null, toneForRating(point.rating)]}>
+              <View
+                style={[
+                  showScore ? styles.marker : styles.dotMarker,
+                  dimmed ? styles.markerDimmed : null,
+                  toneForRating(point.rating),
+                  selected ? styles.markerSelectedTone : null,
+                ]}
+              >
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
                     {typeof point.score === 'number' ? point.score : ''}
@@ -448,7 +458,7 @@ const styles = StyleSheet.create({
     height: 46,
     borderRadius: 23,
     borderWidth: 4,
-    borderColor: colors.text,
+    borderColor: SELECTED_MARKER_COLOR,
     backgroundColor: 'transparent',
   },
   marker: {
@@ -477,6 +487,9 @@ const styles = StyleSheet.create({
   },
   markerDimmed: {
     opacity: 0.58,
+  },
+  markerSelectedTone: {
+    backgroundColor: SELECTED_MARKER_COLOR,
   },
   userMarker: {
     position: 'absolute',

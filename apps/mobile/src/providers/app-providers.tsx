@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import { AlertPreferencesProvider } from './alert-preferences-provider';
 import { SavedRiversProvider } from './saved-rivers-provider';
+import { StoredLocationProvider } from '../hooks/use-stored-location';
 
 const queryPersister = createAsyncStoragePersister({
   storage: AsyncStorage,
@@ -63,7 +64,9 @@ export function AppProviders({ children }: PropsWithChildren) {
       }}
     >
       <AlertPreferencesProvider>
-        <SavedRiversProvider>{children}</SavedRiversProvider>
+        <StoredLocationProvider>
+          <SavedRiversProvider>{children}</SavedRiversProvider>
+        </StoredLocationProvider>
       </AlertPreferencesProvider>
     </PersistQueryClientProvider>
   );

@@ -1,3 +1,4 @@
+import '../src/lib/suppress-web-font-timeout';
 import { DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { Stack, router } from 'expo-router';

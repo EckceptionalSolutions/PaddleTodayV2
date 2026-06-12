@@ -13,7 +13,7 @@ vi.mock('./weather', () => ({
 }));
 
 import { getAllRiverScores } from './rivers';
-import { getRiverScore, listRivers } from './rivers';
+import { getRiverScore, listRiverGroups, listRivers } from './rivers';
 import { fetchGaugeReading } from './gauges';
 import type { GaugeReading } from './types';
 
@@ -46,6 +46,35 @@ describe('getAllRiverScores', () => {
           river.logistics.estimatedPaddleTime.trim().length > 0
       )
     ).toBe(true);
+  });
+
+  it('does not collapse unrelated same-name rivers into one route group', () => {
+    const groups = listRiverGroups();
+
+    const pineGroups = groups.filter((group) => group.name === 'Pine River');
+    const vermilionGroups = groups.filter((group) => group.name === 'Vermilion River');
+    const stCroixGroup = groups.find((group) => group.riverId === 'st-croix-river');
+
+    expect(pineGroups.map((group) => group.riverId).sort()).toEqual(['pine-river-minnesota', 'pine-river-wisconsin']);
+    expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual([
+      'vermilion-river-illinois',
+      'vermilion-river-ohio',
+    ]);
+    expect(stCroixGroup?.routeCount).toBe(3);
+    expect(stCroixGroup?.states).toEqual(['Minnesota', 'Wisconsin']);
+  });
+
+  it('points MN DNR gauge detail links at the configured CSG site', () => {
+    const dnrRivers = listRivers().filter((river) => river.gaugeSource.provider === 'mn_dnr');
+
+    expect(dnrRivers.length).toBeGreaterThan(0);
+    for (const river of dnrRivers) {
+      const hydrographUrl = new URL(river.gaugeSource.hydrographUrl ?? '');
+      const csgSiteId = hydrographUrl.searchParams.get('site');
+
+      expect(csgSiteId, river.slug).toBeTruthy();
+      expect(river.gaugeSource.detailUrl).toBe(`https://www.dnr.state.mn.us/waters/csg/site.html?id=${csgSiteId}`);
+    }
   });
 
   it('tries a configured fallback gauge source when the primary provider is unavailable', async () => {

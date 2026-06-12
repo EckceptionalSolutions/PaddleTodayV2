@@ -5,6 +5,8 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 declare const require: <T = unknown>(moduleName: string) => T;
 
+const SELECTED_MARKER_COLOR = '#2563EB';
+
 export interface RoutePlotPoint {
   id: string;
   label: string;
@@ -18,6 +20,7 @@ export interface RoutePlotPoint {
 export interface RoutePlotMapHandle {
   focusSelected: () => void;
   focusAll: () => void;
+  focusUserArea: () => void;
 }
 
 export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
@@ -92,7 +95,50 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
     });
   }
 
-  useImperativeHandle(ref, () => ({ focusSelected, focusAll }), [selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
+  function focusUserArea() {
+    if (!nativeMaps) {
+      return;
+    }
+
+    if (!userLocation || !Number.isFinite(userLocation.latitude) || !Number.isFinite(userLocation.longitude)) {
+      focusAll();
+      return;
+    }
+
+    const nearbyPoints = visiblePoints
+      .map((point) => ({
+        point,
+        miles: distanceMiles(userLocation.latitude, userLocation.longitude, point.latitude, point.longitude),
+      }))
+      .sort((left, right) => left.miles - right.miles)
+      .slice(0, 12)
+      .map(({ point }) => point);
+
+    const coordinates = [
+      { latitude: userLocation.latitude, longitude: userLocation.longitude },
+      ...nearbyPoints.map((point) => ({ latitude: point.latitude, longitude: point.longitude })),
+    ];
+
+    if (coordinates.length === 1) {
+      mapRef.current?.animateToRegion?.(
+        {
+          latitude: userLocation.latitude,
+          longitude: userLocation.longitude,
+          latitudeDelta: 2.6,
+          longitudeDelta: 2.6,
+        },
+        260
+      );
+      return;
+    }
+
+    mapRef.current?.fitToCoordinates?.(coordinates, {
+      animated: true,
+      edgePadding: { top: 108, right: 74, bottom: showFooter ? 150 : 270, left: 74 },
+    });
+  }
+
+  useImperativeHandle(ref, () => ({ focusSelected, focusAll, focusUserArea }), [selectedPoint, nativeMaps, visiblePoints, userLocation, showFooter]);
 
   useEffect(() => {
     const previousSelectedId = previousSelectedIdRef.current;
@@ -178,13 +224,15 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
             const dimmed = Boolean(selectedId && !selected);
             const showScore = selected || showScoreMarkers;
             if (markerMode === 'pin') {
+              const pinColor = pinColorForPoint(point, selected);
+
               return (
                 <Marker
-                  key={point.id}
+                  key={`${point.id}-${selected ? 'selected' : 'idle'}-${pinColor}`}
                   coordinate={{ latitude: point.latitude, longitude: point.longitude }}
                   onPress={() => onSelectPoint?.(point)}
                   zIndex={selected ? 10 : 1}
-                  pinColor={pinColorForPoint(point, selected)}
+                  pinColor={pinColor}
                   tracksViewChanges={false}
                 />
               );
@@ -207,6 +255,7 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
                     dimmed ? styles.nativeMarkerDimmed : null,
                     selected ? styles.nativeMarkerSelected : null,
                     toneForRating(point.rating),
+                    selected ? styles.nativeMarkerSelectedTone : null,
                   ]}
                   collapsable={false}
                 >
@@ -262,7 +311,14 @@ export const RoutePlotMap = forwardRef<RoutePlotMapHandle, {
               accessibilityLabel={`${point.label}${point.score ? `, score ${point.score}` : ''}`}
             >
               {selected ? <View style={styles.markerSelectedRing} /> : null}
-              <View style={[showScore ? styles.marker : styles.dotMarker, dimmed ? styles.markerDimmed : null, toneForRating(point.rating)]}>
+              <View
+                style={[
+                  showScore ? styles.marker : styles.dotMarker,
+                  dimmed ? styles.markerDimmed : null,
+                  toneForRating(point.rating),
+                  selected ? styles.markerSelectedTone : null,
+                ]}
+              >
                 {showScore ? (
                   <Text style={[styles.markerText, selected ? styles.markerTextSelected : null]}>
                     {typeof point.score === 'number' ? point.score : ''}
@@ -421,6 +477,18 @@ function clamp(value: number, min: number, max: number) {
   return Math.min(max, Math.max(min, value));
 }
 
+function distanceMiles(latA: number, lonA: number, latB: number, lonB: number) {
+  const radiusMiles = 3958.8;
+  const toRadians = (value: number) => (value * Math.PI) / 180;
+  const dLat = toRadians(latB - latA);
+  const dLon = toRadians(lonB - lonA);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRadians(latA)) * Math.cos(toRadians(latB)) * Math.sin(dLon / 2) ** 2;
+
+  return radiusMiles * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
 function toneForRating(rating: string | null | undefined) {
   if (rating === 'Strong' || rating === 'Good') {
     return { backgroundColor: colors.strong };
@@ -434,12 +502,8 @@ function toneForRating(rating: string | null | undefined) {
 }
 
 function pinColorForPoint(point: RoutePlotPoint, selected: boolean) {
-  if (point.meta === 'Take-out') {
-    return colors.noGo;
-  }
-
   if (selected) {
-    return colors.accent;
+    return SELECTED_MARKER_COLOR;
   }
 
   if (point.rating === 'Strong' || point.rating === 'Good') {
@@ -485,7 +549,10 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   nativeMarkerSelected: {
-    borderColor: colors.text,
+    borderColor: colors.surfaceStrong,
+  },
+  nativeMarkerSelectedTone: {
+    backgroundColor: SELECTED_MARKER_COLOR,
   },
   nativeMarkerDimmed: {
     opacity: 0.58,
@@ -567,7 +634,7 @@ const styles = StyleSheet.create({
     height: 46,
     borderRadius: 23,
     borderWidth: 4,
-    borderColor: colors.text,
+    borderColor: SELECTED_MARKER_COLOR,
     backgroundColor: 'transparent',
   },
   marker: {
@@ -596,6 +663,9 @@ const styles = StyleSheet.create({
   },
   markerDimmed: {
     opacity: 0.58,
+  },
+  markerSelectedTone: {
+    backgroundColor: SELECTED_MARKER_COLOR,
   },
   userMarker: {
     position: 'absolute',

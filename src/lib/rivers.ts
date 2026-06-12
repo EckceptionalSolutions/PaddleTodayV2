@@ -9,6 +9,9 @@ import type { River, RiverAccessPoint, RiverScoreResult } from './types';
 const GAUGE_CACHE_TTL_MS = 5 * 60 * 1000;
 const WEATHER_CACHE_TTL_MS = 10 * 60 * 1000;
 const STALE_WHILE_ERROR_MS = 30 * 60 * 1000;
+const INFERRED_RIVER_SPLIT_DISTANCE_MILES = 150;
+
+const inferredRiverIdsBySlug = buildInferredRiverIds();
 
 export interface RiverGroup {
   riverId: string;
@@ -186,7 +189,7 @@ function enrichRiver(river: River): River {
     ...enriched,
     latitude: putInCoordinates?.latitude ?? enriched.latitude,
     longitude: putInCoordinates?.longitude ?? enriched.longitude,
-    riverId: enriched.riverId || deriveRiverId(enriched.name),
+    riverId: enriched.riverId || inferredRiverIdsBySlug.get(enriched.slug) || deriveRiverId(enriched.name),
   };
 }
 
@@ -215,4 +218,115 @@ function slugifyState(state: string) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
+}
+
+function buildInferredRiverIds() {
+  const byBaseId = new Map<string, River[]>();
+
+  for (const river of rivers) {
+    if (river.riverId) continue;
+
+    const baseId = deriveRiverId(river.name);
+    const bucket = byBaseId.get(baseId) ?? [];
+    bucket.push(river);
+    byBaseId.set(baseId, bucket);
+  }
+
+  const inferred = new Map<string, string>();
+
+  for (const [baseId, routes] of byBaseId.entries()) {
+    const routeEntries = routes.map((route) => withTripCoordinates(route));
+    const components = splitRouteComponents(routeEntries);
+
+    if (components.length === 1) {
+      for (const route of routes) {
+        inferred.set(route.slug, baseId);
+      }
+      continue;
+    }
+
+    const componentIds = new Map<number, string>();
+    const idCounts = new Map<string, number>();
+
+    components.forEach((component, index) => {
+      const states = [...new Set(component.map((route) => deriveRiverId(route.state)))].sort();
+      const componentId = `${baseId}-${states.join('-')}`;
+      componentIds.set(index, componentId);
+      idCounts.set(componentId, (idCounts.get(componentId) ?? 0) + 1);
+    });
+
+    components.forEach((component, index) => {
+      const componentId = componentIds.get(index) ?? baseId;
+      const resolvedId =
+        (idCounts.get(componentId) ?? 0) > 1
+          ? `${componentId}-${[...new Set(component.map((route) => deriveRiverId(route.region)))].sort().join('-')}`
+          : componentId;
+
+      for (const route of component) {
+        inferred.set(route.slug, resolvedId);
+      }
+    });
+  }
+
+  return inferred;
+}
+
+function withTripCoordinates(river: River): River {
+  const tripDetails = riverTripDetails[river.id];
+  const putInCoordinates = getValidAccessCoordinates(tripDetails?.putIn);
+
+  return {
+    ...river,
+    latitude: putInCoordinates?.latitude ?? river.latitude,
+    longitude: putInCoordinates?.longitude ?? river.longitude,
+  };
+}
+
+function splitRouteComponents(routes: River[]) {
+  const components: River[][] = [];
+  const visited = new Set<string>();
+
+  for (const route of routes) {
+    if (visited.has(route.slug)) continue;
+
+    const component: River[] = [];
+    const queue = [route];
+    visited.add(route.slug);
+
+    while (queue.length > 0) {
+      const current = queue.shift();
+      if (!current) continue;
+
+      component.push(current);
+
+      for (const candidate of routes) {
+        if (visited.has(candidate.slug)) continue;
+        if (distanceMiles(current, candidate) > INFERRED_RIVER_SPLIT_DISTANCE_MILES) continue;
+
+        visited.add(candidate.slug);
+        queue.push(candidate);
+      }
+    }
+
+    components.push(component);
+  }
+
+  return components;
+}
+
+function distanceMiles(left: River, right: River) {
+  const earthRadiusMiles = 3958.8;
+  const leftLat = degreesToRadians(left.latitude);
+  const rightLat = degreesToRadians(right.latitude);
+  const latitudeDelta = degreesToRadians(right.latitude - left.latitude);
+  const longitudeDelta = degreesToRadians(right.longitude - left.longitude);
+  const haversine =
+    Math.sin(latitudeDelta / 2) ** 2 +
+    Math.cos(leftLat) * Math.cos(rightLat) * Math.sin(longitudeDelta / 2) ** 2;
+
+  return 2 * earthRadiusMiles * Math.asin(Math.sqrt(haversine));
+}
+
+function degreesToRadians(value: number) {
+  return (value * Math.PI) / 180;
 }

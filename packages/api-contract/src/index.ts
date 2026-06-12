@@ -138,6 +138,7 @@ export interface GaugeReading {
   gaugeSource: string;
   waterTempSource: string | null;
   gaugeInterpretation?: string | null;
+  gaugeInterpretationRanges?: string[];
 }
 
 export interface ForecastWindow {

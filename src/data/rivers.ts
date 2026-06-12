@@ -22,7 +22,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Big Fork River nr Craigsville, MN6',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=281',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77107001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77107001&var1=232&width=700&height=320',
     },
@@ -133,7 +133,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Little Fork River nr Linden Grove, TH73',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=88',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76023001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76023001&var1=262&width=700&height=320',
     },
@@ -221,7 +221,7 @@ export const rivers: River[] = [
       metricLabel: 'Gauge elevation',
       kind: 'direct',
       siteName: 'Red Lake River at Thief River Falls, Zeh St W',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=179',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=63023001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63023001&var1=232&width=700&height=320',
     },
@@ -309,7 +309,7 @@ export const rivers: River[] = [
       metricLabel: 'Gauge elevation',
       kind: 'proxy',
       siteName: 'Otter Tail River nr Battle Lake, CR72',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=344',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=56052001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=56052001&var1=232&width=700&height=320',
     },
@@ -626,7 +626,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Blue Earth River near Rapidan, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=9',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=30092001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=30092001&var1=232&width=700&height=320',
     },
@@ -2379,7 +2379,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Rum River near St. Francis, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=211',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=21095001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=21095001&var1=262&width=700&height=320',
     },
@@ -2601,7 +2601,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Sauk River nr St. Martin, CR12',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=328',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
     },
@@ -2710,7 +2710,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Sauk River nr St. Martin, CR12',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=328',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=16051001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=16051001&var1=232&width=700&height=320',
     },
@@ -2818,7 +2818,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=36076001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
@@ -2938,7 +2938,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=36076001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
@@ -3158,7 +3158,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Cottonwood River nr Springfield, CR2',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=42',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=29015001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=29015001&var1=232&width=700&height=320',
     },
@@ -3259,7 +3259,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Pine River nr Jenkins, CSAH15',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=316',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=11015001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320',
     },
@@ -3354,7 +3354,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Minnesota River at Mankato, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=96',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28042001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28042001&var1=262&width=700&height=320',
     },
@@ -3470,7 +3470,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'proxy',
       siteName: 'Minnesota River at Morton, MN19',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=107',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=28012001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=28012001&var1=262&width=700&height=320',
     },
@@ -3620,7 +3620,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'proxy',
       siteName: 'Minnesota River near Jordan, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=112',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33145001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
     },
@@ -3740,7 +3740,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Minnesota River near Jordan, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=112',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=33145001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=33145001&var1=232&width=700&height=320',
     },
@@ -3851,7 +3851,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'proxy',
       siteName: 'Mississippi River at St. Paul, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=133',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20088002',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20088002&var1=262&width=700&height=320',
     },
@@ -3985,7 +3985,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Mississippi River at St. Paul, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=133',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20088002',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20088002&var1=262&width=700&height=320',
     },
@@ -4100,7 +4100,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Snake River near Pine City, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=229',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=36076001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=36076001&var1=232&width=700&height=320',
     },
@@ -4210,7 +4210,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'North Fork Crow River nr Cokato, CSAH4',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=308',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18083001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18083001&var1=262&width=700&height=320',
     },
@@ -4323,7 +4323,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'North Fork Crow River nr Rockford, Farmington Ave',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=310',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18088001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18088001&var1=262&width=700&height=320',
     },
@@ -4457,7 +4457,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'North Fork Crow River nr Rockford, Farmington Ave',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=310',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=18088001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=18088001&var1=262&width=700&height=320',
     },
@@ -4566,7 +4566,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'South Fork Crow River at Delano, Bridge Ave',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=51',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=19001001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=19001001&var1=262&width=700&height=320',
     },
@@ -6084,7 +6084,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Crow Wing River at Nimrod, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=55',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
     },
@@ -6201,7 +6201,7 @@ export const rivers: River[] = [
       metricLabel: 'Gauge elevation',
       kind: 'direct',
       siteName: 'Whitewater River nr Beaver, CSAH30',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=265',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=40016001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=40016001&var1=232&width=700&height=320',
     },
@@ -10441,7 +10441,7 @@ export const rivers: River[] = [
       unit: 'ft',
       kind: 'direct',
       siteName: 'Pomme De Terre River at Appleton, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=168',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=23007001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=23007001&var1=232&width=700&height=320',
     },
@@ -10501,7 +10501,7 @@ export const rivers: River[] = [
       },
       {
         label: 'MN DNR interactive gauge detail for Appleton site 168',
-        url: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=168',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=23007001',
       },
     ],
   },
@@ -10526,7 +10526,7 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Long Prairie River at Long Prairie, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=89',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=14051001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=14051001&var1=262&width=700&height=320',
     },
@@ -10586,7 +10586,7 @@ export const rivers: River[] = [
       },
       {
         label: 'MN DNR interactive gauge detail for Long Prairie site 89',
-        url: 'https://www.dnr.state.mn.us/watertrails/interactive_map/index.html?site=89',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=14051001',
       },
     ],
   },
