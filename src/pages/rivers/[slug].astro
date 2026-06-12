@@ -168,6 +168,7 @@ const routeShareDescription = `Check ${river.name} for ${river.reach}. Live gaug
 const routeShareText = `Today's Paddle Today read for ${river.name} - ${river.reach}: live gauge, weather, confidence, access, and a clear go / watch / skip call.`;
 const approvedRoutePhotos = getApprovedRoutePhotos(river.slug);
 const routeSocialCard = getRouteSocialCard(river.slug);
+const routeShareCardHref = routeSocialCard?.src ?? '/brand/paddle-today-share-card-v2-1200x630.png';
 const approvedRoutePhotosJson = JSON.stringify(approvedRoutePhotos);
 const breadcrumbItems = [
   {
@@ -270,6 +271,9 @@ const routeFaqStructuredData = {
     data-river-reach={river.reach}
     data-river-state={river.state}
     data-river-region={river.region}
+    data-route-url={routeUrl}
+    data-route-share-title={routeShareTitle}
+    data-route-share-text={routeShareText}
     data-put-in-name={putIn?.name}
     data-put-in-latitude={putIn?.latitude}
     data-put-in-longitude={putIn?.longitude}
@@ -400,7 +404,28 @@ const routeFaqStructuredData = {
               </span>
               <span class="route-action-button__label route-action-button__label--desktop">Share today</span>
             </summary>
-            <div class="route-action-menu__panel">
+            <div class="route-action-menu__panel route-action-menu__panel--wide">
+              <p class="route-action-menu__hint">
+                Share the live condition summary, or download the route card image.
+              </p>
+              <button
+                class="route-action-menu__item"
+                type="button"
+                data-share-native
+                data-analytics-event="Share route"
+                data-analytics-label="native"
+                hidden
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M12 3 7.7 7.3l1.27 1.27 2.13-2.13V15h1.8V6.44l2.13 2.13 1.27-1.27L12 3Zm-7 9h1.8v5.2h10.4V12H19v6a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-6Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Share condition</span>
+              </button>
               <a
                 class="route-action-menu__item route-action-button--x"
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(routeShareText)}&url=${encodeURIComponent(routeUrl)}`}
@@ -454,12 +479,31 @@ const routeFaqStructuredData = {
                     />
                   </svg>
                 </span>
-                <span>Copy link</span>
+                <span>Copy condition</span>
               </button>
+              <a
+                class="route-action-menu__item"
+                href={routeShareCardHref}
+                download={`${river.slug}-paddletoday-card.jpg`}
+                data-share-card-download
+                data-analytics-event="Download route share card"
+                data-analytics-label={river.slug}
+              >
+                <span class="route-action-button__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" focusable="false">
+                    <path
+                      d="M12 3a1 1 0 0 1 1 1v8.09l2.3-2.3 1.4 1.42-4.7 4.7-4.7-4.7 1.4-1.42 2.3 2.3V4a1 1 0 0 1 1-1ZM5 17h2v2h10v-2h2v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-3Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </span>
+                <span>Download card</span>
+              </a>
             </div>
           </details>
 
         </div>
+        <p class="route-action-bar__status muted" data-route-action-status aria-live="polite"></p>
 
       </section>
       <aside class="river-call-panel">
@@ -776,6 +820,10 @@ const routeFaqStructuredData = {
                     <div>
                       <span>Paddle Today band</span>
                       <strong data-field="current-gauge-band">Checking</strong>
+                    </div>
+                    <div data-current-gauge-interpretation-ranges hidden>
+                      <span>Official DNR ranges</span>
+                      <ul class="gauge-current-panel__range-list" data-current-gauge-range-list></ul>
                     </div>
                   </div>
                   <p class="gauge-current-panel__note">

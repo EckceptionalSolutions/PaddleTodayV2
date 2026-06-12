@@ -70,6 +70,8 @@ const alertSubmitButtons = Array.from(root.querySelectorAll('[data-alert-submit]
 const alertCtaTitle = root.querySelector('[data-alert-cta-title]');
 const alertCtaCopy = root.querySelector('[data-alert-cta-copy]');
 const shareCopyButton = root.querySelector('[data-share-copy]');
+const shareNativeButton = root.querySelector('[data-share-native]');
+const shareXLink = root.querySelector('[data-share-x]');
 const routeActionStatus = root.querySelector('[data-route-action-status]');
 const routeActionMenus = Array.from(root.querySelectorAll('[data-route-action-menu]'));
 const routeActionBar = root.querySelector('.route-action-bar');
@@ -146,6 +148,13 @@ const riverContext = {
   defaultPutInNote: activePutInNote instanceof HTMLElement ? activePutInNote.textContent ?? '' : '',
   defaultTakeOutNote: activeTakeOutNote instanceof HTMLElement ? activeTakeOutNote.textContent ?? '' : '',
   defaultDistanceLabel: activeFactDistance instanceof HTMLElement ? activeFactDistance.textContent ?? '' : '',
+};
+const routeShareContext = {
+  title: root.dataset.routeShareTitle || `${riverContext.name}: ${riverContext.reach} | Paddle Today`,
+  fallbackText:
+    root.dataset.routeShareText ||
+    `Check today's Paddle Today read for ${riverContext.name} - ${riverContext.reach}.`,
+  url: root.dataset.routeUrl || window.location.href,
 };
 
 let detailMapRuntime = null;
@@ -1713,6 +1722,145 @@ function closeRouteActionMenus() {
       menu.open = false;
     }
   }
+}
+
+function routeShareUrl() {
+  try {
+    const url = new URL(window.location.pathname, window.location.origin);
+    url.searchParams.set('utm_source', 'share_card');
+    url.searchParams.set('utm_medium', 'user_share');
+    return url.href;
+  } catch {
+    return window.location.href;
+  }
+}
+
+function cleanShareText(value) {
+  return String(value || '')
+    .replace(/\uFFFD+/g, '-')
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function conditionShareReason(result) {
+  if (!result) {
+    return 'Live gauge, weather, confidence, access details, and a clear paddle call.';
+  }
+
+  const parts = [];
+  if (result.gauge) {
+    parts.push(`${result.gaugeBandLabel || 'Gauge checked'} (${gaugePrimaryValue(result)})`);
+  }
+
+  if (result.weather) {
+    const weatherParts = [];
+    if (typeof result.weather.temperatureF === 'number') {
+      weatherParts.push(`${Math.round(result.weather.temperatureF)}°F`);
+    }
+    if (typeof result.weather.windMph === 'number') {
+      weatherParts.push(`${Math.round(result.weather.windMph)} mph wind`);
+    }
+    if (result.weather.next12hStormRisk) {
+      weatherParts.push('storm risk');
+    }
+    if (weatherParts.length > 0) {
+      parts.push(weatherParts.join(', '));
+    }
+  }
+
+  const skipItem = firstSkipChecklistItem(result);
+  if (skipItem?.label) {
+    parts.push(`${skipItem.label}: ${skipItem.detail || 'check before you launch'}`);
+  }
+
+  return cleanShareText(parts.slice(0, 3).join(' / ') || decisionStatement(result));
+}
+
+function buildConditionShareText(result = latestResult) {
+  if (!result) {
+    return cleanShareText(`${routeShareContext.fallbackText}\n\n${routeShareUrl()}`);
+  }
+
+  const decision = decisionLabel(result);
+  const rating = ratingLabel(result);
+  const score = typeof result.score === 'number' ? `Score ${result.score}` : 'Score unavailable';
+  const updated = result.generatedAt ? `Updated ${new Date(result.generatedAt).toLocaleString()}` : 'Updated time unavailable';
+
+  return cleanShareText([
+    `${riverContext.name}: ${riverContext.reach}`,
+    `${decision} (${rating}; ${score})`,
+    conditionShareReason(result),
+    updated,
+    routeShareUrl(),
+  ].join('\n'));
+}
+
+function nativeSharePayload(result = latestResult) {
+  return {
+    title: routeShareContext.title,
+    text: buildConditionShareText(result),
+    url: routeShareUrl(),
+  };
+}
+
+function updateShareActions(result = latestResult) {
+  if (shareXLink instanceof HTMLAnchorElement) {
+    shareXLink.href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(buildConditionShareText(result))}`;
+  }
+
+  if (shareNativeButton instanceof HTMLButtonElement) {
+    const payload = nativeSharePayload(result);
+    shareNativeButton.hidden = !(navigator.share && (!navigator.canShare || navigator.canShare(payload)));
+  }
+}
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch {
+      // Fall back to a selected textarea below.
+    }
+  }
+
+  const textArea = document.createElement('textarea');
+  textArea.value = text;
+  textArea.setAttribute('readonly', '');
+  textArea.style.position = 'fixed';
+  textArea.style.top = '0';
+  textArea.style.left = '-9999px';
+  document.body.append(textArea);
+  textArea.select();
+
+  try {
+    return document.execCommand('copy');
+  } finally {
+    textArea.remove();
+  }
+}
+
+function showManualShareCopy(text) {
+  const panel = shareCopyButton instanceof HTMLElement ? shareCopyButton.closest('.route-action-menu__panel') : null;
+  if (!(panel instanceof HTMLElement)) {
+    return;
+  }
+
+  let field = panel.querySelector('[data-share-manual-copy]');
+  if (!(field instanceof HTMLTextAreaElement)) {
+    field = document.createElement('textarea');
+    field.className = 'route-action-menu__manual-copy';
+    field.dataset.shareManualCopy = 'true';
+    field.readOnly = true;
+    field.rows = 5;
+    shareCopyButton.after(field);
+  }
+
+  field.value = text;
+  field.hidden = false;
+  field.focus();
+  field.select();
 }
 
 function setDetailRefreshState(state, detail = '') {
@@ -3665,6 +3813,8 @@ function renderGaugeChart(result) {
   const chartEl = root.querySelector('.gauge-visual__chart');
   const controlsEl = root.querySelector('.gauge-visual__controls');
   const currentPanelEl = root.querySelector('[data-current-gauge-panel]');
+  const rangePanelEl = root.querySelector('[data-current-gauge-interpretation-ranges]');
+  const rangeListEl = root.querySelector('[data-current-gauge-range-list]');
   const hydrographFigure = root.querySelector('[data-current-gauge-hydrograph-figure]');
   const hydrographImage = root.querySelector('[data-current-gauge-hydrograph-image]');
   const hydrographLink = root.querySelector('[data-current-gauge-hydrograph]');
@@ -3724,6 +3874,7 @@ function renderGaugeChart(result) {
         : 'Not provided by this source'
     );
     setText('current-gauge-band', result.gaugeBandLabel || 'Unavailable');
+    renderGaugeInterpretationRanges(rangePanelEl, rangeListEl, result.gauge.gaugeInterpretationRanges);
     const hydrographUrl = sourceDisplay.supportsHydrograph
       ? buildDnrHydrographUrl(result.river?.gaugeSource?.hydrographUrl || '')
       : result.river?.gaugeSource?.hydrographUrl || '';
@@ -3932,6 +4083,26 @@ function renderGaugeChart(result) {
   setText('chart-caption', 'Threshold overlay not available.');
 }
 
+function renderGaugeInterpretationRanges(panelEl, listEl, ranges) {
+  if (!(panelEl instanceof HTMLElement) || !(listEl instanceof HTMLUListElement)) {
+    return;
+  }
+
+  listEl.replaceChildren();
+  const visibleRanges = Array.isArray(ranges) ? ranges.filter(Boolean) : [];
+  if (!visibleRanges.length) {
+    panelEl.hidden = true;
+    return;
+  }
+
+  for (const range of visibleRanges) {
+    const item = document.createElement('li');
+    item.textContent = range;
+    listEl.append(item);
+  }
+  panelEl.hidden = false;
+}
+
 function bindChartControls() {
   for (const button of chartButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.chartBound === 'true') continue;
@@ -4015,6 +4186,7 @@ function renderDetailResult(result) {
   setText('rating', ratingLabel(result));
   renderDecisionSummary(result);
   setText('decision-line', decisionStatement(result));
+  updateShareActions(result);
   updateAlertCtaCopy(result);
   renderScoreConditions(result);
   const orb = root.querySelector('.score-orb');
@@ -4548,15 +4720,38 @@ function bindRouteActions() {
     });
   }
 
-  if (shareCopyButton instanceof HTMLButtonElement) {
-    shareCopyButton.addEventListener('click', async () => {
+  updateShareActions();
+
+  if (shareNativeButton instanceof HTMLButtonElement) {
+    shareNativeButton.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(window.location.href);
-        setRouteActionStatus('Route link copied.', 'success');
+        await navigator.share(nativeSharePayload());
+        setRouteActionStatus('Condition shared.', 'success');
         closeRouteActionMenus();
       } catch (error) {
-        console.error('Failed to copy route link.', error);
-        setRouteActionStatus("Couldn't copy the route link right now.", 'error');
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          return;
+        }
+        console.error('Failed to share route condition.', error);
+        setRouteActionStatus("Couldn't open sharing right now. Copy the condition instead.", 'error');
+      }
+    });
+  }
+
+  if (shareCopyButton instanceof HTMLButtonElement) {
+    shareCopyButton.addEventListener('click', async () => {
+      const shareText = buildConditionShareText();
+      try {
+        const copied = await copyTextToClipboard(shareText);
+        if (!copied) {
+          throw new Error('Clipboard copy was not accepted.');
+        }
+        setRouteActionStatus('Condition summary copied.', 'success');
+        closeRouteActionMenus();
+      } catch (error) {
+        console.error('Failed to copy route condition.', error);
+        showManualShareCopy(shareText);
+        setRouteActionStatus('Copy blocked. Select the summary in the share menu.', 'error');
       }
     });
   }

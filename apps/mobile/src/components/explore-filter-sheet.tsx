@@ -72,6 +72,8 @@ const paddleTimeOptions: Array<{ value: PaddleTimeFilter; label: string }> = [
   { value: '7-plus', label: '7h+' },
 ];
 
+const ANDROID_NAV_CONTROL_MIN_INSET = 40;
+
 type PresetApply = (filters: ExploreFilters, context: { locationReady: boolean }) => ExploreFilters;
 
 const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = [
@@ -117,7 +119,8 @@ export function ExploreFilterSheet({
   filters,
   states,
   locationReady,
-  onClose,
+  onDismiss,
+  onApply,
   onChange,
   onReset,
   onApplyPreset,
@@ -127,12 +130,14 @@ export function ExploreFilterSheet({
   filters: ExploreFilters;
   states: string[];
   locationReady: boolean;
-  onClose: () => void;
+  onDismiss: () => void;
+  onApply: () => void;
   onChange: (filters: ExploreFilters) => void;
   onReset: () => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
   const insets = useSafeAreaInsets();
+  const bottomInset = Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET);
   const translateY = useRef(new Animated.Value(0)).current;
   const panResponder = useRef(
     PanResponder.create({
@@ -144,7 +149,7 @@ export function ExploreFilterSheet({
       onPanResponderRelease: (_, gesture) => {
         if (gesture.dy > 90 || gesture.vy > 0.9) {
           translateY.setValue(0);
-          onClose();
+          onDismiss();
           return;
         }
 
@@ -167,7 +172,7 @@ export function ExploreFilterSheet({
   ).current;
 
   return (
-    <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
+    <Modal animationType="slide" transparent visible={visible} onRequestClose={onDismiss}>
       <View style={styles.sheetScrim}>
         <Animated.View style={[styles.filterSheet, { transform: [{ translateY }] }]}>
           <View style={styles.sheetDragZone} {...panResponder.panHandlers}>
@@ -178,14 +183,14 @@ export function ExploreFilterSheet({
               <Text style={styles.sheetTitle}>Filters</Text>
               <Text style={styles.sheetSubtitle}>{matchCount} routes match this setup</Text>
             </View>
-            <Pressable style={styles.sheetDoneButton} onPress={onClose}>
-              <Text style={styles.sheetDoneText}>Done</Text>
+            <Pressable style={styles.sheetCancelButton} onPress={onDismiss}>
+              <Text style={styles.sheetCancelText}>Cancel</Text>
             </Pressable>
           </View>
           <ScrollView
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled"
-            contentContainerStyle={styles.sheetContent}
+            contentContainerStyle={[styles.sheetContent, { paddingBottom: spacing.lg + bottomInset }]}
           >
             <FilterPanel
               filters={filters}
@@ -195,11 +200,11 @@ export function ExploreFilterSheet({
               onApplyPreset={onApplyPreset}
             />
           </ScrollView>
-          <View style={[styles.sheetFooter, { paddingBottom: Math.max(insets.bottom, spacing.md) }]}>
+          <View style={[styles.sheetFooter, { paddingBottom: bottomInset }]}>
             <Pressable style={styles.sheetResetButton} onPress={onReset}>
               <Text style={styles.sheetResetText}>Clear filters</Text>
             </Pressable>
-            <Pressable style={styles.sheetShowButton} onPress={onClose}>
+            <Pressable style={styles.sheetShowButton} onPress={onApply}>
               <Text style={styles.sheetShowText}>Show {matchCount} routes</Text>
             </Pressable>
           </View>
@@ -537,14 +542,16 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
   },
-  sheetDoneButton: {
+  sheetCancelButton: {
     borderRadius: radius.pill,
-    backgroundColor: colors.accent,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
     paddingHorizontal: 15,
     paddingVertical: 9,
   },
-  sheetDoneText: {
-    color: colors.surfaceStrong,
+  sheetCancelText: {
+    color: colors.text,
     fontSize: 12,
     fontWeight: '900',
   },

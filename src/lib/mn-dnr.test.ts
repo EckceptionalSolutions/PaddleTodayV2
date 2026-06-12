@@ -64,6 +64,7 @@ describe('fetchMnDnrGaugeReading', () => {
       gaugeSource: 'MN DNR River Levels',
       waterTempSource: null,
       gaugeInterpretation: 'Medium',
+      gaugeInterpretationRanges: ['Medium from 300 to 1,540 cfs'],
     });
   });
 

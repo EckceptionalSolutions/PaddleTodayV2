@@ -9,11 +9,13 @@ import { SaveToggleButton } from './save-toggle-button';
 
 export function WeekendRiverCard({
   river,
+  travelLabel,
   saved = false,
   onToggleSaved,
   onPress,
 }: {
   river: WeekendSummaryApiItem;
+  travelLabel?: string | null;
   saved?: boolean;
   onToggleSaved?: () => void;
   onPress: () => void;
@@ -30,7 +32,6 @@ export function WeekendRiverCard({
         <View style={styles.mediaOverlay}>
           <View style={styles.scoreBlock}>
             <Text style={styles.score}>{river.weekend.score}</Text>
-            <Text style={styles.scoreLabel}>Score</Text>
           </View>
           <View style={styles.actions}>
             {onToggleSaved ? <SaveToggleButton compact saved={saved} onPress={onToggleSaved} /> : null}
@@ -45,12 +46,12 @@ export function WeekendRiverCard({
             <Text style={styles.name}>{river.river.name}</Text>
           </View>
           <Text style={styles.reach}>{river.river.reach}</Text>
-          <Text style={styles.summary}>{normalizeApiText(river.weekend.summary)}</Text>
+          {!riskExplanation ? <Text style={styles.summary}>{normalizeApiText(river.weekend.summary)}</Text> : null}
         </View>
       </View>
 
       <View style={styles.metaRow}>
-        {weekendFactItems(river).map((fact) => (
+        {weekendFactItems(river, travelLabel).map((fact) => (
           <Text key={fact} style={styles.factChip} numberOfLines={1}>{fact}</Text>
         ))}
       </View>
@@ -63,7 +64,9 @@ export function WeekendRiverCard({
       ) : null}
 
       <View style={styles.footer}>
-        <Text style={styles.footerText}>{river.river.region}</Text>
+        <Text style={styles.footerText} numberOfLines={1}>
+          {[travelLabel, river.river.region].filter(Boolean).join(' - ')}
+        </Text>
       </View>
     </Pressable>
   );
@@ -204,11 +207,13 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     flex: 1,
+    minWidth: 0,
   },
 });
 
-function weekendFactItems(river: WeekendSummaryApiItem) {
-  return routeFactItems(river.river, { includePaddleTime: true });
+function weekendFactItems(river: WeekendSummaryApiItem, travelLabel?: string | null) {
+  const facts = routeFactItems(river.river, { includePaddleTime: true });
+  return travelLabel ? [travelLabel, ...facts].slice(0, 4) : facts;
 }
 
 function planRiskLabel(river: WeekendSummaryApiItem) {

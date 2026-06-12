@@ -3,6 +3,7 @@ import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
 import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { normalizeApiText } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { routeFactItems, routeFactLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
@@ -94,6 +95,19 @@ export function ExploreRouteDrawer({
           {drawerFactItems(selectedRiver).slice(0, 3).map((fact) => (
             <View key={fact} style={styles.mapPreviewFactPill}>
               <Text style={styles.mapPreviewFactText} numberOfLines={1}>{fact}</Text>
+            </View>
+          ))}
+        </View>
+      ) : null}
+      <Text style={styles.mapPreviewReason} numberOfLines={expanded ? 2 : 1}>
+        {drawerDecisionLine(selectedRiver)}
+      </Text>
+      {expanded ? (
+        <View style={styles.conditionChipRow}>
+          {drawerConditionItems(selectedRiver).map((item) => (
+            <View key={item.label} style={styles.conditionChip}>
+              <Text style={styles.conditionChipLabel}>{item.label}</Text>
+              <Text style={styles.conditionChipValue} numberOfLines={1}>{item.value}</Text>
             </View>
           ))}
         </View>
@@ -239,9 +253,9 @@ function sheetHeightStyle(_bottomInset = 0) {
 }
 
 export function sheetHeightValue(value: MapSheetSnap) {
-  if (value === 'full') return 452;
-  if (value === 'half') return 286;
-  return 138;
+  if (value === 'full') return 510;
+  if (value === 'half') return 356;
+  return 168;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -290,6 +304,19 @@ function drawerFactLine(river: ExploreDrawerRiver) {
   }
 
   return base;
+}
+
+function drawerDecisionLine(river: ExploreDrawerRiver) {
+  return `${river.rating}: ${normalizeApiText(river.summary.shortExplanation)}`;
+}
+
+function drawerConditionItems(river: ExploreDrawerRiver) {
+  return [
+    { label: 'Gauge', value: normalizeApiText(river.gaugeBandLabel) },
+    { label: 'Confidence', value: river.confidence.label },
+    { label: 'Data', value: river.liveData.overall === 'live' ? 'Live' : normalizeApiText(river.liveData.overall) },
+    { label: 'Drive', value: river.travelLabel ?? river.river.region },
+  ];
 }
 
 function capitalize(value: string) {
@@ -388,6 +415,38 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: 6,
+  },
+  mapPreviewReason: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
+    fontWeight: '800',
+  },
+  conditionChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 6,
+  },
+  conditionChip: {
+    flexGrow: 1,
+    minWidth: '47%',
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 7,
+    gap: 2,
+  },
+  conditionChipLabel: {
+    color: colors.textMuted,
+    fontSize: 9,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.25,
+  },
+  conditionChipValue: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
   },
   mapPreviewFactPill: {
     maxWidth: '100%',

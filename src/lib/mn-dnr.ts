@@ -61,6 +61,8 @@ export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<
     return null;
   }
 
+  const interpretationRanges = dnrInterpretationRanges(data.site_ratings ?? [], site, unit);
+
   return {
     sourceId: source.id,
     observedAt,
@@ -77,6 +79,7 @@ export async function fetchMnDnrGaugeReading(source: RiverGaugeSource): Promise<
     gaugeSource: readingSourceLabelForProvider(source.provider),
     waterTempSource: null,
     gaugeInterpretation: dnrRatingLabel(site.rating),
+    gaugeInterpretationRanges: interpretationRanges,
   };
 }
 
@@ -95,6 +98,52 @@ function findSite(sites: MnDnrSite[], source: RiverGaugeSource): MnDnrSite | nul
       return idMatches && site.variable === wantedVariable;
     }) ?? null
   );
+}
+
+function dnrInterpretationRanges(
+  ratings: NonNullable<MnDnrRiverLevelsResponse['site_ratings']>,
+  site: MnDnrSite,
+  unit: GaugeUnit
+): string[] {
+  if (typeof site.id !== 'number') {
+    return [];
+  }
+
+  return ratings
+    .filter((rating) => rating.id === site.id && typeof rating.rating === 'number')
+    .sort((left, right) => (left.rating ?? 0) - (right.rating ?? 0))
+    .map((rating) => {
+      const label = dnrRatingLabel(rating.rating);
+      if (!label || typeof rating.val1 !== 'number' || typeof rating.val2 !== 'number') {
+        return null;
+      }
+      return `${label} ${formatDnrRatingRange(rating.val1, rating.val2, unit)}`;
+    })
+    .filter((value): value is string => Boolean(value));
+}
+
+function formatDnrRatingRange(min: number, max: number, unit: GaugeUnit): string {
+  if (min <= 0) {
+    return `below ${formatDnrRatingValue(max, unit)}`;
+  }
+
+  if (max >= 99999) {
+    return `above ${formatDnrRatingValue(min, unit)}`;
+  }
+
+  return `from ${formatDnrRatingNumber(min, unit)} to ${formatDnrRatingValue(max, unit)}`;
+}
+
+function formatDnrRatingValue(value: number, unit: GaugeUnit): string {
+  return `${formatDnrRatingNumber(value, unit)} ${unit}`;
+}
+
+function formatDnrRatingNumber(value: number, unit: GaugeUnit): string {
+  if (unit === 'ft') {
+    return value.toLocaleString('en-US');
+  }
+
+  return Math.round(value).toLocaleString('en-US');
 }
 
 function variableFromMetric(metric: RiverGaugeSource['metric']): number {

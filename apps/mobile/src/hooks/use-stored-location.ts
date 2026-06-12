@@ -1,6 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Location from 'expo-location';
-import { useEffect, useState } from 'react';
+import { createContext, createElement, useCallback, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
 import type { StoredLocation } from '../lib/location';
 import { isRecord, parseJson } from '../lib/storage';
 
@@ -8,15 +8,20 @@ const STORAGE_KEY = 'paddletoday:user-location';
 
 export type LocationStatus = 'loading' | 'ready' | 'idle' | 'requesting' | 'denied' | 'error';
 
-export function useStoredLocation() {
+interface StoredLocationContextValue {
+  location: StoredLocation | null;
+  status: LocationStatus;
+  requestLocation: () => Promise<void>;
+  clearLocation: () => Promise<void>;
+}
+
+const StoredLocationContext = createContext<StoredLocationContextValue | null>(null);
+
+export function StoredLocationProvider({ children }: PropsWithChildren) {
   const [location, setLocation] = useState<StoredLocation | null>(null);
   const [status, setStatus] = useState<LocationStatus>('loading');
 
-  useEffect(() => {
-    void hydrateLocation();
-  }, []);
-
-  async function hydrateLocation() {
+  const hydrateLocation = useCallback(async () => {
     try {
       const raw = await AsyncStorage.getItem(STORAGE_KEY);
       const parsed = parseJson(raw);
@@ -30,9 +35,13 @@ export function useStoredLocation() {
     }
 
     setStatus('idle');
-  }
+  }, []);
 
-  async function requestLocation() {
+  useEffect(() => {
+    void hydrateLocation();
+  }, [hydrateLocation]);
+
+  const requestLocation = useCallback(async () => {
     setStatus('requesting');
 
     try {
@@ -60,20 +69,29 @@ export function useStoredLocation() {
     } catch {
       setStatus('error');
     }
-  }
+  }, []);
 
-  async function clearLocation() {
+  const clearLocation = useCallback(async () => {
     setLocation(null);
     setStatus('idle');
     await AsyncStorage.removeItem(STORAGE_KEY);
+  }, []);
+
+  const value = useMemo(
+    () => ({ location, status, requestLocation, clearLocation }),
+    [location, status, requestLocation, clearLocation]
+  );
+
+  return createElement(StoredLocationContext.Provider, { value }, children);
+}
+
+export function useStoredLocation() {
+  const context = useContext(StoredLocationContext);
+  if (!context) {
+    throw new Error('useStoredLocation must be used within StoredLocationProvider');
   }
 
-  return {
-    location,
-    status,
-    requestLocation,
-    clearLocation,
-  };
+  return context;
 }
 
 async function reverseGeocodeLabel(latitude: number, longitude: number) {

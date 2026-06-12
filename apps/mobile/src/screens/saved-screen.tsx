@@ -34,6 +34,7 @@ export default function SavedScreen() {
     () => savedRivers.filter((river) => alertForRiver(river.slug)).length,
     [alertForRiver, savedRivers, routeAlerts]
   );
+  const savedGroups = groupSavedRoutes(savedSummaries);
 
   useEffect(() => {
     setDraftEmail(storedEmail);
@@ -80,7 +81,7 @@ export default function SavedScreen() {
       <Text style={styles.kicker}>Saved</Text>
       <Text style={styles.title}>Your saved routes</Text>
       <Text style={styles.subtitle}>
-        Quick access to rivers you check often.
+        A status board for rivers you check often.
       </Text>
 
       {savedRivers.length > 0 ? (
@@ -146,29 +147,41 @@ export default function SavedScreen() {
       ) : null}
 
       {savedSummaries.length > 0 ? (
-        <SectionCard
-          title="Saved rivers"
-          subtitle="Current calls for your repeat trips."
-        >
-          <View style={styles.list}>
-            {savedSummaries.map((river) => (
-              <RiverCard
-                key={river.river.slug}
-                river={river}
-                saved={isSaved(river.river.slug)}
-                onToggleSaved={() =>
-                  void toggleSavedRiver({
-                    slug: river.river.slug,
-                    riverId: river.river.riverId,
-                    name: river.river.name,
-                    reach: river.river.reach,
-                  })
-                }
-                onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-              />
-            ))}
+        <>
+          <View style={styles.statusBoard}>
+            <StatusTile label="Ready" value={savedGroups.ready.length} tone={styles.statusReady} />
+            <StatusTile label="Watch" value={savedGroups.watch.length} tone={styles.statusWatch} />
+            <StatusTile label="Skip" value={savedGroups.skip.length} tone={styles.statusSkip} />
           </View>
-        </SectionCard>
+
+          <SavedRouteGroup
+            title="Ready to consider"
+            subtitle="Saved routes with Good or Strong calls."
+            rivers={savedGroups.ready}
+            empty="No saved route is ready right now."
+            isSaved={isSaved}
+            onToggleSaved={toggleSavedRiver}
+            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+          />
+          <SavedRouteGroup
+            title="Watch closely"
+            subtitle="Saved routes that may improve or need extra judgment."
+            rivers={savedGroups.watch}
+            empty="No saved route is in the maybe range."
+            isSaved={isSaved}
+            onToggleSaved={toggleSavedRiver}
+            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+          />
+          <SavedRouteGroup
+            title="Skip today"
+            subtitle="Saved routes to recheck later."
+            rivers={savedGroups.skip}
+            empty="No saved route is in skip mode."
+            isSaved={isSaved}
+            onToggleSaved={toggleSavedRiver}
+            onOpen={(slug) => router.push({ pathname: '/river/[slug]', params: { slug } })}
+          />
+        </>
       ) : null}
 
       {savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
@@ -219,6 +232,15 @@ function OverviewTile({ icon, label, value }: { icon: string; label: string; val
   );
 }
 
+function StatusTile({ label, value, tone }: { label: string; value: number; tone: object }) {
+  return (
+    <View style={[styles.statusTile, tone]}>
+      <Text style={styles.statusValue}>{value}</Text>
+      <Text style={styles.statusLabel}>{label}</Text>
+    </View>
+  );
+}
+
 function SavedAlertRow({
   river,
   alert,
@@ -260,6 +282,72 @@ function SavedAlertRow({
         })}
       </View>
     </View>
+  );
+}
+
+function SavedRouteGroup({
+  title,
+  subtitle,
+  rivers,
+  empty,
+  isSaved,
+  onToggleSaved,
+  onOpen,
+}: {
+  title: string;
+  subtitle: string;
+  rivers: RiverSummaryApiItem[];
+  empty: string;
+  isSaved: (slug: string) => boolean;
+  onToggleSaved: (river: { slug: string; riverId?: string; name: string; reach: string }) => void | Promise<void>;
+  onOpen: (slug: string) => void;
+}) {
+  return (
+    <SectionCard title={title} subtitle={subtitle}>
+      {rivers.length > 0 ? (
+        <View style={styles.list}>
+          {rivers.map((river) => (
+            <RiverCard
+              key={river.river.slug}
+              river={river}
+              saved={isSaved(river.river.slug)}
+              onToggleSaved={() =>
+                void onToggleSaved({
+                  slug: river.river.slug,
+                  riverId: river.river.riverId,
+                  name: river.river.name,
+                  reach: river.river.reach,
+                })
+              }
+              onPress={() => onOpen(river.river.slug)}
+            />
+          ))}
+        </View>
+      ) : (
+        <Text style={styles.emptyGroupText}>{empty}</Text>
+      )}
+    </SectionCard>
+  );
+}
+
+function groupSavedRoutes(rivers: RiverSummaryApiItem[]) {
+  return rivers.reduce(
+    (groups, river) => {
+      if (river.rating === 'Strong' || river.rating === 'Good') {
+        groups.ready.push(river);
+      } else if (river.rating === 'Fair') {
+        groups.watch.push(river);
+      } else {
+        groups.skip.push(river);
+      }
+
+      return groups;
+    },
+    {
+      ready: [] as RiverSummaryApiItem[],
+      watch: [] as RiverSummaryApiItem[],
+      skip: [] as RiverSummaryApiItem[],
+    }
   );
 }
 
@@ -325,6 +413,43 @@ const styles = StyleSheet.create({
   },
   list: {
     gap: spacing.sm,
+  },
+  statusBoard: {
+    flexDirection: 'row',
+    gap: spacing.sm,
+  },
+  statusTile: {
+    flex: 1,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.md,
+    gap: 3,
+  },
+  statusReady: {
+    backgroundColor: '#E0EFE9',
+  },
+  statusWatch: {
+    backgroundColor: '#F3E8CC',
+  },
+  statusSkip: {
+    backgroundColor: '#F2DDD6',
+  },
+  statusValue: {
+    color: colors.text,
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  statusLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  emptyGroupText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
   },
   body: {
     color: colors.text,

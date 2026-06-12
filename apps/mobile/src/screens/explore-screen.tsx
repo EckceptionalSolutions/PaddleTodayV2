@@ -66,8 +66,10 @@ export default function ExploreScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [filters, setFilters] = useState<ExploreFilters>(defaultFilters);
+  const [draftFilters, setDraftFilters] = useState<ExploreFilters>(defaultFilters);
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
+  const appliedStoredLocationDefaultRef = useRef(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -75,9 +77,17 @@ export default function ExploreScreen() {
     () => [...new Set(rivers.map((river) => river.river.state))].sort(),
     [rivers]
   );
+  const nearestSupportedState = useMemo(
+    () => nearestStateForLocation(rivers, location),
+    [rivers, location]
+  );
   const results = useMemo(
     () => applyExploreFilters(rivers, filters, location),
     [rivers, filters, location]
+  );
+  const draftResults = useMemo(
+    () => applyExploreFilters(rivers, draftFilters, location),
+    [rivers, draftFilters, location]
   );
   const selectedRiver = results.find((river) => river.river.slug === selectedSlug) ?? results[0] ?? null;
   const activeFilterCount = countActiveFilters(filters);
@@ -85,6 +95,33 @@ export default function ExploreScreen() {
   useEffect(() => {
     void hydrateExplorePreferences();
   }, []);
+
+  useEffect(() => {
+    if (!filtersOpen) {
+      return;
+    }
+
+    setDraftFilters(filters);
+  }, [filters, filtersOpen]);
+
+  useEffect(() => {
+    if (!preferencesHydrated || !location || appliedStoredLocationDefaultRef.current) {
+      return;
+    }
+
+    appliedStoredLocationDefaultRef.current = true;
+    setFilters((current) => {
+      if (current.sort !== defaultFilters.sort || countActiveFilters(current) > 0) {
+        return current;
+      }
+
+      return {
+        ...current,
+        sort: 'nearest',
+        state: nearestSupportedState ?? current.state,
+      };
+    });
+  }, [location, nearestSupportedState, preferencesHydrated]);
 
   useEffect(() => {
     if (!preferencesHydrated) {
@@ -128,14 +165,18 @@ export default function ExploreScreen() {
   const filterModal = (
     <ExploreFilterSheet
       visible={filtersOpen}
-      matchCount={results.length}
-      filters={filters}
+      matchCount={draftResults.length}
+      filters={draftFilters}
       states={states}
       locationReady={Boolean(location)}
-      onClose={() => setFiltersOpen(false)}
-      onChange={setFilters}
-      onReset={() => setFilters(defaultFilters)}
-      onApplyPreset={(apply) => setFilters((current) => apply(current))}
+      onDismiss={() => setFiltersOpen(false)}
+      onApply={() => {
+        setFilters(draftFilters);
+        setFiltersOpen(false);
+      }}
+      onChange={setDraftFilters}
+      onReset={() => setDraftFilters(defaultFilters)}
+      onApplyPreset={(apply) => setDraftFilters((current) => apply(current))}
     />
   );
 
@@ -261,6 +302,39 @@ function FullScreenExploreMap({
   const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length > 0 && results.every((route) => (route.distanceMiles ?? 0) > 180));
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
+  const searchResultSignature = points.map((point) => point.id).join('|');
+
+  useEffect(() => {
+    if (!filters.query.trim() || points.length === 0) {
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      mapRef.current?.focusAll();
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [filters.query, points.length, searchResultSignature]);
+
+  useEffect(() => {
+    if (!userLocation || points.length === 0 || filters.query.trim()) {
+      return;
+    }
+
+    const timeout = setTimeout(() => {
+      mapRef.current?.focusUserArea();
+    }, 500);
+
+    return () => clearTimeout(timeout);
+  }, [filters.query, points.length, searchResultSignature, userLocation]);
+
+  function handleGpsFocus() {
+    if (userLocation) {
+      mapRef.current?.focusUserArea();
+    }
+
+    onFocusNearest();
+  }
 
   return (
     <View style={styles.fullMapScreen}>
@@ -346,6 +420,14 @@ function FullScreenExploreMap({
         >
           <MaterialCommunityIcons name="map-marker-multiple" color={colors.accent} size={20} />
         </Pressable>
+        <Pressable
+          style={styles.mapFab}
+          onPress={handleGpsFocus}
+          accessibilityRole="button"
+          accessibilityLabel="Focus nearest routes"
+        >
+          <MaterialCommunityIcons name="crosshairs-gps" color={colors.accent} size={20} />
+        </Pressable>
       </View>
 
       {!userLocation ? (
@@ -364,7 +446,7 @@ function FullScreenExploreMap({
       ) : (
         <Pressable
           style={[styles.fullMapLocationPrompt, { bottom: floatingControlBottom }]}
-          onPress={onFocusNearest}
+          onPress={handleGpsFocus}
           accessibilityRole="button"
           accessibilityLabel="Focus nearest routes"
         >
@@ -450,6 +532,25 @@ function applyExploreFilters(
     .sort((left, right) => compareExploreRivers(left, right, filters.sort));
 
   return sortedResults;
+}
+
+function nearestStateForLocation(
+  rivers: RiverSummaryApiItem[],
+  location: { latitude: number; longitude: number } | null
+) {
+  if (!location || rivers.length === 0) {
+    return null;
+  }
+
+  const nearest = rivers
+    .map((river) => ({
+      state: river.river.state,
+      miles: distanceMiles(location.latitude, location.longitude, river.river.latitude, river.river.longitude),
+    }))
+    .filter((candidate) => candidate.state && Number.isFinite(candidate.miles))
+    .sort((left, right) => left.miles - right.miles)[0];
+
+  return nearest?.state ?? null;
 }
 
 function compareExploreRivers(left: ExploreRiver, right: ExploreRiver, sort: ExploreFilters['sort']) {

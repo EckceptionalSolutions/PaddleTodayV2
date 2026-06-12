@@ -1,8 +1,5 @@
-import {
-  compareTodayCertainty,
-  compareTodayScore,
-  type RiverSummaryApiItem,
-} from '@paddletoday/api-contract';
+import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
 import { useEffect, useMemo, useState } from 'react';
@@ -13,6 +10,7 @@ import {
   ScrollView,
   StyleSheet,
   Text,
+  TextInput,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -37,6 +35,9 @@ import {
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
+const ANDROID_NAV_CONTROL_MIN_INSET = 40;
+const TAB_BAR_SAFE_SPACE = 72;
+
 type BoardMode = 'best' | 'closest' | 'score' | 'certain';
 type BoardItem = RiverSummaryApiItem | NearbyRiverPick;
 
@@ -53,6 +54,19 @@ const modeLabels: Record<BoardMode, string> = {
   certain: 'Confidence first',
 };
 
+const stateAbbreviations: Record<string, string> = {
+  illinois: 'IL',
+  indiana: 'IN',
+  iowa: 'IA',
+  michigan: 'MI',
+  minnesota: 'MN',
+  missouri: 'MO',
+  'north dakota': 'ND',
+  ohio: 'OH',
+  'south dakota': 'SD',
+  wisconsin: 'WI',
+};
+
 export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -60,25 +74,30 @@ export default function HomeScreen() {
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
+  const [routeQuery, setRouteQuery] = useState('');
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
-  const bestPicks = useMemo(() => selectBestNowPicks(rivers, location, 24), [rivers, location]);
   const nearbyPicks = useMemo(
     () => (location ? selectNearbyPicks(rivers, location, rivers.length) : []),
     [rivers, location]
   );
-  const snapshotRoutes = location && nearbyPicks.length > 0 ? nearbyPicks : rivers;
+  const scopedRoutes = location ? nearbyPicks : rivers;
+  const snapshotRoutes = scopedRoutes;
   const snapshot = buildBoardSnapshot(snapshotRoutes);
-  const snapshotContext = location && nearbyPicks.length > 0 ? 'In your range' : 'Across supported routes';
+  const snapshotContext = location ? `In range near ${location.label}` : 'Across supported routes';
+  const bestPicks = useMemo(
+    () => selectBestNowPicks(scopedRoutes, undefined, 24),
+    [scopedRoutes]
+  );
   const scorePicks = useMemo(
-    () => [...rivers].sort(compareTodayScore).slice(0, 24),
-    [rivers]
+    () => [...scopedRoutes].sort(compareHomeScore).slice(0, 24),
+    [scopedRoutes]
   );
   const certainPicks = useMemo(
-    () => [...rivers].sort(compareTodayCertainty).slice(0, 24),
-    [rivers]
+    () => [...scopedRoutes].sort(compareHomeCertainty).slice(0, 24),
+    [scopedRoutes]
   );
   const closestPicks = useMemo(
     () => nearbyPicks.slice().sort((left, right) => left.travelMinutes - right.travelMinutes).slice(0, 24),
@@ -91,7 +110,12 @@ export default function HomeScreen() {
   );
   const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
   const headlineMode = data[0] ? mode : 'best';
+  const knownRouteMatches = useMemo(
+    () => findKnownRouteMatches(rivers, routeQuery, 6),
+    [rivers, routeQuery]
+  );
   const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
+  const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
 
   useEffect(() => {
     void hydrateBoardPreferences();
@@ -128,7 +152,15 @@ export default function HomeScreen() {
   return (
     <ScrollView
       style={styles.screen}
-      contentContainerStyle={[styles.listContent, { paddingTop: spacing.md + insets.top }]}
+      contentContainerStyle={[
+        styles.listContent,
+        {
+          paddingTop: spacing.md + Math.max(insets.top, 0),
+          paddingBottom: spacing.xl + TAB_BAR_SAFE_SPACE + Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET),
+        },
+      ]}
+      keyboardDismissMode="on-drag"
+      keyboardShouldPersistTaps="handled"
       refreshControl={
         <RefreshControl
           tintColor={colors.accent}
@@ -138,6 +170,17 @@ export default function HomeScreen() {
       }
     >
       <View style={styles.headerStack}>
+        <KnownRouteSearch
+          query={routeQuery}
+          results={knownRouteMatches}
+          routeCounts={routeCounts}
+          onChange={setRouteQuery}
+          onOpen={(river) => {
+            setRouteQuery('');
+            openBoardRoute(river);
+          }}
+          onExplore={() => router.push('/explore')}
+        />
         <BoardHero
           mode={headlineMode}
           headline={headline}
@@ -178,6 +221,16 @@ export default function HomeScreen() {
             }
           }}
         />
+        {zeroReady ? (
+          <ZeroReadyActions
+            onWeekend={() => router.push('/weekend')}
+            onExplore={() => {
+              setMode('score');
+              router.push('/explore');
+            }}
+            onSaved={() => router.push('/saved')}
+          />
+        ) : null}
       </View>
 
       {locationOutOfRange ? (
@@ -187,24 +240,14 @@ export default function HomeScreen() {
           onBrowseRoutes={() => router.push('/explore')}
         />
       ) : data.length > 0 ? (
-        <>
-          <RiverCarousel
-            mode={mode}
-            rivers={data}
-            routeCounts={routeCounts}
-            isSaved={isSaved}
-            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-            onOpen={openBoardRoute}
-          />
-          <QuickScanList
-            mode={mode}
-            rivers={data.slice(0, 5)}
-            routeCounts={routeCounts}
-            isSaved={isSaved}
-            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-            onOpen={openBoardRoute}
-          />
-        </>
+        <QuickScanList
+          mode={mode}
+          rivers={data.slice(0, 10)}
+          routeCounts={routeCounts}
+          isSaved={isSaved}
+          onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+          onOpen={openBoardRoute}
+        />
       ) : (
           <EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />
       )}
@@ -280,7 +323,7 @@ function BoardHero({
               <View style={styles.headlineCopy}>
                 <Text style={styles.headlineKicker}>{headlineLabelForMode(mode, headline)}</Text>
                 <Text style={styles.headlineName}>{headline.river.name}</Text>
-                <Text style={styles.headlineReach} numberOfLines={1}>{headline.river.reach}</Text>
+                <Text style={styles.headlineReach} numberOfLines={1}>{routeReachWithState(headline)}</Text>
                 <Text style={styles.headlineText} numberOfLines={2}>
                   {verdictForRating(headline.rating)} - {normalizeApiText(headline.summary.shortExplanation)}
                 </Text>
@@ -374,7 +417,7 @@ function RiverImageCard({
             <RatingPill rating={river.rating} />
             <Text style={styles.imageCardTitle} numberOfLines={1}>{river.river.name}</Text>
             <Text style={styles.imageCardMeta} numberOfLines={1}>
-              {[river.river.reach, distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
+              {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
             </Text>
           </View>
         </View>
@@ -410,7 +453,7 @@ function QuickScanList({
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title="Fast scan" subtitle={quickScanSubtitleForMode(mode)} />
+      <SectionHeading title={boardIntroTitleForMode(mode)} subtitle={sectionSubtitleForMode(mode)} />
       <View key={mode} style={styles.quickList}>
         {rivers.map((river) => (
           <CompactRiverRow
@@ -452,7 +495,7 @@ function CompactRiverRow({
       <View style={styles.quickCopy}>
         <Text style={styles.quickName} numberOfLines={1}>{river.river.name}</Text>
         <Text style={styles.quickMeta} numberOfLines={1}>
-          {[river.river.reach, distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
+          {[routeReachWithState(river), distanceLabelForRiver(river), routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
         </Text>
         <Text style={styles.quickReason} numberOfLines={1}>{homeFactLine(river)}</Text>
       </View>
@@ -504,6 +547,115 @@ function LocationStrip({
           {locationLabel ? 'Clear' : isRequesting ? 'Finding' : 'Use'}
         </Text>
       </Pressable>
+    </View>
+  );
+}
+
+function KnownRouteSearch({
+  query,
+  results,
+  routeCounts,
+  onChange,
+  onOpen,
+  onExplore,
+}: {
+  query: string;
+  results: RiverSummaryApiItem[];
+  routeCounts: ReadonlyMap<string, number>;
+  onChange: (query: string) => void;
+  onOpen: (river: RiverSummaryApiItem) => void;
+  onExplore: () => void;
+}) {
+  const active = query.trim().length > 0;
+
+  return (
+    <View style={styles.knownSearchCard}>
+      <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
+      <View style={styles.knownSearchInputRow}>
+        <MaterialCommunityIcons name="magnify" color={colors.accent} size={18} />
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          value={query}
+          onChangeText={onChange}
+          placeholder="River, reach, region, or state"
+          placeholderTextColor={colors.textMuted}
+          returnKeyType="search"
+          onSubmitEditing={() => {
+            if (results[0]) {
+              onOpen(results[0]);
+              return;
+            }
+
+            onExplore();
+          }}
+          style={styles.knownSearchInput}
+        />
+        {active ? (
+          <Pressable hitSlop={10} onPress={() => onChange('')}>
+            <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={18} />
+          </Pressable>
+        ) : null}
+      </View>
+      {active ? (
+        <View style={styles.knownSearchResults}>
+          {results.length > 0 ? (
+            results.map((river) => {
+              const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+              return (
+                <Pressable key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpen(river)}>
+                  <View style={styles.knownSearchScore}>
+                    <Text style={styles.knownSearchScoreText}>{river.score}</Text>
+                  </View>
+                  <View style={styles.knownSearchCopy}>
+                    <Text style={styles.knownSearchName} numberOfLines={1}>{river.river.name}</Text>
+                    <Text style={styles.knownSearchMeta} numberOfLines={1}>
+                      {[routeReachWithState(river), river.river.region, river.rating, routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
+                    </Text>
+                  </View>
+                </Pressable>
+              );
+            })
+          ) : (
+            <View style={styles.knownSearchEmpty}>
+              <Text style={styles.knownSearchEmptyTitle}>No supported route found</Text>
+              <Pressable onPress={onExplore}>
+                <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
+              </Pressable>
+            </View>
+          )}
+        </View>
+      ) : null}
+    </View>
+  );
+}
+
+function ZeroReadyActions({
+  onWeekend,
+  onExplore,
+  onSaved,
+}: {
+  onWeekend: () => void;
+  onExplore: () => void;
+  onSaved: () => void;
+}) {
+  return (
+    <View style={styles.zeroReadyCard}>
+      <Text style={styles.zeroReadyTitle}>No clean paddles right now</Text>
+      <Text style={styles.zeroReadyText}>
+        Today is in recheck mode. Use these routes for monitoring, not as go-now recommendations.
+      </Text>
+      <View style={styles.zeroReadyActions}>
+        <Pressable style={styles.zeroReadyPrimary} onPress={onWeekend}>
+          <Text style={styles.zeroReadyPrimaryText}>Check Weekend</Text>
+        </Pressable>
+        <Pressable style={styles.zeroReadySecondary} onPress={onExplore}>
+          <Text style={styles.zeroReadySecondaryText}>Browse Rechecks</Text>
+        </Pressable>
+        <Pressable style={styles.zeroReadySecondary} onPress={onSaved}>
+          <Text style={styles.zeroReadySecondaryText}>Saved</Text>
+        </Pressable>
+      </View>
     </View>
   );
 }
@@ -626,6 +778,15 @@ function toSavedRiver(river: BoardItem) {
   };
 }
 
+function routeReachWithState(river: BoardItem | RiverSummaryApiItem) {
+  return [river.river.reach, stateAbbreviation(river.river.state)].filter(Boolean).join(' - ');
+}
+
+function stateAbbreviation(state: string) {
+  const normalized = state.trim().toLowerCase();
+  return stateAbbreviations[normalized] ?? state;
+}
+
 function isNearbyPick(river: BoardItem): river is NearbyRiverPick {
   return 'travelMinutes' in river;
 }
@@ -650,15 +811,91 @@ function isBoardMode(value: unknown): value is BoardMode {
   return value === 'best' || value === 'closest' || value === 'score' || value === 'certain';
 }
 
+const homeConfidenceWeight = {
+  High: 3,
+  Medium: 2,
+  Low: 1,
+};
+
+function compareHomeScore(left: BoardItem, right: BoardItem) {
+  if (left.score !== right.score) {
+    return right.score - left.score;
+  }
+
+  return left.river.name.localeCompare(right.river.name);
+}
+
+function compareHomeCertainty(left: BoardItem, right: BoardItem) {
+  const leftConfidence = homeConfidenceWeight[left.confidence.label] ?? 0;
+  const rightConfidence = homeConfidenceWeight[right.confidence.label] ?? 0;
+  if (leftConfidence !== rightConfidence) {
+    return rightConfidence - leftConfidence;
+  }
+
+  return compareHomeScore(left, right);
+}
+
+function findKnownRouteMatches(rivers: RiverSummaryApiItem[], query: string, limit: number) {
+  const normalized = query.trim().toLowerCase();
+  if (!normalized) {
+    return [];
+  }
+
+  return rivers
+    .filter((river) => searchableRouteText(river).includes(normalized))
+    .sort((left, right) => {
+      return searchRank(left, normalized) - searchRank(right, normalized) || compareHomeScore(left, right);
+    })
+    .slice(0, limit);
+}
+
+function searchableRouteText(river: RiverSummaryApiItem) {
+  return [
+    river.river.name,
+    river.river.reach,
+    river.river.region,
+    river.river.state,
+    stateAbbreviation(river.river.state),
+    river.river.difficulty,
+    river.river.routeType,
+    river.river.distanceLabel,
+    river.river.estimatedPaddleTime,
+    river.river.putIn?.name,
+    river.river.takeOut?.name,
+    river.rating,
+    river.gaugeBandLabel,
+  ]
+    .filter(Boolean)
+    .join(' ')
+    .toLowerCase();
+}
+
+function searchRank(river: RiverSummaryApiItem, query: string) {
+  const name = river.river.name.toLowerCase();
+  const reach = river.river.reach.toLowerCase();
+  const region = river.river.region.toLowerCase();
+  const state = river.river.state.toLowerCase();
+  const stateAbbr = stateAbbreviation(river.river.state).toLowerCase();
+  const access = [river.river.putIn?.name, river.river.takeOut?.name].filter(Boolean).join(' ').toLowerCase();
+
+  if (name === query) return 0;
+  if (name.startsWith(query)) return 1;
+  if (reach.startsWith(query)) return 2;
+  if (region.startsWith(query) || state === query || stateAbbr === query) return 3;
+  if (access.includes(query)) return 4;
+  return 5;
+}
 function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'Best mix of score, confidence, and drive time.';
+  return 'Best mix of score, confidence, and drive time. Skip calls stay visible for rechecks.';
 }
 
 function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
   if (!headline) return 'Today';
+  if (headline.rating === 'No-go') return isNearbyPick(headline) ? 'Best recheck nearby' : 'Best recheck today';
+  if (headline.rating === 'Fair') return isNearbyPick(headline) ? 'Maybe nearby with caution' : 'Maybe with caution';
   if (mode === 'closest') return 'Best nearby';
   if (mode === 'score') return 'Best conditions';
   if (mode === 'certain') return 'Confidence pick';
@@ -669,14 +906,14 @@ function quickScanSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Nearby routes with key trip facts.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'Compact picks for today.';
+  return 'Compact calls for today, including skips worth rechecking.';
 }
 
 function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest routes';
   if (mode === 'score') return 'Rivers ordered by score';
   if (mode === 'certain') return 'Highest-confidence calls';
-  return 'Recommended routes';
+  return 'Today\'s route calls';
 }
 
 function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus: string) {
@@ -907,6 +1144,142 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 12,
     fontWeight: '800',
+  },
+  knownSearchCard: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  knownSearchLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+  },
+  knownSearchInputRow: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  knownSearchInput: {
+    flex: 1,
+    minWidth: 0,
+    color: colors.text,
+    fontSize: 15,
+    paddingVertical: 9,
+  },
+  knownSearchResults: {
+    gap: spacing.xs,
+  },
+  knownSearchResult: {
+    minHeight: 54,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.sm,
+  },
+  knownSearchScore: {
+    width: 38,
+    height: 38,
+    borderRadius: 12,
+    backgroundColor: colors.accentSoft,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  knownSearchScoreText: {
+    color: colors.accentDeep,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  knownSearchCopy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  knownSearchName: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  knownSearchMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+    marginTop: 2,
+  },
+  knownSearchEmpty: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    gap: 4,
+  },
+  knownSearchEmptyTitle: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '800',
+  },
+  knownSearchEmptyAction: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  zeroReadyCard: {
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: '#D7C6A2',
+    backgroundColor: '#F3E8CC',
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  zeroReadyTitle: {
+    color: colors.text,
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  zeroReadyText: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  zeroReadyActions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  zeroReadyPrimary: {
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  zeroReadyPrimaryText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  zeroReadySecondary: {
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 14,
+    paddingVertical: 10,
+  },
+  zeroReadySecondaryText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
   },
   modeTabs: {
     flexDirection: 'row',
