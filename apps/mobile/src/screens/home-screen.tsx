@@ -2,9 +2,13 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
+import type { ComponentProps, ReactNode } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 import {
   ImageBackground,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
   Pressable,
   RefreshControl,
   ScrollView,
@@ -22,6 +26,7 @@ import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { normalizeApiText, verdictForRating } from '../lib/format';
 import { formatTravelTime } from '../lib/location';
+import { type ExploreIntentId } from '../lib/explore-intents';
 import { photoForRiver } from '../lib/route-photos';
 import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
@@ -71,10 +76,11 @@ export default function HomeScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const summaryQuery = useRiverSummaryQuery();
-  const { location, status, requestLocation, clearLocation } = useStoredLocation();
+  const { location, status, requestLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const [mode, setMode] = useState<BoardMode>('best');
   const [routeQuery, setRouteQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
 
   const rivers = summaryQuery.data?.rivers ?? [];
@@ -111,8 +117,12 @@ export default function HomeScreen() {
   const headline = data[0] ?? uniqueRoutesByRiver(bestPicks)[0] ?? null;
   const headlineMode = data[0] ? mode : 'best';
   const knownRouteMatches = useMemo(
-    () => findKnownRouteMatches(rivers, routeQuery, 6),
+    () => uniqueRoutesByRiver(findKnownRouteMatches(rivers, routeQuery, 18)).slice(0, 10),
     [rivers, routeQuery]
+  );
+  const supportedStates = useMemo(
+    () => [...new Set(rivers.map((river) => river.river.state))].sort((left, right) => left.localeCompare(right)),
+    [rivers]
   );
   const locationOutOfRange = Boolean(location && rivers.length > 0 && nearbyPicks.length === 0);
   const zeroReady = !locationOutOfRange && scopedRoutes.length > 0 && snapshot.paddleable === 0;
@@ -170,17 +180,6 @@ export default function HomeScreen() {
       }
     >
       <View style={styles.headerStack}>
-        <KnownRouteSearch
-          query={routeQuery}
-          results={knownRouteMatches}
-          routeCounts={routeCounts}
-          onChange={setRouteQuery}
-          onOpen={(river) => {
-            setRouteQuery('');
-            openBoardRoute(river);
-          }}
-          onExplore={() => router.push('/explore')}
-        />
         <BoardHero
           mode={headlineMode}
           headline={headline}
@@ -197,60 +196,84 @@ export default function HomeScreen() {
               ? () => router.push({ pathname: '/river/[slug]', params: { slug: headline.river.slug } })
               : undefined
           }
-        />
-        <LocationStrip
-          locationLabel={location?.label ?? null}
-          status={status}
-          onUseLocation={() => void requestLocation()}
-          onClear={() => void clearLocation()}
-        />
-        <ModeTabs
-          mode={mode}
-          counts={{
-            best: bestPicks.length,
-            closest: location ? closestPicks.length : 0,
-            score: scorePicks.length,
-            certain: certainPicks.length,
-          }}
+          onOpenStatus={(statusIntent) => openExploreIntent(statusIntent)}
           hasLocation={Boolean(location)}
           locationStatus={status}
-          onChange={(nextMode) => {
-            setMode(nextMode);
-            if (nextMode === 'closest' && !location) {
-              void requestLocation();
-            }
-          }}
+          onUseLocation={() => void requestLocation()}
+          onOpenExplore={() => router.push('/explore')}
         />
+        {locationOutOfRange ? (
+          <OutOfRangeState
+            locationLabel={location?.label ?? 'your area'}
+            onRequestRoute={() => router.push('/request-route')}
+            onBrowseRoutes={() => router.push('/explore')}
+          />
+        ) : data.length > 0 ? (
+          <RiverCarousel
+            mode={mode}
+            rivers={data.slice(0, 10)}
+            routeCounts={routeCounts}
+            isSaved={isSaved}
+            onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
+            onOpen={openBoardRoute}
+            onViewAll={() => openExploreIntent(exploreIntentForMode(mode, Boolean(location)))}
+          >
+            <ModeTabs
+              mode={mode}
+              hasLocation={Boolean(location)}
+              locationStatus={status}
+              onChange={(nextMode) => {
+                setMode(nextMode);
+                if (nextMode === 'closest' && !location) {
+                  void requestLocation();
+                }
+              }}
+            />
+          </RiverCarousel>
+        ) : (
+          <EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />
+        )}
         {zeroReady ? (
           <ZeroReadyActions
             onWeekend={() => router.push('/weekend')}
-            onExplore={() => {
-              setMode('score');
-              router.push('/explore');
-            }}
-            onSaved={() => router.push('/saved')}
+            onExplore={() => router.push('/explore')}
           />
         ) : null}
+        <ExploreActionStrip
+          hasLocation={Boolean(location)}
+          locationStatus={status}
+          onUseLocation={() => void requestLocation()}
+          onOpenExplore={() => router.push('/explore')}
+          onOpenIntent={openExploreIntent}
+        />
+        <KnownRouteSearch
+          onOpen={() => setSearchOpen(true)}
+        />
       </View>
-
-      {locationOutOfRange ? (
-        <OutOfRangeState
-          locationLabel={location?.label ?? 'your area'}
-          onRequestRoute={() => router.push('/request-route')}
-          onBrowseRoutes={() => router.push('/explore')}
-        />
-      ) : data.length > 0 ? (
-        <QuickScanList
-          mode={mode}
-          rivers={data.slice(0, 10)}
-          routeCounts={routeCounts}
-          isSaved={isSaved}
-          onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
-          onOpen={openBoardRoute}
-        />
-      ) : (
-          <EmptyMode mode={mode} hasLocation={Boolean(location)} locationStatus={status} />
-      )}
+      <RouteSearchModal
+        visible={searchOpen}
+        query={routeQuery}
+        results={knownRouteMatches}
+        routeCounts={routeCounts}
+        states={supportedStates}
+        topInset={Math.max(insets.top, 0)}
+        bottomInset={Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)}
+        onChange={setRouteQuery}
+        onClose={() => {
+          setSearchOpen(false);
+          setRouteQuery('');
+        }}
+        onOpenRiver={(river) => {
+          setSearchOpen(false);
+          setRouteQuery('');
+          openBoardRoute(river);
+        }}
+        onExplore={() => {
+          setSearchOpen(false);
+          setRouteQuery('');
+          router.push('/explore');
+        }}
+      />
     </ScrollView>
   );
 
@@ -276,6 +299,10 @@ export default function HomeScreen() {
 
     router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } });
   }
+
+  function openExploreIntent(intent: ExploreIntentId) {
+    router.push({ pathname: '/explore', params: { intent } });
+  }
 }
 
 function BoardHero({
@@ -286,6 +313,11 @@ function BoardHero({
   saved,
   onToggleSaved,
   onOpen,
+  onOpenStatus,
+  hasLocation,
+  locationStatus,
+  onUseLocation,
+  onOpenExplore,
 }: {
   mode: BoardMode;
   headline: BoardItem | null;
@@ -294,8 +326,14 @@ function BoardHero({
   saved: boolean;
   onToggleSaved?: () => void;
   onOpen?: () => void;
+  onOpenStatus: (intent: ExploreIntentId) => void;
+  hasLocation: boolean;
+  locationStatus: string;
+  onUseLocation: () => void;
+  onOpenExplore: () => void;
 }) {
   const imageUri = headline ? photoForRiver(headline.river) : photoForRiver({ slug: 'fallback' });
+  const requestingLocation = locationStatus === 'requesting';
 
   return (
     <View style={styles.heroShell}>
@@ -311,7 +349,38 @@ function BoardHero({
             </View>
           </View>
 
-          {headline ? (
+          {!hasLocation ? (
+            <View style={styles.heroContent}>
+              <View style={styles.headlineCopy}>
+                <Text style={styles.headlineKicker}>
+                  {locationStatus === 'denied' ? 'Location is off' : 'Best paddle near you'}
+                </Text>
+                <Text style={styles.headlineName}>
+                  {locationStatus === 'denied' ? 'Browse today, add nearby when ready' : 'Find a route worth driving to'}
+                </Text>
+                <Text style={styles.headlineText} numberOfLines={3}>
+                  {locationStatus === 'denied'
+                    ? 'Today still works across supported routes. Turn location on when you want drive-time ranking.'
+                    : 'Use your location to rank clean water, confidence, and drive time together.'}
+                </Text>
+              </View>
+              <View style={styles.heroActionRow}>
+                <Pressable
+                  style={[styles.heroPrimaryAction, requestingLocation ? styles.heroActionDisabled : null]}
+                  disabled={requestingLocation}
+                  onPress={onUseLocation}
+                  android_ripple={{ color: colors.accentSoft }}
+                >
+                  <MaterialCommunityIcons name="crosshairs-gps" color={colors.accentDeep} size={18} />
+                  <Text style={styles.heroPrimaryActionText}>{requestingLocation ? 'Finding' : 'Use location'}</Text>
+                </Pressable>
+                <Pressable style={styles.heroSecondaryAction} onPress={onOpenExplore} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
+                  <MaterialCommunityIcons name="map-search-outline" color={colors.surfaceStrong} size={18} />
+                  <Text style={styles.heroSecondaryActionText}>Explore all</Text>
+                </Pressable>
+              </View>
+            </View>
+          ) : headline ? (
             <Pressable style={styles.heroContent} onPress={onOpen} android_ripple={{ color: 'rgba(255,255,255,0.16)' }}>
               <View style={styles.heroScoreRow}>
                 <View style={styles.scoreOrb}>
@@ -336,9 +405,9 @@ function BoardHero({
       <View style={styles.snapshotSummary}>
         <Text style={styles.snapshotContext}>{snapshotContext}</Text>
         <View style={styles.snapshotRow}>
-          <SnapshotPill label="Paddle" value={snapshot.paddleable} tone={styles.snapshotStrong} />
-          <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} />
-          <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} />
+          <SnapshotPill label="Clean" value={snapshot.paddleable} tone={styles.snapshotStrong} onPress={() => onOpenStatus('clean-now')} />
+          <SnapshotPill label="Watch" value={snapshot.watch} tone={styles.snapshotFair} onPress={() => onOpenStatus('watch')} />
+          <SnapshotPill label="Skip" value={snapshot.skip} tone={styles.snapshotNoGo} onPress={() => onOpenStatus('skip')} />
         </View>
       </View>
     </View>
@@ -352,6 +421,8 @@ function RiverCarousel({
   isSaved,
   onToggleSaved,
   onOpen,
+  onViewAll,
+  children,
 }: {
   mode: BoardMode;
   rivers: BoardItem[];
@@ -359,10 +430,18 @@ function RiverCarousel({
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
+  onViewAll: () => void;
+  children: ReactNode;
 }) {
   return (
-    <View style={styles.sectionStack}>
-      <SectionHeading title={boardIntroTitleForMode(mode)} subtitle={sectionSubtitleForMode(mode)} />
+    <View style={styles.todayCallsSection}>
+      <SectionHeading
+        title={boardIntroTitleForMode(mode)}
+        subtitle={sectionSubtitleForMode(mode)}
+        actionLabel="View all"
+        onAction={onViewAll}
+      />
+      {children}
       <ScrollView
         key={mode}
         horizontal
@@ -443,6 +522,7 @@ function QuickScanList({
   isSaved,
   onToggleSaved,
   onOpen,
+  onViewAll,
 }: {
   mode: BoardMode;
   rivers: BoardItem[];
@@ -450,10 +530,16 @@ function QuickScanList({
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
+  onViewAll: () => void;
 }) {
   return (
     <View style={styles.sectionStack}>
-      <SectionHeading title={boardIntroTitleForMode(mode)} subtitle={sectionSubtitleForMode(mode)} />
+      <SectionHeading
+        title={boardIntroTitleForMode(mode)}
+        subtitle={sectionSubtitleForMode(mode)}
+        actionLabel="View all"
+        onAction={onViewAll}
+      />
       <View key={mode} style={styles.quickList}>
         {rivers.map((river) => (
           <CompactRiverRow
@@ -507,153 +593,268 @@ function CompactRiverRow({
   );
 }
 
-function SectionHeading({ title, subtitle }: { title: string; subtitle: string }) {
+function SectionHeading({
+  title,
+  subtitle,
+  actionLabel,
+  onAction,
+}: {
+  title: string;
+  subtitle: string;
+  actionLabel?: string;
+  onAction?: () => void;
+}) {
   return (
     <View style={styles.sectionHeading}>
-      <Text style={styles.sectionTitle}>{title}</Text>
+      <View style={styles.sectionHeadingTop}>
+        <Text style={styles.sectionTitle}>{title}</Text>
+        {actionLabel && onAction ? (
+          <Pressable style={styles.sectionAction} onPress={onAction} android_ripple={{ color: colors.canvasMuted }}>
+            <MaterialCommunityIcons name="map-outline" color={colors.accent} size={15} />
+            <Text style={styles.sectionActionText}>{actionLabel}</Text>
+          </Pressable>
+        ) : null}
+      </View>
       <Text style={styles.sectionSubtitle}>{subtitle}</Text>
     </View>
   );
 }
 
-function LocationStrip({
-  locationLabel,
-  status,
+function ExploreActionStrip({
+  hasLocation,
+  locationStatus,
   onUseLocation,
-  onClear,
+  onOpenExplore,
+  onOpenIntent,
 }: {
-  locationLabel: string | null;
-  status: string;
+  hasLocation: boolean;
+  locationStatus: string;
   onUseLocation: () => void;
-  onClear: () => void;
+  onOpenExplore: () => void;
+  onOpenIntent: (intent: ExploreIntentId) => void;
 }) {
-  const isRequesting = status === 'requesting';
+  const requestingLocation = locationStatus === 'requesting';
+  const nearbyLabel = requestingLocation ? 'Finding nearby' : 'Best nearby';
 
   return (
-    <View style={styles.locationStrip}>
-      <View style={styles.locationCopy}>
-        <Text style={styles.locationLabel}>{locationLabel ? 'Current area' : 'Nearby picks'}</Text>
-        <Text style={styles.locationValue} numberOfLines={1}>
-          {locationLabel ?? (status === 'denied' ? 'Location access denied' : 'Find routes near me')}
-        </Text>
+    <View style={styles.exploreActions}>
+      <View style={styles.exploreActionsHeader}>
+        <Text style={styles.exploreActionsTitle}>Plan a paddle</Text>
+        <Text style={styles.exploreActionsSubtitle}>Jump into the views people use most.</Text>
       </View>
-      <Pressable
-        style={[styles.locationButton, isRequesting ? styles.locationButtonDisabled : null]}
-        disabled={isRequesting}
-        onPress={locationLabel ? onClear : onUseLocation}
-        android_ripple={{ color: colors.accentSoft }}
-      >
-        <Text style={styles.locationButtonText}>
-          {locationLabel ? 'Clear' : isRequesting ? 'Finding' : 'Use'}
-        </Text>
-      </Pressable>
+      <View style={styles.exploreActionGrid}>
+        <ExploreActionChip
+          label={nearbyLabel}
+          icon="crosshairs-gps"
+          disabled={requestingLocation}
+          onPress={hasLocation ? () => onOpenIntent('best-nearby') : onUseLocation}
+        />
+        <ExploreActionChip label="Clean now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
+        <ExploreActionChip label="Quick float" icon="timer-outline" onPress={() => onOpenIntent('quick-float')} />
+        <ExploreActionChip label="Full day" icon="sun-clock-outline" onPress={() => onOpenIntent('full-day')} />
+        <ExploreActionChip label="All routes" icon="map-search-outline" onPress={onOpenExplore} />
+      </View>
     </View>
   );
 }
 
-function KnownRouteSearch({
+function ExploreActionChip({
+  label,
+  icon,
+  disabled,
+  onPress,
+}: {
+  label: string;
+  icon: ComponentProps<typeof MaterialCommunityIcons>['name'];
+  disabled?: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      style={[styles.exploreActionChip, disabled ? styles.exploreActionDisabled : null]}
+      disabled={disabled}
+      onPress={onPress}
+      android_ripple={{ color: colors.canvasMuted }}
+    >
+      <MaterialCommunityIcons name={icon} color={colors.accent} size={16} />
+      <Text style={styles.exploreActionText}>{label}</Text>
+    </Pressable>
+  );
+}
+
+function KnownRouteSearch({ onOpen }: { onOpen: () => void }) {
+  return (
+    <Pressable style={styles.knownSearchCard} onPress={onOpen} android_ripple={{ color: colors.canvasMuted }}>
+      <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
+      <View style={styles.knownSearchInputRow}>
+        <MaterialCommunityIcons name="magnify" color={colors.accent} size={18} />
+        <Text style={styles.knownSearchPlaceholder}>River, reach, region, or state</Text>
+      </View>
+    </Pressable>
+  );
+}
+
+function RouteSearchModal({
+  visible,
   query,
   results,
   routeCounts,
+  states,
+  topInset,
+  bottomInset,
   onChange,
-  onOpen,
+  onClose,
+  onOpenRiver,
   onExplore,
 }: {
+  visible: boolean;
   query: string;
   results: RiverSummaryApiItem[];
   routeCounts: ReadonlyMap<string, number>;
+  states: string[];
+  topInset: number;
+  bottomInset: number;
   onChange: (query: string) => void;
-  onOpen: (river: RiverSummaryApiItem) => void;
+  onClose: () => void;
+  onOpenRiver: (river: RiverSummaryApiItem) => void;
   onExplore: () => void;
 }) {
   const active = query.trim().length > 0;
 
   return (
-    <View style={styles.knownSearchCard}>
-      <Text style={styles.knownSearchLabel}>Know where you want to go?</Text>
-      <View style={styles.knownSearchInputRow}>
-        <MaterialCommunityIcons name="magnify" color={colors.accent} size={18} />
-        <TextInput
-          autoCapitalize="none"
-          autoCorrect={false}
-          value={query}
-          onChangeText={onChange}
-          placeholder="River, reach, region, or state"
-          placeholderTextColor={colors.textMuted}
-          returnKeyType="search"
-          onSubmitEditing={() => {
-            if (results[0]) {
-              onOpen(results[0]);
-              return;
-            }
-
-            onExplore();
-          }}
-          style={styles.knownSearchInput}
-        />
-        {active ? (
-          <Pressable hitSlop={10} onPress={() => onChange('')}>
-            <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={18} />
-          </Pressable>
-        ) : null}
-      </View>
-      {active ? (
-        <View style={styles.knownSearchResults}>
-          {results.length > 0 ? (
-            results.map((river) => {
-              const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
-              return (
-                <Pressable key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpen(river)}>
-                  <View style={styles.knownSearchScore}>
-                    <Text style={styles.knownSearchScoreText}>{river.score}</Text>
-                  </View>
-                  <View style={styles.knownSearchCopy}>
-                    <Text style={styles.knownSearchName} numberOfLines={1}>{river.river.name}</Text>
-                    <Text style={styles.knownSearchMeta} numberOfLines={1}>
-                      {[routeReachWithState(river), river.river.region, river.rating, routeCount > 1 ? `${routeCount} routes` : null].filter(Boolean).join(' - ')}
-                    </Text>
-                  </View>
-                </Pressable>
-              );
-            })
-          ) : (
-            <View style={styles.knownSearchEmpty}>
-              <Text style={styles.knownSearchEmptyTitle}>No supported route found</Text>
-              <Pressable onPress={onExplore}>
-                <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
-              </Pressable>
+    <Modal visible={visible} animationType="slide" presentationStyle="fullScreen" onRequestClose={onClose}>
+      <KeyboardAvoidingView
+        style={styles.searchModalScreen}
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      >
+        <View style={[styles.searchModalContent, { paddingTop: spacing.md + topInset, paddingBottom: spacing.md + bottomInset }]}>
+          <View style={styles.searchModalHeader}>
+            <View>
+              <Text style={styles.searchModalTitle}>Find a route</Text>
+              <Text style={styles.searchModalSubtitle}>Search supported rivers, reaches, states, and access points.</Text>
             </View>
-          )}
+            <Pressable style={styles.searchModalClose} onPress={onClose} accessibilityRole="button" accessibilityLabel="Close route search">
+              <MaterialCommunityIcons name="close" color={colors.accent} size={20} />
+            </Pressable>
+          </View>
+
+          <View style={styles.searchModalInputRow}>
+            <MaterialCommunityIcons name="magnify" color={colors.accent} size={19} />
+            <TextInput
+              autoFocus
+              autoCapitalize="none"
+              autoCorrect={false}
+              value={query}
+              onChangeText={onChange}
+              placeholder="River, reach, region, or state"
+              placeholderTextColor={colors.textMuted}
+              returnKeyType="search"
+              onSubmitEditing={() => {
+                if (results[0]) {
+                  onOpenRiver(results[0]);
+                  return;
+                }
+
+                onExplore();
+              }}
+              style={styles.searchModalInput}
+            />
+            {active ? (
+              <Pressable hitSlop={10} onPress={() => onChange('')} accessibilityRole="button" accessibilityLabel="Clear search">
+                <MaterialCommunityIcons name="close-circle" color={colors.textMuted} size={19} />
+              </Pressable>
+            ) : null}
+          </View>
+
+          <ScrollView
+            style={styles.searchModalResults}
+            contentContainerStyle={styles.searchModalResultsContent}
+            keyboardDismissMode="on-drag"
+            keyboardShouldPersistTaps="handled"
+          >
+            {!active ? (
+              <>
+                <View style={styles.searchModalEmpty}>
+                  <Text style={styles.searchModalEmptyTitle}>Start typing to search routes</Text>
+                  <Text style={styles.searchModalEmptyText}>Try a river name, nearby city, state, put-in, or take-out.</Text>
+                </View>
+                <View style={styles.searchStateSection}>
+                  <Text style={styles.searchStateTitle}>Browse by state</Text>
+                  <View style={styles.searchStateGrid}>
+                    {states.map((state) => (
+                      <Pressable
+                        key={state}
+                        style={styles.searchStateChip}
+                        onPress={() => onChange(state)}
+                        android_ripple={{ color: colors.canvasMuted }}
+                      >
+                        <Text style={styles.searchStateText}>{stateLabel(state)}</Text>
+                      </Pressable>
+                    ))}
+                  </View>
+                </View>
+              </>
+            ) : results.length > 0 ? (
+              <View style={styles.knownSearchResults}>
+                {results.map((river) => {
+                  const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+                  return (
+                    <Pressable key={river.river.slug} style={styles.knownSearchResult} onPress={() => onOpenRiver(river)}>
+                      <View style={[styles.knownSearchScore, searchScoreTone(river.rating).score]}>
+                        <Text style={[styles.knownSearchScoreText, searchScoreTone(river.rating).text]}>{river.score}</Text>
+                      </View>
+                      <View style={styles.knownSearchCopy}>
+                        <View style={styles.knownSearchTopLine}>
+                          <Text style={styles.knownSearchName} numberOfLines={1}>{river.river.name}</Text>
+                          <RatingPill rating={river.rating} />
+                        </View>
+                        <Text style={styles.knownSearchMeta} numberOfLines={1}>
+                          {[stateLabel(river.river.state), river.river.region, routeCount > 1 ? `${routeCount} routes` : '1 route'].filter(Boolean).join(' - ')}
+                        </Text>
+                        <Text style={styles.knownSearchReach} numberOfLines={1}>{river.river.reach}</Text>
+                        <View style={styles.knownSearchFacts}>
+                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.river.estimatedPaddleTime}</Text>
+                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.river.difficulty}</Text>
+                          <Text style={styles.knownSearchFact} numberOfLines={1}>{river.gaugeBandLabel}</Text>
+                        </View>
+                      </View>
+                      <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={21} />
+                    </Pressable>
+                  );
+                })}
+              </View>
+            ) : (
+              <View style={styles.knownSearchEmpty}>
+                <Text style={styles.knownSearchEmptyTitle}>No supported route found</Text>
+                <Text style={styles.searchModalEmptyText}>Open Explore to browse the full supported map.</Text>
+                <Pressable onPress={onExplore}>
+                  <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
+                </Pressable>
+              </View>
+            )}
+          </ScrollView>
         </View>
-      ) : null}
-    </View>
+      </KeyboardAvoidingView>
+    </Modal>
   );
 }
 
 function ZeroReadyActions({
   onWeekend,
   onExplore,
-  onSaved,
 }: {
   onWeekend: () => void;
   onExplore: () => void;
-  onSaved: () => void;
 }) {
   return (
     <View style={styles.zeroReadyCard}>
       <Text style={styles.zeroReadyTitle}>No clean paddles right now</Text>
-      <Text style={styles.zeroReadyText}>
-        Today is in recheck mode. Use these routes for monitoring, not as go-now recommendations.
-      </Text>
       <View style={styles.zeroReadyActions}>
         <Pressable style={styles.zeroReadyPrimary} onPress={onWeekend}>
           <Text style={styles.zeroReadyPrimaryText}>Check Weekend</Text>
         </Pressable>
         <Pressable style={styles.zeroReadySecondary} onPress={onExplore}>
-          <Text style={styles.zeroReadySecondaryText}>Browse Rechecks</Text>
-        </Pressable>
-        <Pressable style={styles.zeroReadySecondary} onPress={onSaved}>
-          <Text style={styles.zeroReadySecondaryText}>Saved</Text>
+          <Text style={styles.zeroReadySecondaryText}>Explore Routes</Text>
         </Pressable>
       </View>
     </View>
@@ -662,48 +863,46 @@ function ZeroReadyActions({
 
 function ModeTabs({
   mode,
-  counts,
   hasLocation,
   locationStatus,
   onChange,
 }: {
   mode: BoardMode;
-  counts: Record<BoardMode, number>;
   hasLocation: boolean;
   locationStatus: string;
   onChange: (mode: BoardMode) => void;
 }) {
   return (
-    <ScrollView
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      contentContainerStyle={styles.modeTabs}
-    >
-      {(['best', 'closest', 'score', 'certain'] as const).map((item) => {
-        const active = item === mode;
-        const requestingLocation = item === 'closest' && !hasLocation && locationStatus === 'requesting';
-        return (
-          <Pressable
-            key={item}
-            style={[
-              styles.modeTab,
-              active ? styles.modeTabActive : null,
-              requestingLocation ? styles.modeTabDisabled : null,
-            ]}
-            disabled={requestingLocation}
-            onPress={() => onChange(item)}
-            android_ripple={{ color: colors.border, borderless: true }}
-          >
-            <Text style={[styles.modeTabText, active ? styles.modeTabTextActive : null]}>
-              {modeLabels[item]}
-            </Text>
-            <Text style={[styles.modeCount, active ? styles.modeCountActive : null]}>
-              {item === 'closest' && !hasLocation ? 'GPS' : counts[item]}
-            </Text>
-          </Pressable>
-        );
-      })}
-    </ScrollView>
+    <View style={styles.previewSortCard}>
+      <Text style={styles.previewSortLabel}>Sort Today's Calls</Text>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.modeTabs}
+      >
+        {(['best', 'closest', 'score', 'certain'] as const).map((item) => {
+          const active = item === mode;
+          const requestingLocation = item === 'closest' && !hasLocation && locationStatus === 'requesting';
+          return (
+            <Pressable
+              key={item}
+              style={[
+                styles.modeTab,
+                active ? styles.modeTabActive : null,
+                requestingLocation ? styles.modeTabDisabled : null,
+              ]}
+              disabled={requestingLocation}
+              onPress={() => onChange(item)}
+              android_ripple={{ color: colors.border, borderless: true }}
+            >
+              <Text style={[styles.modeTabText, active ? styles.modeTabTextActive : null]}>
+                {item === 'closest' && !hasLocation ? 'Nearest' : modeLabels[item]}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </ScrollView>
+    </View>
   );
 }
 
@@ -760,13 +959,44 @@ function OutOfRangeState({
   );
 }
 
-function SnapshotPill({ label, value, tone }: { label: string; value: number; tone: object }) {
+function SnapshotPill({ label, value, tone, onPress }: { label: string; value: number; tone: object; onPress: () => void }) {
   return (
-    <View style={[styles.snapshotPill, tone]}>
-      <Text style={styles.snapshotValue}>{value}</Text>
-      <Text style={styles.snapshotLabel}>{label}</Text>
-    </View>
+    <Pressable style={[styles.snapshotPill, tone]} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
+      <View>
+        <Text style={styles.snapshotValue}>{value}</Text>
+        <Text style={styles.snapshotLabel}>{label}</Text>
+      </View>
+      <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={17} />
+    </Pressable>
   );
+}
+
+function searchScoreTone(rating: RiverSummaryApiItem['rating']) {
+  if (rating === 'Strong') {
+    return {
+      score: { backgroundColor: '#E0EFE9' },
+      text: { color: colors.strong },
+    };
+  }
+
+  if (rating === 'Good') {
+    return {
+      score: { backgroundColor: '#E8EFD9' },
+      text: { color: colors.good },
+    };
+  }
+
+  if (rating === 'Fair') {
+    return {
+      score: { backgroundColor: '#F3E8CC' },
+      text: { color: colors.fair },
+    };
+  }
+
+  return {
+    score: { backgroundColor: '#F2DDD6' },
+    text: { color: colors.noGo },
+  };
 }
 
 function toSavedRiver(river: BoardItem) {
@@ -780,6 +1010,13 @@ function toSavedRiver(river: BoardItem) {
 
 function routeReachWithState(river: BoardItem | RiverSummaryApiItem) {
   return [river.river.reach, stateAbbreviation(river.river.state)].filter(Boolean).join(' - ');
+}
+
+function stateLabel(state: string) {
+  return state
+    .split(/\s+/)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
 }
 
 function stateAbbreviation(state: string) {
@@ -889,7 +1126,7 @@ function sectionSubtitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Shortest drives first.';
   if (mode === 'score') return 'Rivers ordered by score.';
   if (mode === 'certain') return 'High-confidence calls first, then score.';
-  return 'Best mix of score, confidence, and drive time. Skip calls stay visible for rechecks.';
+  return 'Best current calls. Skips stay visible for rechecks.';
 }
 
 function headlineLabelForMode(mode: BoardMode, headline: BoardItem | null) {
@@ -913,7 +1150,14 @@ function boardIntroTitleForMode(mode: BoardMode) {
   if (mode === 'closest') return 'Closest routes';
   if (mode === 'score') return 'Rivers ordered by score';
   if (mode === 'certain') return 'Highest-confidence calls';
-  return 'Today\'s route calls';
+  return 'Today\'s Calls';
+}
+
+function exploreIntentForMode(mode: BoardMode, hasLocation: boolean): ExploreIntentId {
+  if (mode === 'closest') return 'best-nearby';
+  if (mode === 'score') return 'clean-now';
+  if (mode === 'certain') return 'clean-now';
+  return hasLocation ? 'best-nearby' : 'clean-now';
 }
 
 function emptyTitleForMode(mode: BoardMode, hasLocation: boolean, locationStatus: string) {
@@ -1062,6 +1306,46 @@ const styles = StyleSheet.create({
     lineHeight: 19,
     fontWeight: '700',
   },
+  heroActionRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  heroPrimaryAction: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceStrong,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    paddingHorizontal: spacing.md,
+  },
+  heroSecondaryAction: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 255, 255, 0.7)',
+    backgroundColor: 'rgba(255, 255, 255, 0.14)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 7,
+    paddingHorizontal: spacing.md,
+  },
+  heroActionDisabled: {
+    opacity: 0.65,
+  },
+  heroPrimaryActionText: {
+    color: colors.accentDeep,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  heroSecondaryActionText: {
+    color: colors.surfaceStrong,
+    fontSize: 13,
+    fontWeight: '900',
+  },
   snapshotSummary: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.md,
@@ -1083,6 +1367,13 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     paddingHorizontal: spacing.sm,
     paddingVertical: spacing.sm,
+    minHeight: 62,
+    borderWidth: 1,
+    borderColor: 'rgba(21, 49, 43, 0.08)',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.xs,
   },
   snapshotStrong: {
     backgroundColor: '#E0EFE9',
@@ -1104,46 +1395,69 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     textTransform: 'uppercase',
   },
-  locationStrip: {
-    flexDirection: 'row',
-    alignItems: 'center',
+  exploreActions: {
     backgroundColor: colors.surfaceStrong,
     borderRadius: radius.lg,
     borderWidth: 1,
     borderColor: colors.border,
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    gap: spacing.md,
+    padding: spacing.md,
+    gap: spacing.sm,
   },
-  locationCopy: {
-    flex: 1,
+  exploreActionsHeader: {
+    gap: 2,
   },
-  locationLabel: {
-    color: colors.textMuted,
-    fontSize: 11,
-    fontWeight: '800',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  locationValue: {
+  exploreActionsTitle: {
     color: colors.text,
-    fontSize: 14,
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  exploreActionsSubtitle: {
+    color: colors.textMuted,
+    fontSize: 12,
+    lineHeight: 17,
     fontWeight: '700',
-    marginTop: 2,
   },
-  locationButton: {
-    backgroundColor: colors.accent,
+  exploreActionGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  exploreActionChip: {
+    minHeight: 40,
     borderRadius: radius.pill,
-    paddingHorizontal: 14,
-    paddingVertical: 9,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
   },
-  locationButtonDisabled: {
+  exploreActionPrimary: {
+    minHeight: 40,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    paddingHorizontal: 12,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+  },
+  exploreActionDisabled: {
     opacity: 0.65,
   },
-  locationButtonText: {
+  exploreActionText: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  exploreActionPrimaryText: {
     color: colors.surfaceStrong,
     fontSize: 12,
-    fontWeight: '800',
+    fontWeight: '900',
   },
   knownSearchCard: {
     backgroundColor: colors.surfaceStrong,
@@ -1178,21 +1492,27 @@ const styles = StyleSheet.create({
     fontSize: 15,
     paddingVertical: 9,
   },
+  knownSearchPlaceholder: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 15,
+    paddingVertical: 9,
+  },
   knownSearchResults: {
     gap: spacing.xs,
   },
   knownSearchResult: {
-    minHeight: 54,
+    minHeight: 92,
     borderRadius: radius.md,
     backgroundColor: colors.surface,
     flexDirection: 'row',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     gap: spacing.sm,
-    padding: spacing.sm,
+    padding: spacing.md,
   },
   knownSearchScore: {
-    width: 38,
-    height: 38,
+    width: 42,
+    height: 42,
     borderRadius: 12,
     backgroundColor: colors.accentSoft,
     alignItems: 'center',
@@ -1206,16 +1526,44 @@ const styles = StyleSheet.create({
   knownSearchCopy: {
     flex: 1,
     minWidth: 0,
+    gap: 3,
+  },
+  knownSearchTopLine: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
   },
   knownSearchName: {
+    flex: 1,
     color: colors.text,
-    fontSize: 14,
+    fontSize: 15,
     fontWeight: '900',
   },
   knownSearchMeta: {
     color: colors.textMuted,
     fontSize: 12,
+    fontWeight: '700',
+  },
+  knownSearchReach: {
+    color: colors.text,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  knownSearchFacts: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 5,
     marginTop: 2,
+  },
+  knownSearchFact: {
+    maxWidth: '100%',
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '800',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
   },
   knownSearchEmpty: {
     borderRadius: radius.md,
@@ -1231,6 +1579,121 @@ const styles = StyleSheet.create({
   knownSearchEmptyAction: {
     color: colors.accent,
     fontSize: 13,
+    fontWeight: '900',
+  },
+  searchModalScreen: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+  },
+  searchModalContent: {
+    flex: 1,
+    paddingHorizontal: spacing.md,
+    gap: spacing.md,
+  },
+  searchModalHeader: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  searchModalTitle: {
+    color: colors.text,
+    fontSize: 24,
+    lineHeight: 29,
+    fontWeight: '900',
+  },
+  searchModalSubtitle: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+    marginTop: 3,
+  },
+  searchModalClose: {
+    width: 42,
+    height: 42,
+    borderRadius: 21,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  searchModalInputRow: {
+    minHeight: 48,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  searchModalInput: {
+    flex: 1,
+    minWidth: 0,
+    color: colors.text,
+    fontSize: 16,
+    paddingVertical: 10,
+  },
+  searchModalResults: {
+    flex: 1,
+  },
+  searchModalResultsContent: {
+    gap: spacing.sm,
+    paddingBottom: spacing.lg,
+  },
+  searchModalEmpty: {
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.lg,
+    gap: spacing.xs,
+  },
+  searchModalEmptyTitle: {
+    color: colors.text,
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  searchModalEmptyText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  searchStateSection: {
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  searchStateTitle: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  searchStateGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  searchStateChip: {
+    minHeight: 36,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  searchStateText: {
+    color: colors.text,
+    fontSize: 12,
     fontWeight: '900',
   },
   zeroReadyCard: {
@@ -1281,20 +1744,36 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
+  previewSortCard: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.lg,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.sm,
+    gap: spacing.xs,
+  },
+  previewSortLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.3,
+    paddingHorizontal: 4,
+  },
   modeTabs: {
     flexDirection: 'row',
     gap: spacing.sm,
     paddingRight: spacing.md,
   },
   modeTab: {
-    minHeight: 38,
+    minHeight: 34,
     borderRadius: radius.pill,
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 6,
-    paddingHorizontal: 14,
-    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: 12,
+    backgroundColor: colors.surface,
     borderWidth: 1,
     borderColor: colors.border,
   },
@@ -1307,19 +1786,14 @@ const styles = StyleSheet.create({
   },
   modeTabText: {
     color: colors.textMuted,
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: '800',
   },
   modeTabTextActive: {
     color: colors.surfaceStrong,
   },
-  modeCount: {
-    color: colors.textMuted,
-    fontSize: 12,
-    fontWeight: '900',
-  },
-  modeCountActive: {
-    color: colors.surfaceStrong,
+  todayCallsSection: {
+    gap: spacing.sm,
   },
   sectionStack: {
     gap: spacing.sm,
@@ -1328,9 +1802,34 @@ const styles = StyleSheet.create({
     paddingHorizontal: 2,
     gap: 2,
   },
+  sectionHeadingTop: {
+    minHeight: 32,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
   sectionTitle: {
+    flex: 1,
     color: colors.text,
     fontSize: 19,
+    fontWeight: '900',
+  },
+  sectionAction: {
+    minHeight: 32,
+    borderRadius: radius.pill,
+    backgroundColor: colors.surfaceStrong,
+    borderWidth: 1,
+    borderColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 5,
+    paddingHorizontal: 10,
+  },
+  sectionActionText: {
+    color: colors.accent,
+    fontSize: 12,
     fontWeight: '900',
   },
   sectionSubtitle: {

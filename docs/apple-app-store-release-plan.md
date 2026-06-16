@@ -2,6 +2,17 @@
 
 Status as of 2026-05-22.
 
+## Version 3 Prep
+
+Local release metadata for the next store build is prepared as:
+
+- App version: `1.0.3`
+- Next iOS build number: `15`
+- Next Android versionCode: `7`
+- Release notes: use the current `docs/mobile-store-listing-draft.md` notes for the new Today page, route search, Explore filters, supported-river browser, Mississippi River coverage, and usability fixes.
+
+Before App Review or Play production submission, capture fresh screenshots from this build because the old store screenshots predate the redesigned Today and Explore flows.
+
 ## Current Release State
 
 - App name: PaddleToday
@@ -137,7 +148,7 @@ paddling,canoe,kayak,river,routes,water levels,conditions,map,weather,camping,Mi
 What's New:
 
 ```text
-Initial PaddleToday mobile release with Today recommendations, map-first route exploration, Weekend planning, saved rivers, detailed river pages, route requests, route reports, optional photo uploads, and safety/support links.
+New Today page, faster route search, improved Explore filters, supported-river browsing, additional Mississippi River coverage, and smaller usability fixes for planning from current river conditions.
 ```
 
 URLs:

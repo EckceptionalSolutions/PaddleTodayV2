@@ -9,7 +9,7 @@ npm run mobile:typecheck
 
 The release check validates the repo-side configuration that can be checked without App Store, Play Console, or EAS account access:
 
-- `apps/mobile/app.json` and `apps/mobile/eas.json` parse.
+- `apps/mobile/app.config.base.json` and `apps/mobile/eas.json` parse.
 - Bundle/package identifiers and native version fields are present.
 - Production API URL is configured for EAS build profiles.
 - Metro config is present.

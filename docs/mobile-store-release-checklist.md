@@ -10,7 +10,7 @@ Production API note: the desktop web app already uses the production PaddleToday
 - [x] Use the production API URL in EAS build environments.
 - [x] Add a non-dev production API fallback in `apps/mobile/src/lib/api-base-url.ts`.
 - [x] Add `npm run mobile:api-smoke` for production API contract checks.
-- [x] Add iOS `buildNumber` and Android `versionCode` to `apps/mobile/app.json`.
+- [x] Add iOS `buildNumber` and Android `versionCode` to `apps/mobile/app.config.base.json`.
 - [x] Document local vs production API setup in `apps/mobile/.env.example`.
 - [x] Add `npm run mobile:release-check` for repo-side EAS readiness validation.
 - [x] Document EAS internal build workflow in `docs/mobile-eas-internal-build-runbook.md`.

@@ -12,7 +12,7 @@ Primary references:
 - Use real in-app screens, not marketing-only mockups.
 - Use production API data.
 - Avoid showing personal email addresses, private report text, or private location labels.
-- Prefer routes with strong visuals and clear facts. Rice Creek is a good home/detail example because route imagery exists.
+- Prefer routes with strong visuals and clear facts. Rice Creek remains a good detail example; Norin Landing / Mississippi River is a good new-route example because fresh put-in imagery exists.
 - Keep overlays out of the screenshots unless they are part of the app UI. Google warns that extra text can be cut off on some Play surfaces.
 - Capture the same route/order across platforms when possible so App Store and Play listings tell one coherent story.
 
@@ -117,14 +117,14 @@ Message conveyed by screen:
 
 - The app is useful beyond same-day paddling.
 
-### 6. Saved Or More
+### 6. Supported Rivers Or Saved
 
 Pick one depending on the final store story:
 
 - Saved: if emphasizing repeat local use.
-- More: if emphasizing safety, support, and diagnostics.
+- More / Supported rivers: if emphasizing expanded coverage and the new state browser.
 
-Recommended for MVP: Saved, after saving 2-3 routes.
+Recommended for Version 3: Supported rivers if the store story is "more coverage and better discovery"; otherwise Saved after saving 2-3 routes.
 
 Message conveyed by screen:
 

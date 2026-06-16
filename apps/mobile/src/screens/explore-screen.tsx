@@ -1,7 +1,7 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useRouter } from 'expo-router';
+import { useLocalSearchParams, useRouter } from 'expo-router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Pressable, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -15,6 +15,7 @@ import {
   isExploreFilters,
   paddleTimeMatches,
   routeTypeMatches,
+  statusMatches,
   type ExploreFilters,
 } from '../components/explore-filter-sheet';
 import {
@@ -27,6 +28,14 @@ import { useStoredLocation } from '../hooks/use-stored-location';
 import { resolveApiBaseUrl } from '../lib/api-base-url';
 import { formatRelativeTime } from '../lib/format';
 import { distanceMiles, distancePenalty, formatTravelTime } from '../lib/location';
+import {
+  descriptionForExploreIntent,
+  EXPLORE_PREFERENCES_STORAGE_KEY,
+  filtersForExploreIntent,
+  isExploreIntentId,
+  labelForExploreIntent,
+  type ExploreIntentId,
+} from '../lib/explore-intents';
 import { trackAppEvent } from '../lib/observability';
 import { buildRouteGroupMeta, routeGroupMetaForRoute } from '../lib/route-groups';
 import { isRecord, parseJson } from '../lib/storage';
@@ -43,8 +52,6 @@ interface ExplorePreferences {
   viewMode?: 'list' | 'map';
 }
 
-const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v3';
-
 const confidenceRank = {
   High: 3,
   Medium: 2,
@@ -59,6 +66,7 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
+  const params = useLocalSearchParams<{ intent?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -70,6 +78,8 @@ export default function ExploreScreen() {
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
   const appliedStoredLocationDefaultRef = useRef(false);
+  const appliedIntentRef = useRef<string | null>(null);
+  const requestedIntent = isExploreIntentId(params.intent) ? params.intent : null;
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -105,7 +115,7 @@ export default function ExploreScreen() {
   }, [filters, filtersOpen]);
 
   useEffect(() => {
-    if (!preferencesHydrated || !location || appliedStoredLocationDefaultRef.current) {
+    if (!preferencesHydrated || requestedIntent || !location || appliedStoredLocationDefaultRef.current) {
       return;
     }
 
@@ -121,7 +131,16 @@ export default function ExploreScreen() {
         state: nearestSupportedState ?? current.state,
       };
     });
-  }, [location, nearestSupportedState, preferencesHydrated]);
+  }, [location, nearestSupportedState, preferencesHydrated, requestedIntent]);
+
+  useEffect(() => {
+    if (!preferencesHydrated || !requestedIntent || appliedIntentRef.current === requestedIntent) {
+      return;
+    }
+
+    appliedIntentRef.current = requestedIntent;
+    setFilters(filtersForExploreIntent(requestedIntent, { locationReady: Boolean(location) }));
+  }, [location, preferencesHydrated, requestedIntent]);
 
   useEffect(() => {
     if (!preferencesHydrated) {
@@ -186,6 +205,7 @@ export default function ExploreScreen() {
         activeFilterCount={activeFilterCount}
         filters={filters}
         generatedAt={summaryQuery.data?.generatedAt}
+        requestedIntent={requestedIntent}
         mapHeight={windowHeight}
         results={results}
         selectedRiver={selectedRiver}
@@ -203,6 +223,10 @@ export default function ExploreScreen() {
         onOpenRiverRoutes={openExploreRiverRoutes}
         onOpenRoute={(route) => router.push({ pathname: '/river/[slug]', params: { slug: route.river.slug } })}
         onRefresh={() => summaryQuery.refetch()}
+        onClearIntent={() => {
+          setFilters(defaultFilters);
+          router.replace('/explore');
+        }}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
         onSelectSlug={setSelectedSlug}
         onUseLocation={() => void requestLocation()}
@@ -228,8 +252,8 @@ export default function ExploreScreen() {
   async function hydrateExplorePreferences() {
     try {
       const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
-      if (isExplorePreferences(parsed)) {
-        setFilters(parsed.filters);
+      if (isExplorePreferences(parsed) && !requestedIntent) {
+        setFilters(normalizeExploreFilters(parsed.filters));
       }
     } catch {
       // Leave the default Explore setup if local preferences are unavailable.
@@ -250,6 +274,7 @@ function FullScreenExploreMap({
   activeFilterCount,
   filters,
   generatedAt,
+  requestedIntent,
   mapHeight,
   results,
   selectedRiver,
@@ -265,6 +290,7 @@ function FullScreenExploreMap({
   onOpenRiverRoutes,
   onOpenRoute,
   onRefresh,
+  onClearIntent,
   onSearchChange,
   onSelectSlug,
   onToggleSaved,
@@ -274,6 +300,7 @@ function FullScreenExploreMap({
   activeFilterCount: number;
   filters: ExploreFilters;
   generatedAt?: string;
+  requestedIntent: ExploreIntentId | null;
   mapHeight: number;
   results: ExploreRiver[];
   selectedRiver: ExploreRiver | null;
@@ -289,6 +316,7 @@ function FullScreenExploreMap({
   onOpenRiverRoutes: (route: ExploreRiver) => void;
   onOpenRoute: (route: ExploreRiver) => void;
   onRefresh: () => void;
+  onClearIntent: () => void;
   onSearchChange: (query: string) => void;
   onSelectSlug: (slug: string) => void;
   onToggleSaved: (river: ExploreRiver) => void;
@@ -300,9 +328,16 @@ function FullScreenExploreMap({
   const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
   const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
-  const userOutOfRange = Boolean(userLocation && results.length > 0 && results.every((route) => (route.distanceMiles ?? 0) > 180));
+  const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const searchResultSignature = points.map((point) => point.id).join('|');
+  const intentBanner = requestedIntent
+    ? {
+        title: labelForExploreIntent(requestedIntent),
+        body: descriptionForExploreIntent(requestedIntent, Boolean(userLocation)),
+      }
+    : null;
+  const overlayTop = topInset + (intentBanner ? 222 : 154);
 
   useEffect(() => {
     if (!filters.query.trim() || points.length === 0) {
@@ -392,10 +427,21 @@ function FullScreenExploreMap({
             <MaterialCommunityIcons name="refresh" color={colors.accent} size={16} />
           </Pressable>
         </View>
+        {intentBanner ? (
+          <View style={styles.intentBanner}>
+            <View style={styles.intentBannerCopy}>
+              <Text style={styles.intentBannerTitle}>{intentBanner.title}</Text>
+              <Text style={styles.intentBannerBody} numberOfLines={1}>{intentBanner.body}</Text>
+            </View>
+            <Pressable style={styles.intentBannerClear} onPress={onClearIntent} accessibilityRole="button" accessibilityLabel="Clear Home filters">
+              <MaterialCommunityIcons name="close" color={colors.accent} size={17} />
+            </Pressable>
+          </View>
+        ) : null}
       </View>
 
       {userOutOfRange ? (
-        <View style={[styles.coverageBanner, { top: topInset + 154 }]}>
+        <View style={[styles.coverageBanner, { top: overlayTop }]}>
           <MaterialCommunityIcons name="map-marker-distance" color={colors.accent} size={18} />
           <Text style={styles.coverageBannerText}>
             PaddleToday supports select Midwest rivers.
@@ -403,7 +449,7 @@ function FullScreenExploreMap({
         </View>
       ) : null}
 
-      <View style={[styles.mapOverlayActions, { top: topInset + (userOutOfRange ? 210 : 154) }]}>
+      <View style={[styles.mapOverlayActions, { top: overlayTop + (userOutOfRange ? 56 : 0) }]}>
         <Pressable
           style={styles.mapFab}
           onPress={() => mapRef.current?.focusSelected()}
@@ -524,6 +570,7 @@ function applyExploreFilters(
       if (filters.state && river.river.state !== filters.state) return false;
       if (filters.difficulty !== 'any' && river.river.difficulty !== filters.difficulty) return false;
       if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
+      if (!statusMatches(river.rating, filters.status)) return false;
       if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
       if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime)) return false;
       if (distanceLimit !== null && (river.distanceMiles === null || river.distanceMiles > distanceLimit)) return false;
@@ -629,6 +676,14 @@ function errorDetailForExploreQuery(error: unknown) {
   return `${resolveApiBaseUrl()} - ${message}`;
 }
 
+function normalizeExploreFilters(filters: ExploreFilters): ExploreFilters {
+  return {
+    ...defaultFilters,
+    ...filters,
+    status: filters.status ?? 'any',
+  };
+}
+
 function isExplorePreferences(value: unknown): value is ExplorePreferences {
   return (
     isRecord(value) &&
@@ -732,6 +787,47 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 12,
     fontWeight: '900',
+  },
+  intentBanner: {
+    minHeight: 50,
+    borderRadius: radius.md,
+    backgroundColor: 'rgba(255, 255, 255, 0.96)',
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    shadowColor: '#000',
+    shadowOpacity: 0.12,
+    shadowRadius: 9,
+    elevation: 3,
+  },
+  intentBannerCopy: {
+    flex: 1,
+    minWidth: 0,
+  },
+  intentBannerTitle: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  intentBannerBody: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '700',
+    marginTop: 2,
+  },
+  intentBannerClear: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   fullMapLocationPrompt: {
     position: 'absolute',

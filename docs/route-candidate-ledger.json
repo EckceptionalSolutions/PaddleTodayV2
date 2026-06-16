@@ -1,7 +1,9 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-12T17:58:00.000Z",
+    "updatedAt": "2026-06-14T22:18:00.000Z",
     "notes": [
+        "2026-06-14 17:18 America/Chicago / 2026-06-14 22:18 UTC Minnesota Mississippi MR 20 split implementation pass. Added Mississippi River Norin Landing to Babcock Public Water Access as mississippi-river-norin-babcock, using it as the upstream split of the Two Paddles MR 20 route while the existing Babcock-to-Peninsula Point route covers the downstream split. Minnesota public-water-access GIS resolves Norin Landing WAS02427 at 45.3042771, -93.6838810 and Babcock WAS01299 at 45.2897452, -93.5580094. The route uses MN DNR site 302 / USGS 05288500 Hwy 610 as the same conservative downstream mainstem proxy and keeps the official DNR bands: Scrapable below 3060 cfs, Low 3060-8670 cfs, Medium 8670-28300 cfs, High 28300-33000 cfs, Very High above 33000 cfs. Two user-provided Norin put-in photos were optimized and added to the route gallery.",
+        "2026-06-14 17:03 America/Chicago / 2026-06-14 22:03 UTC Minnesota Mississippi upstream implementation pass. Added Mississippi River Babcock Public Water Access to Peninsula Point Park as mississippi-river-babcock-peninsula-point. The user-supplied Two Paddles MR 12 route cleared after fresh official checks found MN DNR/USGS Hwy 610 Brooklyn Park gauge 05288500 as product-supported Mississippi mainstem live data plus official DNR bands: Scrapable below 3060 cfs, Low 3060-8670 cfs, Medium 8670-28300 cfs, High 28300-33000 cfs, and Very High above 33000 cfs. Minnesota public-water-access GIS resolves Babcock WAS01299 at 45.2897452, -93.5580094 and the City of Anoka Rum/Mississippi access WAS02198 at 45.1924006, -93.3902433. The route ships conservatively because the gauge is downstream of the Anoka finish and below the Coon Rapids Dam corridor, so it is documented as a downstream mainstem proxy rather than an exact-route gauge.",
         "2026-06-12 12:58 America/Chicago / 2026-06-12 17:58 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 12:30 CDT), Platte near Kearney 06770200 (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and Loup River near Genoa 06793000 (352 cfs at 2026-06-12 12:45 CDT / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
         "2026-06-12 12:53 America/Chicago / 2026-06-12 17:53 UTC North Dakota Little South Pembina seed review. Rebuilt current North Dakota inventory at 3 live route objects and 3 trip-detail keys, with 12 structured North Dakota ledger rows before this pass. Seeded Little South Pembina River 99th Street NE-to-123rd Avenue / confluence bridge family as threshold_weak: American Whitewater identifies the Little South Pembina reach, exact feature coordinates for 99th Street NE, 117th Avenue NE, and 123rd Avenue, direct USGS 05099400 gauge support, Class I-II character, and a 100 cfs low-runnable floor; USGS Water Services IV returned product-style values of 29.2 cfs / 1.63 ft at 2026-06-12 12:15 CDT; and the Walhalla/Rendezvous Region map labels canoe-access context in the Little South Pembina/Pembina Gorge area. No route was added because the public access-to-access route package remains too ambiguous for V2: AW presents a 5.6-19 mile family, bridge-use access is not corroborated by a clean official endpoint page, and the only numeric threshold model is community/AW guidance with an overly broad high-runnable ceiling rather than a defensible low/ideal/high product score.",
         "2026-06-12 12:48 America/Chicago / 2026-06-12 17:48 UTC Nebraska no-add blocker refresh. Rebuilt current Nebraska inventory from route objects and trip details and confirmed 1 live Nebraska route and 1 Nebraska trip-detail object, both platte-river-schramm-louisville, with 7 structured Nebraska candidate rows before this pass. Rechecked the six unimplemented Nebraska candidates only. USGS Water Services IV returned current product-style values for Niobrara Sparks 06461500 (692 cfs / 2.72 ft at 2026-06-12 11:45 CDT), Elkhorn West Point 06799350 (628 cfs / 4.09 ft at 2026-06-12 12:15 CDT), Missouri River Yankton 06467500 stage (10.29 ft at 2026-06-12 12:30 CDT), Platte near Kearney 06770200 (1590 cfs / 3.59 ft at 2026-06-12 12:15 CDT), and Loup River near Genoa 06793000 (346 cfs / 4.42 ft at 2026-06-12 11:45 CDT); Calamus 06787500 still returned only stale 319 cfs discharge at 1994-09-30 23:30 CDT. No route was added: Niobrara and Elkhorn still lack numeric source-backed paddling thresholds tied to selected product-supported gauges, Calamus lacks current product data and a short public day route, Missouri National Recreational River lacks a selected Nebraska-side day reach and private-paddlecraft threshold model, Kearney Water Trail is blocked by unsupported Nebraska DWEE 00145700, and Loup lacks implementation-grade public endpoint coordinate pairs plus an official high-water ceiling.",
@@ -7261,6 +7263,97 @@
                 "coordinatesPresent": false
             },
             "notes": "Fresh segment-page metro discovery. Useful to preserve because the route is explicit and practical, but it stays below the trust bar until the exact reach has a route-level live-gauge story. 2026-06-05 09:13 America/Chicago / 2026-06-05 14:13 UTC recheck: no implementation change; decisive blocker preserved. 2026-06-08 recheck: no implementation change; decisive blocker preserved. 2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC recheck: local product-style fetches for MN DNR river-level JSON and USGS IV 05374000/05062130/05270700/05227500/05220600/05242300 still failed with Unable to connect to the remote server; no new official route-specific threshold or live-gauge evidence cleared the existing blocker."
+        },
+        {
+            "candidateId": "mn-mississippi-river-norin-babcock",
+            "river": "Mississippi River",
+            "route": "Norin Landing to Babcock Public Water Access",
+            "state": "MN",
+            "status": "added",
+            "lastReviewed": "2026-06-14",
+            "reviewCount": 1,
+            "blocker": "Added to PaddleTodayV2 on 2026-06-14 as mississippi-river-norin-babcock.",
+            "retryCondition": "Already added; revisit only if MN DNR, USGS, Two Paddles, Otsego/DNR managers, or user field reports justify changing the split framing, downstream-proxy gauge treatment, thresholds, hazards, or endpoint details.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "Two Paddles MR 20 overview opened 2026-06-14; confirms the Norin/Kadler-to-Peninsula Point route family and downstream finish context.",
+                "MN DNR river-level JSON opened 2026-06-14; site 302 / Mississippi River at Hwy 610 in Brooklyn Park exposed current DNR reading and official interpretation bands.",
+                "USGS Water Services IV opened 2026-06-14; station 05288500 returned product-style discharge and stage values for Mississippi River at Hwy 610 in Brooklyn Park.",
+                "Minnesota public-water-access GIS opened 2026-06-14; resolved Mississippi River, Norin Landing Public Water Access Site / WAS02427 and Mississippi River, Babcock Public Water Access Site / WAS01299.",
+                "User-provided Norin Landing put-in photos added to route gallery."
+            ],
+            "aliases": [
+                "Mississippi River - Norin Landing to Babcock Public Water Access",
+                "Mississippi River - Norin to Babcock",
+                "Two Paddles MR 20 upstream split"
+            ],
+            "v2Slug": "mississippi-river-norin-babcock",
+            "gauge": {
+                "quality": "proxy",
+                "id": "05288500",
+                "provider": "mn_dnr",
+                "notes": "MN DNR site 302 / USGS 05288500 is a product-supported Mississippi mainstem discharge gauge at Hwy 610 in Brooklyn Park. It is far downstream of the Norin-to-Babcock split and below the Coon Rapids Dam corridor, so the app documents it as a downstream mainstem proxy and asks for a visual check at Norin."
+            },
+            "thresholdSupport": {
+                "strength": "strong",
+                "notes": "Official MN DNR bands for site 302: Scrapable below 3060 cfs, Low 3060-8670 cfs, Medium 8670-28300 cfs, High 28300-33000 cfs, Very High above 33000 cfs."
+            },
+            "endpoints": {
+                "putIn": "Mississippi River, Norin Landing Public Water Access Site",
+                "takeOut": "Mississippi River, Babcock Public Water Access Site",
+                "coordinatesPresent": true,
+                "putInLatitude": 45.3042771,
+                "putInLongitude": -93.683881,
+                "takeOutLatitude": 45.2897452,
+                "takeOutLongitude": -93.5580094,
+                "coordinateSource": "Minnesota public-water-access GIS records WAS02427 and WAS01299."
+            },
+            "notes": "Implemented 2026-06-14 as the upstream split of the Two Paddles MR 20 course. The existing Babcock-to-Peninsula Point route covers the downstream split, avoiding a duplicate 20-mile route object while still supporting the full Norin-to-Anoka day."
+        },
+        {
+            "candidateId": "mn-mississippi-river-babcock-peninsula-point",
+            "river": "Mississippi River",
+            "route": "Babcock Public Water Access to Peninsula Point Park",
+            "state": "MN",
+            "status": "added",
+            "lastReviewed": "2026-06-14",
+            "reviewCount": 1,
+            "blocker": "Added to PaddleTodayV2 on 2026-06-14 as mississippi-river-babcock-peninsula-point.",
+            "retryCondition": "Already added; revisit only if MN DNR, USGS, Two Paddles, Anoka/Champlin managers, or user field reports justify changing the downstream-proxy gauge treatment, thresholds, hazards, or endpoint details.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "Two Paddles MR 12 overview and Mississippi River background pages opened 2026-06-14; confirm Babcock Park at river mile 883.4 as the MR 12 start and all events ending at Peninsula Point Park in Anoka near river mile 871.",
+                "MN DNR river-level JSON opened 2026-06-14; site 302 / Mississippi River at Hwy 610 in Brooklyn Park exposed current DNR reading and official interpretation bands.",
+                "USGS Water Services IV opened 2026-06-14; station 05288500 returned product-style discharge and stage values for Mississippi River at Hwy 610 in Brooklyn Park.",
+                "Minnesota public-water-access GIS opened 2026-06-14; resolved Mississippi River, Babcock Public Water Access Site / WAS01299 and City of Anoka Rum/Mississippi River Public Water Access Site / WAS02198."
+            ],
+            "aliases": [
+                "Mississippi River - Babcock Public Water Access to Peninsula Point Park",
+                "Mississippi River - Babcock to Anoka",
+                "Two Paddles MR 12"
+            ],
+            "v2Slug": "mississippi-river-babcock-peninsula-point",
+            "gauge": {
+                "quality": "proxy",
+                "id": "05288500",
+                "provider": "mn_dnr",
+                "notes": "MN DNR site 302 / USGS 05288500 is a product-supported Mississippi mainstem discharge gauge at Hwy 610 in Brooklyn Park. It sits downstream of the Anoka finish and below the Coon Rapids Dam corridor, so the app documents it as a downstream mainstem proxy rather than an exact-route gauge."
+            },
+            "thresholdSupport": {
+                "strength": "strong",
+                "notes": "Official MN DNR bands for site 302: Scrapable below 3060 cfs, Low 3060-8670 cfs, Medium 8670-28300 cfs, High 28300-33000 cfs, Very High above 33000 cfs."
+            },
+            "endpoints": {
+                "putIn": "Mississippi River, Babcock Public Water Access Site",
+                "takeOut": "Peninsula Point Park / Rum-Mississippi River access",
+                "coordinatesPresent": true,
+                "putInLatitude": 45.2897452,
+                "putInLongitude": -93.5580094,
+                "takeOutLatitude": 45.1924006,
+                "takeOutLongitude": -93.3902433,
+                "coordinateSource": "Minnesota public-water-access GIS records WAS01299 and WAS02198."
+            },
+            "notes": "Implemented 2026-06-14 as the first upstream northwest-metro Mississippi add from the Two Paddles MR 12 course. The route improves coverage upstream of the existing Twin Cities Mississippi routes while staying conservative about the downstream Hwy 610 proxy gauge and big-river wind/wake/island hazards."
         },
         {
             "candidateId": "mn-north-fork-crow-river-city-of-rockford-trailer-access-riverside-county-park",

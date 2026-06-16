@@ -55,7 +55,11 @@ describe('getAllRiverScores', () => {
     const vermilionGroups = groups.filter((group) => group.name === 'Vermilion River');
     const stCroixGroup = groups.find((group) => group.riverId === 'st-croix-river');
 
-    expect(pineGroups.map((group) => group.riverId).sort()).toEqual(['pine-river-minnesota', 'pine-river-wisconsin']);
+    expect(pineGroups.map((group) => group.riverId).sort()).toEqual([
+      'pine-river-michigan',
+      'pine-river-minnesota',
+      'pine-river-wisconsin',
+    ]);
     expect(vermilionGroups.map((group) => group.riverId).sort()).toEqual([
       'vermilion-river-illinois',
       'vermilion-river-ohio',

@@ -38,7 +38,7 @@ paddling, canoe, kayak, river, water level, river conditions, trip planning, map
 
 ## Release Notes
 
-Initial mobile MVP with Today recommendations, map-first Explore, Weekend planning, saved rivers, river detail pages, route requests, safety links, and an API diagnostic check.
+New Today page, faster route search, improved Explore filters, supported-river browsing, additional Mississippi River coverage, and smaller usability fixes for planning from current river conditions.
 
 ## Support URL
 

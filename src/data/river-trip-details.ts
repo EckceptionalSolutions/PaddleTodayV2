@@ -1768,6 +1768,78 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'mississippi-river-norin-babcock': {
+    putIn: {
+      name: 'Mississippi River, Norin Landing Public Water Access Site',
+      latitude: 45.3042771,
+      longitude: -93.683881,
+    },
+    takeOut: {
+      name: 'Mississippi River, Babcock Public Water Access Site',
+      latitude: 45.2897452,
+      longitude: -93.5580094,
+    },
+    logistics: {
+      distanceLabel: 'About 7.6 mi',
+      estimatedPaddleTime: 'About 2 hr 15 min to 3.5 hr depending on wind and current',
+      shuttle:
+        'Stage the take-out at Babcock, then drive upstream to Norin Landing. To paddle the full MR 20-style day, continue from Babcock onto the separate Babcock-to-Peninsula Point route.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public-water-access sites and follow posted DNR, City of Otsego, and rest-area rules.',
+      camping:
+        'No camping is assumed for this split. Treat it as a day route or the first leg of a longer MR 20-style paddle.',
+      summary:
+        'Launch at Norin Landing and take out at Babcock for the upper split of the Two Paddles MR 20 course. It is a shorter big-river leg that connects cleanly to the existing Babcock-to-Anoka route.',
+      accessCaveats: [
+        'Norin Landing is a City of Otsego public water access on Kadler Avenue with a DNR GIS record, but same-day parking and ramp conditions should still be checked before leaving a vehicle.',
+        'Babcock is a DNR-listed Mississippi access at the Babcock Highway Rest Area with limited trailer parking and no restroom in the GIS record.',
+        'The Hwy 610 gauge is far downstream of this split and below the Coon Rapids Dam corridor. Use it as a conservative mainstem proxy and make a visual call at Norin before launching.',
+      ],
+      watchFor: [
+        'Low-water gravel, exposed rocks, and slow current when the Hwy 610 gauge is in the low band or falling.',
+        'Wind on open bends and slower pools.',
+        'Islands, split channels, bridge approaches, and motorboat wakes.',
+        'Fresh wood, floating debris, and bank snags after storms or rising water.',
+        'Do not commit to the full MR 20 distance unless the group has time, daylight, and a take-out plan for Peninsula Point.',
+      ],
+    },
+  },
+  'mississippi-river-babcock-peninsula-point': {
+    putIn: {
+      name: 'Mississippi River, Babcock Public Water Access Site',
+      latitude: 45.2897452,
+      longitude: -93.5580094,
+    },
+    takeOut: {
+      name: 'Peninsula Point Park / Rum-Mississippi River access',
+      latitude: 45.1924006,
+      longitude: -93.3902433,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on wind, current, and stops',
+      shuttle:
+        'Set the take-out in Anoka first, then drive upstream to Babcock. This is a longer northwest-metro shuttle, so leave room for traffic near Elk River, Ramsey, Champlin, and downtown Anoka.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public-water-access sites and follow posted DNR, city, county, and park rules at both ends.',
+      camping:
+        'No camping is assumed for this day route. Use public access points and legal public stops rather than treating islands or private banks as overnight options.',
+      summary:
+        'Launch at Babcock and finish at Peninsula Point Park in Anoka for the 12-mile MR 12 Mississippi course. It is a free-flowing big-river day with official access support and a useful downstream Hwy 610 level ladder.',
+      accessCaveats: [
+        'Babcock is a DNR-listed Mississippi public water access at the Babcock Highway Rest Area with limited trailer parking and no restroom in the GIS record.',
+        'The Anoka finish uses the City of Anoka Rum/Mississippi public water access near Peninsula Point and the Rum River confluence. Confirm the exact landing and event/park conditions before launching.',
+        'The Hwy 610 gauge is downstream of the Anoka finish and below the Coon Rapids Dam corridor, so use it as a conservative mainstem proxy and still make a same-day visual call at Babcock.',
+      ],
+      watchFor: [
+        'Low-water slowdowns and exposed bars when the Hwy 610 gauge is in the low band or falling toward scrapable.',
+        'Wind across wider bends, especially if the river turns into a headwind.',
+        'Motorboat wakes, bridge piers, islands, split channels, and floating debris.',
+        'Busy landing traffic near Anoka and the Rum River confluence.',
+        'High or rising water above the DNR medium band, which can make strainers, eddies, and ferry angles less forgiving.',
+      ],
+    },
+  },
   'mississippi-river-east-river-flats-hidden-falls': {
     putIn: {
       name: 'East River Flats Park',

@@ -262,6 +262,24 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Taken today',
     },
   ],
+  'mississippi-river-norin-babcock': [
+    {
+      id: 'mississippi-norin-landing-user-1',
+      src: '/gallery/mississippi-river-norin-babcock/norin-landing-1.jpg',
+      alt: 'A rocky Mississippi River landing at Norin with canoes pulled up beside the launch and wooded banks across the channel.',
+      caption: 'Norin Landing on the Mississippi',
+      credit: 'Photo by user',
+      takenLabel: 'Taken today',
+    },
+    {
+      id: 'mississippi-norin-landing-user-2',
+      src: '/gallery/mississippi-river-norin-babcock/norin-landing-2.jpg',
+      alt: 'The Mississippi River flows past a shallow gravel shore at Norin Landing under a clear blue sky.',
+      caption: 'Shoreline at Norin Landing',
+      credit: 'Photo by user',
+      takenLabel: 'Taken today',
+    },
+  ],
   'minnehaha-creek-grays-bay-longfellow-lagoon': [
     {
       id: 'minnehaha-creek-commons-2017',

@@ -9,6 +9,7 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export type DifficultyFilter = 'any' | 'easy' | 'moderate' | 'hard';
 export type RouteTypeFilter = 'non-whitewater' | 'whitewater' | 'all';
+export type StatusFilter = 'any' | 'clean' | 'watch' | 'skip';
 export type RatingFilter = 'any' | ScoreRating;
 export type DistanceFilter = 'any' | '50' | '100' | '150' | '200';
 export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | '7-plus';
@@ -19,6 +20,7 @@ export interface ExploreFilters {
   state: string;
   difficulty: DifficultyFilter;
   routeType: RouteTypeFilter;
+  status: StatusFilter;
   rating: RatingFilter;
   distance: DistanceFilter;
   paddleTime: PaddleTimeFilter;
@@ -30,6 +32,7 @@ export const defaultFilters: ExploreFilters = {
   state: '',
   difficulty: 'any',
   routeType: 'all',
+  status: 'any',
   rating: 'any',
   distance: 'any',
   paddleTime: 'any',
@@ -41,6 +44,13 @@ const ratingOptions: Array<{ value: RatingFilter; label: string }> = [
   { value: 'Good', label: 'Good' },
   { value: 'Fair', label: 'Fair' },
   { value: 'No-go', label: 'No-go' },
+];
+
+const statusOptions: Array<{ value: StatusFilter; label: string }> = [
+  { value: 'any', label: 'Any call' },
+  { value: 'clean', label: 'Clean' },
+  { value: 'watch', label: 'Watch' },
+  { value: 'skip', label: 'Skip' },
 ];
 
 const difficultyOptions: Array<{ value: DifficultyFilter; label: string }> = [
@@ -85,6 +95,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
       difficulty: 'easy',
       routeType: 'non-whitewater',
       paddleTime: 'up-to-3',
+      status: 'any',
       rating: 'any',
       sort: 'best',
     }),
@@ -97,7 +108,8 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
       difficulty: 'any',
       routeType: 'all',
       paddleTime: '5-to-7',
-      rating: 'Good',
+      status: 'clean',
+      rating: 'any',
       sort: 'score',
     }),
   },
@@ -107,7 +119,8 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
     apply: (filters, context) => ({
       ...filters,
       distance: context.locationReady ? '100' : 'any',
-      rating: 'Good',
+      status: 'clean',
+      rating: 'any',
       sort: 'nearest',
     }),
   },
@@ -255,7 +268,18 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
-      <FilterGroup title="Score">
+      <FilterGroup title="Route call">
+        {statusOptions.map((option) => (
+          <ChoiceChip
+            key={option.value}
+            label={option.label}
+            selected={filters.status === option.value}
+            onPress={() => onChange({ ...filters, status: option.value })}
+          />
+        ))}
+      </FilterGroup>
+
+      <FilterGroup title="Exact score">
         {ratingOptions.map((option) => (
           <ChoiceChip
             key={option.value}
@@ -382,6 +406,7 @@ export function countActiveFilters(filters: ExploreFilters) {
     filters.state,
     filters.difficulty !== defaultFilters.difficulty,
     filters.routeType !== defaultFilters.routeType,
+    filters.status !== defaultFilters.status,
     filters.rating !== defaultFilters.rating,
     filters.distance !== defaultFilters.distance,
     filters.paddleTime !== defaultFilters.paddleTime,
@@ -392,6 +417,9 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   const labels: string[] = [];
   if (filters.query.trim()) labels.push(`Search: ${filters.query.trim()}`);
   if (filters.state) labels.push(filters.state);
+  if (filters.status === 'clean') labels.push('Clean');
+  if (filters.status === 'watch') labels.push('Watch');
+  if (filters.status === 'skip') labels.push('Skip');
   if (filters.rating !== 'any') labels.push(filters.rating);
   if (filters.difficulty !== 'any') labels.push(capitalize(filters.difficulty));
   if (filters.routeType === 'whitewater') labels.push('Whitewater');
@@ -411,6 +439,7 @@ export function isExploreFilters(value: unknown): value is ExploreFilters {
     typeof value.state === 'string' &&
     isDifficultyFilter(value.difficulty) &&
     isRouteTypeFilter(value.routeType) &&
+    (value.status === undefined || isStatusFilter(value.status)) &&
     isRatingFilter(value.rating) &&
     isDistanceFilter(value.distance) &&
     isPaddleTimeFilter(value.paddleTime)
@@ -421,6 +450,13 @@ export function routeTypeMatches(routeType: RouteType, filter: RouteTypeFilter) 
   if (filter === 'all') return true;
   if (filter === 'whitewater') return routeType === 'whitewater';
   return routeType !== 'whitewater';
+}
+
+export function statusMatches(rating: ScoreRating, filter: StatusFilter) {
+  if (filter === 'any') return true;
+  if (filter === 'clean') return rating === 'Strong' || rating === 'Good';
+  if (filter === 'watch') return rating === 'Fair';
+  return rating === 'No-go';
 }
 
 export function paddleTimeMatches(label: string, filter: PaddleTimeFilter) {
@@ -441,6 +477,10 @@ function isDifficultyFilter(value: unknown): value is DifficultyFilter {
 
 function isRouteTypeFilter(value: unknown): value is RouteTypeFilter {
   return routeTypeOptions.some((option) => option.value === value);
+}
+
+function isStatusFilter(value: unknown): value is StatusFilter {
+  return statusOptions.some((option) => option.value === value);
 }
 
 function isRatingFilter(value: unknown): value is RatingFilter {
@@ -473,6 +513,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
       filters.difficulty === 'easy' &&
       filters.routeType === 'non-whitewater' &&
       filters.paddleTime === 'up-to-3' &&
+      filters.status === 'any' &&
       filters.rating === 'any' &&
       filters.sort === 'best'
     );
@@ -483,13 +524,19 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
       filters.difficulty === 'any' &&
       filters.routeType === 'all' &&
       filters.paddleTime === '5-to-7' &&
-      filters.rating === 'Good' &&
+      filters.status === 'clean' &&
+      filters.rating === 'any' &&
       filters.sort === 'score'
     );
   }
 
   if (id === 'best-nearby') {
-    return filters.distance === (locationReady ? '100' : 'any') && filters.rating === 'Good' && filters.sort === 'nearest';
+    return (
+      filters.distance === (locationReady ? '100' : 'any') &&
+      filters.status === 'clean' &&
+      filters.rating === 'any' &&
+      filters.sort === 'nearest'
+    );
   }
 
   return false;

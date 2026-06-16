@@ -6750,6 +6750,21 @@ Use this file to avoid retrying the same blocked routes unless new evidence dire
   - Blocker: the current official page only gives qualitative flow guidance (`medium to heavy stream flow is best`; rapids may only be runnable after heavy rains) rather than a route-operable live gauge plus defensible threshold model for this exact upper corridor.
   - Retry only if: MN DNR, USGS, or other manager guidance ties the Indian-Lake-to-Bear-Lake-Road route directly to a usable live gauge and threshold story.
 
+- 2026-06-14: `Mississippi River - Norin Landing to Babcock Public Water Access` (`added`)
+  - Implemented as `mississippi-river-norin-babcock`, the upstream split of the Two Paddles MR 20 route.
+  - Product decision: split MR 20 into `Norin Landing to Babcock` plus the already-added `Babcock to Peninsula Point` route, instead of adding a duplicate full 20-mile Norin-to-Anoka route object.
+  - Official access support is strong: Minnesota public-water-access GIS resolves `Mississippi River, Norin Landing Public Water Access Site` / `WAS02427` at `45.3042771, -93.6838810` and `Mississippi River, Babcock Public Water Access Site` / `WAS01299` at `45.2897452, -93.5580094`.
+  - Gauge support reuses MN DNR site `302` / USGS `05288500` at Hwy 610 in Brooklyn Park with official bands (`below 3,060 cfs scrapable`, `3,060-8,670 low`, `8,670-28,300 medium`, `28,300-33,000 high`, `above 33,000 very high`).
+  - Caveat: the gauge is farther downstream from this split and below the Coon Rapids Dam corridor, so route copy requires a visual call at Norin and avoids presenting the gauge as exact-route.
+  - Two user-provided Norin Landing photos were optimized into the route gallery.
+
+- 2026-06-14: `Mississippi River - Babcock Public Water Access to Peninsula Point Park` (`added`)
+  - Implemented as `mississippi-river-babcock-peninsula-point` from the user-supplied Two Paddles MR 12 route.
+  - Official access support is strong: Minnesota public-water-access GIS resolves `Mississippi River, Babcock Public Water Access Site` / `WAS01299` at `45.2897452, -93.5580094` and the City of Anoka `Rum/Mississippi River Public Water Access Site` / `WAS02198` at `45.1924006, -93.3902433`.
+  - Gauge support cleared after fresh review: MN DNR site `302` / USGS `05288500` at Hwy 610 in Brooklyn Park is product-supported Mississippi mainstem live data with official DNR bands (`below 3,060 cfs scrapable`, `3,060-8,670 low`, `8,670-28,300 medium`, `28,300-33,000 high`, `above 33,000 very high`).
+  - Caveat: the route uses Hwy 610 as a downstream mainstem proxy because the gauge is downstream of the Anoka finish and below the Coon Rapids Dam corridor; do not generalize this into acceptance of weaker metro Mississippi proxy gauges without the same official DNR bands and route-specific explanation.
+  - No route-gallery image was added; image audit records no selected rights-clean exact-route asset.
+
 - 2026-04-27: `Mississippi River - Coon Rapids Dam Regional Park to Riverfront Regional Park` (`no_live_gauge`)
   - Fresh metro segment-page discovery from Mississippi Map 9.
   - Official support is real: MN DNR explicitly recommends this exact 6.1-mile day trip and clearly names `Coon Rapids Dam Regional Park` and `Riverfront Regional Park`.

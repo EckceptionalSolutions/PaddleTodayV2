@@ -3831,6 +3831,246 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'mississippi-river-norin-babcock',
+    slug: 'mississippi-river-norin-babcock',
+    name: 'Mississippi River',
+    reach: 'Norin Landing to Babcock Public Water Access',
+    state: 'Minnesota',
+    region: 'Northwest Metro',
+    summary:
+      'Upper split of the Two Paddles MR 20 route from Norin Landing near Otsego to Babcock. This keeps the full Norin-to-Anoka course usable in PaddleToday without duplicating the already-added Babcock-to-Peninsula Point finish leg.',
+    statusText:
+      'Use the downstream Hwy 610 gauge conservatively. The DNR medium band is 8,670 to 28,300 cfs; below 3,060 cfs is scrapable and above 33,000 cfs is very high.',
+    latitude: 45.3042771,
+    longitude: -93.683881,
+    gaugeSource: {
+      id: 'mn-dnr-302',
+      provider: 'mn_dnr',
+      siteId: '302',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20065001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20065001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05288500',
+        provider: 'usgs',
+        siteId: '05288500',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8670,
+      idealMax: 28300,
+      tooLow: 3060,
+      tooHigh: 33000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Hwy 610',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.15,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal window. Because this split is well upstream of the Hwy 610 gauge, use the score as a planning signal and still make a same-day visual call at Norin.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is not technical whitewater, but it is an 8-mile big-river split with current, islands, possible shallow bars, wind exposure, and a remote-feeling finish at Babcock.',
+      confidenceNotes:
+        'Confidence is good but intentionally lower than the Babcock-to-Anoka split. Two Paddles documents the MR 20 route from Norin/Kadler to Peninsula Point, DNR public-water-access GIS resolves Norin and Babcock, and the Hwy 610 Mississippi gauge has official DNR bands. The gauge remains a downstream mainstem proxy, so the route copy avoids pretending it is an exact-route reading.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '3,060 / 8,670 / 28,300 / 33,000 cfs',
+        note: 'MN DNR interprets the Hwy 610 gauge as Scrapable below 3,060 cfs, Low from 3,060 to 8,670, Medium from 8,670 to 28,300, High from 28,300 to 33,000, and Very High above 33,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'MR 20 split',
+        value: 'Norin to Babcock, then Babcock to Anoka',
+        note: 'Two Paddles presents MR 20 as the Norin/Kadler-to-Peninsula Point course. PaddleToday splits it here so the upstream Norin-to-Babcock leg pairs with the existing Babcock-to-Peninsula Point route.',
+        sourceUrl: 'https://twopaddles.org/raceoverview20',
+      },
+      {
+        label: 'Official access',
+        value: 'Norin WAS02427 to Babcock WAS01299',
+        note: 'Minnesota public-water-access GIS identifies Norin Landing at river mile 891.0 and Babcock at river mile 883.4 on the Mississippi State Water Trail.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Put-in photos',
+        value: 'User-provided Norin images',
+        note: 'The route gallery uses two user-provided Norin Landing photos showing the rocky launch, shoreline, and open Mississippi channel at the put-in.',
+        sourceUrl: 'local-user-photo',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River map 8 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi8.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Two Paddles MR 20 overview',
+        url: 'https://twopaddles.org/raceoverview20',
+      },
+      {
+        label: 'USGS 05288500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05288500/',
+      },
+    ],
+  },
+  {
+    id: 'mississippi-river-babcock-peninsula-point',
+    slug: 'mississippi-river-babcock-peninsula-point',
+    name: 'Mississippi River',
+    reach: 'Babcock Public Water Access to Peninsula Point Park',
+    state: 'Minnesota',
+    region: 'Northwest Metro',
+    summary:
+      'Twelve-mile free-flowing Mississippi day from the Elk River area to Anoka. Two Paddles uses this as the MR 12 race course, DNR public-water-access records resolve both endpoints, and the downstream Hwy 610 gauge gives the route an official Mississippi level ladder.',
+    statusText:
+      'Use the Hwy 610 gauge conservatively: 8,670 to 28,300 cfs is the DNR medium band. Below 3,060 cfs is scrapable, and above 33,000 cfs is very high.',
+    latitude: 45.2897452,
+    longitude: -93.5580094,
+    gaugeSource: {
+      id: 'mn-dnr-302',
+      provider: 'mn_dnr',
+      siteId: '302',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=20065001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=20065001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05288500',
+        provider: 'usgs',
+        siteId: '05288500',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'proxy',
+        siteName: 'Mississippi River at Hwy 610 in Brooklyn Park, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8670,
+      idealMax: 28300,
+      tooLow: 3060,
+      tooHigh: 33000,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Mississippi River at Hwy 610',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      windSensitivity: 1.1,
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Late spring through fall is the normal window. This lower free-flowing reach can still be slow in the low band, exposed to wind, and affected by upstream rain or dam operations.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route is not technical whitewater, but it is a 12-mile big-river day with current, islands, wind exposure, motorboat wakes, and a busy Anoka finish near the Rum River confluence.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: Two Paddles documents the exact MR 12 Babcock-to-Anoka course, DNR public-water-access GIS resolves Babcock and the Anoka Rum/Mississippi access, and the Hwy 610 Mississippi gauge has official DNR bands. Confidence is tempered because the gauge is several miles downstream of the finish and below the Coon Rapids Dam corridor, so it is treated as a downstream mainstem proxy rather than an exact-route gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '3,060 / 8,670 / 28,300 / 33,000 cfs',
+        note: 'MN DNR interprets the Hwy 610 gauge as Scrapable below 3,060 cfs, Low from 3,060 to 8,670, Medium from 8,670 to 28,300, High from 28,300 to 33,000, and Very High above 33,000.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Race route',
+        value: 'MR 12 / about 12 miles',
+        note: 'Two Paddles describes Babcock Park at river mile 883.4 as the MR 12 start and says all events finish at Peninsula Point Park in Anoka near river mile 871.',
+        sourceUrl: 'https://twopaddles.org/about-the-mississippi-river',
+      },
+      {
+        label: 'Official access',
+        value: 'Babcock WAS01299 to Anoka WAS02198',
+        note: 'Minnesota public-water-access GIS identifies Mississippi River, Babcock Public Water Access Site at river mile 883.4 and the City of Anoka Rum/Mississippi River Public Water Access Site near the Rum confluence.',
+        sourceUrl:
+          'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Free-flowing, no dams on course',
+        note: 'Two Paddles says the MR 43, MR 20, MR 12, and 5-mile events start within the final free-flowing stretch below the St. Cloud dam and all end at Anoka.',
+        sourceUrl: 'https://twopaddles.org/about-the-mississippi-river',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/index.html',
+      },
+      {
+        label: 'MN DNR Mississippi River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/mississippiriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Mississippi River map 8 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi8.pdf',
+      },
+      {
+        label: 'MN DNR Mississippi River map 9 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/mississippi9.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Two Paddles MR 12 overview',
+        url: 'https://twopaddles.org/raceoverview12',
+      },
+      {
+        label: 'Two Paddles Mississippi River background',
+        url: 'https://twopaddles.org/about-the-mississippi-river',
+      },
+      {
+        label: 'USGS 05288500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05288500/',
+      },
+    ],
+  },
+  {
     id: 'mississippi-river-east-river-flats-hidden-falls',
     slug: 'mississippi-river-east-river-flats-hidden-falls',
     name: 'Mississippi River',

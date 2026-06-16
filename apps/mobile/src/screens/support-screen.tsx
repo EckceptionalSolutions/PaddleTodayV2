@@ -1,12 +1,15 @@
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Linking, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
+import { useRiverSummaryQuery } from '../api/queries';
 import { SectionCard } from '../components/section-card';
 import { appDiagnosticRows } from '../lib/app-diagnostics';
 import { resolveApiBaseUrl, resolveApiUrl } from '../lib/api-base-url';
 import { captureAppException, observabilityStatus, trackAppEvent } from '../lib/observability';
+import { buildRouteGroupMeta, routeGroupMetaForRoute, uniqueRoutesByRiver } from '../lib/route-groups';
 import { colors, radius, spacing } from '../theme/tokens';
 
 type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
@@ -14,8 +17,22 @@ type DiagnosticState = 'idle' | 'checking' | 'ok' | 'error';
 export default function SupportScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const summaryQuery = useRiverSummaryQuery();
   const [diagnosticState, setDiagnosticState] = useState<DiagnosticState>('idle');
   const [diagnosticText, setDiagnosticText] = useState('Ready to check the route feed.');
+  const [selectedSupportedState, setSelectedSupportedState] = useState<string | null>(null);
+  const rivers = summaryQuery.data?.rivers ?? [];
+  const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
+  const supportedStates = useMemo(() => supportedRiverStates(rivers), [rivers]);
+  const activeSupportedState = supportedStates.find((state) => state.state === selectedSupportedState) ?? supportedStates[0] ?? null;
+
+  useEffect(() => {
+    if (!activeSupportedState || selectedSupportedState === activeSupportedState.state) {
+      return;
+    }
+
+    setSelectedSupportedState(activeSupportedState.state);
+  }, [activeSupportedState, selectedSupportedState]);
 
   async function runDiagnostic() {
     trackAppEvent('api_diagnostic_started', {
@@ -95,6 +112,72 @@ export default function SupportScreen() {
           <ActionRow icon="shield-check-outline" title="Privacy policy" body="How app and route information is handled." onPress={() => router.push('/privacy')} />
           <ActionRow icon="file-document-outline" title="Terms and safety" body="Use, safety, and submission terms." onPress={() => router.push('/terms')} />
         </View>
+      </SectionCard>
+
+      <SectionCard title="Supported rivers" subtitle="Browse PaddleToday coverage by state.">
+        {summaryQuery.isLoading && rivers.length === 0 ? (
+          <Text style={styles.supportedEmptyText}>Loading supported rivers.</Text>
+        ) : summaryQuery.isError && rivers.length === 0 ? (
+          <Text style={styles.supportedEmptyText}>Supported rivers could not load. Use the connection check below.</Text>
+        ) : (
+          <View style={styles.supportedStates}>
+            <View style={styles.supportedSummary}>
+              <Text style={styles.supportedSummaryValue}>{rivers.length}</Text>
+              <Text style={styles.supportedSummaryText}>
+                live route calls across {supportedStates.length} supported states
+              </Text>
+            </View>
+            <View style={styles.supportedStateChips}>
+              {supportedStates.map((state) => {
+                const active = state.state === activeSupportedState?.state;
+                return (
+                  <Pressable
+                    key={state.state}
+                    style={[styles.supportedStateChip, active ? styles.supportedStateChipActive : null]}
+                    onPress={() => setSelectedSupportedState(state.state)}
+                    android_ripple={{ color: colors.canvasMuted }}
+                  >
+                    <Text style={[styles.supportedStateChipText, active ? styles.supportedStateChipTextActive : null]}>
+                      {stateLabel(state.state)}
+                    </Text>
+                  </Pressable>
+                );
+              })}
+            </View>
+            {activeSupportedState ? (
+              <View style={styles.supportedStateGroup}>
+                <View style={styles.supportedStateHeader}>
+                  <Text style={styles.supportedStateTitle}>{stateLabel(activeSupportedState.state)}</Text>
+                  <Text style={styles.supportedStateCount}>{activeSupportedState.rivers.length} rivers</Text>
+                </View>
+                <View style={styles.supportedRiverList}>
+                  {activeSupportedState.rivers.map((river) => {
+                    const routeCount = routeGroupMetaForRoute(river, routeCounts).routeCount;
+                    return (
+                      <Pressable
+                        key={river.river.riverId ?? river.river.slug}
+                        style={styles.supportedRiverRow}
+                        onPress={() => openSupportedRiver(router, river, routeCount)}
+                        android_ripple={{ color: colors.canvasMuted }}
+                      >
+                        <View style={[styles.supportedScore, supportScoreTone(river.rating).score]}>
+                          <Text style={[styles.supportedScoreText, supportScoreTone(river.rating).text]}>{river.score}</Text>
+                        </View>
+                        <View style={styles.supportedRiverCopy}>
+                          <Text style={styles.supportedRiverName} numberOfLines={1}>{river.river.name}</Text>
+                          <Text style={styles.supportedRiverMeta} numberOfLines={1}>
+                            {[river.river.region, routeCount > 1 ? `${routeCount} routes` : '1 route', river.rating].join(' - ')}
+                          </Text>
+                        </View>
+                        <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={21} />
+                      </Pressable>
+                    );
+                  })}
+                </View>
+              </View>
+            ) : null}
+          </View>
+        )}
       </SectionCard>
 
       <SectionCard title="Connection check" subtitle="Use this when routes do not load.">
@@ -235,6 +318,71 @@ function buildDiagnosticsEmailUrl() {
   return `mailto:hello@paddletoday.com?subject=${encodeURIComponent('PaddleToday app issue')}&body=${encodeURIComponent(body)}`;
 }
 
+function supportedRiverStates(rivers: RiverSummaryApiItem[]) {
+  const uniqueRivers = uniqueRoutesByRiver(rivers);
+  const grouped = new Map<string, RiverSummaryApiItem[]>();
+
+  uniqueRivers.forEach((river) => {
+    const state = river.river.state;
+    grouped.set(state, [...(grouped.get(state) ?? []), river]);
+  });
+
+  return [...grouped.entries()]
+    .map(([state, stateRivers]) => ({
+      state,
+      rivers: stateRivers.sort((left, right) => left.river.name.localeCompare(right.river.name)),
+    }))
+    .sort((left, right) => left.state.localeCompare(right.state));
+}
+
+function openSupportedRiver(
+  router: ReturnType<typeof useRouter>,
+  river: RiverSummaryApiItem,
+  routeCount: number
+) {
+  if (river.river.riverId && routeCount > 1) {
+    router.push({ pathname: '/river-hub/[riverId]', params: { riverId: river.river.riverId } });
+    return;
+  }
+
+  router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } });
+}
+
+function stateLabel(state: string) {
+  return state
+    .split(/\s+/)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}
+
+function supportScoreTone(rating: RiverSummaryApiItem['rating']) {
+  if (rating === 'Strong') {
+    return {
+      score: { backgroundColor: '#E0EFE9' },
+      text: { color: colors.strong },
+    };
+  }
+
+  if (rating === 'Good') {
+    return {
+      score: { backgroundColor: '#E8EFD9' },
+      text: { color: colors.good },
+    };
+  }
+
+  if (rating === 'Fair') {
+    return {
+      score: { backgroundColor: '#F3E8CC' },
+      text: { color: colors.fair },
+    };
+  }
+
+  return {
+    score: { backgroundColor: '#F2DDD6' },
+    text: { color: colors.noGo },
+  };
+}
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -271,6 +419,126 @@ const styles = StyleSheet.create({
   },
   actionList: {
     gap: spacing.sm,
+  },
+  supportedStates: {
+    gap: spacing.md,
+  },
+  supportedSummary: {
+    minHeight: 54,
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    borderWidth: 1,
+    borderColor: colors.border,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  supportedSummaryValue: {
+    color: colors.accentDeep,
+    fontSize: 22,
+    fontWeight: '900',
+  },
+  supportedSummaryText: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
+  },
+  supportedStateChips: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 7,
+  },
+  supportedStateChip: {
+    minHeight: 32,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  supportedStateChipActive: {
+    backgroundColor: colors.accent,
+    borderColor: colors.accent,
+  },
+  supportedStateChipText: {
+    color: colors.text,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  supportedStateChipTextActive: {
+    color: colors.surfaceStrong,
+  },
+  supportedStateGroup: {
+    gap: spacing.sm,
+  },
+  supportedStateHeader: {
+    minHeight: 26,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  supportedStateTitle: {
+    color: colors.text,
+    fontSize: 17,
+    fontWeight: '900',
+  },
+  supportedStateCount: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '800',
+  },
+  supportedRiverList: {
+    borderRadius: radius.md,
+    backgroundColor: colors.surface,
+    overflow: 'hidden',
+  },
+  supportedRiverRow: {
+    minHeight: 66,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+    padding: spacing.sm,
+  },
+  supportedScore: {
+    width: 40,
+    height: 40,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  supportedScoreText: {
+    fontSize: 16,
+    fontWeight: '900',
+  },
+  supportedRiverCopy: {
+    flex: 1,
+    minWidth: 0,
+    gap: 2,
+  },
+  supportedRiverName: {
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  supportedRiverMeta: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  supportedEmptyText: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 18,
+    fontWeight: '700',
   },
   safetyRow: {
     flexDirection: 'row',
