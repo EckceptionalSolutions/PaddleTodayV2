@@ -1172,7 +1172,6 @@ function homeFactItems(river: BoardItem) {
   return routeFactItems(river.river, {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   }).concat(isNearbyPick(river) ? [distanceLabelForRiver(river)] : []);
 }
 
@@ -1180,7 +1179,6 @@ function homeFactLine(river: BoardItem) {
   return routeFactLine(river.river, {
     travelMinutes: isNearbyPick(river) ? river.travelMinutes : null,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   });
 }
 

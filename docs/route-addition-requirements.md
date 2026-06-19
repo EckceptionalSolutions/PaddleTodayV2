@@ -94,6 +94,20 @@ Not enough:
 - Private landings unless public use is clearly documented.
 - Vague "launch near town" descriptions.
 
+### Safety Blockers
+
+Reject or block a candidate rather than warning around it when a route has a high-consequence failure mode.
+
+Hard blockers:
+
+- Missing a take-out could send paddlers into a dam, low-head dam, diversion, or similar high-consequence hazard.
+- A mandatory take-out or portage is dam-adjacent without strong official safety infrastructure, signage, and route-manager guidance.
+- Public access legality, parking, or normal private-paddler use is unresolved.
+- Endpoint coordinates are inferred from bridge names, river geometry, broad park boundaries, or a single general site coordinate.
+- Active closures or flood-damage access uncertainty remain unresolved.
+
+Warnings are appropriate only after the route itself remains defensible. Do not use warning copy to ship a route whose access, take-out, or hazard story is unsafe or ambiguous.
+
 ### Route Shape
 
 The route must be specific enough to score.
@@ -105,6 +119,28 @@ Needed context:
 - Region and state.
 - Basic route character: easy, moderate, hard.
 - Major hazards or operational caveats.
+
+### Camping Classification
+
+Every implemented route should include a `logistics.camping` note that is clear enough to classify conservatively for home and weekend filters. Do not write vague camping copy just to sound helpful; unclear support should stay out of camping filters.
+
+Use these categories as the target vocabulary:
+
+- `none`: no established camping, no route camping, day-use only, or camping is prohibited at relevant access points.
+- `nearby_basecamp`: nearby campground, state park, county park, outfitter campground, lodging, or base-camp option that can support a trip but is not part of the paddling route.
+- `endpoint_campground`: campground or legal overnight facility directly at the put-in, take-out, or named access site.
+- `on_route_campsite`: designated watercraft campsite, paddle-in campsite, canoe camp, float camp, backcountry canoe campsite, or official campsite along the route corridor.
+- `sandbar_or_gravel_bar`: sandbar, gravel-bar, island, or similar river-camping option where current rules and water levels explicitly support it.
+- `overnight_capable`: route is naturally long enough or source-framed as an overnight/multi-day trip, with legal camping support documented.
+- `unknown`: camping context is ambiguous, unverified, or only hinted at. Unknown routes should not qualify for camping filters.
+
+Evidence expectations:
+
+- Cite the source that supports the camping category when available: official water-trail map, park/campground page, NPS/USFS/state rules, county conservation page, or route-manager guidance.
+- Distinguish on-route overnight support from nearby base-camp support. A campground near town is not the same as a route that can be split overnight.
+- For sandbar, gravel-bar, or island camping, include legality, private-bank limits, flow/high-water dependency, and any trash, fire, permit, or stay-limit rules surfaced by the source.
+- If camping is prohibited, day-use only, private, unconfirmed, or depends on separate permission, say that plainly.
+- If the route can work as a day trip but has a separate camping option, write the note so it does not imply camping is included in the normal route plan.
 
 ## Provider-Specific Notes
 
@@ -198,6 +234,7 @@ Ready to add:
 - Endpoints are named and locatable.
 - Access appears public or otherwise legitimate.
 - Route difficulty, seasonality, and hazards are documented.
+- High-consequence hazards have either been ruled out or are documented with route-manager support and explicit user-facing safety notes.
 
 Ready, but conservative:
 

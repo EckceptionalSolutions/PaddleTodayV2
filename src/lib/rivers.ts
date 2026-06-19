@@ -1,5 +1,6 @@
 import { rivers } from '../data/rivers';
 import { riverTripDetails } from '../data/river-trip-details';
+import { classifyCamping } from './camping-classification';
 import { scoreRiverCondition } from './scoring';
 import { remember } from './server-cache';
 import { fetchGaugeReading } from './gauges';
@@ -184,9 +185,16 @@ function enrichRiver(river: River): River {
   const tripDetails = riverTripDetails[river.id];
   const enriched = tripDetails ? { ...river, ...tripDetails } : river;
   const putInCoordinates = getValidAccessCoordinates(enriched.putIn);
+  const logistics = enriched.logistics
+    ? {
+        ...enriched.logistics,
+        campingClassification: classifyCamping(enriched.logistics.camping),
+      }
+    : undefined;
 
   return {
     ...enriched,
+    logistics,
     latitude: putInCoordinates?.latitude ?? enriched.latitude,
     longitude: putInCoordinates?.longitude ?? enriched.longitude,
     riverId: enriched.riverId || inferredRiverIdsBySlug.get(enriched.slug) || deriveRiverId(enriched.name),

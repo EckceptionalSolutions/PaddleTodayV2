@@ -22,7 +22,6 @@ export function RiverCard({
   const facts = routeFactItems(river.river, {
     includePaddleTime: true,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   }).filter((fact) => fact !== river.summary.gaugeNow);
   const showDataWarning = river.liveData.overall !== 'live';
 

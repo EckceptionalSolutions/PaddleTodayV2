@@ -16,6 +16,28 @@ export type SourceProvider =
   | 'local'
   | 'manual';
 export type RouteType = 'recreational' | 'whitewater';
+export type RouteRiskLevel = 'standard' | 'caution' | 'advanced';
+export type CampingClassification =
+  | 'none'
+  | 'nearby_basecamp'
+  | 'endpoint_campground'
+  | 'on_route_campsite'
+  | 'sandbar_or_gravel_bar'
+  | 'overnight_capable'
+  | 'unknown';
+export type RouteHazard =
+  | 'dam'
+  | 'low_head_dam'
+  | 'mandatory_takeout'
+  | 'strainers'
+  | 'whitewater'
+  | 'fast_rise'
+  | 'cold_water'
+  | 'remote'
+  | 'urban_water_quality'
+  | 'dam_release'
+  | 'access_uncertain'
+  | 'private_banks';
 export type RiverAlertThreshold = 'good' | 'strong';
 export type RiverAlertState = 'below_threshold' | 'at_or_above_threshold';
 export type RiverAlertDeliveryMethod = 'email' | 'push';
@@ -89,9 +111,50 @@ export interface RiverRouteLogistics {
   shuttle: string;
   permits: string;
   camping: string;
+  campingClassification?: CampingClassification;
   summary: string;
   accessCaveats: string[];
   watchFor: string[];
+}
+
+export interface RouteSafetyProfile {
+  riskLevel: RouteRiskLevel;
+  hazards: RouteHazard[];
+  safetyNotes: string[];
+  reviewStatus: 'reviewed' | 'needs_review';
+}
+
+export const routeHazardLabels: Record<RouteHazard, string> = {
+  dam: 'Dam',
+  low_head_dam: 'Low-head dam',
+  mandatory_takeout: 'Mandatory takeout',
+  strainers: 'Strainers',
+  whitewater: 'Whitewater',
+  fast_rise: 'Fast rise',
+  cold_water: 'Cold water',
+  remote: 'Remote',
+  urban_water_quality: 'Water quality',
+  dam_release: 'Dam release',
+  access_uncertain: 'Access uncertain',
+  private_banks: 'Private banks',
+};
+
+export const routeSafetyLevelLabels: Record<RouteRiskLevel, string> = {
+  standard: 'Safety check',
+  caution: 'Caution',
+  advanced: 'Advanced route',
+};
+
+export function routeSafetySummary(profile?: RouteSafetyProfile) {
+  if (profile?.riskLevel === 'advanced') {
+    return 'This route has hazards that can create serious consequences if missed or misjudged. Paddle only with appropriate skill, equipment, and current local information.';
+  }
+
+  if (profile?.riskLevel === 'caution') {
+    return 'This route has hazards or access considerations that require extra verification.';
+  }
+
+  return 'Verify conditions, access, hazards, closures, and takeouts before launching.';
 }
 
 export interface ApprovedCommunityPhoto {
@@ -268,6 +331,7 @@ export interface RiverSummaryApiItem {
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
     routeType: RouteType;
+    safetyProfile?: RouteSafetyProfile;
     putIn?: RiverAccessPoint;
     takeOut?: RiverAccessPoint;
     logistics?: RiverRouteLogistics;
@@ -320,6 +384,7 @@ export interface WeekendSummaryApiItem {
     estimatedPaddleTime: string;
     difficulty: 'easy' | 'moderate' | 'hard';
     routeType: RouteType;
+    safetyProfile?: RouteSafetyProfile;
     logistics?: RiverRouteLogistics;
   };
   current: {
@@ -360,6 +425,7 @@ export interface RiverDetailApiResult {
     distanceLabel: string;
     estimatedPaddleTime: string;
     routeType: RouteType;
+    safetyProfile?: RouteSafetyProfile;
     gaugeSource: {
       provider: GaugeProvider;
       metric: GaugeMetric;

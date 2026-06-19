@@ -5,8 +5,10 @@ import type {
   GaugeUnit,
   LiveDataStatus,
   RiverAccessPoint,
+  CampingClassification,
   RiverOutlook,
   RouteType,
+  RouteSafetyProfile,
   ScoreBreakdown,
   ScoreFactor,
   ScoreImpact,
@@ -16,6 +18,7 @@ import type {
 export type {
   ApiErrorResponse,
   ChecklistStatus,
+  CampingClassification,
   ConfidenceLabel,
   ConfidenceResult,
   DataFreshness,
@@ -36,6 +39,7 @@ export type {
   RiverHistorySnapshot,
   RiverOutlook,
   RouteType,
+  RouteSafetyProfile,
   ScoreBreakdown,
   ScoreFactor,
   ScoreImpact,
@@ -127,6 +131,7 @@ export interface RiverTripLogistics {
   shuttle: string;
   permits: string;
   camping: string;
+  campingClassification?: CampingClassification;
   summary: string;
   accessCaveats: string[];
   watchFor: string[];
@@ -153,6 +158,7 @@ export interface River {
   latitude: number;
   longitude: number;
   routeType?: RouteType;
+  safetyProfile?: RouteSafetyProfile;
   gaugeSource: RiverGaugeSource;
   fallbackGaugeSources?: RiverGaugeSource[];
   profile: RiverScoringProfile;

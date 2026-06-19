@@ -225,6 +225,16 @@ export const rivers: River[] = [
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63023001&var1=232&width=700&height=320',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers'],
+      safetyNotes: [
+        'MN DNR recommends this as a beginner-friendly route, but also notes several dams on this map segment; know portage and downstream dam locations before continuing.',
+        'Stay with the planned Centennial Park take-out and do not continue into unfamiliar Thief River Falls dam/access corridors.',
+        'Higher water can increase current, debris, and wind exposure even on this generally gentle segment.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 1099,
@@ -601,118 +611,6 @@ export const rivers: River[] = [
       {
         label: 'MilesPaddled Straight River',
         url: 'https://milespaddled.com/straight-river/',
-      },
-    ],
-  },
-  {
-    id: 'blue-earth-river-rapidan-county-road-90',
-    slug: 'blue-earth-river-rapidan-county-road-90',
-    name: 'Blue Earth River',
-    reach: 'Rapidan Dam Park to County Road 90',
-    state: 'Minnesota',
-    region: 'Mankato Area',
-    summary:
-      'Hard Blue Earth day below Rapidan where both the gauge and the route character matter. The official DNR ladder gives this stretch real level guidance, but high water and rapids can still turn it into the wrong day fast.',
-    statusText:
-      'Treat 4.0 to 6.0 ft at Rapidan as the target band. Below 2.0 ft gets too scrapy, and above 15.0 ft is out of bounds for this stretch.',
-    latitude: 44.12135,
-    longitude: -94.08935,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'mn-dnr-9',
-      provider: 'mn_dnr',
-      siteId: '9',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Blue Earth River near Rapidan, MN',
-      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=30092001',
-      hydrographUrl:
-        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=30092001&var1=232&width=700&height=320',
-    },
-    fallbackGaugeSources: [
-      {
-        id: 'usgs-05320000',
-        provider: 'usgs',
-        siteId: '05320000',
-        metric: 'gage_height_ft',
-        unit: 'ft',
-        kind: 'direct',
-        siteName: 'Blue Earth River near Rapidan, MN',
-      },
-    ],
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 4,
-      idealMax: 6,
-      tooLow: 2,
-      tooHigh: 15,
-      thresholdSource: {
-        label: 'MN DNR river-level interpretation bands for Blue Earth River near Rapidan',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the practical window. Recent rainfall matters more than the calendar because this stretch gets pushy fast when it rises.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'This is for experienced paddlers, not a casual float. Class I current, dam context, and fast post-rain changes all matter.',
-      confidenceNotes:
-        'MN DNR recommends this exact trip and publishes official level guidance for the Rapidan gauge. Confidence is still tempered because this is a genuinely hard stretch and the County Road 90 take-out has limited public detail.',
-    },
-    evidenceNotes: [
-      {
-        label: 'DNR bands',
-        value: '2.0 / 4.0 / 6.0 / 15.0 ft',
-        note: 'MN DNR interprets this gauge as Scrapable below 2.0 ft, Low from 2.0 to 4.0, Medium from 4.0 to 6.0, High from 6.0 to 15.0, and Very High above 15.0.',
-        sourceUrl: 'https://maps.dnr.state.mn.us/cgi-bin/mapserv?map=RL_MAPFILE&mode=nquery',
-      },
-      {
-        label: 'Recommended trip',
-        value: '9.1 river miles',
-        note: 'MN DNR treats Rapidan Dam Park to County Road 90 as the recommended Blue Earth day trip and explicitly marks it for experienced paddlers.',
-        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
-      },
-      {
-        label: 'Primary hazards',
-        value: 'Rapids, dam context, post-rain push',
-        note: 'MN DNR warns about Rapidan Dam, Class I rapids, and rainfall-driven fast water and waves on this corridor.',
-        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
-      },
-      {
-        label: 'Put-in support',
-        value: 'County park launch and camping',
-        note: 'Blue Earth County manages Rapidan Dam Park and identifies a canoe launch, campground, and posted park operations there.',
-        sourceUrl: 'https://www.blueearthcountymn.gov/facilities/facility/details/6',
-      },
-      {
-        label: 'Difficulty',
-        value: 'Hard',
-        note: 'Worth adding because the route is complete and well supported, but it is not the same kind of beginner-friendly product citizen as the easy Cannon or Root reaches.',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MN DNR river levels',
-        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
-      },
-      {
-        label: 'MN DNR Blue Earth River segments and maps',
-        url: 'https://www.dnr.state.mn.us/watertrails/blueearthriver/segments-maps.html',
-      },
-      {
-        label: 'MN DNR Blue Earth River GeoPDF',
-        url: 'https://gdrs.dnr.state.mn.us/gdrs/apps/pub/us_mn_state_dnr/mndnr_geopdf_download/Water_Trail/Blue%20Earth%20GEO.pdf',
-      },
-      {
-        label: 'Blue Earth County Rapidan Dam Park',
-        url: 'https://www.blueearthcountymn.gov/facilities/facility/details/6',
-      },
-      {
-        label: 'USGS 05320000 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05320000/',
       },
     ],
   },
@@ -1615,115 +1513,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'white-river-maple-ridge-highway-112',
-    slug: 'white-river-maple-ridge-highway-112',
-    name: 'White River',
-    reach: 'Maple Ridge Road to Highway 112 Dam',
-    state: 'Wisconsin',
-    region: 'Northern Wisconsin',
-    summary:
-      'Fast-moving Northwoods run with nearly continuous class I-II current, clay banks, and a dam finish. This is a moving-water decision first, not a lazy scenic float.',
-    statusText:
-      'Around 1.47 ft is the best route-specific reference point available right now. Lower water gets scrapier fast, and higher water raises the consequences before there is enough guidance to call it an ideal range.',
-    latitude: 46.43755,
-    longitude: -91.0261,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04027500',
-      provider: 'usgs',
-      siteId: '04027500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'White River near Ashland, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04027500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1.35,
-      idealMax: 1.75,
-      tooLow: 1.1,
-      tooHigh: 2.6,
-      thresholdSource: {
-        label: 'MilesPaddled White River same-route gauge note',
-        url: 'https://milespaddled.com/white-river-bayfield-county/',
-      },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9],
-      seasonNotes:
-        'Late spring through early fall is the core window. Cold shoulder-season water and hydro-related fluctuation make the route less forgiving than its class rating alone suggests.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'Mostly class I-II, but nearly continuous current, boulder gardens, and the dam finish reward paddlers who can read lines and stay attentive for the full day.',
-      confidenceNotes:
-        'Confidence is moderate: Wisconsin Trail Guide documents the exact Maple Ridge Road Bridge to Highway 112 Dam route, named access points, WGS84 endpoint coordinates, distance, difficulty, and hazards; MilesPaddled ties this exact route to a same-river USGS gauge observation; and USGS operates the White River near Ashland live gauge at the downstream end of the corridor. The range is still a cautious community-source calibration around one same-route recommended observation rather than an official manager-published paddling ladder.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Exact-route gauge note',
-        value: '1.47 ft / 200 cfs = recommended',
-        note: 'MilesPaddled ties this exact Maple Ridge to Hwy 112 route to a recommended day around 1.47 ft / 200 cfs on the White River gauge near Ashland.',
-        sourceUrl: 'https://milespaddled.com/white-river-bayfield-county/',
-      },
-      {
-        label: 'Route guide',
-        value: '14.9 miles; Class II',
-        note: 'Wisconsin Trail Guide documents White River WH1 from Maple Ridge Road Bridge to Highway 112 Dam as a 14.9-mile novice route with frequent riffles, low-hazard rapids, and Class II as the most difficult rapid rating.',
-        sourceUrl: 'https://wisconsintrailguide.com/2024/paddle/white-river.html',
-      },
-      {
-        label: 'Published coordinates',
-        value: '46.43755, -91.02610 to 46.49834, -90.91032',
-        note: 'Wisconsin Trail Guide publishes NAD83 / WGS84 coordinates for Maple Ridge Road Access and Highway 112 Dam Landing.',
-        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/guide-white.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Continuous current plus dam take-out',
-        note: 'This is not a drift-and-chat river. Quick current, boulder gardens, frequent riffles, and the dam finish mean consequence rises before the number alone looks extreme.',
-      },
-      {
-        label: 'USGS gauge note',
-        value: 'Hydropeaking / diurnal fluctuation possible',
-        note: 'USGS remarks mention hydroelectric-plant-driven fluctuation, so the same reading can feel less stable than on a free-flowing scenic river.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?site_no=04027500',
-      },
-      {
-        label: 'Access confidence',
-        value: 'Named guide access points',
-        note: 'Wisconsin Trail Guide identifies both endpoints as Maple Ridge Road Access and Highway 112 Dam Landing, and its map labels the route with canoe/kayak access symbols. Official manager landing pages remain weaker than on the strongest DNR-led routes.',
-        sourceUrl: 'https://wisconsintrailguide.com/paddle/pdf/map-white.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MilesPaddled White River route notes',
-        url: 'https://milespaddled.com/white-river-bayfield-county/',
-      },
-      {
-        label: 'Wisconsin Trail Guide White River WH1',
-        url: 'https://wisconsintrailguide.com/2024/paddle/white-river.html',
-      },
-      {
-        label: 'Wisconsin Trail Guide White River WH1 PDF',
-        url: 'https://wisconsintrailguide.com/paddle/pdf/guide-white.pdf',
-      },
-      {
-        label: 'Wisconsin Trail Guide White River map PDF',
-        url: 'https://wisconsintrailguide.com/paddle/pdf/map-white.pdf',
-      },
-      {
-        label: 'USGS 04027500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04027500/',
-      },
-      {
-        label: 'USGS 04027500 legacy current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?site_no=04027500',
-      },
-    ],
-  },
-  {
     id: 'chippewa-river-county-a-highway-8',
     slug: 'chippewa-river-county-a-highway-8',
     name: 'Chippewa River',
@@ -1745,6 +1534,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Chippewa River Near Bruce, WI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05356500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam_release', 'strainers', 'fast_rise'],
+      safetyNotes: [
+        'High or rising water after heavy rain or Arpin Dam releases can increase current and wood hazards.',
+        'Island splits, boulder gardens, overhanging trees, and fresh wood require attention even in the preferred band.',
+        'Confirm County A and Highway 8 landing conditions before staging vehicles.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -3263,6 +3062,16 @@ export const rivers: River[] = [
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=11015001&var1=262&width=700&height=320',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Begin below Rock Dam and do not improvise around dam or rock-riffle infrastructure.',
+        'MN DNR describes this as a 14.4-mile full-day route; low water, wooded bends, and debris after storms can make it more demanding.',
+        'Cold-water exposure outside midsummer and long-route fatigue require conservative trip planning.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 50,
@@ -4106,6 +3915,16 @@ export const rivers: River[] = [
         siteName: 'Mississippi River at St. Paul, MN',
       },
     ],
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'remote'],
+      safetyNotes: [
+        'MN DNR recommends this route but explicitly calls out swift current, large wakes, and lock-and-dam procedure.',
+        'Lock and Dam 1 has limited/reduced lock operation; verify current USACE lockage before launch and plan the portage/shuttle if lockage is unavailable.',
+        'Do not improvise via Minnehaha Creek; use current NPS/USACE guidance for locks, portages, restricted zones, and dam approaches.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 6000,
@@ -4578,6 +4397,16 @@ export const rivers: River[] = [
         siteName: 'Crow River below State Hwy 101 at Dayton, MN',
       },
     ],
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers'],
+      safetyNotes: [
+        'MN DNR notes lower North Fork hazards include underwater branches and overhanging trees that can tip canoes and kayaks.',
+        'Shallow gravel, cobble, boulders, and fresh wood can create avoidable hazards at low or post-storm levels.',
+        'Check both accesses for changing mud and bank conditions after rain.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 500,
@@ -4809,6 +4638,16 @@ export const rivers: River[] = [
       detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=19001001',
       hydrographUrl:
         'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=19001001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Put in below the Watertown dam and do not launch upstream or improvise around dam infrastructure.',
+        'Fallen trees, submerged snags, overhanging branches, and faster current after rain are the main hazards on wooded bends.',
+        'Private shoreland limits stops; use only public landings or clearly legal sites and identify the Lake Rebecca Crow River carry-in before launch.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -5306,6 +5145,16 @@ export const rivers: River[] = [
       siteName: 'Des Moines River at Keosauqua, IA',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05490500/',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers'],
+      safetyNotes: [
+        'Old lock-and-dam remnants and riffles can expose rock and create confusing current at low water.',
+        'Large-river wind, floating debris after rain, motorboats, and muddy landings require extra trip planning.',
+        'Use public access areas and legal bars; private property begins above the ordinary high-water mark.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 3000,
@@ -5549,6 +5398,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'South Skunk River near Ames, IA',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'The route finishes near the 13th Street mitigated-dam/paddler-passage feature; scout or take out conservatively if levels or skills are uncertain.',
+        'Fresh wood, sweepers, muddy banks, and shallow rock riffles can change after storms.',
+        'The South Skunk is non-meandered through this corridor; use public accesses and confirmed public parkland rather than assuming banks are public.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'minimum-only',
       tooLow: 125,
@@ -5767,6 +5626,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'South Skunk River near Ames, IA',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05470000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'whitewater', 'fast_rise'],
+      safetyNotes: [
+        'Mitigated low-head-dam play feature with shallow rocks and paddler-passage hydraulics; this is not a tubing or family-float route.',
+        'American Whitewater notes shallow features and reports tubing is not advised; use whitewater skill and protective gear.',
+        'High or rising water, muddy water, and debris can make the feature less forgiving.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -6063,6 +5932,16 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Black Hawk Creek at Hudson, IA',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'strainers'],
+      safetyNotes: [
+        'Iowa DNR warns this tight creek commonly has strainers, sweepers, treefalls, logjams, and two fords that can behave like low-head dams at certain levels.',
+        'Portages are not uncommon; skip the route if the group cannot scout, portage, and maneuver around fresh wood.',
+        'Treat storm damage and fresh obstruction reports as more important than a good gauge reading.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -7339,6 +7218,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Sugar River near Verona, WI',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers'],
+      safetyNotes: [
+        'Stay clear of the Belleville dam or spillway upstream of the put-in; this route starts below that hazard.',
+        'Pushier current, poor clarity, muddy bottom, tight bends, and occasional strainers require post-storm caution.',
+        'Confirm Belleville park hours and County Road X parking/landing conditions before staging vehicles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 21,
@@ -7619,122 +7508,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'sugar-river-highway-69-paoli',
-    slug: 'sugar-river-highway-69-paoli',
-    name: 'Sugar River',
-    reach: 'Highway 69 to Paoli',
-    state: 'Wisconsin',
-    region: 'South-Central Wisconsin',
-    summary:
-      'Short upper-Sugar paddle from Dane County Parks\' Falk Wells Highway 69 launch to Paoli. This is the livelier and prettier local Sugar River reach, with clear water, riffles, a small former-dam drop, and a direct Verona gauge nearby.',
-    statusText:
-      'Use the Sugar River near Verona gauge. Treat roughly 55 to 100 cfs as the best paddling window, below about 50 cfs as shallow and slow, and 200+ cfs as high, pushy, and not recommended for a casual trip.',
-    latitude: 42.950098,
-    longitude: -89.545272,
-    gaugeSource: {
-      id: 'usgs-05435950',
-      provider: 'usgs',
-      siteId: '05435950',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Sugar River near Verona, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 55,
-      idealMax: 100,
-      tooLow: 50,
-      tooHigh: 200,
-      thresholdSource: {
-        label: 'MilesPaddled Sugar River II and Wisconsin River Trips Paoli gauge notes',
-        url: 'https://milespaddled.com/sugar-river-ii/',
-        provider: 'miles_paddled',
-      },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall can work because the upper Sugar usually keeps enough water, but clarity and control are best at moderate levels. Heavy rain can quickly turn this narrow, wood-prone route into a pushy obstacle course.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route is short, but it has lively current, strainers to dodge, riffles, a fun Class I+ former-dam chute, and a concrete-remnant hazard below the drop. Beginners should go with current boat-control skills and avoid high or rising water.',
-      confidenceNotes:
-        'Confidence is good for a guarded Wisconsin community-source add: Dane County Parks documents the Highway 69 canoe/kayak launch and has run public Highway 69-to-Paoli paddles, MilesPaddled gives exact endpoint coordinates and Verona-gauge observations, Wisconsin River Trips documents the same upper-Sugar corridor and practical gauge guidance, and the USGS Verona gauge is directly upstream on the same river.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Gauge observations',
-        value: '53 to 64 cfs worked; 100 cfs full',
-        note: 'MilesPaddled recorded 53 cfs as just enough for the Riverside-to-Paoli version and 56 cfs for a longer Bobcat-to-Paoli update, while Wisconsin River Trips recorded 64 cfs as a good depth and treats about 100 cfs as a pretty full river.',
-        sourceUrl: 'https://milespaddled.com/sugar-river-ii/',
-      },
-      {
-        label: 'High-water caution',
-        value: '200+ cfs avoid for casual trips',
-        note: 'Wisconsin River Trips says 200 and 300 cfs readings happen only after heavy rain and, because of fast current and downed trees, does not suggest paddling when the river is high. MilesPaddled similarly cautions that above about 4 ft would be wild and unruly.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/sugar-river/paoli',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 05435950',
-        note: 'USGS operates the Sugar River near Verona monitoring location, the direct same-river gauge used by both route reports for this upper-Sugar corridor.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
-      },
-      {
-        label: 'Put-in support',
-        value: 'Falk Wells Highway 69 canoe/kayak launch',
-        note: 'Dane County and local tourism sources describe the Falk Wells Sugar River Wildlife Area with carry-in canoe/kayak access landings, including the Highway 69 / West Parking Lot launch at 1752 State Highway 69.',
-        sourceUrl: 'https://danecounty.gov/Event/Detail/1630',
-      },
-      {
-        label: 'Take-out support',
-        value: 'Paoli / Canal Street take-out',
-        note: 'Dane County paddle events stage the take-out at 6889 Canal Street in Paoli, and MilesPaddled gives the Paoli Mill / County PB bridge take-out coordinates used for the route.',
-        sourceUrl: 'https://danecounty.gov/Event/Detail/1630',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'Highway 69 42.950098, -89.545272; Paoli 42.93032, -89.5244',
-        note: 'The put-in coordinate follows the named Falk Wells Highway 69 launch context from Dane County / Recplanet, and the take-out coordinate comes from MilesPaddled\'s Paoli Mill GPS point.',
-        sourceUrl: 'https://milespaddled.com/sugar-river-ii/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'MilesPaddled Sugar River II',
-        url: 'https://milespaddled.com/sugar-river-ii/',
-        provider: 'miles_paddled',
-      },
-      {
-        label: 'Wisconsin River Trips Sugar River - Paoli',
-        url: 'https://www.wisconsinrivertrips.com/segments/sugar-river/paoli',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'USGS 05435950 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05435950/',
-        provider: 'usgs',
-      },
-      {
-        label: 'Dane County Paddle in the Parks - Highway 69 to Paoli',
-        url: 'https://danecounty.gov/Event/Detail/1630',
-        provider: 'local',
-      },
-      {
-        label: 'Falk Wells Sugar River Wildlife Area map',
-        url: 'https://parks-lwrd.danecounty.gov/documents/PDFs/Maps/FalkWellsWA-WebMap.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'Town of Verona natural areas tour',
-        url: 'https://www.town.verona.wi.us/parks-recreation/pages/town-verona-natural-areas-tour',
-        provider: 'local',
-      },
-    ],
-  },
-  {
     id: 'black-hawk-creek-ranchero-hope-martin',
     slug: 'black-hawk-creek-ranchero-hope-martin',
     name: 'Black Hawk Creek',
@@ -7950,6 +7723,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Beaverdam River at Beaver Dam, WI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05425912/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam_release', 'whitewater', 'strainers', 'urban_water_quality', 'cold_water'],
+      safetyNotes: [
+        'Starts below the Beaver Dam Lake dam and immediately enters moving water; scout the first bridge/drop and verify release/gauge conditions shortly before launch.',
+        'Class I-II waves, small weirs, pushy downtown current, low bridges, and strainers require active boat control.',
+        'Blue-green algae, wastewater-plant context, cold water, wind, and fresh wood after storms require current checks.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -8972,6 +8755,16 @@ export const rivers: River[] = [
       siteName: 'Milwaukee River near Cedarburg, WI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04086600/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'whitewater', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Put in below Washington Street Dam and do not launch upstream or improvise around dam infrastructure.',
+        'Downtown Class I riffles and a stronger rapid below Indiana Avenue can become Class II at higher water.',
+        'Avoid the strainer-choked right channel below the railroad bridge; fast current and cold water raise consequences.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 351,
@@ -9196,6 +8989,16 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Milwaukee River near Cedarburg, WI',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater'],
+      safetyNotes: [
+        'Opening island split includes riffles on one side and a Class I ledge/drop on the other; choose conservatively and scout before committing.',
+        'Low water adds scraping, while higher water makes the opening features less forgiving.',
+        'The lower half has more development, slower current, and possible powerboat traffic near Thiensville.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -9647,6 +9450,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Peshtigo River Near Wabeno, WI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04067958/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water', 'fast_rise'],
+      safetyNotes: [
+        'Classic Class II-IV whitewater run for trained whitewater paddlers or guided rafting groups, not casual rec boats.',
+        'Sticky holes, ledges, boulder gardens, shallow rocky swim zones, and stronger hydraulics as levels rise require scouting and rescue margin.',
+        'Rapid level changes, cold water, and remote-feeling banks reduce error tolerance; portage features that exceed group skill.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -10215,6 +10028,16 @@ export const rivers: River[] = [
       siteName: 'Bois Brule River at Brule, WI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04025500/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['mandatory_takeout', 'dam', 'strainers', 'cold_water', 'fast_rise'],
+      safetyNotes: [
+        'Wisconsin DNR-managed lower Brule route with a required river-right portage at the sea lamprey barrier; obey warning buoys and signs.',
+        'Use only allowed designated landings and do not improvise exits at private or angler-only access points.',
+        'Cold water, deadfall, shallow ledges, rapid rises, and Lake Superior wind or waves make this more than a casual float.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 200,
@@ -10557,6 +10380,16 @@ export const rivers: River[] = [
       unit: 'cfs',
       kind: 'direct',
       siteName: 'Kinnickinnic River near River Falls, WI',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Continuous riffles and Class II features require whitewater skill, especially when levels rise.',
+        'Anglers, strainers after storms, and cold water outside peak summer require conservative decisions.',
+        'Both launch and take-out involve real carries; confirm the group can manage steep access before launching.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -11598,113 +11431,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'wisconsin-river-wisconsin-rapids-nepco-creek',
-    slug: 'wisconsin-river-wisconsin-rapids-nepco-creek',
-    name: 'Wisconsin River',
-    reach: 'Veterans Memorial Park to Nepco Creek / County Z',
-    state: 'Wisconsin',
-    region: 'Central Wisconsin',
-    summary:
-      'Guarded Wisconsin Rapids day from the city kayak launch at Veterans Memorial Park through island channels, dam-portage sections, granite bedrock, and the Grignon Rapids area to the Nepco Creek / County Z access below Port Edwards. The scenery is strong at low water, but dam hazards and long portages make this a planned moving-water trip rather than a casual float.',
-    statusText:
-      'Use the Wisconsin River at Wisconsin Rapids gauge. Treat 3,001 to 4,500 cfs as the best target, 0 to 3,000 cfs as rare low but navigable, 4,501 to 6,000 cfs as higher with more covered bedrock and livelier rapids, 6,001 to 9,000 cfs as high and experienced-only, and 9,001+ cfs as too high for a broad recommendation.',
-    latitude: 44.3922,
-    longitude: -89.8269,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-05400760',
-      provider: 'usgs',
-      siteId: '05400760',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Wisconsin River at Wisconsin Rapids, WI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/05400760/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 3001,
-      idealMax: 4500,
-      tooLow: 0,
-      tooHigh: 9001,
-      thresholdSource: {
-        label: 'Wisconsin River Trips Wisconsin Rapids gauge guide',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-        provider: 'wisconsin_river_trips',
-      },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Late spring through fall can work, but the route is best saved for low to average releases when exposed granite, manageable portages, and lower dam turbulence line up. Recheck the gauge and forecast shortly before launch because the Wisconsin can rise or fall sharply.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'Mostly flatwater and easy current at target levels, but this route includes two major dam portages, dam-warning lines, possible fast dam outflow, Class I-II Grignon Rapids at low water, stronger Class II-III behavior at high water, wind on flowage pools, and a hidden take-out carry at Nepco Creek.',
-      confidenceNotes:
-        'Confidence is good for a guarded community-source Wisconsin add: Wisconsin River Trips documents the exact Veterans Memorial Park-to-Hwy-Z trip, public access notes, dam portages, hazards, and a full Wisconsin Rapids gauge ladder; USGS operates the direct 05400760 Wisconsin River at Wisconsin Rapids gauge in the route corridor; and the City of Wisconsin Rapids lists Veterans Memorial Park as a public kayak/canoe launch. The main weakness is the downstream Nepco Creek / County Z access, which is route-report and map-feature supported rather than a polished land-manager landing page.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Exact route report',
-        value: 'Veterans Memorial Park to Hwy Z, 6.3 miles',
-        note: 'Wisconsin River Trips documents the July 2025 Wisconsin Rapids route from Veterans Memorial Park to the Hwy Z / Nepco Creek access with route time, access notes, portages, hazards, and a route map.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-      },
-      {
-        label: 'Direct live gauge',
-        value: 'USGS 05400760',
-        note: 'USGS identifies 05400760 as Wisconsin River at Wisconsin Rapids, WI, at the Grand Avenue bridge in the same river corridor used by the Wisconsin River Trips level ladder.',
-        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05400760',
-      },
-      {
-        label: 'Best target range',
-        value: '3,001 to 4,500 cfs',
-        note: 'Wisconsin River Trips calls 3,001-4,500 cfs an average depth and good target range, with much of the Port Edwards boulder field still exposed.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-      },
-      {
-        label: 'High-water ceiling',
-        value: '9,001+ cfs too high for broad use',
-        note: 'Wisconsin River Trips says 9,001+ cfs may be too high for most recreational paddlers, with strong unforgiving current and Class II-III behavior around Grignon Rapids.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-      },
-      {
-        label: 'Put-in authority',
-        value: 'Veterans Memorial Park kayak/canoe launch',
-        note: 'The City of Wisconsin Rapids facility page lists Veterans Memorial Park on 2nd Street South with a kayak/canoe launch, water access, paved walking path, benches, and picnic tables.',
-        sourceUrl: 'https://www.wirapids.gov/Facilities/Facility/Details/Veterans-Memorial-Park-27',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'Veterans Memorial Park 44.3922, -89.8269; Nepco Creek / County Z 44.3377, -89.8439',
-        note: 'Coordinates were resolved from named public map features and checked against Wisconsin River Trips route context: the city park launch below Grand Avenue and the Nepco Creek / County Z take-out path below the Port Edwards dam.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Wisconsin River Trips Wisconsin Rapids',
-        url: 'https://www.wisconsinrivertrips.com/segments/wisconsin-river/wisconsin-rapids',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'USGS 05400760 current conditions',
-        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=05400760',
-        provider: 'usgs',
-      },
-      {
-        label: 'City of Wisconsin Rapids Veterans Memorial Park',
-        url: 'https://www.wirapids.gov/Facilities/Facility/Details/Veterans-Memorial-Park-27',
-        provider: 'local',
-      },
-      {
-        label: 'Travel Wisconsin Veterans Memorial Park',
-        url: 'https://www.travelwisconsin.com/local-parks/veterans-memorial-park-313298',
-        provider: 'local',
-      },
-    ],
-  },
-  {
     id: 'wisconsin-river-muscoda-woodman',
     slug: 'wisconsin-river-muscoda-woodman',
     name: 'Wisconsin River',
@@ -12247,6 +11973,16 @@ export const rivers: River[] = [
       siteName: 'Grand River near Painesville, OH',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04212100/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'cold_water', 'fast_rise'],
+      safetyNotes: [
+        'Harpersfield ledge/drop features and standing waves become more consequential as levels rise above easy conditions.',
+        'American Whitewater notes larger wave trains and stronger eddy lines at intermediate flows; match the route to group skill.',
+        'Wood, fast current, cold water, and floodplain closure risk require current park and gauge checks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 2,
@@ -12496,6 +12232,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Little Miami River at Milford, OH',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03245500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'whitewater', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'Boathouse Rapid, old low-head-dam remnants, shallow ledges, holes, and possible rebar/manmade hazards require whitewater judgment.',
+        'The app score follows American Whitewater feature guidance, not tubing/livery minimum-depth guidance.',
+        'Avoid low-water walking, washed-out high water, post-rain debris, and cold-water conditions unless the group has appropriate skill and gear.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -14214,145 +13960,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'maquoketa-river-backbone-dundee',
-    slug: 'maquoketa-river-backbone-dundee',
-    name: 'Maquoketa River',
-    reach: 'Highway 410 / Backbone State Park to Dundee Access',
-    state: 'Iowa',
-    region: 'Northeast Iowa',
-    summary:
-      'Scenic upper Maquoketa route through Backbone State Park to Dundee, with clear water, dolomite bluffs, Backbone Lake, a required dam-portage decision, and a direct Manchester gauge ladder.',
-    statusText:
-      'Use the Maquoketa River at Manchester gauge. Treat 251 to 350 cfs as the best target for the upper park section, below 50 cfs as too shallow for the pre-South-Fork stretch, and 451+ cfs as possibly too high for a normal recommendation.',
-    latitude: 42.6331,
-    longitude: -91.5617,
-    gaugeSource: {
-      id: 'usgs-05416900',
-      provider: 'usgs',
-      siteId: '05416900',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Maquoketa River at Manchester, IA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 251,
-      idealMax: 350,
-      tooLow: 50,
-      tooHigh: 451,
-      thresholdSource: {
-        label: 'Wisconsin River Trips Maquoketa River Backbone State Park gauge ladder',
-        url: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-        provider: 'wisconsin_river_trips',
-      },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This upper park reach needs recent rain more than the bigger lower Maquoketa. Spring and fall give the best mix of depth and visible bluff scenery; summer leaf-out hides some outcrops, and low summer flows can make the pre-South-Fork section wade-heavy.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The upper state-park section has easy riffles, but the full route includes Backbone Lake wind exposure, a dam portage, fast split channels below the dam, low branches, strainers, and a two-foot ledge near 129th Street. Most casual paddlers should consider ending at the Backbone Lake dam access instead of continuing to Dundee.',
-      confidenceNotes:
-        'Confidence is good but guarded: Wisconsin River Trips documents the exact Highway 410-to-Dundee route, route hazards, and Manchester-gauge ladder; USGS 05416900 is a direct same-river live gauge downstream at Manchester; Iowa DNR confirms Backbone State Park is a public state park centered on the Maquoketa River; Delaware County Tourism maps the Upper Maquoketa Water Trail with Backbone State Park and Dundee Access; and Delaware County/MyCountyParks confirms Dundee Wildlife Area has canoe/kayak access and describes the Backbone-to-Dundee trip. The put-in is a state-park bridge access, not a named developed ramp, so the app labels it precisely and warns about seasonal gate closures.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Published route report',
-        value: 'Highway 410 to Dundee Access, 6.2 miles',
-        note: 'Wisconsin River Trips documents this exact route through Backbone State Park, naming Highway 410 as the put-in, Dundee Access as the take-out, and 6.2 miles as the route distance.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-      },
-      {
-        label: 'Official corridor map',
-        value: 'Backbone State Park and Dundee Access',
-        note: 'The Delaware County Upper Maquoketa River Water Trail map names Backbone State Park and Dundee Access among the mapped Maquoketa River water-trail access points.',
-        sourceUrl: 'https://delawarecountyiowatourism.com/wp-content/uploads/2024/03/River-Trail-Map.pdf',
-      },
-      {
-        label: 'Take-out authority',
-        value: 'Dundee Wildlife Area canoe/kayak access',
-        note: 'Delaware County/MyCountyParks says Dundee Wildlife Area has water access for canoeists and kayakers and specifically describes a scenic trip starting three miles upstream at Backbone State Park to Dundee Access.',
-        sourceUrl: 'https://www.mycountyparks.com/county/Delaware/Park/Dundee-Wildlife-Area',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 05416900',
-        note: 'USGS operates Maquoketa River at Manchester, IA downstream on the same river, and Wisconsin River Trips uses this gauge for the Backbone State Park route ladder.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
-      },
-      {
-        label: 'Target range',
-        value: '251 to 350 cfs',
-        note: 'Wisconsin River Trips describes 251 to 350 cfs at Manchester as high depth and a good target range for the upper parts of the Backbone route.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-      },
-      {
-        label: 'Low-water floor',
-        value: '50 cfs',
-        note: 'The route ladder says 0 to 50 cfs is likely too shallow for the pre-South-Fork stretch, while 51 to 100 cfs can require a bunch of wading before the South Fork.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-      },
-      {
-        label: 'High-water ceiling',
-        value: '451+ cfs',
-        note: 'WRT treats 451+ cfs as maybe too high for safe paddling on this route, and notes the dam-to-Dundee leg has pushy strainers at higher water.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'Backbone 42.6331, -91.5617; Dundee 42.5793779, -91.5485886',
-        note: 'The Backbone coordinate is the named Backbone State Park map context near the Highway 410 bridge access; the Dundee coordinate is the Water Quality Portal site named Maquoketa River (Dundee), matching the county-listed Dundee Access corridor.',
-        sourceUrl: 'https://www.waterqualitydata.us/provider/STORET/IOWATER/IOWATER-928022/',
-      },
-      {
-        label: 'Hazards',
-        value: 'Dam portage, strainers, ledge, wind',
-        note: 'WRT warns that Backbone Lake wind can be problematic, the dam portage and split channels below the dam should be scouted, and the dam-to-Dundee leg includes tricky current, low branches, strainers, and a two-foot rock ledge near 129th Street.',
-        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Wisconsin River Trips Maquoketa River - Backbone State Park',
-        url: 'https://www.wisconsinrivertrips.com/segments/maquoketa-river/backbone-state-park',
-        provider: 'wisconsin_river_trips',
-      },
-      {
-        label: 'USGS 05416900 Maquoketa River at Manchester',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05416900/',
-        provider: 'usgs',
-      },
-      {
-        label: 'Iowa DNR Backbone State Park',
-        url: 'https://www.iowadnr.gov/places-go/state-parks/all-parks/backbone-state-park',
-        provider: 'local',
-      },
-      {
-        label: 'Upper Maquoketa River Water Trail map',
-        url: 'https://delawarecountyiowatourism.com/wp-content/uploads/2024/03/River-Trail-Map.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'Delaware County Dundee Wildlife Area',
-        url: 'https://www.mycountyparks.com/county/Delaware/Park/Dundee-Wildlife-Area',
-        provider: 'local',
-      },
-      {
-        label: 'Water Quality Portal Maquoketa River (Dundee)',
-        url: 'https://www.waterqualitydata.us/provider/STORET/IOWATER/IOWATER-928022/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS public-domain Backbone State Park image',
-        url: 'https://www.usgs.gov/media/images/backbone-state-park-strawberry-point-iowa',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
     id: 'maquoketa-river-canton-royertown',
     slug: 'maquoketa-river-canton-royertown',
     name: 'Maquoketa River',
@@ -14745,6 +14352,16 @@ export const rivers: River[] = [
       siteName: 'Maquoketa River near Maquoketa, IA',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05418500/',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Launch from the lower sandbar/access below Mon-Maq Dam; do not launch above the dam or drift into dam hydraulics.',
+        'The Jones County/Iowa DNR guide warns dams are not always obvious from upstream and paddlers should exit when directed and portage around.',
+        'Eight miles of moving water, private-property boundaries, wood, and pushier current above the preferred band require current verification.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 701,
@@ -15022,6 +14639,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Turkey River above French Hollow Cr at Elkader, IA',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05412020/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'strainers'],
+      safetyNotes: [
+        'The Elkader take-out/portage is mandatory; the Turkey River guide says not to pass the portages because the dam is just downstream.',
+        'Identify Access #39A early, land on the correct side, and do not continue toward the dam unless intentionally portaging with current local guidance.',
+        'Wood piles, abandoned debris, strainers, shallow riffles, and high or rising water can make this inappropriate for casual groups.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -15590,6 +15217,16 @@ export const rivers: River[] = [
       siteName: 'Cedar River at Charles City, IA',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05457700/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'whitewater', 'fast_rise'],
+      safetyNotes: [
+        'Legitimate whitewater park with published feature guidance, but Iowa Whitewater warns a large dangerous dam upstream should be avoided.',
+        'Above 8,000 cfs, eddy access is limited and features become random waves or holes requiring solid whitewater skill.',
+        'Scout posted conditions and use whitewater-appropriate PFD, helmet, skill, and rescue margin.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 2000,
@@ -16143,158 +15780,6 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'kansas-river-seward-lecompton',
-    slug: 'kansas-river-seward-lecompton',
-    name: 'Kansas River',
-    reach: "Seward Avenue / Fool's Landing to Lecompton / Rising Sun",
-    aliases: [
-      "Kaw River - Fool's Landing to Lecompton",
-      'Kansas River - Seward Avenue to Rising Sun',
-      "Seward Avenue / Fool's Landing Access Ramp to Lecompton / Rising Sun Access Ramp",
-    ],
-    state: 'Kansas',
-    region: 'Northeast Kansas',
-    summary:
-      "Experienced-paddler Kansas River day from Seward Avenue / Fool's Landing to Lecompton / Rising Sun. Friends of the Kaw documents both public ramps and the 12.7-mile spacing, but this route includes the Tecumseh low-head-dam structure one mile below Seward and is not a novice float.",
-    statusText:
-      'Use the Kansas River above Topeka Weir gauge as an upstream corridor check. The broad Kaw window is about 1,500 to 5,000 cfs; below 1,000 cfs expect exposed dam structure, shallow channels, and sandbar picking, while above 8,000 cfs Friends of the Kaw says sandbar rest stops are scarce.',
-    latitude: 39.06036,
-    longitude: -95.59468,
-    gaugeSource: {
-      id: 'usgs-06888990',
-      provider: 'usgs',
-      siteId: '06888990',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'proxy',
-      siteName: 'Kansas River above Topeka Weir at Topeka, KS',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1500,
-      idealMax: 5000,
-      tooLow: 1000,
-      tooHigh: 8000,
-      thresholdSource: {
-        label: 'Friends of the Kaw safety bands and USACE Kansas River recreation flow impacts',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      windSensitivity: 0.8,
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        'Spring through fall is the practical season. Low summer water can expose more of the Tecumseh structure and make the channel braided, while high water hides hazards, removes sandbar rests, and raises the consequence of a missed line.',
-      difficulty: 'hard',
-      difficultyNotes:
-        'This is not a novice Kansas River day. The Tecumseh low-head-dam structure is one mile below the put-in, has no public bank portage or road access, and Friends of the Kaw says the area should only be paddled by people with extensive river experience. Scout from reliable maps before committing, approach slowly, and skip the route if the group cannot make a conservative dam-passage decision.',
-      confidenceNotes:
-        "Confidence is high for access and route shape: Friends of the Kaw documents Seward Avenue / Fool's Landing at river mile 77, Lecompton / Rising Sun at river mile 64.3, both GPS coordinates, the 12.7-mile downstream spacing, and the Tecumseh low-head-dam hazard one mile below Seward. Confidence is moderate for scoring because the Topeka Weir gauge is upstream of the route and the level bands are broad Kansas River guidance rather than a route-specific official ladder. The app applies the same conservative Kaw calibration used by adjacent Topeka-area routes and foregrounds the dam hazard instead of presenting the route as a broad-audience float.",
-    },
-    evidenceNotes: [
-      {
-        label: 'Public put-in',
-        value: "Seward Avenue / Fool's Landing, RM 77",
-        note: "Friends of the Kaw lists Seward Avenue / Fool's Landing with GPS 39.06036, -95.59468, river-right concrete ramp, paved parking, lighting, trash, Shawnee County maintenance, a dusk-to-dawn gate, and a ramp-silt caveat.",
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
-      },
-      {
-        label: 'Public take-out',
-        value: 'Lecompton / Rising Sun, RM 64.3',
-        note: 'Friends of the Kaw lists the Lecompton / Rising Sun access with GPS 39.05057, -95.38764, river-left concrete ramp, gravel parking, kiosk, no restrooms or lighting, and rain/mud caveats.',
-        sourceUrl:
-          'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
-      },
-      {
-        label: 'Route distance',
-        value: 'About 12.7 river miles',
-        note: 'The Seward access page says the next downstream access is Lecompton / Rising Sun 12.7 miles downstream at river mile 64.3.',
-        sourceUrl: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
-      },
-      {
-        label: 'Tecumseh low-head dam',
-        value: 'RM 76, one mile below Seward',
-        note: 'Friends of the Kaw says the Tecumseh structure is a low wall spanning two-thirds of the river from river left, is barely visible under most conditions, has no public bank portage or road access, and is not recommended for novices.',
-        sourceUrl:
-          'https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/',
-      },
-      {
-        label: 'Public river and ramps',
-        value: 'Kansas, Arkansas, and Missouri Rivers public in Kansas',
-        note: 'Friends of the Kaw says the Kansas, Arkansas, and Missouri Rivers are public rivers in Kansas and that all Kansas River boat ramps are open to the public.',
-        sourceUrl: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-      },
-      {
-        label: 'Flow safety bands',
-        value: 'Novices under 5,000 cfs; all paddlers under 8,000 cfs',
-        note: 'Friends of the Kaw recommends novice paddlers stay below 5,000 cfs and more experienced paddlers stay below 8,000 cfs; at 8,000 cfs and higher, few sandbars remain for rest stops.',
-        sourceUrl: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-      },
-      {
-        label: 'Low-flow recreation impacts',
-        value: '<1,000 / 1,500-5,000 / 8,000+ cfs',
-        note: 'USACE Kansas River recreation material identifies difficult paddling below 1,000 cfs, no recreation impacts from 1,500 to 5,000 cfs, novice impacts from 5,000 to 8,000 cfs, and extremely difficult paddling from 8,000 to 11,000 cfs.',
-        sourceUrl:
-          'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-      },
-      {
-        label: 'Proxy gauge',
-        value: 'USGS 06888990 above Topeka Weir',
-        note: 'USGS operates Kansas River above Topeka Weir upstream of Seward. Use it as a Topeka-corridor proxy rather than a precise Seward-to-Lecompton reading.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Friends of the Kaw Kansas River access map',
-        url: 'https://kansasriver.org/river-access-map/',
-        provider: 'local',
-      },
-      {
-        label: "Friends of the Kaw Seward Avenue / Fool's Landing access",
-        url: 'https://kansasriver.org/river-access-map/river-mile-77-seward-access-ramp/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Lecompton / Rising Sun access',
-        url: 'https://kansasriver.org/river-access-map/river-mile-64-perry-lecompton-rising-sun/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Tecumseh low-head dam',
-        url: 'https://kansasriver.org/river-access-map/river-mile-76-tecumseh-low-head-dam/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw river access tips',
-        url: 'https://kansasriver.org/paddle-and-fish/river-access/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw Paddle FAQ',
-        url: 'https://kansasriver.org/paddle-and-fish/paddle-faq/',
-        provider: 'local',
-      },
-      {
-        label: 'Friends of the Kaw river and sandbar safety',
-        url: 'https://kansasriver.org/wp-content/uploads/2026/01/FOK-River-and-Sandbar-Safety-2025.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USACE Kansas River recreation appendix',
-        url: 'https://www.nwk.usace.army.mil/Portals/29/docs/KRRFSS_Draft%20Appendix%20F_Recreation_2023-11-06.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 06888990 Kansas River above Topeka Weir',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
     id: 'kansas-river-lecompton-lawrence-riverfront',
     slug: 'kansas-river-lecompton-lawrence-riverfront',
     name: 'Kansas River',
@@ -16321,6 +15806,16 @@ export const rivers: River[] = [
       kind: 'proxy',
       siteName: 'Kansas River at De Soto, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Most paddlers should exit at Lawrence Riverfront Park and should not continue toward Bowersock Dam.',
+        'Continuing below Riverfront Park requires dam-portage planning and is not appropriate for novice paddlers.',
+        'Wind, rising water, floating wood, and private banks make bailout planning important.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -16757,6 +16252,15 @@ export const rivers: River[] = [
       siteName: 'Kansas River at De Soto, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'The WaterOne low-head dam is downstream of Edwardsville; make the planned take-out and do not continue into the dam corridor.',
+        'Wind, storms, floating wood, changing sandbars, and private banks require current local verification.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 1500,
@@ -16896,6 +16400,16 @@ export const rivers: River[] = [
       kind: 'proxy',
       siteName: 'Kansas River at De Soto, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06892350/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'mandatory_takeout', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Mandatory WaterOne low-head-dam portage; do not go over the dam or through the river-right notch.',
+        'Portage river left only and expect rough footing over large loose rocks with dangerous current nearby.',
+        'Lower reach has few easy mid-route stops; use only documented public ramps, legal stops, and the documented portage.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -17472,6 +16986,16 @@ export const rivers: River[] = [
       siteName: 'Kansas River at Wamego, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
     },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'Open bends, storms, wind, floating wood, and changing sandbars require conservative planning.',
+        'Stay with public ramps and legal sandbar stops; do not use private banks as planned exits.',
+        'Avoid continuing downstream toward the Belvue partial low-head-dam reach unless that route is separately planned.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 1500,
@@ -17612,6 +17136,16 @@ export const rivers: River[] = [
       siteName: 'Kansas River at Wamego, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06887500/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Belvue partial low-head dam sits about one mile above the take-out; stay river left and do not paddle close to exposed or submerged dam rocks.',
+        'Skip the reach if visibility, flow, or group skill makes the left-side passage uncertain.',
+        'Private banks, changing sandbars, wind, and high water limit recovery options.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 1500,
@@ -17751,6 +17285,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Kansas River above Topeka Weir at Topeka, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['remote', 'private_banks', 'strainers'],
+      safetyNotes: [
+        'Very long exposed mileage with wind, heat, storms, fatigue, and no intermediate public ramp; this is an experienced-distance or overnight-style trip, not a casual day float.',
+        'Use only public ramps and legal sandbar stops; do not rely on private banks or road bridges as bailout points.',
+        'Verify flow, weather, sandbar availability, and Kaw River State Park access before launching.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -17897,6 +17441,16 @@ export const rivers: River[] = [
       kind: 'direct',
       siteName: 'Kansas River above Topeka Weir at Topeka, KS',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06888990/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Launch below the Topeka dam and make the Seward take-out before the downstream Tecumseh low-head-dam corridor.',
+        'Old railroad bridge remains include exposed steel hazards at low water; follow current local guidance and pass on the recommended side.',
+        'Active dredging, downtown bridge current, storms, and private banks require extra verification before launch.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'two-sided',
@@ -20159,6 +19713,16 @@ export const rivers: River[] = [
       siteName: 'Pomme de Terre River near Hermitage, MO',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06921350/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam_release', 'fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'This is a dam-release route below Pomme de Terre Dam; verify fresh USACE/USGS release conditions before launching.',
+        'High or changing releases can cause sudden rises, turbulence, stronger current, and harder take-out conditions.',
+        'Flood debris, strainers, rural access roads, reservoir backwater, limited services, and private land require current local verification.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 100,
@@ -20280,6 +19844,16 @@ export const rivers: River[] = [
       kind: 'proxy',
       siteName: 'North Fork River near Tecumseh, MO',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07057500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'strainers', 'fast_rise'],
+      safetyNotes: [
+        'Dawt Mill Dam, the low-water bridge, swift riffles, root wads, and strainers make high or rising water consequential.',
+        'Dawt Mill is a private resort take-out; confirm current permission, fees, shuttle, parking, and landing conditions before launch.',
+        'The Tecumseh gauge is a supported downstream proxy, not a perfect in-reach reading for every shoal or backwater condition.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -22062,6 +21636,130 @@ export const rivers: River[] = [
         label: 'Mineral Springs coordinate record',
         url: 'https://boatrampfinder.com/ramps/mineral-springs-access/',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'james-river-joe-crighton-lake-springfield',
+    slug: 'james-river-joe-crighton-lake-springfield',
+    name: 'James River',
+    reach: 'Joe Crighton Access to Lake Springfield Boathouse',
+    aliases: [
+      'James River Water Trail',
+      'James River - Joe Crighton to Lake Springfield',
+      'James River - Crighton to Lake Springfield Boathouse',
+      'James River - Joe Crighton to Southwood to Lake Springfield',
+    ],
+    state: 'Missouri',
+    region: 'Springfield area',
+    summary:
+      'Springfield-area James River Water Trail from Joe Crighton Access to Lake Springfield Boathouse, using the direct Springfield gauge and conservative minimum-only MoHERP evidence.',
+    statusText:
+      'Use the James River near Springfield gauge. Around 40 cfs is the low-water marker for this route, but the app does not claim an ideal range or high-water cutoff. Recent rain can quickly turn this river-to-lake finish into a pushier, muddier trip.',
+    latitude: 37.1557274593,
+    longitude: -93.1993452603,
+    gaugeSource: {
+      id: 'usgs-07050700',
+      provider: 'usgs',
+      siteId: '07050700',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'James River near Springfield, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07050700/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 40,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Springfield gauge James route-family evidence',
+        url: 'https://mail.rivers.moherp.org/gauge/?gauge=07050700&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This Springfield reach is most practical from spring through fall. Summer dry spells can leave the upstream current slow, buggy, and muddy, while thunderstorms can quickly raise the river, move fresh wood, and create a windier lake finish.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At ordinary levels this is an easy recreational float with a short moving-water section above Lake Springfield and a slower open-water finish into the boathouse area. High or rising water, bridge current, wood, and afternoon lake wind make it less forgiving.',
+      confidenceNotes:
+        'Confidence is good enough for a conservative Missouri add. MDC confirms Joe Crighton as a public James River access and the start of the water trail, Springfield-Greene County Park Board confirms the public boathouse finish area, and the official Lake Springfield Park map now clearly separates the boathouse from the separate boat launch while the Park Board Google map/KML pins the boathouse placemark at 37.1159741, -93.2517345. USGS Water Services IV returned same-day June 18, 2026 values for 07050700, and Ozark Greenways / Springfield tourism still support the Joe Crighton-to-Lake Springfield route shape. The app uses only a 40 cfs minimum-only floor because the threshold evidence comes from MoHERP gauge bands and adjacent route-family trips rather than a manager-published exact-route range, and source mileage varies between about 4.5 and 6 miles.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public put-in',
+        value: 'MDC Joe Crighton Access',
+        note: 'MDC says Joe Crighton Access provides public access to the James River, includes stairs to the river, and marks the start of the James River Water Trail. The area is day use only.',
+        sourceUrl: 'https://mdc.mo.gov/discover-nature/places/joe-crighton-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Lake Springfield Boathouse',
+        note: 'Springfield-Greene County Park Board lists Lake Springfield Park and Boathouse as a public park facility with accessible parking, rentals, and James River Water Trail use. The official park trail map labels the Boathouse and the separate Boat Launch as different shoreline destinations, and the Park Board Google map/KML pins the Boathouse placemark at 37.1159741, -93.2517345.',
+        sourceUrl: 'https://www.parkboard.org/255/Lake-Springfield-Park-and-Boathouse',
+      },
+      {
+        label: 'Route shape',
+        value: 'Joe Crighton to Lake Springfield Boathouse, about 4.5 to 6 miles',
+        note: 'Park Board rental guidance says the James River Water Trail route runs about 4.5 miles one way past Creighton Access, while Springfield tourism and Ozark Greenways describe the Joe Crighton-to-Lake Springfield Boathouse route as the standard upper-James water trail and commonly call it about 6 miles. The app preserves that uncertainty rather than claiming a tighter measurement.',
+        sourceUrl: 'https://www.springfieldmo.org/listings/james-river-water-trail/5820/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07050700',
+        note: 'USGS Water Services IV returned same-day June 18, 2026 observations of 1,140 cfs and 7.16 ft for James River near Springfield. The Springfield gauge is the same direct corridor gauge used by MoHERP route-family evidence for Joe Crighton, Southwood, and Lake Springfield.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07050700',
+      },
+      {
+        label: 'Low-water floor',
+        value: '40 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Springfield gauge Low beginning at 40 cfs and Good beginning at 150 cfs, while route-family trips include a Low Crighton-to-Southwood row at 25 cfs and higher-water Southwood-to-Lake Springfield rows at 448 and 1,390 cfs. Paddle Today uses only the conservative 40 cfs floor and does not infer an ideal or high-water cutoff.',
+        sourceUrl: 'https://mail.rivers.moherp.org/gauge/?gauge=07050700&hours=168',
+      },
+      {
+        label: 'Coordinates',
+        value: '37.1557274593, -93.1993452603 to 37.1159741, -93.2517345',
+        note: 'The Joe Crighton put-in uses the Missouri Department of Conservation ArcGIS boat-ramp point. The Lake Springfield take-out uses the Park Board Google map/KML boathouse placemark, accepted in this run because the official park trail map distinguishes the boathouse from the separate boat launch.',
+        sourceUrl: 'https://www.parkboard.org/DocumentCenter/View/8420/Lake-Springfield-Park-trails-map',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MDC Joe Crighton Access',
+        url: 'https://mdc.mo.gov/discover-nature/places/joe-crighton-access',
+        provider: 'local',
+      },
+      {
+        label: 'Springfield-Greene County Park Board Lake Springfield Park and Boathouse',
+        url: 'https://www.parkboard.org/255/Lake-Springfield-Park-and-Boathouse',
+        provider: 'local',
+      },
+      {
+        label: 'Lake Springfield Park trail map',
+        url: 'https://www.parkboard.org/DocumentCenter/View/8420/Lake-Springfield-Park-trails-map',
+        provider: 'local',
+      },
+      {
+        label: 'Springfield James River Water Trail listing',
+        url: 'https://www.springfieldmo.org/listings/james-river-water-trail/5820/',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP James River Springfield gauge',
+        url: 'https://mail.rivers.moherp.org/gauge/?gauge=07050700&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07050700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07050700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07050700 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07050700',
+        provider: 'usgs',
       },
     ],
   },
@@ -24360,6 +24058,16 @@ export const rivers: River[] = [
       siteName: 'Shiawassee River at Owosso, MI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'whitewater', 'cold_water'],
+      safetyNotes: [
+        'Exit river right at Shiatown above the dam and do not continue without separate dam/downstream-route planning.',
+        'High water, cold water, poor visibility, submerged rocks, riffles, and debris make the Shiatown take-out more consequential.',
+        'The Owosso gauge is a corridor proxy for this upstream segment, so make a same-day visual call at the access.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'minimum-only',
       tooLow: 2,
@@ -24467,6 +24175,16 @@ export const rivers: River[] = [
       kind: 'proxy',
       siteName: 'Shiawassee River at Owosso, MI',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'whitewater', 'strainers'],
+      safetyNotes: [
+        'Begin downstream of the partially removed Shiatown dam; do not treat the dam itself as a runnable feature.',
+        'Fast rapids, split-channel current, bridge approaches, debris, vegetation-covered rocks, and private docks require moving-water skill.',
+        'High water can make the dam-adjacent start and downstream bridge/debris corridor unsuitable.',
+      ],
+      reviewStatus: 'reviewed',
     },
     profile: {
       thresholdModel: 'minimum-only',
@@ -26644,6 +26362,16 @@ export const rivers: River[] = [
       siteName: 'Slate Creek at Highway 713 near Mt. Sterling, KY',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03250190/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['low_head_dam', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'Use the KDFWR-listed carry-down access below the Lions Club Park low-head dam; do not launch above the dam for this route.',
+        'Stay away from low-head-dam hydraulics and boils near Lions Club Park, especially at high or stained water.',
+        'Small-creek wood, strainers, quick rain response, and private-bank limits require current access and flow checks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 100,
@@ -28045,6 +27773,16 @@ export const rivers: River[] = [
       siteName: 'Ouachita River at Remmel Dam above Jones Mill, AR',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07359002/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam_release', 'dam', 'whitewater', 'fast_rise', 'cold_water'],
+      safetyNotes: [
+        'Dam-release route with strong tailwater current, undertows, cold water, and fast level changes; verify current Entergy release guidance before launching.',
+        'Rockport Ledge and nearby chutes can flip, pin, or swamp boats near the take-out; scout and skip if the group cannot manage whitewater hazards.',
+        'Move to the left bank when the I-30 bridge comes into view and make the signed take-out before conditions force a difficult upstream ferry.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 3500,
@@ -28624,6 +28362,119 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'ouachita-river-dragover-west-east',
+    slug: 'ouachita-river-dragover-west-east',
+    name: 'Ouachita River',
+    reach: 'Dragover Day Use west access to east access',
+    aliases: [
+      'Ouachita River - Dragover',
+      'Upper Ouachita River - Dragover Day Use',
+      'Upper Ouachita River near Mount Ida',
+    ],
+    state: 'Arkansas',
+    region: 'Ouachita Mountains',
+    routeType: 'whitewater',
+    summary:
+      'Short upper Ouachita whitewater lap inside Dragover Day Use, from the upstream/west landing to the downstream/east landing. USFS confirms the public canoe-launching site, American Whitewater identifies the exact 2.9-mile Class I-II reach and landing coordinates, and the direct Mount Ida USGS gauge is live.',
+    statusText:
+      'Use the Ouachita River near Mount Ida stage gauge. Around 3.0 ft is the conservative low-water floor; below that, expect scraping and more rock contact. American Whitewater lists the route runnable up to about 5.0 ft, but above that the short whitewater gets pushier and is outside this conservative recommendation.',
+    latitude: 34.6375007629395,
+    longitude: -93.6297988891602,
+    gaugeSource: {
+      id: 'usgs-07356000',
+      provider: 'usgs',
+      siteId: '07356000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Ouachita River near Mount Ida, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07356000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise'],
+      safetyNotes: [
+        'Short Class I-II whitewater run with steep access, rock gardens, and named features including Hungry Hole and Big Rock; scout first if anyone in the group is not comfortable reading current and recovering from a swim.',
+        'Treat 3.0 ft as the conservative floor and be more careful as the gauge climbs toward or above 5.0 ft, when the run gets pushier than this recommendation is built for.',
+        'The route stays inside Dragover Day Use, but the downstream/east landing still needs an exit plan. Confirm the take-out before putting on and do not assume rescue or cell coverage will be easy.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 3,
+      thresholdSource: {
+        label: 'American Whitewater Dragover gauge range',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2699/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'USFS keeps Dragover Day Use open all year, but this short upper Ouachita run is highly rain-sensitive. Low summer water can get scrapey, while thunderstorms and fresh runoff can steepen the route quickly even though the mileage is short.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'American Whitewater rates Dragover Class I-II, but the run is still whitewater rather than a casual scenic float. Steep stair-and-roller access, rock contact at lower stages, and quick rises justify a moderate skill stance.',
+      confidenceNotes:
+        'Confidence is good for a conservative Arkansas whitewater add: USFS confirms Dragover Day Use is a public Ouachita River canoe-launching site with no-fee day-use access; American Whitewater identifies the exact 2.9-mile west-access-to-east-access reach, exposes distinct endpoint coordinates, and ties it directly to USGS 07356000 with a current 3.0-5.0 ft runnable range; and Water Services IV returned same-day June 17, 2026 stage and discharge values for 07356000 in this workspace. The app uses only the 3.0 ft floor and does not infer a broader preferred window from AW\'s high-runnable ceiling.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official public access',
+        value: 'Dragover Day Use canoe-launching site',
+        note: 'USFS says Dragover Day Use is open all year, no fee, and provides Ouachita River access with canoe launching at the public day-use site.',
+        sourceUrl: 'https://www.fs.usda.gov/r08/ouachita/recreation/dragover-day-use',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07356000 at 4.50 ft / 984 cfs',
+        note: 'USGS Water Services IV returned same-day June 17, 2026 values for Ouachita River near Mount Ida during implementation, confirming the direct stage and discharge path used for the route.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07356000',
+      },
+      {
+        label: 'Threshold floor',
+        value: '3.0 ft minimum-only',
+        note: 'American Whitewater ties Dragover directly to USGS 07356000 and currently exposes a 3.0-5.0 ft runnable range. Paddle Today uses only the 3.0 ft low-water floor and keeps the higher end as a caveat rather than a scoring band.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2699/main',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '34.6375007629395, -93.6297988891602 to 34.6383018493652, -93.6266021728516',
+        note: 'American Whitewater feature data exposes exact upstream/west put-in and downstream/east take-out coordinates for the Dragover reach, while USFS independently confirms the shared Dragover Day Use public-site context.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2699/main',
+      },
+      {
+        label: 'Core hazards',
+        value: '2.9 mi Class I-II with Hungry Hole and Big Rock',
+        note: 'American Whitewater describes Dragover as a 2.9-mile Class I-II reach with a steep stair-and-roller launch, Hungry Hole, Big Rock, and other short-feature hazards that still deserve whitewater judgment.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2699/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USFS Dragover Day Use',
+        url: 'https://www.fs.usda.gov/r08/ouachita/recreation/dragover-day-use',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Dragover reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2699/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 07356000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07356000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07356000 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07356000',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
     slug: 'youghiogheny-river-lower-yough-ohiopyle-bruner-run',
     name: 'Youghiogheny River',
@@ -28771,6 +28622,16 @@ export const rivers: River[] = [
       siteName: 'Sheyenne River below Baldhill Dam, ND',
       detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
     },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['dam', 'mandatory_takeout', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'End at Chautauqua Park and do not continue downstream into the Valley City dam corridor; Valley City guidance identifies the next launch as the last chance before a dangerous dam.',
+        'Avoid very low exposed-bar conditions and high flows above USFS avoid guidance; logs, debris, bridges, wind, storms, and cold water raise consequences.',
+        'Endpoint coordinates are practical public-site anchors, so verify same-day hatchery/park access, construction, flood, and debris conditions.',
+      ],
+      reviewStatus: 'reviewed',
+    },
     profile: {
       thresholdModel: 'two-sided',
       idealMin: 300,
@@ -28857,6 +28718,273 @@ export const rivers: River[] = [
       {
         label: 'Commons Chautauqua Park coordinate source',
         url: 'https://commons.wikimedia.org/wiki/File:Sheyenne_River_Valley_Scenic_Byway_-_Highline_Bridge_from_Chautauqua_Park_-_NARA_-_7722086.jpg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'big-pine-creek-450-harrison-twin-bridges',
+    slug: 'big-pine-creek-450-harrison-twin-bridges',
+    name: 'Big Pine Creek',
+    reach: '450 "Harrison" Bridge Access Point to Twin Bridges Access Point',
+    aliases: [
+      'Big Pine Creek - 450 Harrison to Twin Bridges',
+      'Big Pine Creek lower public pair',
+      'Big Pine Creek Honey Branch Bluff access pair',
+    ],
+    state: 'Indiana',
+    region: 'Wabash Valley Indiana',
+    routeType: 'whitewater',
+    summary:
+      'Lower Big Pine Creek day from NICHES\' 450 "Harrison" Bridge Access Point to Twin Bridges Access Point. Current NICHES pages and Warren County\'s live boat-access lease support the public pair, and the Pine Village USGS gauge gives a direct same-creek condition check.',
+    statusText:
+      'Use the Big Pine Creek at Pine Village gauge. Around 200 cfs is the conservative low-water floor; below that expect scraping and partial walk-on-rock lines. No route-specific upper band is claimed for this shorter public pair.',
+    latitude: 40.382053,
+    longitude: -87.332652,
+    gaugeSource: {
+      id: 'usgs-033356848',
+      provider: 'usgs',
+      siteId: '033356848',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Big Pine Creek at Pine Village, IN',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-033356848/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This is a lower Big Pine whitewater/swiftwater route with class I ledges, waves, and bedrock current lines. Scout first if anyone in the group is not comfortable reading current and self-rescuing.',
+        'American Whitewater\'s lower-section reports support the 200 cfs floor, but no route-specific upper cutoff is published for the 450 Harrison public pair. Skip the route when the creek is muddy, pushy, or rising beyond the group\'s comfort.',
+        'Use only the named public accesses. Warren County\'s lease supports single-day public use at 450N and forbids overnight parking, and banks away from named access points may be private.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 200,
+      thresholdSource: {
+        label: 'American Whitewater Big Pine lower-section trip reports',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2563/reports',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring through fall is the practical window, but Big Pine is highly rain-sensitive. The lower Harrison-to-Twin-Bridges section can stay runnable after the upper Rocky Ford reach drops out, while thunderstorms and fresh runoff can quickly turn the creek pushy and debris-heavy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Guarded novice-whitewater / swiftwater route. Lower-section reports describe class I rapids and ledges with easy surfing potential, but low-water rock contact, fast rises, private-bank limits, and simple bridge-access landings keep it out of casual-float territory.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: current NICHES pages name the exact 450 Harrison to Twin Bridges public pair and provide direct map links for both coordinates; the live Warren County lease PDF still supports NICHES\' boat-access operation with associated parking at County Road 450N and no overnight parking; American Whitewater currently ties the corridor to direct USGS 033356848 and includes lower-section Harrison-to-Twin-Bridges runnable-floor reports; and USGS Water Services returned same-day discharge and stage during implementation. Confidence stays conservative because the threshold source is community trip-report evidence and the shorter public pair has no manager-published high-water band or mileage table.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Public endpoint pair',
+        value: '450 "Harrison" Bridge Access Point to Twin Bridges Access Point',
+        note: 'Current NICHES pages explicitly name 450 "Harrison" Bridge Access Point as the upstream start and Twin Bridges Access Point as the downstream finish for current Big Pine Creek access work.',
+        sourceUrl: 'https://www.nicheslandtrust.org/calendar/big-pine-creek-access-site-cleanup',
+      },
+      {
+        label: 'Preserve route context',
+        value: 'Put in at 450 N and take out at Twin Bridges',
+        note: 'NICHES says Honey Branch Bluff is only accessible from Big Pine Creek and directs paddlers to put in upstream at 450 N and take out at the Twin Bridges.',
+        sourceUrl: 'https://nicheslandtrust.org/warren-county/honey-branch-bluff',
+      },
+      {
+        label: 'Public day-use rules',
+        value: 'Single-day use; no overnight parking',
+        note: 'The current Warren County lease for Big Pine Creek boat access lets NICHES operate the access with associated parking and says the county does not extend rights for overnight camping, equipment storage beyond single-day use, or overnight parking.',
+        sourceUrl:
+          'https://www.warrencounty.in.gov/Documents/How%20Do%20I/Documents%20and%20Forms/Government%20Document%20Center/Ordinances/2019/Lease%20Big%20Pine%20Creek%20Boat%20Access.pdf?t=202602250609300',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 033356848 at 1,920 cfs / 11.84 ft',
+        note: 'USGS legacy current conditions showed same-day June 19, 2026 readings for Big Pine Creek at Pine Village, confirming the direct discharge and stage path used for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=033356848',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '200 cfs minimum-only',
+        note: 'American Whitewater trip reports for the lower section say Harrison Bridge to Twin Bridges can run down to around 200 cfs, while a separate lower-section Twin Bridges park-and-play report at 173 cfs called it the bare minimum and said 200 cfs would be better. Paddle Today uses only the conservative 200 cfs floor and does not infer an upper band.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2563/reports',
+      },
+      {
+        label: 'Lower-section character',
+        value: 'Lower section class I rapids and ledges',
+        note: 'American Whitewater\'s current Big Pine page lists the adjacent corridor as II+(III) overall, and its lower-section report specifically describes Harrison Bridge to Twin Bridges as scenic class I rapids and ledges that remain runnable after the upper section gets too low.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2563/main',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.382053, -87.332652 to 40.339953, -87.314311',
+        note: 'NICHES\' current map links for the cleanup start and finish resolve to these exact public access coordinates for 450 Harrison and Twin Bridges.',
+        sourceUrl: 'https://www.nicheslandtrust.org/calendar/big-pine-creek-access-site-cleanup',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NICHES Big Pine Creek Access Site Cleanup',
+        url: 'https://www.nicheslandtrust.org/calendar/big-pine-creek-access-site-cleanup',
+        provider: 'local',
+      },
+      {
+        label: 'NICHES Honey Branch Bluff',
+        url: 'https://nicheslandtrust.org/warren-county/honey-branch-bluff',
+        provider: 'local',
+      },
+      {
+        label: 'Warren County Big Pine Creek boat access lease',
+        url: 'https://www.warrencounty.in.gov/Documents/How%20Do%20I/Documents%20and%20Forms/Government%20Document%20Center/Ordinances/2019/Lease%20Big%20Pine%20Creek%20Boat%20Access.pdf?t=202602250609300',
+        provider: 'local',
+      },
+      {
+        label: 'American Whitewater Big Pine reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2563/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'American Whitewater Big Pine trip reports',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2563/reports',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 033356848 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-033356848/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 033356848 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=033356848',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'sheyenne-river-brome-field-mirror-pool',
+    slug: 'sheyenne-river-brome-field-mirror-pool',
+    name: 'Sheyenne River',
+    reach: 'Brome Field hand-launch to Mirror Pool WMA hand-launch',
+    aliases: [
+      'Sheyenne River Water Trail - Brome Field to Mirror Pool',
+      'Sheyenne River - Brome Field to Mirror Pool',
+      'Sheyenne National Grassland middle segment',
+    ],
+    state: 'North Dakota',
+    region: 'Sheyenne National Grassland',
+    summary:
+      'Short grassland Sheyenne River Water Trail segment from the Brome Field hand-launch to the Mirror Pool WMA hand-launch. USFS names both semi-primitive access points and uses the Baldhill Dam USGS gauge as the corridor-wide condition check.',
+    statusText:
+      'Use the Sheyenne River below Baldhill Dam gauge as a corridor-wide proxy. The official water-trail guidance calls 300 to 1,000 cfs optimal, 100 to 300 cfs navigable with exposed obstacles, 1,000 to 2,000 cfs caution water, and over 2,000 cfs avoid.',
+    latitude: 46.53087339415233,
+    longitude: -97.31706518572886,
+    gaugeSource: {
+      id: 'usgs-05058000',
+      provider: 'usgs',
+      siteId: '05058000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Sheyenne River below Baldhill Dam, ND',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'Expect overhanging trees, logjams, bridge-abutment hazards, and occasional big rocks or shallow bars; portage around obstructions rather than grabbing branches from the boat.',
+        'USFS marks public-land boundaries along this trail segment. Respect those markers and do not dock beyond public lands unless needed for safety.',
+        'High flows above 1,000 cfs can flood shoreline trees and logs; over 2,000 cfs is official avoid water on the Sheyenne.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 300,
+      idealMax: 1000,
+      tooLow: 100,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'USFS Sheyenne River Water Trail river conditions',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'USFS says the Sheyenne River Water Trail is primarily designed for summer use, with the practical paddling season generally May through September. Rain, dam operations, and storm debris can still change current, wood, and bank conditions quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short, gentle grassland float at ordinary levels, but the semi-primitive hand launches, exposed bars at low water, shoreline wood at higher water, and limited mid-route services still require a prepared same-day check.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the current USFS water-trail page names Brome Field and Mirror Pool as designated put-in/pull-out sites, the official 2019 USFS brochure map is geospatial and yields practical access anchors for both, NDGF still lists Mirror Pool WMA as public wildlife-management land, and USGS Water Services returned same-day 05058000 discharge and gage-height values during implementation. Confidence is intentionally tempered because the Baldhill Dam gauge is an official corridor-wide proxy for most of the river, not an exact on-segment gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Brome Field to Mirror Pool, about 4 river miles',
+        note: 'The official USFS Sheyenne River Water Trail brochure labels Brome Field as a put-in/pull-out near river mile 4 and Mirror Pool as a put-in/pull-out near river mile 8 on the Sheyenne National Grassland map.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Official access context',
+        value: 'Semi-primitive hand-launch sites',
+        note: 'USFS says the Sheyenne National Grassland reach has four primary semi-primitive access sites designated for hand-launching canoes and kayaks, including Brome Field and Mirror Pool.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+      },
+      {
+        label: 'Corridor live gauge proxy',
+        value: 'USGS 05058000',
+        note: 'USFS points Sheyenne River Water Trail users to USGS station 05058000 below Baldhill Dam and says it indicates conditions along most of the river. Water Services returned 488 cfs and 25.20 ft at 2026-06-18 16:00 CDT during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+      },
+      {
+        label: 'Official flow bands',
+        value: '300-1,000 cfs optimal',
+        note: 'USFS says flows of 100 cfs or below are very low, 100-300 cfs are navigable with exposed obstacles, 300-1,000 cfs are optimal, 1,000-2,000 cfs require caution, and over 2,000 cfs should be avoided.',
+        sourceUrl: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '46.53087339415233, -97.31706518572886 to 46.50498692183727, -97.29118124734387',
+        note: 'The official 2019 USFS brochure map is geospatial. Extracting its embedded map reference and hand-launch icon placements yields practical access anchors for Brome Field and Mirror Pool.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+      {
+        label: 'Access and boundary rules',
+        value: 'Hand launch only, respect public-land markers',
+        note: 'The USFS brochure says these sites are for hand launch and retrieval rather than trailered watercraft, and it warns paddlers not to dock beyond the public-land markers shown along the route. NDGF also lists Mirror Pool WMA as public wildlife-management land.',
+        sourceUrl: 'https://www.fs.usda.gov/media/62034',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'USFS Sheyenne River Water Trail',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/trails/sheyenne-river-water-trail',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Water Activities',
+        url: 'https://www.fs.usda.gov/r01/dpg/recreation/opportunities/water-activities',
+        provider: 'local',
+      },
+      {
+        label: 'USFS Sheyenne River Water Trail brochure map',
+        url: 'https://www.fs.usda.gov/media/62034',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 05058000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05058000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'North Dakota Game and Fish WMA listing',
+        url: 'https://gf.nd.gov/wma-listing',
         provider: 'local',
       },
     ],
@@ -29414,6 +29542,263 @@ export const rivers: River[] = [
         label: 'USGS 06805500 monitoring location',
         url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
         provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'loup-river-george-syas-monroe',
+    slug: 'loup-river-george-syas-monroe',
+    name: 'Loup River',
+    reach: 'George D. Syas WMA to Monroe county access',
+    aliases: [
+      'Loup River Water Trail - George D. Syas WMA to Monroe',
+      'Loup River - George D. Syas to Monroe',
+      'George D. Syas WMA fishing access to Monroe county access',
+    ],
+    state: 'Nebraska',
+    region: 'Central Nebraska',
+    summary:
+      'Short central-Nebraska Loup River water-trail segment from the George D. Syas WMA fishing access to the county access south of Monroe. Nebraska Game and Parks / Nebraskaland ties the route family to the direct Genoa USGS gauge and supports a conservative low-water floor for this upstream segment.',
+    statusText:
+      'Use the Loup River near Genoa gauge. Around 350 cfs is the conservative low-water marker from Nebraska Game and Parks / Nebraskaland route testing; below that expect shallow channel hunting and dragging. No ideal range or high cutoff is claimed.',
+    latitude: 41.43328221,
+    longitude: -97.68464875,
+    gaugeSource: {
+      id: 'usgs-06793000',
+      provider: 'usgs',
+      siteId: '06793000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Loup River near Genoa, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks', 'strainers'],
+      safetyNotes: [
+        'Wide braided channels, wind, and fresh wood can matter more than the easy rating suggests.',
+        'Nebraska access rules are stricter than many paddlers expect; stay with the named public endpoints and avoid stopping on private banks or the stream bed without permission except when safety requires it.',
+        'Inspect the Monroe take-out before launching because the coordinate is a practical public-access anchor from official directions plus satellite verification, not a surveyed ramp point.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 350,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Loup River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'Nebraska Game and Parks says March through June usually has more water, while summer is usually lower but still often navigable because Loup Power District maintains at least 275 cfs in the river. Check same-day flow, wind, channel shape, and fresh wood before committing.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short scenic sand-bed river day, but the route still asks paddlers to pick the deepest braid, manage wind exposure, avoid fresh wood, and stay disciplined about the Monroe take-out.',
+      confidenceNotes:
+        'Confidence is good for a conservative Nebraska add: Nebraska Game and Parks / Nebraskaland documents the George D. Syas WMA start, the Monroe county access with parking, and the direct relationship to USGS 06793000 near Genoa; the City of Columbus repeats the Monroe public-access approach directions and parking/sign context; and USGS Water Services returned same-day 2026-06-18 values for 06793000. The app keeps the route minimum-only because the strongest numeric support is a 350 cfs George D. Syas-to-Monroe test plus a maintained 275 cfs baseflow, not a full official paddling band. Endpoint coordinates are practical public-access anchors rather than survey-grade ramp points.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'George D. Syas to Monroe, about 8 mi',
+        note: 'Outdoor Nebraska / Nebraskaland says the county built the Monroe access eight miles downstream from the George D. Syas WMA fishing access, making this the short upper segment of the managed water-trail family.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Public access',
+        value: 'George D. Syas WMA and Monroe county access',
+        note: 'Outdoor Nebraska / Nebraskaland identifies the existing George D. Syas WMA fishing access as the upstream start and says Monroe uses a county-built access with parking; the City of Columbus also says the Monroe site has designated parking and a trail sign.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06793000',
+        note: 'USGS Water Services returned current Loup River near Genoa values during implementation: 340 cfs and 4.41 ft at 2026-06-18 11:45 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+      },
+      {
+        label: 'Threshold support',
+        value: '350 cfs minimum-only',
+        note: 'Nebraskaland says Loup Power District maintains at least 275 cfs in the river and reports that a 350 cfs Genoa-gauge test from George D. Syas WMA to Monroe required deep-channel work but rarely walking. Paddle Today uses 350 cfs as a conservative floor and does not infer a high-water cutoff.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '41.43328221, -97.68464875 to 41.471508, -97.602729',
+        note: 'The George D. Syas coordinate is the public-display NGPC Public Access Atlas anchor for the named WMA fishing access. The Monroe coordinate is the end-of-road public access area manually verified in Google Maps satellite imagery from the official city directions south of Monroe on 370th Avenue, then east to the road end.',
+        sourceUrl: 'https://www.columbusne.us/435/Loup-River-Water-Trail',
+      },
+      {
+        label: 'Nebraska access caveat',
+        value: 'Surface open, banks and stream bed private',
+        note: 'Outdoor Nebraska / Nebraskaland warns that paddlers need permission to camp, picnic, or otherwise stop on private banks or the stream bed except when safety requires it.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Outdoor Nebraska / Nebraskaland Loup River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/loup-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'City of Columbus Loup River Water Trail',
+        url: 'https://www.columbusne.us/435/Loup-River-Water-Trail',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06793000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06793000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: "bryant-creek-warren-flo-cook",
+    slug: "bryant-creek-warren-flo-cook",
+    name: "Bryant Creek",
+    reach: "Warren Bridge Access to Flo Cook Access",
+    aliases: [
+      "Bryant Creek - Warren Bridge to Flo Cook",
+      "Bryant Creek - Warren Bridge to Cook's Landing",
+      "Bryant Creek - Warren Bridge to Florence C. Cook Access",
+    ],
+    state: "Missouri",
+    region: "Missouri Ozarks",
+    summary:
+      "Lower Bryant Creek float from MDC Warren Bridge Access to MDC Flo Cook Access, ending just upstream of the North Fork and Norfork Lake backwater. The direct Tecumseh gauge is already live in V2, so the route uses the same conservative 300 cfs low-water floor as the upstream Bryant segment.",
+    statusText:
+      "Use the Bryant Creek near Tecumseh gauge. Around 300 cfs is the conservative low-water marker; below that, expect shallow shoals, dragging, and slower travel. No ideal range or high cutoff is claimed for this lower-Bryant segment.",
+    latitude: 36.6674,
+    longitude: -92.2817,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["access_uncertain", "private_banks", "strainers"],
+      safetyNotes: [
+        "Scout Flo Cook before launching; it is an unimproved dirt/no-ramp take-out and should not be treated like a standard concrete landing.",
+        "Do not drift past Flo Cook unless you have a separate North Fork or Norfork Lake plan.",
+        "Watch for fresh wood, narrow current lines, and private banks away from the MDC accesses.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-07058000",
+      provider: "usgs",
+      siteId: "07058000",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Bryant Creek near Tecumseh, MO",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07058000/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 300,
+      thresholdSource: {
+        label:
+          "Rivers.MOHERP Tecumseh gauge rating and lower-Bryant trip context",
+        url: "https://rivers.moherp.org/gauge/?gauge=07058000&hours=168",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Bryant Creek is spring-fed enough to stay on the paddling map through much of the warm season, but low summer water can still make shoals slow and scrapey. Heavy rain can quickly raise the creek, add wood, and make the lower bends and final take-out less forgiving.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "This is a shorter lower-Bryant day than the Sycamore segment, but it is still moving-water Ozark paddling with shallow shoals, narrow current lines, and an unimproved dirt take-out. Missing the take-out pushes the trip toward the North Fork junction and Norfork Lake context.",
+      confidenceNotes:
+        "Confidence is good for a conservative adjacent Missouri add: MDC currently lists Warren Bridge Access and Flo Cook Access as public Bryant Creek fishing and floating access points and exposes official centerpoint coordinates for both; Float Missouri places Warren Bridge at mile 33.3 and Flo Cook at mile 40.0, giving this route a practical 6.7-mile shape; USGS 07058000 showed same-day June 17, 2026 discharge and gage-height observations; and the existing live Sycamore-to-Warren Bryant route already proves the same direct gauge path and 300 cfs minimum-only model in the app. The app keeps the route conservative because the threshold source is community-calibrated, not a manager-published paddling band, and the Flo Cook take-out remains a dirt/no-ramp landing.",
+    },
+    evidenceNotes: [
+      {
+        label: "Public put-in",
+        value: "Warren Bridge Access",
+        note: "MDC says Warren Bridge Access provides fishing and floating access to Bryant Creek and gives current area hours and directions from Dora via Highway 181, Route H, and County Road 328.",
+        sourceUrl:
+          "https://mdc.mo.gov/discover-nature/places/warren-bridge-access",
+      },
+      {
+        label: "Public take-out",
+        value: "Flo Cook Access",
+        note: "MDC says Flo Cook Access provides fishing and floating access opportunities on Bryant Creek just upstream from Norfork Lake and gives current area hours and directions from Highway 160 via County Road 308.",
+        sourceUrl: "https://mdc.mo.gov/discover-nature/places/flo-cook-access",
+      },
+      {
+        label: "Route shape",
+        value: "About 6.7 river miles",
+        note: "Float Missouri places Warren Bridge at river mile 33.3 and Florence C. Cook Access at river mile 40.0, making this a practical 6.7-mile lower-Bryant segment that ends before the weaker Tecumseh / North Fork access family.",
+        sourceUrl:
+          "https://www.floatmissouri.com/plan/missouri-rivers/bryant-creek/",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 07058000",
+        note: "USGS Bryant Creek near Tecumseh showed same-day June 17, 2026 discharge and gage-height observations during this implementation pass. The app already uses this direct same-creek gauge for the upstream Bryant route.",
+        sourceUrl:
+          "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07058000",
+      },
+      {
+        label: "Low-water floor",
+        value: "300 cfs minimum-only",
+        note: "Rivers.MOHERP rates the Bryant Creek Tecumseh gauge Good beginning at 300 cfs and includes lower-Bryant route-family context, including Sycamore-to-Cook trip evidence. Paddle Today uses only the conservative 300 cfs floor and does not infer an ideal or high-water band.",
+        sourceUrl: "https://rivers.moherp.org/gauge/?gauge=07058000&hours=168",
+      },
+      {
+        label: "Take-out caveat",
+        value: "Dirt landing, no rebuilt ramp",
+        note: "Float Missouri describes Florence C. Cook Access as a dirt ramp, and Ozark County Times reported after the 2017 flood that the old gravel boat ramp would not be rebuilt. Keep the final walk-out and parking expectations conservative.",
+        sourceUrl:
+          "https://www.ozarkcountytimes.com/news-local-news-outdoor-news/year-after-flood-mdc-reopens-cook%E2%80%99s-landing-bryant-creek-0",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "MDC Warren Bridge Access",
+        url: "https://mdc.mo.gov/discover-nature/places/warren-bridge-access",
+        provider: "local",
+      },
+      {
+        label: "MDC Flo Cook Access",
+        url: "https://mdc.mo.gov/discover-nature/places/flo-cook-access",
+        provider: "local",
+      },
+      {
+        label: "Rivers.MOHERP Bryant Creek Tecumseh gauge",
+        url: "https://rivers.moherp.org/gauge/?gauge=07058000&hours=168",
+        provider: "local",
+      },
+      {
+        label: "USGS 07058000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-07058000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS Bryant Creek current conditions",
+        url: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07058000",
+        provider: "usgs",
+      },
+      {
+        label: "Missouri Float Trips Bryant Creek guide",
+        url: "https://www.floatmissouri.com/plan/missouri-rivers/bryant-creek/",
+        provider: "local",
+      },
+      {
+        label: "Bryant Watershed boating and floating guide",
+        url: "https://www.watersheds.org/outdoors/boating.htm",
+        provider: "local",
+      },
+      {
+        label: "Ozark County Times Cook's Landing article",
+        url: "https://www.ozarkcountytimes.com/news-local-news-outdoor-news/year-after-flood-mdc-reopens-cook%E2%80%99s-landing-bryant-creek-0",
+        provider: "local",
       },
     ],
   },

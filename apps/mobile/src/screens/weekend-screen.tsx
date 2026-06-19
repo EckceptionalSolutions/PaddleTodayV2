@@ -49,7 +49,7 @@ export default function WeekendScreen() {
   const secondarySlugs = slugSet([...topPicks, ...lowerCommitment]);
   const campingRoutes = rivers
     .filter((river) => !secondarySlugs.has(river.river.slug))
-    .filter((river) => location ? isWorthLongerDriveRoute(river) : hasCamping(river))
+    .filter((river) => location ? isWorthLongerDriveRoute(river) : hasOvernightCampingSupport(river))
     .slice(0, 4);
   const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingRoutes]);
   const watchList = rivers
@@ -197,8 +197,8 @@ export default function WeekendScreen() {
 
       {campingRoutes.length > 0 ? (
         <SectionCard
-          title={location ? 'Worth a longer drive' : 'Camping possible'}
-          subtitle={location ? 'Good weekend routes outside the first nearby set.' : 'Routes with camping notes.'}
+          title={location ? 'Overnight-friendly drives' : 'Overnight-friendly'}
+          subtitle={location ? 'Good weekend calls with stronger camping support.' : 'Routes with on-route or overnight camping support.'}
         >
           <View style={styles.list}>
             {campingRoutes.map((river) => renderWeekendCard(river))}
@@ -358,17 +358,31 @@ function isWorthLongerDriveRoute(river: WeekendSummaryApiItem) {
   return (
     (river.weekend.rating === 'Strong' || river.weekend.rating === 'Good') &&
     route.travelMinutes !== null &&
-    route.travelMinutes > 120
+    route.travelMinutes > 120 &&
+    hasOvernightCampingSupport(river)
   );
 }
 
-function hasCamping(river: WeekendSummaryApiItem) {
+function hasWeekendCampingSupport(river: WeekendSummaryApiItem) {
   if (river.weekend.rating !== 'Strong' && river.weekend.rating !== 'Good') {
     return false;
   }
 
-  const camping = normalizeApiText(river.river.logistics?.camping).toLowerCase();
-  return camping.length > 0 && !camping.startsWith('none') && !camping.startsWith('no ');
+  const classification = river.river.logistics?.campingClassification;
+  return classification !== undefined && classification !== 'none' && classification !== 'unknown';
+}
+
+function hasOvernightCampingSupport(river: WeekendSummaryApiItem) {
+  if (!hasWeekendCampingSupport(river)) {
+    return false;
+  }
+
+  const classification = river.river.logistics?.campingClassification;
+  return (
+    classification === 'overnight_capable' ||
+    classification === 'on_route_campsite' ||
+    classification === 'sandbar_or_gravel_bar'
+  );
 }
 
 function weekendFacts(river: WeekendSummaryApiItem) {
@@ -378,8 +392,17 @@ function weekendFacts(river: WeekendSummaryApiItem) {
     river.river.distanceLabel || null,
     river.river.estimatedPaddleTime || null,
     `${capitalize(river.river.difficulty)} difficulty`,
-    hasCamping(river) ? 'Camping possible' : null,
+    campingFact(river),
   ].filter(Boolean) as string[];
+}
+
+function campingFact(river: WeekendSummaryApiItem) {
+  const classification = river.river.logistics?.campingClassification;
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
+  return null;
 }
 
 function rankWeekendRoutes(rivers: WeekendSummaryApiItem[], location: StoredLocation | null): WeekendRoute[] {

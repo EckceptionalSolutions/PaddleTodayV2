@@ -1,45 +1,7 @@
 import type { RiverTripDetails } from '../lib/types';
 
 export const riverTripDetails: Record<string, RiverTripDetails> = {
-  'kansas-river-seward-lecompton': {
-    putIn: {
-      name: "Seward Avenue / Fool's Landing Access Ramp",
-      latitude: 39.06036,
-      longitude: -95.59468,
-    },
-    takeOut: {
-      name: 'Lecompton / Rising Sun Access Ramp',
-      latitude: 39.05057,
-      longitude: -95.38764,
-    },
-    logistics: {
-      distanceLabel: 'About 12.7 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 6 hr, longer with low water, wind, scouting, or a conservative dam decision',
-      shuttle:
-        "Stage the take-out at Lecompton / Rising Sun, then drive back to Seward Avenue / Fool's Landing. Inspect both ramps first, and do not launch unless the group has already reviewed the Tecumseh low-head-dam structure one mile below Seward and has a current plan for skipping the route if the passage looks wrong.",
-      permits:
-        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
-      camping:
-        'Treat this as a committed day trip. Sandbars can be legal public river stops under current Kansas Riverkeeper guidance, but banks above the river are private; do not camp, picnic, portage, or scout from adjacent private land without permission.',
-      summary:
-        "Launch at Seward Avenue / Fool's Landing and take out at Lecompton / Rising Sun for a 12.7-mile Kansas River day. The route includes the Tecumseh low-head-dam structure one mile downstream of Seward, so it is only for experienced paddlers making a same-day hazard call.",
-      accessCaveats: [
-        "Seward Avenue / Fool's Landing has a dusk-to-dawn gate, and Friends of the Kaw says the ramp can silt in after rising or falling water. Inspect it before leaving a vehicle.",
-        'The Tecumseh low-head dam is about one mile downstream from Seward. Friends of the Kaw says the structure is barely visible under most conditions, is not suitable for novices, and has no public bank portage or road access.',
-        'Lecompton / Rising Sun has a dirt or gravel parking area, no restrooms or lighting, and a ramp that can collect mud after rain or during summer low-water periods.',
-        'The Topeka Weir gauge is upstream of this route. Treat it as a Topeka-corridor proxy and make a same-day visual call at Seward before committing.',
-        'All access and parking are subject to same-day city, county, and ramp conditions. Mud, silt, gates, high-water cleanup, and shifted sand can change ramp usability.',
-      ],
-      watchFor: [
-        'Tecumseh low-head-dam structure at river mile 76. Approach slowly, avoid the route if the group cannot identify a conservative line, and do not assume a bank portage is available.',
-        'Low flows below about 1,000 cfs can expose structure, shallow channels, and slow sandbar navigation.',
-        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
-        'Wind across open bends, storms, rising water, floating wood, strainers, bank hooks and fishing lines, and changing sandbars.',
-        'Private banks along the Kaw; stay with public ramps and legal sandbar stops rather than climbing banks or using private land.',
-      ],
-    },
-  },
+
   'kansas-river-lecompton-lawrence-riverfront': {
     putIn: {
       name: 'Lecompton / Rising Sun Access Ramp',
@@ -829,39 +791,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'blue-earth-river-rapidan-county-road-90': {
-    putIn: {
-      name: 'Rapidan Dam Park carry-in access',
-      latitude: 44.12135,
-      longitude: -94.08935,
-    },
-    takeOut: {
-      name: 'County Road 90 bridge access',
-      latitude: 44.1938889,
-      longitude: -94.1130556,
-    },
-    logistics: {
-      distanceLabel: '9.1 mi',
-      estimatedPaddleTime: 'About 3 hr to 4 hr 15 min',
-      shuttle:
-        'Car shuttle is simplest. The Red Jacket Trail also creates a bike-paddle option if you plan it carefully.',
-      permits:
-        'No special water-trail permit is known for a day paddle. Follow Blue Earth County park rules at Rapidan and verify roadside parking conditions at County Road 90 on arrival.',
-      camping:
-        'Rapidan Dam Park offers primitive camping, so this can work as an overnight staging base even though the route itself is a day trip.',
-      summary:
-        'Put in at Rapidan Dam Park and take out at County Road 90 for the DNR-recommended hard Blue Earth run. The Rapidan gauge gives this route a real level ladder, but the rapids and dam context still deserve experienced judgment.',
-      accessCaveats: [
-        'Rapidan Dam Park is the stronger endpoint because Blue Earth County directly manages the canoe launch and campground there.',
-        'County Road 90 is clearly documented by MN DNR as the take-out, but it still lacks the cleaner standalone access page you get on the best county-park finishes, so confirm landing and parking conditions on site.',
-      ],
-      watchFor: [
-        'Rapidan Dam hazard and any signed portage or exclusion zones near the put-in corridor.',
-        'Class I rapids and a stronger current than the easy day-trip rivers in the app.',
-        'Fast rises, waves, and fresh debris after rain.',
-      ],
-    },
-  },
+
   'root-river-lanesboro-peterson': {
     putIn: {
       name: 'Highway 16 / Lanesboro access',
@@ -948,7 +878,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow posted bridge-access and parking rules at both carry-in points.',
       camping:
-        'Pilot Mound campsites sit along this stretch if you are intentionally turning it into an overnight, but for most paddlers this is a full scenic day trip.',
+        'DNR-mapped campsites along the Root River corridor, including Pilot Mound on this stretch, make this overnight-capable if you intentionally plan campsite availability and rules; most paddlers will still treat it as a full scenic day trip.',
       summary:
         'Launch at Parsley Bridge and finish at Moen\'s Bridge for an upper-North-Branch Root day with riffles, bluffs, and a more secluded feel than the bigger lower Root routes.',
       accessCaveats: [
@@ -982,7 +912,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow posted parking and access rules at Moen\'s Bridge and in Whalan.',
       camping:
-        'Treat this as a day trip unless you are intentionally using DNR campsites like Power Plant or other planned overnight stops on the Root corridor.',
+        'DNR-mapped campsites along the Root River corridor, including Power Plant on this reach, make this overnight-capable if you intentionally plan campsite availability and rules; otherwise treat it as a long day trip.',
       summary:
         'Put in at Moen\'s Bridge and take out at Whalan for one of the cleaner long Root River shuttles: scenic bluff country, approachable current, and enough mileage that low water or fresh debris can still change the day substantially.',
       accessCaveats: [
@@ -1133,39 +1063,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'white-river-maple-ridge-highway-112': {
-    putIn: {
-      name: 'Maple Ridge Road Access',
-      latitude: 46.43755,
-      longitude: -91.0261,
-    },
-    takeOut: {
-      name: 'Highway 112 Dam Landing',
-      latitude: 46.49834,
-      longitude: -90.91032,
-    },
-    logistics: {
-      distanceLabel: '15 mi',
-      estimatedPaddleTime: 'About 5 hr to 6 hr 45 min',
-      shuttle:
-        'Expect a long-ish vehicle shuttle. MilesPaddled describes it as steep and better by car than bike.',
-      permits:
-        'No route-specific permit is known. Access rules at Maple Ridge Road and the Highway 112 dam area still deserve a same-day check before you leave a vehicle.',
-      camping:
-        'No dependable on-route camping is confirmed. Treat this as a long day trip unless you separately confirm legal overnight options.',
-      summary:
-        'Put in at Maple Ridge Road near Mason and take out above the Highway 112 dam / flowage. This is a full moving-water day with a dam-finish mindset, not a casual float.',
-      accessCaveats: [
-        'Wisconsin Trail Guide publishes WGS84 coordinates for Maple Ridge Road Access and Highway 112 Dam Landing, but official landing or parking authority is weaker than on the strongest DNR-led routes.',
-        'Do not drift toward the dam or restricted area at the take-out. Treat the finish as a deliberate exit, not a soft glide into flatwater.',
-      ],
-      watchFor: [
-        'Nearly continuous current and class I-II features with fewer easy bailout points than a typical family float.',
-        'Boulder gardens, strainers, and pin risk that become more serious as levels rise.',
-        'Hydropeaking or diurnal fluctuation, plus cold-water exposure outside midsummer.',
-      ],
-    },
-  },
+
   'red-cedar-river-menomonie-dunnville': {
     putIn: {
       name: 'Riverside Park Canoe Launch (Menomonie)',
@@ -1252,7 +1150,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow Saint Croix National Scenic Riverway rules and any posted landing restrictions.',
       camping:
-        'Camping rules vary across the Riverway, so do not assume the landings themselves allow overnight use.',
+        'Designated riverside campsites exist on this Riverway reach, including the Sandrock Cliffs area above Highway 70. Follow current St. Croix National Scenic Riverway camping rules and do not assume every landing itself allows overnight use.',
       summary:
         'Use Fox Landing as the put-in and Highway 70 as the take-out. The gauge tells you when the route stops being too scrapy, but wind and broad-channel effort still shape the day.',
       accessCaveats: [
@@ -1285,7 +1183,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known, but a Minnesota state park vehicle permit is required for the Interstate landing and Riverway rules still govern camping and shoreline use.',
       camping:
-        'Primitive shoreline camping is allowed only under Riverway rules, and a camping permit is required below Highway 8. Do not assume the landings themselves are overnight staging sites.',
+        'Designated riverside campsites are possible only under St. Croix National Scenic Riverway rules, and a camping permit is required below Highway 8. Do not assume the landings themselves are overnight staging sites.',
       summary:
         'Launch from the Minnesota Interstate landing in Taylors Falls and finish at Osceola Landing for the cleanest lower St. Croix day-trip add. This is the classic easy gorge-to-bluff run, but lower water pushes you toward the main channel and away from side slough exploring.',
       accessCaveats: [
@@ -1318,7 +1216,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         "No special paddling permit is known for a day run, but Riverway rules still apply and a Minnesota state park vehicle permit can matter at William O'Brien.",
       camping:
-        'Treat this as a day trip unless you separately verify a legal Riverway or park camping plan. The lower St. Croix has real overnight rules and they are not simple enough to infer from the landing names alone.',
+        "Treat this as a day trip unless you separately verify a legal Riverway or park camping plan. William O'Brien State Park is a nearby campground/base-camp option, but the lower St. Croix has real overnight rules that are not simple enough to infer from the landing names alone.",
       summary:
         "Put in at Osceola and finish at William O'Brien for a broad lower St. Croix float that feels simpler than the Dalles but still asks for wind and motorboat judgment. The big operational check is whether the William O'Brien take-out is usable that day.",
       accessCaveats: [
@@ -1486,7 +1384,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-water-access and local parking rules at both landings.',
       camping:
-        'Treat this as a day trip, but the Snake River Campground in Chengwatana State Forest is a useful nearby overnight option if you want to stage the trip.',
+        'Treat this as a day trip, but Snake River Campground in Chengwatana State Forest is a useful nearby campground/base-camp option if you want to stage the trip.',
       summary:
         'Put in at the Canary Road carry-in and take out at the Cross Lake / Pine City landing. This is the DNR-recommended lower Snake day, and the Pine City gauge gives it one of the cleaner official go-no-go stories in the app.',
       accessCaveats: [
@@ -1519,7 +1417,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, state-forest, and parking rules at both ends.',
       camping:
-        'Treat this as a day trip, but Snake River Campground and River\'s End Campground are useful nearby overnight anchors if you want to stage the shuttle.',
+        'Treat this as a day trip, but Snake River Campground and River\'s End Campground are useful nearby campground/base-camp anchors if you want to stage the shuttle.',
       summary:
         'Put in at County Road 9 and finish near Snake Bit at the Snake/St. Croix confluence. This lower Snake route has a strong official low-water warning, so use the Pine City gauge first and do not expect a worthwhile run when it is hugging the floor.',
       accessCaveats: [
@@ -2806,7 +2704,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp.',
       camping:
-        'MN DNR identifies primitive camping/rest-area context at both Little White Dog and Cottingham. Confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
+        'Primitive campground/access context at the Little White Dog put-in and Cottingham take-out makes this an endpoint campground trip if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
       summary:
         'Launch at Little White Dog and finish at Cottingham County Park for the DNR-recommended Crow Wing day trip. The river character is friendly, but use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
       accessCaveats: [
@@ -2902,7 +2800,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Arrange a car shuttle between Kendallville and Bluffton or use an outfitter. The road shuttle is scenic but narrow, winding, and poor for casual bike shuttles.',
       permits: 'No permit is known for a basic day paddle. Follow county-park, water-trail, and state-preserve access rules at Kendallville and Bluffton Fir Stand.',
       camping:
-        'Kendallville is a convenient campground staging point. Other overnight options exist along the corridor if you plan ahead.',
+        'Kendallville is a convenient campground at the put-in for base-camp staging. Other overnight options exist along the corridor if you plan ahead.',
       summary:
         'This is a long Driftless day with county-park staging at Kendallville and a Bluffton Palisades finish. Low water hurts trip quality well before it becomes unsafe.',
       accessCaveats: [
@@ -3250,40 +3148,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'sugar-river-highway-69-paoli': {
-    putIn: {
-      name: 'Falk Wells Sugar River Wildlife Area / Highway 69 canoe-kayak launch',
-      latitude: 42.950098,
-      longitude: -89.545272,
-    },
-    takeOut: {
-      name: 'Paoli Mill / County PB bridge take-out',
-      latitude: 42.93032,
-      longitude: -89.5244,
-    },
-    logistics: {
-      distanceLabel: '3.3 mi',
-      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on level and stops',
-      shuttle:
-        'Use the short local shuttle between Dane County Parks\' Highway 69 launch and Paoli. Dane County paddle events stage vehicles at 6889 Canal Street in Paoli and shuttle paddlers back to the Highway 69 launch.',
-      permits:
-        'No route-specific paddling permit is known. Confirm current event, parking, and take-out permission details at the Paoli Mill / Canal Street area before leaving a vehicle.',
-      camping:
-        'No on-route camping is documented for this short Dane County route. Treat it as a day paddle.',
-      summary:
-        'Launch from the Highway 69 canoe/kayak landing in Falk Wells Sugar River Wildlife Area and take out at Paoli near the County PB bridge. This is the best short upper-Sugar option, with riffles, clear gravel shallows, public conservation land, and a small former-dam drop near Paoli.',
-      accessCaveats: [
-        'The Highway 69 launch is a Dane County carry-in access with parking, but it is a wildlife-area landing rather than a staffed park facility.',
-        'The Paoli take-out is used by Dane County paddle events and by local paddlers, but the mill-area access is not an unrestricted public boat landing; confirm current parking and take-out permission before staging there.',
-        'This is a narrow creek-like route. Fresh storm wood can change access and passage even when the Verona gauge is in range.',
-      ],
-      watchFor: [
-        'Strainers, overhanging branches, and current pushing into wood on tight bends.',
-        'A fun but consequential Class I+ former-dam chute near Paoli, followed by a concrete-remnant hazard where the current can draw boats left.',
-        'Shallow riffles below the practical low-water floor and pushy obstacle-dodging at high or rising water.',
-      ],
-    },
-  },
+
   'black-hawk-creek-ranchero-hope-martin': {
     putIn: {
       name: 'Ranchero Road / Katoski Greenbelt Area (Access 8)',
@@ -3535,7 +3400,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'Kickapoo Valley Reserve requires a day-use, annual, camping, or vehicle-parking permit for vehicles left at Landing 12. Standard Wisconsin paddling rules otherwise apply.',
       camping:
-        'Camping was not confirmed for this exact reach during the route audit. Treat it as a day trip unless you independently confirm a legal overnight option.',
+        'No on-route camping was confirmed for this exact reach during the route audit. Treat it as a day trip unless you independently confirm a legal overnight option.',
       summary:
         'Put in at the Village of Ontario public canoe landing and take out at Landing 12 near Rockton. This is a classic Driftless day with riffles and occasional Class I, but it becomes a scrape-heavy grind quickly if you launch below the published low-water floor.',
       accessCaveats: [
@@ -3838,7 +3703,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow Chequamegon-Nicolet National Forest rules and posted parking, camping, and landing guidance at both forest-road access points.',
       camping:
-        'Wisconsin Trail Guide notes two rustic canoe/kayak campsites at Burnt Bridge Landing, one on each side of the river, available first-come, first-served. Confirm current forest rules before relying on them for an overnight.',
+        'Rustic camping at the Burnt Bridge take-out can support an endpoint campground plan, but confirm current forest rules before relying on it for an overnight.',
       summary:
         'Launch at CCC Bridge and take out at Burnt Bridge Landing for the P2 Peshtigo forest run. The day mixes quiet remote water with repeated Class I-II boulder gardens and the longer Preserve Rapids section.',
       accessCaveats: [
@@ -3976,7 +3841,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known, but Wisconsin DNR river rules apply: use designated landings only, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
       camping:
-        'Camping is allowed only at state-designated campgrounds. Treat Stone’s Bridge to Winneboujou as a day trip unless you have a separate legal campground plan.',
+        'Camping is allowed only at state-designated campgrounds. Treat Stone\'s Bridge to Winneboujou as a day trip unless you have a separate legal campground/base-camp plan.',
       summary:
         'Launch at Stone’s Bridge Landing and take out at Winneboujou Landing for the classic upper Bois Brule day. It is the friendlier Brule run, with clear water, wooded corridors, mostly class I rapids, and a shorter commitment than continuing to Bois Brule Landing, but low water and strainers can still change the trip.',
       accessCaveats: [
@@ -4078,7 +3943,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known, but Wisconsin DNR Brule River rules apply: launch and land only at designated canoe landings, carry wearable PFDs, secure containers and trash, and follow posted state-forest rules.',
       camping:
-        'Camping is allowed only at state-designated campgrounds. Treat Highway 13 to the mouth as a day trip unless you have a separate legal campground plan.',
+        'Camping is allowed only at state-designated campgrounds. Treat Highway 13 to the mouth as a day trip unless you have a separate legal campground/base-camp plan.',
       summary:
         'Launch at Highway 13 Canoe Landing and take out at the Bois Brule mouth landing on Lake Superior. This lower Brule route is scenic and mostly Class I, but it has a mandatory portage at the lamprey barrier and a cold-water finish where Lake Superior wind and waves can matter.',
       accessCaveats: [
@@ -4492,42 +4357,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'wisconsin-river-wisconsin-rapids-nepco-creek': {
-    putIn: {
-      name: 'Veterans Memorial Park kayak/canoe launch',
-      latitude: 44.3922,
-      longitude: -89.8269,
-    },
-    takeOut: {
-      name: 'Nepco Creek / County Z access',
-      latitude: 44.3377,
-      longitude: -89.8439,
-    },
-    logistics: {
-      distanceLabel: '6.3 mi',
-      estimatedPaddleTime: 'About 3 hr on the water, plus dam-portage time',
-      shuttle:
-        'Use a short city-to-Port-Edwards car shuttle from Veterans Memorial Park in Wisconsin Rapids to the County Z parking area by Nepco Creek. A bike shuttle is realistic for some groups, but kayak wheels matter more because the route has long dam portages.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted City of Wisconsin Rapids park rules at Veterans Memorial Park, obey all dam warning lines and portage signs, and use the Nepco Creek / County Z access without blocking the road or trail.',
-      camping:
-        'No on-route camping is documented. Treat this as a day route with enough daylight reserved for Centralia and Port Edwards dam portages.',
-      summary:
-        'Launch from the Veterans Memorial Park kayak/canoe launch below the Wisconsin Rapids dam, then paddle through island channels and portage around the Centralia and Port Edwards dams before finishing at Nepco Creek / County Z. Low to average water exposes granite bedrock and boulder fields; high water turns the lower rapids and dam outflows into a much more serious trip.',
-      accessCaveats: [
-        'Veterans Memorial Park is a public city park with a kayak/canoe launch, but Wisconsin River Trips notes the river access uses steep stairs and an awkward railing for kayaks.',
-        'The Centralia Dam portage is roughly 1000 feet on the east bank and uses a golf-course-edge path with stairs near the reentry.',
-        'The Port Edwards Dam portage can be about 2500 feet on the east bank unless low water allows a shorter legal carry near the overflow-gate area; confirm conditions before relying on the shorter option.',
-        'The Nepco Creek take-out is easy to miss. Wisconsin River Trips recommends paddling a short distance up Nepco Creek to shorten the carry to County Z.',
-      ],
-      watchFor: [
-        'Dam warning lines, overflow gates, recirculating current, and fast powerhouse outflow below Wisconsin Rapids, Centralia, and Port Edwards.',
-        'Grignon Rapids and lower boulder-garden current, which are Class I-II at lower water and can become Class II-III in high water.',
-        'Wind on impounded pools, submerged bedrock, shallow boulder gardens, and a long day if portages run slowly.',
-        'Sharp gauge changes; Wisconsin River Trips specifically warns that the Wisconsin can rise or fall quickly and that forecast graphs matter before committing.',
-      ],
-    },
-  },
+
   'wisconsin-river-muscoda-woodman': {
     putIn: {
       name: 'Muscoda Landing West',
@@ -5291,41 +5121,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'maquoketa-river-backbone-dundee': {
-    putIn: {
-      name: 'Highway 410 bridge access / Backbone State Park',
-      latitude: 42.6331,
-      longitude: -91.5617,
-    },
-    takeOut: {
-      name: 'Dundee Access / Dundee Wildlife Area',
-      latitude: 42.5793779,
-      longitude: -91.5485886,
-    },
-    logistics: {
-      distanceLabel: '6.2 mi',
-      estimatedPaddleTime: 'About 3 hr plus portage and scouting time',
-      shuttle:
-        'Use a two-car shuttle between the Highway 410 bridge inside Backbone State Park and Dundee Access at Dundee Wildlife Area. The road shuttle is short but hilly, and park gates can close in snowy/off-season conditions, so confirm Backbone State Park road access before staging.',
-      permits:
-        'No route-specific paddling permit is known. Follow Iowa DNR state-park rules inside Backbone State Park and Delaware County Conservation rules at Dundee Wildlife Area.',
-      camping:
-        'Backbone State Park has separate campground and cabin facilities, but this route should be planned as a day paddle unless camping is reserved or separately confirmed through Iowa DNR.',
-      summary:
-        'Launch at the Highway 410 bridge access in Backbone State Park and paddle through the upper Maquoketa bluff corridor, Backbone Lake, and the dam-portage area before finishing at Dundee Access.',
-      accessCaveats: [
-        'The put-in is a bridge access inside Backbone State Park rather than a developed ramp; parking is reported at either end of the bridge, but seasonal gate closures can block vehicle access.',
-        'Many paddlers should consider the Backbone Lake dam/ramp as the safer take-out, because the dam-to-Dundee leg has tricky current, low branches, and strainers.',
-        'Dundee Access is the stronger public endpoint: Delaware County confirms Dundee Wildlife Area has canoe and kayak access on the Maquoketa River.',
-      ],
-      watchFor: [
-        'Three easy-portage logjams above the South Fork confluence can still change after storms.',
-        'Backbone Lake wind exposure, especially in open-water conditions above roughly 14 mph.',
-        'The Backbone Lake dam portage, split channels below the dam, low branches, tricky strainers, and a two-foot ledge near 129th Street.',
-        'Very low flows that make the pre-South-Fork section wade-heavy and high/rising flows that make the dam-to-Dundee strainers more consequential.',
-      ],
-    },
-  },
+
   'maquoketa-river-canton-royertown': {
     putIn: {
       name: 'Canton Bridge Access / Canton County Park',
@@ -6417,7 +6213,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow MDC area rules at Sappington Bridge, Missouri State Parks day-use and launch rules at Meramec State Park, and all posted parking or river-use signs.',
       camping:
-        'Meramec State Park has campground and lodging options, but treat overnight use as a separate reservation or park-rule question rather than an assumed float-camp stop.',
+        'Meramec State Park has a campground at the take-out plus lodging options, but treat overnight use as a separate reservation or park-rule question rather than an assumed float-camp stop.',
       summary:
         'Launch at MDC Sappington Bridge Access and take out at the Meramec State Park river launch near River Stop Store. This is a short, state-supported Meramec day float with a direct Sullivan gauge used as a conservative low-water check.',
       accessCaveats: [
@@ -6500,6 +6296,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Swift narrow-channel current, tight bends, limestone bluffs, low-water bridge areas, and possible strainers or fresh wood after storms.',
         'Loose gravel, deep sand, changed banks, and limited recovery options at access roads after floods or high-water events.',
         'Private property along Bryant Creek away from public access points and lawful gravel-bar stops.',
+      ],
+    },
+  },
+  'bryant-creek-warren-flo-cook': {
+    putIn: {
+      name: 'Warren Bridge Access',
+      latitude: 36.6674,
+      longitude: -92.2817,
+    },
+    takeOut: {
+      name: 'Flo Cook Access',
+      latitude: 36.6081,
+      longitude: -92.3063,
+    },
+    logistics: {
+      distanceLabel: 'About 6.7 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr depending on level, shoals, and the final take-out walk',
+      shuttle:
+        'Use a rural two-car shuttle between MDC Warren Bridge Access on County Road 328 and MDC Flo Cook Access on County Road 308 off Highway 160. Look at Flo Cook before launching because the landing is unimproved and easier to miss than a standard concrete ramp.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC area rules, posted access hours and signs at Warren Bridge and Flo Cook, and do not leave watercraft or commercial vehicles on department areas during closed hours except where launching and landing rules allow it.',
+      camping:
+        'Treat this as a day trip. Do not assume legal camping at either small MDC access or on private banks near the North Fork junction and Norfork Lake backwater.',
+      summary:
+        'Launch at MDC Warren Bridge Access and take out at MDC Flo Cook Access for the lower Bryant day segment just upstream of the North Fork and Norfork Lake. Use the direct Tecumseh gauge as a conservative low-water check, and do not drift past Flo Cook unless you have a separate North Fork / lake plan.',
+      accessCaveats: [
+        'Warren Bridge Access is a current MDC fishing and floating access, but the lower Bryant still deserves a same-day scout because flood changes and gravel-bank shifts have affected this corridor before.',
+        'Flo Cook Access is current MDC public access, but the landing remains an unimproved dirt/no-ramp take-out with limited parking and a short walk to the water. Do not expect a standard concrete launch.',
+        "If you miss Flo Cook, Bryant Creek reaches the North Fork junction and Norfork Lake context quickly. Treat Flo Cook as the intended last Bryant Creek take-out for this route, not Tecumseh or a lake-shore improvisation.",
+      ],
+      watchFor: [
+        'Shallow shoals, scraping, and slower travel when the Tecumseh gauge is near or below the 300 cfs conservative floor.',
+        'Swift narrow-channel current, blind bends, fresh wood after storms, and a shorter reaction window than broad pool-and-drop rivers give you.',
+        'The final riffle and approach into Flo Cook, especially if low water exposes more bank walking or if the lake-influenced lower water slows the finish.',
+        'Private property away from the two MDC accesses and confusion around the downstream North Fork / Norfork Lake access family.',
       ],
     },
   },
@@ -6757,6 +6588,43 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'james-river-joe-crighton-lake-springfield': {
+    putIn: {
+      name: 'Joe Crighton Access',
+      latitude: 37.1557274593,
+      longitude: -93.1993452603,
+    },
+    takeOut: {
+      name: 'Lake Springfield Boathouse',
+      latitude: 37.1159741,
+      longitude: -93.2517345,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 to 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 4 hr depending on level, wind, and how much lakewater you paddle',
+      shuttle:
+        'Use a short Springfield-area two-car shuttle between Joe Crighton Access and Lake Springfield Boathouse. Stage the boathouse take-out first, then drive back through the Kissick Avenue / Farm Road 166 corridor to Joe Crighton.',
+      permits:
+        'No route-specific paddling permit is known. Follow MDC and Park Board day-use rules, posted signs, Missouri boating laws, and any same-day rental or event operations at Lake Springfield Park.',
+      camping:
+        'Do not plan to camp at either endpoint. Joe Crighton is a day-use MDC access, and the Lake Springfield Boathouse finish is a public park shoreline facility rather than an overnight river access.',
+      summary:
+        'Launch at Joe Crighton Access and take out at Lake Springfield Boathouse for a Springfield-area James River Water Trail float that finishes in Lake Springfield. Use the Springfield gauge as a conservative low-water check only; the app does not claim a defended high-water ceiling.',
+      accessCaveats: [
+        'Joe Crighton is an MDC public day-use access with river stairs and parking, but same-day signs and shoreline layout still control.',
+        'The official Park Board trail map separates the Boathouse from the separate Boat Launch. This route ends at the boathouse shoreline/facility area rather than the downstream boat-launch ramp.',
+        'Lake Springfield Boathouse is a public park facility with accessible parking, rentals, restrooms, and trailheads, but same-day events, shoreline conditions, and park traffic still matter at the take-out.',
+        'Source mileage varies between about 4.5 and 6 miles depending on how the route is measured through the lake finish, so expect a modestly variable distance rather than a survey-grade mile count.',
+      ],
+      watchFor: [
+        'Very low or stagnant conditions near or below the 40 cfs floor, with mud, bugs, and slow pools before the lake.',
+        'High or rising water after rain. MoHERP currently rates 1,140 cfs High and 1,400 cfs Flood on the Springfield gauge, but Paddle Today does not publish a defended high-water cutoff for this route.',
+        'Fallen wood, tight bends, bridge current, murky urban runoff, anglers near road crossings, and private banks away from public accesses.',
+        'Wind and open-water chop once you reach Lake Springfield, especially if you finish during afternoon boat traffic or storm outflow.',
+      ],
+    },
+  },
   'james-river-delaware-town-shelvin-rock': {
     putIn: {
       name: 'Delaware Town Access',
@@ -6918,7 +6786,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow MDC area rules, posted signs, boat-use rules, camping rules, and parking restrictions at both department access areas.',
       camping:
-        'Primitive camping is listed at both MDC access areas, but this route is intended as a day float. Confirm current MDC rules, posted signs, and campsite availability before treating either endpoint as an overnight plan.',
+        'Primitive camping at the Rollins Ferry put-in and Pointers Creek take-out can support an endpoint campground plan, but this route is intended as a day float. Confirm current MDC rules, posted signs, and campsite availability before treating either endpoint as overnight-ready.',
       summary:
         'Launch at MDC Rollins Ferry Access and take out at MDC Pointers Creek Access for a 7-mile lower Gasconade day. Use the Rich Fountain gauge as a conservative low-water check rather than a full preferred-range recommendation.',
       accessCaveats: [
@@ -6953,7 +6821,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow MDC area rules, posted signs, boat-use rules, camping rules, and parking restrictions at both department areas.',
       camping:
-        'Treat this as a short day float. Pointers Creek lists primitive camping, but Cooper Hill has limited parking and hand-launch access; confirm current MDC rules and posted signs before using either endpoint as part of an overnight plan.',
+        'Treat this as a short day float. Primitive camping at the Pointers Creek put-in can support endpoint campground staging, but Cooper Hill has limited parking and hand-launch access; confirm current MDC rules and posted signs before using either endpoint as part of an overnight plan.',
       summary:
         'Launch at MDC Pointers Creek Access and take out at Cooper Hill Conservation Area for a short lower Gasconade day. Use the Rich Fountain gauge as a conservative low-water check rather than a full preferred-range recommendation.',
       accessCaveats: [
@@ -8583,7 +8451,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific private paddling permit is known for a normal Buffalo National River day trip. Follow NPS river rules, carry required PFDs, obey access and parking signs, and check park alerts, weather, and river level before launching.',
       camping:
-        'Treat this as a day trip. NPS allows backcountry camping on the Buffalo under park rules, but this short middle-district reach is normally planned as a daylight float with vehicles staged at established accesses.',
+        'Treat this as a day trip unless the group has a separate Buffalo backcountry plan. NPS allows sandbar or gravel-bar camping on the Buffalo under park rules, but this short middle-district reach is normally planned as a daylight float with vehicles staged at established accesses.',
       summary:
         'Launch at Tyler Bend and take out at Gilbert for the popular 5.5-mile middle Buffalo float. Use the St. Joe USGS gauge as a conservative low-water check, and skip the route when water is rising fast or already in high/flood-stage bands for casual groups.',
       accessCaveats: [
@@ -8718,6 +8586,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows near 200-500 cfs may be kayakable but scrape-through and slow. Entergy says lower than about 3,200 cfs can be too low for an enjoyable tube float.',
         'Flows above 4,000 cfs are outside Entergy\'s floating recommendation; skip the route if water is above the group skill set, rising quickly, or affected by storm runoff.',
         'Crowded summer release windows, tubers tied together, swimmers at the Whitewater Park, rocks, slippery exits, limited rescue margin at the ledge, and late-day darkness.',
+      ],
+    },
+  },
+  'ouachita-river-dragover-west-east': {
+    putIn: {
+      id: 'dragover-day-use-west-access',
+      name: 'Dragover Day Use upstream / west access',
+      latitude: 34.6375007629395,
+      longitude: -93.6297988891602,
+    },
+    takeOut: {
+      id: 'dragover-day-use-east-access',
+      name: 'Dragover Day Use downstream / east access',
+      latitude: 34.6383018493652,
+      longitude: -93.6266021728516,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with scouting, repeat laps, low-water scraping, or slower groups',
+      shuttle:
+        'Both landings sit inside Dragover Day Use. Many groups handle this as a short same-site shuttle or walkback, but inspect the current site road, parking, and access paths before launching and stage the downstream/east vehicle first if you want the cleanest finish.',
+      permits:
+        'No route-specific private paddling permit is known. USFS lists Dragover as a no-fee public day-use river access with canoe launching; follow current forest, boating, parking, and PFD rules and skip the route if the site is signed closed or the water is outside the group skill set.',
+      camping:
+        'Treat this as a short day-use run. The reviewed USFS page is for day use and notes no potable water, so do not assume overnight staging or camping rights at the access.',
+      summary:
+        'Launch at the upstream/west Dragover landing and take out at the downstream/east landing for a short Upper Ouachita whitewater lap. Use the Mount Ida stage gauge, keep the low-water floor conservative at 3.0 ft, and read the access and hazard features before committing to repeat runs.',
+      accessCaveats: [
+        'USFS publishes one Dragover Day Use site coordinate, while the distinct west and east landing coordinates come from American Whitewater feature data. Use current on-site signs and parking layout rather than a saved pin alone.',
+        'American Whitewater describes steep stairs, rollers, and rocky access at the upstream landing. Scout the carry and make sure every paddler can manage the launch and exit safely.',
+        'Both landings are in the same day-use area, but the route still needs an exit plan. Confirm the downstream/east landing before putting on so the group does not drift past the intended take-out.',
+        'USFS says Dragover Day Use has no potable water. Bring water and do not rely on services at the site.',
+      ],
+      watchFor: [
+        'Class I-II rapids, shallow rock gardens, and faster current around Hungry Hole, Big Rock, and other short features on the reach.',
+        'Low water below about 3.0 ft, where scraping, pinning on rocks, and awkward launches become more likely.',
+        'Higher water around and above 5.0 ft, where American Whitewater says the route is still runnable but noticeably pushier than this conservative route recommendation.',
+        'Fresh wood, strainers, slippery rocks, thunderstorms, and fast rain-driven rises on this short upper Ouachita reach.',
+        'Crowding or staging conflicts inside the small day-use access area, especially if multiple groups are lapping the reach.',
       ],
     },
   },
@@ -9003,6 +8911,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sheyenne-river-brome-field-mirror-pool': {
+    putIn: {
+      id: 'brome-field-hand-launch',
+      name: 'Brome Field hand-launch',
+      latitude: 46.53087339415233,
+      longitude: -97.31706518572886,
+    },
+    takeOut: {
+      id: 'mirror-pool-wma-hand-launch',
+      name: 'Mirror Pool WMA hand-launch',
+      latitude: 46.50498692183727,
+      longitude: -97.29118124734387,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr at ordinary flow, longer with low-water weaving, wood, or a slow group',
+      shuttle:
+        'Stage the take-out at Mirror Pool WMA before driving back to Brome Field. Both sites are semi-primitive hand launches rather than developed ramps, so inspect the approach roads, parking pull-offs, and shoreline footing before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known. Use the signed public Sheyenne River Water Trail hand-launches, follow North Dakota boating and PFD rules, obey USFS and NDGF WMA rules, and skip the route when Baldhill flows are outside the official guidance or local access is closed.',
+      camping:
+        'Treat this as a short daylight grassland float. The broader trail includes dispersed-camping context, but do not assume casual mid-route stops are legal; respect public-land markers and do not dock beyond them unless necessary for safety.',
+      summary:
+        'Launch at Brome Field and take out at Mirror Pool WMA for a short Sheyenne National Grassland segment. Use the USGS Baldhill Dam discharge gauge as a corridor-wide proxy and keep the call conservative because the official flow guidance applies to most of the river, not just this four-mile reach.',
+      accessCaveats: [
+        'USFS names both Brome Field and Mirror Pool as designated put-in/pull-out sites on the Sheyenne River Water Trail.',
+        'The endpoint coordinates come from the hand-launch icons embedded in the official geospatial 2019 USFS brochure map. Treat them as practical access anchors, not survey-grade ramp coordinates.',
+        'USFS says these Sheyenne National Grassland sites are semi-primitive hand-launch areas and are not recommended for trailered watercraft.',
+        'Mirror Pool is within a North Dakota Game and Fish wildlife management area. Follow current WMA signs and regulations on arrival.',
+        'USFS marks public-land boundaries along the route and says paddlers should not dock beyond those public-land markers.',
+      ],
+      watchFor: [
+        'Flows at or below 100 cfs, when USFS says the river is very low and many sand or gravel bars may be exposed.',
+        'Flows above 1,000 cfs, when current can become fast and shoreline trees, logs, and debris become more serious hazards.',
+        'Flows above 2,000 cfs, which USFS says paddlers should avoid on the Sheyenne.',
+        'Overhanging trees, logjams, bridge abutments, big rocks, shallow bars, muddy semi-primitive banks, and occasional portages around obstructions.',
+        'Private-land boundaries, thunderstorms, wind, limited mid-route services, and assuming the corridor-wide gauge perfectly reflects every local channel feature.',
+      ],
+    },
+  },
   'pembina-river-vang-riverside-park': {
     putIn: {
       id: 'vang-bridge-county-55-access',
@@ -9041,6 +8990,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Quicksand-like mud or sand, unstable banks, and private property away from named access points.',
         'Fast rises after rain, high or pushy water near and above the high runnable range, cold water, thunderstorms, wind, and bridge hazards.',
         'Missing the intended Walhalla / Riverside Park take-out and drifting into an unplanned downstream reach.',
+      ],
+    },
+  },
+  'big-pine-creek-450-harrison-twin-bridges': {
+    putIn: {
+      id: '450-harrison-bridge-access-point',
+      name: '450 "Harrison" Bridge Access Point',
+      latitude: 40.382053,
+      longitude: -87.332652,
+    },
+    takeOut: {
+      id: 'twin-bridges-access-point',
+      name: 'Twin Bridges Access Point',
+      latitude: 40.339953,
+      longitude: -87.314311,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3 hr 30 min for a prepared group, longer near the floor with scouting, surf laps, or a slower shuttle day',
+      shuttle:
+        'Stage the Twin Bridges take-out first, then drive back to the 450 Harrison access. Confirm both bridge-access pull-offs before launching because this route uses current NICHES manager pages and the Warren County lease rather than a polished park-ramp access page.',
+      permits:
+        'No route-specific private paddling permit is known. Use the named public access sites, follow Indiana boating and PFD rules, and do not treat the 450N access as overnight parking or camping.',
+      camping:
+        'Treat this as a daylight day trip. Warren County\'s access lease supports single-day public use and no overnight parking at 450N, and banks away from the named access points may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at 450 Harrison and take out at Twin Bridges for the lower public Big Pine pair. Use USGS 033356848 at Pine Village and a conservative 200 cfs floor, then make a same-day visual call on current, wood, and take-out footing.',
+      accessCaveats: [
+        'This route is the public 450 Harrison to Twin Bridges pair supported by current NICHES pages, not the blocked Rainsville / Rocky Ford launch.',
+        'NICHES names both endpoints and Warren County\'s lease supports boat-access parking at 450N, but the access story is still simpler than a managed park ramp. Follow current signs and obvious public pull-off boundaries on arrival.',
+        'Warren County\'s current lease allows only single-day public use at the 450N access and says no overnight parking is permitted.',
+        'NICHES does not publish a mileage table for this pair. Distance and paddle-time estimates are approximate and should not replace a same-day shuttle check.',
+        'Private banks and preserve land outside the named access points still require restraint. Do not plan casual mid-route stops unless they are clearly public or needed for safety.',
+      ],
+      watchFor: [
+        'Low water near or below 200 cfs, when ledges, shoals, and partial walk-on-rock lines become more common.',
+        'Fast rises after rain, muddy pushy current, bedrock ledges, surf waves, and the lower-section whitewater features that make this a filtered route rather than a casual float.',
+        'Fresh wood, strainers, bridge-area footing issues, slick rocks, cold shoulder-season water, and limited rescue margin if the group is not comfortable in moving current.',
+        'Private banks, simple roadside-style access, and missing the Twin Bridges take-out.',
       ],
     },
   },
@@ -9205,6 +9195,47 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows near or above 18,000 cfs, which the NGPC/Nebraskaland source says to avoid.',
         'Bridge pilings, especially the Lied Bridge area, where NGPC/Nebraskaland warns trees and debris can collect.',
         'Shifting sandbars, shallow braided side channels, floating wood, private banks, wind across open bends, storms, fast rises after rain, anglers, and missing the Louisville take-out.',
+      ],
+    },
+  },
+  'loup-river-george-syas-monroe': {
+    putIn: {
+      id: 'george-d-syas-wma-fishing-access',
+      name: 'George D. Syas WMA fishing access',
+      latitude: 41.43328221,
+      longitude: -97.68464875,
+    },
+    takeOut: {
+      id: 'monroe-county-access',
+      name: 'Monroe county access south of Monroe',
+      latitude: 41.471508,
+      longitude: -97.602729,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4 hr in ordinary conditions, longer near the conservative floor with low-water channel hunting, dragging, wind, or a slow group',
+      shuttle:
+        'Stage the Monroe county access first, then drive back upstream to the George D. Syas WMA fishing access. The official city directions say to travel south of Monroe on 370th Avenue over the Loup River bridge, continue about one-eighth mile, then turn east and follow the road to its end. Inspect the take-out before launching because the coordinate is a practical public-access anchor from those directions and satellite verification rather than a published county GIS point.',
+      permits:
+        'No route-specific private paddling permit is known for this segment. Follow Nebraska boating and PFD rules, obey posted WMA and county-access rules, and respect any same-day closures, muddy-road issues, or parking limits at either endpoint.',
+      camping:
+        'Treat this as a daylight day trip. Outdoor Nebraska / Nebraskaland warns paddlers not to camp, picnic, or otherwise stop on private banks or the stream bed without permission except when necessary for safety, shallow-water walking, or obstacle avoidance.',
+      summary:
+        'Launch at George D. Syas WMA and take out at the Monroe county access for the short upstream Loup River water-trail segment. Use USGS 06793000 near Genoa as the direct same-river gauge and treat 350 cfs as a conservative minimum-only floor rather than a full ideal-range recommendation.',
+      accessCaveats: [
+        'The George D. Syas coordinate is the NGPC Public Access Atlas anchor for the named WMA fishing access. Use current WMA signs and parking layout on arrival rather than assuming a polished ramp.',
+        'The Monroe county access is supported by the City of Columbus directions, designated-parking language, and same-run satellite verification of the end-of-road access area. Follow current local signs and obvious public boundaries on arrival.',
+        'This route uses a conservative official minimum-only threshold, not a full preferred range. If the Genoa gauge is below about 350 cfs, expect deep-channel searching and occasional dragging.',
+        'Nebraska private-bank and stream-bed rules are stricter than many paddlers expect. Stay with the named public endpoints and do not plan lunch stops, scouting stops, or casual bank exits on private land.',
+        'Wind can make this short sandy reach feel slower than the clock suggests, especially when the broad braided channel spreads out at lower water.',
+      ],
+      watchFor: [
+        'Flows below about 350 cfs at Genoa, when NGPC / Nebraskaland says the George D. Syas-to-Monroe segment can require deep-channel work and occasional dragging.',
+        'High or rising water, thunderstorms, or unclear take-out conditions, because the route has no official high-water band and should stay conservative outside the known low-water guidance.',
+        'Wide braided channels, shallow bars, wrong-channel choices, wind across open bends, and private-bank temptation when the obvious line gets thin.',
+        'Fresh wood, strainers, snags after high water, muddy footing at the county access, and irrigation or diversion-related channel changes.',
+        'Missing the Monroe take-out because the final approach is a simple county-access road end rather than a developed marina or state-park ramp.',
       ],
     },
   },

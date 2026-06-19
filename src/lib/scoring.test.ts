@@ -705,7 +705,6 @@ const cannon = rivers.find((river) => river.slug === 'cannon-river-welch');
 const straight = rivers.find((river) => river.slug === 'straight-river-faribault');
 const rootRiver = rivers.find((river) => river.slug === 'root-river-lanesboro-peterson');
 const wolfRiver = rivers.find((river) => river.slug === 'wolf-river-lily-hollister');
-const whiteRiver = rivers.find((river) => river.slug === 'white-river-maple-ridge-highway-112');
 const redCedarRiver = rivers.find((river) => river.slug === 'red-cedar-river-menomonie-dunnville');
 const stCroixFox70 = rivers.find((river) => river.slug === 'st-croix-river-fox-highway-70');
 const rumRiver = rivers.find((river) => river.slug === 'rum-river-martins-north-county-park');
@@ -935,29 +934,6 @@ const blackHawk = rivers.find((river) => river.slug === 'black-hawk-creek-hudson
     expect(result.gaugeBand).toBe('ideal');
     expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
     expect(result.confidence.label).not.toBe('Low');
-  });
-
-  it('treats White River around 1.47 ft as the intended same-route target without pretending it is official guidance', () => {
-    expect(whiteRiver).toBeDefined();
-
-    const result = scoreRiverCondition({
-      river: whiteRiver as River,
-      gauge: {
-        ...makeRiverGauge(whiteRiver as River, 1.47, 'steady', 0.08),
-        observedAt: '2026-06-10T11:00:00Z',
-      },
-      weather: {
-        ...weather,
-        observedAt: '2026-06-10T11:15:00Z',
-      },
-      now: new Date('2026-06-10T12:00:00Z'),
-    });
-
-    const thresholdFactor = result.factors.find((factor) => factor.id === 'threshold-quality');
-    expect(result.gaugeBand).toBe('ideal');
-    expect(result.rating === 'Good' || result.rating === 'Strong').toBe(true);
-    expect(result.confidence.label === 'Low' || result.confidence.label === 'Medium').toBe(true);
-    expect(thresholdFactor?.value).toBe('Community numeric guidance');
   });
 
   it('treats Red Cedar near 6.7 ft as the intended same-route sweet spot without overstating the source quality', () => {

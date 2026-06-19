@@ -234,16 +234,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
-  'blue-earth-river-rapidan-county-road-90': [
-    {
-      id: 'blue-earth-mankato-commons',
-      src: '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
-      alt: 'The Blue Earth River runs through a wooded Mankato-area valley under a bright sky.',
-      caption: 'Blue Earth River in the Mankato area',
-      credit: 'Tony Webster via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
-    },
-  ],
   'rice-creek-peltier-to-long-lake': [
     {
       id: 'rice-creek-user-photo-1',
@@ -444,16 +434,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Upper Iowa River bluff-country corridor',
       credit: 'Wikideas1 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
-  'maquoketa-river-backbone-dundee': [
-    {
-      id: 'backbone-state-park-usgs',
-      src: '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
-      alt: 'Clear water spills through a rocky green stream channel in Backbone State Park.',
-      caption: 'Backbone State Park stream corridor',
-      credit: 'USGS Central Midwest Water Science Center',
-      takenLabel: 'USGS asset: public domain',
     },
   ],
   'volga-river-osborne-mederville': [
@@ -674,16 +654,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'La Crosse River trail corridor',
       credit: 'Wikideas1 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
-  'kansas-river-seward-lecompton': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-seward-lecompton/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
-      caption: 'Kansas River at Lawrence',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
   'kansas-river-lecompton-lawrence-riverfront': [

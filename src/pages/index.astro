@@ -369,6 +369,36 @@ const homepageStructuredData = [
                   </select>
                 </label>
               </section>
+
+              <section
+                class="home-filter-group"
+                aria-labelledby="home-filter-camping"
+              >
+                <div class="home-filter-group__head">
+                  <span class="home-filter-group__icon" aria-hidden="true">
+                    <FeatureIcon name="tent" size={16} />
+                  </span>
+                  <div>
+                    <p
+                      class="home-radius-panel__field-label"
+                      id="home-filter-camping"
+                    >
+                      Camping
+                    </p>
+                  </div>
+                </div>
+                <label class="filter-select home-radius-panel__select">
+                  <span class="sr-only">Filter by camping support</span>
+                  <select
+                    class="filter-select__input"
+                    data-home-camping-select
+                  >
+                    <option value="any">Any camping</option>
+                    <option value="overnight">Overnight-friendly</option>
+                    <option value="nearby">Camp nearby</option>
+                  </select>
+                </label>
+              </section>
             </div>
           </div>
 

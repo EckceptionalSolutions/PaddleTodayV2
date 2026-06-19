@@ -286,7 +286,6 @@ function drawerFactItems(river: ExploreDrawerRiver) {
   return routeFactItems(river.river, {
     includePaddleTime: true,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   }).filter((fact) => fact !== river.river.distanceLabel || !river.travelLabel)
     .slice(0, river.travelLabel ? 2 : 3)
     .concat(river.travelLabel ? [river.travelLabel] : []);
@@ -296,7 +295,6 @@ function drawerFactLine(river: ExploreDrawerRiver) {
   const base = routeFactLine(river.river, {
     includePaddleTime: true,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   });
 
   if (river.travelLabel) {

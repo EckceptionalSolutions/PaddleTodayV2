@@ -332,6 +332,7 @@ function detailFromSummaryItem(item: RiverSummaryApiItem): RiverDetailApiResult 
       distanceLabel: normalized.river.distanceLabel,
       estimatedPaddleTime: normalized.river.estimatedPaddleTime,
       routeType: normalized.river.routeType,
+      safetyProfile: normalized.river.safetyProfile ?? river?.safetyProfile,
       gaugeSource: {
         provider: gaugeSource.provider,
         unit: gaugeSource.unit,
@@ -471,6 +472,7 @@ function normalizeSummarySnapshotItem(item: RiverSummaryApiItem): RiverSummaryAp
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',
+      safetyProfile: item.river.safetyProfile || river?.safetyProfile,
       putIn: item.river.putIn || river?.putIn,
       takeOut: item.river.takeOut || river?.takeOut,
       logistics: item.river.logistics || river?.logistics,
@@ -487,6 +489,7 @@ function normalizeWeekendSnapshotItem(item: WeekendSummaryApiItem): WeekendSumma
       estimatedPaddleTime: item.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       difficulty: item.river.difficulty || river?.profile.difficulty || 'moderate',
       routeType: item.river.routeType || river?.routeType || 'recreational',
+      safetyProfile: item.river.safetyProfile || river?.safetyProfile,
       logistics: item.river.logistics || river?.logistics,
     },
   };
@@ -500,6 +503,7 @@ function normalizeDetailSnapshotResult(result: RiverDetailApiResult): RiverDetai
       ...result.river,
       estimatedPaddleTime: result.river.estimatedPaddleTime || river?.logistics?.estimatedPaddleTime || '',
       routeType: result.river.routeType || river?.routeType || 'recreational',
+      safetyProfile: result.river.safetyProfile || river?.safetyProfile,
       logistics: result.river.logistics || river?.logistics,
       gaugeSource:
         river && !result.river.gaugeSource.display

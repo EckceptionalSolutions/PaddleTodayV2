@@ -1,14 +1,17 @@
-import type {
-  ApprovedCommunityPhoto,
-  ApprovedTripReport,
-  DecisionChecklistItem,
-  RiverAccessPoint,
-  RiverRouteAccessPoint,
-  RiverAlertThreshold,
-  CreateRouteContributionRequest,
-  RiverDetailApiResult,
-  RiverOutlook,
-  ScoreBreakdown,
+import {
+  routeHazardLabels,
+  routeSafetyLevelLabels,
+  routeSafetySummary,
+  type ApprovedCommunityPhoto,
+  type ApprovedTripReport,
+  type DecisionChecklistItem,
+  type RiverAccessPoint,
+  type RiverRouteAccessPoint,
+  type RiverAlertThreshold,
+  type CreateRouteContributionRequest,
+  type RiverDetailApiResult,
+  type RiverOutlook,
+  type ScoreBreakdown,
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
@@ -514,6 +517,7 @@ export default function RiverDetailScreen() {
             </View>
           </View>
           <DecisionSummary detail={detail} />
+          <RouteSafetyPanel detail={detail} />
           <DecisionStrip
             detail={detail}
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
@@ -1236,6 +1240,41 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
           </Pressable>
         ) : null}
       </View>
+    </View>
+  );
+}
+
+function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
+  const profile = detail.river.safetyProfile;
+  const riskLevel = profile?.riskLevel ?? 'standard';
+  const notes = profile?.safetyNotes && profile.safetyNotes.length > 0 ? profile.safetyNotes : [routeSafetySummary(profile)];
+  const advanced = riskLevel === 'advanced';
+  const caution = riskLevel === 'caution';
+
+  return (
+    <View style={[styles.safetyPanel, advanced ? styles.safetyPanelAdvanced : caution ? styles.safetyPanelCaution : null]}>
+      <View style={styles.safetyHeader}>
+        <MaterialCommunityIcons
+          name={advanced ? 'alert-octagon-outline' : caution ? 'alert-outline' : 'shield-check-outline'}
+          color={advanced ? colors.noGo : caution ? '#9A5F19' : colors.accent}
+          size={20}
+        />
+        <View style={styles.safetyHeaderText}>
+          <Text style={styles.safetyKicker}>Safety</Text>
+          <Text style={styles.safetyTitle}>{routeSafetyLevelLabels[riskLevel]}</Text>
+        </View>
+      </View>
+      <Text style={styles.safetyBody}>{routeSafetySummary(profile)}</Text>
+      {profile?.hazards && profile.hazards.length > 0 ? (
+        <View style={styles.safetyChipRow}>
+          {profile.hazards.map((hazard) => (
+            <Text key={hazard} style={styles.safetyChip}>{routeHazardLabels[hazard]}</Text>
+          ))}
+        </View>
+      ) : null}
+      {notes.map((note) => (
+        <Text key={note} style={styles.safetyNote}>{normalizeApiText(note)}</Text>
+      ))}
     </View>
   );
 }
@@ -2832,6 +2871,73 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  safetyPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  safetyPanelCaution: {
+    borderColor: '#D8A45E',
+    backgroundColor: '#FFF5E5',
+  },
+  safetyPanelAdvanced: {
+    borderColor: '#D99A86',
+    backgroundColor: '#FBE9E4',
+  },
+  safetyHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  safetyHeaderText: {
+    flex: 1,
+    minWidth: 0,
+  },
+  safetyKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  safetyTitle: {
+    color: colors.text,
+    fontSize: 15,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  safetyBody: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+  },
+  safetyChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  safetyChip: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 5,
+    color: colors.text,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '900',
+  },
+  safetyNote: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
   },
   aboutRouteText: {
     color: colors.text,
