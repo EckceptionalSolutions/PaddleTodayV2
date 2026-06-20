@@ -80,6 +80,18 @@ const ANDROID_NAV_CONTROL_MIN_INSET = 40;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
+type GaugeBandVisualModel = {
+  currentPercent: number;
+  idealLeftPercent: number;
+  idealWidthPercent: number;
+  currentLabel: string;
+  statusLabel: string;
+  lowLabel: string;
+  idealLabel: string;
+  highLabel: string;
+  markerTone: object;
+};
+
 export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
@@ -577,6 +589,7 @@ export default function RiverDetailScreen() {
                   detail={normalizeApiText(detail.liveData.gauge.detail)}
                   tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
                 />
+                <GaugeBandCard detail={detail} />
                 <ConditionRow
                   icon="trending-up"
                   label="Trend"
@@ -1205,6 +1218,55 @@ function ConditionRow({
         <Text style={styles.conditionValue} numberOfLines={1}>{value}</Text>
         <Text style={styles.conditionSubvalue} numberOfLines={1}>{subvalue}</Text>
         <Text style={styles.conditionDetail}>{detail}</Text>
+      </View>
+    </View>
+  );
+}
+
+function GaugeBandCard({ detail }: { detail: RiverDetailApiResult }) {
+  const model = gaugeBandVisualModel(detail);
+
+  if (!model) {
+    return null;
+  }
+
+  return (
+    <View style={styles.gaugeBandPanel}>
+      <View style={styles.gaugeBandHeader}>
+        <View style={styles.gaugeBandTitleWrap}>
+          <Text style={styles.gaugeBandKicker}>Gauge band</Text>
+          <Text style={styles.gaugeBandStatus}>{model.statusLabel}</Text>
+        </View>
+        <View style={[styles.gaugeBandCurrentPill, model.markerTone]}>
+          <Text style={styles.gaugeBandCurrentText}>{model.currentLabel}</Text>
+        </View>
+      </View>
+      <View style={styles.gaugeBandMeter}>
+        <View style={styles.gaugeBandTrack}>
+          <View
+            style={[
+              styles.gaugeBandIdealSegment,
+              {
+                left: `${model.idealLeftPercent}%`,
+                width: `${model.idealWidthPercent}%`,
+              },
+            ]}
+          />
+          <View
+            style={[
+              styles.gaugeBandMarker,
+              model.markerTone,
+              {
+                left: `${model.currentPercent}%`,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.gaugeBandLabels}>
+          <Text style={styles.gaugeBandLabel} numberOfLines={1}>{model.lowLabel}</Text>
+          <Text style={[styles.gaugeBandLabel, styles.gaugeBandLabelCenter]} numberOfLines={1}>{model.idealLabel}</Text>
+          <Text style={[styles.gaugeBandLabel, styles.gaugeBandLabelRight]} numberOfLines={1}>{model.highLabel}</Text>
+        </View>
       </View>
     </View>
   );
@@ -2270,6 +2332,89 @@ function thresholdRangeLabel(detail: RiverDetailApiResult) {
   return 'threshold details are still being refined';
 }
 
+function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualModel | null {
+  const gauge = detail.gauge;
+  const unit = detail.river.gaugeSource.unit;
+  const { idealMin, idealMax, tooLow, tooHigh, thresholdModel } = detail.river.profile;
+
+  if (
+    !gauge ||
+    thresholdModel !== 'two-sided' ||
+    typeof idealMin !== 'number' ||
+    typeof idealMax !== 'number' ||
+    idealMax <= idealMin
+  ) {
+    return null;
+  }
+
+  const idealSpan = Math.max(idealMax - idealMin, 1);
+  const lowEdge = typeof tooLow === 'number' && tooLow < idealMin ? tooLow : idealMin - idealSpan * 0.75;
+  const highEdge = typeof tooHigh === 'number' && tooHigh > idealMax ? tooHigh : idealMax + idealSpan * 0.75;
+  const rawMin = Math.min(lowEdge, idealMin, gauge.current);
+  const rawMax = Math.max(highEdge, idealMax, gauge.current);
+  const domainSpan = Math.max(rawMax - rawMin, 1);
+  const domainMin = rawMin - domainSpan * 0.05;
+  const domainMax = rawMax + domainSpan * 0.05;
+  const domain = Math.max(domainMax - domainMin, 1);
+  const percent = (value: number) => clampToRange(((value - domainMin) / domain) * 100, 0, 100);
+
+  return {
+    currentPercent: percent(gauge.current),
+    idealLeftPercent: percent(idealMin),
+    idealWidthPercent: Math.max(percent(idealMax) - percent(idealMin), 8),
+    currentLabel: formatGaugeValue(gauge.current, gauge.unit),
+    statusLabel: gaugeBandStatusLabel(detail, idealMin, idealMax),
+    lowLabel: formatGaugeValue(lowEdge, unit),
+    idealLabel: `${formatGaugeValue(idealMin, unit)}-${formatGaugeValue(idealMax, unit)}`,
+    highLabel: formatGaugeValue(highEdge, unit),
+    markerTone: gaugeBandMarkerTone(detail.gaugeBand),
+  };
+}
+
+function gaugeBandStatusLabel(detail: RiverDetailApiResult, idealMin: number, idealMax: number) {
+  const current = detail.gauge?.current;
+
+  if (typeof current !== 'number') {
+    return detail.gaugeBandLabel;
+  }
+
+  if (current < idealMin) {
+    return 'Below target band';
+  }
+
+  if (current > idealMax) {
+    return 'Above target band';
+  }
+
+  const position = (current - idealMin) / Math.max(idealMax - idealMin, 1);
+
+  if (position < 0.35) {
+    return 'Low side of target';
+  }
+
+  if (position > 0.65) {
+    return 'High side of target';
+  }
+
+  return 'Middle of target';
+}
+
+function gaugeBandMarkerTone(gaugeBand: RiverDetailApiResult['gaugeBand']) {
+  if (gaugeBand === 'too-low' || gaugeBand === 'too-high') {
+    return styles.conditionSkip;
+  }
+
+  if (gaugeBand === 'low-shoulder' || gaugeBand === 'high-shoulder' || gaugeBand === 'minimum-met') {
+    return styles.conditionWatch;
+  }
+
+  return styles.conditionGood;
+}
+
+function clampToRange(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
 function shortLogisticsValue(value: string | null | undefined) {
   const normalized = normalizeApiText(value);
   if (!normalized) {
@@ -2773,6 +2918,97 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  gaugeBandPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  gaugeBandHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  gaugeBandTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+    gap: 2,
+  },
+  gaugeBandKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+  },
+  gaugeBandStatus: {
+    color: colors.text,
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  gaugeBandCurrentPill: {
+    minWidth: 78,
+    borderRadius: radius.pill,
+    paddingHorizontal: 11,
+    paddingVertical: 7,
+    alignItems: 'center',
+  },
+  gaugeBandCurrentText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  gaugeBandMeter: {
+    gap: spacing.sm,
+  },
+  gaugeBandTrack: {
+    height: 16,
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+  },
+  gaugeBandIdealSegment: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accentSoft,
+    borderWidth: 1,
+    borderColor: '#A8C1B7',
+  },
+  gaugeBandMarker: {
+    position: 'absolute',
+    top: -4,
+    width: 10,
+    height: 24,
+    marginLeft: -5,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+  },
+  gaugeBandLabels: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  gaugeBandLabel: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '800',
+  },
+  gaugeBandLabelCenter: {
+    flex: 1.4,
+    color: colors.accentDeep,
+    textAlign: 'center',
+  },
+  gaugeBandLabelRight: {
+    textAlign: 'right',
   },
   sourceActionsPanel: {
     borderRadius: radius.md,

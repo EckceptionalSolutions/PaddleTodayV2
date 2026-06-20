@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-19T20:40:21.170Z",
+  "generatedAt": "2026-06-19T23:32:36.515Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 515,
@@ -6247,15 +6247,15 @@
       {
         "candidateId": "in-big-pine-creek-rainsville-twin-bridges",
         "lane": "access_legitimacy",
-        "priority": 63,
+        "priority": 62,
         "state": "IN",
         "river": "Big Pine Creek",
         "route": "Rainsville Bridge to Twin Bridges",
         "currentStatus": "needs_manual_coordinates",
         "lastReviewed": "2026-06-19",
-        "reviewCount": 19,
+        "reviewCount": 20,
         "duplicateRisk": false,
-        "blocker": "2026-06-19 06:56 America/Chicago / 2026-06-19 11:56 UTC access-legitimacy refresh. The route still has strong American Whitewater / USGS support, and the current NICHES evidence is still precise enough to show exactly where the manager-backed public pair sits. NICHES Land Trust's current Big Pine Creek Access Site Cleanup page explicitly names 450 \"Harrison\" Bridge Access Point as the start and Twin Bridges Access P...",
+        "blocker": "2026-06-19 16:35 America/Chicago / 2026-06-19 21:35 UTC access-legitimacy refresh. The route still has strong American Whitewater / USGS support, and the current NICHES evidence is still precise enough to show exactly where the manager-backed public pair sits. NICHES Land Trust's current Big Pine Creek Access Site Cleanup page explicitly names 450 \"Harrison\" Bridge Access Point as the start and Twin Bridges Access P...",
         "retryCondition": "Retry only if a current Indiana DNR, county/city, highway or bridge manager, or other primary public-access source confirms the Rainsville Bridge launch as legal public access with usable parking rules, or if a strong route source explicitly reshapes the candidate around the current NICHES 450 Harrison to Twin Bridges public pair. Twin Bridges now has materially stronger current NICHES endpoint confirmation, but rec...",
         "gauge": {
           "quality": "direct_aw_current_context",
@@ -6287,9 +6287,9 @@
         "route": "Henefer to Taggarts",
         "currentStatus": "needs_manual_coordinates",
         "lastReviewed": "2026-06-19",
-        "reviewCount": 45,
+        "reviewCount": 46,
         "duplicateRisk": false,
-        "blocker": "2026-06-19 13:39 America/Chicago / 2026-06-19 18:39 UTC access-point refresh. Current Utah DWR official structured data tightens the upstream blocker but still does not clear it. The live-gauge question remains resolved: direct USGS Water Services IV for 10132000 Weber River at Echo succeeded again with same-day values of 382 cfs and 2.78 ft at 2026-06-19 06:00 MDT, so the product-live path is re-cleared and no long...",
+        "blocker": "2026-06-19 17:41 America/Chicago / 2026-06-19 22:41 UTC access-point refresh. Current Utah DWR official ArcGIS responses tighten the upstream blocker but still do not clear it. The live-gauge question remains resolved: direct USGS Water Services IV for 10132000 Weber River at Echo succeeded again with same-day values of 382 cfs and 2.78 ft at 2026-06-19 06:00 MDT, so the product-live path is re-cleared and no longer...",
         "retryCondition": "Retry only if source-backed coordinates are captured for the official Weber River Access-Henefer WMA parking/launch area plus the Taggarts river-right take-out below Taggarts Falls, and current paddling access/parking legitimacy is confirmed by DWR, Summit County, an official GIS/map feature, or similarly strong manager evidence. Do not substitute nearby Henefer Weber fishing-access parcels that explicitly disallow...",
         "gauge": {
           "quality": "direct_product_live_verified",
@@ -6307,7 +6307,7 @@
           "coordinatesPresent": false,
           "putInCoordinates": null,
           "takeOutCoordinates": null,
-          "coordinateSource": "Coordinates remain unresolved. Current Utah DWR data now does more than expose a broad WMA reference: the live Public Access Properties feature service resolves Henefer-Echo Angler Access as a distinct official 24.94-acre legal/public access parcel with the earlier property name Weber River Access, and the official Recreation Access property table now explicitly says the Henefer site provides just over a half-mile of river access with two large parking lots. That materially strengthens upstream public-use legitimacy, but the same official DWR Recreation Access point layer still returns no Henefer access-point feature or exact launch/parking coordinate, so the official story remains polygon-only rather than route-ready. Downstream remains weaker: Utah WRI still describes the Taggarts take-out area as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, and no route-ready official coordinate surfaced for the river-right take-out below Taggarts Falls. Nearby Henefer DWR fishing-access parcels such as BStevens explicitly say they are not authorized public access or exit points for recreational tubing or rafting, so they cannot be substituted as paddling endpoints. Supplemental Outbound coordinates and RiverBrain directions remain below the authority needed to ship this private-bank-sensitive route."
+          "coordinateSource": "Coordinates remain unresolved. Current Utah DWR data now does more than expose a broad WMA reference: the live Recreation Access property table exposes WEBER RIVER ACCESSHENEFER as active property ID {5B4F2C09-3869-4556-87A1-629A3744C6B5}, and a same-run direct query of the official WMA polygon layer returns the matching WEBER RIVER ACCESS-HENEFER parcel geometry plus the description that the site provides just over a half-mile of river access with two large parking lots. That materially strengthens upstream public-use legitimacy, but the paired official WMA point layer still returns zero Henefer point features and no exact launch/parking coordinate, so the official story remains polygon-only rather than route-ready. Downstream remains weaker: Utah WRI still describes the Taggarts take-out area as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, and no route-ready official coordinate surfaced for the river-right take-out below Taggarts Falls. Nearby Henefer DWR fishing-access parcels such as BStevens explicitly say they are not authorized public access or exit points for recreational tubing or rafting, so they cannot be substituted as paddling endpoints. Supplemental Outbound coordinates and RiverBrain directions remain below the authority needed to ship this private-bank-sensitive route."
         },
         "recommendedNextStep": "Find a current public-access manager source that confirms launch/take-out legality, parking, and normal private-paddler use.",
         "discoveryTier": "other"
@@ -16929,40 +16929,6 @@
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
-      "candidateId": "in-big-pine-creek-rainsville-twin-bridges",
-      "lane": "access_legitimacy",
-      "priority": 63,
-      "state": "IN",
-      "river": "Big Pine Creek",
-      "route": "Rainsville Bridge to Twin Bridges",
-      "currentStatus": "needs_manual_coordinates",
-      "lastReviewed": "2026-06-19",
-      "reviewCount": 19,
-      "duplicateRisk": false,
-      "blocker": "2026-06-19 06:56 America/Chicago / 2026-06-19 11:56 UTC access-legitimacy refresh. The route still has strong American Whitewater / USGS support, and the current NICHES evidence is still precise enough to show exactly where the manager-backed public pair sits. NICHES Land Trust's current Big Pine Creek Access Site Cleanup page explicitly names 450 \"Harrison\" Bridge Access Point as the start and Twin Bridges Access P...",
-      "retryCondition": "Retry only if a current Indiana DNR, county/city, highway or bridge manager, or other primary public-access source confirms the Rainsville Bridge launch as legal public access with usable parking rules, or if a strong route source explicitly reshapes the candidate around the current NICHES 450 Harrison to Twin Bridges public pair. Twin Bridges now has materially stronger current NICHES endpoint confirmation, but rec...",
-      "gauge": {
-        "quality": "direct_aw_current_context",
-        "id": "033356848",
-        "provider": "USGS/American Whitewater",
-        "notes": "USGS Water Services IV for 033356848 returned same-day 2026-06-11 discharge/stage from this workspace; AW also exposes current medium-runnable context. Remaining blocker is public access legitimacy/source-clean endpoint package, not product-live."
-      },
-      "thresholdSupport": {
-        "strength": "american_whitewater",
-        "notes": "AW page data exposes Big Pine Creek at Pine Village with beginLowRunnable 250 cfs and endHighRunnable 5000 cfs; trip-report context supports conservative lower-floor caution, but access legitimacy still blocks implementation."
-      },
-      "endpoints": {
-        "putIn": "Rainsville Bridge / County Road 025 E access family",
-        "takeOut": "Twin Bridges / County Road 200 N and County Road 100 E access family",
-        "coordinatesPresent": true,
-        "putInCoordinates": "40.405602, -87.329597",
-        "takeOutCoordinates": "40.340099, -87.314201",
-        "coordinateSource": "American Whitewater route map exposes Put In and Take Out coordinates for reach 2563. Those remain useful location anchors, and current NICHES pages plus their direct Google Maps links now materially strengthen the Twin Bridges take-out and the separate 450 Harrison access as mapped public endpoints, but the AW coordinate pair still is not enough by itself because the upstream Rainsville bridge launch lacks current primary-source public-access confirmation."
-      },
-      "recommendedNextStep": "Find a current public-access manager source that confirms launch/take-out legality, parking, and normal private-paddler use.",
-      "discoveryTier": "undercovered_supported_midwest"
-    },
-    {
       "candidateId": "mi-east-branch-escanaba-sands-plains-run",
       "lane": "live_provider_recheck",
       "priority": 63,
@@ -17068,6 +17034,40 @@
         "coordinateSource": "Valley City Tourism names the segment endpoints and river miles, and its Scenic Byway page still describes Riparian Restoration Interpretive Site as a canoe landing. Google Maps exposes a named Riparian Restoration Interpretive Site feature at 46.8571815, -97.997616, which is strong enough for the downstream accessible pull-out. Upstream remains unresolved: North Dakota Tourism's current kayak-rental-kiosk page provides a locate coordinate for Bjornson at 46.90962, -98.021632, North Dakota Tourism's current Bjornson Park Public Golf Course listing exposes a second official locate pin at 46.910023, -98.022191, Valley City Parks' current Bjornson Golf Course page gives the facility address as 3473 Woodland Park, and Valley City Parks' official RiverFest FAQ says kayaks at Bjornson must be transported to the desired launch site. Those current official tourism and facility anchors tighten the Bjornson property envelope, but they still do not identify the exact primitive L-240 riverbank launch point. The official Bjornson segment PDF visibly pins L-240 and L-234 on its segment map, and the current Barnes County / NDIC grant application concept plan now shows the launch layout itself, but none of those official sources publishes a numeric primitive-launch coordinate pair."
       },
       "recommendedNextStep": "Find source-backed endpoint coordinates from an official access map, public-water-access dataset, park page, or manager map. Do not infer from bridge names or river geometry.",
+      "discoveryTier": "undercovered_supported_midwest"
+    },
+    {
+      "candidateId": "in-big-pine-creek-rainsville-twin-bridges",
+      "lane": "access_legitimacy",
+      "priority": 62,
+      "state": "IN",
+      "river": "Big Pine Creek",
+      "route": "Rainsville Bridge to Twin Bridges",
+      "currentStatus": "needs_manual_coordinates",
+      "lastReviewed": "2026-06-19",
+      "reviewCount": 20,
+      "duplicateRisk": false,
+      "blocker": "2026-06-19 16:35 America/Chicago / 2026-06-19 21:35 UTC access-legitimacy refresh. The route still has strong American Whitewater / USGS support, and the current NICHES evidence is still precise enough to show exactly where the manager-backed public pair sits. NICHES Land Trust's current Big Pine Creek Access Site Cleanup page explicitly names 450 \"Harrison\" Bridge Access Point as the start and Twin Bridges Access P...",
+      "retryCondition": "Retry only if a current Indiana DNR, county/city, highway or bridge manager, or other primary public-access source confirms the Rainsville Bridge launch as legal public access with usable parking rules, or if a strong route source explicitly reshapes the candidate around the current NICHES 450 Harrison to Twin Bridges public pair. Twin Bridges now has materially stronger current NICHES endpoint confirmation, but rec...",
+      "gauge": {
+        "quality": "direct_aw_current_context",
+        "id": "033356848",
+        "provider": "USGS/American Whitewater",
+        "notes": "USGS Water Services IV for 033356848 returned same-day 2026-06-11 discharge/stage from this workspace; AW also exposes current medium-runnable context. Remaining blocker is public access legitimacy/source-clean endpoint package, not product-live."
+      },
+      "thresholdSupport": {
+        "strength": "american_whitewater",
+        "notes": "AW page data exposes Big Pine Creek at Pine Village with beginLowRunnable 250 cfs and endHighRunnable 5000 cfs; trip-report context supports conservative lower-floor caution, but access legitimacy still blocks implementation."
+      },
+      "endpoints": {
+        "putIn": "Rainsville Bridge / County Road 025 E access family",
+        "takeOut": "Twin Bridges / County Road 200 N and County Road 100 E access family",
+        "coordinatesPresent": true,
+        "putInCoordinates": "40.405602, -87.329597",
+        "takeOutCoordinates": "40.340099, -87.314201",
+        "coordinateSource": "American Whitewater route map exposes Put In and Take Out coordinates for reach 2563. Those remain useful location anchors, and current NICHES pages plus their direct Google Maps links now materially strengthen the Twin Bridges take-out and the separate 450 Harrison access as mapped public endpoints, but the AW coordinate pair still is not enough by itself because the upstream Rainsville bridge launch lacks current primary-source public-access confirmation."
+      },
+      "recommendedNextStep": "Find a current public-access manager source that confirms launch/take-out legality, parking, and normal private-paddler use.",
       "discoveryTier": "undercovered_supported_midwest"
     },
     {
@@ -18669,9 +18669,9 @@
       "route": "Henefer to Taggarts",
       "currentStatus": "needs_manual_coordinates",
       "lastReviewed": "2026-06-19",
-      "reviewCount": 45,
+      "reviewCount": 46,
       "duplicateRisk": false,
-      "blocker": "2026-06-19 13:39 America/Chicago / 2026-06-19 18:39 UTC access-point refresh. Current Utah DWR official structured data tightens the upstream blocker but still does not clear it. The live-gauge question remains resolved: direct USGS Water Services IV for 10132000 Weber River at Echo succeeded again with same-day values of 382 cfs and 2.78 ft at 2026-06-19 06:00 MDT, so the product-live path is re-cleared and no long...",
+      "blocker": "2026-06-19 17:41 America/Chicago / 2026-06-19 22:41 UTC access-point refresh. Current Utah DWR official ArcGIS responses tighten the upstream blocker but still do not clear it. The live-gauge question remains resolved: direct USGS Water Services IV for 10132000 Weber River at Echo succeeded again with same-day values of 382 cfs and 2.78 ft at 2026-06-19 06:00 MDT, so the product-live path is re-cleared and no longer...",
       "retryCondition": "Retry only if source-backed coordinates are captured for the official Weber River Access-Henefer WMA parking/launch area plus the Taggarts river-right take-out below Taggarts Falls, and current paddling access/parking legitimacy is confirmed by DWR, Summit County, an official GIS/map feature, or similarly strong manager evidence. Do not substitute nearby Henefer Weber fishing-access parcels that explicitly disallow...",
       "gauge": {
         "quality": "direct_product_live_verified",
@@ -18689,7 +18689,7 @@
         "coordinatesPresent": false,
         "putInCoordinates": null,
         "takeOutCoordinates": null,
-        "coordinateSource": "Coordinates remain unresolved. Current Utah DWR data now does more than expose a broad WMA reference: the live Public Access Properties feature service resolves Henefer-Echo Angler Access as a distinct official 24.94-acre legal/public access parcel with the earlier property name Weber River Access, and the official Recreation Access property table now explicitly says the Henefer site provides just over a half-mile of river access with two large parking lots. That materially strengthens upstream public-use legitimacy, but the same official DWR Recreation Access point layer still returns no Henefer access-point feature or exact launch/parking coordinate, so the official story remains polygon-only rather than route-ready. Downstream remains weaker: Utah WRI still describes the Taggarts take-out area as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, and no route-ready official coordinate surfaced for the river-right take-out below Taggarts Falls. Nearby Henefer DWR fishing-access parcels such as BStevens explicitly say they are not authorized public access or exit points for recreational tubing or rafting, so they cannot be substituted as paddling endpoints. Supplemental Outbound coordinates and RiverBrain directions remain below the authority needed to ship this private-bank-sensitive route."
+        "coordinateSource": "Coordinates remain unresolved. Current Utah DWR data now does more than expose a broad WMA reference: the live Recreation Access property table exposes WEBER RIVER ACCESSHENEFER as active property ID {5B4F2C09-3869-4556-87A1-629A3744C6B5}, and a same-run direct query of the official WMA polygon layer returns the matching WEBER RIVER ACCESS-HENEFER parcel geometry plus the description that the site provides just over a half-mile of river access with two large parking lots. That materially strengthens upstream public-use legitimacy, but the paired official WMA point layer still returns zero Henefer point features and no exact launch/parking coordinate, so the official story remains polygon-only rather than route-ready. Downstream remains weaker: Utah WRI still describes the Taggarts take-out area as county-owned old highway off the Taggart Exit rather than an officially established boat ramp, and no route-ready official coordinate surfaced for the river-right take-out below Taggarts Falls. Nearby Henefer DWR fishing-access parcels such as BStevens explicitly say they are not authorized public access or exit points for recreational tubing or rafting, so they cannot be substituted as paddling endpoints. Supplemental Outbound coordinates and RiverBrain directions remain below the authority needed to ship this private-bank-sensitive route."
       },
       "recommendedNextStep": "Find a current public-access manager source that confirms launch/take-out legality, parking, and normal private-paddler use.",
       "discoveryTier": "other"

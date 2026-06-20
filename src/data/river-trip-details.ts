@@ -1083,7 +1083,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. If you bike the state trail shuttle, check Wisconsin DNR for any current trail pass or closure rules.',
       camping:
-        'Treat this as a day trip. Camping legality along the lower Red Cedar is too ownership-dependent to assume from the landings alone.',
+        'No route camping is indicated for this day trip. Camping legality along the lower Red Cedar is too ownership-dependent to assume from the landings alone.',
       summary:
         'Use Riverside Park in Menomonie as the put-in and Dunnville Bottoms as the take-out. This is a long but friendly downstream Red Cedar day when the gauge keeps enough water in the riffles.',
       accessCaveats: [
@@ -1251,7 +1251,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow posted access, parking, and boating rules at both public landings.',
       camping:
-        'Treat this as a day trip. Corridor camping rules vary by ownership and are not simple enough to assume from the landings alone.',
+        'No route camping is indicated for this day trip. Corridor camping rules vary by ownership and are not simple enough to assume from the landings alone.',
       summary:
         'Put in at Martin\'s Landing and take out at Rum River North County Park. This is a straightforward scenic shuttle day when the St. Francis gauge is comfortably above scrape level.',
       accessCaveats: [
@@ -2447,7 +2447,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow Adair County, Madison County, and posted water-trail access rules.',
       camping:
-        'Middle River Forest Area has primitive camping support, but this route should still be planned as a day paddle unless camping is separately confirmed with Adair County Conservation.',
+        'Middle River Forest Area has primitive camping support near the put-in, but this route should still be planned as a day paddle unless camping is separately confirmed with Adair County Conservation.',
       summary:
         'Launch from Middle River Forest Park Access #89 and take out at Schildberg Access #78. This is the first developed Middle River Water Trail leg, with a real official flow band but enough riffles, bends, and ledges to require same-day judgment.',
       accessCaveats: [
@@ -2671,7 +2671,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No permit for general day paddling is noted. Follow any posted landing or parking rules at the trailer accesses.',
       camping:
-        'Camping is not confirmed for this exact day-trip segment. Verify state-park or water-trail options separately before planning an overnight.',
+        'No route camping is indicated for this exact day-trip segment. Verify state-park or water-trail options separately before planning an overnight.',
       summary:
         'The official Map 2 reach is a mostly-flatwater day trip with one Class I rapid around river mile 11. Use the Sandstone gauge as a trend check and stay conservative after rain.',
       accessCaveats: [
@@ -2737,7 +2737,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No special paddling permit is known for the Minnesota DNR Whitewater River State Water Trail. Follow posted WMA, roadside parking, and boating rules.',
       camping:
-        'MN DNR says there are no campsites or rest areas on the Whitewater River State Water Trail. Use off-river options such as Whitewater State Park if you need an overnight base.',
+        'MN DNR says there are no campsites or rest areas on the Whitewater River State Water Trail. Whitewater State Park is an off-river nearby campground/base-camp option if you need an overnight base.',
       summary:
         'Put in at Elba and take out where the river comes back to Highway 74. This is a narrow, wood-sensitive creek route, so the DNR gauge is only the first screen; current strainers and logjams still decide the day.',
       accessCaveats: [
@@ -3366,7 +3366,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow posted Darlington park rules at Black Bridge Park and any Lafayette County or local landing rules at Wells Landing.',
       camping:
-        'Treat this as a day route. Darlington has camping upstream at Pecatonica River Trails Park, but no legal overnight stop was confirmed between Black Bridge Landing and Wells Landing.',
+        'Treat this as a day route. Darlington has nearby camping upstream at Pecatonica River Trails Park, but no legal overnight stop was confirmed between Black Bridge Landing and Wells Landing.',
       summary:
         'Launch at Black Bridge Landing, the city improved Pecatonica boat launch in Darlington, then paddle the town riffles and rural lower-Pecatonica bends to Wells Landing on Walnut Road. The longer distance and muddy banks make this a planned day trip rather than a quick float.',
       accessCaveats: [
@@ -3468,7 +3468,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No permit is noted for standard day paddling. Follow city-park rules at Trout Run and any posted county or state access rules at Lower Dam.',
       camping:
-        'No developed on-route camping is documented for this segment. Plan lodging or camping separately rather than assuming a legal overnight stop.',
+        'No on-route camping is documented for this segment. Plan lodging or camping separately rather than assuming a legal overnight stop.',
       summary:
         'Launch at Trout Run Park and finish at the Lower Dam access below Decorah. This is a scenic beginner-friendly Upper Iowa day, but the 13-mile length, low-water scraping risk, and the marked dam portage still make it a real commitment.',
       accessCaveats: [
@@ -3738,7 +3738,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Goodman and McClintock are Marinette County parks with day-use or camping rules, and Farm Dam sits in the state-forest / WPS landing corridor; follow posted access and fee requirements.',
       camping:
-        'Goodman Park and McClintock Park both have reservable county campgrounds near the river. Treat river camping elsewhere as unconfirmed unless a land manager separately approves it.',
+        'Goodman Park and McClintock Park both have reservable county campgrounds nearby along the river corridor. Treat river camping elsewhere as unconfirmed unless a land manager separately approves it.',
       summary:
         'Launch below Strong Falls at Goodman Park Access and take out at Farm Dam Public Landing. This is the scenic P4 Peshtigo run, mostly wooded flatwater and riffles with Skinners Elbow and Wilson Rapids adding Class I-II / II boat-control work.',
       accessCaveats: [
@@ -4011,7 +4011,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'If you park inside Kinnickinnic State Park, expect Wisconsin state-park admission rules to apply. Follow posted rules at both Glen Park and the park take-out.',
       camping:
-        'Camping is available at Kinnickinnic State Park by reservation, but this route is best treated as a hard day trip unless you already have a campsite plan.',
+        'Camping by reservation is available at Kinnickinnic State Park near the take-out, but this route is best treated as a hard day trip unless you already have a campsite plan.',
       summary:
         'Put in below the second River Falls dam at Glen Park and finish at the state-park beach where the Kinnickinnic meets the St. Croix. This is a beautiful but committed swiftwater day, not a casual scenic float.',
       accessCaveats: [
@@ -6354,7 +6354,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Budget for the campground access or parking fee at Brownbranch, follow campground rules, obey posted signs at the Highway 76 bridge area, and follow Missouri boating and fishing rules.',
       camping:
-        'Treat this route as a day float unless you separately reserve or arrange camping at Beaver Creek Campground. Do not assume private banks or bridge approaches are legal campsites.',
+        'Beaver Creek Campground is at the put-in, so this can work as endpoint campground staging if you separately reserve or arrange camping. Do not assume private banks or bridge approaches are legal campsites.',
       summary:
         'Launch at Beaver Creek Campground in Brownbranch and take out at the Highway 76 bridge area in Bradleyville for a 7.9-mile Beaver Creek day. Use the Bradleyville USGS gauge with MoHERP bands, and skip the route when the gauge is high, rising, or below the low-water floor.',
       accessCaveats: [
@@ -6390,7 +6390,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit or Forest Service day-use fee is listed for these accesses. Follow Mark Twain National Forest site rules, Missouri boating laws, posted signs, no-glass/no-polystyrene rules, leash rules, and current access hours.',
       camping:
-        'Treat this as a day trip. East Gate lists no camping, and Bookers Bend says no overnight camping in day-use areas; use a separately confirmed legal campground such as Slabtown if you are planning an overnight.',
+        'Treat this as a day trip. East Gate lists no camping, and Bookers Bend says no overnight camping in day-use areas; Slabtown is a nearby campground/base-camp option only if you separately confirm legal camping.',
       summary:
         'Launch at Forest Service East Gate Access and take out at Forest Service Bookers Bend Access for the official 11-mile Big Piney day float. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
       accessCaveats: [
@@ -6426,7 +6426,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow Missouri boating laws, posted MDC area rules at Boiling Spring Access, no-glass/no-polystyrene rules, vehicle hours, and any current signs at Sandy Shoals Ford.',
       camping:
-        'Treat this as a day trip. MDC lists camping as prohibited at Boiling Spring Access, and private land borders parts of the corridor; use only separately confirmed legal camping if extending the trip.',
+        'Treat this as a day trip. MDC lists camping as prohibited at Boiling Spring Access, and private land borders parts of the corridor; no route camping is indicated unless you separately confirm legal camping.',
       summary:
         'Launch at Sandy Shoals Ford access and take out at MDC Boiling Spring Access for the MDC-described quick Big Piney day float. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
       accessCaveats: [
@@ -6498,7 +6498,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Follow Missouri boating laws, posted MDC area rules at Mason Bridge, Mark Twain National Forest rules at Slabtown, no-glass/no-polystyrene rules, day-use hours, and current signs at both access areas.',
       camping:
-        'Treat this as a day trip unless you have separately planned legal camping. Slabtown has three Forest Service tent-camping sites, but availability, day-use hours, fire rules, and posted restrictions still control.',
+        'Slabtown has Forest Service tent-camping sites at the take-out, so this can work as endpoint campground staging if availability, day-use hours, fire rules, and posted restrictions support your plan.',
       summary:
         'Launch at MDC Mason Bridge Access and take out at Forest Service Slabtown Recreation Area for the next Big Piney link below Mason Bridge. Use the Big Piney USGS gauge as a same-river level check, but keep the decision conservative because the level model is community-calibrated.',
       accessCaveats: [
@@ -7236,7 +7236,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'American Whitewater says Edgetts to Lincoln Bridge does not require the downstream Pine National Scenic River permit. Still check current Michigan DNR, Forest Service, and local access signage before launch, especially if continuing below Lincoln.',
       camping:
-        'Treat this as a day trip unless you have separately confirmed a legal campground or designated site. American Whitewater notes Silver Creek State Forest Campground just upstream of Lincoln Bridge, but do not assume riverbank camping or private-shore stops.',
+        'Lincoln Bridge State Forest Campground is at the take-out, with Silver Creek State Forest Campground nearby upstream. Use those legal campground options rather than assuming riverbank camping or private-shore stops.',
       summary:
         'Launch at Edgetts and take out at Lincoln Bridge for the upper Pine River moving-water reach above the federal permit corridor. Use the Hoxeyville USGS gauge as a conservative low-water check, then make same-day decisions from access signage, wood, and weather.',
       accessCaveats: [
@@ -7273,7 +7273,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'A Pine National Scenic River permit is required during the Forest Service permit season. Recreation.gov manages Pine River permits and lists both Peterson Bridge and Low Bridge as access choices; check current availability, parking limits, and launch timing before the trip.',
       camping:
-        'Do not assume on-route camping for this day run. Use only Forest Service-designated sites or separately reserved campgrounds if you are building an overnight plan.',
+        'Peterson Bridge Campground is at the put-in, including paddle- or walk-in sites under Forest Service rules. Use designated sites or separately reserved campgrounds rather than assuming informal on-route camping.',
       summary:
         'Launch at Peterson Bridge River Access and take out at Low Bridge River Access for a permit-managed Pine River day in the Huron-Manistee National Forests. Use the Hoxeyville USGS gauge as a conservative low-water check, not a full ideal-range promise.',
       accessCaveats: [
@@ -7941,7 +7941,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'Private boaters do not need a route-specific river permit for Section A, but a Flaming Gorge recreation use pass is required at Spillway and Little Hole. Commercial outfitters have separate permit requirements.',
       camping:
-        'No camping is allowed on Section A between Spillway and Little Hole. Treat this as a day trip and use only designated downstream camps if you intentionally continue into Section B with the proper plan and required toilet system.',
+        'No on-route camping is allowed on Section A between Spillway and Little Hole. Treat this as a day trip and use only designated downstream camps if you intentionally continue into Section B with the proper plan and required toilet system.',
       summary:
         'Launch at Spillway Boat Launch below Flaming Gorge Dam and take out seven miles downstream at Little Hole for the Green River A Section. This is a cold, dam-release tailwater with Class I-II rapids, clear water, heavy fishing traffic, and federal fee-area rules.',
       accessCaveats: [
@@ -8100,7 +8100,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       permits:
         'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow Kentucky boating and PFD rules, obey Carter Caves State Resort Park rules, and respect private property along the corridor.',
       camping:
-        'Treat this as a long day trip unless separately arranging legal camping. The route starts at the Olive Hill trailhead/campground area and ends at Carter Caves, but no mid-route camping plan is assumed.',
+        'The route starts at the Olive Hill Depot Trailhead and Campground Access and ends at Carter Caves State Resort Park, which has campground and lodging options. Treat it as endpoint campground staging, not a mid-route camping plan.',
       summary:
         'Launch at Olive Hill Depot Trailhead and Campground Access and take out 12.5 miles downstream at Carter Caves State Park near the KY 182 bridge. KDFWR warns that below 150 cfs the route is hard to finish in a day and above 300 cfs the gorge becomes more challenging.',
       accessCaveats: [
