@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T12:23:37.499Z",
+  "generatedAt": "2026-06-22T14:28:19.879Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 515,
-    "currentRouteCount": 260,
-    "leadCount": 276,
+    "currentRouteCount": 263,
+    "leadCount": 274,
     "discoveryFocusStates": [
       "Nebraska",
       "South Dakota",
@@ -267,70 +267,28 @@
       }
     ],
     "byLane": {
-      "implementation_ready": 1,
+      "implementation_ready": 0,
       "fresh_source_discovery": 55,
       "threshold_discovery": 110,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
       "live_provider_recheck": 101,
-      "blocked_recheck": 9
+      "blocked_recheck": 8
     },
     "byStatus": {
-      "implemented": 18,
+      "implemented": 20,
       "threshold_weak": 110,
       "added": 198,
       "research_later": 55,
-      "blocked_until_date": 14,
+      "blocked_until_date": 13,
       "no_live_gauge": 91,
       "rejected": 15,
       "gauge_proxy_weak": 10,
-      "duplicate_corridor": 3,
-      "likely_addable": 1
+      "duplicate_corridor": 3
     }
   },
   "lanes": {
-    "implementation_ready": [
-      {
-        "candidateId": "mo-jacks-fork-rymers-bay-creek",
-        "lane": "implementation_ready",
-        "priority": 100,
-        "state": "MO",
-        "river": "Jacks Fork River",
-        "route": "Rymers to Bay Creek",
-        "currentStatus": "likely_addable",
-        "lastReviewed": "2026-06-22",
-        "reviewCount": 4,
-        "duplicateRisk": false,
-        "blocker": "2026-06-22 06:24 America/Chicago / 2026-06-22 11:24 UTC threshold-discovery pass promoted this lead to likely_addable. Current NPS Estimated Float Times still lists Rymers to Bay Creek as 9 miles / 4 hours, the current NPS Paddle Jacks Fork River page still names Rymers and Bay Creek among the popular Jacks Fork put-ins, workspace USGS Water Services IV returned same-day 07065200 values of 118 cfs / 1.04 ft at 2026-...",
-        "retryCondition": "Before implementation, recheck same-day USGS 07065200 values, NPS access conditions, and whether the carried-forward Rymers and Bay Creek coordinates still match the intended access points.",
-        "gauge": {
-          "quality": "direct_product_live_verified",
-          "id": "07065200",
-          "provider": "USGS",
-          "notes": "USGS 07065200 Jacks Fork near Mountain View is the strongest existing gauge lead for the upper-Jacks Rymers-to-Bay segment, and workspace Water Services IV now returns same-day product-live values for this station."
-        },
-        "thresholdSupport": {
-          "strength": "community_minimum_only_ready",
-          "notes": "Current NPS float-time and access pages now make the exact Rymers-to-Bay-Creek segment explicit enough to accept the same-gauge upper-Jacks 100 cfs minimum-only model already supported by MoHERP Mountain View ratings and exact low-flow trip evidence. Keep the route conservative and do not infer an ideal range or high cutoff."
-        },
-        "endpoints": {
-          "putIn": "Rymers Access",
-          "takeOut": "Bay Creek River Access / Backcountry Campground",
-          "coordinatesPresent": true,
-          "putInCoordinates": {
-            "latitude": 37.061386,
-            "longitude": -91.559117
-          },
-          "takeOutCoordinates": {
-            "latitude": 37.1231,
-            "longitude": -91.5018
-          },
-          "coordinateSource": "Coordinates are carried forward from existing V2 Rymers and Bay Creek access anchors and should be reverified against NPS signs or source-backed access records before any implementation."
-        },
-        "recommendedNextStep": "Verify the live gauge still fetches, confirm no duplicate route exists, then hand this to the one-route implementation automation.",
-        "discoveryTier": "supported_midwest"
-      }
-    ],
+    "implementation_ready": [],
     "fresh_source_discovery": [
       {
         "candidateId": "ia-north-fork-maquoketa-river-dyersville-rockville",
@@ -9290,46 +9248,6 @@
     ],
     "blocked_recheck": [
       {
-        "candidateId": "mo-eleven-point-river-thomasville-cane-bluff",
-        "lane": "blocked_recheck",
-        "priority": 57,
-        "state": "MO",
-        "river": "Eleven Point River",
-        "route": "Thomasville River Access to Cane Bluff River Access",
-        "currentStatus": "blocked_until_date",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 1,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 07:19 America/Chicago / 2026-06-04 12:19 UTC first-pass review. Forest Service and National Rivers Project support Thomasville-to-Cane-Bluff as an official upper Eleven Point full-day route, and USGS 07071500 had fresh official legacy values at 503 cfs / 2.64 ft from 2026-06-03 20:30 CDT. Do not add now: the Forest Service Thomasville River Access page is marked Site Closed and says it is currently closed...",
-        "retryCondition": "Retry only after the Forest Service removes the Thomasville closure and local product-style USGS 07071500 fetching works again; then confirm whether the MoHERP/adjacent Eleven Point 300 cfs minimum-only model is acceptable for this exact upper reach.",
-        "gauge": {
-          "quality": "direct_but_product_fetch_failed",
-          "id": "07071500",
-          "provider": "USGS",
-          "notes": "USGS 07071500 Eleven Point River near Bardley is the established direct lower-Eleven-Point gauge used by adjacent V2 routes, and the official legacy page showed fresh June 3 values during this review, but the local product-style Water Services IV path failed unable to connect."
-        },
-        "thresholdSupport": {
-          "strength": "community_minimum_candidate",
-          "notes": "MoHERP has exact Thomasville-to-Cane-Bluff trip evidence and adjacent Eleven Point V2 routes use a conservative 300 cfs minimum-only Bardley model, but this reach was not promoted while the put-in is officially closed and product-fetch validation failed."
-        },
-        "endpoints": {
-          "putIn": "Thomasville River Access",
-          "takeOut": "Cane Bluff River Access",
-          "coordinatesPresent": true,
-          "putInCoordinates": {
-            "latitude": 36.78548,
-            "longitude": -91.528058
-          },
-          "takeOutCoordinates": {
-            "latitude": 36.796246,
-            "longitude": -91.405675
-          },
-          "coordinateSource": "Forest Service Thomasville and Cane Bluff River Access pages publish endpoint coordinates, but Thomasville is currently closed."
-        },
-        "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
         "candidateId": "tn-nolichucky-gorge-poplar-chestoa",
         "lane": "blocked_recheck",
         "priority": 53,
@@ -12931,46 +12849,6 @@
         "coordinateSource": "Not captured because the supported route appears Kansas/refuge-centered rather than a Missouri V2 route."
       },
       "recommendedNextStep": "Use bounded internet research to surface a genuinely new official route, access, threshold, or gauge source family before spending more time on this candidate.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "mo-jacks-fork-rymers-bay-creek",
-      "lane": "implementation_ready",
-      "priority": 100,
-      "state": "MO",
-      "river": "Jacks Fork River",
-      "route": "Rymers to Bay Creek",
-      "currentStatus": "likely_addable",
-      "lastReviewed": "2026-06-22",
-      "reviewCount": 4,
-      "duplicateRisk": false,
-      "blocker": "2026-06-22 06:24 America/Chicago / 2026-06-22 11:24 UTC threshold-discovery pass promoted this lead to likely_addable. Current NPS Estimated Float Times still lists Rymers to Bay Creek as 9 miles / 4 hours, the current NPS Paddle Jacks Fork River page still names Rymers and Bay Creek among the popular Jacks Fork put-ins, workspace USGS Water Services IV returned same-day 07065200 values of 118 cfs / 1.04 ft at 2026-...",
-      "retryCondition": "Before implementation, recheck same-day USGS 07065200 values, NPS access conditions, and whether the carried-forward Rymers and Bay Creek coordinates still match the intended access points.",
-      "gauge": {
-        "quality": "direct_product_live_verified",
-        "id": "07065200",
-        "provider": "USGS",
-        "notes": "USGS 07065200 Jacks Fork near Mountain View is the strongest existing gauge lead for the upper-Jacks Rymers-to-Bay segment, and workspace Water Services IV now returns same-day product-live values for this station."
-      },
-      "thresholdSupport": {
-        "strength": "community_minimum_only_ready",
-        "notes": "Current NPS float-time and access pages now make the exact Rymers-to-Bay-Creek segment explicit enough to accept the same-gauge upper-Jacks 100 cfs minimum-only model already supported by MoHERP Mountain View ratings and exact low-flow trip evidence. Keep the route conservative and do not infer an ideal range or high cutoff."
-      },
-      "endpoints": {
-        "putIn": "Rymers Access",
-        "takeOut": "Bay Creek River Access / Backcountry Campground",
-        "coordinatesPresent": true,
-        "putInCoordinates": {
-          "latitude": 37.061386,
-          "longitude": -91.559117
-        },
-        "takeOutCoordinates": {
-          "latitude": 37.1231,
-          "longitude": -91.5018
-        },
-        "coordinateSource": "Coordinates are carried forward from existing V2 Rymers and Bay Creek access anchors and should be reverified against NPS signs or source-backed access records before any implementation."
-      },
-      "recommendedNextStep": "Verify the live gauge still fetches, confirm no duplicate route exists, then hand this to the one-route implementation automation.",
       "discoveryTier": "supported_midwest"
     },
     {
@@ -17363,46 +17241,6 @@
         "coordinateSource": "Not captured because no exact manager-published public endpoint pair cleared the route-definition gate."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "mo-eleven-point-river-thomasville-cane-bluff",
-      "lane": "blocked_recheck",
-      "priority": 57,
-      "state": "MO",
-      "river": "Eleven Point River",
-      "route": "Thomasville River Access to Cane Bluff River Access",
-      "currentStatus": "blocked_until_date",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 1,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 07:19 America/Chicago / 2026-06-04 12:19 UTC first-pass review. Forest Service and National Rivers Project support Thomasville-to-Cane-Bluff as an official upper Eleven Point full-day route, and USGS 07071500 had fresh official legacy values at 503 cfs / 2.64 ft from 2026-06-03 20:30 CDT. Do not add now: the Forest Service Thomasville River Access page is marked Site Closed and says it is currently closed...",
-      "retryCondition": "Retry only after the Forest Service removes the Thomasville closure and local product-style USGS 07071500 fetching works again; then confirm whether the MoHERP/adjacent Eleven Point 300 cfs minimum-only model is acceptable for this exact upper reach.",
-      "gauge": {
-        "quality": "direct_but_product_fetch_failed",
-        "id": "07071500",
-        "provider": "USGS",
-        "notes": "USGS 07071500 Eleven Point River near Bardley is the established direct lower-Eleven-Point gauge used by adjacent V2 routes, and the official legacy page showed fresh June 3 values during this review, but the local product-style Water Services IV path failed unable to connect."
-      },
-      "thresholdSupport": {
-        "strength": "community_minimum_candidate",
-        "notes": "MoHERP has exact Thomasville-to-Cane-Bluff trip evidence and adjacent Eleven Point V2 routes use a conservative 300 cfs minimum-only Bardley model, but this reach was not promoted while the put-in is officially closed and product-fetch validation failed."
-      },
-      "endpoints": {
-        "putIn": "Thomasville River Access",
-        "takeOut": "Cane Bluff River Access",
-        "coordinatesPresent": true,
-        "putInCoordinates": {
-          "latitude": 36.78548,
-          "longitude": -91.528058
-        },
-        "takeOutCoordinates": {
-          "latitude": 36.796246,
-          "longitude": -91.405675
-        },
-        "coordinateSource": "Forest Service Thomasville and Cane Bluff River Access pages publish endpoint coordinates, but Thomasville is currently closed."
-      },
-      "recommendedNextStep": "Revisit only if the retry condition is satisfied or the retry date has passed with new evidence.",
       "discoveryTier": "supported_midwest"
     },
     {

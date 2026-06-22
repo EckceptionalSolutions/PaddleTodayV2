@@ -18419,6 +18419,264 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-blue-spring-rymers',
+    slug: 'jacks-fork-river-blue-spring-rymers',
+    name: 'Jacks Fork River',
+    reach: 'Blue Spring River Access to Rymers Access',
+    aliases: [
+      'Jacks Fork - Blue Spring to Rymers',
+      'Upper Jacks Fork - Blue Spring to Rymers',
+      'Blue Spring Camp to Rymers',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Short upper Jacks Fork day from Blue Spring to Rymers, with current NPS float-time support, primitive riverside camping context at both park accesses, and the direct Mountain View gauge used conservatively.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and possible short lining. High or rising water deserves extra caution on this narrow upper-river corridor.',
+    latitude: 37.054497,
+    longitude: -91.638198,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This upper Jacks Fork split is remote, seasonal, and narrow enough that wood, strainers, and shallow ledges matter more than the short mileage suggests.',
+        'MoHERP exact trip rows show the route can still be low and scrape-prone below the 100 cfs floor, while thunderstorms can raise the valley quickly and make blind bends less forgiving.',
+        'Use only the named NPS accesses. Blue Spring and Rymers both have primitive camping context, but private banks and unsanctioned roadside pull-offs are not substitutes for the signed river accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and Blue-Spring-to-Rymers trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal. NPS says portions are only navigable during certain times because of low river levels, and the Blue Spring-to-Rymers segment is most reliable in spring or after rain. Thunderstorms can raise this narrow valley quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This short upper-river reach still carries Class I-II Ozark character with riffles, shoals, bluff pools, wood, and remote shuttle logistics. Treat it as moving water rather than a casual flatwater drift.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS Paddle Jacks Fork River page lists Blue Spring to Rymers as a 4-hour float; the current NPS park brochure places Blue Spring at river mile 87 and Rymers at river mile 82 with primitive camping context at both accesses; USGS 07065200 returned same-day values during this run; and Rivers.MOHERP has exact Blue-Spring-to-Rymers trip rows marked Good at 105 and 102 cfs and Low at 27 cfs. Coordinates are topo-derived public-access anchors rather than an NPS coordinate table, so paddlers should follow signed access roads and parking layout on arrival.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Blue Spring to Rymers, 4 hr',
+        note: 'The current NPS Paddle Jacks Fork River page lists Blue Spring to Rymers as an estimated 4-hour float and names both accesses among the popular Jacks Fork put-ins.',
+        sourceUrl: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Blue Spring on Jacks Fork, river mile 87',
+        note: 'The current NPS park brochure lists Blue Spring on the Jacks Fork as a river access with picnic area and primitive camping, located across the river from the Blue Spring geologic feature.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Rymers, river mile 82',
+        note: 'The current NPS park brochure lists Rymers as a river access with picnic area and primitive campsites and gives road directions from US 60 and Highway M.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065200 at 124 cfs / 1.08 ft',
+        note: 'A same-day Water Services IV refresh returned 124 cfs and 1.08 ft at 2026-06-22 08:45 CDT for Jacks Fork near Mountain View, the direct upper-Jacks gauge already used by adjacent routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs and includes exact Blue Spring-to-Rymers rows marked Good at 105 and 102 cfs and Low at 27 cfs. The app keeps only the conservative 100 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Blue Spring River Access to Rymers Access',
+        note: 'TopoQuest nearby-feature listings around Panther Hollow show Blue Spring River Access at 37.054497, -91.638198, and the adjacent implemented Buck Hollow-to-Rymers route already uses the same Rymers access anchor.',
+        sourceUrl: 'https://topoquest.com/place/missouri/valley/panther-hollow/723996',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Blue Spring area features',
+        url: 'https://topoquest.com/place/missouri/valley/panther-hollow/723996',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'jacks-fork-river-rymers-bay-creek',
+    slug: 'jacks-fork-river-rymers-bay-creek',
+    name: 'Jacks Fork River',
+    reach: 'Rymers Access to Bay Creek River Access',
+    aliases: [
+      'Jacks Fork - Rymers to Bay Creek',
+      'Upper Jacks Fork - Rymers to Bay Creek',
+      'Rymers to Bay Creek campground split',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Middle upper Jacks Fork day from Rymers to Bay Creek, anchored by NPS river-mile access support, primitive camping context at both accesses, and the same direct Mountain View gauge used on adjacent upper-river routes.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor; below that, expect regular scraping, poling, or short lining on riffles. High or rising water deserves extra caution in this remote access-to-access corridor.',
+    latitude: 37.061386,
+    longitude: -91.559117,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This split sits between two remote upper-Jacks accesses, so wood, strainers, and long gaps between easy exits matter more than the moderate mileage suggests.',
+        'Rivers.MOHERP has an exact low-flow row at 33 cfs where nearly every riffle stopped the boats, which is why the app keeps the same conservative 100 cfs floor used on adjacent upper-Jacks routes.',
+        'Rymers and Bay Creek both have camping context in the park brochure, but treat this route as a day float unless you have checked current NPS rules, closures, and legal overnight plans.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and Rymers-to-Bay-Creek trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal and can become scrape-prone in dry spells. Current NPS materials still frame the corridor as a chain of floatable access points, but storms can raise the valley quickly and complicate the remote shuttle.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a remote upper-river Ozark float with Class I-II moving water, bluff pools, shallow ledges, wood, and limited easy exits between public accesses. It should not be treated like the easier spring-fed lower Jacks Fork.',
+      confidenceNotes:
+        'Confidence is good enough for a conservative add, with an explicit route-shape caveat: the current NPS Paddle Jacks Fork River page still names both Rymers and Bay Creek as popular put-ins, and the current NPS park brochure places them at river miles 82 and 74 with primitive camping context at both accesses, which is enough map support to infer an approximately 8-mile public segment. USGS 07065200 returned same-day values during this run, and Rivers.MOHERP includes an exact Rymers-to-Bay-Creek low-water row at 33 cfs. The app keeps only the same 100 cfs minimum-only upper-Jacks floor already used by adjacent routes and does not claim an ideal range or high-water cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Rymers to Bay Creek, about 8 mi by NPS river miles',
+        note: 'The current NPS park brochure places Rymers at river mile 82 and Bay Creek at river mile 74, while the current Paddle Jacks Fork River page still names both as popular put-ins. That is enough official route-shape support for this access-to-access segment even though the current page no longer gives a standalone float-time row.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Rymers, river mile 82',
+        note: 'The current NPS park brochure lists Rymers as a river access with picnic area and primitive campsites and gives road directions from Mountain View via Highway M.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Bay Creek, river mile 74',
+        note: 'The current NPS park brochure lists Bay Creek as a river access with picnic area and primitive campsites and locates it west of Eminence off Highway 106.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065200 at 124 cfs / 1.08 ft',
+        note: 'A same-day Water Services IV refresh returned 124 cfs and 1.08 ft at 2026-06-22 08:45 CDT for Jacks Fork near Mountain View, the direct upper-Jacks gauge used for the adjacent Buck Hollow and Blue Spring routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs and includes an exact Rymers-to-Bay-Creek row at 33 cfs marked Low with nearly every riffle stopping the boats. The app keeps only the conservative 100 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Rymers Access to Bay Creek River Access',
+        note: 'This route reuses the same Rymers and Bay Creek access anchors already implemented on the adjacent Buck Hollow-to-Rymers and Bay Creek-to-Alley routes, keeping the endpoint interpretation consistent across the upper Jacks Fork corridor.',
+        sourceUrl: 'https://topoquest.com/place-detail.php?id=713232',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Bay Creek area features',
+        url: 'https://topoquest.com/place-detail.php?id=713232',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-bay-creek-alley-spring',
     slug: 'jacks-fork-river-bay-creek-alley-spring',
     name: 'Jacks Fork River',
@@ -19095,6 +19353,135 @@ export const rivers: River[] = [
         label: 'Hawes Recreation Area topo coordinate',
         url: 'https://www.anyplaceamerica.com/directory/mo/ripley-county-29181/parks/hawes-recreation-area-758920/',
         provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'eleven-point-river-thomasville-cane-bluff',
+    slug: 'eleven-point-river-thomasville-cane-bluff',
+    name: 'Eleven Point River',
+    reach: 'Thomasville River Access to Cane Bluff River Access',
+    aliases: [
+      'Eleven Point River - Thomasville to Cane Bluff',
+      'Upper Eleven Point - Thomasville to Cane Bluff',
+      'Eleven Point National Scenic River - first public reach',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Uppermost public Eleven Point day from Thomasville to Cane Bluff, with current Forest Service open-status support, a spring-favored season window, and the Bardley gauge used as a conservative same-river floor check.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge only as a conservative same-river estimate. Around 300 cfs is the floor carried from adjacent Eleven Point routes; below that, expect more scraping, walking, or short portages on this small upper river. No ideal range or high-water cutoff is claimed.',
+    latitude: 36.78548,
+    longitude: -91.528058,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'The Forest Service describes this reach as the uppermost floatable Eleven Point corridor, usually best from March through June, with some spots requiring walking or portages in drought season.',
+        'This is warmer, smaller water above Greer Spring, so fresh wood, blind bends, old bridge remnants, and quick rain pulses matter more than on the lower spring-fed Eleven Point reaches.',
+        'Motorized boats are not recommended on this upper reach, and Thomasville and Cane Bluff are the only named public accesses for the selected segment. Keep the shuttle conservative and do not assume private banks are available for exits or camping.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating, Thomasville-to-Cane-Bluff trip evidence, and adjacent upper-Eleven route practice',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6],
+      seasonNotes:
+        'The current Forest Service Thomasville page says this section can usually be floated March through June. In summer drought it can require walking or portages, while rain can quickly raise the river and change wood or bridge-remnant hazards.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a small upper-river Ozark float with Class I-II character, shallow riffles, blind bends, occasional walking or portaging in low water, and a more remote shuttle than the spring-fed downstream Eleven Point routes.',
+      confidenceNotes:
+        'Confidence is acceptable but intentionally conservative: the current Forest Service Thomasville page now shows Site Open, publishes coordinates, and explicitly describes Thomasville to Cane Bluff as a 9.3-mile float that usually works March through June; the current Cane Bluff page confirms the take-out as the first public access below Thomasville with published coordinates and dispersed-camping context; USGS 07071500 returned same-day official values during this run; and Rivers.MOHERP has an exact Thomasville-to-Cane-Bluff row marked Good at 1930 cfs / 4.70 ft. Because the strongest numeric support is community-derived and the Bardley gauge sits well downstream, the app uses only the existing conservative 300 cfs minimum-only floor from adjacent upper-Eleven routes and does not infer an ideal range or high cutoff.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Thomasville to Cane Bluff, 9.3 miles',
+        note: 'The current Forest Service Thomasville River Access page says Thomasville to Cane Bluff is a 9.3-mile float and describes it as the first opportunity to access the Eleven Point National Scenic River.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Thomasville River Access, Site Open',
+        note: 'The current Forest Service Thomasville page marks the site open, says the State Highway 99 bridge is the put-in, publishes coordinates 36.78548, -91.528058, and notes vault toilets.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Cane Bluff River Access, first public access below Thomasville',
+        note: 'The current Forest Service Cane Bluff page marks the site open, publishes coordinates 36.796246, -91.405675, and describes Cane Bluff as the first public access downriver from Thomasville.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 628 cfs / 2.87 ft',
+        note: 'A same-day Water Services IV refresh returned 628 cfs and 2.87 ft at 2026-06-22 08:30 CDT for Eleven Point River near Bardley, the same direct same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Conservative floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes an exact Thomasville-to-Cane-Bluff row marked Good at about 1930 cfs / 4.70 ft. Because the gauge is downstream and the exact route lacks a fuller low-water ladder, the app keeps only the conservative 300 cfs floor already used on adjacent upper Eleven Point routes.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Upper-river character',
+        value: 'Usually March through June, some walking or portages, Class I-II',
+        note: 'The current Forest Service Thomasville page says this section can usually be floated March through June, that some spots require walking or portages in drought season, and that the rapids are generally Class I-II.',
+        sourceUrl: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Thomasville River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/thomasville-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Cane Bluff River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/groups/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
       },
     ],
   },

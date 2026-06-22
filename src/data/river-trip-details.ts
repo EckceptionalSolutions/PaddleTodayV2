@@ -5707,6 +5707,76 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-blue-spring-rymers': {
+    putIn: {
+      name: 'Blue Spring River Access',
+      latitude: 37.054497,
+      longitude: -91.638198,
+    },
+    takeOut: {
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime: 'About 4 hr, longer if low water forces dragging, lining, or longer cave and spring stops',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Blue Spring and Rymers. Blue Spring comes in from the Highway OO side west of Mountain View, while Rymers uses the Highway M gravel-road approach; inspect the take-out before launching because both approaches are remote and road-condition dependent.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Blue Spring and Rymers both have primitive NPS camping context, but treat this as a day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or unsanctioned gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Blue Spring and take out at Rymers for the current NPS-listed upper Jacks Fork day float. Use the Mountain View gauge as a conservative low-water check and expect the route to feel remote, seasonal, and more technical than the short mileage suggests.',
+      accessCaveats: [
+        'Blue Spring and Rymers are official NPS river accesses, but the exact coordinates used here are practical topo-derived access anchors rather than an NPS coordinate table. Follow signed access roads and parking layout on arrival.',
+        'Blue Spring on the Jacks Fork is the river access across from the geologic feature, not the separate Blue Spring on the Current River.',
+        'Rymers is a remote access at the end of the Highway M gravel road system. Weather, washboarding, flood damage, or temporary park management can change practical access conditions.',
+      ],
+      watchFor: [
+        'Dragging, shallow riffles, and possible short lining or poling when the Mountain View gauge is near or below the 100 cfs conservative floor.',
+        'Fast riffles, tight bends, wood, strainers, bluff ledges, and Class I-II moving-water consequences on a short but remote upper-river route.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and long rural shuttle friction.',
+      ],
+    },
+  },
+  'jacks-fork-river-rymers-bay-creek': {
+    putIn: {
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    takeOut: {
+      name: 'Bay Creek River Access',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi by NPS river miles',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr depending on level, stops, and low-water dragging',
+      shuttle:
+        'Use a rural two-car or authorized outfitter shuttle between Rymers and Bay Creek. Both accesses rely on gravel-road approaches off Highway M or Highway 106, so inspect the Bay Creek take-out before launching and do not assume navigation apps will choose the right road-end turn.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Rymers and Bay Creek both have primitive NPS camping context, but treat this as a day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or informal gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rymers and take out at Bay Creek for the upper Jacks Fork gap between the already-live Buck Hollow and Bay Creek downstream segments. Use the Mountain View gauge as the same conservative low-water check already used on the adjacent upper-Jacks routes.',
+      accessCaveats: [
+        'This route shape is supported by the current NPS river-mile access inventory rather than a standalone float-time row. Treat the app mileage and paddle-time guidance as conservative planning numbers, not an official promise.',
+        'Rymers and Bay Creek are official NPS river accesses, but the coordinates here are carried forward from the adjacent implemented upper-Jacks routes. Follow current park signs and the actual landing layout on arrival.',
+        'Bay Creek is a remote road-end access near primitive backcountry camping. Scout the take-out and parking before committing, especially after storms.',
+      ],
+      watchFor: [
+        'Regular scraping, poling, or short lining when the Mountain View gauge is near or below the 100 cfs conservative floor.',
+        'Fast riffles, wood, strainers, blind bends, and remote access-to-access travel with few easy exits between the named landings.',
+        'Rapid rises after thunderstorms, limited cell service, private land away from the public accesses, and longer-than-expected shuttle time on rural gravel roads.',
+      ],
+    },
+  },
   'jacks-fork-river-alley-spring-chilton': {
     putIn: {
       name: 'Alley Spring Access',
@@ -5880,6 +5950,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Shallow riffles, scraping, and occasional short portages when the Bardley gauge is near the 300 cfs floor, especially above Greer Spring.',
         'Fresh wood, blind bends, rapid rises after rain, and a remote-feeling stretch with limited easy exits.',
         'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit, and the water gets colder and swifter near Greer Spring.',
+      ],
+    },
+  },
+  'eleven-point-river-thomasville-cane-bluff': {
+    putIn: {
+      name: 'Thomasville River Access',
+      latitude: 36.78548,
+      longitude: -91.528058,
+    },
+    takeOut: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    logistics: {
+      distanceLabel: 'About 9.3 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 7 hr depending on level, walking, and spring or cave stops',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Thomasville and Cane Bluff. Both approaches use rural Forest Service and county roads, so scout the take-out first and do not assume the upper access roads recover quickly after storms.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, posted parking signs, no-glass/no-polystyrene river rules, and any current Forest Service alerts or area closures.',
+      camping:
+        'Thomasville and Cane Bluff both have camping context, but treat this as a day float unless you have checked current Forest Service rules and have a separate legal overnight plan. Cane Bluff dispersed camping and any primitive upper-river stops come with Leave No Trace, private-land, and water-level constraints.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Thomasville and take out at Cane Bluff for the uppermost public Eleven Point float. Use the Bardley gauge only as a conservative same-river estimate and expect this warmer, smaller reach to need more local judgment than the lower spring-fed Eleven Point routes.',
+      accessCaveats: [
+        'The current Forest Service Thomasville page now shows the site open, but this access was closed earlier in June after flood damage. Recheck current Forest Service alerts before making the shuttle.',
+        'The Bardley gauge is well downstream, so this route can scrape, require walking, or feel more marginal than the gauge alone suggests.',
+        'Cane Bluff is the first public access below Thomasville. Do not assume other gravel bars, primitive pull-offs, or private-bank openings on this upper river are legal substitutes for the named accesses.',
+      ],
+      watchFor: [
+        'Shallow riffles, walking, or short portages when the river is low, especially in late spring or early summer dry spells.',
+        'Old low-water bridge remnants, fresh wood, blind bends, rain-driven rises, and Class I-II upper-river consequences on a remote corridor.',
+        'Motorized boats are not recommended here, potable water is not available at the accesses, and dispersed-camping rules at Cane Bluff come with extra responsibility if you are not treating the route as a straight day float.',
       ],
     },
   },

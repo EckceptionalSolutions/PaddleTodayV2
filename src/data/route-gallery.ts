@@ -826,6 +826,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-blue-spring-rymers': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-rymers/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-rymers-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-bay-creek-alley-spring': [
     {
       id: 'jacks-fork-upper-commons',
@@ -1400,6 +1420,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     {
       id: 'eleven-point-river-missouri-commons',
       src: '/gallery/eleven-point-river-cane-bluff-greer-crossing/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-cane-bluff': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-cane-bluff/eleven-point-river-missouri.jpg',
       alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
       caption: 'Eleven Point River in Missouri',
       credit: 'Charlie Llewellin via Wikimedia Commons',
