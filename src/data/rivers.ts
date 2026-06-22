@@ -32424,4 +32424,365 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: "barren-river-tailwater-vpa-3",
+    slug: "barren-river-tailwater-vpa-3",
+    name: "Barren River",
+    reach: "Barren River Lake Tailwater to Barren River VPA #3",
+    aliases: [
+      "Barren River - Tailwater to Highway 101 VPA",
+      "Lower Barren River upper float",
+      "Barren River Blue Water Trail tailwater segment",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Longer lower-Barren float from the public Barren River Lake Tailwater ramp to the Highway 101 Voluntary Public Access site. KDFWR documents the exact 13.3-mile segment, public endpoint coordinates, and official Finney stage bands tied to the route corridor gauge.",
+    statusText:
+      "Use the Barren River near Finney gauge. KDFWR rates 78.0 to 78.5 ft as good for boating and fishing. Below that is low and may expose shoals or slow the day; above that is high and deserves extra current and landing caution.",
+    latitude: 36.8947,
+    longitude: -86.1348,
+    gaugeSource: {
+      id: "usgs-03313000",
+      provider: "usgs",
+      siteId: "03313000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Barren River near Finney, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 78.0,
+      idealMax: 78.5,
+      tooLow: 78.0,
+      tooHigh: 78.5,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Barren River near Finney",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This tailwater segment is more dependable in spring and wetter fall periods. Summer still works when the Finney gauge holds up, but release changes, storms, and heat can change the practical day quickly.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a broad Class I tailwater-style float with straightforward route-finding, but the 13.3-mile length, open water, changing release, and private-bank limits make it more of a committed day than a casual city paddle.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists Barren River Lake Tailwater to Barren River VPA #3 as a 13.3-mile lower-Barren access-to-access route, publishes coordinates and public-use details for both endpoints, and gives official low/good/high stage bands for the route corridor at USGS 03313000 near Finney. USGS Water Services returned a same-day June 22, 2026 stage reading of 77.99 ft from the direct route gauge during this run, keeping the live-gauge path current even though the river is presently just below KDFWR's good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Tailwater to Barren River VPA #3, 13.3 mi",
+        note: "KDFWR lists Barren River Lake Tailwater to Highway 101 / Barren River VPA #3 as a 13.3-mile access-to-access lower-Barren segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "78.0-78.5 ft good",
+        note: "KDFWR rates the Barren River near Finney gauge as Low below 78.0 ft, Good from 78.0 to 78.5 ft, and High above 78.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Barren River Lake Tailwater, 36.8947, -86.1348",
+        note: "KDFWR identifies the tailwater access as a free public single-lane ramp at the campground with year-round launch, lodging, restroom, picnic, and campground availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=6",
+      },
+      {
+        label: "Take-out access",
+        value: "Barren River VPA #3, 36.9333, -86.2043",
+        note: "KDFWR identifies Barren River VPA #3 as a private-property voluntary public access carry-in site with year-round limited-hours shoreline access, no camping, and no fires.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03313000 at 77.99 ft",
+        note: "USGS Water Services returned a same-day June 22, 2026 gage-height reading for Barren River near Finney during this route-add run. That stage sits just below the KDFWR good band, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Tailwater pools, shoals, and private-bank VPA finish",
+        note: "KDFWR describes the lower Barren as a mix of shoals and deeper rocky pools. The tailwater access includes campground amenities, while the VPA finish is a simpler carry-in site on private land kept open to the public.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Lower Barren River",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Barren River Lake Tailwater",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=6",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Barren River VPA #3",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+        provider: "local",
+      },
+      {
+        label: "USGS 03313000 Barren River near Finney",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03313000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "barren-river-vpa-3-martinsville",
+    slug: "barren-river-vpa-3-martinsville",
+    name: "Barren River",
+    reach: "Barren River VPA #3 to Martinsville Ford / Claypool Ramp",
+    aliases: [
+      "Barren River - Highway 101 VPA to Martinsville Ford",
+      "Lower Barren River VPA segment",
+      "Barren River VPA #3 to Claypool",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Shorter lower-Barren follow-on from the Highway 101 voluntary public access site to Martinsville Ford / Claypool Ramp. KDFWR documents the exact 3.9-mile segment, both public endpoints, and the official Finney stage bands used for this upper lower-Barren corridor.",
+    statusText:
+      "Use the Barren River near Finney gauge. KDFWR rates 78.0 to 78.5 ft as good for boating and fishing. Below that is low and can slow the day over shoals; above that is high and deserves extra current and landing caution.",
+    latitude: 36.9333,
+    longitude: -86.2043,
+    gaugeSource: {
+      id: "usgs-03313000",
+      provider: "usgs",
+      siteId: "03313000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Barren River near Finney, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 78.0,
+      idealMax: 78.5,
+      tooLow: 78.0,
+      tooHigh: 78.5,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Barren River near Finney",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This short upper-lower-Barren segment works best in normal spring and fall water. Summer lows can turn the route scrape-prone, while storms and release changes can raise current quickly even on a short float.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a straightforward broad-river day segment with simple route-finding, but it still has shoals, private banks, a private-land VPA launch, and changing current that deserve more respect than the mileage alone suggests.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists Barren River VPA #3 to Martinsville Ford / Claypool Ramp as a 3.9-mile access-to-access segment, publishes endpoint coordinates and public-use details for both sites, and uses the official Barren River near Finney stage bands for this corridor. USGS Water Services returned a same-day June 22, 2026 stage reading of 77.99 ft at USGS 03313000 during this run, keeping the live-gauge path current even though the river is presently a touch below KDFWR's good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Barren River VPA #3 to Martinsville Ford, 3.9 mi",
+        note: "KDFWR lists Highway 101 / Barren River VPA #3 to Martinsville Ford / Claypool Ramp as a 3.9-mile lower-Barren access-to-access segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "78.0-78.5 ft good",
+        note: "KDFWR rates the Barren River near Finney gauge as Low below 78.0 ft, Good from 78.0 to 78.5 ft, and High above 78.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Barren River VPA #3, 36.9333, -86.2043",
+        note: "KDFWR identifies Barren River VPA #3 as a private-property voluntary public access carry-in site with no camping, no fires, and year-round limited-hours shoreline access.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+      },
+      {
+        label: "Take-out access",
+        value: "Martinsville Ford / Claypool Ramp, 36.9134, -86.2293",
+        note: "KDFWR identifies Martinsville Ford as a free paved single-lane public ramp with year-round 24-hour access and no listed amenities or camping.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03313000 at 77.99 ft",
+        note: "USGS Water Services returned a same-day June 22, 2026 gage-height reading for Barren River near Finney during this route-add run. That stage sits just below the KDFWR good band, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Short broad-river run with shoals and rocky pools",
+        note: "KDFWR says Martinsville Ford boaters should expect a variety of shallow shoals and deep rocky pools, with the private-land VPA acting as the simpler upstream carry-in.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Lower Barren River",
+        url: "https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Barren River VPA #3",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=993",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Martinsville Ford / Claypool Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624",
+        provider: "local",
+      },
+      {
+        label: "USGS 03313000 Barren River near Finney",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03313000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03313000 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03313000&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "goose-creek-jacks-laurel-branch",
+    slug: "goose-creek-jacks-laurel-branch",
+    name: "Goose Creek",
+    reach: "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
+    aliases: [
+      "Goose Creek - Jacks to Laurel Branch",
+      "Goose Creek lower Manchester segment",
+      "Goose Creek - Bowling Branch to Laurel Branch",
+    ],
+    state: "Kentucky",
+    region: "Eastern Kentucky",
+    summary:
+      "Narrow Clay County Goose Creek float from Jacks / Bowling Branch Bridge to Laurel Branch Road. KDFWR documents the consecutive 2.2-mile, 0.8-mile, and 4.8-mile access pairs that combine into this 7.8-mile lower-Goose route, and the Manchester gauge provides official cfs and stage bands.",
+    statusText:
+      "Use the Goose Creek at Manchester gauge. KDFWR rates 175 to 514 cfs as good for boating and fishing. Below that is low and likely to mean scraping or dragging; above that is high and deserves extra narrow-creek caution.",
+    latitude: 37.2052,
+    longitude: -83.7372,
+    gaugeSource: {
+      id: "usgs-03281100",
+      provider: "usgs",
+      siteId: "03281100",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Goose Creek at Manchester, KY",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 175,
+      idealMax: 514,
+      tooLow: 175,
+      tooHigh: 514,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Goose Creek at Manchester",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "Goose Creek is a smaller eastern Kentucky stream that changes quickly after rain. Spring and rainy fall windows are the most reliable; warm dry stretches can leave it scrape-prone even when the gauge still looks close.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This lower-Goose segment avoids the Manchester low-head-dam problem upstream, but it is still a narrow shallow creek with rock bars, ford access, wood, and limited parking. Treat it as an easy moving-water creek only in the official good band.",
+      confidenceNotes:
+        "Confidence is good for a conservative Kentucky add: KDFWR documents the Jacks/Bowling Branch to Tobacco Road, Tobacco Road to Dump Hollow, and Dump Hollow to Laurel Branch access-to-access segments, which combine cleanly into a 7.8-mile downstream route that avoids the low-head-dam warning attached to Rawlings and Stinson Park. KDFWR publishes official low/good/high stage and cfs bands for USGS 03281100 Goose Creek at Manchester, and USGS Water Services returned same-day June 22, 2026 values of 16.4 cfs and 5.96 ft during this run. The creek is therefore well below the good band today, so the app should score it low and preserve scraping caution.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route chain",
+        value: "Jacks to Laurel Branch, 7.8 mi combined",
+        note: "KDFWR lists Jacks/Bowling Branch to Tobacco Road as 2.2 miles, Tobacco Road to Dump Hollow as 0.8 miles, and Dump Hollow to Laurel Branch as 4.8 miles. Combined, they create a clean 7.8-mile downstream Goose Creek route.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "175-514 cfs good",
+        note: "KDFWR rates Goose Creek at Manchester as Low below 175 cfs, Good from 175 to 514 cfs, and High above 514 cfs; the same page also publishes matching stage bands of Low below 7.4 ft, Good from 7.4 to 8.5 ft, and High above 8.5 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Jacks/Bowling Branch Bridge Access, 37.2052, -83.7372",
+        note: "KDFWR identifies Jacks/Bowling Branch as a year-round carry-down access beside the Phil Young Road bridge with limited roadside parking and no amenities.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+      },
+      {
+        label: "Take-out access",
+        value: "Laurel Branch Road Access, 37.2370, -83.6703",
+        note: "KDFWR identifies Laurel Branch Road as a year-round carry-down access with limited parking, no amenities, and private banks outside the immediate launch area.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03281100 at 16.4 cfs / 5.96 ft",
+        note: "USGS Water Services returned same-day June 22, 2026 discharge and gage-height readings for Goose Creek at Manchester during this route-add run. Both values sit below KDFWR's good bands, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Rock bars, shallow pools, ford bailout, private banks",
+        note: "KDFWR describes Goose Creek as a relatively shallow stream with riffles, pools, and rock bars. The route passes Tobacco Road and Dump Hollow, which remain usable bailout points but have limited parking and no amenities.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Goose Creek",
+        url: "https://fw.ky.gov/Fish/Pages/Goose_Creek.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Jacks/Bowling Branch Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1195",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Laurel Branch Road Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1198",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dump Hollow Ford Road",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1197",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Tobacco Road Bridge Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1196",
+        provider: "local",
+      },
+      {
+        label: "USGS 03281100 Goose Creek at Manchester",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03281100/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03281100 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281100&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
 ];

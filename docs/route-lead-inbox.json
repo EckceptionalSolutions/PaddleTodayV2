@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T19:02:44.566Z",
+  "generatedAt": "2026-06-22T20:20:19.189Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 522,
-    "currentRouteCount": 274,
+    "totalLedgerCandidates": 525,
+    "currentRouteCount": 277,
     "leadCount": 271,
     "discoveryFocusStates": [
       "Nebraska",
@@ -276,7 +276,7 @@
       "blocked_recheck": 8
     },
     "byStatus": {
-      "implemented": 22,
+      "implemented": 25,
       "threshold_weak": 109,
       "added": 206,
       "research_later": 55,

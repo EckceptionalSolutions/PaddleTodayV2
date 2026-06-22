@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-22T19:10:00.000Z",
+    "updatedAt": "2026-06-22T19:12:05.000Z",
     "notes": [
+        "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC three-route implementation pass. Added three internet-sourced Kentucky routes: `barren-river-tailwater-vpa-3`, `barren-river-vpa-3-martinsville`, and `goose-creek-jacks-laurel-branch`. Qualification path: current KDFWR Lower Barren access-to-access mileage, access-detail pages, and same-day USGS 03313000 stage at 77.99 ft supported two lower-Barren adds on the official 78.0-78.5 ft Finney stage model; current KDFWR Goose Creek route-chain mileage, access-detail pages, and same-day USGS 03281100 at 16.4 cfs / 5.96 ft supported the 7.8-mile Jacks-to-Laurel Branch add on the official 175-514 cfs and 7.4-8.5 ft Manchester bands. Added camping and safety/logistics notes for all three routes. A bounded image pass did not produce a rights-clean exact-route gallery asset for any of the three, so no gallery entry was added in this pass.",
         "2026-06-22 14:10 America/Chicago / 2026-06-22 19:10 UTC main-branch merge follow-up. Added one more internet-sourced Missouri route to preserve the full saved upper-Jacks split set on `main`: `jacks-fork-river-highway-17-blue-spring`. Current NPS float times still list Highway 17 to Blue Spring as 2.6 miles / 1 hour, current NPS Blue Spring and brochure pages still confirm public access plus primitive camping context, and the direct USGS 07065200 Mountain View gauge remained acceptable for the same conservative 100 cfs minimum-only upper-Jacks model already used by the adjacent implemented splits. Reused the approved same-river Commons image and refreshed the generated lead inbox after route-data updates.",
         "2026-06-22 11:20 America/Chicago / 2026-06-22 16:20 UTC three-route implementation pass. Added three internet-sourced routes: `jacks-fork-river-rymers-bay-creek`, `big-south-fork-blue-heron-yamacraw`, and `tradewater-river-bellville-montezuma`. Qualification path: current NPS and USGS evidence still supported the Missouri Rymers-to-Bay Creek split with same-day USGS 07065200 at 129 cfs / 1.11 ft and the accepted 100 cfs minimum-only upper-Jacks model; current KDFWR and USGS evidence cleared Big South Fork Blue Heron-to-Yamacraw with same-day USGS 03410500 at 147 cfs / 1.87 ft plus official 100-500 cfs family-float guidance; current KDFWR and USGS evidence cleared Tradewater Bellville-to-Montezuma with same-day USGS 03384100 at 1090 cfs / 20.36 ft plus official Providence gauge bands and exact access coordinates. Reused approved same-river Commons gallery assets for Jacks Fork and Big South Fork, added a rights-clean Commons Tradewater image, and wrote camping plus safety/logistics notes for all three routes. Re-ran `npm run routes:leads:gather` after the route-data and candidate updates; the queue dropped to 273 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 99, and blocked_recheck 9. Validation passed: `npm run typecheck:routes` and `npm run routes:audit`; broader repo checks still pending in this run.",
         "2026-06-22 09:29 America/Chicago / 2026-06-22 14:29 UTC three-route implementation pass. Refreshed the generated lead inbox at 276 open leads before edits (implementation_ready 1, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 110, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). Added three routes: `jacks-fork-river-blue-spring-rymers`, `jacks-fork-river-rymers-bay-creek`, and `eleven-point-river-thomasville-cane-bluff`. The Jacks Fork adds used current NPS Paddle Jacks Fork River plus the current NPS brochure for route shape, access, primitive-camping context, and the same-day direct USGS 07065200 Mountain View gauge; `blue-spring-rymers` also had exact MoHERP Good rows at 105 / 102 cfs, while `rymers-bay-creek` used the current river-mile access inventory plus an exact MoHERP low row at 33 cfs to stay conservative on the existing 100 cfs minimum-only upper-Jacks model. The Eleven Point add cleared because the current Forest Service Thomasville page now shows Site Open again, still lists the 9.3-mile Thomasville-to-Cane-Bluff float and Class I-II / walking-portage caveats, the current Cane Bluff page still confirms the take-out and dispersed-camping context, same-day USGS 07071500 returned 628 cfs / 2.87 ft at 2026-06-22 08:30 CDT, and MoHERP still carries exact Thomasville-to-Cane-Bluff evidence. Reused approved same-river Commons images for all three routes. Validation: `npm run typecheck:routes` passed, `npm run routes:audit` passed at 263 routes, and `npm run routes:leads:gather` regenerated the inbox at 274 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 8. Full `npm run typecheck` and `npm test` remain blocked by an existing mobile-workspace TypeScript parse failure in `node_modules/csstype/index.d.ts`.",
@@ -28828,6 +28829,157 @@
                 "coordinateSource": "KDFWR access-detail pages for American Legion Park and Greensburg City Ramp."
             },
             "notes": "Implemented on 2026-06-22 as green-river-american-legion-greensburg. The route uses the direct Greensburg stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-barren-river-tailwater-vpa-3",
+            "river": "Barren River",
+            "route": "Barren River Lake Tailwater to Barren River VPA #3",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implemented as barren-river-tailwater-vpa-3. KDFWR Lower Barren still listed Barren River Lake Tailwater to Barren River VPA #3 as a 13.3-mile public segment, KDFWR access-detail pages still exposed coordinates and access rules for both endpoints, and USGS Water Services returned a same-day Finney stage of 77.99 ft at 2026-06-22 13:00 CDT from the direct route gauge. The route ships on the official KDFWR Finney stage model of Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03313000 stops exposing current stage values, the VPA access rules change, or a stronger rights-clean Barren River corridor image is approved.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implementation review: KDFWR Lower Barren still listed Barren River Lake Tailwater to Barren River VPA #3 as a 13.3-mile segment and preserved the official Finney stage bands of Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft.",
+                "KDFWR Barren River Lake Tailwater access detail reviewed 2026-06-22; confirms public ramp access, campground amenities, year-round availability, and coordinates 36.8947 / -86.1348.",
+                "KDFWR Barren River VPA #3 access detail reviewed 2026-06-22; confirms private-property voluntary public access, year-round limited-hours availability, no camping / no fires rules, and coordinates 36.9333 / -86.2043.",
+                "USGS Water Services returned same-day Barren River near Finney 03313000 stage of 77.99 ft at 2026-06-22 13:00 CDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded Commons/web leads for the lower Barren corridor; no approved exact-route asset was selected for this slug."
+            ],
+            "aliases": [
+                "Barren River - Tailwater to Highway 101 VPA",
+                "Lower Barren River upper float",
+                "Barren River Blue Water Trail tailwater segment"
+            ],
+            "v2Slug": "barren-river-tailwater-vpa-3",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03313000",
+                "provider": "USGS",
+                "notes": "USGS 03313000 Barren River near Finney is the direct route gauge for this upper lower-Barren segment and returned same-day stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_two_sided",
+                "notes": "KDFWR publishes official Finney stage bands for this corridor: Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft."
+            },
+            "endpoints": {
+                "putIn": "Barren River Lake Tailwater",
+                "takeOut": "Barren River VPA #3",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 36.8947,
+                    "longitude": -86.1348
+                },
+                "takeOutCoordinates": {
+                    "latitude": 36.9333,
+                    "longitude": -86.2043
+                },
+                "coordinateSource": "KDFWR access-detail pages for Barren River Lake Tailwater and Barren River VPA #3."
+            },
+            "notes": "Implemented on 2026-06-22 as barren-river-tailwater-vpa-3. The route uses the direct Finney stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits just below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-barren-river-vpa-3-martinsville",
+            "river": "Barren River",
+            "route": "Barren River VPA #3 to Martinsville Ford / Claypool Ramp",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implemented as barren-river-vpa-3-martinsville. KDFWR Lower Barren still listed Barren River VPA #3 to Martinsville Ford / Claypool Ramp as a 3.9-mile public segment, KDFWR access-detail pages still exposed coordinates and access rules for both endpoints, and USGS Water Services returned a same-day Finney stage of 77.99 ft at 2026-06-22 13:00 CDT from the direct route gauge. The route ships on the official KDFWR Finney stage model of Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03313000 stops exposing current stage values, the VPA access rules change, or a stronger rights-clean Barren River corridor image is approved.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implementation review: KDFWR Lower Barren still listed Barren River VPA #3 to Martinsville Ford / Claypool Ramp as a 3.9-mile segment and preserved the official Finney stage bands of Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft.",
+                "KDFWR Barren River VPA #3 access detail reviewed 2026-06-22; confirms private-property voluntary public access, year-round limited-hours availability, no camping / no fires rules, and coordinates 36.9333 / -86.2043.",
+                "KDFWR Martinsville Ford / Claypool Ramp access detail reviewed 2026-06-22; confirms paved public ramp access, year-round availability, and coordinates 36.9134 / -86.2293.",
+                "USGS Water Services returned same-day Barren River near Finney 03313000 stage of 77.99 ft at 2026-06-22 13:00 CDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded Commons/web leads for the lower Barren corridor; no approved exact-route asset was selected for this slug."
+            ],
+            "aliases": [
+                "Barren River - Highway 101 VPA to Martinsville Ford",
+                "Lower Barren River VPA segment",
+                "Barren River VPA #3 to Claypool"
+            ],
+            "v2Slug": "barren-river-vpa-3-martinsville",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03313000",
+                "provider": "USGS",
+                "notes": "USGS 03313000 Barren River near Finney is the direct route gauge for this short lower-Barren segment and returned same-day stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_two_sided",
+                "notes": "KDFWR publishes official Finney stage bands for this corridor: Low below 78.0 ft, Good 78.0-78.5 ft, and High above 78.5 ft."
+            },
+            "endpoints": {
+                "putIn": "Barren River VPA #3",
+                "takeOut": "Martinsville Ford / Claypool Ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 36.9333,
+                    "longitude": -86.2043
+                },
+                "takeOutCoordinates": {
+                    "latitude": 36.9134,
+                    "longitude": -86.2293
+                },
+                "coordinateSource": "KDFWR access-detail pages for Barren River VPA #3 and Martinsville Ford / Claypool Ramp."
+            },
+            "notes": "Implemented on 2026-06-22 as barren-river-vpa-3-martinsville. The route uses the direct Finney stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits just below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-goose-creek-jacks-laurel-branch",
+            "river": "Goose Creek",
+            "route": "Jacks / Bowling Branch Bridge Access to Laurel Branch Road Access",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implemented as goose-creek-jacks-laurel-branch. KDFWR Goose Creek still listed Jacks / Bowling Branch to Tobacco Road as 2.2 miles, Tobacco Road to Dump Hollow as 0.8 mile, and Dump Hollow to Laurel Branch as 4.8 miles, which combine into a 7.8-mile public segment below the Rawlings/Stinson low-head-dam warning. KDFWR access-detail pages still exposed coordinates for the endpoint accesses, and USGS Water Services returned same-day Manchester values of 16.4 cfs and 5.96 ft at 2026-06-22 13:45 EDT from the direct route gauge. The route ships on the official KDFWR Manchester model of Low below 175 cfs / 7.4 ft, Good 175-514 cfs / 7.4-8.5 ft, and High above 514 cfs / 8.5 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03281100 stops exposing current values, the downstream access chain changes materially, or a stronger rights-clean Goose Creek corridor image is approved.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC implementation review: KDFWR Goose Creek still listed Jacks / Bowling Branch to Tobacco Road as 2.2 miles, Tobacco Road to Dump Hollow as 0.8 mile, and Dump Hollow to Laurel Branch as 4.8 miles, while preserving the official Manchester cfs and stage bands.",
+                "KDFWR Jacks / Bowling Branch Bridge access detail reviewed 2026-06-22; confirms carry-down bridge access, limited parking, year-round availability, and coordinates 37.2052 / -83.7372.",
+                "KDFWR Laurel Branch Road access detail reviewed 2026-06-22; confirms carry-down roadside access, limited parking, year-round availability, and coordinates 37.2370 / -83.6703.",
+                "KDFWR Dump Hollow and Tobacco Road access-detail pages were reviewed 2026-06-22 to confirm the mid-route bailout chain and the high-water ford warning at Dump Hollow.",
+                "USGS Water Services returned same-day Goose Creek at Manchester 03281100 values of 16.4 cfs and 5.96 ft at 2026-06-22 13:45 EDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded Commons/web leads for Goose Creek near Manchester; no approved exact-route asset was selected for this slug."
+            ],
+            "aliases": [
+                "Goose Creek - Jacks to Laurel Branch",
+                "Goose Creek lower Manchester segment",
+                "Goose Creek - Bowling Branch to Laurel Branch"
+            ],
+            "v2Slug": "goose-creek-jacks-laurel-branch",
+            "gauge": {
+                "quality": "direct_live",
+                "id": "03281100",
+                "provider": "USGS",
+                "notes": "USGS 03281100 Goose Creek at Manchester is the direct route gauge for this lower-Goose segment and returned same-day discharge and stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_two_sided",
+                "notes": "KDFWR publishes official Manchester bands for this corridor: Low below 175 cfs / 7.4 ft, Good 175-514 cfs / 7.4-8.5 ft, and High above 514 cfs / 8.5 ft."
+            },
+            "endpoints": {
+                "putIn": "Jacks / Bowling Branch Bridge Access",
+                "takeOut": "Laurel Branch Road Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.2052,
+                    "longitude": -83.7372
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.237,
+                    "longitude": -83.6703
+                },
+                "coordinateSource": "KDFWR access-detail pages for Jacks / Bowling Branch Bridge and Laurel Branch Road."
+            },
+            "notes": "Implemented on 2026-06-22 as goose-creek-jacks-laurel-branch. The route uses the direct Manchester gauge and official KDFWR cfs/stage bands, with current score expected to be low while the creek sits well below the good band. No rights-clean route image was approved during this add pass."
         },
         {
             "candidateId": "mn-blue-earth-river-rapidan-county-road-90",

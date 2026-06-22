@@ -10029,4 +10029,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'barren-river-tailwater-vpa-3': {
+    putIn: {
+      id: 'barren-river-lake-tailwater',
+      name: 'Barren River Lake Tailwater',
+      latitude: 36.8947,
+      longitude: -86.1348,
+    },
+    takeOut: {
+      id: 'barren-river-vpa-3',
+      name: 'Barren River VPA #3',
+      latitude: 36.9333,
+      longitude: -86.2043,
+    },
+    logistics: {
+      distanceLabel: 'About 13.3 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 7 hr, longer with fishing stops, low-water dragging, or upstream-wind slowdown',
+      shuttle:
+        'Stage the take-out at Barren River VPA #3 on Highway 101, then drive back to the Barren River Lake Tailwater campground launch. The shuttle is straightforward, but the float itself is long enough that daylight and weather matter.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey the VPA landowner rules at the downstream access.',
+      camping:
+        'The tailwater launch sits at a KDFWR access with campground amenities, but the route itself should still be planned as a long day float. Barren River VPA #3 is private property opened for public access and does not allow camping, fires, or alcohol.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch below Barren River Lake and take out at Barren River VPA #3 for the longer lower-Barren segment. Use the Finney stage gauge and expect the route to feel low whenever the river sits below KDFWR\'s 78.0 to 78.5 ft good band.',
+      accessCaveats: [
+        'The tailwater access is a public ramp with campground-style amenities, but release changes and open-water wind can make the day feel bigger than a casual flatwater float.',
+        'Barren River VPA #3 is a voluntary public access site on private property. KDFWR says no camping, no fires, no alcohol, and no swimming at the access.',
+        'This is the longest of the three adds in this batch. Start early enough to avoid finishing the carry-out at dusk if the current is low.',
+        'The route uses a stage gauge rather than a cfs gauge, so trend, recent rain, and release context still matter.',
+      ],
+      watchFor: [
+        'Low water below about 78.0 ft, when shoals, slow pools, and dragging become more likely across a long day.',
+        'High water above about 78.5 ft, when current at bends and the VPA landing becomes less forgiving.',
+        'Broad-river wind, heat exposure, boat traffic near the tailwater area, and changing current after releases or rain.',
+        'Private banks, woody debris, and the limited-room VPA take-out at the end of a long float.',
+      ],
+    },
+  },
+  'barren-river-vpa-3-martinsville': {
+    putIn: {
+      id: 'barren-river-vpa-3',
+      name: 'Barren River VPA #3',
+      latitude: 36.9333,
+      longitude: -86.2043,
+    },
+    takeOut: {
+      id: 'martinsville-ford-claypool-ramp',
+      name: 'Martinsville Ford / Claypool Ramp',
+      latitude: 36.9134,
+      longitude: -86.2293,
+    },
+    logistics: {
+      distanceLabel: 'About 3.9 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 3 hr, longer in low water or with fishing stops',
+      shuttle:
+        'Leave the take-out vehicle at Martinsville Ford / Claypool Ramp, then drive back to Barren River VPA #3 on Highway 101. The road shuttle is short, but the VPA access has less room than the downstream ramp.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey the voluntary public access rules at VPA #3.',
+      camping:
+        'Treat this as a short day trip. KDFWR does not document public route camping on this segment, and the private-land VPA launch specifically prohibits camping and fires.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Barren River VPA #3 and take out at Martinsville Ford / Claypool Ramp for a short lower-Barren float. Use the Finney stage gauge and expect shoals or scraping whenever the river sits below KDFWR\'s 78.0 to 78.5 ft good band.',
+      accessCaveats: [
+        'Barren River VPA #3 is on private property opened to the public. KDFWR says no camping, no fires, no alcohol, and no swimming at the site.',
+        'Martinsville Ford / Claypool Ramp is the cleaner public take-out, but nearby private property still means boaters should stay tight to the named access area.',
+        'This short segment is easier to fit into a partial day, but low water can slow it down more than the mileage suggests.',
+        'The route uses the direct Finney stage gauge. Stage trend and local weather still matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 78.0 ft, when broad shoals and slow current can force dragging.',
+        'High water above about 78.5 ft, when current at bends and the downstream landing becomes less forgiving.',
+        'Rocky pools, bridge-adjacent current near the downstream access, and woody debris after rain.',
+        'Private banks and limited legal stopping options away from the two named accesses.',
+      ],
+    },
+  },
+  'goose-creek-jacks-laurel-branch': {
+    putIn: {
+      id: 'jacks-bowling-branch-bridge-access',
+      name: 'Jacks / Bowling Branch Bridge Access',
+      latitude: 37.2052,
+      longitude: -83.7372,
+    },
+    takeOut: {
+      id: 'laurel-branch-road-access',
+      name: 'Laurel Branch Road Access',
+      latitude: 37.237,
+      longitude: -83.6703,
+    },
+    logistics: {
+      distanceLabel: 'About 7.8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with low-water scraping or scouting around wood',
+      shuttle:
+        'Stage the take-out at Laurel Branch Road, then drive back upstream to the Jacks / Bowling Branch bridge access. Parking at both ends is limited, so keep vehicles compact and fully off the road edge.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed roadside accesses, follow Kentucky boating and PFD rules, and avoid treating private creek banks as public stopovers.',
+      camping:
+        'Treat this as a day float. KDFWR does not document public camping at Jacks, Tobacco Road, Dump Hollow, or Laurel Branch, and the route relies on small roadside carry-down accesses rather than overnight sites.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jacks / Bowling Branch and take out at Laurel Branch for the cleaner lower-Manchester Goose Creek route. Use the Manchester gauge and expect scraping whenever flows sit below KDFWR\'s 175 to 514 cfs good band.',
+      accessCaveats: [
+        'All four accesses in this corridor are simple carry-down or ford-style roadside sites with limited parking and no amenities.',
+        'Dump Hollow works as a mid-route bailout, but KDFWR warns the ford can be difficult or dangerous at high water.',
+        'This combined route intentionally starts below the Rawlings / Stinson access so it avoids the low-head-dam warning attached to that upstream point.',
+        'Goose Creek is a flashy small stream. Rain-driven rises can change the feel quickly even when the gauge was low earlier in the day.',
+      ],
+      watchFor: [
+        'Low water below about 175 cfs or 7.4 ft, when rock bars, riffles, and dragging become likely.',
+        'High water above about 514 cfs or 8.5 ft, when the narrow creek gets pushier and roadside landings are less forgiving.',
+        'Strainers, fresh wood after storms, shallow riffles, and slick footing at the bridge and ford accesses.',
+        'Private banks, limited bailout parking, and fast weather swings in a narrow eastern Kentucky drainage.',
+      ],
+    },
+  },
 };
