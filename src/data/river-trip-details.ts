@@ -9797,4 +9797,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-rymers-bay-creek': {
+    putIn: {
+      id: 'rymers-access',
+      name: 'Rymers Access',
+      latitude: 37.061386,
+      longitude: -91.559117,
+    },
+    takeOut: {
+      id: 'bay-creek-river-access',
+      name: 'Bay Creek River Access / Backcountry Campground',
+      latitude: 37.1231,
+      longitude: -91.5018,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr, longer with low water, scouting, or dragging',
+      shuttle:
+        'Use a rural two-car shuttle between Rymers Access and Bay Creek. Stage the Bay Creek take-out first, then drive back through Mountain View and Highway M to Rymers. Both access roads are remote enough that same-day inspection is worth the time.',
+      permits:
+        'No private-vessel route permit is known. Follow Ozark National Scenic Riverways rules, posted closures, fishing regulations, and any current parking or launch signs at both accesses.',
+      camping:
+        'Bay Creek is a reservable NPS backcountry campground, so this route can support an endpoint overnight plan only if you separately hold a valid current reservation. Otherwise, treat it as a day trip and do not assume camping rights on private banks.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rymers and take out at Bay Creek for the 9-mile upper Jacks Fork segment that NPS lists as a 4-hour float. Use the Mountain View gauge with a conservative 100 cfs floor, then make a same-day call on rain, wood, and current before committing.',
+      accessCaveats: [
+        'Rymers is a remote upper-Jacks access reached by the Highway M gravel-road corridor. Inspect the turnaround and parking situation before leaving vehicles.',
+        'Bay Creek is both a river access and a backcountry campground. Respect campground circulation, other overnight users, and any current NPS parking or reservation controls at the take-out.',
+        'This route uses practical existing V2 access anchors rather than a published NPS coordinate table. Follow current park signs and the obvious access layout on arrival.',
+        'Only use designated access points and lawful gravel-bar stops. Private lands and scenic-easement boundaries in the Riverways corridor still matter.',
+      ],
+      watchFor: [
+        'Frequent scraping, dragging, wading, or lining when the Mountain View gauge is near or below about 100 cfs.',
+        'Narrow current lines, bluff pools, shallow ledges, woody debris, and strainers on bends after storms.',
+        'High or rising water on an upper Ozark river that can feel much more serious than the mileage suggests.',
+        'Remote shuttle logistics, limited cell service, and fewer easy bailout options than the more developed lower Jacks segments.',
+      ],
+    },
+  },
+  'green-river-russell-ford-american-legion': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    logistics: {
+      distanceLabel: 'About 2.3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with fishing stops, shoal scouting, or low water',
+      shuttle:
+        'Stage the take-out at American Legion Park in Greensburg, then drive back to Russell Ford on Ralph Vaughn Road. Both are short-haul public accesses, but Russell Ford parking is limited and should be kept tight.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local park signage.',
+      camping:
+        'Treat this as a short day trip. No public route camping is documented between Russell Ford and American Legion Park, and private banks should not be treated as legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Russell Ford and take out at American Legion Park for the short upstream Greensburg Green River segment. Use the Greensburg gauge and expect the route to feel scrape-prone whenever the stage is below KDFWR’s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a carry-down gravel-bar access with limited unpaved parking and no amenities. Keep the road edge and approach clear.',
+        'American Legion Park uses a graded muddy/gravel bank below Highway 417 rather than a fully improved concrete city ramp. Expect a messier landing than the route mileage suggests.',
+        'KDFWR notes private property around these accesses. Stay with the named public launch and take-out rather than wandering onto banks for scouting or breaks.',
+        'This route uses a stage gauge, not a cfs gauge. Check trend and weather, not just the number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, sticky mud, and slower current become more likely.',
+        'High water above about 1.75 ft, when current at the banks and landings gets less forgiving.',
+        'Anglers, bridge-adjacent current, woody debris after rain, and limited legal stopping options away from the accesses.',
+        'Broad-river wind and exposed sun despite the short mileage.',
+      ],
+    },
+  },
+  'green-river-american-legion-greensburg': {
+    putIn: {
+      id: 'american-legion-park-ramp',
+      name: 'American Legion Park Ramp',
+      latitude: 37.2441,
+      longitude: -85.4795,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 2.0 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr, longer with fishing stops, shoal scouting, or low water',
+      shuttle:
+        'Stage the take-out at Greensburg City Park, then drive back to American Legion Park just east of the Highway 417 bridge. The shuttle is short, but both sites can have local park traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Treat this as a short day trip. No public route camping is documented for this in-town segment, and private banks should not be used as overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at American Legion Park and take out at Greensburg City Ramp for the short in-town Green River segment. Use the Greensburg gauge and expect the route to feel low whenever the stage is below KDFWR’s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'American Legion Park is a graded park access below Highway 417 with unpaved parking and a muddy/gravel bank rather than a clean concrete ramp.',
+        'Greensburg City Ramp is the easier landing, but it sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Use the named public accesses only and avoid treating intermediate banks as public.',
+        'This route uses the direct Greensburg stage gauge. Stage trend and weather still matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge traffic, anglers, broad-river wind, woody debris after rain, and slippery footing at muddy banks.',
+        'City-park activity and limited legal stops away from the two named accesses.',
+      ],
+    },
+  },
 };

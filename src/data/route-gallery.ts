@@ -886,6 +886,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-rymers-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-buck-hollow-rymers/jacks-fork-upper.jpg',
+      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'current-river-waymeyer-van-buren': [
     {
       id: 'ozark-riverways-canoeing-nps',

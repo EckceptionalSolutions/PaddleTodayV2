@@ -31650,4 +31650,367 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: "jacks-fork-river-rymers-bay-creek",
+    slug: "jacks-fork-river-rymers-bay-creek",
+    name: "Jacks Fork River",
+    reach: "Rymers Access to Bay Creek River Access",
+    aliases: [
+      "Jacks Fork - Rymers to Bay Creek",
+      "Upper Jacks Fork - Rymers to Bay Creek",
+      "Jacks Fork Rymers-Bay gap",
+    ],
+    state: "Missouri",
+    region: "Missouri Ozarks",
+    summary:
+      "Remote upper Jacks Fork day from Rymers to Bay Creek. NPS lists the exact 9-mile segment, the direct Mountain View gauge is live again, and the route uses the same conservative 100 cfs floor as the adjacent upper-Jacks additions.",
+    statusText:
+      "Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor for this upper-Jacks segment; below that, expect scraping, dragging, and possible wading. No preferred range or high-water cutoff is claimed.",
+    latitude: 37.061386,
+    longitude: -91.559117,
+    routeType: "whitewater",
+    gaugeSource: {
+      id: "usgs-07065200",
+      provider: "usgs",
+      siteId: "07065200",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Jacks Fork near Mountain View, MO",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-07065200/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 100,
+      thresholdSource: {
+        label:
+          "Rivers.MOHERP Mountain View gauge rating and Rymers-to-Bay Creek trip evidence",
+        url: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "The upper Jacks Fork is seasonal and quick to react to rain. NPS says portions of the river are only navigable at certain times because of low water, while thunderstorms can raise this narrow valley quickly and move fresh wood into the channel.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "Treat this as moving-water Ozark paddling, not a casual tubing reach. The route has riffles, narrow current lines, bluff pools, shallow ledges, and remote access logistics that get more demanding near or below the 100 cfs floor.",
+      confidenceNotes:
+        "Confidence is good for a conservative Missouri add: NPS still lists Rymers to Bay Creek as a 9-mile / 4-hour Jacks Fork float and names both as popular put-ins; the direct USGS 07065200 Mountain View gauge returned same-day June 22, 2026 values from Water Services during this run; and Rivers.MOHERP Mountain View still marks Good beginning at 100 cfs while preserving an exact Rymers-to-Bay-Creek low-flow trip row. Endpoint coordinates reuse the existing V2 Rymers and Bay Creek access anchors used on adjacent upper-Jacks routes, so on-site NPS signs and current access conditions still control.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route shape",
+        value: "Rymers to Bay Creek, 9 mi / 4 hr",
+        note: "NPS lists Rymers to Bay Creek as an estimated 4-hour Jacks Fork float covering about 9 river miles.",
+        sourceUrl: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
+      },
+      {
+        label: "Official access context",
+        value: "Rymers and Bay Creek are named Jacks Fork put-ins",
+        note: "The NPS Paddle Jacks Fork River page still names both Rymers and Bay Creek among the popular Jacks Fork put-in locations.",
+        sourceUrl: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 07065200 at 138 cfs / 1.16 ft",
+        note: "USGS Water Services returned same-day June 22, 2026 discharge and gage-height values for Jacks Fork near Mountain View during this route-add run.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07065200&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Low-water floor",
+        value: "100 cfs minimum-only",
+        note: "Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs and still preserves an exact Rymers-to-Bay-Creek trip row at 33 cfs as Low, so Paddle Today keeps this route minimum-only and conservative.",
+        sourceUrl: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
+      },
+      {
+        label: "Coordinate support",
+        value: "Existing V2 upper-Jacks access anchors",
+        note: "Rymers and Bay Creek coordinates are carried forward from the adjacent live Jacks Fork routes that already use those public access anchors in V2.",
+        sourceUrl: "https://www.southwestpaddler.com/docs/current4.html",
+      },
+      {
+        label: "Camping context",
+        value: "Bay Creek backcountry campground",
+        note: "Recreation.gov lists Bay Creek within the Jacks Fork / Middle Current backcountry campground system and describes river-edge access with boating activity at the site.",
+        sourceUrl: "https://www.recreation.gov/camping/campgrounds/10344874",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "NPS Paddle Jacks Fork River",
+        url: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Ozark National Scenic Riverways park brochure",
+        url: "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm",
+        provider: "nps",
+      },
+      {
+        label: "Recreation.gov Jacks Fork / Middle Current Backcountry Campsites",
+        url: "https://www.recreation.gov/camping/campgrounds/10344874",
+        provider: "local",
+      },
+      {
+        label: "Rivers.MOHERP Jacks Fork Mountain View gauge",
+        url: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
+        provider: "local",
+      },
+      {
+        label: "USGS 07065200 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-07065200/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 07065200 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07065200&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+      {
+        label: "Southwest Paddler Jacks Fork River guide",
+        url: "https://www.southwestpaddler.com/docs/current4.html",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "green-river-russell-ford-american-legion",
+    slug: "green-river-russell-ford-american-legion",
+    name: "Green River",
+    reach: "Russell Ford Access to American Legion Park Ramp",
+    aliases: [
+      "Green River - Russell Ford to American Legion Park",
+      "Green River Upper Greensburg segment",
+      "KDFWR Upper Green Russell Ford to American Legion",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Short Green County Green River segment from Russell Ford back to Greensburg. KDFWR documents the 2.3-mile public-access route, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that is low and likely to expose shoals or mud edges; above that is high and deserves extra current and landing caution.",
+    latitude: 37.2738,
+    longitude: -85.4784,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper Pool 6 segment is more reliable in spring and wetter fall periods. Summer can still work, but low stages expose shoals and muddy landings quickly, while storms can raise current and broad-river wind effects.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a short public-ramp Green River segment with easy route-finding, but it is still a broad moving river with shoals, muddy edges, private banks, and current that becomes less forgiving above the KDFWR good band.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists Russell Ford to American Legion Park Ramp as a 2.3-mile Green River segment, publishes coordinates and access-detail pages for both public endpoints, and gives official Greensburg gauge stage bands of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft. USGS Water Services returned a same-day June 22, 2026 Greensburg stage value from the direct route gauge during this run, keeping the live-gauge support current even though the river is presently below the good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Russell Ford to American Legion Park, 2.3 mi",
+        note: "KDFWR lists Russell Ford to American Legion Park Ramp as a 2.3-mile Green River access-to-access segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Russell Ford Access, 37.2738, -85.4784",
+        note: "KDFWR identifies Russell Ford as a free carry-down access with unpaved parking and year-round 24-hour availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+      },
+      {
+        label: "Take-out access",
+        value: "American Legion Park Ramp, 37.2441, -85.4795",
+        note: "KDFWR identifies American Legion Park as a free single-lane unpaved ramp with year-round 24-hour boat-ramp availability and ample unpaved parking.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.82 ft",
+        note: "USGS Water Services returned a same-day June 22, 2026 gage-height reading for Green River at Greensburg during this route-add run. That stage is below the KDFWR good band, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Shoals, deep rocky pools, muddy park landing",
+        note: "KDFWR describes the Russell Ford to American Legion reach as having good shoals with several deep rocky pools and a graded muddy/gravel park landing at the take-out.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Russell Ford Access",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=955",
+        provider: "local",
+      },
+      {
+        label: "KDFWR American Legion Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-american-legion-greensburg",
+    slug: "green-river-american-legion-greensburg",
+    name: "Green River",
+    reach: "American Legion Park Ramp to Greensburg City Ramp",
+    aliases: [
+      "Green River - American Legion Park to Greensburg",
+      "Green River Greensburg in-town segment",
+      "KDFWR Upper Green American Legion to Greensburg",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Very short Green River city segment from American Legion Park into Greensburg City Park. KDFWR documents the 2.0-mile public-access route, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that is low and can expose shoals or sticky mud at the banks; above that is high and deserves extra current and landing caution.",
+    latitude: 37.2441,
+    longitude: -85.4795,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This short Greensburg segment is best in normal spring and fall river levels. Summer lows can still leave shoals and sticky banks, while storms or release changes can make a simple city float feel pushier.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a short public-access Green River day with straightforward route-finding, but it still deserves normal broad-river caution around shoals, muddy landings, anglers, and city-park traffic.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists American Legion Park Ramp to Greensburg City Ramp as a 2.0-mile Green River segment, publishes coordinates and access-detail pages for both endpoints, and gives official Greensburg gauge stage bands tied to the direct USGS 03306500 route gauge. USGS Water Services returned a same-day June 22, 2026 stage reading from that gauge during this run, so the live-gauge path is current even though the river is presently below KDFWR's good band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "American Legion Park to Greensburg City Ramp, 2.0 mi",
+        note: "KDFWR lists American Legion Park Ramp to Greensburg City Ramp as a 2.0-mile Green River segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "American Legion Park Ramp, 37.2441, -85.4795",
+        note: "KDFWR identifies American Legion Park as a free single-lane unpaved ramp with year-round 24-hour boat-ramp availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+      },
+      {
+        label: "Take-out access",
+        value: "Greensburg City Ramp, 37.2581, -85.5057",
+        note: "KDFWR identifies Greensburg City Ramp as a free single-lane paved ramp in city park with paved parking and year-round 24-hour availability.",
+        sourceUrl: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.82 ft",
+        note: "USGS Water Services returned a same-day June 22, 2026 gage-height reading for Green River at Greensburg during this route-add run. That stage is below the KDFWR good band, so the route should score low today.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Access character",
+        value: "Park ramp to city ramp",
+        note: "KDFWR describes American Legion as a graded park access below the Highway 417 bridge and Greensburg City Ramp as a concrete ramp at Greensburg City Park with parking, shoreline access, and nearby cabins.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR American Legion Park Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=954",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Greensburg City Ramp",
+        url: "https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=220",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
 ];

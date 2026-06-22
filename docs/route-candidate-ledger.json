@@ -28576,6 +28576,106 @@
             "updatedAt": "2026-06-19T13:58:18.000Z"
         },
         {
+            "candidateId": "ky-green-river-russell-ford-american-legion",
+            "river": "Green River",
+            "route": "Russell Ford Access to American Legion Park Ramp",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 12:33 America/Chicago / 2026-06-22 17:33 UTC implemented as green-river-russell-ford-american-legion. KDFWR Pool 6 still listed Russell Ford to American Legion Park as a 2.3-mile public segment, KDFWR access-detail pages still exposed coordinates and year-round availability for both endpoints, and USGS Water Services returned a same-day Greensburg stage of 0.82 ft at 2026-06-22 11:15 CDT from the direct route gauge. The route ships on the official KDFWR Greensburg stage model of Low below 1.0 ft, Good 1.0-1.75 ft, High above 1.75 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03306500 stops exposing current stage values, a stronger corridor image is approved, or Green River Pool 6 route guidance changes materially.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 12:33 America/Chicago / 2026-06-22 17:33 UTC implementation review: KDFWR Pool 6 still listed Russell Ford to American Legion Park Ramp as a 2.3-mile segment and preserved the official Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft.",
+                "KDFWR Russell Ford access detail reviewed 2026-06-22; confirms carry-down access, unpaved parking, year-round 24-hour availability, and coordinates 37.2738 / -85.4784.",
+                "KDFWR American Legion Park access detail reviewed 2026-06-22; confirms graded park ramp access, unpaved parking, year-round 24-hour availability, and coordinates 37.2441 / -85.4795.",
+                "USGS Water Services returned same-day Green River at Greensburg 03306500 stage of 0.82 ft at 2026-06-22 11:15 CDT during the implementation run.",
+                "Rights-clean image pass reviewed existing gallery notes and bounded Commons/web leads; no approved Green River corridor asset was selected for this slug."
+            ],
+            "aliases": [
+                "Green River - Russell Ford to American Legion Park",
+                "Green River Upper Greensburg segment",
+                "KDFWR Upper Green Russell Ford to American Legion"
+            ],
+            "v2Slug": "green-river-russell-ford-american-legion",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03306500",
+                "provider": "USGS",
+                "notes": "USGS 03306500 Green River at Greensburg is the direct route gauge for this short upper Pool 6 segment and returned same-day stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_two_sided",
+                "notes": "KDFWR publishes official Greensburg stage bands for this corridor: Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft."
+            },
+            "endpoints": {
+                "putIn": "Russell Ford Access",
+                "takeOut": "American Legion Park Ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.2738,
+                    "longitude": -85.4784
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.2441,
+                    "longitude": -85.4795
+                },
+                "coordinateSource": "KDFWR access-detail pages for Russell Ford and American Legion Park."
+            },
+            "notes": "Implemented on 2026-06-22 as green-river-russell-ford-american-legion. The route uses the direct Greensburg stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-green-river-american-legion-greensburg",
+            "river": "Green River",
+            "route": "American Legion Park Ramp to Greensburg City Ramp",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 12:33 America/Chicago / 2026-06-22 17:33 UTC implemented as green-river-american-legion-greensburg. KDFWR Pool 6 still listed American Legion Park Ramp to Greensburg City Ramp as a 2.0-mile public segment, KDFWR access-detail pages still exposed coordinates and year-round availability for both endpoints, and USGS Water Services returned a same-day Greensburg stage of 0.82 ft at 2026-06-22 11:15 CDT from the direct route gauge. The route ships on the official KDFWR Greensburg stage model of Low below 1.0 ft, Good 1.0-1.75 ft, High above 1.75 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03306500 stops exposing current stage values, a stronger corridor image is approved, or Green River Pool 6 route guidance changes materially.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 12:33 America/Chicago / 2026-06-22 17:33 UTC implementation review: KDFWR Pool 6 still listed American Legion Park Ramp to Greensburg City Ramp as a 2.0-mile segment and preserved the official Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft.",
+                "KDFWR American Legion Park access detail reviewed 2026-06-22; confirms graded park ramp access, unpaved parking, year-round 24-hour availability, and coordinates 37.2441 / -85.4795.",
+                "KDFWR Greensburg City Ramp access detail reviewed 2026-06-22; confirms paved city-ramp access, paved parking, year-round 24-hour availability, and coordinates 37.2581 / -85.5057.",
+                "USGS Water Services returned same-day Green River at Greensburg 03306500 stage of 0.82 ft at 2026-06-22 11:15 CDT during the implementation run.",
+                "Rights-clean image pass reviewed existing gallery notes and bounded Commons/web leads; no approved Green River corridor asset was selected for this slug."
+            ],
+            "aliases": [
+                "Green River - American Legion Park to Greensburg",
+                "Green River Greensburg in-town segment",
+                "KDFWR Upper Green American Legion to Greensburg"
+            ],
+            "v2Slug": "green-river-american-legion-greensburg",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03306500",
+                "provider": "USGS",
+                "notes": "USGS 03306500 Green River at Greensburg is the direct route gauge for this short in-town Pool 6 segment and returned same-day stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_two_sided",
+                "notes": "KDFWR publishes official Greensburg stage bands for this corridor: Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft."
+            },
+            "endpoints": {
+                "putIn": "American Legion Park Ramp",
+                "takeOut": "Greensburg City Ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.2441,
+                    "longitude": -85.4795
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.2581,
+                    "longitude": -85.5057
+                },
+                "coordinateSource": "KDFWR access-detail pages for American Legion Park and Greensburg City Ramp."
+            },
+            "notes": "Implemented on 2026-06-22 as green-river-american-legion-greensburg. The route uses the direct Greensburg stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
             "candidateId": "mn-blue-earth-river-rapidan-county-road-90",
             "river": "Blue Earth River",
             "route": "Rapidan Dam Park to County Road 90",
