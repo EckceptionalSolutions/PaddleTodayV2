@@ -8551,6 +8551,82 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-south-fork-blue-heron-yamacraw': {
+    putIn: {
+      id: 'blue-heron-canoe-ramp',
+      name: 'Blue Heron Canoe Ramp',
+      latitude: 36.6683,
+      longitude: -84.5474,
+    },
+    takeOut: {
+      id: 'yamacraw-access',
+      name: 'Yamacraw',
+      latitude: 36.7255,
+      longitude: -84.5446,
+    },
+    logistics: {
+      distanceLabel: 'About 5.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with fishing stops, low water, or extra scouting',
+      shuttle:
+        'Stage the Yamacraw take-out first, then drive back to Blue Heron via KY 92 and the signed Blue Heron mine-road corridor. Inspect both accesses before launching because the gorge roads are rural and the bridge-area parking layouts can change with storms or maintenance.',
+      permits:
+        'No route-specific private paddling permit is known for this normal Big South Fork day float. Follow KDFWR and NPS rules, carry required safety gear and PFDs, check current park alerts, and obey any posted access or parking restrictions at Blue Heron and Yamacraw.',
+      camping:
+        'Blue Heron and Alum Ford campgrounds can support an endpoint campground plan, but this route is normally a half-day float. Treat camping as a separate NPS campground decision rather than an assumed part of the paddle.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Blue Heron and take out at Yamacraw for the gentler 5-mile Big South Fork float below Devil's Jump. Use the Stearns gauge as a direct official flow check and stand down when storms or rising water push the river out of the lower bands.",
+      accessCaveats: [
+        "Blue Heron is the correct put-in for the easier family float. Do not continue upstream into the Devil's Jump / wilderness section unless your group has a separate advanced whitewater plan.",
+        'Yamacraw is the downstream bridge access on KY 92. Inspect the ramp and parking before committing because bridge-area mud, cleanup, or local traffic can change the landing.',
+        'The route lies in a publicly managed NPS corridor, but same-day closures, storm damage, or event traffic can still affect access. Check park alerts before leaving vehicles.',
+      ],
+      watchFor: [
+        'Fast rises after rain in the Clear Fork and New River headwaters, even if the local sky looks better at launch time.',
+        'Woody debris, boulder shoals, pushier current above 500 cfs, and more serious rescue consequences once the river climbs past the family band.',
+        'Dragging or scraping below 100 cfs, especially across shallow riffles and shoals.',
+        "Cold-water exposure, limited cell service, remote-gorge shuttle timing, and the temptation to drift upstream or scout too close to the Devil's Jump section.",
+      ],
+    },
+  },
+  'tradewater-river-bellville-montezuma': {
+    putIn: {
+      id: 'bellville-road-access',
+      name: 'Bellville Road Access',
+      latitude: 37.381,
+      longitude: -87.8001,
+    },
+    takeOut: {
+      id: 'montezuma-bridge-ramp',
+      name: 'Montezuma Bridge Ramp',
+      latitude: 37.3967,
+      longitude: -87.8446,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with wood, braided-channel scouting, or low-water slowdowns',
+      shuttle:
+        'Stage the Montezuma take-out first, then drive back to Bellville through Providence. Inspect both accesses before launching because the parking areas are small, rural, and can change with storms, mud, or local use.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow posted local and state rules, carry Kentucky boating safety gear, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Bellville and Montezuma as simple access sites with no camping amenities, so treat this as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bellville Road Access and take out at Montezuma Bridge Ramp for the official 9.2-mile Providence-area Tradewater segment. Use the Providence gauge as the route check, and stand down quickly when the river leaves the official band because this drainage rises fast.',
+      accessCaveats: [
+        'Bellville is a carry-down access with unpaved parking beside private property. Keep vehicles and banks tight to the documented access area.',
+        'Montezuma Bridge Ramp has only a few parking spots and limited room around the bridge. Inspect the take-out first so the final exit does not turn into an avoidable scramble.',
+        'KDFWR says bank and wade fishing at both accesses is limited to the access area because the adjacent property is private. Do not treat the banks between the accesses as public lunch or camping ground.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'Low water below the official KDFWR band, when shallow riffles and side channels can slow progress and increase dragging.',
+        'High water above 50 cfs or 15 ft at Providence, when KDFWR moves the route out of the good band and the river can become too pushy for casual paddling.',
+        'Sparse services, limited cell coverage, private banks, and rural shuttle roads that can get slick after storms.',
+      ],
+    },
+  },
   'buffalo-river-ponca-kyles-landing': {
     putIn: {
       id: 'ponca-access',

@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-22T14:29:11.000Z",
+    "updatedAt": "2026-06-22T16:20:00.000Z",
     "notes": [
+        "2026-06-22 11:20 America/Chicago / 2026-06-22 16:20 UTC three-route implementation pass. Added three internet-sourced routes: `jacks-fork-river-rymers-bay-creek`, `big-south-fork-blue-heron-yamacraw`, and `tradewater-river-bellville-montezuma`. Qualification path: current NPS and USGS evidence still supported the Missouri Rymers-to-Bay Creek split with same-day USGS 07065200 at 129 cfs / 1.11 ft and the accepted 100 cfs minimum-only upper-Jacks model; current KDFWR and USGS evidence cleared Big South Fork Blue Heron-to-Yamacraw with same-day USGS 03410500 at 147 cfs / 1.87 ft plus official 100-500 cfs family-float guidance; current KDFWR and USGS evidence cleared Tradewater Bellville-to-Montezuma with same-day USGS 03384100 at 1090 cfs / 20.36 ft plus official Providence gauge bands and exact access coordinates. Reused approved same-river Commons gallery assets for Jacks Fork and Big South Fork, added a rights-clean Commons Tradewater image, and wrote camping plus safety/logistics notes for all three routes. Re-ran `npm run routes:leads:gather` after the route-data and candidate updates; the queue dropped to 273 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 99, and blocked_recheck 9. Validation passed: `npm run typecheck:routes` and `npm run routes:audit`; broader repo checks still pending in this run.",
         "2026-06-22 09:29 America/Chicago / 2026-06-22 14:29 UTC three-route implementation pass. Refreshed the generated lead inbox at 276 open leads before edits (implementation_ready 1, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 110, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). Added three routes: `jacks-fork-river-blue-spring-rymers`, `jacks-fork-river-rymers-bay-creek`, and `eleven-point-river-thomasville-cane-bluff`. The Jacks Fork adds used current NPS Paddle Jacks Fork River plus the current NPS brochure for route shape, access, primitive-camping context, and the same-day direct USGS 07065200 Mountain View gauge; `blue-spring-rymers` also had exact MoHERP Good rows at 105 / 102 cfs, while `rymers-bay-creek` used the current river-mile access inventory plus an exact MoHERP low row at 33 cfs to stay conservative on the existing 100 cfs minimum-only upper-Jacks model. The Eleven Point add cleared because the current Forest Service Thomasville page now shows Site Open again, still lists the 9.3-mile Thomasville-to-Cane-Bluff float and Class I-II / walking-portage caveats, the current Cane Bluff page still confirms the take-out and dispersed-camping context, same-day USGS 07071500 returned 628 cfs / 2.87 ft at 2026-06-22 08:30 CDT, and MoHERP still carries exact Thomasville-to-Cane-Bluff evidence. Reused approved same-river Commons images for all three routes. Validation: `npm run typecheck:routes` passed, `npm run routes:audit` passed at 263 routes, and `npm run routes:leads:gather` regenerated the inbox at 274 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 8. Full `npm run typecheck` and `npm test` remain blocked by an existing mobile-workspace TypeScript parse failure in `node_modules/csstype/index.d.ts`.",
         "2026-06-22 07:23 America/Chicago / 2026-06-22 12:23 UTC implementation pass. Refreshed the generated lead inbox at 277 open leads (implementation_ready 2, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 110, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). Added one route: `eleven-point-river-cane-bluff-greer-crossing` from candidate `mo-eleven-point-river-cane-bluff-greer` after rechecking the same-day USGS 07071500 live-data path, current Forest Service Cane Bluff and Greer Crossing open status and coordinates, duplicate-corridor boundaries against the existing Eleven Point route set, and the conservative Bardley 300 cfs minimum-only model. No rights-clean exact-route image was selected, so no gallery asset was added. Validation passed: `npm run typecheck`, `npm run routes:audit`, and `npm test`. Re-ran `npm run routes:leads:gather` after the route-data and ledger updates; the queue dropped to 276 open leads with implementation_ready 1, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 9.",
         "2026-06-22 06:25 America/Chicago / 2026-06-22 11:25 UTC conservative threshold-discovery pass. Refreshed the generated lead inbox at 277 open leads (implementation_ready 0, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 112, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). No route was added. Focused the closest Missouri threshold holds `mo-jacks-fork-rymers-bay-creek` and `mo-eleven-point-river-cane-bluff-greer` after same-day live USGS recovery. Promoted both to `likely_addable`: current NPS Estimated Float Times plus Paddle Jacks Fork support the exact 9-mile / 4-hour Rymers-to-Bay Creek segment, same-day USGS 07065200 returned 118 cfs / 1.04 ft at 2026-06-22 05:45 CDT, and current MoHERP Mountain View ratings still support a conservative 100 cfs minimum-only upper-Jacks model; current Forest Service mile-by-mile Eleven Point access pages still place Cane Bluff at river mile 9.3 and Greer Crossing at river mile 16.6, same-day USGS 07071500 returned 617 cfs / 2.85 ft at 2026-06-22 05:30 CDT, and current MoHERP Bardley ratings plus exact Cane-Bluff-to-Greer rows support accepting the existing conservative 300 cfs minimum-only model. Re-ran `npm run routes:leads:gather` after the ledger update; the queue stayed at 277 open leads but shifted to implementation_ready 2, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 9.",
@@ -23497,16 +23498,17 @@
         },
         {
             "candidateId": "ky-tradewater-river-providence-access-family",
-            "reviewCount": 46,
+            "reviewCount": 47,
             "river": "Tradewater River",
-            "route": "Dawson Springs / Providence / Fishtrap Bridge / VFW Bridge access family",
+            "route": "Bellville Road Access to Montezuma Bridge Ramp",
             "state": "KY",
-            "status": "no_live_gauge",
-            "lastReviewed": "2026-06-04",
-            "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Tradewater remains no_live_gauge. Product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, leaving KDFWR public-access context and Olney/Providence bands short of the product-live gate.",
-            "retryCondition": "Retry only when USGS 03383000 or 03384100 exposes same-day product-fetchable data and a specific public day segment can be selected without low-head-dam ambiguity.",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "blocker": "2026-06-22 11:20 America/Chicago / 2026-06-22 16:20 UTC implemented as tradewater-river-bellville-montezuma. KDFWR still listed Bellville Road Access to Montezuma Bridge Ramp as a 9.2-mile Tradewater segment with official Providence gauge bands, USGS Water Services returned same-day 03384100 values of 1090 cfs and 20.36 ft at 2026-06-22 10:45 CDT, and KDFWR access-detail pages supplied exact Bellville and Montezuma coordinates. Added the Commons Tradewater image and shipped the route with strong flashy-water, wood, and private-bank cautions.",
+            "retryCondition": "Already implemented as tradewater-river-bellville-montezuma. Revisit only if KDFWR changes Bellville / Montezuma access status, USGS 03384100 stops exposing product-ready current values, or a cleaner official route/gauge package appears.",
             "retryDate": null,
             "sourcesChecked": [
+                "2026-06-22 implementation refresh: USGS Water Services returned 1090 cfs / 20.36 ft at 2026-06-22 10:45 CDT for USGS 03384100, KDFWR still listed Bellville Road Access to Montezuma Bridge Ramp as 9.2 miles with official Providence gauge bands, and KDFWR access detail pages confirmed Bellville and Montezuma coordinates.",
                 "2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC: conservative Kentucky recheck rebuilt the nine-route inventory and retried product-style USGS Water Services IV for unresolved gauges 03252500, 03383000, 03384100, 03410500, 03280000, 03277500, and 03282500; every fetch failed unable to connect, and search-visible official results did not surface a current product-ready replacement.",
                 "2026-06-04 08:13 America/Chicago / 2026-06-04 13:13 UTC: local USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect; no product-live improvement was verified.",
                 "2026-06-04 07:53 America/Chicago / 2026-06-04 12:53 UTC: local USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect; no product-live improvement was verified.",
@@ -23549,33 +23551,35 @@
             ],
             "aliases": [
                 "Tradewater River - Bellville Road to Montezuma Bridge",
-                "Tradewater River - Fishtrap Bridge to VFW Bridge",
-                "Tradewater River Providence gauge family"
+                "Tradewater River - Bellville to Montezuma",
+                "Tradewater Providence segment"
             ],
-            "v2Slug": null,
+            "v2Slug": "tradewater-river-bellville-montezuma",
             "gauge": {
-                "quality": "direct_but_stale",
-                "id": "03383000 / 03384100",
+                "quality": "direct_product_live_verified",
+                "id": "03384100",
                 "provider": "USGS",
-                "notes": "USGS 03383000/03384100 remain Tradewater gauge leads, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check did not verify current product-ready live values."
+                "notes": "USGS 03384100 Tradewater River at Providence is the selected direct gauge for the implemented Bellville-to-Montezuma route, and Water Services returned same-day product-live values on 2026-06-22."
             },
             "thresholdSupport": {
-                "strength": "official_two_sided_pending_live_gauge_and_route_shape",
-                "notes": "KDFWR publishes official two-sided bands for both Olney and Providence. Implementation still needs one selected segment and a fresh supported live gauge."
+                "strength": "official_two_sided",
+                "notes": "KDFWR publishes official Providence discharge and stage bands: low below 5 cfs / 10.0 ft, good from 5.0 to 50.0 cfs / 10.0 to 15.0 ft, and high above 50.0 cfs / 15.0 ft. The implemented route uses that direct official two-sided model."
             },
             "endpoints": {
-                "putIn": "Unselected Tradewater public access",
-                "takeOut": "Unselected downstream Tradewater public access",
-                "coordinatesPresent": false,
-                "coordinateSource": "Coordinate work was deferred because the live-gauge gate failed and the safest day segment remains unselected."
+                "putIn": "Bellville Road Access",
+                "takeOut": "Montezuma Bridge Ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.381,
+                    "longitude": -87.8001
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.3967,
+                    "longitude": -87.8446
+                },
+                "coordinateSource": "Coordinates come directly from KDFWR access-detail pages for Bellville Road Access and Montezuma Bridge Ramp."
             },
-            "notes": [
-                "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Tradewater remains no_live_gauge; 03383000/03384100 product-style fetches failed, so public-access and threshold context did not clear implementation readiness.",
-                "2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC recheck: Tradewater remains no_live_gauge; 03383000/03384100 product-style fetches failed unable to connect, so no Providence access-family route was promoted.",
-                "2026-06-04 07:33 America/Chicago / 2026-06-04 12:33 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, so the KDFWR Providence access-family route still lacks product-supported live gauge evidence.",
-                "2026-06-04 07:13 America/Chicago / 2026-06-04 12:13 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, so the KDFWR Providence access-family route still lacks product-supported live gauge evidence.",
-                "2026-06-04 06:53 America/Chicago / 2026-06-04 11:53 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect; official legacy evidence remains stale to 2026-05-12 at Olney and Providence, and no selected short public segment cleared the access/hazard bar."
-            ],
+            "notes": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Tradewater remains no_live_gauge; 03383000/03384100 product-style fetches failed, so public-access and threshold context did not clear implementation readiness.,2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC recheck: Tradewater remains no_live_gauge; 03383000/03384100 product-style fetches failed unable to connect, so no Providence access-family route was promoted.,2026-06-04 07:33 America/Chicago / 2026-06-04 12:33 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, so the KDFWR Providence access-family route still lacks product-supported live gauge evidence.,2026-06-04 07:13 America/Chicago / 2026-06-04 12:13 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, so the KDFWR Providence access-family route still lacks product-supported live gauge evidence.,2026-06-04 06:53 America/Chicago / 2026-06-04 11:53 UTC recheck: Tradewater remains no_live_gauge. Local product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect; official legacy evidence remains stale to 2026-05-12 at Olney and Providence, and no selected short public segment cleared the access/hazard bar.\nImplemented on 2026-06-22 as tradewater-river-bellville-montezuma using KDFWR official Providence-gauge bands, same-day direct USGS 03384100 support, source-backed endpoint coordinates, and a rights-clean Commons same-river image.",
             "updatedAt": "2026-06-04"
         },
         {
@@ -24859,16 +24863,17 @@
         },
         {
             "candidateId": "ky-big-south-fork-blue-heron-yamacraw",
-            "reviewCount": 66,
+            "reviewCount": 67,
             "river": "Big South Fork of the Cumberland River",
             "route": "Blue Heron Mine to Yamacraw Bridge",
             "state": "KY",
-            "status": "no_live_gauge",
-            "lastReviewed": "2026-06-04",
-            "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong Stearns-gauge cfs bands and route/access context still cannot justify implementation.",
-            "retryCondition": "Retry when official USGS 03410500 exposes same-day product-fetchable discharge and gage-height observations through the app-supported USGS path, then verify Blue Heron/Yamacraw coordinates before implementation.",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "blocker": "2026-06-22 11:20 America/Chicago / 2026-06-22 16:20 UTC implemented as big-south-fork-blue-heron-yamacraw. KDFWR still named Blue Heron to Yamacraw as a 5-mile family float with official Stearns-gauge bands, USGS Water Services returned same-day 03410500 values of 147 cfs and 1.87 ft at 2026-06-22 11:30 EDT, and KDFWR access-detail pages supplied exact Blue Heron and Yamacraw coordinates. Reused the approved same-river Commons Big South Fork image and added endpoint campground plus fast-rise safety notes.",
+            "retryCondition": "Already implemented as big-south-fork-blue-heron-yamacraw. Revisit only if KDFWR or NPS changes Blue Heron / Yamacraw access status, USGS 03410500 stops exposing product-ready current values, or stronger route-specific guidance appears.",
             "retryDate": null,
             "sourcesChecked": [
+                "2026-06-22 implementation refresh: USGS Water Services returned 147 cfs / 1.87 ft at 2026-06-22 11:30 EDT for USGS 03410500, KDFWR still listed Blue Heron to Yamacraw as a 5-mile float with 100-500 cfs best-flow guidance, and KDFWR access detail pages confirmed Blue Heron and Yamacraw coordinates.",
                 "2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC: conservative Kentucky recheck rebuilt the nine-route inventory and retried product-style USGS Water Services IV for unresolved gauges 03252500, 03383000, 03384100, 03410500, 03280000, 03277500, and 03282500; every fetch failed unable to connect, and search-visible official results did not surface a current product-ready replacement.",
                 "2026-06-04 08:13 America/Chicago / 2026-06-04 13:13 UTC: local USGS Water Services IV fetch for 03410500 failed unable to connect; no product-live improvement was verified.",
                 "2026-06-04 07:53 America/Chicago / 2026-06-04 12:53 UTC: local USGS Water Services IV fetch for 03410500 failed unable to connect; no product-live improvement was verified.",
@@ -24914,16 +24919,16 @@
                 "Blue Heron Mine to Yamacraw Bridge",
                 "Big South Fork Kentucky day float"
             ],
-            "v2Slug": null,
+            "v2Slug": "big-south-fork-blue-heron-yamacraw",
             "gauge": {
-                "quality": "direct_but_not_live_verified",
+                "quality": "direct_product_live_verified",
                 "id": "03410500",
                 "provider": "USGS",
-                "notes": "USGS 03410500 is the KDFWR Stearns gauge for this route, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern graphable continuous/daily data and did not verify current product-ready discharge."
+                "notes": "USGS 03410500 South Fork Cumberland River near Stearns is the direct gauge for the implemented Blue Heron-to-Yamacraw route, and Water Services returned same-day product-live values on 2026-06-22."
             },
             "thresholdSupport": {
-                "strength": "official_numeric_pending_live_gauge",
-                "notes": "KDFWR publishes usable Stearns-gauge bands: below 100 cfs expect dragging, 100-500 cfs best casual floating, 500-1500 cfs faster/open-boat interest, above 1500 cfs experienced closed boats only, and over 3000 cfs extremely dangerous. Threshold support is promising, but not usable until the live-gauge gate clears."
+                "strength": "official_two_sided",
+                "notes": "KDFWR publishes official Stearns-gauge bands: below 100 cfs expect dragging, 100-500 cfs best casual floating, 500-1500 cfs faster/open-boat interest, above 1500 cfs experienced closed boats only, and over 3000 cfs extremely dangerous. The implemented route uses that direct official threshold model."
             },
             "endpoints": {
                 "putIn": "Blue Heron Canoe Ramp / Blue Heron Mine",
@@ -24931,13 +24936,7 @@
                 "coordinatesPresent": false,
                 "coordinateSource": "KDFWR access guide names both accesses; coordinate-level work was deferred because the live-gauge gate failed."
             },
-            "notes": [
-                "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge; 03410500 product-style fetch failed despite strong KDFWR route/access and Stearns-gauge threshold context.",
-                "2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge; 03410500 product-style fetch failed, leaving the otherwise strong KDFWR threshold package unusable.",
-                "2026-06-04 07:33 America/Chicago / 2026-06-04 12:33 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong cfs bands and route/access context still cannot justify implementation.",
-                "2026-06-04 07:13 America/Chicago / 2026-06-04 12:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong cfs bands and route/access context still cannot justify implementation.",
-                "2026-06-04 06:53 America/Chicago / 2026-06-04 11:53 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect; official legacy evidence still has discharge stale to 2026-05-22 at 195 cfs and gage height only to 2026-06-01, so endpoint-coordinate verification was not enough to justify implementation."
-            ],
+            "notes": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge; 03410500 product-style fetch failed despite strong KDFWR route/access and Stearns-gauge threshold context.,2026-06-04 08:53 America/Chicago / 2026-06-04 13:53 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge; 03410500 product-style fetch failed, leaving the otherwise strong KDFWR threshold package unusable.,2026-06-04 07:33 America/Chicago / 2026-06-04 12:33 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong cfs bands and route/access context still cannot justify implementation.,2026-06-04 07:13 America/Chicago / 2026-06-04 12:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong cfs bands and route/access context still cannot justify implementation.,2026-06-04 06:53 America/Chicago / 2026-06-04 11:53 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Local product-style USGS Water Services IV fetch for 03410500 failed unable to connect; official legacy evidence still has discharge stale to 2026-05-22 at 195 cfs and gage height only to 2026-06-01, so endpoint-coordinate verification was not enough to justify implementation.\nImplemented on 2026-06-22 as big-south-fork-blue-heron-yamacraw using KDFWR official Stearns-gauge bands, same-day direct USGS 03410500 support, source-backed endpoint coordinates, and endpoint campground context at Blue Heron / Alum Ford.",
             "updatedAt": "2026-06-04"
         },
         {

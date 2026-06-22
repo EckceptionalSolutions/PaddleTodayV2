@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T17:35:36.501Z",
+  "generatedAt": "2026-06-22T17:44:07.381Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
     "totalLedgerCandidates": 517,
-    "currentRouteCount": 266,
-    "leadCount": 273,
+    "currentRouteCount": 268,
+    "leadCount": 271,
     "discoveryFocusStates": [
       "Nebraska",
       "South Dakota",
@@ -272,16 +272,16 @@
       "threshold_discovery": 109,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
-      "live_provider_recheck": 101,
+      "live_provider_recheck": 99,
       "blocked_recheck": 8
     },
     "byStatus": {
       "implemented": 20,
       "threshold_weak": 109,
-      "added": 201,
+      "added": 203,
       "research_later": 55,
       "blocked_until_date": 13,
-      "no_live_gauge": 91,
+      "no_live_gauge": 89,
       "rejected": 15,
       "gauge_proxy_weak": 10,
       "duplicate_corridor": 3
@@ -8789,70 +8789,6 @@
           "takeOut": "Unselected South Fork Licking public access",
           "coordinatesPresent": false,
           "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "ky-tradewater-river-providence-access-family",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "Tradewater River",
-        "route": "Dawson Springs / Providence / Fishtrap Bridge / VFW Bridge access family",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 46,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Tradewater remains no_live_gauge. Product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, leaving KDFWR public-access context and Olney/Providence bands short of the product-live gate.",
-        "retryCondition": "Retry only when USGS 03383000 or 03384100 exposes same-day product-fetchable data and a specific public day segment can be selected without low-head-dam ambiguity.",
-        "gauge": {
-          "quality": "direct_but_stale",
-          "id": "03383000 / 03384100",
-          "provider": "USGS",
-          "notes": "USGS 03383000/03384100 remain Tradewater gauge leads, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check did not verify current product-ready live values."
-        },
-        "thresholdSupport": {
-          "strength": "official_two_sided_pending_live_gauge_and_route_shape",
-          "notes": "KDFWR publishes official two-sided bands for both Olney and Providence. Implementation still needs one selected segment and a fresh supported live gauge."
-        },
-        "endpoints": {
-          "putIn": "Unselected Tradewater public access",
-          "takeOut": "Unselected downstream Tradewater public access",
-          "coordinatesPresent": false,
-          "coordinateSource": "Coordinate work was deferred because the live-gauge gate failed and the safest day segment remains unselected."
-        },
-        "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-        "discoveryTier": "adjacent_expansion"
-      },
-      {
-        "candidateId": "ky-big-south-fork-blue-heron-yamacraw",
-        "lane": "live_provider_recheck",
-        "priority": 46,
-        "state": "KY",
-        "river": "Big South Fork of the Cumberland River",
-        "route": "Blue Heron Mine to Yamacraw Bridge",
-        "currentStatus": "no_live_gauge",
-        "lastReviewed": "2026-06-04",
-        "reviewCount": 66,
-        "duplicateRisk": false,
-        "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong Stearns-gauge cfs bands and route/access context still cannot justify implementation.",
-        "retryCondition": "Retry when official USGS 03410500 exposes same-day product-fetchable discharge and gage-height observations through the app-supported USGS path, then verify Blue Heron/Yamacraw coordinates before implementation.",
-        "gauge": {
-          "quality": "direct_but_not_live_verified",
-          "id": "03410500",
-          "provider": "USGS",
-          "notes": "USGS 03410500 is the KDFWR Stearns gauge for this route, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern graphable continuous/daily data and did not verify current product-ready discharge."
-        },
-        "thresholdSupport": {
-          "strength": "official_numeric_pending_live_gauge",
-          "notes": "KDFWR publishes usable Stearns-gauge bands: below 100 cfs expect dragging, 100-500 cfs best casual floating, 500-1500 cfs faster/open-boat interest, above 1500 cfs experienced closed boats only, and over 3000 cfs extremely dangerous. Threshold support is promising, but not usable until the live-gauge gate clears."
-        },
-        "endpoints": {
-          "putIn": "Blue Heron Canoe Ramp / Blue Heron Mine",
-          "takeOut": "Yamacraw Bridge access",
-          "coordinatesPresent": false,
-          "coordinateSource": "KDFWR access guide names both accesses; coordinate-level work was deferred because the live-gauge gate failed."
         },
         "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
         "discoveryTier": "adjacent_expansion"
@@ -18083,70 +18019,6 @@
         "takeOut": "Unselected South Fork Licking public access",
         "coordinatesPresent": false,
         "coordinateSource": "Coordinate work was deferred because the live-gauge gate and low-head-dam route-shape issues blocked implementation."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
-    },
-    {
-      "candidateId": "ky-tradewater-river-providence-access-family",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "Tradewater River",
-      "route": "Dawson Springs / Providence / Fishtrap Bridge / VFW Bridge access family",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 46,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Tradewater remains no_live_gauge. Product-style USGS Water Services IV fetches for 03383000 and 03384100 failed unable to connect, leaving KDFWR public-access context and Olney/Providence bands short of the product-live gate.",
-      "retryCondition": "Retry only when USGS 03383000 or 03384100 exposes same-day product-fetchable data and a specific public day segment can be selected without low-head-dam ambiguity.",
-      "gauge": {
-        "quality": "direct_but_stale",
-        "id": "03383000 / 03384100",
-        "provider": "USGS",
-        "notes": "USGS 03383000/03384100 remain Tradewater gauge leads, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check did not verify current product-ready live values."
-      },
-      "thresholdSupport": {
-        "strength": "official_two_sided_pending_live_gauge_and_route_shape",
-        "notes": "KDFWR publishes official two-sided bands for both Olney and Providence. Implementation still needs one selected segment and a fresh supported live gauge."
-      },
-      "endpoints": {
-        "putIn": "Unselected Tradewater public access",
-        "takeOut": "Unselected downstream Tradewater public access",
-        "coordinatesPresent": false,
-        "coordinateSource": "Coordinate work was deferred because the live-gauge gate failed and the safest day segment remains unselected."
-      },
-      "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
-      "discoveryTier": "adjacent_expansion"
-    },
-    {
-      "candidateId": "ky-big-south-fork-blue-heron-yamacraw",
-      "lane": "live_provider_recheck",
-      "priority": 46,
-      "state": "KY",
-      "river": "Big South Fork of the Cumberland River",
-      "route": "Blue Heron Mine to Yamacraw Bridge",
-      "currentStatus": "no_live_gauge",
-      "lastReviewed": "2026-06-04",
-      "reviewCount": 66,
-      "duplicateRisk": false,
-      "blocker": "2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC recheck: Big South Fork Blue Heron-to-Yamacraw remains no_live_gauge. Product-style USGS Water Services IV fetch for 03410500 failed unable to connect, so KDFWR's strong Stearns-gauge cfs bands and route/access context still cannot justify implementation.",
-      "retryCondition": "Retry when official USGS 03410500 exposes same-day product-fetchable discharge and gage-height observations through the app-supported USGS path, then verify Blue Heron/Yamacraw coordinates before implementation.",
-      "gauge": {
-        "quality": "direct_but_not_live_verified",
-        "id": "03410500",
-        "provider": "USGS",
-        "notes": "USGS 03410500 is the KDFWR Stearns gauge for this route, but the 2026-06-03 20:13 America/Chicago / 2026-06-04 01:13 UTC check found no modern graphable continuous/daily data and did not verify current product-ready discharge."
-      },
-      "thresholdSupport": {
-        "strength": "official_numeric_pending_live_gauge",
-        "notes": "KDFWR publishes usable Stearns-gauge bands: below 100 cfs expect dragging, 100-500 cfs best casual floating, 500-1500 cfs faster/open-boat interest, above 1500 cfs experienced closed boats only, and over 3000 cfs extremely dangerous. Threshold support is promising, but not usable until the live-gauge gate clears."
-      },
-      "endpoints": {
-        "putIn": "Blue Heron Canoe Ramp / Blue Heron Mine",
-        "takeOut": "Yamacraw Bridge access",
-        "coordinatesPresent": false,
-        "coordinateSource": "KDFWR access guide names both accesses; coordinate-level work was deferred because the live-gauge gate failed."
       },
       "recommendedNextStep": "Recheck whether the candidate has a current USGS or MN DNR live path, or record the exact unsupported provider adapter needed.",
       "discoveryTier": "adjacent_expansion"

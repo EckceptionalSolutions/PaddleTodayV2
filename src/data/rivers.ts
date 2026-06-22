@@ -27766,6 +27766,270 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-south-fork-blue-heron-yamacraw',
+    slug: 'big-south-fork-blue-heron-yamacraw',
+    name: 'Big South Fork',
+    reach: 'Blue Heron Canoe Ramp to Yamacraw',
+    aliases: [
+      'Big South Fork - Blue Heron to Yamacraw',
+      'Blue Heron Mine to Yamacraw Bridge',
+      'Big South Fork Kentucky day float',
+    ],
+    state: 'Kentucky',
+    region: 'Cumberland Plateau',
+    summary:
+      "Scenic Big South Fork day float from Blue Heron to Yamacraw with KDFWR public access at both ends, direct Stearns USGS live data, and official Kentucky flow guidance for a family-friendly gorge run below Devil's Jump.",
+    statusText:
+      'Use the South Fork Cumberland near Stearns gauge. KDFWR rates 100 to 500 cfs as the best casual-floating band, 500 to 1,500 cfs as faster water for more experienced open-boat paddlers, and anything above 1,500 cfs as expert-only conditions.',
+    latitude: 36.6683,
+    longitude: -84.5474,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'remote', 'strainers'],
+      safetyNotes: [
+        "Blue Heron starts below the Devil's Jump rapid; do not paddle upstream into that wilderness section unless you have a separate advanced plan.",
+        'KDFWR calls the river extremely flashy, and storms in the Clear Fork or New River headwaters can turn a gentle float into pushy brown water quickly.',
+        'Wood, boulders, and remote gorge conditions still matter even though this segment is the easier Big South Fork option.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03410500',
+      provider: 'usgs',
+      siteId: '03410500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Cumberland River near Stearns, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 500,
+      tooLow: 100,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Big South Fork at Stearns',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR presents Blue Heron to Yamacraw as a warm-season family float when the Stearns gauge stays in the lower bands, but the plateau headwaters can raise the river fast after rain. Treat storms and gauge trend as more important than the average season.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the gentler Big South Fork option below the wilderness rapids. At normal levels it suits ordinary moving-water paddlers, but above the 500 cfs family band the current gets faster and more consequential.',
+      confidenceNotes:
+        'Confidence is high for this Kentucky add: KDFWR names Blue Heron to Yamacraw as a 5-mile float, publishes official Stearns-gauge cfs bands, and provides access detail pages with source-backed coordinates for both endpoints. USGS 03410500 now returns same-day June 22, 2026 discharge and gage-height values through Water Services, clearing the long-standing live-data blocker. The route stays conservative by treating 100 to 500 cfs as the target band and pushing faster or flood-prone water into user-facing caution.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Blue Heron to Yamacraw, 5 mi',
+        note: 'KDFWR names Blue Heron to Yamacraw as a 5-mile float and separately says families can make this a half-day Big South Fork trip.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '100-500 cfs best casual band',
+        note: 'KDFWR says expect dragging below 100 cfs at the Stearns gauge, rates 100 to 500 cfs as the best flow for casual floating, 500 to 1,500 cfs as faster water for more experienced open boats, and above 1,500 cfs as experienced closed-boat water. Flow above 3,000 cfs is described as extremely dangerous.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Blue Heron Canoe Ramp, 36.6683, -84.5474',
+        note: 'KDFWR lists Blue Heron Canoe Ramp as a carry-down public access with paved parking, restrooms, and published coordinates inside the Big South Fork corridor.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Yamacraw, 36.7255, -84.5446',
+        note: 'KDFWR lists Yamacraw as the downstream public access with year-round availability, an unpaved ramp, and published coordinates beside the KY 92 bridge corridor.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=367',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03410500 at 147 cfs / 1.87 ft',
+        note: 'USGS Water Services returned same-day South Fork Cumberland River near Stearns discharge and gage-height values at 11:30 EDT on June 22, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Blue Heron and Alum Ford campgrounds in the park corridor',
+        note: 'KDFWR says paddlers can use the campgrounds at Blue Heron and Alum Ford in the Big South Fork National River and Recreation Area, which supports endpoint camping rather than assuming a mid-route overnight float.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Big South Fork',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Blue Heron Canoe Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Yamacraw access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=367',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03410500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03410500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'NPS Big South Fork',
+        url: 'https://www.nps.gov/biso/index.htm',
+        provider: 'nps',
+      },
+    ],
+  },
+  {
+    id: 'tradewater-river-bellville-montezuma',
+    slug: 'tradewater-river-bellville-montezuma',
+    name: 'Tradewater River',
+    reach: 'Bellville Road Access to Montezuma Bridge Ramp',
+    aliases: [
+      'Tradewater River - Bellville Road to Montezuma Bridge',
+      'Tradewater River - Bellville to Montezuma',
+      'Tradewater Providence segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Rural western-Kentucky Tradewater float from Bellville Road Access to Montezuma Bridge Ramp with KDFWR public accesses, official Providence-gauge bands, and a same-day USGS live path that finally clears the old gauge blocker.',
+    statusText:
+      'Use the Tradewater River at Providence gauge. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good. Below that is low; above that is high, woody, and flashy enough that casual paddlers should stand down.',
+    latitude: 37.381,
+    longitude: -87.8001,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the official gauge is in range.',
+        'Both public accesses border private property; use the signed ramps and legal public landings rather than treating banks as open stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Tradewater River at Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR positions the Tradewater as a warm-season small-river float, but the river is flashy enough that recent and forecast rain matter more than a rough seasonal assumption. Expect changing wood and muddy landings after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a gentle western-Kentucky river float, but the combination of long rural mileage, wood, braided current lines, and limited bailout options makes it more serious than a park pond paddle.',
+      confidenceNotes:
+        'Confidence is good for this exact public segment: KDFWR publishes the Bellville-to-Montezuma mileage, official Providence gauge bands, route character notes, and access detail pages with coordinates for both endpoints. USGS 03384100 now returns same-day June 22, 2026 discharge and gage-height values through Water Services, clearing the previous no-live-gauge blocker. The route still ships with strong flashy-water warnings because the same-day Providence reading was far above the KDFWR good band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Bellville Road Access to Montezuma Bridge Ramp, 9.2 mi',
+        note: 'KDFWR lists Bellville Road Access to Montezuma Bridge Ramp as a 9.2-mile Tradewater segment in the official access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bellville Road Access, 37.3810, -87.8001',
+        note: 'KDFWR lists Bellville Road Access as a free carry-down launch with unpaved parking and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Montezuma Bridge Ramp, 37.3967, -87.8446',
+        note: 'KDFWR lists Montezuma Bridge Ramp as a free year-round carry-down access with a few parking spots and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=660',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03384100 at 1090 cfs / 20.36 ft',
+        note: 'USGS Water Services returned same-day Tradewater River at Providence discharge and gage-height values at 10:45 CDT on June 22, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats Bellville and Montezuma as simple access sites rather than campgrounds, so this route ships as a day-trip float without endpoint camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bellville Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1202',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Montezuma Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=660',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-ponca-kyles-landing',
     slug: 'buffalo-river-ponca-kyles-landing',
     name: 'Buffalo River',

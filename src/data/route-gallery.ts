@@ -1396,6 +1396,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
+  'big-south-fork-blue-heron-yamacraw': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'tradewater-river-bellville-montezuma': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'south-chickamauga-creek-shallowford-sterchi': [
     {
       id: 'south-chickamauga-audubon-acres-nps',
