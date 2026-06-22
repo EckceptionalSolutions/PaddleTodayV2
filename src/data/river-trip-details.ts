@@ -5809,6 +5809,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'jacks-fork-river-highway-17-blue-spring': {
+    putIn: {
+      name: 'Buck Hollow / Highway 17 Bridge Access',
+      latitude: 37.057183,
+      longitude: -91.664061,
+    },
+    takeOut: {
+      name: 'Blue Spring River Access',
+      latitude: 37.054497,
+      longitude: -91.638198,
+    },
+    logistics: {
+      distanceLabel: 'About 2.6 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, scouting, or dragging',
+      shuttle:
+        'Use a short rural shuttle between Buck Hollow / Highway 17 and Blue Spring. Blue Spring is reached from the Highway OO side west of Mountain View and uses a steep remote road, so inspect the take-out before committing.',
+      permits:
+        'No route-specific private-vessel paddling permit is known. Follow Ozark National Scenic Riverways rules, posted access signs, no-glass/no-polystyrene river rules, and any current park river closures or advisories.',
+      camping:
+        'Blue Spring has primitive NPS camping context, but treat this as a day float unless you have checked current park camping rules and have a legal overnight plan. Do not assume private banks or unsanctioned gravel bars are available.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Buck Hollow and take out at Blue Spring for the shortest official upper Jacks Fork split. Use the Mountain View gauge as the same conservative low-water check already used on adjacent upper-Jacks routes.',
+      accessCaveats: [
+        'Buck Hollow and Blue Spring are official NPS river accesses, but the coordinates here are practical access anchors rather than an NPS coordinate table. Follow signed access roads and current parking layout on arrival.',
+        'Blue Spring on the Jacks Fork is the river access across from the geologic feature, not the separate Blue Spring on the Current River.',
+        'Blue Spring uses a steep dirt-road approach and can feel rougher than the short mileage suggests. Scout the landing and turnaround before leaving a vehicle.',
+      ],
+      watchFor: [
+        'Dragging, shallow riffles, and possible short lining when the Mountain View gauge is near or below the 100 cfs conservative floor.',
+        'Fast riffles, tight bends, wood, strainers, bluff ledges, and Class I-II moving-water consequences on a short but remote upper-river route.',
+        'Rapid rises after thunderstorms, cold spring-fed water, limited cell service, and confusion between the Jacks Fork Blue Spring access and the better-known Current River Blue Spring site.',
+      ],
+    },
+  },
   'jacks-fork-river-blue-spring-rymers': {
     putIn: {
       name: 'Blue Spring River Access',
@@ -8434,6 +8469,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'floyds-fork-north-beckley-creekside': {
+    putIn: {
+      id: 'north-beckley-canoe-access',
+      name: 'North Beckley Canoe Access',
+      latitude: 38.2308,
+      longitude: -85.4682,
+    },
+    takeOut: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    logistics: {
+      distanceLabel: 'About 2.1 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Creekside Canoe Access near the Egg Lawn, then drive back to North Beckley Canoe Access off Miles Park Road. Walk the Creekside stairs first so the take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short urban day float. No camping plan is assumed between North Beckley and Creekside, and Parklands property should be treated as day-use access unless clearly posted otherwise.',
+      summary:
+        'Launch at North Beckley Canoe Access and take out 2.1 miles downstream at Creekside Canoe Access for the shortest Parklands Floyds Fork segment. KDFWR ties the corridor to the Fisherville gauge and The Parklands describes this reach as a small, intimate moving-water float.',
+      accessCaveats: [
+        'North Beckley is a KDFWR carry-down site in Beckley Creek Park with limited-hours shoreline access, unpaved parking, and no ramp surface.',
+        'Creekside is a KDFWR carry-down site reached from the south side of the Egg Lawn. The education route write-up says the take-out is on river right just past the Gheens Foundation Lodge at large tan stone steps.',
+        'The Parklands says Floyds Fork levels rise and fall quickly. Do not treat the gauge as a substitute for checking weather, trend, and the launch channel before committing.',
+        'Use marked landings only and respect private property. Do not assume side channels, gravel bars, or park banks outside the designated accesses are legal stopping points.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow riffles, braided chutes, and gravel bars that can require dragging at lower flows.',
+        'Downed timber, strainers, woody cover, and blind bends around The Oxbow.',
+        'A small side channel on river left around The Oxbow that the KDFWR write-up says to avoid in favor of the main current.',
+        'Higher current and fewer recovery options once the Fisherville gauge climbs beyond the good band, especially after storms.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
+  'floyds-fork-creekside-fisherville': {
+    putIn: {
+      id: 'creekside-canoe-access',
+      name: 'Creekside Canoe Access',
+      latitude: 38.2158,
+      longitude: -85.4778,
+    },
+    takeOut: {
+      id: 'fisherville-canoe-access',
+      name: 'Fisherville Canoe Access',
+      latitude: 38.1887,
+      longitude: -85.4779,
+    },
+    logistics: {
+      distanceLabel: 'About 4.3 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Fisherville Canoe Access on Old Taylorsville Road, then drive back to Creekside Canoe Access. Inspect the Fisherville bridge landing before launching so the right-bank take-out just below KY 155 is easy to spot.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a Parklands day trip. No camping plan is assumed between Creekside and Fisherville, and banks away from public access areas should be treated as private or managed park land unless clearly posted otherwise.',
+      summary:
+        'Launch at Creekside Canoe Access and take out 4.3 miles downstream at Fisherville Canoe Access for the middle Parklands Floyds Fork float. KDFWR gives a good Fisherville gauge band of 50 to 300 cfs, while the route description adds low-water shoals and bluff-lined moving water.',
+      accessCaveats: [
+        'Creekside is a KDFWR carry-down access near the Egg Lawn with no listed amenities. Confirm parking rules and the carry path before unloading boats.',
+        'Fisherville is a KDFWR carry-down site off Old Taylorsville Road with unpaved parking and no listed amenities.',
+        'The Parklands says Floyds Fork levels rise and fall quickly and that lower water can expose shoals requiring wading.',
+        'Stay on the creek and use named public accesses only. Respect private property and managed park boundaries throughout the corridor.',
+      ],
+      watchFor: [
+        'Class I+ moving water with shallow gravel shoals that often require walking at low water.',
+        'Undercut banks, root wads, downed limbs, and faster water near Distillery Bend and bridge pinch points.',
+        'Bridge approaches at Echo Trail, the railroad trestle, Taylorsville Road, and KY 155.',
+        'High water above the good band, when current speeds up through bends and recovery spots become scarcer.',
+        'Water-quality and runoff concerns after storms in the Floyds Fork watershed.',
+      ],
+    },
+  },
+  'floyds-fork-cane-run-seaton-valley': {
+    putIn: {
+      id: 'cane-run-canoe-access',
+      name: 'Cane Run Canoe Access',
+      latitude: 38.1519,
+      longitude: -85.5026,
+    },
+    takeOut: {
+      id: 'seaton-valley-paddling-access',
+      name: 'Seaton Valley Paddling Access',
+      latitude: 38.1323,
+      longitude: -85.5191,
+    },
+    logistics: {
+      distanceLabel: 'About 3.1 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with high water, scouting, or fishing',
+      shuttle:
+        'Stage the take-out at Seaton Valley Paddling Access in Turkey Run Park, then drive back to Cane Run Canoe Access off Echo Trail. Walk both carry-downs before launching because the Parklands corridor uses marked landings rather than broad beaches.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public carry-down accesses, follow posted Parklands and KDFWR rules, and carry required Kentucky boating safety gear.',
+      camping:
+        'Treat this as a short Parklands day trip. KDFWR lists no camping at either access, and no legal on-route overnight plan was verified for this managed park corridor.',
+      summary:
+        'Launch at Cane Run Canoe Access and take out 3.1 miles downstream at Seaton Valley Paddling Access for a short lower-Parklands Floyds Fork float. KDFWR documents the public access pair and Fisherville gauge bands, while The Parklands supplies the moving-water and use-marked-landings safety posture.',
+      accessCaveats: [
+        'Cane Run is a KDFWR carry-down site off Echo Trail with unpaved parking.',
+        'Seaton Valley is a KDFWR carry-down access in Turkey Run Park with limited parking details and no camping listed.',
+        'The Parklands instructs paddlers to use marked landings only and not to take out on private property.',
+        'Floyds Fork rises and falls quickly after rain. Check the gauge trend, weather, and launch current before committing.',
+      ],
+      watchFor: [
+        'Class I+ moving water, shallow shoals, and swift bends that become less forgiving as levels rise.',
+        'Strainers, fallen wood, overhanging brush, and fresh storm debris.',
+        'Longer recovery swims and fewer eddies when flows push above the official good band.',
+        'Private-bank and managed-park boundary issues if you miss the designated take-out.',
+        'Water-quality and runoff concerns after heavy rain in the Louisville metro watershed.',
+      ],
+    },
+  },
   'slate-creek-lions-club-old-slate-furnace': {
     putIn: {
       id: 'lions-club-park',
@@ -9794,46 +9946,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows near or below about 250 cfs, when the course gets shallower, scrapier, and more technical for hull contact.',
         'High or rising water, when American Whitewater still marks the reach runnable but the short course becomes pushier and less forgiving for novice whitewater paddlers.',
         'Tubers, swimmers, anglers near the park, strong eddy lines, rocks, slippery concrete or shoreline footing, and no on-site lifeguard.',
-      ],
-    },
-  },
-  'jacks-fork-river-rymers-bay-creek': {
-    putIn: {
-      id: 'rymers-access',
-      name: 'Rymers Access',
-      latitude: 37.061386,
-      longitude: -91.559117,
-    },
-    takeOut: {
-      id: 'bay-creek-river-access',
-      name: 'Bay Creek River Access / Backcountry Campground',
-      latitude: 37.1231,
-      longitude: -91.5018,
-    },
-    logistics: {
-      distanceLabel: 'About 9 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr, longer with low water, scouting, or dragging',
-      shuttle:
-        'Use a rural two-car shuttle between Rymers Access and Bay Creek. Stage the Bay Creek take-out first, then drive back through Mountain View and Highway M to Rymers. Both access roads are remote enough that same-day inspection is worth the time.',
-      permits:
-        'No private-vessel route permit is known. Follow Ozark National Scenic Riverways rules, posted closures, fishing regulations, and any current parking or launch signs at both accesses.',
-      camping:
-        'Bay Creek is a reservable NPS backcountry campground, so this route can support an endpoint overnight plan only if you separately hold a valid current reservation. Otherwise, treat it as a day trip and do not assume camping rights on private banks.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Rymers and take out at Bay Creek for the 9-mile upper Jacks Fork segment that NPS lists as a 4-hour float. Use the Mountain View gauge with a conservative 100 cfs floor, then make a same-day call on rain, wood, and current before committing.',
-      accessCaveats: [
-        'Rymers is a remote upper-Jacks access reached by the Highway M gravel-road corridor. Inspect the turnaround and parking situation before leaving vehicles.',
-        'Bay Creek is both a river access and a backcountry campground. Respect campground circulation, other overnight users, and any current NPS parking or reservation controls at the take-out.',
-        'This route uses practical existing V2 access anchors rather than a published NPS coordinate table. Follow current park signs and the obvious access layout on arrival.',
-        'Only use designated access points and lawful gravel-bar stops. Private lands and scenic-easement boundaries in the Riverways corridor still matter.',
-      ],
-      watchFor: [
-        'Frequent scraping, dragging, wading, or lining when the Mountain View gauge is near or below about 100 cfs.',
-        'Narrow current lines, bluff pools, shallow ledges, woody debris, and strainers on bends after storms.',
-        'High or rising water on an upper Ozark river that can feel much more serious than the mileage suggests.',
-        'Remote shuttle logistics, limited cell service, and fewer easy bailout options than the more developed lower Jacks segments.',
       ],
     },
   },

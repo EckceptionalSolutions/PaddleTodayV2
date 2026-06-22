@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-22T16:20:00.000Z",
+    "updatedAt": "2026-06-22T19:10:00.000Z",
     "notes": [
+        "2026-06-22 14:10 America/Chicago / 2026-06-22 19:10 UTC main-branch merge follow-up. Added one more internet-sourced Missouri route to preserve the full saved upper-Jacks split set on `main`: `jacks-fork-river-highway-17-blue-spring`. Current NPS float times still list Highway 17 to Blue Spring as 2.6 miles / 1 hour, current NPS Blue Spring and brochure pages still confirm public access plus primitive camping context, and the direct USGS 07065200 Mountain View gauge remained acceptable for the same conservative 100 cfs minimum-only upper-Jacks model already used by the adjacent implemented splits. Reused the approved same-river Commons image and refreshed the generated lead inbox after route-data updates.",
         "2026-06-22 11:20 America/Chicago / 2026-06-22 16:20 UTC three-route implementation pass. Added three internet-sourced routes: `jacks-fork-river-rymers-bay-creek`, `big-south-fork-blue-heron-yamacraw`, and `tradewater-river-bellville-montezuma`. Qualification path: current NPS and USGS evidence still supported the Missouri Rymers-to-Bay Creek split with same-day USGS 07065200 at 129 cfs / 1.11 ft and the accepted 100 cfs minimum-only upper-Jacks model; current KDFWR and USGS evidence cleared Big South Fork Blue Heron-to-Yamacraw with same-day USGS 03410500 at 147 cfs / 1.87 ft plus official 100-500 cfs family-float guidance; current KDFWR and USGS evidence cleared Tradewater Bellville-to-Montezuma with same-day USGS 03384100 at 1090 cfs / 20.36 ft plus official Providence gauge bands and exact access coordinates. Reused approved same-river Commons gallery assets for Jacks Fork and Big South Fork, added a rights-clean Commons Tradewater image, and wrote camping plus safety/logistics notes for all three routes. Re-ran `npm run routes:leads:gather` after the route-data and candidate updates; the queue dropped to 273 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 99, and blocked_recheck 9. Validation passed: `npm run typecheck:routes` and `npm run routes:audit`; broader repo checks still pending in this run.",
         "2026-06-22 09:29 America/Chicago / 2026-06-22 14:29 UTC three-route implementation pass. Refreshed the generated lead inbox at 276 open leads before edits (implementation_ready 1, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 110, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). Added three routes: `jacks-fork-river-blue-spring-rymers`, `jacks-fork-river-rymers-bay-creek`, and `eleven-point-river-thomasville-cane-bluff`. The Jacks Fork adds used current NPS Paddle Jacks Fork River plus the current NPS brochure for route shape, access, primitive-camping context, and the same-day direct USGS 07065200 Mountain View gauge; `blue-spring-rymers` also had exact MoHERP Good rows at 105 / 102 cfs, while `rymers-bay-creek` used the current river-mile access inventory plus an exact MoHERP low row at 33 cfs to stay conservative on the existing 100 cfs minimum-only upper-Jacks model. The Eleven Point add cleared because the current Forest Service Thomasville page now shows Site Open again, still lists the 9.3-mile Thomasville-to-Cane-Bluff float and Class I-II / walking-portage caveats, the current Cane Bluff page still confirms the take-out and dispersed-camping context, same-day USGS 07071500 returned 628 cfs / 2.87 ft at 2026-06-22 08:30 CDT, and MoHERP still carries exact Thomasville-to-Cane-Bluff evidence. Reused approved same-river Commons images for all three routes. Validation: `npm run typecheck:routes` passed, `npm run routes:audit` passed at 263 routes, and `npm run routes:leads:gather` regenerated the inbox at 274 open leads with implementation_ready 0, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 8. Full `npm run typecheck` and `npm test` remain blocked by an existing mobile-workspace TypeScript parse failure in `node_modules/csstype/index.d.ts`.",
         "2026-06-22 07:23 America/Chicago / 2026-06-22 12:23 UTC implementation pass. Refreshed the generated lead inbox at 277 open leads (implementation_ready 2, coordinate_cleanup 0, access_legitimacy 0, threshold_discovery 110, live_provider_recheck 101, fresh_source_discovery 55, blocked_recheck 9). Added one route: `eleven-point-river-cane-bluff-greer-crossing` from candidate `mo-eleven-point-river-cane-bluff-greer` after rechecking the same-day USGS 07071500 live-data path, current Forest Service Cane Bluff and Greer Crossing open status and coordinates, duplicate-corridor boundaries against the existing Eleven Point route set, and the conservative Bardley 300 cfs minimum-only model. No rights-clean exact-route image was selected, so no gallery asset was added. Validation passed: `npm run typecheck`, `npm run routes:audit`, and `npm test`. Re-ran `npm run routes:leads:gather` after the route-data and ledger updates; the queue dropped to 276 open leads with implementation_ready 1, fresh_source_discovery 55, threshold_discovery 110, coordinate_cleanup 0, access_legitimacy 0, live_provider_recheck 101, and blocked_recheck 9.",
@@ -23233,6 +23234,159 @@
                 "coordinateSource": "KDFWR access-detail records for Fisherville Canoe Access and Cane Run Canoe Access."
             },
             "notes": "Implemented 2026-05-31 as a guarded Louisville-area Kentucky route after the official USGS Fisherville page exposed same-day live values. Preserve Class I+ moving-water, strainer, quick-rise, low-water dragging, high-water, private-property, water-quality/runoff, and Cane Run side-channel take-out caveats. No gallery asset was added because no rights-clean exact-route photo was selected."
+        },
+        {
+            "candidateId": "ky-floyds-fork-north-beckley-creekside",
+            "reviewCount": 1,
+            "river": "Floyds Fork",
+            "route": "North Beckley Canoe Access to Creekside Canoe Access",
+            "state": "KY",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "blocker": null,
+            "retryCondition": "Already implemented as floyds-fork-north-beckley-creekside. Revisit only if KDFWR/Parklands access guidance changes, the Fisherville gauge becomes unsupported, or a stronger exact-route photo surfaces.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "KDFWR Floyds Fork page reviewed 2026-06-22; lists North Beckley Canoe Access to Creekside Canoe Access as 2.1 river miles and publishes official Fisherville Low/Good/High bands of 50-300 cfs / 1.3-2.5 ft.",
+                "KDFWR Floyd's Fork route feature reviewed 2026-06-22; describes the exact first float from North Beckley to Creekside, including The Oxbow braid choice, summer dragging, and the Creekside stone-step take-out.",
+                "KDFWR North Beckley Canoe Access detail reviewed 2026-06-22; confirms carry-down access, limited-hours shoreline use, and coordinates 38.2308, -85.4682.",
+                "KDFWR Creekside Canoe Access detail reviewed 2026-06-22; confirms carry-down access and coordinates 38.2158, -85.4778.",
+                "USGS Water Services for 03298000 reviewed 2026-06-22; returned same-day values of 1620 cfs / 4.78 ft at 2026-06-22 13:20 EDT.",
+                "The Parklands paddling page reviewed 2026-06-22; confirms seven designated access points, marked-landings-only use, and general Floyds Fork moving-water cautions."
+            ],
+            "aliases": [
+                "Floyds Fork - North Beckley to Creekside",
+                "Floyds Fork Parklands North Beckley to Creekside",
+                "Floyd's Fork first float"
+            ],
+            "v2Slug": "floyds-fork-north-beckley-creekside",
+            "gauge": {
+                "quality": "direct",
+                "id": "03298000",
+                "provider": "USGS",
+                "notes": "USGS 03298000 Floyds Fork at Fisherville is the direct corridor gauge and returned same-day Water Services values during this run."
+            },
+            "thresholdSupport": {
+                "strength": "official",
+                "notes": "KDFWR publishes official Fisherville bands of Low below 50 cfs / 1.3 ft, Good 50-300 cfs / 1.3-2.5 ft, and High above 300 cfs / 2.5 ft. The older KDFWR route feature also frames 35-500 cfs as the broader recreation band, which supports conservative hard bounds."
+            },
+            "endpoints": {
+                "putIn": "North Beckley Canoe Access",
+                "takeOut": "Creekside Canoe Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 38.2308,
+                    "longitude": -85.4682
+                },
+                "takeOutCoordinates": {
+                    "latitude": 38.2158,
+                    "longitude": -85.4778
+                },
+                "coordinateSource": "KDFWR access-detail records for North Beckley Canoe Access and Creekside Canoe Access."
+            },
+            "notes": "Implemented 2026-06-22 as a short Parklands Floyds Fork day float. Preserve Oxbow braid-choice, summer low-water dragging, wood/strainer, quick-rise, private-property, and water-quality/runoff caveats. Reused the existing rights-clean Floyds Fork gallery image."
+        },
+        {
+            "candidateId": "ky-floyds-fork-creekside-fisherville",
+            "reviewCount": 1,
+            "river": "Floyds Fork",
+            "route": "Creekside Canoe Access to Fisherville Canoe Access",
+            "state": "KY",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "blocker": null,
+            "retryCondition": "Already implemented as floyds-fork-creekside-fisherville. Revisit only if KDFWR/Parklands guidance changes, the Fisherville gauge becomes unsupported, or a stronger exact-route photo surfaces.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "KDFWR Floyds Fork page reviewed 2026-06-22; lists Creekside Canoe Access to Fisherville Canoe Access as 4.3 river miles and publishes official Fisherville Low/Good/High bands of 50-300 cfs / 1.3-2.5 ft.",
+                "KDFWR Floyd's Fork route feature reviewed 2026-06-22; describes the exact middle float from Creekside to Fisherville, including low-water shoals, Distillery Bend, Long Run, the railroad trestle, and the KY 155 take-out.",
+                "KDFWR Creekside Canoe Access detail reviewed 2026-06-22; confirms carry-down access and coordinates 38.2158, -85.4778.",
+                "KDFWR Fisherville Canoe Access detail reviewed 2026-06-22; confirms carry-down access and coordinates 38.1887, -85.4779.",
+                "USGS Water Services for 03298000 reviewed 2026-06-22; returned same-day values of 1620 cfs / 4.78 ft at 2026-06-22 13:20 EDT.",
+                "The Parklands paddling page reviewed 2026-06-22; confirms seven designated access points, marked-landings-only use, and general Floyds Fork moving-water cautions."
+            ],
+            "aliases": [
+                "Floyds Fork - Creekside to Fisherville",
+                "Floyds Fork Parklands Creekside to Fisherville",
+                "Floyd's Fork middle float"
+            ],
+            "v2Slug": "floyds-fork-creekside-fisherville",
+            "gauge": {
+                "quality": "direct",
+                "id": "03298000",
+                "provider": "USGS",
+                "notes": "USGS 03298000 Floyds Fork at Fisherville is the direct corridor gauge and returned same-day Water Services values during this run."
+            },
+            "thresholdSupport": {
+                "strength": "official",
+                "notes": "KDFWR publishes official Fisherville bands of Low below 50 cfs / 1.3 ft, Good 50-300 cfs / 1.3-2.5 ft, and High above 300 cfs / 2.5 ft. The older KDFWR route feature also frames 35-500 cfs as the broader recreation band, which supports conservative hard bounds."
+            },
+            "endpoints": {
+                "putIn": "Creekside Canoe Access",
+                "takeOut": "Fisherville Canoe Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 38.2158,
+                    "longitude": -85.4778
+                },
+                "takeOutCoordinates": {
+                    "latitude": 38.1887,
+                    "longitude": -85.4779
+                },
+                "coordinateSource": "KDFWR access-detail records for Creekside Canoe Access and Fisherville Canoe Access."
+            },
+            "notes": "Implemented 2026-06-22 as the middle Parklands Floyds Fork segment. Preserve low-water shoal-walking, bluff/bridge current, wood/root-wad, quick-rise, private-property, and water-quality/runoff caveats. Reused the existing rights-clean Floyds Fork gallery image."
+        },
+        {
+            "candidateId": "ky-floyds-fork-cane-run-seaton-valley",
+            "reviewCount": 1,
+            "river": "Floyds Fork",
+            "route": "Cane Run Canoe Access to Seaton Valley Paddling Access",
+            "state": "KY",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "blocker": null,
+            "retryCondition": "Already implemented as floyds-fork-cane-run-seaton-valley. Revisit only if KDFWR/Parklands access guidance changes, the Fisherville gauge becomes unsupported, or a stronger exact-route photo surfaces.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "KDFWR Floyds Fork page reviewed 2026-06-22; lists Cane Run Canoe Access to Seaton Valley Paddling Access as 3.1 river miles and publishes official Fisherville Low/Good/High bands of 50-300 cfs / 1.3-2.5 ft.",
+                "KDFWR Cane Run Canoe Access detail reviewed 2026-06-22; confirms carry-down access and coordinates 38.1519, -85.5026.",
+                "KDFWR Seaton Valley Paddling Access detail reviewed 2026-06-22; confirms carry-down access and coordinates 38.1323, -85.5191.",
+                "USGS Water Services for 03298000 reviewed 2026-06-22; returned same-day values of 1620 cfs / 4.78 ft at 2026-06-22 13:20 EDT.",
+                "The Parklands paddling page reviewed 2026-06-22; confirms seven designated access points, marked-landings-only use, and general Floyds Fork Class I+ moving-water cautions.",
+                "KDFWR Floyd's Fork route feature reviewed 2026-06-22; supports use of the same corridor gauge and broader 35-500 cfs recreation range for Parklands Floyds Fork paddling."
+            ],
+            "aliases": [
+                "Floyds Fork - Cane Run to Seaton Valley",
+                "Floyds Fork Parklands Cane Run to Seaton Valley",
+                "Floyd's Fork lower Parklands float"
+            ],
+            "v2Slug": "floyds-fork-cane-run-seaton-valley",
+            "gauge": {
+                "quality": "direct",
+                "id": "03298000",
+                "provider": "USGS",
+                "notes": "USGS 03298000 Floyds Fork at Fisherville is the direct corridor gauge and returned same-day Water Services values during this run."
+            },
+            "thresholdSupport": {
+                "strength": "official",
+                "notes": "KDFWR publishes official Fisherville bands of Low below 50 cfs / 1.3 ft, Good 50-300 cfs / 1.3-2.5 ft, and High above 300 cfs / 2.5 ft. The older KDFWR route feature also frames 35-500 cfs as the broader recreation band, which supports conservative hard bounds."
+            },
+            "endpoints": {
+                "putIn": "Cane Run Canoe Access",
+                "takeOut": "Seaton Valley Paddling Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 38.1519,
+                    "longitude": -85.5026
+                },
+                "takeOutCoordinates": {
+                    "latitude": 38.1323,
+                    "longitude": -85.5191
+                },
+                "coordinateSource": "KDFWR access-detail records for Cane Run Canoe Access and Seaton Valley Paddling Access."
+            },
+            "notes": "Implemented 2026-06-22 as a short lower-Parklands Floyds Fork route. Preserve marked-landings-only, wood/strainer, quick-rise, private-property, and water-quality/runoff caveats; camping remains none. Reused the existing rights-clean Floyds Fork gallery image."
         },
         {
             "candidateId": "ky-south-fork-licking-public-access-pools",

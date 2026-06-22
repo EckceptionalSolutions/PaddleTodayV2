@@ -856,6 +856,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'jacks-fork-river-highway-17-blue-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-blue-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
   'jacks-fork-river-blue-spring-rymers': [
     {
       id: 'jacks-fork-upper-commons',
@@ -882,16 +892,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/jacks-fork-river-bay-creek-alley-spring/jacks-fork-upper.jpg',
       alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Jacks Fork River corridor',
-      credit: 'Chris M Morris via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
-    },
-  ],
-  'jacks-fork-river-rymers-bay-creek': [
-    {
-      id: 'jacks-fork-upper-commons',
-      src: '/gallery/jacks-fork-river-buck-hollow-rymers/jacks-fork-upper.jpg',
-      alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
-      caption: 'Upper Jacks Fork corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
@@ -1357,6 +1357,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
     },
   ],
   'floyds-fork-fisherville-cane-run': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-north-beckley-creekside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-creekside-fisherville': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-cane-run-seaton-valley': [
     {
       id: 'floyds-fork-april-2024-commons',
       src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',

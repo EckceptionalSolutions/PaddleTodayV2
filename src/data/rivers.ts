@@ -18709,6 +18709,145 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'jacks-fork-river-highway-17-blue-spring',
+    slug: 'jacks-fork-river-highway-17-blue-spring',
+    name: 'Jacks Fork River',
+    reach: 'Buck Hollow / Highway 17 Bridge to Blue Spring River Access',
+    aliases: [
+      'Jacks Fork - Highway 17 to Blue Spring',
+      'Upper Jacks Fork - Highway 17 to Blue Spring',
+      'Buck Hollow to Blue Spring',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Shortest upper Jacks Fork split from Buck Hollow to Blue Spring, backed by current NPS float-time support, primitive camping context at the take-out, and the direct Mountain View gauge used conservatively.',
+    statusText:
+      'Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor; below that, expect shallow riffles, dragging, and possible short lining near Blue Spring. High or rising water deserves extra caution in this narrow upper-river corridor.',
+    latitude: 37.057183,
+    longitude: -91.664061,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'This is still an upper-Jacks moving-water route even though it is short. The corridor is narrow, seasonal, and can change quickly after thunderstorms.',
+        'Below the 100 cfs floor, expect scraping and possible short lining through riffles and ledges rather than an easy drift.',
+        'Blue Spring on the Jacks Fork is a primitive river access and campsite, not a developed boat ramp. Use only the signed NPS accesses and do not substitute informal roadside pull-offs or private banks.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07065200',
+      provider: 'usgs',
+      siteId: '07065200',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Jacks Fork near Mountain View, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 100,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Mountain View gauge rating and adjacent upper-Jacks trip rows',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The upper Jacks Fork is seasonal. NPS says portions are only navigable during certain times because of low river levels, and even this shortest split is most reliable in spring or after rain. Thunderstorms can raise the valley quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This short upper-river reach still carries Class I-II Ozark character with riffles, shoals, bluff pools, wood, and remote shuttle logistics. Treat it as moving water rather than flatwater.',
+      confidenceNotes:
+        'Confidence is good for a conservative Missouri add: the current NPS float-times page lists Highway 17 to Blue Spring as a 2.6-mile / 1-hour Jacks Fork float; the current NPS park brochure places Buck Hollow at river mile 88 and Blue Spring at river mile 87 with primitive camping context; USGS 07065200 returned same-day values during review; and the adjacent implemented upper-Jacks routes already use the same conservative 100 cfs minimum-only model tied to Mountain View gauge evidence. Coordinates are carried from the existing Buck Hollow access anchor and a topo-derived Blue Spring River Access point, so paddlers should still follow signed access roads and parking layout on arrival.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Highway 17 to Blue Spring, 2.6 mi / 1 hr',
+        note: 'The current NPS float-times page lists Highway 17 to Blue Spring as a 2.6-mile Jacks Fork float taking about 1 hour.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Buck Hollow at Highway 17, river mile 88',
+        note: 'The current NPS park brochure lists Buck Hollow where Highway 17 crosses the Jacks Fork and places it at river mile 88.',
+        sourceUrl: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Blue Spring on Jacks Fork, river mile 87',
+        note: 'The current NPS park brochure lists Blue Spring on the Jacks Fork as a river access with primitive camping context, and the current Blue Spring page says the smaller Jacks Fork Blue Spring is a river access and primitive campsite.',
+        sourceUrl: 'https://www.nps.gov/ozar/blue-spring.htm',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07065200 at 124 cfs / 1.08 ft',
+        note: 'A same-day Water Services IV refresh returned 124 cfs and 1.08 ft at 2026-06-22 08:45 CDT for Jacks Fork near Mountain View, the direct upper-Jacks gauge already used by adjacent routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+      },
+      {
+        label: 'Low-water floor',
+        value: '100 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs, and adjacent upper-Jacks route evidence shows the corridor becomes scrape-prone below that floor. The app keeps only the conservative 100 cfs floor.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+      },
+      {
+        label: 'Coordinate support',
+        value: 'Buck Hollow bridge access to Blue Spring River Access',
+        note: 'The Buck Hollow put-in reuses the adjacent implemented Highway 17 bridge access anchor, and TopoQuest nearby-feature records around Muck Forty Hole support Blue Spring River Access at 37.054497, -91.638198.',
+        sourceUrl: 'https://topoquest.com/place/missouri/channel/muck-forty-hole/737936',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'NPS Jacks Fork estimated float times',
+        url: 'https://www.nps.gov/ozar/planyourvisit/floattimes.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Paddle Jacks Fork River',
+        url: 'https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Ozark National Scenic Riverways park brochure',
+        url: 'https://www.nps.gov/ozar/planyourvisit/park-brochure.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'NPS Blue Spring page',
+        url: 'https://www.nps.gov/ozar/blue-spring.htm',
+        provider: 'nps',
+      },
+      {
+        label: 'Rivers.MOHERP Jacks Fork Mountain View gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07065200&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07065200 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07065200/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07065200 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07065200',
+        provider: 'usgs',
+      },
+      {
+        label: 'TopoQuest Blue Spring area features',
+        url: 'https://topoquest.com/place/missouri/channel/muck-forty-hole/737936',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'jacks-fork-river-blue-spring-rymers',
     slug: 'jacks-fork-river-blue-spring-rymers',
     name: 'Jacks Fork River',
@@ -27269,6 +27408,405 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'floyds-fork-north-beckley-creekside',
+    slug: 'floyds-fork-north-beckley-creekside',
+    name: 'Floyds Fork',
+    reach: 'North Beckley Canoe Access to Creekside Canoe Access',
+    aliases: [
+      'Floyds Fork - North Beckley to Creekside',
+      'Floyds Fork Parklands North Beckley to Creekside',
+      "Floyd's Fork first float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Short after-work Floyds Fork float through Beckley Creek Park. KDFWR documents the public carry-down pair and site-to-site mileage, while the older KDFWR route feature and Parklands safety guidance add reach character, braid-channel cautions, and the current gauge relationship.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and an older KDFWR feature frames 35 to 500 cfs as the broader recreation range. Below that expect dragging; above that expect faster current and fewer recovery spots.',
+    latitude: 38.2308,
+    longitude: -85.4682,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The Parklands and KDFWR both treat Floyds Fork as rain-sensitive moving water. Spring through fall is the practical season, but low summer flows can expose gravel bars and braided chutes while storm runoff can push the creek well above the comfortable band.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is still a Class I+ Parklands moving-water float, not flatwater. The route is short and accessible, but KDFWR and The Parklands both warn about strainers, braided current choices, and quicker post-rain current than casual urban paddlers may expect.',
+      confidenceNotes:
+        'Confidence is high for a conservative add: KDFWR names the exact North Beckley-to-Creekside access pair, gives official coordinates for both carry-down sites, and ties Floyds Fork to the direct USGS 03298000 Fisherville gauge with official Low/Good/High bands. The older KDFWR Floyds Fork feature describes this exact first float and its route-specific braid and take-out cues, while same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'North Beckley Canoe Access to Creekside Canoe Access, 2.1 miles',
+        note: 'KDFWR lists North Beckley Canoe Access to Creekside Canoe Access in the Floyds Fork site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'North Beckley Canoe Access, 38.2308, -85.4682',
+        note: 'KDFWR identifies North Beckley Canoe Access as a free carry-down site in Beckley Creek Park with limited-hours shoreline access and unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Creekside Canoe Access, 38.2158, -85.4778',
+        note: 'KDFWR identifies Creekside Canoe Access as a free carry-down access at The Parklands with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000',
+        note: 'USGS Water Services returned same-day values of 1620 cfs and 4.78 ft at 2026-06-22 13:20 EDT for Floyds Fork at Fisherville during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Class I+ moving water, braid choices, wood, quick rises',
+        note: 'The Parklands says Floyds Fork is Class I+ moving water with small rapids, waves, obstructions, strainers, and quickly changing water levels, and KDFWR says to stay in the main current around The Oxbow and expect dragging through braided chutes in summer.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR North Beckley Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=876',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Creekside Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling page',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'floyds-fork-creekside-fisherville',
+    slug: 'floyds-fork-creekside-fisherville',
+    name: 'Floyds Fork',
+    reach: 'Creekside Canoe Access to Fisherville Canoe Access',
+    aliases: [
+      'Floyds Fork - Creekside to Fisherville',
+      'Floyds Fork Parklands Creekside to Fisherville',
+      "Floyd's Fork middle float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Middle Parklands Floyds Fork float with bluff-lined bends, gravel shoals, and multiple bridge landmarks. KDFWR documents the public access pair and mileage, and its route feature adds low-water, Distillery Bend, and take-out context.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, while the older route feature treats 35 to 500 cfs as the wider recreation range. Low water means shoal walking; high water means faster current and fewer eddies.',
+    latitude: 38.2158,
+    longitude: -85.4778,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'The corridor is most reliable in spring through fall. Low summer flows can turn the shoals into a creek walk, while heavy rain can quickly move this entrenched section into swifter, more pushy current.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is moving-water paddling with route-reading responsibility, not a pond or lake float. The Parklands and KDFWR describe shoals, bends, root wads, and bluff-side current that justify a moderate rating even though the route stays within a managed park corridor.',
+      confidenceNotes:
+        'Confidence is high for a guarded add: KDFWR names the exact Creekside-to-Fisherville access pair, gives official coordinates for both endpoints, and publishes official Fisherville gauge bands on the same corridor. The KDFWR Floyds Fork feature adds route-specific details for shoals, Distillery Bend, Long Run, the trestle, and the KY 155 take-out, and same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Creekside Canoe Access to Fisherville Canoe Access, 4.3 miles',
+        note: 'KDFWR lists Creekside Canoe Access to Fisherville Canoe Access in the Floyds Fork site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Creekside Canoe Access, 38.2158, -85.4778',
+        note: 'KDFWR identifies Creekside Canoe Access as a free carry-down access at The Parklands with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Fisherville Canoe Access, 38.1887, -85.4779',
+        note: 'KDFWR identifies Fisherville Canoe Access as a free carry-down site off Old Taylorsville Road with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000',
+        note: 'USGS Water Services returned same-day values of 1620 cfs and 4.78 ft at 2026-06-22 13:20 EDT for Floyds Fork at Fisherville during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Class I+ moving water, shoals, bluffs, root wads, bridge landmarks',
+        note: 'The KDFWR route feature describes shoals that often require walking at low water, a more entrenched and bluff-lined section around Distillery Bend, Long Run entering on the left, and the right-bank Fisherville take-out just after KY 155.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Creekside Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1091',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fisherville Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=877',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling page',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'floyds-fork-cane-run-seaton-valley',
+    slug: 'floyds-fork-cane-run-seaton-valley',
+    name: 'Floyds Fork',
+    reach: 'Cane Run Canoe Access to Seaton Valley Paddling Access',
+    aliases: [
+      'Floyds Fork - Cane Run to Seaton Valley',
+      'Floyds Fork Parklands Cane Run to Seaton Valley',
+      "Floyd's Fork lower Parklands float",
+    ],
+    state: 'Kentucky',
+    region: 'Louisville Metro',
+    summary:
+      'Short lower-Parklands Floyds Fork float from Pope Lick Park into Turkey Run. KDFWR documents the public access pair and mileage, and the Parklands supplies the marked-landings-only and moving-water safety posture for this managed urban corridor.',
+    statusText:
+      'Use the Floyds Fork at Fisherville gauge. KDFWR lists 50 to 300 cfs, or 1.3 to 2.5 ft, as the corridor good band, and an older KDFWR route feature frames 35 to 500 cfs as the broader recreation range. Below that expect more scraping; above that expect a swifter, less forgiving runout into bends.',
+    latitude: 38.1519,
+    longitude: -85.5026,
+    gaugeSource: {
+      id: 'usgs-03298000',
+      provider: 'usgs',
+      siteId: '03298000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Floyds Fork at Fisherville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 50,
+      idealMax: 300,
+      tooLow: 35,
+      tooHigh: 500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Floyds Fork near Fisherville',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This lower Parklands corridor is still rain-sensitive. Spring through fall is the practical season, but the route can turn pushy and fast after storms and scrape badly when summer flows sag below the corridor floor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route stays within an accessible park system, but The Parklands still classifies Floyds Fork as Class I+ moving water with wood, waves, and quickly changing levels. Treat it as a moderate moving-water trip rather than a casual flatwater float.',
+      confidenceNotes:
+        'Confidence is solid for a conservative add: KDFWR names the exact Cane Run-to-Seaton Valley access pair, gives official coordinates for both endpoints, and publishes official Fisherville gauge bands for the corridor. The Parklands paddling guidance confirms seven designated access points, marked-landings-only use, and Class I+ moving-water hazards, and same-day USGS Water Services values were available during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '50-300 cfs / 1.3-2.5 ft',
+        note: 'KDFWR rates Floyds Fork near Fisherville as Low below 50 cfs or 1.3 ft, Good from 50 to 300 cfs or 1.3 to 2.5 ft, and High above 300 cfs or 2.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Broader recreation band',
+        value: '35-500 cfs',
+        note: 'A KDFWR Floyds Fork feature says the best floating levels for fishing and recreation are 35 to 500 cfs, with higher levels suited only to experienced paddlers.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Cane Run Canoe Access to Seaton Valley Paddling Access, 3.1 miles',
+        note: 'KDFWR lists Cane Run Canoe Access to Seaton Valley Paddling Access in the Floyds Fork site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cane Run Canoe Access, 38.1519, -85.5026',
+        note: 'KDFWR identifies Cane Run Canoe Access as a free carry-down site off Echo Trail with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1092',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Seaton Valley Paddling Access, 38.1323, -85.5191',
+        note: 'KDFWR identifies Seaton Valley Paddling Access as a free carry-down site in Turkey Run Park with shoreline access and no camping listed.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1141',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03298000',
+        note: 'USGS Water Services returned same-day values of 1620 cfs and 4.78 ft at 2026-06-22 13:20 EDT for Floyds Fork at Fisherville during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Class I+ moving water, strainers, quick rises, marked-landings-only access',
+        note: 'The Parklands says Floyds Fork is Class I+ moving water with small rapids, waves, obstructions, strainers, and quickly changing levels, and its paddling page says to use marked landings only and not to take out on private property.',
+        sourceUrl: 'https://theparklands.org/find-an-activity/paddling/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Floyds Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/floyds-fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: "KDFWR Floyd's Fork route feature",
+        url: 'https://fw.ky.gov/Education/Pages/Floyd%27s-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cane Run Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1092',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Seaton Valley Paddling Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1141',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03298000 Floyds Fork at Fisherville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03298000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03298000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03298000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'The Parklands paddling page',
+        url: 'https://theparklands.org/find-an-activity/paddling/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'slate-creek-lions-club-old-slate-furnace',
     slug: 'slate-creek-lions-club-old-slate-furnace',
     name: 'Slate Creek',
@@ -31647,133 +32185,6 @@ export const rivers: River[] = [
         label: "USGS 05551580 monitoring location",
         url: "https://waterdata.usgs.gov/monitoring-location/USGS-05551580/",
         provider: "usgs",
-      },
-    ],
-  },
-  {
-    id: "jacks-fork-river-rymers-bay-creek",
-    slug: "jacks-fork-river-rymers-bay-creek",
-    name: "Jacks Fork River",
-    reach: "Rymers Access to Bay Creek River Access",
-    aliases: [
-      "Jacks Fork - Rymers to Bay Creek",
-      "Upper Jacks Fork - Rymers to Bay Creek",
-      "Jacks Fork Rymers-Bay gap",
-    ],
-    state: "Missouri",
-    region: "Missouri Ozarks",
-    summary:
-      "Remote upper Jacks Fork day from Rymers to Bay Creek. NPS lists the exact 9-mile segment, the direct Mountain View gauge is live again, and the route uses the same conservative 100 cfs floor as the adjacent upper-Jacks additions.",
-    statusText:
-      "Use the Jacks Fork near Mountain View gauge. Around 100 cfs is the conservative low-water floor for this upper-Jacks segment; below that, expect scraping, dragging, and possible wading. No preferred range or high-water cutoff is claimed.",
-    latitude: 37.061386,
-    longitude: -91.559117,
-    routeType: "whitewater",
-    gaugeSource: {
-      id: "usgs-07065200",
-      provider: "usgs",
-      siteId: "07065200",
-      metric: "discharge_cfs",
-      unit: "cfs",
-      kind: "direct",
-      siteName: "Jacks Fork near Mountain View, MO",
-      detailUrl:
-        "https://waterdata.usgs.gov/monitoring-location/USGS-07065200/",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 100,
-      thresholdSource: {
-        label:
-          "Rivers.MOHERP Mountain View gauge rating and Rymers-to-Bay Creek trip evidence",
-        url: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
-        provider: "local",
-      },
-      thresholdSourceStrength: "community",
-      rainfallSensitivity: "high",
-      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
-      seasonNotes:
-        "The upper Jacks Fork is seasonal and quick to react to rain. NPS says portions of the river are only navigable at certain times because of low water, while thunderstorms can raise this narrow valley quickly and move fresh wood into the channel.",
-      difficulty: "moderate",
-      difficultyNotes:
-        "Treat this as moving-water Ozark paddling, not a casual tubing reach. The route has riffles, narrow current lines, bluff pools, shallow ledges, and remote access logistics that get more demanding near or below the 100 cfs floor.",
-      confidenceNotes:
-        "Confidence is good for a conservative Missouri add: NPS still lists Rymers to Bay Creek as a 9-mile / 4-hour Jacks Fork float and names both as popular put-ins; the direct USGS 07065200 Mountain View gauge returned same-day June 22, 2026 values from Water Services during this run; and Rivers.MOHERP Mountain View still marks Good beginning at 100 cfs while preserving an exact Rymers-to-Bay-Creek low-flow trip row. Endpoint coordinates reuse the existing V2 Rymers and Bay Creek access anchors used on adjacent upper-Jacks routes, so on-site NPS signs and current access conditions still control.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route shape",
-        value: "Rymers to Bay Creek, 9 mi / 4 hr",
-        note: "NPS lists Rymers to Bay Creek as an estimated 4-hour Jacks Fork float covering about 9 river miles.",
-        sourceUrl: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
-      },
-      {
-        label: "Official access context",
-        value: "Rymers and Bay Creek are named Jacks Fork put-ins",
-        note: "The NPS Paddle Jacks Fork River page still names both Rymers and Bay Creek among the popular Jacks Fork put-in locations.",
-        sourceUrl: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 07065200 at 138 cfs / 1.16 ft",
-        note: "USGS Water Services returned same-day June 22, 2026 discharge and gage-height values for Jacks Fork near Mountain View during this route-add run.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07065200&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Low-water floor",
-        value: "100 cfs minimum-only",
-        note: "Rivers.MOHERP rates the Mountain View gauge Good beginning at 100 cfs and still preserves an exact Rymers-to-Bay-Creek trip row at 33 cfs as Low, so Paddle Today keeps this route minimum-only and conservative.",
-        sourceUrl: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
-      },
-      {
-        label: "Coordinate support",
-        value: "Existing V2 upper-Jacks access anchors",
-        note: "Rymers and Bay Creek coordinates are carried forward from the adjacent live Jacks Fork routes that already use those public access anchors in V2.",
-        sourceUrl: "https://www.southwestpaddler.com/docs/current4.html",
-      },
-      {
-        label: "Camping context",
-        value: "Bay Creek backcountry campground",
-        note: "Recreation.gov lists Bay Creek within the Jacks Fork / Middle Current backcountry campground system and describes river-edge access with boating activity at the site.",
-        sourceUrl: "https://www.recreation.gov/camping/campgrounds/10344874",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "NPS Paddle Jacks Fork River",
-        url: "https://www.nps.gov/thingstodo/paddle-jacks-fork-river.htm",
-        provider: "nps",
-      },
-      {
-        label: "NPS Ozark National Scenic Riverways park brochure",
-        url: "https://www.nps.gov/ozar/planyourvisit/park-brochure.htm",
-        provider: "nps",
-      },
-      {
-        label: "Recreation.gov Jacks Fork / Middle Current Backcountry Campsites",
-        url: "https://www.recreation.gov/camping/campgrounds/10344874",
-        provider: "local",
-      },
-      {
-        label: "Rivers.MOHERP Jacks Fork Mountain View gauge",
-        url: "https://rivers.moherp.org/gauge/?gauge=07065200&hours=168",
-        provider: "local",
-      },
-      {
-        label: "USGS 07065200 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/USGS-07065200/",
-        provider: "usgs",
-      },
-      {
-        label: "USGS 07065200 Water Services current values",
-        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07065200&parameterCd=00060,00065&siteStatus=all",
-        provider: "usgs",
-      },
-      {
-        label: "Southwest Paddler Jacks Fork River guide",
-        url: "https://www.southwestpaddler.com/docs/current4.html",
-        provider: "local",
       },
     ],
   },
