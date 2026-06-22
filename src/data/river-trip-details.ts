@@ -3381,6 +3381,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'pecatonica-river-wes-block-tuttys': {
+    putIn: {
+      name: 'Wes Block Trail Access',
+      latitude: 42.330992586134,
+      longitude: -89.666227460683,
+    },
+    takeOut: {
+      name: "Tutty's Crossing Trailhead",
+      latitude: 42.300190474464,
+      longitude: -89.615848288175,
+    },
+    logistics: {
+      distanceLabel: '6.4 mi',
+      estimatedPaddleTime: 'About 2 hr 30 min to 4 hr',
+      shuttle:
+        "Use a two-car shuttle between the Wes Block trailhead west of Freeport and Tutty's Crossing downtown. The Jane Addams Trail links the two access areas for bikes and walkers, but the simplest shuttle is still by vehicle.",
+      permits:
+        'No route-specific paddling permit is known. Follow posted Freeport Park District, trailhead, and parking rules at both public launches.',
+      camping:
+        "Treat this as a day route. No legal on-route overnight stop was confirmed between Wes Block and Tutty's Crossing, but Lake Le-Aqua-Na State Recreation Area is a nearby official campground base if you want to stay in Stephenson County.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Wes Block Trail Access and take out at Tutty's Crossing for a gentle Pecatonica day entering Freeport. The route is shorter and friendlier than the long rural lower-Pec shuttles, but the Darlington gauge is still only a same-river proxy and muddy banks are part of the experience.",
+      accessCaveats: [
+        'Both endpoints are official trailheads with boat-launch amenities, but they are trailhead-style accesses rather than large paved-ramp complexes. Scout unloading and parking before staging a shuttle.',
+        "Wes Block is the cleaner upstream public start. Tutty's Crossing is the logical downtown finish before longer Freeport combinations continue toward Hancock or the VFW.",
+        'The Pecatonica is navigable, but banks outside public access areas are private and often muddy. Stay with named public launches for staging and take-out.',
+      ],
+      watchFor: [
+        'Muddy banks, slippery footing, and awkward exits after recent high water.',
+        'Downed trees, strainers, and changing current lines after storms even though the lower Pec is usually gentle.',
+        'High, muddy water and shoreside strainers as the Darlington proxy pushes above about 291 cfs; above 501 cfs the lower river may be too high and unattractive for a broad recreational recommendation.',
+      ],
+    },
+  },
   'kickapoo-river-ontario-rockton': {
     putIn: {
       name: 'Village of Ontario Public Canoe Landing',
@@ -5810,6 +5845,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Motorboat wakes, long pool sections, wind, summer crowds, tubes, slick landings, swimmers, fishing lines, and crowded access areas.',
         'High or rising water, floating wood, stronger current, and NPS non-motorized closure levels after storms. The compendium lists Van Buren Bridge at a 5.00 ft closed level.',
         'Private banks, limited cell service, few easy exits, and confusion between Gooseneck and Hawes naming at the take-out.',
+      ],
+    },
+  },
+  'eleven-point-river-cane-bluff-greer-crossing': {
+    putIn: {
+      name: 'Cane Bluff River Access',
+      latitude: 36.796246,
+      longitude: -91.405675,
+    },
+    takeOut: {
+      name: 'Greer Crossing Recreation Area',
+      latitude: 36.79356389,
+      longitude: -91.32854167,
+    },
+    logistics: {
+      distanceLabel: 'About 7.3 mi by Forest Service river miles',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr depending on level, stops, and shuttle timing',
+      shuttle:
+        'Use a two-car or local outfitter shuttle between Cane Bluff and Greer Crossing. Both approaches use rural Forest Service and gravel-road access, so inspect the take-out and parking before committing.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mark Twain National Forest access rules, no-glass/no-polystyrene river rules, campground/day-use rules at Greer, and posted parking signs.',
+      camping:
+        'Cane Bluff allows dispersed camping and Greer Crossing has a campground, but treat this as a day float unless you have a separate legal overnight plan and have checked current Forest Service rules.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Cane Bluff and take out at Greer Crossing for a spring-favored upper Eleven Point float. Use the Bardley gauge as a conservative low-water estimate, but expect the river above Greer Spring to feel shallower and slower than the downstream gauge suggests.',
+      accessCaveats: [
+        'Cane Bluff and Greer Crossing are official Forest Service river accesses with published coordinates, but road conditions, parking limits, and site rules can change.',
+        'The Bardley gauge is downstream of Greer Spring, so this upper section can require more scraping and local judgment than the gauge alone suggests.',
+        'The Eleven Point corridor includes private lands under scenic easement. Do not assume banks away from public accesses, designated float camps, or legal gravel-bar stops are public.',
+      ],
+      watchFor: [
+        'Shallow riffles, scraping, and occasional short portages when the Bardley gauge is near the 300 cfs floor, especially above Greer Spring.',
+        'Fresh wood, blind bends, rapid rises after rain, and a remote-feeling stretch with limited easy exits.',
+        'Motorized users are allowed on this part of the National Wild and Scenic River under the 25 hp limit, and the water gets colder and swifter near Greer Spring.',
       ],
     },
   },
@@ -9116,6 +9186,89 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'sugar-creek-deers-mill-cox-ford': {
+    putIn: {
+      id: 'deers-mill-public-access-point',
+      name: "Deer's Mill Public Access",
+      latitude: 39.946497,
+      longitude: -87.059065,
+    },
+    takeOut: {
+      id: 'cox-ford-public-access-point',
+      name: 'Cox Ford Public Access',
+      latitude: 39.885608,
+      longitude: -87.223917,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 3 hr 30 min to 5 hr 30 min at ordinary levels, longer near the floor, in heavy summer traffic, or with a slow shuttle day',
+      shuttle:
+        "Stage the Cox Ford take-out first, then drive back to Deer's Mill on SR 234. Confirm the exact parking setup before leaving vehicles because the current Turkey Run public access still uses permit parking rather than a wide open unregulated lot.",
+      permits:
+        "No route-specific private paddling permit is known. Follow Indiana boating and PFD rules, obey posted Shades / Pine Hills / Turkey Run access signs, and secure any currently required long-term parking permit at Cox Ford before leaving a vehicle there.",
+      camping:
+        "Treat the standard Deer's Mill to Cox Ford run as a day route. Nearby campgrounds and outfitter lodging exist in the corridor, but no overnight stop is needed for the normal shuttle.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Deer's Mill Public Access and take out at Cox Ford Public Access for the classic scenic Sugar Creek corridor through Shades and Turkey Run. Use USGS 03339500 at Crawfordsville with a conservative 75 cfs floor, and make a same-day call on current, wood, crowds, and Cox Ford parking rules before committing.",
+      accessCaveats: [
+        "The current Shades map keeps Deer's Mill as an official Sugar Creek canoe access, but the landing itself has limited loading space. IndianaOutfitters says longer parking is away from the immediate access area rather than right at the bank.",
+        'The current Turkey Run map labels Cox Ford as Public Access and says a parking permit is required there. Handle the permit/parking plan before launching instead of assuming open all-day parking.',
+        "The endpoint coordinates come from the named public-access placemarks in IndianaOutfitters' public Sugar Creek KML. Follow current on-site signs and the obvious public landing path instead of driving or carrying beyond posted access areas.",
+        'This is a very popular Sugar Creek shuttle in warm weather. Loading zones, crowding, and foot traffic can all slow the start or finish even when the river itself is friendly.',
+        'Banks between the two accesses may be private or unsuitable for casual stopping. Plan the route around the named public endpoints.',
+      ],
+      watchFor: [
+        "Flows near or below about 75 cfs, when riffles get scrapier and the 14-mile day takes longer than the normal Sugar Creek expectation.",
+        'Fast rises after rain, muddy pushy current, floating wood, strainers on bends, and stronger water than the pleasant scenic look at the access may suggest.',
+        'Slippery footing, shallow carry-downs, crowding at the landings, and the risk of missing the signed Cox Ford finish when the corridor is busy.',
+        'Private banks, thunderstorms, summer heat, cold shoulder-season water, and limited legal places to leave the river outside the named public accesses.',
+      ],
+    },
+  },
+  'wildcat-creek-knop-lake-mis-so-lah': {
+    putIn: {
+      id: 'knop-lake-public-fishing-site-access',
+      name: 'Knop Lake Public Fishing Site access',
+      latitude: 40.4595504,
+      longitude: -86.66416152,
+    },
+    takeOut: {
+      id: 'mis-so-lah-access-site',
+      name: 'Mis-So-Lah access site',
+      latitude: 40.44428906,
+      longitude: -86.76371068,
+    },
+    logistics: {
+      distanceLabel: 'About 9.3 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer near the floor, with shallow riffles, wood cleanup, or a slower shuttle day',
+      shuttle:
+        'Stage the Mis-So-Lah take-out first, then drive back upstream to Knop Lake Public Fishing Site. The Knop entrance can be easy to miss, and the Wildcat Creek access page says to take the second road to the right by the Knop Lake Access sign rather than the straight private road. Inspect both endpoints before launching because Mis-So-Lah is a small grass-parking carry-down instead of a formal ramp complex.',
+      permits:
+        'No route-specific private paddling permit is known. Follow Indiana boating and PFD rules, use only the named public access sites, and obey any current DNR, NICHES, or Wildcat Foundation signs, closures, or seasonal site notices.',
+      camping:
+        'Treat this as a daylight day trip. The Knop Lake Public Fishing Site says there is no camping, Mis-So-Lah is a small public access point rather than a campground, and banks away from the named accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Knop Lake Public Fishing Site access and take out at Mis-So-Lah for the 9.3-mile lower North Fork Wildcat run. Use USGS 03334000 at Owasco and a conservative 180 cfs floor, then make a same-day call on wood, the Pyrmont bypass channel, and take-out footing.',
+      accessCaveats: [
+        'Indiana DNR\'s current access layer names Knop Lake Wildcat Creek Access as a carry-down Wildcat Creek launch with parking-lot access and Division of Fish & Wildlife management.',
+        'The current Knop Lake access page says to stay left at the first split, then take the second road right by the Knop Lake Access sign; the straight road is private property.',
+        'NICHES says Mis-So-Lah is a public put-in/take-out, while the current Wildcat Creek access page says it is just downstream of the CR 725 E bridge on the left bank with room for 5 to 10 vehicles and a 35-yard easy dirt path.',
+        'The downstream coordinate is a current NICHES embed-centered public-access anchor, not a surveyed government ramp point. Follow current bridge-side signs and the obvious public landing path on arrival.',
+        'This route uses a conservative community minimum-only threshold. The best published low-water support is a 180 to 200 cfs comfortable minimum, not a full preferred-range ladder.',
+      ],
+      watchFor: [
+        'Flows near or below about 180 cfs at Owasco, when short riffles get shallower and low-water channel hunting or dragging become more likely.',
+        'The old Pyrmont Dam about one-half mile below Knop Lake. Wildcat Creek says to take the right-hand bypass channel, which is narrow, has a few sharp turns, and tends to funnel water.',
+        'Fresh wood, sharp bends, muddy footing, cold shoulder-season water, and faster current than expected through the Pyrmont bypass or at the small Mis-So-Lah landing.',
+        'Private banks between the named accesses and the risk of missing the Mis-So-Lah finish just downstream of the CR 725 E bridge on the left bank.',
+        'Thunderstorms, rising water, and any same-day closure or maintenance note at Knop Lake or Mis-So-Lah.',
+      ],
+    },
+  },
   'lehigh-river-white-haven-rockport': {
     putIn: {
       id: 'white-haven-south-access',
@@ -9236,6 +9389,128 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Wide braided channels, shallow bars, wrong-channel choices, wind across open bends, and private-bank temptation when the obvious line gets thin.',
         'Fresh wood, strainers, snags after high water, muddy footing at the county access, and irrigation or diversion-related channel changes.',
         'Missing the Monroe take-out because the final approach is a simple county-access road end rather than a developed marina or state-park ramp.',
+      ],
+    },
+  },
+  'village-creek-fm418-sh327': {
+    putIn: {
+      id: 'fm-418-boat-launch',
+      name: 'FM 418 Boat Launch',
+      latitude: 30.397794,
+      longitude: -94.265024,
+    },
+    takeOut: {
+      id: 'tx-327-boat-launch',
+      name: 'TX 327 Boat Launch',
+      latitude: 30.346944,
+      longitude: -94.239385,
+    },
+    logistics: {
+      distanceLabel: 'About 8.6 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr at ordinary levels, slower near the floor or when sandbars, logjams, heat, or shuttle delays stack up',
+      shuttle:
+        'Stage the TX 327 take-out first, then drive back north to FM 418. Inspect both launches before leaving vehicles because they are simple unpaved bridge-side access points rather than staffed ramps or park marinas.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted bridge-access signs.',
+      camping:
+        'Treat the standard FM 418 to TX 327 run as a day trip. For longer multi-segment Village Creek trips, Big Thicket says overnight camping permits are free through the visitor center, and Village Creek State Park is a nearby base-camp option farther downstream.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at FM 418 and take out at TX 327 for the easiest upper Village Creek day in Big Thicket. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on water level, wood, weather, and private-boundary discipline before committing.',
+      accessCaveats: [
+        'NPS identifies both FM 418 and TX 327 as TxDOT-managed canoe/kayak/small-boat launches with auto and trailer parking, but both are still unpaved bridge accesses rather than improved ramps.',
+        'The preserve does not provide boat rentals or shuttles. Arrange a self-shuttle or local outfitter plan before launching.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on a short family-style paddle.',
+        'Big Thicket boundaries can sit just above the high-water line in places. Respect preserve boundary markers and do not treat private banks as casual picnic or bailout stops.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow routing, sandbar scraping, and log avoidance.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when NPS says exposed sandbars and logs become more common.',
+        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when NPS warns the creek can become swift and hazardous despite the flatwater setting.',
+        'Snags, logjams, overhanging limbs, sandbars, and short portages around obstructions, especially after storms or on low summer water.',
+        'Summer heat, insects, thunderstorms, cold water outside the warm season, and a longer half-day than the calm scenery first suggests.',
+        'Private banks between the launches and the temptation to wander above the ordinary high-water line instead of staying with the public access points and legal stream corridor.',
+      ],
+    },
+  },
+  'guadalupe-river-fm766-sh72': {
+    putIn: {
+      id: 'fm-766-hells-gate',
+      name: "FM 766 (Hell's Gate)",
+      latitude: 29.1472,
+      longitude: -97.3177,
+    },
+    takeOut: {
+      id: 'sh-72-access-point',
+      name: 'SH 72',
+      latitude: 29.0903,
+      longitude: -97.3296,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 4 hr at ordinary levels, longer if low water, wood, weather, or the dam-remnant portage slows the day',
+      shuttle:
+        "Stage the SH 72 take-out first, then drive back to FM 766. Inspect both bridge-side access points before leaving vehicles because they are simple highway accesses rather than staffed ramps or park marinas.",
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey posted bridge-access signs and any current TPWD guidance.',
+      camping:
+        'Treat this as a day trip. No established route camping or endpoint campground is documented in the current TPWD trail material for FM 766 to SH 72.',
+      campingClassification: 'none',
+      summary:
+        "Launch at Hell's Gate and take out at SH 72 for the shorter Cuero segment of the Guadalupe Valley Paddling Trail. Use USGS 08175800 at Cuero with a conservative 200 cfs floor, then make a same-day call on weather, current, wood, and the remnant-dam portage before committing.",
+      accessCaveats: [
+        'TPWD identifies FM 766 and SH 72 as public access points with posted GPS coordinates, but both are still bridge-side highway accesses rather than improved park ramps.',
+        'TPWD identifies Hwy 183 as an emergency take-out about 2.6 miles below SH 72 if the planned exit becomes unusable or the group continues only with a separate downstream plan.',
+        'The Cuero Guadalupe can see rainfall-driven high flows and undesirable water-quality conditions. Bring your own drinking water and treat storm runoff conservatively.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. Even at moderate readings, the remnant-dam portage and low-water wood still require attention.',
+      ],
+      watchFor: [
+        'Mandatory portage around the remnants of a dam about 2.5 miles below FM 766; scout early, land with margin, and do not run it blindly.',
+        'Flows near or below about 200 cfs, when TPWD warns snags can be more prominent and the run can get scrape-prone.',
+        'High or rising water after rainfall, when current speeds up, water quality can degrade, and the portage line becomes less forgiving.',
+        'Faster riffles, floating wood, sweepers, strainers, and changing lines around bridge approaches and bends.',
+        'Private banks outside the public launches and any narrow legal portage corridor around hazards.',
+      ],
+    },
+  },
+  'fox-river-yorkville-whitewater-course': {
+    putIn: {
+      id: 'marge-cline-course-put-in',
+      name: 'Marge Cline Whitewater Course put-in / upstream launch',
+      latitude: 41.643002,
+      longitude: -88.445,
+    },
+    takeOut: {
+      id: 'marge-cline-course-take-out',
+      name: 'Marge Cline Whitewater Course take-out / downstream portage',
+      latitude: 41.641998,
+      longitude: -88.443001,
+    },
+    logistics: {
+      distanceLabel: '0.23 mi / about 1,100 ft',
+      estimatedPaddleTime: 'Play-park session; laps vary by level and skill',
+      shuttle:
+        'No road shuttle is needed for normal laps. Use downtown Yorkville or Riverfront Park parking, launch at the course put-in, and walk the concrete path back upstream between laps or exit at the designated downstream portage.',
+      permits:
+        'No route-specific paddling fee is known. The city describes the course as open-use; follow posted park, parking, boating, and safety signs and bring your own whitewater-appropriate PFD and gear.',
+      camping:
+        'Treat this as a short day-use whitewater session. Use separate local lodging or campground plans if staying overnight.',
+      campingClassification: 'none',
+      summary:
+        'Use Marge Cline Whitewater Course for short Fox River laps around the Glen D. Palmer Dam bypass. Score it off USGS 05551580 with a conservative 250 cfs floor, then make a same-day call on crowding, feature shape, and high-water push before committing.',
+      accessCaveats: [
+        'The city says the course is open-use and identifies an east-end boat launch plus a designated downstream portage point west of the Route 47 bridge on the south bank next to the Yorkville Parks and Recreation building.',
+        'This is a whitewater play park rather than a downstream Fox River float. Normal use is repeated laps with the on-site concrete walk-back path, not a one-way river trip.',
+        'American Whitewater maps exact put-in and take-out points for the same reach, but use current city signs and the obvious portage layout on arrival because warm-weather crowds, tubers, and events can change how the park feels on the day.',
+        'Most public parking is in nearby municipal lots rather than directly beside the chute. Carry boats accordingly and use only the city lots that allow the needed parking duration.',
+      ],
+      watchFor: [
+        'Glen D. Palmer Dam context, the short engineered whitewater course, bridge-adjacent current, and any temptation to improvise lines outside the official bypass and portage setup.',
+        'Flows near or below about 250 cfs, when the course gets shallower, scrapier, and more technical for hull contact.',
+        'High or rising water, when American Whitewater still marks the reach runnable but the short course becomes pushier and less forgiving for novice whitewater paddlers.',
+        'Tubers, swimmers, anglers near the park, strong eddy lines, rocks, slippery concrete or shoreline footing, and no on-site lifeguard.',
       ],
     },
   },

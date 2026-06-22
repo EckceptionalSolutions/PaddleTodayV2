@@ -301,7 +301,7 @@ export default function HomeScreen() {
   }
 
   function openExploreIntent(intent: ExploreIntentId) {
-    router.push({ pathname: '/explore', params: { intent } });
+    router.push({ pathname: '/explore', params: { intent, intentKey: Date.now().toString() } });
   }
 }
 
@@ -650,6 +650,7 @@ function ExploreActionStrip({
           onPress={hasLocation ? () => onOpenIntent('best-nearby') : onUseLocation}
         />
         <ExploreActionChip label="Clean now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
+        <ExploreActionChip label="Camping" icon="tent" onPress={() => onOpenIntent('camping')} />
         <ExploreActionChip label="Quick float" icon="timer-outline" onPress={() => onOpenIntent('quick-float')} />
         <ExploreActionChip label="Full day" icon="sun-clock-outline" onPress={() => onOpenIntent('full-day')} />
         <ExploreActionChip label="All routes" icon="map-search-outline" onPress={onOpenExplore} />

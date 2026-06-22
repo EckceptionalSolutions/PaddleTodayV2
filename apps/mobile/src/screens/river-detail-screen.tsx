@@ -3,6 +3,7 @@ import {
   routeSafetyLevelLabels,
   routeSafetySummary,
   type ApprovedCommunityPhoto,
+  type CampingClassification,
   type ApprovedTripReport,
   type DecisionChecklistItem,
   type RiverAccessPoint,
@@ -86,6 +87,7 @@ type GaugeBandVisualModel = {
   idealWidthPercent: number;
   currentLabel: string;
   statusLabel: string;
+  targetRangeLabel: string;
   lowLabel: string;
   idealLabel: string;
   highLabel: string;
@@ -106,6 +108,7 @@ export default function RiverDetailScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
+  const conditionsYRef = useRef(0);
   const [draftEmail, setDraftEmail] = useState(storedEmail);
   const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
@@ -368,6 +371,25 @@ export default function RiverDetailScreen() {
     setReportPhotos((current) => current.filter((photo) => photo.id !== id));
   }
 
+  function scrollToY(y: number) {
+    requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({
+        y: Math.max(y - spacing.sm, 0),
+        animated: true,
+      });
+    });
+  }
+
+  function showSection(section: DetailSection) {
+    setActiveSection(section);
+    scrollToY(sectionTabsYRef.current);
+  }
+
+  function showConditions() {
+    setActiveSection('Today');
+    scrollToY(conditionsYRef.current || sectionTabsYRef.current);
+  }
+
   async function submitRouteReport() {
     const contributorName = reportName.trim();
     const contributorEmail = reportEmail.trim().toLowerCase();
@@ -532,8 +554,9 @@ export default function RiverDetailScreen() {
           <RouteSafetyPanel detail={detail} />
           <DecisionStrip
             detail={detail}
+            onConditions={showConditions}
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
-            onAccess={() => setActiveSection('Access')}
+            onAccess={() => showSection('Access')}
           />
           {detail.liveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
@@ -558,15 +581,7 @@ export default function RiverDetailScreen() {
                   accessibilityRole="button"
                   accessibilityLabel={`Show ${section} section`}
                   accessibilityState={{ selected }}
-                  onPress={() => {
-                    setActiveSection(section);
-                    requestAnimationFrame(() => {
-                      scrollRef.current?.scrollTo({
-                        y: Math.max(sectionTabsYRef.current - spacing.sm, 0),
-                        animated: true,
-                      });
-                    });
-                  }}
+                  onPress={() => showSection(section)}
                 >
                   <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
                 </Pressable>
@@ -579,36 +594,42 @@ export default function RiverDetailScreen() {
           <>
             <RouteBasicsCard detail={detail} />
 
-            <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
-              <View style={styles.conditionList}>
-                <ConditionRow
-                  icon="waves"
-                  label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
-                  value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
-                  subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
-                  detail={normalizeApiText(detail.liveData.gauge.detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
-                />
-                <GaugeBandCard detail={detail} />
-                <ConditionRow
-                  icon="trending-up"
-                  label="Trend"
-                  value={trendValue(detail)}
-                  subvalue={trendSubvalue(detail)}
-                  detail={trendDetailText(detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
-                />
-                <ConditionRow
-                  icon="weather-partly-cloudy"
-                  label="Weather"
-                  value={compactWeatherValue(detail)}
-                  subvalue={weatherSubvalue(detail)}
-                  detail={normalizeApiText(detail.liveData.weather.detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
-                />
-              </View>
-              <GaugeSourceActions detail={detail} />
-            </SectionCard>
+            <View
+              onLayout={(event) => {
+                conditionsYRef.current = event.nativeEvent.layout.y;
+              }}
+            >
+              <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
+                <View style={styles.conditionList}>
+                  <ConditionRow
+                    icon="waves"
+                    label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
+                    value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
+                    subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
+                    detail={normalizeApiText(detail.liveData.gauge.detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
+                  />
+                  <GaugeBandCard detail={detail} />
+                  <ConditionRow
+                    icon="trending-up"
+                    label="Trend"
+                    value={trendValue(detail)}
+                    subvalue={trendSubvalue(detail)}
+                    detail={trendDetailText(detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
+                  />
+                  <ConditionRow
+                    icon="weather-partly-cloudy"
+                    label="Weather"
+                    value={compactWeatherValue(detail)}
+                    subvalue={weatherSubvalue(detail)}
+                    detail={normalizeApiText(detail.liveData.weather.detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
+                  />
+                </View>
+                <GaugeSourceActions detail={detail} />
+              </SectionCard>
+            </View>
 
             <AboutRouteCard detail={detail} />
           </>
@@ -877,6 +898,17 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
   const working = detail.checklist.filter((item) => item.status === 'go');
   const firstWarning = warnings[0];
   const primaryWorking = working[0] ?? detail.checklist[0];
+  const conditionItem = firstWarning
+    ? {
+        label: 'Cautions',
+        text: normalizeApiText(firstWarning.detail),
+        tone: conditionToneForStatus(firstWarning.status),
+      }
+    : {
+        label: 'Quick facts',
+        text: conditionQuickFactText(detail, checklistByLabel),
+        tone: styles.conditionGood,
+      };
 
   return [
     {
@@ -884,30 +916,19 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
       text: normalizeApiText(primaryWorking?.detail ?? detail.explanation),
       tone: conditionToneForStatus(primaryWorking?.status ?? 'watch'),
     },
-    {
-      label: 'Cautions',
-      text: normalizeApiText(firstWarning?.detail ?? checklistByLabel.get('Weather window')?.detail ?? detail.liveData.summary),
-      tone: conditionToneForStatus(firstWarning?.status ?? 'watch'),
-    },
-    {
-      label: 'Before you go',
-      text: beforeCommittingText(detail),
-      tone: conditionToneForStatus(detail.liveData.overall === 'live' ? 'go' : 'watch'),
-    },
+    conditionItem,
   ].filter((item) => item.text.trim().length > 0);
 }
 
-function beforeCommittingText(detail: RiverDetailApiResult) {
-  const bits = [
-    detail.river.distanceLabel ? `${detail.river.distanceLabel} route` : null,
-    detail.river.estimatedPaddleTime || null,
-    `${capitalize(detail.river.profile.difficulty)} difficulty`,
-  ].filter(Boolean);
-  const routeContext = bits.length > 0 ? ` This is a ${bits.join(', ')}.` : '';
-
-  return detail.liveData.overall === 'live'
-    ? `Refresh the route, check access notes, and confirm the shuttle still fits your group.${routeContext}`
-    : `Open the source and confirm the latest gauge before relying on this call.${routeContext}`;
+function conditionQuickFactText(
+  detail: RiverDetailApiResult,
+  checklistByLabel: Map<string, DecisionChecklistItem>
+) {
+  return normalizeApiText(
+    checklistByLabel.get('Weather window')?.detail
+      ?? checklistByLabel.get('Temperature')?.detail
+      ?? detail.liveData.summary
+  );
 }
 
 function routeHeroLine(detail: RiverDetailApiResult) {
@@ -968,18 +989,6 @@ function decisionStatement(detail: RiverDetailApiResult) {
   return 'Skip today unless sources changed.';
 }
 
-function decisionNextStep(detail: RiverDetailApiResult) {
-  if (detail.rating === 'Strong' || detail.rating === 'Good') {
-    return 'Open access, confirm the shuttle, then check source data.';
-  }
-
-  if (detail.rating === 'Fair') {
-    return 'Recheck gauge, weather, and group fit before committing.';
-  }
-
-  return 'Recheck later or choose another route.';
-}
-
 function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
   return checklist.find((item) => item.label === label)?.status ?? 'watch';
 }
@@ -1023,11 +1032,6 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
         <Text style={styles.decisionSummaryScore}>{detail.score} / {detail.rating}</Text>
       </View>
       <Text style={styles.decisionSummaryTitle}>{decisionStatement(detail)}</Text>
-      <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
-      <View style={styles.decisionNextStep}>
-        <Text style={styles.decisionNextLabel}>Next step</Text>
-        <Text style={styles.decisionNextText}>{decisionNextStep(detail)}</Text>
-      </View>
       <View style={styles.decisionBulletList}>
         {items.map((item) => (
           <View key={item.label} style={styles.decisionBullet}>
@@ -1039,11 +1043,13 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
           </View>
         ))}
       </View>
+      <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
     </View>
   );
 }
 
 function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
+  const [expanded, setExpanded] = useState(false);
   const rows = scoreBreakdownRows(breakdown);
   const capReasons = breakdown.capReasons
     .map((reason) => friendlyCapReason(reason))
@@ -1051,24 +1057,42 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
 
   return (
     <View style={styles.scoreWhyCard}>
-      <Text style={styles.scoreWhyTitle}>Why this score?</Text>
-      <Text style={styles.scoreWhySummary}>
-        River quality starts at {breakdown.riverQuality}. Weather and comfort shift it to {breakdown.finalScore}.
-      </Text>
-      <View style={styles.scoreWhyRows}>
-        {rows.map((row) => (
-          <View key={row.label} style={styles.scoreWhyRow}>
-            <Text style={styles.scoreWhyLabel}>{row.label}</Text>
-            <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
-          </View>
-        ))}
-      </View>
-      {capReasons.length > 0 ? (
-        <View style={styles.scoreCapList}>
-          {capReasons.slice(0, 2).map((reason) => (
-            <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
-          ))}
+      <Pressable
+        accessibilityRole="button"
+        accessibilityState={{ expanded }}
+        accessibilityLabel={expanded ? 'Collapse score explanation' : 'Expand score explanation'}
+        onPress={() => setExpanded((current) => !current)}
+        style={styles.scoreWhyHeader}
+      >
+        <View style={styles.scoreWhyHeaderCopy}>
+          <Text style={styles.scoreWhyTitle}>Why this score?</Text>
         </View>
+        <View style={styles.scoreWhyToggle}>
+          <MaterialCommunityIcons
+            name={expanded ? 'chevron-up' : 'chevron-down'}
+            color={colors.accentDeep}
+            size={18}
+          />
+        </View>
+      </Pressable>
+      {expanded ? (
+        <>
+          <View style={styles.scoreWhyRows}>
+            {rows.map((row) => (
+              <View key={row.label} style={styles.scoreWhyRow}>
+                <Text style={styles.scoreWhyLabel}>{row.label}</Text>
+                <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
+              </View>
+            ))}
+          </View>
+          {capReasons.length > 0 ? (
+            <View style={styles.scoreCapList}>
+              {capReasons.slice(0, 2).map((reason) => (
+                <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
+              ))}
+            </View>
+          ) : null}
+        </>
       ) : null}
     </View>
   );
@@ -1133,62 +1157,33 @@ function friendlyCapReason(reason: string) {
 
 function DecisionStrip({
   detail,
+  onConditions,
   onDirections,
   onAccess,
 }: {
   detail: RiverDetailApiResult;
+  onConditions: () => void;
   onDirections: () => void;
   onAccess: () => void;
 }) {
   const directionsAvailable = Boolean(mapUrlForAccessPoint(detail.river.putIn) || mapUrlForAccessPoint(detail.river.takeOut));
-  const accessUseful = detail.rating === 'Strong' || detail.rating === 'Good';
-  const items = [
-    {
-      label: 'Call',
-      value: detail.rating,
-      icon: detail.rating === 'No-go' ? 'close-circle-outline' : 'check-circle-outline',
-      tone: ratingBackground(detail.rating),
-      iconColor: colors.text,
-    },
-    {
-      label: 'Gauge',
-      value: detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel,
-      icon: 'waves-arrow-up',
-      tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Gauge window')),
-      iconColor: colors.surfaceStrong,
-    },
-    {
-      label: 'Weather',
-      value: compactWeatherValue(detail),
-      icon: 'weather-partly-cloudy',
-      tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Weather window')),
-      iconColor: colors.surfaceStrong,
-    },
-  ];
 
   return (
     <View style={styles.decisionStrip}>
-      {items.map((item) => (
-        <View key={item.label} style={styles.decisionStripItem}>
-          <View style={[styles.decisionStripIcon, item.tone]}>
-            <MaterialCommunityIcons name={item.icon as never} color={item.iconColor} size={15} />
-          </View>
-          <Text style={styles.decisionStripValue} numberOfLines={1}>{item.value}</Text>
-          <Text style={styles.decisionStripLabel}>{item.label}</Text>
-        </View>
-      ))}
+      <Pressable style={styles.decisionStripInlineAction} onPress={onConditions}>
+        <MaterialCommunityIcons name="chart-timeline-variant" color={colors.accent} size={16} />
+        <Text style={styles.decisionStripInlineActionText}>Conditions</Text>
+      </Pressable>
       {directionsAvailable ? (
         <Pressable style={styles.decisionStripInlineAction} onPress={onDirections}>
           <MaterialCommunityIcons name="directions" color={colors.accent} size={16} />
           <Text style={styles.decisionStripInlineActionText}>Directions</Text>
         </Pressable>
       ) : null}
-      {accessUseful ? (
-        <Pressable style={styles.decisionStripInlineAction} onPress={onAccess}>
-          <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={16} />
-          <Text style={styles.decisionStripInlineActionText}>Access</Text>
-        </Pressable>
-      ) : null}
+      <Pressable style={styles.decisionStripInlineAction} onPress={onAccess}>
+        <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={16} />
+        <Text style={styles.decisionStripInlineActionText}>Access</Text>
+      </Pressable>
     </View>
   );
 }
@@ -1236,6 +1231,9 @@ function GaugeBandCard({ detail }: { detail: RiverDetailApiResult }) {
         <View style={styles.gaugeBandTitleWrap}>
           <Text style={styles.gaugeBandKicker}>Gauge band</Text>
           <Text style={styles.gaugeBandStatus}>{model.statusLabel}</Text>
+          <Text style={styles.gaugeBandRange} numberOfLines={1}>
+            Target {model.targetRangeLabel}
+          </Text>
         </View>
         <View style={[styles.gaugeBandCurrentPill, model.markerTone]}>
           <Text style={styles.gaugeBandCurrentText}>{model.currentLabel}</Text>
@@ -1309,7 +1307,9 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
 function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
   const profile = detail.river.safetyProfile;
   const riskLevel = profile?.riskLevel ?? 'standard';
-  const notes = profile?.safetyNotes && profile.safetyNotes.length > 0 ? profile.safetyNotes : [routeSafetySummary(profile)];
+  const summary = routeSafetySummary(profile);
+  const body = mobileSafetyBody(riskLevel, summary);
+  const notes = dedupeSafetyNotes(profile?.safetyNotes ?? [], summary);
   const advanced = riskLevel === 'advanced';
   const caution = riskLevel === 'caution';
 
@@ -1323,10 +1323,10 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
         />
         <View style={styles.safetyHeaderText}>
           <Text style={styles.safetyKicker}>Safety</Text>
-          <Text style={styles.safetyTitle}>{routeSafetyLevelLabels[riskLevel]}</Text>
+          <Text style={styles.safetyTitle}>{mobileSafetyTitle(riskLevel)}</Text>
         </View>
       </View>
-      <Text style={styles.safetyBody}>{routeSafetySummary(profile)}</Text>
+      <Text style={styles.safetyBody}>{body}</Text>
       {profile?.hazards && profile.hazards.length > 0 ? (
         <View style={styles.safetyChipRow}>
           {profile.hazards.map((hazard) => (
@@ -1341,10 +1341,44 @@ function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
+function mobileSafetyTitle(riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard') {
+  if (riskLevel === 'standard') return 'Before you launch';
+  return routeSafetyLevelLabels[riskLevel];
+}
+
+function mobileSafetyBody(
+  riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard',
+  summary: string
+) {
+  if (riskLevel === 'standard') {
+    return 'Confirm access, shuttle, source data, hazards, closures, and takeouts before launching.';
+  }
+
+  return summary;
+}
+
+function dedupeSafetyNotes(notes: string[], summary: string) {
+  const summaryKey = normalizeSafetyText(summary);
+  const seen = new Set<string>();
+  return notes.filter((note) => {
+    const key = normalizeSafetyText(note);
+    if (!key || key === summaryKey || seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
+function normalizeSafetyText(value: string) {
+  return normalizeApiText(value).toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
 function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
   const basics = [
     { label: 'Paddle time', value: compactPaddleTime(detail.river.estimatedPaddleTime) || 'Not tracked', icon: 'clock-outline' },
     { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
+    { label: 'Camping', value: campingFitLabel(detail.river.logistics?.campingClassification), icon: 'tent' },
   ];
 
   const gaugeRange = thresholdRangeLabel(detail);
@@ -1370,6 +1404,14 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
       </View>
     </SectionCard>
   );
+}
+
+function campingFitLabel(classification: CampingClassification | null | undefined) {
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
+  return 'No camping';
 }
 
 function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
@@ -2364,8 +2406,9 @@ function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualMode
     idealWidthPercent: Math.max(percent(idealMax) - percent(idealMin), 8),
     currentLabel: formatGaugeValue(gauge.current, gauge.unit),
     statusLabel: gaugeBandStatusLabel(detail, idealMin, idealMax),
+    targetRangeLabel: `${formatGaugeValue(idealMin, unit)} to ${formatGaugeValue(idealMax, unit)}`,
     lowLabel: formatGaugeValue(lowEdge, unit),
-    idealLabel: `${formatGaugeValue(idealMin, unit)}-${formatGaugeValue(idealMax, unit)}`,
+    idealLabel: 'Target',
     highLabel: formatGaugeValue(highEdge, unit),
     markerTone: gaugeBandMarkerTone(detail.gaugeBand),
   };
@@ -2660,6 +2703,25 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     gap: 6,
   },
+  scoreWhyHeader: {
+    minHeight: 34,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  scoreWhyHeaderCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  scoreWhyToggle: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+  },
   scoreWhyTitle: {
     color: colors.text,
     fontSize: 12,
@@ -2705,26 +2767,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontWeight: '700',
   },
-  decisionNextStep: {
-    borderRadius: radius.md,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-    gap: 3,
-  },
-  decisionNextLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  decisionNextText: {
-    color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '800',
-  },
   decisionBulletList: {
     gap: spacing.xs,
   },
@@ -2763,41 +2805,9 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     gap: spacing.xs,
   },
-  decisionStripItem: {
+  decisionStripInlineAction: {
     flex: 1,
     minWidth: 0,
-    minHeight: 62,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 7,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 3,
-  },
-  decisionStripIcon: {
-    width: 23,
-    height: 23,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  decisionStripValue: {
-    color: colors.text,
-    fontSize: 11,
-    lineHeight: 14,
-    fontWeight: '900',
-    textAlign: 'center',
-  },
-  decisionStripLabel: {
-    color: colors.textMuted,
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 0.25,
-    textTransform: 'uppercase',
-  },
-  decisionStripInlineAction: {
-    minWidth: 74,
     minHeight: 62,
     borderRadius: radius.md,
     borderWidth: 1,
@@ -2949,6 +2959,12 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 20,
     fontWeight: '900',
+  },
+  gaugeBandRange: {
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '800',
   },
   gaugeBandCurrentPill: {
     minWidth: 78,

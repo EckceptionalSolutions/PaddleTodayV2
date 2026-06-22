@@ -13,6 +13,7 @@ export type StatusFilter = 'any' | 'clean' | 'watch' | 'skip';
 export type RatingFilter = 'any' | ScoreRating;
 export type DistanceFilter = 'any' | '50' | '100' | '150' | '200';
 export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | '7-plus';
+export type CampingFilter = 'any' | 'supported' | 'overnight';
 
 export interface ExploreFilters {
   sort: ExploreSort;
@@ -24,6 +25,7 @@ export interface ExploreFilters {
   rating: RatingFilter;
   distance: DistanceFilter;
   paddleTime: PaddleTimeFilter;
+  camping: CampingFilter;
 }
 
 export const defaultFilters: ExploreFilters = {
@@ -36,6 +38,7 @@ export const defaultFilters: ExploreFilters = {
   rating: 'any',
   distance: 'any',
   paddleTime: 'any',
+  camping: 'any',
 };
 
 const ratingOptions: Array<{ value: RatingFilter; label: string }> = [
@@ -82,6 +85,12 @@ const paddleTimeOptions: Array<{ value: PaddleTimeFilter; label: string }> = [
   { value: '7-plus', label: '7h+' },
 ];
 
+const campingOptions: Array<{ value: CampingFilter; label: string }> = [
+  { value: 'any', label: 'Any camping' },
+  { value: 'supported', label: 'Camping' },
+  { value: 'overnight', label: 'Overnight' },
+];
+
 const ANDROID_NAV_CONTROL_MIN_INSET = 40;
 
 type PresetApply = (filters: ExploreFilters, context: { locationReady: boolean }) => ExploreFilters;
@@ -122,6 +131,18 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
       status: 'clean',
       rating: 'any',
       sort: 'nearest',
+    }),
+  },
+  {
+    id: 'camping',
+    label: 'Camping',
+    apply: (filters, context) => ({
+      ...filters,
+      camping: 'supported',
+      status: 'clean',
+      rating: 'any',
+      distance: context.locationReady ? '150' : 'any',
+      sort: context.locationReady ? 'nearest' : 'best',
     }),
   },
 ];
@@ -323,6 +344,17 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
+      <FilterGroup title="Camping">
+        {campingOptions.map((option) => (
+          <ChoiceChip
+            key={option.value}
+            label={option.label}
+            selected={filters.camping === option.value}
+            onPress={() => onChange({ ...filters, camping: option.value })}
+          />
+        ))}
+      </FilterGroup>
+
       <FilterGroup title="State">
         <ChoiceChip label="All states" selected={!filters.state} onPress={() => onChange({ ...filters, state: '' })} />
         {states.map((state) => (
@@ -410,6 +442,7 @@ export function countActiveFilters(filters: ExploreFilters) {
     filters.rating !== defaultFilters.rating,
     filters.distance !== defaultFilters.distance,
     filters.paddleTime !== defaultFilters.paddleTime,
+    filters.camping !== defaultFilters.camping,
   ].filter(Boolean).length;
 }
 
@@ -427,6 +460,8 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   if (filters.paddleTime !== 'any') {
     labels.push(paddleTimeOptions.find((option) => option.value === filters.paddleTime)?.label ?? 'Paddle time');
   }
+  if (filters.camping === 'supported') labels.push('Camping');
+  if (filters.camping === 'overnight') labels.push('Overnight');
   if (locationReady && filters.distance !== 'any') labels.push(`Within ${filters.distance} mi`);
   return labels;
 }
@@ -442,7 +477,8 @@ export function isExploreFilters(value: unknown): value is ExploreFilters {
     (value.status === undefined || isStatusFilter(value.status)) &&
     isRatingFilter(value.rating) &&
     isDistanceFilter(value.distance) &&
-    isPaddleTimeFilter(value.paddleTime)
+    isPaddleTimeFilter(value.paddleTime) &&
+    (value.camping === undefined || isCampingFilter(value.camping))
   );
 }
 
@@ -471,6 +507,20 @@ export function paddleTimeMatches(label: string, filter: PaddleTimeFilter) {
   return hours > 7;
 }
 
+export function campingMatches(
+  classification: string | null | undefined,
+  filter: CampingFilter
+) {
+  if (filter === 'any') return true;
+  if (!classification || classification === 'none' || classification === 'unknown') return false;
+  if (filter === 'supported') return true;
+  return (
+    classification === 'overnight_capable' ||
+    classification === 'on_route_campsite' ||
+    classification === 'sandbar_or_gravel_bar'
+  );
+}
+
 function isDifficultyFilter(value: unknown): value is DifficultyFilter {
   return difficultyOptions.some((option) => option.value === value);
 }
@@ -493,6 +543,10 @@ function isDistanceFilter(value: unknown): value is DistanceFilter {
 
 function isPaddleTimeFilter(value: unknown): value is PaddleTimeFilter {
   return paddleTimeOptions.some((option) => option.value === value);
+}
+
+function isCampingFilter(value: unknown): value is CampingFilter {
+  return campingOptions.some((option) => option.value === value);
 }
 
 function parsePaddleHours(label: string) {
@@ -536,6 +590,16 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
       filters.status === 'clean' &&
       filters.rating === 'any' &&
       filters.sort === 'nearest'
+    );
+  }
+
+  if (id === 'camping') {
+    return (
+      filters.camping === 'supported' &&
+      filters.status === 'clean' &&
+      filters.rating === 'any' &&
+      filters.distance === (locationReady ? '150' : 'any') &&
+      filters.sort === (locationReady ? 'nearest' : 'best')
     );
   }
 

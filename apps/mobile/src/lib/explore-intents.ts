@@ -8,7 +8,8 @@ export type ExploreIntentId =
   | 'watch'
   | 'skip'
   | 'quick-float'
-  | 'full-day';
+  | 'full-day'
+  | 'camping';
 
 const exploreIntentIds = new Set<ExploreIntentId>([
   'best-nearby',
@@ -17,6 +18,7 @@ const exploreIntentIds = new Set<ExploreIntentId>([
   'skip',
   'quick-float',
   'full-day',
+  'camping',
 ]);
 
 export function isExploreIntentId(value: unknown): value is ExploreIntentId {
@@ -81,6 +83,17 @@ export function filtersForExploreIntent(
     };
   }
 
+  if (intent === 'camping') {
+    return {
+      ...base,
+      sort: context.locationReady ? 'nearest' : 'best',
+      distance: context.locationReady ? '150' : 'any',
+      camping: 'supported',
+      status: 'clean',
+      rating: 'any',
+    };
+  }
+
   return {
     ...base,
     sort: 'score',
@@ -98,6 +111,7 @@ export function labelForExploreIntent(intent: ExploreIntentId) {
   if (intent === 'watch') return 'Watch routes';
   if (intent === 'skip') return 'Skip routes';
   if (intent === 'quick-float') return 'Quick floats';
+  if (intent === 'camping') return 'Camping routes';
   return 'Full-day routes';
 }
 
@@ -108,5 +122,6 @@ export function descriptionForExploreIntent(intent: ExploreIntentId, locationRea
   if (intent === 'watch') return `Fair calls worth monitoring${suffix}.`;
   if (intent === 'skip') return `No-go calls grouped for rechecks${suffix}.`;
   if (intent === 'quick-float') return `Easy rec routes under three hours${suffix}.`;
+  if (intent === 'camping') return `Clean routes with camping support${suffix}.`;
   return 'Longer clean routes sorted by score.';
 }

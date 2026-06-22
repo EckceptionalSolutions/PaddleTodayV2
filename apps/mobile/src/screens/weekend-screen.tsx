@@ -47,11 +47,14 @@ export default function WeekendScreen() {
     .filter(isLowerCommitmentRoute)
     .slice(0, 4);
   const secondarySlugs = slugSet([...topPicks, ...lowerCommitment]);
-  const campingRoutes = rivers
+  const longerDriveCampingRoutes = rivers
     .filter((river) => !secondarySlugs.has(river.river.slug))
     .filter((river) => location ? isWorthLongerDriveRoute(river) : hasOvernightCampingSupport(river))
     .slice(0, 4);
-  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingRoutes]);
+  const campingFriendlyRoutes = rivers
+    .filter(hasWeekendCampingSupport)
+    .slice(0, 4);
+  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes]);
   const watchList = rivers
     .filter((river) => !shownSlugs.has(river.river.slug))
     .filter((river) => river.weekend.rating === 'Fair')
@@ -151,7 +154,7 @@ export default function WeekendScreen() {
       {hasWeekendPlan ? (
         <WeekendPlanLanes
           dayTrips={topPicks.length + lowerCommitment.length}
-          longerDrives={campingRoutes.length}
+          campingRoutes={campingFriendlyRoutes.length}
           rechecks={watchList.length}
           hasWeekendPlan={hasWeekendPlan}
         />
@@ -195,13 +198,17 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {campingRoutes.length > 0 ? (
+      {campingFriendlyRoutes.length > 0 ? (
         <SectionCard
-          title={location ? 'Overnight-friendly drives' : 'Overnight-friendly'}
-          subtitle={location ? 'Good weekend calls with stronger camping support.' : 'Routes with on-route or overnight camping support.'}
+          title="Camping-friendly"
+          subtitle={
+            location && longerDriveCampingRoutes.length > 0
+              ? 'Good weekend calls where the drive makes more sense with camping.'
+              : 'Good weekend calls with campground, base-camp, or overnight support.'
+          }
         >
           <View style={styles.list}>
-            {campingRoutes.map((river) => renderWeekendCard(river))}
+            {campingFriendlyRoutes.map((river) => renderWeekendCard(river))}
           </View>
         </SectionCard>
       ) : null}
@@ -305,12 +312,12 @@ function SnapshotStat({
 
 function WeekendPlanLanes({
   dayTrips,
-  longerDrives,
+  campingRoutes,
   rechecks,
   hasWeekendPlan,
 }: {
   dayTrips: number;
-  longerDrives: number;
+  campingRoutes: number;
   rechecks: number;
   hasWeekendPlan: boolean;
 }) {
@@ -319,7 +326,7 @@ function WeekendPlanLanes({
       <Text style={styles.planLanesTitle}>Plan lanes</Text>
       <View style={styles.planLaneGrid}>
         <PlanLane label="Day trips" value={dayTrips} active={dayTrips > 0} />
-        <PlanLane label="Longer drives" value={longerDrives} active={longerDrives > 0} />
+        <PlanLane label="Camping" value={campingRoutes} active={campingRoutes > 0} />
         <PlanLane label={hasWeekendPlan ? 'Rechecks' : 'Recheck later'} value={rechecks} active={!hasWeekendPlan || rechecks > 0} />
       </View>
     </View>

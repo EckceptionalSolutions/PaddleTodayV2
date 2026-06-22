@@ -54,5 +54,22 @@
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vitest": "^4.1.2"
-  }
+  },
+  "description": "`canoe-adventures-v2` is the new codebase for a reset version of Paddle Today.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EckceptionalSolutions/PaddleTodayV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/issues"
+  },
+  "homepage": "https://github.com/EckceptionalSolutions/PaddleTodayV2#readme"
 }

@@ -8120,6 +8120,126 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'pecatonica-river-wes-block-tuttys',
+    slug: 'pecatonica-river-wes-block-tuttys',
+    name: 'Pecatonica River',
+    reach: "Wes Block Trail Access to Tutty's Crossing Trailhead",
+    aliases: [
+      "Pecatonica River - Wes Block to Tutty's Crossing",
+      'Pecatonica River Water Trail - Wes Block to downtown Freeport',
+      "Pecatonica River - Wes Block Trailhead to Tutty's Crossing",
+    ],
+    state: 'Illinois',
+    region: 'Northwest Illinois',
+    summary:
+      "Freeport water-trail day from the Wes Block public launch to downtown Tutty's Crossing, with two named public boat launches and a conservative lower-Pec proxy gauge from Darlington.",
+    statusText:
+      'Use the Pecatonica River at Darlington gauge as a lower-Pec proxy. Treat 101 to 250 cfs as the best window, 251 to 350 cfs as high but usually manageable, 351 to 500 cfs as experienced-only high water, and 501+ cfs as too high and muddy for a broad recommendation.',
+    latitude: 42.330992586134,
+    longitude: -89.666227460683,
+    gaugeSource: {
+      id: 'usgs-05432500',
+      provider: 'usgs',
+      siteId: '05432500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Pecatonica River at Darlington, WI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05432500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        "The Freeport water trail is gentle by paddling standards, but storms can move fresh wood into the channel and make muddy banks or exits more awkward than the launch photos suggest.",
+        "Use only the named public launches at Wes Block and Tutty's Crossing. Outside the trailheads, banks are often muddy and may be private or unsuitable for casual exits.",
+        'Skip the route when the Darlington proxy is pushing into the high-water bands or when current blockages, footings, or recent cleanup reports make the lower Pec look less forgiving than usual.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 101,
+      idealMax: 250,
+      tooLow: 100,
+      tooHigh: 501,
+      thresholdSource: {
+        label: 'Wisconsin River Trips lower-Pec Darlington-gauge ladder',
+        url: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+        provider: 'wisconsin_river_trips',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical season. The route is gentle enough for warm-weather day trips, but the lower Pecatonica is naturally muddy and becomes pushier, browner, and less pleasant as the Darlington proxy climbs.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly gentle current and a short-to-medium shuttle, but muddy banks, occasional strainers, and a few miles without easy emergency exits keep it from being a pure beginner pond paddle.',
+      confidenceNotes:
+        "Confidence is good for a conservative Illinois add: Jane Addams Trail and Illinois Paddling Council document both public launches, Wisconsin River Trips places Wes Block Trailhead to Tutty's Crossing in the lower-Pec segment list and publishes a Darlington-gauge ladder for that lower river, and USGS 05432500 is a live same-river upstream gauge. Confidence is moderate for scoring because the gauge is a lower-Pec proxy upstream in Darlington rather than on the exact Freeport stretch.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official access pair',
+        value: "Wes Block to Tutty's Crossing",
+        note: "Jane Addams Trail lists Wes Block Trail Access at 2636 W Fairview Road and Tutty's Crossing Trailhead at 250 E Stephenson Street, both with parking and boat-launch amenities on the Pecatonica corridor.",
+        sourceUrl: 'https://janeaddamstrail.com/',
+      },
+      {
+        label: 'Exact route shape',
+        value: '6.4 river miles',
+        note: "Wisconsin River Trips identifies Wes Block Trailhead to Tutty's Crossing as a 6.4-mile lower-Pecatonica segment entering Freeport with nicer woods and attractive trail bridges.",
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+      },
+      {
+        label: 'Published lower-Pec ladder',
+        value: '101 to 250 cfs target range',
+        note: 'Wisconsin River Trips uses the Pecatonica River at Darlington gauge for the lower Pec and rates under 100 cfs as still generally navigable, 101-210 cfs as very ideal, 211-250 cfs as average and fine, 251-290 cfs as above average but manageable, 291-350 cfs as high, 351-500 cfs as very high and experienced-only, and 501+ cfs as too high and muddy for enjoyable paddling.',
+        sourceUrl: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+      },
+      {
+        label: 'Proxy gauge',
+        value: 'USGS 05432500',
+        note: 'USGS operates Pecatonica River at Darlington, WI with current discharge and gage-height observations. Wisconsin River Trips uses this gauge for lower-Pec route planning, including the Freeport-bound segment list.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-05432500/',
+      },
+      {
+        label: 'Freeport trip context',
+        value: 'Half-mile / 3-mile / 9-mile combinations',
+        note: "Greater Freeport Partnership says local paddlers use Tutty's Crossing to Hancock Marina as a half-mile trip, Tutty's Crossing to the VFW as a 3-mile trip, and Wes Block to the VFW as a 9-mile trip, which supports the Wes Block-to-downtown Freeport water-trail corridor as a normal public shuttle.",
+        sourceUrl: 'https://greaterfreeport.com/2018/01/all-in-kayaking-on-the-pecatonica-river/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Jane Addams Trail official trailheads and amenities',
+        url: 'https://janeaddamstrail.com/',
+        provider: 'local',
+      },
+      {
+        label: 'Illinois Paddling Council Wes Block Landing article',
+        url: 'https://illinoispaddling.org/newest-boat-launch-completed-at-wes-block-landing-on-the-pecatonica-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Greater Freeport Partnership Pecatonica paddling overview',
+        url: 'https://greaterfreeport.com/2018/01/all-in-kayaking-on-the-pecatonica-river/',
+        provider: 'local',
+      },
+      {
+        label: 'Wisconsin River Trips Pecatonica lower-Pec gauge guide',
+        url: 'https://www.wisconsinrivertrips.com/segments/pecatonica-river/roller-coaster-road',
+        provider: 'wisconsin_river_trips',
+      },
+      {
+        label: 'USGS 05432500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-05432500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'kickapoo-river-ontario-rockton',
     slug: 'kickapoo-river-ontario-rockton',
     name: 'Kickapoo River',
@@ -18979,6 +19099,143 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'eleven-point-river-cane-bluff-greer-crossing',
+    slug: 'eleven-point-river-cane-bluff-greer-crossing',
+    name: 'Eleven Point River',
+    reach: 'Cane Bluff River Access to Greer Crossing Recreation Area',
+    aliases: [
+      'Eleven Point River - Cane Bluff to Greer',
+      'Upper Eleven Point - Cane Bluff to Greer Crossing',
+      'Eleven Point National Scenic River - Cane Bluff to Greer',
+    ],
+    state: 'Missouri',
+    region: 'Missouri Ozarks',
+    summary:
+      'Spring-favored upper Eleven Point day from Cane Bluff to Greer Crossing, with Forest Service public access at both ends and the Bardley gauge used as a conservative low-water estimate for the reach above Greer Spring.',
+    statusText:
+      'Use the Eleven Point near Bardley gauge as a conservative low-water estimate. Around 300 cfs is the floor; below that, expect shallow riffles, regular dragging, and possible short portages on the upper river above Greer Spring. There is not enough exact-route support to name an ideal range or high-water cutoff.',
+    latitude: 36.796246,
+    longitude: -91.405675,
+    gaugeSource: {
+      id: 'usgs-07071500',
+      provider: 'usgs',
+      siteId: '07071500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Eleven Point River near Bardley, MO',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'remote'],
+      safetyNotes: [
+        'The Forest Service describes this as a small upper-river section that is most comfortable in spring. Near the 300 cfs floor, expect more scraping, shallow riffles, and occasional short portages above Greer Spring.',
+        'Rain can raise the Eleven Point quickly, and fresh wood or blind-bend strainers matter more on this upper section because easy exits are limited between Cane Bluff and Greer Crossing.',
+        'Use only the published Forest Service accesses and keep the shuttle conservative. Greer Spring adds colder, faster water near the finish, and the rural road network is not a good substitute for a planned take-out.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Rivers.MOHERP Bardley gauge rating and Cane Bluff-to-Greer trip evidence',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6],
+      seasonNotes:
+        'The Forest Service says this upper section is small and comfortably floated in spring season. Greer Spring enters just above the take-out and more than doubles the river volume, so the Bardley gauge is best treated as a conservative estimate rather than a perfect on-reach reading.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a small, remote-feeling Ozark float with riffles, occasional strainers, and long shallow stretches when levels are marginal. Expect more local judgment than on the spring-fed downstream Eleven Point reaches, especially above Greer Spring.',
+      confidenceNotes:
+        'Confidence is good for a conservative upstream Eleven Point add: the Forest Service lists Cane Bluff and Greer Crossing as open public accesses with published coordinates, river-mile notes place Cane Bluff at mile 9.3 and Greer Crossing at mile 16.6, USGS 07071500 returned same-day official values during implementation, and Rivers.MOHERP has exact Cane Bluff-to-Greer trip rows tied to the Bardley gauge. The app uses minimum-only scoring because Bardley is downstream of Greer Spring and acts as a conservative estimate for this upper reach rather than a perfect direct route gauge.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Cane Bluff to Greer Crossing, about 7.3 river miles',
+        note: 'Forest Service river-mile notes place Cane Bluff at mile 9.3 and Greer Crossing at mile 16.6, making this the selected public segment immediately below closed Thomasville and immediately above the established Greer put-out.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Cane Bluff River Access',
+        note: 'The Forest Service lists Cane Bluff as open and identifies it as the first public access below Thomasville, with a vault toilet, trailer parking, and coordinates 36.796246, -91.405675.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Greer Crossing Recreation Area',
+        note: 'The Forest Service lists Greer Crossing as open, notes that the boat launch and day-use area sit just off Highway 19, and publishes coordinates 36.79356389, -91.32854167.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+      },
+      {
+        label: 'Gauge check',
+        value: 'USGS 07071500 at 628 cfs / 2.87 ft',
+        note: 'A same-day Water Services IV refresh returned 628 cfs and 2.87 ft at 2026-06-22 06:30 CDT for Eleven Point River near Bardley, the downstream same-river gauge already used by adjacent Eleven Point routes.',
+        sourceUrl: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+      },
+      {
+        label: 'Low-water floor',
+        value: '300 cfs minimum-only',
+        note: 'Rivers.MOHERP rates the Bardley gauge Good beginning at 300 cfs and includes exact Cane Bluff-to-Greer rows marked Low at 572 cfs and Good at 1090 and 1600 cfs. The app keeps only the conservative 300 cfs floor and does not infer an ideal range or upper cutoff.',
+        sourceUrl: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+      },
+      {
+        label: 'Upper-river caveat',
+        value: 'Small upper river above Greer Spring',
+        note: 'The Forest Service says this upper section is small and comfortably floated in spring season, and its river-mile notes show Greer Spring entering just 0.6 miles above the take-out, where it more than doubles the river volume.',
+        sourceUrl:
+          'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Forest Service Cane Bluff River Access',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/cane-bluff-river-access',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Greer Crossing Recreation Area',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/greer-crossing-recreation-area',
+        provider: 'local',
+      },
+      {
+        label: 'Forest Service Eleven Point National Wild and Scenic River',
+        url: 'https://www.fs.usda.gov/r09/marktwain/recreation/eleven-point-national-wild-and-scenic-river',
+        provider: 'local',
+      },
+      {
+        label: 'MDC Eleven Point River prospects',
+        url: 'https://mdc.mo.gov/fishing/fishing-prospects/areas/eleven-point-river',
+        provider: 'local',
+      },
+      {
+        label: 'Rivers.MOHERP Eleven Point Bardley gauge',
+        url: 'https://rivers.moherp.org/gauge/?gauge=07071500&hours=168',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07071500 legacy current conditions',
+        url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=07071500',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07071500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07071500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'eleven-point-river-greer-crossing-turner-mill',
     slug: 'eleven-point-river-greer-crossing-turner-mill',
     name: 'Eleven Point River',
@@ -29430,6 +29687,290 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'sugar-creek-deers-mill-cox-ford',
+    slug: 'sugar-creek-deers-mill-cox-ford',
+    name: 'Sugar Creek',
+    reach: "Deer's Mill Public Access to Cox Ford Public Access",
+    aliases: [
+      "Sugar Creek - Deer's Mill to Cox Ford",
+      "Sugar Creek - Deer's Mill Covered Bridge to Cox Ford Covered Bridge",
+      'Sugar Creek Shades to Turkey Run classic day trip',
+    ],
+    state: 'Indiana',
+    region: 'West Central Indiana',
+    summary:
+      "Classic scenic Sugar Creek day from Deer's Mill to Cox Ford through the Shades and Turkey Run corridor. Current Indiana DNR maps confirm the public access pair, and the Crawfordsville USGS gauge gives a direct same-creek condition check.",
+    statusText:
+      "Use the Sugar Creek at Crawfordsville gauge. Around 75 cfs is the conservative low-water floor for Deer's Mill starts. No route-specific upper cfs band is claimed; about 3 ft of stage is only high-side livery-stop context, not a full scoring range.",
+    latitude: 39.946497,
+    longitude: -87.059065,
+    gaugeSource: {
+      id: 'usgs-03339500',
+      provider: 'usgs',
+      siteId: '03339500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Sugar Creek at Crawfordsville, IN',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03339500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks'],
+      safetyNotes: [
+        "IndianaOutfitters says Sugar Creek can rise quickly and become dangerous. Skip the route when the river is muddy, rapidly rising, or clearly stronger than the group wants.",
+        "Use only the named public access points. Deer's Mill has limited loading parking, and the current Turkey Run map says a parking permit is required at Cox Ford public access.",
+        'Banks away from the named access points may be private or otherwise unsuitable for casual stopping. Plan the full shuttle and do not assume mid-route exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 75,
+      thresholdSource: {
+        label: 'IndianaOutfitters Sugar Creek streamflow guidance',
+        url: 'https://www.indianaoutfitters.com/data_sugar.html',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "Spring through fall is the practical season. Sugar Creek is one of Indiana's most popular scenic paddles, but the corridor gets crowded in warm weather and can rise quickly after rain.",
+      difficulty: 'easy',
+      difficultyNotes:
+        "Mostly gentle current and a well-known shuttle, but the 14-mile length, limited long-term parking at the landings, slippery banks, and fast-rise behavior mean this is still a real river day rather than a lazy pond float.",
+      confidenceNotes:
+        "Confidence is good for a conservative Indiana add: current Indiana DNR maps still name Deer's Mill Creek Access and label Cox Ford Covered Bridge as Public Access with permit parking, IndianaOutfitters still publishes a route-specific 75 cfs minimum for Deer's Mill starts plus exact public-access KML pins for both landings, Visit Montgomery County still anchors the Deer's Mill area at the bridge address, and USGS Water Services returned same-day June 20, 2026 current values for 03339500. Confidence stays conservative because the threshold source is community guidance and no exact-route upper discharge band is published.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03339500 at 907 cfs / 5.16 ft',
+        note: 'USGS Water Services returned same-day June 20, 2026 discharge and stage values for Sugar Creek at Crawfordsville, confirming the direct live gauge path used for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03339500/',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '75 cfs minimum-only',
+        note: "IndianaOutfitters says the lower bound of possible canoeing is about 75 cfs assuming a start no higher than Deer Mill Covered Bridge, and adds that canoe liveries stop renting at about 3 ft. Paddle Today uses only the 75 cfs floor and does not infer a full upper scoring band.",
+        sourceUrl: 'https://www.indianaoutfitters.com/data_sugar.html',
+      },
+      {
+        label: 'Official public access pair',
+        value: "Deer's Mill Creek Access to Cox Ford Public Access",
+        note: "The current Shades State Park map says the Deer's Mill Covered Bridge Area is maintained as access to Sugar Creek for canoeists, and the current Turkey Run map labels Cox Ford Covered Bridge as Public Access with a parking-permit note.",
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/files/turkey_run_trail.pdf',
+      },
+      {
+        label: 'Exact access coordinates',
+        value: '39.946497, -87.059065 to 39.885608, -87.223917',
+        note: "The public Sugar Creek KML linked from IndianaOutfitters' map page resolves named placemarks for Deers Mill Access point and Cox Ford Covered Bridge at these exact coordinates, matching the same named public access points used by the route.",
+        sourceUrl: 'https://www.google.com/maps/d/kml?mid=1qfBTXchM01cuZZUZfTDyLOScA84&forcekml=1',
+      },
+      {
+        label: 'Route length and take-out context',
+        value: 'About 14 mi to the second Turkey Run take-out',
+        note: "IndianaOutfitters says the second take-out site is immediately downstream of Cox Ford Covered Bridge, about 14 miles from Deer's Mill, and usually takes about 3 to 4.5 hours at average water.",
+        sourceUrl: 'https://www.indianaoutfitters.com/sugar_creek.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Indiana DNR Shades State Park map',
+        url: 'https://www.in.gov/dnr/state-parks/files/shades_trail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Indiana DNR Turkey Run State Park map',
+        url: 'https://www.in.gov/dnr/state-parks/files/turkey_run_trail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'IndianaOutfitters Sugar Creek streamflow page',
+        url: 'https://www.indianaoutfitters.com/data_sugar.html',
+        provider: 'local',
+      },
+      {
+        label: 'IndianaOutfitters Sugar Creek overview',
+        url: 'https://www.indianaoutfitters.com/sugar_creek.html',
+        provider: 'local',
+      },
+      {
+        label: "IndianaOutfitters Deer's Mill access page",
+        url: 'https://www.indianaoutfitters.com/riveraccesspoints/sugar_creek/deers_mill.htm',
+        provider: 'local',
+      },
+      {
+        label: 'IndianaOutfitters Cox Ford access page',
+        url: 'https://www.indianaoutfitters.com/riveraccesspoints/sugar_creek/cox_ford.htm',
+        provider: 'local',
+      },
+      {
+        label: 'IndianaOutfitters Sugar Creek public-access KML',
+        url: 'https://www.google.com/maps/d/kml?mid=1qfBTXchM01cuZZUZfTDyLOScA84&forcekml=1',
+        provider: 'local',
+      },
+      {
+        label: "Visit Montgomery County Deer's Mill Covered Bridge",
+        url: 'https://www.visitmoco.com/directory-attractions/listing/deers-mill-covered-bridge/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03339500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03339500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'wildcat-creek-knop-lake-mis-so-lah',
+    slug: 'wildcat-creek-knop-lake-mis-so-lah',
+    name: 'Wildcat Creek',
+    reach: 'Knop Lake Public Fishing Site access to Mis-So-Lah access site',
+    aliases: [
+      'Wildcat Creek - Knop Lake to Mis-So-La',
+      'Wildcat Creek - Knop Lake to Mis-So-Lah',
+      'North Fork Wildcat - Knop Lake to Mis-So-Lah',
+    ],
+    state: 'Indiana',
+    region: 'North Central Indiana',
+    summary:
+      'North Fork Wildcat day from the DNR-managed Knop Lake access to the Mis-So-Lah take-out. Current Wildcat Creek and NICHES pages confirm the named public endpoints, the Owasco USGS gauge gives a direct same-creek condition check, and current community trip guidance preserves a conservative route-specific low-water floor.',
+    statusText:
+      'Use the Wildcat Creek at Owasco gauge. Around 180 cfs is the conservative low-water floor, with 180 to 200 cfs described as a comfortable minimum for the Knop Lake run. No route-specific upper band is claimed, so treat high or rising water cautiously.',
+    latitude: 40.4595504,
+    longitude: -86.66416152,
+    gaugeSource: {
+      id: 'usgs-03334000',
+      provider: 'usgs',
+      siteId: '03334000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Wildcat Creek at Owasco, IN',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03334000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'private_banks'],
+      safetyNotes: [
+        'About a half-mile below Knop Lake the route reaches the old Pyrmont Dam. Wildcat Creek says paddlers should take the right-hand channel that diverts around the dam rather than drifting toward the structure.',
+        'Wildcat Creek says the Pyrmont bypass channel is narrow, has a few sharp turns, and tends to funnel water. Higher or rising flow deserves extra caution there even when the rest of the route looks gentle.',
+        'Use only the named public access sites. The straight road past the Knop Lake clearing is private property, and banks away from Knop Lake and Mis-So-Lah may be private or unsuitable for casual stopping.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 180,
+      thresholdSource: {
+        label: 'Hoosier Canoe and Kayak Club Knop Lake Wildcat trip notice',
+        url: 'https://hoosiercanoeandkayakclub.wildapricot.org/event-4156726',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. Wildcat Creek calls this one of the better canoeing sections in the valley with reliable water, but low water, fresh wood, and higher or rising flow can still change the feel of the riffles and Pyrmont bypass quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly a gentle scenic canoe route with short riffles and better-than-average depth for the corridor, but the old Pyrmont Dam bypass, 9-plus-mile length, simple carry-down accesses, and private-bank limits still require prepared same-day judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: current Wildcat Creek pages name the exact 9.3-mile Knop Lake-to-Mis-So-La section, the Pyrmont bypass hazard, and both public access sites; Indiana DNR\'s current Fish Access layer exposes a named Knop Lake Wildcat Creek Access point with carry-down and parking attributes; NICHES still states Mis-So-Lah is a public put-in/take-out and embeds a map centered on the site; Hoosier Canoe and Kayak Club still preserves a route-specific 180 to 200 cfs comfortable minimum tied to the Owasco gauge; and USGS Water Services returned same-day 2026-06-21 discharge and stage values for 03334000 during implementation. Confidence stays conservative because the threshold evidence is community guidance and the Mis-So-Lah coordinate is an embed-centered public-access anchor rather than a surveyed government ramp point.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03334000 at 458 cfs / 2.89 ft',
+        note: 'USGS Water Services returned same-day June 21, 2026 discharge and stage values for Wildcat Creek at Owasco, confirming the direct live gauge path used for this route.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03334000/',
+      },
+      {
+        label: 'Conservative low-water floor',
+        value: '180 to 200 cfs comfortable minimum',
+        note: 'Hoosier Canoe and Kayak Club\'s current preserved Wildcat trip notice says 180 to 200 cfs at Owasco is the comfortable minimum flow for the Knop Lake run, with Mis-So-La as the 9-mile short-timer take-out. Paddle Today uses a conservative 180 cfs minimum-only floor and does not infer an upper band.',
+        sourceUrl: 'https://hoosiercanoeandkayakclub.wildapricot.org/event-4156726',
+      },
+      {
+        label: 'Official route shape',
+        value: '9.3 mi, about 3 to 5 hr',
+        note: 'Wildcat Creek says Knop Lake to Mis-So-La is a 9.3-mile section that takes about 3 to 5 hours, has reliable water, and includes short riffle stretches.',
+        sourceUrl: 'https://www.wildcatcreek.net/river_segments/north_fork/knoplake_to_mis-so-la/index.htm',
+      },
+      {
+        label: 'Public put-in',
+        value: 'Knop Lake Wildcat Creek Access',
+        note: 'Indiana DNR\'s current Fish Access layer names Knop Lake Wildcat Creek Access on Wildcat Creek with carry-down launch type, parking-lot access, and Division of Fish & Wildlife public-access management. The current Wildcat Creek access page also says the site is at Knop Lake Public Fishing Site and is operated by the Indiana Department of Natural Resources.',
+        sourceUrl:
+          'https://gisdata.in.gov/server/rest/services/Hosted/Fish_Access_RO/FeatureServer/0/query?where=site_name%20%3D%20%27Knop%20Lake%20Wildcat%20Creek%20Access%27&outFields=site_name,waterbody,boat_ramp,parking_info,lat_y,long_x,property_m,type_of_la,type_of_ra,restrooms,campground,county,location&returnGeometry=false&f=json',
+      },
+      {
+        label: 'Public take-out',
+        value: 'Mis-So-Lah access site',
+        note: 'NICHES says Mis-So-Lah serves as an access point where paddlers can put in or take out after a float, and the current Wildcat Creek access page says the site sits just downstream of the CR 725 E bridge on the left bank with parking and a short dirt path.',
+        sourceUrl: 'https://nicheslandtrust.org/tippecanoe-county/mis-so-lah',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.4595504, -86.66416152 to 40.44428906, -86.76371068',
+        note: 'The upstream coordinate comes from Indiana DNR\'s current Knop Lake Wildcat Creek Access record. The downstream coordinate comes from the current NICHES Mis-So-Lah Google Maps embed centered on the public access site, paired with Wildcat Creek\'s bridge-side left-bank access description.',
+        sourceUrl:
+          'https://gisdata.in.gov/server/rest/services/Hosted/Fish_Access_RO/FeatureServer/0/query?where=site_name%20%3D%20%27Knop%20Lake%20Wildcat%20Creek%20Access%27&outFields=site_name,waterbody,boat_ramp,parking_info,lat_y,long_x,property_m,type_of_la,type_of_ra,restrooms,campground,county,location&returnGeometry=false&f=json',
+      },
+      {
+        label: 'Dam bypass hazard',
+        value: 'Take the right channel around Pyrmont Dam',
+        note: 'Wildcat Creek says paddlers encounter the old Pyrmont Dam about one-half mile below Knop Lake and should take the channel to the right because it diverts around the dam; it also warns that the bypass is narrow, has a few sharp turns, and tends to funnel water.',
+        sourceUrl: 'https://www.wildcatcreek.net/river_segments/north_fork/knoplake_to_mis-so-la/index.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Indiana DNR Fish Access record for Knop Lake Wildcat Creek Access',
+        url:
+          'https://gisdata.in.gov/server/rest/services/Hosted/Fish_Access_RO/FeatureServer/0/query?where=site_name%20%3D%20%27Knop%20Lake%20Wildcat%20Creek%20Access%27&outFields=site_name,waterbody,boat_ramp,parking_info,lat_y,long_x,property_m,type_of_la,type_of_ra,restrooms,campground,county,location&returnGeometry=false&f=json',
+        provider: 'local',
+      },
+      {
+        label: 'Indiana DNR Where to Fish interactive map',
+        url: 'https://www.in.gov/dnr/fish-and-wildlife/fishing/where-to-fish-interactive-map',
+        provider: 'local',
+      },
+      {
+        label: 'Wildcat Creek Knop Lake to Mis-So-La',
+        url: 'https://www.wildcatcreek.net/river_segments/north_fork/knoplake_to_mis-so-la/index.htm',
+        provider: 'local',
+      },
+      {
+        label: 'Wildcat Creek Knop Lake Access Site',
+        url: 'https://www.wildcatcreek.net/access_points/north_fork/knop_lake/index.htm',
+        provider: 'local',
+      },
+      {
+        label: 'Wildcat Creek Mis-So-La Access Site',
+        url: 'https://www.wildcatcreek.net/access_points/north_fork/mis-so-la/index.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NICHES Mis-So-Lah',
+        url: 'https://nicheslandtrust.org/tippecanoe-county/mis-so-lah',
+        provider: 'local',
+      },
+      {
+        label: 'Hoosier Canoe and Kayak Club Wildcat Creek trip notice',
+        url: 'https://hoosiercanoeandkayakclub.wildapricot.org/event-4156726',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03334000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03334000/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'platte-river-schramm-louisville',
     slug: 'platte-river-schramm-louisville',
     name: 'Platte River',
@@ -29799,6 +30340,372 @@ export const rivers: River[] = [
         label: "Ozark County Times Cook's Landing article",
         url: "https://www.ozarkcountytimes.com/news-local-news-outdoor-news/year-after-flood-mdc-reopens-cook%E2%80%99s-landing-bryant-creek-0",
         provider: "local",
+      },
+    ],
+  },
+  {
+    id: "village-creek-fm418-sh327",
+    slug: "village-creek-fm418-sh327",
+    name: "Village Creek",
+    reach: "FM 418 Boat Launch to TX 327 Boat Launch",
+    aliases: [
+      "Village Creek - FM 418 to SH 327",
+      "Village Creek - FM 418 to TX 327",
+      "Upper Village Creek Paddling Trail",
+    ],
+    state: "Texas",
+    region: "East Texas",
+    summary:
+      "Easy Big Thicket flatwater day from FM 418 to TX 327. TPWD and NPS still document the exact 8.6-mile segment, and the Kountze USGS gauge gives a direct same-creek condition check.",
+    statusText:
+      "Use the Village Creek near Kountze gauge. Around 200 cfs is the conservative low-water floor for FM 418 to TX 327. No route-specific upper cfs band is claimed; NPS warns that stage below about 3 ft exposes more sandbars and logs, while 10+ ft can turn swift and hazardous.",
+    latitude: 30.397794,
+    longitude: -94.265024,
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["fast_rise", "strainers", "private_banks"],
+      safetyNotes: [
+        "Village Creek is free-flowing and unrestrained by dams. Heavy rain and high water can create deceptively swift current on a route that often feels easy at normal levels.",
+        "Expect snags, logjams, overhanging limbs, and sandbars, especially when the creek is low or after storms move wood into the channel.",
+        "Respect Big Thicket boundary markers and private-bank limits. Use only the named public launches and only step onto private banks when necessary to portage a hazard.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08041500",
+      provider: "usgs",
+      siteId: "08041500",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Village Ck nr Kountze, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Village Creek / Kountze gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work year-round, but summer heat and insects make low-water days less pleasant, and rainfall can push the creek from calm flatwater into a much faster run. Treat storms and rising water conservatively.",
+      difficulty: "easy",
+      difficultyNotes:
+        "Usually calm flatwater and friendly for novice groups, but 8.6 miles is still a real half-day shuttle. Low water can force dragging or short portages around sandbars and logs, and high water removes the easy feel quickly.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently names the exact FM 418-to-SH 327 segment with coordinates, mileage, route description, water-quality warning, and private-boundary cautions; NPS publishes both launch pages with tighter GPS coordinates and the same 8.6-mile relationship; USGS 08041500 is the direct live gauge in the route corridor; and the historic Texas River Flows table ties a 200 cfs minimum to that same Kountze gauge. Confidence stays intentionally conservative because the threshold floor comes from a legacy multi-level table rather than a modern manager-published route band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08041500 at 2,060 cfs / 11.45 ft",
+        note: "USGS Water Services returned same-day June 21, 2026 discharge and stage values for Village Creek near Kountze, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Village Creek at the Kountze gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 418 to TX 327, 8.6 mi",
+        note: "Current TPWD and NPS Village Creek trail pages both identify FM 418 to TX 327 as an 8.6-mile upper segment of the paddling trail.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "30.397794, -94.265024 to 30.346944, -94.239385",
+        note: "NPS publishes the FM 418 Boat Launch and TX 327 Boat Launch as the exact public endpoints for this route, with trailer parking and launch access at both bridges.",
+        sourceUrl: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+      },
+      {
+        label: "Highway right-of-way access context",
+        value: "100 yd at FM 418, 200 yd at SH 327",
+        note: "TPWD Analysis of Texas Waterways says 100 yards of shoreline are available on the highway right-of-way at FM 418 and 200 yards at SH 327, reinforcing the public launch/take-out story for this corridor.",
+        sourceUrl: "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/11_e_tx_village_creek.phtml",
+      },
+      {
+        label: "Hazard and water-quality context",
+        value: "No dams, but logs, sandbars, and high-water speed",
+        note: "TPWD says the creek has no human-built obstructions on this segment, but can hold snags, logjams, and sandbars to avoid or portage around, and that the variable water quality is not recommended for drinking.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Village Creek Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/pineywoods/village-creek/",
+        provider: "local",
+      },
+      {
+        label: "NPS Paddle Village Creek",
+        url: "https://home.nps.gov/thingstodo/paddle-village-creek.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS FM 418 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-fm-418-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS TX 327 Boat Launch",
+        url: "https://www.nps.gov/places/village-creek-tx-327-boat-launch.htm",
+        provider: "nps",
+      },
+      {
+        label: "TPWD Analysis of Texas Waterways - Village Creek",
+        url: "https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/11_e_tx_village_creek.phtml",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08041500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08041500/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "guadalupe-river-fm766-sh72",
+    slug: "guadalupe-river-fm766-sh72",
+    name: "Guadalupe River",
+    reach: "FM 766 (Hell's Gate) to SH 72",
+    aliases: [
+      "Guadalupe Valley Paddling Trail - FM 766 to SH 72",
+      "Guadalupe River - Hell's Gate to SH 72",
+      "FM 766 to SH 72 Guadalupe segment",
+    ],
+    state: "Texas",
+    region: "South Texas",
+    summary:
+      "Short Cuero Guadalupe run from Hell's Gate to SH 72. TPWD still documents the exact 6.6-mile segment and direct access points, and the Cuero USGS gauge gives a same-river condition check before the remnant-dam portage.",
+    statusText:
+      "Use the Guadalupe River at Cuero gauge. Around 200 cfs is the conservative low-water floor for FM 766 to SH 72. No upper cfs band is claimed; high or rising water makes the remnant-dam portage and faster riffles more consequential.",
+    latitude: 29.1472,
+    longitude: -97.3177,
+    safetyProfile: {
+      riskLevel: "advanced",
+      hazards: ["dam", "mandatory_takeout", "strainers", "fast_rise", "private_banks"],
+      safetyNotes: [
+        "Mandatory portage around the remnant dam about 2.5 miles below FM 766; scout early and do not run it blindly.",
+        "Low water can expose more wood and make the remnant-dam line awkward, while high or rising water can turn the whole reach pushy quickly.",
+        "Use only the named public bridge accesses and respect private banks except when a hazard portage within the navigable corridor is necessary.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-08175800",
+      provider: "usgs",
+      siteId: "08175800",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Guadalupe Rv at Cuero, TX",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 200,
+      thresholdSource: {
+        label: "Texas River Flows five-level Guadalupe / Cuero gauge table",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      thresholdSourceStrength: "community",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "This route can work much of the year, but the Cuero reach is rainfall-sensitive. Runoff can create temporary high flows, stronger current, and poorer water quality, so same-day weather and river checks matter.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The mileage is short, but this is not a lazy beginner drift. TPWD describes faster riffles on a reach that also requires a mandatory portage around remnant dam structure, so paddlers need to recognize hazards, manage eddies, and handle short carries.",
+      confidenceNotes:
+        "Confidence is good for a conservative Texas add: TPWD currently names the exact FM 766-to-SH 72 segment with coordinates, mileage, route description, and hazard guidance; USGS 08175800 is the direct same-river gauge at Cuero; and the legacy Texas River Flows table ties a 200 cfs minimum to that same gauge. Confidence stays intentionally conservative because the threshold floor comes from an older corridor-wide flow table rather than a modern route-specific band, so the route ships minimum-only and does not claim an upper scoring range.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 08175800 at 2,200 cfs / 10.86 ft",
+        note: "USGS Water Services returned same-day June 21, 2026 discharge and stage values for Guadalupe River at Cuero, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "200 cfs minimum-only",
+        note: "The Texas River Flows five-level table lists Guadalupe Gonzales to Victoria on the Cuero gauge with a first-tier 200 cfs minimum, defined as the minimum water available for floating. Paddle Today uses only that conservative floor and does not infer an ideal or upper scoring band.",
+        sourceUrl: "https://theworld.com/~reichert/riverflo.htm",
+      },
+      {
+        label: "Official route shape",
+        value: "FM 766 to SH 72, 6.6 mi",
+        note: "Current TPWD trail material identifies FM 766 to SH 72 as the shorter upstream segment of the Guadalupe Valley Paddling Trail and lists a 2-4 hour float time.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Exact public launch coordinates",
+        value: "29.1472, -97.3177 to 29.0903, -97.3296",
+        note: "TPWD publishes FM 766 (Hell's Gate) and SH 72 as access points with current GPS coordinates and bridge-side driving directions.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+      {
+        label: "Hazard and bailout context",
+        value: "Remnant-dam portage plus Hwy 183 emergency take-out",
+        note: "TPWD warns that the remnants of a dam about 2.5 miles below FM 766 must be paddled around, notes possible low-water snags, and identifies Hwy 183 as an emergency take-out 2.6 miles below SH 72.",
+        sourceUrl: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "TPWD Guadalupe Valley Paddling Trail",
+        url: "https://tpwd.texas.gov/boating/paddling-trails/prairies-and-lakes/guadalupe-valley/",
+        provider: "local",
+      },
+      {
+        label: "TPWD Texas River/Stream Flow",
+        url: "https://tpwd.texas.gov/landwater/water/habitats/rivers/river_flow/",
+        provider: "local",
+      },
+      {
+        label: "Texas River Flows for 5 Levels of Paddling",
+        url: "https://theworld.com/~reichert/riverflo.htm",
+        provider: "local",
+      },
+      {
+        label: "USGS 08175800 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-08175800/",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "fox-river-yorkville-whitewater-course",
+    slug: "fox-river-yorkville-whitewater-course",
+    name: "Fox River",
+    reach: "Marge Cline Whitewater Course",
+    aliases: [
+      "Fox River - Yorkville whitewater",
+      "Marge Cline Whitewater Course",
+      "Bicentennial Riverfront Park whitewater course",
+    ],
+    state: "Illinois",
+    region: "Northern Illinois",
+    summary:
+      "Short downtown Yorkville whitewater-play and bypass course around Glen D. Palmer Dam, with public access at both ends, a walk-back lap option, and a direct Yorkville gauge.",
+    statusText:
+      "Use the Fox River at Yorkville gauge. Around 250 cfs is the conservative minimum floor for the course. American Whitewater maps the reach runnable up to about 5,000 cfs, but Paddle Today keeps this as a minimum-only whitewater route rather than claiming a preferred band.",
+    latitude: 41.643002,
+    longitude: -88.445,
+    routeType: "whitewater",
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["dam", "whitewater", "fast_rise"],
+      safetyNotes: [
+        "This is a dam-bypass whitewater course, not a casual Fox River float. Stay inside the official course and portage layout, and scout features before laps.",
+        "Use the designated downstream portage and take-out west of the Route 47 bridge on the south bank; do not improvise lines around the Glen D. Palmer Dam area.",
+        "Higher or rising water makes the short course pushier and more consequential, especially for novice whitewater paddlers or crowded warm-weather sessions.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    gaugeSource: {
+      id: "usgs-05551580",
+      provider: "usgs",
+      siteId: "05551580",
+      metric: "discharge_cfs",
+      unit: "cfs",
+      kind: "direct",
+      siteName: "Fox River at Yorkville, IL",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-05551580/",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 250,
+      thresholdSource: {
+        label: "American Whitewater Yorkville / Marge Cline Whitewater Course flow range",
+        url: "https://www.americanwhitewater.org/content/River/view/river-detail/4680/flow",
+        provider: "american_whitewater",
+      },
+      thresholdSourceStrength: "mixed",
+      rainfallSensitivity: "high",
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        "The city keeps the course open, but Yorkville levels still respond quickly to rain and warm-season usage. Winter ice, cold water, and storm pulses can all change usability on a short timeline.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "American Whitewater rates the course I-II at normal levels, but eddy lines, play features, crowding, and the dam-bypass setting keep it in the whitewater bucket rather than the casual-float bucket.",
+      confidenceNotes:
+        "Confidence is high enough for a conservative whitewater-play add: the City of Yorkville confirms the public open-use bypass chute, east-end boat launch, and designated downstream portage; American Whitewater maps exact put-in and take-out coordinates for the same reach and ties it directly to USGS 05551580; and USGS Water Services returned same-day gauge values during implementation. Paddle Today still scores it minimum-only because the best numeric support is American Whitewater's runnable envelope rather than a manager-published preferred band.",
+    },
+    evidenceNotes: [
+      {
+        label: "Direct live gauge",
+        value: "USGS 05551580 at 3,360 cfs / 13.58 ft",
+        note: "USGS Water Services returned same-day June 22, 2026 discharge and stage values for Fox River at Yorkville, confirming the direct live gauge path used for this route.",
+        sourceUrl: "https://waterdata.usgs.gov/monitoring-location/USGS-05551580/",
+      },
+      {
+        label: "Conservative low-water floor",
+        value: "250 cfs minimum-only",
+        note: "Current American Whitewater flow data for the exact Yorkville reach exposes a 250-5,000 cfs runnable envelope. Paddle Today uses only the 250 cfs floor and does not infer a preferred or upper scoring band from that envelope alone.",
+        sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/4680/flow",
+      },
+      {
+        label: "Official route shape",
+        value: "About 0.23 mi / 1,100-foot bypass chute",
+        note: "The City of Yorkville describes the Marge Cline course as a free open-use 1,100-foot bypass chute at Bicentennial Riverfront Park with portage points at both ends and about six feet of drop across the facility.",
+        sourceUrl: "https://www.yorkville.il.us/facilities/facility/details/marge-cline-whitewater-course-37",
+      },
+      {
+        label: "Exact public access coordinates",
+        value: "41.643002, -88.445 to 41.641998, -88.443001",
+        note: "American Whitewater's current map page for the Yorkville reach exposes exact Put In and Take Out coordinates. The city page independently confirms the east-end boat launch and the designated downstream portage west of the Route 47 bridge on the south bank next to the Parks and Recreation building.",
+        sourceUrl: "https://www.americanwhitewater.org/content/River/view/river-detail/4680/map",
+      },
+      {
+        label: "Public park access",
+        value: "Riverfront Park boat launch and course access",
+        note: "The current Riverfront Park page still identifies Riverfront Park at 131 E Hydraulic Ave as home to the course and lists a public boat launch among the park features.",
+        sourceUrl: "https://www.yorkville.il.us/facilities/facility/details/riverfront-park-2",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "City of Yorkville Marge Cline Whitewater Course",
+        url: "https://www.yorkville.il.us/facilities/facility/details/marge-cline-whitewater-course-37",
+        provider: "local",
+      },
+      {
+        label: "City of Yorkville Riverfront Park",
+        url: "https://www.yorkville.il.us/facilities/facility/details/riverfront-park-2",
+        provider: "local",
+      },
+      {
+        label: "American Whitewater Yorkville reach",
+        url: "https://www.americanwhitewater.org/content/River/view/river-detail/4680/main",
+        provider: "american_whitewater",
+      },
+      {
+        label: "American Whitewater Yorkville map",
+        url: "https://www.americanwhitewater.org/content/River/view/river-detail/4680/map",
+        provider: "american_whitewater",
+      },
+      {
+        label: "USGS 05551580 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-05551580/",
+        provider: "usgs",
       },
     ],
   },

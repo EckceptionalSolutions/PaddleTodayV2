@@ -10,6 +10,7 @@ import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { ExploreSearchBar } from '../components/explore-controls';
 import {
   ExploreFilterSheet,
+  campingMatches,
   countActiveFilters,
   defaultFilters,
   isExploreFilters,
@@ -66,7 +67,7 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ intent?: string }>();
+  const params = useLocalSearchParams<{ intent?: string; intentKey?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -80,6 +81,8 @@ export default function ExploreScreen() {
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
   const requestedIntent = isExploreIntentId(params.intent) ? params.intent : null;
+  const locationReady = Boolean(location);
+  const requestedIntentKey = requestedIntent ? `${requestedIntent}:${params.intentKey ?? 'initial'}:${locationReady ? 'location' : 'no-location'}` : null;
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -134,13 +137,16 @@ export default function ExploreScreen() {
   }, [location, nearestSupportedState, preferencesHydrated, requestedIntent]);
 
   useEffect(() => {
-    if (!preferencesHydrated || !requestedIntent || appliedIntentRef.current === requestedIntent) {
+    if (!preferencesHydrated || !requestedIntent || !requestedIntentKey || appliedIntentRef.current === requestedIntentKey) {
       return;
     }
 
-    appliedIntentRef.current = requestedIntent;
-    setFilters(filtersForExploreIntent(requestedIntent, { locationReady: Boolean(location) }));
-  }, [location, preferencesHydrated, requestedIntent]);
+    const intentFilters = filtersForExploreIntent(requestedIntent, { locationReady });
+    appliedIntentRef.current = requestedIntentKey;
+    setSelectedSlug(null);
+    setFilters(intentFilters);
+    setDraftFilters(intentFilters);
+  }, [locationReady, preferencesHydrated, requestedIntent, requestedIntentKey]);
 
   useEffect(() => {
     if (!preferencesHydrated) {
@@ -225,6 +231,8 @@ export default function ExploreScreen() {
         onRefresh={() => summaryQuery.refetch()}
         onClearIntent={() => {
           setFilters(defaultFilters);
+          setDraftFilters(defaultFilters);
+          setSelectedSlug(null);
           router.replace('/explore');
         }}
         onSearchChange={(query) => setFilters((current) => ({ ...current, query }))}
@@ -573,6 +581,7 @@ function applyExploreFilters(
       if (!statusMatches(river.rating, filters.status)) return false;
       if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
       if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime)) return false;
+      if (!campingMatches(river.river.logistics?.campingClassification, filters.camping)) return false;
       if (distanceLimit !== null && (river.distanceMiles === null || river.distanceMiles > distanceLimit)) return false;
       return true;
     })
@@ -681,6 +690,7 @@ function normalizeExploreFilters(filters: ExploreFilters): ExploreFilters {
     ...defaultFilters,
     ...filters,
     status: filters.status ?? 'any',
+    camping: filters.camping ?? 'any',
   };
 }
 
