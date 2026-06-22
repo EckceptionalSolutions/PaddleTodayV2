@@ -26806,6 +26806,262 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'south-fork-kentucky-river-rocky-branch-cedar-valley',
+    slug: 'south-fork-kentucky-river-rocky-branch-cedar-valley',
+    name: 'South Fork Kentucky River',
+    reach: 'Rocky Branch Road Access to Cedar Valley Road Access',
+    aliases: [
+      'South Fork Kentucky River - Rocky Branch to Cedar Valley',
+      'South Fork Kentucky River upper middle float',
+      'KDFWR South Fork Kentucky River Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short upper-middle South Fork Kentucky River float from Rocky Branch Road to Cedar Valley Road. KDFWR documents the 2.5-mile segment, both public accesses, and official Booneville gauge bands, while the Blue Water Trail article says this section is easier than the Narrows above.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely draggy; above that is high and faster around bends, shoals, and wood.',
+    latitude: 37.3206,
+    longitude: -83.6648,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR treats the Booneville gauge as the route-planning reference for this corridor. Spring through fall is the practical season, but low summer water can expose rock bars while rain can raise current and muddy the banks quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles. This is moving-water paddling, but it is the easier Rocky Branch-to-Cedar split rather than the steeper Narrows section farther upstream.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes Rocky Branch Road Access to Cedar Valley Road Access as a 2.5-mile public segment, provides exact access coordinates and site descriptions for both endpoints, and gives official Booneville low/good/high bands tied to direct USGS gauge 03281500. The Blue Water Trail article separately says Rocky Branch to Cedar Valley is one of the easier split options below the Narrows, and USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Rocky Branch Road Access to Cedar Valley Road Access, 2.5 miles',
+        note: 'KDFWR lists Rocky Branch Road Access to Cedar Valley Road Access as a public South Fork Kentucky River segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Blue Water Trail split',
+        value: 'Rocky Branch to Cedar Valley split below the Narrows',
+        note: 'The KDFWR South Fork Kentucky River Blue Water Trail article says paddlers can split the easier lower section into a 2.5-mile Rocky Branch Road to Cedar Valley Road float.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Rocky Branch Road Access, 37.3206, -83.6648',
+        note: 'KDFWR identifies Rocky Branch Road Access as a gravel and dirt canoe/kayak access with limited parking next to the bridge crossing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1124',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cedar Valley Road Access, 37.3363, -83.6560',
+        note: 'KDFWR identifies Cedar Valley Road Access as a gravel and dirt canoe/kayak access with limited parking and private-adjacent banks outside the access site.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500',
+        note: 'USGS Water Services returned same-day values of 173 cfs and 4.14 ft at 2026-06-22 17:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Rocky Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1124',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Valley Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-cedar-valley-bishop-bend',
+    slug: 'south-fork-kentucky-river-cedar-valley-bishop-bend',
+    name: 'South Fork Kentucky River',
+    reach: 'Cedar Valley Road Access to Bishop Bend School Road Access',
+    aliases: [
+      'South Fork Kentucky River - Cedar Valley to Bishop Bend',
+      'South Fork Kentucky River Bronner Bend float',
+      'KDFWR South Fork Kentucky River Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Medium-length South Fork Kentucky River day from Cedar Valley Road to Bishop Bend School Road. KDFWR documents the 4.7-mile segment, both public accesses, and official Booneville gauge bands, and the Blue Water Trail article calls this a strong easier-water smallmouth float below the Narrows.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.3363,
+    longitude: -83.656,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This South Fork corridor can paddle through much of spring, summer, and fall when the Booneville gauge is in range. Lower flows expose shoals and rock bars, while rain and muddy rises can make landings and recovery less forgiving.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This stretch stays in the broad warmwater South Fork character KDFWR describes: shallow to medium depths, mud banks, rock bars, and occasional riffles. It is not flatwater, but the Blue Water Trail article says it is easier than the Narrows section upstream.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes Cedar Valley Road Access to Bishop Bend School Road Access as a 4.7-mile public segment, provides exact coordinates and access descriptions for both endpoints, and gives official Booneville gauge bands tied to direct USGS gauge 03281500. The Blue Water Trail article separately says Cedar Valley to Bishop Bend is a strong easier-water smallmouth float, and USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Cedar Valley Road Access to Bishop Bend School Road Access, 4.7 miles',
+        note: 'KDFWR lists Cedar Valley Road Access to Bishop Bend School Road Access as a public South Fork Kentucky River segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Blue Water Trail split',
+        value: 'Slightly under 5 miles',
+        note: 'The KDFWR South Fork Kentucky River Blue Water Trail article says paddlers can split the easier lower section into a slightly under 5-mile Cedar Valley Road to Bishop Bend School Road float and that the final take-out appears on river left.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cedar Valley Road Access, 37.3363, -83.6560',
+        note: 'KDFWR identifies Cedar Valley Road Access as a gravel and dirt canoe/kayak access with limited parking and private-adjacent banks outside the access site.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Bishop Bend School Road Access, 37.3377, -83.6882',
+        note: 'KDFWR identifies Bishop Bend School Road Access as a gravel and dirt canoe/kayak access with a small dirt parking area and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500',
+        note: 'USGS Water Services returned same-day values of 173 cfs and 4.14 ft at 2026-06-22 17:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR South Fork Kentucky River access guide',
+        url: 'https://fw.ky.gov/Fish/Documents/South%20Fork%20of%20Kentucky%20River.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Valley Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1125',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bishop Bend School Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'south-fork-kentucky-river-kay-wood-fish-creek',
     slug: 'south-fork-kentucky-river-kay-wood-fish-creek',
     name: 'South Fork Kentucky River',
@@ -27933,6 +28189,133 @@ export const rivers: River[] = [
       {
         label: 'USGS 03250190 legacy current conditions',
         url: 'https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=03250190',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-jubilee-island-creek',
+    slug: 'levisa-fork-jubilee-island-creek',
+    name: 'Levisa Fork',
+    reach: 'Jubilee Christian Church Ramp to Island Creek Ramp',
+    aliases: [
+      'Levisa Fork - Jubilee to Island Creek',
+      'Hatfield-McCoy River Trail upper float',
+      'KDFWR Levisa Fork Blue Water Trail',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short Pikeville half-day float from Jubilee Christian Church Ramp to Island Creek Ramp. KDFWR documents the public access pair, 3.8-mile Blue Water Trail split, and official Pikeville gauge bands, while the education page frames this upper Hatfield-McCoy River Trail reach as family-friendly moving water.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low; above that is high and swift current or woody debris can make the river inappropriate for casual paddling.',
+    latitude: 37.4445,
+    longitude: -82.5057,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR says the Levisa Fork near Pikeville benefits from Russell Fork inflow and Fishtrap Lake releases, which support more dependable summer flow than many eastern Kentucky streams. Storms and release changes can still raise current and move fresh wood into the channel.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the Levisa Fork as gentle riffles and flowing shoals that are suitable for families and beginners at normal levels. This remains moving water rather than flatwater, especially when the river approaches or exceeds the high band.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes the official Pikeville gauge bands on the Fish page, provides exact access coordinates for Jubilee Christian Church Ramp and Island Creek Ramp on the access-detail pages, and the Blue Water Trail map plus education article identify Jubilee-to-Island Creek as a 3.8-mile half-day float. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1,400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1,400 cfs or 7.4 to 8.5 ft, and High above 1,400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Jubilee Christian Church Ramp to Island Creek Ramp, 3.8 miles',
+        note: 'The KDFWR Blue Water Trail map lists Jubilee Christian Church Ramp to Island Creek Ramp as a 3.8-mile ramp-to-ramp split, and the Levisa Fork education page describes it as a leisurely half-day float.',
+        sourceUrl: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Jubilee Christian Church Canoe Access, 37.4445, -82.5057',
+        note: 'KDFWR identifies Jubilee Christian Church Canoe Access as a carry-down site with paved parking nearby and notes that paddlers should ask permission before using the church lot.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Island Creek Canoe Access, 37.4646, -82.5284',
+        note: 'KDFWR identifies Island Creek Canoe Access as a carry-down site behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+      },
+      {
+        label: 'Route character',
+        value: 'Gentle riffles, deep pools, flowing shoals',
+        note: 'The Levisa Fork education page says the first float from Jubilee Christian Church to Island Creek moves through an intimate gorge with gentle riffles, deep pools, and flowing shoals, making it suitable for families and beginners at normal levels.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'USGS Water Services returned same-day values of 341 cfs and 6.56 ft at 2026-06-22 17:30-18:00 EDT for Levisa Fork at Pikeville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa_Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork education page',
+        url: 'https://fw.ky.gov/Education/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Levisa Fork detailed map',
+        url: 'https://fw.ky.gov/Education/Documents/bluewatertraillevisafork.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Jubilee Christian Church Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1013',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Island Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
         provider: 'usgs',
       },
     ],

@@ -8272,6 +8272,83 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-rocky-branch-cedar-valley': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Cedar Valley Road Access, then drive back to Rocky Branch Road Access off KY-11. Inspect both gravel access roads before launching because parking is limited and muddy approaches can change after rain.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow posted Kentucky boating and PFD requirements, and respect any same-day access or parking limits at the roadside launch areas.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch or Cedar Valley, and adjacent banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out 2.5 miles downstream at Cedar Valley Road Access for a short South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a gravel and dirt bridge-side access with limited parking and no amenities.',
+        'Cedar Valley is a gravel and dirt access with limited parking; KDFWR says bank fishing beyond the access is constrained because adjacent property is private.',
+        'The current Booneville gauge reading was below the official good band during this run. Expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and fishing-line traffic near easier roadside access points.',
+        'Private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 4.7 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Cedar Valley Road Access. Drive both access roads before launching because each has limited dirt or gravel parking and no developed amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley or Bishop Bend, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out 4.7 miles downstream at Bishop Bend School Road Access for a modest South Fork Kentucky River day. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a gravel and dirt access with limited parking and no amenities.',
+        'Bishop Bend is a gravel and dirt access with a small dirt parking area midway down the road and no amenities.',
+        'The Blue Water Trail article says this easier lower section finishes on river left at Bishop Bend; identify the take-out before launching so you do not drift past the signed access.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when rock bars, shoals, and drag-outs become more common.',
+        'High water above 900 cfs or 6.0 ft, when current quickens around bends and woody debris becomes less forgiving.',
+        'Mud banks, wood, occasional riffles, private-adjacent banks, and limited bailout options outside the named accesses.',
+      ],
+    },
+  },
   'south-fork-kentucky-river-kay-wood-fish-creek': {
     putIn: {
       id: 'kay-wood-road-access',
@@ -8622,6 +8699,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 200 cfs, when KDFWR moves the creek out of the good band and current, wood, and landings deserve extra caution.',
         'Woody debris, strainers, stained water, and quick rain response on this small creek.',
         'Private-bank limits away from KDFWR access sites; use public parks and legal gravel-bar stops rather than climbing banks or yards.',
+      ],
+    },
+  },
+  'levisa-fork-jubilee-island-creek': {
+    putIn: {
+      id: 'jubilee-christian-church-ramp',
+      name: 'Jubilee Christian Church Ramp',
+      latitude: 37.4445,
+      longitude: -82.5057,
+    },
+    takeOut: {
+      id: 'island-creek-ramp',
+      name: 'Island Creek Ramp',
+      latitude: 37.4646,
+      longitude: -82.5284,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, family stops, or fishing',
+      shuttle:
+        'Stage the take-out at Island Creek Ramp behind the South Mayo Trail corridor, then drive back to Jubilee Christian Church Ramp south of Pikeville. Walk the Island Creek landing first so the right-bank take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Jubilee Christian Church Ramp or Island Creek Ramp, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Jubilee Christian Church Ramp and take out 3.8 miles downstream at Island Creek Ramp for the upper Hatfield-McCoy River Trail float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
+        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
+        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards and private banks outside the documented ramps.',
       ],
     },
   },

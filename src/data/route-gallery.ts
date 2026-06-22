@@ -1396,6 +1396,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'south-fork-kentucky-river-rocky-branch-cedar-valley': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
+      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
+      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'levisa-fork-jubilee-island-creek': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'slate-creek-lions-club-old-slate-furnace': [
     {
       id: 'slate-creek-owingsville-usgs',

@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-06-22 17:26 America/Chicago / 2026-06-22 22:26 UTC: Kentucky three-route implementation pass (`3-new-routes-automation`).
+  - Reused the current route queue after `npm run routes:leads:gather` showed 271 open leads and no `implementation_ready` candidates, then pivoted to internet-first Kentucky sourcing with current KDFWR, KDFWR Blue Water Trail PDFs, and same-day USGS Water Services checks.
+  - Added three internet-sourced Kentucky routes: `south-fork-kentucky-river-rocky-branch-cedar-valley`, `south-fork-kentucky-river-cedar-valley-bishop-bend`, and `levisa-fork-jubilee-island-creek`.
+  - Qualification path: current KDFWR South Fork page and Blue Water Trail PDF documented the 2.5-mile Rocky Branch-to-Cedar Valley split and the 4.7-mile Cedar Valley-to-Bishop Bend split, with exact access coordinates and official Booneville bands of `350-900 cfs / 4.8-6.0 ft`; same-day direct USGS `03281500` returned `173 cfs / 4.14 ft` at 2026-06-22 17:30 EDT. Current KDFWR Levisa fish page, education page, detailed map PDF, and access-detail pages documented the 3.8-mile Jubilee-to-Island Creek split, exact access coordinates, and official Pikeville bands of `800-1400 cfs / 7.4-8.5 ft`; same-day direct USGS `03209500` returned `341 cfs / 6.56 ft` at 2026-06-22 17:30-18:00 EDT.
+  - Added camping and safety/logistics notes for all three routes and wired rights-clean gallery assets for each: two public-domain historical South Fork Kentucky River Commons images and the existing CC0 Levisa Fork Commons image.
+
 - 2026-06-12 13:03 America/Chicago / 2026-06-12 18:03 UTC: North Dakota Fort Ransom coordinate blocker refresh (`north-dakota-route-additions`).
   - Rebuilt current North Dakota coverage from route data: 3 live route objects and 3 trip-detail keys, `sheyenne-river-fish-hatchery-chautauqua`, `pembina-river-vang-riverside-park`, and `little-missouri-rough-rider-medora-bridge`, with 13 structured North Dakota ledger rows.
   - No route was added. Rechecked `nd-sheyenne-river-fort-ransom-sportsman-landing`; it remains `needs_manual_coordinates`.
