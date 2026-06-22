@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-06-22 18:35 America/Chicago / 2026-06-22 23:35 UTC: Kentucky three-route implementation pass (`3-new-routes-automation`).
+  - Reused the current route queue after `npm run routes:leads:gather` showed 271 open leads and no `implementation_ready` candidates, then stayed with the current Kentucky source family because KDFWR still had clean public access chains plus same-day direct USGS recovery.
+  - Added three internet-sourced Kentucky routes: `south-fork-kentucky-river-bishop-bend-hacker-branch`, `south-fork-kentucky-river-hacker-branch-upper-wolf-creek`, and `levisa-fork-island-creek-cedar-creek`.
+  - Qualification path: current KDFWR South Fork page documented the 3.3-mile Bishop Bend-to-Hacker Branch split and the 2.9-mile Hacker Branch-to-Upper Wolf Creek split, with exact access coordinates and official Booneville bands of `350-900 cfs / 4.8-6.0 ft`; same-day direct USGS `03281500` returned `171 cfs / 4.13 ft` at 2026-06-22 18:30 EDT. Current KDFWR Levisa Fork page documented the 1.5-mile Island Creek-to-Cedar Creek split, exact access coordinates, and official Pikeville bands of `800-1400 cfs / 7.4-8.5 ft`; same-day direct USGS `03209500` returned `341 cfs` at 2026-06-22 17:30 EDT and `6.56 ft` at 2026-06-22 18:00 EDT.
+  - Added camping and safety/logistics notes for all three routes and reused the existing rights-clean South Fork and Levisa gallery assets for each route.
+
 - 2026-06-22 17:26 America/Chicago / 2026-06-22 22:26 UTC: Kentucky three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after `npm run routes:leads:gather` showed 271 open leads and no `implementation_ready` candidates, then pivoted to internet-first Kentucky sourcing with current KDFWR, KDFWR Blue Water Trail PDFs, and same-day USGS Water Services checks.
   - Added three internet-sourced Kentucky routes: `south-fork-kentucky-river-rocky-branch-cedar-valley`, `south-fork-kentucky-river-cedar-valley-bishop-bend`, and `levisa-fork-jubilee-island-creek`.

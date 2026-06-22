@@ -27062,6 +27062,240 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'south-fork-kentucky-river-bishop-bend-hacker-branch',
+    slug: 'south-fork-kentucky-river-bishop-bend-hacker-branch',
+    name: 'South Fork Kentucky River',
+    reach: 'Bishop Bend School Road Access to Hacker Branch Road Access',
+    aliases: [
+      'South Fork Kentucky River - Bishop Bend to Hacker Branch',
+      'South Fork Kentucky River middle Booneville float',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Short-to-medium South Fork Kentucky River day from Bishop Bend School Road to Hacker Branch Road. KDFWR documents the 3.3-mile public segment, both access coordinates, and the official Booneville gauge bands for this broad warmwater corridor.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.3377,
+    longitude: -83.6882,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This South Fork corridor can paddle through much of spring, summer, and fall when the Booneville gauge is in range. Lower flows expose shoals and rock bars, while rain and muddy rises can make landings and recovery less forgiving.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as a relatively broad river with shallow to medium depths, mud banks, rock bars, and occasional riffles. This is moving water rather than flatwater, but it remains in the easier Booneville access chain rather than a technical whitewater reach.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes Bishop Bend School Road Access to Hacker Branch Road Access as a 3.3-mile public segment, provides exact coordinates and access descriptions for both endpoints, and ties the corridor to direct USGS gauge 03281500 with official Booneville Low/Good/High bands. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Bishop Bend School Road Access to Hacker Branch Road Access, 3.3 miles',
+        note: 'KDFWR lists Bishop Bend School Road Access to Hacker Branch Road Access as a public South Fork Kentucky River segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Bishop Bend School Road Access, 37.3377, -83.6882',
+        note: 'KDFWR identifies Bishop Bend School Road Access as a gravel and dirt canoe/kayak access with a small dirt parking area and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
+        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down canoe/kayak access with unpaved parking and no developed amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500',
+        note: 'USGS Water Services returned same-day values of 171 cfs and 4.13 ft at 2026-06-22 18:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Bishop Bend School Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1123',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hacker Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-fork-kentucky-river-hacker-branch-upper-wolf-creek',
+    slug: 'south-fork-kentucky-river-hacker-branch-upper-wolf-creek',
+    name: 'South Fork Kentucky River',
+    reach: 'Hacker Branch Road Access to Upper Wolf Creek Ramp',
+    aliases: [
+      'South Fork Kentucky River - Hacker Branch to Upper Wolf Creek',
+      'South Fork Kentucky River lower Booneville access chain',
+      'KDFWR South Fork Kentucky River access chain',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Compact South Fork Kentucky River float from Hacker Branch Road to Upper Wolf Creek Ramp. KDFWR documents the 2.9-mile public segment, both access coordinates, and the official Booneville gauge bands for this broad warmwater reach.',
+    statusText:
+      'Use the South Fork Kentucky River at Booneville gauge. KDFWR rates 350 to 900 cfs, or 4.8 to 6.0 ft, as good for boating and fishing. Below that is low and likely scrape-prone; above that is high and faster around shoals, bends, and wood.',
+    latitude: 37.3743,
+    longitude: -83.6708,
+    gaugeSource: {
+      id: 'usgs-03281500',
+      provider: 'usgs',
+      siteId: '03281500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Kentucky River at Booneville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 350,
+      tooHigh: 900,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for South Fork Kentucky River at Booneville',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This South Fork corridor can paddle through much of spring, summer, and fall when the Booneville gauge is in range. Lower flows expose shoals and rock bars, while rain and muddy rises can make landings and recovery less forgiving.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes the South Fork as a relatively broad river with shallow to medium depths, mud banks, rock bars, and occasional riffles. This is moving-water paddling, but it remains a straightforward public-access chain segment when levels are stable.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes Hacker Branch Road Access to Upper Wolf Creek Ramp as a 2.9-mile public segment, provides exact coordinates and access descriptions for both endpoints, and ties the corridor to direct USGS gauge 03281500 with official Booneville Low/Good/High bands. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '350-900 cfs / 4.8-6.0 ft',
+        note: 'KDFWR rates South Fork Kentucky River at Booneville as Low below 350 cfs or 4.8 ft, Good from 350 to 900 cfs or 4.8 to 6.0 ft, and High above 900 cfs or 6.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Hacker Branch Road Access to Upper Wolf Creek Ramp, 2.9 miles',
+        note: 'KDFWR lists Hacker Branch Road Access to Upper Wolf Creek Ramp as a public South Fork Kentucky River segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Hacker Branch Road Access, 37.3743, -83.6708',
+        note: 'KDFWR identifies Hacker Branch Road Access as a carry-down canoe/kayak access with unpaved parking and no developed amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Upper Wolf Creek Ramp, 37.4036, -83.6798',
+        note: 'KDFWR identifies Upper Wolf Creek Ramp as a free single-lane paved boat ramp with paved parking and year-round 24-hour availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03281500',
+        note: 'USGS Water Services returned same-day values of 171 cfs and 4.13 ft at 2026-06-22 18:30 EDT for South Fork Kentucky River at Booneville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Broad river, rock bars, occasional riffles',
+        note: 'KDFWR describes the South Fork Kentucky River as relatively broad with shallow to medium depths, mud banks, rock bars, and occasional riffles.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR South Fork Kentucky River',
+        url: 'https://fw.ky.gov/Fish/Pages/SFKY_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Hacker Branch Road Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1122',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Upper Wolf Creek Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1073',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03281500 South Fork Kentucky River at Booneville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03281500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03281500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03281500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
     id: 'south-fork-kentucky-river-kay-wood-fish-creek',
     slug: 'south-fork-kentucky-river-kay-wood-fish-creek',
     name: 'South Fork Kentucky River',
@@ -28306,6 +28540,123 @@ export const rivers: River[] = [
       {
         label: 'KDFWR Island Creek Canoe Access',
         url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1012',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03209500 Levisa Fork at Pikeville',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03209500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'levisa-fork-island-creek-cedar-creek',
+    slug: 'levisa-fork-island-creek-cedar-creek',
+    name: 'Levisa Fork',
+    reach: 'Island Creek Ramp to Cedar Creek Canoe Access',
+    aliases: [
+      'Levisa Fork - Island Creek to Cedar Creek',
+      'Hatfield-McCoy River Trail - Island Creek to Cedar Creek',
+      'Pikeville Levisa continuation float',
+    ],
+    state: 'Kentucky',
+    region: 'Eastern Kentucky',
+    summary:
+      'Very short Pikeville Levisa Fork float from Island Creek Ramp to Cedar Creek Canoe Access. KDFWR documents the 1.5-mile public segment, both access coordinates, and official Pikeville gauge bands tied to direct USGS data.',
+    statusText:
+      'Use the Levisa Fork at Pikeville gauge. KDFWR rates 800 to 1,400 cfs, or 7.4 to 8.5 ft, as good for boating and fishing. Below that is low and likely shallow; above that is high and faster around wood, bridge current, and busy urban banks.',
+    latitude: 37.4646,
+    longitude: -82.5284,
+    gaugeSource: {
+      id: 'usgs-03209500',
+      provider: 'usgs',
+      siteId: '03209500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Levisa Fork at Pikeville, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03209500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 800,
+      idealMax: 1400,
+      tooLow: 800,
+      tooHigh: 1400,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Levisa Fork at Pikeville',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'KDFWR treats the Pikeville gauge as the planning reference for this corridor. Spring through fall is practical, but low summer water can expose shoals while rain, releases, and tributary inflow can raise current quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'KDFWR describes this Pikeville corridor as a warmwater public-access float, but it is still moving water with shoals, bridge current, wood, and urban corridor distractions. Treat it as easy only when the Pikeville gauge is stable in range.',
+      confidenceNotes:
+        'Confidence is high for a conservative Kentucky add: KDFWR publishes Island Creek Ramp to Cedar Creek Canoe Access as a 1.5-mile public segment, provides exact endpoint coordinates and public-access descriptions, and ties the corridor to direct USGS gauge 03209500 with official Pikeville Low/Good/High bands. USGS Water Services returned same-day discharge and stage during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official level band',
+        value: '800-1400 cfs / 7.4-8.5 ft',
+        note: 'KDFWR rates Levisa Fork at Pikeville as Low below 800 cfs or 7.4 ft, Good from 800 to 1400 cfs or 7.4 to 8.5 ft, and High above 1400 cfs or 8.5 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Island Creek Ramp to Cedar Creek Canoe Access, 1.5 miles',
+        note: 'KDFWR lists Island Creek Ramp to Cedar Creek Canoe Access as a public Levisa Fork segment in its site-to-site mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Island Creek Ramp, 37.4646, -82.5284',
+        note: 'KDFWR identifies Island Creek Ramp as a free carry-down access behind the South Mayo Trail corridor with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1002',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cedar Creek Canoe Access, 37.4802, -82.5446',
+        note: 'KDFWR identifies Cedar Creek Canoe Access as a free carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03209500',
+        note: 'USGS Water Services returned same-day values of 341 cfs at 2026-06-22 17:30 EDT and 6.56 ft at 2026-06-22 18:00 EDT for Levisa Fork at Pikeville during this run, below the official good band.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03209500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route character',
+        value: 'Urban warmwater corridor with shoals',
+        note: 'KDFWR frames the Pikeville Levisa Fork as a public-access paddling and fishing corridor where gauge timing, shoals, and urban-side access behavior matter.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Levisa Fork',
+        url: 'https://fw.ky.gov/Fish/Pages/Levisa-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Island Creek Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1002',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Cedar Creek Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=995',
         provider: 'local',
       },
       {

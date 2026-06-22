@@ -8349,6 +8349,84 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-bishop-bend-hacker-branch': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 3.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Bishop Bend School Road Access. Inspect both approaches before launching because the sites are simple roadside-style public accesses with limited parking and no amenities.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend or Hacker Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out 3.3 miles downstream at Hacker Branch Road Access for a short South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a gravel and dirt access with a small dirt parking area and no amenities.',
+        'Hacker Branch is a carry-down access with unpaved parking and no ramp or listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and limited bailout options outside the named accesses.',
+        'Private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': {
+    putIn: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.4036,
+      longitude: -83.6798,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Hacker Branch Road Access. Walk both landings before launching because Hacker Branch is a carry-down site while Upper Wolf Creek is the more developed paved-ramp exit.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Hacker Branch or Upper Wolf Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Hacker Branch Road Access and take out 2.9 miles downstream at Upper Wolf Creek Ramp for a compact South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Hacker Branch is a carry-down access with unpaved parking and no listed amenities.',
+        'Upper Wolf Creek is a free single-lane paved ramp with paved parking and year-round 24-hour availability.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when KDFWR moves the corridor out of the good band and current becomes less forgiving around wood and muddy landings.',
+        'Wood, strainers, mud banks, bridge-area current, and occasional riffles.',
+        'Private banks outside the access sites.',
+      ],
+    },
+  },
   'south-fork-kentucky-river-kay-wood-fish-creek': {
     putIn: {
       id: 'kay-wood-road-access',
@@ -8730,6 +8808,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       accessCaveats: [
         'KDFWR says parking near Jubilee is limited and that paddlers should ask permission before using the church paved lot.',
         'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
+        'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
+      ],
+      watchFor: [
+        'Low water below 800 cfs or 7.4 ft, when shoals get shallower and dragging becomes more likely.',
+        'High water above 1,400 cfs or 8.5 ft, when KDFWR moves the route out of the good band and swift current plus woody debris become much less forgiving.',
+        'Mussel shells on the river bottom, woody debris, bridge-area current, and fishing traffic in the Pikeville corridor.',
+        'Urban corridor hazards and private banks outside the documented ramps.',
+      ],
+    },
+  },
+  'levisa-fork-island-creek-cedar-creek': {
+    putIn: {
+      id: 'island-creek-ramp',
+      name: 'Island Creek Ramp',
+      latitude: 37.4646,
+      longitude: -82.5284,
+    },
+    takeOut: {
+      id: 'cedar-creek-canoe-access',
+      name: 'Cedar Creek Canoe Access',
+      latitude: 37.4802,
+      longitude: -82.5446,
+    },
+    logistics: {
+      distanceLabel: 'About 1.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, family stops, or fishing',
+      shuttle:
+        'Stage the take-out at Cedar Creek Canoe Access under the KY 1384 bridge, then drive back to Island Creek Ramp behind the South Mayo Trail corridor. Walk the Cedar Creek landing first so the bridge-side take-out is obvious from the water.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any local parking or loading instructions.',
+      camping:
+        'Treat this as an urban day float. KDFWR lists no camping at Island Creek Ramp or Cedar Creek Canoe Access, and no legal overnight plan was verified for this Pikeville corridor.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Island Creek Ramp and take out 1.5 miles downstream at Cedar Creek Canoe Access for a very short Pikeville Levisa Fork float. KDFWR gives a good Pikeville gauge band of 800 to 1,400 cfs, or 7.4 to 8.5 ft.',
+      accessCaveats: [
+        'Island Creek is a carry-down access behind the South Mayo Trail commercial corridor with unpaved parking and no amenities.',
+        'Cedar Creek is a carry-down access under the KY 1384 bridge with unpaved parking and no amenities.',
         'The current Pikeville gauge reading was below the official good band during this run. Expect slower current, shallower shoals, and more route-finding around exposed gravel or mussel-shell areas until levels rise.',
         'Stay with the named public accesses and do not assume commercial lots or private banks along the corridor are general river-user parking or stopping points.',
       ],
