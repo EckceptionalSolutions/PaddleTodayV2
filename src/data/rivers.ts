@@ -31166,6 +31166,109 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'wabash-river-white-bridge-hale-street',
+    slug: 'wabash-river-white-bridge-hale-street',
+    name: 'Wabash River',
+    reach: 'White Bridge Picnic Area to Hale Street access',
+    aliases: [
+      'Wabash River - White Bridge to Hale Street',
+      'Wabash River - White Bridge Picnic Area to Hale St',
+      'Wells County Wabash White Bridge to Hale',
+    ],
+    state: 'Indiana',
+    region: 'Northeast Indiana',
+    summary:
+      'Short Bluffton-area Wabash link from White Bridge Picnic Area to the public east-end Hale Street access. Wells County Trails keeps the gauge guidance simple: use the Bluffton stage and stay inside the same conservative 1.5 to 3 ft band.',
+    statusText:
+      'Wells County Trails calls 1.5 to 3 ft the ideal kayaking height. Below that means shallow dragging, and above 3 ft this app turns conservative because higher water adds stronger flow, debris, and obstacle hazards.',
+    latitude: 40.728082,
+    longitude: -85.136707,
+    gaugeSource: {
+      id: 'usgs-03323000',
+      provider: 'usgs',
+      siteId: '03323000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Wabash River at Bluffton, IN',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1.5,
+      idealMax: 3,
+      tooLow: 1.5,
+      tooHigh: 3,
+      thresholdSource: {
+        label: 'Wells County Trails Wabash River kayaking stage guidance',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      thresholdSourceStrength: 'mixed',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall can work when the Bluffton stage is inside the local kayaking band. Heavy rain can push this slow rural river into stronger current, debris, and flood-stage hazards.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a very short public Wabash link, but it is still moving river water with bridge debris, strainers, private banks, and limited bailout options between the named public accesses.',
+      confidenceNotes:
+        'Confidence is good for a conservative Indiana add: Wells County Trails names White Bridge Picnic Area and the east end of Hale Street as public Wabash access points and ties local kayaking decisions to the Bluffton gauge; Northeast Indiana Water Trails still resolves White Bridge coordinates; and USGS Water Services returned same-day 2026-06-22 values for 03323000. The Hale Street coordinate is a practical access anchor derived from Wells County Trails east-end wording plus the no-exit east terminus of West Hale Street in current OpenStreetMap geometry, not a surveyed launch pin.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Local stage band',
+        value: '1.5 to 3 ft',
+        note: 'Wells County Trails says this is the ideal river height for kayaking and warns never to enter during Action or Flood Stages.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Public route shape',
+        value: '2.4 mi total',
+        note: 'Wells County Trails lists White Bridge Picnic Area as the next public launch 2.1 miles above Crosby Bridge, then places Hale Street another 0.3 miles downstream at the east end of Hale St.',
+        sourceUrl: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: '40.728082, -85.136707 to 40.7448153, -85.1745966',
+        note: 'The White Bridge coordinate comes from the Northeast Indiana Water Trails map. The Hale Street coordinate uses the mapped no-exit east end of West Hale Street, matching Wells County Trails public-access wording for the east-end launch.',
+        sourceUrl: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Live gauge',
+        value: 'USGS 03323000',
+        note: 'USGS Water Services returned same-day 2026-06-22 values of 3.93 ft and 741 cfs for Wabash River at Bluffton, IN during implementation.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'Indiana water-trail context',
+        value: 'Current regional trail source',
+        note: 'Indiana DNR says its old canoe-guide material was removed as outdated and points users to current regional water-trail resources such as Northeast Indiana Water Trails.',
+        sourceUrl: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Wells County Trails kayaking',
+        url: 'https://www.wellscountytrails.org/kayaking',
+      },
+      {
+        label: 'Northeast Indiana Water Trails map',
+        url: 'https://neiwatertrails.com/map',
+      },
+      {
+        label: 'Indiana DNR Water Trails Guide',
+        url: 'https://www.in.gov/dnr/state-parks/recreation/water-trails/water-trails-guide',
+      },
+      {
+        label: 'USGS 03323000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03323000/',
+      },
+      {
+        label: 'OpenStreetMap West Hale Street geometry',
+        url: 'https://api.openstreetmap.org/api/0.6/way/17590121/full.json',
+      },
+    ],
+  },
+  {
     id: 'sugar-creek-deers-mill-cox-ford',
     slug: 'sugar-creek-deers-mill-cox-ford',
     name: 'Sugar Creek',
@@ -31556,6 +31659,228 @@ export const rivers: River[] = [
       {
         label: 'NGPC Platte River State Park',
         url: 'https://outdoornebraska.gov/location/platte-river/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06805500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'platte-river-schramm-platte-river-state-park',
+    slug: 'platte-river-schramm-platte-river-state-park',
+    name: 'Platte River',
+    reach: 'Schramm Park SRA to Platte River State Park',
+    aliases: [
+      'Platte River Water Trail - Schramm to Platte River State Park',
+      'Lower Platte River - Schramm Park to Platte River State Park',
+      'Schramm Park canoe/kayak access to Decker Creek stop',
+    ],
+    state: 'Nebraska',
+    region: 'Lower Platte River',
+    summary:
+      'Short lower-Platte starter segment from the Schramm Park canoe/kayak access to the Decker Creek stop at Platte River State Park. Nebraska Game and Parks treats this as the upstream half of the improved Schramm-Louisville water trail and uses the same Louisville gauge guidance.',
+    statusText:
+      'Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.',
+    latitude: 41.02036,
+    longitude: -96.24974,
+    gaugeSource: {
+      id: 'usgs-06805500',
+      provider: 'usgs',
+      siteId: '06805500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Platte River at Louisville, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7000,
+      idealMax: 12000,
+      tooLow: 5000,
+      tooHigh: 16000,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Platte River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Nebraska Game and Parks says this lower-Platte reach is often highest in May and June, can become dangerous after heavy rain in any month, and usually drops lower from July until irrigation season ends in September. Check same-day flow, channel shape, weather, wind, and park access status.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk.',
+      confidenceNotes:
+        'Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Schramm as the launch, Platte River State Park as a water-trail stop 2.9 miles downstream, and numeric paddling bands tied to USGS 06805500 at Louisville. USGS Water Services returned same-day 2026-06-22 current values for 06805500. The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek / Owen Landing stop rather than a surveyed launch pin.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Schramm to Platte River State Park, 2.9 mi',
+        note: 'Nebraska Game and Parks/Nebraskaland says Platte River State Park is 2.9 miles from the Schramm launch and serves as the midpoint stopping place on the improved lower-Platte water trail.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+      {
+        label: 'Public access',
+        value: 'Schramm launch and Decker Creek stop',
+        note: 'Outdoor Nebraska says Schramm has a graded canoe/kayak access with parking off Highway 31, and Platte River State Park has a canoe/kayak access point a few yards from the mouth of Decker Creek as part of the Venture Park Initiative.',
+        sourceUrl: 'https://outdoornebraska.gov/location/platte-river/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06805500',
+        note: 'USGS Water Services returned current Platte River at Louisville values during implementation: 5,150 cfs and 3.45 ft at 2026-06-22 15:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+      },
+      {
+        label: 'Paddling thresholds',
+        value: '5,000 / 7,000-12,000 / 16,000 cfs',
+        note: 'Nebraskaland quotes NGPC biologist Joel Jorgensen using the Louisville USGS gauge: ideal paddling is 7,000-12,000 cfs, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+      {
+        label: 'Camping context',
+        value: 'Platte River State Park cabins and campground nearby',
+        note: 'Platte River State Park offers cabins, glamping, RV camping, and other base-camp amenities near the Decker Creek access stop, but the access itself is primarily a water-trail stop rather than a river campsite.',
+        sourceUrl: 'https://outdoornebraska.gov/location/platte-river/',
+      },
+      {
+        label: 'Nebraska access caveat',
+        value: 'Surface open, beds and banks private',
+        note: 'NGPC/Nebraskaland warns that paddlers need permission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Nebraskaland Platte River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'NGPC Schramm Park',
+        url: 'https://outdoornebraska.gov/location/schramm-park/',
+        provider: 'local',
+      },
+      {
+        label: 'NGPC Platte River State Park',
+        url: 'https://outdoornebraska.gov/location/platte-river/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 06805500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'platte-river-platte-river-state-park-louisville',
+    slug: 'platte-river-platte-river-state-park-louisville',
+    name: 'Platte River',
+    reach: 'Platte River State Park to Louisville SRA',
+    aliases: [
+      'Platte River Water Trail - Platte River State Park to Louisville',
+      'Lower Platte River - Decker Creek stop to Louisville State Recreation Area',
+      'Platte River State Park canoe/kayak access to Louisville SRA',
+    ],
+    state: 'Nebraska',
+    region: 'Lower Platte River',
+    summary:
+      'Lower-Platte finish segment from the Decker Creek stop at Platte River State Park to the Louisville State Recreation Area boat ramp. Nebraska Game and Parks treats this as the downstream half of the improved Schramm-Louisville water trail and scores it from the same Louisville gauge.',
+    statusText:
+      'Use the Platte River at Louisville gauge. Nebraska Game and Parks/Nebraskaland says 7,000 to 12,000 cfs is ideal, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.',
+    latitude: 41.0175,
+    longitude: -96.2038,
+    gaugeSource: {
+      id: 'usgs-06805500',
+      provider: 'usgs',
+      siteId: '06805500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Platte River at Louisville, Nebr.',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 7000,
+      idealMax: 12000,
+      tooLow: 5000,
+      tooHigh: 16000,
+      thresholdSource: {
+        label: 'Nebraska Game and Parks / Nebraskaland Platte River Water Trail flow guidance',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Nebraska Game and Parks says this lower-Platte reach is often highest in May and June, can become dangerous after heavy rain in any month, and usually drops lower from July until irrigation season ends in September. Check same-day flow, channel shape, weather, wind, and park access status.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is a short designated water-trail day when flows are in range, but the Platte is a braided sandy river with shifting channels, debris at bridge pilings, private banks and sandbars, wind exposure, and low-water dragging risk.',
+      confidenceNotes:
+        'Confidence is good for a conservative Nebraska split: Nebraska Game and Parks/Nebraskaland documents Platte River State Park as the midpoint stop and Louisville as the end of the improved lower-Platte water trail, with numeric paddling bands tied to USGS 06805500 at Louisville. USGS Water Services returned same-day 2026-06-22 current values for 06805500. The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek / Owen Landing stop rather than a surveyed launch pin.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'Platte River State Park to Louisville, 2.8 mi',
+        note: 'Nebraska Game and Parks/Nebraskaland says Louisville State Recreation Area is 2.8 miles below the Platte River State Park Decker Creek stop on the improved lower-Platte water trail.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+      {
+        label: 'Public access',
+        value: 'Decker Creek stop and Louisville boat ramp',
+        note: 'Outdoor Nebraska says Platte River State Park has a canoe/kayak access point a few yards from the mouth of Decker Creek, and Louisville State Recreation Area offers canoe/kayak access to the Platte River with a public ramp and parking area.',
+        sourceUrl: 'https://outdoornebraska.gov/location/louisville/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 06805500',
+        note: 'USGS Water Services returned current Platte River at Louisville values during implementation: 5,150 cfs and 3.45 ft at 2026-06-22 15:15 CDT.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-06805500/',
+      },
+      {
+        label: 'Paddling thresholds',
+        value: '5,000 / 7,000-12,000 / 16,000 cfs',
+        note: 'Nebraskaland quotes NGPC biologist Joel Jorgensen using the Louisville USGS gauge: ideal paddling is 7,000-12,000 cfs, below 5,000 cfs is too little, above 16,000 cfs requires extreme caution, and 18,000 cfs is an avoid level.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+      {
+        label: 'Camping context',
+        value: 'Louisville river campsite and nearby campground',
+        note: 'Outdoor Nebraska / Nebraskaland says Louisville State Recreation Area offers canoe and kayak access to the Platte River, a special campsite on the river, and nearby River View Campground access from the river by steep bank.',
+        sourceUrl: 'https://outdoornebraska.gov/location/louisville/',
+      },
+      {
+        label: 'Nebraska access caveat',
+        value: 'Surface open, beds and banks private',
+        note: 'NGPC/Nebraskaland warns that paddlers need permission to stop on banks, sandbars, or the stream bed, except where necessary to portage around obstacles or walk through shallow water.',
+        sourceUrl: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Nebraskaland Platte River Water Trail',
+        url: 'https://magazine.outdoornebraska.gov/stories/travel-and-adventure/platte-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'NGPC Platte River State Park',
+        url: 'https://outdoornebraska.gov/location/platte-river/',
+        provider: 'local',
+      },
+      {
+        label: 'NGPC Louisville State Recreation Area',
+        url: 'https://outdoornebraska.gov/location/louisville/',
         provider: 'local',
       },
       {

@@ -9621,6 +9621,48 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wabash-river-white-bridge-hale-street': {
+    putIn: {
+      id: 'white-bridge-picnic-area',
+      name: 'White Bridge Picnic Area',
+      latitude: 40.728082,
+      longitude: -85.136707,
+    },
+    takeOut: {
+      id: 'hale-street-access',
+      name: 'Hale Street access',
+      latitude: 40.7448153,
+      longitude: -85.1745966,
+    },
+    logistics: {
+      distanceLabel: 'About 2.4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr depending on stage, current, shallow dragging, bridge debris, and how long the group takes at the public launches',
+      shuttle:
+        'Stage the take-out at the east end of Hale Street, then drive back to White Bridge Picnic Area. Inspect both public access points before launching because Wells County Trails describes Hale as a simple earthen east-end street launch rather than an improved concrete ramp.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a short daylight connector. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at White Bridge Picnic Area and take out at the east-end Hale Street access for a short Bluffton-area Wabash link. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists White Bridge Picnic Area as a public improved concrete ramp and Hale Street as a public earthen access at the east end of Hale St, with grass parking at both sites.',
+        'The Hale Street coordinate is a practical access anchor at the mapped no-exit east end of West Hale Street, matching the Wells County Trails launch description rather than a surveyed ramp pin.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+        'This is a short connector reach, not a destination campground float. Treat it as a same-day out-and-back shuttle segment and do not assume legal informal stops between launches.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
+        'Private banks between launches; plan the short 2.4-mile trip without assuming legal intermediate take-outs.',
+      ],
+    },
+  },
   'sugar-creek-deers-mill-cox-ford': {
     putIn: {
       id: 'deers-mill-public-access-point',
@@ -9783,6 +9825,90 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows near or above 18,000 cfs, which the NGPC/Nebraskaland source says to avoid.',
         'Bridge pilings, especially the Lied Bridge area, where NGPC/Nebraskaland warns trees and debris can collect.',
         'Shifting sandbars, shallow braided side channels, floating wood, private banks, wind across open bends, storms, fast rises after rain, anglers, and missing the Louisville take-out.',
+      ],
+    },
+  },
+  'platte-river-schramm-platte-river-state-park': {
+    putIn: {
+      id: 'schramm-park-sra-canoe-kayak-access',
+      name: 'Schramm Park SRA canoe/kayak access',
+      latitude: 41.02036,
+      longitude: -96.24974,
+    },
+    takeOut: {
+      id: 'platte-river-state-park-decker-creek-access',
+      name: 'Platte River State Park Decker Creek canoe/kayak access',
+      latitude: 41.0175,
+      longitude: -96.2038,
+    },
+    logistics: {
+      distanceLabel: 'About 2.9 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr at ordinary current, longer with low-water dragging, channel scouting, wind, or a slow group',
+      shuttle:
+        'Stage the Platte River State Park access first, then drive back to the Schramm Park canoe/kayak access off Highway 31. Inspect both access points before launching because flood repairs, mud, shifted sand, park rules, or local closures can change the practical ramp or graded-bank layout.',
+      permits:
+        'A valid Nebraska state park vehicle permit is required for state park and recreation area vehicle access. No separate private-paddling permit is known for this water-trail segment. Follow Nebraska boating and PFD rules, posted NGPC access rules, and current park closure notices.',
+      camping:
+        'Treat this as a short day run. Platte River State Park has nearby cabins and campground options for a base-camp stay, but the Decker Creek access itself is a water-trail stop rather than a river campsite.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from Schramm Park SRA and take out at the Decker Creek access at Platte River State Park for the upstream half of the improved lower-Platte water trail. Use USGS 06805500 at Louisville and Nebraska Game and Parks/Nebraskaland flow guidance for the same-day go/no-go call.',
+      accessCaveats: [
+        'NGPC says Schramm has a canoe/kayak access point with graded bank and parking off Highway 31, but the launch was flood-damaged in 2019 and the bank drops off quickly. Make a same-day visual access check.',
+        'Outdoor Nebraska says Platte River State Park has a canoe and kayak access point a few yards from the mouth of Decker Creek. The access functions mainly as a stop on the water trail, so inspect the carry, bank, and current before committing.',
+        'The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek stop rather than a surveyed launch pin. Follow current on-site signs and obvious public access boundaries on arrival.',
+        'The Nebraska Game and Parks private-bed/sandbar rule is stricter than many paddlers expect: do not stop on banks, sandbars, or the stream bed without permission except when necessary for shallow-water walking or obstacle portage.',
+        'The Platte is braided and sandy. The main channel can shift, and the best line can change after floods, summer low water, or wind-driven sand movement.',
+      ],
+      watchFor: [
+        'Flows below about 5,000 cfs at Louisville, when NGPC/Nebraskaland says there is too little water and low-channel choices can turn into dragging.',
+        'Flows above about 16,000 cfs, when NGPC/Nebraskaland says extreme caution is required; do not treat the route as an easy water-trail day at high water.',
+        'Flows near or above 18,000 cfs, which the NGPC/Nebraskaland source says to avoid.',
+        'Bridge pilings, especially the Lied Bridge area, where NGPC/Nebraskaland warns trees and debris can collect.',
+        'Shifting sandbars, shallow braided side channels, floating wood, private banks, wind across open bends, storms, fast rises after rain, and missing the Decker Creek turn.',
+      ],
+    },
+  },
+  'platte-river-platte-river-state-park-louisville': {
+    putIn: {
+      id: 'platte-river-state-park-decker-creek-access',
+      name: 'Platte River State Park Decker Creek canoe/kayak access',
+      latitude: 41.0175,
+      longitude: -96.2038,
+    },
+    takeOut: {
+      id: 'louisville-sra-platte-river-boat-ramp',
+      name: 'Louisville SRA Platte River boat ramp',
+      latitude: 41.01471,
+      longitude: -96.15787,
+    },
+    logistics: {
+      distanceLabel: 'About 2.8 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr at ordinary current, longer with low-water dragging, braided-channel scouting, wind, or a slow group',
+      shuttle:
+        'Stage the take-out at Louisville State Recreation Area, then drive back to the Decker Creek access at Platte River State Park. Inspect both access points before launching because flood repairs, mud, shifted sand, park rules, or local closures can change the practical ramp, bank, or parking layout.',
+      permits:
+        'A valid Nebraska state park vehicle permit is required for state park and recreation area vehicle access. No separate private-paddling permit is known for this water-trail segment. Follow Nebraska boating and PFD rules, posted NGPC access rules, and current park closure notices.',
+      camping:
+        'Louisville State Recreation Area has a special campsite on the river and nearby campground options, but same-day route access still depends on current bank, ramp, and reservation conditions rather than assuming a casual walk-up overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch from the Decker Creek access at Platte River State Park and take out at Louisville SRA for the downstream half of the improved lower-Platte water trail. Use USGS 06805500 at Louisville and Nebraska Game and Parks/Nebraskaland flow guidance for the same-day go/no-go call.',
+      accessCaveats: [
+        'Outdoor Nebraska says Platte River State Park has a canoe and kayak access point a few yards from the mouth of Decker Creek. The access functions mainly as a stop on the water trail, so inspect the carry, bank, and current before committing.',
+        'Louisville SRA has canoe/kayak access to the Platte River and a boat-ramp/parking area at the end of the water trail. Use current park signs, parking rules, and ramp conditions on arrival.',
+        'The Platte River State Park coordinate is a practical park-access anchor for the named Decker Creek stop rather than a surveyed launch pin. Follow current on-site signs and obvious public access boundaries on arrival.',
+        'The Nebraska Game and Parks private-bed/sandbar rule is stricter than many paddlers expect: do not stop on banks, sandbars, or the stream bed without permission except when necessary for shallow-water walking or obstacle portage.',
+        'The Platte is braided and sandy. The main channel can shift, and the best line can change after floods, summer low water, or wind-driven sand movement.',
+      ],
+      watchFor: [
+        'Flows below about 5,000 cfs at Louisville, when NGPC/Nebraskaland says there is too little water and low-channel choices can turn into dragging.',
+        'Flows above about 16,000 cfs, when NGPC/Nebraskaland says extreme caution is required; do not treat the route as an easy water-trail day at high water.',
+        'Flows near or above 18,000 cfs, which the NGPC/Nebraskaland source says to avoid.',
+        'Shifting sandbars, shallow braided side channels, floating wood, private banks, wind across open bends, storms, fast rises after rain, and missing the Louisville finish.',
+        'Steep bank or muddy footing around the river-side campsite or campground approach if you are using Louisville for a larger overnight plan rather than a pure day shuttle.',
       ],
     },
   },

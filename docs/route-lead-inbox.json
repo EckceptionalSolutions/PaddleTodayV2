@@ -1,17 +1,17 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T20:20:19.189Z",
+  "generatedAt": "2026-06-22T21:05:37.628Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 525,
-    "currentRouteCount": 277,
+    "totalLedgerCandidates": 528,
+    "currentRouteCount": 280,
     "leadCount": 271,
     "discoveryFocusStates": [
-      "Nebraska",
       "South Dakota",
       "Illinois",
-      "Indiana",
+      "Nebraska",
       "North Dakota",
+      "Indiana",
       "Ohio",
       "Arkansas",
       "Kentucky",
@@ -25,21 +25,6 @@
       "Virginia"
     ],
     "discoverySearchBriefs": [
-      {
-        "state": "Nebraska",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "Nebraska Game and Parks access/water-trail pages",
-          "county/city river-access systems",
-          "USGS gauge clusters"
-        ],
-        "searchQueries": [
-          "Nebraska official water trail canoe kayak USGS gauge public access",
-          "Nebraska state parks canoe kayak river access USGS flow",
-          "Nebraska American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
       {
         "state": "South Dakota",
         "tier": "undercovered_supported_midwest",
@@ -71,17 +56,17 @@
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
       {
-        "state": "Indiana",
+        "state": "Nebraska",
         "tier": "undercovered_supported_midwest",
         "sourceFamilies": [
-          "Indiana DNR public access",
-          "regional water-trail groups",
-          "American Whitewater + USGS gauge clusters"
+          "Nebraska Game and Parks access/water-trail pages",
+          "county/city river-access systems",
+          "USGS gauge clusters"
         ],
         "searchQueries": [
-          "Indiana official water trail canoe kayak USGS gauge public access",
-          "Indiana state parks canoe kayak river access USGS flow",
-          "Indiana American Whitewater USGS public access route"
+          "Nebraska official water trail canoe kayak USGS gauge public access",
+          "Nebraska state parks canoe kayak river access USGS flow",
+          "Nebraska American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -97,6 +82,21 @@
           "\"North Dakota\" official water trail canoe kayak USGS gauge public access",
           "\"North Dakota\" state parks canoe kayak river access USGS flow",
           "\"North Dakota\" American Whitewater USGS public access route"
+        ],
+        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
+      },
+      {
+        "state": "Indiana",
+        "tier": "undercovered_supported_midwest",
+        "sourceFamilies": [
+          "Indiana DNR public access",
+          "regional water-trail groups",
+          "American Whitewater + USGS gauge clusters"
+        ],
+        "searchQueries": [
+          "Indiana official water trail canoe kayak USGS gauge public access",
+          "Indiana state parks canoe kayak river access USGS flow",
+          "Indiana American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -276,7 +276,7 @@
       "blocked_recheck": 8
     },
     "byStatus": {
-      "implemented": 25,
+      "implemented": 28,
       "threshold_weak": 109,
       "added": 206,
       "research_later": 55,
