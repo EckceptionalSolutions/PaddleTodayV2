@@ -7151,41 +7151,40 @@
             "river": "Chippewa River",
             "route": "Lentz Access to Watson Lion's Park",
             "state": "MN",
-            "status": "threshold_weak",
-            "lastReviewed": "2026-06-08",
-            "reviewCount": 7,
-            "blocker": "2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC recheck: local product-style fetches for MN DNR river-level JSON and USGS IV 05374000/05062130/05270700/05227500/05220600/05242300 still failed with Unable to connect to the remote server; no new official route-specific threshold or live-gauge evidence cleared the existing blocker. 2026-06-08 09:37 America/Chicago / 2026-06-08 14:37 UTC recheck preserved threshold_weak. MN DNR still publishes the Lentz-to-Watson recommended trip, but no new official/manager source tied the upstream Benson river-level ladder directly to this lower Chippewa reach. Local product-style DNR river-level JSON fetch failed with Unable to connect to the remote server.",
-            "retryCondition": "Retry if MN DNR, manager guidance, or strong same-route evidence ties the Benson gauge ladder directly to the Lentz-to-Watson corridor, or if an official Watson-end access record with stronger route context surfaces.",
-            "retryDate": "2026-05-10",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 8,
+            "blocker": "Added to PaddleTodayV2 in the third internet-sourced route batch.",
+            "retryCondition": "Already added; revisit only for corrections or source updates.",
+            "retryDate": null,
             "sourcesChecked": [
-                "2026-06-08 09:37 America/Chicago / 2026-06-08 14:37 UTC conservative Minnesota recheck: DNR Chippewa route support and Benson proxy-gauge story reviewed; status preserved because the downstream route still lacks clean route-specific threshold support.",
-                "2026-06-05 09:44 America/Chicago / 2026-06-05 14:44 UTC conservative Minnesota recheck: DNR Chippewa route support and Benson proxy-gauge story reviewed; status preserved because the downstream route still lacks clean route-specific threshold support.",
-                "2026-06-05 09:13 America/Chicago / 2026-06-05 14:13 UTC conservative Minnesota recheck: DNR Chippewa route support and Benson proxy-gauge story reviewed; status preserved because the downstream route still lacks clean route-specific threshold support.",
-                "2026-06-05 08:42 America/Chicago / 2026-06-05 13:42 UTC conservative Minnesota recheck: DNR Chippewa route support and Benson proxy-gauge story reviewed; status preserved because the downstream route still lacks clean route-specific threshold support.",
-                "2026-06-05 08:12 America/Chicago / 2026-06-05 13:12 UTC conservative Minnesota recheck: DNR Chippewa route support and Benson proxy-gauge story reviewed; status preserved because the downstream route still lacks clean route-specific threshold support.",
                 "MN DNR Chippewa River segments page",
-                "MN DNR river levels site for Benson gauge",
-                "MN DNR public water access GIS dataset for Lentz and Watson-area access search"
+                "MN DNR river levels dataset for Chippewa River (TW) nr Watson, MN and Chippewa River nr Milan, MN40",
+                "MN DNR public water access GIS dataset for Lentz Landing and Watson Sag access search"
             ],
             "aliases": [
                 "Chippewa River - Lentz Access to Watson Lion's Park",
                 "Chippewa River - Lentz Landing to Watson Lion's Park"
             ],
-            "v2Slug": null,
+            "v2Slug": "chippewa-river-lentz-watson-lions-park",
             "gauge": {
-                "quality": "proxy",
-                "notes": "Only obvious official live-gauge story on the trail is Benson (`Chippewa River at Benson, US12`), upstream of this route cluster rather than on it."
+                "quality": "direct_non_usgs",
+                "notes": "Direct MN DNR site 20 (`Chippewa River (TW) nr Watson, MN`) sits at the downstream end of the route and site 24 (`Chippewa River nr Milan, MN40`) corroborates the upstream corridor, so the old Benson-proxy blocker is gone."
             },
             "thresholdSupport": {
-                "strength": "weak",
-                "notes": "Official DNR ladder exists at Benson (135-482 low, 482-942 good, 942-1641 high), but current evidence does not tie that ladder directly enough to this downstream recommended trip."
+                "strength": "strong",
+                "notes": "Official ladder at site 20 is route-ready: Scrapable below 200 cfs, Low 200-400 cfs, Medium 400-600 cfs, High 600-800 cfs, Very High above 800 cfs."
             },
             "endpoints": {
                 "putIn": "Chippewa River, Lentz Landing Public Water Access Site",
-                "takeOut": "Watson Lion's Park",
-                "coordinatesPresent": false
+                "takeOut": "Watson Lion's Park / Watson Sag Dam Public Water Access Site",
+                "coordinatesPresent": true,
+                "putInLatitude": 45.10781400542266,
+                "putInLongitude": -95.79870811540977,
+                "takeOutLatitude": 45.02349180512327,
+                "takeOutLongitude": -95.79027021586445
             },
-            "notes": "Fresh gauge-first Minnesota discovery. Worth keeping because DNR explicitly recommends the trip, but current gauge fit is weaker than Long Prairie or Pomme de Terre. 2026-06-05 recheck: DNR still publishes the Lentz-to-Watson recommended day trip, but no new source tied the upstream Benson live-gauge ladder directly to this lower Chippewa reach, so the proxy-threshold blocker remains. 2026-06-05 08:12 America/Chicago / 2026-06-05 13:12 UTC recheck: no implementation change; decisive blocker preserved. 2026-06-05 08:42 America/Chicago / 2026-06-05 13:42 UTC recheck: no implementation change; decisive blocker preserved. 2026-06-05 09:13 America/Chicago / 2026-06-05 14:13 UTC recheck: no implementation change; decisive blocker preserved. 2026-06-08 recheck: no implementation change; decisive blocker preserved. 2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC recheck: local product-style fetches for MN DNR river-level JSON and USGS IV 05374000/05062130/05270700/05227500/05220600/05242300 still failed with Unable to connect to the remote server; no new official route-specific threshold or live-gauge evidence cleared the existing blocker."
+            "notes": "Re-reviewed on 2026-06-22 after fresh internet verification. The old proxy-gauge blocker was stale: MN DNR site 20 at Watson and site 24 at Milan both sit on this exact route corridor, and site 20 carries a full official ladder strong enough for conservative implementation. Official public-water-access GIS resolves Lentz Landing and the Watson Sag access in the Lions Park finish zone, so the route now clears access, gauge, and threshold gates. Added to PaddleTodayV2 on 2026-06-22."
         },
         {
             "candidateId": "mn-cloquet-river-indian-lake-access-bear-lake-road",
@@ -7385,6 +7384,46 @@
                 "takeOutLongitude": -92.870024
             },
             "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Linden Grove / Highway 73 DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 visually identified Veterans Park in Cook, MN at 47.854286, -92.688289 and the Highway 73 bridge take-out at DNR site 88 / river mile 126.8, 47.858288, -92.870024; Google Maps visual check found river signage and parking next to the bridge. Added to PaddleTodayV2 on 2026-05-22."
+        },
+        {
+            "candidateId": "mn-little-fork-river-dentaybow-fiedler",
+            "river": "Little Fork River",
+            "route": "Dentaybow to Fiedler",
+            "state": "MN",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "Added to PaddleTodayV2 in the third internet-sourced route batch.",
+            "retryCondition": "Already added; revisit only for corrections or source updates.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "MN DNR Little Fork River segments and maps page",
+                "MN DNR Little Fork River map 2 PDF",
+                "MN DNR river levels dataset for Little Fork River nr Little Fork, MN65",
+                "MN DNR public water access GIS dataset for Dentaybow and Fiedler"
+            ],
+            "aliases": [
+                "Little Fork River - Dentaybow to Fiedler"
+            ],
+            "v2Slug": "little-fork-river-dentaybow-fiedler",
+            "gauge": {
+                "quality": "direct_non_usgs",
+                "notes": "Direct MN DNR site 294 at the MN 65 bridge sits just upstream of the Dentaybow put-in and carries a full official flow ladder."
+            },
+            "thresholdSupport": {
+                "strength": "strong",
+                "notes": "Official ladder at site 294 is route-ready: Scrapable below 350 cfs, Low 350-700 cfs, Medium 700-2732.9 cfs, High 2732.9-3777.3 cfs, Very High above 3777.3 cfs."
+            },
+            "endpoints": {
+                "putIn": "Little Fork River, Dentaybow Public Water Access Site",
+                "takeOut": "Little Fork River, Fiedler Public Water Access Site",
+                "coordinatesPresent": true,
+                "putInLatitude": 48.21401977869222,
+                "putInLongitude": -93.48185035213132,
+                "takeOutLatitude": 48.292054549248405,
+                "takeOutLongitude": -93.44160553298343
+            },
+            "notes": "Fresh 2026-06-22 Little Fork add from official MN DNR route material. The route clears the bar because DNR recommends the exact 13.1-mile day trip, Map 2 puts the direct site 294 gauge at river mile 58.9 on the route, and the public-water-access GIS resolves both official endpoints. Added to PaddleTodayV2 on 2026-06-22."
         },
         {
             "candidateId": "mn-long-prairie-river-long-prairie-browerville",
@@ -7918,6 +7957,46 @@
                 "takeOutLongitude": -96.168056
             },
             "notes": "Re-reviewed under the current shipping rule that allows first-class MN DNR live gauges when the app can operate them. This route now clears the live-data blocker: the Thief River Falls DNR gauge is direct, carries a full official ladder, and the app already supports provider:'mn_dnr' current readings. Coordinate follow-up on 2026-05-22 confirmed the put-in as Smiley Bridge Public Water Access Site / MN DNR WAS00809 at 48.077331, -96.034388 and the take-out as Centennial Park / Highway 1 trailer access at 48.124000, -96.168056. Added to PaddleTodayV2 on 2026-05-22."
+        },
+        {
+            "candidateId": "mn-red-lake-river-sportsmans-park-huot-park",
+            "river": "Red Lake River",
+            "route": "Sportsman's Park to Huot Park",
+            "state": "MN",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "Added to PaddleTodayV2 in the third internet-sourced route batch.",
+            "retryCondition": "Already added; revisit only for corrections or source updates.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "MN DNR Red Lake River segments and maps page",
+                "MN DNR Red Lake River map 2 PDF",
+                "MN DNR river levels dataset for Red Lake River nr Red Lake Falls, CR13",
+                "MN DNR public water access GIS dataset for Sportsman's Park and Huot Park"
+            ],
+            "aliases": [
+                "Red Lake River - Sportsman's Park to Huot Park"
+            ],
+            "v2Slug": "red-lake-river-sportsmans-huot",
+            "gauge": {
+                "quality": "direct_non_usgs",
+                "notes": "Direct MN DNR site 180 at County Road 13 / Red Lake Falls sits on the route corridor and carries the official ladder needed for a conservative ship."
+            },
+            "thresholdSupport": {
+                "strength": "strong",
+                "notes": "Official ladder at site 180 is route-ready: Scrapable below 5 ft, Low 5-8 ft, Medium 8-11 ft, High 11-15 ft, Very High above 15 ft."
+            },
+            "endpoints": {
+                "putIn": "Sportsman's Park trailer access",
+                "takeOut": "Red Lake River, Huot Park Public Water Access Site",
+                "coordinatesPresent": true,
+                "putInLatitude": 47.89399892982341,
+                "putInLongitude": -96.28209759353236,
+                "takeOutLatitude": 47.86106257907035,
+                "takeOutLongitude": -96.42499990265729
+            },
+            "notes": "Fresh 2026-06-22 Red Lake River add from official MN DNR route material. The route clears the bar because DNR recommends the exact 13.5-mile day trip, Map 2 places the direct site 180 gauge at river mile 93.8 in the route corridor, and Sportsman's Park adds unusually strong camping support with campsites and drinking water. Added to PaddleTodayV2 on 2026-06-22."
         },
         {
             "candidateId": "mn-red-river-kidder-recreation-area-brushvale-bridge-recreation-area",

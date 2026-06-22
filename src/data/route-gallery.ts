@@ -174,6 +174,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'little-fork-river-dentaybow-fiedler': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',
@@ -182,6 +192,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Red Lake River at Red Lake Falls',
       credit: 'Chitrapa / Peter Rimar via Kiddle',
       takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'red-lake-river-sportsmans-huot': [
+    {
+      id: 'red-lake-river-red-lake-falls-kiddle',
+      src: '/gallery/red-lake-river-sportsmans-huot/red-lake-river-red-lake-falls.jpg',
+      alt: 'The Red Lake River reflects a railroad bridge, green banks, and cloudy sky in calm water.',
+      caption: 'Red Lake River at Red Lake Falls',
+      credit: 'Chitrapa / Peter Rimar via Kiddle',
+      takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'chippewa-river-lentz-watson-lions-park': [
+    {
+      id: 'chippewa-river-commons',
+      src: '/gallery/chippewa-river-lentz-watson-lions-park/chippewa-river.jpg',
+      alt: 'The Chippewa River winds through a broad grassy corridor under a bright sky.',
+      caption: 'Chippewa River in Minnesota',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
   'sauk-river-spring-hill-st-martin': [

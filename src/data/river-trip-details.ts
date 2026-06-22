@@ -658,6 +658,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'little-fork-river-dentaybow-fiedler': {
+    putIn: {
+      name: 'Dentaybow Public Water Access Site',
+      latitude: 48.2140198,
+      longitude: -93.4818504,
+    },
+    takeOut: {
+      name: 'Fiedler Public Water Access Site',
+      latitude: 48.2920545,
+      longitude: -93.4416055,
+    },
+    logistics: {
+      distanceLabel: '13.1 mi',
+      estimatedPaddleTime: 'Full day, roughly 5 hr to 7 hr depending on level and scouting',
+      shuttle:
+        'Plan a remote Koochiching County shuttle between the Dentaybow and Fiedler accesses north of Littlefork. Cell coverage, backup riders, and a realistic turnaround plan matter more here than on in-town routes.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules and any county or state-forest restrictions in the corridor.',
+      camping:
+        'This is one of the cleaner northern camping routes in Minnesota: the DNR map notes dispersed state-forest camping opportunities along the corridor, and Lofgren Park farther downstream on the same map sheet is a city campground if you want to turn the area into a weekend basecamp.',
+      summary:
+        'Launch at Dentaybow and take out at Fiedler for MN DNR\'s 13.1-mile Little Fork day trip. Expect a remote wooded river with riffles, light rapids, and a direct gauge at the MN 65 bridge upstream of the put-in.',
+      accessCaveats: [
+        'Both endpoints are official public-water-access sites, but neither is a town park with built-in services.',
+        'The gauge is at the MN 65 bridge upstream of the put-in, so check the reading before driving farther into the route corridor.',
+        'State-forest camping exists in the broader corridor, but do not assume every pull-off is legal or practical for overnight use.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rocky riffles, and scout-first drops that get more consequential when the river pushes into the high band.',
+        'Cold water, sweepers, and remote shoreline with long stretches between easy exits.',
+        'Scraping or boat damage risk when flows fall toward the 350 cfs scrapable floor.',
+      ],
+    },
+  },
   'red-lake-river-smiley-bridge-centennial-park': {
     putIn: {
       name: 'Smiley Bridge public water access',
@@ -689,6 +723,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Several dams exist elsewhere on the Red Lake River; stay with the planned Centennial Park take-out.',
         'Higher water can increase current and debris even on this generally gentle segment.',
         'Wind exposure on open farmland bends and low grassy banks.',
+      ],
+    },
+  },
+  'red-lake-river-sportsmans-huot': {
+    putIn: {
+      name: "Sportsman's Park trailer access",
+      latitude: 47.8939989,
+      longitude: -96.2820976,
+    },
+    takeOut: {
+      name: 'Huot Park trailer access',
+      latitude: 47.8610626,
+      longitude: -96.4249999,
+    },
+    logistics: {
+      distanceLabel: '13.5 mi',
+      estimatedPaddleTime: 'About 4.5 hr to 6 hr',
+      shuttle:
+        'Use a Red Lake Falls-area shuttle from Sportsman\'s Park to Huot Park. Camping at the put-in makes it practical to stage vehicles the night before and launch early.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-access, campground, and county-park rules at Sportsman\'s Park and Huot Park.',
+      camping:
+        'Sportsman\'s Park is a real perk here: the DNR map says the put-in has campsites and drinking water. That makes this route easier to turn into a camp-and-paddle weekend than most Minnesota day trips in the app.',
+      summary:
+        'Put in at Sportsman\'s Park and take out at Huot Park for MN DNR\'s 13.5-mile Red Lake River trip. The corridor is generally manageable, but paddlers should be comfortable maneuvering around boulders and riffles.',
+      accessCaveats: [
+        'Sportsman\'s Park sits at the Red Lake Falls confluence area and is better treated as a developed campground/access complex than a minimalist bridge landing.',
+        'Huot Park is the planned finish. Do not continue farther downstream unless you have separately checked dam locations and exit options.',
+        'This route shares a watershed with Red Lake Reservation upstream, but this specific trip starts downstream in public access water-trail country.',
+      ],
+      watchFor: [
+        'Boulder-bed riffles and rapids that become scrapy near the 5 ft floor.',
+        'Debris, outside-bend wood, and faster recovery windows after storms or when the gauge moves into the high band.',
+        'Downstream dam awareness if anyone in the group wants to paddle past Huot Park.',
+      ],
+    },
+  },
+  'chippewa-river-lentz-watson-lions-park': {
+    putIn: {
+      name: 'Lentz Landing Public Water Access Site',
+      latitude: 45.107814,
+      longitude: -95.7987081,
+    },
+    takeOut: {
+      name: "Watson Lions Park / Watson Sag Dam Public Water Access Site",
+      latitude: 45.0234918,
+      longitude: -95.7902702,
+    },
+    logistics: {
+      distanceLabel: '8.4 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr',
+      shuttle:
+        'Set a short Watson-area shuttle between Lentz Landing and the Watson Lions Park access. The route is manageable as a half-day or relaxed full-day outing if you leave time for wind and lunch stops.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and city-park rules at Lentz Landing and Watson.',
+      camping:
+        'Nearby Watson camping is better than average for a short prairie route. MN DNR points paddlers to Watson Lions Park and Lagoon Park, where fee camping and toilets make a simple overnight or shuttle base practical.',
+      summary:
+        'Launch at Lentz Landing and take out in Watson for MN DNR\'s 8.4-mile Chippewa River day trip. This is one of the cleaner family-friendly west-central Minnesota additions because the route now has direct official gauges at both ends of the corridor.',
+      accessCaveats: [
+        'The take-out is best treated as the Watson Lions Park / Watson Sag public-access area, since the DNR route naming and the public-water-access GIS use slightly different labels for the same downstream finish zone.',
+        'The river is broader and more wind-exposed than a wooded creek float, so a breezy day can feel slower than the mileage suggests.',
+        'Gauge support is unusually strong for this route family now that the Watson and Milan MN DNR sites are confirmed on the corridor.',
+      ],
+      watchFor: [
+        'Scattered boulders, occasional Class I riffles, and bridge-pier current shifts even though this is mostly a flatwater day.',
+        'Dragging and channel-picking when the Watson gauge falls toward the 200 cfs floor.',
+        'Wind exposure across open grassland bends and limited shade on hot afternoons.',
       ],
     },
   },

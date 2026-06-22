@@ -200,6 +200,107 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-fork-river-dentaybow-fiedler',
+    slug: 'little-fork-river-dentaybow-fiedler',
+    name: 'Little Fork River',
+    reach: 'Dentaybow to Fiedler',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Official MN DNR full-day Little Fork run between two public accesses north of Littlefork. The Dentaybow-to-Fiedler segment has a direct river-mile gauge, multiple light rapids, and stronger camping potential than the downstream Cook route.',
+    statusText:
+      'The MN 65 gauge near Dentaybow is best from 700 to 2,732.9 cfs. Below 350 cfs this stretch gets scrapy fast, and above 3,777.3 cfs the current becomes too pushy for a general recommendation.',
+    latitude: 48.2140198,
+    longitude: -93.4818504,
+    gaugeSource: {
+      id: 'mn-dnr-294',
+      provider: 'mn_dnr',
+      siteId: '294',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Little Fork, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76099001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76099001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR documents several Class I to II rapids on this map sheet; scout larger drops and treat high water as a consequence multiplier, not a shortcut.',
+        'This is a remote northern route with brushy exits, cold shoulder-season water, and limited quick bailout options between accesses.',
+        'Storm wood, beaver activity, and shifting strainers can change the route from trip to trip.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 700,
+      idealMax: 2732.9,
+      tooLow: 350,
+      tooHigh: 3777.3,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Littlefork / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'MN DNR says Little Fork levels usually peak in late April, then decline through summer. This upper-middle reach can still paddle well into summer, but low water turns the rapids rocky and prolonged rain can push it out of the casual bucket quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is still a long river day with multiple riffles and light rapids, not a casual beginner float. Strong intermediates with route-reading skill will have the best experience.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Dentaybow to Fiedler as a 13.1-mile day trip, places the direct site 294 gauge at river mile 58.9 inside the route, and the DNR public-water-access GIS resolves both official endpoints cleanly.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '350 / 700-2,732.9 / 3,777.3 cfs',
+        note: 'MN DNR interprets site 294 as Scrapable below 350 cfs, Low from 350 to 700, Medium from 700 to 2,732.9, High from 2,732.9 to 3,777.3, and Very High above 3,777.3.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '13.1 river miles',
+        note: 'MN DNR recommends Dentaybow to Fiedler as a full-day Little Fork trip through wooded shoreline with several rapids and good fishing access.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'Map support',
+        value: 'Dentaybow RM 57.9 to Fiedler RM 44.8',
+        note: 'DNR Map 2 places the Dentaybow access at river mile 57.9, the Fiedler access at river mile 44.8, and the direct gauge at the MN 65 bridge just upstream at river mile 58.9.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'State forest dispersed camping plus nearby city campground',
+        note: 'The same DNR map notes state forest camping opportunities along the corridor and identifies Lofgren Park as a city campground farther downstream on the same map sheet.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'red-lake-river-smiley-bridge-centennial-park',
     slug: 'red-lake-river-smiley-bridge-centennial-park',
     name: 'Red Lake River',
@@ -294,6 +395,195 @@ export const rivers: River[] = [
       {
         label: 'MN DNR Red Lake River map 1 PDF',
         url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake1.pdf',
+      },
+    ],
+  },
+  {
+    id: 'red-lake-river-sportsmans-huot',
+    slug: 'red-lake-river-sportsmans-huot',
+    name: 'Red Lake River',
+    reach: "Sportsman's Park to Huot Park",
+    state: 'Minnesota',
+    region: 'Northwest Minnesota',
+    summary:
+      'Official MN DNR Red Lake River day trip starting at the Red Lake Falls Sportsman\'s Park campground and finishing at Huot Park. The route has a direct corridor gauge, manageable rapids, and built-in camping at the put-in.',
+    statusText:
+      'The CR 13 gauge near Red Lake Falls is best from 8 to 11 ft. Below 5 ft expect scraping through bouldery shallows, and above 15 ft this run is too high for a general recommendation.',
+    latitude: 47.8939989,
+    longitude: -96.2820976,
+    gaugeSource: {
+      id: 'mn-dnr-180',
+      provider: 'mn_dnr',
+      siteId: '180',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      metricLabel: 'Gauge height',
+      kind: 'direct',
+      siteName: 'Red Lake River nr Red Lake Falls, CR13',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=63025001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=63025001&var1=232&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['dam', 'strainers'],
+      safetyNotes: [
+        'MN DNR says this stretch requires comfortable maneuvering past scattered boulders, riffles, and rapids; low water increases pinball rocks and higher water speeds up recovery windows.',
+        'Know the downstream Red Lake Falls and Thief River Falls dam context before extending the day beyond the planned Huot Park take-out.',
+        'Wood and debris can gather around outside bends after storms even though this is not presented as a whitewater segment.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 8,
+      idealMax: 11,
+      tooLow: 5,
+      tooHigh: 15,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Red Lake River near Red Lake Falls / County Road 13',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through fall is the practical window. This route usually holds enough water longer than tiny streams, but it still becomes rockier and slower near the low band and more forceful after big rains.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'MN DNR does not frame this as a beginner float. The route length is moderate, but the need to read bouldery current and avoid complacency around downstream dam country keeps it above easy.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Sportsman\'s Park to Huot Park as a 13.5-mile day trip, places the direct CR 13 gauge on the route at river mile 93.8, and the official access GIS resolves the Huot Park endpoint and the Sportsman\'s Park confluence access clearly enough to ship conservatively.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '5 / 8-11 / 15 ft',
+        note: 'MN DNR interprets site 180 as Scrapable below 5 ft, Low from 5 to 8, Medium from 8 to 11, High from 11 to 15, and Very High above 15.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '13.5 river miles',
+        note: 'MN DNR recommends Sportsman\'s Park to Huot Park as a day trip and says paddlers should be comfortable maneuvering around boulders, riffles, and rapids.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/redlakeriver/segments-maps.html',
+      },
+      {
+        label: 'Map support',
+        value: 'Sportsman\'s Park RM 93.0 to Huot Park RM 79.5',
+        note: 'DNR Map 2 places Sportsman\'s Park trailer access at river mile 93.0, the direct gauge near Voyageur\'s View / County Road 13 at river mile 93.9, and Huot Park trailer access at river mile 79.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Campsites and drinking water at Sportsman\'s Park',
+        note: 'The DNR map explicitly says Sportsman\'s Park has campsites and drinking water, which makes it one of the cleaner camp-before-you-launch options in the Minnesota inventory.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Red Lake River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/redlakeriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Red Lake River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/redlake2.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'chippewa-river-lentz-watson-lions-park',
+    slug: 'chippewa-river-lentz-watson-lions-park',
+    name: 'Chippewa River',
+    reach: "Lentz Landing to Watson Lions Park",
+    state: 'Minnesota',
+    region: 'West Central Minnesota',
+    summary:
+      'Official MN DNR Chippewa day trip from Lentz Landing to Watson. This route finally clears the quality bar because the Watson corridor has direct MN DNR gauges on both ends of the run, not just the stale upstream Benson proxy story.',
+    statusText:
+      'The Watson gauge is cleanest from 400 to 600 cfs. Below 200 cfs expect dragging and bony riffles, and above 800 cfs this broad prairie river stops feeling like a relaxed family run.',
+    latitude: 45.107814,
+    longitude: -95.7987081,
+    gaugeSource: {
+      id: 'mn-dnr-20',
+      provider: 'mn_dnr',
+      siteId: '20',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Chippewa River (TW) nr Watson, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=22079001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=22079001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 600,
+      tooLow: 200,
+      tooHigh: 800,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Chippewa River near Watson',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Spring through early fall is the practical window. This reach is broader and less flashy than tiny tributaries, but summer lows can still expose boulders while post-rain pulses quicken the current around bends and bridge piers.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'MN DNR presents this as a family-friendly stretch with mostly flatwater and only light Class I features. The day stays approachable if you respect the mileage and do not run it outside the published gauge bands.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends Lentz Landing to Watson as an 8.4-mile day trip, direct site 20 sits at the downstream end of the route, and site 24 at Milan provides same-corridor corroboration at the put-in side.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '200 / 400-600 / 800 cfs',
+        note: 'MN DNR interprets site 20 as Scrapable below 200 cfs, Low from 200 to 400, Medium from 400 to 600, High from 600 to 800, and Very High above 800.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: '8.4 river miles',
+        note: 'MN DNR recommends Lentz Landing to Watson as a family-friendly day trip with mostly flatwater plus scattered boulders and light riffles.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/chippewariver/segments-maps.html',
+      },
+      {
+        label: 'Map support',
+        value: 'Lentz RM 21.0 to Watson RM 12.4',
+        note: 'DNR route mapping aligns the put-in with Lentz Landing and the take-out with the Watson access in the Lions Park area, matching the lower Watson gauge corridor.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/chippewariver/segments-maps.html',
+      },
+      {
+        label: 'Camping support',
+        value: 'Watson Lions Park and nearby Lagoon Park camping',
+        note: 'MN DNR points paddlers to Watson\'s Lions Park and nearby Lagoon Park, which offers fee camping and toilets for a simple overnighter or shuttle base.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/chippewariver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Chippewa River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/chippewariver/segments-maps.html',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
       },
     ],
   },

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-22T14:28:19.879Z",
+  "generatedAt": "2026-06-22T17:35:36.501Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 515,
-    "currentRouteCount": 263,
-    "leadCount": 274,
+    "totalLedgerCandidates": 517,
+    "currentRouteCount": 266,
+    "leadCount": 273,
     "discoveryFocusStates": [
       "Nebraska",
       "South Dakota",
@@ -269,7 +269,7 @@
     "byLane": {
       "implementation_ready": 0,
       "fresh_source_discovery": 55,
-      "threshold_discovery": 110,
+      "threshold_discovery": 109,
       "coordinate_cleanup": 0,
       "access_legitimacy": 0,
       "live_provider_recheck": 101,
@@ -277,8 +277,8 @@
     },
     "byStatus": {
       "implemented": 20,
-      "threshold_weak": 110,
-      "added": 198,
+      "threshold_weak": 109,
+      "added": 201,
       "research_later": 55,
       "blocked_until_date": 13,
       "no_live_gauge": 91,
@@ -3614,35 +3614,6 @@
           "putInCoordinates": null,
           "takeOutCoordinates": null,
           "coordinateSource": "Coordinates not captured because access/threshold gates failed first."
-        },
-        "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-        "discoveryTier": "supported_midwest"
-      },
-      {
-        "candidateId": "mn-chippewa-river-lentz-access-watson-lions-park",
-        "lane": "threshold_discovery",
-        "priority": 100,
-        "state": "MN",
-        "river": "Chippewa River",
-        "route": "Lentz Access to Watson Lion's Park",
-        "currentStatus": "threshold_weak",
-        "lastReviewed": "2026-06-08",
-        "reviewCount": 7,
-        "duplicateRisk": false,
-        "blocker": "2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC recheck: local product-style fetches for MN DNR river-level JSON and USGS IV 05374000/05062130/05270700/05227500/05220600/05242300 still failed with Unable to connect to the remote server; no new official route-specific threshold or live-gauge evidence cleared the existing blocker. 2026-06-08 09:37 America/Chicago / 2026-06-08 14:37 UTC recheck preserved thresh...",
-        "retryCondition": "Retry if MN DNR, manager guidance, or strong same-route evidence ties the Benson gauge ladder directly to the Lentz-to-Watson corridor, or if an official Watson-end access record with stronger route context surfaces.",
-        "gauge": {
-          "quality": "proxy",
-          "notes": "Only obvious official live-gauge story on the trail is Benson (`Chippewa River at Benson, US12`), upstream of this route cluster rather than on it."
-        },
-        "thresholdSupport": {
-          "strength": "weak",
-          "notes": "Official DNR ladder exists at Benson (135-482 low, 482-942 good, 942-1641 high), but current evidence does not tie that ladder directly enough to this downstream recommended trip."
-        },
-        "endpoints": {
-          "putIn": "Chippewa River, Lentz Landing Public Water Access Site",
-          "takeOut": "Watson Lion's Park",
-          "coordinatesPresent": false
         },
         "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
         "discoveryTier": "supported_midwest"
@@ -11761,35 +11732,6 @@
         "putInCoordinates": null,
         "takeOutCoordinates": null,
         "coordinateSource": "Coordinates not captured because access/threshold gates failed first."
-      },
-      "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
-      "discoveryTier": "supported_midwest"
-    },
-    {
-      "candidateId": "mn-chippewa-river-lentz-access-watson-lions-park",
-      "lane": "threshold_discovery",
-      "priority": 100,
-      "state": "MN",
-      "river": "Chippewa River",
-      "route": "Lentz Access to Watson Lion's Park",
-      "currentStatus": "threshold_weak",
-      "lastReviewed": "2026-06-08",
-      "reviewCount": 7,
-      "duplicateRisk": false,
-      "blocker": "2026-06-08 15:31 America/Chicago / 2026-06-08 20:31 UTC recheck: local product-style fetches for MN DNR river-level JSON and USGS IV 05374000/05062130/05270700/05227500/05220600/05242300 still failed with Unable to connect to the remote server; no new official route-specific threshold or live-gauge evidence cleared the existing blocker. 2026-06-08 09:37 America/Chicago / 2026-06-08 14:37 UTC recheck preserved thresh...",
-      "retryCondition": "Retry if MN DNR, manager guidance, or strong same-route evidence ties the Benson gauge ladder directly to the Lentz-to-Watson corridor, or if an official Watson-end access record with stronger route context surfaces.",
-      "gauge": {
-        "quality": "proxy",
-        "notes": "Only obvious official live-gauge story on the trail is Benson (`Chippewa River at Benson, US12`), upstream of this route cluster rather than on it."
-      },
-      "thresholdSupport": {
-        "strength": "weak",
-        "notes": "Official DNR ladder exists at Benson (135-482 low, 482-942 good, 942-1641 high), but current evidence does not tie that ladder directly enough to this downstream recommended trip."
-      },
-      "endpoints": {
-        "putIn": "Chippewa River, Lentz Landing Public Water Access Site",
-        "takeOut": "Watson Lion's Park",
-        "coordinatesPresent": false
       },
       "recommendedNextStep": "Use bounded internet research to find numeric low/ideal/high or minimum runnable guidance tied to the selected gauge, with priority on converting undercovered Midwest support into shippable routes.",
       "discoveryTier": "supported_midwest"
