@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-22T23:35:00.000Z",
+    "updatedAt": "2026-06-23T04:35:00.000Z",
     "notes": [
+        "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna water-trail guides: `susquehanna-river-test-track-bloomsburg`, `susquehanna-river-bloomsburg-indian-head`, and `susquehanna-river-indian-head-danville`. Qualification path: PFBC Section 4 published exact access coordinates, river-mile distances, and official Bloomsburg stage guidance showing paddleable conditions as low as 1 ft, faster current from 2-5 ft, and a novice ceiling above 6 ft; PFBC Section 3 added the exposed Berwick ledge warning below 2 ft; same-day direct USGS 01538700 at Bloomsburg returned 4,370 cfs / 1.70 ft at 2026-06-22 18:15 EDT; same-day USGS 01540500 at Danville returned 4,550 cfs / 3.24 ft at 2026-06-22 18:30 EDT as downstream corroboration. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records that no rights-clean exact-route asset was selected in this pass.",
         "2026-06-22 18:35 America/Chicago / 2026-06-22 23:35 UTC three-route implementation pass. Added three more internet-sourced Kentucky routes: `south-fork-kentucky-river-bishop-bend-hacker-branch`, `south-fork-kentucky-river-hacker-branch-upper-wolf-creek`, and `levisa-fork-island-creek-cedar-creek`. Qualification path: current KDFWR South Fork page still documented the 3.3-mile Bishop Bend-to-Hacker Branch split and the 2.9-mile Hacker Branch-to-Upper Wolf Creek split, with exact access coordinates and official Booneville bands of `350-900 cfs / 4.8-6.0 ft`; same-day direct USGS 03281500 returned `171 cfs / 4.13 ft` at 2026-06-22 18:30 EDT. Current KDFWR Levisa Fork page still documented the 1.5-mile Island Creek-to-Cedar Creek split, exact access coordinates, and official Pikeville bands of `800-1400 cfs / 7.4-8.5 ft`; same-day direct USGS 03209500 returned `341 cfs` at 2026-06-22 17:30 EDT and `6.56 ft` at 2026-06-22 18:00 EDT. Added camping and safety/logistics notes for all three routes and reused the existing rights-clean South Fork and Levisa gallery assets.",
         "2026-06-22 17:26 America/Chicago / 2026-06-22 22:26 UTC three-route implementation pass. Added three internet-sourced Kentucky routes: `south-fork-kentucky-river-rocky-branch-cedar-valley`, `south-fork-kentucky-river-cedar-valley-bishop-bend`, and `levisa-fork-jubilee-island-creek`. Qualification path: current KDFWR South Fork page plus the South Fork Blue Water Trail PDF documented the 2.5-mile Rocky Branch-to-Cedar Valley split and the 4.7-mile Cedar Valley-to-Bishop Bend split, with exact access coordinates and official Booneville bands of `350-900 cfs / 4.8-6.0 ft`; same-day direct USGS 03281500 returned `173 cfs / 4.14 ft` at 2026-06-22 17:30 EDT. Current KDFWR Levisa fish page, education page, detailed map PDF, and access-detail pages documented the 3.8-mile Jubilee-to-Island Creek split, exact access coordinates, and official Pikeville bands of `800-1400 cfs / 7.4-8.5 ft`; same-day direct USGS 03209500 returned `341 cfs / 6.56 ft` at 2026-06-22 17:30-18:00 EDT. Added camping and safety/logistics notes for all three routes, plus rights-clean gallery assets for each route using public-domain South Fork Commons images and the existing CC0 Levisa Fork Commons image.",
         "2026-06-22 14:12 America/Chicago / 2026-06-22 19:12 UTC three-route implementation pass. Added three internet-sourced Kentucky routes: `barren-river-tailwater-vpa-3`, `barren-river-vpa-3-martinsville`, and `goose-creek-jacks-laurel-branch`. Qualification path: current KDFWR Lower Barren access-to-access mileage, access-detail pages, and same-day USGS 03313000 stage at 77.99 ft supported two lower-Barren adds on the official 78.0-78.5 ft Finney stage model; current KDFWR Goose Creek route-chain mileage, access-detail pages, and same-day USGS 03281100 at 16.4 cfs / 5.96 ft supported the 7.8-mile Jacks-to-Laurel Branch add on the official 175-514 cfs and 7.4-8.5 ft Manchester bands. Added camping and safety/logistics notes for all three routes. A bounded image pass did not produce a rights-clean exact-route gallery asset for any of the three, so no gallery entry was added in this pass.",
@@ -1059,6 +1060,171 @@
         "2026-04-27 01:28 America/Chicago fresh Minnesota-first Red River segment-page sweep. No app code changed. Re-read the live V2 inventory, route details, triage memory, and normalized ledger, then mined the unreviewed Red River Map 2 and Map 6 segment pages instead of reopening stale threshold-weak holdovers. Reviewed 2 fresh candidates from 1 genuinely new official evidence path: North Dam to M.B. Johnson Park (Map 2 recommended day trip) and Golden Grain trailer access to Hilltop trailer access (Map 6 recommended day trip). Both were parked at threshold_weak because the official pages still only say to check water levels and warn that low water may not be suitable for boating; they do not tie a numeric threshold model to the exact routes. Net result: 2 candidates reviewed, 0 promotions to likely_addable, 0 needs_manual_coordinates additions, 0 rejections, no code changes, and no tests/build because no product files changed."
     ],
     "candidates": [
+        {
+            "candidateId": "pa-susquehanna-river-test-track-bloomsburg",
+            "river": "Susquehanna River",
+            "route": "North Branch: Test Track Park to PFBC Bloomsburg",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC implemented as susquehanna-river-test-track-bloomsburg. PFBC North Branch Section 4 publishes Test Track Park and PFBC Bloomsburg as an official 9-mile segment with exact access coordinates and official Bloomsburg stage guidance; PFBC Section 3 adds the exposed Berwick bridge ledge warning below 2 ft. Same-day direct USGS 01538700 returned 4,370 cfs and 1.70 ft at 2026-06-22 18:15 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC rewrites the Section 4 access table or stage guidance, USGS 01538700 stops exposing product-ready current stage, the Berwick ledge warning changes, or a rights-clean exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 4 guide PDF",
+                "PFBC North Branch Susquehanna Section 3 guide PDF",
+                "USGS 01538700 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Test Track to Bloomsburg",
+                "Susquehanna River - Berwick to Bloomsburg",
+                "North Branch Section 4 upper day trip"
+            ],
+            "v2Slug": "susquehanna-river-test-track-bloomsburg",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01538700",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-22 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA. The route uses gage height in feet because PFBC's published planning guidance is stage-based."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_bands_with_direct_product_gauge",
+                "notes": "PFBC Section 4 says the river can be paddled as low as 1 ft at Bloomsburg, 1-2 ft moves about 2-3 mph, 2-4 ft moves about 3-5 mph, 4-5 ft moves about 4-6 mph, and novice paddlers should stay off if Bloomsburg is above 6 ft. V2 uses 1-4 ft as the conservative planning window, 1 ft as the too-low floor, and 6 ft as the novice-oriented high cutoff."
+            },
+            "endpoints": {
+                "putIn": "Test Track Park",
+                "takeOut": "PFBC Bloomsburg Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.04,
+                    -76.261111
+                ],
+                "takeOutCoordinates": [
+                    40.996944,
+                    -76.432222
+                ],
+                "coordinateSource": "PFBC North Branch Section 4 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-22 as a conservative big-river Pennsylvania route.",
+                "Camping stayed day-trip-only because PFBC water-trail guidance does not provide corridor camping for this segment.",
+                "Hazards carried into implementation: Berwick bridge ledge below 2 ft, broad-river wind, floating wood, flooded trees after rain, private banks, and take-out discipline at Bloomsburg.",
+                "No gallery image was added; image audit records no rights-clean exact-route image selected in this pass."
+            ],
+            "updatedAt": "2026-06-23T04:35:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-bloomsburg-indian-head",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC Bloomsburg to Indian Head Campground",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC implemented as susquehanna-river-bloomsburg-indian-head. PFBC North Branch Section 4 publishes PFBC Bloomsburg and Indian Head Campground as an official 3-mile segment with exact access coordinates and the same Bloomsburg stage guidance used for the section. Same-day direct USGS 01538700 returned 4,370 cfs and 1.70 ft at 2026-06-22 18:15 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Bloomsburg or Indian Head access details, USGS 01538700 stops exposing product-ready stage, the campground access status changes materially, or a rights-clean exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 4 guide PDF",
+                "USGS 01538700 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Bloomsburg to Indian Head",
+                "Susquehanna River - Bloomsburg Town Park to Indian Head",
+                "North Branch Section 4 short campground segment"
+            ],
+            "v2Slug": "susquehanna-river-bloomsburg-indian-head",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01538700",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-22 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA. The route uses gage height in feet because PFBC's published planning guidance is stage-based."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_bands_with_direct_product_gauge",
+                "notes": "PFBC Section 4 says the river can be paddled as low as 1 ft at Bloomsburg and novice paddlers should stay off if Bloomsburg rises above 6 ft. V2 uses the same conservative 1-4 ft planning window used across the official Section 4 corridor."
+            },
+            "endpoints": {
+                "putIn": "PFBC Bloomsburg Access",
+                "takeOut": "Indian Head Campground",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.996944,
+                    -76.432222
+                ],
+                "takeOutCoordinates": [
+                    40.975,
+                    -76.469444
+                ],
+                "coordinateSource": "PFBC North Branch Section 4 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-22 as a short North Branch campground-linked route.",
+                "Camping context is explicit: Indian Head Campground can work as a legal endpoint basecamp, but the segment itself is still a day float.",
+                "Hazards carried into implementation: broad-river wind, floating wood, private banks, muddy campground footing after rain, and the risk of overshooting the Indian Head landing.",
+                "No gallery image was added; image audit records no rights-clean exact-route image selected in this pass."
+            ],
+            "updatedAt": "2026-06-23T04:35:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-indian-head-danville",
+            "river": "Susquehanna River",
+            "route": "North Branch: Indian Head Campground to PFBC Danville",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC implemented as susquehanna-river-indian-head-danville. PFBC North Branch Section 4 publishes Indian Head Campground and PFBC Danville as an official 8-mile segment with exact access coordinates and section-wide Bloomsburg stage guidance. Same-day direct USGS 01538700 returned 4,370 cfs and 1.70 ft at 2026-06-22 18:15 EDT, and downstream USGS 01540500 at Danville returned 4,550 cfs and 3.24 ft at 2026-06-22 18:30 EDT as corridor corroboration.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Indian Head or Danville access details, the Bloomsburg stage guidance is replaced, the proxy-gauge fit degrades, or a rights-clean exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 4 guide PDF",
+                "USGS 01538700 Water Services IV same-day check",
+                "USGS 01540500 Water Services IV same-day downstream corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "DCNR Shikellamy State Park page for downstream corridor camping context"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Indian Head to Danville",
+                "Susquehanna River - Indian Head Campground to Danville",
+                "North Branch Section 4 mid-day float"
+            ],
+            "v2Slug": "susquehanna-river-indian-head-danville",
+            "gauge": {
+                "quality": "same_section_proxy_with_product_verification",
+                "id": "01538700",
+                "provider": "USGS",
+                "notes": "PFBC writes the section guidance around the Bloomsburg gauge, so V2 uses USGS 01538700 as a same-section proxy. Same-day 2026-06-22 Bloomsburg stage was 1.70 ft, and downstream Danville USGS 01540500 provided same-day corridor corroboration."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_bands_with_same_section_proxy",
+                "notes": "PFBC Section 4 uses Bloomsburg stage guidance for this corridor: paddleable as low as 1 ft, stronger/faster current from 2-5 ft, and novice paddlers should stay off if Bloomsburg is above 6 ft. V2 keeps the same conservative 1-4 ft planning window, 1 ft floor, and 6 ft cutoff while explicitly labeling the gauge as a proxy for the downstream Danville segment."
+            },
+            "endpoints": {
+                "putIn": "Indian Head Campground",
+                "takeOut": "PFBC Danville Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.975,
+                    -76.469444
+                ],
+                "takeOutCoordinates": [
+                    40.943611,
+                    -76.599722
+                ],
+                "coordinateSource": "PFBC North Branch Section 4 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-22 as a longer Section 4 downstream route.",
+                "Camping context is explicit: Indian Head Campground can support a legal overnight start or finish, but the river segment itself is still planned as a day trip.",
+                "Hazards carried into implementation: broad-river wind, floating wood, flooded trees after rain, proxy-gauge judgment error near the edges, private banks, and take-out discipline at Danville.",
+                "No gallery image was added; image audit records no rights-clean exact-route image selected in this pass."
+            ],
+            "updatedAt": "2026-06-23T04:35:00.000Z"
+        },
         {
             "candidateId": "pa-youghiogheny-lower-yough-ohiopyle-bruner-run",
             "river": "Youghiogheny River",

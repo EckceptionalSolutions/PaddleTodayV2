@@ -10020,6 +10020,119 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-test-track-bloomsburg': {
+    putIn: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    takeOut: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line-picking, or a slow big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back upstream to Test Track Park. Inspect both accesses before launching because broad-river current, mud, storm cleanup, and parking conditions can change how easy the landings feel on the day you paddle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, local park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official Section 3 and Section 4 North Branch guides say camping on this river corridor is not provided as part of the water trail itself, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Test Track Park and take out at the PFBC Bloomsburg ramp for a broad North Branch Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
+      accessCaveats: [
+        'The PFBC North Branch Section 4 guide publishes both the Test Track Park and PFBC Bloomsburg coordinates and uses those named accesses for the official route table.',
+        'PFBC access conditions can change with mud, flood cleanup, local events, or same-day maintenance, so verify the launch lane, parking, and bank angle before leaving a shuttle vehicle.',
+        'This route uses the direct Bloomsburg gauge and official section guidance, but big-river wind can make a modest stage feel harder than the number alone suggests.',
+        'The PFBC Bloomsburg access is a formal public landing; stay within posted access boundaries rather than improvising on nearby private banks.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'Bloomsburg stages above about 4 to 5 ft bring faster current, fewer forgiving eddies, and a bigger margin for missed ferries or landings.',
+        'Headwind across the wide North Branch, floating wood, flooded trees after rain, cold water outside midsummer, and thunderstorms moving down the valley.',
+        'Private islands or banks away from the named accesses and the chance of overrunning Bloomsburg if you drift past the obvious public landing.',
+      ],
+    },
+  },
+  'susquehanna-river-bloomsburg-indian-head': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    takeOut: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr in ordinary conditions, longer with headwind, a relaxed shuttle, or extra time around the campground landing',
+      shuttle:
+        'Stage the take-out at Indian Head Campground first, then drive back to the PFBC Bloomsburg ramp. Confirm same-day campground access expectations before launching if anyone in your group is not staying there overnight.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail segment itself as a short day trip rather than assuming open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at Indian Head Campground for a short North Branch link. The same official Bloomsburg stage guidance applies here, and the campground finish makes this one of the easier shuttle-and-basecamp options in the corridor.',
+      accessCaveats: [
+        'PFBC publishes both access coordinates in the Section 4 guide and lists Indian Head Campground as a primitive-to-surfaced ramp on river right.',
+        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
+        'Because this route is short, wind or a slow shuttle can dominate the day more than raw current speed does.',
+        'The Bloomsburg ramp is a formal PFBC access. Stay within posted public-use areas rather than using nearby banks or side landings.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the short mileage can still feel pushy near bends or bridge lines.',
+        'Broad-river wind, thunderstorms, floating wood, and muddy or slippery footing at the campground landing after rain.',
+        'Private shorelines and islands between the two named endpoints and the chance of overshooting the campground ramp if you are relaxed by the short distance.',
+      ],
+    },
+  },
+  'susquehanna-river-indian-head-danville': {
+    putIn: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    takeOut: {
+      name: 'PFBC Danville Access',
+      latitude: 40.943611,
+      longitude: -76.599722,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle around the campground launch',
+      shuttle:
+        'Stage the take-out at the PFBC Danville ramp first, then drive back to Indian Head Campground. Confirm same-day campground access expectations before launching if your group is only using the site as a put-in rather than staying there.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground can support a legal overnight start or finish if you have a reservation or permission, but the route itself should be planned as a day float between the named accesses rather than as open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Indian Head Campground and take out at the PFBC Danville ramp for a longer lower Section 4 float. The app uses the Bloomsburg stage gauge as the official same-section planning reference for this corridor, then expects a same-day wind and landing judgment before committing to the longer mileage.',
+      accessCaveats: [
+        'PFBC publishes both Indian Head Campground and PFBC Danville coordinates in the Section 4 guide, with Danville listed as a surfaced public ramp on river left.',
+        'This route uses Bloomsburg as a same-section proxy because PFBC stage guidance is written around that gauge rather than a separate Danville threshold ladder.',
+        'Indian Head Campground remains a managed property even though it appears in the official water-trail access table. Respect current staff instructions, parking rules, and launch boundaries.',
+        'Danville is the committed finish for this route. Inspect the landing and shuttle path before launching because the final miles can feel longer when wind stalls the current.',
+      ],
+      watchFor: [
+        'Proxy-gauge judgment error: if Bloomsburg is near the low or high edge, make a visual check at Indian Head instead of trusting the number alone.',
+        'Headwind across the wide lower section, thunderstorms, floating wood, flooded trees after rain, and cold-water consequences outside warm midsummer weather.',
+        'Bloomsburg stages above about 4 to 5 ft, when the broader river carries more speed and novice groups have less time to recover from poor line choices or missed landings.',
+        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the day.',
+      ],
+    },
+  },
   'platte-river-schramm-louisville': {
     putIn: {
       id: 'schramm-park-sra-canoe-kayak-access',

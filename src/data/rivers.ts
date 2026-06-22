@@ -31806,6 +31806,321 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'susquehanna-river-test-track-bloomsburg',
+    slug: 'susquehanna-river-test-track-bloomsburg',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Test Track Park to PFBC Bloomsburg',
+    aliases: [
+      'North Branch Susquehanna - Test Track to Bloomsburg',
+      'Susquehanna River - Berwick to Bloomsburg',
+      'North Branch Section 4 upper day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Broad North Branch Susquehanna day from Berwick-area Test Track Park to the PFBC Bloomsburg ramp. The official Section 4 water-trail guide gives exact access coordinates, uses the Bloomsburg gauge for same-day planning, and notes a low-water ledge near Berwick when the gauge is under 2 ft.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 41.018472,
+    longitude: -76.346667,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The broad North Branch usually stays paddleable longer than smaller Pennsylvania streams, but thunderstorms, upstream releases, and wind still change current and shoreline conditions quickly. Summer low water is often manageable here, while flooded treelines or major headwinds should turn the day into a no-go.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a straightforward big-river day with paved or improved public access at both ends, but wide-channel wind, low-water ledges, and river miles that feel longer when current stalls still require prepared same-day judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes the exact Test Track Park and Bloomsburg access coordinates, uses the Bloomsburg gauge as its planning reference for the section, and flags the low-water ledge near the Berwick bridge. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for USGS 01538700 during implementation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Test Track Park to Bloomsburg, about 9 mi',
+        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and the PFBC Bloomsburg ramp at river mile 149.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The same PFBC Section 4 guide publishes Test Track Park at 41 02 24 / -76 15 40 and PFBC Bloomsburg at 40 59 49 / -76 25 56.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700',
+        note: 'USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Berwick bridge ledge below 2 ft',
+        note: 'The PFBC guide warns that about 0.5 mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC North Branch Susquehanna Section 3 cautions',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-bloomsburg-indian-head',
+    slug: 'susquehanna-river-bloomsburg-indian-head',
+    name: 'Susquehanna River',
+    reach: 'North Branch: PFBC Bloomsburg to Indian Head Campground',
+    aliases: [
+      'North Branch Susquehanna - Bloomsburg to Indian Head',
+      'Susquehanna River - Bloomsburg Town Park to Indian Head',
+      'North Branch Section 4 short campground segment',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Short North Branch Susquehanna link from the PFBC Bloomsburg ramp to Indian Head Campground. The official Section 4 guide gives exact access coordinates, uses the Bloomsburg gauge for the same reach, and the campground take-out adds a conservative endpoint camping option.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, around 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 40.985972,
+    longitude: -76.450833,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This short town-to-campground link usually stays usable through much of the warm season, but thunderstorms, upstream rainfall, and broad-river wind can still change current and landing conditions quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is one of the shorter North Branch options in the corridor, with public or customary access at both ends. The main difficulty comes from current big-river judgment rather than technical rapids.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes both access coordinates, uses the Bloomsburg stage gauge for section planning, and Indian Head Campground appears in the same official access table as a primitive-to-surfaced ramp take-out. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for USGS 01538700 during implementation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Bloomsburg to Indian Head, about 3 mi',
+        note: 'The PFBC North Branch Section 4 guide places PFBC Bloomsburg at river mile 149 and Indian Head Campground at river mile 146.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC guide publishes PFBC Bloomsburg at 40 59 49 / -76 25 56 and Indian Head Campground at 40 58 30 / -76 28 10.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700',
+        note: 'USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Campground endpoint',
+        value: 'Indian Head Campground access',
+        note: 'The PFBC Section 4 access table lists Indian Head Campground as a primitive-to-surfaced ramp with route directions and marks it on river right at mile 146.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+      {
+        label: 'Indian Head Campground access context',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-indian-head-danville',
+    slug: 'susquehanna-river-indian-head-danville',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Indian Head Campground to PFBC Danville',
+    aliases: [
+      'North Branch Susquehanna - Indian Head to Danville',
+      'Susquehanna River - Indian Head Campground to Danville',
+      'North Branch Section 4 mid-day float',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Broad North Branch Susquehanna day from Indian Head Campground to the PFBC Danville ramp. The official Section 4 guide gives exact access coordinates, treats the Bloomsburg gauge as the planning reference for this corridor, and keeps the route in the easier lower-wind family when levels stay under the novice ceiling.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg gauge as the published same-section proxy for this downstream Danville segment. The official guide says the river can be paddled as low as 1 ft at Bloomsburg, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 40.959306,
+    longitude: -76.534583,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The North Branch often stays runnable even in drier warm-season periods, but broad-river wind, thunderstorm runoff, and flooded treelines can quickly change the feel of this longer downstream segment.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still an easier mainstem Susquehanna float with standard public-access infrastructure, but the route is long enough that headwinds, weather shifts, and tired groups can turn it into a bigger day than the flat profile suggests.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Indian Head Campground and the PFBC Danville ramp, lists both in the same Berwick-to-Sunbury access table, and uses the Bloomsburg gauge as the published planning reference for the section. Confidence is intentionally tempered because the selected gauge sits three river miles upstream of the put-in, so this route uses it as a same-section official proxy rather than an exact on-route gauge. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for the Bloomsburg gauge during implementation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Indian Head to Danville, about 8 mi',
+        note: 'The PFBC North Branch Section 4 guide places Indian Head Campground at river mile 146 and the PFBC Danville ramp at river mile 138.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC guide publishes Indian Head Campground at 40 58 30 / -76 28 10 and PFBC Danville at 40 56 37 / -76 35 59.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Official section gauge proxy',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'The PFBC Section 4 guide uses Bloomsburg as the stage reference for this corridor, and USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Downstream take-out access',
+        value: 'PFBC Danville surfaced ramp',
+        note: 'The PFBC Section 4 access table lists PFBC Danville as a surfaced ramp on river right with road directions from Walnut Street and River Drive.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'wabash-river-vera-cruz-white-bridge',
     slug: 'wabash-river-vera-cruz-white-bridge',
     name: 'Wabash River',
