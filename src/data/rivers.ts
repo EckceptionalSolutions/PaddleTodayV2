@@ -34542,6 +34542,398 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "green-river-roachville-russell-ford",
+    slug: "green-river-roachville-russell-ford",
+    name: "Green River",
+    reach: "Roachville Ford to Russell Ford Access",
+    aliases: [
+      "Green River - Roachville Ford to Russell Ford",
+      "Upper Green River manageable float",
+      "KDFWR Upper Green Roachville to Russell",
+    ],
+    state: "Kentucky",
+    region: "South-Central Kentucky",
+    summary:
+      "Manageable upper Green River float from Roachville Ford to Russell Ford. KDFWR documents the 6.6-mile public-access segment, exact endpoint coordinates, and official Greensburg stage bands tied to the local USGS gauge.",
+    statusText:
+      "Use the Green River at Greensburg gauge. KDFWR rates 1.0 to 1.75 ft as good for boating and fishing. Below that expect shallower riffles and more scraping; above that the river gets pushier and landings deserve more caution.",
+    latitude: 37.2353,
+    longitude: -85.4241,
+    gaugeSource: {
+      id: "usgs-03306500",
+      provider: "usgs",
+      siteId: "03306500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Greensburg, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 1.0,
+      idealMax: 1.75,
+      tooLow: 1.0,
+      tooHigh: 1.75,
+      thresholdSource: {
+        label: "KDFWR recommended river levels for Green River at Greensburg",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        "This upper Pool 6 segment is most dependable during spring through fall when the Greensburg stage is stable. Summer lows expose more riffles and shallow fords, while storms can raise current and make the broad river feel less forgiving.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is a straightforward public-access Green River float, but it is still moving water with riffles, shoals, mud, wood, and private-bank limits that become more consequential outside the KDFWR good band.",
+      confidenceNotes:
+        "Confidence is high for a conservative Kentucky add: KDFWR lists Roachville Ford to Russell Ford as a 6.6-mile Green River access-to-access segment, publishes exact coordinates and access details for both endpoints, and ties the corridor to the official Greensburg gauge ladder of Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft. KDFWR's own smallmouth-float article separately calls Roachville-to-Russell one of the manageable Green River floats, and USGS Water Services returned a same-day June 22, 2026 stage value from the direct route gauge during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Roachville Ford to Russell Ford, 6.6 mi",
+        note: "KDFWR lists Roachville Ford to Russell Ford as a 6.6-mile Green River Pool 6 access-to-access segment.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Official level band",
+        value: "1.0-1.75 ft good",
+        note: "KDFWR rates the Green River gauge at Greensburg as Low below 1.0 ft, Good from 1.0 to 1.75 ft, and High above 1.75 ft.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+      },
+      {
+        label: "Put-in access",
+        value: "Roachville Ford, 37.2353, -85.4241",
+        note: "KDFWR identifies Roachville Ford as a free public ramp/ford access with year-round 24-hour boat-ramp availability and limited roadside parking.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "Russell Ford Access, 37.2738, -85.4784",
+        note: "KDFWR identifies Russell Ford as a free carry-down public access with unpaved parking and year-round 24-hour boat-ramp availability.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Russell-Ford-Access.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03306500 at 0.84 ft",
+        note: "USGS Water Services returned a same-day June 22, 2026 gage-height reading for Green River at Greensburg during this run. That stage is below the KDFWR good band, so expect a lower, scrape-prone day.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Route character",
+        value: "Riffles, pools, water willow, deep rocky pools",
+        note: "KDFWR describes the Roachville access area as shallow riffles, pools, and water willow habitat, while its Green River float article calls Roachville to Russell one of the manageable upper-Green floats and highlights the better smallmouth water near Meadow Creek and the Russell take-out.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Two-Tailwater-Floats-for-Early-Summer-Smallies.aspx",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Roachville Ford",
+        url: "https://fw.ky.gov/Fish/Pages/Roachville-Ford.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Russell Ford Access",
+        url: "https://fw.ky.gov/Fish/Pages/Russell-Ford-Access.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Two Tailwater Floats for Early Summer Smallies",
+        url: "https://fw.ky.gov/Fish/Pages/Two-Tailwater-Floats-for-Early-Summer-Smallies.aspx",
+        provider: "local",
+      },
+      {
+        label: "USGS 03306500 Green River at Greensburg",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03306500/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03306500 Water Services current values",
+        url: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03306500&parameterCd=00060,00065&siteStatus=all",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-dennison-green-river-ferry",
+    slug: "green-river-dennison-green-river-ferry",
+    name: "Green River",
+    reach: "Dennison Ferry to Green River Ferry",
+    aliases: [
+      "Green River - Dennison Ferry to Green River Ferry",
+      "Mammoth Cave Green River popular day trip",
+      "NPS Dennison to Green River Ferry",
+    ],
+    state: "Kentucky",
+    region: "Mammoth Cave",
+    summary:
+      "Popular Mammoth Cave Green River day from Dennison Ferry to Green River Ferry. NPS and KDFWR document the public 7.5 to 7.6-mile segment, exact access coordinates, and a direct in-park USGS gauge with conservative NPS stage guidance.",
+    statusText:
+      "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as beginner-friendly park conditions, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park above 20 ft.",
+    latitude: 37.2174,
+    longitude: -86.0493,
+    gaugeSource: {
+      id: "usgs-03309000",
+      provider: "usgs",
+      siteId: "03309000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Mammoth Cave, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 9,
+      idealMax: 15,
+      tooLow: 9,
+      tooHigh: 20,
+      thresholdSource: {
+        label: "Mammoth Cave NPS Green River skill-level stage guidance",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "Late spring through fall is the most straightforward window for this park segment. NPS warns that Green River can rise very quickly after rain, so same-day weather, trend, and ferry status matter as much as the gauge number.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "The route is flatwater by whitewater standards, but NPS still says prior paddling experience is recommended because the river is wide, current can be swift, and ferry traffic, logjams, mud, and steep carry-downs raise the consequence over a casual pond float.",
+      confidenceNotes:
+        "Confidence is high for a conservative park add: KDFWR lists Dennison Ferry to Green River Ferry as a 7.5-mile Pool 6 segment and publishes coordinates and access details for both endpoints, while NPS separately publishes the same trip as a 7.6-mile popular day run with 2.5 to 4 hours of travel time, scenic flatwater character, and explicit safety guidance. The park also maintains direct USGS site 03309000 at Mammoth Cave, and same-day USGS current conditions returned 641 cfs and 9.82 ft on June 22, 2026. Paddle Today converts NPS's skill ladder into a conservative broad-audience model by treating 9 to 15 ft as the public target band and 20 ft as the hard closure.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Dennison Ferry to Green River Ferry, about 7.5-7.6 mi",
+        note: "KDFWR lists Dennison Ferry to Green River Ferry as a 7.5-mile Pool 6 segment, and NPS separately publishes the same Mammoth Cave trip as 7.6 miles with an estimated 2.5 to 4 hours of travel time.",
+        sourceUrl: "https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm",
+      },
+      {
+        label: "Official stage model",
+        value: "9-15 ft broad audience, >20 ft closed",
+        note: "NPS says beginner Green River conditions in the park are about 9 to 15 ft, experienced paddlers may continue higher, and launching in the park is prohibited above 20 ft. Paddle Today uses that as a conservative public-facing stage model.",
+        sourceUrl: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+      },
+      {
+        label: "Put-in access",
+        value: "Dennison Ferry, 37.2174, -86.0493",
+        note: "KDFWR identifies Dennison Ferry as a free carry-down access inside Mammoth Cave National Park with gravel parking and day-use-only rules.",
+        sourceUrl: "https://fw.ky.gov/Fish/Pages/Dennison-Ferry-.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "Green River Ferry, 37.1795, -86.1123",
+        note: "KDFWR identifies Green River Ferry as a free single-lane paved park ramp with year-round availability, while NPS notes that canoe and kayak users should use the access just upstream on the south side of the ferry.",
+        sourceUrl:
+          "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03309000 at 641 cfs / 9.82 ft",
+        note: "USGS current conditions returned same-day June 22, 2026 values of 641 cfs and 9.82 ft for Green River at Mammoth Cave, squarely inside the conservative 9 to 15 ft broad-audience band used for this route.",
+        sourceUrl:
+          "https://waterdata.usgs.gov/ky/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=03309000",
+      },
+      {
+        label: "Route character",
+        value: "Scenic flatwater, gravel bars, islands, back channels",
+        note: "NPS describes this as a popular scenic flatwater Green River trip with gravel bars, islands, back channels, riverside caves at lower water, and abundant wildlife.",
+        sourceUrl: "https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Dennison Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Dennison-Ferry-.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+        provider: "local",
+      },
+      {
+        label: "NPS Dennison Ferry to Green River Ferry",
+        url: "https://www.nps.gov/thingstodo/dennison-ferry-to-green-river-ferry.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS River Safety and Regulations",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Current Conditions",
+        url: "https://www.nps.gov/maca/planyourvisit/conditions.htm",
+        provider: "nps",
+      },
+      {
+        label: "USGS 03309000 Green River at Mammoth Cave",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03309000 current conditions",
+        url: "https://waterdata.usgs.gov/ky/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=03309000",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
+    id: "green-river-green-river-ferry-houchins",
+    slug: "green-river-green-river-ferry-houchins",
+    name: "Green River",
+    reach: "Green River Ferry to Houchins Ferry",
+    aliases: [
+      "Green River - Green River Ferry to Houchins Ferry",
+      "Mammoth Cave lower Green River day trip",
+      "NPS Green River Ferry to Houchin Ferry",
+    ],
+    state: "Kentucky",
+    region: "Mammoth Cave",
+    summary:
+      "Longer Mammoth Cave Green River stretch from Green River Ferry to Houchins Ferry. NPS and KDFWR document the public 12.3 to 12.4-mile segment, exact access coordinates, and a direct in-park USGS gauge with conservative NPS stage guidance.",
+    statusText:
+      "Use the Green River at Mammoth Cave gauge. NPS treats roughly 9 to 15 ft as the broad beginner-friendly park window, 15 to 20 ft as more consequential experienced water, and prohibits launching in the park above 20 ft.",
+    latitude: 37.1795,
+    longitude: -86.1123,
+    gaugeSource: {
+      id: "usgs-03309000",
+      provider: "usgs",
+      siteId: "03309000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Green River at Mammoth Cave, KY",
+      detailUrl:
+        "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+    },
+    profile: {
+      thresholdModel: "two-sided",
+      idealMin: 9,
+      idealMax: 15,
+      tooLow: 9,
+      tooHigh: 20,
+      thresholdSource: {
+        label: "Mammoth Cave NPS Green River skill-level stage guidance",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "high",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "This longer park segment is best treated as a warm-season trip unless the group is comfortable with colder water and faster current. NPS warns the Green can rise quickly after rain and that river channels and gravel bars shift over time.",
+      difficulty: "moderate",
+      difficultyNotes:
+        "NPS calls this a longer, less-traveled flatwater section with swift current, ferry interaction at the launch area, changing gravel bars, and logjams. The route is accessible to experienced casual paddlers when the gauge is in range, but it is not a lazy float.",
+      confidenceNotes:
+        "Confidence is high for a conservative park add: KDFWR lists Green River Ferry to Houchins Ferry as a 12.3-mile Pool 6 segment and publishes coordinates and access details for both park endpoints, while NPS separately publishes the same route as 12.4 miles with a 4 to 6 hour travel time plus explicit camping, hazard, and wildlife context. The park-maintained direct USGS gauge at Mammoth Cave returned same-day June 22, 2026 values of 641 cfs and 9.82 ft. Paddle Today uses the NPS beginner/intermediate/closure ladder conservatively by treating 9 to 15 ft as the public target band and 20 ft as the hard upper closure.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Green River Ferry to Houchins Ferry, about 12.3-12.4 mi",
+        note: "KDFWR lists Green River Ferry to Houchins Ferry as a 12.3-mile Pool 6 segment, and NPS separately publishes the same park trip as 12.4 miles with an estimated 4 to 6 hours of travel time.",
+        sourceUrl: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+      },
+      {
+        label: "Official stage model",
+        value: "9-15 ft broad audience, >20 ft closed",
+        note: "NPS says beginner Green River conditions in the park are about 9 to 15 ft and park launching is prohibited above 20 ft. Paddle Today uses that as a conservative public-facing stage model.",
+        sourceUrl: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+      },
+      {
+        label: "Put-in access",
+        value: "Green River Ferry, 37.1795, -86.1123",
+        note: "KDFWR identifies Green River Ferry as a free single-lane paved park ramp with year-round availability, picnic tables, and access near Mammoth Cave Campground.",
+        sourceUrl:
+          "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+      },
+      {
+        label: "Take-out access",
+        value: "Houchins Ferry, 37.2024, -86.2376",
+        note: "KDFWR identifies Houchins Ferry as a free paved park ramp with year-round camping, restrooms, and picnic facilities at the ferry crossing.",
+        sourceUrl:
+          "https://fw.ky.gov/Fish/Pages/Houchins-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+      },
+      {
+        label: "Live-gauge support",
+        value: "USGS 03309000 at 641 cfs / 9.82 ft",
+        note: "USGS current conditions returned same-day June 22, 2026 values of 641 cfs and 9.82 ft for Green River at Mammoth Cave, inside the conservative 9 to 15 ft public target band used for this route.",
+        sourceUrl:
+          "https://waterdata.usgs.gov/ky/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=03309000",
+      },
+      {
+        label: "Camping context",
+        value: "Permitted riverside camping plus Houchins campground",
+        note: "NPS says this route can support gravel-bar or low-bank camping at lower water with a valid riverside camping permit, and Houchin Ferry Campground itself has twelve campsites with river access.",
+        sourceUrl: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "KDFWR Pool 6 Green River",
+        url: "https://fw.ky.gov/Fish/Pages/Pool-6-%E2%80%93-Green-River.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Green River Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Green-River-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+        provider: "local",
+      },
+      {
+        label: "KDFWR Houchins Ferry",
+        url: "https://fw.ky.gov/Fish/Pages/Houchins-Ferry-%28Mammoth-Cave-National-Park%29.aspx",
+        provider: "local",
+      },
+      {
+        label: "NPS Green River Ferry to Houchin Ferry",
+        url: "https://www.nps.gov/thingstodo/green-river-ferry-to-houchin-ferry.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS River Safety and Regulations",
+        url: "https://www.nps.gov/maca/planyourvisit/river-safety-and-regulations.htm",
+        provider: "nps",
+      },
+      {
+        label: "NPS Houchin Ferry Campground",
+        url: "https://www.nps.gov/maca/planyourvisit/houchinferrycg.htm",
+        provider: "nps",
+      },
+      {
+        label: "USGS 03309000 Green River at Mammoth Cave",
+        url: "https://waterdata.usgs.gov/monitoring-location/USGS-03309000/",
+        provider: "usgs",
+      },
+      {
+        label: "USGS 03309000 current conditions",
+        url: "https://waterdata.usgs.gov/ky/nwis/uv/?PARAmeter_cd=00065%2C00060&site_no=03309000",
+        provider: "usgs",
+      },
+    ],
+  },
+  {
     id: "barren-river-tailwater-vpa-3",
     slug: "barren-river-tailwater-vpa-3",
     name: "Barren River",

@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T01:40:00.000Z",
+    "updatedAt": "2026-06-23T03:31:31.000Z",
     "notes": [
+        "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC Green River implementation pass. Added three new internet-sourced Kentucky routes: `green-river-roachville-russell-ford`, `green-river-dennison-green-river-ferry`, and `green-river-green-river-ferry-houchins`. Qualification path: current KDFWR Pool 6 guidance still documented the exact Roachville-to-Russell 6.6-mile upper-Green segment plus Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft; same-day direct USGS 03306500 returned 0.84 ft at 2026-06-22 21:15 CDT. Current KDFWR and NPS Mammoth Cave pages still documented the Dennison-to-Green River Ferry 7.5/7.6-mile day trip and the Green River Ferry-to-Houchins 12.3/12.4-mile lower-park trip, while the direct in-park USGS 03309000 returned 641 cfs / 9.82 ft at 2026-06-22 16:00 CDT and NPS still framed about 9-15 ft as the beginner-friendly park window with launch closure above 20 ft. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded KDFWR/NPS/USGS image review found useful corridor context but no rights-clean exact-route asset was selected in this pass.",
         "2026-06-22 20:40 America/Chicago / 2026-06-23 01:40 UTC Ohio implementation pass. Added three new internet-sourced Ohio routes: `vermilion-river-mill-hollow-vermilion-boat-ramp`, `east-fork-little-miami-river-williamsburg-tunnel-mill`, and `cuyahoga-river-lock-29-boston-store`. Qualification path: current American Whitewater and official park/water-trail sources documented the exact public-access pairs, same-river direct gauges, and route character for all three. Same-day direct USGS 04199500 on the Vermilion returned 272 cfs / 2.95 ft at 2026-06-22 21:00 EDT against the lower-reach 2.6-6.0 ft AW band; same-day direct USGS 03246500 at Williamsburg returned 165 cfs / 1.58 ft at 2026-06-22 20:45 EDT against the East Fork 250-4000 cfs AW band; same-day direct USGS 04206425 at Jaite returned 796 cfs / 3.70 ft at 2026-06-22 21:00 EDT against the Cuyahoga Peninsula 300-5000 cfs AW band. Added camping and safety/logistics notes for all three routes. Reused the existing rights-clean Vermilion Commons image for the lower split and recorded bounded no-image outcomes for East Fork and the Cuyahoga add.",
         "2026-06-22 19:55 America/Chicago / 2026-06-23 00:55 UTC Arkansas implementation pass. Added three new internet-sourced Arkansas routes: `saline-river-tony-kelly-lyle-park`, `upper-illinois-river-chamber-springs-siloam-kayak-park`, and `upper-illinois-river-siloam-kayak-park-woka`. Qualification path: current AGFC Saline River Water Trail guidance documented the exact Tony Kelly Ford-to-Lyle Park 8.2-mile public segment, direct USGS 07363000 Benton gauge bands of low at 3.5 ft and below, broad paddleable water from 3.6-5.0 ft, and experienced-only water above 5.0 ft; same-day direct USGS 07363000 returned 157 cfs / 3.64 ft at 2026-06-22 19:30 CDT. Current AGFC Upper Illinois River Water Trail guidance documented the exact Chamber Springs-to-Siloam 8.1-mile and Siloam-to-WOKA 7.4-mile public segments, direct USGS 07195400 gauge guidance of 200-1,000 cfs best flow with experienced-only conditions above 1,000 cfs, coordinate-linked public endpoints, nearby basecamp options, and Class II+ carry-around warnings at the kayak parks; same-day direct USGS 07195400 returned 4,920 cfs / 11.74 ft at 2026-06-22 19:00 CDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records bounded Commons and official-page image attempts without a selected rights-clean exact-route asset.",
         "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna water-trail guides: `susquehanna-river-test-track-bloomsburg`, `susquehanna-river-bloomsburg-indian-head`, and `susquehanna-river-indian-head-danville`. Qualification path: PFBC Section 4 published exact access coordinates, river-mile distances, and official Bloomsburg stage guidance showing paddleable conditions as low as 1 ft, faster current from 2-5 ft, and a novice ceiling above 6 ft; PFBC Section 3 added the exposed Berwick ledge warning below 2 ft; same-day direct USGS 01538700 at Bloomsburg returned 4,370 cfs / 1.70 ft at 2026-06-22 18:15 EDT; same-day USGS 01540500 at Danville returned 4,550 cfs / 3.24 ft at 2026-06-22 18:30 EDT as downstream corroboration. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records that no rights-clean exact-route asset was selected in this pass.",
@@ -29613,6 +29614,159 @@
                 "coordinateSource": "KDFWR access-detail pages for American Legion Park and Greensburg City Ramp."
             },
             "notes": "Implemented on 2026-06-22 as green-river-american-legion-greensburg. The route uses the direct Greensburg stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-green-river-roachville-russell-ford",
+            "river": "Green River",
+            "route": "Roachville Ford to Russell Ford Access",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implemented as green-river-roachville-russell-ford. KDFWR Pool 6 still listed Roachville Ford to Russell Ford as a 6.6-mile public segment, current KDFWR access pages still exposed coordinates and year-round availability for both endpoints, and USGS Water Services returned a same-day Greensburg stage of 0.84 ft at 2026-06-22 21:15 CDT from the direct route gauge. The route ships on the official KDFWR Greensburg stage model of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if KDFWR access status changes, USGS 03306500 stops exposing current stage values, a stronger same-corridor image is approved, or Green River Pool 6 route guidance changes materially.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implementation review: KDFWR Pool 6 still listed Roachville Ford to Russell Ford as a 6.6-mile segment and preserved the official Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft.",
+                "KDFWR Roachville Ford page reviewed 2026-06-22; confirms public ford/ramp access, year-round 24-hour availability, and coordinates 37.2353 / -85.4241.",
+                "KDFWR Russell Ford page reviewed 2026-06-22; confirms carry-down access, year-round 24-hour availability, and coordinates 37.2738 / -85.4784.",
+                "KDFWR's Two Tailwater Floats article reviewed 2026-06-22; still calls Roachville to Russell one of the manageable Green River floats and reinforces the selected route shape.",
+                "USGS Water Services returned same-day Green River at Greensburg 03306500 stage of 0.84 ft at 2026-06-22 21:15 CDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded KDFWR, Commons, and USGS corridor leads; no approved Green River image was selected for this slug."
+            ],
+            "aliases": [
+                "Green River - Roachville Ford to Russell Ford",
+                "Upper Green River manageable float",
+                "KDFWR Upper Green Roachville to Russell"
+            ],
+            "v2Slug": "green-river-roachville-russell-ford",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03306500",
+                "provider": "USGS",
+                "notes": "USGS 03306500 Green River at Greensburg is the direct route gauge for this upper Pool 6 segment and returned same-day stage from Water Services during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_two_sided",
+                "notes": "KDFWR publishes official Greensburg stage bands for this corridor: Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft."
+            },
+            "endpoints": {
+                "putIn": "Roachville Ford",
+                "takeOut": "Russell Ford Access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.2353,
+                    "longitude": -85.4241
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.2738,
+                    "longitude": -85.4784
+                },
+                "coordinateSource": "KDFWR Roachville Ford and Russell Ford access pages."
+            },
+            "notes": "Implemented on 2026-06-22 as green-river-roachville-russell-ford. The route uses the direct Greensburg stage gauge and official KDFWR stage bands, with current score expected to be low while the river sits below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-green-river-dennison-green-river-ferry",
+            "river": "Green River",
+            "route": "Dennison Ferry to Green River Ferry",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implemented as green-river-dennison-green-river-ferry. KDFWR Pool 6 still listed Dennison Ferry to Green River Ferry as a 7.5-mile public segment, NPS still published the same Mammoth Cave trip as a 7.6-mile popular day run, current KDFWR access pages still exposed coordinates for both endpoints, and the direct in-park USGS 03309000 returned same-day values of 641 cfs and 9.82 ft at 2026-06-22 16:00 CDT. The route ships on a conservative official NPS stage model that treats about 9-15 ft as the broad beginner-friendly window and closes launches above 20 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if Mammoth Cave access status changes, USGS 03309000 stops exposing current values, NPS river-safety guidance changes materially, or a stronger exact-route image is approved.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implementation review: KDFWR Pool 6 still listed Dennison Ferry to Green River Ferry as a 7.5-mile segment, while NPS still published the same route as 7.6 miles and 2.5-4 hours.",
+                "KDFWR Dennison Ferry page reviewed 2026-06-22; confirms day-use-only carry-down access and coordinates 37.2174 / -86.0493.",
+                "KDFWR Green River Ferry page reviewed 2026-06-22; confirms public ramp access, campground context, and coordinates 37.1795 / -86.1123.",
+                "NPS River Safety and Regulations page reviewed 2026-06-22; beginner Green River conditions remain about 9-15 ft, launching in the park remains prohibited above 20 ft, and Green River Ferry hazard language remains explicit.",
+                "USGS current conditions returned same-day Green River at Mammoth Cave 03309000 values of 641 cfs and 9.82 ft at 2026-06-22 16:00 CDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded NPS, KDFWR, Commons, and USGS corridor leads; no approved park-route image was selected for this slug."
+            ],
+            "aliases": [
+                "Green River - Dennison Ferry to Green River Ferry",
+                "Mammoth Cave Green River popular day trip",
+                "NPS Dennison to Green River Ferry"
+            ],
+            "v2Slug": "green-river-dennison-green-river-ferry",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03309000",
+                "provider": "USGS",
+                "notes": "USGS 03309000 Green River at Mammoth Cave is the direct route gauge for this park segment and returned same-day discharge and stage during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_skill_bands",
+                "notes": "NPS publishes Green River skill guidance for the park: about 9-15 ft for beginner-friendly conditions and launch closure above 20 ft. Paddle Today uses that as a conservative public-facing route model."
+            },
+            "endpoints": {
+                "putIn": "Dennison Ferry",
+                "takeOut": "Green River Ferry",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.2174,
+                    "longitude": -86.0493
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.1795,
+                    "longitude": -86.1123
+                },
+                "coordinateSource": "KDFWR Dennison Ferry and Green River Ferry access pages."
+            },
+            "notes": "Implemented on 2026-06-22 as green-river-dennison-green-river-ferry. The route uses the direct Mammoth Cave stage gauge plus conservative NPS park-stage guidance, with current score expected to sit inside the broad beginner-friendly band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "ky-green-river-green-river-ferry-houchins",
+            "river": "Green River",
+            "route": "Green River Ferry to Houchins Ferry",
+            "state": "KY",
+            "status": "implemented",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implemented as green-river-green-river-ferry-houchins. KDFWR Pool 6 still listed Green River Ferry to Houchins Ferry as a 12.3-mile public segment, NPS still published the same lower-park route as a 12.4-mile / 4-6 hour day trip, current KDFWR access pages still exposed coordinates for both park endpoints, and the direct in-park USGS 03309000 returned same-day values of 641 cfs and 9.82 ft at 2026-06-22 16:00 CDT. The route ships on a conservative official NPS stage model that treats about 9-15 ft as the broad beginner-friendly window and closes launches above 20 ft. No rights-clean route-gallery asset was selected.",
+            "retryCondition": "Revisit only if Mammoth Cave access or campground status changes, USGS 03309000 stops exposing current values, NPS route or safety guidance changes materially, or a stronger exact-route image is approved.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC implementation review: KDFWR Pool 6 still listed Green River Ferry to Houchins Ferry as a 12.3-mile segment, while NPS still published the same lower-park route as 12.4 miles and 4-6 hours.",
+                "KDFWR Green River Ferry page reviewed 2026-06-22; confirms public ramp access and coordinates 37.1795 / -86.1123.",
+                "KDFWR Houchins Ferry page reviewed 2026-06-22; confirms public ramp access, year-round camping support, and coordinates 37.2024 / -86.2376.",
+                "NPS Green River Ferry to Houchin Ferry route page reviewed 2026-06-22; confirms the scenic flatwater route shape, lower-water gravel-bar camping with permit, and route-specific hazard language.",
+                "USGS current conditions returned same-day Green River at Mammoth Cave 03309000 values of 641 cfs and 9.82 ft at 2026-06-22 16:00 CDT during the implementation run.",
+                "Rights-clean image pass reviewed bounded NPS, KDFWR, Commons, and USGS corridor leads; no approved park-route image was selected for this slug."
+            ],
+            "aliases": [
+                "Green River - Green River Ferry to Houchins Ferry",
+                "Mammoth Cave lower Green River day trip",
+                "NPS Green River Ferry to Houchin Ferry"
+            ],
+            "v2Slug": "green-river-green-river-ferry-houchins",
+            "gauge": {
+                "quality": "direct_stage_live",
+                "id": "03309000",
+                "provider": "USGS",
+                "notes": "USGS 03309000 Green River at Mammoth Cave is the direct route gauge for this longer lower-park segment and returned same-day discharge and stage during implementation."
+            },
+            "thresholdSupport": {
+                "strength": "official_stage_skill_bands",
+                "notes": "NPS publishes Green River skill guidance for the park: about 9-15 ft for beginner-friendly conditions and launch closure above 20 ft. Paddle Today uses that as a conservative public-facing route model."
+            },
+            "endpoints": {
+                "putIn": "Green River Ferry",
+                "takeOut": "Houchins Ferry",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 37.1795,
+                    "longitude": -86.1123
+                },
+                "takeOutCoordinates": {
+                    "latitude": 37.2024,
+                    "longitude": -86.2376
+                },
+                "coordinateSource": "KDFWR Green River Ferry and Houchins Ferry access pages."
+            },
+            "notes": "Implemented on 2026-06-22 as green-river-green-river-ferry-houchins. The route uses the direct Mammoth Cave stage gauge plus conservative NPS park-stage guidance, with current score expected to sit inside the broad beginner-friendly band. No rights-clean route image was approved during this add pass."
         },
         {
             "candidateId": "ky-barren-river-tailwater-vpa-3",

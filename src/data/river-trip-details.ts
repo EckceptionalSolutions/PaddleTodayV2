@@ -10720,6 +10720,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-roachville-russell-ford': {
+    putIn: {
+      id: 'roachville-ford',
+      name: 'Roachville Ford',
+      latitude: 37.2353,
+      longitude: -85.4241,
+    },
+    takeOut: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr, longer with fishing stops, lower water, or shoal scouting',
+      shuttle:
+        'Stage the take-out at Russell Ford, then drive back to Roachville Ford. KDFWR notes the south side of Roachville via Thunder Road makes the shorter shuttle approach for this manageable upper-Green float.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and avoid blocking the ford approaches or roadside parking.',
+      camping:
+        'Treat this as a day trip. No public route camping is documented between Roachville Ford and Russell Ford, and private banks or gravel bars along this corridor should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Roachville Ford and take out at Russell Ford for a manageable upper Green River float. Use the Greensburg stage gauge and expect a shallower, more scrape-prone trip whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Roachville Ford is a low-water ford with limited roadside parking and may require brief carry or drag moves during very low flows.',
+        'Russell Ford is a simple gravel-bar carry-down with limited parking and no amenities. Keep the approach clear for other users.',
+        'KDFWR treats both accesses as public, but the banks between them are not general-use public parks. Stay with the named access points.',
+        'This route uses the Greensburg stage gauge. Trend, recent rain, and the feel of shoals matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when KDFWR says the route drops below the good band and shallow riffles become more likely to scrape.',
+        'High water above about 1.75 ft, when current along bends, pools, and landings gets faster and less forgiving.',
+        'Water willow beds, shallow riffles, woody debris after storms, private-bank limits, and exposed sun on the broader pools.',
+        'Slippery gravel or mud at the fords and landings, especially after rain.',
+      ],
+    },
+  },
+  'green-river-dennison-green-river-ferry': {
+    putIn: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    takeOut: {
+      id: 'green-river-ferry',
+      name: 'Green River Ferry',
+      latitude: 37.1795,
+      longitude: -86.1123,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr, longer with side explorations, ferry delays, or lower-water gravel-bar stops',
+      shuttle:
+        'Stage the take-out at Green River Ferry, then drive back to Dennison Ferry Day Use Area. Check the current Mammoth Cave road and ferry status before committing the shuttle because access conditions and operating hours can change without notice.',
+      permits:
+        'No permit is required for a normal day paddle, but this route is inside Mammoth Cave National Park. Follow NPS boating rules, wear required USCG-approved PFDs, and keep the Green River Ferry crossing clear of unsafe approaches or unauthorized bank use.',
+      camping:
+        'Green River Ferry has endpoint camping support rather than on-route overnight planning. KDFWR notes Mammoth Cave Campground at the top of the hill by the take-out, while Dennison Ferry is a day-use-only access with no camping allowed.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Dennison Ferry and take out at Green River Ferry for the park\'s popular scenic Green River day trip. The direct Mammoth Cave gauge is in the same park corridor, and Paddle Today uses NPS\'s conservative 9 to 15 ft broad-audience stage window for planning.',
+      accessCaveats: [
+        'Dennison Ferry is day-use only with a carry-down launch. Do not plan to camp or leave gear spread across the access.',
+        'NPS says canoe and kayak users should use the access ramp just upstream from the ferry on the south side when finishing at Green River Ferry.',
+        'The ferry status can change without notice. Check current conditions or call the ferry hotline before shuttling.',
+        'Cell service can be limited in the park, so do not rely on last-minute online rerouting once the group is on the road.',
+      ],
+      watchFor: [
+        'Swift current, submerged trees and rocks, drifting debris, logjams, and muddy or slick carry-down surfaces.',
+        'Green River Ferry traffic. Stay back, wait for eye contact from the operator, and never linger upriver of the ferry vessel.',
+        'Higher water above about 15 ft, when the river becomes more consequential for casual paddlers, and launch closures at or above 20 ft.',
+        'Heat, limited rescue access, and slower emergency response times in the park.',
+      ],
+    },
+  },
+  'green-river-green-river-ferry-houchins': {
+    putIn: {
+      id: 'green-river-ferry',
+      name: 'Green River Ferry',
+      latitude: 37.1795,
+      longitude: -86.1123,
+    },
+    takeOut: {
+      id: 'houchins-ferry',
+      name: 'Houchins Ferry',
+      latitude: 37.2024,
+      longitude: -86.2376,
+    },
+    logistics: {
+      distanceLabel: 'About 12.3 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr, longer with side channels, gravel-bar breaks, or camping logistics',
+      shuttle:
+        'Stage the take-out at Houchins Ferry Campground, then drive back to Green River Ferry. Build in extra shuttle time for park roads and verify current ferry and road status before leaving vehicles.',
+      permits:
+        'No permit is required for a same-day paddle, but this route is inside Mammoth Cave National Park and follows NPS boating rules. If you intend to camp on gravel bars or low banks en route, NPS requires a valid riverside camping permit; do not assume spontaneous camping is legal.',
+      camping:
+        'This is the strongest Green River route in this pass for overnight flexibility. NPS says lower-water gravel bars and low riverbanks can support paddler camping with a valid riverside camping permit, and Houchins Ferry Campground also offers legal endpoint camping with campsites, toilets, and picnic facilities.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch below Green River Ferry and continue downstream to Houchins Ferry for a quieter, longer Mammoth Cave Green River run. The direct Mammoth Cave gauge anchors a conservative 9 to 15 ft broad-audience stage model, while NPS adds explicit camping and hazard context for the route.',
+      accessCaveats: [
+        'Launch and load on the downstream side of Green River Ferry so you do not interfere with ferry operations.',
+        'Houchins Ferry has the easiest overnight support in this route family, but the ramp and campground still sit inside a managed park setting with posted quiet-hour and facility rules.',
+        'On-route camping requires a valid riverside permit and is flow-dependent. Use only legal gravel-bar or low-bank sites allowed by park rules.',
+        'This longer stretch is less traveled than Dennison-to-Green River Ferry, so groups should be more self-sufficient about shuttle, weather, and emergency planning.',
+      ],
+      watchFor: [
+        'Ferry traffic at the launch, plus submerged trees, logjams, gravel-bar shifts, back channels, and drifting debris throughout the run.',
+        'Higher water above about 15 ft, when the route becomes more consequential, and launch closures at or above 20 ft.',
+        'Cold springs, exposed sun, limited cell service, and fewer nearby bailout options than the shorter park segment.',
+        'Camping mistakes: rising overnight water, unsecured boats, and unauthorized stops without a valid permit.',
+      ],
+    },
+  },
   'barren-river-tailwater-vpa-3': {
     putIn: {
       id: 'barren-river-lake-tailwater',
