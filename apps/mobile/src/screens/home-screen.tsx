@@ -273,6 +273,11 @@ export default function HomeScreen() {
           setRouteQuery('');
           router.push('/explore');
         }}
+        onExploreState={(state) => {
+          setSearchOpen(false);
+          setRouteQuery('');
+          router.push({ pathname: '/explore', params: { state, intentKey: Date.now().toString() } });
+        }}
       />
     </ScrollView>
   );
@@ -709,6 +714,7 @@ function RouteSearchModal({
   onClose,
   onOpenRiver,
   onExplore,
+  onExploreState,
 }: {
   visible: boolean;
   query: string;
@@ -721,6 +727,7 @@ function RouteSearchModal({
   onClose: () => void;
   onOpenRiver: (river: RiverSummaryApiItem) => void;
   onExplore: () => void;
+  onExploreState: (state: string) => void;
 }) {
   const active = query.trim().length > 0;
 
@@ -788,7 +795,7 @@ function RouteSearchModal({
                       <Pressable
                         key={state}
                         style={styles.searchStateChip}
-                        onPress={() => onChange(state)}
+                        onPress={() => onExploreState(state)}
                         android_ripple={{ color: colors.canvasMuted }}
                       >
                         <Text style={styles.searchStateText}>{stateLabel(state)}</Text>

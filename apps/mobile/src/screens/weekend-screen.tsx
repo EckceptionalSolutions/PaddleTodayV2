@@ -66,7 +66,9 @@ export default function WeekendScreen() {
     .filter((river) => !topPickSlugs.has(river.river.slug))
     .filter(isLowerCommitmentRoute)
     .slice(0, 4);
+  const primaryPlanSlugs = slugSet([...topPicks, ...lowerCommitment]);
   const campingFriendlyRoutes = inRangeRivers
+    .filter((river) => !primaryPlanSlugs.has(river.river.slug))
     .filter(hasWeekendCampingSupport)
     .slice(0, 4);
   const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes, ...nearbyWatch]);

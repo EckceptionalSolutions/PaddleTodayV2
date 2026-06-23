@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState, type PropsWithChildren } from 'react';
+import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
@@ -371,7 +371,7 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
-      <FilterGroup title="State">
+      <FilterGroup title="State" wrap={false}>
         <Pressable
           style={({ pressed }) => [styles.selectorRow, pressed ? styles.selectorRowPressed : null]}
           onPress={() => setStatePickerOpen(true)}
@@ -384,17 +384,18 @@ function FilterPanel({
           </View>
           <MaterialCommunityIcons name="chevron-down" color={colors.accent} size={20} />
         </Pressable>
-        <StatePickerModal
-          visible={statePickerOpen}
-          selectedState={filters.state}
-          states={states}
-          onSelect={(state) => {
-            onChange({ ...filters, state });
-            setStatePickerOpen(false);
-          }}
-          onDismiss={() => setStatePickerOpen(false)}
-        />
       </FilterGroup>
+
+      <StatePickerModal
+        visible={statePickerOpen}
+        selectedState={filters.state}
+        states={states}
+        onSelect={(state) => {
+          onChange({ ...filters, state });
+          setStatePickerOpen(false);
+        }}
+        onDismiss={() => setStatePickerOpen(false)}
+      />
 
       <Pressable
         style={({ pressed }) => [styles.moreFiltersButton, pressed ? styles.selectorRowPressed : null]}
@@ -420,14 +421,22 @@ function FilterPanel({
         </FilterGroup>
       ) : null}
 
-      {locationReady ? (
-        <FilterGroup title="Distance">
+      <FilterGroup title="Distance" wrap={false}>
+        {locationReady ? (
           <DistanceSelector
             value={filters.distance}
             onChange={(distance) => onChange({ ...filters, distance })}
           />
-        </FilterGroup>
-      ) : null}
+        ) : (
+          <View style={styles.disabledSelectorRow}>
+            <View style={styles.selectorCopy}>
+              <Text style={styles.selectorLabel}>Drive range</Text>
+              <Text style={styles.selectorValue}>Use location on the map</Text>
+            </View>
+            <MaterialCommunityIcons name="map-marker-radius-outline" color={colors.textMuted} size={20} />
+          </View>
+        )}
+      </FilterGroup>
     </View>
   );
 }
@@ -470,6 +479,12 @@ function StatePickerModal({
   onDismiss: () => void;
 }) {
   const [query, setQuery] = useState('');
+  useEffect(() => {
+    if (visible) {
+      setQuery('');
+    }
+  }, [visible]);
+
   const filteredStates = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return states;
@@ -524,11 +539,15 @@ function StatePickerOption({ label, selected, onPress }: { label: string; select
   );
 }
 
-function FilterGroup({ title, children }: PropsWithChildren<{ title: string }>) {
+function FilterGroup({
+  title,
+  children,
+  wrap = true,
+}: PropsWithChildren<{ title: string; wrap?: boolean }>) {
   return (
     <View style={styles.filterGroup}>
       <Text style={styles.filterGroupTitle}>{title}</Text>
-      <View style={styles.chipWrap}>{children}</View>
+      <View style={wrap ? styles.chipWrap : styles.controlStack}>{children}</View>
     </View>
   );
 }
@@ -896,7 +915,11 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     gap: spacing.sm,
   },
+  controlStack: {
+    gap: spacing.sm,
+  },
   selectorRow: {
+    alignSelf: 'stretch',
     minHeight: 54,
     borderRadius: radius.md,
     borderWidth: 1,
@@ -910,6 +933,21 @@ const styles = StyleSheet.create({
     gap: spacing.md,
   },
   selectorRowPressed: {
+    opacity: 0.82,
+  },
+  disabledSelectorRow: {
+    alignSelf: 'stretch',
+    minHeight: 54,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.canvasMuted,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
     opacity: 0.82,
   },
   selectorCopy: {
@@ -929,6 +967,7 @@ const styles = StyleSheet.create({
     fontWeight: '900',
   },
   distanceRail: {
+    alignSelf: 'stretch',
     minHeight: 44,
     borderRadius: radius.pill,
     borderWidth: 1,

@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SectionCard } from '../components/section-card';
 import { colors, spacing } from '../theme/tokens';
 
@@ -100,11 +101,21 @@ export function TermsScreen() {
 
 function LegalScreen({ kind }: { kind: LegalScreenKind }) {
   const copy = legalCopy[kind];
+  const insets = useSafeAreaInsets();
 
   return (
     <>
       <Stack.Screen options={{ title: copy.title }} />
-      <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.screen}
+        contentContainerStyle={[
+          styles.content,
+          {
+            paddingTop: spacing.lg + insets.top,
+            paddingBottom: spacing.xl + insets.bottom,
+          },
+        ]}
+      >
         <View style={styles.hero}>
           <Text style={styles.kicker}>{copy.kicker}</Text>
           <Text style={styles.title}>{copy.heading}</Text>
@@ -128,9 +139,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
-    padding: spacing.lg,
+    paddingHorizontal: spacing.lg,
     gap: spacing.lg,
-    paddingBottom: spacing.xl,
   },
   hero: {
     gap: spacing.sm,

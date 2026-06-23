@@ -68,7 +68,7 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string }>();
+  const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string; state?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -82,11 +82,14 @@ export default function ExploreScreen() {
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
   const appliedResetRef = useRef<string | null>(null);
+  const appliedStateRef = useRef<string | null>(null);
   const requestedIntent = isExploreIntentId(params.intent) ? params.intent : null;
   const requestedReset = params.reset === '1';
+  const requestedState = typeof params.state === 'string' && params.state.trim() ? params.state.trim() : null;
   const locationReady = Boolean(location);
   const requestedIntentKey = requestedIntent ? `${requestedIntent}:${params.intentKey ?? 'initial'}:${locationReady ? 'location' : 'no-location'}` : null;
   const requestedResetKey = requestedReset ? `reset:${params.intentKey ?? 'initial'}` : null;
+  const requestedStateKey = requestedState ? `state:${requestedState}:${params.intentKey ?? 'initial'}` : null;
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -162,6 +165,21 @@ export default function ExploreScreen() {
     setFilters(intentFilters);
     setDraftFilters(intentFilters);
   }, [locationReady, preferencesHydrated, requestedIntent, requestedIntentKey]);
+
+  useEffect(() => {
+    if (!preferencesHydrated || requestedIntent || requestedReset || !requestedState || !requestedStateKey || appliedStateRef.current === requestedStateKey) {
+      return;
+    }
+
+    appliedStateRef.current = requestedStateKey;
+    const stateFilters = {
+      ...defaultFilters,
+      state: requestedState,
+    };
+    setSelectedSlug(null);
+    setFilters(stateFilters);
+    setDraftFilters(stateFilters);
+  }, [preferencesHydrated, requestedIntent, requestedReset, requestedState, requestedStateKey]);
 
   useEffect(() => {
     if (!preferencesHydrated) {
@@ -275,7 +293,7 @@ export default function ExploreScreen() {
   async function hydrateExplorePreferences() {
     try {
       const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
-      if (isExplorePreferences(parsed) && !requestedIntent && !requestedReset) {
+      if (isExplorePreferences(parsed) && !requestedIntent && !requestedReset && !requestedState) {
         setFilters(normalizeExploreFilters(parsed.filters));
       }
     } catch {

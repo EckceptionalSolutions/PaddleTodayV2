@@ -146,6 +146,7 @@ export default function RiverDetailScreen() {
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
   const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
+  const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
     setDraftEmail(storedEmail);
@@ -167,7 +168,7 @@ export default function RiverDetailScreen() {
       rating: detail.rating,
       score: detail.score,
     });
-  }, [detail]);
+  }, [detailSlug]);
 
   if (!slug) {
     return (
