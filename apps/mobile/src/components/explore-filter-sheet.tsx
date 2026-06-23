@@ -1,9 +1,9 @@
-import { useRef, type PropsWithChildren } from 'react';
+import { useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import type { RouteType, ScoreRating } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Animated, Modal, PanResponder, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ChoiceChip, isExploreSort, sortOptions, type ExploreSort } from './explore-controls';
+import { ChoiceChip, isExploreSort, type ExploreSort } from './explore-controls';
 import { isRecord } from '../lib/storage';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -91,6 +91,50 @@ const campingOptions: Array<{ value: CampingFilter; label: string }> = [
   { value: 'any', label: 'Any camping' },
   { value: 'supported', label: 'Camping' },
   { value: 'overnight', label: 'Overnight' },
+];
+
+const callQualityOptions: Array<{
+  value: string;
+  label: string;
+  apply: (filters: ExploreFilters) => ExploreFilters;
+  selected: (filters: ExploreFilters) => boolean;
+}> = [
+  {
+    value: 'any',
+    label: 'Any call',
+    apply: (filters) => ({ ...filters, status: 'any', rating: 'any' }),
+    selected: (filters) => filters.status === 'any' && filters.rating === 'any',
+  },
+  {
+    value: 'good-plus',
+    label: 'Good+',
+    apply: (filters) => ({ ...filters, status: 'clean', rating: 'any' }),
+    selected: (filters) => filters.status === 'clean' && filters.rating === 'any',
+  },
+  {
+    value: 'strong',
+    label: 'Strong',
+    apply: (filters) => ({ ...filters, status: 'any', rating: 'Strong' }),
+    selected: (filters) => filters.rating === 'Strong',
+  },
+  {
+    value: 'good',
+    label: 'Good',
+    apply: (filters) => ({ ...filters, status: 'any', rating: 'Good' }),
+    selected: (filters) => filters.rating === 'Good',
+  },
+  {
+    value: 'fair',
+    label: 'Fair',
+    apply: (filters) => ({ ...filters, status: 'watch', rating: 'any' }),
+    selected: (filters) => filters.status === 'watch' && filters.rating === 'any',
+  },
+  {
+    value: 'no-go',
+    label: 'No-go',
+    apply: (filters) => ({ ...filters, status: 'skip', rating: 'any' }),
+    selected: (filters) => filters.status === 'skip' && filters.rating === 'any',
+  },
 ];
 
 const ANDROID_NAV_CONTROL_MIN_INSET = 40;
@@ -263,6 +307,9 @@ function FilterPanel({
   onChange: (filters: ExploreFilters) => void;
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
+  const [statePickerOpen, setStatePickerOpen] = useState(false);
+  const [showMoreFilters, setShowMoreFilters] = useState(filters.camping !== 'any');
+
   return (
     <View style={styles.filterPanel}>
       <View style={styles.filterPanelHeader}>
@@ -280,35 +327,13 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
-      <FilterGroup title="Sort">
-        {sortOptions.map((option) => (
-          <ChoiceChip
-            key={option.value}
-            label={option.label}
-            selected={filters.sort === option.value}
-            onPress={() => onChange({ ...filters, sort: option.value })}
-          />
-        ))}
-      </FilterGroup>
-
       <FilterGroup title="Route call">
-        {statusOptions.map((option) => (
+        {callQualityOptions.map((option) => (
           <ChoiceChip
             key={option.value}
             label={option.label}
-            selected={filters.status === option.value}
-            onPress={() => onChange({ ...filters, status: option.value })}
-          />
-        ))}
-      </FilterGroup>
-
-      <FilterGroup title="Exact score">
-        {ratingOptions.map((option) => (
-          <ChoiceChip
-            key={option.value}
-            label={option.label}
-            selected={filters.rating === option.value}
-            onPress={() => onChange({ ...filters, rating: option.value })}
+            selected={option.selected(filters)}
+            onPress={() => onChange(option.apply(filters))}
           />
         ))}
       </FilterGroup>
@@ -346,42 +371,156 @@ function FilterPanel({
         ))}
       </FilterGroup>
 
-      <FilterGroup title="Camping">
-        {campingOptions.map((option) => (
-          <ChoiceChip
-            key={option.value}
-            label={option.label}
-            selected={filters.camping === option.value}
-            onPress={() => onChange({ ...filters, camping: option.value })}
-          />
-        ))}
-      </FilterGroup>
-
       <FilterGroup title="State">
-        <ChoiceChip label="All states" selected={!filters.state} onPress={() => onChange({ ...filters, state: '' })} />
-        {states.map((state) => (
-          <ChoiceChip
-            key={state}
-            label={state}
-            selected={filters.state === state}
-            onPress={() => onChange({ ...filters, state })}
-          />
-        ))}
+        <Pressable
+          style={({ pressed }) => [styles.selectorRow, pressed ? styles.selectorRowPressed : null]}
+          onPress={() => setStatePickerOpen(true)}
+          accessibilityRole="button"
+          accessibilityLabel="Choose state"
+        >
+          <View style={styles.selectorCopy}>
+            <Text style={styles.selectorLabel}>State</Text>
+            <Text style={styles.selectorValue}>{filters.state || 'All states'}</Text>
+          </View>
+          <MaterialCommunityIcons name="chevron-down" color={colors.accent} size={20} />
+        </Pressable>
+        <StatePickerModal
+          visible={statePickerOpen}
+          selectedState={filters.state}
+          states={states}
+          onSelect={(state) => {
+            onChange({ ...filters, state });
+            setStatePickerOpen(false);
+          }}
+          onDismiss={() => setStatePickerOpen(false)}
+        />
       </FilterGroup>
 
-      {locationReady ? (
-        <FilterGroup title="Distance">
-          {distanceOptions.map((option) => (
+      <Pressable
+        style={({ pressed }) => [styles.moreFiltersButton, pressed ? styles.selectorRowPressed : null]}
+        onPress={() => setShowMoreFilters((current) => !current)}
+        accessibilityRole="button"
+        accessibilityState={{ expanded: showMoreFilters }}
+      >
+        <Text style={styles.moreFiltersText}>More filters</Text>
+        {filters.camping !== 'any' ? <Text style={styles.moreFiltersBadge}>Camping active</Text> : null}
+        <MaterialCommunityIcons name={showMoreFilters ? 'chevron-up' : 'chevron-down'} color={colors.accent} size={20} />
+      </Pressable>
+
+      {showMoreFilters ? (
+        <FilterGroup title="Camping">
+          {campingOptions.map((option) => (
             <ChoiceChip
               key={option.value}
               label={option.label}
-              selected={filters.distance === option.value}
-              onPress={() => onChange({ ...filters, distance: option.value })}
+              selected={filters.camping === option.value}
+              onPress={() => onChange({ ...filters, camping: option.value })}
             />
           ))}
         </FilterGroup>
       ) : null}
+
+      {locationReady ? (
+        <FilterGroup title="Distance">
+          <DistanceSelector
+            value={filters.distance}
+            onChange={(distance) => onChange({ ...filters, distance })}
+          />
+        </FilterGroup>
+      ) : null}
     </View>
+  );
+}
+
+function DistanceSelector({ value, onChange }: { value: DistanceFilter; onChange: (value: DistanceFilter) => void }) {
+  return (
+    <View style={styles.distanceRail}>
+      {distanceOptions.map((option) => {
+        const selected = option.value === value;
+        return (
+          <Pressable
+            key={option.value}
+            style={[styles.distanceStop, selected ? styles.distanceStopSelected : null]}
+            onPress={() => onChange(option.value)}
+            accessibilityRole="button"
+            accessibilityLabel={`Drive distance ${option.label}`}
+            accessibilityState={{ selected }}
+          >
+            <Text style={[styles.distanceStopText, selected ? styles.distanceStopTextSelected : null]}>
+              {option.value === 'any' ? 'Any' : option.value}
+            </Text>
+          </Pressable>
+        );
+      })}
+    </View>
+  );
+}
+
+function StatePickerModal({
+  visible,
+  selectedState,
+  states,
+  onSelect,
+  onDismiss,
+}: {
+  visible: boolean;
+  selectedState: string;
+  states: string[];
+  onSelect: (state: string) => void;
+  onDismiss: () => void;
+}) {
+  const [query, setQuery] = useState('');
+  const filteredStates = useMemo(() => {
+    const normalized = query.trim().toLowerCase();
+    if (!normalized) return states;
+    return states.filter((state) => state.toLowerCase().includes(normalized));
+  }, [query, states]);
+
+  return (
+    <Modal animationType="fade" transparent visible={visible} onRequestClose={onDismiss}>
+      <View style={styles.pickerScrim}>
+        <View style={styles.statePicker}>
+          <View style={styles.statePickerHeader}>
+            <Text style={styles.statePickerTitle}>Choose state</Text>
+            <Pressable hitSlop={10} onPress={onDismiss} accessibilityRole="button" accessibilityLabel="Close state picker">
+              <MaterialCommunityIcons name="close" color={colors.textMuted} size={22} />
+            </Pressable>
+          </View>
+          <View style={styles.stateSearch}>
+            <MaterialCommunityIcons name="magnify" color={colors.textMuted} size={18} />
+            <TextInput
+              value={query}
+              onChangeText={setQuery}
+              placeholder="Search states"
+              placeholderTextColor={colors.textMuted}
+              autoCapitalize="characters"
+              autoCorrect={false}
+              style={styles.stateSearchInput}
+            />
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps="handled">
+            <StatePickerOption label="All states" selected={!selectedState} onPress={() => onSelect('')} />
+            {filteredStates.map((state) => (
+              <StatePickerOption
+                key={state}
+                label={state}
+                selected={selectedState === state}
+                onPress={() => onSelect(state)}
+              />
+            ))}
+          </ScrollView>
+        </View>
+      </View>
+    </Modal>
+  );
+}
+
+function StatePickerOption({ label, selected, onPress }: { label: string; selected: boolean; onPress: () => void }) {
+  return (
+    <Pressable style={styles.stateOption} onPress={onPress} accessibilityRole="button" accessibilityState={{ selected }}>
+      <Text style={[styles.stateOptionText, selected ? styles.stateOptionTextSelected : null]}>{label}</Text>
+      {selected ? <MaterialCommunityIcons name="check" color={colors.accent} size={19} /> : null}
+    </Pressable>
   );
 }
 
@@ -452,9 +591,9 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   const labels: string[] = [];
   if (filters.query.trim()) labels.push(`Search: ${filters.query.trim()}`);
   if (filters.state) labels.push(filters.state);
-  if (filters.status === 'clean') labels.push('Clean');
-  if (filters.status === 'watch') labels.push('Watch');
-  if (filters.status === 'skip') labels.push('Skip');
+  if (filters.status === 'clean') labels.push('Good+');
+  if (filters.status === 'watch') labels.push('Fair');
+  if (filters.status === 'skip') labels.push('No-go');
   if (filters.rating !== 'any') labels.push(filters.rating);
   if (filters.difficulty === 'easy-moderate') {
     labels.push('Easy/Moderate');
@@ -462,7 +601,6 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
     labels.push(capitalize(filters.difficulty));
   }
   if (filters.routeType === 'whitewater') labels.push('Whitewater');
-  if (filters.routeType === 'all') labels.push('All route types');
   if (filters.paddleTime !== 'any') {
     labels.push(paddleTimeOptions.find((option) => option.value === filters.paddleTime)?.label ?? 'Paddle time');
   }
@@ -517,7 +655,7 @@ export function paddleTimeMatches(label: string, filter: PaddleTimeFilter, campi
   if (filter === '3-to-5') return hours > 3 && hours <= 5;
   if (filter === '5-to-7') return hours > 5 && hours <= 7;
   if (filter === 'full-day') return hours >= 5 && !isMultiDayRoute(label, campingClassification);
-  return hours > 7;
+  return hours > 7 && !isMultiDayRoute(label, campingClassification);
 }
 
 export function campingMatches(
@@ -757,6 +895,149 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap',
     gap: spacing.sm,
+  },
+  selectorRow: {
+    minHeight: 54,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  selectorRowPressed: {
+    opacity: 0.82,
+  },
+  selectorCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  selectorLabel: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '800',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  selectorValue: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  distanceRail: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    flexDirection: 'row',
+    padding: 3,
+    gap: 3,
+  },
+  distanceStop: {
+    flex: 1,
+    borderRadius: radius.pill,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 9,
+    minWidth: 0,
+  },
+  distanceStopSelected: {
+    backgroundColor: colors.accent,
+  },
+  distanceStopText: {
+    color: colors.textMuted,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  distanceStopTextSelected: {
+    color: colors.surfaceStrong,
+  },
+  moreFiltersButton: {
+    minHeight: 48,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  moreFiltersText: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '900',
+  },
+  moreFiltersBadge: {
+    color: colors.accentDeep,
+    fontSize: 11,
+    fontWeight: '900',
+  },
+  pickerScrim: {
+    flex: 1,
+    backgroundColor: 'rgba(10, 24, 29, 0.38)',
+    justifyContent: 'center',
+    padding: spacing.lg,
+  },
+  statePicker: {
+    maxHeight: '72%',
+    borderRadius: radius.lg,
+    backgroundColor: colors.canvas,
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  statePickerHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  statePickerTitle: {
+    color: colors.text,
+    fontSize: 18,
+    fontWeight: '900',
+  },
+  stateSearch: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  stateSearchInput: {
+    flex: 1,
+    color: colors.text,
+    fontSize: 14,
+    fontWeight: '800',
+    paddingVertical: 0,
+  },
+  stateOption: {
+    minHeight: 48,
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  stateOptionText: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '800',
+  },
+  stateOptionTextSelected: {
+    color: colors.accentDeep,
+    fontWeight: '900',
   },
   presetChip: {
     minHeight: 44,

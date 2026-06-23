@@ -1,6 +1,6 @@
 import { defaultFilters, type ExploreFilters } from '../components/explore-filter-sheet';
 
-export const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v3';
+export const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v4';
 
 export type ExploreIntentId =
   | 'best-nearby'
