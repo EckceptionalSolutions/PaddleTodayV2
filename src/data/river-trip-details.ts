@@ -11931,6 +11931,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-juniata-point-riverside-park': {
+    putIn: {
+      id: 'juniata-point-ramp',
+      name: 'Juniata Point ramp',
+      latitude: 40.458333,
+      longitude: -77.980833,
+    },
+    takeOut: {
+      id: 'riverside-park-mapleton-ramp',
+      name: 'Riverside Park access',
+      latitude: 40.386111,
+      longitude: -77.938333,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4.5 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-90 and Mapleton caution zones',
+      shuttle:
+        'Stage the take-out at Riverside Park in Mapleton first, then drive back upstream to Juniata Point. Check both public landings before launching because mud, current angle, and bridge eddies can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park take-out. Confirm same-day local rules before treating it as an overnight finish.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Juniata Point and take out at Riverside Park for a medium-length upper-Juniata public-access run. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Juniata Point and Riverside Park coordinates directly in the official upper Juniata access table.',
+        'The route ends in the same Mapleton corridor where PFBC marks bridge-current features, so stay alert through the last miles instead of relaxing after the midpoint.',
+        'Mapleton community-park camping support does not change the need to inspect landing conditions before leaving a vehicle overnight.',
+        'Use only the named public accesses rather than private banks or bridge shoulders.',
+      ],
+      watchFor: [
+        'Hazardous current with waves near mile 90 plus the Mapleton caution features at miles 86.5 and 85.5, as flagged by PFBC.',
+        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines become slower and more scrape-prone.',
+        'Fresh wood after storms, broad-river headwind, and slick footing at either public landing.',
+        'Private shorelines away from the named public accesses and the temptation to shortcut the take-out once you see town.',
+      ],
+    },
+  },
   'juniata-river-riverside-park-mt-union': {
     putIn: {
       id: 'riverside-park-mapleton-ramp',
@@ -11971,6 +12011,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-riverside-park-shawmut': {
+    putIn: {
+      id: 'riverside-park-mapleton-ramp',
+      name: 'Riverside Park access',
+      latitude: 40.386111,
+      longitude: -77.938333,
+    },
+    takeOut: {
+      id: 'shawmut-access',
+      name: 'Shawmut access',
+      latitude: 40.364722,
+      longitude: -77.812222,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with low-water bars, wind, or extra time scouting the mile-75 wave and rock zone near the finish',
+      shuttle:
+        'Stage the take-out at Shawmut first, then drive back upstream to Riverside Park in Mapleton. Check both public access edges before launching because mud, current angle, and bridge eddies can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Aqueduct Campground sits downstream of Shawmut near mile 74 and can work as a legal support base for linked itineraries, but it is not part of this exact Shawmut take-out.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Riverside Park in Mapleton and take out at Shawmut for a longer upper-Juniata route toward Jacks Narrows. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Riverside Park and Shawmut coordinates directly in the official upper Juniata access table.',
+        'The first mile includes the PFBC-marked bridge-current zone near mile 85.5, while the final approach carries the mile-75 wave and hidden-rock caution.',
+        'Aqueduct Campground is useful support nearby, but the intended finish for this slug remains the Shawmut access at river mile 76.',
+        'Use only the named public accesses rather than private banks, islands, or bridge shoulders.',
+      ],
+      watchFor: [
+        'Small ledges and ripples near mile 86.5, strong bridge-abutment current near mile 85.5, and waves with hidden rocks near mile 75, as flagged by PFBC.',
+        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines slow the route down quickly.',
+        'Fresh wood after storms, broad-river headwind, and slick footing at either public landing.',
+        'Private shorelines away from the named public accesses and the chance of drifting past the intended Shawmut finish while focusing on the narrows scenery.',
+      ],
+    },
+  },
   'juniata-river-mt-union-newton-hamilton': {
     putIn: {
       id: 'mt-union-access',
@@ -12006,6 +12086,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       watchFor: [
         'Waves and hidden rocks near mile 75 plus the more complex hazardous-current zone at mile 73 with hidden rocks, waves, holes, and shallow rock on river left, as flagged by PFBC.',
         'Low water under the conservative Mapleton 2.5 ft proxy floor, when broad bars and rockier lines become slower and less forgiving.',
+        'Current pushing toward bridge abutments late in the route, fresh wood after storms, and broad-river headwind.',
+        'Private shorelines away from the named public accesses and the risk of taking out too early at the campground if you are aiming for the full run to Newton-Hamilton.',
+      ],
+    },
+  },
+  'juniata-river-shawmut-newton-hamilton': {
+    putIn: {
+      id: 'shawmut-access',
+      name: 'Shawmut access',
+      latitude: 40.364722,
+      longitude: -77.812222,
+    },
+    takeOut: {
+      id: 'newton-hamilton-ramp',
+      name: 'Newton-Hamilton ramp',
+      latitude: 40.391944,
+      longitude: -77.834444,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with low-water rocks or extra time easing through the mile-75 and mile-73 current features',
+      shuttle:
+        'Stage the take-out at Newton-Hamilton first, then drive back upstream to Shawmut. Check both access edges before launching because current angle, mud, and bridge eddies can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Aqueduct Campground sits about one mile above Newton-Hamilton and offers public camping with restrooms, showers, and river access for campers.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Shawmut and take out at Newton-Hamilton for a short upper-Juniata Jacks Narrows run. The app uses the Mapleton Depot gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Shawmut and Newton-Hamilton coordinates directly in the official upper Juniata access table.',
+        'Aqueduct Campground is useful legal support near mile 74, but the intended finish for this slug is still the Newton-Hamilton concrete ramp at mile 73.',
+        'The gauge story stays conservative because Mapleton Depot is upstream of this route, not on top of the put-in or take-out.',
+        'Use only the named public accesses rather than bridge shoulders, islands, or private banks.',
+      ],
+      watchFor: [
+        'Waves and hidden rocks near mile 75 plus the more complex hazardous-current zone at mile 73 with hidden rocks, waves, holes, and shallow rock on river left, as flagged by PFBC.',
+        'Low water under the conservative Mapleton 2.5 ft proxy floor, when rockier lines become tighter and less forgiving.',
         'Current pushing toward bridge abutments late in the route, fresh wood after storms, and broad-river headwind.',
         'Private shorelines away from the named public accesses and the risk of taking out too early at the campground if you are aiming for the full run to Newton-Hamilton.',
       ],

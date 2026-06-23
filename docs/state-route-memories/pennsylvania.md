@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 20 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 20 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 20 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 23 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 23 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 23 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 17:07 America/Chicago / 2026-06-23 22:07 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 20 live Pennsylvania routes, 20 Pennsylvania trip-detail keys, and 20 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-juniata-point-riverside-park`, `juniata-river-riverside-park-shawmut`, and `juniata-river-shawmut-newton-hamilton` from the PFBC upper Juniata guide.
+  - Qualification package: the PFBC upper Juniata guide publishes exact public access coordinates for Juniata Point, Riverside Park, Shawmut, and Newton-Hamilton; official river-mile spacing for the chosen 6/9/3-mile day runs; route-specific caution points at miles 90, 86.5, 85.5, 75, and 73; and a direct minimum gauge floor of `2.5 ft` at Mapleton Depot for the upper corridor. Same-day direct USGS Water Services returned `1,510 cfs / 3.77 ft` at Mapleton Depot (`01563500`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Juniata-Point-to-Riverside-Park is `endpoint_campground` because the guide says small groups may camp at the Mapleton community park take-out; Riverside-Park-to-Shawmut uses `nearby_basecamp` because Aqueduct Campground is nearby but not on the exact Shawmut finish; and Shawmut-to-Newton-Hamilton is `on_route_campsite` because Aqueduct Campground sits about one mile above the take-out with public camping and river access.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful Mapleton and Jacks Narrows corridor context, but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-23 17:10 America/Chicago / 2026-06-23 22:10 UTC: Pennsylvania three-route implementation pass; added three upper Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 17 live Pennsylvania routes, 17 Pennsylvania trip-detail keys, and 17 implemented Pennsylvania ledger rows before this pass.
