@@ -35,7 +35,7 @@ export function filtersForExploreIntent(
       ...base,
       sort: 'nearest',
       distance: context.locationReady ? '100' : 'any',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
     };
   }
@@ -89,7 +89,7 @@ export function filtersForExploreIntent(
       sort: context.locationReady ? 'nearest' : 'best',
       distance: context.locationReady ? '150' : 'any',
       camping: 'supported',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
     };
   }
@@ -100,7 +100,7 @@ export function filtersForExploreIntent(
     difficulty: 'any',
     routeType: 'all',
     paddleTime: '5-to-7',
-    status: 'clean',
+    status: 'any',
     rating: 'any',
   };
 }
@@ -117,11 +117,11 @@ export function labelForExploreIntent(intent: ExploreIntentId) {
 
 export function descriptionForExploreIntent(intent: ExploreIntentId, locationReady: boolean) {
   const suffix = locationReady ? ' near you' : '';
-  if (intent === 'best-nearby') return `Clean routes sorted by drive time${suffix}.`;
+  if (intent === 'best-nearby') return `Nearby routes sorted by drive time${suffix}.`;
   if (intent === 'clean-now') return `Strong and Good route calls${suffix}.`;
   if (intent === 'watch') return `Fair calls worth monitoring${suffix}.`;
   if (intent === 'skip') return `No-go calls grouped for rechecks${suffix}.`;
   if (intent === 'quick-float') return `Easy rec routes under three hours${suffix}.`;
-  if (intent === 'camping') return `Clean routes with camping support${suffix}.`;
-  return 'Longer clean routes sorted by score.';
+  if (intent === 'camping') return `Routes with camping support${suffix}.`;
+  return 'Longer routes sorted by score.';
 }

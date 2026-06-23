@@ -117,7 +117,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
       difficulty: 'any',
       routeType: 'all',
       paddleTime: '5-to-7',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
       sort: 'score',
     }),
@@ -128,7 +128,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
     apply: (filters, context) => ({
       ...filters,
       distance: context.locationReady ? '100' : 'any',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
       sort: 'nearest',
     }),
@@ -139,7 +139,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
     apply: (filters, context) => ({
       ...filters,
       camping: 'supported',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
       distance: context.locationReady ? '150' : 'any',
       sort: context.locationReady ? 'nearest' : 'best',
@@ -578,7 +578,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
       filters.difficulty === 'any' &&
       filters.routeType === 'all' &&
       filters.paddleTime === '5-to-7' &&
-      filters.status === 'clean' &&
+      filters.status === 'any' &&
       filters.rating === 'any' &&
       filters.sort === 'score'
     );
@@ -587,7 +587,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
   if (id === 'best-nearby') {
     return (
       filters.distance === (locationReady ? '100' : 'any') &&
-      filters.status === 'clean' &&
+      filters.status === 'any' &&
       filters.rating === 'any' &&
       filters.sort === 'nearest'
     );
@@ -596,7 +596,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
   if (id === 'camping') {
     return (
       filters.camping === 'supported' &&
-      filters.status === 'clean' &&
+      filters.status === 'any' &&
       filters.rating === 'any' &&
       filters.distance === (locationReady ? '150' : 'any') &&
       filters.sort === (locationReady ? 'nearest' : 'best')
