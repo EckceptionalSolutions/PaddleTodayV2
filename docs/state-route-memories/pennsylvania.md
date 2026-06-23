@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 17 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 17 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 17 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 20 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 20 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 20 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,19 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 17:10 America/Chicago / 2026-06-23 22:10 UTC: Pennsylvania three-route implementation pass; added three upper Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 17 live Pennsylvania routes, 17 Pennsylvania trip-detail keys, and 17 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-portstown-park-juniata-point`, `juniata-river-riverside-park-mt-union`, and `juniata-river-mt-union-newton-hamilton` from the PFBC upper Juniata guide.
+  - Qualification package: the PFBC upper Juniata guide publishes exact public access coordinates for Portstown Park, Juniata Point, Riverside Park, Mt. Union, and Newton-Hamilton; official river-mile spacing for the chosen 3/4/8-mile day runs; route-specific caution points at miles 86.5, 85.5, 75, and 73; and direct minimum gauge floors of `1.5 ft` at Huntingdon and `2.5 ft` at Mapleton Depot. Same-day direct USGS Water Services returned `904 cfs / 2.30 ft` at Huntingdon (`01559000`) and `1,510 cfs / 3.77 ft` at Mapleton Depot (`01563500`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Portstown-to-Juniata-Point stays `none`; Riverside-Park-to-Mt.-Union is `endpoint_campground` because the guide says small groups may camp at the Mapleton community park put-in; and Mt.-Union-to-Newton-Hamilton is `on_route_campsite` because Aqueduct Campground sits about one river mile above the take-out with public camping and river access.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful Huntingdon, Mapleton, and Jacks Narrows corridor context, but no clearly rights-clean exact-route asset was selected for these three slugs.
+
+- 2026-06-23 16:55 America/Chicago / 2026-06-23 21:55 UTC: Pennsylvania three-route implementation pass; added three lower Juniata routes.
+  - Implemented `juniata-river-walker-muskrat-springs`, `juniata-river-greenwood-newport`, and `juniata-river-green-valley-amity-hall` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide publishes exact Walker, Muskrat Springs, Greenwood, Newport, Green Valley, and Amity Hall coordinates, official 4-mile segment spacing for all three routes, lower-section minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport, Mexico/Greenwood/Newport/Green Valley camping context, and the lower-corridor hazard notes that matter here, especially the mile `5.5` outcrop zone and mile `5` ledges below Green Valley. A transient USGS Water Services 503 forced the live check onto the official legacy current-conditions pages, which still reported same-day values of `966 cfs / 3.26 ft` at Lewistown (`01564895`) and `1,270 cfs / 3.62 ft` at Newport (`01567000`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Walker-to-Muskrat ships as `on_route_campsite` because Buttonwood and River Rock support the Mexico corridor, Greenwood-to-Newport uses `nearby_basecamp`, and Green-Valley-to-Amity-Hall uses `endpoint_campground`.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful lower-Juniata corridor context, but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-23 15:49 America/Chicago / 2026-06-23 20:49 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 14 live Pennsylvania routes, 14 Pennsylvania trip-detail keys, and 14 implemented Pennsylvania ledger rows before this pass.

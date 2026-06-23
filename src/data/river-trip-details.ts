@@ -11692,6 +11692,86 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-walker-muskrat-springs': {
+    putIn: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    takeOut: {
+      id: 'muskrat-springs-pfbc-ramp',
+      name: 'Muskrat Springs PFBC ramp',
+      latitude: 40.535,
+      longitude: -77.299444,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water forces channel picking or if wind stalls progress in the open Mexico bends',
+      shuttle:
+        'Stage the take-out at Muskrat Springs PFBC first, then drive back upstream to Walker PFBC. Check both ramp edges before leaving a vehicle because muddy approaches and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Buttonwood Campground and River Rock Campground sit along the route near Mexico and are the clearest legal overnight support if you want to turn this short link into a conservative base-camp float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Walker PFBC and take out at Muskrat Springs PFBC for a short lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Walker and Muskrat Springs coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this middle-lower segment, not on top of it.',
+        'River Rock and Buttonwood are legal support points near Mexico, but Muskrat Springs is the intended finish for this slug.',
+        'Use only the named public accesses rather than bars, private banks, or informal roadside pull-offs.',
+      ],
+      watchFor: [
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, bridge-related strainers elsewhere in the corridor, and broad-river headwind through the exposed bends.',
+        'Busy campground-adjacent shoreline near Mexico and the temptation to stop early instead of finishing at Muskrat Springs.',
+        'Private shorelines away from the named public accesses even when the banks look easy to use.',
+      ],
+    },
+  },
+  'juniata-river-greenwood-newport': {
+    putIn: {
+      id: 'greenwood-pfbc-ramp',
+      name: 'Greenwood PFBC ramp',
+      latitude: 40.530278,
+      longitude: -77.141944,
+    },
+    takeOut: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent checking the primitive Newport finish',
+      shuttle:
+        'Stage the take-out at the Newport primitive access first, then drive back upstream to Greenwood PFBC. Confirm same-day parking and the intended final line into Newport before launching.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Pittman\'s Riverside Campground near Greenwood and Little Buffalo Family Campground near Newport are the clearest legal overnight support, but neither is committed on-route camping for this short segment.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greenwood PFBC and take out at Newport for a short lower-Juniata town link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Greenwood and Newport coordinates directly in the official lower Juniata access table.',
+        'Newport is a primitive town-side finish, so scout the landing edge and do not assume any nearby private shoreline is an acceptable substitute.',
+        'This is still a broad river even on a short trip; wind and wood can make the easy mileage feel slower than expected.',
+        'Use the named public accesses rather than islands, bars, or roadside guesses.',
+      ],
+      watchFor: [
+        'Newport stages below about 3.5 ft, when shallow bars and slower lines can force dragging before the take-out.',
+        'Fresh wood after storms, bridge-related strainers elsewhere in the corridor, and broad-river headwind on the open lower bends.',
+        'Primitive landing footing and parking at Newport, especially if the bank is muddy.',
+        'Private shorelines away from the named accesses even when the river appears calm.',
+      ],
+    },
+  },
   'juniata-river-newport-green-valley': {
     putIn: {
       id: 'newport-primitive-access',
@@ -11732,6 +11812,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-green-valley-amity-hall': {
+    putIn: {
+      id: 'green-valley-ramp',
+      name: 'Green Valley access',
+      latitude: 40.479167,
+      longitude: -77.054722,
+    },
+    takeOut: {
+      id: 'amity-hall-pfbc-ramp',
+      name: 'Amity Hall PFBC ramp',
+      latitude: 40.430833,
+      longitude: -77.013333,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with low-water scraping or time spent easing through the mile-5 ledge and outcrop zone',
+      shuttle:
+        'Stage the take-out at the Amity Hall PFBC ramp first, then drive back upstream to Green Valley. Confirm the intended downstream finish before launching so you do not improvise on private shoreline below the campground.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits directly at the put-in and is the clearest legal overnight support if you want to turn this short lower-Juniata link into a campground-based trip.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Green Valley and take out at Amity Hall PFBC for a short lower-Juniata campground-to-ramp link. The app uses the Newport gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Green Valley and Amity Hall coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport is upstream of this lower segment, not on top of it.',
+        'Green Valley is the intended campground-side start and Amity Hall is the intended PFBC finish; do not substitute private shoreline if the lower banks look convenient.',
+        'This is a short run on paper, but the ledge and outcrop zone deserves real moving-water attention.',
+      ],
+      watchFor: [
+        'Outcrops scattered across the river near mile 5.5 and a series of ledges plus small outcrops near mile 5, both flagged by PFBC as potentially hazardous current zones.',
+        'Low water under the conservative Newport 3.5 ft proxy floor, when shallow bars and ledge lines become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind, and the need to hold the correct line through the lower outcrop zone.',
+        'Private shorelines away from the named accesses and the temptation to stop early once the route feels close to the river mouth.',
+      ],
+    },
+  },
   'juniata-river-newport-amity-hall': {
     putIn: {
       id: 'newport-primitive-access',
@@ -11769,6 +11889,125 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
         'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
         'Private shorelines away from the named accesses and the chance of taking out too early at Green Valley if you are aiming for the full run to Amity Hall.',
+      ],
+    },
+  },
+  'juniata-river-portstown-park-juniata-point': {
+    putIn: {
+      id: 'portstown-park-access',
+      name: 'Portstown Park access',
+      latitude: 40.485833,
+      longitude: -78.014167,
+    },
+    takeOut: {
+      id: 'juniata-point-ramp',
+      name: 'Juniata Point ramp',
+      latitude: 40.458333,
+      longitude: -77.980833,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with low-water bars, headwind, or extra time lining up the Juniata Point finish',
+      shuttle:
+        'Stage the take-out at Juniata Point first, then drive back upstream to Portstown Park. This is a short shuttle, but check both public ramps before launching because mud and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this short Portstown-to-Juniata-Point corridor. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Portstown Park and take out at Juniata Point for a short upper-Juniata public-access link above the Raystown Branch mouth. Use the direct Huntingdon gauge and expect scraping whenever the river sits under PFBC\'s 1.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Portstown Park and Juniata Point coordinates directly in the official upper Juniata access table.',
+        'Juniata Point is the intended public finish near the Raystown Branch mouth. Do not drift past it looking for informal banks downstream.',
+        'Short mileage does not remove the need to inspect muddy landing edges and current direction before leaving a vehicle.',
+        'Use only the named public accesses rather than private banks or bridge shoulders.',
+      ],
+      watchFor: [
+        'Low water under the Huntingdon 1.5 ft floor, when bars and shallow inside lines slow the route down quickly.',
+        'Broad-river headwind, current changes around bridge infrastructure, and fresh wood after storms.',
+        'Private shorelines away from the named public accesses and the chance of overshooting Juniata Point if you relax late in the run.',
+      ],
+    },
+  },
+  'juniata-river-riverside-park-mt-union': {
+    putIn: {
+      id: 'riverside-park-mapleton-ramp',
+      name: 'Riverside Park access',
+      latitude: 40.386111,
+      longitude: -77.938333,
+    },
+    takeOut: {
+      id: 'mt-union-access',
+      name: 'Mt. Union access',
+      latitude: 40.386111,
+      longitude: -77.873333,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water exposes bars or if you pause to inspect the early bridge-current zone',
+      shuttle:
+        'Stage the take-out at Mt. Union first, then drive back upstream to Riverside Park in Mapleton. Check both access edges before launching because mud, current angle, and bridge eddies can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park put-in. Confirm same-day local rules before treating it as an overnight base.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Riverside Park in Mapleton and take out at Mt. Union for a short public upper-Juniata run. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Riverside Park and Mt. Union coordinates directly in the official upper Juniata access table.',
+        'The first mile includes the PFBC-marked bridge-current zone near mile 85.5, so stay alert immediately after launching.',
+        'Mapleton community-park camping support does not make this a no-brainer float; check same-day park conditions before leaving a vehicle overnight.',
+        'Use only the named public accesses rather than private banks or bridge shoulders.',
+      ],
+      watchFor: [
+        'Small ledges and ripples near mile 86.5 plus strong bridge-abutment current near mile 85.5, the main route-specific cautions PFBC flags.',
+        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind, and slick footing at either public landing.',
+        'Private shorelines away from the named public accesses and the temptation to improvise because the route looks short.',
+      ],
+    },
+  },
+  'juniata-river-mt-union-newton-hamilton': {
+    putIn: {
+      id: 'mt-union-access',
+      name: 'Mt. Union access',
+      latitude: 40.386111,
+      longitude: -77.873333,
+    },
+    takeOut: {
+      id: 'newton-hamilton-ramp',
+      name: 'Newton-Hamilton ramp',
+      latitude: 40.391944,
+      longitude: -77.834444,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-75 and mile-73 current features',
+      shuttle:
+        'Stage the take-out at Newton-Hamilton first, then drive back upstream to Mt. Union. Check both access edges before launching because bridge current, mud, and river angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Aqueduct Campground sits about one mile above Newton-Hamilton and offers public camping with restrooms, showers, and river access for campers.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Mt. Union and take out at Newton-Hamilton for a longer upper-Juniata run through the Jacks Narrows corridor. The app uses the Mapleton Depot gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Mt. Union and Newton-Hamilton coordinates directly in the official upper Juniata access table.',
+        'Aqueduct Campground is useful legal support near mile 74, but the intended finish for this slug is the Newton-Hamilton concrete ramp at mile 73.',
+        'The gauge story stays conservative because Mapleton Depot is upstream of this route, not on top of the take-out.',
+        'Use only the named public accesses rather than bridge shoulders, islands, or private banks.',
+      ],
+      watchFor: [
+        'Waves and hidden rocks near mile 75 plus the more complex hazardous-current zone at mile 73 with hidden rocks, waves, holes, and shallow rock on river left, as flagged by PFBC.',
+        'Low water under the conservative Mapleton 2.5 ft proxy floor, when broad bars and rockier lines become slower and less forgiving.',
+        'Current pushing toward bridge abutments late in the route, fresh wood after storms, and broad-river headwind.',
+        'Private shorelines away from the named public accesses and the risk of taking out too early at the campground if you are aiming for the full run to Newton-Hamilton.',
       ],
     },
   },
