@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T03:31:31.000Z",
+    "updatedAt": "2026-06-23T14:07:13.000Z",
     "notes": [
+        "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna Section 2 guide: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`. Qualification path: current PFBC Section 2 published exact Laceyville, Meshoppen, PFBC Tunkhannock, PFBC White's Ferry, and PFBC West Falls access coordinates, explicit caution miles, and the official stage relationship that Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg read about 2 ft; same-day direct USGS 01533400 at Meshoppen returned 2,740 cfs / 8.28 ft at 2026-06-23 09:45 EDT and same-day USGS 01531500 at Towanda returned 2,520 cfs / 0.78 ft at 2026-06-23 08:45 EDT as corridor corroboration. Added camping and safety/logistics notes for all three routes. Wired two rights-clean Commons aerials by Bjoertvedt (CC BY-SA 3.0): a Laceyville corridor image for the upper route and a Tunkhannock/Wyoming County corridor image reused for the two downstream Section 2 adds.",
         "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC Green River implementation pass. Added three new internet-sourced Kentucky routes: `green-river-roachville-russell-ford`, `green-river-dennison-green-river-ferry`, and `green-river-green-river-ferry-houchins`. Qualification path: current KDFWR Pool 6 guidance still documented the exact Roachville-to-Russell 6.6-mile upper-Green segment plus Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft; same-day direct USGS 03306500 returned 0.84 ft at 2026-06-22 21:15 CDT. Current KDFWR and NPS Mammoth Cave pages still documented the Dennison-to-Green River Ferry 7.5/7.6-mile day trip and the Green River Ferry-to-Houchins 12.3/12.4-mile lower-park trip, while the direct in-park USGS 03309000 returned 641 cfs / 9.82 ft at 2026-06-22 16:00 CDT and NPS still framed about 9-15 ft as the beginner-friendly park window with launch closure above 20 ft. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded KDFWR/NPS/USGS image review found useful corridor context but no rights-clean exact-route asset was selected in this pass.",
         "2026-06-22 20:40 America/Chicago / 2026-06-23 01:40 UTC Ohio implementation pass. Added three new internet-sourced Ohio routes: `vermilion-river-mill-hollow-vermilion-boat-ramp`, `east-fork-little-miami-river-williamsburg-tunnel-mill`, and `cuyahoga-river-lock-29-boston-store`. Qualification path: current American Whitewater and official park/water-trail sources documented the exact public-access pairs, same-river direct gauges, and route character for all three. Same-day direct USGS 04199500 on the Vermilion returned 272 cfs / 2.95 ft at 2026-06-22 21:00 EDT against the lower-reach 2.6-6.0 ft AW band; same-day direct USGS 03246500 at Williamsburg returned 165 cfs / 1.58 ft at 2026-06-22 20:45 EDT against the East Fork 250-4000 cfs AW band; same-day direct USGS 04206425 at Jaite returned 796 cfs / 3.70 ft at 2026-06-22 21:00 EDT against the Cuyahoga Peninsula 300-5000 cfs AW band. Added camping and safety/logistics notes for all three routes. Reused the existing rights-clean Vermilion Commons image for the lower split and recorded bounded no-image outcomes for East Fork and the Cuyahoga add.",
         "2026-06-22 19:55 America/Chicago / 2026-06-23 00:55 UTC Arkansas implementation pass. Added three new internet-sourced Arkansas routes: `saline-river-tony-kelly-lyle-park`, `upper-illinois-river-chamber-springs-siloam-kayak-park`, and `upper-illinois-river-siloam-kayak-park-woka`. Qualification path: current AGFC Saline River Water Trail guidance documented the exact Tony Kelly Ford-to-Lyle Park 8.2-mile public segment, direct USGS 07363000 Benton gauge bands of low at 3.5 ft and below, broad paddleable water from 3.6-5.0 ft, and experienced-only water above 5.0 ft; same-day direct USGS 07363000 returned 157 cfs / 3.64 ft at 2026-06-22 19:30 CDT. Current AGFC Upper Illinois River Water Trail guidance documented the exact Chamber Springs-to-Siloam 8.1-mile and Siloam-to-WOKA 7.4-mile public segments, direct USGS 07195400 gauge guidance of 200-1,000 cfs best flow with experienced-only conditions above 1,000 cfs, coordinate-linked public endpoints, nearby basecamp options, and Class II+ carry-around warnings at the kayak parks; same-day direct USGS 07195400 returned 4,920 cfs / 11.74 ft at 2026-06-22 19:00 CDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records bounded Commons and official-page image attempts without a selected rights-clean exact-route asset.",
@@ -1376,6 +1377,174 @@
                 "No gallery image was added; image audit records no rights-clean exact-route image selected in this pass."
             ],
             "updatedAt": "2026-06-23T04:35:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-laceyville-meshoppen",
+            "river": "Susquehanna River",
+            "route": "North Branch: Laceyville Borough to Meshoppen",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC implemented as susquehanna-river-laceyville-meshoppen. PFBC North Branch Section 2 publishes Laceyville Borough and Meshoppen as an official 8-mile segment with exact access coordinates and the Meshoppen base-level relationship to Towanda/Wilkes-Barre/Bloomsburg gauges. Same-day direct USGS 01533400 returned 2,740 cfs and 8.28 ft at 2026-06-23 09:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Laceyville or Meshoppen access details, the Section 2 stage relationship changes materially, USGS 01533400 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 2 guide PDF",
+                "USGS 01533400 Water Services IV same-day check",
+                "USGS 01531500 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Laceyville Susquehanna aerial file page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Laceyville to Meshoppen",
+                "Susquehanna River - Laceyville Borough to Meshoppen ramp",
+                "North Branch Section 2 upper Wyoming County day trip"
+            ],
+            "v2Slug": "susquehanna-river-laceyville-meshoppen",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01533400",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 2,740 cfs and 8.28 ft for Susquehanna River at Meshoppen, PA. The route uses stage in feet because the PFBC section guidance is stage-based and explicitly relates Meshoppen to the other North Branch gauges."
+            },
+            "thresholdSupport": {
+                "strength": "derived_from_official_stage_relationship",
+                "notes": "PFBC Section 2 says Towanda, Wilkes-Barre, and Bloomsburg read about the same height while Meshoppen reads about 9 ft when those gauges are about 2 ft. V2 translates the official section guidance conservatively onto Meshoppen: about 6.5-9 ft as the easier planning band, faster water above 9 ft, and novice no-go around 12 ft and up."
+            },
+            "endpoints": {
+                "putIn": "Laceyville Borough access",
+                "takeOut": "Meshoppen ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.648889,
+                    -76.161111
+                ],
+                "takeOutCoordinates": [
+                    41.608611,
+                    -76.0475
+                ],
+                "coordinateSource": "PFBC North Branch Section 2 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a conservative upper-Wyoming-County North Branch route.",
+                "Camping stays basecamp-only because the official section campground context is nearby rather than part of the access pair.",
+                "Hazards carried into implementation: fast current and hidden rocks near mile 238, broad-river wind, floating wood, flooded trees after rain, private banks, and Meshoppen take-out discipline.",
+                "Approved Commons aerial added at /gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg; Bjoertvedt; CC BY-SA 3.0."
+            ],
+            "updatedAt": "2026-06-23T14:07:13.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-tunkhannock-whites-ferry",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC Tunkhannock to PFBC White's Ferry",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC implemented as susquehanna-river-tunkhannock-whites-ferry. PFBC North Branch Section 2 publishes PFBC Tunkhannock and PFBC White's Ferry as an official 6-mile segment with exact access coordinates, the mile-215 boulder-field caution, and the official Meshoppen base-level relationship to Towanda/Wilkes-Barre/Bloomsburg gauges. Same-day direct USGS 01533400 returned 2,740 cfs and 8.28 ft at 2026-06-23 09:45 EDT, with Towanda 01531500 corroborating at 2,520 cfs and 0.78 ft at 2026-06-23 08:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Tunkhannock or White's Ferry access details, the Section 2 stage relationship is rewritten, the Meshoppen proxy fit degrades, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 2 guide PDF",
+                "USGS 01533400 Water Services IV same-day check",
+                "USGS 01531500 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Tunkhannock Susquehanna aerial file page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Tunkhannock to White's Ferry",
+                "Susquehanna River - PFBC Tunkhannock to White's Ferry",
+                "North Branch Section 2 middle day trip"
+            ],
+            "v2Slug": "susquehanna-river-tunkhannock-whites-ferry",
+            "gauge": {
+                "quality": "same_section_proxy_with_product_verification",
+                "id": "01533400",
+                "provider": "USGS",
+                "notes": "PFBC writes the Section 2 stage relationship around Meshoppen as a base-level conversion, so V2 uses direct USGS 01533400 as the same-section proxy for this downstream route. Same-day Meshoppen stage was 8.28 ft, with Towanda 01531500 corroborating at 0.78 ft."
+            },
+            "thresholdSupport": {
+                "strength": "derived_from_official_stage_relationship",
+                "notes": "PFBC Section 2 says Towanda/Wilkes-Barre/Bloomsburg gauges read about the same while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 uses that published relationship to keep this proxy route conservative at roughly 6.5-9 ft easy-planning water and 12 ft as the novice-oriented top cutoff."
+            },
+            "endpoints": {
+                "putIn": "PFBC Tunkhannock access",
+                "takeOut": "PFBC White's Ferry access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.522222,
+                    -75.941389
+                ],
+                "takeOutCoordinates": [
+                    41.475833,
+                    -75.905
+                ],
+                "coordinateSource": "PFBC North Branch Section 2 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a mid-section North Branch route.",
+                "Camping stayed nearby-basecamp only because the official section campground list is corridor context rather than access-pair camping.",
+                "Hazards carried into implementation: the mile-215 boulder field, mile-214 fast riffles, broad-river wind, floating wood, proxy-gauge judgment error near thresholds, and take-out discipline at White's Ferry.",
+                "Approved Commons aerial reused at /gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg; Bjoertvedt; CC BY-SA 3.0."
+            ],
+            "updatedAt": "2026-06-23T14:07:13.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-whites-ferry-west-falls",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC White's Ferry to PFBC West Falls",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC implemented as susquehanna-river-whites-ferry-west-falls. PFBC North Branch Section 2 publishes PFBC White's Ferry and PFBC West Falls as an official 4-mile segment with exact access coordinates, the mile-210 fast-riffle caution, and the official Meshoppen base-level relationship to Towanda/Wilkes-Barre/Bloomsburg gauges. Same-day direct USGS 01533400 returned 2,740 cfs and 8.28 ft at 2026-06-23 09:45 EDT, with Towanda 01531500 corroborating at 2,520 cfs and 0.78 ft at 2026-06-23 08:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the White's Ferry or West Falls access details, the Section 2 stage relationship changes, the Meshoppen proxy fit degrades, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 2 guide PDF",
+                "USGS 01533400 Water Services IV same-day check",
+                "USGS 01531500 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Tunkhannock Susquehanna aerial file page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - White's Ferry to West Falls",
+                "Susquehanna River - White's Ferry to West Falls",
+                "North Branch Section 2 short lower corridor link"
+            ],
+            "v2Slug": "susquehanna-river-whites-ferry-west-falls",
+            "gauge": {
+                "quality": "same_section_proxy_with_product_verification",
+                "id": "01533400",
+                "provider": "USGS",
+                "notes": "V2 uses direct USGS 01533400 at Meshoppen as the same-section stage proxy because PFBC provides the Section 2 base-level relationship there rather than at White's Ferry or West Falls. Same-day Meshoppen stage was 8.28 ft, with Towanda corroborating at 0.78 ft."
+            },
+            "thresholdSupport": {
+                "strength": "derived_from_official_stage_relationship",
+                "notes": "PFBC Section 2 says Meshoppen reads about 9 ft when Towanda/Wilkes-Barre/Bloomsburg are about 2 ft. V2 translates the official section guidance conservatively onto Meshoppen: roughly 6.5-9 ft for the easier planning band, then 12 ft and up as novice no-go water."
+            },
+            "endpoints": {
+                "putIn": "PFBC White's Ferry access",
+                "takeOut": "PFBC West Falls access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.475833,
+                    -75.905
+                ],
+                "takeOutCoordinates": [
+                    41.459444,
+                    -75.853611
+                ],
+                "coordinateSource": "PFBC North Branch Section 2 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a short lower Section 2 route.",
+                "Camping stayed nearby-basecamp only because the official campground context is broader corridor support rather than route camping.",
+                "Hazards carried into implementation: the mile-210 fast-riffle stretch, broad-river wind, floating wood, proxy-gauge judgment error near the thresholds, private banks, and West Falls take-out discipline.",
+                "Approved Commons aerial reused at /gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg; Bjoertvedt; CC BY-SA 3.0."
+            ],
+            "updatedAt": "2026-06-23T14:07:13.000Z"
         },
         {
             "candidateId": "pa-youghiogheny-lower-yough-ohiopyle-bruner-run",

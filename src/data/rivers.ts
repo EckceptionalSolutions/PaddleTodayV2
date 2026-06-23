@@ -32864,6 +32864,321 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'susquehanna-river-laceyville-meshoppen',
+    slug: 'susquehanna-river-laceyville-meshoppen',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Laceyville Borough to Meshoppen',
+    aliases: [
+      'North Branch Susquehanna - Laceyville to Meshoppen',
+      'Susquehanna River - Laceyville Borough to Meshoppen ramp',
+      'North Branch Section 2 upper Wyoming County day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Broad North Branch Susquehanna day through the upper Wyoming County corridor from Laceyville Borough to the Meshoppen ramp. The official PFBC Section 2 guide publishes both access coordinates, lists section-specific caution miles, and gives a Meshoppen base-level relationship that lets V2 translate the official North Branch stage guidance onto the direct Meshoppen gauge.',
+    statusText:
+      'Use the Susquehanna River at Meshoppen gauge. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the calmer planning window, faster current above 9 ft, and novice no-go water around 12 ft and up.',
+    latitude: 41.62875,
+    longitude: -76.104306,
+    gaugeSource: {
+      id: 'usgs-01533400',
+      provider: 'usgs',
+      siteId: '01533400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Meshoppen, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6.5,
+      idealMax: 9,
+      tooLow: 6.5,
+      tooHigh: 12,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This broad North Branch corridor often stays floatable through dry warm-season stretches, but thunderstorms, headwind, and flooded treelines still change the feel of the river quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a straightforward big-river day with public access at both ends, but wide-channel wind, fast riffles, and hidden rocks at lower water still require current awareness and take-out discipline.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact Laceyville and Meshoppen access coordinates, identifies the route as an 8-mile novice-scale day, and lists the main caution miles inside the segment. The threshold model is intentionally labeled derived because PFBC writes the section guidance around Towanda/Wilkes-Barre/Bloomsburg heights, then explicitly says Meshoppen reads about 9 ft when those gauges read about 2 ft. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for direct USGS 01533400 at Meshoppen during implementation.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Laceyville to Meshoppen, about 8 mi',
+        note: 'The PFBC North Branch Section 2 guide places Laceyville Borough at river mile 241 and Meshoppen at river mile 233.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 2 access table publishes Laceyville Borough at 41 38 56 / -76 09 40 and Meshoppen at 41 36 31 / -76 02 51.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01533400 at Meshoppen',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Susquehanna River at Meshoppen, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+      },
+      {
+        label: 'Official stage relationship',
+        value: 'Towanda 2 ft equals Meshoppen 9 ft',
+        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 translates the official North Branch guidance onto the direct Meshoppen gauge from that relationship.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Fast current and hidden rocks near mile 238',
+        note: 'The PFBC Section 2 caution list flags fast current and hidden rocks around mile 238, inside this Laceyville-to-Meshoppen segment.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 2',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01533400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-tunkhannock-whites-ferry',
+    slug: 'susquehanna-river-tunkhannock-whites-ferry',
+    name: 'Susquehanna River',
+    reach: "North Branch: PFBC Tunkhannock to PFBC White's Ferry",
+    aliases: [
+      "North Branch Susquehanna - Tunkhannock to White's Ferry",
+      "Susquehanna River - PFBC Tunkhannock to White's Ferry",
+      'North Branch Section 2 middle day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      "Six-mile North Branch Susquehanna day from the PFBC Tunkhannock ramp to PFBC White's Ferry. The official PFBC Section 2 guide publishes both access coordinates, flags the fast riffle and boulder-field miles in this reach, and provides the Meshoppen/Towanda stage relationship that V2 uses as a conservative same-section gauge model.",
+    statusText:
+      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the easier planning window, with much faster current above 9 ft and novice no-go water around 12 ft and up.",
+    latitude: 41.499028,
+    longitude: -75.923194,
+    gaugeSource: {
+      id: 'usgs-01533400',
+      provider: 'usgs',
+      siteId: '01533400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Meshoppen, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6.5,
+      idealMax: 9,
+      tooLow: 6.5,
+      tooHigh: 12,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This mid-section North Branch route usually keeps enough water for warm-season paddling, but thunderstorms, broad-river wind, and rapidly changing current still matter more than the flat profile suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is manageable for broad-audience paddlers when water stays in the conservative band, but it is still a wide river with long riffles, a known boulder-field zone, and fewer forgiving exits than a tiny downstream mileage might imply.',
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact coordinates for PFBC Tunkhannock and PFBC White's Ferry, lists the segment inside its novice-scale mileage guidance, and flags the mile-215 boulder field plus adjacent fast riffles inside this route. Confidence is intentionally tempered because the selected gauge sits upstream at Meshoppen rather than on the exact put-in or take-out, so V2 labels it a same-section proxy. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Meshoppen and 2,520 cfs and 0.78 ft at Towanda as same-day corroboration during implementation.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "PFBC Tunkhannock to White's Ferry, about 6 mi",
+        note: "The PFBC North Branch Section 2 guide places PFBC Tunkhannock at river mile 217 and PFBC White's Ferry at river mile 211.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: "The PFBC Section 2 access table publishes PFBC Tunkhannock at 41 31 20 / -75 56 29 and PFBC White's Ferry at 41 28 33 / -75 54 18.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Same-section gauge proxy',
+        value: 'USGS 01533400 at Meshoppen',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft at Meshoppen, while same-day Towanda corroboration returned 2,520 cfs and 0.78 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+      },
+      {
+        label: 'Official stage relationship',
+        value: 'Towanda 2 ft equals Meshoppen 9 ft',
+        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 uses that published relationship to keep the proxy model conservative.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Boulder field and fast riffles around miles 215-214',
+        note: 'The PFBC Section 2 caution list flags a boulder field at mile 215 and a long section of fast riffles at mile 214, both inside this route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 2',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01533400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-whites-ferry-west-falls',
+    slug: 'susquehanna-river-whites-ferry-west-falls',
+    name: 'Susquehanna River',
+    reach: "North Branch: PFBC White's Ferry to PFBC West Falls",
+    aliases: [
+      "North Branch Susquehanna - White's Ferry to West Falls",
+      "Susquehanna River - White's Ferry to West Falls",
+      'North Branch Section 2 short lower corridor link',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      "Short lower Section 2 link from PFBC White's Ferry to PFBC West Falls. The official PFBC guide publishes both access coordinates, marks the final fast-riffle mile in the segment, and provides the same section-wide Meshoppen/Towanda gauge relationship V2 uses for conservative same-day planning.",
+    statusText:
+      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 keeps roughly 6.5 to 9 ft as the easier planning window and treats 12 ft and above at Meshoppen as novice no-go water.",
+    latitude: 41.467639,
+    longitude: -75.879306,
+    gaugeSource: {
+      id: 'usgs-01533400',
+      provider: 'usgs',
+      siteId: '01533400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Meshoppen, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6.5,
+      idealMax: 9,
+      tooLow: 6.5,
+      tooHigh: 12,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This is still a broad North Branch day despite the shorter mileage. Summer wind, thunderstorms, and high muddy banks after rain can matter more than raw distance suggests.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route is short and access-backed, but broad-river wind, quick current at the fast-riffle mile, and the temptation to relax on a big river too early still require a disciplined same-day call.',
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: PFBC Section 2 publishes exact coordinates for PFBC White's Ferry and PFBC West Falls, and the route keeps to a short official access-to-access link with a clearly identified caution mile. Confidence is intentionally tempered because the selected gauge is a same-section proxy at Meshoppen rather than an exact endpoint gauge. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Meshoppen and 2,520 cfs and 0.78 ft at Towanda during implementation.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "White's Ferry to West Falls, about 4 mi",
+        note: "The PFBC North Branch Section 2 guide places PFBC White's Ferry at river mile 211 and PFBC West Falls at river mile 207.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: "The PFBC Section 2 access table publishes PFBC White's Ferry at 41 28 33 / -75 54 18 and PFBC West Falls at 41 27 34 / -75 51 13.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Same-section gauge proxy',
+        value: 'USGS 01533400 at Meshoppen',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft at Meshoppen, with same-day Towanda corroboration at 2,520 cfs and 0.78 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+      },
+      {
+        label: 'Official stage relationship',
+        value: 'Towanda 2 ft equals Meshoppen 9 ft',
+        note: 'PFBC Section 2 provides the Meshoppen base-level conversion directly, letting V2 translate the official Towanda/Wilkes-Barre/Bloomsburg guidance onto a closer same-section gauge.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Fast riffles around mile 210',
+        note: 'The PFBC Section 2 caution list flags a long section of fast riffles at mile 210, inside this White\'s Ferry-to-West Falls segment.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 2',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01533400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'wabash-river-vera-cruz-white-bridge',
     slug: 'wabash-river-vera-cruz-white-bridge',
     name: 'Wabash River',

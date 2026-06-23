@@ -10352,6 +10352,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-laceyville-meshoppen': {
+    putIn: {
+      name: 'Laceyville Borough access',
+      latitude: 41.648889,
+      longitude: -76.161111,
+    },
+    takeOut: {
+      name: 'Meshoppen ramp',
+      latitude: 41.608611,
+      longitude: -76.0475,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, low-water line picking, or a relaxed big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the Meshoppen ramp first, then drive back to the Laceyville Borough carry-in. Inspect both accesses before launching because mud, flood cleanup, broad-river current, or local riverbank changes can alter the practical carry and landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Endless Mountain Campground sits just off the river near the Laceyville end of the section and can work as a nearby basecamp, but the route itself should not be treated as open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Laceyville Borough and take out at Meshoppen for an 8-mile upper Wyoming County Susquehanna day. Use the direct Meshoppen stage gauge, keep the day conservative around 6.5 to 9 feet at Meshoppen, and watch for the fast-current hidden-rock mile inside the segment.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both Laceyville Borough and Meshoppen coordinates directly in the official access table.',
+        'Neither access is a large concrete ramp complex. Verify same-day footing, parking, and carry angle before leaving a shuttle vehicle.',
+        'The threshold model is intentionally conservative and derived from PFBCs published Meshoppen base-level relationship rather than a route-specific Meshoppen ladder.',
+        'The broad North Branch still has private banks and islands away from the named accesses. Stay within the obvious public launch and take-out zones.',
+      ],
+      watchFor: [
+        'Fast current and hidden rocks around mile 238, which the PFBC Section 2 caution list places inside this route.',
+        'Long stretches of quicker riffly water at lower stages, headwind across the wide channel, floating wood, and cold-water consequences outside warm midsummer weather.',
+        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go conditions around 12 ft and above based on the official section conversion.',
+        'Thunderstorms, flooded treelines after rain, private shorelines away from the named accesses, and the risk of drifting past the obvious Meshoppen take-out.',
+      ],
+    },
+  },
+  'susquehanna-river-tunkhannock-whites-ferry': {
+    putIn: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    takeOut: {
+      name: "PFBC White's Ferry access",
+      latitude: 41.475833,
+      longitude: -75.905,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, caution around the boulder-field reach, or a slower shuttle day',
+      shuttle:
+        "Stage the take-out at PFBC White's Ferry first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the access feels.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor lodging and campground options in the broader Section 2 guide, but neither is part of this put-in/take-out pair and the route should not imply on-route camping.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at PFBC Tunkhannock and take out at PFBC White's Ferry for a mid-section North Branch day. The app uses the Meshoppen gauge as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field the main same-day hazard check.",
+      accessCaveats: [
+        "PFBC Section 2 publishes both PFBC Tunkhannock and PFBC White's Ferry coordinates directly in the official access table.",
+        "This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate White's Ferry ladder.",
+        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
+        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a boulder field at mile 215 and long fast riffles at mile 214 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
+        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
+        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
+      ],
+    },
+  },
+  'susquehanna-river-whites-ferry-west-falls': {
+    putIn: {
+      name: "PFBC White's Ferry access",
+      latitude: 41.475833,
+      longitude: -75.905,
+    },
+    takeOut: {
+      name: 'PFBC West Falls access',
+      latitude: 41.459444,
+      longitude: -75.853611,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 2.5 hr in ordinary conditions, longer with headwind, higher current, or a cautious shuttle around the fast-riffle mile',
+      shuttle:
+        "Stage the take-out at PFBC West Falls first, then drive back to PFBC White's Ferry. Check both accesses before launching because muddy footing, high water, or same-day local conditions can change the practical carry and landing line.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Susquehanna Shores Campground is listed downstream in the broader Section 2 corridor and can support a nearby basecamp stay, but the White\'s Ferry-to-West Falls route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at PFBC White's Ferry and take out at PFBC West Falls for a short lower Section 2 link. The app uses Meshoppen as the official same-section planning reference and keeps the fast-riffle mile near 210 as the main route-specific caution.",
+      accessCaveats: [
+        "PFBC Section 2 publishes both PFBC White's Ferry and PFBC West Falls coordinates directly in the official access table.",
+        'The route is short, but broad-river wind or a slow shuttle can dominate the feel of the day more than the mileage suggests.',
+        'This route uses Meshoppen as a same-section proxy because PFBC writes the section relationship there rather than at the take-out.',
+        'PFBC West Falls is the committed finish. Stay within the posted public landing rather than improvising on nearby private banks.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a long section of fast riffles around mile 210 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy take-out footing after rain, and quick current when Meshoppen is above the calmer band.',
+        'Proxy-gauge judgment error near the low or high edge: make a visual current check at White\'s Ferry before launching.',
+        'Private shorelines and islands away from the named accesses and the chance of floating past the PFBC West Falls ramp if you relax because the route is short.',
+      ],
+    },
+  },
   'platte-river-schramm-louisville': {
     putIn: {
       id: 'schramm-park-sra-canoe-kayak-access',

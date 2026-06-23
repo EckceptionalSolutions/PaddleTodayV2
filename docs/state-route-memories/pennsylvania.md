@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 2 as of 2026-06-12 implementation passes.
-- Current Pennsylvania trip-detail objects: 2 as of 2026-06-12.
-- Current Pennsylvania candidate ledger rows: 3 as of 2026-06-12.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 8 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 8 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 8 implemented rows as of 2026-06-23.
 - Automation posture: add at most one route per run; after the first add, continue rotating only high-confidence Pennsylvania candidates with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC: Pennsylvania three-route implementation pass; added three routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 5 live Pennsylvania routes, 5 Pennsylvania trip-detail keys, and 5 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls` from the PFBC North Branch Susquehanna Section 2 guide.
+  - Qualification package: PFBC Section 2 publishes exact access coordinates, river-mile spacing, route-specific caution miles, corridor camping context, and the Meshoppen/Towanda gauge-height relationship. Same-day direct USGS Water Services returned `2740 cfs / 8.28 ft` at Meshoppen (`01533400`) and `2520 cfs / 0.78 ft` at Towanda (`01531500`) on 2026-06-23.
+  - Route models stay intentionally conservative and marked as derived/proxy where appropriate: PFBC says Towanda, Wilkes-Barre, and Bloomsburg read about the same, and Meshoppen reads about `9 ft` when those gauges read about `2 ft`, so V2 uses roughly `6.5-9 ft` as the easier planning window and treats about `12 ft` at Meshoppen as novice no-go water.
+  - Camping and safety/logistics notes were added for all three routes. Route-specific cautions include the mile-238 fast-current hidden-rock zone for Laceyville-to-Meshoppen, the mile-215 boulder field plus mile-214 riffles for Tunkhannock-to-White's Ferry, and the mile-210 fast-riffle stretch for White's-Ferry-to-West-Falls.
+  - Added two rights-clean Commons aerials by Bjoertvedt (CC BY-SA 3.0): a Laceyville corridor image for `susquehanna-river-laceyville-meshoppen` and a Tunkhannock/Wyoming County corridor image reused for the two downstream Section 2 adds.
 
 - 2026-06-12 07:22 America/Chicago / 2026-06-12 12:22 UTC: Pennsylvania implementation pass; added one route.
   - Rebuilt current inventory from route objects and trip details before editing: 1 live Pennsylvania route (`youghiogheny-river-lower-yough-ohiopyle-bruner-run`), 1 Pennsylvania trip-detail key, and 3 structured PA ledger rows.

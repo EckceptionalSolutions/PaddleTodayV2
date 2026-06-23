@@ -1,5 +1,11 @@
 # Midwest Route Automation Memory
 
+- 2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC: Pennsylvania three-route implementation pass (`3-new-routes-automation`).
+  - Reused the current route queue after recent Kentucky/Pennsylvania adds, then stayed internet-first on the official PFBC North Branch Susquehanna source family because Section 2 still offered clean public access pairs, explicit caution miles, and current direct USGS support.
+  - Added three internet-sourced Pennsylvania routes: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`.
+  - Qualification path: current PFBC North Branch Section 2 documented exact Laceyville, Meshoppen, PFBC Tunkhannock, PFBC White's Ferry, and PFBC West Falls access coordinates plus official section guidance that Towanda/Wilkes-Barre/Bloomsburg read about the same height while Meshoppen reads about `9 ft` when those gauges are at `2 ft`; same-day direct USGS `01533400` returned `2740 cfs / 8.28 ft` at 2026-06-23 09:45 EDT and same-day USGS `01531500` returned `2520 cfs / 0.78 ft` at 2026-06-23 08:45 EDT as corroboration.
+  - Added camping and safety/logistics notes for all three routes and wired two rights-clean Commons aerials for the corridor: a Laceyville image for the upper route plus a Tunkhannock/Wyoming County image reused for the two downstream Section 2 adds.
+
 - 2026-06-22 18:35 America/Chicago / 2026-06-22 23:35 UTC: Kentucky three-route implementation pass (`3-new-routes-automation`).
   - Reused the current route queue after `npm run routes:leads:gather` showed 271 open leads and no `implementation_ready` candidates, then stayed with the current Kentucky source family because KDFWR still had clean public access chains plus same-day direct USGS recovery.
   - Added three internet-sourced Kentucky routes: `south-fork-kentucky-river-bishop-bend-hacker-branch`, `south-fork-kentucky-river-hacker-branch-upper-wolf-creek`, and `levisa-fork-island-creek-cedar-creek`.

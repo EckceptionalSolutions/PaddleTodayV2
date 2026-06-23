@@ -1566,6 +1566,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
+  'susquehanna-river-laceyville-meshoppen': [
+    {
+      id: 'susquehanna-river-laceyville-commons',
+      src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
+      alt: 'An aerial view shows the Susquehanna River bending past Laceyville through wooded banks and open Pennsylvania valley farmland.',
+      caption: 'Susquehanna River near Laceyville',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'susquehanna-river-tunkhannock-whites-ferry': [
+    {
+      id: 'susquehanna-river-tunkhannock-commons',
+      src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
+      alt: 'An aerial view shows the Susquehanna River curving past the Tunkhannock valley with wooded banks, open hillsides, and broad channel water.',
+      caption: 'Susquehanna River in the Tunkhannock corridor',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'susquehanna-river-whites-ferry-west-falls': [
+    {
+      id: 'susquehanna-river-tunkhannock-commons',
+      src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
+      alt: 'An aerial view shows the Susquehanna River curving through the Tunkhannock valley with wooded banks and broad Pennsylvania channel water.',
+      caption: 'Susquehanna River corridor in Wyoming County',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'pecatonica-river-wes-block-tuttys': [
     {
       id: 'pecatonica-river-iowa-county-commons',
