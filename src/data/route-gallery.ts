@@ -214,6 +214,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
+  'juniata-river-granville-victory-park': [
+    {
+      id: 'juniata-river-lewistown-commons',
+      src: '/gallery/juniata-river-granville-victory-park/juniata-river-lewistown.jpg',
+      alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
+      caption: 'Juniata River west of PA 103 in Lewistown',
+      credit: 'Dough4872 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'juniata-river-victory-park-lewistown-narrows': [
+    {
+      id: 'juniata-river-lewistown-commons',
+      src: '/gallery/juniata-river-victory-park-lewistown-narrows/juniata-river-lewistown.jpg',
+      alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
+      caption: 'Juniata River west of PA 103 in Lewistown',
+      credit: 'Dough4872 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'juniata-river-newport-green-valley': [
+    {
+      id: 'juniata-river-howe-township-commons',
+      src: '/gallery/juniata-river-newport-green-valley/juniata-river-howe-township.jpg',
+      alt: 'Wooded hills rise above the Juniata River east of Newport in Perry County under a clear sky.',
+      caption: 'Juniata River hills east of Newport',
+      credit: 'Nyttend via Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
   'sauk-river-spring-hill-st-martin': [
     {
       id: 'sauk-river-sartell-commons',

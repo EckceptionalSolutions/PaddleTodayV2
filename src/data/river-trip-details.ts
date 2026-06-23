@@ -11412,4 +11412,124 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-granville-victory-park': {
+    putIn: {
+      id: 'granville-pfbc-ramp',
+      name: 'Granville PFBC ramp',
+      latitude: 40.558333,
+      longitude: -77.603056,
+    },
+    takeOut: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with low-water dragging or wind in the open bends near Lewistown',
+      shuttle:
+        'Stage the take-out at Victory Park in Lewistown first, then drive back upstream to the Granville PFBC ramp. Both accesses are straightforward public launches, but check bank angle and parking before leaving a vehicle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Locust Campground sits just downstream of the put-in and works as a nearby basecamp, but treat the water-trail segment itself as a short day float rather than open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at the Granville PFBC ramp and take out at Victory Park for a short Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Granville and Victory Park coordinates directly in the official lower Juniata access table.',
+        'Locust Campground is nearby support, not an official midpoint take-out for this route.',
+        'This segment is short on paper, but broad-river wind and shallow summer bars can erase the mileage advantage quickly.',
+        'Stay with the named public accesses rather than using private banks or islands as casual substitutes.',
+      ],
+      watchFor: [
+        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
+        'Lewistown stages below about 3.1 ft, when broad cobble bars and shallow lines can force dragging.',
+        'Fresh wood after storms, open-bend headwind, and slippery mud at either public landing.',
+        'Private shorelines away from the named accesses and the temptation to improvise on bars when the river looks easy.',
+      ],
+    },
+  },
+  'juniata-river-victory-park-lewistown-narrows': {
+    putIn: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    takeOut: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr in ordinary conditions, longer with low-water line picking or time spent scouting the mile-43 ledge',
+      shuttle:
+        'Stage the take-out at the Lewistown Narrows PFBC ramp first, then drive back to Victory Park in Lewistown. Inspect both ramps before launching because mud and river angle can change after storms.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The broader Juniata trail has island and primitive-camping context, but the official guide does not identify a specific legal campsite for this short Lewistown Narrows segment.',
+      campingClassification: 'unknown',
+      summary:
+        'Launch at Victory Park and take out at Lewistown Narrows PFBC for an easy lower-Juniata link. Use the direct Lewistown gauge and expect a scratchier day anytime the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Victory Park and Lewistown Narrows coordinates directly in the official lower Juniata access table.',
+        'The Lewistown Narrows finish is the intended public take-out. Do not assume bridge shoulders, private banks, or islands are legitimate substitutes.',
+        'This stretch is broad enough for wind to matter more than the mileage suggests on an exposed day.',
+        'If the river is near the low floor, scout from legal public vantage points before committing to the ledge area.',
+      ],
+      watchFor: [
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines get more technical and slower.',
+        'Bridge remnants, fresh wood, muddy landing edges, and broad-river headwind.',
+        'Private shorelines away from the named public accesses and the risk of gliding past the Narrows ramp if you relax late in the run.',
+      ],
+    },
+  },
+  'juniata-river-newport-green-valley': {
+    putIn: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    takeOut: {
+      id: 'green-valley-ramp',
+      name: 'Green Valley access',
+      latitude: 40.479167,
+      longitude: -77.054722,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr in ordinary conditions, longer with low-water scraping, headwind, or time spent easing through the mile-10.5 ledge zone',
+      shuttle:
+        'Stage the take-out at Green Valley first, then drive back upstream to the Newport primitive access. Confirm the campground-side landing lane before launching so you do not drift past the finish.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits directly at the take-out and works as a conservative overnight base if you have a legal campsite reservation or permission.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Newport and take out at Green Valley for a lower-Juniata campground link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Newport and Green Valley coordinates directly in the official lower Juniata access table.',
+        'Green Valley is the intended river-left finish. Confirm same-day campground access expectations before using it only as a take-out.',
+        'This is still a broad river even though the mileage is moderate; wind can stall progress late in the route.',
+        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Green Valley landing if you drift past the campground bank.',
+      ],
+    },
+  },
 };

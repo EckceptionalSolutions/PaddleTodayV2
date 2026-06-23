@@ -32,6 +32,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-06-23 11:20 America/Chicago / 2026-06-23 16:20 UTC: Pennsylvania three-route implementation pass; added three lower Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 14 live Pennsylvania routes, 14 Pennsylvania trip-detail keys, and 14 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-granville-victory-park`, `juniata-river-victory-park-lewistown-narrows`, and `juniata-river-newport-green-valley` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide publishes exact Granville, Victory Park, Lewistown Narrows, Newport, and Green Valley coordinates, official segment mileages, route-specific caution points, and direct minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport. Same-day direct USGS Water Services returned `950 cfs / 3.24 ft` at Lewistown (`01564895`) and `1,260 cfs / 3.61 ft` at Newport (`01567000`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Granville-to-Victory uses nearby-basecamp because Locust Campground sits just downstream of the put-in; Victory-to-Narrows stays `unknown` because the broader Juniata trail has island-camping context but no specific short-segment campsite is identified; Newport-to-Green-Valley is `endpoint_campground`.
+  - Added one new Lewistown Commons corridor image by Dough4872 (CC BY-SA 4.0) and reused it for the two Lewistown-area routes, plus one public-domain Newport-corridor image by Nyttend for the Green Valley route.
+
 - 2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC: Pennsylvania three-route implementation pass; added three Section 3 North Branch routes.
   - Rebuilt current inventory from route objects and trip details before editing: 11 live Pennsylvania routes, 11 Pennsylvania trip-detail keys, and 11 implemented Pennsylvania ledger rows before this pass.
   - Implemented `susquehanna-river-canal-park-pfbc-union-township`, `susquehanna-river-pfbc-union-township-wetlands`, and `susquehanna-river-wetlands-test-track` from the PFBC North Branch Susquehanna Section 3 guide.
