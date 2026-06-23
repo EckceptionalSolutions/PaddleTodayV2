@@ -11492,6 +11492,86 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-victory-park-mifflintown': {
+    putIn: {
+      id: 'victory-park-access',
+      name: 'Victory Park access',
+      latitude: 40.595,
+      longitude: -77.578889,
+    },
+    takeOut: {
+      id: 'mifflintown-pfbc-ramp',
+      name: 'Mifflintown PFBC ramp',
+      latitude: 40.595,
+      longitude: -77.415278,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent scouting the mile-43 ledge zone',
+      shuttle:
+        'Stage the take-out at the Mifflintown PFBC ramp first, then drive back to Victory Park in Lewistown. Check both ramps before launching because muddy edges and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The broader Juniata trail has island and primitive-camping context, but the official guide does not identify a specific legal campsite committed to this Lewistown-to-Mifflintown segment.',
+      campingClassification: 'unknown',
+      summary:
+        'Launch at Victory Park and take out at Mifflintown PFBC for a longer lower-Juniata town-to-ramp float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Victory Park and Mifflintown PFBC coordinates directly in the official lower Juniata access table.',
+        'The Mifflintown PFBC ramp is the intended public finish. Do not assume private banks, bridge shoulders, or islands are legitimate substitutes.',
+        'Ten broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'If the river is near the low floor, scout from legal public vantage points before committing to the ledge zone.',
+      ],
+      watchFor: [
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when shallow bars and ledge lines become slower and more technical.',
+        'Fresh wood after storms, bridge-current changes, and muddy landing edges at either public access.',
+        'Private shorelines away from the named public accesses and the chance of drifting past the Mifflintown finish if you relax late in the run.',
+      ],
+    },
+  },
+  'juniata-river-mifflin-walker': {
+    putIn: {
+      id: 'mifflin-ramp',
+      name: 'Mifflin ramp',
+      latitude: 40.569167,
+      longitude: -77.401111,
+    },
+    takeOut: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water forces channel picking or if you pause to inspect the mile-33 current zone',
+      shuttle:
+        'Stage the take-out at Walker PFBC first, then drive back upstream to the Mifflin ramp. This is a short shuttle, but check both access edges before leaving a vehicle because mud and river angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this short Mifflin-to-Walker segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Mifflin and take out at Walker PFBC for a short middle lower-Juniata float. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Mifflin and Walker coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this middle segment, not on top of it.',
+        'Short mileage does not remove the need to watch the line through the mile-33 rapid-current area.',
+        'Use only the named public accesses rather than bridge shoulders or private banks.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
+        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
   'juniata-river-newport-green-valley': {
     putIn: {
       id: 'newport-primitive-access',
@@ -11529,6 +11609,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
         'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
         'Private shorelines away from the named accesses and the chance of overshooting the Green Valley landing if you drift past the campground bank.',
+      ],
+    },
+  },
+  'juniata-river-newport-amity-hall': {
+    putIn: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    takeOut: {
+      id: 'amity-hall-pfbc-ramp',
+      name: 'Amity Hall PFBC ramp',
+      latitude: 40.430833,
+      longitude: -77.013333,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with low-water scraping, broad-river headwind, or time spent easing through the mile-10.5 ledge zone',
+      shuttle:
+        'Stage the take-out at the Amity Hall PFBC ramp first, then drive back upstream to the Newport access. Confirm the intended downstream finish before launching so you do not treat Green Valley as the end by mistake.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits on the route near mile 6 and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Newport and take out at Amity Hall for a longer lower-Juniata downstream run. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Newport and Amity Hall coordinates directly in the official lower Juniata access table.',
+        'Green Valley is a legal mid-route campground/support point, not the intended finish for this slug.',
+        'This is a longer broad-river day than the mileage can make it sound, especially if wind or low-water bars slow progress.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
+        'Private shorelines away from the named accesses and the chance of taking out too early at Green Valley if you are aiming for the full run to Amity Hall.',
       ],
     },
   },

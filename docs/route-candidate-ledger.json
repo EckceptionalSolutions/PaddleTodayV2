@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T16:21:00.000Z",
+    "updatedAt": "2026-06-23T17:40:00.000Z",
     "notes": [
+        "2026-06-23 12:40 America/Chicago / 2026-06-23 17:40 UTC Pennsylvania implementation pass. Added three new lower Juniata routes beyond the 313-route baseline: `juniata-river-victory-park-mifflintown`, `juniata-river-mifflin-walker`, and `juniata-river-newport-amity-hall`. Qualification path: the PFBC lower Juniata guide publishes exact public access coordinates for Victory Park, Mifflintown, Mifflin, Walker, Newport, and Amity Hall, plus official 10/4/10-mile route shapes and lower-section minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport. Same-day direct USGS `01564895` returned `958 cfs / 3.25 ft` at `2026-06-23 14:30 EDT`, and same-day direct USGS `01567000` returned `1,270 cfs / 3.62 ft` at `2026-06-23 14:15 EDT`. Added camping and safety/logistics notes for all three routes; no gallery image was added because bounded Commons, PFBC guide imagery, and USGS media review did not produce a clearly rights-clean exact-route asset for these new slugs.",
         "2026-06-23 11:20 America/Chicago / 2026-06-23 16:20 UTC Pennsylvania implementation pass. Added three new lower Juniata routes from the PFBC lower Juniata guide: `juniata-river-granville-victory-park`, `juniata-river-victory-park-lewistown-narrows`, and `juniata-river-newport-green-valley`. Qualification path: PFBC published exact Granville, Victory Park, Lewistown Narrows, Newport, and Green Valley access coordinates, official 5/6/6-mile route shapes, route-specific caution points, and direct minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport. Same-day direct USGS `01564895` returned `950 cfs / 3.24 ft` at `2026-06-23 11:30 EDT`, and same-day direct USGS `01567000` returned `1,260 cfs / 3.61 ft` at `2026-06-23 11:15 EDT`. Added camping and safety/logistics notes for all three routes and wired two rights-clean Commons corridor images: a Lewistown CC BY-SA 4.0 photo reused for the first two routes and a public-domain Newport-corridor photo for the Green Valley route.",
         "2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna Section 3 guide: `susquehanna-river-canal-park-pfbc-union-township`, `susquehanna-river-pfbc-union-township-wetlands`, and `susquehanna-river-wetlands-test-track`. Qualification path: PFBC Section 3 published exact Canal Park, PFBC Union Township, Wetlands Nature Area, and Test Track Park coordinates plus the same section-wide stage guidance that treats about `2 ft` as the safe base level, about `-0.5 ft` as low runnable water, and novice no-go water above about `5 ft` at Wilkes-Barre / Towanda or about `6 ft` at Bloomsburg; it also surfaced the long class I-II rapid below the Nanticoke bridge and the Berwick-Nescopeck low-water ledge warning. Same-day direct USGS `01536500` at Wilkes-Barre returned `4,070 cfs / 1.28 ft` at `2026-06-23 10:45 EDT`, and same-day direct USGS `01538700` at Bloomsburg returned `4,350 cfs / 1.69 ft` at `2026-06-23 11:15 EDT` as downstream corroboration. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded Commons and PFBC/USGS image review did not produce a rights-clean exact-route asset.",
         "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the current 2021 North Branch Susquehanna guide: `susquehanna-river-pfbc-danville-wrays`, `susquehanna-river-wrays-shikellamy-west`, and `susquehanna-river-pfbc-danville-shikellamy-west`. Qualification path: the current guide published exact PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates plus Section 13-14 Danville stage guidance of 2 ft lower limit, 4 ft good paddling level, and 7 ft novice ceiling; it also surfaced the lower-corridor Lake Augusta and Sunbury Fabridam caution context. Same-day direct USGS 01540500 at Danville returned 4,480 cfs / 3.22 ft at 2026-06-23 10:30 EDT, with same-day USGS 01538700 at Bloomsburg corroborating downstream corridor conditions at 4,350 cfs / 1.69 ft at 2026-06-23 10:15 EDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded Commons and guide/USGS image review did not produce a rights-clean exact-route asset.",
@@ -30753,6 +30754,171 @@
                 "Approved public-domain Newport corridor image added for this slug."
             ],
             "updatedAt": "2026-06-23T16:20:00.000Z"
+        },
+        {
+            "candidateId": "pa-juniata-river-victory-park-mifflintown",
+            "river": "Juniata River",
+            "route": "Victory Park to Mifflintown PFBC",
+            "state": "PA",
+            "status": "added",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 12:40 America/Chicago / 2026-06-23 17:40 UTC implemented as juniata-river-victory-park-mifflintown. The PFBC lower Juniata guide publishes exact public access coordinates, a 10-mile route shape, a mile-43 ledge warning, and a direct Lewistown minimum gauge level of 3.1 ft; USGS Water Services returned same-day 2026-06-23 values for direct gauge 01564895.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Victory Park or Mifflintown access package, PFBC updates the Lewistown minimum guidance, USGS 01564895 stops exposing product-ready current stage, or a better exact-route photo appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC lower Juniata River Water Trail guide and access table",
+                "USGS Water Services IV for 01564895 on 2026-06-23",
+                "USGS monitoring location page for Juniata River at Lewistown, PA",
+                "PFBC launch permit vs boat registration page",
+                "Wikimedia Commons Juniata River west of PA 103 file page"
+            ],
+            "aliases": [
+                "Juniata River - Victory Park to Mifflintown",
+                "Lower Juniata - Lewistown to Mifflintown"
+            ],
+            "v2Slug": "juniata-river-victory-park-mifflintown",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01564895",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 958 cfs and 3.25 ft for Juniata River at Lewistown, PA."
+            },
+            "thresholdSupport": {
+                "strength": "official_minimum_only",
+                "notes": "The PFBC lower Juniata guide lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there."
+            },
+            "endpoints": {
+                "putIn": "Victory Park access",
+                "takeOut": "Mifflintown PFBC ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.595,
+                    -77.578889
+                ],
+                "takeOutCoordinates": [
+                    40.595,
+                    -77.415278
+                ],
+                "coordinateSource": "The PFBC lower Juniata access table publishes both coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a conservative minimum-only lower Juniata route.",
+                "Camping stays unknown because the broader Juniata trail has island-camping context, but the official guide does not identify a specific legal campsite committed to this segment.",
+                "Hazards carried into implementation: the mile-43 ledge with rough water into a cut bank, private banks, shallow summer bars, broad-river wind, and same-day wood.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T17:40:00.000Z"
+        },
+        {
+            "candidateId": "pa-juniata-river-mifflin-walker",
+            "river": "Juniata River",
+            "route": "Mifflin to Walker PFBC",
+            "state": "PA",
+            "status": "added",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 12:40 America/Chicago / 2026-06-23 17:40 UTC implemented as juniata-river-mifflin-walker. The PFBC lower Juniata guide publishes exact public access coordinates, a 4-mile route shape, and a mile-33 rapid-current warning. The app uses USGS 01564895 at Lewistown as a conservative upstream same-river proxy because PFBC lists Lewistown among the useful lower-section gauges with a 3.1 ft minimum level; same-day USGS Water Services returned 2026-06-23 values for that gauge.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Mifflin or Walker access package, PFBC updates the lower-Juniata Lewistown minimum guidance, USGS 01564895 stops exposing product-ready current stage, or a more exact local gauge relationship becomes available.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC lower Juniata River Water Trail guide and access table",
+                "USGS Water Services IV for 01564895 on 2026-06-23",
+                "USGS monitoring location page for Juniata River at Lewistown, PA",
+                "PFBC launch permit vs boat registration page",
+                "Wikimedia Commons search for Mifflin / Juniata River context"
+            ],
+            "aliases": [
+                "Juniata River - Mifflin to Walker",
+                "Lower Juniata - Mifflin to Walker PFBC"
+            ],
+            "v2Slug": "juniata-river-mifflin-walker",
+            "gauge": {
+                "quality": "official_same_river_proxy_product_verified",
+                "id": "01564895",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 958 cfs and 3.25 ft for Juniata River at Lewistown, PA. PFBC lists Lewistown as a useful lower-Juniata gauge, but it remains upstream of this short middle segment."
+            },
+            "thresholdSupport": {
+                "strength": "official_minimum_only",
+                "notes": "The PFBC lower Juniata guide recommends a minimum level of 3.1 ft at Lewistown, which the app uses conservatively as an upstream same-river proxy for this corridor."
+            },
+            "endpoints": {
+                "putIn": "Mifflin ramp",
+                "takeOut": "Walker PFBC ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.569167,
+                    -77.401111
+                ],
+                "takeOutCoordinates": [
+                    40.531944,
+                    -77.357222
+                ],
+                "coordinateSource": "The PFBC lower Juniata access table publishes both coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a conservative minimum-only lower Juniata route with a same-river proxy gauge posture.",
+                "Camping is none because the official guide does not identify established camping tied to this short segment.",
+                "Hazards carried into implementation: rapid current near mile 33, private banks, shallow summer bars, broad-river wind, and same-day wood.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T17:40:00.000Z"
+        },
+        {
+            "candidateId": "pa-juniata-river-newport-amity-hall",
+            "river": "Juniata River",
+            "route": "Newport to Amity Hall PFBC",
+            "state": "PA",
+            "status": "added",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 12:40 America/Chicago / 2026-06-23 17:40 UTC implemented as juniata-river-newport-amity-hall. The PFBC lower Juniata guide publishes exact public access coordinates, a 10-mile route shape, a mile-10.5 ledge warning, and a direct Newport minimum gauge level of 3.5 ft; USGS Water Services returned same-day 2026-06-23 values for direct gauge 01567000.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Newport or Amity Hall access package, PFBC updates the Newport minimum guidance, USGS 01567000 stops exposing product-ready current stage, or a better exact-route photo appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC lower Juniata River Water Trail guide and access table",
+                "USGS Water Services IV for 01567000 on 2026-06-23",
+                "USGS monitoring location page for Juniata River at Newport, PA",
+                "PFBC launch permit vs boat registration page",
+                "Wikimedia Commons Juniata River hills in Howe Township file page"
+            ],
+            "aliases": [
+                "Juniata River - Newport to Amity Hall",
+                "Lower Juniata - Newport to Amity Hall PFBC"
+            ],
+            "v2Slug": "juniata-river-newport-amity-hall",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01567000",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 1,270 cfs and 3.62 ft for Juniata River at Newport, PA."
+            },
+            "thresholdSupport": {
+                "strength": "official_minimum_only",
+                "notes": "The PFBC lower Juniata guide lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there."
+            },
+            "endpoints": {
+                "putIn": "Newport access",
+                "takeOut": "Amity Hall PFBC ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.479167,
+                    -77.129444
+                ],
+                "takeOutCoordinates": [
+                    40.430833,
+                    -77.013333
+                ],
+                "coordinateSource": "The PFBC lower Juniata access table publishes both coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a conservative minimum-only lower Juniata route.",
+                "Camping is on-route-campsite because Green Valley Campground sits on the route and is the clearest legal overnight support if the run is split.",
+                "Hazards carried into implementation: rapid current over the mile-10.5 ledge, private banks, shallow summer bars, broad-river wind, and same-day wood.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T17:40:00.000Z"
         },
         {
             "candidateId": "mn-blue-earth-river-rapidan-county-road-90",
