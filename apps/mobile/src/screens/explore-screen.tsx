@@ -13,6 +13,7 @@ import {
   campingMatches,
   countActiveFilters,
   defaultFilters,
+  difficultyMatches,
   isExploreFilters,
   paddleTimeMatches,
   routeTypeMatches,
@@ -67,7 +68,7 @@ const liveRank = {
 
 export default function ExploreScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ intent?: string; intentKey?: string }>();
+  const params = useLocalSearchParams<{ intent?: string; intentKey?: string; reset?: string }>();
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
   const summaryQuery = useRiverSummaryQuery();
@@ -80,9 +81,12 @@ export default function ExploreScreen() {
   const [preferencesHydrated, setPreferencesHydrated] = useState(false);
   const appliedStoredLocationDefaultRef = useRef(false);
   const appliedIntentRef = useRef<string | null>(null);
+  const appliedResetRef = useRef<string | null>(null);
   const requestedIntent = isExploreIntentId(params.intent) ? params.intent : null;
+  const requestedReset = params.reset === '1';
   const locationReady = Boolean(location);
   const requestedIntentKey = requestedIntent ? `${requestedIntent}:${params.intentKey ?? 'initial'}:${locationReady ? 'location' : 'no-location'}` : null;
+  const requestedResetKey = requestedReset ? `reset:${params.intentKey ?? 'initial'}` : null;
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const routeCounts = useMemo(() => buildRouteGroupMeta(rivers), [rivers]);
@@ -118,7 +122,7 @@ export default function ExploreScreen() {
   }, [filters, filtersOpen]);
 
   useEffect(() => {
-    if (!preferencesHydrated || requestedIntent || !location || appliedStoredLocationDefaultRef.current) {
+    if (!preferencesHydrated || requestedIntent || requestedReset || !location || appliedStoredLocationDefaultRef.current) {
       return;
     }
 
@@ -134,7 +138,18 @@ export default function ExploreScreen() {
         state: nearestSupportedState ?? current.state,
       };
     });
-  }, [location, nearestSupportedState, preferencesHydrated, requestedIntent]);
+  }, [location, nearestSupportedState, preferencesHydrated, requestedIntent, requestedReset]);
+
+  useEffect(() => {
+    if (!preferencesHydrated || !requestedResetKey || appliedResetRef.current === requestedResetKey) {
+      return;
+    }
+
+    appliedResetRef.current = requestedResetKey;
+    setSelectedSlug(null);
+    setFilters(defaultFilters);
+    setDraftFilters(defaultFilters);
+  }, [preferencesHydrated, requestedResetKey]);
 
   useEffect(() => {
     if (!preferencesHydrated || !requestedIntent || !requestedIntentKey || appliedIntentRef.current === requestedIntentKey) {
@@ -260,7 +275,7 @@ export default function ExploreScreen() {
   async function hydrateExplorePreferences() {
     try {
       const parsed = parseJson(await AsyncStorage.getItem(EXPLORE_PREFERENCES_STORAGE_KEY));
-      if (isExplorePreferences(parsed) && !requestedIntent) {
+      if (isExplorePreferences(parsed) && !requestedIntent && !requestedReset) {
         setFilters(normalizeExploreFilters(parsed.filters));
       }
     } catch {
@@ -339,6 +354,7 @@ function FullScreenExploreMap({
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const searchResultSignature = points.map((point) => point.id).join('|');
+  const mapResultKey = searchResultSignature || 'empty';
   const intentBanner = requestedIntent
     ? {
         title: labelForExploreIntent(requestedIntent),
@@ -383,6 +399,7 @@ function FullScreenExploreMap({
     <View style={styles.fullMapScreen}>
       {results.length > 0 ? (
         <RoutePlotMap
+          key={mapResultKey}
           ref={mapRef}
           points={points}
           selectedId={selectedSlug}
@@ -576,11 +593,11 @@ function applyExploreFilters(
     .filter((river) => {
       if (query && !searchBlob(river).includes(query)) return false;
       if (filters.state && river.river.state !== filters.state) return false;
-      if (filters.difficulty !== 'any' && river.river.difficulty !== filters.difficulty) return false;
+      if (!difficultyMatches(river.river.difficulty, filters.difficulty)) return false;
       if (!routeTypeMatches(river.river.routeType, filters.routeType)) return false;
       if (!statusMatches(river.rating, filters.status)) return false;
       if (filters.rating !== 'any' && river.rating !== filters.rating) return false;
-      if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime)) return false;
+      if (!paddleTimeMatches(river.river.estimatedPaddleTime, filters.paddleTime, river.river.logistics?.campingClassification)) return false;
       if (!campingMatches(river.river.logistics?.campingClassification, filters.camping)) return false;
       if (distanceLimit !== null && (river.distanceMiles === null || river.distanceMiles > distanceLimit)) return false;
       return true;

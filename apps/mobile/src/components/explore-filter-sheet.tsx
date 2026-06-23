@@ -7,12 +7,12 @@ import { ChoiceChip, isExploreSort, sortOptions, type ExploreSort } from './expl
 import { isRecord } from '../lib/storage';
 import { colors, radius, spacing } from '../theme/tokens';
 
-export type DifficultyFilter = 'any' | 'easy' | 'moderate' | 'hard';
+export type DifficultyFilter = 'any' | 'easy' | 'easy-moderate' | 'moderate' | 'hard';
 export type RouteTypeFilter = 'non-whitewater' | 'whitewater' | 'all';
 export type StatusFilter = 'any' | 'clean' | 'watch' | 'skip';
 export type RatingFilter = 'any' | ScoreRating;
 export type DistanceFilter = 'any' | '50' | '100' | '150' | '200';
-export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | '7-plus';
+export type PaddleTimeFilter = 'any' | 'up-to-3' | '3-to-5' | '5-to-7' | 'full-day' | '7-plus';
 export type CampingFilter = 'any' | 'supported' | 'overnight';
 
 export interface ExploreFilters {
@@ -59,6 +59,7 @@ const statusOptions: Array<{ value: StatusFilter; label: string }> = [
 const difficultyOptions: Array<{ value: DifficultyFilter; label: string }> = [
   { value: 'any', label: 'Any difficulty' },
   { value: 'easy', label: 'Easy' },
+  { value: 'easy-moderate', label: 'Easy/Moderate' },
   { value: 'moderate', label: 'Moderate' },
   { value: 'hard', label: 'Hard' },
 ];
@@ -82,6 +83,7 @@ const paddleTimeOptions: Array<{ value: PaddleTimeFilter; label: string }> = [
   { value: 'up-to-3', label: 'Under 3h' },
   { value: '3-to-5', label: '3-5h' },
   { value: '5-to-7', label: '5-7h' },
+  { value: 'full-day', label: 'Full day' },
   { value: '7-plus', label: '7h+' },
 ];
 
@@ -101,7 +103,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
     label: 'Quick float',
     apply: (filters) => ({
       ...filters,
-      difficulty: 'easy',
+      difficulty: 'easy-moderate',
       routeType: 'non-whitewater',
       paddleTime: 'up-to-3',
       status: 'any',
@@ -116,7 +118,7 @@ const presetOptions: Array<{ id: string; label: string; apply: PresetApply }> = 
       ...filters,
       difficulty: 'any',
       routeType: 'all',
-      paddleTime: '5-to-7',
+      paddleTime: 'full-day',
       status: 'any',
       rating: 'any',
       sort: 'score',
@@ -454,7 +456,11 @@ export function activeFilterLabels(filters: ExploreFilters, locationReady: boole
   if (filters.status === 'watch') labels.push('Watch');
   if (filters.status === 'skip') labels.push('Skip');
   if (filters.rating !== 'any') labels.push(filters.rating);
-  if (filters.difficulty !== 'any') labels.push(capitalize(filters.difficulty));
+  if (filters.difficulty === 'easy-moderate') {
+    labels.push('Easy/Moderate');
+  } else if (filters.difficulty !== 'any') {
+    labels.push(capitalize(filters.difficulty));
+  }
   if (filters.routeType === 'whitewater') labels.push('Whitewater');
   if (filters.routeType === 'all') labels.push('All route types');
   if (filters.paddleTime !== 'any') {
@@ -488,6 +494,12 @@ export function routeTypeMatches(routeType: RouteType, filter: RouteTypeFilter) 
   return routeType !== 'whitewater';
 }
 
+export function difficultyMatches(difficulty: 'easy' | 'moderate' | 'hard', filter: DifficultyFilter) {
+  if (filter === 'any') return true;
+  if (filter === 'easy-moderate') return difficulty === 'easy' || difficulty === 'moderate';
+  return difficulty === filter;
+}
+
 export function statusMatches(rating: ScoreRating, filter: StatusFilter) {
   if (filter === 'any') return true;
   if (filter === 'clean') return rating === 'Strong' || rating === 'Good';
@@ -495,7 +507,7 @@ export function statusMatches(rating: ScoreRating, filter: StatusFilter) {
   return rating === 'No-go';
 }
 
-export function paddleTimeMatches(label: string, filter: PaddleTimeFilter) {
+export function paddleTimeMatches(label: string, filter: PaddleTimeFilter, campingClassification?: string | null) {
   if (filter === 'any') return true;
 
   const hours = parsePaddleHours(label);
@@ -504,6 +516,7 @@ export function paddleTimeMatches(label: string, filter: PaddleTimeFilter) {
   if (filter === 'up-to-3') return hours <= 3;
   if (filter === '3-to-5') return hours > 3 && hours <= 5;
   if (filter === '5-to-7') return hours > 5 && hours <= 7;
+  if (filter === 'full-day') return hours >= 5 && !isMultiDayRoute(label, campingClassification);
   return hours > 7;
 }
 
@@ -557,6 +570,18 @@ function parsePaddleHours(label: string) {
   return Math.max(...finite);
 }
 
+function isMultiDayRoute(label: string, campingClassification?: string | null) {
+  if (
+    campingClassification === 'overnight_capable' ||
+    campingClassification === 'on_route_campsite' ||
+    campingClassification === 'sandbar_or_gravel_bar'
+  ) {
+    return true;
+  }
+
+  return /multi-day|two-day|overnight|split as an overnight|best planned as an overnight|light overnight/i.test(label);
+}
+
 function capitalize(value: string) {
   return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
@@ -564,7 +589,7 @@ function capitalize(value: string) {
 function presetIsActive(id: string, filters: ExploreFilters, locationReady: boolean) {
   if (id === 'quick-float') {
     return (
-      filters.difficulty === 'easy' &&
+      filters.difficulty === 'easy-moderate' &&
       filters.routeType === 'non-whitewater' &&
       filters.paddleTime === 'up-to-3' &&
       filters.status === 'any' &&
@@ -577,7 +602,7 @@ function presetIsActive(id: string, filters: ExploreFilters, locationReady: bool
     return (
       filters.difficulty === 'any' &&
       filters.routeType === 'all' &&
-      filters.paddleTime === '5-to-7' &&
+      filters.paddleTime === 'full-day' &&
       filters.status === 'any' &&
       filters.rating === 'any' &&
       filters.sort === 'score'

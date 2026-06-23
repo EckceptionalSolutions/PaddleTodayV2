@@ -242,8 +242,8 @@ export default function HomeScreen() {
         <ExploreActionStrip
           hasLocation={Boolean(location)}
           locationStatus={status}
-          onUseLocation={() => void requestLocation()}
-          onOpenExplore={() => router.push('/explore')}
+          onUseLocation={() => requestLocation()}
+          onOpenExplore={() => router.push({ pathname: '/explore', params: { reset: '1', intentKey: Date.now().toString() } })}
           onOpenIntent={openExploreIntent}
         />
         <KnownRouteSearch
@@ -629,7 +629,7 @@ function ExploreActionStrip({
 }: {
   hasLocation: boolean;
   locationStatus: string;
-  onUseLocation: () => void;
+  onUseLocation: () => void | Promise<void>;
   onOpenExplore: () => void;
   onOpenIntent: (intent: ExploreIntentId) => void;
 }) {
@@ -647,7 +647,9 @@ function ExploreActionStrip({
           label={nearbyLabel}
           icon="crosshairs-gps"
           disabled={requestingLocation}
-          onPress={hasLocation ? () => onOpenIntent('best-nearby') : onUseLocation}
+          onPress={hasLocation ? () => onOpenIntent('best-nearby') : () => {
+            void Promise.resolve(onUseLocation()).finally(() => onOpenIntent('best-nearby'));
+          }}
         />
         <ExploreActionChip label="Clean now" icon="check-circle-outline" onPress={() => onOpenIntent('clean-now')} />
         <ExploreActionChip label="Camping" icon="tent" onPress={() => onOpenIntent('camping')} />

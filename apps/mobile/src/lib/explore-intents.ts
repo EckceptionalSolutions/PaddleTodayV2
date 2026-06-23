@@ -75,7 +75,7 @@ export function filtersForExploreIntent(
       ...base,
       sort: context.locationReady ? 'nearest' : 'best',
       distance: context.locationReady ? '100' : 'any',
-      difficulty: 'easy',
+      difficulty: 'easy-moderate',
       routeType: 'non-whitewater',
       paddleTime: 'up-to-3',
       status: 'any',
@@ -99,7 +99,7 @@ export function filtersForExploreIntent(
     sort: 'score',
     difficulty: 'any',
     routeType: 'all',
-    paddleTime: '5-to-7',
+    paddleTime: 'full-day',
     status: 'any',
     rating: 'any',
   };
@@ -121,7 +121,7 @@ export function descriptionForExploreIntent(intent: ExploreIntentId, locationRea
   if (intent === 'clean-now') return `Strong and Good route calls${suffix}.`;
   if (intent === 'watch') return `Fair calls worth monitoring${suffix}.`;
   if (intent === 'skip') return `No-go calls grouped for rechecks${suffix}.`;
-  if (intent === 'quick-float') return `Easy rec routes under three hours${suffix}.`;
+  if (intent === 'quick-float') return `Easy or moderate rec routes under three hours${suffix}.`;
   if (intent === 'camping') return `Routes with camping support${suffix}.`;
-  return 'Longer routes sorted by score.';
+  return 'Full-day single-day routes sorted by score.';
 }
