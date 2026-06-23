@@ -9327,6 +9327,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'saline-river-tony-kelly-lyle-park': {
+    putIn: {
+      id: 'tony-kelly-ford-access',
+      name: 'Tony Kelly Ford Access',
+      latitude: 34.5844,
+      longitude: -92.6938,
+    },
+    takeOut: {
+      id: 'lyle-park-access',
+      name: 'Lyle Park Access',
+      latitude: 34.5873,
+      longitude: -92.6051,
+    },
+    logistics: {
+      distanceLabel: 'About 8.2 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with low water, swimming, or fishing stops',
+      shuttle:
+        'Stage the take-out at Lyle Park in Benton, then drive back to Tony Kelly Ford Access. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Tony Kelly Ford or Lyle Park, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tony Kelly Ford Access and take out at Lyle Park for the upper Benton Saline River water-trail segment. The direct Benton gauge works well here because the route finishes before the downstream spillway and low-water-bridge hazard that complicate lower segments.',
+      accessCaveats: [
+        'Tony Kelly Ford is a simple public river access with no developed campground support in the reviewed source set.',
+        'Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.',
+        'The current Benton gauge reading during this run sat near the low end of the general paddle band, so expect more scraping and slower shoals than on stronger flow days.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and late-day headwinds or heat on the longer pools.',
+      ],
+    },
+  },
+  'upper-illinois-river-chamber-springs-siloam-kayak-park': {
+    putIn: {
+      id: 'chamber-springs-access',
+      name: 'Chamber Springs Access',
+      latitude: 36.166937,
+      longitude: -94.434458,
+    },
+    takeOut: {
+      id: 'siloam-springs-kayak-park',
+      name: 'Siloam Springs Kayak Park',
+      latitude: 36.12361,
+      longitude: -94.51751,
+    },
+    logistics: {
+      distanceLabel: 'About 8.1 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr, longer with lower water, private-bank caution, or feature scouting at the finish',
+      shuttle:
+        'Stage the take-out at Siloam Springs Kayak Park, then drive back to Chamber Springs Access. Inspect the kayak-park take-out in person before launching so the group knows where to exit or carry around the feature at the end of the run.',
+      permits:
+        'No route-specific private paddling permit is known. Follow Arkansas boating and PFD rules, use the named public accesses only, and respect posted city, county, and state-line regulations if your group also plans to continue into Oklahoma.',
+      camping:
+        'Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe plus Illinois River RV and Campground as nearby trip-support options, but this 8.1-mile segment is normally paddled as a day trip between public accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Chamber Springs Access and take out at Siloam Springs Kayak Park for the upstream Arkansas segment of the Upper Illinois River Water Trail. The direct Siloam Springs gauge gives the corridor decision point, but the current reading during this run was far above the broad audience flow band.',
+      accessCaveats: [
+        'Much of the Illinois River corridor passes private land marked by fences, signs, or purple paint. Stay on the water and use only the named public accesses.',
+        'The Siloam Springs Kayak Park take-out includes Class II+ features; less-experienced paddlers should scout the finish and carry around if needed.',
+        'The current gauge reading during this run was above the experienced-only threshold, so treat the source package as route evidence rather than as a same-day go recommendation.',
+        'Nearby campgrounds and outfitters can support a weekend, but they are not on-route campsites and should not be implied as mid-float camping.',
+      ],
+      watchFor: [
+        'Low water below about 200 cfs, when AGFC says the river may be too low to float well.',
+        'Water above 1,000 cfs, which AGFC reserves for experienced floaters only.',
+        'Fast rain rises, strainers, wood after storms, slippery banks, and confusion around private land or informal stop points.',
+        'Class II+ take-out features at the kayak park, especially if the group waits too long to set up the exit.',
+      ],
+    },
+  },
+  'upper-illinois-river-siloam-kayak-park-woka': {
+    putIn: {
+      id: 'siloam-springs-kayak-park',
+      name: 'Siloam Springs Kayak Park',
+      latitude: 36.12361,
+      longitude: -94.51751,
+    },
+    takeOut: {
+      id: 'woka-whitewater-park',
+      name: 'WOKA Whitewater Park',
+      latitude: 36.13388,
+      longitude: -94.5661,
+    },
+    logistics: {
+      distanceLabel: 'About 7.4 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with feature carries, lower water, or shuttle delays',
+      shuttle:
+        'Stage the take-out at WOKA Whitewater Park in Oklahoma, then drive back to Siloam Springs Kayak Park. Scout both whitewater parks before launching so the group has a clear carry-around plan at the start and finish if anyone does not want to run the features.',
+      permits:
+        'No route-specific paddling permit is known, but this is a two-state corridor. Follow Arkansas and Oklahoma boating and PFD rules, note that Oklahoma bars glass and Styrofoam on the Illinois River, and use the named public parks only.',
+      camping:
+        'Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe, Illinois River RV and Campground, and the two whitewater parks as nearby trip-support resources, but this segment is normally handled as a day float.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch from Siloam Springs Kayak Park and take out at WOKA Whitewater Park for the lower Upper Illinois Water Trail segment. This is a guarded route because both endpoints include whitewater-park features even though most of the in-between mileage is gentler current.',
+      accessCaveats: [
+        'Both endpoints are public parks, but both also include Class II+ features that paddlers may need to carry around.',
+        'The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.',
+        'Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.',
+        'This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching.',
+      ],
+      watchFor: [
+        'Low water below about 200 cfs, when AGFC says the river may be too low to float well.',
+        'Water above 1,000 cfs, which AGFC reserves for experienced floaters only and which raises consequence at both whitewater parks.',
+        'Class II+ features at Siloam Springs Kayak Park and WOKA Whitewater Park; scout and carry around anything outside the group skill set.',
+        'Fast rain rises, wood, strainers, slippery concrete or rock around the parks, private-bank issues, and interstate shuttle delays.',
+      ],
+    },
+  },
   'ouachita-river-dragover-west-east': {
     putIn: {
       id: 'dragover-day-use-west-access',
