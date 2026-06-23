@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 14 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 14 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 14 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 17 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 17 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 17 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 15:49 America/Chicago / 2026-06-23 20:49 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 14 live Pennsylvania routes, 14 Pennsylvania trip-detail keys, and 14 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-granville-lewistown-narrows`, `juniata-river-lewistown-narrows-mifflin`, and `juniata-river-newport-howe-township` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide publishes exact Granville, Lewistown Narrows, Mifflin, Newport, and Howe Township Park coordinates, official river-mile spacing, and route-specific caution points; it also lists direct minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport for the lower corridor. Same-day direct USGS Water Services returned `966 cfs / 3.26 ft` at Lewistown (`01564895`) and `1,270 cfs / 3.62 ft` at Newport (`01567000`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Granville-to-Narrows is `on_route_campsite` because Locust Campground sits one mile downstream of the put-in; Lewistown-Narrows-to-Mifflin and Newport-to-Howe-Township stay `none` because no established campsite is identified for those short segments.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful Lewistown and Newport corridor context, but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-23 11:20 America/Chicago / 2026-06-23 16:20 UTC: Pennsylvania three-route implementation pass; added three lower Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 14 live Pennsylvania routes, 14 Pennsylvania trip-detail keys, and 14 implemented Pennsylvania ledger rows before this pass.

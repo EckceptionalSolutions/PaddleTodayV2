@@ -11372,6 +11372,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'juniata-river-granville-lewistown-narrows': {
+    putIn: {
+      id: 'granville-pfbc-ramp',
+      name: 'Granville PFBC ramp',
+      latitude: 40.558333,
+      longitude: -77.603056,
+    },
+    takeOut: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 6.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent easing through the mile-43 ledge zone',
+      shuttle:
+        'Stage the take-out at the Lewistown Narrows PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public ramps before launching because mud, current angle, and parking edges can change after storms.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Locust Campground sits about a mile downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Granville PFBC ramp and take out at Lewistown Narrows PFBC for a longer Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Granville and Lewistown Narrows coordinates directly in the official lower Juniata access table.',
+        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Lewistown Narrows PFBC.',
+        'Eleven broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
+      ],
+    },
+  },
+  'juniata-river-lewistown-narrows-mifflin': {
+    putIn: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    takeOut: {
+      id: 'mifflin-ramp',
+      name: 'Mifflin ramp',
+      latitude: 40.569167,
+      longitude: -77.401111,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr in ordinary conditions, longer if low water forces channel picking or if you pause to inspect the mile-33 current zone',
+      shuttle:
+        'Stage the take-out at the Mifflin ramp first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this Narrows-to-Mifflin segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lewistown Narrows and take out at Mifflin for a middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Lewistown Narrows and Mifflin coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
+        'Use only the named public accesses rather than bridge shoulders or private banks.',
+        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
+        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
+  'juniata-river-newport-howe-township': {
+    putIn: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    takeOut: {
+      id: 'howe-township-park-access',
+      name: 'Howe Township Park access',
+      latitude: 40.490833,
+      longitude: -77.096389,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 2.5 hr in ordinary conditions, longer if low water forces scraping or if you ease carefully through the mile-10.5 ledge zone',
+      shuttle:
+        'Stage the take-out at Howe Township Park first, then drive back upstream to the Newport primitive access. Confirm the intended park-side landing before launching so you do not drift past it while watching the ledge zone.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this short Newport-to-Howe segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Newport and take out at Howe Township Park for a short lower-Juniata link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Newport and Howe Township Park coordinates directly in the official lower Juniata access table.',
+        'Howe Township Park is the intended river-left finish. Confirm same-day park access expectations before using it only as a take-out.',
+        'This is still a broad river despite the short mileage; wind can stall progress if you linger in the open bends.',
+        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Howe Township landing if you relax late in the run.',
+      ],
+    },
+  },
   'goose-creek-jacks-laurel-branch': {
     putIn: {
       id: 'jacks-bowling-branch-bridge-access',
