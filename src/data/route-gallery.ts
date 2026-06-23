@@ -1576,6 +1576,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'susquehanna-river-terrytown-laceyville': [
+    {
+      id: 'susquehanna-river-laceyville-commons',
+      src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
+      alt: 'An aerial view shows the Susquehanna River bending through the Laceyville corridor with wooded banks and open Pennsylvania valley farmland.',
+      caption: 'Susquehanna River near Laceyville',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'susquehanna-river-tunkhannock-whites-ferry': [
     {
       id: 'susquehanna-river-tunkhannock-commons',

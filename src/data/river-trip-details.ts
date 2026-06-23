@@ -4665,6 +4665,158 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-sayre-hornbrook': {
+    putIn: {
+      name: 'Sayre PFBC access',
+      latitude: 41.988333,
+      longitude: -76.611667,
+    },
+    takeOut: {
+      name: 'Larnard Hornbrook Park ramp',
+      latitude: 41.809444,
+      longitude: -76.486111,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, low-water line picking, or a slow shuttle day',
+      shuttle:
+        'Stage the take-out at Larnard Hornbrook Park first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because mud, broad-river current, storm cleanup, or local maintenance can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Hornbrook Park is listed in the PFBC Section 1 corridor camping notes and can support a nearby basecamp-style stay, but this route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Sayre PFBC and take out at Larnard Hornbrook Park for a long upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-274 strainer area closely.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Sayre PFBC and Larnard Hornbrook Park coordinates directly in the official access table.',
+        'This is a long day for a nominally easy big river. PFBC says 15 to 18 miles is more of an experienced-paddler distance around the 2-foot Towanda level.',
+        'Neither endpoint should be treated as a license to stop on arbitrary islands or banks. Stay with the named public accesses and visible public parking areas.',
+        'Hornbrook Park conditions can change with mud, mowing, event use, or flood cleanup. Confirm same-day landing and parking conditions before leaving the shuttle.',
+      ],
+      watchFor: [
+        'Fast riffles at miles 286 and 277, plus fast riffles with a strainer in the mile-274 area flagged by PFBC.',
+        'Towanda stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow riffle lines.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should not be on this corridor above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Hornbrook finish late in a long day.',
+      ],
+    },
+  },
+  'susquehanna-river-towanda-terrytown': {
+    putIn: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a relaxed shuttle day',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Towanda Riverfront Park. Inspect both landings before launching because broad-river mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day float. Riverside Acres Campground is listed in the PFBC Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Towanda Riverfront Park and take out at Terrytown PFBC for a mid-corridor North Branch day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet, and scout the fast-riffle miles downstream of Towanda before committing.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Towanda Riverfront Park and Terrytown PFBC coordinates directly in the official access table.',
+        'This route starts at a stronger town access but still finishes at a gravel PFBC landing. Confirm same-day footing, parking, and any local closures at both ends.',
+        'PFBC treats 15 to 18 miles around the 2-foot Towanda level as more of an experienced-paddler day distance. Do not underrate the time commitment just because the river is broad and mostly open.',
+        'Stay within the named public accesses and do not assume mid-route bars, islands, or informal pull-offs are legitimate take-out substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the lower riverbed funnels current and can create class I to II style wave trains in shallow spots.',
+        'Towanda stages above about 4 feet, when the corridor moves faster and small mistakes at the end of a long day cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the Terrytown PFBC take-out after relaxing into the long flatwater rhythm.',
+      ],
+    },
+  },
+  'susquehanna-river-terrytown-laceyville': {
+    putIn: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    takeOut: {
+      name: 'Laceyville Borough access',
+      latitude: 41.648889,
+      longitude: -76.161111,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Laceyville Borough first, then drive back to the Terrytown PFBC ramp. Inspect both accesses before launching because gravel conditions, mud, flood cleanup, or local traffic can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Endless Mountain Campground sits near the Laceyville end of the official Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Terrytown PFBC and take out at Laceyville Borough for a lower Section 1 Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the fast-riffle miles in the lower half of the run.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Terrytown PFBC and Laceyville Borough coordinates directly in the official access table.',
+        'Laceyville is a carry-in style borough access rather than a huge developed ramp complex. Confirm same-day footing and parking before leaving the shuttle.',
+        'The broad North Branch still has private banks and islands away from the named public accesses. Stay within the obvious public launch and finish zones.',
+        'This route is shorter than Towanda-to-Terrytown but still long enough for wind and current to matter. Do not let the easy label hide the real same-day judgment call.',
+      ],
+      watchFor: [
+        'Fast riffles at mile 249, a long riffle section at mile 247, and more fast riffles at mile 244 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when narrow lower-riverbed spots can create class I to II style wave trains and more exposed rocks.',
+        'Towanda stages above about 4 feet, when current speeds up and the easy public-day framing becomes less forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Laceyville finish because the lower corridor feels mellow until the take-out is suddenly close.',
+      ],
+    },
+  },
+  'susquehanna-river-laceyville-meshoppen': {
+    putIn: {
+      name: 'Laceyville Borough access',
+      latitude: 41.648889,
+      longitude: -76.161111,
+    },
+    takeOut: {
+      name: 'Meshoppen ramp',
+      latitude: 41.608611,
+      longitude: -76.0475,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, low-water line picking, or a relaxed big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the Meshoppen ramp first, then drive back to the Laceyville Borough carry-in. Inspect both accesses before launching because mud, flood cleanup, broad-river current, or local riverbank changes can alter the practical carry and landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Endless Mountain Campground sits just off the river near the Laceyville end of the section and can work as a nearby basecamp, but the route itself should not be treated as open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Laceyville Borough and take out at Meshoppen for an 8-mile upper Wyoming County Susquehanna day. Use the direct Meshoppen stage gauge, keep the day conservative around 6.5 to 9 feet at Meshoppen, and watch for the fast-current hidden-rock mile inside the segment.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both Laceyville Borough and Meshoppen coordinates directly in the official access table.',
+        'Neither access is a large concrete ramp complex. Verify same-day footing, parking, and carry angle before leaving a shuttle vehicle.',
+        'The threshold model is intentionally conservative and derived from PFBCs published Meshoppen base-level relationship rather than a route-specific Meshoppen ladder.',
+        'The broad North Branch still has private banks and islands away from the named accesses. Stay within the obvious public launch and take-out zones.',
+      ],
+      watchFor: [
+        'Fast current and hidden rocks around mile 238, which the PFBC Section 2 caution list places inside this route.',
+        'Long stretches of quicker riffly water at lower stages, headwind across the wide channel, floating wood, and cold-water consequences outside warm midsummer weather.',
+        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go conditions around 12 ft and above based on the official section conversion.',
+        'Thunderstorms, flooded treelines after rain, private shorelines away from the named accesses, and the risk of drifting past the obvious Meshoppen take-out.',
+      ],
+    },
+  },
   'vermilion-river-mill-hollow-vermilion-boat-ramp': {
     putIn: {
       name: 'Mill Hollow / Vermilion River Reservation access',
@@ -10349,44 +10501,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Headwind across the wide lower section, thunderstorms, floating wood, flooded trees after rain, and cold-water consequences outside warm midsummer weather.',
         'Bloomsburg stages above about 4 to 5 ft, when the broader river carries more speed and novice groups have less time to recover from poor line choices or missed landings.',
         'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the day.',
-      ],
-    },
-  },
-  'susquehanna-river-laceyville-meshoppen': {
-    putIn: {
-      name: 'Laceyville Borough access',
-      latitude: 41.648889,
-      longitude: -76.161111,
-    },
-    takeOut: {
-      name: 'Meshoppen ramp',
-      latitude: 41.608611,
-      longitude: -76.0475,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, low-water line picking, or a relaxed big-river shuttle day',
-      shuttle:
-        'Stage the take-out at the Meshoppen ramp first, then drive back to the Laceyville Borough carry-in. Inspect both accesses before launching because mud, flood cleanup, broad-river current, or local riverbank changes can alter the practical carry and landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Endless Mountain Campground sits just off the river near the Laceyville end of the section and can work as a nearby basecamp, but the route itself should not be treated as open riverbank camping.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Laceyville Borough and take out at Meshoppen for an 8-mile upper Wyoming County Susquehanna day. Use the direct Meshoppen stage gauge, keep the day conservative around 6.5 to 9 feet at Meshoppen, and watch for the fast-current hidden-rock mile inside the segment.',
-      accessCaveats: [
-        'PFBC Section 2 publishes both Laceyville Borough and Meshoppen coordinates directly in the official access table.',
-        'Neither access is a large concrete ramp complex. Verify same-day footing, parking, and carry angle before leaving a shuttle vehicle.',
-        'The threshold model is intentionally conservative and derived from PFBCs published Meshoppen base-level relationship rather than a route-specific Meshoppen ladder.',
-        'The broad North Branch still has private banks and islands away from the named accesses. Stay within the obvious public launch and take-out zones.',
-      ],
-      watchFor: [
-        'Fast current and hidden rocks around mile 238, which the PFBC Section 2 caution list places inside this route.',
-        'Long stretches of quicker riffly water at lower stages, headwind across the wide channel, floating wood, and cold-water consequences outside warm midsummer weather.',
-        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go conditions around 12 ft and above based on the official section conversion.',
-        'Thunderstorms, flooded treelines after rain, private shorelines away from the named accesses, and the risk of drifting past the obvious Meshoppen take-out.',
       ],
     },
   },

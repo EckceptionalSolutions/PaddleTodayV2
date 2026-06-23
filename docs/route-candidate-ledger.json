@@ -1379,6 +1379,171 @@
             "updatedAt": "2026-06-23T04:35:00.000Z"
         },
         {
+            "candidateId": "pa-susquehanna-river-sayre-hornbrook",
+            "river": "Susquehanna River",
+            "route": "North Branch: Sayre PFBC to Larnard Hornbrook Park",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:52 America/Chicago / 2026-06-23 15:52 UTC implemented as susquehanna-river-sayre-hornbrook. PFBC North Branch Section 1 publishes Sayre PFBC and Larnard Hornbrook Park as an official 15-mile segment with exact access coordinates, fast-riffle cautions at miles 286 and 277, and a strainer warning near mile 274. Same-day direct USGS 01531500 at Towanda returned 2,550 cfs and 0.79 ft at 2026-06-23 09:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Sayre or Hornbrook access details, the Towanda stage guidance changes materially, USGS 01531500 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 1 guide PDF",
+                "USGS 01531500 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Sayre/Susquehanna review"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Sayre to Hornbrook",
+                "Susquehanna River - Sayre PFBC to Hornbrook Park",
+                "North Branch Section 1 upper Bradford County day trip"
+            ],
+            "v2Slug": "susquehanna-river-sayre-hornbrook",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01531500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA. The route uses stage in feet because PFBC writes the low-water floor, safe-base level, and novice ceiling directly on the Towanda gauge."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 1 says the river can be paddled with Towanda as low as about -0.5 ft, uses about 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft. V2 implements that conservatively as a -0.5 to 5 ft scoreable band with 2 to 4 ft as the easiest planning window."
+            },
+            "endpoints": {
+                "putIn": "Sayre PFBC access",
+                "takeOut": "Larnard Hornbrook Park ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.988333,
+                    -76.611667
+                ],
+                "takeOutCoordinates": [
+                    41.809444,
+                    -76.486111
+                ],
+                "coordinateSource": "PFBC North Branch Section 1 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a long upper-Bradford-County North Branch route.",
+                "Camping stays nearby-basecamp only because Hornbrook Park appears in the corridor camping list but the route itself is still planned as a day trip.",
+                "Hazards carried into implementation: fast riffles at miles 286 and 277, the strainer-prone mile-274 area, broad-river wind, floating wood, private banks, and long-day take-out discipline at Hornbrook.",
+                "No gallery image was added; bounded image review did not surface a clearly rights-clean exact Sayre-to-Hornbrook local asset."
+            ],
+            "updatedAt": "2026-06-23T15:52:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-towanda-terrytown",
+            "river": "Susquehanna River",
+            "route": "North Branch: Towanda Riverfront Park to Terrytown PFBC",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:52 America/Chicago / 2026-06-23 15:52 UTC implemented as susquehanna-river-towanda-terrytown. PFBC North Branch Section 1 publishes Towanda Riverfront Park and Terrytown PFBC as an official 16-mile segment with exact access coordinates and fast-riffle cautions at miles 270, 269, and 268. Same-day direct USGS 01531500 at Towanda returned 2,550 cfs and 0.79 ft at 2026-06-23 09:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Towanda or Terrytown access details, the Towanda stage guidance changes materially, USGS 01531500 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 1 guide PDF",
+                "USGS 01531500 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Towanda Susquehanna aerial review"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Towanda to Terrytown",
+                "Susquehanna River - Towanda Riverfront to Terrytown PFBC",
+                "North Branch Section 1 mid-Bradford County day trip"
+            ],
+            "v2Slug": "susquehanna-river-towanda-terrytown",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01531500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA. The route uses Towanda directly because PFBC writes the corridor's stage guidance around that gauge."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 1 says the river can be paddled with Towanda as low as about -0.5 ft, uses about 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft. V2 uses 2 to 4 ft as the easiest planning band and 5 ft as the conservative novice-oriented top cutoff."
+            },
+            "endpoints": {
+                "putIn": "Towanda Riverfront Park ramp",
+                "takeOut": "Terrytown PFBC ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.768611,
+                    -76.438611
+                ],
+                "takeOutCoordinates": [
+                    41.714167,
+                    -76.281667
+                ],
+                "coordinateSource": "PFBC North Branch Section 1 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a mid-Bradford-County North Branch route.",
+                "Camping stays nearby-basecamp only because Riverside Acres is corridor support rather than part of the access pair.",
+                "Hazards carried into implementation: fast riffles at miles 270, 269, and 268, low-water funnel wave trains, broad-river wind, floating wood, private banks, and long-day take-out discipline at Terrytown.",
+                "No gallery image was added; bounded image review found useful Towanda corridor context but no clearly exact-route local asset was selected in this pass."
+            ],
+            "updatedAt": "2026-06-23T15:52:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-terrytown-laceyville",
+            "river": "Susquehanna River",
+            "route": "North Branch: Terrytown PFBC to Laceyville Borough",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:52 America/Chicago / 2026-06-23 15:52 UTC implemented as susquehanna-river-terrytown-laceyville. PFBC North Branch Section 1 publishes Terrytown PFBC and Laceyville Borough as an official 13-mile segment with exact access coordinates and fast-riffle cautions at miles 249, 247, and 244. Same-day direct USGS 01531500 at Towanda returned 2,550 cfs and 0.79 ft at 2026-06-23 09:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Terrytown or Laceyville access details, the Towanda stage guidance changes materially, USGS 01531500 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 1 guide PDF",
+                "USGS 01531500 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Laceyville Susquehanna aerial file page"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Terrytown to Laceyville",
+                "Susquehanna River - Terrytown PFBC to Laceyville Borough",
+                "North Branch Section 1 lower Bradford County day trip"
+            ],
+            "v2Slug": "susquehanna-river-terrytown-laceyville",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01531500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA. The route uses Towanda directly because PFBC writes the stage guidance around that gauge."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 1 says the river can be paddled with Towanda as low as about -0.5 ft, uses about 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft. V2 implements that conservatively with 2 to 4 ft as the easier planning band."
+            },
+            "endpoints": {
+                "putIn": "Terrytown PFBC ramp",
+                "takeOut": "Laceyville Borough access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.714167,
+                    -76.281667
+                ],
+                "takeOutCoordinates": [
+                    41.648889,
+                    -76.161111
+                ],
+                "coordinateSource": "PFBC North Branch Section 1 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a lower-Bradford-County North Branch route.",
+                "Camping stays nearby-basecamp only because Endless Mountain Campground is corridor support rather than integrated route camping.",
+                "Hazards carried into implementation: fast riffles at miles 249, 247, and 244, low-water funnel wave trains, broad-river wind, floating wood, private banks, and take-out discipline at Laceyville Borough.",
+                "Approved Commons aerial reused at /gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg; Bjoertvedt; CC BY-SA 3.0."
+            ],
+            "updatedAt": "2026-06-23T15:52:00.000Z"
+        },
+        {
             "candidateId": "pa-susquehanna-river-laceyville-meshoppen",
             "river": "Susquehanna River",
             "route": "North Branch: Laceyville Borough to Meshoppen",
