@@ -216,7 +216,6 @@ export default function HomeScreen() {
             isSaved={isSaved}
             onToggleSaved={(river) => void toggleSavedRiver(toSavedRiver(river))}
             onOpen={openBoardRoute}
-            onViewAll={() => openExploreIntent(exploreIntentForMode(mode, Boolean(location)))}
           >
             <ModeTabs
               mode={mode}
@@ -236,7 +235,7 @@ export default function HomeScreen() {
         {zeroReady ? (
           <ZeroReadyActions
             onWeekend={() => router.push('/weekend')}
-            onExplore={() => router.push('/explore')}
+            onExplore={() => openExploreIntent('watch')}
           />
         ) : null}
         <ExploreActionStrip
@@ -272,6 +271,10 @@ export default function HomeScreen() {
           setSearchOpen(false);
           setRouteQuery('');
           router.push('/explore');
+        }}
+        onRequestRoute={() => {
+          setSearchOpen(false);
+          router.push('/request-route');
         }}
         onExploreState={(state) => {
           setSearchOpen(false);
@@ -426,7 +429,6 @@ function RiverCarousel({
   isSaved,
   onToggleSaved,
   onOpen,
-  onViewAll,
   children,
 }: {
   mode: BoardMode;
@@ -435,7 +437,6 @@ function RiverCarousel({
   isSaved: (slug: string) => boolean;
   onToggleSaved: (river: BoardItem) => void;
   onOpen: (river: BoardItem) => void;
-  onViewAll: () => void;
   children: ReactNode;
 }) {
   return (
@@ -443,8 +444,6 @@ function RiverCarousel({
       <SectionHeading
         title={boardIntroTitleForMode(mode)}
         subtitle={sectionSubtitleForMode(mode)}
-        actionLabel="View all"
-        onAction={onViewAll}
       />
       {children}
       <ScrollView
@@ -714,6 +713,7 @@ function RouteSearchModal({
   onClose,
   onOpenRiver,
   onExplore,
+  onRequestRoute,
   onExploreState,
 }: {
   visible: boolean;
@@ -727,6 +727,7 @@ function RouteSearchModal({
   onClose: () => void;
   onOpenRiver: (river: RiverSummaryApiItem) => void;
   onExplore: () => void;
+  onRequestRoute: () => void;
   onExploreState: (state: string) => void;
 }) {
   const active = query.trim().length > 0;
@@ -840,6 +841,9 @@ function RouteSearchModal({
                 <Pressable onPress={onExplore}>
                   <Text style={styles.knownSearchEmptyAction}>Open Explore map</Text>
                 </Pressable>
+                <Pressable style={styles.knownSearchRequestButton} onPress={onRequestRoute}>
+                  <Text style={styles.knownSearchRequestText}>Request a Route</Text>
+                </Pressable>
               </View>
             )}
           </ScrollView>
@@ -858,13 +862,14 @@ function ZeroReadyActions({
 }) {
   return (
     <View style={styles.zeroReadyCard}>
-      <Text style={styles.zeroReadyTitle}>No clean paddles right now</Text>
+      <Text style={styles.zeroReadyTitle}>No clean paddles nearby right now</Text>
+      <Text style={styles.zeroReadyText}>Watch routes may improve as levels and weather change.</Text>
       <View style={styles.zeroReadyActions}>
         <Pressable style={styles.zeroReadyPrimary} onPress={onWeekend}>
           <Text style={styles.zeroReadyPrimaryText}>Check Weekend</Text>
         </Pressable>
         <Pressable style={styles.zeroReadySecondary} onPress={onExplore}>
-          <Text style={styles.zeroReadySecondaryText}>Explore Routes</Text>
+          <Text style={styles.zeroReadySecondaryText}>Explore Watch Routes</Text>
         </Pressable>
       </View>
     </View>
@@ -1587,6 +1592,19 @@ const styles = StyleSheet.create({
   knownSearchEmptyAction: {
     color: colors.accent,
     fontSize: 13,
+    fontWeight: '900',
+  },
+  knownSearchRequestButton: {
+    alignSelf: 'flex-start',
+    borderRadius: radius.pill,
+    backgroundColor: colors.accent,
+    paddingHorizontal: 13,
+    paddingVertical: 8,
+    marginTop: 4,
+  },
+  knownSearchRequestText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
     fontWeight: '900',
   },
   searchModalScreen: {

@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 23 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 23 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 23 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 20 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 20 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 20 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 18:29 America/Chicago / 2026-06-23 23:29 UTC: Pennsylvania three-route implementation pass; added three more North Branch Susquehanna routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 17 live Pennsylvania routes, 17 Pennsylvania trip-detail keys, and 17 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-canal-park-wetlands`, `susquehanna-river-test-track-indian-head`, and `susquehanna-river-tunkhannock-west-falls` from current PFBC North Branch section guides.
+  - Qualification package: PFBC Section 3 supports Canal Park to Wetlands Nature Area with exact access coordinates, official river miles, Wilkes-Barre stage guidance, and the mile-180 rapid below the Nanticoke bridge. PFBC Section 4 supports Test Track Park to Indian Head Campground with exact access coordinates, Bloomsburg stage guidance, and the Berwick bridge ledge warning below `2 ft`. PFBC Section 2 supports Tunkhannock to West Falls with exact access coordinates, the Meshoppen/Towanda stage relationship, and the boulder-field / fast-riffle cautions at miles `215`, `214`, and `210`. Same-day direct USGS Water Services returned `4,130 cfs / 1.31 ft` at Wilkes-Barre (`01536500`) at `2026-06-23 18:45 EDT`, `4,250 cfs / 1.65 ft` at Bloomsburg (`01538700`) at `2026-06-23 18:15 EDT`, and `2,850 cfs / 8.33 ft` at Meshoppen (`01533400`) at `2026-06-23 19:00 EDT`, with same-day Towanda corroboration of `2,950 cfs / 0.94 ft` at `2026-06-23 18:45 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Canal-Park-to-Wetlands stays `none`, Test-Track-to-Indian-Head is `endpoint_campground`, and Tunkhannock-to-West-Falls stays `nearby_basecamp`.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-23 17:07 America/Chicago / 2026-06-23 22:07 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 20 live Pennsylvania routes, 20 Pennsylvania trip-detail keys, and 20 implemented Pennsylvania ledger rows before this pass.

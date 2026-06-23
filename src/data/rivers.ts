@@ -32759,6 +32759,116 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'susquehanna-river-canal-park-wetlands',
+    slug: 'susquehanna-river-canal-park-wetlands',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Canal Park to Wetlands Nature Area',
+    aliases: [
+      'North Branch Susquehanna - Canal Park to Wetlands',
+      'Susquehanna River - Canal Park to Wetlands Nature Area',
+      'North Branch Section 3 full upper corridor day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Longer North Branch Susquehanna day from Canal Park in West Nanticoke to Wetlands Nature Area. The official PFBC Section 3 guide publishes both access coordinates, uses Wilkes-Barre stage guidance for the corridor, and makes the mile-180 rapid below the Nanticoke bridge the clearest route-specific hazard.',
+    statusText:
+      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
+    latitude: 41.154722,
+    longitude: -76.070556,
+    gaugeSource: {
+      id: 'usgs-01536500',
+      provider: 'usgs',
+      siteId: '01536500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Wilkes-Barre, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC flags a long class I-II rapid on river right about one-half mile below the Nanticoke bridge early in this route.',
+        'Once you leave Canal Park, this becomes a committed exposed-river day with headwind, floating wood, and fewer obvious public exits than the first miles suggest.',
+        'Stay with the planned Wetlands Nature Area finish and do not improvise on private banks or islands between the named accesses.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: -0.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says the North Branch often stays paddleable in lower-water periods, but thunderstorms, valley wind, and floating wood still change the same-day feel quickly on this longer Section 3 run.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still an easier broad-river float with named public accesses, but the 14-mile length, exposed headwind risk, and early rapid make it a real day rather than a casual park paddle.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact Canal Park and Wetlands Nature Area coordinates, defines the corridor with official river miles, and writes the section guidance around the direct Wilkes-Barre stage gauge. USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for direct USGS 01536500 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Canal Park to Wetlands Nature Area, about 14 mi',
+        note: 'The PFBC North Branch Section 3 guide places Canal Park at river mile 180 and Wetlands Nature Area at river mile 166.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 3 access table publishes Canal Park at 41 13 12 / -76 01 07 and Wetlands Nature Area at 41 05 22 / -76 07 21.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01536500 at Wilkes-Barre',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for Susquehanna River at Wilkes-Barre, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Wilkes-Barre about 2 ft safe base, 5 ft novice ceiling',
+        note: 'PFBC says the river can still be paddled as low as about -0.5 ft at Wilkes-Barre, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off above about 5 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Mile-180 rapid below the Nanticoke bridge',
+        note: 'The PFBC Section 3 caution list flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 3',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01536500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'susquehanna-river-wetlands-test-track',
     slug: 'susquehanna-river-wetlands-test-track',
     name: 'Susquehanna River',
@@ -33074,6 +33184,116 @@ export const rivers: River[] = [
       {
         label: 'Indian Head Campground access context',
         url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-test-track-indian-head',
+    slug: 'susquehanna-river-test-track-indian-head',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Test Track Park to Indian Head Campground',
+    aliases: [
+      'North Branch Susquehanna - Test Track to Indian Head',
+      'Susquehanna River - Test Track Park to Indian Head Campground',
+      'North Branch Section 4 full upper campground day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Longer North Branch Susquehanna day from Test Track Park to Indian Head Campground. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for same-day planning, and keeps the exposed Berwick ledge warning visible when the gauge is below 2 ft.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 41.0075,
+    longitude: -76.365278,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'This longer open-water corridor can feel slower and more exposed than the map suggests once wind, thunderstorms, or broad-river current stack up.',
+        'Indian Head is the intended finish. Respect campground rules and do not improvise on private banks or side landings near the lower miles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says this broad North Branch corridor often stays paddleable through lower-water periods, but headwind, thunderstorms, and floating wood still change the same-day feel quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is an easier mainstem Susquehanna route when Bloomsburg sits in the conservative band, but the 12-mile length, low-water ledge, and campground-finish discipline make it more than a casual short float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Test Track Park and Indian Head Campground, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for direct USGS 01538700 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Test Track Park to Indian Head Campground, about 12 mi',
+        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and Indian Head Campground at river mile 146.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 4 access table publishes Test Track Park at 41 02 24 / -76 15 40 and Indian Head Campground at 40 58 30 / -76 28 10.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Berwick bridge ledge below 2 ft at Bloomsburg',
+        note: 'The PFBC Section 4 caution list warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
         provider: 'local',
       },
     ],
@@ -34044,6 +34264,121 @@ export const rivers: River[] = [
         label: 'Primary caution',
         value: 'Boulder field and fast riffles around miles 215-214',
         note: 'The PFBC Section 2 caution list flags a boulder field at mile 215 and a long section of fast riffles at mile 214, both inside this route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 2',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01533400 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-tunkhannock-west-falls',
+    slug: 'susquehanna-river-tunkhannock-west-falls',
+    name: 'Susquehanna River',
+    reach: 'North Branch: PFBC Tunkhannock to PFBC West Falls',
+    aliases: [
+      'North Branch Susquehanna - Tunkhannock to West Falls',
+      'Susquehanna River - PFBC Tunkhannock to PFBC West Falls',
+      'North Branch Section 2 lower full day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      "Ten-mile North Branch Susquehanna day from the PFBC Tunkhannock ramp to PFBC West Falls. The official PFBC Section 2 guide publishes both access coordinates, ties the corridor to the Meshoppen/Towanda stage relationship, and flags the boulder-field and fast-riffle miles that matter most in this longer lower run.",
+    statusText:
+      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the easier planning window, with much faster current above 9 ft and novice no-go water around 12 ft and up.",
+    latitude: 41.490833,
+    longitude: -75.8975,
+    gaugeSource: {
+      id: 'usgs-01533400',
+      provider: 'usgs',
+      siteId: '01533400',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'Susquehanna River at Meshoppen, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
+        'This is a broad-river day with a proxy gauge, so make a same-day visual current check at Tunkhannock instead of trusting the number alone near the low or high edge.',
+        'PFBC West Falls is the committed public finish. Do not improvise on islands or private banks if wind or current slows the lower miles.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 6.5,
+      idealMax: 9,
+      tooLow: 6.5,
+      tooHigh: 12,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'derived',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This longer lower Section 2 corridor often stays floatable in summer, but broad-river wind, thunderstorms, and flooded treelines still change the feel of the day quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'The route remains approachable for broad-audience paddlers in the conservative band, but the 10-mile length, repeated riffle zones, and proxy-gauge judgment make it more than a casual short float.',
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact coordinates for PFBC Tunkhannock and PFBC West Falls, defines the corridor with official river miles, and gives the Meshoppen/Towanda stage relationship V2 uses to keep the proxy model conservative. USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft at Meshoppen, with same-day Towanda corroboration at 2,950 cfs and 0.94 ft, during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'PFBC Tunkhannock to PFBC West Falls, about 10 mi',
+        note: "The PFBC North Branch Section 2 guide places PFBC Tunkhannock at river mile 217 and PFBC West Falls at river mile 207.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: "The PFBC Section 2 access table publishes PFBC Tunkhannock at 41 31 20 / -75 56 29 and PFBC West Falls at 41 27 34 / -75 51 13.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Same-section gauge proxy',
+        value: 'USGS 01533400 at Meshoppen',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft at Meshoppen, while same-day Towanda corroboration returned 2,950 cfs and 0.94 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
+      },
+      {
+        label: 'Official stage relationship',
+        value: 'Towanda 2 ft equals Meshoppen 9 ft',
+        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 uses that published relationship to keep the proxy model conservative.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Boulder field at mile 215 and fast riffles at miles 214 and 210',
+        note: 'The PFBC Section 2 caution list flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
         sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
       },
     ],

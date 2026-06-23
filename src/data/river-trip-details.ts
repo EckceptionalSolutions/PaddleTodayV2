@@ -10466,6 +10466,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-canal-park-wetlands': {
+    putIn: {
+      name: 'Canal Park access',
+      latitude: 41.22,
+      longitude: -76.018611,
+    },
+    takeOut: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, lower-water line picking, or extra care around the early rapid and the primitive Wetlands finish',
+      shuttle:
+        'Stage the take-out at Wetlands Nature Area first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Canal Park and take out at Wetlands Nature Area for a full upper Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the mile-180 rapid your first same-day hazard check.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Canal Park and Wetlands Nature Area coordinates directly in the official access table.',
+        'Canal Park is a primitive access on a gravel path and Wetlands is a primitive river-right finish. Confirm same-day footing, parking, and bank angle at both ends before leaving vehicles.',
+        'This route has more committed mileage than the shorter Section 3 slugs. Once you leave the Nanticoke corridor, broad-river wind and a thin exit network can matter more than the flat profile suggests.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and more technical around shallow bars and inside lines.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and muddy footing at the primitive Wetlands finish after a long exposed day.',
+      ],
+    },
+  },
   'susquehanna-river-wetlands-test-track': {
     putIn: {
       name: 'Wetlands Nature Area access',
@@ -10576,6 +10614,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the short mileage can still feel pushy near bends or bridge lines.',
         'Broad-river wind, thunderstorms, floating wood, and muddy or slippery footing at the campground landing after rain.',
         'Private shorelines and islands between the two named endpoints and the chance of overshooting the campground ramp if you are relaxed by the short distance.',
+      ],
+    },
+  },
+  'susquehanna-river-test-track-indian-head': {
+    putIn: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    takeOut: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle around the campground landing',
+      shuttle:
+        'Stage the take-out at Indian Head Campground first, then drive back to Test Track Park. Confirm same-day campground access expectations before launching if your group is only using the site as a take-out rather than staying there.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail route itself as a day float rather than assuming open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Test Track Park and take out at Indian Head Campground for a longer Section 4 North Branch day. Use the direct Bloomsburg gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
+      accessCaveats: [
+        'The PFBC Section 4 guide publishes both Test Track Park and Indian Head Campground coordinates directly in the official access table.',
+        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
+        'This route is materially longer than either adjacent Section 4 slug. Wind, thunderstorms, and a slow campground shuttle can dominate the day more than the current number suggests.',
+        'Stay within named public or customary access areas rather than improvising on nearby private banks or side landings.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the long open-water miles feel less forgiving.',
+        'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at the campground landing after rain, and the risk of overshooting the Indian Head finish if you relax late in the run.',
+        'Private shorelines and islands between the named endpoints and the need to keep enough daylight for the longer shuttle-and-finish day.',
       ],
     },
   },
@@ -10760,6 +10836,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
       watchFor: [
         'The PFBC Section 2 caution list flags a boulder field at mile 215 and long fast riffles at mile 214 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
+        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
+        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
+      ],
+    },
+  },
+  'susquehanna-river-tunkhannock-west-falls': {
+    putIn: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    takeOut: {
+      name: 'PFBC West Falls access',
+      latitude: 41.459444,
+      longitude: -75.853611,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, caution around the riffle zones, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at PFBC West Falls first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the accesses feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor camping options in the broader Section 2 guide, but the Tunkhannock-to-West-Falls route itself should not imply open riverbank camping.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at PFBC Tunkhannock and take out at PFBC West Falls for a fuller lower Section 2 Susquehanna day. The app uses Meshoppen as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field plus the lower fast-riffle miles the main same-day hazard check.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both PFBC Tunkhannock and PFBC West Falls coordinates directly in the official access table.',
+        'This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate West Falls ladder.',
+        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
+        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
         'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
         'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
         'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',

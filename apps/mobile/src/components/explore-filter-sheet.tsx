@@ -308,7 +308,6 @@ function FilterPanel({
   onApplyPreset: (apply: (filters: ExploreFilters) => ExploreFilters) => void;
 }) {
   const [statePickerOpen, setStatePickerOpen] = useState(false);
-  const [showMoreFilters, setShowMoreFilters] = useState(filters.camping !== 'any');
 
   return (
     <View style={styles.filterPanel}>
@@ -397,29 +396,16 @@ function FilterPanel({
         onDismiss={() => setStatePickerOpen(false)}
       />
 
-      <Pressable
-        style={({ pressed }) => [styles.moreFiltersButton, pressed ? styles.selectorRowPressed : null]}
-        onPress={() => setShowMoreFilters((current) => !current)}
-        accessibilityRole="button"
-        accessibilityState={{ expanded: showMoreFilters }}
-      >
-        <Text style={styles.moreFiltersText}>More filters</Text>
-        {filters.camping !== 'any' ? <Text style={styles.moreFiltersBadge}>Camping active</Text> : null}
-        <MaterialCommunityIcons name={showMoreFilters ? 'chevron-up' : 'chevron-down'} color={colors.accent} size={20} />
-      </Pressable>
-
-      {showMoreFilters ? (
-        <FilterGroup title="Camping">
-          {campingOptions.map((option) => (
-            <ChoiceChip
-              key={option.value}
-              label={option.label}
-              selected={filters.camping === option.value}
-              onPress={() => onChange({ ...filters, camping: option.value })}
-            />
-          ))}
-        </FilterGroup>
-      ) : null}
+      <FilterGroup title="Camping">
+        {campingOptions.map((option) => (
+          <ChoiceChip
+            key={option.value}
+            label={option.label}
+            selected={filters.camping === option.value}
+            onPress={() => onChange({ ...filters, camping: option.value })}
+          />
+        ))}
+      </FilterGroup>
 
       <FilterGroup title="Distance" wrap={false}>
         {locationReady ? (
@@ -995,28 +981,6 @@ const styles = StyleSheet.create({
   },
   distanceStopTextSelected: {
     color: colors.surfaceStrong,
-  },
-  moreFiltersButton: {
-    minHeight: 48,
-    borderRadius: radius.md,
-    borderWidth: 1,
-    borderColor: colors.border,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: spacing.md,
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  moreFiltersText: {
-    flex: 1,
-    color: colors.text,
-    fontSize: 14,
-    fontWeight: '900',
-  },
-  moreFiltersBadge: {
-    color: colors.accentDeep,
-    fontSize: 11,
-    fontWeight: '900',
   },
   pickerScrim: {
     flex: 1,
