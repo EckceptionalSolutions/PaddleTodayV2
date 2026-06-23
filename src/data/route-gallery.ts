@@ -676,6 +676,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
+  'vermilion-river-mill-hollow-vermilion-boat-ramp': [
+    {
+      id: 'vermilion-river-birmingham-commons',
+      src: '/gallery/vermilion-river-schoepfle-mill-hollow/vermilion-river-birmingham.jpg',
+      alt: 'The Vermilion River bends through dense summer woods at Schoepfle Garden Metropark near Birmingham.',
+      caption: 'Vermilion River corridor near Birmingham',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
   'la-crosse-river-veterans-holiday-heights': [
     {
       id: 'la-crosse-river-trail-bridge-commons',

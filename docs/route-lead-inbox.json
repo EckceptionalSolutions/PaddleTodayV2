@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-06-23T00:59:26.895Z",
+  "generatedAt": "2026-06-23T01:39:37.367Z",
   "sourceLedger": "docs\\route-candidate-ledger.json",
   "summary": {
-    "totalLedgerCandidates": 537,
-    "currentRouteCount": 292,
+    "totalLedgerCandidates": 540,
+    "currentRouteCount": 295,
     "leadCount": 271,
     "discoveryFocusStates": [
       "South Dakota",
@@ -12,7 +12,6 @@
       "Nebraska",
       "North Dakota",
       "Indiana",
-      "Ohio",
       "Arkansas",
       "Kentucky",
       "Pennsylvania",
@@ -97,21 +96,6 @@
           "Indiana official water trail canoe kayak USGS gauge public access",
           "Indiana state parks canoe kayak river access USGS flow",
           "Indiana American Whitewater USGS public access route"
-        ],
-        "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
-      },
-      {
-        "state": "Ohio",
-        "tier": "undercovered_supported_midwest",
-        "sourceFamilies": [
-          "Ohio DNR water trails and access sites",
-          "county park paddling pages",
-          "USGS gauge clusters"
-        ],
-        "searchQueries": [
-          "Ohio official water trail canoe kayak USGS gauge public access",
-          "Ohio state parks canoe kayak river access USGS flow",
-          "Ohio American Whitewater USGS public access route"
         ],
         "ledgerStrategy": "Seed 2-4 fresh candidates only when a source trail includes public endpoints, a plausible supported live gauge, and numeric threshold evidence or a credible path to it."
       },
@@ -278,7 +262,7 @@
     "byStatus": {
       "implemented": 34,
       "threshold_weak": 109,
-      "added": 209,
+      "added": 212,
       "research_later": 55,
       "blocked_until_date": 13,
       "no_live_gauge": 89,

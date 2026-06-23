@@ -12361,6 +12361,140 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'vermilion-river-mill-hollow-vermilion-boat-ramp',
+    slug: 'vermilion-river-mill-hollow-vermilion-boat-ramp',
+    name: 'Vermilion River',
+    reach: 'Mill Hollow to South Street Boat Ramp',
+    state: 'Ohio',
+    region: 'North Central Ohio',
+    summary:
+      'Lower Vermilion split from the shale-rimmed Mill Hollow corridor into downtown Vermilion, with easy current, a flatter final approach, and direct same-river gauge guidance.',
+    statusText:
+      'Use the Vermilion near Vermilion stage gauge. Treat about 3.0 to 4.25 ft as the best easy-run window, 2.6 ft as the bare runnable floor, and 6 ft as high runnable rather than a broad flatwater recommendation.',
+    latitude: 41.38278,
+    longitude: -82.315,
+    gaugeSource: {
+      id: 'usgs-04199500',
+      provider: 'usgs',
+      siteId: '04199500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Vermilion River near Vermilion, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise'],
+      safetyNotes: [
+        'The lower river is easier than the Birmingham split, but high water can turn bridge abutments, outside bends, and wood into real hazards.',
+        'The final miles flatten and pick up more boat traffic near town; stay alert for wakes and changing wind near the mouth.',
+        'Do not continue into Lake Erie unless open-water conditions, landing options, and group skill all support it.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3,
+      idealMax: 4.25,
+      tooLow: 2.6,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'American Whitewater Vermilion lower reach gauge guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3141/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 9, 10, 11],
+      seasonNotes:
+        'Spring and rain-refreshed fall are the more dependable windows. Summer can get scratchy, and the lower miles are more exposed to flatwater wind and motorboat wakes as you approach town.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'American Whitewater rates the reach Class I, but the last two miles become flatter and the route still needs normal river judgment around wood, bridges, and changing current after rain.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: American Whitewater documents the exact 5.3-mile lower reach, same-river USGS gauge, and numeric range. Lorain County Metro Parks confirms Mill Hollow as a kayak/canoe access point, while the City of Vermilion confirms the South Street public boat ramp and ADA kayak/canoe launch with exact location details.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and difficulty',
+        value: '5.3 miles, Class I',
+        note: 'American Whitewater lists Mill Hollow Park to Vermilion Boat Ramp as a 5.3-mile lower Vermilion reach with Class I difficulty.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3141/main',
+      },
+      {
+        label: 'Published AW range',
+        value: '2.6 to 6.0 ft',
+        note: 'American Whitewater ties the reach to USGS 04199500 and labels 2.6 to 6.0 ft as barely runnable through high runnable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3141/main',
+      },
+      {
+        label: 'Guarded app target',
+        value: '3.0 to 4.25 ft',
+        note: 'The app keeps the preferred window above the bare AW floor because low-end conditions can get scrapier upstream and the flatter lower miles are more worthwhile once the river has some depth.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/3141/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 04199500',
+        note: 'USGS operates the Vermilion River near Vermilion, OH monitoring location used by American Whitewater for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+      },
+      {
+        label: 'Official put-in support',
+        value: 'Mill Hollow / Vermilion River Reservation access',
+        note: 'Lorain County Metro Parks lists Vermilion River Reservation at Mill Hollow and names a kayak and canoe river access point there.',
+        sourceUrl: 'https://www.loraincountymetroparks.com/vermilion-river-reservation',
+      },
+      {
+        label: 'Official take-out support',
+        value: 'South Street Municipal Public Boat Ramp: 41.42019, -82.35665',
+        note: 'The City of Vermilion says the South Street Municipal Public Boat Ramp is on the west side of the Vermilion River and includes an ADA kayak and canoe roller launch facility.',
+        sourceUrl:
+          'https://www.cityofvermilionohio.gov/2025-Main-Menu-Folder/2025-Port-Authority/Public-Boat-Ramp/South-Street-Municipal-Public-Boat-Ramp',
+      },
+      {
+        label: 'Hazards',
+        value: 'Log jams, bridge abutments, motorboat traffic near town',
+        note: 'ODNR water-trail materials warn about a log jam and Route 2 bridge abutments during high water, while the lower city stretch adds marinas, docks, and active boat traffic near the mouth.',
+        sourceUrl: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/VermilionLorainWaterTrail.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Vermilion lower reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/3141/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04199500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04199500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'ODNR Vermilion-Lorain Water Trail PDF',
+        url: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/VermilionLorainWaterTrail.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'Lorain County Metro Parks Vermilion River Reservation',
+        url: 'https://www.loraincountymetroparks.com/vermilion-river-reservation',
+        provider: 'local',
+      },
+      {
+        label: 'City of Vermilion South Street Municipal Public Boat Ramp',
+        url:
+          'https://www.cityofvermilionohio.gov/2025-Main-Menu-Folder/2025-Port-Authority/Public-Boat-Ramp/South-Street-Municipal-Public-Boat-Ramp',
+        provider: 'local',
+      },
+      {
+        label: 'City of Vermilion Port Authority',
+        url: 'https://www.cityofvermilionohio.gov/2025-Main-Menu-Folder/2025-Port-Authority',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'grand-river-harpersfield-hidden-valley',
     slug: 'grand-river-harpersfield-hidden-valley',
     name: 'Grand River',
@@ -12748,6 +12882,127 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'east-fork-little-miami-river-williamsburg-tunnel-mill',
+    slug: 'east-fork-little-miami-river-williamsburg-tunnel-mill',
+    name: 'East Fork Little Miami River',
+    reach: 'Williamsburg Community Park to Tunnel Mill Boat Ramp',
+    state: 'Ohio',
+    region: 'Southwest Ohio',
+    summary:
+      'Short East Fork run above Harsha Lake with wooded park banks, gentle Class I-II current, and a direct Williamsburg gauge. This is a moving-water day trip, not a flatwater lake paddle.',
+    statusText:
+      'Use the Williamsburg gauge. Treat roughly 350 to 900 cfs as the most approachable moving-water window, 250 cfs as the bare runnable floor, and 4000 cfs as high runnable rather than a broad beginner recommendation.',
+    latitude: 39.0519,
+    longitude: -84.0504,
+    gaugeSource: {
+      id: 'usgs-03246500',
+      provider: 'usgs',
+      siteId: '03246500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'East Fork Little Miami River at Williamsburg, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03246500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise'],
+      safetyNotes: [
+        'American Whitewater describes several islands and about a half-dozen Class I-II rapids, so treat this as real moving water rather than a casual inner-tube float.',
+        'Strainers are the main named hazard and can shift after storms or high water.',
+        'The route finishes at the lake edge; avoid drifting past the planned launch into bigger open-water conditions or boat traffic without a separate plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 900,
+      tooLow: 250,
+      tooHigh: 4000,
+      thresholdSource: {
+        label: 'American Whitewater East Fork Williamsburg reach guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10632/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'Spring and rain-refreshed shoulder-season windows are the safest bet. Low summer water can get thin, while post-rain spikes quickly make the current pushier and can carry more wood.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'AW rates the route Class I-II with islands, rapids, and strainers. This is approachable for paddlers with current-reading basics, but it is not a lazy stillwater lap.',
+      confidenceNotes:
+        'Confidence is acceptable for a guarded add: American Whitewater documents the exact Williamsburg-to-Twin-Bridges launch pair, same-river direct gauge, numeric range, and route character. USACE and ODNR support the public East Fork / William H. Harsha Lake recreation and campground context, though the exact river-launch coordinates remain community-sourced rather than park GIS.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and difficulty',
+        value: '4.9 miles, Class I-II',
+        note: 'American Whitewater lists Williamsburg Community Park to the Twin Bridges Road launch ramp above East Fork Lake as a 4.9-mile Class I-II reach.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10632/main',
+      },
+      {
+        label: 'Published AW range',
+        value: '250 to 4000 cfs',
+        note: 'American Whitewater ties the reach to USGS 03246500 and labels 250 to 4000 cfs as barely runnable through high runnable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10632/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03246500',
+        note: 'USGS operates the East Fork Little Miami River at Williamsburg, OH monitoring location used by American Whitewater for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03246500/',
+      },
+      {
+        label: 'Public recreation corridor',
+        value: 'William H. Harsha Lake / East Fork State Park public boating and camping',
+        note: 'USACE says William H. Harsha Lake and East Fork State Park on the East Fork offer boating, camping, and other public recreation, with Ohio DNR operating many of the recreation areas.',
+        sourceUrl: 'https://www.lrd.usace.army.mil/Submit-ArticleCS/Recreation/Article/3641401/william-h-harsha-lake/',
+      },
+      {
+        label: 'Camping support',
+        value: 'East Fork State Park Campground nearby',
+        note: 'USACE says East Fork State Park operates a 416-site class A campground and notes a boat ramp and beach for registered campers.',
+        sourceUrl: 'https://www.lrd.usace.army.mil/Submit-ArticleCS/Recreation/Article/3641401/william-h-harsha-lake/',
+      },
+      {
+        label: 'Hazards',
+        value: 'Islands, Class I-II rapids, strainers, lake-finish exposure',
+        note: 'AW describes several islands, about a half-dozen Class I-II rapids, and mostly avoidable strainers. The public lake and campground pages also show this is part of a larger boating area rather than an isolated creek run.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/10632/main',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater East Fork Williamsburg to Twin Bridges',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/10632/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 03246500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03246500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ohio DNR East Fork State Park',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/east-fork-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'Ohio DNR East Fork State Park Campground',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/east-fork-state-park-campground',
+        provider: 'local',
+      },
+      {
+        label: 'USACE William H. Harsha Lake recreation page',
+        url: 'https://www.lrd.usace.army.mil/Submit-ArticleCS/Recreation/Article/3641401/william-h-harsha-lake/',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'cuyahoga-river-ira-lock-29',
     slug: 'cuyahoga-river-ira-lock-29',
     name: 'Cuyahoga River',
@@ -12865,6 +13120,132 @@ export const rivers: River[] = [
       {
         label: 'NPS Lock 29 River Access',
         url: 'https://www.nps.gov/places/lock-29-river-access.htm',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'cuyahoga-river-lock-29-boston-store',
+    slug: 'cuyahoga-river-lock-29-boston-store',
+    name: 'Cuyahoga River',
+    reach: 'Lock 29 to Boston Store Trailhead',
+    state: 'Ohio',
+    region: 'Cuyahoga Valley',
+    summary:
+      'Short Cuyahoga Valley National Park run from Peninsula to Boston, with an initial Class II pulse that settles into mostly Class I current and an excellent shuttle/public-access story.',
+    statusText:
+      'Use the Jaite gauge. Treat roughly 500 to 1200 cfs as the best beginner-friendly window, 300 cfs as the low runnable floor, and 5000 cfs as American Whitewater’s high runnable ceiling rather than a broad novice recommendation.',
+    latitude: 41.2428,
+    longitude: -81.55067,
+    gaugeSource: {
+      id: 'usgs-04206425',
+      provider: 'usgs',
+      siteId: '04206425',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cuyahoga River at Jaite, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206425/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['low_head_dam', 'whitewater', 'strainers', 'cold_water'],
+      safetyNotes: [
+        'The Lock 29 access is below the main hazard, but the upstream mill race, dam remnant, and waterfall area still matter if you scout or accidentally continue above the access.',
+        'NPS says the initial Class II flow settles into Class I after about half a mile, so newer paddlers should not treat the first bend casually at higher water.',
+        'Cold water, storm wood, and fast rises can quickly change a short park run into a rescue problem.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1200,
+      tooLow: 300,
+      tooHigh: 5000,
+      thresholdSource: {
+        label: 'American Whitewater Cuyahoga Peninsula gauge guidance',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2500/main',
+        provider: 'american_whitewater',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This is a short, flexible shoulder-season and summer route when the Jaite gauge is in range, but recent rain, snowmelt, or cold weather should push you toward more scouting and more conservative group choices.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'AW rates the run Class I-II and calls it a good novice/open-canoe section, but the first half-mile still has enough current, wave trains, and wood potential to require basic moving-water skills.',
+      confidenceNotes:
+        'Confidence is strong for a guarded add: American Whitewater documents the exact Lock 29 to Boston Mills Road reach, direct Jaite gauge, and numeric range. NPS now maintains official river-access pages for both Lock 29 and Boston Store, each with current paddler logistics, while ODNR’s water-trail map corroborates the public CVNP access pair.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Route and difficulty',
+        value: '2.4 miles, Class I-II',
+        note: 'American Whitewater lists the Peninsula reach from OH 303 / Lock 29 to Boston Mills Road as a 2.4-mile Class I-II run.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2500/main',
+      },
+      {
+        label: 'Published AW range',
+        value: '300 to 5000 cfs',
+        note: 'American Whitewater ties the reach to the Jaite gauge and labels 300 to 5000 cfs as barely runnable through high runnable.',
+        sourceUrl: 'https://www.americanwhitewater.org/content/River/view/river-detail/2500/main',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 04206425',
+        note: 'USGS operates the Cuyahoga River at Jaite, OH monitoring location used by American Whitewater for this reach.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206425/',
+      },
+      {
+        label: 'Official put-in support',
+        value: 'Lock 29 Trailhead public river access',
+        note: 'NPS says Lock 29 provides paddlers with access to the Cuyahoga River Water Trail and directs users to park at Lock 29 Trailhead and follow the marked path to the river.',
+        sourceUrl: 'https://www.nps.gov/places/lock-29-river-access.htm',
+      },
+      {
+        label: 'Official take-out support',
+        value: 'Boston Store Trailhead public river access',
+        note: 'NPS says Boston Store Trailhead provides access to the Cuyahoga River Water Trail, with a marked path to the river and nearby visitor information, food, and drinking water.',
+        sourceUrl: 'https://www.nps.gov/places/boston-store-trailhead-river-access.htm',
+      },
+      {
+        label: 'Hazards',
+        value: 'Initial Class II current, upstream dam remnant, strainers',
+        note: 'NPS says the initial Class II flow settles into Class I after half a mile and warns paddlers above the access to stay away from the mill race, waterfall, and dam remnant. AW also notes strainers and a manmade side-channel barrier hazard.',
+        sourceUrl: 'https://www.nps.gov/places/lock-29-river-access.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'American Whitewater Cuyahoga Peninsula reach',
+        url: 'https://www.americanwhitewater.org/content/River/view/river-detail/2500/main',
+        provider: 'american_whitewater',
+      },
+      {
+        label: 'USGS 04206425 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04206425/',
+        provider: 'usgs',
+      },
+      {
+        label: 'NPS Lock 29 River Access',
+        url: 'https://www.nps.gov/places/lock-29-river-access.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Boston Store Trailhead River Access',
+        url: 'https://www.nps.gov/places/boston-store-trailhead-river-access.htm',
+        provider: 'local',
+      },
+      {
+        label: 'NPS Paddling the River',
+        url: 'https://www.nps.gov/cuva/planyourvisit/paddling-the-river.htm',
+        provider: 'local',
+      },
+      {
+        label: 'ODNR Cuyahoga River Water Trail PDF',
+        url: 'https://dam.assets.ohio.gov/image/upload/odnr/watertrails/CuyahogaRiverWaterTrail.pdf',
         provider: 'local',
       },
     ],

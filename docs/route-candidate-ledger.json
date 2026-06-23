@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T00:55:01.000Z",
+    "updatedAt": "2026-06-23T01:40:00.000Z",
     "notes": [
+        "2026-06-22 20:40 America/Chicago / 2026-06-23 01:40 UTC Ohio implementation pass. Added three new internet-sourced Ohio routes: `vermilion-river-mill-hollow-vermilion-boat-ramp`, `east-fork-little-miami-river-williamsburg-tunnel-mill`, and `cuyahoga-river-lock-29-boston-store`. Qualification path: current American Whitewater and official park/water-trail sources documented the exact public-access pairs, same-river direct gauges, and route character for all three. Same-day direct USGS 04199500 on the Vermilion returned 272 cfs / 2.95 ft at 2026-06-22 21:00 EDT against the lower-reach 2.6-6.0 ft AW band; same-day direct USGS 03246500 at Williamsburg returned 165 cfs / 1.58 ft at 2026-06-22 20:45 EDT against the East Fork 250-4000 cfs AW band; same-day direct USGS 04206425 at Jaite returned 796 cfs / 3.70 ft at 2026-06-22 21:00 EDT against the Cuyahoga Peninsula 300-5000 cfs AW band. Added camping and safety/logistics notes for all three routes. Reused the existing rights-clean Vermilion Commons image for the lower split and recorded bounded no-image outcomes for East Fork and the Cuyahoga add.",
         "2026-06-22 19:55 America/Chicago / 2026-06-23 00:55 UTC Arkansas implementation pass. Added three new internet-sourced Arkansas routes: `saline-river-tony-kelly-lyle-park`, `upper-illinois-river-chamber-springs-siloam-kayak-park`, and `upper-illinois-river-siloam-kayak-park-woka`. Qualification path: current AGFC Saline River Water Trail guidance documented the exact Tony Kelly Ford-to-Lyle Park 8.2-mile public segment, direct USGS 07363000 Benton gauge bands of low at 3.5 ft and below, broad paddleable water from 3.6-5.0 ft, and experienced-only water above 5.0 ft; same-day direct USGS 07363000 returned 157 cfs / 3.64 ft at 2026-06-22 19:30 CDT. Current AGFC Upper Illinois River Water Trail guidance documented the exact Chamber Springs-to-Siloam 8.1-mile and Siloam-to-WOKA 7.4-mile public segments, direct USGS 07195400 gauge guidance of 200-1,000 cfs best flow with experienced-only conditions above 1,000 cfs, coordinate-linked public endpoints, nearby basecamp options, and Class II+ carry-around warnings at the kayak parks; same-day direct USGS 07195400 returned 4,920 cfs / 11.74 ft at 2026-06-22 19:00 CDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records bounded Commons and official-page image attempts without a selected rights-clean exact-route asset.",
         "2026-06-22 23:35 America/Chicago / 2026-06-23 04:35 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna water-trail guides: `susquehanna-river-test-track-bloomsburg`, `susquehanna-river-bloomsburg-indian-head`, and `susquehanna-river-indian-head-danville`. Qualification path: PFBC Section 4 published exact access coordinates, river-mile distances, and official Bloomsburg stage guidance showing paddleable conditions as low as 1 ft, faster current from 2-5 ft, and a novice ceiling above 6 ft; PFBC Section 3 added the exposed Berwick ledge warning below 2 ft; same-day direct USGS 01538700 at Bloomsburg returned 4,370 cfs / 1.70 ft at 2026-06-22 18:15 EDT; same-day USGS 01540500 at Danville returned 4,550 cfs / 3.24 ft at 2026-06-22 18:30 EDT as downstream corroboration. Added camping and safety/logistics notes for all three routes. No gallery image was added; image audit records that no rights-clean exact-route asset was selected in this pass.",
         "2026-06-22 18:35 America/Chicago / 2026-06-22 23:35 UTC three-route implementation pass. Added three more internet-sourced Kentucky routes: `south-fork-kentucky-river-bishop-bend-hacker-branch`, `south-fork-kentucky-river-hacker-branch-upper-wolf-creek`, and `levisa-fork-island-creek-cedar-creek`. Qualification path: current KDFWR South Fork page still documented the 3.3-mile Bishop Bend-to-Hacker Branch split and the 2.9-mile Hacker Branch-to-Upper Wolf Creek split, with exact access coordinates and official Booneville bands of `350-900 cfs / 4.8-6.0 ft`; same-day direct USGS 03281500 returned `171 cfs / 4.13 ft` at 2026-06-22 18:30 EDT. Current KDFWR Levisa Fork page still documented the 1.5-mile Island Creek-to-Cedar Creek split, exact access coordinates, and official Pikeville bands of `800-1400 cfs / 7.4-8.5 ft`; same-day direct USGS 03209500 returned `341 cfs` at 2026-06-22 17:30 EDT and `6.56 ft` at 2026-06-22 18:00 EDT. Added camping and safety/logistics notes for all three routes and reused the existing rights-clean South Fork and Levisa gallery assets.",
@@ -10477,6 +10478,152 @@
                 "coordinateSource": "ODNR Vermilion River public access guide PDF: Schoepfle Garden / Birmingham community-center point and Mill Hollow / Vermilion River Reservation Mill Hollow point."
             },
             "notes": "Implemented 2026-05-25. AW gives a clean 8.1-mile route, same-river USGS gauge, and numeric stage guidance; the route now uses a conservative 3.5-4.25 ft preferred band, 2.55 ft floor, and 6 ft high runnable ceiling. ODNR public-access materials resolved the Birmingham / Schoepfle and Mill Hollow coordinates, while Lorain County Metro Parks and ODNR water-trail materials support the public access and hazard context. A Commons image at Schoepfle Garden remains a promising same-reach image lead, but asset rights and final gallery suitability still need review before use."
+        },
+        {
+            "candidateId": "oh-vermilion-river-mill-hollow-south-street-boat-ramp",
+            "river": "Vermilion River",
+            "route": "Mill Hollow to South Street Boat Ramp",
+            "state": "OH",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": null,
+            "retryCondition": "Already implemented as vermilion-river-mill-hollow-vermilion-boat-ramp. Revisit only if a more exact lower-reach paddling image, official threshold updates, or stronger launch-specific GIS metadata appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "American Whitewater Vermilion - Mill Hollow Park to Vermilion Boat Ramp reach",
+                "USGS 04199500 Vermilion River near Vermilion, OH monitoring location",
+                "ODNR Vermilion-Lorain Water Trail PDF",
+                "Lorain County Metro Parks Vermilion River Reservation page",
+                "City of Vermilion South Street Municipal Public Boat Ramp page",
+                "Wikimedia Commons Vermilion River Birmingham Ohio image"
+            ],
+            "aliases": [
+                "Vermilion River - Mill Hollow to Vermilion Boat Ramp",
+                "Vermilion River - Mill Hollow to South Street Boat Launch",
+                "Vermilion - Lower: Mill Hollow Park to Vermilion Boat Ramp"
+            ],
+            "v2Slug": "vermilion-river-mill-hollow-vermilion-boat-ramp",
+            "gauge": {
+                "quality": "direct",
+                "notes": "American Whitewater ties the route to the Vermilion River near Vermilion USGS gauge, station 04199500. The gauge is downstream on the same river and reports live gage height."
+            },
+            "thresholdSupport": {
+                "strength": "strong_community",
+                "notes": "American Whitewater publishes a same-reach gauge range of 2.6-6.0 ft for barely runnable through high runnable Class I water. The app keeps a more useful preferred window of 3.0-4.25 ft because the route gets more worthwhile once the river has enough depth and the flatwater finish is not still scraping."
+            },
+            "endpoints": {
+                "putIn": "Mill Hollow / Vermilion River Reservation access",
+                "takeOut": "South Street Municipal Public Boat Ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 41.38278,
+                    "longitude": -82.315
+                },
+                "takeOutCoordinates": {
+                    "latitude": 41.420188,
+                    "longitude": -82.356651
+                },
+                "coordinateSource": "Lorain County Metro Parks Vermilion River Reservation context plus City of Vermilion South Street ramp map coordinates."
+            },
+            "notes": "Implemented 2026-06-22. AW gives a clean lower-Vermilion route, same-river USGS gauge, and numeric stage guidance. Lorain County Metro Parks confirms Mill Hollow as a kayak/canoe access, and the City of Vermilion confirms the South Street public boat ramp with an ADA kayak/canoe launch and exact map coordinates. Reused the existing rights-clean same-river Birmingham Commons image for corridor context."
+        },
+        {
+            "candidateId": "oh-east-fork-little-miami-river-williamsburg-community-park-tunnel-mill",
+            "river": "East Fork Little Miami River",
+            "route": "Williamsburg Community Park to Tunnel Mill Boat Ramp",
+            "state": "OH",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": null,
+            "retryCondition": "Already implemented as east-fork-little-miami-river-williamsburg-tunnel-mill. Revisit if official launch-specific GIS points or a rights-clean exact-route image becomes available.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "American Whitewater East Fork Little Miami - Williamsburg Community Park to Launch Ramp off Twin Bridges Road reach",
+                "USGS 03246500 East Fork Little Miami River at Williamsburg, OH monitoring location",
+                "Ohio DNR East Fork State Park page",
+                "Ohio DNR East Fork State Park Campground page",
+                "USACE William H. Harsha Lake recreation page"
+            ],
+            "aliases": [
+                "East Fork Little Miami River - Williamsburg Community Park to Twin Bridges Road",
+                "East Fork Little Miami River - Williamsburg to Tunnel Mill",
+                "East Fork - Above East Fork Lake"
+            ],
+            "v2Slug": "east-fork-little-miami-river-williamsburg-tunnel-mill",
+            "gauge": {
+                "quality": "direct",
+                "notes": "American Whitewater ties the route to the direct East Fork Little Miami River at Williamsburg USGS gauge, station 03246500."
+            },
+            "thresholdSupport": {
+                "strength": "strong_community",
+                "notes": "American Whitewater publishes a same-reach 250-4000 cfs barely-runnable to high-runnable range. The app uses a guarded 350-900 cfs preferred window because this is a Class I-II moving-water route with strainers and a lake-edge finish, not a broad beginner-everywhere recommendation."
+            },
+            "endpoints": {
+                "putIn": "Williamsburg Community Park",
+                "takeOut": "Tunnel Mill Boat Ramp / Twin Bridges Road launch",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 39.0519,
+                    "longitude": -84.0504
+                },
+                "takeOutCoordinates": {
+                    "latitude": 39.0344,
+                    "longitude": -84.0682
+                },
+                "coordinateSource": "American Whitewater reach map data, with USACE/ODNR public recreation support for the East Fork / Harsha Lake corridor."
+            },
+            "notes": "Implemented 2026-06-22 as a guarded East Fork moving-water route. AW provides the exact public pair, direct gauge, and Class I-II route character. USACE and ODNR confirm the broader public boating/camping context at William H. Harsha Lake and East Fork State Park. No rights-clean exact-route gallery image was selected in this pass."
+        },
+        {
+            "candidateId": "oh-cuyahoga-river-lock-29-boston-store",
+            "river": "Cuyahoga River",
+            "route": "Lock 29 to Boston Store Trailhead",
+            "state": "OH",
+            "status": "added",
+            "lastReviewed": "2026-06-22",
+            "reviewCount": 1,
+            "blocker": null,
+            "retryCondition": "Already implemented as cuyahoga-river-lock-29-boston-store. Revisit if a rights-clean exact-route image, stronger novice-specific official level guidance, or new NPS access metadata appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "American Whitewater Cuyahoga - OH 303 to Boston Mills Road reach",
+                "USGS 04206425 Cuyahoga River at Jaite, OH monitoring location",
+                "NPS Lock 29 River Access page",
+                "NPS Boston Store Trailhead River Access page",
+                "NPS Paddling the River page",
+                "ODNR Cuyahoga River Water Trail PDF"
+            ],
+            "aliases": [
+                "Cuyahoga River - Peninsula to Boston",
+                "Cuyahoga River - Lock 29 to Boston Mills Road",
+                "Cuyahoga River - OH 303 to Boston Store"
+            ],
+            "v2Slug": "cuyahoga-river-lock-29-boston-store",
+            "gauge": {
+                "quality": "direct",
+                "notes": "American Whitewater ties the route to the Cuyahoga River at Jaite USGS gauge, station 04206425."
+            },
+            "thresholdSupport": {
+                "strength": "strong_community",
+                "notes": "American Whitewater publishes a same-reach 300-5000 cfs barely-runnable to high-runnable range. The app keeps a narrower 500-1200 cfs preferred band because the route is beginner-friendly only when the first half-mile remains manageable and the river is not running like a flood pulse."
+            },
+            "endpoints": {
+                "putIn": "Lock 29 Trailhead river access",
+                "takeOut": "Boston Store Trailhead river access",
+                "coordinatesPresent": true,
+                "putInCoordinates": {
+                    "latitude": 41.2428,
+                    "longitude": -81.55067
+                },
+                "takeOutCoordinates": {
+                    "latitude": 41.2627,
+                    "longitude": -81.55948
+                },
+                "coordinateSource": "NPS Lock 29 and Boston Store river-access pages plus ODNR Cuyahoga River Water Trail mapping."
+            },
+            "notes": "Implemented 2026-06-22 as a short guarded CVNP add. AW provides the exact route, direct Jaite gauge, and broad 300-5000 cfs range; NPS provides current official river-access pages at both ends and explicitly says the initial Class II current settles into Class I by Boston Store. No rights-clean exact-route gallery image was selected in this pass."
         },
         {
             "candidateId": "wi-namekagon-river-earl-park-trego-town-park",

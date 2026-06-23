@@ -4665,6 +4665,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'vermilion-river-mill-hollow-vermilion-boat-ramp': {
+    putIn: {
+      name: 'Mill Hollow / Vermilion River Reservation access',
+      latitude: 41.38278,
+      longitude: -82.315,
+    },
+    takeOut: {
+      name: 'South Street Municipal Public Boat Ramp',
+      latitude: 41.420188,
+      longitude: -82.356651,
+    },
+    logistics: {
+      distanceLabel: '5.3 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr depending on stage, wind, and flatwater pace',
+      shuttle:
+        'Use a short two-car shuttle between Mill Hollow and the South Street public boat ramp in Vermilion. The take-out is easy to identify, but downtown/event traffic can slow pickup logistics on busy summer weekends.',
+      permits:
+        'No route-specific paddling permit is known. Follow Lorain County Metro Parks, City of Vermilion launch-fee, parking, and posted access rules.',
+      camping:
+        'Treat this as a day trip. No on-route camping is assumed for the lower Vermilion into town.',
+      summary:
+        'Launch from Mill Hollow in Vermilion River Reservation and take out at the South Street Municipal Public Boat Ramp. This follows the AW lower Vermilion reach and keeps the run inside the official public river-access pair.',
+      accessCaveats: [
+        'Mill Hollow is an official metro-park river access, but river-edge conditions can change after floods.',
+        'The South Street ramp is a formal city facility with kayak/canoe launching and parking; check current local fees or event restrictions before staging.',
+        'Do not drift past the planned take-out into the Lake Erie mouth unless open-water conditions and your shuttle plan both support it.',
+      ],
+      watchFor: [
+        'Low water and scrapier current near the upstream half if the gauge is only barely above the AW floor.',
+        'Log jams, bridge abutments, and faster current after rain or at high water.',
+        'Flatwater wind, marina traffic, and motorboat wakes near the final miles into Vermilion.',
+      ],
+    },
+  },
   'grand-river-harpersfield-hidden-valley': {
     putIn: {
       name: 'Harpersfield Covered Bridge access',
@@ -4768,6 +4802,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'east-fork-little-miami-river-williamsburg-tunnel-mill': {
+    putIn: {
+      name: 'Williamsburg Community Park',
+      latitude: 39.0519,
+      longitude: -84.0504,
+    },
+    takeOut: {
+      name: 'Tunnel Mill Boat Ramp / Twin Bridges Road launch',
+      latitude: 39.0344,
+      longitude: -84.0682,
+    },
+    logistics: {
+      distanceLabel: '4.9 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 3 hr depending on flow, scouting, and lake-edge wind',
+      shuttle:
+        'Use a short two-car shuttle between Williamsburg Community Park and the Tunnel Mill / Twin Bridges Road launch on East Fork Lake. The take-out is simple once you commit to it, but do not overshoot into broader lake water without a separate plan.',
+      permits:
+        'No route-specific paddling permit is known. Follow East Fork State Park, USACE, and posted local access rules at both ends.',
+      camping:
+        'Nearby basecamp is strong: East Fork State Park Campground is a large developed campground. Reserve separately if you want to turn this into a camp-and-paddle trip.',
+      summary:
+        'Launch at Williamsburg Community Park and take out at the Tunnel Mill / Twin Bridges Road launch above East Fork Lake. This keeps the route on the exact AW moving-water segment rather than turning it into a longer lake paddle.',
+      accessCaveats: [
+        'The route uses American Whitewater’s exact endpoint coordinates, but the public-launch proof is stronger at the park/lake level than as a polished river-specific GIS launch record; verify the final shoreline path on arrival.',
+        'The Tunnel Mill finish sits at the lake edge. Wind, lake chop, and nearby powerboat traffic matter more near the take-out than they do upstream.',
+        'Continuing beyond the take-out changes the route into lake boating and should be treated as a separate trip plan.',
+      ],
+      watchFor: [
+        'Islands, small rapids, and strainers, especially after storms or at higher flows.',
+        'Low-water scraping and tight lines around islands below the preferred range.',
+        'Pushier current, fresh wood, and changing eddies if the Williamsburg gauge rises quickly after rain.',
+      ],
+    },
+  },
   'cuyahoga-river-ira-lock-29': {
     putIn: {
       name: 'Ira Road / Ira Trailhead put-in corridor',
@@ -4800,6 +4868,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Poor or variable urban river water quality; avoid after heavy rain or sewage/water-quality alerts.',
         'Training/play features, shallow attainments, and changing difficulty as the Old Portage gauge rises through the AW range.',
         'Busy Towpath and Lock 29 parking areas during peak park hours.',
+      ],
+    },
+  },
+  'cuyahoga-river-lock-29-boston-store': {
+    putIn: {
+      name: 'Lock 29 Trailhead river access',
+      latitude: 41.2428,
+      longitude: -81.55067,
+    },
+    takeOut: {
+      name: 'Boston Store Trailhead river access',
+      latitude: 41.2627,
+      longitude: -81.55948,
+    },
+    logistics: {
+      distanceLabel: '2.4 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr depending on level, scouting, and shuttle style',
+      shuttle:
+        'Use a very short Cuyahoga Valley shuttle between Lock 29 and Boston Store. The Towpath Trail, nearby parking areas, and seasonal scenic-rail shuttle options make this one of the simpler Ohio river shuttles.',
+      permits:
+        'No route-specific paddling permit is known. Follow Cuyahoga Valley National Park, water-trail, parking, and posted access rules.',
+      camping:
+        'No on-route camping is assumed. Treat this as a short day run inside Cuyahoga Valley National Park.',
+      summary:
+        'Put in at Lock 29 in Peninsula and take out at Boston Store Trailhead. This follows the exact AW Peninsula reach while using the two current NPS river-access sites.',
+      accessCaveats: [
+        'Lock 29 is below the main hazard area, but if you scout upstream or accidentally continue above the access, stay away from the mill race, waterfall, and dam remnant.',
+        'Both ends are busy public trailheads. Plan around peak visitor hours and use the signed launch paths rather than inventing shorter lines down the banks.',
+        'Do not continue below Boston Store without checking the next access pair, gauge assumptions, and any current NPS closures separately.',
+      ],
+      watchFor: [
+        'The initial Class II current below Lock 29 before the run settles into easier Class I water.',
+        'Fresh strainers, cold water, and post-rain push that the gauge alone may not fully price in.',
+        'Rocky carry paths, crowded parking, and bicyclist/pedestrian traffic around the shuttle.',
       ],
     },
   },
