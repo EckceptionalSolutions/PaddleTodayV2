@@ -10391,6 +10391,119 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-canal-park-pfbc-union-township': {
+    putIn: {
+      name: 'Canal Park access',
+      latitude: 41.22,
+      longitude: -76.018611,
+    },
+    takeOut: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time around the rapid below Nanticoke bridge',
+      shuttle:
+        'Stage the take-out at the PFBC Union Township ramp first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because mud, broad-river current, or same-day maintenance can change how easy the landings feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Canal Park and take out at the PFBC Union Township ramp for a short Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-180 rapid below the Nanticoke bridge.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Canal Park and PFBC Union Township coordinates directly in the official access table.',
+        'Canal Park is a primitive access on a gravel path. Confirm same-day footing, parking, and bank angle before leaving a shuttle vehicle.',
+        'Union Township is the intended public finish. Stay with the named access and do not assume broad bars or private banks are legitimate substitutes.',
+        'This is a short route, but broad-river wind can erase much of the mileage advantage on an exposed day.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow lines.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Union Township take-out after relaxing into the wide river.',
+      ],
+    },
+  },
+  'susquehanna-river-pfbc-union-township-wetlands': {
+    putIn: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    takeOut: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle into the Wetlands access road',
+      shuttle:
+        'Stage the take-out at Wetlands Nature Area first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, floating debris, or same-day maintenance can change the landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, nature-area, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the PFBC Union Township ramp and take out at Wetlands Nature Area for a quieter mid-section Susquehanna day. Use the Wilkes-Barre stage gauge and keep the easiest planning days around 2 to 4 feet there.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both PFBC Union Township and Wetlands Nature Area coordinates directly in the official access table.',
+        'Wetlands Nature Area is a primitive river-right finish reached from Hicks Ferry Road. Confirm same-day footing and parking before leaving the shuttle there.',
+        'This route has fewer formal mid-route exit options than the short mileage suggests. Treat the Wetlands finish as committed once you launch.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and line selection matters more around shallow bars.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up and the Wetlands finish becomes less forgiving late in the run; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, muddy footing at the primitive take-out, and private shorelines away from the named accesses.',
+      ],
+    },
+  },
+  'susquehanna-river-wetlands-test-track': {
+    putIn: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    takeOut: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Berwick bridge ledge',
+      shuttle:
+        'Stage the take-out at Test Track Park first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because mud, broad-river current, or same-day park activity can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and banks away from the named accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wetlands Nature Area and take out at Test Track Park for a lower Section 3 Susquehanna day. Use the Bloomsburg stage gauge, keep the easiest planning days around 2 to 4 feet there, and pay attention to the Berwick-Nescopeck bridge ledge warning below 2 feet.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Wetlands Nature Area and Test Track Park coordinates directly in the official access table.',
+        'Test Track Park is the intended public finish for this route. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
+        'This lower route uses Bloomsburg because PFBC ties the main low-water ledge warning to that gauge and says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level in this section.',
+        'Stay within the named public access zones rather than using private banks or informal side landings.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
+        'Bloomsburg stages below about 0 feet, when shallow lines, exposed rocks, and low-water wave trains become more pronounced.',
+        'Bloomsburg stages above about 4 feet, when current speeds up materially; PFBC says novice paddlers should stay off above about 6 feet in this lower part of the section.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the chance of drifting past the obvious Test Track finish if you get relaxed in the wide lower channel.',
+      ],
+    },
+  },
   'susquehanna-river-test-track-bloomsburg': {
     putIn: {
       name: 'Test Track Park',

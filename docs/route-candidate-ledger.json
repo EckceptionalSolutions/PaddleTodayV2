@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T15:20:39.000Z",
+    "updatedAt": "2026-06-23T15:45:00.000Z",
     "notes": [
+        "2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna Section 3 guide: `susquehanna-river-canal-park-pfbc-union-township`, `susquehanna-river-pfbc-union-township-wetlands`, and `susquehanna-river-wetlands-test-track`. Qualification path: PFBC Section 3 published exact Canal Park, PFBC Union Township, Wetlands Nature Area, and Test Track Park coordinates plus the same section-wide stage guidance that treats about `2 ft` as the safe base level, about `-0.5 ft` as low runnable water, and novice no-go water above about `5 ft` at Wilkes-Barre / Towanda or about `6 ft` at Bloomsburg; it also surfaced the long class I-II rapid below the Nanticoke bridge and the Berwick-Nescopeck low-water ledge warning. Same-day direct USGS `01536500` at Wilkes-Barre returned `4,070 cfs / 1.28 ft` at `2026-06-23 10:45 EDT`, and same-day direct USGS `01538700` at Bloomsburg returned `4,350 cfs / 1.69 ft` at `2026-06-23 11:15 EDT` as downstream corroboration. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded Commons and PFBC/USGS image review did not produce a rights-clean exact-route asset.",
         "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the current 2021 North Branch Susquehanna guide: `susquehanna-river-pfbc-danville-wrays`, `susquehanna-river-wrays-shikellamy-west`, and `susquehanna-river-pfbc-danville-shikellamy-west`. Qualification path: the current guide published exact PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates plus Section 13-14 Danville stage guidance of 2 ft lower limit, 4 ft good paddling level, and 7 ft novice ceiling; it also surfaced the lower-corridor Lake Augusta and Sunbury Fabridam caution context. Same-day direct USGS 01540500 at Danville returned 4,480 cfs / 3.22 ft at 2026-06-23 10:30 EDT, with same-day USGS 01538700 at Bloomsburg corroborating downstream corridor conditions at 4,350 cfs / 1.69 ft at 2026-06-23 10:15 EDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded Commons and guide/USGS image review did not produce a rights-clean exact-route asset.",
         "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna Section 2 guide: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`. Qualification path: current PFBC Section 2 published exact Laceyville, Meshoppen, PFBC Tunkhannock, PFBC White's Ferry, and PFBC West Falls access coordinates, explicit caution miles, and the official stage relationship that Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg read about 2 ft; same-day direct USGS 01533400 at Meshoppen returned 2,740 cfs / 8.28 ft at 2026-06-23 09:45 EDT and same-day USGS 01531500 at Towanda returned 2,520 cfs / 0.78 ft at 2026-06-23 08:45 EDT as corridor corroboration. Added camping and safety/logistics notes for all three routes. Wired two rights-clean Commons aerials by Bjoertvedt (CC BY-SA 3.0): a Laceyville corridor image for the upper route and a Tunkhannock/Wyoming County corridor image reused for the two downstream Section 2 adds.",
         "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC Green River implementation pass. Added three new internet-sourced Kentucky routes: `green-river-roachville-russell-ford`, `green-river-dennison-green-river-ferry`, and `green-river-green-river-ferry-houchins`. Qualification path: current KDFWR Pool 6 guidance still documented the exact Roachville-to-Russell 6.6-mile upper-Green segment plus Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft; same-day direct USGS 03306500 returned 0.84 ft at 2026-06-22 21:15 CDT. Current KDFWR and NPS Mammoth Cave pages still documented the Dennison-to-Green River Ferry 7.5/7.6-mile day trip and the Green River Ferry-to-Houchins 12.3/12.4-mile lower-park trip, while the direct in-park USGS 03309000 returned 641 cfs / 9.82 ft at 2026-06-22 16:00 CDT and NPS still framed about 9-15 ft as the beginner-friendly park window with launch closure above 20 ft. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded KDFWR/NPS/USGS image review found useful corridor context but no rights-clean exact-route asset was selected in this pass.",
@@ -1213,6 +1214,171 @@
                 "coordinateSource": "AGFC Upper Illinois River Water Trail public map links."
             },
             "notes": "Implemented on 2026-06-22 as upper-illinois-river-siloam-kayak-park-woka. The route uses the direct Siloam Springs gauge and official AGFC cfs ladder, with current score expected to be far above the general recommendation and whitewater-park carries remaining a central caveat. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "pa-susquehanna-river-canal-park-pfbc-union-township",
+            "river": "Susquehanna River",
+            "route": "North Branch: Canal Park to PFBC Union Township",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC implemented as susquehanna-river-canal-park-pfbc-union-township. PFBC North Branch Section 3 publishes Canal Park and PFBC Union Township as an official 6-mile segment with exact access coordinates, Wilkes-Barre stage guidance, and a long class I-II rapid below the Nanticoke bridge at mile 180. Same-day direct USGS 01536500 at Wilkes-Barre returned 4,070 cfs and 1.28 ft at 2026-06-23 10:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Canal Park or Union Township access details, the Section 3 stage guidance changes materially, USGS 01536500 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 3 guide PDF",
+                "USGS 01536500 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Shickshinny/Susquehanna review"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Canal Park to Union Township",
+                "Susquehanna River - Canal Park to PFBC Union Township",
+                "North Branch Section 3 upper Nanticoke-to-Shickshinny link"
+            ],
+            "v2Slug": "susquehanna-river-canal-park-pfbc-union-township",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01536500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 4,070 cfs and 1.28 ft for Susquehanna River at Wilkes-Barre, PA. The route uses stage in feet because PFBC writes the low-water floor, safe-base level, and novice ceiling for this section around Wilkes-Barre/Towanda base levels."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 3 says the river can be paddled with Towanda and Wilkes-Barre as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda or Wilkes-Barre is over 5 ft. V2 implements that conservatively as a -0.5 to 5 ft scoreable band with 2 to 4 ft as the easiest planning window."
+            },
+            "endpoints": {
+                "putIn": "Canal Park access",
+                "takeOut": "PFBC Union Township ramp",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.22,
+                    -76.018611
+                ],
+                "takeOutCoordinates": [
+                    41.177778,
+                    -76.111389
+                ],
+                "coordinateSource": "PFBC North Branch Section 3 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a short upper Section 3 North Branch route.",
+                "Camping stays none because the official PFBC Section 3 guide says camping on this corridor is none.",
+                "Hazards carried into implementation: the mile-180 long class I-II rapid, broad-river wind, floating wood, private banks, and take-out discipline at Union Township.",
+                "No gallery image was added; bounded image review did not surface a clearly rights-clean exact Canal-Park-to-Union-Township local asset."
+            ],
+            "updatedAt": "2026-06-23T15:45:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-pfbc-union-township-wetlands",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC Union Township to Wetlands Nature Area",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC implemented as susquehanna-river-pfbc-union-township-wetlands. PFBC North Branch Section 3 publishes PFBC Union Township and Wetlands Nature Area as an official 8-mile segment with exact access coordinates and the same Wilkes-Barre stage guidance used for the section. Same-day direct USGS 01536500 at Wilkes-Barre returned 4,070 cfs and 1.28 ft at 2026-06-23 10:45 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Union Township or Wetlands access details, the Section 3 stage guidance changes materially, USGS 01536500 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 3 guide PDF",
+                "USGS 01536500 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Mocanaqua/Susquehanna review"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Union Township to Wetlands",
+                "Susquehanna River - PFBC Union Township to Wetlands Nature Area",
+                "North Branch Section 3 mid-corridor nature-area day trip"
+            ],
+            "v2Slug": "susquehanna-river-pfbc-union-township-wetlands",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01536500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 4,070 cfs and 1.28 ft for Susquehanna River at Wilkes-Barre, PA. The route uses Wilkes-Barre directly because PFBC writes the section's stage guidance around that gauge family."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 3 says the river can be paddled with Towanda and Wilkes-Barre as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda or Wilkes-Barre is over 5 ft. V2 uses 2 to 4 ft as the easiest planning band and 5 ft as the conservative novice-oriented top cutoff."
+            },
+            "endpoints": {
+                "putIn": "PFBC Union Township ramp",
+                "takeOut": "Wetlands Nature Area access",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.177778,
+                    -76.111389
+                ],
+                "takeOutCoordinates": [
+                    41.089444,
+                    -76.1225
+                ],
+                "coordinateSource": "PFBC North Branch Section 3 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a mid-section North Branch route.",
+                "Camping stays none because the official PFBC Section 3 guide says camping on this corridor is none.",
+                "Hazards carried into implementation: broad-river wind, floating wood, primitive Wetlands footing, private banks, and committed take-out discipline once the route is underway.",
+                "No gallery image was added; bounded image review did not surface a clearly rights-clean exact Union-Township-to-Wetlands local asset."
+            ],
+            "updatedAt": "2026-06-23T15:45:00.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-wetlands-test-track",
+            "river": "Susquehanna River",
+            "route": "North Branch: Wetlands Nature Area to Test Track Park",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC implemented as susquehanna-river-wetlands-test-track. PFBC North Branch Section 3 publishes Wetlands Nature Area and Test Track Park as an official 8-mile segment with exact access coordinates and the Berwick-Nescopeck low-water ledge warning tied to the Bloomsburg gauge. Same-day direct USGS 01538700 at Bloomsburg returned 4,350 cfs and 1.69 ft at 2026-06-23 11:15 EDT.",
+            "retryCondition": "Already implemented. Revisit only if PFBC changes the Wetlands or Test Track access details, the Section 3 stage guidance changes materially, USGS 01538700 stops exposing product-ready current stage, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "PFBC North Branch Susquehanna Section 3 guide PDF",
+                "USGS 01538700 Water Services IV same-day check",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Berwick/Susquehanna review"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Wetlands to Test Track",
+                "Susquehanna River - Wetlands Nature Area to Test Track Park",
+                "North Branch Section 3 lower Harding-to-Berwick day trip"
+            ],
+            "v2Slug": "susquehanna-river-wetlands-test-track",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01538700",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 4,350 cfs and 1.69 ft for Susquehanna River at Bloomsburg, PA. The route uses Bloomsburg directly because PFBC ties the lower-section ledge warning to that gauge and says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level in this section."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "PFBC Section 3 says the river can be paddled with Towanda and Wilkes-Barre as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Bloomsburg is over 6 ft in the lower part of this section. V2 keeps that conservative with 2 to 4 ft as the easier planning band."
+            },
+            "endpoints": {
+                "putIn": "Wetlands Nature Area access",
+                "takeOut": "Test Track Park",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    41.089444,
+                    -76.1225
+                ],
+                "takeOutCoordinates": [
+                    41.04,
+                    -76.261111
+                ],
+                "coordinateSource": "PFBC North Branch Section 3 access table publishes both access coordinates directly."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a lower Section 3 North Branch route.",
+                "Camping stays none because the official PFBC Section 3 guide says camping on this corridor is none.",
+                "Hazards carried into implementation: the low-water Berwick-Nescopeck bridge ledge, broad-river wind, floating wood, private banks, and take-out discipline at Test Track before the next downstream section begins.",
+                "No gallery image was added; bounded image review did not surface a clearly rights-clean exact Wetlands-to-Test-Track local asset."
+            ],
+            "updatedAt": "2026-06-23T15:45:00.000Z"
         },
         {
             "candidateId": "pa-susquehanna-river-test-track-bloomsburg",

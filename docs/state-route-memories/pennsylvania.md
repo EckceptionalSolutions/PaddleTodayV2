@@ -4,10 +4,10 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 11 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 11 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 11 implemented rows as of 2026-06-23.
-- Automation posture: add at most one route per run; after the first add, continue rotating only high-confidence Pennsylvania candidates with official access, product-supported live gauge evidence, and numeric thresholds.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 14 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 14 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 14 implemented rows as of 2026-06-23.
+- Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
 
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 10:45 America/Chicago / 2026-06-23 15:45 UTC: Pennsylvania three-route implementation pass; added three Section 3 North Branch routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 11 live Pennsylvania routes, 11 Pennsylvania trip-detail keys, and 11 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-canal-park-pfbc-union-township`, `susquehanna-river-pfbc-union-township-wetlands`, and `susquehanna-river-wetlands-test-track` from the PFBC North Branch Susquehanna Section 3 guide.
+  - Qualification package: PFBC Section 3 publishes exact coordinates for Canal Park, PFBC Union Township, Wetlands Nature Area, and Test Track Park; the same guide writes the safe-base, low-water, and novice-high-water guidance around the Towanda/Wilkes-Barre/Bloomsburg stage relationship; and it flags the two section-specific hazards that matter here, the long class I-II rapid below the Nanticoke bridge and the Berwick-Nescopeck low-water ledge. Same-day direct USGS Water Services returned `4070 cfs / 1.28 ft` at Wilkes-Barre (`01536500`) and `4350 cfs / 1.69 ft` at Bloomsburg (`01538700`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. All three stay `none` for camping because the official Section 3 guide says camping on the river is none, and the route copy keeps private-bank limits explicit.
+  - No gallery image was added; bounded Commons, PFBC guide-imagery, and USGS-media checks did not produce a clearly rights-clean exact Section 3 paddling image.
 
 - 2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC: Pennsylvania three-route implementation pass; added three lower North Branch routes.
   - Rebuilt current inventory from route objects and trip details before editing: 8 live Pennsylvania routes, 8 Pennsylvania trip-detail keys, and 8 implemented Pennsylvania ledger rows before this pass.
