@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 8 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 8 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 8 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 11 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 11 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 11 implemented rows as of 2026-06-23.
 - Automation posture: add at most one route per run; after the first add, continue rotating only high-confidence Pennsylvania candidates with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC: Pennsylvania three-route implementation pass; added three lower North Branch routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 8 live Pennsylvania routes, 8 Pennsylvania trip-detail keys, and 8 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-pfbc-danville-wrays`, `susquehanna-river-wrays-shikellamy-west`, and `susquehanna-river-pfbc-danville-shikellamy-west` from the current 2021 North Branch Susquehanna guide.
+  - Qualification package: the current guide publishes exact access coordinates for PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West; official Danville Section 13-14 stage guidance at `2 ft` lower limit, `4 ft` good paddling level, and `7 ft` novice ceiling; and lower-corridor caution context for Lake Augusta and Sunbury Fabridam. Same-day direct USGS Water Services returned `4480 cfs / 3.22 ft` at Danville (`01540500`) and `4350 cfs / 1.69 ft` at Bloomsburg (`01538700`) on 2026-06-23.
+  - Camping and safety/logistics notes were added for all three routes. Wray's supports endpoint campground classification for the short Danville link and the lower Wray's-to-Shikellamy route, while the full Danville-to-Shikellamy route stays nearby-basecamp only because the corridor campgrounds are support rather than a committed route overnight.
+  - No gallery image was added; bounded Commons, guide-imagery, and USGS-media checks did not produce a clearly rights-clean exact lower Danville/Shikellamy paddling image.
 
 - 2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC: Pennsylvania three-route implementation pass; added three routes.
   - Rebuilt current inventory from route objects and trip details before editing: 5 live Pennsylvania routes, 5 Pennsylvania trip-detail keys, and 5 implemented Pennsylvania ledger rows before this pass.

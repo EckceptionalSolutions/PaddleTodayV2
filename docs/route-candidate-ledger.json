@@ -1,7 +1,8 @@
 {
     "version": 1,
-    "updatedAt": "2026-06-23T14:07:13.000Z",
+    "updatedAt": "2026-06-23T15:20:39.000Z",
     "notes": [
+        "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the current 2021 North Branch Susquehanna guide: `susquehanna-river-pfbc-danville-wrays`, `susquehanna-river-wrays-shikellamy-west`, and `susquehanna-river-pfbc-danville-shikellamy-west`. Qualification path: the current guide published exact PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates plus Section 13-14 Danville stage guidance of 2 ft lower limit, 4 ft good paddling level, and 7 ft novice ceiling; it also surfaced the lower-corridor Lake Augusta and Sunbury Fabridam caution context. Same-day direct USGS 01540500 at Danville returned 4,480 cfs / 3.22 ft at 2026-06-23 10:30 EDT, with same-day USGS 01538700 at Bloomsburg corroborating downstream corridor conditions at 4,350 cfs / 1.69 ft at 2026-06-23 10:15 EDT. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded Commons and guide/USGS image review did not produce a rights-clean exact-route asset.",
         "2026-06-23 09:07 America/Chicago / 2026-06-23 14:07 UTC Pennsylvania implementation pass. Added three new internet-sourced Pennsylvania routes from the PFBC North Branch Susquehanna Section 2 guide: `susquehanna-river-laceyville-meshoppen`, `susquehanna-river-tunkhannock-whites-ferry`, and `susquehanna-river-whites-ferry-west-falls`. Qualification path: current PFBC Section 2 published exact Laceyville, Meshoppen, PFBC Tunkhannock, PFBC White's Ferry, and PFBC West Falls access coordinates, explicit caution miles, and the official stage relationship that Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg read about 2 ft; same-day direct USGS 01533400 at Meshoppen returned 2,740 cfs / 8.28 ft at 2026-06-23 09:45 EDT and same-day USGS 01531500 at Towanda returned 2,520 cfs / 0.78 ft at 2026-06-23 08:45 EDT as corridor corroboration. Added camping and safety/logistics notes for all three routes. Wired two rights-clean Commons aerials by Bjoertvedt (CC BY-SA 3.0): a Laceyville corridor image for the upper route and a Tunkhannock/Wyoming County corridor image reused for the two downstream Section 2 adds.",
         "2026-06-22 22:31 America/Chicago / 2026-06-23 03:31 UTC Green River implementation pass. Added three new internet-sourced Kentucky routes: `green-river-roachville-russell-ford`, `green-river-dennison-green-river-ferry`, and `green-river-green-river-ferry-houchins`. Qualification path: current KDFWR Pool 6 guidance still documented the exact Roachville-to-Russell 6.6-mile upper-Green segment plus Greensburg stage bands of Low below 1.0 ft, Good 1.0-1.75 ft, and High above 1.75 ft; same-day direct USGS 03306500 returned 0.84 ft at 2026-06-22 21:15 CDT. Current KDFWR and NPS Mammoth Cave pages still documented the Dennison-to-Green River Ferry 7.5/7.6-mile day trip and the Green River Ferry-to-Houchins 12.3/12.4-mile lower-park trip, while the direct in-park USGS 03309000 returned 641 cfs / 9.82 ft at 2026-06-22 16:00 CDT and NPS still framed about 9-15 ft as the beginner-friendly park window with launch closure above 20 ft. Added camping and safety/logistics notes for all three routes. No gallery image was added; bounded KDFWR/NPS/USGS image review found useful corridor context but no rights-clean exact-route asset was selected in this pass.",
         "2026-06-22 20:40 America/Chicago / 2026-06-23 01:40 UTC Ohio implementation pass. Added three new internet-sourced Ohio routes: `vermilion-river-mill-hollow-vermilion-boat-ramp`, `east-fork-little-miami-river-williamsburg-tunnel-mill`, and `cuyahoga-river-lock-29-boston-store`. Qualification path: current American Whitewater and official park/water-trail sources documented the exact public-access pairs, same-river direct gauges, and route character for all three. Same-day direct USGS 04199500 on the Vermilion returned 272 cfs / 2.95 ft at 2026-06-22 21:00 EDT against the lower-reach 2.6-6.0 ft AW band; same-day direct USGS 03246500 at Williamsburg returned 165 cfs / 1.58 ft at 2026-06-22 20:45 EDT against the East Fork 250-4000 cfs AW band; same-day direct USGS 04206425 at Jaite returned 796 cfs / 3.70 ft at 2026-06-22 21:00 EDT against the Cuyahoga Peninsula 300-5000 cfs AW band. Added camping and safety/logistics notes for all three routes. Reused the existing rights-clean Vermilion Commons image for the lower split and recorded bounded no-image outcomes for East Fork and the Cuyahoga add.",
@@ -30252,6 +30253,174 @@
                 "coordinateSource": "KDFWR access-detail pages for Jacks / Bowling Branch Bridge and Laurel Branch Road."
             },
             "notes": "Implemented on 2026-06-22 as goose-creek-jacks-laurel-branch. The route uses the direct Manchester gauge and official KDFWR cfs/stage bands, with current score expected to be low while the creek sits well below the good band. No rights-clean route image was approved during this add pass."
+        },
+        {
+            "candidateId": "pa-susquehanna-river-pfbc-danville-wrays",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC Danville to Wray's Riverfront Campground",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC implemented as susquehanna-river-pfbc-danville-wrays. The current 2021 North Branch guide publishes PFBC Danville and Wray's Riverfront Campground as a 4.3-mile lower corridor with exact access coordinates and direct Danville stage guidance. Same-day direct USGS 01540500 returned 4,480 cfs and 3.22 ft at 2026-06-23 10:30 EDT.",
+            "retryCondition": "Already implemented. Revisit only if the guide changes the Danville or Wray's access details, the Danville stage ladder changes materially, the campground access posture changes, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2021 North Branch Susquehanna guide PDF",
+                "USGS 01540500 Water Services IV same-day check",
+                "USGS 01538700 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Danville Susquehanna search results"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Danville to Wray's",
+                "Susquehanna River - PFBC Danville to Wray's Riverfront Campground",
+                "North Branch Section 14 short campground link"
+            ],
+            "v2Slug": "susquehanna-river-pfbc-danville-wrays",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01540500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA. The route uses direct Danville stage because the current guide writes Section 13-14 thresholds around that gauge."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "The current guide lists Danville guidance for Sections 13-14 with a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling."
+            },
+            "endpoints": {
+                "putIn": "PFBC Danville Access",
+                "takeOut": "Wray's Riverfront Campground",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.94349,
+                    -76.598507
+                ],
+                "takeOutCoordinates": [
+                    40.953143,
+                    -76.664439
+                ],
+                "coordinateSource": "The current 2021 North Branch guide publishes both access coordinates directly in the access table."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a short lower-Danville North Branch campground link.",
+                "Camping is endpoint_campground because Wray's is a named endpoint campground in the official guide.",
+                "Hazards carried into implementation: broad-river wind, floating wood, private banks, and managed private-campground take-out expectations at Wray's.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T15:20:39.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-wrays-shikellamy-west",
+            "river": "Susquehanna River",
+            "route": "North Branch: Wray's Riverfront Campground to Shikellamy State Park West",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC implemented as susquehanna-river-wrays-shikellamy-west. The current 2021 North Branch guide publishes Wray's Riverfront Campground and Shikellamy State Park West as an 8.5-mile lower corridor with exact access coordinates, Section 14 Danville threshold support, and lower-corridor caution context for Lake Augusta and Sunbury Fabridam. Same-day direct USGS 01540500 returned 4,480 cfs and 3.22 ft at 2026-06-23 10:30 EDT.",
+            "retryCondition": "Already implemented. Revisit only if the guide changes the Wray's or Shikellamy access details, the Danville proxy fit degrades, the lower-corridor caution package changes materially, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2021 North Branch Susquehanna guide PDF",
+                "USGS 01540500 Water Services IV same-day check",
+                "USGS 01538700 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Shikellamy Susquehanna search results"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Wray's to Shikellamy West",
+                "Susquehanna River - Wray's Riverfront Campground to Shikellamy State Park West",
+                "North Branch Section 14 lower day trip"
+            ],
+            "v2Slug": "susquehanna-river-wrays-shikellamy-west",
+            "gauge": {
+                "quality": "same_section_proxy_with_product_verification",
+                "id": "01540500",
+                "provider": "USGS",
+                "notes": "The current guide writes Section 14 thresholds around Danville, so V2 uses direct USGS 01540500 as the same-section proxy for this lower route. Same-day Danville stage was 3.22 ft, with Bloomsburg 01538700 corroborating at 1.69 ft."
+            },
+            "thresholdSupport": {
+                "strength": "official_same_section_proxy",
+                "notes": "The current guide lists Danville guidance for Sections 13-14 with a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling. V2 applies that official ladder conservatively to the lower Wray's-to-Shikellamy corridor."
+            },
+            "endpoints": {
+                "putIn": "Wray's Riverfront Campground",
+                "takeOut": "Shikellamy State Park West",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.953143,
+                    -76.664439
+                ],
+                "takeOutCoordinates": [
+                    40.883406,
+                    -76.79251
+                ],
+                "coordinateSource": "The current 2021 North Branch guide publishes both access coordinates directly in the access table."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as a lower Section 14 North Branch route.",
+                "Camping is endpoint_campground because Wray's is the named put-in campground in the official guide.",
+                "Hazards carried into implementation: Lake Augusta wind and powerboat wakes, proxy-gauge judgment near thresholds, private banks, and Sunbury Fabridam take-out discipline downstream of the Shikellamy finish.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T15:20:39.000Z"
+        },
+        {
+            "candidateId": "pa-susquehanna-river-pfbc-danville-shikellamy-west",
+            "river": "Susquehanna River",
+            "route": "North Branch: PFBC Danville to Shikellamy State Park West",
+            "state": "PA",
+            "status": "implemented",
+            "lastReviewed": "2026-06-23",
+            "reviewCount": 1,
+            "blocker": "2026-06-23 10:20 America/Chicago / 2026-06-23 15:20 UTC implemented as susquehanna-river-pfbc-danville-shikellamy-west. The current 2021 North Branch guide publishes PFBC Danville and Shikellamy State Park West as a 12.8-mile lower corridor with exact access coordinates, direct Danville stage guidance for Sections 13-14, and lower-corridor caution context for Lake Augusta and Sunbury Fabridam. Same-day direct USGS 01540500 returned 4,480 cfs and 3.22 ft at 2026-06-23 10:30 EDT.",
+            "retryCondition": "Already implemented. Revisit only if the guide changes the Danville or Shikellamy access details, the Danville threshold ladder changes materially, the Fabridam/take-out context changes, or a better exact-route image appears.",
+            "retryDate": null,
+            "sourcesChecked": [
+                "2021 North Branch Susquehanna guide PDF",
+                "USGS 01540500 Water Services IV same-day check",
+                "USGS 01538700 Water Services IV same-day corridor corroboration",
+                "PFBC Pennsylvania launch permit vs boat registration page",
+                "Wikimedia Commons Danville and Shikellamy Susquehanna search results"
+            ],
+            "aliases": [
+                "North Branch Susquehanna - Danville to Shikellamy West",
+                "Susquehanna River - PFBC Danville to Shikellamy State Park West",
+                "North Branch Section 14 full lower day trip"
+            ],
+            "v2Slug": "susquehanna-river-pfbc-danville-shikellamy-west",
+            "gauge": {
+                "quality": "direct_product_verified",
+                "id": "01540500",
+                "provider": "USGS",
+                "notes": "USGS Water Services returned same-day 2026-06-23 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA. The route uses direct Danville stage because the current guide writes the lower-corridor thresholds around that gauge."
+            },
+            "thresholdSupport": {
+                "strength": "official_direct_stage_guidance",
+                "notes": "The current guide lists Danville guidance for Sections 13-14 with a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling."
+            },
+            "endpoints": {
+                "putIn": "PFBC Danville Access",
+                "takeOut": "Shikellamy State Park West",
+                "coordinatesPresent": true,
+                "putInCoordinates": [
+                    40.94349,
+                    -76.598507
+                ],
+                "takeOutCoordinates": [
+                    40.883406,
+                    -76.79251
+                ],
+                "coordinateSource": "The current 2021 North Branch guide publishes both access coordinates directly in the access table."
+            },
+            "notes": [
+                "Implemented on 2026-06-23 as the full lower Danville-to-Shikellamy North Branch route.",
+                "Camping stays nearby-basecamp only because Wray's and Fantasy Island are corridor support options rather than endpoint or committed on-route camping for this access pair.",
+                "Hazards carried into implementation: Lake Augusta wind and powerboat wakes, lower-pool slowdown, private banks, and Sunbury Fabridam take-out discipline downstream of the Shikellamy access zone.",
+                "No rights-clean exact-route image was approved during this add pass."
+            ],
+            "updatedAt": "2026-06-23T15:20:39.000Z"
         },
         {
             "candidateId": "mn-blue-earth-river-rapidan-county-road-90",
