@@ -4817,6 +4817,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-meshoppen-tunkhannock': {
+    putIn: {
+      name: 'Meshoppen ramp',
+      latitude: 41.608611,
+      longitude: -76.0475,
+    },
+    takeOut: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water line picking, or a slower big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the PFBC Tunkhannock ramp first, then drive back to the Meshoppen ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can alter the practical carry and landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Camp Lackawanna sits near mile 226 and is the clearest legal overnight support on this longer upper-half corridor, but camping is by prior arrangement only and the standard route should still be framed as a long day unless that support is secured.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Meshoppen and take out at PFBC Tunkhannock for a long upper Section 2 Susquehanna day. Use the direct Meshoppen gauge, keep the easier planning days around 6.5 to 9 feet there, and expect broad-river wind to matter more than any single rapid feature.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both Meshoppen and PFBC Tunkhannock coordinates directly in the official access table.',
+        'This route uses a conservative stage-conversion model rather than a route-specific Meshoppen ladder. Pay attention to trend, weather, and same-day visual current, not just the single gauge number.',
+        'Camp Lackawanna is useful legal support near the midpoint, but it is not a casual open campsite and requires prior arrangement.',
+        'Stay within the named public accesses rather than using private banks or islands as casual stops.',
+      ],
+      watchFor: [
+        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go water around 12 ft and above based on the official section conversion.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and fatigue from a long exposed mainstem day.',
+        'Lower water near or below about 6.5 ft at Meshoppen, when shallow bars and slower current can stretch the day materially.',
+        'Private shorelines away from the named accesses and the chance of underestimating the final miles into Tunkhannock because the route lacks a standout single hazard marker.',
+      ],
+    },
+  },
   'vermilion-river-mill-hollow-vermilion-boat-ramp': {
     putIn: {
       name: 'Mill Hollow / Vermilion River Reservation access',
@@ -10504,6 +10542,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-pfbc-union-township-test-track': {
+    putIn: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    takeOut: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Nanticoke and Berwick caution zones',
+      shuttle:
+        'Stage the take-out at Test Track Park first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change how practical the landings feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the PFBC Union Township ramp and take out at Test Track Park for a full Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the Nanticoke rapid plus the lower Berwick ledge context part of the same-day check.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both PFBC Union Township and Test Track Park coordinates directly in the official access table.',
+        'This route is materially longer than the shorter Section 3 slugs. Wind, thunderstorms, and the lack of obvious mid-route public exits can matter more than the flat profile suggests.',
+        'Test Track Park is the intended public finish. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when lower-section water is thin.',
+        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and line selection matters more around shallow bars and ledges.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a long exposed mainstem day.',
+      ],
+    },
+  },
   'susquehanna-river-wetlands-test-track': {
     putIn: {
       name: 'Wetlands Nature Area access',
@@ -10614,6 +10690,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the short mileage can still feel pushy near bends or bridge lines.',
         'Broad-river wind, thunderstorms, floating wood, and muddy or slippery footing at the campground landing after rain.',
         'Private shorelines and islands between the two named endpoints and the chance of overshooting the campground ramp if you are relaxed by the short distance.',
+      ],
+    },
+  },
+  'susquehanna-river-bloomsburg-danville': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    takeOut: {
+      name: 'PFBC Danville Access',
+      latitude: 40.943611,
+      longitude: -76.599722,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, slower current, or a careful downstream shuttle into Danville',
+      shuttle:
+        'Stage the take-out at the PFBC Danville ramp first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river current, mud, and same-day maintenance can change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Danville slug should still be planned as a day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at the PFBC Danville ramp for a longer lower Section 4 float. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet, and expect wind and open-river mileage to matter more than the flat profile suggests.',
+      accessCaveats: [
+        'PFBC Section 4 publishes both the PFBC Bloomsburg and PFBC Danville coordinates directly in the official access table.',
+        'This route uses the direct Bloomsburg gauge, with Danville serving as same-day downstream corroboration rather than a second scoring ladder.',
+        'Indian Head Campground is useful legal support near the midpoint, but the intended finish for this slug remains the PFBC Danville ramp.',
+        'Stay within the named public access areas rather than improvising on nearby private banks or islands.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the longer open-water miles feel less forgiving.',
+        'Broad-river wind, thunderstorms, floating wood, flooded trees after rain, and fatigue from a longer lower-corridor day.',
+        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the run.',
+        'Any muddy or slippery footing at Indian Head or Danville if you stop or scout during the trip.',
       ],
     },
   },
