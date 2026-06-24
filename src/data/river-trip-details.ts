@@ -4703,6 +4703,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-hornbrook-towanda': {
+    putIn: {
+      name: 'Larnard Hornbrook Park ramp',
+      latitude: 41.809444,
+      longitude: -76.486111,
+    },
+    takeOut: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind, low-water line picking, or careful approach to the Towanda bridge area',
+      shuttle:
+        'Stage the take-out at Towanda Riverfront Park first, then drive back to Larnard Hornbrook Park. Inspect both accesses before launching because mud, bridge-current push, storm cleanup, or local park activity can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Hornbrook Park can support a nearby basecamp-style stay, but the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Larnard Hornbrook Park and take out at Towanda Riverfront Park for a short upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the mile-274 strainer area plus the Towanda bridge riffles on the same-day checklist.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Larnard Hornbrook Park and Towanda Riverfront Park coordinates directly in the official access table.',
+        'Hornbrook is a park access rather than a huge ramp complex. Confirm same-day footing, parking, and launch angle before leaving the shuttle vehicle.',
+        'Towanda is a stronger town landing, but bridge current and riverfront activity can still complicate the finish if you arrive tired or in rising water.',
+        'Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 flagged by PFBC.',
+        'Towanda stages below about 0 to 1 foot, when the broad channel gets scratchier and more technical around shallow riffle lines.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Towanda take-out near the bridge corridor.',
+      ],
+    },
+  },
   'susquehanna-river-towanda-terrytown': {
     putIn: {
       name: 'Towanda Riverfront Park ramp',
@@ -10618,6 +10656,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-wetlands-bloomsburg': {
+    putIn: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    takeOut: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    logistics: {
+      distanceLabel: 'About 17 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle into Bloomsburg',
+      shuttle:
+        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because muddy footing, broad-river current, and same-day maintenance can change how practical the launch and finish feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wetlands Nature Area and take out at the PFBC Bloomsburg ramp for a long lower-corridor Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier planning around 1 to 4 feet there, and keep the Berwick bridge ledge warning visible whenever the gauge is under 2 feet.',
+      accessCaveats: [
+        'PFBC publishes the Wetlands Nature Area and PFBC Bloomsburg coordinates directly in the current North Branch section guides.',
+        'Wetlands is a primitive river-right launch while Bloomsburg is a formal PFBC landing. Confirm same-day footing, parking, and carry angle before leaving vehicles at either end.',
+        'This route crosses the Section 3 to Section 4 guide boundary but stays on one continuous public-access sequence and one direct lower-corridor stage gauge.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes late in the day.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
+        'Bloomsburg stages above about 4 to 5 feet, when current becomes faster and the long open-water miles feel less forgiving.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a longer exposed mainstem day.',
+        'Any muddy or slippery footing at the primitive Wetlands launch or the Bloomsburg finish after rain or high water cleanup.',
+      ],
+    },
+  },
   'susquehanna-river-test-track-bloomsburg': {
     putIn: {
       name: 'Test Track Park',
@@ -10766,6 +10842,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the long open-water miles feel less forgiving.',
         'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at the campground landing after rain, and the risk of overshooting the Indian Head finish if you relax late in the run.',
         'Private shorelines and islands between the named endpoints and the need to keep enough daylight for the longer shuttle-and-finish day.',
+      ],
+    },
+  },
+  'susquehanna-river-test-track-danville': {
+    putIn: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    takeOut: {
+      name: 'PFBC Danville Access',
+      latitude: 40.943611,
+      longitude: -76.599722,
+    },
+    logistics: {
+      distanceLabel: 'About 20 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle through the lower corridor',
+      shuttle:
+        'Stage the take-out at the PFBC Danville ramp first, then drive back to Test Track Park. Inspect both accesses before launching because broad-river current, mud, campground traffic near the midpoint, and same-day maintenance can all change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, campground, and PFD rules.',
+      camping:
+        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Test-Track-to-Danville slug should still be planned as a long day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Test Track Park and take out at the PFBC Danville ramp for a full lower Section 4 Susquehanna day. Use the direct Bloomsburg stage gauge, keep the easier planning days around 1 to 4 feet there, and treat the Berwick ledge warning plus full-day wind exposure as the key same-day judgment points.',
+      accessCaveats: [
+        'PFBC Section 4 publishes both Test Track Park and PFBC Danville coordinates directly in the official access table.',
+        'This route is materially longer than the adjacent Section 4 slugs. Wind, thunderstorms, and plain endurance can matter more than the current number suggests.',
+        'Indian Head Campground is useful legal support near the midpoint, but the intended finish for this slug remains the PFBC Danville ramp.',
+        'Stay within named public or customary access areas rather than improvising on nearby private banks or side landings.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
+        'Bloomsburg stages above about 4 to 5 feet, when current becomes faster and the long open-water miles feel much less forgiving.',
+        'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at intermediate landings, and fatigue from a long exposed mainstem day.',
+        'Private shorelines, drifting past the obvious Danville finish late in the run, and underestimating how much time the last miles can still take in flat-looking water.',
       ],
     },
   },

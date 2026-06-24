@@ -33094,6 +33094,121 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'susquehanna-river-wetlands-bloomsburg',
+    slug: 'susquehanna-river-wetlands-bloomsburg',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Wetlands Nature Area to PFBC Bloomsburg',
+    aliases: [
+      'North Branch Susquehanna - Wetlands to Bloomsburg',
+      'Susquehanna River - Wetlands Nature Area to Bloomsburg',
+      'North Branch Section 3 to 4 lower full day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Long lower Wyoming Valley to Bloomsburg Susquehanna day from Wetlands Nature Area to the PFBC Bloomsburg ramp. The official PFBC Section 3 and Section 4 guides publish both access coordinates, and the direct Bloomsburg gauge keeps the lower-corridor ledge warning and same-day planning on one product-supported stage source.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official lower-corridor guidance says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 41.043194,
+    longitude: -76.277361,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'This is a long exposed mainstem day. Headwind, thunderstorms, floating wood, and fatigue can matter more than the easy rating suggests.',
+        'The PFBC Bloomsburg ramp is the intended finish. Stay with the named public take-out and do not improvise on private banks or islands late in the run.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 Bloomsburg stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower North Branch often stays paddleable through warm-season low water, but valley wind, thunderstorms, and flooded treelines still change the same-day feel quickly on a long route.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This remains an easier broad-river route in the conservative band, but the 17-mile length, long exposed mileage, and low-water ledge warning make it a real full-day commitment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes the Wetlands Nature Area coordinates, the PFBC Section 4 guide publishes the PFBC Bloomsburg coordinates, and both guides align on the same lower-corridor access sequence. The direct Bloomsburg gauge gives the route one product-supported stage reference, including the mile-specific ledge warning near Berwick. USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for direct USGS 01538700 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Wetlands Nature Area to PFBC Bloomsburg, about 17 mi',
+        note: 'The PFBC North Branch Section 3 and Section 4 guides place Wetlands Nature Area at river mile 166 and PFBC Bloomsburg at river mile 149.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC guides publish Wetlands Nature Area at 41 05 22 / -76 07 21 and PFBC Bloomsburg at 40 59 49 / -76 25 56.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Berwick bridge ledge below 2 ft at Bloomsburg',
+        note: 'The PFBC lower-corridor caution list warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 3',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'susquehanna-river-test-track-bloomsburg',
     slug: 'susquehanna-river-test-track-bloomsburg',
     name: 'Susquehanna River',
@@ -33480,6 +33595,121 @@ export const rivers: River[] = [
         label: 'Direct gauge',
         value: 'USGS 01538700 at Bloomsburg',
         note: 'USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for Susquehanna River at Bloomsburg, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
+        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Downstream corroboration',
+        value: 'USGS 01540500 at Danville',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA, supporting the same-day lower-corridor flow story.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 4',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01538700 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 01540500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-test-track-danville',
+    slug: 'susquehanna-river-test-track-danville',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Test Track Park to PFBC Danville',
+    aliases: [
+      'North Branch Susquehanna - Test Track to Danville',
+      'Susquehanna River - Test Track Park to PFBC Danville',
+      'North Branch Section 4 full lower day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Long lower North Branch Susquehanna day from Test Track Park to the PFBC Danville ramp. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for the same corridor, and Indian Head Campground gives this longer route one clear legal overnight-support option if you want to split it.',
+    statusText:
+      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
+    latitude: 40.991806,
+    longitude: -76.430417,
+    gaugeSource: {
+      id: 'usgs-01538700',
+      provider: 'usgs',
+      siteId: '01538700',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Bloomsburg, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['private_banks'],
+      safetyNotes: [
+        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'This is a long exposed mainstem day. Headwind, thunderstorms, floating wood, and simple fatigue can matter more than the easy rating suggests.',
+        'Danville is the intended finish. Do not improvise on private banks or drift below the public ramp late in the day because the miles feel longer than the map suggests.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 1,
+      idealMax: 4,
+      tooLow: 1,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The broad North Branch usually stays paddleable through warm-season low water, but big-river wind, thunderstorms, and flooded treelines still change the same-day feel quickly on a 20-mile route.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is still an easier mainstem Susquehanna route in the conservative band, but the 20-mile length, low-water ledge, and full-day exposure make it materially more committed than the shorter adjacent slugs.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Test Track Park and PFBC Danville, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft at Bloomsburg during this run, and downstream Danville USGS 01540500 corroborated the lower corridor at 4,480 cfs and 3.22 ft.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Test Track Park to PFBC Danville, about 20 mi',
+        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and PFBC Danville at river mile 138.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 4 access table publishes Test Track Park at 41 02 24 / -76 15 40 and PFBC Danville at 40 56 37 / -76 35 59.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01538700 at Bloomsburg',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for Susquehanna River at Bloomsburg, PA.',
         sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
       },
       {
@@ -34059,6 +34289,116 @@ export const rivers: River[] = [
         label: 'Primary cautions',
         value: 'Fast riffles at miles 286 and 277; strainer area near mile 274',
         note: 'The PFBC Section 1 caution list flags fast riffles at miles 286 and 277 and fast riffles with a strainer in the mile-274 area inside this route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC North Branch Susquehanna Section 1',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 01531500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'susquehanna-river-hornbrook-towanda',
+    slug: 'susquehanna-river-hornbrook-towanda',
+    name: 'Susquehanna River',
+    reach: 'North Branch: Larnard Hornbrook Park to Towanda Riverfront Park',
+    aliases: [
+      'North Branch Susquehanna - Hornbrook to Towanda',
+      'Susquehanna River - Hornbrook Park to Towanda Riverfront',
+      'North Branch Section 1 short Bradford County day trip',
+    ],
+    state: 'Pennsylvania',
+    region: 'North Branch Susquehanna',
+    summary:
+      'Short Bradford County North Branch day from Larnard Hornbrook Park to Towanda Riverfront Park. The official PFBC Section 1 guide publishes both access coordinates, flags the mile-274 strainer area and the fast riffles before Towanda, and ties the route directly to the Towanda gauge.',
+    statusText:
+      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft there is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
+    latitude: 41.789028,
+    longitude: -76.462361,
+    gaugeSource: {
+      id: 'usgs-01531500',
+      provider: 'usgs',
+      siteId: '01531500',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Susquehanna River at Towanda, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'PFBC flags fast riffles with a strainer near mile 274, then more fast riffles before the bridge at mile 270 inside this short route.',
+        'Low water can expose sharper riffle lines, while headwind or thunderstorms can make this feel less casual than the short mileage suggests.',
+        'Towanda Riverfront Park is the intended finish. Do not improvise on private banks or drift past the public landing into town traffic and bridge current.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2,
+      idealMax: 4,
+      tooLow: -0.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
+        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'PFBC says this upper North Branch corridor usually stays paddleable through warm-season low water, but wide-channel wind, thunderstorms, and floating wood still change the same-day feel quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a shorter big-river day in the conservative band, but the strainer-prone riffle zone and the Towanda bridge/current finish still require active same-day judgment.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Larnard Hornbrook Park and Towanda Riverfront Park, defines the corridor with official river miles, and flags the main caution points inside it. The threshold model is direct and official because PFBC writes this low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 2,950 cfs and 0.94 ft for direct USGS 01531500 during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Larnard Hornbrook Park to Towanda Riverfront Park, about 5 mi',
+        note: 'The PFBC North Branch Section 1 guide places Larnard Hornbrook Park at river mile 275 and Towanda Riverfront Park at river mile 270.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC Section 1 access table publishes Larnard Hornbrook Park at 41 48 34 / -76 29 10 and Towanda Riverfront Park at 41 46 07 / -76 26 19.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 01531500 at Towanda',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,950 cfs and 0.94 ft for Susquehanna River at Towanda, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+      },
+      {
+        label: 'Official stage guidance',
+        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
+        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+      },
+      {
+        label: 'Primary cautions',
+        value: 'Mile-274 strainer area and fast riffles before Towanda bridge',
+        note: 'The PFBC Section 1 caution list flags fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 inside this route.',
         sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
       },
     ],
