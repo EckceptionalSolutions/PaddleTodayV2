@@ -39967,4 +39967,330 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'french-creek-wilson-chutes-shaws-landing',
+    slug: 'french-creek-wilson-chutes-shaws-landing',
+    name: 'French Creek',
+    reach: "Lower Section: Wilson Chutes to Shaw's Landing",
+    aliases: [
+      "French Creek - Wilson Chutes to Shaw's Landing",
+      'Lower French Creek - Wilson Chutes to Shaw\'s Landing',
+      'French Creek - Wilson Chutes PFBC to Shaw\'s Landing',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      "Short lower French Creek day from the Wilson Chutes PFBC access to Shaw's Landing. The official lower French Creek guide publishes both public access coordinates and uses the Utica gauge as the conservative lower-section planning reference with a general 2.5 ft minimum.",
+    statusText:
+      "Use the French Creek at Utica gauge as a conservative lower-section reference. The official lower French Creek guide says a general minimum level at Utica is 2.5 ft, though some stretches can remain passable year-round.",
+    latitude: 41.589167,
+    longitude: -80.149722,
+    gaugeSource: {
+      id: 'usgs-03024000',
+      provider: 'usgs',
+      siteId: '03024000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'French Creek at Utica, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC lower guide says French Creek is narrow enough that downed trees and shifting strainers can become a serious same-day hazard.',
+        'Avoid the upstream side of bridge abutments and do not assume a clean line after storms, wood movement, or summer low water.',
+        "Stay with the named public accesses at Wilson Chutes and Shaw's Landing rather than treating private banks as backup exits.",
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.5,
+      thresholdSource: {
+        label: 'PFBC lower French Creek guide minimum Utica gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower French Creek guide says some stretches can paddle year-round, but low summer water still exposes more gravel and makes wood, bridge lines, and shallow riffles less forgiving.',
+      difficulty: 'easy',
+      difficultyNotes:
+        "This is a short public-access float in ordinary conditions, but it still requires active river reading around strainers, bridge current, and same-day wood rather than casual flatwater habits.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower French Creek guide publishes exact coordinates for Wilson Chutes and Shaw's Landing, defines them as a four-mile lower-section access pair, and gives a general minimum level of 2.5 ft at the direct Utica gauge for the same lower corridor. Same-day direct USGS Water Services returned 946 cfs and 3.05 ft at Utica on June 23, 2026, while Meadville upstream corroboration returned 900 cfs and 3.56 ft the same evening.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "Wilson Chutes to Shaw's Landing, about 4 mi",
+        note: "The PFBC lower French Creek guide places Wilson Chutes at river mile 26 and Shaw's Landing at river mile 22.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: "The PFBC lower French Creek guide publishes Wilson Chutes at 41 35 21 / 80 08 59 and Shaw's Landing at 41 32 27 / 80 06 15.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Same-section gauge support',
+        value: 'USGS 03024000 at Utica',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 946 cfs and 3.05 ft for French Creek at Utica, PA, while upstream Meadville corroboration returned 900 cfs and 3.56 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Utica 2.5 ft minimum',
+        note: 'The PFBC lower French Creek guide says a general minimum USGS gauge level at Utica is 2.5 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Strainers and bridge-abutment current',
+        note: 'The PFBC lower guide says French Creek is susceptible to downed trees and warns paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC lower French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03024000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03023100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'french-creek-shaws-landing-utica',
+    slug: 'french-creek-shaws-landing-utica',
+    name: 'French Creek',
+    reach: "Lower Section: Shaw's Landing to Utica Access",
+    aliases: [
+      "French Creek - Shaw's Landing to Utica",
+      'Lower French Creek - Shaw\'s Landing to Utica',
+      'French Creek - Shaw\'s Landing to Utica Access',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      "Twelve-mile lower French Creek day from Shaw's Landing to the Utica PFBC access. The official lower guide publishes both public access coordinates, flags the mile-19 borderline Class I rapid, and ties this corridor directly to the Utica gauge with a conservative 2.5 ft minimum.",
+    statusText:
+      "Use the French Creek at Utica gauge. The official lower French Creek guide says a general minimum level at Utica is 2.5 ft, though some stretches can remain passable year-round.",
+    latitude: 41.540833,
+    longitude: -80.104167,
+    gaugeSource: {
+      id: 'usgs-03024000',
+      provider: 'usgs',
+      siteId: '03024000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'French Creek at Utica, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC lower guide marks a borderline Class I rapid near mile 19 and warns paddlers to stay off the upstream side of bridge abutments.',
+        'French Creek is narrow enough that fresh wood and shifting strainers can materially change the line from trip to trip, especially after storms.',
+        'Stay with the named public accesses and avoid improvising on private banks or rail-side pull-offs if the current or wind slows the trip.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.5,
+      thresholdSource: {
+        label: 'PFBC lower French Creek guide minimum Utica gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower French Creek guide notes that some stretches stay passable year-round, but summer lows still increase gravel contact and make strainers, bridge current, and shallow riffles more consequential.',
+      difficulty: 'easy',
+      difficultyNotes:
+        "This is an approachable public-access day float when the Utica gauge clears the official floor, but the mile-19 rapid, narrow wooded channel, and broad lower bends keep it from being a no-attention drift.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC lower French Creek guide publishes exact coordinates for Shaw's Landing and Utica Access, defines them as a twelve-mile lower-section access pair, and gives a general minimum level of 2.5 ft at the direct Utica gauge for this corridor. Same-day direct USGS Water Services returned 946 cfs and 3.05 ft at Utica on June 23, 2026.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: "Shaw's Landing to Utica Access, about 12 mi",
+        note: "The PFBC lower French Creek guide places Shaw's Landing at river mile 22 and Utica Access at river mile 10.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: "The PFBC lower French Creek guide publishes Shaw's Landing at 41 32 27 / 80 06 15 and Utica Access at 41 26 17 / 79 57 19.",
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 03024000 at Utica',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 946 cfs and 3.05 ft for French Creek at Utica, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Utica 2.5 ft minimum',
+        note: 'The PFBC lower French Creek guide says a general minimum USGS gauge level at Utica is 2.5 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Borderline Class I rapid at mile 19',
+        note: 'The PFBC lower guide identifies a borderline Class I rapid at mile 19 and warns paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC lower French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03024000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'french-creek-utica-franklin',
+    slug: 'french-creek-utica-franklin',
+    name: 'French Creek',
+    reach: 'Lower Section: Utica Access to Franklin Access',
+    aliases: [
+      'French Creek - Utica to Franklin',
+      'Lower French Creek - Utica Access to Franklin',
+      'French Creek - Utica Access to Franklin PFBC',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      'Ten-mile lower French Creek day from the Utica PFBC access to the Franklin PFBC access at the Allegheny confluence. The official lower guide publishes both public access coordinates, flags the mile-3 borderline Class I rapid, and ties the route directly to the Utica gauge with a conservative 2.5 ft minimum.',
+    statusText:
+      "Use the French Creek at Utica gauge. The official lower French Creek guide says a general minimum level at Utica is 2.5 ft, though some stretches can remain passable year-round.",
+    latitude: 41.438056,
+    longitude: -79.955278,
+    gaugeSource: {
+      id: 'usgs-03024000',
+      provider: 'usgs',
+      siteId: '03024000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'French Creek at Utica, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC lower guide marks a borderline Class I rapid near mile 3 and warns paddlers to avoid the upstream side of bridge abutments.',
+        'Fresh wood, narrow creek bends, and faster current around bridge structure can matter more here than the route mileage suggests.',
+        'Franklin is the intended public finish at Elk Street. Do not drift past the planned take-out and into unfamiliar Allegheny traffic or private banks because the confluence looks inviting.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.5,
+      thresholdSource: {
+        label: 'PFBC lower French Creek guide minimum Utica gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower French Creek guide notes that some stretches can remain passable year-round, but summer lows expose more gravel and can make the lower confluence approach slower and more technical.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a straightforward public-access day float when the Utica gauge clears the official floor, but the lower rapid, strainers, and committed Franklin finish still reward active line choice.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC lower French Creek guide publishes exact coordinates for Utica Access and Franklin Access, defines them as a ten-mile lower-section access pair, and gives a general minimum level of 2.5 ft at the direct Utica gauge. Same-day direct USGS Water Services returned 946 cfs and 3.05 ft at Utica on June 23, 2026.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Utica Access to Franklin Access, about 10 mi',
+        note: 'The PFBC lower French Creek guide places Utica Access at river mile 10 and Franklin Access at river mile 0.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC lower French Creek guide publishes Utica Access at 41 26 17 / 79 57 19 and Franklin Access at 41 22 53 / 79 49 12.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 03024000 at Utica',
+        note: 'USGS Water Services returned same-day June 23, 2026 values of 946 cfs and 3.05 ft for French Creek at Utica, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Utica 2.5 ft minimum',
+        note: 'The PFBC lower French Creek guide says a general minimum USGS gauge level at Utica is 2.5 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Borderline Class I rapid at mile 3',
+        note: 'The PFBC lower guide identifies a borderline Class I rapid at mile 3 and warns paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC lower French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-lower.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03024000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
 ];

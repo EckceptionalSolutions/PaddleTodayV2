@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 29 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 29 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 29 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 32 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 32 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 32 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 20:57 America/Chicago / 2026-06-24 01:57 UTC: Pennsylvania three-route implementation pass; added three lower French Creek routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 29 live Pennsylvania routes, 29 Pennsylvania trip-detail keys, and 29 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `french-creek-wilson-chutes-shaws-landing`, `french-creek-shaws-landing-utica`, and `french-creek-utica-franklin` from the PFBC lower French Creek guide.
+  - Qualification package: the PFBC lower French Creek guide publishes exact public access coordinates for Wilson Chutes, Shaw's Landing, Utica Access, and Franklin Access; official river-mile spacing for the chosen 4/12/10-mile day runs; the lower-corridor caution package around strainers, bridge-abutment current, and the borderline Class I rapids at miles `19` and `3`; and the official lower-section minimum gauge floor of `2.5 ft` at Utica. Same-day direct USGS Water Services returned `946 cfs / 3.05 ft` at Utica (`03024000`) at `2026-06-23 21:30 EDT`, with same-day upstream Meadville corroboration of `900 cfs / 3.56 ft` at `2026-06-23 21:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Wilson-Chutes-to-Shaw's-Landing and Shaw's-Landing-to-Utica stay `none`; Utica-to-Franklin is `nearby_basecamp` because nearby Franklin lodging and the Cranberry Township trailhead primitive-camping context can support a basecamp plan without implying on-route camping.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-23 19:57 America/Chicago / 2026-06-24 00:57 UTC: Pennsylvania three-route implementation pass; added three more upper North Branch Susquehanna routes.
   - Rebuilt current inventory from route objects and trip details before editing: 26 live Pennsylvania routes, 26 Pennsylvania trip-detail keys, and 26 implemented Pennsylvania ledger rows before this pass.
