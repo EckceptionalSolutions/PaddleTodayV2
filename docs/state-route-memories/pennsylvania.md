@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 20 as of 2026-06-23 implementation passes.
-- Current Pennsylvania trip-detail objects: 20 as of 2026-06-23.
-- Current Pennsylvania candidate ledger rows: 20 implemented rows as of 2026-06-23.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 29 as of 2026-06-23 implementation passes.
+- Current Pennsylvania trip-detail objects: 29 as of 2026-06-23.
+- Current Pennsylvania candidate ledger rows: 29 implemented rows as of 2026-06-23.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-23 19:57 America/Chicago / 2026-06-24 00:57 UTC: Pennsylvania three-route implementation pass; added three more upper North Branch Susquehanna routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 26 live Pennsylvania routes, 26 Pennsylvania trip-detail keys, and 26 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-sayre-ulster-bridge`, `susquehanna-river-ulster-bridge-wysox-township-park`, and `susquehanna-river-wysox-township-park-terrytown` from the PFBC North Branch Section 1 guide family.
+  - Qualification package: PFBC Section 1 plus the 2021 North Branch guide support Sayre PFBC to Ulster Bridge as an 11.7-mile favorite trip, Ulster Bridge to Wysox Township Park as an 11.3-mile favorite trip, and the Wysox Township Park to Terrytown PFBC public pair through official river miles and exact access coordinates. The same source family publishes Towanda stage guidance of about `-0.5 ft` low runnable, `2 ft` safe-base planning water, and about `5 ft` novice high-water cutoff, plus the Section 1 caution miles at `286`, `277`, `274`, `272`, `270`, `269`, `268`, `267`, `261`, and `258`. Same-day direct USGS Water Services returned `3,000 cfs / 0.96 ft` at Towanda (`01531500`) at `2026-06-23 19:45 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Sayre-to-Ulster is `on_route_campsite` because Harrigan Island is an official primitive campsite and overnight stop; Ulster-to-Wysox is `on_route_campsite` because Hornbrook County Park and Riverside Acres Campground sit on the corridor; and Wysox-to-Terrytown is `on_route_campsite` because Riverside Acres plus the French Azilum overnight stop support a legal split.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks surfaced upper-Bradford corridor context, including a Sayre/Ulster aerial, but no clearly preferred exact-route asset was selected for these three slugs.
 
 - 2026-06-23 18:29 America/Chicago / 2026-06-23 23:29 UTC: Pennsylvania three-route implementation pass; added three more North Branch Susquehanna routes.
   - Rebuilt current inventory from route objects and trip details before editing: 20 live Pennsylvania routes, 20 Pennsylvania trip-detail keys, and 20 implemented Pennsylvania ledger rows before this pass.

@@ -4665,6 +4665,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-sayre-ulster-bridge': {
+    putIn: {
+      name: 'Sayre PFBC access',
+      latitude: 41.988333,
+      longitude: -76.611667,
+    },
+    takeOut: {
+      name: 'Ulster Bridge access',
+      latitude: 41.8525,
+      longitude: -76.497222,
+    },
+    logistics: {
+      distanceLabel: 'About 11.7 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time exploring the Tioga Point corridor from legal stops only',
+      shuttle:
+        'Stage the take-out at Ulster Bridge first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because broad-river mud, current angle, storm cleanup, or local maintenance can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
+      camping:
+        'Harrigan Island is listed by the official water trail as a primitive campsite and overnight stop on this corridor. Treat that as designated on-route camping support only, not as permission to land on arbitrary islands or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sayre PFBC and take out at Ulster Bridge for a shorter upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the Tioga Point riffle miles on the same-day checklist.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Sayre PFBC and Ulster Bridge coordinates directly in the official access tables.',
+        'Harrigan Island is an official stopping point and primitive campsite, but Tioga Point itself is still described as private property except for limited stopping at the point.',
+        'This is still a broad river with private banks and islands outside the named legal stops. Stay with the obvious public accesses and published stopping points only.',
+        'Ulster is a simpler bridge access than the PFBC launch at Sayre. Confirm same-day footing, parking, and landing angle before leaving the shuttle vehicle.',
+      ],
+      watchFor: [
+        'Fast riffles at miles 286 and 277 flagged by PFBC.',
+        'Towanda stages below about 0 to 1 foot, when the upper riffles get scratchier and more technical even on a wide channel.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and accidentally drifting past the intended Ulster finish because the upper river feels calm early.',
+      ],
+    },
+  },
   'susquehanna-river-sayre-hornbrook': {
     putIn: {
       name: 'Sayre PFBC access',
@@ -4700,6 +4738,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Towanda stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow riffle lines.',
         'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should not be on this corridor above about 5 feet.',
         'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Hornbrook finish late in a long day.',
+      ],
+    },
+  },
+  'susquehanna-river-ulster-bridge-wysox-township-park': {
+    putIn: {
+      name: 'Ulster Bridge access',
+      latitude: 41.8525,
+      longitude: -76.497222,
+    },
+    takeOut: {
+      name: 'Wysox Township Park access',
+      latitude: 41.770833,
+      longitude: -76.397778,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr in ordinary conditions, longer with low-water scouting, bridge-current caution, or a windy day across the Towanda corridor',
+      shuttle:
+        'Stage the take-out at Wysox Township Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because broad-river mud, storm cleanup, bridge-current push, or local activity can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, municipal, boating, and PFD rules.',
+      camping:
+        'Larnard Hornbrook County Park and Riverside Acres Campground both sit on this official corridor and can support legal overnight use with current site rules or reservations. Treat that as on-route camping support rather than permission to stop on undeveloped banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ulster Bridge and take out at Wysox Township Park for a route that carries you through the Towanda bridge corridor. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the mile-274 strainer and bridge-current sequence as real same-day hazards.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Ulster Bridge and Wysox Township Park coordinates directly in the official access tables.',
+        'This route includes the Towanda bridge area and its current lines, so do not relax just because the river looks broad and mostly open.',
+        'Wysox Township Park is a stronger park finish with parking and amenities, but it still requires a committed finish discipline rather than ad hoc take-outs on islands or private banks.',
+        'Hornbrook Park and Riverside Acres are helpful legal support on the corridor, but the slug itself still starts at Ulster and ends at Wysox Township Park.',
+      ],
+      watchFor: [
+        'Fast riffles at mile 277, the strainer-prone mile-274 area, fast current under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the bridge-adjacent riffles and shallower lines get more technical and scratchy.',
+        'Towanda stages above about 4 feet, when current speeds up and mistakes near structure cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Wysox finish after the bridge sequence is behind you.',
       ],
     },
   },
@@ -4776,6 +4852,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Towanda stages below about 1 foot, when the lower riverbed funnels current and can create class I to II style wave trains in shallow spots.',
         'Towanda stages above about 4 feet, when the corridor moves faster and small mistakes at the end of a long day cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
         'Headwind, thunderstorms, floating wood, private shorelines, and missing the Terrytown PFBC take-out after relaxing into the long flatwater rhythm.',
+      ],
+    },
+  },
+  'susquehanna-river-wysox-township-park-terrytown': {
+    putIn: {
+      name: 'Wysox Township Park access',
+      latitude: 41.770833,
+      longitude: -76.397778,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 13.6 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or extra time checking the lower fast-riffle sections',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Wysox Township Park. Inspect both landings before launching because mud, flood cleanup, campground traffic, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
+      camping:
+        'Riverside Acres Campground and the French Azilum Historical Site overnight stop are both listed on this official corridor. Treat that as on-route camping support only and not as permission to camp on broad gravel bars, islands, or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Wysox Township Park and take out at Terrytown PFBC for a lower Section 1 Susquehanna day with clean public endpoints. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-267, mile-261, and mile-258 fast-water zones carefully.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Wysox Township Park and Terrytown PFBC coordinates directly in the official access tables.',
+        'This is a public-access route, but French Azilum and Riverside Acres remain support points rather than the planned take-out. Stay committed to the Terrytown PFBC finish unless you have made a deliberate legal overnight plan.',
+        'Terrytown is a gravel PFBC landing rather than a big municipal ramp. Confirm same-day footing, parking, and any local closure or maintenance issues before leaving the shuttle.',
+        'The broad river still has private banks and islands away from the named accesses. Stay within the obvious public launch, campground, and finish zones only.',
+      ],
+      watchFor: [
+        'A long fast-riffle section at mile 267, plus more fast riffles at miles 261 and 258 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when lower-riverbed shallows can create class I to II style wave trains and more exposed rocks.',
+        'Towanda stages above about 4 feet, when current speeds up and the route stops feeling as forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Terrytown PFBC finish after settling into the long lower-corridor rhythm.',
       ],
     },
   },
