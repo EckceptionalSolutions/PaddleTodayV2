@@ -12587,6 +12587,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'french-creek-union-city-dam-cambridge-springs': {
+    putIn: {
+      name: 'Union City Dam access',
+      latitude: 41.919722,
+      longitude: -79.901667,
+    },
+    takeOut: {
+      name: 'Cambridge Springs access',
+      latitude: 41.807222,
+      longitude: -80.043611,
+    },
+    logistics: {
+      distanceLabel: 'About 24 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr in ordinary conditions, longer with lower water, strainers, or extra time managing the long shuttle and carries',
+      shuttle:
+        'Stage the take-out at Cambridge Springs first, then drive back to Union City Dam. Check the Union City launch carry before you leave a vehicle because the PFBC guide puts the access below the dam with a carry down the gravel road.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        'Treat this as a long day float. The PFBC guide says Union City has campsites and Cambridge Springs has a historic inn and dining, so nearby base-camp support exists without implying legal creek-bank camping on this slug.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch below Union City Dam and take out at Cambridge Springs for a long upper French Creek day. The app uses the Meadville gauge conservatively as the upper-corridor planning reference and expects scraping, slower progress, and tighter wood lines whenever the creek falls toward the official 2 ft floor.',
+      accessCaveats: [
+        'The PFBC upper French Creek guide publishes both Union City Dam and Cambridge Springs coordinates directly in the official access chart.',
+        'Union City Dam is the named public launch, but the put-in requires a carry from the parking area below the structure rather than a big developed ramp.',
+        'This is a long headwater day between named public accesses. Do not assume quick bailouts exist off private banks or farm edges.',
+        'Use only the named public accesses rather than bridge shoulders, islands, or private banks.',
+      ],
+      watchFor: [
+        'Narrow headwaters, downed trees, and shifting strainers, which the PFBC guide says are a potentially serious hazard on upper French Creek.',
+        'Current pushing toward bridge abutments and the need to stay off the upstream side of bridge structure.',
+        'Low water near the conservative Meadville 2 ft floor, when gravel bars and shallow riffles stretch the day materially.',
+        'Fatigue, thunderstorms, private shorelines, and the chance of underestimating the mileage because the river is otherwise novice-friendly.',
+      ],
+    },
+  },
+  'french-creek-cambridge-springs-conneautee': {
+    putIn: {
+      name: 'Cambridge Springs access',
+      latitude: 41.807222,
+      longitude: -80.043611,
+    },
+    takeOut: {
+      name: 'Conneautee access',
+      latitude: 41.811111,
+      longitude: -80.078889,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr in ordinary conditions, longer with low-water scraping or time spent clearing around fresh wood',
+      shuttle:
+        'Stage the take-out at Conneautee first, then drive back to Cambridge Springs. Check both public landings before launching because mud, narrow-bank current, and same-day wood can change how simple the short shuttle feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        'Treat this as a short day float. Cambridge Springs offers a historic inn and dining, so nearby base-camp support exists without implying legal creek-bank camping between the two accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Cambridge Springs and take out at Conneautee for a short upper French Creek link. The app uses the Meadville gauge conservatively as the upper-corridor planning reference and expects more scraping and tighter lines whenever the creek falls toward the official 2 ft floor.',
+      accessCaveats: [
+        'The PFBC upper French Creek guide publishes both Cambridge Springs and Conneautee coordinates directly in the official access chart.',
+        'Neither access should be treated as permission to use private banks or roadside pull-offs farther away from the named public landings.',
+        'Short mileage does not remove the need to inspect for same-day wood or narrow headwater strainers before launching.',
+        'Cambridge Springs and Conneautee are the intended public endpoints for this slug. Do not drift past Conneautee looking for informal alternatives.',
+      ],
+      watchFor: [
+        'Narrow headwater turns, downed trees, and shifting strainers after storms.',
+        'Current pushing toward bridge abutments and shallow gravel bars near the low edge.',
+        'Low water near the conservative Meadville 2 ft floor, when scraping and wood avoidance matter more than the easy rating suggests.',
+        'Private shorelines and farm edges away from the named public accesses.',
+      ],
+    },
+  },
+  'french-creek-saegertown-bicentennial-park': {
+    putIn: {
+      name: 'Saegertown access',
+      latitude: 41.708611,
+      longitude: -80.145833,
+    },
+    takeOut: {
+      name: 'Bicentennial Park access',
+      latitude: 41.637222,
+      longitude: -80.162222,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 4 hr in ordinary conditions, longer with lower water, strainers, or extra time around bridge current near Meadville',
+      shuttle:
+        'Stage the take-out at Bicentennial Park first, then drive back to Saegertown. Check both public landings before launching because muddy footing, current angle, and same-day wood can change how straightforward the shuttle feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        'Treat this as a day float. The PFBC guide says Meadville has commercial hotels, restaurants, and taverns, and Saegertown is close to the Woodcock Creek Dam recreation area, so nearby base-camp support exists without implying legal creek-bank camping on this route.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Saegertown and take out at Bicentennial Park in Meadville for a six-mile upper French Creek day. Use the direct Meadville gauge and expect more gravel, wood, and tighter bridge lines whenever the creek falls toward the official 2 ft floor.',
+      accessCaveats: [
+        'The PFBC upper French Creek guide publishes both Saegertown and Bicentennial Park coordinates directly in the official access chart.',
+        'Bicentennial Park is the intended public finish in Meadville. Do not treat city banks outside the park as interchangeable take-outs.',
+        'This route uses the direct Meadville gauge, but the guide still warns that wood and bridge-abutment current can change year to year.',
+        'Use only the named public accesses rather than private banks, city edges, or roadside pull-offs.',
+      ],
+      watchFor: [
+        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious upper-French hazard.',
+        'Current pushing toward bridge abutments on the way into Meadville.',
+        'Low water near the official Meadville 2 ft floor, when gravel and shallow riffles tighten the available lines.',
+        'Private shorelines, same-day storm wood, and the temptation to end early on non-public banks once the town comes into view.',
+      ],
+    },
+  },
   'french-creek-wilson-chutes-shaws-landing': {
     putIn: {
       name: 'Wilson Chutes PFBC access',

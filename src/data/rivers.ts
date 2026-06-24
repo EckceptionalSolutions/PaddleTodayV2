@@ -39968,6 +39968,332 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'french-creek-union-city-dam-cambridge-springs',
+    slug: 'french-creek-union-city-dam-cambridge-springs',
+    name: 'French Creek',
+    reach: 'Upper Section: Union City Dam to Cambridge Springs',
+    aliases: [
+      'French Creek - Union City Dam to Cambridge Springs',
+      'Upper French Creek - Union City Dam to Cambridge Springs',
+      'French Creek - Union City to Cambridge Springs',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      'Long upper French Creek day from the Union City Dam access to Cambridge Springs. The official upper guide publishes both public access coordinates, defines the pair by river miles, and uses the Meadville gauge as the conservative upper-section planning reference with a general 2 ft minimum.',
+    statusText:
+      'Use the French Creek at Meadville gauge as a conservative upper-section reference. The official upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+    latitude: 41.919722,
+    longitude: -79.901667,
+    gaugeSource: {
+      id: 'usgs-03023100',
+      provider: 'usgs',
+      siteId: '03023100',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'French Creek at Meadville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC upper guide says the French Creek headwaters are fairly narrow and susceptible to downed trees and shifting strainers.',
+        'Avoid the upstream side of bridge abutments and do not assume a familiar line is still clear after storms or summer low water.',
+        'This is a long day between named public accesses. Stay with the Union City Dam and Cambridge Springs public landings rather than treating private banks as backup exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.0,
+      thresholdSource: {
+        label: 'PFBC upper French Creek guide Meadville minimum gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper French Creek guide says some stretches can paddle year-round, but the long headwater day gets shallower, woodier, and slower whenever Meadville falls toward the 2 ft floor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long but novice-friendly river day at ordinary levels. The mileage, narrower headwaters, and same-day wood make it more consequential than a short casual float.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC upper French Creek guide publishes exact coordinates for Union City Dam and Cambridge Springs, defines them as a 24-mile upper-section access pair, and gives a general minimum level of 2 ft at the Meadville gauge for the upper corridor. Same-day direct USGS Water Services returned 866 cfs and 3.50 ft at Meadville on June 24, 2026, with downstream Utica corroboration at 1070 cfs and 3.20 ft the same evening.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Union City Dam to Cambridge Springs, about 24 mi',
+        note: 'The PFBC upper French Creek guide places Union City Dam at river mile 74 and Cambridge Springs at river mile 50.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC upper French Creek guide publishes Union City Dam at 41 55 11 / 79 54 06 and Cambridge Springs at 41 48 26 / 80 02 37.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Same-section gauge support',
+        value: 'USGS 03023100 at Meadville',
+        note: 'USGS Water Services returned same-day June 24, 2026 values of 866 cfs and 3.50 ft for French Creek at Meadville, PA, with downstream Utica corroboration of 1070 cfs and 3.20 ft.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Meadville 2 ft minimum',
+        note: 'The PFBC upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Narrow headwaters with strainers',
+        note: 'The PFBC upper guide says the headwaters are fairly narrow, susceptible to downed trees, and require paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC upper French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03023100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03024000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03024000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'french-creek-cambridge-springs-conneautee',
+    slug: 'french-creek-cambridge-springs-conneautee',
+    name: 'French Creek',
+    reach: 'Upper Section: Cambridge Springs to Conneautee',
+    aliases: [
+      'French Creek - Cambridge Springs to Conneautee',
+      'Upper French Creek - Cambridge Springs to Conneautee',
+      'French Creek - Cambridge Springs Access to Conneautee',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      'Short upper French Creek link from Cambridge Springs to the Conneautee confluence access. The official upper guide publishes both public access coordinates, defines the pair by river miles, and uses the Meadville gauge as the conservative upper-section planning reference with a general 2 ft minimum.',
+    statusText:
+      'Use the French Creek at Meadville gauge as a conservative upper-section reference. The official upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+    latitude: 41.807222,
+    longitude: -80.043611,
+    gaugeSource: {
+      id: 'usgs-03023100',
+      provider: 'usgs',
+      siteId: '03023100',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'proxy',
+      siteName: 'French Creek at Meadville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC upper guide says this headwater corridor is narrow enough that downed trees and shifting strainers can materially change the line from trip to trip.',
+        'Avoid the upstream side of bridge abutments and do not assume the short mileage makes this a zero-attention float when water is low or wood is fresh.',
+        'Stay with the named Cambridge Springs and Conneautee public accesses rather than improvising on private banks or roadside pull-offs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.0,
+      thresholdSource: {
+        label: 'PFBC upper French Creek guide Meadville minimum gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper guide says some stretches are passable year-round, but the creek gets narrower, shallower, and more wood-sensitive whenever Meadville falls toward 2 ft.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a short approachable public-access float in ordinary conditions, but headwater wood, bridge current, and shallow gravel still require active river reading.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC upper French Creek guide publishes exact coordinates for Cambridge Springs and Conneautee, defines them as a three-mile upper-section access pair, and gives a general minimum level of 2 ft at the Meadville gauge for the upper corridor. Same-day direct USGS Water Services returned 866 cfs and 3.50 ft at Meadville on June 24, 2026.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Cambridge Springs to Conneautee, about 3 mi',
+        note: 'The PFBC upper French Creek guide places Cambridge Springs at river mile 50 and Conneautee at river mile 47.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC upper French Creek guide publishes Cambridge Springs at 41 48 26 / 80 02 37 and Conneautee at 41 48 40 / 80 04 44.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Same-section gauge support',
+        value: 'USGS 03023100 at Meadville',
+        note: 'USGS Water Services returned same-day June 24, 2026 values of 866 cfs and 3.50 ft for French Creek at Meadville, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Meadville 2 ft minimum',
+        note: 'The PFBC upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Headwater strainers and bridge current',
+        note: 'The PFBC upper guide says the headwaters are susceptible to downed trees and tells paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC upper French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03023100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'french-creek-saegertown-bicentennial-park',
+    slug: 'french-creek-saegertown-bicentennial-park',
+    name: 'French Creek',
+    reach: 'Upper Section: Saegertown to Bicentennial Park',
+    aliases: [
+      'French Creek - Saegertown to Bicentennial Park',
+      'Upper French Creek - Saegertown to Meadville Bicentennial Park',
+      'French Creek - Saegertown Access to Bicentennial Park',
+    ],
+    state: 'Pennsylvania',
+    region: 'Northwestern Pennsylvania',
+    summary:
+      'Six-mile upper French Creek day from Saegertown to Bicentennial Park in Meadville. The official upper guide publishes both public access coordinates, defines the pair by river miles, and uses the Meadville gauge directly with a general 2 ft minimum for the upper corridor.',
+    statusText:
+      'Use the French Creek at Meadville gauge. The official upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+    latitude: 41.708611,
+    longitude: -80.145833,
+    gaugeSource: {
+      id: 'usgs-03023100',
+      provider: 'usgs',
+      siteId: '03023100',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'French Creek at Meadville, PA',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'private_banks'],
+      safetyNotes: [
+        'The PFBC upper guide says French Creek is susceptible to downed trees and shifting strainers that can change year to year.',
+        'Avoid the upstream side of bridge abutments and do not assume the city finish removes the need for same-day river reading near the low edge.',
+        'Use the named Saegertown and Bicentennial Park public accesses rather than private banks or informal town-edge pull-offs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 2.0,
+      thresholdSource: {
+        label: 'PFBC upper French Creek guide Meadville minimum gauge level',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The upper guide says some stretches are passable year-round, but low summer water still exposes more gravel and makes wood, bridge current, and narrow lines less forgiving around Meadville.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is an approachable public-access day float when Meadville clears the official floor, but it still rewards attention to wood, bridge lines, and same-day current near the town finish.',
+      confidenceNotes:
+        'Confidence is good for a conservative Pennsylvania add: the PFBC upper French Creek guide publishes exact coordinates for Saegertown and Bicentennial Park, defines them as a six-mile upper-section access pair, and gives a general minimum level of 2 ft at the direct Meadville gauge for the corridor. Same-day direct USGS Water Services returned 866 cfs and 3.50 ft at Meadville on June 24, 2026.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Saegertown to Bicentennial Park, about 6 mi',
+        note: 'The PFBC upper French Creek guide places Saegertown at river mile 37 and Bicentennial Park at river mile 31.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Endpoint coordinates',
+        value: 'PFBC access-site coordinates',
+        note: 'The PFBC upper French Creek guide publishes Saegertown at 41 42 31 / 80 08 45 and Bicentennial Park at 41 38 14 / 80 09 44.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Direct gauge',
+        value: 'USGS 03023100 at Meadville',
+        note: 'USGS Water Services returned same-day June 24, 2026 values of 866 cfs and 3.50 ft for French Creek at Meadville, PA.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+      },
+      {
+        label: 'Official minimum level',
+        value: 'Meadville 2 ft minimum',
+        note: 'The PFBC upper French Creek guide says a general minimum USGS gauge at Meadville is 2 ft, though some stretches are passable year-round.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+      {
+        label: 'Primary caution',
+        value: 'Strainers and bridge-abutment current',
+        note: 'The PFBC upper guide says French Creek is susceptible to downed trees and warns paddlers to avoid the upstream side of bridge abutments.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'PFBC upper French Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/french/french-creek-upper.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03023100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03023100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'PFBC launch permit vs boat registration',
+        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'french-creek-wilson-chutes-shaws-landing',
     slug: 'french-creek-wilson-chutes-shaws-landing',
     name: 'French Creek',
