@@ -4,8 +4,10 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 50 as of 2026-06-25 UTC implementation passes.
-- Current Pennsylvania trip-detail objects: 50 as of 2026-06-25 UTC.
+- 2026-06-25 14:45 America/Chicago / 2026-06-25 19:45 UTC: Redundancy cleanup collapsed the recent French Creek permutations into four canonical live routes with intermediate public `accessPoints`: `french-creek-union-city-dam-cambridge-springs`, `french-creek-conneautee-bicentennial-park`, `french-creek-wilson-chutes-utica`, and `french-creek-utica-franklin`. The shorter and overlapping French Creek slugs remain documented historically in the ledger and run notes, but they are no longer live route slugs in `src/data/rivers.ts` or `src/data/river-trip-details.ts`.
+
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 63 as of 2026-06-25 after the French Creek consolidation.
+- Current Pennsylvania trip-detail objects: 63 as of 2026-06-25 after the French Creek consolidation.
 - Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 

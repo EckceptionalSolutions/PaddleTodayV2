@@ -229,13 +229,6 @@ No issues.
 - Issue: Route text mentions whitewater, swiftwater, or rapid hazards.
 - Evidence: Illinois whitewater run from the Lowell / N.2249th Road rafting put-in to the Oglesby boat launch below Ed Hand Highway. This is a real II-III route with Wildcat and other named rapids, not
 
-### Indiana - Wabash River: Vera Cruz Paddlesports Launch to White Bridge Picnic Area
-
-- Route: `wabash-river-vera-cruz-white-bridge`
-- Category: Access
-- Issue: Route text mentions closure, access uncertainty, or private-bank constraints.
-- Evidence: slow-river day with improved public concrete launches, but high water, debris, private banks, and limited bailout access make same-day judgment important. Confidence is good for a conservative Indiana add: Wells County Trails names Vera Cruz Paddlesports Laun
-
 ### Iowa - Black Hawk Creek: Ranchero Road to Hope Martin Park
 
 - Route: `black-hawk-creek-ranchero-hope-martin`

@@ -2,7 +2,7 @@
   "version": 1,
   "generatedAt": "2026-06-17T23:56:14.623Z",
   "routeCount": 248,
-  "issueCount": 490,
+  "issueCount": 489,
   "summary": {
     "Critical": 0,
     "High": 299,
@@ -339,17 +339,6 @@
       "category": "Whitewater",
       "message": "Route text mentions whitewater, swiftwater, or rapid hazards.",
       "evidence": "Illinois whitewater run from the Lowell / N.2249th Road rafting put-in to the Oglesby boat launch below Ed Hand Highway. This is a real II-III route with Wildcat and other named rapids, not"
-    },
-    {
-      "routeId": "wabash-river-vera-cruz-white-bridge",
-      "slug": "wabash-river-vera-cruz-white-bridge",
-      "name": "Wabash River",
-      "reach": "Vera Cruz Paddlesports Launch to White Bridge Picnic Area",
-      "state": "Indiana",
-      "severity": "High",
-      "category": "Access",
-      "message": "Route text mentions closure, access uncertainty, or private-bank constraints.",
-      "evidence": "slow-river day with improved public concrete launches, but high water, debris, private banks, and limited bailout access make same-day judgment important. Confidence is good for a conservative Indiana add: Wells County Trails names Vera Cruz Paddlesports Laun"
     },
     {
       "routeId": "black-hawk-creek-ranchero-hope-martin",

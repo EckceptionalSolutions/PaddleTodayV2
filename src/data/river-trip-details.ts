@@ -10605,257 +10605,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'wabash-river-linn-grove-vera-cruz': {
-    putIn: {
-      id: 'linn-grove-park',
-      name: 'Linn Grove Park',
-      latitude: 40.645752,
-      longitude: -85.031219,
-    },
-    takeOut: {
-      id: 'vera-cruz-paddlesports-launch',
-      name: 'Vera Cruz Paddlesports Launch',
-      latitude: 40.69890779,
-      longitude: -85.0828222,
-    },
-    logistics: {
-      distanceLabel: 'About 5.3 mi',
-      estimatedPaddleTime:
-        'About 2.75 hr to 5.5 hr depending on stage, current, shallow dragging, woody debris, and how quickly the group moves through the public access sites',
-      shuttle:
-        'Stage the take-out at Vera Cruz Paddlesports Launch, then drive back to Linn Grove Park. Inspect both concrete ramps and parking areas before launching because river mud, storms, debris, or local maintenance can change how easy the public launch feels on arrival.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a daylight day trip. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Linn Grove Park and take out at Vera Cruz Paddlesports Launch for a short Wells County Wabash float between public improved accesses. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists Linn Grove Park and Vera Cruz Paddlesports Launch as public improved concrete Wabash River launches with parking.',
-        'Northeast Indiana Water Trails map coordinates are used for both endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Indiana DNR removed the old canoe-guide material as outdated and points users to current regional water-trail resources. This route relies on Wells County Trails and NEI Water Trails, not legacy canoe-guide text.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
-        'Private banks between launches; plan the 5.3-mile trip without assuming legal intermediate take-outs.',
-      ],
-    },
-  },
-  'wabash-river-vera-cruz-white-bridge': {
-    putIn: {
-      id: 'vera-cruz-paddlesports-launch',
-      name: 'Vera Cruz Paddlesports Launch',
-      latitude: 40.69890779,
-      longitude: -85.0828222,
-    },
-    takeOut: {
-      id: 'white-bridge-picnic-area',
-      name: 'White Bridge Picnic Area',
-      latitude: 40.728082,
-      longitude: -85.136707,
-    },
-    logistics: {
-      distanceLabel: 'About 4.2 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 5.25 hr depending on stage, current, wind, shallow dragging, and debris',
-      shuttle:
-        'Stage the take-out at White Bridge Picnic Area, then drive back to Vera Cruz Paddlesports Launch. Inspect both concrete ramps and parking areas before launching; Wells County Trails lists both as public improved launches, but same-day mud, high water, debris, or local maintenance can change access.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a short daylight day trip. Banks outside public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      summary:
-        'Launch at Vera Cruz Paddlesports Launch and take out at White Bridge Picnic Area for a short Wells County Wabash River paddle between improved public concrete ramps. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists Vera Cruz Paddlesports Launch and White Bridge Picnic Area as public, improved concrete Wabash River launches, with parking at each access.',
-        'Northeast Indiana Water Trails map coordinates are used for both endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Indiana DNR removed the old canoe-guide material as outdated and points users to current regional water-trail resources. This route relies on Wells County Trails and NEI Water Trails, not legacy canoe-guide text.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
-        'Private banks between launches; plan the short 4.2-mile trip without assuming legal intermediate take-outs.',
-      ],
-    },
-  },
-  'wabash-river-linn-grove-white-bridge': {
-    putIn: {
-      id: 'linn-grove-park',
-      name: 'Linn Grove Park',
-      latitude: 40.645752,
-      longitude: -85.031219,
-    },
-    takeOut: {
-      id: 'white-bridge-picnic-area',
-      name: 'White Bridge Picnic Area',
-      latitude: 40.728082,
-      longitude: -85.136707,
-    },
-    logistics: {
-      distanceLabel: 'About 9.5 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 8 hr depending on stage, current, wind, shallow dragging, debris, and the group pace on the longer rural day',
-      shuttle:
-        'Stage the take-out at White Bridge Picnic Area, then drive back to Linn Grove Park. Inspect both public ramps before launching because the longer one-way shuttle makes a late access surprise more painful than on the shorter Wells County segments.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a longer daylight day route, not an overnight. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Linn Grove Park and take out at White Bridge Picnic Area for the longer Wells County Wabash day built from the two upstream public legs. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, and White Bridge Picnic Area as public improved concrete Wabash River launches, with the Linn Grove-to-White Bridge route supported by the first two listed public legs.',
-        'The combined 9.5-mile distance comes from the official 5.3-mile Linn Grove-to-Vera Cruz leg plus the 4.2-mile Vera Cruz-to-White Bridge leg. Plan food, water, daylight, and group pace around the longer commitment.',
-        'Northeast Indiana Water Trails map coordinates are used for the endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to the 9.5-mile day without enough time or shuttle discipline.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Private banks between launches; do not assume easy legal bailout access once you are past Vera Cruz.',
-      ],
-    },
-  },
-  'wabash-river-vera-cruz-kehoe-park': {
-    putIn: {
-      id: 'vera-cruz-paddlesports-launch',
-      name: 'Vera Cruz Paddlesports Launch',
-      latitude: 40.69890779,
-      longitude: -85.0828222,
-    },
-    takeOut: {
-      id: 'kehoe-park',
-      name: 'Kehoe Park',
-      latitude: 40.74237,
-      longitude: -85.171271,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 6 hr depending on stage, current, shallow dragging, wind, debris, and how efficiently the group reaches the in-town Kehoe finish',
-      shuttle:
-        'Stage the take-out at Kehoe Park, then drive back to Vera Cruz Paddlesports Launch. Inspect both accesses before launching because the finish is a public town park rather than an isolated ramp, and same-day events or maintenance can affect parking or landing space.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a daylight day route into Bluffton. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Vera Cruz Paddlesports Launch and take out at Kehoe Park for a medium-length Wells County Wabash route into Bluffton. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'The NEI Water Trails Wabash River Challenge page explicitly lists Vera Cruz to Kehoe Park as a 6-mile route, and the NEI map exposes both endpoint coordinates.',
-        'Wells County Trails confirms Vera Cruz as a public improved concrete launch. Bluffton describes Kehoe Park as a public riverfront park with direct access to the River Greenway trail system, matching the NEI Wabash access marker.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Follow current signs and local conditions on arrival rather than assuming the mapped park edge is the exact best carry path on every day.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Wind, thunderstorms, cold water, poor visibility, and town-side take-out activity near Kehoe Park.',
-        'Private banks between launches; plan the 6-mile trip without assuming legal intermediate take-outs.',
-      ],
-    },
-  },
-  'wabash-river-linn-grove-kehoe-park': {
-    putIn: {
-      id: 'linn-grove-park',
-      name: 'Linn Grove Park',
-      latitude: 40.645752,
-      longitude: -85.031219,
-    },
-    takeOut: {
-      id: 'kehoe-park',
-      name: 'Kehoe Park',
-      latitude: 40.74237,
-      longitude: -85.171271,
-    },
-    logistics: {
-      distanceLabel: 'About 11.3 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 8.5 hr depending on stage, current, wind, shallow dragging, woody debris, and how efficiently the group reaches the in-town Kehoe finish',
-      shuttle:
-        'Stage the take-out at Kehoe Park, then drive back to Linn Grove Park. Inspect both public accesses before launching because this longer one-way shuttle makes a late access surprise or event-day parking issue much more expensive than on the shorter Wells County segments.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a long daylight day route rather than an overnight. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Linn Grove Park and take out at Kehoe Park for the longest current Wells County Wabash route into Bluffton. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists Linn Grove Park and Vera Cruz Paddlesports Launch as public Wabash launches, and the NEI Water Trails Wabash River Challenge page explicitly lists Vera Cruz to Kehoe Park as a 6-mile route.',
-        'The combined 11.3-mile distance comes from the official 5.3-mile Linn Grove-to-Vera Cruz leg plus the official 6-mile Vera Cruz-to-Kehoe leg. Plan food, water, daylight, and group pace around the longer commitment.',
-        'Northeast Indiana Water Trails map coordinates are used for the endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders or random park edges.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to an 11-plus-mile day without enough time or shuttle discipline.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Private banks between launches and town-side landing activity near Kehoe Park; do not assume easy legal bailout access once you are past Vera Cruz.',
-      ],
-    },
-  },
-  'wabash-river-vera-cruz-hale-street': {
-    putIn: {
-      id: 'vera-cruz-paddlesports-launch',
-      name: 'Vera Cruz Paddlesports Launch',
-      latitude: 40.69890779,
-      longitude: -85.0828222,
-    },
-    takeOut: {
-      id: 'hale-street-access',
-      name: 'Hale Street access',
-      latitude: 40.7448153,
-      longitude: -85.1745966,
-    },
-    logistics: {
-      distanceLabel: 'About 6.6 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 6 hr depending on stage, current, shallow dragging, bridge debris, wind, and how long the group takes at the public launches',
-      shuttle:
-        'Stage the take-out at the east end of Hale Street, then drive back to Vera Cruz Paddlesports Launch. Inspect both public access points before launching because Hale is a simpler earthen finish than White Bridge or Vera Cruz and same-day footing can change.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a medium-length daylight day trip. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Vera Cruz Paddlesports Launch and take out at the east-end Hale Street access for a longer Bluffton-area Wabash day. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists Vera Cruz Paddlesports Launch, White Bridge Picnic Area, and Hale Street as public Wabash accesses, with the combined Vera Cruz-to-Hale route supported by the 4.2-mile Vera Cruz-to-White Bridge leg plus the 2.4-mile White Bridge-to-Hale connector.',
-        'The Hale Street coordinate is a practical public-access anchor at the mapped no-exit east end of West Hale Street, matching Wells County Trails launch wording rather than a surveyed ramp pin.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-        'This is an in-town finish, but the route still has limited obvious legal bailout points before Hale. Do not assume bridge shoulders or private banks are acceptable substitutes.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Wind, thunderstorms, cold water, poor visibility, anglers, and the simpler earthen footing at the Hale Street finish.',
-        'Private banks between launches; plan the 6.6-mile trip without assuming legal informal stops or mid-route take-outs.',
-      ],
-    },
-  },
   'wabash-river-linn-grove-hale-street': {
     putIn: {
       id: 'linn-grove-park',
@@ -10897,48 +10646,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private banks between launches and the simpler earthen Hale finish; do not assume easy legal bailout access once you are downstream of Vera Cruz.',
       ],
     },
-  },
-  'wabash-river-white-bridge-hale-street': {
-    putIn: {
-      id: 'white-bridge-picnic-area',
-      name: 'White Bridge Picnic Area',
-      latitude: 40.728082,
-      longitude: -85.136707,
-    },
-    takeOut: {
-      id: 'hale-street-access',
-      name: 'Hale Street access',
-      latitude: 40.7448153,
-      longitude: -85.1745966,
-    },
-    logistics: {
-      distanceLabel: 'About 2.4 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr depending on stage, current, shallow dragging, bridge debris, and how long the group takes at the public launches',
-      shuttle:
-        'Stage the take-out at the east end of Hale Street, then drive back to White Bridge Picnic Area. Inspect both public access points before launching because Wells County Trails describes Hale as a simple earthen east-end street launch rather than an improved concrete ramp.',
-      permits:
-        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
-      camping:
-        'Treat this as a short daylight connector. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
-      campingClassification: 'none',
-      summary:
-        'Launch at White Bridge Picnic Area and take out at the east-end Hale Street access for a short Bluffton-area Wabash link. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
-      accessCaveats: [
-        'Wells County Trails lists White Bridge Picnic Area as a public improved concrete ramp and Hale Street as a public earthen access at the east end of Hale St, with grass parking at both sites.',
-        'The Hale Street coordinate is a practical access anchor at the mapped no-exit east end of West Hale Street, matching the Wells County Trails launch description rather than a surveyed ramp pin.',
-        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
-        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
-        'This is a short connector reach, not a destination campground float. Treat it as a same-day out-and-back shuttle segment and do not assume legal informal stops between launches.',
-      ],
-      watchFor: [
-        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
-        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
-        'Private banks between launches; plan the short 2.4-mile trip without assuming legal intermediate take-outs.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'linn-grove-park',
+        name: 'Linn Grove Park',
+        latitude: 40.645752,
+        longitude: -85.031219,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start at the public park launch.',
+      },
+      {
+        id: 'vera-cruz-paddlesports-launch',
+        name: 'Vera Cruz Paddlesports Launch',
+        latitude: 40.69890779,
+        longitude: -85.0828222,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Official public split point for the short upstream leg and the longer Bluffton-bound segments.',
+      },
+      {
+        id: 'white-bridge-picnic-area',
+        name: 'White Bridge Picnic Area',
+        latitude: 40.728082,
+        longitude: -85.136707,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Improved public launch that supports the middle and short downstream Wells County segments.',
+      },
+      {
+        id: 'kehoe-park',
+        name: 'Kehoe Park',
+        latitude: 40.74237,
+        longitude: -85.171271,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Public Bluffton riverfront park landing before the final short connector to Hale Street.',
+      },
+      {
+        id: 'hale-street-access',
+        name: 'Hale Street access',
+        latitude: 40.7448153,
+        longitude: -85.1745966,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Full downstream finish at the public east-end Hale Street access.',
+      },
+    ],
   },
   'sugar-creek-deers-mill-cox-ford': {
     putIn: {
@@ -13944,158 +13698,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fatigue, thunderstorms, private shorelines, and the chance of underestimating the mileage because the river is otherwise novice-friendly.',
       ],
     },
-  },
-  'french-creek-cambridge-springs-conneautee': {
-    putIn: {
-      name: 'Cambridge Springs access',
-      latitude: 41.807222,
-      longitude: -80.043611,
-    },
-    takeOut: {
-      name: 'Conneautee access',
-      latitude: 41.811111,
-      longitude: -80.078889,
-    },
-    logistics: {
-      distanceLabel: 'About 3 mi',
-      estimatedPaddleTime:
-        'About 1 hr to 2.5 hr in ordinary conditions, longer with low-water scraping or time spent clearing around fresh wood',
-      shuttle:
-        'Stage the take-out at Conneautee first, then drive back to Cambridge Springs. Check both public landings before launching because mud, narrow-bank current, and same-day wood can change how simple the short shuttle feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a short day float. Cambridge Springs offers a historic inn and dining, so nearby base-camp support exists without implying legal creek-bank camping between the two accesses.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Cambridge Springs and take out at Conneautee for a short upper French Creek link. The app uses the Meadville gauge conservatively as the upper-corridor planning reference and expects more scraping and tighter lines whenever the creek falls toward the official 2 ft floor.',
-      accessCaveats: [
-        'The PFBC upper French Creek guide publishes both Cambridge Springs and Conneautee coordinates directly in the official access chart.',
-        'Neither access should be treated as permission to use private banks or roadside pull-offs farther away from the named public landings.',
-        'Short mileage does not remove the need to inspect for same-day wood or narrow headwater strainers before launching.',
-        'Cambridge Springs and Conneautee are the intended public endpoints for this slug. Do not drift past Conneautee looking for informal alternatives.',
-      ],
-      watchFor: [
-        'Narrow headwater turns, downed trees, and shifting strainers after storms.',
-        'Current pushing toward bridge abutments and shallow gravel bars near the low edge.',
-        'Low water near the conservative Meadville 2 ft floor, when scraping and wood avoidance matter more than the easy rating suggests.',
-        'Private shorelines and farm edges away from the named public accesses.',
-      ],
-    },
-  },
-  'french-creek-saegertown-bicentennial-park': {
-    putIn: {
-      name: 'Saegertown access',
-      latitude: 41.708611,
-      longitude: -80.145833,
-    },
-    takeOut: {
-      name: 'Bicentennial Park access',
-      latitude: 41.637222,
-      longitude: -80.162222,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 4 hr in ordinary conditions, longer with lower water, strainers, or extra time around bridge current near Meadville',
-      shuttle:
-        'Stage the take-out at Bicentennial Park first, then drive back to Saegertown. Check both public landings before launching because muddy footing, current angle, and same-day wood can change how straightforward the shuttle feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a day float. The PFBC guide says Meadville has commercial hotels, restaurants, and taverns, and Saegertown is close to the Woodcock Creek Dam recreation area, so nearby base-camp support exists without implying legal creek-bank camping on this route.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Saegertown and take out at Bicentennial Park in Meadville for a six-mile upper French Creek day. Use the direct Meadville gauge and expect more gravel, wood, and tighter bridge lines whenever the creek falls toward the official 2 ft floor.',
-      accessCaveats: [
-        'The PFBC upper French Creek guide publishes both Saegertown and Bicentennial Park coordinates directly in the official access chart.',
-        'Bicentennial Park is the intended public finish in Meadville. Do not treat city banks outside the park as interchangeable take-outs.',
-        'This route uses the direct Meadville gauge, but the guide still warns that wood and bridge-abutment current can change year to year.',
-        'Use only the named public accesses rather than private banks, city edges, or roadside pull-offs.',
-      ],
-      watchFor: [
-        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious upper-French hazard.',
-        'Current pushing toward bridge abutments on the way into Meadville.',
-        'Low water near the official Meadville 2 ft floor, when gravel and shallow riffles tighten the available lines.',
-        'Private shorelines, same-day storm wood, and the temptation to end early on non-public banks once the town comes into view.',
-      ],
-    },
-  },
-  'french-creek-cambridge-springs-saegertown': {
-    putIn: {
-      name: 'Cambridge Springs access',
-      latitude: 41.807222,
-      longitude: -80.043611,
-    },
-    takeOut: {
-      name: 'Saegertown access',
-      latitude: 41.708611,
-      longitude: -80.145833,
-    },
-    logistics: {
-      distanceLabel: 'About 13 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 7 hr in ordinary conditions, longer with lower water, strainers, or time spent scouting the Saegertown dam feature',
-      shuttle:
-        'Stage the take-out at Saegertown first, then drive back to Cambridge Springs. Check both public landings before launching because mud, narrow-bank current, and same-day wood can change how straightforward the shuttle feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a day float. Cambridge Springs offers a historic inn and dining, and Saegertown has nearby paddler services and Woodcock-area recreation support, so nearby base-camp context exists without implying legal creek-bank camping on this slug.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Cambridge Springs and take out at Saegertown for a longer upper French Creek day. The app uses the Meadville gauge conservatively as the upper-corridor planning reference and expects more scraping, tighter lines, and a more consequential Saegertown dam decision whenever the creek falls toward the official 2 ft floor.',
-      accessCaveats: [
-        'The PFBC upper French Creek guide publishes both Cambridge Springs and Saegertown coordinates directly in the official access chart.',
-        'If you continue to the Saegertown take-out, scout ahead at the breached low-head dam near town and use the river-left portage if the feature is outside the group skill set.',
-        'Do not assume private banks, bridge shoulders, or roadside pull-offs are acceptable substitutes for the named public accesses.',
-        'This is a longer upper-creek day than the short Cambridge-to-Conneautee link, so low water and fresh wood can add real time to the plan.',
-      ],
-      watchFor: [
-        'The breached low-head dam near Saegertown, including the need to scout ahead and choose the river-left portage if conditions or skill do not support running it.',
-        'Narrow headwater turns, downed trees, and shifting strainers after storms.',
-        'Current pushing toward bridge abutments and shallow gravel bars near the low edge.',
-        'Low water near the conservative Meadville 2 ft floor, when scraping and wood avoidance can stretch the day materially.',
-      ],
-    },
-  },
-  'french-creek-conneautee-saegertown': {
-    putIn: {
-      name: 'Conneautee access',
-      latitude: 41.811111,
-      longitude: -80.078889,
-    },
-    takeOut: {
-      name: 'Saegertown access',
-      latitude: 41.708611,
-      longitude: -80.145833,
-    },
-    logistics: {
-      distanceLabel: 'About 10 mi',
-      estimatedPaddleTime:
-        'About 3.5 hr to 6 hr in ordinary conditions, longer with lower water, strainers, or time spent scouting the Saegertown dam feature',
-      shuttle:
-        'Stage the take-out at Saegertown first, then drive back to Conneautee. Check both public landings before launching because mud, current angle, and same-day wood can change how simple the shuttle feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a day float. Cambridge Springs is just upstream of the put-in and offers a historic inn and dining, while Saegertown has nearby paddler services, so nearby base-camp context exists without implying legal creek-bank camping between the named accesses.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Conneautee and take out at Saegertown for a mid-upper French Creek day. The app uses the Meadville gauge conservatively as the upper-corridor planning reference and expects more scraping, tighter lines, and a more consequential Saegertown dam decision whenever the creek falls toward the official 2 ft floor.',
-      accessCaveats: [
-        'The PFBC upper French Creek guide publishes both Conneautee and Saegertown coordinates directly in the official access chart.',
-        'If you continue to the Saegertown take-out, scout ahead at the breached low-head dam near town and use the river-left portage if the feature is outside the group skill set.',
-        'Use only the named public accesses rather than private banks, bridge shoulders, or roadside pull-offs.',
-        'This run is longer than it looks on a map when low water, fresh wood, or careful scouting slow the group down.',
-      ],
-      watchFor: [
-        'The breached low-head dam near Saegertown, including the need to scout ahead and choose the river-left portage if conditions or skill do not support running it.',
-        'Downed trees, shifting strainers, and narrow upper-creek lines after storms.',
-        'Current pushing toward bridge abutments and shallow gravel bars near the low edge.',
-        'Private shorelines and farm edges away from the named public accesses.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'union-city-dam',
+        name: 'Union City Dam access',
+        latitude: 41.919722,
+        longitude: -79.901667,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start below the dam.',
+      },
+      {
+        id: 'cambridge-springs',
+        name: 'Cambridge Springs access',
+        latitude: 41.807222,
+        longitude: -80.043611,
+        mileFromStart: 24,
+        segmentKind: 'creek',
+        note: 'Main downstream finish and the first short-split option for the upper corridor.',
+      },
+      {
+        id: 'conneautee',
+        name: 'Conneautee access',
+        latitude: 41.811111,
+        longitude: -80.078889,
+        mileFromStart: 27,
+        segmentKind: 'creek',
+        note: 'Shorter upper-corridor access three miles below Cambridge Springs.',
+      },
+    ],
   },
   'french-creek-conneautee-bicentennial-park': {
     putIn: {
@@ -14134,234 +13765,35 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Private shorelines, same-day storm wood, and the temptation to end early on non-public banks once town comes into view.',
       ],
     },
-  },
-  'french-creek-wilson-chutes-cochranton': {
-    putIn: {
-      name: 'Wilson Chutes PFBC access',
-      latitude: 41.589167,
-      longitude: -80.149722,
-    },
-    takeOut: {
-      name: 'Cochranton Borough access',
-      latitude: 41.519167,
-      longitude: -80.053889,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious line through the mile-19 rapid zone',
-      shuttle:
-        'Stage the take-out at Cochranton Borough first, then drive back to the Wilson Chutes PFBC access. Check both public landings before launching because the Cochranton carry-in is less developed than the PFBC ramps downstream and muddy footing or wood can change the feel of the day.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a day float. The official lower French Creek guide does not identify a named campground tied to this exact Wilson-Chutes-to-Cochranton pair, so do not assume legal creek-bank camping.',
-      campingClassification: 'none',
-      summary:
-        'Launch at the Wilson Chutes PFBC access and take out at Cochranton Borough for a medium lower French Creek day below Meadville. The app uses the Utica gauge conservatively as the lower-section planning reference and expects more wood, bridge-current, and gravel-channel judgment when Utica falls toward the 2.5 ft floor.',
-      accessCaveats: [
-        'The PFBC lower French Creek guide publishes both Wilson Chutes and Cochranton Borough coordinates directly in the official access chart.',
-        'Cochranton Borough is public but not an improved ramp. Inspect the bank, carry path, and vehicle parking situation before launching upstream.',
-        'This route starts just above the mile-19 borderline Class I rapid identified in the guide, so scout and line up early if the current or wood looks less friendly than expected.',
-        'Stay within the named public accesses and avoid improvising on private banks or field edges if the trip feels slower than expected.',
-      ],
-      watchFor: [
-        'The borderline Class I rapid near mile 19, plus the PFBC warning to avoid the upstream side of bridge abutments.',
-        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
-        'Low water near the conservative Utica 2.5 ft floor, when gravel and shallow riffles tighten the channel and make strainers less forgiving.',
-        'Private shorelines, same-day wood after storms, and the less-developed Cochranton finish.',
-      ],
-    },
-  },
-  'french-creek-cochranton-utica': {
-    putIn: {
-      name: 'Cochranton Borough access',
-      latitude: 41.519167,
-      longitude: -80.053889,
-    },
-    takeOut: {
-      name: 'Utica PFBC access',
-      latitude: 41.438056,
-      longitude: -79.955278,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious bridge approach',
-      shuttle:
-        'Stage the take-out at the Utica PFBC access first, then drive back to Cochranton Borough. Check both public landings before launching because the Cochranton carry-in is less developed and the Utica landing can change with mud, current angle, and rail-side conditions.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a day float. The official lower French Creek guide does not identify a named campground tied to this exact Cochranton-to-Utica pair, so do not assume legal creek-bank camping.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Cochranton Borough and take out at the Utica PFBC access for a medium lower French Creek day. Use the direct Utica gauge and expect the route to get scrapier and more wood-sensitive whenever the creek falls toward the official 2.5 ft floor.',
-      accessCaveats: [
-        'The PFBC lower French Creek guide publishes both Cochranton Borough and Utica coordinates directly in the official access chart.',
-        'Cochranton Borough access can be challenging because there is no improved ramp into French Creek. Inspect the carry and current before leaving a vehicle.',
-        'Utica is the intended public finish and the location of the selected gauge. Check the landing edge before leaving a vehicle because rail-side mud and current angle can change after rain.',
-        'Stay within the named public accesses and avoid private banks or casual farm-side pullouts.',
-      ],
-      watchFor: [
-        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
-        'Bridge-abutment current and the need to stay off the upstream side of bridge structure.',
-        'Low water near the official Utica 2.5 ft floor, when gravel and shallow riffles tighten the available lines.',
-        'Fresh wood after storms, private shorelines, and the less-developed Cochranton launch.',
-      ],
-    },
-  },
-  'french-creek-cochranton-franklin': {
-    putIn: {
-      name: 'Cochranton Borough access',
-      latitude: 41.519167,
-      longitude: -80.053889,
-    },
-    takeOut: {
-      name: 'Franklin PFBC access',
-      latitude: 41.381389,
-      longitude: -79.82,
-    },
-    logistics: {
-      distanceLabel: 'About 18 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8.5 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious finish into Franklin',
-      shuttle:
-        'Stage the take-out at the Franklin PFBC access on Elk Street first, then drive back to Cochranton Borough. Check both public landings before launching because the Cochranton carry-in is less developed and the Franklin finish can feel busy or muddy after recent weather.',
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        'Treat this as a long day float or basecamp-supported weekend plan. Franklin has nearby overnight options, but the route itself should not imply open creek-bank camping between Cochranton and Franklin.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Cochranton Borough and take out at the Franklin PFBC access at the Allegheny confluence for a long lower French Creek day. Use the Utica gauge conservatively and expect more mileage fatigue, gravel, wood, and finish discipline whenever the creek falls toward the official 2.5 ft floor.',
-      accessCaveats: [
-        'The PFBC lower French Creek guide publishes both Cochranton Borough and Franklin coordinates directly in the official access chart.',
-        'Cochranton Borough access can be challenging because there is no improved ramp into French Creek. Inspect the carry and current before committing to the long downstream day.',
-        'Franklin is the intended public finish at Elk Street. Do not drift past the take-out and into the broader Allegheny corridor because the confluence opens up.',
-        'Nearby Franklin lodging can support a basecamp plan, but it is not on-route camping for this exact slug.',
-      ],
-      watchFor: [
-        'The borderline Class I rapid near mile 3, plus the PFBC warning to avoid the upstream side of bridge abutments.',
-        'Downed trees and shifting strainers in the narrower bends of lower French Creek.',
-        'Low water near the official Utica 2.5 ft floor, when the long lower miles get slower, scrapier, and less forgiving around wood.',
-        'Fresh wood after storms, private shorelines, and missing the Franklin take-out at the Allegheny confluence.',
-      ],
-    },
-  },
-  'french-creek-wilson-chutes-shaws-landing': {
-    putIn: {
-      name: 'Wilson Chutes PFBC access',
-      latitude: 41.589167,
-      longitude: -80.149722,
-    },
-    takeOut: {
-      name: "Shaw's Landing",
-      latitude: 41.540833,
-      longitude: -80.104167,
-    },
-    logistics: {
-      distanceLabel: 'About 4 mi',
-      estimatedPaddleTime:
-        "About 1.5 hr to 3 hr in ordinary conditions, longer with strainers, low-water gravel, or a cautious bridge approach",
-      shuttle:
-        "Stage the take-out at Shaw's Landing first, then drive back to the Wilson Chutes PFBC access. Check both public landings before launching because mud, narrow-bank current, and same-day wood can change how simple the short shuttle feels.",
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        "Treat this as a short day float. The official lower French Creek guide does not identify a named campground tied to this exact Wilson-Chutes-to-Shaw's-Landing pair, so do not assume legal creek-bank camping.",
-      campingClassification: 'none',
-      summary:
-        "Launch at the Wilson Chutes PFBC access and take out at Shaw's Landing for a short lower French Creek link south of Meadville. The app uses the direct Utica gauge conservatively as the lower-section planning reference and expects more wood, bridge-current, and gravel-channel judgment when Utica falls toward the 2.5 ft floor.",
-      accessCaveats: [
-        "The PFBC lower French Creek guide publishes both Wilson Chutes and Shaw's Landing coordinates directly in the official access chart.",
-        'This route uses Utica as the lower-section gauge reference because the guide publishes the corridor minimum there rather than at a separate Wilson or Shaw ladder.',
-        'Inspect both landings before launching because muddy footing, storm cleanup, or rail-side maintenance can change the practical carry or bank angle.',
-        'Stay within the named public accesses and avoid improvising on private banks or field edges if the short route feels slower than expected.',
-      ],
-      watchFor: [
-        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
-        'Bridge-abutment current and the need to stay off the upstream side of bridge structure.',
-        'Low water near the conservative Utica 2.5 ft floor, when gravel and shallow riffles tighten the channel and make strainers less forgiving.',
-        'Private shorelines and same-day wood after storms, even though the mileage is short.',
-      ],
-    },
-  },
-  'french-creek-shaws-landing-utica': {
-    putIn: {
-      name: "Shaw's Landing",
-      latitude: 41.540833,
-      longitude: -80.104167,
-    },
-    takeOut: {
-      name: 'Utica PFBC access',
-      latitude: 41.438056,
-      longitude: -79.955278,
-    },
-    logistics: {
-      distanceLabel: 'About 12 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, strainers, or a cautious line through the mile-19 rapid zone',
-      shuttle:
-        "Stage the take-out at the Utica PFBC access first, then drive back to Shaw's Landing. Check both public landings before launching because mud, current angle, and same-day wood can change how straightforward the shuttle feels.",
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        "Treat this as a day float. The official lower French Creek guide does not identify a named campground tied to this exact Shaw's-Landing-to-Utica pair, so do not assume legal creek-bank camping.",
-      campingClassification: 'none',
-      summary:
-        "Launch at Shaw's Landing and take out at the Utica PFBC access for a fuller lower French Creek day. Use the direct Utica gauge and expect the route to get scrapier and more wood-sensitive whenever the creek falls toward the official 2.5 ft floor.",
-      accessCaveats: [
-        "The PFBC lower French Creek guide publishes both Shaw's Landing and Utica coordinates directly in the official access chart.",
-        'Utica is the intended public finish and the location of the selected gauge. Check the landing edge before leaving a vehicle because rail-side mud and current angle can change after rain.',
-        'This route is longer than the first lower-section split, so bridge lines, headwind, and strainers can dominate the feel of the day more than the easy rating suggests.',
-        'Stay within the named public accesses and avoid private banks or casual farm-side pullouts.',
-      ],
-      watchFor: [
-        'The borderline Class I rapid at mile 19, plus the PFBC warning to avoid the upstream side of bridge abutments.',
-        'Downed trees and shifting strainers, which the guide says are a potentially serious lower-French hazard.',
-        'Low water near the official Utica 2.5 ft floor, when gravel and shallow riffles tighten the available lines.',
-        'Headwind, fresh wood after storms, and private shorelines away from the named public accesses.',
-      ],
-    },
-  },
-  'french-creek-shaws-landing-cochranton': {
-    putIn: {
-      name: "Shaw's Landing",
-      latitude: 41.540833,
-      longitude: -80.104167,
-    },
-    takeOut: {
-      name: 'Cochranton Borough access',
-      latitude: 41.519167,
-      longitude: -80.053889,
-    },
-    logistics: {
-      distanceLabel: 'About 4 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr in ordinary conditions, longer with strainers, low-water gravel, or a cautious Cochranton finish',
-      shuttle:
-        "Stage the take-out at Cochranton Borough first, then drive back to Shaw's Landing. Check both public landings before launching because muddy footing, current angle, and same-day wood can change how simple the short shuttle feels.",
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        "Treat this as a short day float. The official lower French Creek guide does not identify a named campground tied to this exact Shaw's-Landing-to-Cochranton pair, so do not assume legal creek-bank camping.",
-      campingClassification: 'none',
-      summary:
-        "Launch at Shaw's Landing and take out at Cochranton Borough for a short lower French Creek link below Meadville. The app uses the Utica gauge conservatively as the lower-section planning reference and expects more wood, bridge-current, and gravel-channel judgment whenever Utica falls toward the 2.5 ft floor.",
-      accessCaveats: [
-        "The PFBC lower French Creek guide publishes both Shaw's Landing and Cochranton Borough coordinates directly in the official access chart.",
-        'Cochranton Borough is public but not an improved ramp. Inspect the bank, carry path, and vehicle parking situation before launching upstream.',
-        'This route is short, but storm wood, muddy footing, or a steeper bank can still change the exit feel quickly.',
-        'Stay within the named public accesses and avoid private banks or casual farm-side pullouts.',
-      ],
-      watchFor: [
-        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
-        'Bridge-abutment current and the need to stay off the upstream side of bridge structure.',
-        'Low water near the conservative Utica 2.5 ft floor, when gravel and shallow riffles tighten the channel and make strainers less forgiving.',
-        'Private shorelines, same-day wood after storms, and the less-developed Cochranton finish.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'conneautee',
+        name: 'Conneautee access',
+        latitude: 41.811111,
+        longitude: -80.078889,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start for the middle upper corridor.',
+      },
+      {
+        id: 'saegertown',
+        name: 'Saegertown access',
+        latitude: 41.708611,
+        longitude: -80.145833,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Public split point just below the breached low-head dam decision area.',
+      },
+      {
+        id: 'bicentennial-park',
+        name: 'Bicentennial Park access',
+        latitude: 41.637222,
+        longitude: -80.162222,
+        mileFromStart: 16,
+        segmentKind: 'creek',
+        note: 'Full Meadville finish six miles below Saegertown.',
+      },
+    ],
   },
   'french-creek-wilson-chutes-utica': {
     putIn: {
@@ -14400,44 +13832,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Headwind, fresh wood after storms, and private shorelines away from the named public accesses.',
       ],
     },
-  },
-  'french-creek-shaws-landing-franklin': {
-    putIn: {
-      name: "Shaw's Landing",
-      latitude: 41.540833,
-      longitude: -80.104167,
-    },
-    takeOut: {
-      name: 'Franklin PFBC access',
-      latitude: 41.381389,
-      longitude: -79.82,
-    },
-    logistics: {
-      distanceLabel: 'About 22 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 9.5 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious lower-confluence finish',
-      shuttle:
-        "Stage the take-out at the Franklin PFBC access on Elk Street first, then drive back to Shaw's Landing. Check both public landings before launching because mud, bank angle, and same-day wood can change how straightforward the carry feels.",
-      permits:
-        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
-      camping:
-        "Treat this as a long day float or basecamp-supported weekend plan. Franklin has nearby overnight options, but the route itself should not imply open creek-bank camping between Shaw's Landing and Franklin.",
-      campingClassification: 'nearby_basecamp',
-      summary:
-        "Launch at Shaw's Landing and take out at the Franklin PFBC access at the Allegheny confluence for a long lower French Creek day. Use the Utica gauge conservatively and expect more mileage fatigue, gravel, wood, and finish discipline whenever the creek falls toward the official 2.5 ft floor.",
-      accessCaveats: [
-        "The PFBC lower French Creek guide publishes both Shaw's Landing and Franklin coordinates directly in the official access chart.",
-        'Franklin is the intended public finish at Elk Street. Do not drift past the take-out and into the broader Allegheny corridor because the confluence opens up.',
-        'Nearby Franklin lodging can support a basecamp plan, but it is not on-route camping for this exact slug.',
-        'Stay within the named public accesses and avoid private banks or casual confluence stops away from the Elk Street landing.',
-      ],
-      watchFor: [
-        'The borderline Class I rapid near mile 19, the lower rapid near mile 3, and the PFBC warning to avoid the upstream side of bridge abutments.',
-        'Downed trees and shifting strainers in the narrower bends of lower French Creek.',
-        'Low water near the official Utica 2.5 ft floor, when the long lower miles get slower, scrapier, and less forgiving around wood.',
-        'Fresh wood after storms, private shorelines, and missing the Franklin take-out at the Allegheny confluence.',
-      ],
-    },
+    accessPoints: [
+      {
+        id: 'wilson-chutes',
+        name: 'Wilson Chutes PFBC access',
+        latitude: 41.589167,
+        longitude: -80.149722,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start for the lower corridor.',
+      },
+      {
+        id: 'shaws-landing',
+        name: "Shaw's Landing",
+        latitude: 41.540833,
+        longitude: -80.104167,
+        mileFromStart: 4,
+        segmentKind: 'creek',
+        note: 'Short first split before the longer middle miles.',
+      },
+      {
+        id: 'cochranton',
+        name: 'Cochranton Borough access',
+        latitude: 41.519167,
+        longitude: -80.053889,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Useful public split point for the middle of the lower corridor.',
+      },
+      {
+        id: 'utica',
+        name: 'Utica PFBC access',
+        latitude: 41.438056,
+        longitude: -79.955278,
+        mileFromStart: 16,
+        segmentKind: 'creek',
+        note: 'Full finish for the first canonical lower route and the direct-gauge access.',
+      },
+    ],
   },
   'french-creek-utica-franklin': {
     putIn: {
@@ -14476,6 +13908,26 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Fresh wood after storms, private shorelines, and missing the Franklin take-out at the Allegheny confluence.',
       ],
     },
+    accessPoints: [
+      {
+        id: 'utica',
+        name: 'Utica PFBC access',
+        latitude: 41.438056,
+        longitude: -79.955278,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start for the final lower corridor.',
+      },
+      {
+        id: 'franklin',
+        name: 'Franklin PFBC access',
+        latitude: 41.381389,
+        longitude: -79.82,
+        mileFromStart: 10,
+        segmentKind: 'creek',
+        note: 'Full downstream finish at the Allegheny confluence landing on Elk Street.',
+      },
+    ],
   },
   'south-llano-river-cupgrass-state-park': {
     putIn: {
