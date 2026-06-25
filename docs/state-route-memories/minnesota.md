@@ -4,8 +4,8 @@ Last summarized: 2026-06-25.
 
 ## Current Inventory
 
-- Live routes: 48.
-- Top represented rivers: Minnesota River 4, Mississippi River 4, Root River 4, North Fork Crow River 3, Snake River 3, Zumbro River 3, Cannon River 2, Crow Wing River 2.
+- Live routes: 51.
+- Top represented rivers: Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, North Fork Crow River 3, Snake River 3.
 - Ledger candidates: 49 total; 15 added, 20 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`.
 
 ## Status
@@ -13,6 +13,13 @@ Last summarized: 2026-06-25.
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-25 17:35 America/Chicago: added `big-fork-river-big-falls-west-sturgeon`, `big-fork-river-sturgeon-ben-linn`, and `big-fork-river-ben-linn-gowdy`.
+- Implemented three new downstream Big Fork routes below the Big Falls portage instead of forcing a weaker cross-state discovery cycle.
+- Minnesota public-water-access GIS resolves Big Falls West `WAS01791` at `48.1974059, -93.8049550`, Sturgeon `WAS01795` at `48.2118788, -93.8834227`, Ben Linn `WAS01796` at `48.2500692, -93.8861103`, and Gowdy `WAS02706` at `48.2991378, -93.8203830`.
+- The corridor still uses direct MN DNR site `5` at Big Falls with same-day `2.89 ft` at `2026-06-25 03:00 PM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- Big-Falls-West-to-Sturgeon ships as a post-portage continuation with `on_route_campsite` support at Sturgeon; Sturgeon-to-Ben-Linn and Ben-Linn-to-Gowdy also ship as `on_route_campsite` because both ends of those routes have named watercraft campsites on DNR Map 2.
+- The Ben-Linn-to-Gowdy route carries the mapped Class I rapid stretch at river miles `41.3-39.8`; all three routes retain fast-rise, wood, and private-bank cautions. No route-gallery image was added.
 
 - 2026-06-25 16:45 America/Chicago: added `little-fork-river-fiedler-devereaux`, `little-fork-river-devereaux-lofgren-park`, and `little-fork-river-fiedler-lofgren-park`.
 - Implemented three new lower Little Fork routes beyond the current baseline using the official Map 2 access chain instead of reopening a weaker new state.

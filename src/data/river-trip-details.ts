@@ -798,6 +798,171 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-fork-river-big-falls-west-sturgeon': {
+    putIn: {
+      name: 'Big Falls West / Cody Landing Public Water Access Site',
+      latitude: 48.1974059,
+      longitude: -93.804955,
+    },
+    takeOut: {
+      name: 'Sturgeon Public Water Access Site',
+      latitude: 48.2118788,
+      longitude: -93.8834227,
+    },
+    logistics: {
+      distanceLabel: '5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3.5 hr',
+      shuttle:
+        'Stage the take-out at Sturgeon first, then drive back to Big Falls West / Cody Landing. This route starts below the Big Falls portage; do not confuse the launch with the upstream Big Falls East mandatory take-out.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, portage, and state-forest rules at Big Falls and Sturgeon.',
+      camping:
+        'Sturgeon Landing has a watercraft campsite, and Big Falls City Park is nearby before launch if you want a developed overnight base the night before.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Big Falls at Cody Landing / Big Falls West and finish at Sturgeon Landing for a short downstream continuation on the Big Fork. This route assumes you are starting below the falls rather than trying to run or portage them as part of the trip.',
+      accessCaveats: [
+        'Big Falls West is the downstream put-in reached after the DNR portage around Big Falls. Do not start above the falls unless you have separately planned that upstream route and portage.',
+        'Sturgeon is a quieter forest landing with a campsite, not a developed city park finish.',
+        'Stay with the named public accesses and campsites rather than improvising on brushy banks.',
+      ],
+      watchFor: [
+        'Strainers, outside-bend wood, and blind corners on a lightly developed northern river.',
+        'Scraping and slower progress when the Big Falls gauge falls toward the 1.5 ft floor.',
+        'Faster current and fewer recovery options after heavy rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-falls-west',
+        name: 'Big Falls West / Cody Landing Public Water Access Site',
+        latitude: 48.1974059,
+        longitude: -93.804955,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Downstream launch reached after the documented Big Falls portage.',
+      },
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 5,
+        segmentKind: 'creek',
+        note: 'Forested carry-in access with a watercraft campsite.',
+      },
+    ],
+  },
+  'big-fork-river-sturgeon-ben-linn': {
+    putIn: {
+      name: 'Sturgeon Public Water Access Site',
+      latitude: 48.2118788,
+      longitude: -93.8834227,
+    },
+    takeOut: {
+      name: 'Ben Linn Public Water Access Site',
+      latitude: 48.2500692,
+      longitude: -93.8861103,
+    },
+    logistics: {
+      distanceLabel: '4.5 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr',
+      shuttle:
+        'Use a short forest-road shuttle between Sturgeon and Ben Linn. Both endpoints are quiet carry-in style landings, so check road conditions and loading space before launch.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and state-forest rules at Sturgeon and Ben Linn.',
+      camping:
+        'Both Sturgeon and Ben Linn have watercraft campsites, making this one of the cleaner campsite-to-campsite links on the Big Fork.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sturgeon and finish at Ben Linn for a short middle-corridor Big Fork float between two official campsites. The mileage is modest, but it is still a remote northern river with wood and changing current after rain.',
+      accessCaveats: [
+        'This is a forest-corridor route between two lightly developed landings, not a park-to-park float with easy roadside exits.',
+        'Use the named campsites and public accesses only; most shoreline between them is undeveloped or private.',
+        'If the gauge is rising fast, treat the route as more serious than the mileage suggests.',
+      ],
+      watchFor: [
+        'Strainers, overhanging trees, and shifting wood after storms.',
+        'Cold water and a faster current than expected on a narrow wooded river.',
+        'Scraping on riffles when the Big Falls gauge is near the floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Forested carry-in access with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
+      },
+    ],
+  },
+  'big-fork-river-ben-linn-gowdy': {
+    putIn: {
+      name: 'Ben Linn Public Water Access Site',
+      latitude: 48.2500692,
+      longitude: -93.8861103,
+    },
+    takeOut: {
+      name: 'Gowdy Public Water Access Site',
+      latitude: 48.2991378,
+      longitude: -93.820383,
+    },
+    logistics: {
+      distanceLabel: '8.8 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5 hr',
+      shuttle:
+        'Stage the take-out at Gowdy before driving to Ben Linn. The road approach is simpler than the upper Big Fork starts, but both endpoints are still forest-edge landings without many backup services.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and state-forest rules at Ben Linn and Gowdy.',
+      camping:
+        'Both landings have watercraft campsites, making this a practical campsite-to-campsite northern river day or a short overnight link.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ben Linn and finish at Gowdy for the longer middle-lower Big Fork continuation. This route adds the mapped Class I rapid stretch and remains a real moving-water day even though it is not technical whitewater.',
+      accessCaveats: [
+        'Ben Linn and Gowdy are both named public landings with campsites, but they are still rural access points without the amenities of a developed park.',
+        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
+        'This route is best treated as a moving-water forest run, not a casual low-risk float, when the gauge is high or rising.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 8.8,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite at the downstream end of the rapid-stretch corridor.',
+      },
+    ],
+  },
   'little-fork-river-veterans-park-highway-73': {
     putIn: {
       name: 'Veterans Park carry-in access, Cook',
