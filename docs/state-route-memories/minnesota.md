@@ -14,6 +14,13 @@ Minnesota has the strongest official-source foundation and a broad existing inve
 
 ## Latest Run
 
+- 2026-06-25 16:45 America/Chicago: added `little-fork-river-fiedler-devereaux`, `little-fork-river-devereaux-lofgren-park`, and `little-fork-river-fiedler-lofgren-park`.
+- Implemented three new lower Little Fork routes beyond the current baseline using the official Map 2 access chain instead of reopening a weaker new state.
+- Minnesota public-water-access GIS resolves Fiedler `WAS00943` at `48.2920545, -93.4416055`, Devereaux `WAS02588` at `48.3310780, -93.4851298`, and Lofgren Park `WAS02245` at `48.4002431, -93.5648330`.
+- The corridor uses direct MN DNR site `81` at Littlefork with same-day `215 cfs` at `2026-06-25 02:30 PM`; official bands remain Scrapable below `400 cfs`, Low `400-600`, Medium `600-1500`, High `1500-2100`, and Very High above `2100 cfs`.
+- Fiedler-to-Devereaux ships as the shorter wooded split above Flat Rock Rapids with conservative non-camping posture; Devereaux-to-Lofgren and Fiedler-to-Lofgren both ship with `endpoint_campground` support because DNR Map 2 says Lofgren Park has a city campground, trailer access, toilets, drinking water, picnic shelter, and a camping fee.
+- The lower two routes carry the map-sheet rapid notes for Flat Rock Rapids and the Highway 217 rapids near Littlefork. No route-gallery image was added.
+
 - 2026-06-25 14:40 America/Chicago: added `big-fork-river-johnson-grunwald`, `big-fork-river-grunwald-big-falls-east`, and `big-fork-river-johnson-big-falls-east`.
 - Implemented the full MN DNR Big Fork Map 2 recommended day plus both source-backed Grunwald shortening splits after confirming current official access records and the direct Big Falls gauge ladder.
 - Minnesota public-water-access GIS resolves Johnson `WAS02708` at `48.0886284, -93.6816927`, Grunwald `WAS01793` at `48.1349931, -93.7224805`, and Big Falls East `WAS01790` at `48.1950345, -93.7958517`.

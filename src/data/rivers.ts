@@ -113,6 +113,369 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-fork-river-fiedler-devereaux',
+    slug: 'little-fork-river-fiedler-devereaux',
+    name: 'Little Fork River',
+    reach: 'Fiedler to Devereaux',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Shorter lower-map Little Fork split between two official DNR accesses north of Littlefork. The route uses the direct Littlefork gauge and keeps the day above Flat Rock Rapids.',
+    statusText:
+      'The Littlefork gauge is best from 600 to 1,500 cfs. Below 400 cfs, expect scraping and stalled progress; above 2,100 cfs, current and recovery windows are too pushy for a general recommendation.',
+    latitude: 48.2920545,
+    longitude: -93.4416055,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This shorter split stays above Flat Rock Rapids, but it is still a remote northern river with wood, cold shoulder-season water, and few quick roadside exits.',
+        'The Little Fork rises quickly after rain. Treat rising water as a reason to reassess rather than assume an easy shortened float.',
+        'Use only the named public accesses and designated campsites or legal public-land camping areas. Much of the shoreland is private property.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-81',
+      provider: 'mn_dnr',
+      siteId: '81',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River at Little Fork, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1500,
+      tooLow: 400,
+      tooHigh: 2100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River at Littlefork',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The lower Little Fork usually peaks in late spring and can drop into scrapy summer levels without fresh rain. Heavy rain raises current quickly on this wooded corridor.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is the easier of the new lower-Little-Fork adds, but it still belongs to paddlers who are comfortable with current, route-finding around wood, and remote northern logistics.',
+      confidenceNotes:
+        'Confidence is good: DNR Map 2 names both Fiedler and Devereaux accesses, the direct Littlefork gauge has a full official ladder, and the Minnesota public-water-access feature service resolves both endpoints with exact river miles and coordinates.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Littlefork gauge 215 cfs',
+        note: 'The official MN DNR river-level dataset reported 215 cfs at 2026-06-25 02:30 PM for Little Fork River at Littlefork, confirming the current direct gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '400 / 600-1,500 / 2,100 cfs',
+        note: 'MN DNR interprets the Littlefork gauge as Scrapable below 400 cfs, Low from 400 to 600, Medium from 600 to 1,500, High from 1,500 to 2,100, and Very High above 2,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Fiedler RM 44.8 to Devereaux RM 37.1',
+        note: 'DNR Map 2 places Fiedler at river mile 44.8 and Devereaux at river mile 37.1, making this a 7.7-mile shortened lower-Little-Fork split.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Fiedler WAS00943 and Devereaux WAS02588',
+        note: 'Minnesota public-water-access data resolves Fiedler on river right and Devereaux on river left as official public Little Fork accesses with mapped coordinates and river-mile values.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Route character',
+        value: 'Wooded WMA corridor above Flat Rock Rapids',
+        note: 'The map sheet places this short split between the Ester Brook confluence and the Little Fork Wildlife Management Area, and it stays above Flat Rock Rapids farther downstream.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Camping posture',
+        value: 'No named campsite between endpoints',
+        note: 'The DNR map says state forests offer camping opportunities on this map sheet, but it does not name a designated campsite between Fiedler and Devereaux, so the route stays conservative for camping filters.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'MN DNR Littlefork gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Koochiching State Forest',
+        url: 'https://www.dnr.state.mn.us/state_forests/forest.html?id=sft00028#homepage',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-devereaux-lofgren-park',
+    slug: 'little-fork-river-devereaux-lofgren-park',
+    name: 'Little Fork River',
+    reach: 'Devereaux to Lofgren Park',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Longer lower Little Fork run from the Devereaux access into Littlefork. The direct in-town gauge, Flat Rock Rapids, and the Lofgren Park campground make it a more committed but cleaner-supported finish.',
+    statusText:
+      'The Littlefork gauge is best from 600 to 1,500 cfs. Below 400 cfs, expect scraping around rapids; above 2,100 cfs, faster current and the lower rapids become too consequential for a general recommendation.',
+    latitude: 48.331078,
+    longitude: -93.4851298,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'Scout Flat Rock Rapids at river mile 29.8 and the rapids around Highway 217 near Littlefork. The map notes no developed portage at Flat Rock Rapids.',
+        'High or rising water tightens recovery windows on the lower rapids and can add fresh wood even though the finish is closer to town.',
+        'Stay on the named public accesses and legal campsites. Riverbed camping beside private property is not permitted on this map sheet.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-81',
+      provider: 'mn_dnr',
+      siteId: '81',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River at Little Fork, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1500,
+      tooLow: 400,
+      tooHigh: 2100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River at Littlefork',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The river usually drops through summer, and this lower reach is the first place where low water starts to feel pushy around specific rapids instead of just generally scrapy.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a long day with multiple light rapids and one named Class II feature. It is still broad-audience river running, but it is not a casual park drift.',
+      confidenceNotes:
+        'Confidence is good: the direct Littlefork DNR gauge sits at the finish corridor with a full official ladder, DNR Map 2 names Devereaux and Lofgren Park, and the lower-sheet route notes explicitly call out the relevant rapids and campground-backed take-out.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Littlefork gauge 215 cfs',
+        note: 'The official MN DNR river-level dataset reported 215 cfs at 2026-06-25 02:30 PM for Little Fork River at Littlefork, confirming the direct same-day gauge path at the downstream end of this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '400 / 600-1,500 / 2,100 cfs',
+        note: 'MN DNR interprets the Littlefork gauge as Scrapable below 400 cfs, Low from 400 to 600, Medium from 600 to 1,500, High from 1,500 to 2,100, and Very High above 2,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Devereaux RM 37.1 to Lofgren RM 21.0',
+        note: 'DNR Map 2 places Devereaux at river mile 37.1 and Lofgren Park at river mile 21.0, making this a 16.1-mile lower-Little-Fork route into town.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Rapids and hazard support',
+        value: 'Flat Rock Rapids plus Hwy 217 rapids',
+        note: 'The map identifies Flat Rock Rapids at river mile 29.8 as Class II with no developed portage, and it also marks rapids above and below Highway 217 near the Littlefork finish.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Devereaux WAS02588 and Lofgren Park WAS02245',
+        note: 'Minnesota public-water-access data resolves Devereaux on river left and Lofgren Park on river right, with Lofgren administered by the City of Littlefork.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Lofgren Park city campground',
+        note: 'DNR Map 2 says Lofgren Park has a city campground with trailer access, toilets, drinking water, picnic shelter, and a camping fee, making this a clean endpoint-campground finish.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'MN DNR Littlefork gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Koochiching State Forest',
+        url: 'https://www.dnr.state.mn.us/state_forests/forest.html?id=sft00028#homepage',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-fiedler-lofgren-park',
+    slug: 'little-fork-river-fiedler-lofgren-park',
+    name: 'Little Fork River',
+    reach: 'Fiedler to Lofgren Park',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Full downstream Little Fork continuation from Fiedler into Littlefork. It combines the quieter upper half with the Flat Rock and town-rapids lower finish and ends at the map-sheet campground.',
+    statusText:
+      'The Littlefork gauge is best from 600 to 1,500 cfs. Below 400 cfs, this long route gets scrapy and slow; above 2,100 cfs, the lower rapids and recovery windows are too consequential for a general recommendation.',
+    latitude: 48.2920545,
+    longitude: -93.4416055,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'remote', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This full lower continuation combines remote wooded miles with Flat Rock Rapids and the rapids around Highway 217 near Littlefork. Scout the named rapids and leave daylight margin.',
+        'The route is long enough that storm wood, cold water, or a slower-than-expected pace can matter more than the map mileage suggests.',
+        'Use only the named public accesses and legal campsites. Much of the shoreline is private, and riverbed camping next to private property is not permitted.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-81',
+      provider: 'mn_dnr',
+      siteId: '81',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River at Little Fork, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 600,
+      idealMax: 1500,
+      tooLow: 400,
+      tooHigh: 2100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River at Littlefork',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This route uses the same direct Littlefork gauge as the shorter lower split, but the longer mileage means low summer water, headwinds, and high-water recovery windows all matter more.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'It is still a class I-II northern river day rather than technical whitewater, but 23.8 miles plus two named rapid zones make this a serious full-day commitment.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: DNR Map 2 clearly names Fiedler, Devereaux, and Lofgren Park on the same corridor, the direct Littlefork gauge carries a full official ladder, and the public-water-access feature service resolves the start, intermediate bailout, and campground finish cleanly.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Littlefork gauge 215 cfs',
+        note: 'The official MN DNR river-level dataset reported 215 cfs at 2026-06-25 02:30 PM for Little Fork River at Littlefork, confirming the direct same-day gauge path used for this downstream route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '400 / 600-1,500 / 2,100 cfs',
+        note: 'MN DNR interprets the Littlefork gauge as Scrapable below 400 cfs, Low from 400 to 600, Medium from 600 to 1,500, High from 1,500 to 2,100, and Very High above 2,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Fiedler RM 44.8 to Lofgren RM 21.0',
+        note: 'DNR Map 2 places Fiedler at river mile 44.8, Devereaux at 37.1, and Lofgren Park at 21.0, making this a 23.8-mile full downstream continuation with a named mid-route bailout.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Rapids and hazard support',
+        value: 'Flat Rock Rapids plus Hwy 217 rapids',
+        note: 'The map identifies Flat Rock Rapids at river mile 29.8 as Class II with no developed portage and also marks rapids above and below Highway 217 near the Littlefork finish.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Fiedler WAS00943, Devereaux WAS02588, Lofgren Park WAS02245',
+        note: 'Minnesota public-water-access data resolves the full corridor, including Devereaux as the clearest mid-route bailout before the in-town campground finish at Lofgren Park.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Lofgren Park city campground',
+        note: 'DNR Map 2 says Lofgren Park has a city campground with trailer access, toilets, drinking water, picnic shelter, and a camping fee, making the route best framed as an endpoint-campground finish rather than speculative dispersed camping.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'MN DNR Littlefork gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Koochiching State Forest',
+        url: 'https://www.dnr.state.mn.us/state_forests/forest.html?id=sft00028#homepage',
+      },
+    ],
+  },
+  {
     id: 'big-fork-river-johnson-grunwald',
     slug: 'big-fork-river-johnson-grunwald',
     name: 'Big Fork River',

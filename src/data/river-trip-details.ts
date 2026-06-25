@@ -866,6 +866,119 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'little-fork-river-fiedler-devereaux': {
+    putIn: {
+      name: 'Fiedler Public Water Access Site',
+      latitude: 48.2920545,
+      longitude: -93.4416055,
+    },
+    takeOut: {
+      name: 'Devereaux Public Water Access Site',
+      latitude: 48.331078,
+      longitude: -93.4851298,
+    },
+    logistics: {
+      distanceLabel: '7.7 mi',
+      estimatedPaddleTime: 'About 3 hr to 4.5 hr depending on level and wood',
+      shuttle:
+        'Use a short but still rural shuttle between the Fiedler and Devereaux accesses north of Littlefork. Check road conditions and leave extra time because both endpoints are quiet forest-edge landings, not town parks.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules and any state-forest or county restrictions in the corridor.',
+      camping:
+        'Treat this as a remote day trip. The DNR map says state forests on this sheet can allow camping in the broader corridor, but it does not name a designated campsite between Fiedler and Devereaux, so this route should not be treated as a camping-filter yes.',
+      summary:
+        'Launch at Fiedler and take out at Devereaux for a shorter lower-Little-Fork split above Flat Rock Rapids. This is a quieter wooded day than the full run into Littlefork, but it still needs normal northern-river judgment.',
+      accessCaveats: [
+        'Both endpoints are official public-water-access sites, but neither is a staffed park or campground finish.',
+        'This split stays above Flat Rock Rapids, which makes it cleaner than the lower route, but it is still remote enough that a missed shuttle or bad weather will feel expensive.',
+        'Much of the shoreland on this map sheet is private property; stop only at designated sites or legal public-land camping areas.',
+      ],
+      watchFor: [
+        'Storm wood, sweepers, and brushy banks on a narrow wooded river with limited quick exits.',
+        'Scraping and slow travel when the Littlefork gauge falls toward the 400 cfs scrapable floor.',
+        'Cold water and changing current after rain even though this shortened split avoids the named downstream rapids.',
+      ],
+    },
+  },
+  'little-fork-river-devereaux-lofgren-park': {
+    putIn: {
+      name: 'Devereaux Public Water Access Site',
+      latitude: 48.331078,
+      longitude: -93.4851298,
+    },
+    takeOut: {
+      name: 'Lofgren Park Public Water Access Site',
+      latitude: 48.4002431,
+      longitude: -93.564833,
+    },
+    logistics: {
+      distanceLabel: '16.1 mi',
+      estimatedPaddleTime: 'Long day, roughly 6 hr to 8 hr depending on level and scouting',
+      shuttle:
+        'Stage the take-out at Lofgren Park in Littlefork before driving to Devereaux. The finish is easier to manage because it has campground services, but the put-in remains a remote access with limited backup options.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules, city campground rules at Lofgren Park, and any state-forest restrictions in the upstream corridor.',
+      camping:
+        'Lofgren Park is a real endpoint-campground finish. The DNR map says it has a city campground, trailer access, toilets, drinking water, picnic shelter, and a camping fee, so this route can honestly finish into a legal overnight base.',
+      summary:
+        'Launch at Devereaux and finish at Lofgren Park for a longer lower-Little-Fork route into town. This route combines remote wooded miles with Flat Rock Rapids and the rapids around Highway 217 near the finish.',
+      accessCaveats: [
+        'The route starts remote and finishes in a city park, so treat the shuttle like two different worlds rather than assume town support exists upstream.',
+        'Lofgren Park is the intended finish. Do not continue toward the Rainy River unless you have separately checked the remaining lower-river access story.',
+        'Riverbed camping next to private property is not permitted on this map sheet, even if a gravel stop looks tempting late in the day.',
+      ],
+      watchFor: [
+        'Flat Rock Rapids at river mile 29.8, marked as Class II with no developed portage on the DNR map.',
+        'Rapids above and below Highway 217 near Littlefork, where high water shortens recovery windows.',
+        'Scraping, stalled progress, and more boat-banging than expected when the Littlefork gauge is below the 400 cfs floor.',
+      ],
+    },
+  },
+  'little-fork-river-fiedler-lofgren-park': {
+    putIn: {
+      name: 'Fiedler Public Water Access Site',
+      latitude: 48.2920545,
+      longitude: -93.4416055,
+    },
+    takeOut: {
+      name: 'Lofgren Park Public Water Access Site',
+      latitude: 48.4002431,
+      longitude: -93.564833,
+    },
+    logistics: {
+      distanceLabel: '23.8 mi',
+      estimatedPaddleTime: 'Very long day, roughly 8 hr to 10 hr depending on level and scouting',
+      shuttle:
+        'Stage the take-out at Lofgren Park before driving to Fiedler, and do not treat the long mileage like a casual add-on to the shorter split. This is a full-commitment northern shuttle with a safer in-town finish.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules and Littlefork city campground rules at the take-out.',
+      camping:
+        'Lofgren Park makes this a clean endpoint-campground route. The finish has campground support, but the route itself should still be planned as a long single-day paddle unless you have separately verified legal public-land camping in the corridor.',
+      summary:
+        'Launch at Fiedler and finish at Lofgren Park for the full downstream continuation on Little Fork Map 2. This combines the quieter upper half with the Flat Rock and Highway 217 rapids on the way into Littlefork.',
+      accessCaveats: [
+        'Devereaux is the clearest intermediate bailout if the long day is slipping, and should be treated as a real contingency plan rather than a theoretical midpoint.',
+        'Most of the shoreland remains private or undeveloped. Use named accesses and designated campsites only.',
+        'This route ends with better services than most northern river runs, but those services do not reduce the seriousness of the long upstream commitment.',
+      ],
+      watchFor: [
+        'Storm wood, cold water, and wind or fatigue compounding across nearly 24 river miles.',
+        'Flat Rock Rapids plus the lower rapids around Highway 217 near the finish.',
+        'Very slow scraping travel when the Littlefork gauge is below the 400 cfs floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'devereaux',
+        name: 'Devereaux Public Water Access Site',
+        latitude: 48.331078,
+        longitude: -93.4851298,
+        mileFromStart: 7.7,
+        segmentKind: 'creek',
+        note: 'Best named bailout and route-shortening point on the full downstream continuation.',
+      },
+    ],
+  },
   'red-lake-river-smiley-bridge-centennial-park': {
     putIn: {
       name: 'Smiley Bridge public water access',
