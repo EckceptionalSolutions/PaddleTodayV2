@@ -30850,6 +30850,363 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'saline-river-tony-kelly-peeler-bend',
+    slug: 'saline-river-tony-kelly-peeler-bend',
+    name: 'Saline River',
+    reach: 'Tony Kelly Ford Access to Peeler Bend',
+    aliases: [
+      'Saline River - Tony Kelly to Peeler Bend',
+      'Saline River Water Trail mid-upper Benton segment',
+      'Arkansas Water Trails Tony Kelly to Peeler',
+    ],
+    state: 'Arkansas',
+    region: 'Central Arkansas',
+    summary:
+      'Shorter Benton-area Saline split from Tony Kelly Ford to Peeler Bend. AGFC documents the exact 4.4-mile segment, both public accesses, and the direct Benton gauge ladder, making this a clean shorter option when the river stays out of the experienced-only window.',
+    statusText:
+      'Use the Saline River at Benton gauge. Around 3.6 to 5.0 ft is the broad paddle window for this segment; below about 3.5 ft expect more dragging, and above about 5.0 ft AGFC treats the river as experienced-only water.',
+    latitude: 34.5844,
+    longitude: -92.6938,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'The Saline can rise quickly after rain and shift from clear moving water to pushier current with little warning.',
+        'Stay with the named public access points and avoid private banks along the corridor.',
+        'Wood, strainers, and muddy exits become more consequential as the river climbs above the normal range.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07363000',
+      provider: 'usgs',
+      siteId: '07363000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Saline River at Benton, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.6,
+      idealMax: 5,
+      tooLow: 3.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Saline River Water Trail gauge bands',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames the Saline as rainfall dependent year-round moving water. Spring through early fall is workable when the Benton gauge is in range, but flashy post-storm rises can quickly turn even this shorter split into a stronger current day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the shorter upper-middle segment of the Benton trail, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as an approachable moving-water day only when flows stay in the normal band.',
+      confidenceNotes:
+        'Confidence is high for a shorter Arkansas add: AGFC publishes Tony Kelly Ford to Peeler Bend as an exact 4.4-mile Saline River Water Trail segment, exposes public-access coordinates for both endpoints, and gives direct Benton gauge bands for the corridor. USGS Water Services returned same-day discharge and stage during this run, though the selected current reading sat below the preferred window.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Tony Kelly Ford to Peeler Bend, 4.4 miles',
+        note: 'AGFC lists Tony Kelly Ford to Peeler Bend as an exact Saline River Water Trail segment.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07363000',
+        note: 'USGS Water Services returned same-day Saline River at Benton values of 72.0 cfs and 3.47 ft at 2026-06-25 03:30 CDT during this run, below the broad public recommendation.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Stage model',
+        value: '3.5 / 3.6-5.0 / 5.0 ft',
+        note: 'AGFC labels 3.5 ft and below as low, 3.6-4.0 ft as typical, 4.1-5.0 ft as optimum, and 5.1-5.5 ft as high experienced-only water. Paddle Today uses 3.6-5.0 ft as the broad audience band and treats water above 5.0 ft as outside the general recommendation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Tony Kelly Ford Access, 34.5844, -92.6938',
+        note: 'AGFC publishes Tony Kelly Ford Access as a named public Saline River Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Peeler Bend, 34.5852, -92.6467',
+        note: 'AGFC publishes Peeler Bend as a named public Saline River Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Route character',
+        value: 'Deep pools, fast chutes, riffles, small waves',
+        note: 'AGFC says paddlers can expect deep pools, fast chutes, riffles, and small waves on this Benton reach, with about two miles per hour travel under normal conditions.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Saline River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07363000 Saline River at Benton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07363000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'saline-river-peeler-bend-lyle-park',
+    slug: 'saline-river-peeler-bend-lyle-park',
+    name: 'Saline River',
+    reach: 'Peeler Bend to Lyle Park Access',
+    aliases: [
+      'Saline River - Peeler Bend to Lyle Park',
+      'Saline River Water Trail mid Benton segment',
+      'Arkansas Water Trails Peeler to Lyle',
+    ],
+    state: 'Arkansas',
+    region: 'Central Arkansas',
+    summary:
+      'Mid-Benton Saline split from Peeler Bend to Lyle Park. AGFC documents the exact 3.8-mile segment, both public accesses, and the direct Benton gauge bands, making this a shorter trust-first option before the lower-river spillway hazard.',
+    statusText:
+      'Use the Saline River at Benton gauge. Around 3.6 to 5.0 ft is the broad paddle window for this segment; below about 3.5 ft expect more dragging, and above about 5.0 ft AGFC treats the river as experienced-only water.',
+    latitude: 34.5852,
+    longitude: -92.6467,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'The Saline can rise quickly after rain and shift from clear moving water to pushier current with little warning.',
+        'Stay with the named public access points and avoid private banks along the corridor.',
+        'Wood, strainers, and muddy exits become more consequential as the river climbs above the normal range.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07363000',
+      provider: 'usgs',
+      siteId: '07363000',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Saline River at Benton, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 3.6,
+      idealMax: 5,
+      tooLow: 3.5,
+      tooHigh: 5,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Saline River Water Trail gauge bands',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'AGFC frames the Saline as rainfall dependent year-round moving water. Spring through early fall is workable when the Benton gauge is in range, but flashy post-storm rises can quickly turn this shorter split into a stronger current day.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the shortest Benton Saline split being added in this run, but AGFC still describes deep pools, fast chutes, riffles, and small waves. Treat it as approachable moving water rather than as flatwater.',
+      confidenceNotes:
+        'Confidence is high for a conservative Arkansas add: AGFC publishes Peeler Bend to Lyle Park as an exact 3.8-mile Saline River Water Trail segment, exposes public-access coordinates for both endpoints, and gives direct Benton gauge bands for the corridor. USGS Water Services returned same-day discharge and stage during this run, though the selected current reading sat below the preferred window.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Peeler Bend to Lyle Park, 3.8 miles',
+        note: 'AGFC lists Peeler Bend to Lyle Park as an exact Saline River Water Trail segment and identifies it as a 2 to 3 hour float under normal conditions.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07363000',
+        note: 'USGS Water Services returned same-day Saline River at Benton values of 72.0 cfs and 3.47 ft at 2026-06-25 03:30 CDT during this run, below the broad public recommendation.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Stage model',
+        value: '3.5 / 3.6-5.0 / 5.0 ft',
+        note: 'AGFC labels 3.5 ft and below as low, 3.6-4.0 ft as typical, 4.1-5.0 ft as optimum, and 5.1-5.5 ft as high experienced-only water. Paddle Today uses 3.6-5.0 ft as the broad audience band and treats water above 5.0 ft as outside the general recommendation.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Peeler Bend, 34.5852, -92.6467',
+        note: 'AGFC publishes Peeler Bend as a named public Saline River Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Lyle Park Access, 34.5873, -92.6051',
+        note: 'AGFC publishes Lyle Park Access as a named public Saline River Water Trail access with a Google Maps coordinate link.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+      {
+        label: 'Route character',
+        value: 'Deep pools, fast chutes, riffles, small waves',
+        note: 'AGFC says paddlers can expect deep pools, fast chutes, riffles, and small waves on this Benton reach, with about two miles per hour travel under normal conditions.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Saline River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/saline-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07363000 Saline River at Benton',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07363000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07363000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07363000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'upper-illinois-river-chamber-springs-woka',
+    slug: 'upper-illinois-river-chamber-springs-woka',
+    name: 'Illinois River',
+    reach: 'Chamber Springs Access to WOKA Whitewater Park',
+    aliases: [
+      'Upper Illinois River - Chamber Springs to WOKA',
+      'Upper Illinois River Water Trail full Arkansas-to-Oklahoma segment',
+      'AGFC Upper Illinois Chamber Springs to WOKA',
+    ],
+    state: 'Arkansas',
+    region: 'Northwest Arkansas',
+    routeType: 'whitewater',
+    summary:
+      'Full Upper Illinois Water Trail route from Chamber Springs Access to WOKA Whitewater Park. AGFC documents the exact 15.5-mile corridor and direct Siloam gauge, but the long mileage plus Class II+ park features at the midpoint and finish make this a guarded whitewater-style add rather than a casual day float.',
+    statusText:
+      'Use the Illinois River near Siloam Springs gauge. Around 200 to 1,000 cfs is the broad target band; below 200 cfs may be too low to float well, and above 1,000 cfs AGFC says the river is for experienced floaters only.',
+    latitude: 36.166937,
+    longitude: -94.434458,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'The route passes through Siloam Springs Kayak Park and ends at WOKA Whitewater Park, and AGFC says both parks include Class II+ rapids that paddlers may want to carry around.',
+        'Much of the river corridor is private property; avoid trespassing and use only the named public accesses.',
+        'Heavy rain can raise the Illinois quickly and turn a long scenic float into a pushier current day with more consequence at both park features.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-07195400',
+      provider: 'usgs',
+      siteId: '07195400',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Illinois River at Hwy. 16 near Siloam Springs, AR',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-07195400/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 200,
+      idealMax: 1000,
+      tooLow: 200,
+      tooHigh: 1000,
+      thresholdSource: {
+        label: 'Arkansas Game and Fish Upper Illinois River Water Trail flow guidance',
+        url: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9],
+      seasonNotes:
+        'AGFC presents the Upper Illinois as a warm-season corridor with one direct gauge for the full route. Recent rain can improve low water but can also push this long run above the broad-audience band quickly.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'Most of the corridor is scenic moving water, but 15.5 miles plus Class II+ park features at Siloam Springs and WOKA make this a committed route for groups that can manage a long day and scout or carry features as needed.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: AGFC publishes Chamber Springs to WOKA as an exact 15.5-mile Upper Illinois River Water Trail segment, provides coordinate-linked public access pins at both ends, ties the corridor to direct USGS gauge 07195400 near Siloam Springs, and gives a clear 200 to 1,000 cfs best-flow band with experienced-only language above that. The current gauge reading during this run was far above the broad-audience band, so the route copy stays conservative and feature-focused.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Chamber Springs to WOKA Whitewater Park, 15.5 miles',
+        note: 'AGFC lists Chamber Springs to WOKA Whitewater Park as the full Upper Illinois River Water Trail route.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 07195400',
+        note: 'USGS Water Services returned same-day Illinois River near Siloam Springs values of 3,050 cfs and 9.92 ft at 2026-06-25 04:00 CDT during this run, well above the broad public recommendation.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07195400&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Flow model',
+        value: '200 / 200-1,000 / 1,000 cfs',
+        note: 'AGFC says the best level for floating the river is between 200 and 1,000 cfs, that levels below 200 cfs may be too low to float, and that water above 1,000 cfs is for experienced floaters only.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+      },
+      {
+        label: 'Access coordinates',
+        value: 'Chamber Springs Access 36.166937, -94.434458; WOKA Whitewater Park 36.13388, -94.5661',
+        note: 'AGFC publishes coordinate-linked public access pins for both ends of the full Arkansas-to-Oklahoma corridor.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+      },
+      {
+        label: 'Whitewater-park cautions',
+        value: 'Class II+ rapids at Siloam Springs and WOKA',
+        note: 'AGFC says Siloam Springs Kayak Park and WOKA Whitewater Park both have Class II+ rapids and paddlers should feel free to carry boats around both to avoid capsizing.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+      },
+      {
+        label: 'Camping and basecamp context',
+        value: 'Nearby campgrounds and outfitters',
+        note: 'AGFC lists Gypsy Camp and Canoe, Illinois River RV and Campground, and the two whitewater parks as nearby support resources for paddlers on the full corridor.',
+        sourceUrl: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'AGFC Upper Illinois River Water Trail',
+        url: 'https://www.agfc.com/things-to-do/water-trails/upper-illinois-river-water-trail/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 07195400 Illinois River near Siloam Springs',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-07195400/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 07195400 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=07195400&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Illinois River Watershed Partnership recreation guide',
+        url: 'https://www.irwp.org/recreation-on-the-illinois-river',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'upper-illinois-river-chamber-springs-siloam-kayak-park',
     slug: 'upper-illinois-river-chamber-springs-siloam-kayak-park',
     name: 'Illinois River',

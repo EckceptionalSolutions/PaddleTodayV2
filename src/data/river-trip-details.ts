@@ -9810,6 +9810,123 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'saline-river-tony-kelly-peeler-bend': {
+    putIn: {
+      id: 'tony-kelly-ford-access',
+      name: 'Tony Kelly Ford Access',
+      latitude: 34.5844,
+      longitude: -92.6938,
+    },
+    takeOut: {
+      id: 'peeler-bend',
+      name: 'Peeler Bend',
+      latitude: 34.5852,
+      longitude: -92.6467,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, swimming, or fishing stops',
+      shuttle:
+        'Stage the take-out at Peeler Bend, then drive back to Tony Kelly Ford Access. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Tony Kelly Ford or Peeler Bend, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tony Kelly Ford Access and take out at Peeler Bend for the shorter upper-middle Saline River water-trail split. The direct Benton gauge works well here because the route stays above the lower Benton spillway and low-water-bridge hazard package.',
+      accessCaveats: [
+        'Tony Kelly Ford is a simple public river access with no developed campground support in the reviewed source set.',
+        'Peeler Bend is a straightforward public access, but parking and launch conditions can change quickly with rain and runoff.',
+        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and late-day heat on the longer pools.',
+      ],
+    },
+  },
+  'saline-river-peeler-bend-lyle-park': {
+    putIn: {
+      id: 'peeler-bend',
+      name: 'Peeler Bend',
+      latitude: 34.5852,
+      longitude: -92.6467,
+    },
+    takeOut: {
+      id: 'lyle-park-access',
+      name: 'Lyle Park Access',
+      latitude: 34.5873,
+      longitude: -92.6051,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, swimming, or fishing stops',
+      shuttle:
+        'Stage the take-out at Lyle Park in Benton, then drive back to Peeler Bend. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Peeler Bend or Lyle Park, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Peeler Bend and take out at Lyle Park for the short middle Benton Saline River split. The direct Benton gauge works well here because the route finishes before the downstream spillway and low-water-bridge hazard package.',
+      accessCaveats: [
+        'Peeler Bend is a simple public access with limited developed support in the reviewed source set.',
+        'Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.',
+        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and short-notice thunderstorms on this more urban split.',
+      ],
+    },
+  },
+  'upper-illinois-river-chamber-springs-woka': {
+    putIn: {
+      id: 'chamber-springs-access',
+      name: 'Chamber Springs Access',
+      latitude: 36.166937,
+      longitude: -94.434458,
+    },
+    takeOut: {
+      id: 'woka-whitewater-park',
+      name: 'WOKA Whitewater Park',
+      latitude: 36.13388,
+      longitude: -94.5661,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with feature carries, lower water, or shuttle delays',
+      shuttle:
+        'Stage the take-out at WOKA Whitewater Park in Oklahoma, then drive back to Chamber Springs Access. Scout Siloam Springs Kayak Park and WOKA before launching so the group has a clear carry-around plan at both park features if needed.',
+      permits:
+        'No route-specific paddling permit is known, but this is a two-state corridor. Follow Arkansas and Oklahoma boating and PFD rules, note that Oklahoma bars glass and Styrofoam on the Illinois River, and use the named public parks and accesses only.',
+      camping:
+        'Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe, Illinois River RV and Campground, and the two whitewater parks as nearby trip-support resources, but this full route is normally handled as a long day float.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Chamber Springs Access and take out at WOKA Whitewater Park for the full Upper Illinois Water Trail route. This is a guarded long route because it passes one Class II+ kayak park mid-route and finishes at another in Oklahoma.',
+      accessCaveats: [
+        'The route is source-backed and public at both ends, but it is long enough that the group should inspect the midpoint kayak park and final WOKA take-out before committing.',
+        'The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.',
+        'Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.',
+        'This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching.',
+      ],
+      watchFor: [
+        'Low water below about 200 cfs, when AGFC says the river may be too low to float well.',
+        'Water above 1,000 cfs, which AGFC reserves for experienced floaters only and which raises consequence at both whitewater parks.',
+        'Class II+ features at Siloam Springs Kayak Park and WOKA Whitewater Park; scout and carry around anything outside the group skill set.',
+        'Fast rain rises, wood, strainers, slippery concrete or rock around the parks, private-bank issues, and interstate shuttle delays.',
+      ],
+    },
+  },
   'upper-illinois-river-chamber-springs-siloam-kayak-park': {
     putIn: {
       id: 'chamber-springs-access',
