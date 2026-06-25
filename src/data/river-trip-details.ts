@@ -8716,6 +8716,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'south-fork-kentucky-river-oneida-rocky-branch': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    logistics: {
+      distanceLabel: 'About 5.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Rocky Branch Road Access, then drive back to Oneida Ramp near Oneida Elementary School. Oneida is the more developed paved launch, but Rocky Branch has limited parking and a simpler bridge-side take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Rocky Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 5 miles downstream at Rocky Branch Road Access for the upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Rocky Branch is a gravel and dirt bridge-side access with limited parking and no amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
   'south-fork-kentucky-river-rocky-branch-cedar-valley': {
     putIn: {
       id: 'rocky-branch-road-access',
@@ -8752,6 +8790,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
         'Wood, strainers, muddy step-outs, occasional riffles, and fishing-line traffic near easier roadside access points.',
         'Private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-oneida-cedar-valley': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Cedar Valley Road Access, then drive back to Oneida Ramp. Oneida offers the easier paved launch, but Cedar Valley is a limited gravel and dirt exit, so walk the take-out before committing to the longer upper-South-Fork day.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Cedar Valley, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 7.5 miles downstream at Cedar Valley Road Access for a longer upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Cedar Valley is a gravel and dirt access with limited parking; KDFWR says bank fishing beyond the access is constrained because adjacent property is private.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more dragging, and a slower overall day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a longer day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving.',
+        'Wood, strainers, muddy landings, occasional riffles, and private banks outside the access sites.',
       ],
     },
   },
@@ -8868,6 +8944,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 900 cfs or 6.0 ft, when KDFWR moves the corridor out of the good band and current becomes less forgiving around wood and muddy landings.',
         'Wood, strainers, mud banks, bridge-area current, and occasional riffles.',
         'Private banks outside the access sites.',
+      ],
+    },
+  },
+  'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
+    putIn: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.4036,
+      longitude: -83.6798,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved launch, while Kay Wood is a simpler carry-down roadside exit with unpaved parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Kay Wood, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Upper Wolf Creek Ramp and take out about 5.2 miles downstream at Kay Wood Road Access for a medium South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Upper Wolf Creek is a free single-lane paved ramp with paved parking and year-round 24-hour availability.',
+        'Kay Wood Road Access is a KDFWR carry-down site with unpaved parking, no ramp, no listed amenities, and a canoe/kayak suitability note.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
       ],
     },
   },
