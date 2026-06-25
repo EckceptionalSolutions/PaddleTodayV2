@@ -10772,6 +10772,132 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wabash-river-linn-grove-kehoe-park': {
+    putIn: {
+      id: 'linn-grove-park',
+      name: 'Linn Grove Park',
+      latitude: 40.645752,
+      longitude: -85.031219,
+    },
+    takeOut: {
+      id: 'kehoe-park',
+      name: 'Kehoe Park',
+      latitude: 40.74237,
+      longitude: -85.171271,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 8.5 hr depending on stage, current, wind, shallow dragging, woody debris, and how efficiently the group reaches the in-town Kehoe finish',
+      shuttle:
+        'Stage the take-out at Kehoe Park, then drive back to Linn Grove Park. Inspect both public accesses before launching because this longer one-way shuttle makes a late access surprise or event-day parking issue much more expensive than on the shorter Wells County segments.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a long daylight day route rather than an overnight. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Linn Grove Park and take out at Kehoe Park for the longest current Wells County Wabash route into Bluffton. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Linn Grove Park and Vera Cruz Paddlesports Launch as public Wabash launches, and the NEI Water Trails Wabash River Challenge page explicitly lists Vera Cruz to Kehoe Park as a 6-mile route.',
+        'The combined 11.3-mile distance comes from the official 5.3-mile Linn Grove-to-Vera Cruz leg plus the official 6-mile Vera Cruz-to-Kehoe leg. Plan food, water, daylight, and group pace around the longer commitment.',
+        'Northeast Indiana Water Trails map coordinates are used for the endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders or random park edges.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to an 11-plus-mile day without enough time or shuttle discipline.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Private banks between launches and town-side landing activity near Kehoe Park; do not assume easy legal bailout access once you are past Vera Cruz.',
+      ],
+    },
+  },
+  'wabash-river-vera-cruz-hale-street': {
+    putIn: {
+      id: 'vera-cruz-paddlesports-launch',
+      name: 'Vera Cruz Paddlesports Launch',
+      latitude: 40.69890779,
+      longitude: -85.0828222,
+    },
+    takeOut: {
+      id: 'hale-street-access',
+      name: 'Hale Street access',
+      latitude: 40.7448153,
+      longitude: -85.1745966,
+    },
+    logistics: {
+      distanceLabel: 'About 6.6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 6 hr depending on stage, current, shallow dragging, bridge debris, wind, and how long the group takes at the public launches',
+      shuttle:
+        'Stage the take-out at the east end of Hale Street, then drive back to Vera Cruz Paddlesports Launch. Inspect both public access points before launching because Hale is a simpler earthen finish than White Bridge or Vera Cruz and same-day footing can change.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a medium-length daylight day trip. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Vera Cruz Paddlesports Launch and take out at the east-end Hale Street access for a longer Bluffton-area Wabash day. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Vera Cruz Paddlesports Launch, White Bridge Picnic Area, and Hale Street as public Wabash accesses, with the combined Vera Cruz-to-Hale route supported by the 4.2-mile Vera Cruz-to-White Bridge leg plus the 2.4-mile White Bridge-to-Hale connector.',
+        'The Hale Street coordinate is a practical public-access anchor at the mapped no-exit east end of West Hale Street, matching Wells County Trails launch wording rather than a surveyed ramp pin.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+        'This is an in-town finish, but the route still has limited obvious legal bailout points before Hale. Do not assume bridge shoulders or private banks are acceptable substitutes.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind, thunderstorms, cold water, poor visibility, anglers, and the simpler earthen footing at the Hale Street finish.',
+        'Private banks between launches; plan the 6.6-mile trip without assuming legal informal stops or mid-route take-outs.',
+      ],
+    },
+  },
+  'wabash-river-linn-grove-hale-street': {
+    putIn: {
+      id: 'linn-grove-park',
+      name: 'Linn Grove Park',
+      latitude: 40.645752,
+      longitude: -85.031219,
+    },
+    takeOut: {
+      id: 'hale-street-access',
+      name: 'Hale Street access',
+      latitude: 40.7448153,
+      longitude: -85.1745966,
+    },
+    logistics: {
+      distanceLabel: 'About 11.9 mi',
+      estimatedPaddleTime:
+        'About 5.25 hr to 9 hr depending on stage, current, wind, shallow dragging, woody debris, and how quickly the group reaches the east-end Hale finish',
+      shuttle:
+        'Stage the take-out at the east end of Hale Street, then drive back to Linn Grove Park. Inspect both public access points before launching because this is the longest current Wells County Wabash route and the Hale finish is a simple earthen access rather than an improved park ramp.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a long daylight day route rather than an overnight. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Linn Grove Park and take out at the east-end Hale Street access for the longest currently supported Wells County Wabash day. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, White Bridge Picnic Area, and Hale Street as public Wabash access points, with the full route supported by the official 5.3-mile, 4.2-mile, and 2.4-mile linked public legs.',
+        'The combined 11.9-mile distance comes from the public Linn Grove-to-Vera Cruz, Vera Cruz-to-White Bridge, and White Bridge-to-Hale legs. Plan food, water, daylight, and group pace around the longer commitment.',
+        'The Hale Street coordinate is a practical public-access anchor at the mapped no-exit east end of West Hale Street, matching Wells County Trails launch wording rather than a surveyed ramp pin.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to nearly 12 miles without enough daylight or shuttle discipline.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Private banks between launches and the simpler earthen Hale finish; do not assume easy legal bailout access once you are downstream of Vera Cruz.',
+      ],
+    },
+  },
   'wabash-river-white-bridge-hale-street': {
     putIn: {
       id: 'white-bridge-picnic-area',
