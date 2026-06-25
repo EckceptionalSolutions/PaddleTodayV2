@@ -1,6 +1,6 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-06-14.
+Last summarized: 2026-06-25.
 
 ## Current Inventory
 
@@ -13,6 +13,12 @@ Last summarized: 2026-06-14.
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-25 14:40 America/Chicago: added `big-fork-river-johnson-grunwald`, `big-fork-river-grunwald-big-falls-east`, and `big-fork-river-johnson-big-falls-east`.
+- Implemented the full MN DNR Big Fork Map 2 recommended day plus both source-backed Grunwald shortening splits after confirming current official access records and the direct Big Falls gauge ladder.
+- Minnesota public-water-access GIS resolves Johnson `WAS02708` at `48.0886284, -93.6816927`, Grunwald `WAS01793` at `48.1349931, -93.7224805`, and Big Falls East `WAS01790` at `48.1950345, -93.7958517`.
+- The corridor uses direct MN DNR site `5` at Big Falls with same-day `2.89 ft` at `2026-06-25 02:00 PM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- The full Johnson-to-Big-Falls route is documented as an advanced mandatory-take-out add because Big Falls is immediately downstream; the Johnson-to-Grunwald split stays caution-level because it exits upstream of that hazard. No route-gallery image was added.
 
 - 2026-06-14 17:18 America/Chicago: added `mississippi-river-norin-babcock`.
 - Implemented the upstream split of the Two Paddles MR 20 route as Norin Landing to Babcock; the existing `mississippi-river-babcock-peninsula-point` route covers the downstream Babcock-to-Anoka split.

@@ -113,6 +113,373 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-fork-river-johnson-grunwald',
+    slug: 'big-fork-river-johnson-grunwald',
+    name: 'Big Fork River',
+    reach: 'Johnson Landing to Grunwald Landing',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Shorter northern Big Fork option above Big Falls. MN DNR explicitly says the Johnson-to-Big-Falls day can be shortened at Grunwald Landing, and the direct Big Falls gauge provides an official same-corridor level ladder.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping; above 6.0 ft, the current and downstream consequence build beyond a general recommendation.',
+    latitude: 48.088628,
+    longitude: -93.681693,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This upper split avoids the Big Falls mandatory take-out, but wood, brushy banks, and changing current still demand attention on this remote northern river.',
+        'Heavy summer or autumn rain can raise the Big Fork quickly; treat rising water as a reason to reassess rather than assume a simple wooded float.',
+        'Use only the named public accesses and designated campsites because most shoreline outside those sites is private or undeveloped forest frontage.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says Big Fork levels usually peak in late April and fall through summer, while heavy summer or autumn rain can quickly bring the river back up.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is the easier half of the Johnson-to-Big-Falls recommended day, but it is still a remote northern river with current, wood, and enough mileage to punish sloppy planning.',
+      confidenceNotes:
+        'Confidence is good: MN DNR recommends the full Johnson Landing to Big Falls East trip and explicitly says paddlers can shorten it by starting or ending at Grunwald Landing. The direct Big Falls DNR gauge sits on the same corridor with official interpretation bands, and the public-water-access dataset resolves Johnson and Grunwald with river-mile support.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.89 ft',
+        note: 'The official MN DNR river-level dataset reported 2.89 ft at 2026-06-25 02:00 PM for Big Fork River at Big Falls, confirming the live direct gauge path used for this corridor.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Short split support',
+        value: 'Johnson to Grunwald, 6.5 river miles',
+        note: 'MN DNR says the recommended Johnson Landing to Big Falls day can be shortened by starting or ending at Grunwald Landing; the mapped river miles make Johnson to Grunwald a 6.5-mile split.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Johnson WAS02708 and Grunwald WAS01793',
+        note: 'Minnesota public-water-access data identifies Johnson as river mile 67.5 and Grunwald as river mile 61.0 on the Big Fork corridor.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Johnson watercraft campsite',
+        note: 'The DNR map says Johnson Landing has a rest area near shore and a watercraft campsite, making this short split one of the cleaner camp-and-paddle options on the upper Map 2 corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Route character',
+        value: 'Lazy wooded bends with wildlife',
+        note: 'DNR describes the Johnson-to-Big-Falls day as a lazy twisting route with wooded shoreline, farms appearing closer to Big Falls, and regular eagle, heron, and crane sightings; this upper split keeps the quieter first half of that character.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
+    id: 'big-fork-river-grunwald-big-falls-east',
+    slug: 'big-fork-river-grunwald-big-falls-east',
+    name: 'Big Fork River',
+    reach: 'Grunwald Landing to Big Falls East Landing',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Lower half of the MN DNR Johnson-to-Big-Falls day, ending at the official river-left take-out before the falls. The route has a direct DNR gauge and a clear official warning not to continue into Big Falls casually.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and slow bends; above 6.0 ft, faster current and the mandatory take-out become too consequential for a general recommendation.',
+    latitude: 48.134993,
+    longitude: -93.72248,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['mandatory_takeout', 'whitewater', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Take out at Big Falls East on river left before the Class IV Big Falls sequence; do not drift downstream to inspect it from the current.',
+        'High or rising water makes the approach to the Big Falls take-out faster and less forgiving, even though the route itself is mostly easier moving water upstream.',
+        'Use only the named public accesses and portage paths around Big Falls. Do not improvise on private banks or continue toward the falls without a separate expert whitewater plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says Big Fork levels usually peak in late April and then fall through summer, while heavy rain can bring the corridor back up fast and make the take-out approach more serious.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage is moderate and the upstream current is usually manageable, but this split finishes above a mandatory whitewater hazard and should not be treated like a casual drift when water is high or wood is moving.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: MN DNR recommends Johnson Landing to Big Falls East as the official day trip and says Grunwald can be used to shorten it. The direct Big Falls gauge sits effectively at the take-out corridor with official bands, and the public-water-access dataset resolves both Grunwald and Big Falls East.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.89 ft',
+        note: 'The official MN DNR river-level dataset reported 2.89 ft at 2026-06-25 02:00 PM for Big Fork River at Big Falls, confirming the same-day direct gauge path at the downstream end of this split.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Short split support',
+        value: 'Grunwald to Big Falls East, 8.0 river miles',
+        note: 'MN DNR says the recommended Johnson Landing to Big Falls day can be shortened by starting or ending at Grunwald Landing; the mapped river miles make Grunwald to Big Falls East an 8.0-mile split.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Mandatory take-out hazard',
+        value: 'Big Falls Class IV with river-left take-out',
+        note: 'The DNR map identifies Big Falls as a Class IV series of four falls, says the take-out is at Big Falls East Landing on river left, and describes the half-mile portage around the falls.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Grunwald WAS01793 and Big Falls East WAS01790',
+        note: 'Minnesota public-water-access data identifies Grunwald as river mile 61.0 on river left and Big Falls East as river mile 53.0 on river left in Big Falls.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Big Falls City Park campground',
+        note: 'The DNR map places Big Falls City Park campground, toilets, and drinking water just downstream of the take-out, making the finish one of the cleaner campground-supported exits in the northern inventory.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
+    id: 'big-fork-river-johnson-big-falls-east',
+    slug: 'big-fork-river-johnson-big-falls-east',
+    name: 'Big Fork River',
+    reach: 'Johnson Landing to Big Falls East Landing',
+    aliases: [
+      'Big Fork River - Johnson Landing to City of Big Falls',
+      'Big Fork River - Johnson to Big Falls East',
+    ],
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'MN DNR\'s recommended Big Fork Map 2 day trip from Johnson Landing to Big Falls. It is a full northern river day with a direct official gauge and a mandatory take-out before the Class IV falls.',
+    statusText:
+      'The Big Falls gauge is best from 2.8 to 4.5 ft. Below 1.5 ft, expect scraping and slower travel; above 6.0 ft, faster current and the Big Falls take-out become too consequential for a general recommendation.',
+    latitude: 48.088628,
+    longitude: -93.681693,
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['mandatory_takeout', 'whitewater', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Take out at Big Falls East on river left before the Class IV Big Falls sequence; do not overshoot the landing.',
+        'This long day stays mostly Class I-II upstream, but high or rising water makes the final approach and missed-take-out consequence much more serious.',
+        'Use only the named public accesses, designated campsites, and DNR portage path. Private banks and improvised landings are not part of the route plan.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-5',
+      provider: 'mn_dnr',
+      siteId: '5',
+      metric: 'gage_height_ft',
+      unit: 'ft',
+      kind: 'direct',
+      siteName: 'Big Fork River at Big Falls, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=77069001&var1=232&width=700&height=320',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 2.8,
+      idealMax: 4.5,
+      tooLow: 1.5,
+      tooHigh: 6,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Big Fork River at Big Falls',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'DNR says Big Fork levels usually peak in late April and fall during summer, while heavy summer or autumn rain can raise the river quickly and change the take-out approach.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a full-day northern river with mostly easier current, but the length, remote feel, and mandatory take-out above Big Falls make it more serious than a casual forest float.',
+      confidenceNotes:
+        'Confidence is high: MN DNR recommends this exact 14.5-mile Johnson Landing to Big Falls East trip, the direct Big Falls gauge sits at the finish corridor with official interpretation bands, and the public-water-access dataset resolves Johnson, Grunwald, and Big Falls East cleanly. The main reason the route stays guarded is not missing evidence; it is the real consequence of missing the take-out above Big Falls.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct live gauge',
+        value: 'Big Falls gauge 2.89 ft',
+        note: 'The official MN DNR river-level dataset reported 2.89 ft at 2026-06-25 02:00 PM for Big Fork River at Big Falls, confirming the same-day direct gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '1.5 / 2.8-4.5 / 6.0 ft',
+        note: 'MN DNR interprets the Big Falls gauge as Scrapable below 1.5 ft, Low from 1.5 to 2.8, Medium from 2.8 to 4.5, High from 4.5 to 6.0, and Very High above 6.0.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Recommended trip',
+        value: 'Johnson to Big Falls East, 14.5 river miles',
+        note: 'MN DNR names Johnson Landing to City of Big Falls as the recommended Map 2 day trip, puts Johnson at river mile 67.5 and Big Falls East at river mile 53.0, and says to plan about eight hours on the water.',
+        sourceUrl: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'Mandatory take-out hazard',
+        value: 'Big Falls Class IV with river-left take-out',
+        note: 'The DNR map identifies Big Falls as a Class IV series of four falls, says the take-out is before the falls on river left, and documents the half-mile portage route over the Highway 71 bridge to Cody Landing.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Johnson WAS02708, Grunwald WAS01793, Big Falls East WAS01790',
+        note: 'Minnesota public-water-access data resolves the full access chain for the recommended route, including the mid-route Grunwald shortening option and both river-left endpoints.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Johnson watercraft campsite plus Big Falls City Park campground',
+        note: 'The DNR map says Johnson Landing has a watercraft campsite and Big Falls City Park has campground, toilet, and drinking-water support by the take-out corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Big Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/bigforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Big Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/bigfork2.pdf',
+      },
+      {
+        label: 'MN DNR Big Falls gauge detail',
+        url: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=77069001',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Pine Island State Forest map',
+        url: 'https://files.dnr.state.mn.us/maps/state_forests/sft00040.pdf',
+      },
+    ],
+  },
+  {
     id: 'little-fork-river-veterans-park-highway-73',
     slug: 'little-fork-river-veterans-park-highway-73',
     name: 'Little Fork River',

@@ -624,6 +624,180 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-fork-river-johnson-grunwald': {
+    putIn: {
+      name: 'Johnson Landing carry-in access',
+      latitude: 48.0886284,
+      longitude: -93.6816927,
+    },
+    takeOut: {
+      name: 'Grunwald Landing',
+      latitude: 48.1349931,
+      longitude: -93.7224805,
+    },
+    logistics: {
+      distanceLabel: '6.5 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr',
+      shuttle:
+        'Use a short forest-road shuttle between Johnson Landing and Grunwald. Stage the Grunwald vehicle first because both accesses are quiet rural landings where parking, mud, and loading space are limited.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, watercraft-registration, and state-forest rules at Johnson and Grunwald.',
+      camping:
+        'Johnson Landing has a watercraft campsite and the surrounding state-forest corridor allows dispersed camping where legal, so this short split can work as a conservative camp-and-paddle option.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Johnson Landing and finish at Grunwald for the shorter upper half of the MN DNR Big Fork recommended day. This is the quieter woodland split, with fewer developed landmarks than the downstream run toward Big Falls.',
+      accessCaveats: [
+        'MN DNR says the full Johnson-to-Big-Falls trip can be shortened by starting or ending at Grunwald Landing, which is the basis for this split.',
+        'Johnson and Grunwald are both river-left public accesses on a remote forest corridor. Check turnoffs and loading space before leaving a vehicle.',
+        'Stay with the named public accesses and designated campsites rather than improvising on private or brushy shoreline.',
+      ],
+      watchFor: [
+        'Strainers, overhanging trees, and shifting wood on an undeveloped forest river.',
+        'Scrapier bends and slower progress when the Big Falls gauge falls toward the 1.5 ft floor.',
+        'Fast post-rain rises and colder shoulder-season water than the easy-looking current suggests.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'johnson',
+        name: 'Johnson Landing carry-in access',
+        latitude: 48.0886284,
+        longitude: -93.6816927,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public upstream start with a nearby watercraft campsite.',
+      },
+      {
+        id: 'grunwald',
+        name: 'Grunwald Landing',
+        latitude: 48.1349931,
+        longitude: -93.7224805,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Mid-corridor shortening point that DNR explicitly names for the Johnson-to-Big-Falls day.',
+      },
+    ],
+  },
+  'big-fork-river-grunwald-big-falls-east': {
+    putIn: {
+      name: 'Grunwald Landing',
+      latitude: 48.1349931,
+      longitude: -93.7224805,
+    },
+    takeOut: {
+      name: 'Big Falls East Landing trailer access',
+      latitude: 48.1950345,
+      longitude: -93.7958517,
+    },
+    logistics: {
+      distanceLabel: '8 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr',
+      shuttle:
+        'Stage the take-out at Big Falls East first, then drive back to Grunwald. Inspect the take-out before launching because this route ends above Big Falls and should not be treated like a casual drift into town.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, portage, and state-forest rules at Grunwald and Big Falls.',
+      camping:
+        'Big Falls City Park sits just downstream of the take-out with campground, toilet, and drinking-water support, so this split can finish directly into a developed overnight base.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Grunwald and finish at Big Falls East for the lower half of the DNR-recommended Big Fork day. The float itself is mostly quieter current, but it ends with a strict river-left take-out before the Class IV falls.',
+      accessCaveats: [
+        'Big Falls East is the official river-left take-out before Big Falls. Do not continue downstream to scout from the main current.',
+        'Use the documented DNR portage only if you are intentionally continuing around the falls with a separate expert plan; this route ends at the take-out.',
+        'Grunwald is a quieter forest access, while Big Falls East is in town off Whispering Pine Drive. Check both landings before committing the shuttle.',
+      ],
+      watchFor: [
+        'The mandatory take-out above Big Falls and the consequence of missing it.',
+        'Faster current and less recovery time near the finish when the gauge is in the high band or rising fast.',
+        'Fresh wood, strainers, and rocky shallows when the river is dropping toward the floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'grunwald',
+        name: 'Grunwald Landing',
+        latitude: 48.1349931,
+        longitude: -93.7224805,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Mid-corridor public start for the shortened downstream split.',
+      },
+      {
+        id: 'big-falls-east',
+        name: 'Big Falls East Landing trailer access',
+        latitude: 48.1950345,
+        longitude: -93.7958517,
+        mileFromStart: 8,
+        segmentKind: 'creek',
+        note: 'Required river-left finish before the Class IV Big Falls sequence.',
+      },
+    ],
+  },
+  'big-fork-river-johnson-big-falls-east': {
+    putIn: {
+      name: 'Johnson Landing carry-in access',
+      latitude: 48.0886284,
+      longitude: -93.6816927,
+    },
+    takeOut: {
+      name: 'Big Falls East Landing trailer access',
+      latitude: 48.1950345,
+      longitude: -93.7958517,
+    },
+    logistics: {
+      distanceLabel: '14.5 mi',
+      estimatedPaddleTime: 'About 6 hr to 8 hr',
+      shuttle:
+        'Stage the take-out at Big Falls East first, then drive back to Johnson Landing. DNR recommends budgeting a full day, and checking the take-out in advance matters because this route ends directly above Big Falls.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, watercraft-registration, state-forest, and city-park rules at Johnson and Big Falls.',
+      camping:
+        'Johnson Landing has a watercraft campsite and Big Falls City Park provides campground support by the take-out, making this one of the cleaner northern camp-before-or-after paddles in the app.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Johnson Landing and finish at Big Falls East for MN DNR\'s recommended Big Fork Map 2 day trip. Expect a long, mostly lazy wooded paddle that still ends with a strict mandatory take-out above serious whitewater.',
+      accessCaveats: [
+        'Big Falls East is the intended river-left finish before the falls. Do not drift downstream into the Big Falls portage/falls zone by accident.',
+        'DNR explicitly identifies Grunwald as the shortening point for this corridor, which also serves as the cleanest mid-route bailout if the day is moving slower than expected.',
+        'Johnson has a campsite and rest area, but this is still a remote forest route between named public accesses rather than a corridor with easy roadside exits.',
+      ],
+      watchFor: [
+        'The mandatory take-out above Big Falls and the Class IV whitewater immediately downstream.',
+        'Wood, strainers, and outside-bend snags on a northern river that can change after storms.',
+        'Long-day fatigue, scraping and slower travel when the gauge is near the floor, and faster current after rain.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'johnson',
+        name: 'Johnson Landing carry-in access',
+        latitude: 48.0886284,
+        longitude: -93.6816927,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Public upstream start with a nearby watercraft campsite.',
+      },
+      {
+        id: 'grunwald',
+        name: 'Grunwald Landing',
+        latitude: 48.1349931,
+        longitude: -93.7224805,
+        mileFromStart: 6.5,
+        segmentKind: 'creek',
+        note: 'Official mid-route shortening point for this recommended DNR day.',
+      },
+      {
+        id: 'big-falls-east',
+        name: 'Big Falls East Landing trailer access',
+        latitude: 48.1950345,
+        longitude: -93.7958517,
+        mileFromStart: 14.5,
+        segmentKind: 'creek',
+        note: 'Required river-left finish before Big Falls.',
+      },
+    ],
+  },
   'little-fork-river-veterans-park-highway-73': {
     putIn: {
       name: 'Veterans Park carry-in access, Cook',
