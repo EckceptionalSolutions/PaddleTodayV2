@@ -32,6 +32,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-06-25 02:41 America/Chicago / 2026-06-25 07:41 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 44 live Pennsylvania routes, 44 Pennsylvania trip-detail keys, and 44 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-granville-mifflin`, `juniata-river-lewistown-narrows-walker`, and `juniata-river-mifflin-muskrat-springs` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide publishes exact Granville, Lewistown Narrows, Mifflin, Walker, and Muskrat Springs coordinates, official 17/10/8-mile route spacing from the lower-section river-mile table, the lower-section minimum gauge floor of `3.1 ft` at Lewistown, and the lower-corridor hazard notes that matter here, especially bridge-abutment strainers at miles `51` and `49`, the mile `43` ledge, and the mile `33` rapid-current zone. Same-day direct USGS Water Services returned `1,330 cfs / 3.69 ft` at Lewistown (`01564895`) at `2026-06-25 02:30 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Granville-to-Mifflin ships as `on_route_campsite` because Locust Campground sits on the corridor, Lewistown-Narrows-to-Walker stays `none`, and Mifflin-to-Muskrat-Springs ships as `on_route_campsite` because Buttonwood Campground and River Rock Campground sit on the corridor near Mexico.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful lower-Juniata corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+
 - 2026-06-25 00:49 America/Chicago / 2026-06-25 05:49 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 41 live Pennsylvania routes, 41 Pennsylvania trip-detail keys, and 41 implemented Pennsylvania ledger rows before this pass.
   - Implemented `juniata-river-mifflintown-walker`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-howe-township-amity-hall` from the PFBC lower Juniata guide.
