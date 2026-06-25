@@ -1399,6 +1399,76 @@ body.site-search-open {
   text-transform: uppercase;
 }
 
+.route-safety-card {
+  display: grid;
+  gap: 0.65rem;
+  padding: 0.9rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 18px;
+  background: rgba(247, 251, 252, 0.92);
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.route-safety-card--caution {
+  border-color: rgba(173, 117, 44, 0.3);
+  background: rgba(255, 249, 239, 0.94);
+}
+
+.route-safety-card--advanced {
+  border-color: rgba(164, 69, 45, 0.32);
+  background: rgba(253, 240, 236, 0.96);
+}
+
+.route-safety-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.route-safety-card__head h2,
+.route-safety-card p {
+  margin: 0;
+}
+
+.route-safety-card__head h2 {
+  color: var(--river-deep);
+  font-size: 1rem;
+}
+
+.route-safety-card__eyebrow {
+  color: var(--river-muted);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.route-safety-card__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+
+.route-safety-card__chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.7rem;
+  padding: 0.26rem 0.54rem;
+  border: 1px solid rgba(16, 35, 45, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--river-deep);
+  font-size: 0.76rem;
+  font-weight: 900;
+}
+
+.route-safety-card__notes {
+  margin: 0;
+}
+
 .icon {
   display: inline-block;
   flex: 0 0 auto;

@@ -2,11 +2,14 @@ import { PaddleTodayApiError } from '@paddletoday/api-client';
 import { Stack } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useCreateRiverRequestMutation } from '../api/queries';
 import { SectionCard } from '../components/section-card';
+import { isValidEmailAddress } from '../lib/alerts';
 import { colors, radius, spacing } from '../theme/tokens';
 
 export default function RequestRouteScreen() {
+  const insets = useSafeAreaInsets();
   const createRequestMutation = useCreateRiverRequestMutation();
   const [riverName, setRiverName] = useState('');
   const [area, setArea] = useState('');
@@ -26,6 +29,12 @@ export default function RequestRouteScreen() {
       return;
     }
 
+    const cleanReplyEmail = replyEmail.trim().toLowerCase();
+    if (cleanReplyEmail && !isValidEmailAddress(cleanReplyEmail)) {
+      setStatus('Enter a valid email address or leave the email field blank.');
+      return;
+    }
+
     try {
       const response = await createRequestMutation.mutateAsync({
         routeName: cleanRiverName,
@@ -34,7 +43,7 @@ export default function RequestRouteScreen() {
         takeOut: '',
         sources: '',
         notes: cleanNotes,
-        replyEmail: replyEmail.trim().toLowerCase(),
+        replyEmail: cleanReplyEmail,
       });
 
       if (!response.stored) {
@@ -60,7 +69,16 @@ export default function RequestRouteScreen() {
   return (
     <>
       <Stack.Screen options={{ title: 'Request route' }} />
-      <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.screen}
+        contentContainerStyle={[
+          styles.content,
+          {
+            paddingTop: spacing.lg + insets.top,
+            paddingBottom: spacing.xl + insets.bottom,
+          },
+        ]}
+      >
         <View style={styles.hero}>
           <Text style={styles.kicker}>Route request</Text>
           <Text style={styles.title}>Request a route</Text>
@@ -158,7 +176,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
-    padding: spacing.lg,
+    paddingHorizontal: spacing.lg,
     gap: spacing.lg,
   },
   hero: {

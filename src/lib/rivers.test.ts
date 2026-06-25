@@ -83,19 +83,19 @@ describe('getAllRiverScores', () => {
 
   it('tries a configured fallback gauge source when the primary provider is unavailable', async () => {
     const fallbackGauge: GaugeReading = {
-      sourceId: 'usgs-05320000',
+      sourceId: 'usgs-05286000',
       observedAt: '2026-05-10T11:00:00Z',
-      current: 5,
-      unit: 'ft',
+      current: 1500,
+      unit: 'cfs',
       trend: 'steady',
       delta24h: 0,
       changePercent24h: 0,
       recentSamples: [
-        { observedAt: '2026-05-10T09:00:00Z', value: 5 },
-        { observedAt: '2026-05-10T11:00:00Z', value: 5 },
+        { observedAt: '2026-05-10T09:00:00Z', value: 1500 },
+        { observedAt: '2026-05-10T11:00:00Z', value: 1500 },
       ],
-      gaugeHeightNow: 5,
-      dischargeNow: null,
+      gaugeHeightNow: null,
+      dischargeNow: 1500,
       waterTempF: null,
       waterTempObservedAt: null,
       gaugeSource: 'USGS Water Data',
@@ -104,9 +104,9 @@ describe('getAllRiverScores', () => {
 
     vi.mocked(fetchGaugeReading).mockResolvedValueOnce(null).mockResolvedValueOnce(fallbackGauge);
 
-    const result = await getRiverScore('blue-earth-river-rapidan-county-road-90');
+    const result = await getRiverScore('rum-river-martins-north-county-park');
 
-    expect(result?.gauge?.sourceId).toBe('usgs-05320000');
+    expect(result?.gauge?.sourceId).toBe('usgs-05286000');
     expect(vi.mocked(fetchGaugeReading).mock.calls[0]?.[0].provider).toBe('mn_dnr');
     expect(vi.mocked(fetchGaugeReading).mock.calls[1]?.[0].provider).toBe('usgs');
   });

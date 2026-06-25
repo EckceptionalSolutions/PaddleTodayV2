@@ -6,6 +6,7 @@ import { getRouteSocialCard } from '../../data/route-social-cards';
 import { FAVORITE_STAR_PATH } from '../../lib/favorites-icon.js';
 import { listRivers, listRiverStateGroups } from '../../lib/rivers';
 import { gaugeDisplayForSource } from '../../lib/source-adapters';
+import { routeHazardLabels, routeSafetyLevelLabels, routeSafetySummary } from '@paddletoday/api-contract';
 
 export function getStaticPaths() {
   return listRivers().map((river) => ({
@@ -48,6 +49,15 @@ const highThresholdValue = formatThresholdValue(river.profile.tooHigh);
 const putIn = river.putIn;
 const takeOut = river.takeOut;
 const logistics = river.logistics;
+const safetyProfile = river.safetyProfile;
+const safetyLevel = safetyProfile?.riskLevel ?? 'standard';
+const safetyHeading = routeSafetyLevelLabels[safetyLevel];
+const safetySummary = routeSafetySummary(safetyProfile);
+const safetyNotes =
+  safetyProfile?.safetyNotes && safetyProfile.safetyNotes.length > 0
+    ? safetyProfile.safetyNotes
+    : [safetySummary];
+const safetyHazards = safetyProfile?.hazards ?? [];
 const putInMapsUrl =
   typeof putIn?.latitude === 'number' && typeof putIn?.longitude === 'number'
     ? `https://www.google.com/maps?q=${putIn.latitude},${putIn.longitude}`
@@ -336,6 +346,29 @@ const routeFaqStructuredData = {
         <aside class="river-detail__gauge-note" aria-label="Gauge note">
           <p class="river-detail__gauge-note-label">Gauge note</p>
           <p>{river.statusText}</p>
+        </aside>
+
+        <aside class={`route-safety-card route-safety-card--${safetyLevel}`} aria-label="Route safety reminder">
+          <div class="route-safety-card__head">
+            <p class="route-safety-card__eyebrow">Safety</p>
+            <h2>{safetyHeading}</h2>
+          </div>
+          <p>{safetySummary}</p>
+          {safetyHazards.length > 0 ? (
+            <div class="route-safety-card__chips" aria-label="Known safety considerations">
+              {safetyHazards.map((hazard) => (
+                <span class="route-safety-card__chip">{routeHazardLabels[hazard]}</span>
+              ))}
+            </div>
+          ) : null}
+          {safetyNotes.length > 0 ? (
+            <ul class="compact-list route-safety-card__notes">
+              {safetyNotes.map((note) => (
+                <li>{note}</li>
+              ))}
+            </ul>
+          ) : null}
+          <a href="/terms/" class="river-link river-link--inline">Read Terms and Safety</a>
         </aside>
 
         <div class="river-detail__hero-map-shell" data-detail-hero-map-shell>

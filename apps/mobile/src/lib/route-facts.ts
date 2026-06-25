@@ -1,5 +1,4 @@
 import type { RiverSummaryApiItem, WeekendSummaryApiItem } from '@paddletoday/api-contract';
-import { normalizeApiText } from './format';
 import { formatTravelTime } from './location';
 
 type FactRiver = RiverSummaryApiItem['river'] | WeekendSummaryApiItem['river'];
@@ -34,13 +33,17 @@ function difficultyFact(river: FactRiver) {
 }
 
 function campingFact(river: FactRiver, options: RouteFactOptions) {
-  const camping = normalizeApiText(river.logistics?.camping);
-  if (!camping) return null;
-  if (/^(none|no )/i.test(camping)) {
+  const classification = river.logistics?.campingClassification;
+  if (!classification || classification === 'unknown') return null;
+  if (classification === 'none') {
     return options.includeNoCamping ? 'No camping noted' : null;
   }
 
-  return options.campingAvailableLabel ?? 'Camping possible';
+  if (options.campingAvailableLabel) return options.campingAvailableLabel;
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  return 'Overnight-friendly';
 }
 
 function capitalize(value: string) {

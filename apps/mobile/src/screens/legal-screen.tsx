@@ -1,5 +1,6 @@
 import { Stack } from 'expo-router';
 import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { SectionCard } from '../components/section-card';
 import { colors, spacing } from '../theme/tokens';
 
@@ -40,19 +41,29 @@ const legalCopy = {
     title: 'Terms',
     kicker: 'PaddleToday',
     heading: 'Terms and Safety',
-    updated: 'Last updated: May 7, 2026',
+    updated: 'Last updated: June 17, 2026',
     intro:
-      'PaddleToday is a planning aid. It does not replace official gauges, forecasts, closures, local knowledge, or judgment at the launch.',
+      'PaddleToday is a planning aid. Paddling has inherent risks, and the app does not replace official gauges, forecasts, closures, local knowledge, or judgment at the launch.',
     sections: [
       {
         title: 'Use of route calls',
         body:
-          'Scores, ratings, forecasts, and explanations are informational. Conditions can change quickly because of rain, releases, wind, cold, debris, closures, access changes, and other hazards.',
+          'Scores, ratings, forecasts, warnings, access points, and explanations are informational only. They are not safety advice, professional instruction, or a guarantee that a route is safe, legal to access, current, or suitable for your group.',
       },
       {
         title: 'Paddler responsibility',
         body:
-          'You are responsible for checking official sources, matching the route to your group, carrying proper equipment, following laws and access rules, and deciding whether to launch.',
+          'You are responsible for checking official sources, weather, closures, access legality, hazards, takeouts, skill fit, group readiness, and proper equipment before deciding whether to launch.',
+      },
+      {
+        title: 'Changing conditions',
+        body:
+          'Water levels, strainers, dams, releases, cold water, wind, storms, access status, private-bank issues, and route hazards can change without notice or be reported incorrectly. Paddling can involve serious injury or death.',
+      },
+      {
+        title: 'Emergency services',
+        body:
+          'PaddleToday is not an emergency, rescue, dispatch, or real-time safety monitoring service. Use official sources, local authorities, and emergency services when needed.',
       },
       {
         title: 'Submissions',
@@ -90,11 +101,21 @@ export function TermsScreen() {
 
 function LegalScreen({ kind }: { kind: LegalScreenKind }) {
   const copy = legalCopy[kind];
+  const insets = useSafeAreaInsets();
 
   return (
     <>
       <Stack.Screen options={{ title: copy.title }} />
-      <ScrollView style={styles.screen} contentContainerStyle={styles.content}>
+      <ScrollView
+        style={styles.screen}
+        contentContainerStyle={[
+          styles.content,
+          {
+            paddingTop: spacing.lg + insets.top,
+            paddingBottom: spacing.xl + insets.bottom,
+          },
+        ]}
+      >
         <View style={styles.hero}>
           <Text style={styles.kicker}>{copy.kicker}</Text>
           <Text style={styles.title}>{copy.heading}</Text>
@@ -118,9 +139,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.canvas,
   },
   content: {
-    padding: spacing.lg,
+    paddingHorizontal: spacing.lg,
     gap: spacing.lg,
-    paddingBottom: spacing.xl,
   },
   hero: {
     gap: spacing.sm,

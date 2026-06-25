@@ -26,6 +26,7 @@ const STORAGE_KEY = 'paddletoday:user-location';
 const STORAGE_RADIUS_KEY = 'paddletoday:recommendation-radius';
 const STORAGE_HOME_DIFFICULTY_KEY = 'paddletoday:home-difficulty-filter';
 const STORAGE_HOME_PADDLE_TIME_KEY = 'paddletoday:home-paddle-time-filter';
+const STORAGE_HOME_CAMPING_KEY = 'paddletoday:home-camping-filter';
 const GEOLOCATION_TIMEOUT_MS = 10000;
 const AUTO_REFRESH_MS = 5 * 60 * 1000;
 const NEARBY_TRAVEL_MINUTES = 90;
@@ -35,6 +36,7 @@ const DEFAULT_RADIUS_MILES = 50;
 const RADIUS_OPTIONS = [25, 50, 75, 100, 150, 200];
 const HOME_DIFFICULTY_OPTIONS = ['easy', 'moderate', 'hard'];
 const HOME_PADDLE_TIME_OPTIONS = ['up-to-3', '3-to-5', '5-to-7', '7-plus'];
+const HOME_CAMPING_OPTIONS = ['overnight', 'nearby'];
 const HOME_NEARBY_SORT_OPTIONS = ['best-score', 'closest', 'shortest-paddle', 'easiest'];
 const US_STATE_ABBREVIATIONS = {
   Alabama: 'AL',
@@ -112,6 +114,7 @@ const homeMatchCount = document.querySelector('[data-home-match-count]');
 const homeLiveCounts = Array.from(document.querySelectorAll('[data-home-live-count]'));
 const homeDifficultySelect = document.querySelector('[data-home-difficulty-select]');
 const homePaddleTimeSelect = document.querySelector('[data-home-paddle-time-select]');
+const homeCampingSelect = document.querySelector('[data-home-camping-select]');
 const homePresetButtons = Array.from(document.querySelectorAll('[data-home-preset]'));
 const homeResetButtons = Array.from(document.querySelectorAll('[data-home-reset-filters]'));
 const homeRouteMix = document.querySelector('[data-home-route-mix]');
@@ -271,6 +274,7 @@ let locationEditing = false;
 let selectedRadiusMiles = DEFAULT_RADIUS_MILES;
 let selectedHomeDifficulties = ['any'];
 let selectedHomePaddleTimes = ['any'];
+let selectedHomeCamping = 'any';
 let nearbySortMode = 'best-score';
 let currentExplorePage = 1;
 let exploreLockedHeight = 0;
@@ -366,6 +370,10 @@ function normalizeHomePaddleTimeFilters(value) {
   return normalizeChoiceSet(value, ['any', ...HOME_PADDLE_TIME_OPTIONS]);
 }
 
+function normalizeHomeCampingFilter(value) {
+  return HOME_CAMPING_OPTIONS.includes(value) ? value : 'any';
+}
+
 function isChoiceSetAny(values) {
   return values.includes('any');
 }
@@ -394,6 +402,12 @@ function paddleTimePreferenceLabel(value) {
   if (value === '5-to-7') return '5 to 7 hr';
   if (value === '7-plus') return '7+ hr';
   return 'no preference';
+}
+
+function campingPreferenceLabel(value) {
+  if (value === 'overnight') return 'Overnight-friendly';
+  if (value === 'nearby') return 'Camp nearby';
+  return 'Any camping';
 }
 
 function difficultyPreferenceLabel(value) {
@@ -489,6 +503,9 @@ function homePreferenceSummaryParts() {
         : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'No preference')
     );
   }
+  if (selectedHomeCamping !== 'any') {
+    parts.push(campingPreferenceLabel(selectedHomeCamping));
+  }
   return parts;
 }
 
@@ -498,6 +515,7 @@ function homeActivePreferenceCount() {
   if (selectedRadiusMiles !== DEFAULT_RADIUS_MILES) count += 1;
   if (!isChoiceSetAny(selectedHomeDifficulties)) count += 1;
   if (!isChoiceSetAny(selectedHomePaddleTimes)) count += 1;
+  if (selectedHomeCamping !== 'any') count += 1;
   return count;
 }
 
@@ -519,7 +537,7 @@ function fullHomePreferenceSummaryTextClean() {
         : formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time')
     );
 
-  return `${difficultySummary} / ${paddleSummary}`;
+  return `${difficultySummary} / ${paddleSummary} / ${campingPreferenceLabel(selectedHomeCamping)}`;
 }
 
 function joinWithBullet(parts) {
@@ -553,6 +571,8 @@ function splitBulletParts(text) {
   } else {
     labels.push(formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time'));
   }
+
+  labels.push(campingPreferenceLabel(selectedHomeCamping));
 
   return labels
       .map((label) => `<span class="home-location-bar__refine-pill">${escapeHtml(label)}</span>`)
@@ -620,6 +640,8 @@ function homeSetupSummaryLabels() {
   } else {
     labels.push(formatHomeChoiceSummary(selectedHomePaddleTimes, paddleTimePreferenceLabel, 'Any time'));
   }
+
+  labels.push(campingPreferenceLabel(selectedHomeCamping));
 
   return labels;
 }
@@ -1109,6 +1131,39 @@ function routeEstimatedTimeLabel(item) {
   return item?.cardRoute?.river?.estimatedPaddleTime ?? '';
 }
 
+function campingClassificationForResult(result) {
+  return result?.river?.logistics?.campingClassification ?? 'unknown';
+}
+
+function isOvernightCampingClassification(classification) {
+  return (
+    classification === 'overnight_capable' ||
+    classification === 'on_route_campsite' ||
+    classification === 'sandbar_or_gravel_bar'
+  );
+}
+
+function matchesHomeCampingFilter(result) {
+  if (selectedHomeCamping === 'any') {
+    return true;
+  }
+
+  const classification = campingClassificationForResult(result);
+  if (selectedHomeCamping === 'overnight') {
+    return isOvernightCampingClassification(classification);
+  }
+
+  if (selectedHomeCamping === 'nearby') {
+    return (
+      isOvernightCampingClassification(classification) ||
+      classification === 'endpoint_campground' ||
+      classification === 'nearby_basecamp'
+    );
+  }
+
+  return true;
+}
+
 function matchesHomeNearbyFilters(result) {
   if (!isChoiceSetAny(selectedHomeDifficulties) && !selectedHomeDifficulties.includes(result?.river?.difficulty)) {
     return false;
@@ -1119,6 +1174,10 @@ function matchesHomeNearbyFilters(result) {
     if (!selectedHomePaddleTimes.includes(bucket)) {
       return false;
     }
+  }
+
+  if (!matchesHomeCampingFilter(result)) {
+    return false;
   }
 
   return true;
@@ -3104,6 +3163,10 @@ function updateLocationStatus() {
         : (selectedHomePaddleTimes[0] || 'any');
     }
 
+  if (homeCampingSelect instanceof HTMLSelectElement) {
+    homeCampingSelect.value = selectedHomeCamping;
+  }
+
     syncHomePreferencesVisibility();
 
   for (const button of homePresetButtons) {
@@ -4087,6 +4150,10 @@ function saveHomePaddleTimeFilter(value) {
   localStorage.setItem(STORAGE_HOME_PADDLE_TIME_KEY, JSON.stringify(normalizeHomePaddleTimeFilters(value)));
 }
 
+function saveHomeCampingFilter(value) {
+  localStorage.setItem(STORAGE_HOME_CAMPING_KEY, normalizeHomeCampingFilter(value));
+}
+
 function loadStoredLocation() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -4140,6 +4207,16 @@ function loadStoredHomePaddleTimeFilter() {
   } catch (error) {
     console.warn('Failed to parse stored home paddle-time filter.', error);
     return ['any'];
+  }
+}
+
+function loadStoredHomeCampingFilter() {
+  try {
+    const raw = localStorage.getItem(STORAGE_HOME_CAMPING_KEY);
+    return normalizeHomeCampingFilter(raw || 'any');
+  } catch (error) {
+    console.warn('Failed to parse stored home camping filter.', error);
+    return 'any';
   }
 }
 
@@ -4207,11 +4284,27 @@ function setHomePaddleTimeFilter(value, { persist = true, rerender = true } = {}
   }
 }
 
+function setHomeCampingFilter(value, { persist = true, rerender = true } = {}) {
+  selectedHomeCamping = normalizeHomeCampingFilter(value);
+
+  if (persist) {
+    saveHomeCampingFilter(selectedHomeCamping);
+  }
+
+  updateLocationStatus();
+
+  if (rerender && latestResults.length > 0) {
+    renderHomepage(latestResults);
+  }
+}
+
 function resetHomeFilters({ includeRadius = true, rerender = true } = {}) {
   selectedHomeDifficulties = ['any'];
   selectedHomePaddleTimes = ['any'];
+  selectedHomeCamping = 'any';
   saveHomeDifficultyFilter(selectedHomeDifficulties);
   saveHomePaddleTimeFilter(selectedHomePaddleTimes);
+  saveHomeCampingFilter(selectedHomeCamping);
 
   if (includeRadius) {
     selectedRadiusMiles = DEFAULT_RADIUS_MILES;
@@ -4230,9 +4323,11 @@ function applyHomePreset(preset) {
   if (preset === 'quick-float') {
     selectedHomeDifficulties = ['easy'];
     selectedHomePaddleTimes = ['up-to-3'];
+    selectedHomeCamping = 'any';
   } else if (preset === 'full-day') {
     selectedHomeDifficulties = ['moderate'];
     selectedHomePaddleTimes = ['5-to-7'];
+    selectedHomeCamping = 'any';
   } else {
     resetHomeFilters();
     return;
@@ -4240,6 +4335,7 @@ function applyHomePreset(preset) {
 
   saveHomeDifficultyFilter(selectedHomeDifficulties);
   saveHomePaddleTimeFilter(selectedHomePaddleTimes);
+  saveHomeCampingFilter(selectedHomeCamping);
   updateLocationStatus();
 
   if (latestResults.length > 0) {
@@ -4706,6 +4802,13 @@ function setupLocationControls() {
     });
   }
 
+  if (homeCampingSelect instanceof HTMLSelectElement && homeCampingSelect.dataset.filterBound !== 'true') {
+    homeCampingSelect.dataset.filterBound = 'true';
+    homeCampingSelect.addEventListener('change', () => {
+      setHomeCampingFilter(homeCampingSelect.value);
+    });
+  }
+
   for (const button of homePresetButtons) {
     if (!(button instanceof HTMLButtonElement) || button.dataset.filterBound === 'true') {
       continue;
@@ -4816,6 +4919,7 @@ export function initSummaryBoard() {
   selectedRadiusMiles = loadStoredRadiusMiles();
   selectedHomeDifficulties = loadStoredHomeDifficultyFilter();
   selectedHomePaddleTimes = loadStoredHomePaddleTimeFilter();
+  selectedHomeCamping = loadStoredHomeCampingFilter();
   if (storedLocation) {
     userLocation = storedLocation;
     userLocationState = 'ready';

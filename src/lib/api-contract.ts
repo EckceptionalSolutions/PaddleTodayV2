@@ -4,12 +4,14 @@ import type {
 } from './types';
 import type { RiverHistoryResult } from './history';
 import type {
+  RiverRouteLogistics,
   RiverDetailApiResult,
   RiverGroupApiResult,
   RiverHistoryApiResult,
   RiverSummaryApiItem,
   WeekendSummaryApiItem,
 } from '@paddletoday/api-contract';
+import { classifyCamping } from './camping-classification';
 import { gaugeDisplayForSource, thresholdAdapterForSource } from './source-adapters';
 export type {
   RiverDetailApiResult,
@@ -38,9 +40,10 @@ export function serializeSummaryResult(result: RiverScoreResult): RiverSummaryAp
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
+      safetyProfile: result.river.safetyProfile,
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
-      logistics: result.river.logistics,
+      logistics: serializeLogistics(result.river.logistics),
     },
     sources: summarySourceBadges(result),
     score: result.score,
@@ -97,7 +100,8 @@ export function serializeWeekendSummaryResult(result: RiverScoreResult): Weekend
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       difficulty: result.river.profile.difficulty,
       routeType: result.river.routeType ?? 'recreational',
-      logistics: result.river.logistics,
+      safetyProfile: result.river.safetyProfile,
+      logistics: serializeLogistics(result.river.logistics),
     },
     current: {
       score: result.score,
@@ -185,6 +189,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       distanceLabel: result.river.logistics?.distanceLabel ?? '',
       estimatedPaddleTime: result.river.logistics?.estimatedPaddleTime ?? '',
       routeType: result.river.routeType ?? 'recreational',
+      safetyProfile: result.river.safetyProfile,
       gaugeSource: {
         provider: result.river.gaugeSource.provider,
         metric: result.river.gaugeSource.metric,
@@ -205,7 +210,7 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
       putIn: result.river.putIn,
       takeOut: result.river.takeOut,
       accessPoints: result.river.accessPoints,
-      logistics: result.river.logistics,
+      logistics: serializeLogistics(result.river.logistics),
     },
     score: result.score,
     rating: result.rating,
@@ -221,6 +226,17 @@ export function serializeDetailResult(result: RiverScoreResult): RiverDetailApiR
     gauge: result.gauge,
     weather: result.weather,
     generatedAt: result.generatedAt,
+  };
+}
+
+function serializeLogistics(logistics: RiverScoreResult['river']['logistics']): RiverRouteLogistics | undefined {
+  if (!logistics) {
+    return undefined;
+  }
+
+  return {
+    ...logistics,
+    campingClassification: logistics.campingClassification ?? classifyCamping(logistics.camping),
   };
 }
 

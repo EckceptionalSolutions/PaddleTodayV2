@@ -17,6 +17,8 @@
     "typecheck": "node scripts/typecheck.mjs",
     "typecheck:routes": "tsc --noEmit -p tsconfig.route-data.json",
     "routes:audit": "tsx scripts/audit-route-data.ts",
+    "routes:leads:gather": "tsx scripts/gather-route-leads.ts",
+    "routes:safety:audit": "tsx scripts/audit-route-safety.ts",
     "alert:mock-email": "tsx scripts/send-mock-river-alert.ts",
     "alert:mock-push": "tsx scripts/send-mock-river-push.ts",
     "build": "npm run typecheck && astro build",
@@ -52,5 +54,22 @@
     "sharp": "^0.34.5",
     "typescript": "^5.9.3",
     "vitest": "^4.1.2"
-  }
+  },
+  "description": "`canoe-adventures-v2` is the new codebase for a reset version of Paddle Today.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EckceptionalSolutions/PaddleTodayV2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EckceptionalSolutions/PaddleTodayV2/issues"
+  },
+  "homepage": "https://github.com/EckceptionalSolutions/PaddleTodayV2#readme"
 }

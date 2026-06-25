@@ -14,6 +14,8 @@ import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/al
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
+type SavedTab = 'routes' | 'alerts';
+
 export default function SavedScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -24,6 +26,7 @@ export default function SavedScreen() {
   const [draftEmail, setDraftEmail] = useState(storedEmail);
   const [alertStatus, setAlertStatus] = useState('Saved route alerts use the same email for each route on this device.');
   const [pendingAlertKey, setPendingAlertKey] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<SavedTab>('routes');
 
   const rivers = summaryQuery.data?.rivers ?? [];
   const riverLookup = new Map(rivers.map((river) => [river.river.slug, river]));
@@ -88,7 +91,7 @@ export default function SavedScreen() {
         <View style={styles.savedOverview}>
           <OverviewTile icon="bookmark-check-outline" label="Saved" value={String(savedRivers.length)} />
           <OverviewTile icon="bell-ring-outline" label="Watched" value={`${savedAlertCount}/${savedRivers.length}`} />
-          <OverviewTile icon="waves" label="Current calls" value={`${savedSummaries.length}/${savedRivers.length}`} />
+          <OverviewTile icon="waves" label="Calls" value={`${savedSummaries.length}/${savedRivers.length}`} />
         </View>
       ) : null}
 
@@ -112,41 +115,11 @@ export default function SavedScreen() {
         </View>
       ) : null}
 
-      {savedSummaries.length > 0 ? (
-        <SectionCard
-          title="Saved alerts"
-          subtitle="Turn on Good or Strong email alerts for repeat routes."
-        >
-          <View style={styles.alertEmailRow}>
-            <MaterialCommunityIcons name="email-outline" color={colors.accent} size={18} />
-            <TextInput
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              placeholder="you@example.com"
-              placeholderTextColor={colors.textMuted}
-              style={styles.alertInput}
-              value={draftEmail}
-              onChangeText={setDraftEmail}
-            />
-          </View>
-          <View style={styles.alertRouteList}>
-            {savedSummaries.map((river) => (
-              <SavedAlertRow
-                key={river.river.slug}
-                river={river}
-                alert={alertForRiver(river.river.slug)}
-                pendingAlertKey={pendingAlertKey}
-                onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
-                onSubmitAlert={(threshold) => void submitSavedRouteAlert(river, threshold)}
-              />
-            ))}
-          </View>
-          <Text style={styles.alertStatus}>{alertStatus}</Text>
-        </SectionCard>
+      {savedRivers.length > 0 ? (
+        <SavedTabs activeTab={activeTab} onChange={setActiveTab} />
       ) : null}
 
-      {savedSummaries.length > 0 ? (
+      {activeTab === 'routes' && savedSummaries.length > 0 ? (
         <>
           <View style={styles.statusBoard}>
             <StatusTile label="Ready" value={savedGroups.ready.length} tone={styles.statusReady} />
@@ -184,7 +157,7 @@ export default function SavedScreen() {
         </>
       ) : null}
 
-      {savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
+      {activeTab === 'routes' && savedRivers.length > 0 && savedSummaries.length !== savedRivers.length ? (
         <SectionCard
           title="Saved routes without a call"
           subtitle="Still saved, but missing from today's calls."
@@ -203,6 +176,57 @@ export default function SavedScreen() {
                   </View>
                 </View>
               ))}
+          </View>
+        </SectionCard>
+      ) : null}
+
+      {activeTab === 'alerts' && savedSummaries.length > 0 ? (
+        <SectionCard
+          title="Saved alerts"
+          subtitle="Turn on Good or Strong email alerts for repeat routes."
+        >
+          <View style={styles.alertEmailRow}>
+            <MaterialCommunityIcons name="email-outline" color={colors.accent} size={18} />
+            <TextInput
+              autoCapitalize="none"
+              autoCorrect={false}
+              keyboardType="email-address"
+              placeholder="you@example.com"
+              placeholderTextColor={colors.textMuted}
+              style={styles.alertInput}
+              value={draftEmail}
+              onChangeText={setDraftEmail}
+            />
+          </View>
+          <View style={styles.alertRouteList}>
+            {savedSummaries.map((river) => (
+              <SavedAlertRow
+                key={river.river.slug}
+                river={river}
+                alert={alertForRiver(river.river.slug)}
+                pendingAlertKey={pendingAlertKey}
+                onOpen={() => router.push({ pathname: '/river/[slug]', params: { slug: river.river.slug } })}
+                onSubmitAlert={(threshold) => void submitSavedRouteAlert(river, threshold)}
+              />
+            ))}
+          </View>
+          <Text style={styles.alertStatus}>{alertStatus}</Text>
+        </SectionCard>
+      ) : null}
+
+      {activeTab === 'alerts' && savedRivers.length > 0 && savedSummaries.length === 0 ? (
+        <SectionCard
+          title="Saved alerts"
+          subtitle="Alerts need a current route call before they can be configured."
+        >
+          <View style={styles.alertEmptyPanel}>
+            <MaterialCommunityIcons name="bell-alert-outline" color={colors.accent} size={24} />
+            <View style={styles.alertEmptyCopy}>
+              <Text style={styles.alertEmptyTitle}>No current calls for saved routes</Text>
+              <Text style={styles.alertEmptyBody}>
+                Your saved routes are still saved. Once route calls refresh for them, alert controls will appear here.
+              </Text>
+            </View>
           </View>
         </SectionCard>
       ) : null}
@@ -229,6 +253,55 @@ function OverviewTile({ icon, label, value }: { icon: string; label: string; val
         <Text style={styles.overviewValue}>{value}</Text>
       </View>
     </View>
+  );
+}
+
+function SavedTabs({
+  activeTab,
+  onChange,
+}: {
+  activeTab: SavedTab;
+  onChange: (tab: SavedTab) => void;
+}) {
+  return (
+    <View style={styles.tabs}>
+      <SavedTabButton
+        icon="bookmark-outline"
+        label="Routes"
+        active={activeTab === 'routes'}
+        onPress={() => onChange('routes')}
+      />
+      <SavedTabButton
+        icon="bell-outline"
+        label="Alerts"
+        active={activeTab === 'alerts'}
+        onPress={() => onChange('alerts')}
+      />
+    </View>
+  );
+}
+
+function SavedTabButton({
+  icon,
+  label,
+  active,
+  onPress,
+}: {
+  icon: string;
+  label: string;
+  active: boolean;
+  onPress: () => void;
+}) {
+  return (
+    <Pressable
+      style={[styles.tabButton, active ? styles.tabButtonActive : null]}
+      onPress={onPress}
+      accessibilityRole="tab"
+      accessibilityState={{ selected: active }}
+    >
+      <MaterialCommunityIcons name={icon as never} color={active ? colors.surfaceStrong : colors.accent} size={18} />
+      <Text style={[styles.tabButtonText, active ? styles.tabButtonTextActive : null]}>{label}</Text>
+    </Pressable>
   );
 }
 
@@ -310,6 +383,7 @@ function SavedRouteGroup({
             <RiverCard
               key={river.river.slug}
               river={river}
+              showPhoto
               saved={isSaved(river.river.slug)}
               onToggleSaved={() =>
                 void onToggleSaved({
@@ -385,7 +459,8 @@ const styles = StyleSheet.create({
   },
   overviewTile: {
     flexGrow: 1,
-    flexBasis: '30%',
+    flexBasis: '31%',
+    minWidth: 96,
     minHeight: 58,
     borderRadius: radius.md,
     borderWidth: 1,
@@ -397,6 +472,8 @@ const styles = StyleSheet.create({
     gap: spacing.sm,
   },
   overviewCopy: {
+    flex: 1,
+    minWidth: 0,
     gap: 2,
   },
   overviewLabel: {
@@ -405,11 +482,42 @@ const styles = StyleSheet.create({
     fontWeight: '900',
     textTransform: 'uppercase',
     letterSpacing: 0.3,
+    flexShrink: 1,
   },
   overviewValue: {
     color: colors.text,
     fontSize: 16,
     fontWeight: '900',
+  },
+  tabs: {
+    minHeight: 48,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: 4,
+    flexDirection: 'row',
+    gap: 4,
+  },
+  tabButton: {
+    flex: 1,
+    borderRadius: radius.sm,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: spacing.xs,
+    paddingHorizontal: spacing.sm,
+  },
+  tabButtonActive: {
+    backgroundColor: colors.accent,
+  },
+  tabButtonText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  tabButtonTextActive: {
+    color: colors.surfaceStrong,
   },
   list: {
     gap: spacing.sm,
@@ -540,6 +648,31 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 12,
     lineHeight: 17,
+    fontWeight: '700',
+  },
+  alertEmptyPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    padding: spacing.md,
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    gap: spacing.sm,
+  },
+  alertEmptyCopy: {
+    flex: 1,
+    gap: 3,
+  },
+  alertEmptyTitle: {
+    color: colors.text,
+    fontSize: 15,
+    fontWeight: '900',
+  },
+  alertEmptyBody: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
     fontWeight: '700',
   },
   emptyPanel: {

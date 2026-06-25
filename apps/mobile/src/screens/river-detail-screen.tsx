@@ -1,14 +1,18 @@
-import type {
-  ApprovedCommunityPhoto,
-  ApprovedTripReport,
-  DecisionChecklistItem,
-  RiverAccessPoint,
-  RiverRouteAccessPoint,
-  RiverAlertThreshold,
-  CreateRouteContributionRequest,
-  RiverDetailApiResult,
-  RiverOutlook,
-  ScoreBreakdown,
+import {
+  routeHazardLabels,
+  routeSafetyLevelLabels,
+  routeSafetySummary,
+  type ApprovedCommunityPhoto,
+  type CampingClassification,
+  type ApprovedTripReport,
+  type DecisionChecklistItem,
+  type RiverAccessPoint,
+  type RiverRouteAccessPoint,
+  type RiverAlertThreshold,
+  type CreateRouteContributionRequest,
+  type RiverDetailApiResult,
+  type RiverOutlook,
+  type ScoreBreakdown,
 } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import { PaddleTodayApiError } from '@paddletoday/api-client';
@@ -77,6 +81,19 @@ const ANDROID_NAV_CONTROL_MIN_INSET = 40;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
+type GaugeBandVisualModel = {
+  currentPercent: number;
+  idealLeftPercent: number;
+  idealWidthPercent: number;
+  currentLabel: string;
+  statusLabel: string;
+  targetRangeLabel: string;
+  lowLabel: string;
+  idealLabel: string;
+  highLabel: string;
+  markerTone: object;
+};
+
 export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
@@ -91,6 +108,7 @@ export default function RiverDetailScreen() {
   const { isSaved, toggleSavedRiver } = useSavedRivers();
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
+  const conditionsYRef = useRef(0);
   const [draftEmail, setDraftEmail] = useState(storedEmail);
   const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
@@ -128,6 +146,7 @@ export default function RiverDetailScreen() {
   const communityReports = community?.reports ?? [];
   const communityPhotos = community?.photos ?? [];
   const siblingRouteCount = groupQuery.data?.result.routes.length ?? 0;
+  const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
     setDraftEmail(storedEmail);
@@ -149,7 +168,7 @@ export default function RiverDetailScreen() {
       rating: detail.rating,
       score: detail.score,
     });
-  }, [detail]);
+  }, [detailSlug]);
 
   if (!slug) {
     return (
@@ -353,6 +372,25 @@ export default function RiverDetailScreen() {
     setReportPhotos((current) => current.filter((photo) => photo.id !== id));
   }
 
+  function scrollToY(y: number) {
+    requestAnimationFrame(() => {
+      scrollRef.current?.scrollTo({
+        y: Math.max(y - spacing.sm, 0),
+        animated: true,
+      });
+    });
+  }
+
+  function showSection(section: DetailSection) {
+    setActiveSection(section);
+    scrollToY(sectionTabsYRef.current);
+  }
+
+  function showConditions() {
+    setActiveSection('Today');
+    scrollToY(conditionsYRef.current || sectionTabsYRef.current);
+  }
+
   async function submitRouteReport() {
     const contributorName = reportName.trim();
     const contributorEmail = reportEmail.trim().toLowerCase();
@@ -514,10 +552,12 @@ export default function RiverDetailScreen() {
             </View>
           </View>
           <DecisionSummary detail={detail} />
+          <RouteSafetyPanel detail={detail} />
           <DecisionStrip
             detail={detail}
+            onConditions={showConditions}
             onDirections={() => openPrimaryDirections(detail, selectedPutIn, selectedTakeOut)}
-            onAccess={() => setActiveSection('Access')}
+            onAccess={() => showSection('Access')}
           />
           {detail.liveData.overall !== 'live' ? (
             <View style={styles.heroFooter}>
@@ -542,15 +582,7 @@ export default function RiverDetailScreen() {
                   accessibilityRole="button"
                   accessibilityLabel={`Show ${section} section`}
                   accessibilityState={{ selected }}
-                  onPress={() => {
-                    setActiveSection(section);
-                    requestAnimationFrame(() => {
-                      scrollRef.current?.scrollTo({
-                        y: Math.max(sectionTabsYRef.current - spacing.sm, 0),
-                        animated: true,
-                      });
-                    });
-                  }}
+                  onPress={() => showSection(section)}
                 >
                   <Text style={[styles.sectionTabText, selected ? styles.sectionTabTextSelected : null]}>{section}</Text>
                 </Pressable>
@@ -563,35 +595,42 @@ export default function RiverDetailScreen() {
           <>
             <RouteBasicsCard detail={detail} />
 
-            <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
-              <View style={styles.conditionList}>
-                <ConditionRow
-                  icon="waves"
-                  label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
-                  value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
-                  subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
-                  detail={normalizeApiText(detail.liveData.gauge.detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
-                />
-                <ConditionRow
-                  icon="trending-up"
-                  label="Trend"
-                  value={trendValue(detail)}
-                  subvalue={trendSubvalue(detail)}
-                  detail={trendDetailText(detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
-                />
-                <ConditionRow
-                  icon="weather-partly-cloudy"
-                  label="Weather"
-                  value={compactWeatherValue(detail)}
-                  subvalue={weatherSubvalue(detail)}
-                  detail={normalizeApiText(detail.liveData.weather.detail)}
-                  tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
-                />
-              </View>
-              <GaugeSourceActions detail={detail} />
-            </SectionCard>
+            <View
+              onLayout={(event) => {
+                conditionsYRef.current = event.nativeEvent.layout.y;
+              }}
+            >
+              <SectionCard title="Gauge, trend, weather" subtitle={normalizeApiText(detail.liveData.summary)}>
+                <View style={styles.conditionList}>
+                  <ConditionRow
+                    icon="waves"
+                    label={detail.river.gaugeSource.display.primaryMetricLabel || 'Gauge'}
+                    value={detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel}
+                    subvalue={detail.gauge ? detail.gaugeBandLabel : 'Current reading unavailable'}
+                    detail={normalizeApiText(detail.liveData.gauge.detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Gauge window'))}
+                  />
+                  <GaugeBandCard detail={detail} />
+                  <ConditionRow
+                    icon="trending-up"
+                    label="Trend"
+                    value={trendValue(detail)}
+                    subvalue={trendSubvalue(detail)}
+                    detail={trendDetailText(detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Trend check'))}
+                  />
+                  <ConditionRow
+                    icon="weather-partly-cloudy"
+                    label="Weather"
+                    value={compactWeatherValue(detail)}
+                    subvalue={weatherSubvalue(detail)}
+                    detail={normalizeApiText(detail.liveData.weather.detail)}
+                    tone={conditionToneForStatus(checklistStatusForLabel(checklist, 'Weather window'))}
+                  />
+                </View>
+                <GaugeSourceActions detail={detail} />
+              </SectionCard>
+            </View>
 
             <AboutRouteCard detail={detail} />
           </>
@@ -860,6 +899,17 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
   const working = detail.checklist.filter((item) => item.status === 'go');
   const firstWarning = warnings[0];
   const primaryWorking = working[0] ?? detail.checklist[0];
+  const conditionItem = firstWarning
+    ? {
+        label: 'Cautions',
+        text: normalizeApiText(firstWarning.detail),
+        tone: conditionToneForStatus(firstWarning.status),
+      }
+    : {
+        label: 'Quick facts',
+        text: conditionQuickFactText(detail, checklistByLabel),
+        tone: styles.conditionGood,
+      };
 
   return [
     {
@@ -867,30 +917,19 @@ function decisionSummaryItems(detail: RiverDetailApiResult) {
       text: normalizeApiText(primaryWorking?.detail ?? detail.explanation),
       tone: conditionToneForStatus(primaryWorking?.status ?? 'watch'),
     },
-    {
-      label: 'Cautions',
-      text: normalizeApiText(firstWarning?.detail ?? checklistByLabel.get('Weather window')?.detail ?? detail.liveData.summary),
-      tone: conditionToneForStatus(firstWarning?.status ?? 'watch'),
-    },
-    {
-      label: 'Before you go',
-      text: beforeCommittingText(detail),
-      tone: conditionToneForStatus(detail.liveData.overall === 'live' ? 'go' : 'watch'),
-    },
+    conditionItem,
   ].filter((item) => item.text.trim().length > 0);
 }
 
-function beforeCommittingText(detail: RiverDetailApiResult) {
-  const bits = [
-    detail.river.distanceLabel ? `${detail.river.distanceLabel} route` : null,
-    detail.river.estimatedPaddleTime || null,
-    `${capitalize(detail.river.profile.difficulty)} difficulty`,
-  ].filter(Boolean);
-  const routeContext = bits.length > 0 ? ` This is a ${bits.join(', ')}.` : '';
-
-  return detail.liveData.overall === 'live'
-    ? `Refresh the route, check access notes, and confirm the shuttle still fits your group.${routeContext}`
-    : `Open the source and confirm the latest gauge before relying on this call.${routeContext}`;
+function conditionQuickFactText(
+  detail: RiverDetailApiResult,
+  checklistByLabel: Map<string, DecisionChecklistItem>
+) {
+  return normalizeApiText(
+    checklistByLabel.get('Weather window')?.detail
+      ?? checklistByLabel.get('Temperature')?.detail
+      ?? detail.liveData.summary
+  );
 }
 
 function routeHeroLine(detail: RiverDetailApiResult) {
@@ -951,18 +990,6 @@ function decisionStatement(detail: RiverDetailApiResult) {
   return 'Skip today unless sources changed.';
 }
 
-function decisionNextStep(detail: RiverDetailApiResult) {
-  if (detail.rating === 'Strong' || detail.rating === 'Good') {
-    return 'Open access, confirm the shuttle, then check source data.';
-  }
-
-  if (detail.rating === 'Fair') {
-    return 'Recheck gauge, weather, and group fit before committing.';
-  }
-
-  return 'Recheck later or choose another route.';
-}
-
 function checklistStatusForLabel(checklist: DecisionChecklistItem[], label: string) {
   return checklist.find((item) => item.label === label)?.status ?? 'watch';
 }
@@ -1006,11 +1033,6 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
         <Text style={styles.decisionSummaryScore}>{detail.score} / {detail.rating}</Text>
       </View>
       <Text style={styles.decisionSummaryTitle}>{decisionStatement(detail)}</Text>
-      <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
-      <View style={styles.decisionNextStep}>
-        <Text style={styles.decisionNextLabel}>Next step</Text>
-        <Text style={styles.decisionNextText}>{decisionNextStep(detail)}</Text>
-      </View>
       <View style={styles.decisionBulletList}>
         {items.map((item) => (
           <View key={item.label} style={styles.decisionBullet}>
@@ -1022,11 +1044,13 @@ function DecisionSummary({ detail }: { detail: RiverDetailApiResult }) {
           </View>
         ))}
       </View>
+      <ScoreExplanationCard breakdown={detail.scoreBreakdown} />
     </View>
   );
 }
 
 function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
+  const [expanded, setExpanded] = useState(false);
   const rows = scoreBreakdownRows(breakdown);
   const capReasons = breakdown.capReasons
     .map((reason) => friendlyCapReason(reason))
@@ -1034,24 +1058,42 @@ function ScoreExplanationCard({ breakdown }: { breakdown: ScoreBreakdown }) {
 
   return (
     <View style={styles.scoreWhyCard}>
-      <Text style={styles.scoreWhyTitle}>Why this score?</Text>
-      <Text style={styles.scoreWhySummary}>
-        River quality starts at {breakdown.riverQuality}. Weather and comfort shift it to {breakdown.finalScore}.
-      </Text>
-      <View style={styles.scoreWhyRows}>
-        {rows.map((row) => (
-          <View key={row.label} style={styles.scoreWhyRow}>
-            <Text style={styles.scoreWhyLabel}>{row.label}</Text>
-            <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
-          </View>
-        ))}
-      </View>
-      {capReasons.length > 0 ? (
-        <View style={styles.scoreCapList}>
-          {capReasons.slice(0, 2).map((reason) => (
-            <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
-          ))}
+      <Pressable
+        accessibilityRole="button"
+        accessibilityState={{ expanded }}
+        accessibilityLabel={expanded ? 'Collapse score explanation' : 'Expand score explanation'}
+        onPress={() => setExpanded((current) => !current)}
+        style={styles.scoreWhyHeader}
+      >
+        <View style={styles.scoreWhyHeaderCopy}>
+          <Text style={styles.scoreWhyTitle}>Why this score?</Text>
         </View>
+        <View style={styles.scoreWhyToggle}>
+          <MaterialCommunityIcons
+            name={expanded ? 'chevron-up' : 'chevron-down'}
+            color={colors.accentDeep}
+            size={18}
+          />
+        </View>
+      </Pressable>
+      {expanded ? (
+        <>
+          <View style={styles.scoreWhyRows}>
+            {rows.map((row) => (
+              <View key={row.label} style={styles.scoreWhyRow}>
+                <Text style={styles.scoreWhyLabel}>{row.label}</Text>
+                <Text style={[styles.scoreWhyValue, scoreBreakdownValueTone(row.value)]}>{signedPoints(row.value)}</Text>
+              </View>
+            ))}
+          </View>
+          {capReasons.length > 0 ? (
+            <View style={styles.scoreCapList}>
+              {capReasons.slice(0, 2).map((reason) => (
+                <Text key={reason} style={styles.scoreCapText}>- {reason}</Text>
+              ))}
+            </View>
+          ) : null}
+        </>
       ) : null}
     </View>
   );
@@ -1116,62 +1158,33 @@ function friendlyCapReason(reason: string) {
 
 function DecisionStrip({
   detail,
+  onConditions,
   onDirections,
   onAccess,
 }: {
   detail: RiverDetailApiResult;
+  onConditions: () => void;
   onDirections: () => void;
   onAccess: () => void;
 }) {
   const directionsAvailable = Boolean(mapUrlForAccessPoint(detail.river.putIn) || mapUrlForAccessPoint(detail.river.takeOut));
-  const accessUseful = detail.rating === 'Strong' || detail.rating === 'Good';
-  const items = [
-    {
-      label: 'Call',
-      value: detail.rating,
-      icon: detail.rating === 'No-go' ? 'close-circle-outline' : 'check-circle-outline',
-      tone: ratingBackground(detail.rating),
-      iconColor: colors.text,
-    },
-    {
-      label: 'Gauge',
-      value: detail.gauge ? formatGaugeValue(detail.gauge.current, detail.gauge.unit) : detail.gaugeBandLabel,
-      icon: 'waves-arrow-up',
-      tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Gauge window')),
-      iconColor: colors.surfaceStrong,
-    },
-    {
-      label: 'Weather',
-      value: compactWeatherValue(detail),
-      icon: 'weather-partly-cloudy',
-      tone: conditionToneForStatus(checklistStatusForLabel(detail.checklist, 'Weather window')),
-      iconColor: colors.surfaceStrong,
-    },
-  ];
 
   return (
     <View style={styles.decisionStrip}>
-      {items.map((item) => (
-        <View key={item.label} style={styles.decisionStripItem}>
-          <View style={[styles.decisionStripIcon, item.tone]}>
-            <MaterialCommunityIcons name={item.icon as never} color={item.iconColor} size={15} />
-          </View>
-          <Text style={styles.decisionStripValue} numberOfLines={1}>{item.value}</Text>
-          <Text style={styles.decisionStripLabel}>{item.label}</Text>
-        </View>
-      ))}
+      <Pressable style={styles.decisionStripInlineAction} onPress={onConditions}>
+        <MaterialCommunityIcons name="chart-timeline-variant" color={colors.accent} size={16} />
+        <Text style={styles.decisionStripInlineActionText}>Conditions</Text>
+      </Pressable>
       {directionsAvailable ? (
         <Pressable style={styles.decisionStripInlineAction} onPress={onDirections}>
           <MaterialCommunityIcons name="directions" color={colors.accent} size={16} />
           <Text style={styles.decisionStripInlineActionText}>Directions</Text>
         </Pressable>
       ) : null}
-      {accessUseful ? (
-        <Pressable style={styles.decisionStripInlineAction} onPress={onAccess}>
-          <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={16} />
-          <Text style={styles.decisionStripInlineActionText}>Access</Text>
-        </Pressable>
-      ) : null}
+      <Pressable style={styles.decisionStripInlineAction} onPress={onAccess}>
+        <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={16} />
+        <Text style={styles.decisionStripInlineActionText}>Access</Text>
+      </Pressable>
     </View>
   );
 }
@@ -1201,6 +1214,58 @@ function ConditionRow({
         <Text style={styles.conditionValue} numberOfLines={1}>{value}</Text>
         <Text style={styles.conditionSubvalue} numberOfLines={1}>{subvalue}</Text>
         <Text style={styles.conditionDetail}>{detail}</Text>
+      </View>
+    </View>
+  );
+}
+
+function GaugeBandCard({ detail }: { detail: RiverDetailApiResult }) {
+  const model = gaugeBandVisualModel(detail);
+
+  if (!model) {
+    return null;
+  }
+
+  return (
+    <View style={styles.gaugeBandPanel}>
+      <View style={styles.gaugeBandHeader}>
+        <View style={styles.gaugeBandTitleWrap}>
+          <Text style={styles.gaugeBandKicker}>Gauge band</Text>
+          <Text style={styles.gaugeBandStatus}>{model.statusLabel}</Text>
+          <Text style={styles.gaugeBandRange} numberOfLines={1}>
+            Target {model.targetRangeLabel}
+          </Text>
+        </View>
+        <View style={[styles.gaugeBandCurrentPill, model.markerTone]}>
+          <Text style={styles.gaugeBandCurrentText}>{model.currentLabel}</Text>
+        </View>
+      </View>
+      <View style={styles.gaugeBandMeter}>
+        <View style={styles.gaugeBandTrack}>
+          <View
+            style={[
+              styles.gaugeBandIdealSegment,
+              {
+                left: `${model.idealLeftPercent}%`,
+                width: `${model.idealWidthPercent}%`,
+              },
+            ]}
+          />
+          <View
+            style={[
+              styles.gaugeBandMarker,
+              model.markerTone,
+              {
+                left: `${model.currentPercent}%`,
+              },
+            ]}
+          />
+        </View>
+        <View style={styles.gaugeBandLabels}>
+          <Text style={styles.gaugeBandLabel} numberOfLines={1}>{model.lowLabel}</Text>
+          <Text style={[styles.gaugeBandLabel, styles.gaugeBandLabelCenter]} numberOfLines={1}>{model.idealLabel}</Text>
+          <Text style={[styles.gaugeBandLabel, styles.gaugeBandLabelRight]} numberOfLines={1}>{model.highLabel}</Text>
+        </View>
       </View>
     </View>
   );
@@ -1240,10 +1305,81 @@ function GaugeSourceActions({ detail }: { detail: RiverDetailApiResult }) {
   );
 }
 
+function RouteSafetyPanel({ detail }: { detail: RiverDetailApiResult }) {
+  const profile = detail.river.safetyProfile;
+  const riskLevel = profile?.riskLevel ?? 'standard';
+  const summary = routeSafetySummary(profile);
+  const body = mobileSafetyBody(riskLevel, summary);
+  const notes = dedupeSafetyNotes(profile?.safetyNotes ?? [], summary);
+  const advanced = riskLevel === 'advanced';
+  const caution = riskLevel === 'caution';
+
+  return (
+    <View style={[styles.safetyPanel, advanced ? styles.safetyPanelAdvanced : caution ? styles.safetyPanelCaution : null]}>
+      <View style={styles.safetyHeader}>
+        <MaterialCommunityIcons
+          name={advanced ? 'alert-octagon-outline' : caution ? 'alert-outline' : 'shield-check-outline'}
+          color={advanced ? colors.noGo : caution ? '#9A5F19' : colors.accent}
+          size={20}
+        />
+        <View style={styles.safetyHeaderText}>
+          <Text style={styles.safetyKicker}>Safety</Text>
+          <Text style={styles.safetyTitle}>{mobileSafetyTitle(riskLevel)}</Text>
+        </View>
+      </View>
+      <Text style={styles.safetyBody}>{body}</Text>
+      {profile?.hazards && profile.hazards.length > 0 ? (
+        <View style={styles.safetyChipRow}>
+          {profile.hazards.map((hazard) => (
+            <Text key={hazard} style={styles.safetyChip}>{routeHazardLabels[hazard]}</Text>
+          ))}
+        </View>
+      ) : null}
+      {notes.map((note) => (
+        <Text key={note} style={styles.safetyNote}>{normalizeApiText(note)}</Text>
+      ))}
+    </View>
+  );
+}
+
+function mobileSafetyTitle(riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard') {
+  if (riskLevel === 'standard') return 'Before you launch';
+  return routeSafetyLevelLabels[riskLevel];
+}
+
+function mobileSafetyBody(
+  riskLevel: NonNullable<RiverDetailApiResult['river']['safetyProfile']>['riskLevel'] | 'standard',
+  summary: string
+) {
+  if (riskLevel === 'standard') {
+    return 'Confirm access, shuttle, source data, hazards, closures, and takeouts before launching.';
+  }
+
+  return summary;
+}
+
+function dedupeSafetyNotes(notes: string[], summary: string) {
+  const summaryKey = normalizeSafetyText(summary);
+  const seen = new Set<string>();
+  return notes.filter((note) => {
+    const key = normalizeSafetyText(note);
+    if (!key || key === summaryKey || seen.has(key)) {
+      return false;
+    }
+    seen.add(key);
+    return true;
+  });
+}
+
+function normalizeSafetyText(value: string) {
+  return normalizeApiText(value).toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
 function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
   const basics = [
     { label: 'Paddle time', value: compactPaddleTime(detail.river.estimatedPaddleTime) || 'Not tracked', icon: 'clock-outline' },
     { label: 'Difficulty', value: capitalize(detail.river.profile.difficulty), icon: 'waves' },
+    { label: 'Camping', value: campingFitLabel(detail.river.logistics?.campingClassification), icon: 'tent' },
   ];
 
   const gaugeRange = thresholdRangeLabel(detail);
@@ -1269,6 +1405,14 @@ function RouteBasicsCard({ detail }: { detail: RiverDetailApiResult }) {
       </View>
     </SectionCard>
   );
+}
+
+function campingFitLabel(classification: CampingClassification | null | undefined) {
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
+  return 'No camping';
 }
 
 function AboutRouteCard({ detail }: { detail: RiverDetailApiResult }) {
@@ -2231,6 +2375,90 @@ function thresholdRangeLabel(detail: RiverDetailApiResult) {
   return 'threshold details are still being refined';
 }
 
+function gaugeBandVisualModel(detail: RiverDetailApiResult): GaugeBandVisualModel | null {
+  const gauge = detail.gauge;
+  const unit = detail.river.gaugeSource.unit;
+  const { idealMin, idealMax, tooLow, tooHigh, thresholdModel } = detail.river.profile;
+
+  if (
+    !gauge ||
+    thresholdModel !== 'two-sided' ||
+    typeof idealMin !== 'number' ||
+    typeof idealMax !== 'number' ||
+    idealMax <= idealMin
+  ) {
+    return null;
+  }
+
+  const idealSpan = Math.max(idealMax - idealMin, 1);
+  const lowEdge = typeof tooLow === 'number' && tooLow < idealMin ? tooLow : idealMin - idealSpan * 0.75;
+  const highEdge = typeof tooHigh === 'number' && tooHigh > idealMax ? tooHigh : idealMax + idealSpan * 0.75;
+  const rawMin = Math.min(lowEdge, idealMin, gauge.current);
+  const rawMax = Math.max(highEdge, idealMax, gauge.current);
+  const domainSpan = Math.max(rawMax - rawMin, 1);
+  const domainMin = rawMin - domainSpan * 0.05;
+  const domainMax = rawMax + domainSpan * 0.05;
+  const domain = Math.max(domainMax - domainMin, 1);
+  const percent = (value: number) => clampToRange(((value - domainMin) / domain) * 100, 0, 100);
+
+  return {
+    currentPercent: percent(gauge.current),
+    idealLeftPercent: percent(idealMin),
+    idealWidthPercent: Math.max(percent(idealMax) - percent(idealMin), 8),
+    currentLabel: formatGaugeValue(gauge.current, gauge.unit),
+    statusLabel: gaugeBandStatusLabel(detail, idealMin, idealMax),
+    targetRangeLabel: `${formatGaugeValue(idealMin, unit)} to ${formatGaugeValue(idealMax, unit)}`,
+    lowLabel: formatGaugeValue(lowEdge, unit),
+    idealLabel: 'Target',
+    highLabel: formatGaugeValue(highEdge, unit),
+    markerTone: gaugeBandMarkerTone(detail.gaugeBand),
+  };
+}
+
+function gaugeBandStatusLabel(detail: RiverDetailApiResult, idealMin: number, idealMax: number) {
+  const current = detail.gauge?.current;
+
+  if (typeof current !== 'number') {
+    return detail.gaugeBandLabel;
+  }
+
+  if (current < idealMin) {
+    return 'Below target band';
+  }
+
+  if (current > idealMax) {
+    return 'Above target band';
+  }
+
+  const position = (current - idealMin) / Math.max(idealMax - idealMin, 1);
+
+  if (position < 0.35) {
+    return 'Low side of target';
+  }
+
+  if (position > 0.65) {
+    return 'High side of target';
+  }
+
+  return 'Middle of target';
+}
+
+function gaugeBandMarkerTone(gaugeBand: RiverDetailApiResult['gaugeBand']) {
+  if (gaugeBand === 'too-low' || gaugeBand === 'too-high') {
+    return styles.conditionSkip;
+  }
+
+  if (gaugeBand === 'low-shoulder' || gaugeBand === 'high-shoulder' || gaugeBand === 'minimum-met') {
+    return styles.conditionWatch;
+  }
+
+  return styles.conditionGood;
+}
+
+function clampToRange(value: number, min: number, max: number) {
+  return Math.min(Math.max(value, min), max);
+}
+
 function shortLogisticsValue(value: string | null | undefined) {
   const normalized = normalizeApiText(value);
   if (!normalized) {
@@ -2476,6 +2704,25 @@ const styles = StyleSheet.create({
     padding: spacing.sm,
     gap: 6,
   },
+  scoreWhyHeader: {
+    minHeight: 34,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  scoreWhyHeaderCopy: {
+    flex: 1,
+    gap: 2,
+  },
+  scoreWhyToggle: {
+    width: 28,
+    height: 28,
+    borderRadius: 14,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: colors.surface,
+  },
   scoreWhyTitle: {
     color: colors.text,
     fontSize: 12,
@@ -2521,26 +2768,6 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     fontWeight: '700',
   },
-  decisionNextStep: {
-    borderRadius: radius.md,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.sm,
-    gap: 3,
-  },
-  decisionNextLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  decisionNextText: {
-    color: colors.text,
-    fontSize: 13,
-    lineHeight: 18,
-    fontWeight: '800',
-  },
   decisionBulletList: {
     gap: spacing.xs,
   },
@@ -2579,41 +2806,9 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     gap: spacing.xs,
   },
-  decisionStripItem: {
+  decisionStripInlineAction: {
     flex: 1,
     minWidth: 0,
-    minHeight: 62,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    paddingHorizontal: 7,
-    paddingVertical: spacing.sm,
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 3,
-  },
-  decisionStripIcon: {
-    width: 23,
-    height: 23,
-    borderRadius: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  decisionStripValue: {
-    color: colors.text,
-    fontSize: 11,
-    lineHeight: 14,
-    fontWeight: '900',
-    textAlign: 'center',
-  },
-  decisionStripLabel: {
-    color: colors.textMuted,
-    fontSize: 9,
-    fontWeight: '900',
-    letterSpacing: 0.25,
-    textTransform: 'uppercase',
-  },
-  decisionStripInlineAction: {
-    minWidth: 74,
     minHeight: 62,
     borderRadius: radius.md,
     borderWidth: 1,
@@ -2735,6 +2930,103 @@ const styles = StyleSheet.create({
     fontSize: 13,
     lineHeight: 18,
   },
+  gaugeBandPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.md,
+  },
+  gaugeBandHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.md,
+  },
+  gaugeBandTitleWrap: {
+    flex: 1,
+    minWidth: 0,
+    gap: 2,
+  },
+  gaugeBandKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+  },
+  gaugeBandStatus: {
+    color: colors.text,
+    fontSize: 16,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  gaugeBandRange: {
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '800',
+  },
+  gaugeBandCurrentPill: {
+    minWidth: 78,
+    borderRadius: radius.pill,
+    paddingHorizontal: 11,
+    paddingVertical: 7,
+    alignItems: 'center',
+  },
+  gaugeBandCurrentText: {
+    color: colors.surfaceStrong,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  gaugeBandMeter: {
+    gap: spacing.sm,
+  },
+  gaugeBandTrack: {
+    height: 16,
+    borderRadius: radius.pill,
+    backgroundColor: colors.canvasMuted,
+  },
+  gaugeBandIdealSegment: {
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    borderRadius: radius.pill,
+    backgroundColor: colors.accentSoft,
+    borderWidth: 1,
+    borderColor: '#A8C1B7',
+  },
+  gaugeBandMarker: {
+    position: 'absolute',
+    top: -4,
+    width: 10,
+    height: 24,
+    marginLeft: -5,
+    borderRadius: radius.pill,
+    borderWidth: 2,
+    borderColor: colors.surfaceStrong,
+  },
+  gaugeBandLabels: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: spacing.sm,
+  },
+  gaugeBandLabel: {
+    flex: 1,
+    color: colors.textMuted,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '800',
+  },
+  gaugeBandLabelCenter: {
+    flex: 1.4,
+    color: colors.accentDeep,
+    textAlign: 'center',
+  },
+  gaugeBandLabelRight: {
+    textAlign: 'right',
+  },
   sourceActionsPanel: {
     borderRadius: radius.md,
     borderWidth: 1,
@@ -2832,6 +3124,73 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 18,
+  },
+  safetyPanel: {
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  safetyPanelCaution: {
+    borderColor: '#D8A45E',
+    backgroundColor: '#FFF5E5',
+  },
+  safetyPanelAdvanced: {
+    borderColor: '#D99A86',
+    backgroundColor: '#FBE9E4',
+  },
+  safetyHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
+  safetyHeaderText: {
+    flex: 1,
+    minWidth: 0,
+  },
+  safetyKicker: {
+    color: colors.textMuted,
+    fontSize: 11,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+  },
+  safetyTitle: {
+    color: colors.text,
+    fontSize: 15,
+    lineHeight: 20,
+    fontWeight: '900',
+  },
+  safetyBody: {
+    color: colors.text,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
+  },
+  safetyChipRow: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.xs,
+  },
+  safetyChip: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 5,
+    color: colors.text,
+    fontSize: 11,
+    lineHeight: 15,
+    fontWeight: '900',
+  },
+  safetyNote: {
+    color: colors.textMuted,
+    fontSize: 13,
+    lineHeight: 19,
+    fontWeight: '700',
   },
   aboutRouteText: {
     color: colors.text,

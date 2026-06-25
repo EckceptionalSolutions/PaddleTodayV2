@@ -1,6 +1,6 @@
 import { defaultFilters, type ExploreFilters } from '../components/explore-filter-sheet';
 
-export const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v3';
+export const EXPLORE_PREFERENCES_STORAGE_KEY = 'paddletoday:explore-preferences:v4';
 
 export type ExploreIntentId =
   | 'best-nearby'
@@ -8,7 +8,8 @@ export type ExploreIntentId =
   | 'watch'
   | 'skip'
   | 'quick-float'
-  | 'full-day';
+  | 'full-day'
+  | 'camping';
 
 const exploreIntentIds = new Set<ExploreIntentId>([
   'best-nearby',
@@ -17,6 +18,7 @@ const exploreIntentIds = new Set<ExploreIntentId>([
   'skip',
   'quick-float',
   'full-day',
+  'camping',
 ]);
 
 export function isExploreIntentId(value: unknown): value is ExploreIntentId {
@@ -33,7 +35,7 @@ export function filtersForExploreIntent(
       ...base,
       sort: 'nearest',
       distance: context.locationReady ? '100' : 'any',
-      status: 'clean',
+      status: 'any',
       rating: 'any',
     };
   }
@@ -73,9 +75,20 @@ export function filtersForExploreIntent(
       ...base,
       sort: context.locationReady ? 'nearest' : 'best',
       distance: context.locationReady ? '100' : 'any',
-      difficulty: 'easy',
+      difficulty: 'easy-moderate',
       routeType: 'non-whitewater',
       paddleTime: 'up-to-3',
+      status: 'any',
+      rating: 'any',
+    };
+  }
+
+  if (intent === 'camping') {
+    return {
+      ...base,
+      sort: context.locationReady ? 'nearest' : 'best',
+      distance: context.locationReady ? '150' : 'any',
+      camping: 'supported',
       status: 'any',
       rating: 'any',
     };
@@ -86,8 +99,8 @@ export function filtersForExploreIntent(
     sort: 'score',
     difficulty: 'any',
     routeType: 'all',
-    paddleTime: '5-to-7',
-    status: 'clean',
+    paddleTime: 'full-day',
+    status: 'any',
     rating: 'any',
   };
 }
@@ -98,15 +111,17 @@ export function labelForExploreIntent(intent: ExploreIntentId) {
   if (intent === 'watch') return 'Watch routes';
   if (intent === 'skip') return 'Skip routes';
   if (intent === 'quick-float') return 'Quick floats';
+  if (intent === 'camping') return 'Camping routes';
   return 'Full-day routes';
 }
 
 export function descriptionForExploreIntent(intent: ExploreIntentId, locationReady: boolean) {
   const suffix = locationReady ? ' near you' : '';
-  if (intent === 'best-nearby') return `Clean routes sorted by drive time${suffix}.`;
+  if (intent === 'best-nearby') return `Nearby routes sorted by drive time${suffix}.`;
   if (intent === 'clean-now') return `Strong and Good route calls${suffix}.`;
   if (intent === 'watch') return `Fair calls worth monitoring${suffix}.`;
   if (intent === 'skip') return `No-go calls grouped for rechecks${suffix}.`;
-  if (intent === 'quick-float') return `Easy rec routes under three hours${suffix}.`;
-  return 'Longer clean routes sorted by score.';
+  if (intent === 'quick-float') return `Easy or moderate rec routes under three hours${suffix}.`;
+  if (intent === 'camping') return `Routes with camping support${suffix}.`;
+  return 'Full-day single-day routes sorted by score.';
 }

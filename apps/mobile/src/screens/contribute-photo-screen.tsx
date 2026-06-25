@@ -1,6 +1,6 @@
 import { PaddleTodayApiError } from '@paddletoday/api-client';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { Stack, useLocalSearchParams, useRouter } from 'expo-router';
+import { Stack, useLocalSearchParams } from 'expo-router';
 import * as ImagePicker from 'expo-image-picker';
 import { useEffect, useRef, useState } from 'react';
 import {
@@ -31,7 +31,6 @@ import { colors, radius, spacing } from '../theme/tokens';
 
 export default function ContributePhotoScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
-  const router = useRouter();
   const insets = useSafeAreaInsets();
   const scrollRef = useRef<ScrollView | null>(null);
   const formPanelOffset = useRef(0);
@@ -195,7 +194,11 @@ export default function ContributePhotoScreen() {
         })),
       });
       setStatus('Thank you. Your photos were sent for review.');
-      setTimeout(() => router.back(), 700);
+      setPhotos([]);
+      setCaption('');
+      setName('');
+      setRightsConfirmed(false);
+      setContactConsent(false);
     } catch (error) {
       captureAppException(error, {
         name: 'route_photo_contribution_failed',

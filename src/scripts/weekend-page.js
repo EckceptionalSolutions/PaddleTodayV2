@@ -303,6 +303,15 @@ function difficultyLabel(item) {
   return `${String(difficulty).slice(0, 1).toUpperCase()}${String(difficulty).slice(1)} difficulty`;
 }
 
+function campingFactLabel(item) {
+  const classification = item?.river?.logistics?.campingClassification;
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
+  return '';
+}
+
 function favoriteRecord(item) {
   if (!item?.river?.slug) {
     return null;
@@ -330,6 +339,9 @@ function weekendMetaText(item) {
   if (item?.river?.estimatedPaddleTime) {
     parts.push(item.river.estimatedPaddleTime);
   }
+  if (campingFactLabel(item)) {
+    parts.push(campingFactLabel(item));
+  }
 
   return parts.join(' \u2022 ');
 }
@@ -346,6 +358,9 @@ function weekendFactsMarkup(item) {
 
   if (item?.river?.estimatedPaddleTime) {
     facts.push(item.river.estimatedPaddleTime);
+  }
+  if (campingFactLabel(item)) {
+    facts.push(campingFactLabel(item));
   }
 
   return facts

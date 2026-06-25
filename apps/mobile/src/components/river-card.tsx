@@ -1,6 +1,7 @@
 import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, View } from 'react-native';
 import { normalizeApiText } from '../lib/format';
+import { routePhotoForRiver } from '../lib/route-photos';
 import { routeFactItems } from '../lib/route-facts';
 import { colors, radius, spacing } from '../theme/tokens';
 import { RatingPill } from './rating-pill';
@@ -10,24 +11,27 @@ export function RiverCard({
   river,
   travelLabel,
   saved = false,
+  showPhoto = false,
   onToggleSaved,
   onPress,
 }: {
   river: RiverSummaryApiItem;
   travelLabel?: string;
   saved?: boolean;
+  showPhoto?: boolean;
   onToggleSaved?: () => void;
   onPress: () => void;
 }) {
   const facts = routeFactItems(river.river, {
     includePaddleTime: true,
     includeNoCamping: true,
-    campingAvailableLabel: 'Camping info',
   }).filter((fact) => fact !== river.summary.gaugeNow);
   const showDataWarning = river.liveData.overall !== 'live';
 
   return (
     <Pressable style={styles.card} onPress={onPress} android_ripple={{ color: colors.canvasMuted }}>
+      {showPhoto ? <RouteCardPhoto river={river} /> : null}
+
       <View style={styles.header}>
         <View style={styles.scoreBlock}>
           <Text style={styles.score}>{river.score}</Text>
@@ -78,6 +82,21 @@ export function RiverCard({
   );
 }
 
+function RouteCardPhoto({ river }: { river: RiverSummaryApiItem }) {
+  const photo = routePhotoForRiver(river.river);
+
+  return (
+    <ImageBackground source={{ uri: photo.uri }} style={styles.photo} imageStyle={styles.photoImage}>
+      <View style={styles.photoScrim} />
+      {photo.isPlaceholder ? (
+        <View style={styles.photoBadge}>
+          <Text style={styles.photoBadgeText}>Needs photo</Text>
+        </View>
+      ) : null}
+    </ImageBackground>
+  );
+}
+
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.surfaceStrong,
@@ -86,6 +105,37 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     padding: spacing.md,
     gap: spacing.sm,
+  },
+  photo: {
+    height: 104,
+    borderRadius: radius.md,
+    overflow: 'hidden',
+    backgroundColor: colors.canvasMuted,
+  },
+  photoImage: {
+    borderRadius: radius.md,
+  },
+  photoScrim: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(10, 24, 29, 0.08)',
+  },
+  photoBadge: {
+    position: 'absolute',
+    left: spacing.sm,
+    bottom: spacing.sm,
+    minHeight: 26,
+    borderRadius: radius.pill,
+    backgroundColor: 'rgba(10, 24, 29, 0.58)',
+    paddingHorizontal: 9,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  photoBadgeText: {
+    color: colors.surfaceStrong,
+    fontSize: 10,
+    fontWeight: '900',
+    textTransform: 'uppercase',
+    letterSpacing: 0.2,
   },
   header: {
     flexDirection: 'row',

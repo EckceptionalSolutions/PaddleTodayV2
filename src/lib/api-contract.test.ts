@@ -192,6 +192,7 @@ describe('api-contract serializers', () => {
 
     expect(summary.river.slug).toBe(baseRiver.slug);
     expect(summary.river.estimatedPaddleTime).toBe('About 2 hr to 3 hr');
+    expect(summary.river.logistics?.campingClassification).toBe('none');
     expect(summary.river.difficulty).toBe('moderate');
     expect(summary.river.routeType).toBe('recreational');
     expect(summary.river.putIn?.name).toBe('North Landing');
@@ -232,6 +233,45 @@ describe('api-contract serializers', () => {
     expect(detail.river.routeType).toBe('whitewater');
   });
 
+  it('serializes route safety profiles without requiring every route to have one', () => {
+    const scored = scoreRiverCondition({
+      river: {
+        ...baseRiver,
+        safetyProfile: {
+          riskLevel: 'caution',
+          hazards: ['strainers', 'access_uncertain'],
+          safetyNotes: ['Scout access and watch for fresh wood after storms.'],
+          reviewStatus: 'reviewed',
+        },
+      },
+      gauge,
+      weather,
+      now: new Date('2026-05-10T12:00:00Z'),
+    });
+
+    const summary = serializeSummaryResult(scored);
+    const detail = serializeDetailResult(scored);
+
+    expect(summary.river.safetyProfile).toEqual({
+      riskLevel: 'caution',
+      hazards: ['strainers', 'access_uncertain'],
+      safetyNotes: ['Scout access and watch for fresh wood after storms.'],
+      reviewStatus: 'reviewed',
+    });
+    expect(detail.river.safetyProfile?.hazards).toEqual(['strainers', 'access_uncertain']);
+
+    const unreviewed = serializeDetailResult(
+      scoreRiverCondition({
+        river: baseRiver,
+        gauge,
+        weather,
+        now: new Date('2026-05-10T12:00:00Z'),
+      }),
+    );
+
+    expect(unreviewed.river.safetyProfile).toBeUndefined();
+  });
+
   it('strips non-live editorial fields from the detail payload while keeping route logistics', () => {
     const scored = scoreRiverCondition({
       river: baseRiver,
@@ -257,6 +297,7 @@ describe('api-contract serializers', () => {
     expect('sourceLinks' in detail.river).toBe(false);
     expect('evidenceNotes' in detail.river).toBe(false);
     expect(detail.river.logistics?.shuttle).toBe('Simple car shuttle');
+    expect(detail.river.logistics?.campingClassification).toBe('none');
     expect(detail.river.accessPoints?.[1]?.note).toBe('Short route access.');
   });
 

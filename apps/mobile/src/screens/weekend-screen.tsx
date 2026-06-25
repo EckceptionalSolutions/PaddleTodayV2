@@ -1,6 +1,7 @@
 import type { WeekendSummaryApiItem } from '@paddletoday/api-contract';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from 'expo-router';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Pressable, RefreshControl, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useWeekendSummaryQuery } from '../api/queries';
@@ -27,36 +28,67 @@ const weekendConfidenceRank = {
   Low: 1,
 };
 
+const weekendDistanceOptions = [
+  { label: '100 mi', value: 100 },
+  { label: '200 mi', value: 200 },
+  { label: '300 mi', value: 300 },
+  { label: '500 mi', value: 500 },
+  { label: 'Any', value: null },
+];
+
+const DEFAULT_WEEKEND_DISTANCE_LIMIT = 300;
+const WEEKEND_DISTANCE_STORAGE_KEY = 'paddletoday:weekend-distance-limit:v1';
+
 export default function WeekendScreen() {
   const router = useRouter();
   const insets = useSafeAreaInsets();
   const weekendQuery = useWeekendSummaryQuery();
   const { location, status, requestLocation, clearLocation } = useStoredLocation();
   const { isSaved, toggleSavedRiver } = useSavedRivers();
+  const [distanceLimit, setDistanceLimit] = useState<number | null>(DEFAULT_WEEKEND_DISTANCE_LIMIT);
+  const [distanceHydrated, setDistanceHydrated] = useState(false);
 
   const rivers = useMemo(
     () => rankWeekendRoutes(weekendQuery.data?.rivers ?? [], location),
     [weekendQuery.data?.rivers, location]
   );
-  const topPicks = rivers.filter((river) => river.weekend.rating === 'Strong' || river.weekend.rating === 'Good').slice(0, 5);
-  const featured = topPicks[0] ?? rivers[0];
+  const inRangeRivers = location ? rivers.filter((river) => isWithinDistanceLimit(river, distanceLimit)) : rivers;
+  const outOfRangeRivers = location && distanceLimit !== null
+    ? rivers.filter((river) => !isWithinDistanceLimit(river, distanceLimit))
+    : [];
+  const topPicks = inRangeRivers.filter(isCleanWeekendRoute).slice(0, 5);
+  const expandedPicks = topPicks.length === 0 ? outOfRangeRivers.filter(isCleanWeekendRoute).slice(0, 4) : [];
+  const nearbyWatch = inRangeRivers.filter((river) => river.weekend.rating === 'Fair').slice(0, 5);
+  const featured = topPicks[0] ?? nearbyWatch[0] ?? expandedPicks[0] ?? inRangeRivers[0] ?? rivers[0];
   const hasWeekendPlan = topPicks.length > 0;
   const topPickSlugs = slugSet(topPicks);
-  const lowerCommitment = rivers
+  const lowerCommitment = inRangeRivers
     .filter((river) => !topPickSlugs.has(river.river.slug))
     .filter(isLowerCommitmentRoute)
     .slice(0, 4);
-  const secondarySlugs = slugSet([...topPicks, ...lowerCommitment]);
-  const campingRoutes = rivers
-    .filter((river) => !secondarySlugs.has(river.river.slug))
-    .filter((river) => location ? isWorthLongerDriveRoute(river) : hasCamping(river))
+  const primaryPlanSlugs = slugSet([...topPicks, ...lowerCommitment]);
+  const campingFriendlyRoutes = inRangeRivers
+    .filter((river) => !primaryPlanSlugs.has(river.river.slug))
+    .filter(hasWeekendCampingSupport)
     .slice(0, 4);
-  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingRoutes]);
-  const watchList = rivers
+  const shownSlugs = slugSet([...topPicks, ...lowerCommitment, ...campingFriendlyRoutes, ...nearbyWatch]);
+  const watchList = inRangeRivers
     .filter((river) => !shownSlugs.has(river.river.slug))
     .filter((river) => river.weekend.rating === 'Fair')
     .slice(0, 5);
   const locationLabel = location?.label ?? null;
+
+  useEffect(() => {
+    void hydrateDistanceLimit();
+  }, []);
+
+  useEffect(() => {
+    if (!distanceHydrated) {
+      return;
+    }
+
+    void AsyncStorage.setItem(WEEKEND_DISTANCE_STORAGE_KEY, JSON.stringify(distanceLimit));
+  }, [distanceHydrated, distanceLimit]);
 
   if (weekendQuery.isLoading && rivers.length === 0) {
     return (
@@ -102,22 +134,33 @@ export default function WeekendScreen() {
           onClear={() => void clearLocation()}
         />
 
+        {location ? (
+          <WeekendDistanceSelector
+            selected={distanceLimit}
+            onSelect={(value) => setDistanceLimit(value)}
+          />
+        ) : null}
+
         <View style={styles.heroPanel}>
           <View style={styles.heroHeader}>
             <Text style={styles.heroLabel} numberOfLines={1}>
               {location ? `Near ${location.label}` : hasWeekendPlan ? (weekendQuery.data?.label ?? 'Weekend outlook') : 'Across supported routes'}
             </Text>
-            <Text style={styles.heroFreshness}>{location ? 'Drive-aware' : hasWeekendPlan ? 'Forecast-aware' : 'No clean plan'}</Text>
+            <Text style={styles.heroFreshness}>{location ? rangeFreshnessLabel(distanceLimit) : hasWeekendPlan ? 'Forecast-aware' : 'No clean plan'}</Text>
           </View>
 
           <View style={styles.snapshotRow}>
-            <SnapshotStat label="Strong" value={rivers.filter((river) => river.weekend.rating === 'Strong').length} tone={styles.snapshotStrong} />
-            <SnapshotStat label="Good" value={rivers.filter((river) => river.weekend.rating === 'Good').length} tone={styles.snapshotGood} />
-            <SnapshotStat label="Watch" value={watchList.length} tone={styles.snapshotWatch} />
+            <SnapshotStat label="Strong" value={inRangeRivers.filter((river) => river.weekend.rating === 'Strong').length} tone={styles.snapshotStrong} />
+            <SnapshotStat label="Good" value={inRangeRivers.filter((river) => river.weekend.rating === 'Good').length} tone={styles.snapshotGood} />
+            <SnapshotStat label="Watch" value={nearbyWatch.length + watchList.length} tone={styles.snapshotWatch} />
           </View>
 
           {featured && hasWeekendPlan ? (
-            <View style={styles.featuredBlock}>
+            <Pressable
+              style={styles.featuredBlock}
+              onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
+              android_ripple={{ color: colors.canvasMuted }}
+            >
               <Text style={styles.featuredLabel}>{location ? 'Top nearby weekend pick' : 'Top weekend pick'}</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
@@ -127,10 +170,14 @@ export default function WeekendScreen() {
                 ))}
               </View>
               <Text style={styles.featuredSummary}>{weekendHeroSummary(featured)}</Text>
-            </View>
+            </Pressable>
           ) : featured ? (
-            <View style={styles.featuredBlock}>
-              <Text style={styles.featuredLabel}>No clean weekend plan</Text>
+            <Pressable
+              style={styles.featuredBlock}
+              onPress={() => router.push({ pathname: '/river/[slug]', params: { slug: featured.river.slug } })}
+              android_ripple={{ color: colors.canvasMuted }}
+            >
+              <Text style={styles.featuredLabel}>{expandedPicks.length > 0 ? 'Nearest expanded option' : 'No clean weekend plan'}</Text>
               <Text style={styles.featuredName}>{featured.river.name}</Text>
               <Text style={styles.featuredReach}>{featured.river.reach}</Text>
               <View style={styles.featuredFacts}>
@@ -138,8 +185,12 @@ export default function WeekendScreen() {
                   <Text key={fact} style={styles.featuredFact}>{fact}</Text>
                 ))}
               </View>
-              <Text style={styles.featuredSummary}>No Good routes yet. Recheck before planning.</Text>
-            </View>
+              <Text style={styles.featuredSummary}>
+                {expandedPicks.length > 0
+                  ? 'No Good routes are inside your selected range. This is the best option after expanding the drive.'
+                  : 'No Good routes are inside your selected range. Recheck nearby watch routes before planning.'}
+              </Text>
+            </Pressable>
           ) : (
             <Text style={styles.emptyText}>
               No strong weekend picks are available right now. Use Today or Explore for current route calls and check back as the forecast changes.
@@ -151,7 +202,7 @@ export default function WeekendScreen() {
       {hasWeekendPlan ? (
         <WeekendPlanLanes
           dayTrips={topPicks.length + lowerCommitment.length}
-          longerDrives={campingRoutes.length}
+          campingRoutes={campingFriendlyRoutes.length}
           rechecks={watchList.length}
           hasWeekendPlan={hasWeekendPlan}
         />
@@ -195,13 +246,35 @@ export default function WeekendScreen() {
         </SectionCard>
       ) : null}
 
-      {campingRoutes.length > 0 ? (
+      {!hasWeekendPlan && nearbyWatch.length > 0 ? (
         <SectionCard
-          title={location ? 'Worth a longer drive' : 'Camping possible'}
-          subtitle={location ? 'Good weekend routes outside the first nearby set.' : 'Routes with camping notes.'}
+          title={location ? 'Worth watching nearby' : 'Worth watching'}
+          subtitle="Fair calls inside your selected range."
         >
           <View style={styles.list}>
-            {campingRoutes.map((river) => renderWeekendCard(river))}
+            {nearbyWatch.map((river) => renderWeekendCard(river))}
+          </View>
+        </SectionCard>
+      ) : null}
+
+      {expandedPicks.length > 0 ? (
+        <SectionCard
+          title="Expand the drive"
+          subtitle={`No Good routes inside ${rangeFreshnessLabel(distanceLimit)}. These are farther options.`}
+        >
+          <View style={styles.list}>
+            {expandedPicks.map((river) => renderWeekendCard(river))}
+          </View>
+        </SectionCard>
+      ) : null}
+
+      {campingFriendlyRoutes.length > 0 ? (
+        <SectionCard
+          title="Camping-friendly"
+          subtitle="Good weekend calls with campground, base-camp, or overnight support."
+        >
+          <View style={styles.list}>
+            {campingFriendlyRoutes.map((river) => renderWeekendCard(river))}
           </View>
         </SectionCard>
       ) : null}
@@ -248,6 +321,20 @@ export default function WeekendScreen() {
       />
     );
   }
+
+  async function hydrateDistanceLimit() {
+    try {
+      const raw = await AsyncStorage.getItem(WEEKEND_DISTANCE_STORAGE_KEY);
+      const parsed = parseDistanceLimit(raw);
+      if (parsed !== undefined) {
+        setDistanceLimit(parsed);
+      }
+    } catch {
+      // Keep the default range if saved preferences are unavailable.
+    } finally {
+      setDistanceHydrated(true);
+    }
+  }
 }
 
 function WeekendLocationStrip({
@@ -286,6 +373,36 @@ function WeekendLocationStrip({
   );
 }
 
+function WeekendDistanceSelector({
+  selected,
+  onSelect,
+}: {
+  selected: number | null;
+  onSelect: (value: number | null) => void;
+}) {
+  return (
+    <View style={styles.distanceSelector}>
+      <Text style={styles.distanceLabel}>Weekend range</Text>
+      <View style={styles.distanceOptions}>
+        {weekendDistanceOptions.map((option) => {
+          const active = selected === option.value;
+          return (
+            <Pressable
+              key={option.label}
+              style={[styles.distanceChip, active ? styles.distanceChipActive : null]}
+              onPress={() => onSelect(option.value)}
+            >
+              <Text style={[styles.distanceChipText, active ? styles.distanceChipTextActive : null]}>
+                {option.label}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </View>
+    </View>
+  );
+}
+
 function SnapshotStat({
   label,
   value,
@@ -305,12 +422,12 @@ function SnapshotStat({
 
 function WeekendPlanLanes({
   dayTrips,
-  longerDrives,
+  campingRoutes,
   rechecks,
   hasWeekendPlan,
 }: {
   dayTrips: number;
-  longerDrives: number;
+  campingRoutes: number;
   rechecks: number;
   hasWeekendPlan: boolean;
 }) {
@@ -319,7 +436,7 @@ function WeekendPlanLanes({
       <Text style={styles.planLanesTitle}>Plan lanes</Text>
       <View style={styles.planLaneGrid}>
         <PlanLane label="Day trips" value={dayTrips} active={dayTrips > 0} />
-        <PlanLane label="Longer drives" value={longerDrives} active={longerDrives > 0} />
+        <PlanLane label="Camping" value={campingRoutes} active={campingRoutes > 0} />
         <PlanLane label={hasWeekendPlan ? 'Rechecks' : 'Recheck later'} value={rechecks} active={!hasWeekendPlan || rechecks > 0} />
       </View>
     </View>
@@ -340,7 +457,7 @@ function slugSet(rivers: WeekendSummaryApiItem[]) {
 }
 
 function isLowerCommitmentRoute(river: WeekendSummaryApiItem) {
-  if (river.weekend.rating !== 'Strong' && river.weekend.rating !== 'Good') {
+  if (!isCleanWeekendRoute(river)) {
     return false;
   }
 
@@ -353,22 +470,63 @@ function isLowerCommitmentRoute(river: WeekendSummaryApiItem) {
   );
 }
 
-function isWorthLongerDriveRoute(river: WeekendSummaryApiItem) {
-  const route = river as WeekendRoute;
-  return (
-    (river.weekend.rating === 'Strong' || river.weekend.rating === 'Good') &&
-    route.travelMinutes !== null &&
-    route.travelMinutes > 120
-  );
-}
-
-function hasCamping(river: WeekendSummaryApiItem) {
-  if (river.weekend.rating !== 'Strong' && river.weekend.rating !== 'Good') {
+function hasWeekendCampingSupport(river: WeekendSummaryApiItem) {
+  if (!isCleanWeekendRoute(river)) {
     return false;
   }
 
-  const camping = normalizeApiText(river.river.logistics?.camping).toLowerCase();
-  return camping.length > 0 && !camping.startsWith('none') && !camping.startsWith('no ');
+  const classification = river.river.logistics?.campingClassification;
+  return classification !== undefined && classification !== 'none' && classification !== 'unknown';
+}
+
+function hasOvernightCampingSupport(river: WeekendSummaryApiItem) {
+  if (!hasWeekendCampingSupport(river)) {
+    return false;
+  }
+
+  const classification = river.river.logistics?.campingClassification;
+  return (
+    classification === 'overnight_capable' ||
+    classification === 'on_route_campsite' ||
+    classification === 'sandbar_or_gravel_bar'
+  );
+}
+
+function isCleanWeekendRoute(river: WeekendSummaryApiItem) {
+  return river.weekend.rating === 'Strong' || river.weekend.rating === 'Good';
+}
+
+function isWithinDistanceLimit(river: WeekendRoute, distanceLimit: number | null) {
+  if (distanceLimit === null) {
+    return true;
+  }
+
+  return river.distanceMiles !== null && river.distanceMiles <= distanceLimit;
+}
+
+function rangeFreshnessLabel(distanceLimit: number | null) {
+  return distanceLimit === null ? 'All distances' : `${distanceLimit} mi`;
+}
+
+function parseDistanceLimit(raw: string | null) {
+  if (raw === null) {
+    return undefined;
+  }
+
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (parsed === null) {
+      return null;
+    }
+
+    if (typeof parsed === 'number' && weekendDistanceOptions.some((option) => option.value === parsed)) {
+      return parsed;
+    }
+  } catch {
+    return undefined;
+  }
+
+  return undefined;
 }
 
 function weekendFacts(river: WeekendSummaryApiItem) {
@@ -378,8 +536,17 @@ function weekendFacts(river: WeekendSummaryApiItem) {
     river.river.distanceLabel || null,
     river.river.estimatedPaddleTime || null,
     `${capitalize(river.river.difficulty)} difficulty`,
-    hasCamping(river) ? 'Camping possible' : null,
+    campingFact(river),
   ].filter(Boolean) as string[];
+}
+
+function campingFact(river: WeekendSummaryApiItem) {
+  const classification = river.river.logistics?.campingClassification;
+  if (classification === 'nearby_basecamp') return 'Camp nearby';
+  if (classification === 'endpoint_campground') return 'Campground access';
+  if (classification === 'sandbar_or_gravel_bar') return 'Sandbar camping';
+  if (classification === 'on_route_campsite' || classification === 'overnight_capable') return 'Overnight-friendly';
+  return null;
 }
 
 function rankWeekendRoutes(rivers: WeekendSummaryApiItem[], location: StoredLocation | null): WeekendRoute[] {
@@ -500,6 +667,46 @@ const styles = StyleSheet.create({
     color: colors.surfaceStrong,
     fontSize: 12,
     fontWeight: '900',
+  },
+  distanceSelector: {
+    backgroundColor: colors.surfaceStrong,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    padding: spacing.md,
+    gap: spacing.sm,
+  },
+  distanceLabel: {
+    color: colors.text,
+    fontSize: 13,
+    fontWeight: '900',
+  },
+  distanceOptions: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: spacing.sm,
+  },
+  distanceChip: {
+    minHeight: 36,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surface,
+    paddingHorizontal: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  distanceChipActive: {
+    borderColor: colors.accent,
+    backgroundColor: colors.accent,
+  },
+  distanceChipText: {
+    color: colors.accent,
+    fontSize: 12,
+    fontWeight: '900',
+  },
+  distanceChipTextActive: {
+    color: colors.surfaceStrong,
   },
   heroPanel: {
     backgroundColor: colors.surfaceStrong,

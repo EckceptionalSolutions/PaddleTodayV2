@@ -174,6 +174,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
     },
   ],
+  'little-fork-river-dentaybow-fiedler': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',
@@ -182,6 +192,56 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Red Lake River at Red Lake Falls',
       credit: 'Chitrapa / Peter Rimar via Kiddle',
       takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'red-lake-river-sportsmans-huot': [
+    {
+      id: 'red-lake-river-red-lake-falls-kiddle',
+      src: '/gallery/red-lake-river-sportsmans-huot/red-lake-river-red-lake-falls.jpg',
+      alt: 'The Red Lake River reflects a railroad bridge, green banks, and cloudy sky in calm water.',
+      caption: 'Red Lake River at Red Lake Falls',
+      credit: 'Chitrapa / Peter Rimar via Kiddle',
+      takenLabel: 'Kiddle image: CC BY-SA 4.0',
+    },
+  ],
+  'chippewa-river-lentz-watson-lions-park': [
+    {
+      id: 'chippewa-river-commons',
+      src: '/gallery/chippewa-river-lentz-watson-lions-park/chippewa-river.jpg',
+      alt: 'The Chippewa River winds through a broad grassy corridor under a bright sky.',
+      caption: 'Chippewa River in Minnesota',
+      credit: 'Wikideas1 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'juniata-river-granville-victory-park': [
+    {
+      id: 'juniata-river-lewistown-commons',
+      src: '/gallery/juniata-river-granville-victory-park/juniata-river-lewistown.jpg',
+      alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
+      caption: 'Juniata River west of PA 103 in Lewistown',
+      credit: 'Dough4872 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'juniata-river-victory-park-lewistown-narrows': [
+    {
+      id: 'juniata-river-lewistown-commons',
+      src: '/gallery/juniata-river-victory-park-lewistown-narrows/juniata-river-lewistown.jpg',
+      alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
+      caption: 'Juniata River west of PA 103 in Lewistown',
+      credit: 'Dough4872 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'juniata-river-newport-green-valley': [
+    {
+      id: 'juniata-river-howe-township-commons',
+      src: '/gallery/juniata-river-newport-green-valley/juniata-river-howe-township.jpg',
+      alt: 'Wooded hills rise above the Juniata River east of Newport in Perry County under a clear sky.',
+      caption: 'Juniata River hills east of Newport',
+      credit: 'Nyttend via Wikimedia Commons',
+      takenLabel: 'Public domain',
     },
   ],
   'sauk-river-spring-hill-st-martin': [
@@ -232,16 +292,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'South Fork Crow River near Cosmos',
       credit: 'Tim Kiser via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
-    },
-  ],
-  'blue-earth-river-rapidan-county-road-90': [
-    {
-      id: 'blue-earth-mankato-commons',
-      src: '/gallery/blue-earth-river-rapidan-county-road-90/blue-earth-mankato.jpg',
-      alt: 'The Blue Earth River runs through a wooded Mankato-area valley under a bright sky.',
-      caption: 'Blue Earth River in the Mankato area',
-      credit: 'Tony Webster via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
   'rice-creek-peltier-to-long-lake': [
@@ -444,16 +494,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Upper Iowa River bluff-country corridor',
       credit: 'Wikideas1 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
-  'maquoketa-river-backbone-dundee': [
-    {
-      id: 'backbone-state-park-usgs',
-      src: '/gallery/maquoketa-river-backbone-dundee/backbone-state-park-usgs.jpg',
-      alt: 'Clear water spills through a rocky green stream channel in Backbone State Park.',
-      caption: 'Backbone State Park stream corridor',
-      credit: 'USGS Central Midwest Water Science Center',
-      takenLabel: 'USGS asset: public domain',
     },
   ],
   'volga-river-osborne-mederville': [
@@ -666,6 +706,16 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
     },
   ],
+  'vermilion-river-mill-hollow-vermilion-boat-ramp': [
+    {
+      id: 'vermilion-river-birmingham-commons',
+      src: '/gallery/vermilion-river-schoepfle-mill-hollow/vermilion-river-birmingham.jpg',
+      alt: 'The Vermilion River bends through dense summer woods at Schoepfle Garden Metropark near Birmingham.',
+      caption: 'Vermilion River corridor near Birmingham',
+      credit: 'Tim Kiser via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.5',
+    },
+  ],
   'la-crosse-river-veterans-holiday-heights': [
     {
       id: 'la-crosse-river-trail-bridge-commons',
@@ -674,16 +724,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'La Crosse River trail corridor',
       credit: 'Wikideas1 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC0',
-    },
-  ],
-  'kansas-river-seward-lecompton': [
-    {
-      id: 'kansas-river-lawrence-commons',
-      src: '/gallery/kansas-river-seward-lecompton/kansas-river-lawrence.jpg',
-      alt: 'An aerial view shows the Kansas River curving past Lawrence with broad sandbars, wooded banks, and city bridges in the distance.',
-      caption: 'Kansas River at Lawrence',
-      credit: 'Dicklyon via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
   'kansas-river-lecompton-lawrence-riverfront': [
@@ -852,6 +892,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       src: '/gallery/jacks-fork-river-alley-spring-chilton/jacks-fork-upper.jpg',
       alt: 'The Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
       caption: 'Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-highway-17-blue-spring': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-highway-17-blue-spring/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-blue-spring-rymers': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-blue-spring-rymers/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
+      credit: 'Chris M Morris via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'jacks-fork-river-rymers-bay-creek': [
+    {
+      id: 'jacks-fork-upper-commons',
+      src: '/gallery/jacks-fork-river-rymers-bay-creek/jacks-fork-upper.jpg',
+      alt: 'The upper Jacks Fork River winds below wooded Ozark hills with a gravel bar along the clear channel.',
+      caption: 'Upper Jacks Fork River corridor',
       credit: 'Chris M Morris via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
@@ -1336,6 +1406,96 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
     },
   ],
+  'floyds-fork-north-beckley-creekside': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-creekside-fisherville': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'floyds-fork-cane-run-seaton-valley': [
+    {
+      id: 'floyds-fork-april-2024-commons',
+      src: '/gallery/floyds-fork-fisherville-cane-run/floyds-fork-april-2024.jpg',
+      alt: 'Floyds Fork flows through a spring-green Kentucky creek corridor with wooded banks and shallow current.',
+      caption: 'Floyds Fork in Kentucky',
+      credit: 'Bpluke01 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
+    },
+  ],
+  'south-fork-kentucky-river-rocky-branch-cedar-valley': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-cedar-valley-bishop-bend': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
+      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
+      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-bishop-bend-hacker-branch': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-shoals-commons',
+      src: '/gallery/south-fork-kentucky-river-cedar-valley-bishop-bend/south-fork-kentucky-river-bronner-bend-shoals.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River spreading across broad shoals below wooded Kentucky hills.',
+      caption: 'South Fork Kentucky River at Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'south-fork-kentucky-river-hacker-branch-upper-wolf-creek': [
+    {
+      id: 'south-fork-kentucky-river-bronner-bend-commons',
+      src: '/gallery/south-fork-kentucky-river-rocky-branch-cedar-valley/south-fork-kentucky-river-bronner-bend.jpg',
+      alt: 'A historical view shows the South Fork Kentucky River running past rocky shoals and wooded banks near Bronner Bend.',
+      caption: 'South Fork Kentucky River near Bronner Bend Shoals',
+      credit: 'Ernest Danglade via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'levisa-fork-jubilee-island-creek': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
+  'levisa-fork-island-creek-cedar-creek': [
+    {
+      id: 'levisa-fork-pikeville-commons',
+      src: '/gallery/levisa-fork-cedar-creek-thompson-road/levisa-fork-pikeville.jpg',
+      alt: 'The Levisa Fork flows past Pikeville, Kentucky, with a broad river channel and wooded slopes nearby.',
+      caption: 'Levisa Fork in Pikeville',
+      credit: 'FatCat96 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC0',
+    },
+  ],
   'slate-creek-lions-club-old-slate-furnace': [
     {
       id: 'slate-creek-owingsville-usgs',
@@ -1376,6 +1536,26 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
+  'big-south-fork-blue-heron-yamacraw': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'tradewater-river-bellville-montezuma': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'south-chickamauga-creek-shallowford-sterchi': [
     {
       id: 'south-chickamauga-audubon-acres-nps',
@@ -1414,6 +1594,126 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Lower Yough whitewater in Ohiopyle State Park',
       credit: 'Andy from Pittsburgh via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'susquehanna-river-laceyville-meshoppen': [
+    {
+      id: 'susquehanna-river-laceyville-commons',
+      src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
+      alt: 'An aerial view shows the Susquehanna River bending past Laceyville through wooded banks and open Pennsylvania valley farmland.',
+      caption: 'Susquehanna River near Laceyville',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'susquehanna-river-terrytown-laceyville': [
+    {
+      id: 'susquehanna-river-laceyville-commons',
+      src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
+      alt: 'An aerial view shows the Susquehanna River bending through the Laceyville corridor with wooded banks and open Pennsylvania valley farmland.',
+      caption: 'Susquehanna River near Laceyville',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'susquehanna-river-tunkhannock-whites-ferry': [
+    {
+      id: 'susquehanna-river-tunkhannock-commons',
+      src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
+      alt: 'An aerial view shows the Susquehanna River curving past the Tunkhannock valley with wooded banks, open hillsides, and broad channel water.',
+      caption: 'Susquehanna River in the Tunkhannock corridor',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'susquehanna-river-whites-ferry-west-falls': [
+    {
+      id: 'susquehanna-river-tunkhannock-commons',
+      src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
+      alt: 'An aerial view shows the Susquehanna River curving through the Tunkhannock valley with wooded banks and broad Pennsylvania channel water.',
+      caption: 'Susquehanna River corridor in Wyoming County',
+      credit: 'Bjoertvedt via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'pecatonica-river-wes-block-tuttys': [
+    {
+      id: 'pecatonica-river-iowa-county-commons',
+      src: '/gallery/pecatonica-river-wes-block-tuttys/pecatonica-river-iowa-county-wisconsin.jpg',
+      alt: 'The Pecatonica River winds through a calm wooded corridor with green banks and reflective water.',
+      caption: 'Pecatonica River corridor',
+      credit: 'wackybadger via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-cane-bluff-greer-crossing': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-cane-bluff-greer-crossing/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'eleven-point-river-thomasville-cane-bluff': [
+    {
+      id: 'eleven-point-river-missouri-commons',
+      src: '/gallery/eleven-point-river-thomasville-cane-bluff/eleven-point-river-missouri.jpg',
+      alt: 'A canoe rests beside the clear Eleven Point River with wooded Ozark banks rising behind the channel.',
+      caption: 'Eleven Point River in Missouri',
+      credit: 'Charlie Llewellin via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 2.0',
+    },
+  ],
+  'sugar-creek-deers-mill-cox-ford': [
+    {
+      id: 'sugar-creek-shades-state-park-commons',
+      src: '/gallery/sugar-creek-deers-mill-cox-ford/sugar-creek-shades-state-park.png',
+      alt: 'Sugar Creek bends around Canoe Island below the wooded bluffs of Shades State Park in Indiana.',
+      caption: 'Sugar Creek at Shades State Park',
+      credit: 'MrBook via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'wildcat-creek-knop-lake-mis-so-lah': [
+    {
+      id: 'wildcat-creek-kokomo-commons',
+      src: '/gallery/wildcat-creek-knop-lake-mis-so-lah/wildcat-creek-kokomo.jpg',
+      alt: 'Wildcat Creek flows past wooded banks in Kokomo, Indiana, with a broad shallow channel.',
+      caption: 'Wildcat Creek in Kokomo',
+      credit: 'Rapierce via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: public domain',
+    },
+  ],
+  'village-creek-fm418-sh327': [
+    {
+      id: 'village-creek-silsbee-commons',
+      src: '/gallery/village-creek-fm418-sh327/village-creek-near-silsbee.jpg',
+      alt: 'Village Creek runs through a sandy, wooded southeast Texas corridor near Silsbee.',
+      caption: 'Village Creek near Silsbee',
+      credit: 'Jill Carlson via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 2.0',
+    },
+  ],
+  'guadalupe-river-fm766-sh72': [
+    {
+      id: 'guadalupe-river-cuero-bridge-commons',
+      src: '/gallery/guadalupe-river-fm766-sh72/guadalupe-river-cuero-bridge.jpg',
+      alt: 'A historic bridge crosses the Guadalupe River southeast of Cuero, Texas, above the broad channel.',
+      caption: 'Guadalupe River southeast of Cuero',
+      credit: '25or6to4 via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'fox-river-yorkville-whitewater-course': [
+    {
+      id: 'fox-river-yorkville-course-commons',
+      src: '/gallery/fox-river-yorkville-whitewater-course/fox-river-yorkville-course.jpg',
+      alt: 'Kayakers paddle the Marge Cline Whitewater Course on the Fox River at Yorkville, Illinois.',
+      caption: 'Fox River at Yorkville whitewater course',
+      credit: 'David Jakes via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 4.0',
     },
   ],
 };
