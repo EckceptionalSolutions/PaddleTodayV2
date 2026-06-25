@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 44 as of 2026-06-25 UTC implementation passes.
-- Current Pennsylvania trip-detail objects: 44 as of 2026-06-25 UTC.
-- Current Pennsylvania candidate ledger rows: 44 implemented rows as of 2026-06-25 UTC.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 47 as of 2026-06-25 UTC implementation passes.
+- Current Pennsylvania trip-detail objects: 47 as of 2026-06-25 UTC.
+- Current Pennsylvania candidate ledger rows: 47 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-25 05:45 America/Chicago / 2026-06-25 10:45 UTC: Pennsylvania three-route implementation pass; added three more upper French Creek routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 44 live Pennsylvania routes, 44 Pennsylvania trip-detail keys, and 44 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `french-creek-cambridge-springs-saegertown`, `french-creek-conneautee-saegertown`, and `french-creek-conneautee-bicentennial-park` from the PFBC upper French Creek guide plus the French Creek Conservancy upper map.
+  - Qualification package: the PFBC upper French Creek guide publishes exact public access coordinates for Cambridge Springs, Conneautee, Saegertown, and Bicentennial Park; official 13/10/16-mile route spacing from the upper-section river-mile table; the official general Meadville minimum gauge floor of `2.0 ft`; and the upper-corridor caution package around narrow headwater strainers and bridge-abutment current. The French Creek Conservancy upper map adds the breached low-head-dam warning near Saegertown with explicit scout / run / river-left-portage guidance. Same-day direct USGS Water Services returned `720 cfs / 3.23 ft` at Meadville (`03023100`) at `2026-06-25 06:15 EDT`, with downstream Utica corroboration of `970 cfs / 3.08 ft` at `2026-06-25 05:30 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. All three ship as `nearby_basecamp` because Cambridge Springs, Saegertown, and Meadville provide source-backed lodging or recreation support without implying legal creek-bank camping on these exact slugs.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, French Creek Conservancy map-imagery, and USGS-media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-25 02:41 America/Chicago / 2026-06-25 07:41 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 44 live Pennsylvania routes, 44 Pennsylvania trip-detail keys, and 44 implemented Pennsylvania ledger rows before this pass.
