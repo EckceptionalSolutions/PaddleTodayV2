@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC.
+Last summarized: 2026-06-24 23:20 America/Chicago / 2026-06-25 04:20 UTC.
 
 ## Current Inventory
 
-- Live routes: 9.
-- Ledger candidates: 15 Kentucky-specific records. `ky-south-fork-kentucky-river-booneville-access-chain` / `south-fork-kentucky-river-kay-wood-fish-creek`, `ky-elkhorn-creek-vpa-3-aw-access` / `elkhorn-creek-vpa-3-aw-access`, `ky-levisa-fork-cedar-creek-thompson-road` / `levisa-fork-cedar-creek-thompson-road`, `ky-slate-creek-lions-club-old-slate-furnace` / `slate-creek-lions-club-old-slate-furnace`, `ky-floyds-fork-parklands-access-chain` / `floyds-fork-fisherville-cane-run`, `ky-russell-creek-hatcher-todd-ford-milltown` / `russell-creek-hatcher-todd-ford-milltown`, `ky-drakes-creek-romanza-johnson-phil-moore` / `drakes-creek-romanza-johnson-phil-moore`, `ky-tygarts-creek-olive-hill-carter-caves` / `tygarts-creek-olive-hill-carter-caves`, and `ky-green-river-above-lake-upper-green` / `green-river-hh-wilson-stovall` are added; `ky-south-fork-licking-public-access-pools`, `ky-tradewater-river-providence-access-family`, `ky-gasper-river-access-family`, `ky-big-south-fork-blue-heron-yamacraw`, and `ky-north-fork-kentucky-river-access-chain` are blocked as `no_live_gauge`; `ky-red-river-upper-ky746-ky715` is `research_later`.
+- Live routes: 31.
+- Ledger candidates: 32 Kentucky-specific records. The ledger now splits across 17 `added`, 11 `implemented`, 3 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-russell-ford-greensburg-city-ramp`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-rio-carrydown-stovall-park`, all sourced from current KDFWR Green River guidance plus same-day USGS support.
 
 ## Status
 
@@ -21,6 +21,11 @@ Kentucky is paused from the active automation rotation at user request while wor
 
 ## Current Guidance
 
+- 2026-06-24 23:20 America/Chicago / 2026-06-25 04:20 UTC three-route add pass
+  - Rebuilt the Kentucky V2 inventory at twenty-eight pre-run Kentucky routes, then added `green-river-russell-ford-greensburg-city-ramp`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-rio-carrydown-stovall-park` to reach thirty-one live Kentucky routes.
+  - The Greensburg add used KDFWR's Upper Green route description plus the direct USGS 03306500 stage gauge at 0.82 ft on 2026-06-24 22:15 CDT, which is below the official KDFWR 1.0-1.75 ft good band and therefore ships with honest low-water expectations.
+  - The two Hart County adds used KDFWR's Rio-to-Wilson 8-mile and Wilson-to-Stovall 4-mile route descriptions plus the direct USGS 03308500 Munfordville gauge at 428 cfs / 2.94 ft on 2026-06-24 22:00 CDT, inside the official KDFWR 300-600 cfs good band.
+  - Bounded KDFWR, Commons, and USGS image review found no rights-clean exact-route paddling image for any of the three new Green River slugs, so no gallery asset was added.
 - 2026-06-04 09:13 America/Chicago / 2026-06-04 14:13 UTC no-add pass
   - Rebuilt the nine-route Kentucky V2 inventory and confirmed every Kentucky route still has trip details: `south-fork-kentucky-river-kay-wood-fish-creek`, `green-river-hh-wilson-stovall`, `russell-creek-hatcher-todd-ford-milltown`, `tygarts-creek-olive-hill-carter-caves`, `floyds-fork-fisherville-cane-run`, `slate-creek-lions-club-old-slate-furnace`, `levisa-fork-cedar-creek-thompson-road`, `elkhorn-creek-vpa-3-aw-access`, and `drakes-creek-romanza-johnson-phil-moore`.
   - Product-style USGS Water Services IV fetches for unresolved Kentucky gauges `03252500`, `03383000`, `03384100`, `03410500`, `03280000`, `03277500`, and `03282500` again returned `Unable to connect to the remote server`.

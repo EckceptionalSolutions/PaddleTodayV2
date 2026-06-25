@@ -11782,6 +11782,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-russell-ford-greensburg-city-ramp': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with fishing stops, shoal scouting, or low water',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to Russell Ford on Ralph Vaughn Road. The shuttle is short, but Russell Ford parking is limited and Greensburg can have city-park traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Russell Ford and take out about 4.5 miles downstream at Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a carry-down gravel-bar access with limited unpaved parking and no amenities. Keep the approach clear for other users.',
+        'Greensburg City Ramp is the easier landing, but it sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'American Legion Park lies between the endpoints and can shorten the day if conditions or group energy change, but this route assumes the full Russell-to-Greensburg float.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Use the named public accesses only and avoid treating intermediate banks as public.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
+        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
+  'green-river-rio-carrydown-hh-wilson-park': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with sandbar stops, fishing, or lower water',
+      shuttle:
+        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Rio Carrydown Access. Rio has limited unpaved parking and Wilson has a short paved ramp with a gravel lot, so keep both access areas tight and efficient.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and carry normal hot-weather and river-rescue essentials.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rio, and private banks or sandbars between Rio and H.H. Wilson should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rio Carrydown Access and take out about 8 miles downstream at H.H. Wilson Park Ramp for the upper Hart County Blue Water Trail float. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this Green River corridor.',
+      accessCaveats: [
+        'Rio is a carry-down-only access with unpaved parking and no amenities. Keep the launch compact and avoid spilling onto nearby private ground.',
+        'H.H. Wilson Park Ramp is a paved launch, but KDFWR warns that the concrete does not extend far into the water and drops off at the end.',
+        'KDFWR notes private-property concerns around Green River Pool 6 access sites. Stay with the named public accesses and do not use mid-route banks for parking or casual trespass stops.',
+        'The Munfordville gauge is direct for this Hart County segment, but same-day rain, wind, wood, and ramp conditions still control the launch decision.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when shoals, gravel, and dragging become more likely.',
+        'High water above 600 cfs, when current, wood, and landings get less forgiving on this broad river.',
+        'Fresh strainers, fallen trees, fishing lines, open-river sun and wind, and long pool sections between riffles.',
+        'Slippery footing at the Rio launch and the ramp drop at H.H. Wilson on exit.',
+      ],
+    },
+  },
+  'green-river-rio-carrydown-stovall-park': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with sandbar stops, low water, or family pacing',
+      shuttle:
+        'Stage the take-out at Munfordville-Stovall Park, then drive back to Rio Carrydown Access. This is a longer Hart County day, so leave daylight margin and keep both launch areas clear for other users.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, obey city-park rules at Stovall, and carry normal broad-river safety gear.',
+      camping:
+        'Stovall Park supports endpoint overnights better than improvised on-route camping. KDFWR lists primitive camping, restrooms, and park amenities at the take-out, but private banks and sandbars upstream should not be treated as automatic legal campsites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rio Carrydown Access and continue about 12 miles downstream to Munfordville-Stovall Park Ramp for the fuller Hart County Green River day. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this corridor.',
+      accessCaveats: [
+        'Rio is a carry-down-only access with unpaved parking and no amenities. Pack efficiently and avoid spreading gear onto adjacent private ground.',
+        'Stovall Park Ramp is a city-owned paved access with more amenities and park traffic. Use the ramp efficiently and avoid blocking trailers or anglers.',
+        'This route effectively combines the Rio-to-Wilson and Wilson-to-Stovall KDFWR segments, so it is longer than the shorter Hart County family float and needs a fuller shuttle, daylight, and hydration plan.',
+        'The Munfordville gauge is direct for this corridor, but same-day wind, heat, fresh debris, and release/weather trend still matter more across a longer day.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
+        'High water above 600 cfs, when broad-river current, wood, and park landings become less forgiving.',
+        'Fallen trees, fishing lines, open-river sun and wind, and fewer comfortable legal stop options away from public accesses.',
+        'Fatigue, slower group pace, and late-day weather because this is substantially longer than the Wilson-to-Stovall segment alone.',
+      ],
+    },
+  },
   'green-river-dennison-green-river-ferry': {
     putIn: {
       id: 'dennison-ferry',
