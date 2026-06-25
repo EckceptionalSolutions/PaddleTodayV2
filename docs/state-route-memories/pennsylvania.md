@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 41 as of 2026-06-25 UTC implementation passes.
-- Current Pennsylvania trip-detail objects: 41 as of 2026-06-25 UTC.
-- Current Pennsylvania candidate ledger rows: 41 implemented rows as of 2026-06-25 UTC.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 44 as of 2026-06-25 UTC implementation passes.
+- Current Pennsylvania trip-detail objects: 44 as of 2026-06-25 UTC.
+- Current Pennsylvania candidate ledger rows: 44 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-25 00:49 America/Chicago / 2026-06-25 05:49 UTC: Pennsylvania three-route implementation pass; added three more lower Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 41 live Pennsylvania routes, 41 Pennsylvania trip-detail keys, and 41 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-mifflintown-walker`, `juniata-river-mifflintown-muskrat-springs`, and `juniata-river-howe-township-amity-hall` from the PFBC lower Juniata guide.
+  - Qualification package: the PFBC lower Juniata guide publishes exact Mifflintown, Walker, Muskrat Springs, Howe Township Park, and Amity Hall coordinates, official 6/10/7-mile route spacing from the lower-section river-mile table, lower-section minimum gauge floors of `3.1 ft` at Lewistown and `3.5 ft` at Newport, campground and lodging support around Mifflintown, Mexico, Green Valley, and Amity Hall, and the lower-corridor hazard notes that matter here, especially the mile `33` rapid-current zone plus the mile `5.5` outcrop zone and mile `5` ledges below Green Valley. Same-day direct USGS Water Services returned `1,370 cfs / 3.74 ft` at Lewistown (`01564895`) at `2026-06-25 00:30 EDT` and `1,680 cfs / 3.85 ft` at Newport (`01567000`) at `2026-06-25 01:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Mifflintown-to-Walker ships as `nearby_basecamp`, Mifflintown-to-Muskrat-Springs ships as `on_route_campsite` because the Mexico corridor campgrounds are on the route, and Howe-Township-to-Amity-Hall ships as `on_route_campsite` because Green Valley Campground sits on the corridor.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful lower-Juniata corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-24 21:35 America/Chicago / 2026-06-25 02:35 UTC: Pennsylvania three-route implementation pass; added three public lower North Branch Susquehanna routes.
   - Rebuilt current inventory from route objects and trip details before editing: 38 live Pennsylvania routes, 38 Pennsylvania trip-detail keys, and 38 implemented Pennsylvania ledger rows before this pass.
