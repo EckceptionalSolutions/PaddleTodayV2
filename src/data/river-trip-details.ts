@@ -13125,6 +13125,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'french-creek-shaws-landing-cochranton': {
+    putIn: {
+      name: "Shaw's Landing",
+      latitude: 41.540833,
+      longitude: -80.104167,
+    },
+    takeOut: {
+      name: 'Cochranton Borough access',
+      latitude: 41.519167,
+      longitude: -80.053889,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with strainers, low-water gravel, or a cautious Cochranton finish',
+      shuttle:
+        "Stage the take-out at Cochranton Borough first, then drive back to Shaw's Landing. Check both public landings before launching because muddy footing, current angle, and same-day wood can change how simple the short shuttle feels.",
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        "Treat this as a short day float. The official lower French Creek guide does not identify a named campground tied to this exact Shaw's-Landing-to-Cochranton pair, so do not assume legal creek-bank camping.",
+      campingClassification: 'none',
+      summary:
+        "Launch at Shaw's Landing and take out at Cochranton Borough for a short lower French Creek link below Meadville. The app uses the Utica gauge conservatively as the lower-section planning reference and expects more wood, bridge-current, and gravel-channel judgment whenever Utica falls toward the 2.5 ft floor.",
+      accessCaveats: [
+        "The PFBC lower French Creek guide publishes both Shaw's Landing and Cochranton Borough coordinates directly in the official access chart.",
+        'Cochranton Borough is public but not an improved ramp. Inspect the bank, carry path, and vehicle parking situation before launching upstream.',
+        'This route is short, but storm wood, muddy footing, or a steeper bank can still change the exit feel quickly.',
+        'Stay within the named public accesses and avoid private banks or casual farm-side pullouts.',
+      ],
+      watchFor: [
+        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
+        'Bridge-abutment current and the need to stay off the upstream side of bridge structure.',
+        'Low water near the conservative Utica 2.5 ft floor, when gravel and shallow riffles tighten the channel and make strainers less forgiving.',
+        'Private shorelines, same-day wood after storms, and the less-developed Cochranton finish.',
+      ],
+    },
+  },
+  'french-creek-wilson-chutes-utica': {
+    putIn: {
+      name: 'Wilson Chutes PFBC access',
+      latitude: 41.589167,
+      longitude: -80.149722,
+    },
+    takeOut: {
+      name: 'Utica PFBC access',
+      latitude: 41.438056,
+      longitude: -79.955278,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious line through the mile-19 rapid zone',
+      shuttle:
+        'Stage the take-out at the Utica PFBC access first, then drive back to the Wilson Chutes PFBC access. Check both public landings before launching because mud, current angle, and same-day wood can change how straightforward the long shuttle feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        'Treat this as a long day float. The official lower French Creek guide does not identify a named campground tied to this exact Wilson-Chutes-to-Utica pair, so do not assume legal creek-bank camping.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the Wilson Chutes PFBC access and take out at the Utica PFBC access for a fuller lower French Creek day. Use the direct Utica gauge and expect the route to get scrapier and more wood-sensitive whenever the creek falls toward the official 2.5 ft floor.',
+      accessCaveats: [
+        'The PFBC lower French Creek guide publishes both Wilson Chutes and Utica coordinates directly in the official access chart.',
+        'Utica is the intended public finish and the location of the selected gauge. Check the landing edge before leaving a vehicle because rail-side mud and current angle can change after rain.',
+        'This route starts just above the mile-19 borderline Class I rapid identified in the guide, so scout and line up early if the current or wood looks less friendly than expected.',
+        'Stay within the named public accesses and avoid improvising on private banks or field edges if the trip feels slower than expected.',
+      ],
+      watchFor: [
+        'The borderline Class I rapid near mile 19, plus the PFBC warning to avoid the upstream side of bridge abutments.',
+        'Downed trees and shifting strainers, which the PFBC guide says are a potentially serious lower-French hazard.',
+        'Low water near the official Utica 2.5 ft floor, when gravel and shallow riffles tighten the available lines.',
+        'Headwind, fresh wood after storms, and private shorelines away from the named public accesses.',
+      ],
+    },
+  },
+  'french-creek-shaws-landing-franklin': {
+    putIn: {
+      name: "Shaw's Landing",
+      latitude: 41.540833,
+      longitude: -80.104167,
+    },
+    takeOut: {
+      name: 'Franklin PFBC access',
+      latitude: 41.381389,
+      longitude: -79.82,
+    },
+    logistics: {
+      distanceLabel: 'About 22 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 9.5 hr in ordinary conditions, longer with low-water gravel, strainers, or a cautious lower-confluence finish',
+      shuttle:
+        "Stage the take-out at the Franklin PFBC access on Elk Street first, then drive back to Shaw's Landing. Check both public landings before launching because mud, bank angle, and same-day wood can change how straightforward the carry feels.",
+      permits:
+        'PFBC says unpowered boats using PFBC launches need boat registration, a PFBC launch permit, or a Pennsylvania state-park launch permit. Follow current PFBC boating and PFD rules.',
+      camping:
+        "Treat this as a long day float or basecamp-supported weekend plan. Franklin has nearby overnight options, but the route itself should not imply open creek-bank camping between Shaw's Landing and Franklin.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at Shaw's Landing and take out at the Franklin PFBC access at the Allegheny confluence for a long lower French Creek day. Use the Utica gauge conservatively and expect more mileage fatigue, gravel, wood, and finish discipline whenever the creek falls toward the official 2.5 ft floor.",
+      accessCaveats: [
+        "The PFBC lower French Creek guide publishes both Shaw's Landing and Franklin coordinates directly in the official access chart.",
+        'Franklin is the intended public finish at Elk Street. Do not drift past the take-out and into the broader Allegheny corridor because the confluence opens up.',
+        'Nearby Franklin lodging can support a basecamp plan, but it is not on-route camping for this exact slug.',
+        'Stay within the named public accesses and avoid private banks or casual confluence stops away from the Elk Street landing.',
+      ],
+      watchFor: [
+        'The borderline Class I rapid near mile 19, the lower rapid near mile 3, and the PFBC warning to avoid the upstream side of bridge abutments.',
+        'Downed trees and shifting strainers in the narrower bends of lower French Creek.',
+        'Low water near the official Utica 2.5 ft floor, when the long lower miles get slower, scrapier, and less forgiving around wood.',
+        'Fresh wood after storms, private shorelines, and missing the Franklin take-out at the Allegheny confluence.',
+      ],
+    },
+  },
   'french-creek-utica-franklin': {
     putIn: {
       name: 'Utica PFBC access',
