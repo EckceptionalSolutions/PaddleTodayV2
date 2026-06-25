@@ -10921,6 +10921,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'susquehanna-river-pfbc-bloomsburg-montgomery-park': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996681,
+      longitude: -76.432782,
+    },
+    takeOut: {
+      name: 'Montgomery Park Municipal Access',
+      latitude: 40.959161,
+      longitude: -76.61964,
+    },
+    logistics: {
+      distanceLabel: 'About 12.5 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, slower current, or extra time around the Danville finish',
+      shuttle:
+        'Stage the take-out at Montgomery Park first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river mud, ramp traffic, and same-day park conditions can change how easy the shuttle feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Montgomery slug should still be planned as a day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at Montgomery Park in Danville for a lower North Branch Susquehanna day. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet there, and expect wind plus private-island discipline to matter more than the easy rating suggests.',
+      accessCaveats: [
+        'Susquehanna Greenway publishes this exact public route and the current 2021 North Branch guide publishes the PFBC Bloomsburg and Montgomery Park coordinates directly in the access table.',
+        'The route passes multiple private islands. Susquehanna Greenway says not to stop on the islands even when the water looks inviting or low.',
+        'Montgomery Park is the intended finish, not just a backup carry. Do not assume the nearby PFBC Danville ramp or private banks make the route interchangeable on the fly.',
+        'Broad-river wind can erase much of the easy-current feel, especially if you launch late or take a relaxed pace downstream.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 6 ft, when current gets faster and the longer open-water miles feel less forgiving for novice groups.',
+        'Headwind, thunderstorms, floating wood, flooded trees after rain, and muddy footing at Montgomery Park after recent high water.',
+        'Private islands and banks between Bloomsburg and Danville, plus the temptation to treat them as casual lunch or emergency stops.',
+        'Fishing Creek hazards such as Boone\'s Dam stay off this main route, but do not mistake side-water or tributary mouths for usable exits.',
+      ],
+    },
+  },
   'susquehanna-river-test-track-indian-head': {
     putIn: {
       name: 'Test Track Park',
@@ -11143,6 +11181,82 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Danville stages below about 2 feet, when the lower corridor gets slower, scratchier, and more exposed to wind.',
         'Danville stages above about 4 feet, when current speeds up and the lower finish becomes less forgiving for novice groups.',
         'Wind and motorboat wakes on Lake Augusta, floating wood, private shorelines, and drifting too far downstream toward Sunbury Fabridam after the state-park access zone appears.',
+      ],
+    },
+  },
+  'susquehanna-river-danville-montgomery-shikellamy-north': {
+    putIn: {
+      name: 'Montgomery Park Municipal Access',
+      latitude: 40.959161,
+      longitude: -76.61964,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park North Access',
+      latitude: 40.880559,
+      longitude: -76.789685,
+    },
+    logistics: {
+      distanceLabel: 'About 11.2 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta, slower pool current, or a busy state-park finish',
+      shuttle:
+        'Stage the take-out at Shikellamy State Park North first, then drive back to Montgomery Park. Inspect both carries before launching because the lower miles can feel materially longer when wind, boat wakes, or slower pool current build.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, municipal, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Wray's Riverfront Campground and Fantasy Island Campground are corridor support options, but the route itself should not imply open riverbank camping or a guaranteed mid-route overnight stop.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Montgomery Park in Danville and finish at Shikellamy State Park North for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section reference, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the key same-day checks.',
+      accessCaveats: [
+        'The current 2021 North Branch guide lists Montgomery Park to Shikellamy North as a favorite public day trip and publishes both endpoint coordinates in the access table.',
+        'Shikellamy State Park North is primarily a canoe and kayak finish near the island. Stay alert for bridge current, motorboats, and other users as you approach.',
+        'This route uses Danville as the official same-section gauge reference even though the lower miles flatten into Lake Augusta before the take-out.',
+        'Keep the finish explicit before launching. The lower river feels forgiving when the current slows, but the wrong drift line can carry you past the intended state-park access zone.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 ft, when the lower pool gets slower and the route becomes more exposed to wind and shallow rock decisions.',
+        'Danville stages above about 4 ft, when current speeds up and the lower finish becomes less forgiving for novice groups.',
+        'Wind and motorboat wakes on Lake Augusta, floating wood, and bridge-approach congestion near the final Shikellamy North take-out.',
+        'Missing the planned access and continuing downstream toward Sunbury Fabridam, which is not part of this route.',
+      ],
+    },
+  },
+  'susquehanna-river-riverside-borough-shikellamy-north': {
+    putIn: {
+      name: 'Riverside Borough Access',
+      latitude: 40.962389,
+      longitude: -76.633444,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park North Access',
+      latitude: 40.880559,
+      longitude: -76.789685,
+    },
+    logistics: {
+      distanceLabel: 'About 10.2 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr in ordinary conditions, longer with low-water stone dodging, Lake Augusta wind, or a slow state-park finish',
+      shuttle:
+        'Stage the take-out at Shikellamy State Park North first, then drive back to Riverside Borough Access. The Riverside launch has only brief unload space, so inspect both parking plans before committing to the shuttle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The Susquehanna Greenway route page points paddlers toward nearby Danville and Shikellamy-area services, but it does not advertise camping as part of the route plan.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Riverside Borough Access and finish at Shikellamy State Park North for a moderate lower North Branch day. Use the Danville gauge as the official route reference, keep the same-day call conservative near the 2 ft floor, and watch the lower islands, Packers Island split, and busy Shikellamy finish closely.',
+      accessCaveats: [
+        'Susquehanna Greenway publishes this exact public route and says the Riverside launch is a carry-in with timed unloading before you move vehicles to the designated pull-off.',
+        'The launch slope can be muddy or slippery, especially after rain or when the concrete slab does not stay fully in the water.',
+        'Shikellamy State Park North is primarily for kayaks and canoes. Stay cautious around motorized traffic near the island and the final bridge approach.',
+        'A state launch permit is required at the Shikellamy take-out, and the intended finish is upstream of Sunbury Fabridam.',
+      ],
+      watchFor: [
+        'Island banks, ledges, and stones in low water, especially near river mile 133 and again near Packers Island in the lower miles.',
+        'Motorized boat traffic and wind on seasonal Lake Augusta, which can flatten the current advantage and make the final miles feel longer.',
+        'The lower split around Packers Island; keep right where the route page says to avoid wrong turns and extra shallow-water problems.',
+        'Missing the Shikellamy North take-out and continuing downstream toward Sunbury Fabridam.',
       ],
     },
   },

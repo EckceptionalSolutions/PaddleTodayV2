@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 38 as of 2026-06-24 implementation passes.
-- Current Pennsylvania trip-detail objects: 38 as of 2026-06-24.
-- Current Pennsylvania candidate ledger rows: 38 implemented rows as of 2026-06-24.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 41 as of 2026-06-25 UTC implementation passes.
+- Current Pennsylvania trip-detail objects: 41 as of 2026-06-25 UTC.
+- Current Pennsylvania candidate ledger rows: 41 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-24 21:35 America/Chicago / 2026-06-25 02:35 UTC: Pennsylvania three-route implementation pass; added three public lower North Branch Susquehanna routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 38 live Pennsylvania routes, 38 Pennsylvania trip-detail keys, and 38 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `susquehanna-river-pfbc-bloomsburg-montgomery-park`, `susquehanna-river-danville-montgomery-shikellamy-north`, and `susquehanna-river-riverside-borough-shikellamy-north` from the current 2021 North Branch guide plus Susquehanna Greenway route pages.
+  - Qualification package: Susquehanna Greenway publishes exact public route pages for PFBC Bloomsburg to Montgomery Park and Riverside Borough to Shikellamy State Park North, while the current 2021 North Branch guide adds exact endpoint coordinates, the Montgomery-Park-to-Shikellamy-North favorite-trip line, and Section 13-14 Danville gauge guidance of `2 ft` lower limit, `4 ft` good paddling level, and `7 ft` novice ceiling. The upstream Bloomsburg corridor still carries the official PFBC Section 4 stage context of about `1-4 ft` as the calmer planning window with novice no-go water above about `6 ft`. Same-day direct USGS Water Services returned `4300 cfs / 1.67 ft` at Bloomsburg (`01538700`) at `2026-06-24 22:15 EDT` and `4320 cfs / 3.17 ft` at Danville (`01540500`) at `2026-06-24 21:30 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Bloomsburg-to-Montgomery ships as `on_route_campsite` because Indian Head Campground sits on the corridor with legal reservation-based support; the two lower Shikellamy routes stay `nearby_basecamp` because campground and town support are real but not part of the normal route plan.
+  - No gallery image was added. Bounded Commons, guide-imagery, Susquehanna Greenway imagery, DCNR/Shikellamy imagery, and USGS-media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-24 19:07 America/Chicago / 2026-06-25 00:07 UTC: Pennsylvania three-route implementation pass; added three more lower French Creek routes.
   - Rebuilt current inventory from route objects and trip details before editing: 35 live Pennsylvania routes, 35 Pennsylvania trip-detail keys, and 35 implemented Pennsylvania ledger rows before this pass.
