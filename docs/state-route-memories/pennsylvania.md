@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 47 as of 2026-06-25 UTC implementation passes.
-- Current Pennsylvania trip-detail objects: 47 as of 2026-06-25 UTC.
-- Current Pennsylvania candidate ledger rows: 47 implemented rows as of 2026-06-25 UTC.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 50 as of 2026-06-25 UTC implementation passes.
+- Current Pennsylvania trip-detail objects: 50 as of 2026-06-25 UTC.
+- Current Pennsylvania candidate ledger rows: 50 implemented rows as of 2026-06-25 UTC.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-25 07:45 America/Chicago / 2026-06-25 12:45 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 47 live Pennsylvania routes, 47 Pennsylvania trip-detail keys, and 47 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `juniata-river-portstown-park-riverside-park`, `juniata-river-juniata-point-mt-union`, and `juniata-river-riverside-park-newton-hamilton` from the PFBC upper Juniata guide.
+  - Qualification package: the PFBC upper Juniata guide publishes exact public access coordinates for Portstown Park, Juniata Point, Riverside Park, Mt. Union, and Newton-Hamilton; official river-mile spacing for the chosen 9/10/12-mile day runs; route-specific caution points at miles `90`, `86.5`, `85.5`, `75`, and `73`; and direct minimum gauge floors of `1.5 ft` at Huntingdon and `2.5 ft` at Mapleton Depot. Same-day official USGS current-conditions pages reported `434 cfs / 1.67 ft` at Huntingdon (`01559000`) at `2026-06-25 08:00 EDT` and `916 cfs / 2.98 ft` at Mapleton Depot (`01563500`) at `2026-06-25 08:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Portstown-to-Riverside ships as `endpoint_campground` because the guide says small groups may camp at the Mapleton community park take-out; Juniata-Point-to-Mt.-Union ships as `on_route_campsite` because the same Mapleton community park sits on the corridor; and Riverside-Park-to-Newton-Hamilton ships as `on_route_campsite` because both Mapleton community park and Aqueduct Campground can legally support the corridor.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful Huntingdon/Mapleton/Jacks Narrows corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-25 05:45 America/Chicago / 2026-06-25 10:45 UTC: Pennsylvania three-route implementation pass; added three more upper French Creek routes.
   - Rebuilt current inventory from route objects and trip details before editing: 44 live Pennsylvania routes, 44 Pennsylvania trip-detail keys, and 44 implemented Pennsylvania ledger rows before this pass.
