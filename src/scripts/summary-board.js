@@ -1634,13 +1634,17 @@ function featuredRouteLineColor(rating) {
   return '#1e7397';
 }
 
-function featuredMapAccessPoints(item) {
+function routeAccessPoints(item) {
   const putIn = item?.cardRoute?.river?.putIn;
   const takeOut = item?.cardRoute?.river?.takeOut;
   return [
     Number.isFinite(putIn?.latitude) && Number.isFinite(putIn?.longitude) ? { ...putIn, kind: 'putIn' } : null,
     Number.isFinite(takeOut?.latitude) && Number.isFinite(takeOut?.longitude) ? { ...takeOut, kind: 'takeOut' } : null,
   ].filter(Boolean);
+}
+
+function featuredMapAccessPoints(item) {
+  return routeAccessPoints(item);
 }
 
 function featuredMapCaptionText(item) {
@@ -3460,6 +3464,65 @@ function markerClassFor(item) {
   return markerClassForRating(item.cardRoute.rating, item.cardRoute.confidence.label);
 }
 
+function isSummaryMapStyleReady() {
+  return Boolean(mapRuntime && typeof mapRuntime.isStyleLoaded === 'function' && mapRuntime.isStyleLoaded());
+}
+
+function syncSummaryRouteLine() {
+  if (!mapRuntime || !isSummaryMapStyleReady()) {
+    return;
+  }
+
+  const sourceId = 'summary-selected-route-line';
+  const layerId = 'summary-selected-route-line';
+  const selectedItem = lastSummaryMapItems.find((item) => item.key === selectedSummaryMapKey);
+  const accessPoints = selectedItem ? routeAccessPoints(selectedItem) : [];
+
+  if (accessPoints.length > 1) {
+    const routeLine = {
+      type: 'Feature',
+      properties: {},
+      geometry: {
+        type: 'LineString',
+        coordinates: accessPoints.map((point) => [point.longitude, point.latitude]),
+      },
+    };
+
+    if (mapRuntime.getSource(sourceId)) {
+      mapRuntime.getSource(sourceId).setData(routeLine);
+    } else {
+      mapRuntime.addSource(sourceId, {
+        type: 'geojson',
+        data: routeLine,
+      });
+      mapRuntime.addLayer({
+        id: layerId,
+        type: 'line',
+        source: sourceId,
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round',
+        },
+        paint: {
+          'line-color': featuredRouteLineColor(selectedItem.cardRoute.rating),
+          'line-width': 4,
+          'line-opacity': 0.86,
+        },
+      });
+    }
+
+    mapRuntime.setPaintProperty(layerId, 'line-color', featuredRouteLineColor(selectedItem.cardRoute.rating));
+    return;
+  }
+
+  if (mapRuntime.getLayer(layerId)) {
+    mapRuntime.removeLayer(layerId);
+  }
+  if (mapRuntime.getSource(sourceId)) {
+    mapRuntime.removeSource(sourceId);
+  }
+}
+
 function popupMarkup(item) {
   const nearbyReady = userLocationState === 'ready' && userLocation && Number.isFinite(item.travelMinutes);
   const ratingKey = ratingToneKey(item.cardRoute.rating);
@@ -3483,6 +3546,7 @@ function popupMarkup(item) {
 
 function updateSummaryMapSelection(key) {
   selectedSummaryMapKey = key || null;
+  syncSummaryRouteLine();
 
   if (summaryMapResults instanceof HTMLElement) {
     const rows = Array.from(summaryMapResults.querySelectorAll('[data-summary-map-item]'));
