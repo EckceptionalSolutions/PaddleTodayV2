@@ -25060,113 +25060,366 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'pine-river-peterson-low-bridge',
-    slug: 'pine-river-peterson-low-bridge',
-    name: 'Pine River',
-    reach: 'Peterson Bridge to Low Bridge',
-    state: 'Michigan',
-    region: 'Northern Lower Michigan',
-    summary:
-      'National Scenic River day through the Huron-Manistee National Forests from Peterson Bridge to Low Bridge. This is a permit-managed, fast, wooded Pine River run with a direct downstream USGS gauge and American Whitewater flow guidance.',
-    statusText:
-      'Use the Pine River at High School Bridge gauge near Hoxeyville as the live check. Treat 170 cfs as the conservative low-water floor; below that, expect scraping and more difficult boat control. Higher flows make this wooded Class I-II river faster and less forgiving.',
-    latitude: 44.203235,
-    longitude: -85.799124,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04125460',
-      provider: 'usgs',
-      siteId: '04125460',
-      metric: 'discharge_cfs',
-      unit: 'cfs',
-      kind: 'direct',
-      siteName: 'Pine River at High School Bridge near Hoxeyville, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
+    {
+    "id": "clinton-river-budd-macarthur",
+    "slug": "clinton-river-budd-macarthur",
+    "name": "Clinton River",
+    "reach": "Budd Park to MacArthur Park",
+    "state": "Michigan",
+    "region": "Southeast Michigan",
+    "summary": "Lower Clinton River planner corridor from Budd Park through Shadyside Park to the Neil Dempsey Launch at MacArthur Park.",
+    "statusText": "Use the Clinton River at Sterling Heights gauge as CRWC's warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check for wood, fast current after rain, and urban water-quality advisories.",
+    "latitude": 42.586506,
+    "longitude": -82.927598,
+    "gaugeSource": {
+      "id": "usgs-04161820",
+      "provider": "usgs",
+      "siteId": "04161820",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Clinton River at Sterling Heights, MI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/"
     },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 170,
-      thresholdSource: {
-        label: 'American Whitewater Pine River flow correlation for the Hoxeyville gauge',
-        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
-        provider: 'american_whitewater',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 8,
+      "idealMax": 10,
+      "tooLow": 8,
+      "tooHigh": 10,
+      "thresholdSource": {
+        "label": "Clinton River Watershed Council Sterling Heights gauge warnings",
+        "url": "https://www.crwc.org/recreation/paddling",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'community',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The Pine is commonly paddleable spring through fall, but it responds to rain and recent storm damage. Check the Forest Service river permit page, same-day gauge, and recent logjam reports before launching.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The Forest Service describes the Pine as swift with challenging rapids, sharp turns, and narrow passages. Treat Peterson to Low Bridge as a skilled moving-water trip, especially for canoes, loaded boats, cold water, or groups unfamiliar with quick wood-choked turns.',
-      confidenceNotes:
-        'Confidence is good for a guarded first Michigan add: the Huron-Manistee National Forests publish the Peterson Bridge and Low Bridge access points, the official Pine River map gives coordinates and travel-time context, permits are managed through Recreation.gov, and American Whitewater ties the Pine River flow guidance to USGS 04125460. The app uses only a conservative minimum floor because the strongest numeric source is AW community guidance for the Pine gauge family rather than a Forest Service route-specific band for Peterson-to-Low Bridge.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the practical paddling season. This lower section is slower than the Rochester and Utica reaches, but the Clinton is still urban and flashy after rain, with wood, strainers, and stormwater pollutants possible.",
+      "difficulty": "easy",
+      "difficultyNotes": "This is the slower beginner-oriented lower Clinton corridor, but the Mount Clemens weir context, wood, and stormwater warnings still require same-day judgment.",
+      "confidenceNotes": "Confidence is good for a consolidated lower Clinton corridor because the replaced route cards shared the same Sterling Heights gauge warning model and adjacent CRWC access sequence."
     },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Public route context',
-        value: 'Peterson Bridge to Low Bridge',
-        note: 'Published Pine River maps identify Peterson Bridge and Low Bridge as river access sites and list the reach at roughly 8.25 to 8.6 miles, with Forest Service permit rules applying in this corridor.',
-        sourceUrl:
-          'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
+        "label": "Planner corridor",
+        "value": "Budd Park carry-in launch to Neil Dempsey Launch at MacArthur Park, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://www.crwc.org/recreation/paddling"
       },
       {
-        label: 'Permit-managed river',
-        value: 'Forest Service Pine River permits',
-        note: 'Recreation.gov administers Pine National Scenic River permits and lists Peterson Bridge and Low Bridge among the selectable access points.',
-        sourceUrl:
-          'https://www.recreation.gov/permits/233336/registration/detailed-availability',
-      },
-      {
-        label: 'Gauge and threshold',
-        value: '170 cfs low floor',
-        note: 'American Whitewater publishes Pine River gauge guidance for USGS 04125460, with 170 cfs as the lower runnable floor and higher bands above that. The app uses the lower floor only and avoids claiming an ideal range for this specific Forest Service day trip.',
-        sourceUrl:
-          'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
-      },
-      {
-        label: 'Route character',
-        value: 'Fast wooded Class I-II river',
-        note: 'Forest Service Pine River material warns about swift current, sharp turns, narrow passages, downed trees, and logjams; American Whitewater characterizes the Pine as a beginner to intermediate whitewater river with downstream sections continuing toward Low Bridge.',
-        sourceUrl: 'https://www.recreation.gov/permits/249990',
-      },
-      {
-        label: 'Current-data caveat',
-        value: 'USGS 04125460 product-supported',
-        note: 'USGS publishes Pine River at High School Bridge near Hoxeyville as monitoring location 04125460, and product code supports USGS gauges by site ID. Same-day gauge freshness, Forest Service alerts, and local wood reports should still be checked before launch.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
-      },
+        "label": "Gauge model",
+        "value": "Clinton River at Sterling Heights, MI",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'Pine National Scenic River permit page',
-        url: 'https://www.recreation.gov/permits/249990',
-        provider: 'local',
+        "label": "CRWC paddling and gauge warnings",
+        "url": "https://www.crwc.org/recreation/paddling",
+        "provider": "local"
       },
       {
-        label: 'Pine National Scenic River map PDF',
-        url: 'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
-        provider: 'local',
+        "label": "CRWC Clinton River Water Trail guide book",
+        "url": "https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf",
+        "provider": "local"
       },
       {
-        label: 'Recreation.gov Pine National Scenic River permit',
-        url: 'https://www.recreation.gov/permits/233336',
-        provider: 'local',
+        "label": "2024 Clinton River Water Trail map PDF",
+        "url": "https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf",
+        "provider": "local"
       },
       {
-        label: 'American Whitewater Pine River gauge detail',
-        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
-        provider: 'american_whitewater',
+        "label": "City of Mount Clemens parks",
+        "url": "https://mountclemens.gov/parks/",
+        "provider": "local"
       },
       {
-        label: 'USGS 04125460 Pine River at High School Bridge',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
-        provider: 'usgs',
+        "label": "USGS 04161820 Clinton River at Sterling Heights",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/",
+        "provider": "usgs"
       },
+      {
+        "label": "Outdoor Michigan MacArthur Park launch",
+        "url": "https://outdoormichigan.org/feature/14360",
+        "provider": "local"
+      },
+      {
+        "label": "Macomb County Main Branch Clinton River",
+        "url": "https://www.macombgov.org/make-macomb-your-home/outdoor-activities/trail-network/water-trails/main-branch-clinton-river",
+        "provider": "local"
+      }
     ],
+    "aliases": [
+      "Clinton River - Budd Park to MacArthur Park",
+      "Mount Clemens Clinton River access planner corridor"
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [],
+      "reviewStatus": "reviewed",
+      "safetyNotes": [
+        "Identify the Mount Clemens weir or dam-warning context before committing downstream.",
+        "Use Shadyside Park as the natural split point for shorter trips.",
+        "Do not continue toward Lake St. Clair without separate planning."
+      ]
+    }
   },
-  {
+    {
+    "id": "shiawassee-river-mccurdy-cole-park",
+    "slug": "shiawassee-river-mccurdy-cole-park",
+    "name": "Shiawassee River",
+    "reach": "McCurdy Park to Cole Park",
+    "state": "Michigan",
+    "region": "Central Michigan",
+    "summary": "Lower Shiawassee planner corridor from McCurdy Park through Harmon Patridge, Henderson, and Ditch Road to Cole Park.",
+    "statusText": "Use the Shiawassee River at Owosso gauge as a stage check. The local guidance supports the Byron-to-Chesaning corridor, with the best published band above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, some segments may be too shallow.",
+    "latitude": 42.98614,
+    "longitude": -84.124008,
+    "routeType": "whitewater",
+    "gaugeSource": {
+      "id": "usgs-04144500",
+      "provider": "usgs",
+      "siteId": "04144500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Shiawassee River at Owosso, MI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/"
+    },
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2.5,
+      "idealMax": 7,
+      "tooLow": 2,
+      "tooHigh": 7,
+      "thresholdSource": {
+        "label": "Shiawassee River Water Trail / Friends of the Shiawassee Owosso-gauge guidance",
+        "url": "https://www.shiawasseewatertrail.org/riverflow",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the main paddling window. Low summer water can expose rocks and make the Owosso weirs scrape; high water above the local 7 ft ceiling can make current faster, bridge clearances unsafe, and low-head-dam portages more consequential.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This corridor keeps the two-sided Owosso gauge model and should be treated as moderate because wood, urban runoff, and longer pairings can change the day quickly.",
+      "confidenceNotes": "Confidence is good for a consolidated lower Shiawassee corridor because the replaced route cards shared the same Owosso gauge and two-sided warning model."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Planner corridor",
+        "value": "Corunna McCurdy Park carry-in launch to Cole Park launch, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://www.shiawasseewatertrail.org/riverflow"
+      },
+      {
+        "label": "Gauge model",
+        "value": "Shiawassee River at Owosso, MI",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Corunna McCurdy Park to Harmon Patridge Park route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=",
+        "provider": "local"
+      },
+      {
+        "label": "Shiawassee River Water Trail river flow",
+        "url": "https://www.shiawasseewatertrail.org/riverflow",
+        "provider": "local"
+      },
+      {
+        "label": "Shiawassee River guide brochure",
+        "url": "https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 04144500 Shiawassee River at Owosso",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Shiawassee River Water Trail trip maps",
+        "url": "https://www.shiawasseewatertrail.org/tripmaps",
+        "provider": "local"
+      },
+      {
+        "label": "Harmon Patridge Park to Henderson County Park route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=",
+        "provider": "local"
+      },
+      {
+        "label": "National Recreation Trail profile",
+        "url": "https://www.nrtapplication.org/trails/shiawassee-river",
+        "provider": "nps"
+      },
+      {
+        "label": "Henderson County Park to Ditch Road route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=",
+        "provider": "local"
+      },
+      {
+        "label": "Ditch Road to Cole Park route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=",
+        "provider": "local"
+      }
+    ],
+    "aliases": [
+      "Shiawassee River - McCurdy Park to Cole Park",
+      "Lower Shiawassee access planner corridor"
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [],
+      "reviewStatus": "reviewed",
+      "safetyNotes": [
+        "Use the access planner to avoid overlong pairings during high water, low water, or poor weather.",
+        "Wood and strainers are the main same-day hazard through this lower corridor.",
+        "Stay with named public accesses and avoid private banks."
+      ]
+    }
+  },
+    {
+    "id": "shiawassee-river-byron-brady-street",
+    "slug": "shiawassee-river-byron-brady-street",
+    "name": "Shiawassee River",
+    "reach": "Byron to Brady Street",
+    "state": "Michigan",
+    "region": "Central Michigan",
+    "summary": "Upper Shiawassee planner corridor from Byron through Walnut Hills, Geeck Road, Shiatown, and Lytle Road to Brady Street.",
+    "statusText": "Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says the Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal campground access with a small parking fee.",
+    "latitude": 42.840348,
+    "longitude": -83.945658,
+    "gaugeSource": {
+      "id": "usgs-04144500",
+      "provider": "usgs",
+      "siteId": "04144500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Shiawassee River at Owosso, MI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 2,
+      "thresholdSource": {
+        "label": "Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance",
+        "url": "https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "mixed",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Plan this as a warm-season trip. The route sheet says Walnut Hills is open May 1 through October 1, and low summer water can expose shallow sand-and-silt sections even on this beginner-rated reach.",
+      "difficulty": "moderate",
+      "difficultyNotes": "Short upper pairings can be easy, but the corridor includes moderate Shiatown and Lytle sections with dam-adjacent logistics and changing wood.",
+      "confidenceNotes": "Confidence is good for a consolidated upper Shiawassee corridor because the replaced route cards shared the same Owosso gauge and minimum-only model."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Planner corridor",
+        "value": "Byron High School Ball Fields concrete launch to Brady Street dirt launch, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf"
+      },
+      {
+        "label": "Gauge model",
+        "value": "Shiawassee River at Owosso, MI",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "Byron High School to Walnut Hills route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=",
+        "provider": "local"
+      },
+      {
+        "label": "Shiawassee River Water Trail trip maps",
+        "url": "https://www.shiawasseewatertrail.org/tripmaps",
+        "provider": "local"
+      },
+      {
+        "label": "Shiawassee River guide brochure",
+        "url": "https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 04144500 Shiawassee River at Owosso",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04144500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "Walnut Hills to Geeck Road route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=",
+        "provider": "local"
+      },
+      {
+        "label": "Shiawassee River Water Trail river flow",
+        "url": "https://www.shiawasseewatertrail.org/riverflow",
+        "provider": "local"
+      },
+      {
+        "label": "Geeck Road to Shiatown route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=",
+        "provider": "local"
+      },
+      {
+        "label": "Shiatown to Lytle Road route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=",
+        "provider": "local"
+      },
+      {
+        "label": "Lytle Road to Brady Street route PDF",
+        "url": "https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=",
+        "provider": "local"
+      }
+    ],
+    "aliases": [
+      "Shiawassee River - Byron to Brady Street",
+      "Upper Shiawassee access planner corridor"
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [],
+      "reviewStatus": "reviewed",
+      "safetyNotes": [
+        "The Shiatown dam area and downstream wood keep this from being a casual whole-corridor float.",
+        "Use the access planner to select a manageable day length.",
+        "Inspect campgrounds and park launches before relying on them as endpoints."
+      ]
+    }
+  },
+        {
     id: 'pine-river-lincoln-peterson',
     slug: 'pine-river-lincoln-peterson',
     name: 'Pine River',
@@ -25280,968 +25533,107 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'shiawassee-river-byron-walnut-hills',
-    slug: 'shiawassee-river-byron-walnut-hills',
-    name: 'Shiawassee River',
-    reach: 'Byron High School Ball Fields to Walnut Hills Family Campground',
+    id: 'pine-river-peterson-low-bridge',
+    slug: 'pine-river-peterson-low-bridge',
+    name: 'Pine River',
+    reach: 'Peterson Bridge to Low Bridge',
     state: 'Michigan',
-    region: 'Central Michigan',
+    region: 'Northern Lower Michigan',
     summary:
-      'Beginner Shiawassee River Water Trail segment from the concrete launch by Byron High School Ball Fields to seasonal Walnut Hills Family Campground. The route sheet gives exact endpoint coordinates, a 4.87-mile distance, and practical shallow-water and debris context.',
+      'National Scenic River day through the Huron-Manistee National Forests from Peterson Bridge to Low Bridge. This is a permit-managed, fast, wooded Pine River run with a direct downstream USGS gauge and American Whitewater flow guidance.',
     statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says the Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal campground access with a small parking fee.',
-    latitude: 42.840348,
-    longitude: -83.945658,
+      'Use the Pine River at High School Bridge gauge near Hoxeyville as the live check. Treat 170 cfs as the conservative low-water floor; below that, expect scraping and more difficult boat control. Higher flows make this wooded Class I-II river faster and less forgiving.',
+    latitude: 44.203235,
+    longitude: -85.799124,
+    routeType: 'whitewater',
     gaugeSource: {
-      id: 'usgs-04144500',
+      id: 'usgs-04125460',
       provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+      siteId: '04125460',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Pine River at High School Bridge near Hoxeyville, MI',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
     },
     profile: {
       thresholdModel: 'minimum-only',
-      tooLow: 2,
+      tooLow: 170,
       thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
+        label: 'American Whitewater Pine River flow correlation for the Hoxeyville gauge',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
       },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
       seasonNotes:
-        'Plan this as a warm-season trip. The route sheet says Walnut Hills is open May 1 through October 1, and low summer water can expose shallow sand-and-silt sections even on this beginner-rated reach.',
-      difficulty: 'easy',
+        'The Pine is commonly paddleable spring through fall, but it responds to rain and recent storm damage. Check the Forest Service river permit page, same-day gauge, and recent logjam reports before launching.',
+      difficulty: 'moderate',
       difficultyNotes:
-        'The water-trail route sheet labels this 4.87-mile reach beginner and suitable for new paddlers, large groups, and children. It is still a moving-water trip with private shoreline, possible debris, and a private seasonal take-out that must be verified before launch.',
+        'The Forest Service describes the Pine as swift with challenging rapids, sharp turns, and narrow passages. Treat Peterson to Low Bridge as a skilled moving-water trip, especially for canoes, loaded boats, cold water, or groups unfamiliar with quick wood-choked turns.',
       confidenceNotes:
-        'Confidence is high for the route shape and access names: the Shiawassee River Water Trail Coalition publishes the exact Byron High School Ball Fields-to-Walnut Hills route with endpoint coordinates, distance, beginner rating, route character, amenities, and access notes. Threshold confidence is intentionally conservative because the Owosso USGS gauge is downstream of this upstream Byron segment; the Friends/Shiawassee County guide says the gauge is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments, so the app uses only a minimum floor and does not claim an ideal range.',
+        'Confidence is good for a guarded first Michigan add: the Huron-Manistee National Forests publish the Peterson Bridge and Low Bridge access points, the official Pine River map gives coordinates and travel-time context, permits are managed through Recreation.gov, and American Whitewater ties the Pine River flow guidance to USGS 04125460. The app uses only a conservative minimum floor because the strongest numeric source is AW community guidance for the Pine gauge family rather than a Forest Service route-specific band for Peterson-to-Low Bridge.',
     },
     evidenceNotes: [
       {
-        label: 'Route map',
-        value: '4.87 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Byron High School Ball Fields to Walnut Hills Family Campground as a 4.87-mile beginner trip with endpoint coordinates and service notes.',
+        label: 'Public route context',
+        value: 'Peterson Bridge to Low Bridge',
+        note: 'Published Pine River maps identify Peterson Bridge and Low Bridge as river access sites and list the reach at roughly 8.25 to 8.6 miles, with Forest Service permit rules applying in this corridor.',
         sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+          'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
       },
       {
-        label: 'Endpoint coordinates',
-        value: '42.840348, -83.945658 to 42.840348, -84.009418',
-        note: 'The route PDF gives Byron High School Ball Fields as the start and Walnut Hills Family Campground as the end, with latitude/longitude for both points.',
+        label: 'Permit-managed river',
+        value: 'Forest Service Pine River permits',
+        note: 'Recreation.gov administers Pine National Scenic River permits and lists Peterson Bridge and Low Bridge among the selectable access points.',
         sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
+          'https://www.recreation.gov/permits/233336/registration/detailed-availability',
       },
       {
-        label: 'Gauge corridor',
-        value: 'Byron to Chesaning',
-        note: 'The Friends/Shiawassee County guide says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
+        label: 'Gauge and threshold',
+        value: '170 cfs low floor',
+        note: 'American Whitewater publishes Pine River gauge guidance for USGS 04125460, with 170 cfs as the lower runnable floor and higher bands above that. The app uses the lower floor only and avoids claiming an ideal range for this specific Forest Service day trip.',
         sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Access and character',
-        value: 'Concrete launch to private campground',
-        note: 'The route begins at a concrete launch by the Byron High School ball fields, passes rural residential and forested shoreline, and ends at the Walnut Hills dirt launch on river right.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
-      },
-      {
-        label: 'Walnut Hills access',
-        value: 'Private seasonal access',
-        note: 'The route sheet says Walnut Hills Family Campground is open May 1 through October 1, with parking available for a small fee.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Byron High School to Walnut Hills route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988405/6_Byron_High_School_to_Walnut_Hills.pdf?1511988405=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-walnut-hills-geeck-road',
-    slug: 'shiawassee-river-walnut-hills-geeck-road',
-    name: 'Shiawassee River',
-    reach: 'Walnut Hills Family Campground to Geeck Road County Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Beginner Shiawassee River Water Trail segment from seasonal Walnut Hills Family Campground access to Geeck Road County Park. The route sheet gives exact endpoint coordinates, a 6.98-mile distance, shallow-water cautions, and the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; Walnut Hills is a private seasonal campground access with a small parking fee.',
-    latitude: 42.840348,
-    longitude: -84.009418,
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Walnut Hills is usually open seasonally from May 1 to October 1, so this route is framed for the campground access season. Low summer water can make the Vernon Road-to-Grand River Road shallows harder, while high water can add debris, stronger bridge approaches, and private-dock consequences.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The water-trail sheet labels this 6.98-mile reach beginner and suitable for newer paddlers, groups, and children in normal water. Low water raises the skill requirement because the route sheet says experienced navigation is needed when levels are low.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Walnut Hills-to-Geeck Road trip with endpoint coordinates, distance, access amenities, route character, shallow-water notes, and private-property guidance. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app uses that only as a corridor low-water check, not as a precise ideal range. The main caveat is access: Walnut Hills Family Campground is a private access open to the public seasonally with a small vehicle fee, so paddlers must verify current campground access before staging a shuttle.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '6.98 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Walnut Hills Family Campground to Geeck Road as a 6.98-mile beginner trip with rural residential character, parking, portable toilets, and campground access context.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.840348, -84.009418 to 42.884522, -84.045106',
-        note: 'The route PDF gives Walnut Hills Family Campground as the start and Geeck Road as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
-      },
-      {
-        label: 'Seasonal private access',
-        value: 'Public seasonal use with fee',
-        note: 'The broader Friends/Shiawassee County guide says Walnut Hills Campground is private, open to the public seasonally, usually April through October, with no off-season use possible and a small vehicle parking fee. The route PDF says parking is available for a fee and Cheff\'s Canoe Rental is on site.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+          'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
       },
       {
         label: 'Route character',
-        value: 'Rural residential, sandy and shallow',
-        note: 'The route sheet describes developed shoreline with private docks, sandy and stony bottom, water from about 6 inches to over 3 feet, shallows between Vernon Road and Grand River Road, possible debris, and three bridges.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+        value: 'Fast wooded Class I-II river',
+        note: 'Forest Service Pine River material warns about swift current, sharp turns, narrow passages, downed trees, and logjams; American Whitewater characterizes the Pine as a beginner to intermediate whitewater river with downstream sections continuing toward Low Bridge.',
+        sourceUrl: 'https://www.recreation.gov/permits/249990',
+      },
+      {
+        label: 'Current-data caveat',
+        value: 'USGS 04125460 product-supported',
+        note: 'USGS publishes Pine River at High School Bridge near Hoxeyville as monitoring location 04125460, and product code supports USGS gauges by site ID. Same-day gauge freshness, Forest Service alerts, and local wood reports should still be checked before launch.',
+        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
       },
     ],
     sourceLinks: [
       {
-        label: 'Walnut Hills to Geeck Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988406/7_Walnut_Hills_to_Geeck_Road.pdf?1511988406=',
+        label: 'Pine National Scenic River permit page',
+        url: 'https://www.recreation.gov/permits/249990',
         provider: 'local',
       },
       {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
+        label: 'Pine National Scenic River map PDF',
+        url: 'https://outdoormichigan.org/trails/PineScenicRiverMap.pdf',
         provider: 'local',
       },
       {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
+        label: 'Recreation.gov Pine National Scenic River permit',
+        url: 'https://www.recreation.gov/permits/233336',
         provider: 'local',
       },
       {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
+        label: 'American Whitewater Pine River gauge detail',
+        url: 'https://www.americanwhitewater.org/content/River/show-gauge-info/?reachid=3223',
+        provider: 'american_whitewater',
       },
       {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-geeck-road-shiatown',
-    slug: 'shiawassee-river-geeck-road-shiatown',
-    name: 'Shiawassee River',
-    reach: 'Geeck Road County Park to Shiatown County Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Beginner Shiawassee River Water Trail segment from Geeck Road County Park to the Shiatown County Park take-out above the dam. The route sheet gives exact endpoint coordinates, a 6.21-mile distance, and low-water rock/riffle cautions, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; take out at Shiatown on river right above the dam.',
-    latitude: 42.884522,
-    longitude: -84.045106,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['dam', 'mandatory_takeout', 'whitewater', 'cold_water'],
-      safetyNotes: [
-        'Exit river right at Shiatown above the dam and do not continue without separate dam/downstream-route planning.',
-        'High water, cold water, poor visibility, submerged rocks, riffles, and debris make the Shiatown take-out more consequential.',
-        'The Owosso gauge is a corridor proxy for this upstream segment, so make a same-day visual call at the access.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can expose submerged rocks and riffles, while high water raises the consequence of wood, bridge approaches, and the dam-adjacent Shiatown take-out.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route sheet labels this 6.21-mile reach beginner and suitable for newer paddlers, groups, and children, but the app keeps it guarded because the take-out is on river right above the Shiatown dam. Low water requires active navigation around submerged rocks and riffles.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Geeck Road-to-Shiatown trip with endpoint coordinates, distance, access amenities, route character, and low-water rock/riffle cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim the downstream Owosso-to-Chesaning ideal band for this upstream-of-Owosso segment; it uses the gauge only as a corridor low-water check and marks the route guarded because the take-out is immediately above a dam.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '6.21 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Geeck Road County Park to Shiatown County Park as a 6.21-mile trip with beginner skill guidance.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.884522, -84.045106 to 42.929408, -84.071308',
-        note: 'The route PDF gives Geeck Road as the start and Shiatown as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
-      },
-      {
-        label: 'Route character',
-        value: 'Rural residential to woodland wetland',
-        note: 'The route sheet describes developed shoreline early, wooded wetland after the freeway, three bridges, possible debris, and low-water navigation around large submerged rocks and riffles.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
-      },
-      {
-        label: 'Dam-adjacent take-out',
-        value: 'Exit above Shiatown dam',
-        note: 'The route sheet instructs paddlers to exit on river right above the dam at Shiatown County Park, using a footpath to the gravel parking lot.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Geeck Road to Shiatown route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988407/8_Geeck_Road_to_Shiatown.pdf?1511988407=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-shiatown-lytle',
-    slug: 'shiawassee-river-shiatown-lytle',
-    name: 'Shiawassee River',
-    reach: 'Shiatown County Park to Lytle Road County Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Intermediate Shiawassee River Water Trail segment from below the partially removed Shiatown dam to Lytle Road County Park. The route sheet gives exact endpoint coordinates, a 7.83-mile distance, rapid and rocky-shallow cautions, and the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water, fast current below Shiatown dam, rocks, and debris still require judgment.',
-    latitude: 42.929408,
-    longitude: -84.071308,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    safetyProfile: {
-      riskLevel: 'advanced',
-      hazards: ['dam', 'whitewater', 'strainers'],
-      safetyNotes: [
-        'Begin downstream of the partially removed Shiatown dam; do not treat the dam itself as a runnable feature.',
-        'Fast rapids, split-channel current, bridge approaches, debris, vegetation-covered rocks, and private docks require moving-water skill.',
-        'High water can make the dam-adjacent start and downstream bridge/debris corridor unsuitable.',
-      ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can make the Bennington Road shallows, rocky sections, and debris avoidance harder; high water can make the fast water below Shiatown dam and bridge clearances more consequential.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water-trail route sheet labels this 7.83-mile reach intermediate and says it is too long for first-time paddlers. Fast water below Shiatown dam, a river split, rocky shallows, debris, six bridges, and far-apart access sites call for boat control and route-finding.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Shiatown County Park-to-Lytle Road County Park trip with endpoint coordinates, distance, intermediate skill rating, route character, and specific rapid/rock/debris cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim the downstream Owosso-to-Chesaning ideal band for this upstream-of-Owosso route; it uses the gauge only as a corridor low-water check and keeps the route out of casual Explore discovery because of the dam-adjacent fast-water start.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '7.83 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Shiatown County Park to Lytle Road County Park as a 7.83-mile rural-residential trip with intermediate skill guidance.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.929408, -84.071308 to 42.976600, -84.069441',
-        note: 'The route PDF gives Shiatown County Park as the start and Lytle Road County Park as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-      },
-      {
-        label: 'Fast-water and low-water cautions',
-        value: 'Dam-adjacent rapids, rocks, debris',
-        note: 'The route sheet says to begin downstream of the partially removed Shiatown dam, warns of fast moving rapids and a river split immediately after the dam, rocky shallow water after Bennington Road, increased speed near the railroad tracks, and rocks/debris as the hardest part of the segment.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Shiatown to Lytle Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988390/9_Shiatown_to_Lytle_Road.pdf?1511988390=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-lytle-brady-street',
-    slug: 'shiawassee-river-lytle-brady-street',
-    name: 'Shiawassee River',
-    reach: 'Lytle Road County Park to Brady Street Landing',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Short rural-residential Shiawassee River Water Trail segment into Corunna. The route sheet gives exact endpoint coordinates, a 3.2-mile distance, and causeway guidance, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a conservative corridor check. The local guide says this Byron-to-Chesaning corridor may be too shallow at about 2.0 ft or lower; high water can require a causeway portage.',
-    latitude: 42.9766,
-    longitude: -84.069441,
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'minimum-only',
-      tooLow: 2,
-      thresholdSource: {
-        label: 'Friends of the Shiawassee River / Shiawassee County Byron-to-Chesaning gauge guidance',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'mixed',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can make the causeway and shallow channels slower; high water can make the causeway unsafe to pass under and may require a portage.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water-trail route sheet labels this 3.2-mile reach intermediate to beginner. It is short, but islands, split channels, downed trees, and the causeway mean paddlers need active boat control and judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative minimum-only route: the Shiawassee River Water Trail Coalition publishes the exact Lytle Road-to-Brady Street trip with endpoint coordinates, distance, access notes, route character, and causeway cautions. The Friends/Shiawassee County brochure says USGS 04144500 is fairly reflective from Byron to Chesaning and that 2.0 ft or lower may be too shallow in some segments. The app does not claim an ideal range or high cutoff for this upstream-of-Owosso segment; it uses the Owosso gauge only as a corridor low-water check and tells paddlers to use judgment around high water and the causeway.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '3.2 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Lytle Road to Brady Street as a 3.2-mile rural-residential trip with intermediate-to-beginner skill guidance.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.0 ft low-water floor at Owosso',
-        note: 'The Friends/Shiawassee County brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2.0 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.976600, -84.069441 to 42.976600, -84.116539',
-        note: 'The route PDF gives Lytle Road as the start and Brady Street as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-      },
-      {
-        label: 'Causeway caution',
-        value: 'Causeway about 1.75 miles in',
-        note: 'The route sheet says to stay left under the causeway during low water and to portage over the causeway during high water.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Lytle Road to Brady Street route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988391/10_Lytle_Road_to_Brady_Street.pdf?1511988391=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-mccurdy-harmon-patridge',
-    slug: 'shiawassee-river-mccurdy-harmon-patridge',
-    name: 'Shiawassee River',
-    reach: 'McCurdy Park to Harmon Patridge Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Trail-town Shiawassee River Water Trail segment from Corunna into Owosso. The route sheet gives exact endpoints and warns that the three Owosso low-head dams require skill or portages, while the broader local guide ties this Byron-to-Chesaning corridor to the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge as a stage check. The local guidance supports the Byron-to-Chesaning corridor, with the best published band above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, some segments may be too shallow.',
-    latitude: 42.98614,
-    longitude: -84.124008,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.5,
-      idealMax: 7,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: 'Shiawassee River Water Trail / Friends of the Shiawassee Owosso-gauge guidance',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can expose rocks and make the Owosso weirs scrape; high water above the local 7 ft ceiling can make current faster, bridge clearances unsafe, and low-head-dam portages more consequential.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The route sheet calls this beginner to intermediate, but the app treats it as guarded moving water because paddlers encounter three low-head dams through Owosso. Beginning paddlers should shorten the route at Oakwood Avenue or portage the dams instead of running the spillways.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Corunna McCurdy Park-to-Harmon Patridge Park route with endpoint coordinates, 6.49-mile distance, public amenities, river character, and specific three-dam cautions. The Friends of the Shiawassee brochure says the Owosso USGS gauge is fairly reflective of conditions from Byron to Chesaning, which includes this route, and the coalition river-flow page provides the 2.5-to-7.0 ft enjoyable band for the downstream Owosso-to-Chesaning corridor. The main caveat is that this route sits partly upstream of the gauge and includes low-head-dam features, so the app uses the gauge conservatively and keeps the route out of casual Explore discovery.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '6.49 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Corunna McCurdy Park to Harmon Patridge Park as a 6.49-mile trail-town route with endpoint coordinates, parking, restrooms, services, and beginner-to-intermediate skill guidance.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
-      },
-      {
-        label: 'Gauge corridor',
-        value: 'Owosso gauge reflects Byron to Chesaning',
-        note: 'The Friends of the Shiawassee guide says paddlers planning low-water or high-water decisions may check USGS 04144500 and that the gauge is fairly reflective from Byron to Chesaning; it warns that 2 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.5 to 7.0 ft at Owosso',
-        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
-        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.986140, -84.124008 to 43.020112, -84.184547',
-        note: 'The route PDF gives Corunna McCurdy Park as the start and Harmon Patridge Park as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
-      },
-      {
-        label: 'Low-head dams',
-        value: 'Three Owosso weirs',
-        note: 'The route sheet warns that passing through the three Owosso weirs requires skill, recommends portaging for beginning paddlers, and notes that paddlers may scrape and get wet.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Corunna McCurdy Park to Harmon Patridge Park route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988393/11_Corunna_McCurdy_Park_to_Harmon_Patridge_Park.pdf?1511988393=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-harmon-patridge-henderson',
-    slug: 'shiawassee-river-harmon-patridge-henderson',
-    name: 'Shiawassee River',
-    reach: 'Harmon Patridge Park to Henderson County Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'National Water Trail day from Owosso-area Harmon Patridge Park to Henderson County Park. The local water-trail coalition publishes the exact route, endpoint coordinates, and stage guidance for the Owosso USGS gauge.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, some segments may be too shallow.',
-    latitude: 43.020112,
-    longitude: -84.184547,
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.5,
-      idealMax: 7,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can mean scraping and slower travel; high water above the local 7 ft ceiling can make current faster and bridges too low to pass safely.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water-trail map labels this 7.78-mile reach intermediate because of length, riffles, rocky shallows, sand bars, islands, and changing depth. It is not whitewater, but it needs boat control and enough water.',
-      confidenceNotes:
-        'Confidence is high for a conservative stage-based route: the Shiawassee River Water Trail Coalition publishes this exact Harmon Patridge Park-to-Henderson County Park trip with endpoint coordinates, distance, route character, amenities, and safety guidance, and its river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning. The app uses the published 2.5-to-7.0 ft enjoyable band, with the coalition brochure\'s 2.0 ft shallow warning as the hard low threshold. The main caveat is that the automation shell could not fetch USGS Water Services directly, so same-day freshness relies on PaddleTodayV2\'s existing USGS provider path and search-visible current-flow context.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '7.78 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Harmon Patridge Park to Henderson County Park as a 7.78-mile intermediate trip with endpoint coordinates and access amenities.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.5 to 7.0 ft at Owosso',
-        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
-        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
-      },
-      {
-        label: 'Low-water floor',
-        value: '2.0 ft or lower may be too shallow',
-        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '43.020112, -84.184547 to 43.087788, -84.181933',
-        note: 'The route PDF gives Harmon Patridge Park as the start and Henderson County Park as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
-      },
-      {
-        label: 'Route character',
-        value: 'Riffles, rocks, sand bars, islands',
-        note: 'The route sheet warns that paddlers may scrape in low water and must navigate sand bars, large rocks, riffles, and two islands before Henderson County Park.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      {
-        label: 'Harmon Patridge Park to Henderson County Park route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988394/12_Harmon_Patridge_Park_to_Henderson_County_Park.pdf?1511988394=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'National Recreation Trail profile',
-        url: 'https://www.nrtapplication.org/trails/shiawassee-river',
-        provider: 'nps',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-henderson-ditch-road',
-    slug: 'shiawassee-river-henderson-ditch-road',
-    name: 'Shiawassee River',
-    reach: 'Henderson County Park to Ditch Road',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Scenic Shiawassee River Water Trail day from Henderson County Park toward Oakley and Parshallburg. The route sheet gives exact endpoint coordinates, and the local water-trail gauge guidance applies to this Owosso-to-Chesaning corridor.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, sand bars, stone bars, riffles, and rapids become harder.',
-    latitude: 43.087788,
-    longitude: -84.181933,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.5,
-      idealMax: 7,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can expose sand bars, stone bars, riffles, and rapids; high water above the local 7 ft ceiling can make current faster and bridge clearances unsafe.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water-trail sheet labels this 9.2-mile route intermediate because of length, remoteness, riffles, rocky sections, islands, and a weir near Ditch Road. The app hides it from casual Explore discovery because that weir/partially demolished dam requires skilled maneuvering or a right-side portage.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Henderson County Park-to-Ditch Road route with endpoint coordinates, distance, amenities, intermediate skill rating, route character, and weir/low-water cautions. The coalition river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning, which includes this route, and the broader route brochure reinforces the 2.5 ft shallow-water warning. The main caveat is operational: the route passes one weir near the end, so paddlers should scout and use the right-side portage when needed.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '9.2 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Henderson County Park to Ditch Road as a 9.2-mile intermediate trip with endpoint coordinates and access amenities.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.5 to 7.0 ft at Owosso',
-        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
-        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
-      },
-      {
-        label: 'Low-water floor',
-        value: '2.0 ft or lower may be too shallow',
-        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '43.087788, -84.181933 to 43.143842, -84.134130',
-        note: 'The route PDF gives Henderson County Park as the start and Ditch Road as the end, with latitude/longitude for both points.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-      },
-      {
-        label: 'Weir and low-water cautions',
-        value: 'One weir near Ditch Road',
-        note: 'The route sheet warns that low water can make sand bars, stone bars, riffles, and rapids difficult, and says the weir before Ditch Road must be maneuvered skillfully with a portage on river right if needed.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      {
-        label: 'Henderson County Park to Ditch Road route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988395/13_Henderson_Counry_Park_to_Ditch_Road.pdf?1511988395=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'shiawassee-river-ditch-road-cole-park',
-    slug: 'shiawassee-river-ditch-road-cole-park',
-    name: 'Shiawassee River',
-    reach: 'Ditch Road to Cole Park',
-    state: 'Michigan',
-    region: 'Central Michigan',
-    summary:
-      'Short final Shiawassee River Water Trail day from the Ditch Road launch near Parshallburg into Chesaning. The route sheet gives exact endpoints, beginner trip context, and a required right-side portage around the Cole Park rapids.',
-    statusText:
-      'Use the Shiawassee River at Owosso gauge. The water-trail coalition says this corridor is most enjoyable above 2.5 ft and below 7.0 ft; at about 2.0 ft or lower, rocky riffles and shallow spots become harder.',
-    latitude: 43.143859,
-    longitude: -84.134264,
-    routeType: 'whitewater',
-    gaugeSource: {
-      id: 'usgs-04144500',
-      provider: 'usgs',
-      siteId: '04144500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Shiawassee River at Owosso, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2.5,
-      idealMax: 7,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: 'Shiawassee River Water Trail Coalition Owosso-gauge guidance',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main paddling window. Low summer water can expose rocks and shallow riffles; high water above the local 7 ft ceiling can make current faster, bridge clearances unsafe, and the Cole Park rapids/portage more consequential.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The water-trail sheet labels the 5.48-mile route beginner, but the app keeps it out of casual Explore discovery because paddlers must portage the rock rapids on river right near Cole Park and walk across slippery, shifting rocks to reach the launch.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the Shiawassee River Water Trail Coalition publishes the exact Ditch Road-to-Cole Park route with endpoint coordinates, distance, amenities, beginner skill rating, route character, rocky-riffle notes, and the required right-side portage at the Cole Park rapids. The coalition river-flow page explicitly ties the Owosso USGS gauge to paddling conditions from Owosso to Chesaning, which includes this route, and the broader route brochure reinforces the 2.0 ft shallow-water warning. The only implementation caveat is that the PDF text extraction reverses the two endpoint labels in one place; coordinates were reconciled against the upstream Ditch Road coordinate from the adjacent already-live route and the Cole Park / Chesaning map position.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Route map',
-        value: '5.48 river miles',
-        note: 'The Shiawassee River Water Trail Coalition publishes Ditch Road to Cole Park as a 5.48-mile trip from Oakley / Parshallburg into Chesaning, with parking, restrooms, route character, and beginner skill guidance.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-      },
-      {
-        label: 'Gauge guidance',
-        value: '2.5 to 7.0 ft at Owosso',
-        note: 'The water-trail coalition says the Shiawassee from Owosso to Chesaning is most enjoyable when the Owosso gauge height is above 2.5 ft and below 7 ft; above 7 ft can be dangerous and make many bridges too low.',
-        sourceUrl: 'https://www.shiawasseewatertrail.org/riverflow',
-      },
-      {
-        label: 'Low-water floor',
-        value: '2.0 ft or lower may be too shallow',
-        note: 'The coalition brochure says the Owosso gauge is fairly reflective from Byron to Chesaning and that readings at 2 ft or lower may be too shallow in some segments.',
-        sourceUrl:
-          'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '43.143859, -84.134264 to 43.185325, -84.112656',
-        note: 'The route PDF provides the Ditch Road and Cole Park coordinate pair. The Ditch Road coordinate matches the adjacent upstream route endpoint, and the downstream coordinate resolves to the Chesaning / Cole Park end of the route.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-      },
-      {
-        label: 'Cole Park rapids',
-        value: 'Portage on river right',
-        note: 'The route sheet warns of rock rapids near Showboat / Cole Park, says paddlers need to exit on the right bank or navigate around them, and later states that the rapids must be portaged on the right side.',
-        sourceUrl:
-          'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'Shiawassee River Water Trail river flow',
-        url: 'https://www.shiawasseewatertrail.org/riverflow',
-        provider: 'local',
-      },
-      {
-        label: 'Ditch Road to Cole Park route PDF',
-        url: 'https://d3n8a8pro7vhmx.cloudfront.net/shiawasseeriver/pages/399/attachments/original/1511988396/14_Ditch_Road_to_Cole_Park.pdf?1511988396=',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River Water Trail trip maps',
-        url: 'https://www.shiawasseewatertrail.org/tripmaps',
-        provider: 'local',
-      },
-      {
-        label: 'Shiawassee River guide brochure',
-        url: 'https://shiawassee.net/wp-content/uploads/2023/01/FOSR_river-guide-brochure-2021.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04144500 Shiawassee River at Owosso',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04144500/',
+        label: 'USGS 04125460 Pine River at High School Bridge',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04125460/',
         provider: 'usgs',
       },
     ],
@@ -26368,585 +25760,131 @@ export const rivers: River[] = [
       },
     ],
   },
-  {
-    id: 'clinton-river-downtown-utica-north-clinton',
-    slug: 'clinton-river-downtown-utica-north-clinton',
-    name: 'Clinton River',
-    reach: 'Downtown Utica to North Clinton River Park',
-    state: 'Michigan',
-    region: 'Southeast Michigan',
-    summary:
-      'Short Utica-to-Sterling Heights water-trail segment ending at the accessible North Clinton River Park launch. CRWC and Michigan Water Trails document the public access points, and CRWC publishes a Sterling Heights USGS warning ladder for low and high water.',
-    statusText:
-      'Use the Clinton River at Sterling Heights gauge near the take-out. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check the launch for wood, fast current, and urban stormwater effects.',
-    latitude: 42.625576,
-    longitude: -83.037665,
-    gaugeSource: {
-      id: 'usgs-04161820',
-      provider: 'usgs',
-      siteId: '04161820',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Clinton River at Sterling Heights, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
+    {
+    "id": "clinton-river-downtown-utica-budd",
+    "slug": "clinton-river-downtown-utica-budd",
+    "name": "Clinton River",
+    "reach": "Downtown Utica to Budd Park",
+    "state": "Michigan",
+    "region": "Southeast Michigan",
+    "summary": "Macomb County Clinton River planner corridor from Downtown Utica through North Clinton River Park and Rotary Park to Budd Park.",
+    "statusText": "Use the Clinton River at Sterling Heights gauge near the take-out. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check the launch for wood, fast current, and urban stormwater effects.",
+    "latitude": 42.625576,
+    "longitude": -83.037665,
+    "gaugeSource": {
+      "id": "usgs-04161820",
+      "provider": "usgs",
+      "siteId": "04161820",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Clinton River at Sterling Heights, MI",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 8,
-      idealMax: 10,
-      tooLow: 8,
-      tooHigh: 10,
-      thresholdSource: {
-        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 8,
+      "idealMax": 10,
+      "tooLow": 8,
+      "tooHigh": 10,
+      "thresholdSource": {
+        "label": "Clinton River Watershed Council Sterling Heights gauge warnings",
+        "url": "https://www.crwc.org/recreation/paddling",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the practical paddling season. This urban section can rise quickly after rain, and CRWC warns that high water can carry woody debris, create blocked passages, and raise water-quality concerns from sewage overflows.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The mileage is short and this is downstream of the steeper Rochester-to-Utica water, but it is still an urban moving-water trip. Macomb County describes the broader downtown-Utica-to-Rotary corridor as accessible and moderate with conditions varying, so this segment needs same-day level, wood, and weather checks.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists Downtown Utica, Heritage Park, and North Clinton River Park with coordinates and access spacing; Michigan Water Trails confirms Downtown Utica and North Clinton River Park as Clinton River Water Trail assets; the City of Sterling Heights confirms the public accessible EZDock at North Clinton River Park; and CRWC publishes Sterling Heights USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than claiming an ideal recreation band, and this route should not be extended upstream toward the faster Rochester/Yates corridor without separate access and dam-safety work.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "high",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "Spring through fall is the practical paddling season. This urban section can rise quickly after rain, and CRWC warns that high water can carry woody debris, create blocked passages, and raise water-quality concerns from sewage overflows.",
+      "difficulty": "moderate",
+      "difficultyNotes": "This urban corridor remains moderate because CRWC warns that wood, swift current, bridges, and stormwater can change conditions quickly.",
+      "confidenceNotes": "Confidence is good for a consolidated Clinton River corridor because the replaced route cards shared the same Sterling Heights gauge warning model and adjacent water-trail accesses."
     },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official access map',
-        value: 'Downtown Utica to North Clinton River Park via Heritage Park',
-        note: 'The 2024 CRWC water-trail map lists Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River access sites, with about 0.5 mile from Downtown Utica to Heritage Park and 1.7 miles from Heritage Park to North Clinton River Park.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
+        "label": "Planner corridor",
+        "value": "Downtown Utica water-trail access to Budd Park carry-in launch, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://www.crwc.org/recreation/paddling"
       },
       {
-        label: 'Endpoint coordinates',
-        value: '42.625576, -83.037665 to 42.607767, -83.024447',
-        note: 'The CRWC map table gives source coordinates for Downtown Utica, Heritage Park, and North Clinton River Park; Michigan Water Trails also lists Downtown Utica at 42.625570, -83.037640.',
-        sourceUrl: 'https://www.michiganwatertrails.org/location.asp?aid=1893&ait=av',
-      },
-      {
-        label: 'Public launch support',
-        value: 'Water-trail access points',
-        note: 'Michigan Water Trails lists Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River Water Trail assets, and the City of Sterling Heights says North Clinton River Park has a public universally accessible EZDock kayak/canoe launch.',
-        sourceUrl: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
-      },
-      {
-        label: 'Gauge warnings',
-        value: '8.0 ft low warning / 10.0 ft high warning',
-        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
-        sourceUrl: 'https://www.crwc.org/recreation/paddling',
-      },
-      {
-        label: 'Route character',
-        value: 'Short urban water-trail segment',
-        note: 'Macomb County describes downtown Utica to Rotary Park as an accessible moderate paddle where conditions vary; this route uses the upstream portion and exits at North Clinton River Park before the longer Sterling Heights segment.',
-        sourceUrl:
-          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-      },
+        "label": "Gauge model",
+        "value": "Clinton River at Sterling Heights, MI",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'CRWC paddling and gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
+        "label": "CRWC paddling and gauge warnings",
+        "url": "https://www.crwc.org/recreation/paddling",
+        "provider": "local"
       },
       {
-        label: '2024 Clinton River Water Trail map PDF',
-        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-        provider: 'local',
+        "label": "2024 Clinton River Water Trail map PDF",
+        "url": "https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf",
+        "provider": "local"
       },
       {
-        label: 'Michigan Water Trails Downtown Utica',
-        url: 'https://www.michiganwatertrails.org/location.asp?aid=1893&ait=av',
-        provider: 'local',
+        "label": "Michigan Water Trails Downtown Utica",
+        "url": "https://www.michiganwatertrails.org/location.asp?aid=1893&ait=av",
+        "provider": "local"
       },
       {
-        label: 'Michigan Water Trails Clinton River Water Trail',
-        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
-        provider: 'local',
+        "label": "Michigan Water Trails Clinton River Water Trail",
+        "url": "https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242",
+        "provider": "local"
       },
       {
-        label: 'City of Sterling Heights canoe and kayak page',
-        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
-        provider: 'local',
+        "label": "City of Sterling Heights canoe and kayak page",
+        "url": "https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River",
+        "provider": "local"
       },
       {
-        label: 'Macomb County Clinton River overview',
-        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-        provider: 'local',
+        "label": "Macomb County Clinton River overview",
+        "url": "https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river",
+        "provider": "local"
       },
       {
-        label: 'USGS 04161820 Clinton River at Sterling Heights',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-        provider: 'usgs',
+        "label": "USGS 04161820 Clinton River at Sterling Heights",
+        "url": "https://waterdata.usgs.gov/monitoring-location/USGS-04161820/",
+        "provider": "usgs"
       },
+      {
+        "label": "CRWC Clinton River Water Trail guide book",
+        "url": "https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "Outdoor Michigan Clinton River",
+        "url": "https://outdoormichigan.org/feature/7986",
+        "provider": "local"
+      }
     ],
+    "aliases": [
+      "Clinton River - Downtown Utica to Budd Park",
+      "Upper Macomb Clinton River access planner corridor"
+    ],
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [],
+      "reviewStatus": "reviewed",
+      "safetyNotes": [
+        "Use the access planner to choose a short urban section instead of assuming the full corridor fits the day.",
+        "Wood, bridge current, stormwater, and high-water warnings matter throughout this corridor.",
+        "Stay with mapped public water-trail accesses."
+      ]
+    }
   },
-  {
-    id: 'clinton-river-north-clinton-rotary',
-    slug: 'clinton-river-north-clinton-rotary',
-    name: 'Clinton River',
-    reach: 'North Clinton River Park to Rotary Park',
-    state: 'Michigan',
-    region: 'Southeast Michigan',
-    summary:
-      'Sterling Heights urban water-trail run between two city-supported accessible kayak launches. CRWC publishes Clinton River Water Trail access coordinates and a Sterling Heights USGS gauge warning ladder for low and high water.',
-    statusText:
-      'Use the Clinton River at Sterling Heights gauge. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still make a visual check for fast current, wood, and urban stormwater effects.',
-    latitude: 42.607767,
-    longitude: -83.024447,
-    gaugeSource: {
-      id: 'usgs-04161820',
-      provider: 'usgs',
-      siteId: '04161820',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Clinton River at Sterling Heights, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 8,
-      idealMax: 10,
-      tooLow: 8,
-      tooHigh: 10,
-      thresholdSource: {
-        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the main practical paddling season. The Clinton is flashy after rain, and CRWC warns that high water can carry woody debris, create blocked passages, and raise water-quality concerns from sewage overflows.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'This is a short urban water-trail run, but it is not a hands-off lazy float. Macomb County describes the Utica-to-Rotary corridor as a moderate paddle where conditions vary, and CRWC warns that some Clinton River sections can run fast and high with woody debris after rain.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists North Clinton River Park, Dodge Park, and Rotary Park with coordinates, river miles, and access spacing; the City of Sterling Heights confirms public accessible kayak launches at North Clinton River Park and Rotary Park; and CRWC publishes Sterling Heights USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than claiming an ideal recreation band. The main caveat is that the automation shell could not reach USGS Water Services directly during this run, although the official USGS monitoring-location page and CRWC gauge link are stable and product-supported.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official access map',
-        value: 'North Clinton River Park RM 23.2 to Rotary Park RM 17.2',
-        note: 'The 2024 CRWC water-trail map lists North Clinton River Park, Dodge Park, and Rotary Park as Sterling Heights launch sites, with 1.8 miles from North Clinton to Dodge and 4.2 miles from Dodge to Rotary.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.607767, -83.024447 to 42.570595, -82.971459',
-        note: 'The CRWC map table gives source coordinates for North Clinton River Park, Dodge Park, and Rotary Park.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Public launch support',
-        value: 'Accessible launches at both ends',
-        note: 'The City of Sterling Heights says North Clinton River Park and Rotary Park have public universally accessible EZDock kayak/canoe launches, and that Rotary Park parking is free for residents and non-residents.',
-        sourceUrl: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
-      },
-      {
-        label: 'Gauge warnings',
-        value: '8.0 ft low warning / 10.0 ft high warning',
-        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
-        sourceUrl: 'https://www.crwc.org/recreation/paddling',
-      },
-      {
-        label: 'Route character',
-        value: 'Moderate urban water-trail corridor',
-        note: 'Macomb County describes downtown Utica to Rotary Park as an accessible moderate paddle where conditions vary; CRWC warns that high, fast water after rain can move woody debris and create blocked passages.',
-        sourceUrl:
-          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'CRWC paddling and gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      {
-        label: '2024 Clinton River Water Trail map PDF',
-        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'CRWC Clinton River Water Trail guide book',
-        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'City of Sterling Heights canoe and kayak page',
-        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
-        provider: 'local',
-      },
-      {
-        label: 'Macomb County Clinton River overview',
-        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04161820 Clinton River at Sterling Heights',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'clinton-river-rotary-budd',
-    slug: 'clinton-river-rotary-budd',
-    name: 'Clinton River',
-    reach: 'Rotary Park to Budd Park',
-    state: 'Michigan',
-    region: 'Southeast Michigan',
-    summary:
-      'Short lower Clinton River link from the Sterling Heights accessible launch at Rotary Park to Budd Park in Clinton Township. CRWC documents the access pair, mileage, and coordinates, and its Sterling Heights USGS warning ladder gives this urban reach a clear same-day stage check.',
-    statusText:
-      'Use the Clinton River at Sterling Heights gauge. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check for wood, fast current after rain, and urban water-quality advisories.',
-    latitude: 42.570595,
-    longitude: -82.971459,
-    gaugeSource: {
-      id: 'usgs-04161820',
-      provider: 'usgs',
-      siteId: '04161820',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Clinton River at Sterling Heights, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 8,
-      idealMax: 10,
-      tooLow: 8,
-      tooHigh: 10,
-      thresholdSource: {
-        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the practical paddling season. This is below the steeper Rochester and Utica water, but the Clinton still reacts quickly to rain and can carry wood, strainers, and stormwater pollutants through the corridor.',
-      difficulty: 'moderate',
-      difficultyNotes:
-        'The 3.6-mile distance is short and Macomb County describes the broader lower Clinton as more beginner-friendly, but this is still an urban moving-water route. Treat it as a guarded easy-to-moderate trip that needs a same-day gauge, weather, wood, and water-quality check.',
-      confidenceNotes:
-        'Confidence is high for a guarded stage-based add: the 2024 CRWC Clinton River Water Trail map lists Rotary Park and Budd Park with coordinates, river miles, and a 3.6-mile access spacing; Michigan Water Trails lists both as Clinton River Water Trail assets; the City of Sterling Heights confirms Rotary Park as a public universally accessible kayak/canoe launch; Outdoor Michigan lists Budd Park as a Clinton River carry-in; and CRWC publishes USGS 04161820 low/high warning stages. The model intentionally treats 8.0 to 10.0 ft as the usable warning window rather than a polished recreation ideal range.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official access map',
-        value: 'Rotary Park RM 17.2 to Budd Park RM 13.6',
-        note: 'The 2024 CRWC water-trail map lists Rotary Park and Budd Park as Clinton River launch sites, with 3.6 miles from Rotary Park to Budd Park.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.570595, -82.971459 to 42.586506, -82.927598',
-        note: 'The CRWC map table gives source coordinates for Rotary Park and Budd Park.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Public launch support',
-        value: 'Water-trail access points',
-        note: 'Michigan Water Trails lists Rotary Park and Budd Park as Clinton River Water Trail assets, the City of Sterling Heights confirms Rotary Park has a public accessible EZDock launch, and Outdoor Michigan lists Budd Park as a Clinton River carry-in boat launch.',
-        sourceUrl: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
-      },
-      {
-        label: 'Gauge warnings',
-        value: '8.0 ft low warning / 10.0 ft high warning',
-        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft.',
-        sourceUrl: 'https://www.crwc.org/recreation/paddling',
-      },
-      {
-        label: 'Route character',
-        value: 'Short lower Clinton connector',
-        note: 'Macomb County describes the middle river from downtown Utica to Rotary Park as moderate and the lower river around Budd Park to Mount Clemens as the best beginner stretch; this route bridges those areas and keeps urban-river cautions prominent.',
-        sourceUrl:
-          'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'CRWC paddling and gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      {
-        label: '2024 Clinton River Water Trail map PDF',
-        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'Michigan Water Trails Clinton River Water Trail',
-        url: 'https://www.michiganwatertrails.org/trail.asp?ait=cv&cid=242',
-        provider: 'local',
-      },
-      {
-        label: 'City of Sterling Heights canoe and kayak page',
-        url: 'https://www.sterlingheights.gov/1434/Come-Explore-the-Clinton-River',
-        provider: 'local',
-      },
-      {
-        label: 'Outdoor Michigan Clinton River',
-        url: 'https://outdoormichigan.org/feature/7986',
-        provider: 'local',
-      },
-      {
-        label: 'Macomb County Clinton River overview',
-        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/water/clinton-river',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04161820 Clinton River at Sterling Heights',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'clinton-river-budd-shadyside',
-    slug: 'clinton-river-budd-shadyside',
-    name: 'Clinton River',
-    reach: 'Budd Park to Shadyside Park',
-    state: 'Michigan',
-    region: 'Southeast Michigan',
-    summary:
-      'Beginner-oriented lower Clinton River water-trail trip from Budd Park in Clinton Township to Shadyside Park in Mount Clemens. CRWC recommends the route, maps the access points, and publishes a Sterling Heights USGS warning ladder for low and high water.',
-    statusText:
-      'Use the Clinton River at Sterling Heights gauge as CRWC\'s warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still check for wood, fast current after rain, and urban water-quality advisories.',
-    latitude: 42.586506,
-    longitude: -82.927598,
-    gaugeSource: {
-      id: 'usgs-04161820',
-      provider: 'usgs',
-      siteId: '04161820',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Clinton River at Sterling Heights, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 8,
-      idealMax: 10,
-      tooLow: 8,
-      tooHigh: 10,
-      thresholdSource: {
-        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the practical paddling season. This lower section is slower than the Rochester and Utica reaches, but the Clinton is still urban and flashy after rain, with wood, strainers, and stormwater pollutants possible.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'CRWC lists Budd Park to Shadyside Park as a slow/beginner suggested paddling route. Keep the easy rating guarded: this is still a moving urban river where high water, log jams, strainers, and water quality can change the trip quickly.',
-      confidenceNotes:
-        'Confidence is high for a guarded lower-river add: CRWC names Budd Park to Shadyside Park as a slow/beginner suggested route, the 2024 CRWC Clinton River Water Trail map lists Budd Park, George George Park, and Shadyside Park with coordinates and access spacing, Mount Clemens confirms Shadyside Park has a boat and canoe launch, and CRWC publishes USGS 04161820 low/high warning stages. The gauge is treated as a proxy warning gauge because the route is downstream from Sterling Heights; the app does not claim a precise ideal range.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Suggested route',
-        value: 'Budd Park to Shadyside Park, about 2 hr',
-        note: 'CRWC lists Budd Park in Clinton Township to Shadyside Park in Mount Clemens as a slow/beginner suggested paddling route, with an option to continue to MacArthur Park for paddlers who intentionally extend the trip.',
-        sourceUrl: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
-      },
-      {
-        label: 'Access map',
-        value: 'Budd Park RM 13.6 to Shadyside Park RM 9.2',
-        note: 'The 2024 CRWC water-trail map places Budd Park at 13.6 miles from Lake St. Clair, George George Park at 11.0, and Shadyside Park at 9.2, making this about a 4.4-mile lower-river route.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.586506, -82.927598 to 42.582529, -82.880104',
-        note: 'The 2024 CRWC water-trail map table gives coordinates for Budd Park and Shadyside Park, with George George Park as an intermediate access.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Public launch support',
-        value: 'Shadyside boat and canoe launch',
-        note: 'The City of Mount Clemens describes Shadyside Park as a city park on the banks of the Clinton River with fishing facilities and a handicapped-accessible pier with a boat and canoe launch.',
-        sourceUrl: 'https://mountclemens.gov/parks/',
-      },
-      {
-        label: 'Gauge warnings',
-        value: '8.0 ft low warning / 10.0 ft high warning',
-        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft. The app uses this as a conservative proxy warning window for the downstream lower-river route.',
-        sourceUrl: 'https://www.crwc.org/recreation/paddling',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'CRWC paddling and gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      {
-        label: 'CRWC Clinton River Water Trail guide book',
-        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
-        provider: 'local',
-      },
-      {
-        label: '2024 Clinton River Water Trail map PDF',
-        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'City of Mount Clemens parks',
-        url: 'https://mountclemens.gov/parks/',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04161820 Clinton River at Sterling Heights',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
-    id: 'clinton-river-shadyside-macarthur',
-    slug: 'clinton-river-shadyside-macarthur',
-    name: 'Clinton River',
-    reach: 'Shadyside Park to MacArthur Park',
-    state: 'Michigan',
-    region: 'Southeast Michigan',
-    summary:
-      'Short Mount Clemens lower Clinton River water-trail link from Shadyside Park to the Neil Dempsey launch at MacArthur Park. CRWC maps both access points and uses the Sterling Heights USGS gauge for low and high water warnings.',
-    statusText:
-      'Use the Clinton River at Sterling Heights gauge as CRWC\'s warning check. CRWC warns of low water at 8.0 ft and high water at 10.0 ft; between those marks, still inspect wood, weir signage, urban runoff, and the MacArthur landing before launching.',
-    latitude: 42.582529,
-    longitude: -82.880104,
-    gaugeSource: {
-      id: 'usgs-04161820',
-      provider: 'usgs',
-      siteId: '04161820',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Clinton River at Sterling Heights, MI',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 8,
-      idealMax: 10,
-      tooLow: 8,
-      tooHigh: 10,
-      thresholdSource: {
-        label: 'Clinton River Watershed Council Sterling Heights gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'high',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'Spring through fall is the practical paddling season. The lower Clinton is slower near Mount Clemens than the upstream swiftwater reaches, but it still rises quickly after rain and can carry wood, strainers, and stormwater pollutants.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a short beginner-oriented lower-river link, but keep the easy rating guarded. CRWC warns that Clinton River hazards change constantly, and the Mount Clemens map panels flag a weir hazard and mandatory-portage area that should be identified before committing downstream.',
-      confidenceNotes:
-        'Confidence is high for a guarded lower-river add: the 2024 CRWC Clinton River Water Trail map lists Shadyside Park and Neil Dempsey at MacArthur Park with coordinates, river miles, and a 2.0-mile spacing; the CRWC guide says paddlers can continue from Shadyside to MacArthur Park; Mount Clemens confirms both parks have boat/canoe or kayak launch support; Outdoor Michigan lists MacArthur Park / Dempsey as a Mount Clemens-owned carry-in with an ADA kayak launch; and CRWC publishes USGS 04161820 low/high warning stages. The gauge is treated as a proxy warning gauge because this route is downstream from Sterling Heights; the app does not claim a precise ideal range.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Water-trail extension',
-        value: 'Shadyside Park to MacArthur Park, about 45 min',
-        note: 'CRWC lists Budd Park to Shadyside Park as a slow/beginner suggested route and says paddlers can add about 45 minutes by continuing downriver to MacArthur Park in downtown Mount Clemens.',
-        sourceUrl: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
-      },
-      {
-        label: 'Access map',
-        value: 'Shadyside Park RM 9.2 to Neil Dempsey Launch RM 7.2',
-        note: 'The 2024 CRWC water-trail map lists Shadyside Park and Neil Dempsey at MacArthur Park as launch sites, with 2.0 miles from Shadyside to Neil Dempsey.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: '42.582529, -82.880104 to 42.597338, -82.871104',
-        note: 'The 2024 CRWC water-trail map table gives coordinates for Shadyside Park and Neil Dempsey at MacArthur Park.',
-        sourceUrl:
-          'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-      },
-      {
-        label: 'Public launch support',
-        value: 'Mount Clemens park launches',
-        note: 'Mount Clemens describes Shadyside Park as having a boat and canoe launch and MacArthur Park as having a universally accessible kayak launch installed along the Clinton River.',
-        sourceUrl: 'https://mountclemens.gov/parks/',
-      },
-      {
-        label: 'MacArthur launch confirmation',
-        value: 'Mount Clemens-owned ADA carry-in',
-        note: 'Outdoor Michigan lists Clinton River - MacArthur Park / Dempsey Boat Launch as a Mount Clemens-owned carry-in with an ADA kayak launch.',
-        sourceUrl: 'https://outdoormichigan.org/feature/14360',
-      },
-      {
-        label: 'Gauge warnings',
-        value: '8.0 ft low warning / 10.0 ft high warning',
-        note: 'CRWC bases water-level warnings on the USGS Sterling Heights gauge and publishes a low-water warning at 8 ft and high-water warning at 10 ft. The app uses this as a conservative proxy warning window for this downstream lower-river route.',
-        sourceUrl: 'https://www.crwc.org/recreation/paddling',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'CRWC paddling and gauge warnings',
-        url: 'https://www.crwc.org/recreation/paddling',
-        provider: 'local',
-      },
-      {
-        label: 'CRWC Clinton River Water Trail guide book',
-        url: 'https://www.crwc.org/s/Clinton_Paddling_Guide_Final-2.pdf',
-        provider: 'local',
-      },
-      {
-        label: '2024 Clinton River Water Trail map PDF',
-        url: 'https://static1.squarespace.com/static/64525a62c1226a7b4e5e5281/t/6645fc9f9ba06909adb2c097/1729861989526/2024%2BClinton%2BRiver%2BWatertrail%2BMap.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'City of Mount Clemens parks',
-        url: 'https://mountclemens.gov/parks/',
-        provider: 'local',
-      },
-      {
-        label: 'Outdoor Michigan MacArthur Park launch',
-        url: 'https://outdoormichigan.org/feature/14360',
-        provider: 'local',
-      },
-      {
-        label: 'Macomb County Main Branch Clinton River',
-        url: 'https://www.macombgov.org/make-macomb-your-home/outdoor-activities/trail-network/water-trails/main-branch-clinton-river',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 04161820 Clinton River at Sterling Heights',
-        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-04161820/',
-        provider: 'usgs',
-      },
-    ],
-  },
-  {
+    {
     id: 'clinton-river-macarthur-harley-ensign',
     slug: 'clinton-river-macarthur-harley-ensign',
     name: 'Clinton River',
@@ -32549,2979 +31487,642 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: 'susquehanna-river-canal-park-pfbc-union-township',
-    slug: 'susquehanna-river-canal-park-pfbc-union-township',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Canal Park to PFBC Union Township',
-    aliases: [
-      'North Branch Susquehanna - Canal Park to Union Township',
-      'Susquehanna River - Canal Park to PFBC Union Township',
-      'North Branch Section 3 upper Nanticoke-to-Shickshinny link',
+    "id": "susquehanna-river-sayre-towanda",
+    "slug": "susquehanna-river-sayre-towanda",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Sayre to Towanda",
+    "aliases": [
+      "North Branch Susquehanna - Sayre to Towanda",
+      "Susquehanna River - Sayre PFBC to Towanda Riverfront",
+      "North Branch Section 1 upper access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Shorter North Branch Susquehanna link from Canal Park in West Nanticoke to the PFBC Union Township ramp. The official PFBC Section 3 guide publishes both access coordinates, uses Wilkes-Barre stage guidance for this corridor, and flags a long class I-II rapid just downstream of the Nanticoke bridge inside the route.',
-    statusText:
-      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
-    latitude: 41.22,
-    longitude: -76.018611,
-    gaugeSource: {
-      id: 'usgs-01536500',
-      provider: 'usgs',
-      siteId: '01536500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Wilkes-Barre, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Upper North Branch Susquehanna corridor from the Sayre PFBC access to Towanda Riverfront Park. Use the access planner for shorter trips through Ulster and Hornbrook; the direct Towanda gauge keeps the corridor on one conservative same-day read.",
+    "statusText": "Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.",
+    "latitude": 41.988333,
+    "longitude": -76.611667,
+    "gaugeSource": {
+      "id": "usgs-01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
     },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge inside this route.',
-        'The broad river can still feel pushy in wind or after storms even when the route reads as an easy public-access day float.',
-        'Stay with the planned Union Township finish and do not improvise on private banks or islands between the named accesses.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this North Branch corridor often remains paddleable through summer low-water periods, but thunderstorms, valley wind, and flooded treelines can still change the day quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a short public-access big-river day when Wilkes-Barre stays in the conservative band, but the mile-180 rapid, wind, and same-day landing conditions still require normal river judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact coordinates for Canal Park and PFBC Union Township, defines them as a clean 6-mile access pair, and flags the route-specific rapid that matters most. The threshold model is direct and official because PFBC writes the low-water floor, safe-base level, and novice ceiling around Wilkes-Barre/Towanda base levels for this section. USGS Water Services returned same-day June 23, 2026 values of 4,070 cfs and 1.28 ft for direct USGS 01536500 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Canal Park to PFBC Union Township, about 6 mi',
-        note: 'The PFBC North Branch Section 3 guide places Canal Park at river mile 180 and PFBC Union Township at river mile 174.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 3 access table publishes Canal Park at 41 13 12 / -76 01 07 and PFBC Union Township at 41 10 40 / -76 06 41.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01536500 at Wilkes-Barre',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,070 cfs and 1.28 ft for Susquehanna River at Wilkes-Barre, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Wilkes-Barre -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda and Wilkes-Barre as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda or Wilkes-Barre is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Long class I-II rapid below the Nanticoke bridge',
-        note: 'The PFBC Section 3 caution list flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge at mile 180.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01536500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-pfbc-union-township-wetlands',
-    slug: 'susquehanna-river-pfbc-union-township-wetlands',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Union Township to Wetlands Nature Area',
-    aliases: [
-      'North Branch Susquehanna - Union Township to Wetlands',
-      'Susquehanna River - PFBC Union Township to Wetlands Nature Area',
-      'North Branch Section 3 mid-corridor nature-area day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Eight-mile North Branch Susquehanna day from the PFBC Union Township ramp to the Wetlands Nature Area access. The official PFBC Section 3 guide publishes both access coordinates and uses the Wilkes-Barre gauge for same-section planning on this quieter central Harding-to-Berwick corridor.',
-    statusText:
-      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
-    latitude: 41.177778,
-    longitude: -76.111389,
-    gaugeSource: {
-      id: 'usgs-01536500',
-      provider: 'usgs',
-      siteId: '01536500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Wilkes-Barre, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch in this corridor often stays paddleable in summer low-water periods, but valley wind, thunderstorms, and floating wood still change the feel of the day quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a straightforward public-access big-river float when Wilkes-Barre stays in the conservative band, though the eight-mile length and fewer mid-route exit options make it more than a casual park paddle.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact coordinates for PFBC Union Township and Wetlands Nature Area, defines them as an 8-mile official access pair, and applies the same low-water and novice-high-water guidance used across the section. USGS Water Services returned same-day June 23, 2026 values of 4,070 cfs and 1.28 ft for direct USGS 01536500 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'PFBC Union Township to Wetlands Nature Area, about 8 mi',
-        note: 'The PFBC North Branch Section 3 guide places PFBC Union Township at river mile 174 and Wetlands Nature Area at river mile 166.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 3 access table publishes PFBC Union Township at 41 10 40 / -76 06 41 and Wetlands Nature Area at 41 05 22 / -76 07 21.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01536500 at Wilkes-Barre',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,070 cfs and 1.28 ft for Susquehanna River at Wilkes-Barre, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Wilkes-Barre -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda and Wilkes-Barre as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda or Wilkes-Barre is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Public nature-area finish',
-        value: 'Wetlands Nature Area access',
-        note: 'PFBC lists Wetlands Nature Area as a primitive river-right access at mile 166, reached from Hicks Ferry Road at the signed nature-area entrance.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01536500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-canal-park-wetlands',
-    slug: 'susquehanna-river-canal-park-wetlands',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Canal Park to Wetlands Nature Area',
-    aliases: [
-      'North Branch Susquehanna - Canal Park to Wetlands',
-      'Susquehanna River - Canal Park to Wetlands Nature Area',
-      'North Branch Section 3 full upper corridor day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Longer North Branch Susquehanna day from Canal Park in West Nanticoke to Wetlands Nature Area. The official PFBC Section 3 guide publishes both access coordinates, uses Wilkes-Barre stage guidance for the corridor, and makes the mile-180 rapid below the Nanticoke bridge the clearest route-specific hazard.',
-    statusText:
-      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
-    latitude: 41.154722,
-    longitude: -76.070556,
-    gaugeSource: {
-      id: 'usgs-01536500',
-      provider: 'usgs',
-      siteId: '01536500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Wilkes-Barre, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags a long class I-II rapid on river right about one-half mile below the Nanticoke bridge early in this route.',
-        'Once you leave Canal Park, this becomes a committed exposed-river day with headwind, floating wood, and fewer obvious public exits than the first miles suggest.',
-        'Stay with the planned Wetlands Nature Area finish and do not improvise on private banks or islands between the named accesses.',
+      "safetyNotes": [
+        "PFBC flags repeated fast riffle zones through the Section 1 corridor, including the Tioga Point, Towanda, and lower Bradford County miles.",
+        "Use the access planner to match the day length to the group; Sayre to Towanda is a long day and the shorter Ulster or Hornbrook pairings are more casual.",
+        "Stay with named public accesses, campgrounds, or official stopping points. Do not treat islands, bars, or private banks as backup exits."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 1 Towanda stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch often stays paddleable in lower-water periods, but thunderstorms, valley wind, and floating wood still change the same-day feel quickly on this longer Section 3 run.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is still an easier broad-river float with named public accesses, but the 14-mile length, exposed headwind risk, and early rapid make it a real day rather than a casual park paddle.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact Canal Park and Wetlands Nature Area coordinates, defines the corridor with official river miles, and writes the section guidance around the direct Wilkes-Barre stage gauge. USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for direct USGS 01536500 during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Canal Park to Wetlands Nature Area, about 14 mi',
-        note: 'The PFBC North Branch Section 3 guide places Canal Park at river mile 180 and Wetlands Nature Area at river mile 166.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 3 access table publishes Canal Park at 41 13 12 / -76 01 07 and Wetlands Nature Area at 41 05 22 / -76 07 21.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01536500 at Wilkes-Barre',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for Susquehanna River at Wilkes-Barre, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Wilkes-Barre about 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can still be paddled as low as about -0.5 ft at Wilkes-Barre, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off above about 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Mile-180 rapid below the Nanticoke bridge',
-        note: 'The PFBC Section 3 caution list flags a long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01536500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-pfbc-union-township-test-track',
-    slug: 'susquehanna-river-pfbc-union-township-test-track',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Union Township to Test Track Park',
-    aliases: [
-      'North Branch Susquehanna - Union Township to Test Track',
-      'Susquehanna River - PFBC Union Township to Test Track Park',
-      'North Branch Section 3 full central corridor day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Long North Branch Susquehanna day from the PFBC Union Township ramp to Test Track Park. The official PFBC Section 3 guide publishes both access coordinates, treats Towanda, Wilkes-Barre, and Bloomsburg as comparable base-level gauges for the corridor, and flags the Berwick bridge ledge warning plus the upper-section Nanticoke rapid family that matter on a full-section run.',
-    statusText:
-      'Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.',
-    latitude: 41.108889,
-    longitude: -76.18625,
-    gaugeSource: {
-      id: 'usgs-01536500',
-      provider: 'usgs',
-      siteId: '01536500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Wilkes-Barre, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags the mile-180 class I-II rapid below the Nanticoke bridge early in the route and the exposed ledge before the Berwick-Nescopeck bridge when lower-section water is thin.',
-        'This is a long exposed mainstem day. Headwind, thunderstorms, floating wood, and cumulative fatigue can matter as much as the gauge number.',
-        'Test Track Park is the intended finish. Do not improvise on private banks or drift into the next downstream section without a separate plan.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: 'reviewed',
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full Sayre-to-Towanda corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated upper Section 1 corridor: PFBC publishes the Sayre, Ulster, Hornbrook, and Towanda access chain, coordinates, caution miles, and Towanda stage guidance, and V2 uses the direct Towanda gauge for the corridor."
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this North Branch corridor often stays paddleable through lower-water periods, but valley wind, thunderstorms, and floating wood still change the same-day feel quickly on a full-section run.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This remains an easier broad-river route in the conservative band, but the 16-mile length and full-section exposure make it a real day rather than a casual point-to-point drift.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact PFBC Union Township and Test Track Park coordinates, defines the corridor with official river miles, and writes the section guidance around Wilkes-Barre while noting Towanda and Bloomsburg are comparable base-level references. USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for direct USGS 01536500 during this run.',
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'PFBC Union Township to Test Track Park, about 16 mi',
-        note: 'The PFBC North Branch Section 3 guide places PFBC Union Township at river mile 174 and Test Track Park at river mile 158.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        "label": "Official corridor",
+        "value": "Sayre to Towanda, with intermediate public access choices",
+        "note": "PFBC Section 1 and the North Branch guide family publish the Sayre, Ulster, Hornbrook, and Towanda access sequence.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 3 access table publishes PFBC Union Township at 41 10 40 / -76 06 41 and Test Track Park at 41 02 24 / -76 15 40.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
+        "label": "Direct gauge",
+        "value": "USGS 01531500 at Towanda",
+        "note": "The Towanda gauge is the direct product-supported reference for the Section 1 corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
       },
       {
-        label: 'Direct gauge',
-        value: 'USGS 01536500 at Wilkes-Barre',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,130 cfs and 1.31 ft for Susquehanna River at Wilkes-Barre, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Wilkes-Barre about 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can still be paddled as low as about -0.5 ft at Wilkes-Barre, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off above about 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Mile-180 rapid and Berwick bridge ledge below 2 ft',
-        note: 'The PFBC Section 3 caution list flags the Nanticoke-bridge rapid near mile 180 and warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when lower-section water is thin.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping upper Section 1 route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
+        "label": "PFBC North Branch Susquehanna Section 1",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
       },
       {
-        label: 'USGS 01536500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01536500/',
-        provider: 'usgs',
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
       },
       {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
-    id: 'susquehanna-river-wetlands-test-track',
-    slug: 'susquehanna-river-wetlands-test-track',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Wetlands Nature Area to Test Track Park',
-    aliases: [
-      'North Branch Susquehanna - Wetlands to Test Track',
-      'Susquehanna River - Wetlands Nature Area to Test Track Park',
-      'North Branch Section 3 lower Harding-to-Berwick day trip',
+    "id": "susquehanna-river-towanda-laceyville",
+    "slug": "susquehanna-river-towanda-laceyville",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Towanda to Laceyville",
+    "aliases": [
+      "North Branch Susquehanna - Towanda to Laceyville",
+      "Susquehanna River - Towanda Riverfront to Laceyville Borough",
+      "North Branch Section 1 lower access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Eight-mile lower Harding-to-Berwick Susquehanna day from Wetlands Nature Area to Test Track Park. The official PFBC Section 3 guide publishes both access coordinates, ties the lower-route ledge warning to the Bloomsburg gauge, and keeps the route in the broad-audience big-river bucket when stages stay under the novice ceiling.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg gauge. PFBC uses about 2 ft as the safe-base planning level for this section, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Bloomsburg is over about 6 ft.',
-    latitude: 41.089444,
-    longitude: -76.1225,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Lower Section 1 North Branch Susquehanna corridor from Towanda Riverfront Park to Laceyville Borough. Use the access planner for shorter trips through Wysox and Terrytown; the direct Towanda gauge keeps the corridor on one conservative same-day read.",
+    "statusText": "Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.",
+    "latitude": 41.768611,
+    "longitude": -76.438611,
+    "gaugeSource": {
+      "id": "usgs-01531500",
+      "provider": "usgs",
+      "siteId": "01531500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Towanda, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
     },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'The broad lower corridor still reacts to headwind, thunderstorms, and floating wood even when the route reads as an easier mainstem day.',
-        'Stay with the planned Test Track Park finish and do not improvise on private banks or drift into the next downstream section without a separate plan.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 3 stage guidance and Bloomsburg ledge warning',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this broad North Branch section usually stays paddleable through lower-water periods, but thunderstorms, valley wind, and flooded treelines still change the same-day feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is still an easier North Branch float with named public accesses, but the low-water ledge, wind exposure, and long-bank private-property context keep it above a casual flatwater drift.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes exact coordinates for Wetlands Nature Area and Test Track Park, defines them as an 8-mile official access pair, and flags the low-water ledge near Berwick that matters most for this route. The guide also says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level for section planning. USGS Water Services returned same-day June 23, 2026 values of 4,350 cfs and 1.69 ft for direct USGS 01538700 at Bloomsburg during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Wetlands Nature Area to Test Track Park, about 8 mi',
-        note: 'The PFBC North Branch Section 3 guide places Wetlands Nature Area at river mile 166 and Test Track Park at river mile 158.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 3 access table publishes Wetlands Nature Area at 41 05 22 / -76 07 21 and Test Track Park at 41 02 24 / -76 15 40.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,350 cfs and 1.69 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Bloomsburg about 2 ft safe base, 6 ft novice ceiling',
-        note: 'PFBC says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level in this section, uses about 2 ft as the safe paddle base level, and says novice paddlers should stay off when Bloomsburg is over 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Berwick-Nescopeck bridge ledge below 2 ft at Bloomsburg',
-        note: 'The PFBC Section 3 caution list warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-wetlands-bloomsburg',
-    slug: 'susquehanna-river-wetlands-bloomsburg',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Wetlands Nature Area to PFBC Bloomsburg',
-    aliases: [
-      'North Branch Susquehanna - Wetlands to Bloomsburg',
-      'Susquehanna River - Wetlands Nature Area to Bloomsburg',
-      'North Branch Section 3 to 4 lower full day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Long lower Wyoming Valley to Bloomsburg Susquehanna day from Wetlands Nature Area to the PFBC Bloomsburg ramp. The official PFBC Section 3 and Section 4 guides publish both access coordinates, and the direct Bloomsburg gauge keeps the lower-corridor ledge warning and same-day planning on one product-supported stage source.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official lower-corridor guidance says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 41.043194,
-    longitude: -76.277361,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'This is a long exposed mainstem day. Headwind, thunderstorms, floating wood, and fatigue can matter more than the easy rating suggests.',
-        'The PFBC Bloomsburg ramp is the intended finish. Stay with the named public take-out and do not improvise on private banks or islands late in the run.',
+      "safetyNotes": [
+        "PFBC flags repeated fast riffle zones through the Section 1 corridor, including lower Bradford County miles.",
+        "Use the access planner to match the day length to the group; Towanda to Laceyville is a long day and the Wysox or Terrytown pairings can shorten it.",
+        "Stay with named public accesses, campgrounds, or official stopping points. Do not treat islands, bars, or private banks as backup exits."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 Bloomsburg stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 1 Towanda stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower North Branch often stays paddleable through warm-season low water, but valley wind, thunderstorms, and flooded treelines still change the same-day feel quickly on a long route.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This remains an easier broad-river route in the conservative band, but the 17-mile length, long exposed mileage, and low-water ledge warning make it a real full-day commitment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 3 guide publishes the Wetlands Nature Area coordinates, the PFBC Section 4 guide publishes the PFBC Bloomsburg coordinates, and both guides align on the same lower-corridor access sequence. The direct Bloomsburg gauge gives the route one product-supported stage reference, including the mile-specific ledge warning near Berwick. USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for direct USGS 01538700 during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Wetlands Nature Area to PFBC Bloomsburg, about 17 mi',
-        note: 'The PFBC North Branch Section 3 and Section 4 guides place Wetlands Nature Area at river mile 166 and PFBC Bloomsburg at river mile 149.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC guides publish Wetlands Nature Area at 41 05 22 / -76 07 21 and PFBC Bloomsburg at 40 59 49 / -76 25 56.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Berwick bridge ledge below 2 ft at Bloomsburg',
-        note: 'The PFBC lower-corridor caution list warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 3',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-test-track-bloomsburg',
-    slug: 'susquehanna-river-test-track-bloomsburg',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Test Track Park to PFBC Bloomsburg',
-    aliases: [
-      'North Branch Susquehanna - Test Track to Bloomsburg',
-      'Susquehanna River - Berwick to Bloomsburg',
-      'North Branch Section 4 upper day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Broad North Branch Susquehanna day from Berwick-area Test Track Park to the PFBC Bloomsburg ramp. The official Section 4 water-trail guide gives exact access coordinates, uses the Bloomsburg gauge for same-day planning, and notes a low-water ledge near Berwick when the gauge is under 2 ft.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 41.018472,
-    longitude: -76.346667,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The broad North Branch usually stays paddleable longer than smaller Pennsylvania streams, but thunderstorms, upstream releases, and wind still change current and shoreline conditions quickly. Summer low water is often manageable here, while flooded treelines or major headwinds should turn the day into a no-go.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a straightforward big-river day with paved or improved public access at both ends, but wide-channel wind, low-water ledges, and river miles that feel longer when current stalls still require prepared same-day judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes the exact Test Track Park and Bloomsburg access coordinates, uses the Bloomsburg gauge as its planning reference for the section, and flags the low-water ledge near the Berwick bridge. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for USGS 01538700 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Test Track Park to Bloomsburg, about 9 mi',
-        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and the PFBC Bloomsburg ramp at river mile 149.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The same PFBC Section 4 guide publishes Test Track Park at 41 02 24 / -76 15 40 and PFBC Bloomsburg at 40 59 49 / -76 25 56.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700',
-        note: 'USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Berwick bridge ledge below 2 ft',
-        note: 'The PFBC guide warns that about 0.5 mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'PFBC North Branch Susquehanna Section 3 cautions',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-bloomsburg-indian-head',
-    slug: 'susquehanna-river-bloomsburg-indian-head',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Bloomsburg to Indian Head Campground',
-    aliases: [
-      'North Branch Susquehanna - Bloomsburg to Indian Head',
-      'Susquehanna River - Bloomsburg Town Park to Indian Head',
-      'North Branch Section 4 short campground segment',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Short North Branch Susquehanna link from the PFBC Bloomsburg ramp to Indian Head Campground. The official Section 4 guide gives exact access coordinates, uses the Bloomsburg gauge for the same reach, and the campground take-out adds a conservative endpoint camping option.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, around 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 40.985972,
-    longitude: -76.450833,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This short town-to-campground link usually stays usable through much of the warm season, but thunderstorms, upstream rainfall, and broad-river wind can still change current and landing conditions quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is one of the shorter North Branch options in the corridor, with public or customary access at both ends. The main difficulty comes from current big-river judgment rather than technical rapids.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes both access coordinates, uses the Bloomsburg stage gauge for section planning, and Indian Head Campground appears in the same official access table as a primitive-to-surfaced ramp take-out. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for USGS 01538700 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Bloomsburg to Indian Head, about 3 mi',
-        note: 'The PFBC North Branch Section 4 guide places PFBC Bloomsburg at river mile 149 and Indian Head Campground at river mile 146.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC guide publishes PFBC Bloomsburg at 40 59 49 / -76 25 56 and Indian Head Campground at 40 58 30 / -76 28 10.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700',
-        note: 'USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Campground endpoint',
-        value: 'Indian Head Campground access',
-        note: 'The PFBC Section 4 access table lists Indian Head Campground as a primitive-to-surfaced ramp with route directions and marks it on river right at mile 146.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-      {
-        label: 'Indian Head Campground access context',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-test-track-indian-head',
-    slug: 'susquehanna-river-test-track-indian-head',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Test Track Park to Indian Head Campground',
-    aliases: [
-      'North Branch Susquehanna - Test Track to Indian Head',
-      'Susquehanna River - Test Track Park to Indian Head Campground',
-      'North Branch Section 4 full upper campground day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Longer North Branch Susquehanna day from Test Track Park to Indian Head Campground. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for same-day planning, and keeps the exposed Berwick ledge warning visible when the gauge is below 2 ft.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 41.0075,
-    longitude: -76.365278,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'This longer open-water corridor can feel slower and more exposed than the map suggests once wind, thunderstorms, or broad-river current stack up.',
-        'Indian Head is the intended finish. Respect campground rules and do not improvise on private banks or side landings near the lower miles.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: 'reviewed',
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full Towanda-to-Laceyville corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated lower Section 1 corridor: PFBC publishes the Towanda, Wysox, Terrytown, and Laceyville access chain, coordinates, caution miles, and Towanda stage guidance, and V2 uses the direct Towanda gauge for the corridor."
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this broad North Branch corridor often stays paddleable through lower-water periods, but headwind, thunderstorms, and floating wood still change the same-day feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is an easier mainstem Susquehanna route when Bloomsburg sits in the conservative band, but the 12-mile length, low-water ledge, and campground-finish discipline make it more than a casual short float.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Test Track Park and Indian Head Campground, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for direct USGS 01538700 during this run.',
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'Test Track Park to Indian Head Campground, about 12 mi',
-        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and Indian Head Campground at river mile 146.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        "label": "Official corridor",
+        "value": "Towanda to Laceyville, with intermediate public access choices",
+        "note": "PFBC Section 1 and the North Branch guide family publish the Towanda, Wysox, Terrytown, and Laceyville access sequence.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 4 access table publishes Test Track Park at 41 02 24 / -76 15 40 and Indian Head Campground at 40 58 30 / -76 28 10.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
+        "label": "Direct gauge",
+        "value": "USGS 01531500 at Towanda",
+        "note": "The Towanda gauge is the direct product-supported reference for the Section 1 corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01531500/"
       },
       {
-        label: 'Direct gauge',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Berwick bridge ledge below 2 ft at Bloomsburg',
-        note: 'The PFBC Section 4 caution list warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping lower Section 1 route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
+        "label": "PFBC North Branch Susquehanna Section 1",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf",
+        "provider": "local"
       },
       {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
       },
       {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
-    id: 'susquehanna-river-bloomsburg-danville',
-    slug: 'susquehanna-river-bloomsburg-danville',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Bloomsburg to PFBC Danville',
-    aliases: [
-      'North Branch Susquehanna - Bloomsburg to Danville',
-      'Susquehanna River - PFBC Bloomsburg to PFBC Danville',
-      'North Branch Section 4 lower full day trip',
+    "id": "susquehanna-river-laceyville-west-falls",
+    "slug": "susquehanna-river-laceyville-west-falls",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Laceyville to West Falls",
+    "aliases": [
+      "North Branch Susquehanna - Laceyville to West Falls",
+      "Susquehanna River - Laceyville Borough to PFBC West Falls",
+      "North Branch Section 2 access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Lower North Branch Susquehanna day from the PFBC Bloomsburg ramp to the PFBC Danville ramp. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for same-day planning, and keeps the river in the easier big-water bucket when levels stay under the novice ceiling.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 40.970278,
-    longitude: -76.515972,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Wyoming County North Branch Susquehanna corridor from Laceyville Borough to PFBC West Falls. Use the access planner for shorter trips through Meshoppen, Tunkhannock, and White's Ferry; the Meshoppen gauge is the section reference with a published stage relationship to the other North Branch gauges.",
+    "statusText": "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the easier planning window, with novice no-go water around 12 ft and up.",
+    "latitude": 41.648889,
+    "longitude": -76.161111,
+    "gaugeSource": {
+      "id": "usgs-01533400",
+      "provider": "usgs",
+      "siteId": "01533400",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Susquehanna River at Meshoppen, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01533400/"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this lower North Branch corridor often stays paddleable through lower-water periods, but broad-river wind, thunderstorms, and flooded treelines still change the same-day feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is an easier mainstem Susquehanna route in the conservative band, but the 11-mile length, long open-water stretches, and private-bank context make it more than a casual short float.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for PFBC Bloomsburg and PFBC Danville, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft at Bloomsburg during this run, and downstream Danville USGS 01540500 corroborated the corridor at 4,480 cfs and 3.22 ft.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'PFBC Bloomsburg to PFBC Danville, about 11 mi',
-        note: 'The PFBC North Branch Section 4 guide places PFBC Bloomsburg at river mile 149 and PFBC Danville at river mile 138.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 4 access table publishes PFBC Bloomsburg at 40 59 49 / -76 25 56 and PFBC Danville at 40 56 37 / -76 35 59.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,250 cfs and 1.65 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Downstream corroboration',
-        value: 'USGS 01540500 at Danville',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA, supporting the same-day lower-corridor flow story.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-test-track-danville',
-    slug: 'susquehanna-river-test-track-danville',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Test Track Park to PFBC Danville',
-    aliases: [
-      'North Branch Susquehanna - Test Track to Danville',
-      'Susquehanna River - Test Track Park to PFBC Danville',
-      'North Branch Section 4 full lower day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Long lower North Branch Susquehanna day from Test Track Park to the PFBC Danville ramp. The official Section 4 guide publishes both access coordinates, uses the Bloomsburg gauge for the same corridor, and Indian Head Campground gives this longer route one clear legal overnight-support option if you want to split it.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 40.991806,
-    longitude: -76.430417,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC warns that about one-half mile before the Berwick-Nescopeck bridge the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'This is a long exposed mainstem day. Headwind, thunderstorms, floating wood, and simple fatigue can matter more than the easy rating suggests.',
-        'Danville is the intended finish. Do not improvise on private banks or drift below the public ramp late in the day because the miles feel longer than the map suggests.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The broad North Branch usually stays paddleable through warm-season low water, but big-river wind, thunderstorms, and flooded treelines still change the same-day feel quickly on a 20-mile route.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is still an easier mainstem Susquehanna route in the conservative band, but the 20-mile length, low-water ledge, and full-day exposure make it materially more committed than the shorter adjacent slugs.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Test Track Park and PFBC Danville, defines the corridor with official river miles, and uses the direct Bloomsburg stage gauge for same-day planning. USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft at Bloomsburg during this run, and downstream Danville USGS 01540500 corroborated the lower corridor at 4,480 cfs and 3.22 ft.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Test Track Park to PFBC Danville, about 20 mi',
-        note: 'The PFBC North Branch Section 4 guide places Test Track Park at river mile 158 and PFBC Danville at river mile 138.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 4 access table publishes Test Track Park at 41 02 24 / -76 15 40 and PFBC Danville at 40 56 37 / -76 35 59.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,220 cfs and 1.64 ft for Susquehanna River at Bloomsburg, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Bloomsburg 1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says the river can be paddled as low as 1 ft at Bloomsburg, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Downstream corroboration',
-        value: 'USGS 01540500 at Danville',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA, supporting the same-day lower-corridor flow story.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-indian-head-danville',
-    slug: 'susquehanna-river-indian-head-danville',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Indian Head Campground to PFBC Danville',
-    aliases: [
-      'North Branch Susquehanna - Indian Head to Danville',
-      'Susquehanna River - Indian Head Campground to Danville',
-      'North Branch Section 4 mid-day float',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Broad North Branch Susquehanna day from Indian Head Campground to the PFBC Danville ramp. The official Section 4 guide gives exact access coordinates, treats the Bloomsburg gauge as the planning reference for this corridor, and keeps the route in the easier lower-wind family when levels stay under the novice ceiling.',
-    statusText:
-      'Use the Susquehanna River at Bloomsburg gauge as the published same-section proxy for this downstream Danville segment. The official guide says the river can be paddled as low as 1 ft at Bloomsburg, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.',
-    latitude: 40.959306,
-    longitude: -76.534583,
-    gaugeSource: {
-      id: 'usgs-01538700',
-      provider: 'usgs',
-      siteId: '01538700',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Susquehanna River at Bloomsburg, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 1,
-      idealMax: 4,
-      tooLow: 1,
-      tooHigh: 6,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 4 gauge guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The North Branch often stays runnable even in drier warm-season periods, but broad-river wind, thunderstorm runoff, and flooded treelines can quickly change the feel of this longer downstream segment.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is still an easier mainstem Susquehanna float with standard public-access infrastructure, but the route is long enough that headwinds, weather shifts, and tired groups can turn it into a bigger day than the flat profile suggests.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 4 guide publishes exact coordinates for Indian Head Campground and the PFBC Danville ramp, lists both in the same Berwick-to-Sunbury access table, and uses the Bloomsburg gauge as the published planning reference for the section. Confidence is intentionally tempered because the selected gauge sits three river miles upstream of the put-in, so this route uses it as a same-section official proxy rather than an exact on-route gauge. USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft for the Bloomsburg gauge during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Indian Head to Danville, about 8 mi',
-        note: 'The PFBC North Branch Section 4 guide places Indian Head Campground at river mile 146 and the PFBC Danville ramp at river mile 138.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC guide publishes Indian Head Campground at 40 58 30 / -76 28 10 and PFBC Danville at 40 56 37 / -76 35 59.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Official section gauge proxy',
-        value: 'USGS 01538700 at Bloomsburg',
-        note: 'The PFBC Section 4 guide uses Bloomsburg as the stage reference for this corridor, and USGS Water Services returned same-day June 22, 2026 values of 4,370 cfs and 1.70 ft.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: '1 / 1-4 / 4-5 / 6 ft novice ceiling',
-        note: 'The PFBC guide says Bloomsburg levels as low as 1 ft can still be paddled, 2 to 4 ft moves faster, and novice paddlers should stay off when Bloomsburg rises above 6 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-      {
-        label: 'Downstream take-out access',
-        value: 'PFBC Danville surfaced ramp',
-        note: 'The PFBC Section 4 access table lists PFBC Danville as a surfaced ramp on river right with road directions from Walnut Street and River Drive.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 4',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01538700 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01538700/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-pfbc-danville-wrays',
-    slug: 'susquehanna-river-pfbc-danville-wrays',
-    name: 'Susquehanna River',
-    reach: "North Branch: PFBC Danville to Wray's Riverfront Campground",
-    aliases: [
-      "North Branch Susquehanna - Danville to Wray's",
-      "Susquehanna River - PFBC Danville to Wray's Riverfront Campground",
-      'North Branch Section 14 short campground link',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      "Short North Branch Susquehanna campground link from the PFBC Danville ramp to Wray's Riverfront Campground. The current 2021 North Branch guide publishes both access coordinates, ties this lower corridor to the Danville gauge, and keeps the route in the broad-audience big-river bucket when stages stay under the novice ceiling.",
-    statusText:
-      'Use the Susquehanna River at Danville gauge. The current guide says about 2 ft is the lower limit, around 4 ft is the better planning level, and novice paddlers should stay off when Danville rises above about 7 ft.',
-    latitude: 40.948317,
-    longitude: -76.631473,
-    gaugeSource: {
-      id: 'usgs-01540500',
-      provider: 'usgs',
-      siteId: '01540500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Danville, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: '2021 North Branch Susquehanna guide Danville stage guidance',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Danville corridor usually stays paddleable through much of the warm season, but big-river headwind, thunderstorms, and faster post-rain current still change the day quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        "This is a short and comparatively forgiving Susquehanna link with straightforward named accesses, but it is still a mainstem river with wind, current, and private-bank judgment rather than flatwater certainty.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the current 2021 North Branch guide publishes exact coordinates for PFBC Danville and Wray's Riverfront Campground, lists Danville gauge thresholds for Section 14, and shows the campground as a named downstream access in the same official access table. USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for direct USGS 01540500 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: "PFBC Danville to Wray's, about 4 mi",
-        note: "The current 2021 North Branch guide places PFBC Danville at river mile 137.9 and Wray's Riverfront Campground at river mile 133.6.",
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'Guide access-table coordinates',
-        note: "The same guide publishes PFBC Danville at 40.943490, -76.598507 and Wray's Riverfront Campground at 40.953143, -76.664439.",
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01540500 at Danville',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Danville 2 / 4 / 7 ft',
-        note: 'The current guide lists Section 13-14 paddling guidance at Danville with a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Campground endpoint',
-        value: "Wray's Riverfront Campground access",
-        note: "The current guide lists Wray's as a paved private campground access with parking, restroom, camping, water, and food support on river right.",
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'North Branch Susquehanna River Water Trail',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-wrays-shikellamy-west',
-    slug: 'susquehanna-river-wrays-shikellamy-west',
-    name: 'Susquehanna River',
-    reach: "North Branch: Wray's Riverfront Campground to Shikellamy State Park West",
-    aliases: [
-      "North Branch Susquehanna - Wray's to Shikellamy West",
-      "Susquehanna River - Wray's Riverfront Campground to Shikellamy State Park West",
-      'North Branch Section 14 lower day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      "Lower North Branch Susquehanna day from Wray's Riverfront Campground to Shikellamy State Park West. The current 2021 North Branch guide publishes both access coordinates, uses the Danville gauge for this Section 14 corridor, and makes the Lake Augusta powerboat zone plus the downstream Sunbury Fabridam the main same-day judgment points.",
-    statusText:
-      'Use the Susquehanna River at Danville gauge as the published same-section proxy for this lower corridor. The current guide lists 2 ft as the lower limit, about 4 ft as the better planning level, and about 7 ft as the novice ceiling.',
-    latitude: 40.918275,
-    longitude: -76.728474,
-    gaugeSource: {
-      id: 'usgs-01540500',
-      provider: 'usgs',
-      siteId: '01540500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Susquehanna River at Danville, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['dam'],
-      safetyNotes: [
-        "The current guide marks Sunbury Fabridam downstream at river mile 122.6, so stay with the Shikellamy West finish or another planned state-park take-out instead of drifting into the dam corridor.",
-        'The river widens and slows into Lake Augusta around mile 129.9, where wind and powerboat wakes can matter more than current alone.',
-        'Treat the last miles as a committed downstream finish with few reasons to improvise on private banks or islands.',
+      "safetyNotes": [
+        "PFBC flags boulder fields and fast riffles in the Tunkhannock-to-West-Falls portion of this corridor.",
+        "The Meshoppen gauge is a same-section proxy. Make a visual current and landing check before launching when the reading is near the low or high edge.",
+        "Stay with the named public accesses and do not improvise on private banks or islands."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: '2021 North Branch Susquehanna guide Danville stage guidance',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 6.5,
+      "idealMax": 9,
+      "tooLow": 6.5,
+      "tooHigh": 12,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 2 stage relationship",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This lower Sunbury corridor is broad and usually accessible through much of the warm season, but pooled Lake Augusta wind, thunderstorms, and faster high water still change the route character quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This remains an easier big-river route with named campground and state-park endpoints, but the lower-lake feel, boat traffic, and Fabridam take-out discipline make it less casual than the mileage alone suggests.',
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the current 2021 North Branch guide publishes exact coordinates for Wray's and Shikellamy State Park West, lists Danville as the Section 14 gauge reference, and marks the Fabridam downstream of the state-park take-out. Confidence is intentionally tempered because the selected gauge sits upstream at Danville rather than inside the final Lake Augusta pool. USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for USGS 01540500 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: "Wray's to Shikellamy West, about 9 mi",
-        note: "The current 2021 guide places Wray's Riverfront Campground at river mile 133.6 and Shikellamy State Park West at river mile 125.1.",
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'Guide access-table coordinates',
-        note: "The same guide publishes Wray's at 40.953143, -76.664439 and Shikellamy State Park West at 40.883406, -76.792510.",
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Official section gauge proxy',
-        value: 'USGS 01540500 at Danville',
-        note: 'The current guide uses Danville for Section 13-14 thresholds, and USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft there.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Danville 2 / 4 / 7 ft',
-        note: 'The current guide lists a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling at Danville for Sections 13-14.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Lake Augusta and Sunbury Fabridam',
-        note: 'The guide notes Lake Augusta begins near mile 129.9 and marks Sunbury Fabridam downstream at mile 122.6, making a planned state-park take-out important for this route.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'North Branch Susquehanna River Water Trail',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-pfbc-danville-shikellamy-west',
-    slug: 'susquehanna-river-pfbc-danville-shikellamy-west',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Danville to Shikellamy State Park West',
-    aliases: [
-      'North Branch Susquehanna - Danville to Shikellamy West',
-      'Susquehanna River - PFBC Danville to Shikellamy State Park West',
-      'North Branch Section 14 full lower day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Full lower Section 14 Susquehanna day from the PFBC Danville ramp to Shikellamy State Park West. The current 2021 North Branch guide publishes both access coordinates, uses the direct Danville gauge for the corridor, and frames the lower miles around Lake Augusta, campground support, and downstream Fabridam take-out discipline.',
-    statusText:
-      'Use the Susquehanna River at Danville gauge. The current guide lists 2 ft as the lower limit, around 4 ft as the better paddling level, and about 7 ft as the novice ceiling for this corridor.',
-    latitude: 40.913448,
-    longitude: -76.695509,
-    gaugeSource: {
-      id: 'usgs-01540500',
-      provider: 'usgs',
-      siteId: '01540500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Danville, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['dam'],
-      safetyNotes: [
-        'The current guide marks Lake Augusta beginning near mile 129.9, where wind and powerboat wakes can flatten the current advantage and make the finish feel longer.',
-        'Take out at Shikellamy West, Shikellamy East, or another planned public finish well before Sunbury Fabridam at mile 122.6.',
-        'Do not treat islands or private shorelines in the pooled lower corridor as casual backup exits just because the current slows down.',
+      "thresholdSourceStrength": "derived",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: 'reviewed',
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated corridor: PFBC publishes the Section 2 access chain, coordinates, caution miles, and Meshoppen/Towanda stage relationship, and V2 uses the product-supported Meshoppen gauge conservatively."
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: 2,
-      tooHigh: 7,
-      thresholdSource: {
-        label: '2021 North Branch Susquehanna guide Danville stage guidance',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'The lower Danville-to-Sunbury corridor often stays open to a broad range of paddlers, but thunderstorms, headwind, and faster current above the good-planning band still turn this into a materially bigger day.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a broad-audience mainstem route when Danville is in the conservative band, but the double-digit mileage, pooled lower miles, and mandatory attention to the Shikellamy finish make it a full-day commitment rather than a casual float.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the current 2021 North Branch guide publishes exact coordinates for PFBC Danville and Shikellamy State Park West, lists direct Danville stage guidance for Sections 13-14, and identifies the lower-corridor campground and dam context that matters for the finish. USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for direct USGS 01540500 during implementation.',
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'PFBC Danville to Shikellamy West, about 13 mi',
-        note: 'The current 2021 guide places PFBC Danville at river mile 137.9 and Shikellamy State Park West at river mile 125.1.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        "label": "Official corridor",
+        "value": "Laceyville to West Falls, with intermediate public access choices",
+        "note": "PFBC Section 2 publishes the Laceyville, Meshoppen, Tunkhannock, White's Ferry, and West Falls access sequence.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'Guide access-table coordinates',
-        note: 'The same guide publishes PFBC Danville at 40.943490, -76.598507 and Shikellamy State Park West at 40.883406, -76.792510.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        "label": "Same-section gauge proxy",
+        "value": "USGS 01533400 at Meshoppen",
+        "note": "PFBC publishes the Meshoppen stage relationship that V2 uses for Section 2 route planning.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01533400/"
       },
       {
-        label: 'Direct gauge',
-        value: 'USGS 01540500 at Danville',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 4,480 cfs and 3.22 ft for Susquehanna River at Danville, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Danville 2 / 4 / 7 ft',
-        note: 'The current guide lists a 2 ft lower limit, 4 ft good paddling level, and 7 ft upper novice ceiling at Danville for this lower corridor.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Lower-corridor caution',
-        value: 'Lake Augusta plus Fabridam take-out discipline',
-        note: 'The guide notes Lake Augusta starts near mile 129.9 and marks Sunbury Fabridam at mile 122.6 downstream of the Shikellamy accesses.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping Section 2 route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
+        "label": "PFBC North Branch Susquehanna Section 2",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf",
+        "provider": "local"
       },
       {
-        label: 'North Branch Susquehanna River Water Trail',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river',
-        provider: 'local',
+        "label": "USGS 01533400 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01533400/",
+        "provider": "usgs"
       },
       {
-        label: 'USGS 01540500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01540500/',
-        provider: 'usgs',
+        "label": "USGS 01531500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01531500/",
+        "provider": "usgs"
       },
       {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
-    id: 'susquehanna-river-sayre-ulster-bridge',
-    slug: 'susquehanna-river-sayre-ulster-bridge',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Sayre PFBC to Ulster Bridge',
-    aliases: [
-      'North Branch Susquehanna - Sayre to Ulster Bridge',
-      'Susquehanna River - Sayre PFBC to Ulster Bridge access',
-      'North Branch Section 1 Tioga Point day trip',
+    "id": "susquehanna-river-canal-park-test-track",
+    "slug": "susquehanna-river-canal-park-test-track",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Canal Park to Test Track Park",
+    "aliases": [
+      "North Branch Susquehanna - Canal Park to Test Track",
+      "Susquehanna River - Canal Park to Test Track Park",
+      "North Branch Section 3 access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Eleven-mile upper North Branch day from the Sayre PFBC ramp to Ulster Bridge. The official PFBC guide family publishes both access coordinates, lists this route as a favorite day trip, and ties the corridor directly to the Towanda gauge for low-water and novice high-water calls.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft at Towanda is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.920417,
-    longitude: -76.554445,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Section 3 North Branch Susquehanna corridor from Canal Park to Test Track Park. Use the access planner for shorter trips through PFBC Union Township and Wetlands Nature Area; Wilkes-Barre is the conservative upper-section gauge, with Bloomsburg context for the downstream ledge near Berwick.",
+    "statusText": "Use the Susquehanna River at Wilkes-Barre gauge. PFBC uses about 2 ft there as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Wilkes-Barre is over about 5 ft.",
+    "latitude": 41.22,
+    "longitude": -76.018611,
+    "gaugeSource": {
+      "id": "usgs-01536500",
+      "provider": "usgs",
+      "siteId": "01536500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Wilkes-Barre, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01536500/"
     },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles at miles 286 and 277 inside this route, and the broad Tioga Point corridor can still build confused wind chop even when the river feels easy at launch.',
-        'Harrigan Island is an official primitive stopping point, but the guide also warns that Tioga Point itself is private property except for limited stopping at the point. Do not treat other islands or banks as casual public landings.',
-        'Stay with the planned Ulster Bridge finish and keep thunderstorm, floating wood, and long exposed-river judgment on the same-day checklist.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this North Branch corridor often stays paddleable through summer low-water periods, but broad-river wind, thunderstorms, and flooded treelines still change the feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a broad-audience big-river day when Towanda stays in the conservative band, but the 11.7-mile length, exposed crossings, and quick riffle zones still require active shuttle and weather judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch guide family publishes exact coordinates for Sayre PFBC and Ulster Bridge, labels the route as an 11.7-mile favorite trip, and flags the relevant riffle miles inside the corridor. The threshold model is direct and official because PFBC writes this low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for direct USGS 01531500 during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Sayre PFBC to Ulster Bridge, 11.7 mi',
-        note: 'The 2021 North Branch Susquehanna guide lists PFBC Sayre Access 290.5 to Ulster Bridge Access 278.8 as a favorite day trip.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Sayre PFBC at 41 59 18 / -76 36 42 and Ulster Bridge at 41 51 09 / -76 29 50.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles at miles 286 and 277',
-        note: 'The PFBC Section 1 caution list flags fast riffles at miles 286 and 277 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-sayre-hornbrook',
-    slug: 'susquehanna-river-sayre-hornbrook',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Sayre PFBC to Larnard Hornbrook Park',
-    aliases: [
-      'North Branch Susquehanna - Sayre to Hornbrook',
-      'Susquehanna River - Sayre PFBC to Hornbrook Park',
-      'North Branch Section 1 upper Bradford County day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Fifteen-mile North Branch Susquehanna day from the Sayre PFBC ramp to Larnard Hornbrook Park. The official PFBC Section 1 guide publishes both access coordinates, flags the fast-riffle miles in this reach, and gives direct Towanda gauge guidance for safe-base, low-water, and novice high-water decisions.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft at Towanda is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.898889,
-    longitude: -76.548889,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles at miles 286 and 277, plus fast riffles with a strainer in the mile-274 area inside this route.',
-        'The broad river can feel gentle until headwind, thunderstorms, or wood turns the long day into a harder shuttle-and-current problem.',
-        'Stay with the planned Hornbrook finish and do not improvise on private banks or islands along this corridor.',
+      "safetyNotes": [
+        "PFBC flags a class I-II rapid below the Nanticoke bridge and a low-water ledge before the Berwick-Nescopeck bridge.",
+        "Use the access planner to avoid turning a short day into an overlong exposed mainstem run.",
+        "Stay with named public accesses and avoid private banks or islands as backup exits."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": -0.5,
+      "tooHigh": 5,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 3 Wilkes-Barre stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this North Branch section often stays paddleable through summer low-water periods, but thunderstorms, wind, and flooded treelines still change the big-river feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a long but mostly straightforward big-river day when Towanda stays in the conservative band. Distance, wind, riffles, and a strainer-prone caution area keep it above a casual park-lake paddle.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Sayre PFBC and Larnard Hornbrook Park, identifies the route as a 15-mile official access-to-access segment, and flags the main caution miles inside it. The threshold model is direct and official because PFBC writes this low-water and novice-high-water guidance around Towanda gauge heights. USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for direct USGS 01531500 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Sayre PFBC to Larnard Hornbrook Park, about 15 mi',
-        note: 'The PFBC North Branch Section 1 guide places Sayre PFBC at river mile 290 and Larnard Hornbrook Park at river mile 275.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Sayre PFBC at 41 59 18 / -76 36 42 and Larnard Hornbrook Park at 41 48 34 / -76 29 10.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles at miles 286 and 277; strainer area near mile 274',
-        note: 'The PFBC Section 1 caution list flags fast riffles at miles 286 and 277 and fast riffles with a strainer in the mile-274 area inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-ulster-bridge-wysox-township-park',
-    slug: 'susquehanna-river-ulster-bridge-wysox-township-park',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Ulster Bridge to Wysox Township Park',
-    aliases: [
-      'North Branch Susquehanna - Ulster Bridge to Wysox Township Park',
-      'Susquehanna River - Ulster Bridge access to Wysox Township Park',
-      'North Branch Section 1 Towanda upper approach day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Eleven-mile upper North Branch day from Ulster Bridge to Wysox Township Park. The official PFBC guide family publishes both access coordinates, lists this route as a favorite day trip, and ties the whole corridor directly to the Towanda gauge for conservative same-day planning.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft at Towanda is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.811667,
-    longitude: -76.4475,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles at mile 277, fast riffles with a strainer in the mile-274 area, fast riffles under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 inside this route.',
-        'The Towanda bridge corridor accelerates current toward structure, especially when the river is above the calmest planning band or when wind stacks against the flow.',
-        'Stay with the planned Wysox Township Park finish and do not substitute informal banks, islands, or bridge shoulders for the named public accesses.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: 'reviewed',
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated corridor: PFBC publishes the Section 3 access chain, coordinates, caution miles, and Wilkes-Barre stage guidance, and V2 uses the direct Wilkes-Barre gauge for the upper corridor."
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch in this corridor often stays paddleable in lower summer water, but the wide channel still reacts quickly to thunderstorms, wood, and headwind.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This remains broad-audience river mileage in the conservative band, but the bridge-current line near Towanda, the strainer-prone riffle zone, and the 11.3-mile length keep it above a casual float.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch guide family publishes exact coordinates for Ulster Bridge and Wysox Township Park, labels the route as an 11.3-mile favorite trip, and flags the main caution miles that need to stay in product copy. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for direct USGS 01531500 during this run.',
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'Ulster Bridge to Wysox Township Park, 11.3 mi',
-        note: 'The 2021 North Branch Susquehanna guide lists Ulster Bridge Municipal Access 278.8 to Wysox Township Park Municipal Access 267.5 as a favorite day trip.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        "label": "Official corridor",
+        "value": "Canal Park to Test Track Park, with intermediate public access choices",
+        "note": "PFBC Section 3 publishes the Canal Park, PFBC Union Township, Wetlands Nature Area, and Test Track Park access sequence.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Ulster Bridge at 41 51 09 / -76 29 50 and Wysox Township Park at 41 46 15 / -76 23 52.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        "label": "Direct gauge",
+        "value": "USGS 01536500 at Wilkes-Barre",
+        "note": "The Wilkes-Barre gauge is the direct product-supported reference for the upper Section 3 corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01536500/"
       },
       {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles near miles 277, 274, 272, 270, 269, and 268',
-        note: 'The PFBC Section 1 caution list flags the mile-274 strainer area, the bridge-arch current near mile 272, and the quick riffle miles above and below Towanda inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping Section 3 route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
+        "label": "PFBC North Branch Susquehanna Section 3",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec3.pdf",
+        "provider": "local"
       },
       {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
+        "label": "USGS 01536500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01536500/",
+        "provider": "usgs"
       },
       {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
+        "label": "USGS 01538700 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01538700/",
+        "provider": "usgs"
       },
       {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
-    id: 'susquehanna-river-hornbrook-towanda',
-    slug: 'susquehanna-river-hornbrook-towanda',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Larnard Hornbrook Park to Towanda Riverfront Park',
-    aliases: [
-      'North Branch Susquehanna - Hornbrook to Towanda',
-      'Susquehanna River - Hornbrook Park to Towanda Riverfront',
-      'North Branch Section 1 short Bradford County day trip',
+    "id": "susquehanna-river-test-track-danville",
+    "slug": "susquehanna-river-test-track-danville",
+    "name": "Susquehanna River",
+    "reach": "North Branch: Test Track Park to PFBC Danville",
+    "aliases": [
+      "North Branch Susquehanna - Test Track to Danville",
+      "Susquehanna River - Test Track Park to PFBC Danville",
+      "North Branch Section 4 access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Short Bradford County North Branch day from Larnard Hornbrook Park to Towanda Riverfront Park. The official PFBC Section 1 guide publishes both access coordinates, flags the mile-274 strainer area and the fast riffles before Towanda, and ties the route directly to the Towanda gauge.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC says about 2 ft there is the safe-base planning level, the river can still be paddled as low as about -0.5 ft, and novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.789028,
-    longitude: -76.462361,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Section 4 North Branch Susquehanna corridor from Test Track Park to PFBC Danville. Use the access planner for shorter trips through PFBC Bloomsburg and Indian Head Campground; the direct Bloomsburg gauge keeps the lower-corridor ledge and current-speed guidance on one same-day read.",
+    "statusText": "Use the Susquehanna River at Bloomsburg stage gauge. The official section guide says the river can be paddled as low as 1 ft, about 1 to 4 ft is the calmer planning window, 4 to 5 ft moves faster, and novice paddlers should stay off if Bloomsburg rises above 6 ft.",
+    "latitude": 41.04,
+    "longitude": -76.261111,
+    "gaugeSource": {
+      "id": "usgs-01538700",
+      "provider": "usgs",
+      "siteId": "01538700",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Bloomsburg, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01538700/"
     },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['strainers', 'private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles with a strainer near mile 274, then more fast riffles before the bridge at mile 270 inside this short route.',
-        'Low water can expose sharper riffle lines, while headwind or thunderstorms can make this feel less casual than the short mileage suggests.',
-        'Towanda Riverfront Park is the intended finish. Do not improvise on private banks or drift past the public landing into town traffic and bridge current.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "private_banks"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says this upper North Branch corridor usually stays paddleable through warm-season low water, but wide-channel wind, thunderstorms, and floating wood still change the same-day feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a shorter big-river day in the conservative band, but the strainer-prone riffle zone and the Towanda bridge/current finish still require active same-day judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 1 guide publishes exact coordinates for Larnard Hornbrook Park and Towanda Riverfront Park, defines the corridor with official river miles, and flags the main caution points inside it. The threshold model is direct and official because PFBC writes this low-water and novice-high-water guidance around Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 2,950 cfs and 0.94 ft for direct USGS 01531500 during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Larnard Hornbrook Park to Towanda Riverfront Park, about 5 mi',
-        note: 'The PFBC North Branch Section 1 guide places Larnard Hornbrook Park at river mile 275 and Towanda Riverfront Park at river mile 270.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Larnard Hornbrook Park at 41 48 34 / -76 29 10 and Towanda Riverfront Park at 41 46 07 / -76 26 19.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,950 cfs and 0.94 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Mile-274 strainer area and fast riffles before Towanda bridge',
-        note: 'The PFBC Section 1 caution list flags fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-towanda-terrytown',
-    slug: 'susquehanna-river-towanda-terrytown',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Towanda Riverfront Park to Terrytown PFBC',
-    aliases: [
-      'North Branch Susquehanna - Towanda to Terrytown',
-      'Susquehanna River - Towanda Riverfront to Terrytown PFBC',
-      'North Branch Section 1 mid-Bradford County day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Sixteen-mile North Branch Susquehanna day from Towanda Riverfront Park to the Terrytown PFBC ramp. The official PFBC Section 1 guide publishes both access coordinates, marks the quick riffle miles in this reach, and gives direct Towanda stage guidance for low-water, planning-band, and novice high-water calls.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.741389,
-    longitude: -76.360139,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 inside this route.',
-        'Low-water funneling can create wave trains in the narrowed lower riverbed, while headwind or thunderstorms can make the broad corridor feel much longer than the raw mileage.',
-        'Stay with the planned Terrytown PFBC finish and do not assume broad gravel bars or private shoreline pull-offs are acceptable substitutes.',
+      "safetyNotes": [
+        "PFBC flags the Berwick bridge ledge below about 2 ft at Bloomsburg and faster current as stages climb.",
+        "Indian Head is a managed campground access; confirm current launch expectations before planning it as a start, finish, or bailout.",
+        "Stay with named public or managed accesses and avoid improvising on private banks or islands."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 1,
+      "idealMax": 4,
+      "tooLow": 1,
+      "tooHigh": 6,
+      "thresholdSource": {
+        "label": "PFBC North Branch Susquehanna Section 4 Bloomsburg stage guidance",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch in this corridor often remains paddleable in summer low-water periods, but the channel speeds up after rain and wide-open wind can dominate the day.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route stays in the broad-audience day-trip bucket when Towanda is in the conservative band, but the 16-mile length, quick riffle miles, and changing wind/current are still real trip-planning factors.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: PFBC Section 1 publishes exact coordinates for Towanda Riverfront Park and Terrytown PFBC, lists the route as a clean 16-mile official access pair, and identifies the caution miles that matter for same-day scouting. The threshold model is direct and official because PFBC writes the base-level and novice ceiling around Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for direct USGS 01531500 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Towanda Riverfront Park to Terrytown PFBC, about 16 mi',
-        note: 'The PFBC North Branch Section 1 guide places Towanda Riverfront Park at river mile 270 and Terrytown PFBC at river mile 254.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Towanda Riverfront Park at 41 46 07 / -76 26 19 and Terrytown PFBC at 41 42 51 / -76 16 54.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles around miles 270, 269, and 268',
-        note: 'The PFBC Section 1 caution list flags fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-wysox-township-park-terrytown',
-    slug: 'susquehanna-river-wysox-township-park-terrytown',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Wysox Township Park to Terrytown PFBC',
-    aliases: [
-      'North Branch Susquehanna - Wysox Township Park to Terrytown',
-      'Susquehanna River - Wysox Township Park to Terrytown PFBC',
-      'North Branch Section 1 lower Bradford County public-access day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Fourteen-mile North Branch day from Wysox Township Park to the Terrytown PFBC ramp. The official PFBC guide family publishes both access coordinates, provides enough river-mile and caution support to define the segment cleanly, and uses the Towanda gauge directly for conservative same-day planning.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.7425,
-    longitude: -76.339723,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags a long fast-riffle section at mile 267 plus more fast riffles at miles 261 and 258 inside this route.',
-        'This lower Section 1 corridor looks wide and forgiving, but headwind, thunderstorms, floating wood, and shallow wave trains can still make it feel longer and faster than expected.',
-        'Stay with the planned Terrytown PFBC finish and do not assume broad bars, islands, or private-bank pull-offs are legitimate take-out substitutes.',
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: 'reviewed',
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated corridor: PFBC publishes the Section 4 access chain, coordinates, caution context, and Bloomsburg stage guidance, and V2 uses the direct Bloomsburg gauge for the corridor."
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch in this section can stay paddleable through warmer low-water periods, but open-river wind and post-rain current still change the trip quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route stays in the broad-audience day-trip bucket when Towanda is in the conservative band, but the 13.6-mile length, fast-riffle miles, and wide-channel weather exposure still require real same-day judgment.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: PFBC and the 2021 North Branch guide publish exact coordinates for Wysox Township Park and Terrytown PFBC, and the official river-mile table cleanly defines this 13.6-mile public-access pair while the caution list flags the downstream riffle miles that matter here. The threshold model is direct and official because PFBC writes the low-water and novice-high-water guidance on the Towanda gauge itself. USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for direct USGS 01531500 during this run.',
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'Wysox Township Park to Terrytown PFBC, about 13.6 mi',
-        note: 'The official North Branch access tables place Wysox Township Park at river mile 267.5 and Terrytown PFBC at river mile 253.9, which defines this public access-to-access segment.',
-        sourceUrl:
-          'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
+        "label": "Official corridor",
+        "value": "Test Track Park to PFBC Danville, with intermediate access choices",
+        "note": "PFBC Section 4 publishes the Test Track Park, PFBC Bloomsburg, Indian Head Campground, and PFBC Danville access sequence.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Wysox Township Park at 41 46 15 / -76 23 52 and Terrytown PFBC at 41 42 51 / -76 16 54.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
+        "label": "Direct gauge",
+        "value": "USGS 01538700 at Bloomsburg",
+        "note": "The Bloomsburg gauge is the direct product-supported reference for the Section 4 corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01538700/"
       },
       {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 3,000 cfs and 0.96 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles near miles 267, 261, and 258',
-        note: 'The PFBC Section 1 caution list flags a long fast-riffle section at mile 267 plus more fast riffles at miles 261 and 258 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping Section 4 route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
+        "label": "PFBC North Branch Susquehanna Section 4",
+        "url": "https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec4.pdf",
+        "provider": "local"
       },
       {
-        label: '2021 North Branch Susquehanna guide',
-        url: 'https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf',
-        provider: 'local',
+        "label": "USGS 01538700 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01538700/",
+        "provider": "usgs"
       },
       {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
+        "label": "USGS 01540500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01540500/",
+        "provider": "usgs"
       },
       {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
-    id: 'susquehanna-river-terrytown-laceyville',
-    slug: 'susquehanna-river-terrytown-laceyville',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Terrytown PFBC to Laceyville Borough',
-    aliases: [
-      'North Branch Susquehanna - Terrytown to Laceyville',
-      'Susquehanna River - Terrytown PFBC to Laceyville Borough',
-      'North Branch Section 1 lower Bradford County day trip',
+    "id": "susquehanna-river-pfbc-danville-shikellamy-west",
+    "slug": "susquehanna-river-pfbc-danville-shikellamy-west",
+    "name": "Susquehanna River",
+    "reach": "North Branch: PFBC Danville to Shikellamy State Park West",
+    "aliases": [
+      "North Branch Susquehanna - Danville to Shikellamy West",
+      "Susquehanna River - PFBC Danville to Shikellamy State Park West",
+      "North Branch Section 14 access planner corridor"
     ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Thirteen-mile North Branch Susquehanna day from the Terrytown PFBC ramp to Laceyville Borough. The official PFBC Section 1 guide publishes both access coordinates, flags the downstream fast-riffle miles in this reach, and gives direct Towanda stage guidance for a conservative same-day call.',
-    statusText:
-      'Use the Susquehanna River at Towanda gauge. PFBC uses about 2 ft as the safe-base planning level, says the river can still be paddled as low as about -0.5 ft, and says novice paddlers should stay off when Towanda is over about 5 ft.',
-    latitude: 41.681528,
-    longitude: -76.221389,
-    gaugeSource: {
-      id: 'usgs-01531500',
-      provider: 'usgs',
-      siteId: '01531500',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Towanda, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
+    "state": "Pennsylvania",
+    "region": "North Branch Susquehanna",
+    "summary": "Lower North Branch Susquehanna corridor from PFBC Danville to Shikellamy State Park West. Use the access planner for a shorter campground-supported variant through Wray's Riverfront; the Danville gauge, Lake Augusta wind, and Sunbury Fabridam take-out discipline drive the same-day call.",
+    "statusText": "Use the Susquehanna River at Danville gauge. The current guide lists 2 ft as the lower limit, around 4 ft as the better paddling level, and about 7 ft as the novice ceiling for this corridor.",
+    "latitude": 40.94349,
+    "longitude": -76.598507,
+    "gaugeSource": {
+      "id": "usgs-01540500",
+      "provider": "usgs",
+      "siteId": "01540500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Susquehanna River at Danville, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01540500/"
     },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags fast riffles at mile 249, a long riffle section at mile 247, and more fast riffles at mile 244 inside this route.',
-        'Low-water funneling can produce class I to II style wave trains in narrowed spots, while higher water shortens reaction time on a broad corridor with few formal mid-route exits.',
-        'Stay with the planned Laceyville finish and do not assume undeveloped banks or islands are public take-out substitutes.',
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "dam"
       ],
-      reviewStatus: 'reviewed',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 2,
-      idealMax: 4,
-      tooLow: -0.5,
-      tooHigh: 5,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 1 Towanda stage guidance',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'official',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'PFBC says the North Branch in this section can stay paddleable during summer dry periods, but wide-channel wind, thunderstorms, and swollen tree lines after rain still change the risk quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route is a manageable big-river day when Towanda stays in the conservative band, but current awareness still matters because quick riffle miles, wind, and the final carry-in style Laceyville finish reduce the margin for sloppy decisions.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: PFBC Section 1 publishes exact coordinates for Terrytown PFBC and Laceyville Borough, defines the route as a 13-mile official access pair, and identifies the main fast-riffle miles inside the segment. The threshold model is direct and official because PFBC writes the base-level, low-water, and novice ceiling on Towanda itself. USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for direct USGS 01531500 during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Terrytown PFBC to Laceyville Borough, about 13 mi',
-        note: 'The PFBC North Branch Section 1 guide places Terrytown PFBC at river mile 254 and Laceyville Borough at river mile 241.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 1 access table publishes Terrytown PFBC at 41 42 51 / -76 16 54 and Laceyville Borough at 41 38 56 / -76 09 40.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01531500 at Towanda',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,550 cfs and 0.79 ft for Susquehanna River at Towanda, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-      },
-      {
-        label: 'Official stage guidance',
-        value: 'Towanda -0.5 ft low runnable, 2 ft safe base, 5 ft novice ceiling',
-        note: 'PFBC says the river can be paddled with Towanda as low as about -0.5 ft, uses 2 ft as the safe paddle base level, and says novice paddlers should not paddle when Towanda is over 5 ft.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Fast riffles at miles 249 and 244; long riffle section near mile 247',
-        note: 'The PFBC Section 1 caution list flags fast riffles at mile 249, a long riffle section at mile 247, and fast riffles at mile 244 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 1',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec1.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-laceyville-meshoppen',
-    slug: 'susquehanna-river-laceyville-meshoppen',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Laceyville Borough to Meshoppen',
-    aliases: [
-      'North Branch Susquehanna - Laceyville to Meshoppen',
-      'Susquehanna River - Laceyville Borough to Meshoppen ramp',
-      'North Branch Section 2 upper Wyoming County day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Broad North Branch Susquehanna day through the upper Wyoming County corridor from Laceyville Borough to the Meshoppen ramp. The official PFBC Section 2 guide publishes both access coordinates, lists section-specific caution miles, and gives a Meshoppen base-level relationship that lets V2 translate the official North Branch stage guidance onto the direct Meshoppen gauge.',
-    statusText:
-      'Use the Susquehanna River at Meshoppen gauge. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the calmer planning window, faster current above 9 ft, and novice no-go water around 12 ft and up.',
-    latitude: 41.62875,
-    longitude: -76.104306,
-    gaugeSource: {
-      id: 'usgs-01533400',
-      provider: 'usgs',
-      siteId: '01533400',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Meshoppen, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 6.5,
-      idealMax: 9,
-      tooLow: 6.5,
-      tooHigh: 12,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'derived',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This broad North Branch corridor often stays floatable through dry warm-season stretches, but thunderstorms, headwind, and flooded treelines still change the feel of the river quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a straightforward big-river day with public access at both ends, but wide-channel wind, fast riffles, and hidden rocks at lower water still require current awareness and take-out discipline.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact Laceyville and Meshoppen access coordinates, identifies the route as an 8-mile novice-scale day, and lists the main caution miles inside the segment. The threshold model is intentionally labeled derived because PFBC writes the section guidance around Towanda/Wilkes-Barre/Bloomsburg heights, then explicitly says Meshoppen reads about 9 ft when those gauges read about 2 ft. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for direct USGS 01533400 at Meshoppen during implementation.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Laceyville to Meshoppen, about 8 mi',
-        note: 'The PFBC North Branch Section 2 guide places Laceyville Borough at river mile 241 and Meshoppen at river mile 233.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 2 access table publishes Laceyville Borough at 41 38 56 / -76 09 40 and Meshoppen at 41 36 31 / -76 02 51.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01533400 at Meshoppen',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Susquehanna River at Meshoppen, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-      },
-      {
-        label: 'Official stage relationship',
-        value: 'Towanda 2 ft equals Meshoppen 9 ft',
-        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 translates the official North Branch guidance onto the direct Meshoppen gauge from that relationship.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Fast current and hidden rocks near mile 238',
-        note: 'The PFBC Section 2 caution list flags fast current and hidden rocks around mile 238, inside this Laceyville-to-Meshoppen segment.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 2',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01533400 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-meshoppen-tunkhannock',
-    slug: 'susquehanna-river-meshoppen-tunkhannock',
-    name: 'Susquehanna River',
-    reach: 'North Branch: Meshoppen to PFBC Tunkhannock',
-    aliases: [
-      'North Branch Susquehanna - Meshoppen to Tunkhannock',
-      'Susquehanna River - Meshoppen ramp to PFBC Tunkhannock',
-      'North Branch Section 2 upper long day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      'Upper Wyoming County North Branch Susquehanna day from the Meshoppen ramp to the PFBC Tunkhannock launch. The official PFBC Section 2 guide publishes both access coordinates and gives the Meshoppen/Towanda stage relationship that lets V2 use the direct Meshoppen gauge conservatively for this longer upper-half route.',
-    statusText:
-      'Use the Susquehanna River at Meshoppen gauge. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the calmer planning window, faster current above 9 ft, and novice no-go water around 12 ft and up.',
-    latitude: 41.565417,
-    longitude: -75.994444,
-    gaugeSource: {
-      id: 'usgs-01533400',
-      provider: 'usgs',
-      siteId: '01533400',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'direct',
-      siteName: 'Susquehanna River at Meshoppen, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 6.5,
-      idealMax: 9,
-      tooLow: 6.5,
-      tooHigh: 12,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'derived',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This longer upper Section 2 corridor often stays paddleable through warm-season dry stretches, but broad-river wind, thunderstorms, and floating wood still change the same-day feel quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'This is a straightforward big-river day with a direct same-river gauge, but the 16-mile length and broad exposed channel keep it above the casual short-float category.',
-      confidenceNotes:
-        'Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact coordinates for Meshoppen and PFBC Tunkhannock, defines the corridor with official river miles, and gives the Meshoppen/Towanda stage relationship V2 uses to keep the direct gauge model conservative. USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft for direct USGS 01533400 during this run.',
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: 'Meshoppen to PFBC Tunkhannock, about 16 mi',
-        note: 'The PFBC North Branch Section 2 guide places Meshoppen at river mile 233 and PFBC Tunkhannock at river mile 217.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: 'The PFBC Section 2 access table publishes Meshoppen at 41 36 31 / -76 02 51 and PFBC Tunkhannock at 41 31 20 / -75 56 29.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Direct gauge',
-        value: 'USGS 01533400 at Meshoppen',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft for Susquehanna River at Meshoppen, PA.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-      },
-      {
-        label: 'Official stage relationship',
-        value: 'Towanda 2 ft equals Meshoppen 9 ft',
-        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 translates the official North Branch guidance onto the direct Meshoppen gauge from that relationship.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'On-route camping context',
-        value: 'Camp Lackawanna near mile 226',
-        note: 'The PFBC Section 2 guide lists Camp Lackawanna at mile 226 with camping by prior arrangement only, making it the clearest legal overnight support on this longer upper-half corridor.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 2',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01533400 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-tunkhannock-whites-ferry',
-    slug: 'susquehanna-river-tunkhannock-whites-ferry',
-    name: 'Susquehanna River',
-    reach: "North Branch: PFBC Tunkhannock to PFBC White's Ferry",
-    aliases: [
-      "North Branch Susquehanna - Tunkhannock to White's Ferry",
-      "Susquehanna River - PFBC Tunkhannock to White's Ferry",
-      'North Branch Section 2 middle day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      "Six-mile North Branch Susquehanna day from the PFBC Tunkhannock ramp to PFBC White's Ferry. The official PFBC Section 2 guide publishes both access coordinates, flags the fast riffle and boulder-field miles in this reach, and provides the Meshoppen/Towanda stage relationship that V2 uses as a conservative same-section gauge model.",
-    statusText:
-      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the easier planning window, with much faster current above 9 ft and novice no-go water around 12 ft and up.",
-    latitude: 41.499028,
-    longitude: -75.923194,
-    gaugeSource: {
-      id: 'usgs-01533400',
-      provider: 'usgs',
-      siteId: '01533400',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Susquehanna River at Meshoppen, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 6.5,
-      idealMax: 9,
-      tooLow: 6.5,
-      tooHigh: 12,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'derived',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This mid-section North Branch route usually keeps enough water for warm-season paddling, but thunderstorms, broad-river wind, and rapidly changing current still matter more than the flat profile suggests.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route is manageable for broad-audience paddlers when water stays in the conservative band, but it is still a wide river with long riffles, a known boulder-field zone, and fewer forgiving exits than a tiny downstream mileage might imply.',
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact coordinates for PFBC Tunkhannock and PFBC White's Ferry, lists the segment inside its novice-scale mileage guidance, and flags the mile-215 boulder field plus adjacent fast riffles inside this route. Confidence is intentionally tempered because the selected gauge sits upstream at Meshoppen rather than on the exact put-in or take-out, so V2 labels it a same-section proxy. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Meshoppen and 2,520 cfs and 0.78 ft at Towanda as same-day corroboration during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: "PFBC Tunkhannock to White's Ferry, about 6 mi",
-        note: "The PFBC North Branch Section 2 guide places PFBC Tunkhannock at river mile 217 and PFBC White's Ferry at river mile 211.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: "The PFBC Section 2 access table publishes PFBC Tunkhannock at 41 31 20 / -75 56 29 and PFBC White's Ferry at 41 28 33 / -75 54 18.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Same-section gauge proxy',
-        value: 'USGS 01533400 at Meshoppen',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft at Meshoppen, while same-day Towanda corroboration returned 2,520 cfs and 0.78 ft.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-      },
-      {
-        label: 'Official stage relationship',
-        value: 'Towanda 2 ft equals Meshoppen 9 ft',
-        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 uses that published relationship to keep the proxy model conservative.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Boulder field and fast riffles around miles 215-214',
-        note: 'The PFBC Section 2 caution list flags a boulder field at mile 215 and a long section of fast riffles at mile 214, both inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 2',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01533400 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-tunkhannock-west-falls',
-    slug: 'susquehanna-river-tunkhannock-west-falls',
-    name: 'Susquehanna River',
-    reach: 'North Branch: PFBC Tunkhannock to PFBC West Falls',
-    aliases: [
-      'North Branch Susquehanna - Tunkhannock to West Falls',
-      'Susquehanna River - PFBC Tunkhannock to PFBC West Falls',
-      'North Branch Section 2 lower full day trip',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      "Ten-mile North Branch Susquehanna day from the PFBC Tunkhannock ramp to PFBC West Falls. The official PFBC Section 2 guide publishes both access coordinates, ties the corridor to the Meshoppen/Towanda stage relationship, and flags the boulder-field and fast-riffle miles that matter most in this longer lower run.",
-    statusText:
-      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 treats roughly 6.5 to 9 ft at Meshoppen as the easier planning window, with much faster current above 9 ft and novice no-go water around 12 ft and up.",
-    latitude: 41.490833,
-    longitude: -75.8975,
-    gaugeSource: {
-      id: 'usgs-01533400',
-      provider: 'usgs',
-      siteId: '01533400',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Susquehanna River at Meshoppen, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-    },
-    safetyProfile: {
-      riskLevel: 'caution',
-      hazards: ['private_banks'],
-      safetyNotes: [
-        'PFBC flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
-        'This is a broad-river day with a proxy gauge, so make a same-day visual current check at Tunkhannock instead of trusting the number alone near the low or high edge.',
-        'PFBC West Falls is the committed public finish. Do not improvise on islands or private banks if wind or current slows the lower miles.',
+      "safetyNotes": [
+        "Lake Augusta wind and powerboat wakes can matter as much as stage once the route reaches the pooled lower corridor.",
+        "Take out at Shikellamy West before the Sunbury Fabridam corridor. Do not drift downstream without a separate dam-aware plan.",
+        "Wray's is a managed campground access; confirm current launch or landing expectations before using it as an alternate."
       ],
-      reviewStatus: 'reviewed',
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 6.5,
-      idealMax: 9,
-      tooLow: 6.5,
-      tooHigh: 12,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
+    "profile": {
+      "thresholdModel": "two-sided",
+      "idealMin": 2,
+      "idealMax": 4,
+      "tooLow": 2,
+      "tooHigh": 7,
+      "thresholdSource": {
+        "label": "2021 North Branch Susquehanna guide Danville stage guidance",
+        "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: 'derived',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This longer lower Section 2 corridor often stays floatable in summer, but broad-river wind, thunderstorms, and flooded treelines still change the feel of the day quickly.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route remains approachable for broad-audience paddlers in the conservative band, but the 10-mile length, repeated riffle zones, and proxy-gauge judgment make it more than a casual short float.',
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC North Branch Section 2 guide publishes exact coordinates for PFBC Tunkhannock and PFBC West Falls, defines the corridor with official river miles, and gives the Meshoppen/Towanda stage relationship V2 uses to keep the proxy model conservative. USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft at Meshoppen, with same-day Towanda corroboration at 2,950 cfs and 0.94 ft, during this run.",
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "The North Branch usually has runnable windows from spring through fall, but thunderstorms, headwind, cold water, and floating wood can change a broad-river day quickly.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are approachable in the conservative band, while the full corridor can become a long exposed big-river day.",
+      "confidenceNotes": "Confidence is good for a consolidated corridor: the current North Branch guide publishes the Danville, Wray's, and Shikellamy West access sequence and direct Danville stage guidance, and V2 uses the direct Danville gauge for the corridor."
     },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: 'Official route segment',
-        value: 'PFBC Tunkhannock to PFBC West Falls, about 10 mi',
-        note: "The PFBC North Branch Section 2 guide places PFBC Tunkhannock at river mile 217 and PFBC West Falls at river mile 207.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        "label": "Official corridor",
+        "value": "PFBC Danville to Shikellamy West, with Wray's as an intermediate option",
+        "note": "The current North Branch guide publishes PFBC Danville, Wray's Riverfront Campground, and Shikellamy State Park West coordinates in the access table.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: "The PFBC Section 2 access table publishes PFBC Tunkhannock at 41 31 20 / -75 56 29 and PFBC West Falls at 41 27 34 / -75 51 13.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        "label": "Direct gauge",
+        "value": "USGS 01540500 at Danville",
+        "note": "The Danville gauge is the direct product-supported reference for this lower corridor.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01540500/"
       },
       {
-        label: 'Same-section gauge proxy',
-        value: 'USGS 01533400 at Meshoppen',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,850 cfs and 8.33 ft at Meshoppen, while same-day Towanda corroboration returned 2,950 cfs and 0.94 ft.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-      },
-      {
-        label: 'Official stage relationship',
-        value: 'Towanda 2 ft equals Meshoppen 9 ft',
-        note: 'PFBC says the Towanda, Wilkes-Barre, and Bloomsburg gauges read about the same height, while Meshoppen reads about 9 ft when those gauges are at 2 ft. V2 uses that published relationship to keep the proxy model conservative.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Primary cautions',
-        value: 'Boulder field at mile 215 and fast riffles at miles 214 and 210',
-        note: 'The PFBC Section 2 caution list flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
+        "label": "Planner model",
+        "value": "Multiple access points on one corridor page",
+        "note": "This route replaces overlapping Danville-to-Shikellamy route cards with one Rice Creek-style access planner corridor.",
+        "sourceUrl": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: 'PFBC North Branch Susquehanna Section 2',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01533400 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-        provider: 'usgs',
+        "label": "2021 North Branch Susquehanna guide",
+        "url": "https://www.emheritage.org/wp-content/uploads/2021/04/Water-Trail-Maps-Brochure-Section-op.pdf",
+        "provider": "local"
       },
       {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
+        "label": "North Branch Susquehanna River Water Trail",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/where-to-boat/water-trails/north-branch-susquehanna-river",
+        "provider": "local"
       },
       {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
-  },
-  {
-    id: 'susquehanna-river-whites-ferry-west-falls',
-    slug: 'susquehanna-river-whites-ferry-west-falls',
-    name: 'Susquehanna River',
-    reach: "North Branch: PFBC White's Ferry to PFBC West Falls",
-    aliases: [
-      "North Branch Susquehanna - White's Ferry to West Falls",
-      "Susquehanna River - White's Ferry to West Falls",
-      'North Branch Section 2 short lower corridor link',
-    ],
-    state: 'Pennsylvania',
-    region: 'North Branch Susquehanna',
-    summary:
-      "Short lower Section 2 link from PFBC White's Ferry to PFBC West Falls. The official PFBC guide publishes both access coordinates, marks the final fast-riffle mile in the segment, and provides the same section-wide Meshoppen/Towanda gauge relationship V2 uses for conservative same-day planning.",
-    statusText:
-      "Use the Susquehanna River at Meshoppen as the published Section 2 same-river reference. PFBC says Meshoppen reads about 9 ft when Towanda, Wilkes-Barre, and Bloomsburg are about 2 ft, so V2 keeps roughly 6.5 to 9 ft as the easier planning window and treats 12 ft and above at Meshoppen as novice no-go water.",
-    latitude: 41.467639,
-    longitude: -75.879306,
-    gaugeSource: {
-      id: 'usgs-01533400',
-      provider: 'usgs',
-      siteId: '01533400',
-      metric: 'gage_height_ft',
-      unit: 'ft',
-      kind: 'proxy',
-      siteName: 'Susquehanna River at Meshoppen, PA',
-      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-    },
-    profile: {
-      thresholdModel: 'two-sided',
-      idealMin: 6.5,
-      idealMax: 9,
-      tooLow: 6.5,
-      tooHigh: 12,
-      thresholdSource: {
-        label: 'PFBC North Branch Susquehanna Section 2 stage relationship',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      thresholdSourceStrength: 'derived',
-      rainfallSensitivity: 'medium',
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        'This is still a broad North Branch day despite the shorter mileage. Summer wind, thunderstorms, and high muddy banks after rain can matter more than raw distance suggests.',
-      difficulty: 'easy',
-      difficultyNotes:
-        'The route is short and access-backed, but broad-river wind, quick current at the fast-riffle mile, and the temptation to relax on a big river too early still require a disciplined same-day call.',
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: PFBC Section 2 publishes exact coordinates for PFBC White's Ferry and PFBC West Falls, and the route keeps to a short official access-to-access link with a clearly identified caution mile. Confidence is intentionally tempered because the selected gauge is a same-section proxy at Meshoppen rather than an exact endpoint gauge. USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft for Meshoppen and 2,520 cfs and 0.78 ft at Towanda during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: 'Official route segment',
-        value: "White's Ferry to West Falls, about 4 mi",
-        note: "The PFBC North Branch Section 2 guide places PFBC White's Ferry at river mile 211 and PFBC West Falls at river mile 207.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
+        "label": "USGS 01540500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01540500/",
+        "provider": "usgs"
       },
       {
-        label: 'Endpoint coordinates',
-        value: 'PFBC access-site coordinates',
-        note: "The PFBC Section 2 access table publishes PFBC White's Ferry at 41 28 33 / -75 54 18 and PFBC West Falls at 41 27 34 / -75 51 13.",
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Same-section gauge proxy',
-        value: 'USGS 01533400 at Meshoppen',
-        note: 'USGS Water Services returned same-day June 23, 2026 values of 2,740 cfs and 8.28 ft at Meshoppen, with same-day Towanda corroboration at 2,520 cfs and 0.78 ft.',
-        sourceUrl: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-      },
-      {
-        label: 'Official stage relationship',
-        value: 'Towanda 2 ft equals Meshoppen 9 ft',
-        note: 'PFBC Section 2 provides the Meshoppen base-level conversion directly, letting V2 translate the official Towanda/Wilkes-Barre/Bloomsburg guidance onto a closer same-section gauge.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-      {
-        label: 'Primary caution',
-        value: 'Fast riffles around mile 210',
-        note: 'The PFBC Section 2 caution list flags a long section of fast riffles at mile 210, inside this White\'s Ferry-to-West Falls segment.',
-        sourceUrl: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-      },
-    ],
-    sourceLinks: [
-      {
-        label: 'PFBC North Branch Susquehanna Section 2',
-        url: 'https://pfbc.pa.gov/watertrails/susq_northbranch/nbranch_sec2.pdf',
-        provider: 'local',
-      },
-      {
-        label: 'USGS 01533400 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01533400/',
-        provider: 'usgs',
-      },
-      {
-        label: 'USGS 01531500 monitoring location',
-        url: 'https://waterdata.usgs.gov/monitoring-location/01531500/',
-        provider: 'usgs',
-      },
-      {
-        label: 'PFBC launch permit vs boat registration',
-        url: 'https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg',
-        provider: 'local',
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
     id: 'wabash-river-vera-cruz-white-bridge',
@@ -37593,6 +34194,212 @@ export const rivers: River[] = [
       },
     ],
   },
+    {
+    id: "juniata-river-portstown-park-juniata-point",
+    slug: "juniata-river-portstown-park-juniata-point",
+    name: "Juniata River",
+    reach: "Upper Section: Portstown Park to Juniata Point",
+    aliases: [
+      "Juniata River - Portstown Park to Juniata Point",
+      "Upper Juniata - Huntingdon parks to Juniata Point",
+      "Juniata River - Portstown Park to Raystown Branch mouth",
+    ],
+    state: "Pennsylvania",
+    region: "Upper Juniata",
+    summary:
+      "Three-mile upper-Juniata link from Portstown Park to the Juniata Point PFBC ramp near the Raystown Branch mouth. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the Huntingdon corridor to a direct USGS gauge with a 1.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Huntingdon gauge. The official PFBC upper Juniata guide recommends at least 1.5 ft there for this corridor.",
+    latitude: 40.485833,
+    longitude: -78.014167,
+    gaugeSource: {
+      id: "usgs-01559000",
+      provider: "usgs",
+      siteId: "01559000",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Huntingdon, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01559000/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["private_banks"],
+      safetyNotes: [
+        "This is a short town-to-ramp float, but bridge-current changes, broad-river wind, and fresh wood after storms can still move the line around.",
+        "Juniata Point is the intended public finish near the Raystown Branch mouth. Do not drift past it looking for informal banks downstream.",
+        "Use only the named public accesses at Portstown Park and Juniata Point rather than private shorelines or bridge shoulders.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 1.5,
+      thresholdSource: {
+        label: "PFBC upper Juniata guide minimum Huntingdon gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "The PFBC guide says the Juniata varies through the year, with snowmelt and spring rain often bringing the best flows while summer dry spells expose bars and slow pools.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy short upper-Juniata float when the Huntingdon gauge clears the official floor, but broad current and take-out discipline still matter late in the run.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Juniata Point, defines them as a 3-mile access pair by river mile, and lists a direct Huntingdon minimum gauge level of 1.5 ft for this corridor. USGS Water Services returned same-day June 23, 2026 values of 904 cfs and 2.30 ft for direct USGS 01559000 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Portstown Park to Juniata Point, about 3 mi",
+        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Juniata Point at river mile 91.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Juniata Point at 40 27 30 / 77 58 51.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01559000 at Huntingdon",
+        note: "USGS Water Services returned same-day June 23, 2026 values of 904 cfs and 2.30 ft for Juniata River at Huntingdon, PA.",
+        sourceUrl:
+          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01559000&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Huntingdon 1.5 ft minimum",
+        note: "PFBC lists Huntingdon among the useful gauges for the upper Juniata and recommends a minimum level of 1.5 ft there.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Route context",
+        value: "Short public park-to-ramp corridor",
+        note: "PFBC identifies both Portstown Park and Juniata Point as named river accesses in the Huntingdon corridor just above the Raystown Branch confluence.",
+        sourceUrl:
+          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC upper Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01559000 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01559000/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    "id": "juniata-river-juniata-point-newton-hamilton",
+    "slug": "juniata-river-juniata-point-newton-hamilton",
+    "name": "Juniata River",
+    "reach": "Upper Section: Juniata Point to Newton-Hamilton",
+    "aliases": [
+      "Upper Juniata - Juniata Point to Newton-Hamilton",
+      "Juniata River - Riverside, Mt. Union, and Shawmut planner corridor"
+    ],
+    "state": "Pennsylvania",
+    "region": "Upper Juniata",
+    "summary": "Upper Juniata planner corridor from Juniata Point to Newton-Hamilton, with shorter access choices at Riverside Park, Mt. Union, and Shawmut.",
+    "statusText": "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 3.1 ft there for this corridor.",
+    "latitude": 40.433333,
+    "longitude": -77.977778,
+    "gaugeSource": {
+      "id": "usgs-01563500",
+      "provider": "usgs",
+      "siteId": "01563500",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Juniata River at Mapleton Depot, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01563500/"
+    },
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
+      ],
+      "safetyNotes": [
+        "Use the access planner to pick a reasonable day length rather than assuming the full corridor is the right choice.",
+        "Expect shallow bars, riffles, and fresh wood when the Mapleton Depot gauge is near the minimum floor.",
+        "Stay with named public accesses and do not improvise on private banks."
+      ],
+      "reviewStatus": "reviewed"
+    },
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 3.1,
+      "thresholdSource": {
+        "label": "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        "provider": "local"
+      },
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says post-rain paddling is often the most enjoyable here, while dry summer spells can expose shallow bars and slow pools.",
+      "difficulty": "easy",
+      "difficultyNotes": "Most planner-selected sections are easy when the Mapleton Depot gauge clears the official floor, but the full corridor, low-water scraping, and changing wood still deserve planning.",
+      "confidenceNotes": "Confidence is good for a consolidated upper Juniata corridor because the replaced PFBC route cards used the same Mapleton Depot gauge model and adjacent official access sequence."
+    },
+    "evidenceNotes": [
+      {
+        "label": "Planner corridor",
+        "value": "Juniata Point to Newton-Hamilton, with intermediate access choices",
+        "note": "This route replaces overlapping upper Juniata access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf"
+      },
+      {
+        "label": "Gauge model",
+        "value": "USGS 01563500 at Mapleton Depot",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01563500/"
+      }
+    ],
+    "sourceLinks": [
+      {
+        "label": "PFBC upper Juniata guide",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        "provider": "local"
+      },
+      {
+        "label": "USGS 01563500 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01563500/",
+        "provider": "usgs"
+      },
+      {
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
+  },
   {
     id: "barren-river-tailwater-vpa-3",
     slug: "barren-river-tailwater-vpa-3",
@@ -37828,2017 +34635,296 @@ export const rivers: River[] = [
     ],
   },
   {
-    id: "juniata-river-granville-victory-park",
-    slug: "juniata-river-granville-victory-park",
-    name: "Juniata River",
-    reach: "Lower Section: Granville PFBC to Victory Park",
-    aliases: [
-      "Juniata River - Granville to Victory Park",
-      "Lower Juniata - Granville to Lewistown",
-      "Juniata River - Granville PFBC to Lewistown Victory Park",
+    "id": "juniata-river-greenwood-amity-hall",
+    "slug": "juniata-river-greenwood-amity-hall",
+    "name": "Juniata River",
+    "reach": "Lower Section: Greenwood to Amity Hall",
+    "aliases": [
+      "Lower Juniata - Greenwood to Amity Hall",
+      "Juniata River - Newport access planner corridor"
     ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Short lower-Juniata day trip from the Granville PFBC ramp to Victory Park in Lewistown. The official PFBC lower Juniata guide publishes both access coordinates, defines the pair as a clean 5-mile segment, and ties the corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.558333,
-    longitude: -77.603056,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    "state": "Pennsylvania",
+    "region": "Lower Juniata",
+    "summary": "Lower Juniata planner corridor from Greenwood through Newport, Howe Township, and Green Valley to Amity Hall PFBC, using the Newport gauge model.",
+    "statusText": "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
+    "latitude": 40.530278,
+    "longitude": -77.141944,
+    "gaugeSource": {
+      "id": "usgs-01567000",
+      "provider": "usgs",
+      "siteId": "01567000",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Juniata River at Newport, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01567000/"
     },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags bridge abutments with possible strainers near miles 51 and 49 inside this short upper Lewistown segment.",
-        "The route is still an easy public-access float, but fresh wood after storms and broad-river wind can change the day quickly.",
-        "Stay with the named public accesses and do not treat private banks or islands as casual substitutes.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
       ],
-      reviewStatus: "reviewed",
+      "safetyNotes": [
+        "Use the access planner to choose between short Newport-area outings and the full Greenwood-to-Amity Hall corridor.",
+        "Low water can expose bars and make the broad lower river slow.",
+        "Stay with named public accesses and avoid private banks."
+      ],
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 3.5,
+      "thresholdSource": {
+        "label": "PFBC lower Juniata guide minimum Newport gauge level",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable here, while mid-summer dry spells can expose cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an approachable river-left to river-left day float when the Lewistown gauge clears the official floor, but bridge-current judgment and same-day strainers still matter.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Granville PFBC and Victory Park, defines them as an official 5-mile access pair, and gives a direct Lewistown minimum gauge level of 3.1 ft. USGS Water Services returned same-day June 23, 2026 values of 950 cfs and 3.24 ft for direct USGS 01564895 during implementation.",
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says low summer conditions can leave broad bars and shallow lines, while a recent rain usually improves this lower corridor without requiring a full high-water call.",
+      "difficulty": "easy",
+      "difficultyNotes": "Planner-selected sections are approachable in the official minimum band, but the lower river remains broad enough for wind, low-water bars, and fresh wood to matter.",
+      "confidenceNotes": "Confidence is good for a consolidated Newport-area corridor because the replaced PFBC route cards used adjacent official access pairs and the same Newport gauge model."
     },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: "Official route segment",
-        value: "Granville PFBC to Victory Park, about 5 mi",
-        note: "The PFBC lower Juniata guide places Granville at river mile 51 and Victory Park at river mile 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "label": "Planner corridor",
+        "value": "Greenwood PFBC ramp to Amity Hall PFBC ramp, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf"
       },
       {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Granville at 40 33 30 / 77 36 11 and Victory Park at 40 35 42 / 77 34 44.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 950 cfs and 3.24 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Bridge abutments with possible strainers",
-        note: "PFBC flags possible strainers at miles 51 and 49 within this route.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
+        "label": "Gauge model",
+        "value": "Juniata River at Newport, PA",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01567000/"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+        "label": "PFBC lower Juniata guide",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
       {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
+        "label": "USGS 01567000 current conditions",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01567000",
+        "provider": "usgs"
       },
       {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
       },
-    ],
+      {
+        "label": "USGS 01567000 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01567000/",
+        "provider": "usgs"
+      }
+    ]
   },
-  {
-    id: "juniata-river-victory-park-lewistown-narrows",
-    slug: "juniata-river-victory-park-lewistown-narrows",
-    name: "Juniata River",
-    reach: "Lower Section: Victory Park to Lewistown Narrows PFBC",
-    aliases: [
-      "Juniata River - Victory Park to Lewistown Narrows",
-      "Lower Juniata - Lewistown town to Lewistown Narrows",
-      "Juniata River - Victory Park to Lewistown Narrows PFBC",
+    {
+    "id": "juniata-river-mifflin-muskrat-springs",
+    "slug": "juniata-river-mifflin-muskrat-springs",
+    "name": "Juniata River",
+    "reach": "Lower Section: Mifflin to Muskrat Springs",
+    "aliases": [
+      "Lower Juniata - Mifflin to Muskrat Springs",
+      "Juniata River - Walker PFBC planner corridor"
     ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Easy lower-Juniata link from Victory Park in Lewistown to the Lewistown Narrows PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 6-mile segment, and again uses the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.595,
-    longitude: -77.578889,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    "state": "Pennsylvania",
+    "region": "Lower Juniata",
+    "summary": "Lower Juniata planner corridor from Mifflin through Walker PFBC to Muskrat Springs PFBC, using the same conservative Lewistown gauge model.",
+    "statusText": "Use the Juniata River at Lewistown gauge as a conservative upstream reference. The official PFBC lower Juniata guide lists it among the useful gauges for this lower-section corridor and recommends at least 3.1 ft there.",
+    "latitude": 40.569167,
+    "longitude": -77.401111,
+    "gaugeSource": {
+      "id": "usgs-01564895",
+      "provider": "usgs",
+      "siteId": "01564895",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "proxy",
+      "siteName": "Juniata River at Lewistown, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01564895/"
     },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags a ledge stretching across the river near mile 43, followed by rough water pushing into a cut bank.",
-        "Bridge remnants and same-day wood can shift around this broad river even when the route reads as an easy town-to-town float.",
-        "Stay with the named public accesses and avoid treating private banks as backup landings.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
       ],
-      reviewStatus: "reviewed",
+      "safetyNotes": [
+        "Use Walker PFBC as the natural midpoint when a shorter outing is the better fit.",
+        "Low water can expose bars and make a short route slower than expected.",
+        "Stay with named public accesses and avoid private banks."
+      ],
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 3.1,
+      "thresholdSource": {
+        "label": "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer water can expose cobble bars and slow pools, while post-rain days usually feel better on this reach.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy access-to-access day float when the Lewistown gauge clears the official floor, but the mile-43 ledge and broad-river wind keep it from being a thoughtless park paddle.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Victory Park and Lewistown Narrows PFBC, defines them as an official 6-mile access pair, and gives a direct Lewistown minimum gauge level of 3.1 ft. USGS Water Services returned same-day June 23, 2026 values of 950 cfs and 3.24 ft for direct USGS 01564895 during implementation.",
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "seasonNotes": "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose wide cobble bars and slower channels.",
+      "difficulty": "easy",
+      "difficultyNotes": "This remains an easy lower-Juniata corridor in the official minimum band, with shallow bars, wind, and fresh wood as the main planning issues.",
+      "confidenceNotes": "Confidence is good for a consolidated PFBC access corridor because the replaced route cards used adjacent official access pairs and the same Lewistown gauge model."
     },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: "Official route segment",
-        value: "Victory Park to Lewistown Narrows PFBC, about 6 mi",
-        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Lewistown Narrows at river mile 40.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "label": "Planner corridor",
+        "value": "Mifflin ramp to Muskrat Springs PFBC ramp, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf"
       },
       {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Lewistown Narrows at 40 36 14 / 77 29 16.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 950 cfs and 3.24 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Mile-43 ledge and rough water",
-        note: "PFBC warns of a ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
+        "label": "Gauge model",
+        "value": "Juniata River at Lewistown, PA",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01564895/"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+        "label": "PFBC lower Juniata guide",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
       {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
+        "label": "USGS 01564895 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        "provider": "usgs"
       },
       {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
       },
-    ],
+      {
+        "label": "USGS 01564895 current conditions",
+        "url": "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01564895",
+        "provider": "usgs"
+      }
+    ]
   },
-  {
-    id: "juniata-river-victory-park-mifflintown",
-    slug: "juniata-river-victory-park-mifflintown",
-    name: "Juniata River",
-    reach: "Lower Section: Victory Park to Mifflintown PFBC",
-    aliases: [
-      "Juniata River - Victory Park to Mifflintown",
-      "Lower Juniata - Lewistown to Mifflintown",
-      "Juniata River - Victory Park to Mifflintown PFBC",
+    {
+    "id": "juniata-river-granville-mifflin",
+    "slug": "juniata-river-granville-mifflin",
+    "name": "Juniata River",
+    "reach": "Lower Section: Granville to Mifflin",
+    "aliases": [
+      "Lower Juniata - Granville to Mifflin",
+      "Juniata River - Lewistown Narrows access planner corridor"
     ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Ten-mile lower-Juniata day float from Victory Park in Lewistown to the Mifflintown PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a clean 10-mile segment, and ties this upper lower-Juniata corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.595,
-    longitude: -77.578889,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
+    "state": "Pennsylvania",
+    "region": "Lower Juniata",
+    "summary": "Lower Juniata planner corridor from Granville PFBC through Victory Park and Lewistown Narrows toward Mifflin, preserving the direct Lewistown gauge model.",
+    "statusText": "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
+    "latitude": 40.558333,
+    "longitude": -77.603056,
+    "gaugeSource": {
+      "id": "usgs-01564895",
+      "provider": "usgs",
+      "siteId": "01564895",
+      "metric": "gage_height_ft",
+      "unit": "ft",
+      "kind": "direct",
+      "siteName": "Juniata River at Lewistown, PA",
+      "detailUrl": "https://waterdata.usgs.gov/monitoring-location/01564895/"
     },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags a ledge stretching across the river near mile 43, followed by rough water pushing into a cut bank inside this route.",
-        "Bridge remnants, fresh wood after storms, and broad-river wind can make this feel less casual than the access table mileage suggests.",
-        "Stay with the named public accesses and avoid treating private banks or islands as backup landings.",
+    "safetyProfile": {
+      "riskLevel": "caution",
+      "hazards": [
+        "strainers",
+        "private_banks"
       ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access day float when the Lewistown gauge clears the official floor, but the mile-43 ledge, wind, and same-day wood keep it from being a thoughtless flatwater drift.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Victory Park and Mifflintown PFBC, defines them as an official 10-mile access pair, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 23, 2026 values of 958 cfs and 3.25 ft for direct USGS 01564895 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Victory Park to Mifflintown PFBC, about 10 mi",
-        note: "The PFBC lower Juniata guide places Victory Park at river mile 46 and Mifflintown PFBC at river mile 36.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Victory Park at 40 35 42 / 77 34 44 and Mifflintown PFBC at 40 35 42 / 77 24 55.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 958 cfs and 3.25 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Mile-43 ledge and rough water",
-        note: "PFBC warns of a ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-mifflin-walker",
-    slug: "juniata-river-mifflin-walker",
-    name: "Juniata River",
-    reach: "Lower Section: Mifflin to Walker PFBC",
-    aliases: [
-      "Juniata River - Mifflin to Walker",
-      "Lower Juniata - Mifflin to Walker PFBC",
-      "Juniata River - Mifflin ramp to Walker PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Four-mile mid-lower Juniata link from the Mifflin river-right ramp to the Walker PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and supports a conservative minimum-only model using the Lewistown gauge as the upstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge as a conservative upstream reference. The official PFBC lower Juniata guide lists it among the useful gauges for this lower-section corridor and recommends at least 3.1 ft there.",
-    latitude: 40.569167,
-    longitude: -77.401111,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 inside this short Mifflin-to-Walker corridor.",
-        "The route is still a straightforward day float, but same-day wood, shallow bars, and wind can make the wide bends feel slower and less forgiving than the mileage suggests.",
-        "Use only the named public accesses at Mifflin and Walker rather than private banks or bridge shoulders.",
+      "safetyNotes": [
+        "PFBC flags the mile-43 ledge and rough water in this corridor.",
+        "Use the access planner to avoid overlong pairings when the river is near the low floor.",
+        "Stay with named public accesses and avoid private banks."
       ],
-      reviewStatus: "reviewed",
+      "reviewStatus": "reviewed"
     },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+    "profile": {
+      "thresholdModel": "minimum-only",
+      "tooLow": 3.1,
+      "thresholdSource": {
+        "label": "PFBC lower Juniata guide minimum Lewistown gauge level",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose wide cobble bars and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access link when the corridor has enough depth, but the mile-33 rapid-current zone and the proxy-gauge posture mean it should stay conservative.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Lewistown and Newport segments. The PFBC lower Juniata guide publishes exact coordinates for Mifflin and Walker and defines them as an official 4-mile access pair, while listing Lewistown as a useful lower-Juniata gauge with a 3.1 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 958 cfs and 3.25 ft at direct site 01564895 during this run, but that gauge sits upstream of this short middle segment, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Mifflin to Walker PFBC, about 4 mi",
-        note: "The PFBC lower Juniata guide places Mifflin at river mile 34 and Walker PFBC at river mile 30.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Mifflin at 40 34 09 / 77 24 04 and Walker PFBC at 40 31 55 / 77 21 26.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 958 cfs and 3.25 ft for Juniata River at Lewistown, PA. PFBC lists Lewistown as a useful lower-section gauge, but it remains an upstream same-river proxy for this middle route.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current near mile 33",
-        note: "PFBC warns of rapid current at mile 33 in the middle of this corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-walker-muskrat-springs",
-    slug: "juniata-river-walker-muskrat-springs",
-    name: "Juniata River",
-    reach: "Lower Section: Walker PFBC to Muskrat Springs PFBC",
-    aliases: [
-      "Juniata River - Walker to Muskrat Springs",
-      "Lower Juniata - Walker to Muskrat Springs PFBC",
-      "Juniata River - Walker PFBC to Muskrat Springs ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Four-mile lower-Juniata link from the Walker PFBC ramp to the Muskrat Springs PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and supports a conservative minimum-only model using the Lewistown gauge as an upstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge as a conservative upstream same-river reference. The official PFBC lower Juniata guide lists Lewistown among the useful gauges for this lower-section corridor and recommends at least 3.1 ft there.",
-    latitude: 40.531944,
-    longitude: -77.357222,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC does not flag a numbered ledge or rapid inside this exact Walker-to-Muskrat span, but it warns that lower-Juniata bridge structures can collect strainers and that the river changes after storms.",
-        "Buttonwood and River Rock campground traffic near Mexico can make the mid-route shoreline busier than the mileage suggests, so stay disciplined about the intended Muskrat Springs finish.",
-        "Use only the named public accesses at Walker and Muskrat Springs rather than private banks or informal bars.",
+      "thresholdSourceStrength": "official",
+      "rainfallSensitivity": "medium",
+      "seasonMonths": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
       ],
-      reviewStatus: "reviewed",
+      "seasonNotes": "PFBC says post-rain paddling is often the most enjoyable here, while mid-summer dry spells can expose cobble bars and slow pools.",
+      "difficulty": "easy",
+      "difficultyNotes": "Short planner-selected sections are easy in the official minimum band, while the ledge near mile 43, shallow bars, and longer pairings require more care.",
+      "confidenceNotes": "Confidence is good for a consolidated Lewistown-area corridor because the replaced PFBC route cards used the same Lewistown gauge model and adjacent official access sequence."
     },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose wide cobble bars and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access link when the corridor has enough depth, but the proxy-gauge posture and broad-river wind still justify a conservative read.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Lewistown and Newport routes. The PFBC lower Juniata guide publishes exact coordinates for Walker and Muskrat Springs and defines them as an official 4-mile access pair, while listing Lewistown as a useful lower-Juniata gauge with a 3.1 ft minimum. The official USGS current-conditions page reported same-day June 23, 2026 values of 966 cfs and 3.26 ft at direct site 01564895 during this run, but that gauge remains upstream of this route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
+    "evidenceNotes": [
       {
-        label: "Official route segment",
-        value: "Walker PFBC to Muskrat Springs PFBC, about 4 mi",
-        note: "The PFBC lower Juniata guide places Walker PFBC at river mile 30 and Muskrat Springs at river mile 26.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "label": "Planner corridor",
+        "value": "Granville PFBC ramp to Mifflin ramp, with intermediate access choices",
+        "note": "This route replaces overlapping access-to-access cards with one access-planner corridor.",
+        "sourceUrl": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf"
       },
       {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Walker PFBC at 40 31 55 / 77 21 26 and Muskrat Springs at 40 32 06 / 77 17 58.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01564895 at Lewistown",
-        note: "The official USGS current-conditions page reported same-day June 23, 2026 values of 966 cfs and 3.26 ft for Juniata River at Lewistown, PA. PFBC lists Lewistown as a useful lower-section gauge, but it remains upstream of this route.",
-        sourceUrl: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01564895",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Buttonwood and River Rock campground corridor",
-        note: "PFBC says Mexico at mile 29 offers dining and camping opportunities, including Buttonwood Campground and River Rock Campground with shoreline river access for overnight paddlers.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
+        "label": "Gauge model",
+        "value": "Juniata River at Lewistown, PA",
+        "note": "The consolidated route keeps the same reviewed gauge model used by the replaced route cards.",
+        "sourceUrl": "https://waterdata.usgs.gov/monitoring-location/01564895/"
+      }
     ],
-    sourceLinks: [
+    "sourceLinks": [
       {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
+        "label": "PFBC lower Juniata guide",
+        "url": "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
+        "provider": "local"
       },
       {
-        label: "USGS 01564895 current conditions",
-        url: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01564895",
-        provider: "usgs",
+        "label": "USGS 01564895 monitoring location",
+        "url": "https://waterdata.usgs.gov/monitoring-location/01564895/",
+        "provider": "usgs"
       },
       {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-greenwood-newport",
-    slug: "juniata-river-greenwood-newport",
-    name: "Juniata River",
-    reach: "Lower Section: Greenwood PFBC to Newport",
-    aliases: [
-      "Juniata River - Greenwood to Newport",
-      "Lower Juniata - Greenwood PFBC to Newport",
-      "Juniata River - Greenwood ramp to Newport access",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Four-mile lower-Juniata link from the Greenwood PFBC ramp to the Newport primitive access. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and ties the take-out corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
-    latitude: 40.530278,
-    longitude: -77.141944,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC does not flag a numbered rapid inside this Greenwood-to-Newport span, but it still warns that lower-Juniata bridges can collect strainers and that scouting after storms matters.",
-        "The route finishes at a primitive town-side landing in Newport, so confirm parking and the final take-out line before launching.",
-        "Use only the named public accesses at Greenwood and Newport rather than private banks or islands.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and shallow lines, while a recent rain usually improves this lower corridor without requiring a full high-water call.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river link when Newport clears the official floor, but the primitive take-out, broad-river wind, and dynamic post-rain wood still deserve a conservative plan.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Greenwood PFBC and Newport, defines them as an official 4-mile access pair, and lists Newport among the useful lower-Juniata gauges with a 3.5 ft minimum. The official USGS current-conditions page reported same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for direct USGS 01567000 in the take-out corridor during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Greenwood PFBC to Newport, about 4 mi",
-        note: "The PFBC lower Juniata guide places Greenwood PFBC at river mile 16 and Newport at river mile 12.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Greenwood PFBC at 40 31 49 / 77 08 31 and Newport at 40 28 45 / 77 07 46.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "The official USGS current-conditions page reported same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for Juniata River at Newport, PA.",
-        sourceUrl: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01567000",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Camping context",
-        value: "Greenwood and Newport support camp corridor",
-        note: "PFBC says Pittman's Riverside Campground sits at mile 16 and Little Buffalo Family Campground lies near Newport, giving this short corridor nearby legal base-camp support rather than committed on-route camping.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 current conditions",
-        url: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01567000",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-newport-green-valley",
-    slug: "juniata-river-newport-green-valley",
-    name: "Juniata River",
-    reach: "Lower Section: Newport to Green Valley",
-    aliases: [
-      "Juniata River - Newport to Green Valley",
-      "Lower Juniata - Newport to Green Valley Campground",
-      "Juniata River - Newport Primitive to Green Valley",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Six-mile lower-Juniata day float from the Newport primitive access to Green Valley Campground. The official PFBC lower guide publishes both access coordinates, defines the pair as a 6-mile segment, and ties the corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.479167,
-    longitude: -77.129444,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside this route.",
-        "The take-out is tied to a campground access on river left, so confirm the landing lane before drifting past it.",
-        "Stay with the named public accesses and avoid treating private banks or islands as substitute stops.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and shallow lines, while a recent rain usually improves the float without requiring a full high-water call.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy downstream campground-link float when Newport clears the official floor, though the mile-10.5 ledge and broad-river wind still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Newport and Green Valley, defines them as an official 6-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day June 23, 2026 values of 1,260 cfs and 3.61 ft for direct USGS 01567000 during implementation.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Newport to Green Valley, about 6 mi",
-        note: "The PFBC lower Juniata guide places Newport at river mile 12 and Green Valley at river mile 6.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Newport at 40 28 45 / 77 07 46 and Green Valley at 40 28 45 / 77 03 17.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,260 cfs and 3.61 ft for Juniata River at Newport, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current over a ledge at mile 10.5",
-        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Newport-to-Green-Valley corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-green-valley-amity-hall",
-    slug: "juniata-river-green-valley-amity-hall",
-    name: "Juniata River",
-    reach: "Lower Section: Green Valley to Amity Hall PFBC",
-    aliases: [
-      "Juniata River - Green Valley to Amity Hall",
-      "Lower Juniata - Green Valley Campground to Amity Hall PFBC",
-      "Juniata River - Green Valley access to Amity Hall ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Four-mile lower-Juniata link from Green Valley Campground to the Amity Hall PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 4-mile segment, and supports a conservative minimum-only model using the Newport gauge as an upstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Newport gauge as a conservative upstream same-river reference. The official PFBC lower Juniata guide lists Newport among the useful gauges for this lower-section corridor and recommends at least 3.5 ft there.",
-    latitude: 40.479167,
-    longitude: -77.054722,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags outcrops scattered across the river near mile 5.5 plus a series of ledges and small outcrops near mile 5 with potentially hazardous current.",
-        "The run starts at a campground and ends at a PFBC ramp, but the lower corridor still needs take-out discipline and attention to same-day wood after storms.",
-        "Stay with the named public accesses and avoid treating private banks or islands as substitute stops.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river link when the corridor has enough depth, but the mile-5 ledge and outcrop zone mean it should still be treated as a real moving-water float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Newport start-at-gauge routes. The PFBC lower Juniata guide publishes exact coordinates for Green Valley and Amity Hall and defines them as an official 4-mile access pair, while listing Newport as a useful lower-Juniata gauge with a 3.5 ft minimum. The official USGS current-conditions page reported same-day June 23, 2026 values of 1,270 cfs and 3.62 ft at direct site 01567000 during this run, but that gauge remains upstream of this route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Green Valley to Amity Hall PFBC, about 4 mi",
-        note: "The PFBC lower Juniata guide places Green Valley at river mile 6 and Amity Hall at river mile 2.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Green Valley at 40 28 45 / 77 03 17 and Amity Hall at 40 25 51 / 77 00 48.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01567000 at Newport",
-        note: "The official USGS current-conditions page reported same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for Juniata River at Newport, PA. PFBC lists Newport as a useful lower-Juniata gauge, but it remains upstream of this route.",
-        sourceUrl: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01567000",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Mile 5.5 outcrops and mile 5 ledges",
-        note: "PFBC warns of outcrops scattered across the river near mile 5.5 with hazardous current and a series of ledges plus small outcrops near mile 5.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 current conditions",
-        url: "https://waterdata.usgs.gov/nwis/uv?legacy=1&site_no=01567000",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-newport-amity-hall",
-    slug: "juniata-river-newport-amity-hall",
-    name: "Juniata River",
-    reach: "Lower Section: Newport to Amity Hall PFBC",
-    aliases: [
-      "Juniata River - Newport to Amity Hall",
-      "Lower Juniata - Newport to Amity Hall PFBC",
-      "Juniata River - Newport access to Amity Hall ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Ten-mile lower-Juniata run from the Newport access to the Amity Hall PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair as a 10-mile segment, and ties the corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.479167,
-    longitude: -77.129444,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside this longer Newport-to-Amity-Hall corridor.",
-        "The run passes the Green Valley campground area mid-route, but the intended finish is the Amity Hall PFBC ramp farther downstream.",
-        "Stay with the named public accesses and avoid private banks or islands as substitute stops.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lines, while recent rain usually improves this lower corridor without needing a full high-water recommendation.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river day trip when Newport clears the official floor, though the mile-10.5 ledge, wind, and broad-river line picking still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Newport and Amity Hall, defines them as an official 10-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft. USGS Water Services returned same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for direct USGS 01567000 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Newport to Amity Hall PFBC, about 10 mi",
-        note: "The PFBC lower Juniata guide places Newport at river mile 12 and Amity Hall at river mile 2.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Newport at 40 28 45 / 77 07 46 and Amity Hall at 40 25 51 / 77 00 48.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for Juniata River at Newport, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current over a ledge at mile 10.5",
-        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Newport-to-Amity-Hall corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-portstown-park-juniata-point",
-    slug: "juniata-river-portstown-park-juniata-point",
-    name: "Juniata River",
-    reach: "Upper Section: Portstown Park to Juniata Point",
-    aliases: [
-      "Juniata River - Portstown Park to Juniata Point",
-      "Upper Juniata - Huntingdon parks to Juniata Point",
-      "Juniata River - Portstown Park to Raystown Branch mouth",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Three-mile upper-Juniata link from Portstown Park to the Juniata Point PFBC ramp near the Raystown Branch mouth. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the Huntingdon corridor to a direct USGS gauge with a 1.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Huntingdon gauge. The official PFBC upper Juniata guide recommends at least 1.5 ft there for this corridor.",
-    latitude: 40.485833,
-    longitude: -78.014167,
-    gaugeSource: {
-      id: "usgs-01559000",
-      provider: "usgs",
-      siteId: "01559000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Huntingdon, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01559000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "This is a short town-to-ramp float, but bridge-current changes, broad-river wind, and fresh wood after storms can still move the line around.",
-        "Juniata Point is the intended public finish near the Raystown Branch mouth. Do not drift past it looking for informal banks downstream.",
-        "Use only the named public accesses at Portstown Park and Juniata Point rather than private shorelines or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 1.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Huntingdon gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says the Juniata varies through the year, with snowmelt and spring rain often bringing the best flows while summer dry spells expose bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy short upper-Juniata float when the Huntingdon gauge clears the official floor, but broad current and take-out discipline still matter late in the run.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Juniata Point, defines them as a 3-mile access pair by river mile, and lists a direct Huntingdon minimum gauge level of 1.5 ft for this corridor. USGS Water Services returned same-day June 23, 2026 values of 904 cfs and 2.30 ft for direct USGS 01559000 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Portstown Park to Juniata Point, about 3 mi",
-        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Juniata Point at river mile 91.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Juniata Point at 40 27 30 / 77 58 51.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01559000 at Huntingdon",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 904 cfs and 2.30 ft for Juniata River at Huntingdon, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01559000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Huntingdon 1.5 ft minimum",
-        note: "PFBC lists Huntingdon among the useful gauges for the upper Juniata and recommends a minimum level of 1.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Route context",
-        value: "Short public park-to-ramp corridor",
-        note: "PFBC identifies both Portstown Park and Juniata Point as named river accesses in the Huntingdon corridor just above the Raystown Branch confluence.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01559000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01559000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-juniata-point-riverside-park",
-    slug: "juniata-river-juniata-point-riverside-park",
-    name: "Juniata River",
-    reach: "Upper Section: Juniata Point to Riverside Park",
-    aliases: [
-      "Juniata River - Juniata Point to Riverside Park",
-      "Upper Juniata - Juniata Point to Mapleton",
-      "Juniata River - Raystown Branch mouth to Mapleton Riverside Park",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Six-mile upper-Juniata float from the Juniata Point ramp near the Raystown Branch mouth to Riverside Park at Mapleton. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the Mapleton corridor to a direct USGS gauge with a 2.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.458333,
-    longitude: -77.980833,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags hazardous current with waves near mile 90 plus the same Mapleton-corridor caution features near miles 86.5 and 85.5.",
-        "The route is still a broad public-access day float, but same-day wood, headwind, and low-water bars can make the middle miles slower than the map suggests.",
-        "Use only the named public accesses at Juniata Point and Riverside Park rather than private banks or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says snowmelt and spring rain often produce the best upper-Juniata levels, while summer dry spells expose bars and make the broad pools slower.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access float when Mapleton clears the official floor, but the mile-90 wave/current feature and the Mapleton bridge-current zone still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Juniata Point and Riverside Park, defines them as a 6-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for direct USGS 01563500 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Juniata Point to Riverside Park, about 6 mi",
-        note: "The PFBC upper Juniata guide places Juniata Point at river mile 91 and Riverside Park at river mile 85.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Juniata Point at 40 27 30 / 77 58 51 and Riverside Park at 40 23 10 / 77 56 18.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for Juniata River at Mapleton Depot, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 90, 86.5, and 85.5 caution features",
-        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, and strong bridge-abutment current near mile 85.5.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-riverside-park-mt-union",
-    slug: "juniata-river-riverside-park-mt-union",
-    name: "Juniata River",
-    reach: "Upper Section: Riverside Park to Mt. Union",
-    aliases: [
-      "Juniata River - Riverside Park to Mt. Union",
-      "Upper Juniata - Mapleton to Mt. Union",
-      "Juniata River - Mapleton Riverside Park to Mt. Union",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Four-mile upper-Juniata float from Riverside Park at Mapleton to the Mt. Union access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties this middle corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.386111,
-    longitude: -77.938333,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags small ledges and ripples near mile 86.5 plus strong bridge-abutment current near mile 85.5 right after the Mapleton start.",
-        "The route is still an approachable day float, but same-day wood, broad-river wind, and slick landing edges can make it feel less casual than the mileage suggests.",
-        "Use only the named public accesses at Riverside Park and Mt. Union rather than private banks or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says snowmelt and spring rain often produce the best upper-Juniata levels, while summer dry spells expose bars and make line picking slower.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access float when Mapleton clears the official floor, though the early bridge-current zone, broad-river wind, and same-day wood still deserve attention.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Riverside Park and Mt. Union, defines them as a 4-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for direct USGS 01563500 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Riverside Park to Mt. Union, about 4 mi",
-        note: "The PFBC upper Juniata guide places Riverside Park at river mile 85 and Mt. Union at river mile 81.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Riverside Park at 40 23 10 / 77 56 18 and Mt. Union at 40 23 10 / 77 52 24.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for Juniata River at Mapleton Depot, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 86.5 and 85.5 caution features",
-        note: "PFBC flags small ledges and ripples at mile 86.5 and strong bridge-abutment current at mile 85.5 in this Mapleton corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-riverside-park-shawmut",
-    slug: "juniata-river-riverside-park-shawmut",
-    name: "Juniata River",
-    reach: "Upper Section: Riverside Park to Shawmut",
-    aliases: [
-      "Juniata River - Riverside Park to Shawmut",
-      "Upper Juniata - Mapleton to Shawmut",
-      "Juniata River - Mapleton Riverside Park to Shawmut",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Nine-mile upper-Juniata run from Riverside Park at Mapleton through the Jacks Narrows approach to the Shawmut access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model from the direct Mapleton Depot gauge.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there, and this route keeps that minimum as a conservative floor.",
-    latitude: 40.386111,
-    longitude: -77.938333,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags small ledges and ripples near mile 86.5, strong bridge-abutment current near mile 85.5, and waves with hidden rocks near mile 75 on the approach to Shawmut.",
-        "This longer public-access route stays broad and mostly forgiving at normal levels, but same-day wood, wind, and low-water bars can stretch the day quickly.",
-        "Use only the named public accesses at Riverside Park and Shawmut rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says upper-Juniata levels improve after snowmelt or rain, while summer dry spells expose bars and make the wider pools slower and scratchier.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access route in the product sense, but the early Mapleton-current features and the mile-75 wave/rock zone make it more consequential than the short park segments.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Riverside Park and Shawmut, defines them as a 9-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for direct USGS 01563500 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Riverside Park to Shawmut, about 9 mi",
-        note: "The PFBC upper Juniata guide places Riverside Park at river mile 85 and Shawmut at river mile 76.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Riverside Park at 40 23 10 / 77 56 18 and Shawmut at 40 21 53 / 77 48 44.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for Juniata River at Mapleton Depot, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 86.5, 85.5, and 75 current features",
-        note: "PFBC flags small ledges and ripples at mile 86.5, strong bridge-abutment current at mile 85.5, and waves with hidden rocks near mile 75.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-mt-union-newton-hamilton",
-    slug: "juniata-river-mt-union-newton-hamilton",
-    name: "Juniata River",
-    reach: "Upper Section: Mt. Union to Newton-Hamilton",
-    aliases: [
-      "Juniata River - Mt. Union to Newton-Hamilton",
-      "Upper Juniata - Mt. Union to Newton-Hamilton",
-      "Juniata River - Mt. Union access to Newton-Hamilton ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Eight-mile upper-Juniata run from the Mt. Union access to the Newton-Hamilton concrete ramp. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Mapleton Depot gauge as the upstream same-river reference.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge as a conservative upstream reference. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.386111,
-    longitude: -77.873333,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags waves and hidden rocks near mile 75 and a more complex hazardous-current zone near mile 73 with hidden rocks, waves, holes, and shallow rock on river left.",
-        "Current can push toward bridge abutments late in the route, and same-day wood or low water can make the final approach feel more technical than the guidebook mileage suggests.",
-        "Use only the named public accesses at Mt. Union and Newton-Hamilton rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says upper-Juniata conditions improve after snowmelt or rain, while summer low water exposes bars, rocks, and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access run in the broad product sense, but the mile-75 and mile-73 current features mean it deserves more respect than a flat canal-style float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the direct start-at-gauge routes. The PFBC upper Juniata guide publishes exact coordinates for Mt. Union and Newton-Hamilton, defines them as an 8-mile access pair, and lists Mapleton Depot as a useful upper-Juniata gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft at direct site 01563500 during this run, but that gauge sits upstream of this corridor, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Mt. Union to Newton-Hamilton, about 8 mi",
-        note: "The PFBC upper Juniata guide places Mt. Union at river mile 81 and Newton-Hamilton at river mile 73.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Mt. Union at 40 23 10 / 77 52 24 and Newton-Hamilton at 40 23 31 / 77 50 04.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for Juniata River at Mapleton Depot, PA. PFBC lists Mapleton Depot as a useful upper-Juniata gauge, but it remains upstream of this route.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 75 and 73 current features",
-        note: "PFBC flags waves and hidden rocks at mile 75 plus hazardous current at mile 73 with hidden rocks, waves, holes, and shallow rock on river left.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-shawmut-newton-hamilton",
-    slug: "juniata-river-shawmut-newton-hamilton",
-    name: "Juniata River",
-    reach: "Upper Section: Shawmut to Newton-Hamilton",
-    aliases: [
-      "Juniata River - Shawmut to Newton-Hamilton",
-      "Upper Juniata - Shawmut to Newton-Hamilton",
-      "Juniata River - Shawmut access to Newton-Hamilton ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Upper Juniata",
-    summary:
-      "Three-mile upper-Juniata link from the Shawmut access through the lower Jacks Narrows corridor to the Newton-Hamilton concrete ramp. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using Mapleton Depot as the upstream same-river gauge reference.",
-    statusText:
-      "Use the Juniata River at Mapleton Depot gauge as a conservative upstream reference. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
-    latitude: 40.364722,
-    longitude: -77.812222,
-    gaugeSource: {
-      id: "usgs-01563500",
-      provider: "usgs",
-      siteId: "01563500",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Mapleton Depot, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["private_banks"],
-      safetyNotes: [
-        "PFBC flags waves and hidden rocks near mile 75 plus a more complex hazardous-current zone near mile 73 with hidden rocks, waves, holes, and shallow rock on river left.",
-        "This is a short route, but current pushes toward bridge abutments late in the run and low water can concentrate the rockier lines.",
-        "Use only the named public accesses at Shawmut and Newton-Hamilton rather than bridge shoulders, islands, or private banks.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 2.5,
-      thresholdSource: {
-        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "The PFBC guide says upper-Juniata conditions improve after snowmelt or rain, while summer low water exposes bars and rockier inside lines.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy short public-access run in the broad product sense, but the mile-75 and mile-73 current features mean it should not be treated like a flat pool float.",
-      confidenceNotes:
-        "Confidence is solid but intentionally conservative. The PFBC upper Juniata guide publishes exact coordinates for Shawmut and Newton-Hamilton, defines them as a 3-mile access pair, and lists Mapleton Depot as a useful upper-Juniata gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft at direct site 01563500 during this run, but that gauge remains upstream of this corridor, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Shawmut to Newton-Hamilton, about 3 mi",
-        note: "The PFBC upper Juniata guide places Shawmut at river mile 76 and Newton-Hamilton at river mile 73.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Shawmut at 40 21 53 / 77 48 44 and Newton-Hamilton at 40 23 31 / 77 50 04.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01563500 at Mapleton Depot",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,510 cfs and 3.77 ft for Juniata River at Mapleton Depot, PA. PFBC lists Mapleton Depot as a useful upper-Juniata gauge, but it remains upstream of this route.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Mapleton Depot 2.5 ft minimum",
-        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 75 and 73 current features",
-        note: "PFBC flags waves and hidden rocks at mile 75 plus hazardous current at mile 73 with hidden rocks, waves, holes, and shallow rock on river left.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC upper Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01563500 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-granville-lewistown-narrows",
-    slug: "juniata-river-granville-lewistown-narrows",
-    name: "Juniata River",
-    reach: "Lower Section: Granville PFBC to Lewistown Narrows PFBC",
-    aliases: [
-      "Juniata River - Granville to Lewistown Narrows",
-      "Lower Juniata - Granville to Lewistown Narrows",
-      "Juniata River - Granville PFBC to Lewistown Narrows PFBC",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Eleven-mile lower-Juniata day float from the Granville PFBC ramp to the Lewistown Narrows PFBC ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the corridor to the direct Lewistown gauge with a 3.1 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge. The official PFBC lower Juniata guide recommends at least 3.1 ft there for this corridor.",
-    latitude: 40.558333,
-    longitude: -77.603056,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags bridge abutments with possible strainers near miles 51 and 49 plus a ledge stretching across the river near mile 43 with rough water pushing into a cut bank.",
-        "This is still an approachable lower-Juniata float, but broad-river wind, fresh wood after storms, and the longer mileage make it less casual than the upstream short links.",
-        "Stay with the named public accesses and avoid treating private banks or islands as backup landings.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says post-rain paddling is often the most enjoyable on the lower Juniata, while summer dry spells expose cobble bars and slow pools.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access day float when the Lewistown gauge clears the official floor, but the mile-43 ledge, upstream bridge-current hazards, and longer mileage deserve more planning than the short Lewistown splits.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Granville PFBC and Lewistown Narrows PFBC, defines their spacing as an 11-mile access pair, and gives a direct Lewistown minimum gauge level of 3.1 ft for this corridor. USGS Water Services returned same-day June 23, 2026 values of 966 cfs and 3.26 ft for direct USGS 01564895 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Granville PFBC to Lewistown Narrows PFBC, about 11 mi",
-        note: "The PFBC lower Juniata guide places Granville at river mile 51 and Lewistown Narrows at river mile 40.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Granville at 40 33 30 / 77 36 11 and Lewistown Narrows at 40 36 14 / 77 29 16.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 966 cfs and 3.26 ft for Juniata River at Lewistown, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary cautions",
-        value: "Miles 51, 49, and 43 caution features",
-        note: "PFBC flags bridge abutments with possible strainers at miles 51 and 49 plus a ledge at mile 43 with rough water pushing into a cut bank.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-lewistown-narrows-mifflin",
-    slug: "juniata-river-lewistown-narrows-mifflin",
-    name: "Juniata River",
-    reach: "Lower Section: Lewistown Narrows PFBC to Mifflin",
-    aliases: [
-      "Juniata River - Lewistown Narrows to Mifflin",
-      "Lower Juniata - Lewistown Narrows to Mifflin",
-      "Juniata River - Lewistown Narrows PFBC to Mifflin ramp",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Six-mile lower-Juniata link from the Lewistown Narrows PFBC ramp to the Mifflin ramp. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Lewistown gauge as the upstream same-river lower-section reference.",
-    statusText:
-      "Use the Juniata River at Lewistown gauge as a conservative upstream reference. The official PFBC lower Juniata guide lists it among the useful gauges for this lower-section corridor and recommends at least 3.1 ft there.",
-    latitude: 40.603889,
-    longitude: -77.487778,
-    gaugeSource: {
-      id: "usgs-01564895",
-      provider: "usgs",
-      siteId: "01564895",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "proxy",
-      siteName: "Juniata River at Lewistown, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current near mile 33 inside this Narrows-to-Mifflin corridor.",
-        "The segment is straightforward on paper, but same-day wood, broad-river wind, and low-water bars can still slow the day materially.",
-        "Use only the named public accesses at Lewistown Narrows and Mifflin rather than private banks or bridge shoulders.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.1,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Lewistown gauge level used as an upstream same-river proxy",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says the lower Juniata often feels best after recent rain, while dry summer periods expose broad cobble bars and slower channels.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy public-access link when the corridor has enough depth, but the mile-33 rapid-current zone and the upstream-gauge posture mean it should stay conservative.",
-      confidenceNotes:
-        "Confidence is solid but intentionally capped below the directly gauged Lewistown and Newport start-at-gauge routes. The PFBC lower Juniata guide publishes exact coordinates for Lewistown Narrows and Mifflin and defines them as a 6-mile access pair, while listing Lewistown as a useful lower-Juniata gauge with a 3.1 ft minimum. USGS Water Services returned same-day June 23, 2026 values of 966 cfs and 3.26 ft at direct site 01564895 during this run, but that gauge remains upstream of this route, so the app keeps only a conservative minimum floor.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Lewistown Narrows PFBC to Mifflin, about 6 mi",
-        note: "The PFBC lower Juniata guide places Lewistown Narrows at river mile 40 and Mifflin at river mile 34.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Lewistown Narrows at 40 36 14 / 77 29 16 and Mifflin at 40 34 09 / 77 24 04.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Proxy gauge support",
-        value: "USGS 01564895 at Lewistown",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 966 cfs and 3.26 ft for Juniata River at Lewistown, PA. PFBC lists Lewistown as a useful lower-section gauge, but it remains upstream of this route.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01564895&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Lewistown 3.1 ft minimum",
-        note: "PFBC lists Lewistown among the useful gauges for the lower Juniata and recommends a minimum level of 3.1 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current near mile 33",
-        note: "PFBC warns of rapid current at mile 33 in the middle of this corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01564895 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01564895/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
-  },
-  {
-    id: "juniata-river-newport-howe-township",
-    slug: "juniata-river-newport-howe-township",
-    name: "Juniata River",
-    reach: "Lower Section: Newport to Howe Township Park",
-    aliases: [
-      "Juniata River - Newport to Howe Township",
-      "Lower Juniata - Newport to Howe Township Park",
-      "Juniata River - Newport access to Howe Township Park",
-    ],
-    state: "Pennsylvania",
-    region: "Lower Juniata",
-    summary:
-      "Three-mile lower-Juniata link from the Newport access to Howe Township Park. The official PFBC lower guide publishes both access coordinates, defines the pair through its river-mile access table, and ties this short corridor to the direct Newport gauge with a 3.5 ft minimum level.",
-    statusText:
-      "Use the Juniata River at Newport gauge. The official PFBC lower Juniata guide recommends at least 3.5 ft there for this corridor.",
-    latitude: 40.479167,
-    longitude: -77.129444,
-    gaugeSource: {
-      id: "usgs-01567000",
-      provider: "usgs",
-      siteId: "01567000",
-      metric: "gage_height_ft",
-      unit: "ft",
-      kind: "direct",
-      siteName: "Juniata River at Newport, PA",
-      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-    },
-    safetyProfile: {
-      riskLevel: "caution",
-      hazards: ["strainers", "private_banks"],
-      safetyNotes: [
-        "PFBC flags rapid current falling over a ledge near mile 10.5 inside this short Newport-to-Howe corridor.",
-        "The route is short, but broad-river wind, same-day wood, and slick footing at the primitive Newport launch still matter.",
-        "Stay with the named public accesses and avoid treating private banks or islands as substitute stops.",
-      ],
-      reviewStatus: "reviewed",
-    },
-    profile: {
-      thresholdModel: "minimum-only",
-      tooLow: 3.5,
-      thresholdSource: {
-        label: "PFBC lower Juniata guide minimum Newport gauge level",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      thresholdSourceStrength: "official",
-      rainfallSensitivity: "medium",
-      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
-      seasonNotes:
-        "PFBC says low summer conditions can leave broad bars and scratchy lines, while a recent rain usually improves this lower corridor without requiring a full high-water call.",
-      difficulty: "easy",
-      difficultyNotes:
-        "This is an easy lower-river link when Newport clears the official floor, though the mile-10.5 ledge and open-river wind keep it from being a thoughtless park shuttle.",
-      confidenceNotes:
-        "Confidence is good for a conservative Pennsylvania add: the PFBC lower Juniata guide publishes exact coordinates for Newport and Howe Township Park, defines them as a 3-mile access pair, and gives a direct Newport minimum gauge level of 3.5 ft for this corridor. USGS Water Services returned same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for direct USGS 01567000 during this run.",
-    },
-    evidenceNotes: [
-      {
-        label: "Official route segment",
-        value: "Newport to Howe Township Park, about 3 mi",
-        note: "The PFBC lower Juniata guide places Newport at river mile 12 and Howe Township Park at river mile 9.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Endpoint coordinates",
-        value: "PFBC access-site coordinates",
-        note: "The PFBC access table publishes Newport at 40 28 45 / 77 07 46 and Howe Township Park at 40 29 27 / 77 05 47.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Direct gauge",
-        value: "USGS 01567000 at Newport",
-        note: "USGS Water Services returned same-day June 23, 2026 values of 1,270 cfs and 3.62 ft for Juniata River at Newport, PA.",
-        sourceUrl:
-          "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01567000&parameterCd=00060,00065&siteStatus=all",
-      },
-      {
-        label: "Official minimum level",
-        value: "Newport 3.5 ft minimum",
-        note: "PFBC lists Newport among the useful gauges for the lower Juniata and recommends a minimum level of 3.5 ft there.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-      {
-        label: "Primary caution",
-        value: "Rapid current over a ledge at mile 10.5",
-        note: "PFBC warns of rapid current falling over a ledge at mile 10.5 inside the Newport-to-Howe-Township corridor.",
-        sourceUrl:
-          "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-      },
-    ],
-    sourceLinks: [
-      {
-        label: "PFBC lower Juniata guide",
-        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_lower/juniata_lower_guide_map.pdf",
-        provider: "local",
-      },
-      {
-        label: "USGS 01567000 monitoring location",
-        url: "https://waterdata.usgs.gov/monitoring-location/01567000/",
-        provider: "usgs",
-      },
-      {
-        label: "PFBC launch permit vs boat registration",
-        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
-        provider: "local",
-      },
-    ],
+        "label": "PFBC launch permit vs boat registration",
+        "url": "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        "provider": "local"
+      }
+    ]
   },
   {
     id: "goose-creek-jacks-laurel-branch",
