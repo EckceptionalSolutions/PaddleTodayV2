@@ -4,9 +4,9 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Current Inventory
 
-- Current live Pennsylvania routes in `src/data/rivers.ts`: 35 as of 2026-06-24 implementation passes.
-- Current Pennsylvania trip-detail objects: 35 as of 2026-06-24.
-- Current Pennsylvania candidate ledger rows: 35 implemented rows as of 2026-06-24.
+- Current live Pennsylvania routes in `src/data/rivers.ts`: 38 as of 2026-06-24 implementation passes.
+- Current Pennsylvania trip-detail objects: 38 as of 2026-06-24.
+- Current Pennsylvania candidate ledger rows: 38 implemented rows as of 2026-06-24.
 - Automation posture: keep Pennsylvania limited to small high-confidence batches from official guide families, using only routes with official access, product-supported live gauge evidence, and numeric thresholds.
 
 ## Source Priorities
@@ -31,6 +31,13 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 - Record every reviewed lead in `docs/route-candidate-ledger.json`, even on no-add runs.
 
 ## Run Notes
+
+- 2026-06-24 19:07 America/Chicago / 2026-06-25 00:07 UTC: Pennsylvania three-route implementation pass; added three more lower French Creek routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 35 live Pennsylvania routes, 35 Pennsylvania trip-detail keys, and 35 implemented Pennsylvania ledger rows before this pass.
+  - Implemented `french-creek-wilson-chutes-cochranton`, `french-creek-cochranton-utica`, and `french-creek-cochranton-franklin` from the PFBC lower French Creek guide.
+  - Qualification package: the PFBC lower French Creek guide publishes exact public access coordinates for Wilson Chutes, Cochranton Borough, Utica Access, and Franklin Access; official river-mile spacing for the chosen 8/8/18-mile day runs; the lower-corridor caution package around strainers, bridge-abutment current, and the borderline Class I rapid at mile `19` near the Wilson-Chutes segment plus the rapid at mile `3` near Franklin; and the official lower-section minimum gauge floor of `2.5 ft` at Utica. Same-day direct USGS Water Services returned `1050 cfs / 3.18 ft` at Utica (`03024000`) at `2026-06-24 19:30 EDT`, with same-day upstream Meadville corroboration of `849 cfs / 3.47 ft` at `2026-06-24 19:15 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Wilson-Chutes-to-Cochranton and Cochranton-to-Utica stay `none`; Cochranton-to-Franklin is `nearby_basecamp` because nearby Franklin lodging supports a basecamp plan without implying on-route camping.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
 
 - 2026-06-24 17:37 America/Chicago / 2026-06-24 22:37 UTC: Pennsylvania three-route implementation pass; added three upper French Creek routes.
   - Rebuilt current inventory from route objects and trip details before editing: 32 live Pennsylvania routes, 32 Pennsylvania trip-detail keys, and 32 implemented Pennsylvania ledger rows before this pass.
