@@ -1,15 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-24 23:20 America/Chicago / 2026-06-25 04:20 UTC.
+Last summarized: 2026-06-25 11:55 America/Chicago / 2026-06-25 16:55 UTC.
 
 ## Current Inventory
 
-- Live routes: 31.
-- Ledger candidates: 32 Kentucky-specific records. The ledger now splits across 17 `added`, 11 `implemented`, 3 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-russell-ford-greensburg-city-ramp`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-rio-carrydown-stovall-park`, all sourced from current KDFWR Green River guidance plus same-day USGS support.
+- Live routes: 34.
+- Ledger candidates: 35 Kentucky-specific records. The ledger now splits across 17 `added`, 14 `implemented`, 3 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-greensburg-city-ramp-glenview-road`, `green-river-lynn-camp-creek-hh-wilson-park`, and `green-river-stovall-park-dennison-ferry`, all sourced from current KDFWR Pool 6 guidance plus same-day USGS support.
 
 ## Status
 
-Kentucky is paused from the active automation rotation at user request while work shifts to other states. It now has one guarded Elkhorn Creek whitewater route plus eight KDFWR- or county-supported recreational routes on Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, and Green River. KDFWR Blue Water Trails remain the best seed source for any future resume, but repeated recent no-add passes show the remaining near-term leads are blocked by product-live USGS failures, missing manager-grade threshold support, same-river gauge gaps, or weak endpoint/access-coordinate authority. Resume only if those blockers materially change or the user explicitly resumes Kentucky.
+Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but this run resumed it because Green River Pool 6 cleared the implementation bar with direct same-day USGS support and named public access authority. It now has one guarded Elkhorn Creek whitewater route plus eleven KDFWR- or county-supported recreational routes on Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, and Green River. KDFWR Blue Water Trails remain the best seed source for future resumes, but many remaining near-term leads are still blocked by product-live USGS failures, missing manager-grade threshold support, same-river gauge gaps, or weak endpoint/access-coordinate authority.
 
 ## Main Blockers
 
@@ -21,6 +21,11 @@ Kentucky is paused from the active automation rotation at user request while wor
 
 ## Current Guidance
 
+- 2026-06-25 11:55 America/Chicago / 2026-06-25 16:55 UTC three-route add pass
+  - Rebuilt the Kentucky V2 inventory at thirty-one pre-run Kentucky routes, then added `green-river-greensburg-city-ramp-glenview-road`, `green-river-lynn-camp-creek-hh-wilson-park`, and `green-river-stovall-park-dennison-ferry` to reach thirty-four live Kentucky routes.
+  - The Greensburg-to-Glenview add used KDFWR Pool 6 mileage and access authority plus the direct USGS `03306500` Greensburg stage gauge at `0.80 ft` on `2026-06-25 11:15 CDT`, below KDFWR's `1.0-1.75 ft` good band, so the route ships with explicit scrape / low-water expectations.
+  - The two downstream Hart / Edmonson County adds used KDFWR Pool 6 mileage and access authority plus the direct USGS `03308500` Munfordville discharge gauge at `414 cfs / 2.91 ft` on `2026-06-25 11:00 CDT`, inside KDFWR's official `300-600 cfs` good band; the Stovall-to-Dennison route also carries Mammoth Cave NPS context for the public park finish and river-warning expectations.
+  - Bounded KDFWR, NPS, Commons, and USGS image review still found no rights-clean exact-route paddling image for any of the three new Green River slugs, so no gallery asset was added.
 - 2026-06-24 23:20 America/Chicago / 2026-06-25 04:20 UTC three-route add pass
   - Rebuilt the Kentucky V2 inventory at twenty-eight pre-run Kentucky routes, then added `green-river-russell-ford-greensburg-city-ramp`, `green-river-rio-carrydown-hh-wilson-park`, and `green-river-rio-carrydown-stovall-park` to reach thirty-one live Kentucky routes.
   - The Greensburg add used KDFWR's Upper Green route description plus the direct USGS 03306500 stage gauge at 0.82 ft on 2026-06-24 22:15 CDT, which is below the official KDFWR 1.0-1.75 ft good band and therefore ships with honest low-water expectations.

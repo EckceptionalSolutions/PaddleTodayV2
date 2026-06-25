@@ -12305,6 +12305,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-greensburg-city-ramp-glenview-road': {
+    putIn: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 13.7 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 8 hr, longer in low water or with fishing, drift breaks, and shuttle delays',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to Greensburg City Ramp. Glenview is a grassy road-end carrydown with no amenities, so keep the take-out vehicle compact and leave daylight margin for a longer Upper Green day.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with town-based overnight support rather than on-route camping. Greensburg City Ramp has nearby lodging context, but KDFWR lists no camping at either endpoint and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greensburg City Ramp and take out at Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect slower shoals and more scraping whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Greensburg City Ramp is the easier launch, with paved parking and city-park activity. Keep the ramp clear for anglers and other local users.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This segment has fewer comfortable legal stop options than the shorter Greensburg routes. Stay off private banks except for true emergencies.',
+        'The route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower current can turn this into a long day.',
+        'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
+        'Private-bank limits, woody debris after rain, exposed sun, and broad-river wind on longer pools.',
+        'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
+      ],
+    },
+  },
   'green-river-rio-carrydown-hh-wilson-park': {
     putIn: {
       id: 'rio-carrydown-access',
@@ -12345,6 +12385,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'green-river-lynn-camp-creek-hh-wilson-park': {
+    putIn: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    takeOut: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    logistics: {
+      distanceLabel: 'About 18.2 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low water, family pacing, or sandbar and fishing stops',
+      shuttle:
+        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Lynn Camp Creek Ramp. This is a committed day, so leave extra daylight and keep both access areas tight because Lynn Camp and Wilson each have limited space and no built-in shuttle services.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the private-land terms at Lynn Camp Creek VPA #1.',
+      camping:
+        'Treat this as a full day float, not a camping route. KDFWR lists no camping at either endpoint, and the private banks and sandbars between Lynn Camp and H.H. Wilson should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lynn Camp Creek Ramp and take out at H.H. Wilson Park for the longer upper Hart County Green River segment. Use the Munfordville gauge and expect a slower all-day float whenever the discharge stays below KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful use, clean parking, and staying within the obvious access footprint.',
+        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site. Launch carefully and avoid blocking the narrow approach.',
+        'H.H. Wilson Park Ramp has a drop at the end of the concrete. Expect a less forgiving finish than a typical city-park ramp, especially if the river is low or the group is tired.',
+        'This route uses the direct Munfordville gauge for the Hart County corridor, but same-day weather, debris, and daylight matter as much as the cfs reading on a float this long.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
+        'High water above 600 cfs, when broad-river current, fresh wood, and the Wilson landing become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, fishing lines, and limited legal bailout options away from the named accesses.',
+        'Slippery footing at Lynn Camp, the ramp drop at Wilson, and any fresh strainers or downed trees after rain.',
+      ],
+    },
+  },
   'green-river-rio-carrydown-stovall-park': {
     putIn: {
       id: 'rio-carrydown-access',
@@ -12382,6 +12462,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 600 cfs, when broad-river current, wood, and park landings become less forgiving.',
         'Fallen trees, fishing lines, open-river sun and wind, and fewer comfortable legal stop options away from public accesses.',
         'Fatigue, slower group pace, and late-day weather because this is substantially longer than the Wilson-to-Stovall segment alone.',
+      ],
+    },
+  },
+  'green-river-stovall-park-dennison-ferry': {
+    putIn: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    takeOut: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    logistics: {
+      distanceLabel: 'About 21.0 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer in low water or with family pacing, wind, or snack stops',
+      shuttle:
+        'Stage the take-out at Dennison Ferry in Mammoth Cave National Park, then drive back to Stovall Park in Munfordville. Build in extra road time, confirm park access before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Stovall Park offers the cleaner overnight support in this pair. KDFWR lists primitive camping at the put-in and no camping at Dennison Ferry, so use Stovall for endpoint overnights rather than improvising on private banks downstream.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Munfordville-Stovall Park and take out at Dennison Ferry for a long Green River day bridging Hart County and Mammoth Cave. Use the Munfordville gauge and expect a slower, more consequential outing whenever the discharge sits below KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Stovall Park is the easiest side of this route: paved ramp, restrooms, primitive camping, and park amenities. Use the ramp efficiently because it also serves local anglers and park users.',
+        'Dennison Ferry is day-use only and finishes with a carry-down/carry-up park access rather than a simple motorboat ramp. Save energy for the take-out.',
+        'This is a very long day for a flatwater-style Green River trip. Use the shorter Green River family routes instead if the group is not comfortable with an all-day commitment.',
+        'The route uses the direct Munfordville gauge for the upstream corridor, but weather trend, fresh wood, and daylight are decisive on a float this long.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when this long route can become unreasonably slow for a same-day plan.',
+        'High water above 600 cfs, when broad-river current, debris, and the park finish become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, limited bailout options, and reduced cell service closer to Mammoth Cave.',
+        'Muddy or slick footing at Dennison Ferry, plus any fresh strainers or debris after rain.',
       ],
     },
   },
