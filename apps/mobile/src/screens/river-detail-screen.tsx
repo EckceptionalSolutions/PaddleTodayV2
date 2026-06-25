@@ -31,7 +31,6 @@ import {
   StyleProp,
   StyleSheet,
   Text,
-  TextInput,
   ViewStyle,
   View,
 } from 'react-native';
@@ -66,7 +65,7 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
-import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
+import { registerForRiverAlertPushNotifications, sendRiverAlertTestNotification } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
   normalizeReportPhotoAsset,
@@ -109,8 +108,7 @@ export default function RiverDetailScreen() {
   const scrollRef = useRef<ScrollView | null>(null);
   const sectionTabsYRef = useRef(0);
   const conditionsYRef = useRef(0);
-  const [draftEmail, setDraftEmail] = useState(storedEmail);
-  const [alertStatus, setAlertStatus] = useState('Choose notifications or email for route alerts.');
+  const [alertStatus, setAlertStatus] = useState('Choose Good or Strong phone notifications for this route.');
   const [pendingThreshold, setPendingThreshold] = useState<RiverAlertThreshold | null>(null);
   const [reportName, setReportName] = useState('');
   const [reportEmail, setReportEmail] = useState(storedEmail);
@@ -149,7 +147,6 @@ export default function RiverDetailScreen() {
   const detailSlug = detail?.river.slug ?? null;
 
   useEffect(() => {
-    setDraftEmail(storedEmail);
     setReportEmail((current) => current || storedEmail);
   }, [storedEmail]);
 
@@ -201,51 +198,7 @@ export default function RiverDetailScreen() {
   }
 
   const riverSlug = detail.river.slug;
-  async function submitRiverAlert(threshold: RiverAlertThreshold) {
-    const email = draftEmail.trim().toLowerCase();
-    if (!isValidEmailAddress(email)) {
-      setAlertStatus('Enter a valid email address before turning on alerts.');
-      return;
-    }
-
-    setPendingThreshold(threshold);
-    try {
-      trackAppEvent('alert_create_started', {
-        slug: riverSlug,
-        threshold,
-      });
-      await setEmail(email);
-      const response = await createAlertMutation.mutateAsync({
-        email,
-        riverSlug,
-        threshold,
-      });
-      await recordRouteAlert({ riverSlug, threshold, deliveryMethod: 'email' });
-      trackAppEvent('alert_create_succeeded', {
-        slug: riverSlug,
-        threshold,
-        duplicate: response.duplicate,
-        reactivated: response.reactivated,
-      });
-      setAlertStatus(alertMutationMessage(response, threshold));
-    } catch (error) {
-      captureAppException(error, {
-        name: 'alert_create_failed',
-        extra: {
-          slug: riverSlug,
-          threshold,
-        },
-      });
-      setAlertStatus(
-        error instanceof PaddleTodayApiError && error.message
-          ? error.message
-          : `Could not save the ${alertThresholdLabel(threshold)} alert right now.`
-      );
-    } finally {
-      setPendingThreshold(null);
-    }
-  }
-
+  const routeName = detail.river.name;
   async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
     setPendingThreshold(threshold);
     try {
@@ -370,6 +323,15 @@ export default function RiverDetailScreen() {
 
   function removeReportPhoto(id: string) {
     setReportPhotos((current) => current.filter((photo) => photo.id !== id));
+  }
+
+  async function sendTestNotification() {
+    const result = await sendRiverAlertTestNotification(routeName);
+    setAlertStatus(result.message);
+    trackAppEvent('native_alert_test_sent', {
+      slug: riverSlug,
+      ok: result.ok,
+    });
   }
 
   function scrollToY(y: number) {
@@ -838,7 +800,7 @@ export default function RiverDetailScreen() {
                 </View>
                 <View style={styles.alertCtaCopy}>
                   <Text style={styles.alertCtaTitle}>Alert me at Good or Strong</Text>
-                  <Text style={styles.alertCtaText}>Choose phone notifications or email for this route.</Text>
+                  <Text style={styles.alertCtaText}>Choose phone notifications for this route.</Text>
                 </View>
                 <MaterialCommunityIcons name="chevron-right" color={colors.textMuted} size={22} />
               </Pressable>
@@ -880,14 +842,12 @@ export default function RiverDetailScreen() {
         visible={alertSheetVisible}
         routeName={detail.river.name}
         routeReach={detail.river.reach}
-        draftEmail={draftEmail}
         status={alertStatus}
         pendingThreshold={pendingThreshold}
         mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
-        onEmailChange={setDraftEmail}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
-        onEmailAlert={(threshold) => void submitRiverAlert(threshold)}
+        onTestNotification={() => void sendTestNotification()}
       />
     </>
   );
@@ -1688,26 +1648,22 @@ function AlertSetupSheet({
   visible,
   routeName,
   routeReach,
-  draftEmail,
   status,
   pendingThreshold,
   mutationPending,
   onClose,
-  onEmailChange,
   onNativeAlert,
-  onEmailAlert,
+  onTestNotification,
 }: {
   visible: boolean;
   routeName: string;
   routeReach: string;
-  draftEmail: string;
   status: string;
   pendingThreshold: RiverAlertThreshold | null;
   mutationPending: boolean;
   onClose: () => void;
-  onEmailChange: (email: string) => void;
   onNativeAlert: (threshold: RiverAlertThreshold) => void;
-  onEmailAlert: (threshold: RiverAlertThreshold) => void;
+  onTestNotification: () => void;
 }) {
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
@@ -1752,39 +1708,15 @@ function AlertSetupSheet({
             </Text>
           </View>
 
-          <View style={styles.alertSheetSection}>
-            <Text style={styles.alertSheetSectionTitle}>Email</Text>
-            <TextInput
-              autoCapitalize="none"
-              autoCorrect={false}
-              keyboardType="email-address"
-              placeholder="you@example.com"
-              placeholderTextColor={colors.textMuted}
-              style={styles.alertInput}
-              value={draftEmail}
-              onChangeText={onEmailChange}
-            />
-            <View style={styles.alertButtonRow}>
-              {(['good', 'strong'] as const).map((threshold) => {
-                const isPending = pendingThreshold === threshold && mutationPending;
-                return (
-                  <Pressable
-                    key={threshold}
-                    style={[styles.alertButtonSecondary, isPending ? styles.alertButtonDisabled : null]}
-                    disabled={isPending}
-                    onPress={() => onEmailAlert(threshold)}
-                  >
-                    <Text style={styles.alertButtonSecondaryText}>
-                      {isPending ? 'Saving...' : `Email at ${alertThresholdLabel(threshold)}`}
-                    </Text>
-                  </Pressable>
-                );
-              })}
-            </View>
-            <Text style={styles.alertHelper}>
-              Your email is used for route alerts and stored locally on this device for the next alert form.
-            </Text>
-          </View>
+          <Pressable
+            style={styles.alertTestButton}
+            onPress={onTestNotification}
+            accessibilityRole="button"
+            accessibilityLabel="Send a test notification"
+          >
+            <MaterialCommunityIcons name="bell-check-outline" color={colors.accent} size={18} />
+            <Text style={styles.alertTestButtonText}>Send test notification</Text>
+          </Pressable>
 
           <Text style={styles.alertStatus}>{status}</Text>
         </View>
@@ -3755,16 +3687,6 @@ const styles = StyleSheet.create({
     lineHeight: 18,
     fontWeight: '900',
   },
-  alertInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    color: colors.text,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 16,
-  },
   alertButtonRow: {
     flexDirection: 'row',
     gap: spacing.sm,
@@ -3782,18 +3704,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 6,
   },
-  alertButtonSecondary: {
-    flex: 1,
-    minWidth: 140,
-    backgroundColor: colors.surfaceStrong,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    borderRadius: radius.pill,
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   alertButtonDisabled: {
     opacity: 0.6,
   },
@@ -3802,26 +3712,33 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  alertButtonSecondaryText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
-  },
   alertStatus: {
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
   },
+  alertTestButton: {
+    minHeight: 44,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.accent,
+    backgroundColor: colors.surfaceStrong,
+    paddingHorizontal: 16,
+    paddingVertical: 11,
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 7,
+  },
+  alertTestButtonText: {
+    color: colors.accent,
+    fontSize: 13,
+    fontWeight: '900',
+  },
   alertHelper: {
     color: colors.textMuted,
     fontSize: 12,
     lineHeight: 17,
-  },
-  alertEmailLabel: {
-    color: colors.text,
-    fontSize: 13,
-    fontWeight: '900',
-    marginTop: spacing.sm,
   },
   communityPhotoStrip: {
     gap: spacing.sm,

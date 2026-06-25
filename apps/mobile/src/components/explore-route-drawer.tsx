@@ -2,7 +2,7 @@ import type { RiverSummaryApiItem } from '@paddletoday/api-contract';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 import type { Dispatch, SetStateAction } from 'react';
 import { useEffect, useMemo, useRef } from 'react';
-import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
 import { routeFactItems, routeFactLine } from '../lib/route-facts';
@@ -41,7 +41,9 @@ export function ExploreRouteDrawer({
   onContributePhotos,
   onToggleSaved,
 }: ExploreRouteDrawerProps) {
-  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap);
+  const { height: windowHeight } = useWindowDimensions();
+  const maxSheetHeight = Math.max(sheetHeightValue('half'), Math.round(windowHeight * 0.86));
+  const sheetGesture = useMapSheetPanResponder(sheetSnap, setSheetSnap, maxSheetHeight);
   const selectedDirectionsUrl = mapUrlForAccessPoint(selectedRiver.river.putIn);
   const expanded = sheetSnap !== 'peek';
   const full = sheetSnap === 'full';
@@ -151,7 +153,11 @@ export function ExploreRouteDrawer({
         </Pressable>
       </View>
       {full ? (
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.selectedDetails}>
+        <ScrollView
+          style={styles.selectedDetailsScroll}
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.selectedDetails}
+        >
           <View style={styles.selectedStatGrid}>
             <DrawerStat label="Score" value={`${selectedRiver.score} / ${selectedRiver.rating}`} icon="chart-donut" />
             <DrawerStat label="Distance" value={selectedRiver.river.distanceLabel || 'Unknown'} icon="map-marker-distance" />
@@ -188,21 +194,22 @@ function DrawerStat({
 
 function useMapSheetPanResponder(
   sheetSnap: MapSheetSnap,
-  setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>
+  setSheetSnap: Dispatch<SetStateAction<MapSheetSnap>>,
+  maxSheetHeight: number
 ) {
-  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap))).current;
+  const animatedHeight = useRef(new Animated.Value(sheetHeightValue(sheetSnap, maxSheetHeight))).current;
   const currentSnapRef = useRef(sheetSnap);
 
   useEffect(() => {
     currentSnapRef.current = sheetSnap;
     Animated.spring(animatedHeight, {
-      toValue: sheetHeightValue(sheetSnap),
+      toValue: sheetHeightValue(sheetSnap, maxSheetHeight),
       useNativeDriver: false,
       damping: 22,
       stiffness: 210,
       mass: 0.75,
     }).start();
-  }, [animatedHeight, sheetSnap]);
+  }, [animatedHeight, maxSheetHeight, sheetSnap]);
 
   const panResponder = useMemo(
     () =>
@@ -214,8 +221,8 @@ function useMapSheetPanResponder(
           animatedHeight.stopAnimation();
         },
         onPanResponderMove: (_event, gestureState) => {
-          const baseHeight = sheetHeightValue(currentSnapRef.current);
-          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy));
+          const baseHeight = sheetHeightValue(currentSnapRef.current, maxSheetHeight);
+          animatedHeight.setValue(clampSheetHeight(baseHeight - gestureState.dy, maxSheetHeight));
         },
         onPanResponderTerminationRequest: () => false,
         onPanResponderRelease: (_event, gestureState) => {
@@ -223,7 +230,7 @@ function useMapSheetPanResponder(
           currentSnapRef.current = nextSnap;
           setSheetSnap(nextSnap);
           Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(nextSnap),
+            toValue: sheetHeightValue(nextSnap, maxSheetHeight),
             useNativeDriver: false,
             damping: 22,
             stiffness: 210,
@@ -232,7 +239,7 @@ function useMapSheetPanResponder(
         },
         onPanResponderTerminate: () => {
           Animated.spring(animatedHeight, {
-            toValue: sheetHeightValue(currentSnapRef.current),
+            toValue: sheetHeightValue(currentSnapRef.current, maxSheetHeight),
             useNativeDriver: false,
             damping: 22,
             stiffness: 210,
@@ -240,21 +247,21 @@ function useMapSheetPanResponder(
           }).start();
         },
       }),
-    [animatedHeight, setSheetSnap]
+    [animatedHeight, maxSheetHeight, setSheetSnap]
   );
 
   return { panHandlers: panResponder.panHandlers, animatedHeight };
 }
 
-function sheetHeightStyle(_bottomInset = 0) {
+function sheetHeightStyle(bottomInset = 0) {
   return {
-    paddingBottom: spacing.sm,
+    paddingBottom: spacing.sm + bottomInset,
   };
 }
 
-export function sheetHeightValue(value: MapSheetSnap) {
-  if (value === 'full') return 510;
-  if (value === 'half') return 356;
+export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
+  if (value === 'full') return Math.min(510, maxHeight);
+  if (value === 'half') return Math.min(356, Math.max(300, maxHeight - 96));
   return 168;
 }
 
@@ -278,8 +285,8 @@ function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
   return value;
 }
 
-function clampSheetHeight(height: number) {
-  return Math.min(sheetHeightValue('full'), Math.max(sheetHeightValue('peek'), height));
+function clampSheetHeight(height: number, maxSheetHeight: number) {
+  return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight), height));
 }
 
 function drawerFactItems(river: ExploreDrawerRiver) {
@@ -508,6 +515,10 @@ const styles = StyleSheet.create({
     minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  selectedDetailsScroll: {
+    flex: 1,
+    minHeight: 0,
   },
   selectedDetails: {
     gap: spacing.sm,
