@@ -10605,6 +10605,48 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'wabash-river-linn-grove-vera-cruz': {
+    putIn: {
+      id: 'linn-grove-park',
+      name: 'Linn Grove Park',
+      latitude: 40.645752,
+      longitude: -85.031219,
+    },
+    takeOut: {
+      id: 'vera-cruz-paddlesports-launch',
+      name: 'Vera Cruz Paddlesports Launch',
+      latitude: 40.69890779,
+      longitude: -85.0828222,
+    },
+    logistics: {
+      distanceLabel: 'About 5.3 mi',
+      estimatedPaddleTime:
+        'About 2.75 hr to 5.5 hr depending on stage, current, shallow dragging, woody debris, and how quickly the group moves through the public access sites',
+      shuttle:
+        'Stage the take-out at Vera Cruz Paddlesports Launch, then drive back to Linn Grove Park. Inspect both concrete ramps and parking areas before launching because river mud, storms, debris, or local maintenance can change how easy the public launch feels on arrival.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a daylight day trip. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Linn Grove Park and take out at Vera Cruz Paddlesports Launch for a short Wells County Wabash float between public improved accesses. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Linn Grove Park and Vera Cruz Paddlesports Launch as public improved concrete Wabash River launches with parking.',
+        'Northeast Indiana Water Trails map coordinates are used for both endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Indiana DNR removed the old canoe-guide material as outdated and points users to current regional water-trail resources. This route relies on Wells County Trails and NEI Water Trails, not legacy canoe-guide text.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
+        'Private banks between launches; plan the 5.3-mile trip without assuming legal intermediate take-outs.',
+      ],
+    },
+  },
   'wabash-river-vera-cruz-white-bridge': {
     putIn: {
       id: 'vera-cruz-paddlesports-launch',
@@ -10643,6 +10685,90 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
         'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
         'Private banks between launches; plan the short 4.2-mile trip without assuming legal intermediate take-outs.',
+      ],
+    },
+  },
+  'wabash-river-linn-grove-white-bridge': {
+    putIn: {
+      id: 'linn-grove-park',
+      name: 'Linn Grove Park',
+      latitude: 40.645752,
+      longitude: -85.031219,
+    },
+    takeOut: {
+      id: 'white-bridge-picnic-area',
+      name: 'White Bridge Picnic Area',
+      latitude: 40.728082,
+      longitude: -85.136707,
+    },
+    logistics: {
+      distanceLabel: 'About 9.5 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 8 hr depending on stage, current, wind, shallow dragging, debris, and the group pace on the longer rural day',
+      shuttle:
+        'Stage the take-out at White Bridge Picnic Area, then drive back to Linn Grove Park. Inspect both public ramps before launching because the longer one-way shuttle makes a late access surprise more painful than on the shorter Wells County segments.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a longer daylight day route, not an overnight. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Linn Grove Park and take out at White Bridge Picnic Area for the longer Wells County Wabash day built from the two upstream public legs. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, and White Bridge Picnic Area as public improved concrete Wabash River launches, with the Linn Grove-to-White Bridge route supported by the first two listed public legs.',
+        'The combined 9.5-mile distance comes from the official 5.3-mile Linn Grove-to-Vera Cruz leg plus the 4.2-mile Vera Cruz-to-White Bridge leg. Plan food, water, daylight, and group pace around the longer commitment.',
+        'Northeast Indiana Water Trails map coordinates are used for the endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to the 9.5-mile day without enough time or shuttle discipline.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Private banks between launches; do not assume easy legal bailout access once you are past Vera Cruz.',
+      ],
+    },
+  },
+  'wabash-river-vera-cruz-kehoe-park': {
+    putIn: {
+      id: 'vera-cruz-paddlesports-launch',
+      name: 'Vera Cruz Paddlesports Launch',
+      latitude: 40.69890779,
+      longitude: -85.0828222,
+    },
+    takeOut: {
+      id: 'kehoe-park',
+      name: 'Kehoe Park',
+      latitude: 40.74237,
+      longitude: -85.171271,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 6 hr depending on stage, current, shallow dragging, wind, debris, and how efficiently the group reaches the in-town Kehoe finish',
+      shuttle:
+        'Stage the take-out at Kehoe Park, then drive back to Vera Cruz Paddlesports Launch. Inspect both accesses before launching because the finish is a public town park rather than an isolated ramp, and same-day events or maintenance can affect parking or landing space.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a daylight day route into Bluffton. Banks outside the named public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Vera Cruz Paddlesports Launch and take out at Kehoe Park for a medium-length Wells County Wabash route into Bluffton. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'The NEI Water Trails Wabash River Challenge page explicitly lists Vera Cruz to Kehoe Park as a 6-mile route, and the NEI map exposes both endpoint coordinates.',
+        'Wells County Trails confirms Vera Cruz as a public improved concrete launch. Bluffton describes Kehoe Park as a public riverfront park with direct access to the River Greenway trail system, matching the NEI Wabash access marker.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Follow current signs and local conditions on arrival rather than assuming the mapped park edge is the exact best carry path on every day.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind, thunderstorms, cold water, poor visibility, and town-side take-out activity near Kehoe Park.',
+        'Private banks between launches; plan the 6-mile trip without assuming legal intermediate take-outs.',
       ],
     },
   },
