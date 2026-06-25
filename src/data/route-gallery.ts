@@ -214,7 +214,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC0',
     },
   ],
-  'juniata-river-granville-victory-park': [
+  'juniata-river-granville-mifflin': [
     {
       id: 'juniata-river-lewistown-commons',
       src: '/gallery/juniata-river-granville-victory-park/juniata-river-lewistown.jpg',
@@ -222,26 +222,6 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       caption: 'Juniata River west of PA 103 in Lewistown',
       credit: 'Dough4872 via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
-  ],
-  'juniata-river-victory-park-lewistown-narrows': [
-    {
-      id: 'juniata-river-lewistown-commons',
-      src: '/gallery/juniata-river-victory-park-lewistown-narrows/juniata-river-lewistown.jpg',
-      alt: 'The Juniata River flows west of the Pennsylvania Route 103 bridge in Lewistown under a bright early-summer sky.',
-      caption: 'Juniata River west of PA 103 in Lewistown',
-      credit: 'Dough4872 via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 4.0',
-    },
-  ],
-  'juniata-river-newport-green-valley': [
-    {
-      id: 'juniata-river-howe-township-commons',
-      src: '/gallery/juniata-river-newport-green-valley/juniata-river-howe-township.jpg',
-      alt: 'Wooded hills rise above the Juniata River east of Newport in Perry County under a clear sky.',
-      caption: 'Juniata River hills east of Newport',
-      credit: 'Nyttend via Wikimedia Commons',
-      takenLabel: 'Public domain',
     },
   ],
   'sauk-river-spring-hill-st-martin': [
@@ -546,7 +526,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Public domain dedication',
     },
   ],
-  'shiawassee-river-byron-walnut-hills': [
+  'shiawassee-river-byron-brady-street': [
     {
       id: 'shiawassee-river-paddle-commons',
       src: '/gallery/shiawassee-river-byron-walnut-hills/shiawassee-river-paddle.jpg',
@@ -556,80 +536,10 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: public domain',
     },
   ],
-  'shiawassee-river-walnut-hills-geeck-road': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-walnut-hills-geeck-road/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-geeck-road-shiatown': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-geeck-road-shiatown/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-shiatown-lytle': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-shiatown-lytle/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-lytle-brady-street': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-lytle-brady-street/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-mccurdy-harmon-patridge': [
+  'shiawassee-river-mccurdy-cole-park': [
     {
       id: 'shiawassee-river-paddle-commons',
       src: '/gallery/shiawassee-river-mccurdy-harmon-patridge/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-harmon-patridge-henderson': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-harmon-patridge-henderson/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-henderson-ditch-road': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-henderson-ditch-road/shiawassee-river-paddle.jpg',
-      alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
-      caption: 'Shiawassee River paddle near Holly',
-      credit: 'Willi H2O via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'shiawassee-river-ditch-road-cole-park': [
-    {
-      id: 'shiawassee-river-paddle-commons',
-      src: '/gallery/shiawassee-river-ditch-road-cole-park/shiawassee-river-paddle.jpg',
       alt: 'A paddler moves through a snowy Shiawassee River corridor near Holly, Michigan.',
       caption: 'Shiawassee River paddle near Holly',
       credit: 'Willi H2O via Wikimedia Commons',
@@ -1216,30 +1126,10 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 4.0',
     },
   ],
-  'clinton-river-rotary-budd': [
-    {
-      id: 'clinton-river-macomb-county-commons',
-      src: '/gallery/clinton-river-rotary-budd/clinton-river-macomb-county.jpg',
-      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
-      caption: 'Clinton River in Macomb County',
-      credit: 'Local hero via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'clinton-river-budd-shadyside': [
+  'clinton-river-budd-macarthur': [
     {
       id: 'clinton-river-macomb-county-commons',
       src: '/gallery/clinton-river-budd-shadyside/clinton-river-macomb-county.jpg',
-      alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
-      caption: 'Clinton River in Macomb County',
-      credit: 'Local hero via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: public domain',
-    },
-  ],
-  'clinton-river-shadyside-macarthur': [
-    {
-      id: 'clinton-river-macomb-county-commons',
-      src: '/gallery/clinton-river-shadyside-macarthur/clinton-river-macomb-county.jpg',
       alt: 'The Clinton River flows past wooded banks in Macomb County, Michigan.',
       caption: 'Clinton River in Macomb County',
       credit: 'Local hero via Wikimedia Commons',
@@ -1596,7 +1486,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 2.0',
     },
   ],
-  'susquehanna-river-laceyville-meshoppen': [
+  'susquehanna-river-towanda-laceyville': [
     {
       id: 'susquehanna-river-laceyville-commons',
       src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
@@ -1606,7 +1496,7 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
-  'susquehanna-river-terrytown-laceyville': [
+  'susquehanna-river-laceyville-west-falls': [
     {
       id: 'susquehanna-river-laceyville-commons',
       src: '/gallery/susquehanna-river-laceyville-meshoppen/susquehanna-river-laceyville.jpg',
@@ -1615,23 +1505,11 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       credit: 'Bjoertvedt via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
-  ],
-  'susquehanna-river-tunkhannock-whites-ferry': [
     {
       id: 'susquehanna-river-tunkhannock-commons',
       src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
       alt: 'An aerial view shows the Susquehanna River curving past the Tunkhannock valley with wooded banks, open hillsides, and broad channel water.',
       caption: 'Susquehanna River in the Tunkhannock corridor',
-      credit: 'Bjoertvedt via Wikimedia Commons',
-      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
-    },
-  ],
-  'susquehanna-river-whites-ferry-west-falls': [
-    {
-      id: 'susquehanna-river-tunkhannock-commons',
-      src: '/gallery/susquehanna-river-tunkhannock-whites-ferry/susquehanna-river-tunkhannock.jpg',
-      alt: 'An aerial view shows the Susquehanna River curving through the Tunkhannock valley with wooded banks and broad Pennsylvania channel water.',
-      caption: 'Susquehanna River corridor in Wyoming County',
       credit: 'Bjoertvedt via Wikimedia Commons',
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },

@@ -4665,347 +4665,443 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'susquehanna-river-sayre-ulster-bridge': {
-    putIn: {
-      name: 'Sayre PFBC access',
-      latitude: 41.988333,
-      longitude: -76.611667,
-    },
-    takeOut: {
-      name: 'Ulster Bridge access',
-      latitude: 41.8525,
-      longitude: -76.497222,
-    },
-    logistics: {
-      distanceLabel: 'About 11.7 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time exploring the Tioga Point corridor from legal stops only',
-      shuttle:
-        'Stage the take-out at Ulster Bridge first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because broad-river mud, current angle, storm cleanup, or local maintenance can change the practical carry and landing line.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
-      camping:
-        'Harrigan Island is listed by the official water trail as a primitive campsite and overnight stop on this corridor. Treat that as designated on-route camping support only, not as permission to land on arbitrary islands or private banks.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Sayre PFBC and take out at Ulster Bridge for a shorter upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the Tioga Point riffle miles on the same-day checklist.',
-      accessCaveats: [
-        'PFBC and the North Branch guide family publish both Sayre PFBC and Ulster Bridge coordinates directly in the official access tables.',
-        'Harrigan Island is an official stopping point and primitive campsite, but Tioga Point itself is still described as private property except for limited stopping at the point.',
-        'This is still a broad river with private banks and islands outside the named legal stops. Stay with the obvious public accesses and published stopping points only.',
-        'Ulster is a simpler bridge access than the PFBC launch at Sayre. Confirm same-day footing, parking, and landing angle before leaving the shuttle vehicle.',
-      ],
-      watchFor: [
-        'Fast riffles at miles 286 and 277 flagged by PFBC.',
-        'Towanda stages below about 0 to 1 foot, when the upper riffles get scratchier and more technical even on a wide channel.',
-        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and accidentally drifting past the intended Ulster finish because the upper river feels calm early.',
-      ],
-    },
+  'susquehanna-river-sayre-towanda': {
+  "putIn": {
+    "id": "sayre-pfbc",
+    "name": "Sayre PFBC access",
+    "latitude": 41.988333,
+    "longitude": -76.611667
   },
-  'susquehanna-river-sayre-hornbrook': {
-    putIn: {
-      name: 'Sayre PFBC access',
-      latitude: 41.988333,
-      longitude: -76.611667,
-    },
-    takeOut: {
-      name: 'Larnard Hornbrook Park ramp',
-      latitude: 41.809444,
-      longitude: -76.486111,
-    },
-    logistics: {
-      distanceLabel: 'About 15 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, low-water line picking, or a slow shuttle day',
-      shuttle:
-        'Stage the take-out at Larnard Hornbrook Park first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because mud, broad-river current, storm cleanup, or local maintenance can change the practical landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Hornbrook Park is listed in the PFBC Section 1 corridor camping notes and can support a nearby basecamp-style stay, but this route should not imply open riverbank camping between the named accesses.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Sayre PFBC and take out at Larnard Hornbrook Park for a long upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-274 strainer area closely.',
-      accessCaveats: [
-        'PFBC Section 1 publishes both Sayre PFBC and Larnard Hornbrook Park coordinates directly in the official access table.',
-        'This is a long day for a nominally easy big river. PFBC says 15 to 18 miles is more of an experienced-paddler distance around the 2-foot Towanda level.',
-        'Neither endpoint should be treated as a license to stop on arbitrary islands or banks. Stay with the named public accesses and visible public parking areas.',
-        'Hornbrook Park conditions can change with mud, mowing, event use, or flood cleanup. Confirm same-day landing and parking conditions before leaving the shuttle.',
-      ],
-      watchFor: [
-        'Fast riffles at miles 286 and 277, plus fast riffles with a strainer in the mile-274 area flagged by PFBC.',
-        'Towanda stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow riffle lines.',
-        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should not be on this corridor above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Hornbrook finish late in a long day.',
-      ],
-    },
+  "takeOut": {
+    "id": "towanda-riverfront",
+    "name": "Towanda Riverfront Park ramp",
+    "latitude": 41.768611,
+    "longitude": -76.438611
   },
-  'susquehanna-river-ulster-bridge-wysox-township-park': {
-    putIn: {
-      name: 'Ulster Bridge access',
-      latitude: 41.8525,
-      longitude: -76.497222,
-    },
-    takeOut: {
-      name: 'Wysox Township Park access',
-      latitude: 41.770833,
-      longitude: -76.397778,
-    },
-    logistics: {
-      distanceLabel: 'About 11.3 mi',
-      estimatedPaddleTime:
-        'About 3.5 hr to 5.5 hr in ordinary conditions, longer with low-water scouting, bridge-current caution, or a windy day across the Towanda corridor',
-      shuttle:
-        'Stage the take-out at Wysox Township Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because broad-river mud, storm cleanup, bridge-current push, or local activity can change the practical carry and landing line.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, municipal, boating, and PFD rules.',
-      camping:
-        'Larnard Hornbrook County Park and Riverside Acres Campground both sit on this official corridor and can support legal overnight use with current site rules or reservations. Treat that as on-route camping support rather than permission to stop on undeveloped banks.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Ulster Bridge and take out at Wysox Township Park for a route that carries you through the Towanda bridge corridor. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the mile-274 strainer and bridge-current sequence as real same-day hazards.',
-      accessCaveats: [
-        'PFBC and the North Branch guide family publish both Ulster Bridge and Wysox Township Park coordinates directly in the official access tables.',
-        'This route includes the Towanda bridge area and its current lines, so do not relax just because the river looks broad and mostly open.',
-        'Wysox Township Park is a stronger park finish with parking and amenities, but it still requires a committed finish discipline rather than ad hoc take-outs on islands or private banks.',
-        'Hornbrook Park and Riverside Acres are helpful legal support on the corridor, but the slug itself still starts at Ulster and ends at Wysox Township Park.',
-      ],
-      watchFor: [
-        'Fast riffles at mile 277, the strainer-prone mile-274 area, fast current under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 flagged by PFBC.',
-        'Towanda stages below about 1 foot, when the bridge-adjacent riffles and shallower lines get more technical and scratchy.',
-        'Towanda stages above about 4 feet, when current speeds up and mistakes near structure cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Wysox finish after the bridge sequence is behind you.',
-      ],
-    },
+  "logistics": {
+    "distanceLabel": "About 20 mi for the full corridor; choose a shorter segment in the access planner",
+    "estimatedPaddleTime": "Long full-day corridor or a shorter access-planner pairing. Sayre-to-Ulster and Hornbrook-to-Towanda are more manageable day choices.",
+    "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+    "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+    "camping": "Harrigan Island, Hornbrook Park, and nearby campgrounds appear in the official corridor context. Use only currently open legal camping or managed access points, not arbitrary banks.",
+    "campingClassification": "on_route_campsite",
+    "summary": "Use this as the upper North Branch access-planner corridor. The default full corridor runs from Sayre to Towanda, but many users should choose a shorter segment such as Sayre to Ulster or Hornbrook to Towanda.",
+    "accessCaveats": [
+      "Use the access planner to choose a legal public or managed access pair before driving.",
+      "The full corridor is a long-day planning envelope, not necessarily the recommended casual trip.",
+      "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+      "Stay with named accesses and do not improvise on private banks or islands."
+    ],
+    "watchFor": [
+      "Fast riffles, bridge-current zones, and possible strainers in the Section 1 caution miles.",
+      "Towanda stages below about 0 to 1 ft, when riffles get scratchier and shallow lines tighten.",
+      "Towanda stages above about 4 ft, when current speeds up; PFBC says novice paddlers should stay off above about 5 ft.",
+      "Headwind, thunderstorms, floating wood, private shorelines, and overly ambitious segment choices."
+    ]
   },
-  'susquehanna-river-hornbrook-towanda': {
-    putIn: {
-      name: 'Larnard Hornbrook Park ramp',
-      latitude: 41.809444,
-      longitude: -76.486111,
+  "accessPoints": [
+    {
+      "id": "sayre-pfbc",
+      "name": "Sayre PFBC access",
+      "latitude": 41.988333,
+      "longitude": -76.611667,
+      "mileFromStart": 0,
+      "segmentKind": "creek",
+      "note": "Upper corridor start and the default put-in."
     },
-    takeOut: {
-      name: 'Towanda Riverfront Park ramp',
-      latitude: 41.768611,
-      longitude: -76.438611,
+    {
+      "id": "ulster-bridge",
+      "name": "Ulster Bridge access",
+      "latitude": 41.8525,
+      "longitude": -76.497222,
+      "mileFromStart": 11.7,
+      "segmentKind": "creek",
+      "note": "Useful shorter-day finish from Sayre or restart for the Towanda corridor."
     },
-    logistics: {
-      distanceLabel: 'About 5 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind, low-water line picking, or careful approach to the Towanda bridge area',
-      shuttle:
-        'Stage the take-out at Towanda Riverfront Park first, then drive back to Larnard Hornbrook Park. Inspect both accesses before launching because mud, bridge-current push, storm cleanup, or local park activity can change the practical landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Hornbrook Park can support a nearby basecamp-style stay, but the route should not imply open riverbank camping between the named accesses.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Larnard Hornbrook Park and take out at Towanda Riverfront Park for a short upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the mile-274 strainer area plus the Towanda bridge riffles on the same-day checklist.',
-      accessCaveats: [
-        'PFBC Section 1 publishes both Larnard Hornbrook Park and Towanda Riverfront Park coordinates directly in the official access table.',
-        'Hornbrook is a park access rather than a huge ramp complex. Confirm same-day footing, parking, and launch angle before leaving the shuttle vehicle.',
-        'Towanda is a stronger town landing, but bridge current and riverfront activity can still complicate the finish if you arrive tired or in rising water.',
-        'Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes.',
-      ],
-      watchFor: [
-        'Fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 flagged by PFBC.',
-        'Towanda stages below about 0 to 1 foot, when the broad channel gets scratchier and more technical around shallow riffle lines.',
-        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Towanda take-out near the bridge corridor.',
-      ],
+    {
+      "id": "hornbrook-park",
+      "name": "Larnard Hornbrook Park ramp",
+      "latitude": 41.809444,
+      "longitude": -76.486111,
+      "mileFromStart": 15,
+      "segmentKind": "creek",
+      "note": "Park access for shorter trips around the Towanda corridor."
     },
+    {
+      "id": "towanda-riverfront",
+      "name": "Towanda Riverfront Park ramp",
+      "latitude": 41.768611,
+      "longitude": -76.438611,
+      "mileFromStart": 20,
+      "segmentKind": "creek",
+      "note": "Default corridor finish and practical split point for upper vs lower Section 1 days."
+    }
+  ]
+},
+'susquehanna-river-towanda-laceyville': {
+  "putIn": {
+    "id": "towanda-riverfront",
+    "name": "Towanda Riverfront Park ramp",
+    "latitude": 41.768611,
+    "longitude": -76.438611
   },
-  'susquehanna-river-towanda-terrytown': {
-    putIn: {
-      name: 'Towanda Riverfront Park ramp',
-      latitude: 41.768611,
-      longitude: -76.438611,
-    },
-    takeOut: {
-      name: 'Terrytown PFBC ramp',
-      latitude: 41.714167,
-      longitude: -76.281667,
-    },
-    logistics: {
-      distanceLabel: 'About 16 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a relaxed shuttle day',
-      shuttle:
-        'Stage the take-out at Terrytown PFBC first, then drive back to Towanda Riverfront Park. Inspect both landings before launching because broad-river mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day float. Riverside Acres Campground is listed in the PFBC Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Towanda Riverfront Park and take out at Terrytown PFBC for a mid-corridor North Branch day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet, and scout the fast-riffle miles downstream of Towanda before committing.',
-      accessCaveats: [
-        'PFBC Section 1 publishes both Towanda Riverfront Park and Terrytown PFBC coordinates directly in the official access table.',
-        'This route starts at a stronger town access but still finishes at a gravel PFBC landing. Confirm same-day footing, parking, and any local closures at both ends.',
-        'PFBC treats 15 to 18 miles around the 2-foot Towanda level as more of an experienced-paddler day distance. Do not underrate the time commitment just because the river is broad and mostly open.',
-        'Stay within the named public accesses and do not assume mid-route bars, islands, or informal pull-offs are legitimate take-out substitutes.',
-      ],
-      watchFor: [
-        'Fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 flagged by PFBC.',
-        'Towanda stages below about 1 foot, when the lower riverbed funnels current and can create class I to II style wave trains in shallow spots.',
-        'Towanda stages above about 4 feet, when the corridor moves faster and small mistakes at the end of a long day cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and missing the Terrytown PFBC take-out after relaxing into the long flatwater rhythm.',
-      ],
-    },
+  "takeOut": {
+    "id": "laceyville-borough",
+    "name": "Laceyville Borough access",
+    "latitude": 41.648889,
+    "longitude": -76.161111
   },
-  'susquehanna-river-wysox-township-park-terrytown': {
-    putIn: {
-      name: 'Wysox Township Park access',
-      latitude: 41.770833,
-      longitude: -76.397778,
-    },
-    takeOut: {
-      name: 'Terrytown PFBC ramp',
-      latitude: 41.714167,
-      longitude: -76.281667,
-    },
-    logistics: {
-      distanceLabel: 'About 13.6 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or extra time checking the lower fast-riffle sections',
-      shuttle:
-        'Stage the take-out at Terrytown PFBC first, then drive back to Wysox Township Park. Inspect both landings before launching because mud, flood cleanup, campground traffic, or local maintenance can change how straightforward the carry feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
-      camping:
-        'Riverside Acres Campground and the French Azilum Historical Site overnight stop are both listed on this official corridor. Treat that as on-route camping support only and not as permission to camp on broad gravel bars, islands, or private banks.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Wysox Township Park and take out at Terrytown PFBC for a lower Section 1 Susquehanna day with clean public endpoints. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-267, mile-261, and mile-258 fast-water zones carefully.',
-      accessCaveats: [
-        'PFBC and the North Branch guide family publish both Wysox Township Park and Terrytown PFBC coordinates directly in the official access tables.',
-        'This is a public-access route, but French Azilum and Riverside Acres remain support points rather than the planned take-out. Stay committed to the Terrytown PFBC finish unless you have made a deliberate legal overnight plan.',
-        'Terrytown is a gravel PFBC landing rather than a big municipal ramp. Confirm same-day footing, parking, and any local closure or maintenance issues before leaving the shuttle.',
-        'The broad river still has private banks and islands away from the named accesses. Stay within the obvious public launch, campground, and finish zones only.',
-      ],
-      watchFor: [
-        'A long fast-riffle section at mile 267, plus more fast riffles at miles 261 and 258 flagged by PFBC.',
-        'Towanda stages below about 1 foot, when lower-riverbed shallows can create class I to II style wave trains and more exposed rocks.',
-        'Towanda stages above about 4 feet, when current speeds up and the route stops feeling as forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Terrytown PFBC finish after settling into the long lower-corridor rhythm.',
-      ],
-    },
+  "logistics": {
+    "distanceLabel": "About 29 mi for the full corridor; choose a shorter segment in the access planner",
+    "estimatedPaddleTime": "Long full-day corridor or a shorter access-planner pairing. Towanda-to-Terrytown and Terrytown-to-Laceyville are more manageable day choices.",
+    "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+    "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+    "camping": "Riverside Acres, French Azilum, and nearby campgrounds appear in the official corridor context. Use only currently open legal camping or managed access points, not arbitrary banks.",
+    "campingClassification": "on_route_campsite",
+    "summary": "Use this as the lower Section 1 North Branch access-planner corridor. The default full corridor runs from Towanda to Laceyville, but many users should choose a shorter segment such as Towanda to Terrytown or Terrytown to Laceyville.",
+    "accessCaveats": [
+      "Use the access planner to choose a legal public or managed access pair before driving.",
+      "The full corridor is a long-day planning envelope, not necessarily the recommended casual trip.",
+      "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+      "Stay with named accesses and do not improvise on private banks or islands."
+    ],
+    "watchFor": [
+      "Fast riffles, bridge-current zones, and possible strainers in the lower Section 1 caution miles.",
+      "Towanda stages below about 0 to 1 ft, when riffles get scratchier and shallow lines tighten.",
+      "Towanda stages above about 4 ft, when current speeds up; PFBC says novice paddlers should stay off above about 5 ft.",
+      "Headwind, thunderstorms, floating wood, private shorelines, and overly ambitious segment choices."
+    ]
   },
-  'susquehanna-river-terrytown-laceyville': {
-    putIn: {
-      name: 'Terrytown PFBC ramp',
-      latitude: 41.714167,
-      longitude: -76.281667,
+  "accessPoints": [
+    {
+      "id": "towanda-riverfront",
+      "name": "Towanda Riverfront Park ramp",
+      "latitude": 41.768611,
+      "longitude": -76.438611,
+      "mileFromStart": 0,
+      "segmentKind": "creek",
+      "note": "Default corridor put-in and practical split point from the upper Section 1 route."
     },
-    takeOut: {
-      name: 'Laceyville Borough access',
-      latitude: 41.648889,
-      longitude: -76.161111,
+    {
+      "id": "wysox-township-park",
+      "name": "Wysox Township Park access",
+      "latitude": 41.770833,
+      "longitude": -76.397778,
+      "mileFromStart": 3,
+      "segmentKind": "creek",
+      "note": "Downstream park access for Towanda-area variants."
     },
-    logistics: {
-      distanceLabel: 'About 13 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or a slower shuttle day',
-      shuttle:
-        'Stage the take-out at Laceyville Borough first, then drive back to the Terrytown PFBC ramp. Inspect both accesses before launching because gravel conditions, mud, flood cleanup, or local traffic can change the practical carry and landing line.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Endless Mountain Campground sits near the Laceyville end of the official Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Terrytown PFBC and take out at Laceyville Borough for a lower Section 1 Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the fast-riffle miles in the lower half of the run.',
-      accessCaveats: [
-        'PFBC Section 1 publishes both Terrytown PFBC and Laceyville Borough coordinates directly in the official access table.',
-        'Laceyville is a carry-in style borough access rather than a huge developed ramp complex. Confirm same-day footing and parking before leaving the shuttle.',
-        'The broad North Branch still has private banks and islands away from the named public accesses. Stay within the obvious public launch and finish zones.',
-        'This route is shorter than Towanda-to-Terrytown but still long enough for wind and current to matter. Do not let the easy label hide the real same-day judgment call.',
+    {
+      "id": "terrytown-pfbc",
+      "name": "Terrytown PFBC ramp",
+      "latitude": 41.714167,
+      "longitude": -76.281667,
+      "mileFromStart": 16,
+      "segmentKind": "creek",
+      "note": "PFBC landing for lower Section 1 trips."
+    },
+    {
+      "id": "laceyville-borough",
+      "name": "Laceyville Borough access",
+      "latitude": 41.648889,
+      "longitude": -76.161111,
+      "mileFromStart": 29,
+      "segmentKind": "creek",
+      "note": "Default corridor finish and handoff to the Section 2 corridor."
+    }
+  ]
+},
+  'susquehanna-river-laceyville-west-falls': {
+    "putIn": {
+      "id": "laceyville-borough",
+      "name": "Laceyville Borough access",
+      "latitude": 41.648889,
+      "longitude": -76.161111
+    },
+    "takeOut": {
+      "id": "west-falls-pfbc",
+      "name": "PFBC West Falls access",
+      "latitude": 41.459444,
+      "longitude": -75.853611
+    },
+    "logistics": {
+      "distanceLabel": "About 33 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a multi-day or staged-series route. Common day choices include Laceyville to Meshoppen, Tunkhannock to White's Ferry, and White's Ferry to West Falls.",
+      "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+      "camping": "Treat this as a staged day-trip corridor unless you have current legal campground or overnight arrangements. Do not treat islands or private banks as open camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use this as the Wyoming County North Branch access-planner corridor. The default full corridor runs from Laceyville to West Falls, but most users should choose a shorter access pair around Meshoppen or Tunkhannock.",
+      "accessCaveats": [
+        "Use the access planner to choose a legal public or managed access pair before driving.",
+        "The full corridor is a planning envelope, not necessarily the recommended one-day trip.",
+        "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+        "Stay with named accesses and do not improvise on private banks or islands."
       ],
-      watchFor: [
-        'Fast riffles at mile 249, a long riffle section at mile 247, and more fast riffles at mile 244 flagged by PFBC.',
-        'Towanda stages below about 1 foot, when narrow lower-riverbed spots can create class I to II style wave trains and more exposed rocks.',
-        'Towanda stages above about 4 feet, when current speeds up and the easy public-day framing becomes less forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Laceyville finish because the lower corridor feels mellow until the take-out is suddenly close.',
-      ],
+      "watchFor": [
+        "Boulder fields and fast riffles around the Tunkhannock-to-West-Falls section.",
+        "Meshoppen readings near the low edge, when shallow lines and exposed rocks become more consequential.",
+        "Meshoppen readings around 12 ft and up, when this model turns conservative for novice paddlers.",
+        "Broad-river wind, thunderstorms, floating wood, muddy landings, and overlong segment choices."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "laceyville-borough",
+        "name": "Laceyville Borough access",
+        "latitude": 41.648889,
+        "longitude": -76.161111,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in and Section 1 handoff point."
+      },
+      {
+        "id": "meshoppen",
+        "name": "Meshoppen ramp",
+        "latitude": 41.613333,
+        "longitude": -76.046667,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Shorter-day finish from Laceyville and the closest named access to the Meshoppen gauge model."
+      },
+      {
+        "id": "tunkhannock-pfbc",
+        "name": "PFBC Tunkhannock access",
+        "latitude": 41.522222,
+        "longitude": -75.941389,
+        "mileFromStart": 23,
+        "segmentKind": "creek",
+        "note": "Primary restart for the lower Section 2 riffle corridor."
+      },
+      {
+        "id": "whites-ferry-pfbc",
+        "name": "PFBC White's Ferry access",
+        "latitude": 41.475833,
+        "longitude": -75.905,
+        "mileFromStart": 29,
+        "segmentKind": "creek",
+        "note": "Shorter lower-corridor take-out or restart before West Falls."
+      },
+      {
+        "id": "west-falls-pfbc",
+        "name": "PFBC West Falls access",
+        "latitude": 41.459444,
+        "longitude": -75.853611,
+        "mileFromStart": 33,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
   },
-  'susquehanna-river-laceyville-meshoppen': {
-    putIn: {
-      name: 'Laceyville Borough access',
-      latitude: 41.648889,
-      longitude: -76.161111,
+  'susquehanna-river-canal-park-test-track': {
+    "putIn": {
+      "id": "canal-park",
+      "name": "Canal Park access",
+      "latitude": 41.22,
+      "longitude": -76.018611
     },
-    takeOut: {
-      name: 'Meshoppen ramp',
-      latitude: 41.608611,
-      longitude: -76.0475,
+    "takeOut": {
+      "id": "test-track-park",
+      "name": "Test Track Park",
+      "latitude": 41.04,
+      "longitude": -76.261111
     },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, low-water line picking, or a relaxed big-river shuttle day',
-      shuttle:
-        'Stage the take-out at the Meshoppen ramp first, then drive back to the Laceyville Borough carry-in. Inspect both accesses before launching because mud, flood cleanup, broad-river current, or local riverbank changes can alter the practical carry and landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Endless Mountain Campground sits just off the river near the Laceyville end of the section and can work as a nearby basecamp, but the route itself should not be treated as open riverbank camping.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Laceyville Borough and take out at Meshoppen for an 8-mile upper Wyoming County Susquehanna day. Use the direct Meshoppen stage gauge, keep the day conservative around 6.5 to 9 feet at Meshoppen, and watch for the fast-current hidden-rock mile inside the segment.',
-      accessCaveats: [
-        'PFBC Section 2 publishes both Laceyville Borough and Meshoppen coordinates directly in the official access table.',
-        'Neither access is a large concrete ramp complex. Verify same-day footing, parking, and carry angle before leaving a shuttle vehicle.',
-        'The threshold model is intentionally conservative and derived from PFBCs published Meshoppen base-level relationship rather than a route-specific Meshoppen ladder.',
-        'The broad North Branch still has private banks and islands away from the named accesses. Stay within the obvious public launch and take-out zones.',
+    "logistics": {
+      "distanceLabel": "About 22 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long exposed day for experienced groups. Shorter planner choices include Canal Park to Union Township, Union Township to Wetlands, and Wetlands to Test Track.",
+      "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+      "camping": "Treat this as a day-trip corridor. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from named public accesses may be private.",
+      "campingClassification": "none",
+      "summary": "Use this as the Section 3 North Branch access-planner corridor. The default full corridor runs from Canal Park to Test Track, but most users should choose a shorter access pair around Union Township or Wetlands Nature Area.",
+      "accessCaveats": [
+        "Use the access planner to choose a legal public or managed access pair before driving.",
+        "The full corridor is a planning envelope, not necessarily the recommended one-day trip.",
+        "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+        "Stay with named accesses and do not improvise on private banks or islands."
       ],
-      watchFor: [
-        'Fast current and hidden rocks around mile 238, which the PFBC Section 2 caution list places inside this route.',
-        'Long stretches of quicker riffly water at lower stages, headwind across the wide channel, floating wood, and cold-water consequences outside warm midsummer weather.',
-        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go conditions around 12 ft and above based on the official section conversion.',
-        'Thunderstorms, flooded treelines after rain, private shorelines away from the named accesses, and the risk of drifting past the obvious Meshoppen take-out.',
-      ],
+      "watchFor": [
+        "The class I-II rapid below the Nanticoke bridge and the Berwick-Nescopeck low-water ledge warning.",
+        "Wilkes-Barre stages below about 0 ft, when shallow lines get scratchier.",
+        "Wilkes-Barre stages above about 4 ft, when current speeds up; PFBC says novices should stay off above about 5 ft.",
+        "Headwind, thunderstorms, floating wood, private shorelines, and overlong segment choices."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "canal-park",
+        "name": "Canal Park access",
+        "latitude": 41.22,
+        "longitude": -76.018611,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in and primitive upper Section 3 access."
+      },
+      {
+        "id": "pfbc-union-township",
+        "name": "PFBC Union Township ramp",
+        "latitude": 41.177778,
+        "longitude": -76.111389,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Shorter-day take-out or restart below the Nanticoke rapid area."
+      },
+      {
+        "id": "wetlands-nature-area",
+        "name": "Wetlands Nature Area access",
+        "latitude": 41.089444,
+        "longitude": -76.1225,
+        "mileFromStart": 14,
+        "segmentKind": "creek",
+        "note": "Mid-corridor access for the lower Berwick/Test Track segment."
+      },
+      {
+        "id": "test-track-park",
+        "name": "Test Track Park",
+        "latitude": 41.04,
+        "longitude": -76.261111,
+        "mileFromStart": 22,
+        "segmentKind": "creek",
+        "note": "Default corridor finish and handoff to the Bloomsburg/Danville corridor."
+      }
+    ]
   },
-  'susquehanna-river-meshoppen-tunkhannock': {
-    putIn: {
-      name: 'Meshoppen ramp',
-      latitude: 41.608611,
-      longitude: -76.0475,
+  'susquehanna-river-test-track-danville': {
+    "putIn": {
+      "id": "test-track-park",
+      "name": "Test Track Park",
+      "latitude": 41.04,
+      "longitude": -76.261111
     },
-    takeOut: {
-      name: 'PFBC Tunkhannock access',
-      latitude: 41.522222,
-      longitude: -75.941389,
+    "takeOut": {
+      "id": "pfbc-danville",
+      "name": "PFBC Danville Access",
+      "latitude": 40.94349,
+      "longitude": -76.598507
     },
-    logistics: {
-      distanceLabel: 'About 16 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water line picking, or a slower big-river shuttle day',
-      shuttle:
-        'Stage the take-out at the PFBC Tunkhannock ramp first, then drive back to the Meshoppen ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can alter the practical carry and landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Camp Lackawanna sits near mile 226 and is the clearest legal overnight support on this longer upper-half corridor, but camping is by prior arrangement only and the standard route should still be framed as a long day unless that support is secured.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Meshoppen and take out at PFBC Tunkhannock for a long upper Section 2 Susquehanna day. Use the direct Meshoppen gauge, keep the easier planning days around 6.5 to 9 feet there, and expect broad-river wind to matter more than any single rapid feature.',
-      accessCaveats: [
-        'PFBC Section 2 publishes both Meshoppen and PFBC Tunkhannock coordinates directly in the official access table.',
-        'This route uses a conservative stage-conversion model rather than a route-specific Meshoppen ladder. Pay attention to trend, weather, and same-day visual current, not just the single gauge number.',
-        'Camp Lackawanna is useful legal support near the midpoint, but it is not a casual open campsite and requires prior arrangement.',
-        'Stay within the named public accesses rather than using private banks or islands as casual stops.',
+    "logistics": {
+      "distanceLabel": "About 20 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long exposed day. Common shorter choices include Test Track to Bloomsburg, Bloomsburg to Indian Head, and Indian Head to Danville.",
+      "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+      "camping": "Indian Head Campground can support legal overnight use with a reservation or permission, but this corridor should not imply open riverbank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Use this as the Section 4 North Branch access-planner corridor. The default full corridor runs from Test Track to Danville, but most users should choose a shorter access pair around Bloomsburg or Indian Head.",
+      "accessCaveats": [
+        "Use the access planner to choose a legal public or managed access pair before driving.",
+        "The full corridor is a planning envelope, not necessarily the recommended one-day trip.",
+        "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+        "Stay with named accesses and do not improvise on private banks or islands."
       ],
-      watchFor: [
-        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go water around 12 ft and above based on the official section conversion.',
-        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and fatigue from a long exposed mainstem day.',
-        'Lower water near or below about 6.5 ft at Meshoppen, when shallow bars and slower current can stretch the day materially.',
-        'Private shorelines away from the named accesses and the chance of underestimating the final miles into Tunkhannock because the route lacks a standout single hazard marker.',
-      ],
+      "watchFor": [
+        "The Berwick bridge ledge warning near low water and faster current above the calmer Bloomsburg band.",
+        "Bloomsburg stages below about 1 ft, when low-water line picking becomes more important.",
+        "Bloomsburg stages above about 4 to 5 ft, when current speeds up; PFBC says novices should stay off above about 6 ft.",
+        "Headwind, thunderstorms, floating wood, managed campground rules, and overlong segment choices."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "test-track-park",
+        "name": "Test Track Park",
+        "latitude": 41.04,
+        "longitude": -76.261111,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in and Section 3 handoff point."
+      },
+      {
+        "id": "pfbc-bloomsburg",
+        "name": "PFBC Bloomsburg Access",
+        "latitude": 40.996944,
+        "longitude": -76.432222,
+        "mileFromStart": 9,
+        "segmentKind": "creek",
+        "note": "Primary split point for shorter Section 4 days."
+      },
+      {
+        "id": "indian-head-campground",
+        "name": "Indian Head Campground",
+        "latitude": 40.956944,
+        "longitude": -76.491389,
+        "mileFromStart": 12,
+        "segmentKind": "creek",
+        "note": "Managed campground access; confirm current launch and parking expectations."
+      },
+      {
+        "id": "pfbc-danville",
+        "name": "PFBC Danville Access",
+        "latitude": 40.94349,
+        "longitude": -76.598507,
+        "mileFromStart": 20,
+        "segmentKind": "creek",
+        "note": "Default corridor finish and handoff to the Shikellamy corridor."
+      }
+    ]
+  },
+  'susquehanna-river-pfbc-danville-shikellamy-west': {
+    "putIn": {
+      "id": "pfbc-danville",
+      "name": "PFBC Danville Access",
+      "latitude": 40.94349,
+      "longitude": -76.598507
+    },
+    "takeOut": {
+      "id": "shikellamy-west",
+      "name": "Shikellamy State Park West",
+      "latitude": 40.883406,
+      "longitude": -76.79251
+    },
+    "logistics": {
+      "distanceLabel": "About 13 mi for the full corridor; Wray's is an intermediate access-planner option",
+      "estimatedPaddleTime": "About 4 hr to 6 hr for the full corridor in ordinary conditions. Shorter planner choices can use Wray's with current campground permission or reservation expectations.",
+      "shuttle": "Pick a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching. Do not assume private banks, islands, or bars are legal backup exits.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, campground, boating, and PFD rules.",
+      "camping": "Wray's Riverfront Campground can support legal overnight use with a reservation or permission, but the route should not imply open riverbank camping.",
+      "campingClassification": "endpoint_campground",
+      "summary": "Use this as the lower Danville-to-Shikellamy access-planner corridor. The default full route finishes at Shikellamy West; Wray's can shorten the day when current campground access rules support it.",
+      "accessCaveats": [
+        "Use the access planner to choose a legal public or managed access pair before driving.",
+        "The full corridor is a planning envelope, not necessarily the recommended one-day trip.",
+        "Confirm same-day parking, launch, landing, and permit rules at the selected endpoints.",
+        "Stay with named accesses and do not improvise on private banks or islands."
+      ],
+      "watchFor": [
+        "Danville stages below about 2 ft, when the lower corridor gets slower, scratchier, and more exposed to wind.",
+        "Danville stages above about 4 ft, when current speeds up; the guide frames about 7 ft as the novice ceiling.",
+        "Wind and motorboat wakes on Lake Augusta, floating wood, private shorelines, and drifting too far toward Sunbury Fabridam.",
+        "Managed campground expectations at Wray's if using it as an alternate start or finish."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "pfbc-danville",
+        "name": "PFBC Danville Access",
+        "latitude": 40.94349,
+        "longitude": -76.598507,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "wrays-riverfront",
+        "name": "Wray's Riverfront Campground",
+        "latitude": 40.953143,
+        "longitude": -76.664439,
+        "mileFromStart": 4.3,
+        "segmentKind": "creek",
+        "note": "Managed campground access; confirm current launch or landing expectations."
+      },
+      {
+        "id": "shikellamy-west",
+        "name": "Shikellamy State Park West",
+        "latitude": 40.883406,
+        "longitude": -76.79251,
+        "mileFromStart": 12.8,
+        "segmentKind": "creek",
+        "note": "Default corridor finish before the downstream Fabridam corridor."
+      }
+    ]
   },
   'vermilion-river-mill-hollow-vermilion-boat-ramp': {
     putIn: {
@@ -8082,340 +8178,175 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'shiawassee-river-byron-walnut-hills': {
-    putIn: {
-      id: 'byron-high-school-ball-fields',
-      name: 'Byron High School Ball Fields concrete launch',
-      latitude: 42.840348,
-      longitude: -83.945658,
+    'shiawassee-river-byron-brady-street': {
+    "putIn": {
+      "id": "byron-high-school-ball-fields",
+      "name": "Byron High School Ball Fields concrete launch",
+      "latitude": 42.840348,
+      "longitude": -83.945658
     },
-    takeOut: {
-      id: 'walnut-hills-family-campground',
-      name: 'Walnut Hills Family Campground dirt launch',
-      latitude: 42.840348,
-      longitude: -84.009418,
+    "takeOut": {
+      "id": "brady-street",
+      "name": "Brady Street dirt launch",
+      "latitude": 42.9766,
+      "longitude": -84.116539
     },
-    logistics: {
-      distanceLabel: '4.87 mi',
-      estimatedPaddleTime: 'Short beginner day trip; time varies with low-water shallows and debris',
-      shuttle:
-        'Use the short water-trail road shuttle from Walnut Hills Family Campground back to the Byron High School Ball Fields area. Stage Walnut Hills first because it is a private seasonal campground access with fee and permission details to confirm.',
-      permits:
-        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before leaving a vehicle there.',
-      camping:
-        'Walnut Hills is a campground, but this route is treated as a short day trip. Do not assume camping or off-season access without a current campground reservation or permission.',
-      summary:
-        'Launch from the concrete launch by Byron High School Ball Fields and take out at the Walnut Hills Family Campground dirt launch for a 4.87-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify Walnut Hills access and same-day shallows before launching.',
-      accessCaveats: [
-        'The route sheet identifies the Byron launch as a concrete launch by the High School ball fields, with nearby Byron services.',
-        'Walnut Hills Family Campground is private seasonal access open May 1 through October 1 in the route sheet, with parking for a small fee.',
-        'Respect houses, private property, and shoreline along this rural residential reach, and stop only at designated launches or landings.',
+    "logistics": {
+      "distanceLabel": "About 29.1 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long day or staged series. Common planner pairings are about 3 to 8 mi.",
+      "shuttle": "Choose a public or managed access pair, stage the downstream vehicle first, then inspect both landings before launching.",
+      "permits": "No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before leaving a vehicle there.",
+      "camping": "Walnut Hills is managed campground context, but the corridor should be treated as staged day trips unless overnight arrangements are confirmed.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use this as the upper Shiawassee access-planner corridor from Byron to Brady Street, with Walnut Hills, Geeck Road, Shiatown, and Lytle Road options.",
+      "accessCaveats": [
+        "The full corridor is a planning envelope, not the default casual day trip.",
+        "Shiatown requires attention to the dam-adjacent launch and take-out context.",
+        "Confirm campground, county park, and landing rules before leaving vehicles."
       ],
-      watchFor: [
-        'Low-water scraping and slow travel when the Owosso gauge trends toward 2.0 ft or below.',
-        'Debris in the water, rural residential shoreline, and private-property constraints.',
-        'Sand-and-silt bottom through most of the reach, with deeper water reported after the New Lothrop bridge under average conditions.',
-        'The Owosso gauge is a downstream corridor proxy for this Byron segment, so use it as a low-water check rather than a precise launch guarantee.',
-      ],
+      "watchFor": [
+        "Dam-adjacent logistics and faster current around Shiatown.",
+        "Wood, strainers, and tight bends after rain.",
+        "Low-water scraping when the Owosso gauge is near the minimum floor."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "byron-high-school-ball-fields",
+        "name": "Byron High School Ball Fields concrete launch",
+        "latitude": 42.840348,
+        "longitude": -83.945658,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "walnut-hills-family-campground",
+        "name": "Walnut Hills Family Campground dirt launch",
+        "latitude": 42.840348,
+        "longitude": -84.009418,
+        "mileFromStart": 4.87,
+        "segmentKind": "creek",
+        "note": "Campground access and shorter-trip endpoint."
+      },
+      {
+        "id": "geeck-road-county-park",
+        "name": "Geeck Road County Park cement ramp",
+        "latitude": 42.884522,
+        "longitude": -84.045106,
+        "mileFromStart": 11.85,
+        "segmentKind": "creek",
+        "note": "County park access and midpoint option."
+      },
+      {
+        "id": "shiatown-county-park",
+        "name": "Shiatown County Park take-out above the dam",
+        "latitude": 42.929408,
+        "longitude": -84.071308,
+        "mileFromStart": 18.06,
+        "segmentKind": "creek",
+        "note": "Dam-adjacent park access; inspect before launching."
+      },
+      {
+        "id": "lytle-road-county-park",
+        "name": "Lytle Road County Park bank launch",
+        "latitude": 42.9766,
+        "longitude": -84.069441,
+        "mileFromStart": 25.89,
+        "segmentKind": "creek",
+        "note": "Lower upper-corridor access."
+      },
+      {
+        "id": "brady-street",
+        "name": "Brady Street dirt launch",
+        "latitude": 42.9766,
+        "longitude": -84.116539,
+        "mileFromStart": 29.09,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
   },
-  'shiawassee-river-walnut-hills-geeck-road': {
-    putIn: {
-      id: 'walnut-hills-family-campground',
-      name: 'Walnut Hills Family Campground dirt launch',
-      latitude: 42.840348,
-      longitude: -84.009418,
+            'shiawassee-river-mccurdy-cole-park': {
+    "putIn": {
+      "id": "mccurdy-park",
+      "name": "Corunna McCurdy Park carry-in launch",
+      "latitude": 42.98614,
+      "longitude": -84.124008
     },
-    takeOut: {
-      id: 'geeck-road-county-park',
-      name: 'Geeck Road County Park cement ramp',
-      latitude: 42.884522,
-      longitude: -84.045106,
+    "takeOut": {
+      "id": "cole-park",
+      "name": "Cole Park launch",
+      "latitude": 43.185325,
+      "longitude": -84.112656
     },
-    logistics: {
-      distanceLabel: '6.98 mi',
-      estimatedPaddleTime: 'Beginner day trip; time varies with low-water shallows and debris',
-      shuttle:
-        'Use the water-trail road shuttle from Walnut Hills Family Campground to Geeck Road County Park via Lehring Road, Grand River Road, Geeck Road, Byam Road, and Exchange Road. Stage the Geeck Road take-out first because it is the public county-park endpoint.',
-      permits:
-        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch availability, seasonal dates, parking fee, and campground rules before staging a vehicle there.',
-      camping:
-        'Walnut Hills is a campground and outfitter access, but this route is treated as a day trip. Do not assume camping or off-season launch use without a current campground reservation or permission.',
-      summary:
-        'Launch from the Walnut Hills Family Campground dirt and gravel launch and take out at the Geeck Road County Park cement ramp for a 6.98-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify campground access and same-day shallows before launching.',
-      accessCaveats: [
-        'Walnut Hills Family Campground is a private site open to public paddlers seasonally, with a small vehicle fee; the local guide says no off-season use is possible when the facility is gated.',
-        'Geeck Road County Park is the downstream public park endpoint, with a visible cement ramp on river right, picnic facilities, and seasonal bathrooms.',
-        'Respect private docks and shoreline property, and stop only at designated launches or landings.',
+    "logistics": {
+      "distanceLabel": "About 29 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long day or staged series. Common planner pairings are about 5.5 to 9.2 mi.",
+      "shuttle": "Choose a public access pair, stage the downstream vehicle first, then inspect both landings before launching.",
+      "permits": "No route-specific paddling permit is known. Follow City of Corunna, City of Owosso, and water-trail access rules, and use only designated launches or landings.",
+      "camping": "Treat this as a day-trip corridor. No on-route camping plan is assumed.",
+      "summary": "Use this as the lower Shiawassee access-planner corridor from McCurdy Park to Cole Park, with Harmon Patridge, Henderson, and Ditch Road options.",
+      "accessCaveats": [
+        "The full corridor is a planning envelope; choose shorter park-to-park sections for ordinary day trips.",
+        "Confirm county park, city park, and landing rules before leaving vehicles.",
+        "Stay with public accesses rather than using private banks as backup exits."
       ],
-      watchFor: [
-        'Shallow water between Vernon Road and Grand River Road, especially when the Owosso gauge trends toward 2.0 ft or below.',
-        'Debris, private docks, sandy and stony bottom, occasional aquatic vegetation, and three bridge crossings.',
-        'Low water can turn a beginner-rated trip into an experienced-navigation day.',
-        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
-      ],
+      "watchFor": [
+        "Wood and strainers after rain.",
+        "High, fast water above the warning band.",
+        "Low-water scraping and muddy banks."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "mccurdy-park",
+        "name": "Corunna McCurdy Park carry-in launch",
+        "latitude": 42.98614,
+        "longitude": -84.124008,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "harmon-patridge",
+        "name": "Harmon Patridge Park launch",
+        "latitude": 43.020112,
+        "longitude": -84.184547,
+        "mileFromStart": 6.49,
+        "segmentKind": "creek",
+        "note": "Park access and shorter-trip endpoint."
+      },
+      {
+        "id": "henderson-county-park",
+        "name": "Henderson County Park cement launch",
+        "latitude": 43.087788,
+        "longitude": -84.181933,
+        "mileFromStart": 14.27,
+        "segmentKind": "creek",
+        "note": "County park access for mid-corridor plans."
+      },
+      {
+        "id": "ditch-road",
+        "name": "Ditch Road gravel launch",
+        "latitude": 43.143842,
+        "longitude": -84.13413,
+        "mileFromStart": 23.47,
+        "segmentKind": "creek",
+        "note": "Lower corridor access."
+      },
+      {
+        "id": "cole-park",
+        "name": "Cole Park launch",
+        "latitude": 43.185325,
+        "longitude": -84.112656,
+        "mileFromStart": 28.95,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
   },
-  'shiawassee-river-geeck-road-shiatown': {
-    putIn: {
-      id: 'geeck-road-county-park',
-      name: 'Geeck Road County Park launch',
-      latitude: 42.884522,
-      longitude: -84.045106,
-    },
-    takeOut: {
-      id: 'shiatown-county-park',
-      name: 'Shiatown County Park take-out above the dam',
-      latitude: 42.929408,
-      longitude: -84.071308,
-    },
-    logistics: {
-      distanceLabel: '6.21 mi',
-      estimatedPaddleTime: 'Beginner day trip; time varies with low-water riffles, debris, and take-out caution',
-      shuttle:
-        'Use the water-trail road shuttle from Shiatown County Park back to Geeck Road County Park via Newberry Road, Newburg Road, and Geeck Road. Stage the Shiatown take-out first so the river-right exit above the dam is familiar before launching.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
-      camping:
-        'Treat this as a day trip. The route sheet notes park amenities at both endpoints, but no on-route camping plan is assumed.',
-      summary:
-        'Launch at Geeck Road County Park and take out at Shiatown County Park for a 6.21-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because submerged rocks, riffles, debris, and the dam-adjacent take-out can change the day.',
-      accessCaveats: [
-        'The route sheet identifies Geeck Road as the start and Shiatown as the end, with parking and portable toilets at both access areas.',
-        'Exit on river right above the Shiatown dam and use the footpath up to the gravel parking lot; do not continue past the take-out without separate dam and downstream-route planning.',
-        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
-      ],
-      watchFor: [
-        'Low-water navigation around large submerged rocks and riffles.',
-        'Debris, three bridge crossings, and a transition from developed rural-residential shoreline to wooded wetland after the freeway.',
-        'High water, cold water, or poor visibility can make the Shiatown take-out above the dam more consequential.',
-        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
-      ],
-    },
-  },
-  'shiawassee-river-shiatown-lytle': {
-    putIn: {
-      id: 'shiatown-county-park',
-      name: 'Shiatown County Park launch below the partially removed dam',
-      latitude: 42.929408,
-      longitude: -84.071308,
-    },
-    takeOut: {
-      id: 'lytle-road-county-park',
-      name: 'Lytle Road County Park bank launch',
-      latitude: 42.9766,
-      longitude: -84.069441,
-    },
-    logistics: {
-      distanceLabel: '7.83 mi',
-      estimatedPaddleTime: 'Intermediate day trip; time varies with low-water scraping, debris, and bridge approaches',
-      shuttle:
-        'Use the water-trail road shuttle from Shiatown County Park to Lytle Road County Park via Bennington Road, Bancroft / Parmenter Road, Hibbard Road, South Kerby Road, and Lytle Road. Stage the Lytle Road take-out first because access sites are far apart on this segment.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
-      camping:
-        'Treat this as a day trip. No on-route camping plan is assumed between Shiatown and Lytle Road.',
-      summary:
-        'Launch downstream of the partially removed dam at Shiatown County Park and take out at Lytle Road County Park for a 7.83-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because this route has dam-adjacent fast water, rocks, and debris.',
-      accessCaveats: [
-        'The route sheet identifies Shiatown County Park as the start and Lytle Road County Park as the end, with parking at both endpoints and a seasonal portable toilet at Shiatown.',
-        'Begin downstream of the partially removed Shiatown dam; do not treat the dam itself as a runnable feature.',
-        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
-      ],
-      watchFor: [
-        'Fast moving rapids and a split channel immediately after the partially removed Shiatown dam.',
-        'Rocky shallow water after Bennington Road, faster current near the railroad tracks, six bridge crossings, and debris or vegetation covering rocks.',
-        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
-        'High water can make the dam-adjacent start, bridge approaches, debris, and private-dock corridor unsuitable even though the app only scores a conservative low-water floor.',
-      ],
-    },
-  },
-  'shiawassee-river-lytle-brady-street': {
-    putIn: {
-      id: 'lytle-road-county-park',
-      name: 'Lytle Road County Park bank launch',
-      latitude: 42.9766,
-      longitude: -84.069441,
-    },
-    takeOut: {
-      id: 'brady-street',
-      name: 'Brady Street dirt launch',
-      latitude: 42.9766,
-      longitude: -84.116539,
-    },
-    logistics: {
-      distanceLabel: '3.2 mi',
-      estimatedPaddleTime: 'About 1 hr, longer if low water or causeway decisions slow the trip',
-      shuttle:
-        'Use the short water-trail road shuttle from Lytle Road County Park to Brady Street Landing in Corunna via Lytle Road, South Shiawassee Street, West Mack Street, and North Brady Street.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, City of Corunna access rules, posted parking rules, and water-trail safety guidance.',
-      camping:
-        'Treat this as a short day trip. No on-route camping plan is assumed for this Corunna-area segment.',
-      summary:
-        'Launch from the bank at Lytle Road County Park and take out at the Brady Street dirt launch in Corunna. This 3.2-mile Shiawassee River Water Trail section is short but still asks paddlers to manage split channels, wood, and a causeway.',
-      accessCaveats: [
-        'The route sheet identifies Lytle Road as the start and Brady Street as the end, with parking at both ends and a porta-john / nearby town services at the Brady Street end.',
-        'Lytle Road County Park has no services at the launch and requires a carry to the bank.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'A causeway about 1.75 miles in; stay left to pass under it during low water and portage over it during high water.',
-        'Downed trees, islands, and split channels that require route-finding despite the short mileage.',
-        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
-        'High water can change the causeway decision and may make this short route unsuitable even though the app only scores a conservative low-water floor.',
-      ],
-    },
-  },
-  'shiawassee-river-mccurdy-harmon-patridge': {
-    putIn: {
-      id: 'mccurdy-park',
-      name: 'Corunna McCurdy Park carry-in launch',
-      latitude: 42.98614,
-      longitude: -84.124008,
-    },
-    takeOut: {
-      id: 'harmon-patridge',
-      name: 'Harmon Patridge Park launch',
-      latitude: 43.020112,
-      longitude: -84.184547,
-    },
-    logistics: {
-      distanceLabel: '6.49 mi',
-      estimatedPaddleTime: 'About 2 hr to 2.5 hr if portages and downtown stops are smooth',
-      shuttle:
-        'Use the water-trail road shuttle from McCurdy Park in Corunna to the Harmon Patridge / Chippewa Trail launch in Owosso via Corunna Avenue, Washington Street, Main Street, M-52, and Getman Road. Stage the Harmon Patridge take-out first because the final launch is on river right before the park.',
-      permits:
-        'No route-specific paddling permit is known. Follow City of Corunna, City of Owosso, and water-trail access rules, and use only designated launches or landings.',
-      camping:
-        'Treat this as a trail-town day trip. The route has nearby services in Corunna and Owosso, but no on-route overnight plan is assumed.',
-      summary:
-        'Launch at Corunna McCurdy Park and take out at Harmon Patridge Park for the 6.49-mile Shiawassee River Water Trail segment into Owosso. Use the Owosso USGS gauge as a conservative depth and high-water check, then make dam decisions by scouting in person.',
-      accessCaveats: [
-        'The route sheet identifies McCurdy Park as the start and Harmon Patridge Park as the end, with parking, restrooms or porta-johns, park access, and nearby services.',
-        'The route can be shortened at Oakwood Avenue, a developed City of Owosso launch, before the full set of Owosso dam decisions.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'Three low-head dams or weirs through Owosso. Beginning paddlers should portage; only experienced paddlers should consider running passable spillways after scouting.',
-        'Scraping, rocky shallows, and harder boat control when the Owosso gauge trends toward 2.5 ft or below, especially around the weirs.',
-        'High water above 7 ft, faster urban current, strainers, and bridge-clearance problems.',
-        'Urban landings, downtown stops, and the James Miner River Walk corridor can make this a busier trail-town paddle than the downstream rural Shiawassee segments.',
-      ],
-    },
-  },
-  'shiawassee-river-harmon-patridge-henderson': {
-    putIn: {
-      id: 'harmon-patridge',
-      name: 'Harmon Patridge Park launch',
-      latitude: 43.020112,
-      longitude: -84.184547,
-    },
-    takeOut: {
-      id: 'henderson-county-park',
-      name: 'Henderson County Park cement launch',
-      latitude: 43.087788,
-      longitude: -84.181933,
-    },
-    logistics: {
-      distanceLabel: '7.78 mi',
-      estimatedPaddleTime: 'About 2 hr 20 min at relaxed kayak pace, longer in low water',
-      shuttle:
-        'Use the water-trail road shuttle from Harmon Patridge Park near Owosso to Henderson County Park via Chippewa Trail, Curwood Road, M-52, and Henderson Road. Stage the Henderson take-out first because the launch and parking are back in the wooded park area.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
-      camping:
-        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
-      summary:
-        'Launch at Harmon Patridge Park and take out at Henderson County Park for the 7.78-mile Shiawassee River Water Trail segment north of Owosso. Use the Owosso USGS gauge as a stage-based check for enough depth and bridge clearance.',
-      accessCaveats: [
-        'The water-trail route sheet identifies Harmon Patridge Park as the start and Henderson County Park as the end, with parking and restroom/porta-john amenities noted for the route.',
-        'The route sheet says the Henderson County Park launch is back in the woods and describes the take-out as a designated cement launch with seasonal restrooms, playground, and picnic area.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'Scraping, sand bars, large rocks, and harder riffle navigation when the Owosso gauge trends toward 2.5 ft or below.',
-        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
-        'Two islands before Juddville Road, shallow rocky sections, late-summer aquatic vegetation, and changing depth in pools and riffles.',
-        'Use good judgment in high water or flood conditions and scout unfamiliar obstructions before committing.',
-      ],
-    },
-  },
-  'shiawassee-river-henderson-ditch-road': {
-    putIn: {
-      id: 'henderson-county-park',
-      name: 'Henderson County Park cement launch',
-      latitude: 43.087788,
-      longitude: -84.181933,
-    },
-    takeOut: {
-      id: 'ditch-road',
-      name: 'Ditch Road gravel launch',
-      latitude: 43.143842,
-      longitude: -84.13413,
-    },
-    logistics: {
-      distanceLabel: '9.2 mi',
-      estimatedPaddleTime: 'Intermediate day trip; time varies with level, remoteness, and weir scouting',
-      shuttle:
-        'Use the water-trail road shuttle from Henderson County Park to the Ditch Road launch near Oakley and Parshallburg via Henderson Road, M-52, Johnstone Road, and Niver Road. Stage the Ditch Road take-out first because the launch and parking are just off the road.',
-      permits:
-        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
-      camping:
-        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
-      summary:
-        'Launch at Henderson County Park and take out at the Ditch Road gravel launch for the 9.2-mile Shiawassee River Water Trail segment toward Oakley and Parshallburg. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
-      accessCaveats: [
-        'The water-trail route sheet identifies Henderson County Park as the start and Ditch Road as the end, with parking and restroom amenities at both endpoints.',
-        'The Ditch Road take-out is a gravel launch just before the bridge and near a wooden observation deck; identify it before launching so the weir and bridge area do not become a rushed decision.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'A weir near Ditch Road that must be maneuvered skillfully; use the right-side portage when needed.',
-        'Sand bars, stone bars, riffles, rapids, and harder boat control when the Owosso gauge trends toward 2.5 ft or below.',
-        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
-        'Three bridges, two islands, remoteness between landings, late-summer vegetation, and changing depth through pools and riffles.',
-      ],
-    },
-  },
-  'shiawassee-river-ditch-road-cole-park': {
-    putIn: {
-      id: 'ditch-road',
-      name: 'Ditch Road gravel launch',
-      latitude: 43.143859,
-      longitude: -84.134264,
-    },
-    takeOut: {
-      id: 'cole-park',
-      name: 'Cole Park launch',
-      latitude: 43.185325,
-      longitude: -84.112656,
-    },
-    logistics: {
-      distanceLabel: '5.48 mi',
-      estimatedPaddleTime: 'Short day trip; time varies with level, shallow riffles, and the Cole Park portage',
-      shuttle:
-        'Use the water-trail road shuttle from the Ditch Road launch near Oakley and Parshallburg to Cole Park in Chesaning via Ditch Road, Corunna Road / Main Street, and Canal Street. Stage the Cole Park take-out first so the river-right portage and rock walk are not a surprise at the finish.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted access rules, Chesaning park rules, and water-trail safety guidance at both public landings.',
-      camping:
-        'Treat this as a short day trip. Chesaning has nearby park and lodging options, but no on-route overnight plan is assumed.',
-      summary:
-        'Launch at the Ditch Road gravel launch and take out at Cole Park for the final 5.48-mile Shiawassee River Water Trail segment into Chesaning. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
-      accessCaveats: [
-        'The water-trail route sheet identifies Ditch Road as the start and Cole Park as the end, with parking and restroom amenities at both endpoints.',
-        'The route PDF text extraction reverses the coordinate labels in one place; the Ditch Road coordinate is reconciled against the adjacent upstream route endpoint, and the Cole Park coordinate is the downstream Chesaning endpoint.',
-        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
-      ],
-      watchFor: [
-        'Rocky bottom, riffles, shallow spots, and a large island where the right channel has deeper water.',
-        'Rock rapids near Showboat Park / Cole Park; portage on river right and expect a slippery rock walk to reach the Cole Park launch.',
-        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
-        'Low summer water can make the short mileage slower than expected and increase scraping in riffles.',
-      ],
-    },
-  },
-  'huron-river-argo-gallup': {
+        'huron-river-argo-gallup': {
     putIn: {
       id: 'argo-park-canoe-livery',
       name: 'Argo Park Canoe Livery public launch',
@@ -8452,193 +8383,138 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'clinton-river-north-clinton-rotary': {
-    putIn: {
-      id: 'north-clinton-river-park',
-      name: 'North Clinton River Park accessible launch',
-      latitude: 42.607767,
-      longitude: -83.024447,
+      'clinton-river-downtown-utica-budd': {
+    "putIn": {
+      "id": "downtown-utica",
+      "name": "Downtown Utica water-trail access",
+      "latitude": 42.625576,
+      "longitude": -83.037665
     },
-    takeOut: {
-      id: 'rotary-park-sterling-heights',
-      name: 'Rotary Park accessible launch',
-      latitude: 42.570595,
-      longitude: -82.971459,
+    "takeOut": {
+      "id": "budd-park",
+      "name": "Budd Park carry-in launch",
+      "latitude": 42.586506,
+      "longitude": -82.927598
     },
-    logistics: {
-      distanceLabel: 'About 6.0 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wood, or scouting',
-      shuttle:
-        'Stage the take-out at Rotary Park, then drive back to North Clinton River Park off Riverland Drive. Rotary has a longer carry from the water to parking, but the city provides a rail system for moving boats.',
-      permits:
-        'No route-specific paddling permit is known. Follow City of Sterling Heights park, launch, parking, and posted water-trail rules at both public launches.',
-      camping:
-        'Treat this as a short urban day trip. No on-route camping plan is assumed between North Clinton River Park and Rotary Park.',
-      summary:
-        'Launch at North Clinton River Park and take out at Rotary Park for the Sterling Heights Clinton River Water Trail run. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
-      accessCaveats: [
-        'Both endpoints are City of Sterling Heights accessible kayak/canoe launches, but park hours, events, and launch conditions can still change.',
-        'The route passes Dodge Park before Rotary Park, so Dodge can serve as a check-in or earlier exit if conditions are worse than expected.',
-        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+    "logistics": {
+      "distanceLabel": "About 11.8 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "About 4 hr to 6 hr for the full corridor, shorter with North Clinton River Park or Rotary Park pairings.",
+      "shuttle": "Choose a water-trail access pair, stage the downstream vehicle first, and inspect both launches before committing.",
+      "permits": "No route-specific paddling permit is known. Follow City of Utica and City of Sterling Heights park, launch, parking, and posted water-trail rules at the public access sites.",
+      "camping": "Treat this as an urban day-trip corridor. No on-route camping plan is assumed.",
+      "summary": "Use this as the upper Macomb Clinton River access-planner corridor from Downtown Utica to Budd Park, with North Clinton River Park and Rotary Park options.",
+      "accessCaveats": [
+        "Public access rules, park hours, and construction can change quickly in this urban corridor.",
+        "The full corridor is a planning envelope; shorter access pairs are usually more practical.",
+        "Stay with mapped water-trail accesses rather than private banks."
       ],
-      watchFor: [
-        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
-        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
-        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
-        'Golf-course crossing signs, bridges, blind bends, and other city-park traffic in the Sterling Heights corridor.',
-      ],
+      "watchFor": [
+        "High, fast water and woody debris after rain.",
+        "Bridge current, blind bends, and urban stormwater.",
+        "Low-water scraping near the low warning."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "downtown-utica",
+        "name": "Downtown Utica water-trail access",
+        "latitude": 42.625576,
+        "longitude": -83.037665,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "north-clinton-river-park",
+        "name": "North Clinton River Park accessible launch",
+        "latitude": 42.607767,
+        "longitude": -83.024447,
+        "mileFromStart": 2.2,
+        "segmentKind": "creek",
+        "note": "Short urban access option."
+      },
+      {
+        "id": "rotary-park-sterling-heights",
+        "name": "Rotary Park accessible launch",
+        "latitude": 42.570595,
+        "longitude": -82.971459,
+        "mileFromStart": 8.2,
+        "segmentKind": "creek",
+        "note": "Accessible launch and common corridor split point."
+      },
+      {
+        "id": "budd-park",
+        "name": "Budd Park carry-in launch",
+        "latitude": 42.586506,
+        "longitude": -82.927598,
+        "mileFromStart": 11.8,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
   },
-  'clinton-river-downtown-utica-north-clinton': {
-    putIn: {
-      id: 'downtown-utica',
-      name: 'Downtown Utica water-trail access',
-      latitude: 42.625576,
-      longitude: -83.037665,
+      'clinton-river-budd-macarthur': {
+    "putIn": {
+      "id": "budd-park",
+      "name": "Budd Park carry-in launch",
+      "latitude": 42.586506,
+      "longitude": -82.927598
     },
-    takeOut: {
-      id: 'north-clinton-river-park',
-      name: 'North Clinton River Park accessible launch',
-      latitude: 42.607767,
-      longitude: -83.024447,
+    "takeOut": {
+      "id": "neil-dempsey-macarthur-park",
+      "name": "Neil Dempsey Launch at MacArthur Park",
+      "latitude": 42.597338,
+      "longitude": -82.871104
     },
-    logistics: {
-      distanceLabel: 'About 2.2 mi',
-      estimatedPaddleTime: 'Short trip, roughly 1 hr to 1.5 hr depending on level and wood',
-      shuttle:
-        'Stage the take-out at North Clinton River Park off Riverland Drive, then drive back to Downtown Utica. Heritage Park is an intermediate access about a half mile below Downtown Utica if you need a very short check-out point.',
-      permits:
-        'No route-specific paddling permit is known. Follow City of Utica and City of Sterling Heights park, launch, parking, and posted water-trail rules at the public access sites.',
-      camping:
-        'Treat this as a short urban day trip. No on-route camping plan is assumed between Downtown Utica and North Clinton River Park.',
-      summary:
-        'Launch at Downtown Utica and take out at North Clinton River Park for the short upstream link into the Sterling Heights Clinton River Water Trail. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
-      accessCaveats: [
-        'CRWC and Michigan Water Trails list Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River Water Trail access points, but city parking and launch conditions can still change.',
-        'North Clinton River Park has the stronger take-out setup because the City of Sterling Heights confirms a public accessible EZDock launch there.',
-        'Do not extend upstream toward Rochester, Yates, or dam-adjacent reaches from this route without separate planning; this record is only the Downtown Utica-to-North Clinton segment.',
+    "logistics": {
+      "distanceLabel": "About 6.4 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "About 2 hr to 3 hr for the full corridor, shorter when ending at Shadyside Park.",
+      "shuttle": "Choose Budd, Shadyside, or MacArthur as the selected endpoints, stage the downstream vehicle first, and inspect the take-out.",
+      "permits": "No route-specific paddling permit is known. Follow Clinton Township, Mount Clemens, and Clinton River Water Trail access rules at both public launches.",
+      "camping": "Treat this as an urban day-trip corridor. No on-route camping plan is assumed.",
+      "summary": "Use this as the Mount Clemens lower Clinton access-planner corridor from Budd Park to MacArthur Park, with Shadyside Park as the midpoint.",
+      "accessCaveats": [
+        "Shadyside Park is the practical split point for shorter beginner-oriented outings.",
+        "Identify posted weir or dam warnings before continuing into the Mount Clemens reach.",
+        "Stay with mapped water-trail accesses and avoid private banks."
       ],
-      watchFor: [
-        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
-        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
-        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
-        'Short mileage does not remove the need to scout wood, blind bends, bridges, and the landing before launching.',
-      ],
+      "watchFor": [
+        "Mount Clemens weir or dam-warning signage and any required portage or avoidance line.",
+        "High water, woody debris, and urban stormwater after rain.",
+        "Do not continue toward Harley Ensign or Lake St. Clair without a separate open-water and boat-traffic plan."
+      ]
     },
+    "accessPoints": [
+      {
+        "id": "budd-park",
+        "name": "Budd Park carry-in launch",
+        "latitude": 42.586506,
+        "longitude": -82.927598,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "shadyside-park",
+        "name": "Shadyside Park boat and canoe launch",
+        "latitude": 42.582529,
+        "longitude": -82.880104,
+        "mileFromStart": 4.4,
+        "segmentKind": "creek",
+        "note": "Midpoint and shorter-trip finish option."
+      },
+      {
+        "id": "neil-dempsey-macarthur-park",
+        "name": "Neil Dempsey Launch at MacArthur Park",
+        "latitude": 42.597338,
+        "longitude": -82.871104,
+        "mileFromStart": 6.4,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
   },
-  'clinton-river-rotary-budd': {
-    putIn: {
-      id: 'rotary-park-sterling-heights',
-      name: 'Rotary Park accessible launch',
-      latitude: 42.570595,
-      longitude: -82.971459,
-    },
-    takeOut: {
-      id: 'budd-park',
-      name: 'Budd Park carry-in launch',
-      latitude: 42.586506,
-      longitude: -82.927598,
-    },
-    logistics: {
-      distanceLabel: '3.6 mi',
-      estimatedPaddleTime: 'About 1.5 hr to 2 hr, longer with low water, wood, or scouting',
-      shuttle:
-        'Stage the take-out at Budd Park in Clinton Township, then drive back to Rotary Park in Sterling Heights. Rotary has an accessible launch and a longer carry from parking; check local park hours and event traffic before leaving vehicles.',
-      permits:
-        'No route-specific paddling permit is known. Follow City of Sterling Heights, Clinton Township, and Clinton River Water Trail access rules at both public launches.',
-      camping:
-        'Treat this as a short urban day trip. No on-route camping plan is assumed between Rotary Park and Budd Park.',
-      summary:
-        'Launch at Rotary Park and take out at Budd Park for a short lower Clinton River connector. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because wood, rain, and urban runoff can change this corridor quickly.',
-      accessCaveats: [
-        'Rotary Park is a City of Sterling Heights accessible launch and Budd Park is listed by CRWC, Michigan Water Trails, and Outdoor Michigan as a Clinton River access point.',
-        'Budd Park has historically been a carry-in / informal launch area, so inspect the take-out before launching and respect posted parking or construction limits.',
-        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
-      ],
-      watchFor: [
-        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
-        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
-        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
-        'Blind bends, bridge approaches, and changing wood between the Sterling Heights park corridor and Clinton Township.',
-      ],
-    },
-  },
-  'clinton-river-budd-shadyside': {
-    putIn: {
-      id: 'budd-park',
-      name: 'Budd Park carry-in launch',
-      latitude: 42.586506,
-      longitude: -82.927598,
-    },
-    takeOut: {
-      id: 'shadyside-park',
-      name: 'Shadyside Park boat and canoe launch',
-      latitude: 42.582529,
-      longitude: -82.880104,
-    },
-    logistics: {
-      distanceLabel: 'About 4.4 mi',
-      estimatedPaddleTime: 'About 2 hr, longer with low water, wood, or scouting',
-      shuttle:
-        'Stage the take-out at Shadyside Park in Mount Clemens, then drive back to Budd Park in Clinton Township. George George Park is an intermediate access about 2.6 miles below Budd Park if conditions warrant an earlier exit.',
-      permits:
-        'No route-specific paddling permit is known. Follow Clinton Township, Mount Clemens, and Clinton River Water Trail access rules at both public launches.',
-      camping:
-        'Treat this as a short urban day trip. No on-route camping plan is assumed between Budd Park and Shadyside Park.',
-      summary:
-        'Launch at Budd Park and take out at Shadyside Park for CRWC\'s slow/beginner lower Clinton River route into Mount Clemens. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, and urban runoff can still change the trip quickly.',
-      accessCaveats: [
-        'CRWC maps Budd Park, George George Park, and Shadyside Park as Clinton River Water Trail access points with coordinates and access spacing.',
-        'The City of Mount Clemens confirms Shadyside Park has fishing facilities and a handicapped-accessible pier with a boat and canoe launch, but park events, construction, or shoreline conditions can still affect the landing.',
-        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
-      ],
-      watchFor: [
-        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
-        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
-        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
-        'A slower lower-river character does not remove the need to inspect log jams, blind bends, bridges, and the Shadyside take-out before committing.',
-      ],
-    },
-  },
-  'clinton-river-shadyside-macarthur': {
-    putIn: {
-      id: 'shadyside-park',
-      name: 'Shadyside Park boat and canoe launch',
-      latitude: 42.582529,
-      longitude: -82.880104,
-    },
-    takeOut: {
-      id: 'neil-dempsey-macarthur-park',
-      name: 'Neil Dempsey Launch at MacArthur Park',
-      latitude: 42.597338,
-      longitude: -82.871104,
-    },
-    logistics: {
-      distanceLabel: 'About 2.0 mi',
-      estimatedPaddleTime: 'About 45 min to 1 hr, longer with low water, wood, or scouting',
-      shuttle:
-        'Stage the take-out at MacArthur Park in downtown Mount Clemens, then drive back to Shadyside Park. The road shuttle is short, but inspect the MacArthur landing and nearby river signage before launching.',
-      permits:
-        'No route-specific paddling permit is known. Follow Mount Clemens park rules, launch rules, parking signs, and Clinton River Water Trail safety guidance at both public launches.',
-      camping:
-        'Treat this as a short urban day trip. No on-route camping plan is assumed between Shadyside Park and MacArthur Park.',
-      summary:
-        'Launch at Shadyside Park and take out at the Neil Dempsey launch in MacArthur Park for a short Mount Clemens lower Clinton River link. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, urban runoff, and weir signage can change the trip quickly.',
-      accessCaveats: [
-        'CRWC maps Shadyside Park and Neil Dempsey at MacArthur Park as Clinton River Water Trail access points with coordinates and a 2.0-mile access spacing.',
-        'The City of Mount Clemens confirms Shadyside Park has a boat and canoe launch and MacArthur Park has a universally accessible kayak launch, but park events, construction, or shoreline conditions can still affect landing space.',
-        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
-      ],
-      watchFor: [
-        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
-        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
-        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
-        'CRWC map panels flag a dam/weir hazard in the Mount Clemens lower-river corridor. Identify the safe line, obey posted portage or warning signs, and do not enter dam or weir structures.',
-        'Do not continue toward Harley Ensign or Lake St. Clair without separate planning for motorboat traffic, wind, waves, and open-water exposure.',
-      ],
-    },
-  },
-  'clinton-river-macarthur-harley-ensign': {
+    'clinton-river-macarthur-harley-ensign': {
     putIn: {
       id: 'neil-dempsey-macarthur-park',
       name: 'Neil Dempsey Launch at MacArthur Park',
@@ -8716,44 +8592,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'south-fork-kentucky-river-oneida-rocky-branch': {
-    putIn: {
-      id: 'oneida-ramp',
-      name: 'Oneida Ramp',
-      latitude: 37.2726,
-      longitude: -83.6532,
-    },
-    takeOut: {
-      id: 'rocky-branch-road-access',
-      name: 'Rocky Branch Road Access',
-      latitude: 37.3206,
-      longitude: -83.6648,
-    },
-    logistics: {
-      distanceLabel: 'About 5.0 mi',
-      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Rocky Branch Road Access, then drive back to Oneida Ramp near Oneida Elementary School. Oneida is the more developed paved launch, but Rocky Branch has limited parking and a simpler bridge-side take-out.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Oneida or Rocky Branch, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Oneida Ramp and take out about 5 miles downstream at Rocky Branch Road Access for the upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
-        'Rocky Branch is a gravel and dirt bridge-side access with limited parking and no amenities.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
-        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
-        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
-      ],
-    },
-  },
   'south-fork-kentucky-river-rocky-branch-cedar-valley': {
     putIn: {
       id: 'rocky-branch-road-access',
@@ -8790,44 +8628,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
         'Wood, strainers, muddy step-outs, occasional riffles, and fishing-line traffic near easier roadside access points.',
         'Private banks outside the access sites.',
-      ],
-    },
-  },
-  'south-fork-kentucky-river-oneida-cedar-valley': {
-    putIn: {
-      id: 'oneida-ramp',
-      name: 'Oneida Ramp',
-      latitude: 37.2726,
-      longitude: -83.6532,
-    },
-    takeOut: {
-      id: 'cedar-valley-road-access',
-      name: 'Cedar Valley Road Access',
-      latitude: 37.3363,
-      longitude: -83.656,
-    },
-    logistics: {
-      distanceLabel: 'About 7.5 mi',
-      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Cedar Valley Road Access, then drive back to Oneida Ramp. Oneida offers the easier paved launch, but Cedar Valley is a limited gravel and dirt exit, so walk the take-out before committing to the longer upper-South-Fork day.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Oneida or Cedar Valley, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Oneida Ramp and take out about 7.5 miles downstream at Cedar Valley Road Access for a longer upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
-        'Cedar Valley is a gravel and dirt access with limited parking; KDFWR says bank fishing beyond the access is constrained because adjacent property is private.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more dragging, and a slower overall day than the official mileage alone suggests.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a longer day.',
-        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving.',
-        'Wood, strainers, muddy landings, occasional riffles, and private banks outside the access sites.',
       ],
     },
   },
@@ -8944,44 +8744,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'High water above 900 cfs or 6.0 ft, when KDFWR moves the corridor out of the good band and current becomes less forgiving around wood and muddy landings.',
         'Wood, strainers, mud banks, bridge-area current, and occasional riffles.',
         'Private banks outside the access sites.',
-      ],
-    },
-  },
-  'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
-    putIn: {
-      id: 'upper-wolf-creek-ramp',
-      name: 'Upper Wolf Creek Ramp',
-      latitude: 37.4036,
-      longitude: -83.6798,
-    },
-    takeOut: {
-      id: 'kay-wood-road-access',
-      name: 'Kay Wood Road Access',
-      latitude: 37.4594,
-      longitude: -83.6509,
-    },
-    logistics: {
-      distanceLabel: 'About 5.2 mi',
-      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
-      shuttle:
-        'Stage the take-out at Kay Wood Road Access, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved launch, while Kay Wood is a simpler carry-down roadside exit with unpaved parking.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Kay Wood, and banks outside the access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Upper Wolf Creek Ramp and take out about 5.2 miles downstream at Kay Wood Road Access for a medium South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
-      accessCaveats: [
-        'Upper Wolf Creek is a free single-lane paved ramp with paved parking and year-round 24-hour availability.',
-        'Kay Wood Road Access is a KDFWR carry-down site with unpaved parking, no ramp, no listed amenities, and a canoe/kayak suitability note.',
-        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
-        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
-      ],
-      watchFor: [
-        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
-        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
-        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
       ],
     },
   },
@@ -9924,123 +9686,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'saline-river-tony-kelly-peeler-bend': {
-    putIn: {
-      id: 'tony-kelly-ford-access',
-      name: 'Tony Kelly Ford Access',
-      latitude: 34.5844,
-      longitude: -92.6938,
-    },
-    takeOut: {
-      id: 'peeler-bend',
-      name: 'Peeler Bend',
-      latitude: 34.5852,
-      longitude: -92.6467,
-    },
-    logistics: {
-      distanceLabel: 'About 4.4 mi',
-      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, swimming, or fishing stops',
-      shuttle:
-        'Stage the take-out at Peeler Bend, then drive back to Tony Kelly Ford Access. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
-      camping:
-        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Tony Kelly Ford or Peeler Bend, and adjacent banks outside the public access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Tony Kelly Ford Access and take out at Peeler Bend for the shorter upper-middle Saline River water-trail split. The direct Benton gauge works well here because the route stays above the lower Benton spillway and low-water-bridge hazard package.',
-      accessCaveats: [
-        'Tony Kelly Ford is a simple public river access with no developed campground support in the reviewed source set.',
-        'Peeler Bend is a straightforward public access, but parking and launch conditions can change quickly with rain and runoff.',
-        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
-        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
-      ],
-      watchFor: [
-        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
-        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
-        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
-        'Private banks, anglers, swimmers near town, and late-day heat on the longer pools.',
-      ],
-    },
-  },
-  'saline-river-peeler-bend-lyle-park': {
-    putIn: {
-      id: 'peeler-bend',
-      name: 'Peeler Bend',
-      latitude: 34.5852,
-      longitude: -92.6467,
-    },
-    takeOut: {
-      id: 'lyle-park-access',
-      name: 'Lyle Park Access',
-      latitude: 34.5873,
-      longitude: -92.6051,
-    },
-    logistics: {
-      distanceLabel: 'About 3.8 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, swimming, or fishing stops',
-      shuttle:
-        'Stage the take-out at Lyle Park in Benton, then drive back to Peeler Bend. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
-      permits:
-        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
-      camping:
-        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Peeler Bend or Lyle Park, and adjacent banks outside the public access sites should be treated as private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Peeler Bend and take out at Lyle Park for the short middle Benton Saline River split. The direct Benton gauge works well here because the route finishes before the downstream spillway and low-water-bridge hazard package.',
-      accessCaveats: [
-        'Peeler Bend is a simple public access with limited developed support in the reviewed source set.',
-        'Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.',
-        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
-        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
-      ],
-      watchFor: [
-        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
-        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
-        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
-        'Private banks, anglers, swimmers near town, and short-notice thunderstorms on this more urban split.',
-      ],
-    },
-  },
-  'upper-illinois-river-chamber-springs-woka': {
-    putIn: {
-      id: 'chamber-springs-access',
-      name: 'Chamber Springs Access',
-      latitude: 36.166937,
-      longitude: -94.434458,
-    },
-    takeOut: {
-      id: 'woka-whitewater-park',
-      name: 'WOKA Whitewater Park',
-      latitude: 36.13388,
-      longitude: -94.5661,
-    },
-    logistics: {
-      distanceLabel: 'About 15.5 mi',
-      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with feature carries, lower water, or shuttle delays',
-      shuttle:
-        'Stage the take-out at WOKA Whitewater Park in Oklahoma, then drive back to Chamber Springs Access. Scout Siloam Springs Kayak Park and WOKA before launching so the group has a clear carry-around plan at both park features if needed.',
-      permits:
-        'No route-specific paddling permit is known, but this is a two-state corridor. Follow Arkansas and Oklahoma boating and PFD rules, note that Oklahoma bars glass and Styrofoam on the Illinois River, and use the named public parks and accesses only.',
-      camping:
-        'Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe, Illinois River RV and Campground, and the two whitewater parks as nearby trip-support resources, but this full route is normally handled as a long day float.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Chamber Springs Access and take out at WOKA Whitewater Park for the full Upper Illinois Water Trail route. This is a guarded long route because it passes one Class II+ kayak park mid-route and finishes at another in Oklahoma.',
-      accessCaveats: [
-        'The route is source-backed and public at both ends, but it is long enough that the group should inspect the midpoint kayak park and final WOKA take-out before committing.',
-        'The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.',
-        'Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.',
-        'This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching.',
-      ],
-      watchFor: [
-        'Low water below about 200 cfs, when AGFC says the river may be too low to float well.',
-        'Water above 1,000 cfs, which AGFC reserves for experienced floaters only and which raises consequence at both whitewater parks.',
-        'Class II+ features at Siloam Springs Kayak Park and WOKA Whitewater Park; scout and carry around anything outside the group skill set.',
-        'Fast rain rises, wood, strainers, slippery concrete or rock around the parks, private-bank issues, and interstate shuttle delays.',
-      ],
-    },
-  },
   'upper-illinois-river-chamber-springs-siloam-kayak-park': {
     putIn: {
       id: 'chamber-springs-access',
@@ -10605,12 +10250,53 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'wabash-river-linn-grove-hale-street': {
+  'wabash-river-vera-cruz-white-bridge': {
     putIn: {
-      id: 'linn-grove-park',
-      name: 'Linn Grove Park',
-      latitude: 40.645752,
-      longitude: -85.031219,
+      id: 'vera-cruz-paddlesports-launch',
+      name: 'Vera Cruz Paddlesports Launch',
+      latitude: 40.69890779,
+      longitude: -85.0828222,
+    },
+    takeOut: {
+      id: 'white-bridge-picnic-area',
+      name: 'White Bridge Picnic Area',
+      latitude: 40.728082,
+      longitude: -85.136707,
+    },
+    logistics: {
+      distanceLabel: 'About 4.2 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 5.25 hr depending on stage, current, wind, shallow dragging, and debris',
+      shuttle:
+        'Stage the take-out at White Bridge Picnic Area, then drive back to Vera Cruz Paddlesports Launch. Inspect both concrete ramps and parking areas before launching; Wells County Trails lists both as public improved launches, but same-day mud, high water, debris, or local maintenance can change access.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a short daylight day trip. Banks outside public launches may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      summary:
+        'Launch at Vera Cruz Paddlesports Launch and take out at White Bridge Picnic Area for a short Wells County Wabash River paddle between improved public concrete ramps. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Vera Cruz Paddlesports Launch and White Bridge Picnic Area as public, improved concrete Wabash River launches, with parking at each access.',
+        'Northeast Indiana Water Trails map coordinates are used for both endpoint anchors. Follow current signs and local conditions on arrival rather than parking or launching from bridge shoulders.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Indiana DNR removed the old canoe-guide material as outdated and points users to current regional water-trail resources. This route relies on Wells County Trails and NEI Water Trails, not legacy canoe-guide text.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
+        'Private banks between launches; plan the short 4.2-mile trip without assuming legal intermediate take-outs.',
+      ],
+    },
+  },
+  'wabash-river-white-bridge-hale-street': {
+    putIn: {
+      id: 'white-bridge-picnic-area',
+      name: 'White Bridge Picnic Area',
+      latitude: 40.728082,
+      longitude: -85.136707,
     },
     takeOut: {
       id: 'hale-street-access',
@@ -10619,80 +10305,33 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       longitude: -85.1745966,
     },
     logistics: {
-      distanceLabel: 'About 11.9 mi',
+      distanceLabel: 'About 2.4 mi',
       estimatedPaddleTime:
-        'About 5.25 hr to 9 hr depending on stage, current, wind, shallow dragging, woody debris, and how quickly the group reaches the east-end Hale finish',
+        'About 1.5 hr to 3 hr depending on stage, current, shallow dragging, bridge debris, and how long the group takes at the public launches',
       shuttle:
-        'Stage the take-out at the east end of Hale Street, then drive back to Linn Grove Park. Inspect both public access points before launching because this is the longest current Wells County Wabash route and the Hale finish is a simple earthen access rather than an improved park ramp.',
+        'Stage the take-out at the east end of Hale Street, then drive back to White Bridge Picnic Area. Inspect both public access points before launching because Wells County Trails describes Hale as a simple earthen east-end street launch rather than an improved concrete ramp.',
       permits:
         'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
       camping:
-        'Treat this as a long daylight day route rather than an overnight. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+        'Treat this as a short daylight connector. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
       campingClassification: 'none',
       summary:
-        'Launch at Linn Grove Park and take out at the east-end Hale Street access for the longest currently supported Wells County Wabash day. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+        'Launch at White Bridge Picnic Area and take out at the east-end Hale Street access for a short Bluffton-area Wabash link. Use USGS 03323000 at Bluffton as the direct stage check and keep the decision conservative outside the local 1.5 to 3 ft kayaking band.',
       accessCaveats: [
-        'Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, White Bridge Picnic Area, and Hale Street as public Wabash access points, with the full route supported by the official 5.3-mile, 4.2-mile, and 2.4-mile linked public legs.',
-        'The combined 11.9-mile distance comes from the public Linn Grove-to-Vera Cruz, Vera Cruz-to-White Bridge, and White Bridge-to-Hale legs. Plan food, water, daylight, and group pace around the longer commitment.',
-        'The Hale Street coordinate is a practical public-access anchor at the mapped no-exit east end of West Hale Street, matching Wells County Trails launch wording rather than a surveyed ramp pin.',
+        'Wells County Trails lists White Bridge Picnic Area as a public improved concrete ramp and Hale Street as a public earthen access at the east end of Hale St, with grass parking at both sites.',
+        'The Hale Street coordinate is a practical access anchor at the mapped no-exit east end of West Hale Street, matching the Wells County Trails launch description rather than a surveyed ramp pin.',
         'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
         'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+        'This is a short connector reach, not a destination campground float. Treat it as a same-day out-and-back shuttle segment and do not assume legal informal stops between launches.',
       ],
       watchFor: [
         'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
         'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
-        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to nearly 12 miles without enough daylight or shuttle discipline.',
         'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
-        'Private banks between launches and the simpler earthen Hale finish; do not assume easy legal bailout access once you are downstream of Vera Cruz.',
+        'Wind on open bends, thunderstorms, cold water, poor visibility, anglers, and other launch users at the small public access sites.',
+        'Private banks between launches; plan the short 2.4-mile trip without assuming legal intermediate take-outs.',
       ],
     },
-    accessPoints: [
-      {
-        id: 'linn-grove-park',
-        name: 'Linn Grove Park',
-        latitude: 40.645752,
-        longitude: -85.031219,
-        mileFromStart: 0,
-        segmentKind: 'creek',
-        note: 'Full upstream start at the public park launch.',
-      },
-      {
-        id: 'vera-cruz-paddlesports-launch',
-        name: 'Vera Cruz Paddlesports Launch',
-        latitude: 40.69890779,
-        longitude: -85.0828222,
-        mileFromStart: 5.3,
-        segmentKind: 'creek',
-        note: 'Official public split point for the short upstream leg and the longer Bluffton-bound segments.',
-      },
-      {
-        id: 'white-bridge-picnic-area',
-        name: 'White Bridge Picnic Area',
-        latitude: 40.728082,
-        longitude: -85.136707,
-        mileFromStart: 9.5,
-        segmentKind: 'creek',
-        note: 'Improved public launch that supports the middle and short downstream Wells County segments.',
-      },
-      {
-        id: 'kehoe-park',
-        name: 'Kehoe Park',
-        latitude: 40.74237,
-        longitude: -85.171271,
-        mileFromStart: 11.3,
-        segmentKind: 'creek',
-        note: 'Public Bluffton riverfront park landing before the final short connector to Hale Street.',
-      },
-      {
-        id: 'hale-street-access',
-        name: 'Hale Street access',
-        latitude: 40.7448153,
-        longitude: -85.1745966,
-        mileFromStart: 11.9,
-        segmentKind: 'creek',
-        note: 'Full downstream finish at the public east-end Hale Street access.',
-      },
-    ],
   },
   'sugar-creek-deers-mill-cox-ford': {
     putIn: {
@@ -10815,799 +10454,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows above 1,000 cfs, when DCNR says difficulty progressively increases and better skill and equipment are needed.',
         'Flows above 5,000 cfs, which DCNR reserves for expert boaters in kayaks, closed canoes, or very large rafts.',
         'Dam-release timing, tributary rain, rising water, wood, strainer hazards, limited exits, release-day traffic changes, and missing the Rockport take-out.',
-      ],
-    },
-  },
-  'susquehanna-river-canal-park-pfbc-union-township': {
-    putIn: {
-      name: 'Canal Park access',
-      latitude: 41.22,
-      longitude: -76.018611,
-    },
-    takeOut: {
-      name: 'PFBC Union Township ramp',
-      latitude: 41.177778,
-      longitude: -76.111389,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time around the rapid below Nanticoke bridge',
-      shuttle:
-        'Stage the take-out at the PFBC Union Township ramp first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because mud, broad-river current, or same-day maintenance can change how easy the landings feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Canal Park and take out at the PFBC Union Township ramp for a short Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-180 rapid below the Nanticoke bridge.',
-      accessCaveats: [
-        'PFBC Section 3 publishes both Canal Park and PFBC Union Township coordinates directly in the official access table.',
-        'Canal Park is a primitive access on a gravel path. Confirm same-day footing, parking, and bank angle before leaving a shuttle vehicle.',
-        'Union Township is the intended public finish. Stay with the named access and do not assume broad bars or private banks are legitimate substitutes.',
-        'This is a short route, but broad-river wind can erase much of the mileage advantage on an exposed day.',
-      ],
-      watchFor: [
-        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
-        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow lines.',
-        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Union Township take-out after relaxing into the wide river.',
-      ],
-    },
-  },
-  'susquehanna-river-pfbc-union-township-wetlands': {
-    putIn: {
-      name: 'PFBC Union Township ramp',
-      latitude: 41.177778,
-      longitude: -76.111389,
-    },
-    takeOut: {
-      name: 'Wetlands Nature Area access',
-      latitude: 41.089444,
-      longitude: -76.1225,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle into the Wetlands access road',
-      shuttle:
-        'Stage the take-out at Wetlands Nature Area first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, floating debris, or same-day maintenance can change the landing feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, nature-area, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and the route should not imply open riverbank camping between the named accesses.',
-      campingClassification: 'none',
-      summary:
-        'Launch at the PFBC Union Township ramp and take out at Wetlands Nature Area for a quieter mid-section Susquehanna day. Use the Wilkes-Barre stage gauge and keep the easiest planning days around 2 to 4 feet there.',
-      accessCaveats: [
-        'PFBC Section 3 publishes both PFBC Union Township and Wetlands Nature Area coordinates directly in the official access table.',
-        'Wetlands Nature Area is a primitive river-right finish reached from Hicks Ferry Road. Confirm same-day footing and parking before leaving the shuttle there.',
-        'This route has fewer formal mid-route exit options than the short mileage suggests. Treat the Wetlands finish as committed once you launch.',
-        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
-      ],
-      watchFor: [
-        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and line selection matters more around shallow bars.',
-        'Wilkes-Barre stages above about 4 feet, when current speeds up and the Wetlands finish becomes less forgiving late in the run; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, muddy footing at the primitive take-out, and private shorelines away from the named accesses.',
-      ],
-    },
-  },
-  'susquehanna-river-canal-park-wetlands': {
-    putIn: {
-      name: 'Canal Park access',
-      latitude: 41.22,
-      longitude: -76.018611,
-    },
-    takeOut: {
-      name: 'Wetlands Nature Area access',
-      latitude: 41.089444,
-      longitude: -76.1225,
-    },
-    logistics: {
-      distanceLabel: 'About 14 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, lower-water line picking, or extra care around the early rapid and the primitive Wetlands finish',
-      shuttle:
-        'Stage the take-out at Wetlands Nature Area first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change the practical landing feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Canal Park and take out at Wetlands Nature Area for a full upper Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the mile-180 rapid your first same-day hazard check.',
-      accessCaveats: [
-        'PFBC Section 3 publishes both Canal Park and Wetlands Nature Area coordinates directly in the official access table.',
-        'Canal Park is a primitive access on a gravel path and Wetlands is a primitive river-right finish. Confirm same-day footing, parking, and bank angle at both ends before leaving vehicles.',
-        'This route has more committed mileage than the shorter Section 3 slugs. Once you leave the Nanticoke corridor, broad-river wind and a thin exit network can matter more than the flat profile suggests.',
-        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
-      ],
-      watchFor: [
-        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
-        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and more technical around shallow bars and inside lines.',
-        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and muddy footing at the primitive Wetlands finish after a long exposed day.',
-      ],
-    },
-  },
-  'susquehanna-river-pfbc-union-township-test-track': {
-    putIn: {
-      name: 'PFBC Union Township ramp',
-      latitude: 41.177778,
-      longitude: -76.111389,
-    },
-    takeOut: {
-      name: 'Test Track Park',
-      latitude: 41.04,
-      longitude: -76.261111,
-    },
-    logistics: {
-      distanceLabel: 'About 16 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Nanticoke and Berwick caution zones',
-      shuttle:
-        'Stage the take-out at Test Track Park first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change how practical the landings feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at the PFBC Union Township ramp and take out at Test Track Park for a full Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the Nanticoke rapid plus the lower Berwick ledge context part of the same-day check.',
-      accessCaveats: [
-        'PFBC Section 3 publishes both PFBC Union Township and Test Track Park coordinates directly in the official access table.',
-        'This route is materially longer than the shorter Section 3 slugs. Wind, thunderstorms, and the lack of obvious mid-route public exits can matter more than the flat profile suggests.',
-        'Test Track Park is the intended public finish. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
-        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
-      ],
-      watchFor: [
-        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when lower-section water is thin.',
-        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and line selection matters more around shallow bars and ledges.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a long exposed mainstem day.',
-      ],
-    },
-  },
-  'susquehanna-river-wetlands-test-track': {
-    putIn: {
-      name: 'Wetlands Nature Area access',
-      latitude: 41.089444,
-      longitude: -76.1225,
-    },
-    takeOut: {
-      name: 'Test Track Park',
-      latitude: 41.04,
-      longitude: -76.261111,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Berwick bridge ledge',
-      shuttle:
-        'Stage the take-out at Test Track Park first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because mud, broad-river current, or same-day park activity can change the practical landing angle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and banks away from the named accesses may be private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Wetlands Nature Area and take out at Test Track Park for a lower Section 3 Susquehanna day. Use the Bloomsburg stage gauge, keep the easiest planning days around 2 to 4 feet there, and pay attention to the Berwick-Nescopeck bridge ledge warning below 2 feet.',
-      accessCaveats: [
-        'PFBC Section 3 publishes both Wetlands Nature Area and Test Track Park coordinates directly in the official access table.',
-        'Test Track Park is the intended public finish for this route. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
-        'This lower route uses Bloomsburg because PFBC ties the main low-water ledge warning to that gauge and says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level in this section.',
-        'Stay within the named public access zones rather than using private banks or informal side landings.',
-      ],
-      watchFor: [
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
-        'Bloomsburg stages below about 0 feet, when shallow lines, exposed rocks, and low-water wave trains become more pronounced.',
-        'Bloomsburg stages above about 4 feet, when current speeds up materially; PFBC says novice paddlers should stay off above about 6 feet in this lower part of the section.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and the chance of drifting past the obvious Test Track finish if you get relaxed in the wide lower channel.',
-      ],
-    },
-  },
-  'susquehanna-river-wetlands-bloomsburg': {
-    putIn: {
-      name: 'Wetlands Nature Area access',
-      latitude: 41.089444,
-      longitude: -76.1225,
-    },
-    takeOut: {
-      name: 'PFBC Bloomsburg Access',
-      latitude: 40.996944,
-      longitude: -76.432222,
-    },
-    logistics: {
-      distanceLabel: 'About 17 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 8.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle into Bloomsburg',
-      shuttle:
-        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because muddy footing, broad-river current, and same-day maintenance can change how practical the launch and finish feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and the route should not imply open riverbank camping between the named accesses.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Wetlands Nature Area and take out at the PFBC Bloomsburg ramp for a long lower-corridor Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier planning around 1 to 4 feet there, and keep the Berwick bridge ledge warning visible whenever the gauge is under 2 feet.',
-      accessCaveats: [
-        'PFBC publishes the Wetlands Nature Area and PFBC Bloomsburg coordinates directly in the current North Branch section guides.',
-        'Wetlands is a primitive river-right launch while Bloomsburg is a formal PFBC landing. Confirm same-day footing, parking, and carry angle before leaving vehicles at either end.',
-        'This route crosses the Section 3 to Section 4 guide boundary but stays on one continuous public-access sequence and one direct lower-corridor stage gauge.',
-        'Stay with the named public accesses rather than using islands or private banks as casual substitutes late in the day.',
-      ],
-      watchFor: [
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
-        'Bloomsburg stages above about 4 to 5 feet, when current becomes faster and the long open-water miles feel less forgiving.',
-        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a longer exposed mainstem day.',
-        'Any muddy or slippery footing at the primitive Wetlands launch or the Bloomsburg finish after rain or high water cleanup.',
-      ],
-    },
-  },
-  'susquehanna-river-test-track-bloomsburg': {
-    putIn: {
-      name: 'Test Track Park',
-      latitude: 41.04,
-      longitude: -76.261111,
-    },
-    takeOut: {
-      name: 'PFBC Bloomsburg Access',
-      latitude: 40.996944,
-      longitude: -76.432222,
-    },
-    logistics: {
-      distanceLabel: 'About 9 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line-picking, or a slow big-river shuttle day',
-      shuttle:
-        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back upstream to Test Track Park. Inspect both accesses before launching because broad-river current, mud, storm cleanup, and parking conditions can change how easy the landings feel on the day you paddle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, local park, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The official Section 3 and Section 4 North Branch guides say camping on this river corridor is not provided as part of the water trail itself, and banks away from the named public accesses may be private.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Test Track Park and take out at the PFBC Bloomsburg ramp for a broad North Branch Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
-      accessCaveats: [
-        'The PFBC North Branch Section 4 guide publishes both the Test Track Park and PFBC Bloomsburg coordinates and uses those named accesses for the official route table.',
-        'PFBC access conditions can change with mud, flood cleanup, local events, or same-day maintenance, so verify the launch lane, parking, and bank angle before leaving a shuttle vehicle.',
-        'This route uses the direct Bloomsburg gauge and official section guidance, but big-river wind can make a modest stage feel harder than the number alone suggests.',
-        'The PFBC Bloomsburg access is a formal public landing; stay within posted access boundaries rather than improvising on nearby private banks.',
-      ],
-      watchFor: [
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'Bloomsburg stages above about 4 to 5 ft bring faster current, fewer forgiving eddies, and a bigger margin for missed ferries or landings.',
-        'Headwind across the wide North Branch, floating wood, flooded trees after rain, cold water outside midsummer, and thunderstorms moving down the valley.',
-        'Private islands or banks away from the named accesses and the chance of overrunning Bloomsburg if you drift past the obvious public landing.',
-      ],
-    },
-  },
-  'susquehanna-river-bloomsburg-indian-head': {
-    putIn: {
-      name: 'PFBC Bloomsburg Access',
-      latitude: 40.996944,
-      longitude: -76.432222,
-    },
-    takeOut: {
-      name: 'Indian Head Campground',
-      latitude: 40.975,
-      longitude: -76.469444,
-    },
-    logistics: {
-      distanceLabel: 'About 3 mi',
-      estimatedPaddleTime:
-        'About 1 hr to 2 hr in ordinary conditions, longer with headwind, a relaxed shuttle, or extra time around the campground landing',
-      shuttle:
-        'Stage the take-out at Indian Head Campground first, then drive back to the PFBC Bloomsburg ramp. Confirm same-day campground access expectations before launching if anyone in your group is not staying there overnight.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
-      camping:
-        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail segment itself as a short day trip rather than assuming open riverbank camping.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at the PFBC Bloomsburg ramp and take out at Indian Head Campground for a short North Branch link. The same official Bloomsburg stage guidance applies here, and the campground finish makes this one of the easier shuttle-and-basecamp options in the corridor.',
-      accessCaveats: [
-        'PFBC publishes both access coordinates in the Section 4 guide and lists Indian Head Campground as a primitive-to-surfaced ramp on river right.',
-        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
-        'Because this route is short, wind or a slow shuttle can dominate the day more than raw current speed does.',
-        'The Bloomsburg ramp is a formal PFBC access. Stay within posted public-use areas rather than using nearby banks or side landings.',
-      ],
-      watchFor: [
-        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the short mileage can still feel pushy near bends or bridge lines.',
-        'Broad-river wind, thunderstorms, floating wood, and muddy or slippery footing at the campground landing after rain.',
-        'Private shorelines and islands between the two named endpoints and the chance of overshooting the campground ramp if you are relaxed by the short distance.',
-      ],
-    },
-  },
-  'susquehanna-river-bloomsburg-danville': {
-    putIn: {
-      name: 'PFBC Bloomsburg Access',
-      latitude: 40.996944,
-      longitude: -76.432222,
-    },
-    takeOut: {
-      name: 'PFBC Danville Access',
-      latitude: 40.943611,
-      longitude: -76.599722,
-    },
-    logistics: {
-      distanceLabel: 'About 11 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, slower current, or a careful downstream shuttle into Danville',
-      shuttle:
-        'Stage the take-out at the PFBC Danville ramp first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river current, mud, and same-day maintenance can change the practical landing feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Danville slug should still be planned as a day float.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the PFBC Bloomsburg ramp and take out at the PFBC Danville ramp for a longer lower Section 4 float. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet, and expect wind and open-river mileage to matter more than the flat profile suggests.',
-      accessCaveats: [
-        'PFBC Section 4 publishes both the PFBC Bloomsburg and PFBC Danville coordinates directly in the official access table.',
-        'This route uses the direct Bloomsburg gauge, with Danville serving as same-day downstream corroboration rather than a second scoring ladder.',
-        'Indian Head Campground is useful legal support near the midpoint, but the intended finish for this slug remains the PFBC Danville ramp.',
-        'Stay within the named public access areas rather than improvising on nearby private banks or islands.',
-      ],
-      watchFor: [
-        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the longer open-water miles feel less forgiving.',
-        'Broad-river wind, thunderstorms, floating wood, flooded trees after rain, and fatigue from a longer lower-corridor day.',
-        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the run.',
-        'Any muddy or slippery footing at Indian Head or Danville if you stop or scout during the trip.',
-      ],
-    },
-  },
-  'susquehanna-river-pfbc-bloomsburg-montgomery-park': {
-    putIn: {
-      name: 'PFBC Bloomsburg Access',
-      latitude: 40.996681,
-      longitude: -76.432782,
-    },
-    takeOut: {
-      name: 'Montgomery Park Municipal Access',
-      latitude: 40.959161,
-      longitude: -76.61964,
-    },
-    logistics: {
-      distanceLabel: 'About 12.5 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, slower current, or extra time around the Danville finish',
-      shuttle:
-        'Stage the take-out at Montgomery Park first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river mud, ramp traffic, and same-day park conditions can change how easy the shuttle feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
-      camping:
-        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Montgomery slug should still be planned as a day float.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the PFBC Bloomsburg ramp and take out at Montgomery Park in Danville for a lower North Branch Susquehanna day. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet there, and expect wind plus private-island discipline to matter more than the easy rating suggests.',
-      accessCaveats: [
-        'Susquehanna Greenway publishes this exact public route and the current 2021 North Branch guide publishes the PFBC Bloomsburg and Montgomery Park coordinates directly in the access table.',
-        'The route passes multiple private islands. Susquehanna Greenway says not to stop on the islands even when the water looks inviting or low.',
-        'Montgomery Park is the intended finish, not just a backup carry. Do not assume the nearby PFBC Danville ramp or private banks make the route interchangeable on the fly.',
-        'Broad-river wind can erase much of the easy-current feel, especially if you launch late or take a relaxed pace downstream.',
-      ],
-      watchFor: [
-        'Bloomsburg stages above about 4 to 6 ft, when current gets faster and the longer open-water miles feel less forgiving for novice groups.',
-        'Headwind, thunderstorms, floating wood, flooded trees after rain, and muddy footing at Montgomery Park after recent high water.',
-        'Private islands and banks between Bloomsburg and Danville, plus the temptation to treat them as casual lunch or emergency stops.',
-        'Fishing Creek hazards such as Boone\'s Dam stay off this main route, but do not mistake side-water or tributary mouths for usable exits.',
-      ],
-    },
-  },
-  'susquehanna-river-test-track-indian-head': {
-    putIn: {
-      name: 'Test Track Park',
-      latitude: 41.04,
-      longitude: -76.261111,
-    },
-    takeOut: {
-      name: 'Indian Head Campground',
-      latitude: 40.975,
-      longitude: -76.469444,
-    },
-    logistics: {
-      distanceLabel: 'About 12 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle around the campground landing',
-      shuttle:
-        'Stage the take-out at Indian Head Campground first, then drive back to Test Track Park. Confirm same-day campground access expectations before launching if your group is only using the site as a take-out rather than staying there.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
-      camping:
-        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail route itself as a day float rather than assuming open riverbank camping.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Test Track Park and take out at Indian Head Campground for a longer Section 4 North Branch day. Use the direct Bloomsburg gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
-      accessCaveats: [
-        'The PFBC Section 4 guide publishes both Test Track Park and Indian Head Campground coordinates directly in the official access table.',
-        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
-        'This route is materially longer than either adjacent Section 4 slug. Wind, thunderstorms, and a slow campground shuttle can dominate the day more than the current number suggests.',
-        'Stay within named public or customary access areas rather than improvising on nearby private banks or side landings.',
-      ],
-      watchFor: [
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
-        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the long open-water miles feel less forgiving.',
-        'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at the campground landing after rain, and the risk of overshooting the Indian Head finish if you relax late in the run.',
-        'Private shorelines and islands between the named endpoints and the need to keep enough daylight for the longer shuttle-and-finish day.',
-      ],
-    },
-  },
-  'susquehanna-river-test-track-danville': {
-    putIn: {
-      name: 'Test Track Park',
-      latitude: 41.04,
-      longitude: -76.261111,
-    },
-    takeOut: {
-      name: 'PFBC Danville Access',
-      latitude: 40.943611,
-      longitude: -76.599722,
-    },
-    logistics: {
-      distanceLabel: 'About 20 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 10 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle through the lower corridor',
-      shuttle:
-        'Stage the take-out at the PFBC Danville ramp first, then drive back to Test Track Park. Inspect both accesses before launching because broad-river current, mud, campground traffic near the midpoint, and same-day maintenance can all change the practical landing feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, campground, and PFD rules.',
-      camping:
-        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Test-Track-to-Danville slug should still be planned as a long day float.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Test Track Park and take out at the PFBC Danville ramp for a full lower Section 4 Susquehanna day. Use the direct Bloomsburg stage gauge, keep the easier planning days around 1 to 4 feet there, and treat the Berwick ledge warning plus full-day wind exposure as the key same-day judgment points.',
-      accessCaveats: [
-        'PFBC Section 4 publishes both Test Track Park and PFBC Danville coordinates directly in the official access table.',
-        'This route is materially longer than the adjacent Section 4 slugs. Wind, thunderstorms, and plain endurance can matter more than the current number suggests.',
-        'Indian Head Campground is useful legal support near the midpoint, but the intended finish for this slug remains the PFBC Danville ramp.',
-        'Stay within named public or customary access areas rather than improvising on nearby private banks or side landings.',
-      ],
-      watchFor: [
-        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
-        'Bloomsburg stages above about 4 to 5 feet, when current becomes faster and the long open-water miles feel much less forgiving.',
-        'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at intermediate landings, and fatigue from a long exposed mainstem day.',
-        'Private shorelines, drifting past the obvious Danville finish late in the run, and underestimating how much time the last miles can still take in flat-looking water.',
-      ],
-    },
-  },
-  'susquehanna-river-indian-head-danville': {
-    putIn: {
-      name: 'Indian Head Campground',
-      latitude: 40.975,
-      longitude: -76.469444,
-    },
-    takeOut: {
-      name: 'PFBC Danville Access',
-      latitude: 40.943611,
-      longitude: -76.599722,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle around the campground launch',
-      shuttle:
-        'Stage the take-out at the PFBC Danville ramp first, then drive back to Indian Head Campground. Confirm same-day campground access expectations before launching if your group is only using the site as a put-in rather than staying there.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
-      camping:
-        'Indian Head Campground can support a legal overnight start or finish if you have a reservation or permission, but the route itself should be planned as a day float between the named accesses rather than as open riverbank camping.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Indian Head Campground and take out at the PFBC Danville ramp for a longer lower Section 4 float. The app uses the Bloomsburg stage gauge as the official same-section planning reference for this corridor, then expects a same-day wind and landing judgment before committing to the longer mileage.',
-      accessCaveats: [
-        'PFBC publishes both Indian Head Campground and PFBC Danville coordinates in the Section 4 guide, with Danville listed as a surfaced public ramp on river left.',
-        'This route uses Bloomsburg as a same-section proxy because PFBC stage guidance is written around that gauge rather than a separate Danville threshold ladder.',
-        'Indian Head Campground remains a managed property even though it appears in the official water-trail access table. Respect current staff instructions, parking rules, and launch boundaries.',
-        'Danville is the committed finish for this route. Inspect the landing and shuttle path before launching because the final miles can feel longer when wind stalls the current.',
-      ],
-      watchFor: [
-        'Proxy-gauge judgment error: if Bloomsburg is near the low or high edge, make a visual check at Indian Head instead of trusting the number alone.',
-        'Headwind across the wide lower section, thunderstorms, floating wood, flooded trees after rain, and cold-water consequences outside warm midsummer weather.',
-        'Bloomsburg stages above about 4 to 5 ft, when the broader river carries more speed and novice groups have less time to recover from poor line choices or missed landings.',
-        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the day.',
-      ],
-    },
-  },
-  'susquehanna-river-pfbc-danville-wrays': {
-    putIn: {
-      name: 'PFBC Danville Access',
-      latitude: 40.94349,
-      longitude: -76.598507,
-    },
-    takeOut: {
-      name: "Wray's Riverfront Campground",
-      latitude: 40.953143,
-      longitude: -76.664439,
-    },
-    logistics: {
-      distanceLabel: 'About 4 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind or a relaxed campground finish',
-      shuttle:
-        "Stage the take-out at Wray's first, then drive back to the PFBC Danville ramp. Confirm same-day campground access expectations before launching if your group is using the site as a take-out without staying there.",
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
-      camping:
-        "Wray's Riverfront Campground is a named endpoint campground in the current North Branch guide and can support a legal overnight finish if you have a reservation or permission.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at the PFBC Danville ramp and finish at Wray's Riverfront Campground for a short lower-Susquehanna link. Use the direct Danville stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the campground finish as managed private property rather than a casual public bank.",
-      accessCaveats: [
-        "The current 2021 North Branch guide publishes both PFBC Danville and Wray's coordinates directly in the official access table.",
-        "Wray's is a named water-trail access but still a private campground. Respect current staff instructions, parking rules, launch boundaries, and any reservation expectations.",
-        'The river is broad and can feel slower than it is. Headwind can erase much of the short-mileage advantage on an exposed day.',
-        'Stay with the named accesses and do not improvise on private banks or islands between Danville and the campground finish.',
-      ],
-      watchFor: [
-        'Danville stages below about 2 feet, when the route becomes scratchier and less forgiving despite its short length.',
-        'Danville stages above about 4 feet, when current speeds up and the simple campground finish becomes more time-sensitive for less experienced groups.',
-        'Headwind, thunderstorms, floating wood, and managed-property expectations at the private campground take-out.',
-      ],
-    },
-  },
-  'susquehanna-river-wrays-shikellamy-west': {
-    putIn: {
-      name: "Wray's Riverfront Campground",
-      latitude: 40.953143,
-      longitude: -76.664439,
-    },
-    takeOut: {
-      name: 'Shikellamy State Park West',
-      latitude: 40.883406,
-      longitude: -76.79251,
-    },
-    logistics: {
-      distanceLabel: 'About 9 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta or a busy state-park finish',
-      shuttle:
-        "Stage the take-out at Shikellamy State Park West first, then drive back to Wray's. Confirm both the campground launch expectations and the state-park landing conditions before launching because the lower miles feel bigger when wind or boat traffic builds.",
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, state-park, boating, and PFD rules.',
-      camping:
-        "Wray's can support an overnight start if you have a reservation or permission, but this route should still be planned as a same-day finish at Shikellamy rather than as open riverbank camping.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch from Wray's Riverfront Campground and finish at Shikellamy State Park West for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section proxy, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the decisive safety checks.",
-      accessCaveats: [
-        "The current guide publishes both Wray's and Shikellamy West coordinates directly in the access table.",
-        "This route uses Danville as a same-section proxy because the current guide writes Section 14 thresholds around that gauge rather than around a lower-lake site.",
-        "Wray's remains a managed private campground even though it is listed in the water-trail guide. Respect current launch and parking rules.",
-        'Shikellamy West is the intended finish. Do not drift downstream toward Sunbury unless you have a separate portage and access plan for the Fabridam corridor.',
-      ],
-      watchFor: [
-        'Danville stages below about 2 feet, when the lower pool loses current help and wind matters more.',
-        'Danville stages above about 4 feet, when the broad river carries more speed and less experienced groups have less time to recover from missed landings.',
-        'Lake Augusta wind and powerboat wakes, floating wood, private shorelines, and the downstream Sunbury Fabridam hazard if you miss the planned take-out.',
-      ],
-    },
-  },
-  'susquehanna-river-pfbc-danville-shikellamy-west': {
-    putIn: {
-      name: 'PFBC Danville Access',
-      latitude: 40.94349,
-      longitude: -76.598507,
-    },
-    takeOut: {
-      name: 'Shikellamy State Park West',
-      latitude: 40.883406,
-      longitude: -76.79251,
-    },
-    logistics: {
-      distanceLabel: 'About 13 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, pooled lower-river drift, or a slower shuttle day',
-      shuttle:
-        'Stage the take-out at Shikellamy State Park West first, then drive back to the PFBC Danville ramp. Inspect both landings before launching because the lower miles can feel materially longer when wind, boat wakes, or slower pool current build.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, boating, and PFD rules.',
-      camping:
-        "Treat this as a day float. Wray's Riverfront Campground and Fantasy Island Campground are nearby lower-corridor support options, but the route itself should not imply open riverbank camping or a guaranteed mid-route overnight stop.",
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at the PFBC Danville ramp and finish at Shikellamy State Park West for a full lower Section 14 Susquehanna day. Use the direct Danville stage gauge, keep the easiest planning days around 2 to 4 feet, and treat the lower Lake Augusta miles plus Fabridam take-out discipline as the key same-day go/no-go factors.',
-      accessCaveats: [
-        'The current guide publishes both PFBC Danville and Shikellamy West coordinates directly in the official access table.',
-        "Wray's and Fantasy Island are corridor campgrounds, not excuses to ignore the planned finish or camp casually on private islands and banks.",
-        'The final state-park finish is well upstream of Sunbury Fabridam, but only if you actually take out there. Keep the exit plan explicit before launching.',
-        'This route is long enough that broad-river wind and slower pooled water can change the day more than the easy label suggests.',
-      ],
-      watchFor: [
-        'Danville stages below about 2 feet, when the lower corridor gets slower, scratchier, and more exposed to wind.',
-        'Danville stages above about 4 feet, when current speeds up and the lower finish becomes less forgiving for novice groups.',
-        'Wind and motorboat wakes on Lake Augusta, floating wood, private shorelines, and drifting too far downstream toward Sunbury Fabridam after the state-park access zone appears.',
-      ],
-    },
-  },
-  'susquehanna-river-danville-montgomery-shikellamy-north': {
-    putIn: {
-      name: 'Montgomery Park Municipal Access',
-      latitude: 40.959161,
-      longitude: -76.61964,
-    },
-    takeOut: {
-      name: 'Shikellamy State Park North Access',
-      latitude: 40.880559,
-      longitude: -76.789685,
-    },
-    logistics: {
-      distanceLabel: 'About 11.2 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta, slower pool current, or a busy state-park finish',
-      shuttle:
-        'Stage the take-out at Shikellamy State Park North first, then drive back to Montgomery Park. Inspect both carries before launching because the lower miles can feel materially longer when wind, boat wakes, or slower pool current build.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, municipal, boating, and PFD rules.',
-      camping:
-        "Treat this as a day float. Wray's Riverfront Campground and Fantasy Island Campground are corridor support options, but the route itself should not imply open riverbank camping or a guaranteed mid-route overnight stop.",
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Montgomery Park in Danville and finish at Shikellamy State Park North for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section reference, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the key same-day checks.',
-      accessCaveats: [
-        'The current 2021 North Branch guide lists Montgomery Park to Shikellamy North as a favorite public day trip and publishes both endpoint coordinates in the access table.',
-        'Shikellamy State Park North is primarily a canoe and kayak finish near the island. Stay alert for bridge current, motorboats, and other users as you approach.',
-        'This route uses Danville as the official same-section gauge reference even though the lower miles flatten into Lake Augusta before the take-out.',
-        'Keep the finish explicit before launching. The lower river feels forgiving when the current slows, but the wrong drift line can carry you past the intended state-park access zone.',
-      ],
-      watchFor: [
-        'Danville stages below about 2 ft, when the lower pool gets slower and the route becomes more exposed to wind and shallow rock decisions.',
-        'Danville stages above about 4 ft, when current speeds up and the lower finish becomes less forgiving for novice groups.',
-        'Wind and motorboat wakes on Lake Augusta, floating wood, and bridge-approach congestion near the final Shikellamy North take-out.',
-        'Missing the planned access and continuing downstream toward Sunbury Fabridam, which is not part of this route.',
-      ],
-    },
-  },
-  'susquehanna-river-riverside-borough-shikellamy-north': {
-    putIn: {
-      name: 'Riverside Borough Access',
-      latitude: 40.962389,
-      longitude: -76.633444,
-    },
-    takeOut: {
-      name: 'Shikellamy State Park North Access',
-      latitude: 40.880559,
-      longitude: -76.789685,
-    },
-    logistics: {
-      distanceLabel: 'About 10.2 mi',
-      estimatedPaddleTime:
-        'About 5.5 hr in ordinary conditions, longer with low-water stone dodging, Lake Augusta wind, or a slow state-park finish',
-      shuttle:
-        'Stage the take-out at Shikellamy State Park North first, then drive back to Riverside Borough Access. The Riverside launch has only brief unload space, so inspect both parking plans before committing to the shuttle.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, borough, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. The Susquehanna Greenway route page points paddlers toward nearby Danville and Shikellamy-area services, but it does not advertise camping as part of the route plan.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Riverside Borough Access and finish at Shikellamy State Park North for a moderate lower North Branch day. Use the Danville gauge as the official route reference, keep the same-day call conservative near the 2 ft floor, and watch the lower islands, Packers Island split, and busy Shikellamy finish closely.',
-      accessCaveats: [
-        'Susquehanna Greenway publishes this exact public route and says the Riverside launch is a carry-in with timed unloading before you move vehicles to the designated pull-off.',
-        'The launch slope can be muddy or slippery, especially after rain or when the concrete slab does not stay fully in the water.',
-        'Shikellamy State Park North is primarily for kayaks and canoes. Stay cautious around motorized traffic near the island and the final bridge approach.',
-        'A state launch permit is required at the Shikellamy take-out, and the intended finish is upstream of Sunbury Fabridam.',
-      ],
-      watchFor: [
-        'Island banks, ledges, and stones in low water, especially near river mile 133 and again near Packers Island in the lower miles.',
-        'Motorized boat traffic and wind on seasonal Lake Augusta, which can flatten the current advantage and make the final miles feel longer.',
-        'The lower split around Packers Island; keep right where the route page says to avoid wrong turns and extra shallow-water problems.',
-        'Missing the Shikellamy North take-out and continuing downstream toward Sunbury Fabridam.',
-      ],
-    },
-  },
-  'susquehanna-river-tunkhannock-whites-ferry': {
-    putIn: {
-      name: 'PFBC Tunkhannock access',
-      latitude: 41.522222,
-      longitude: -75.941389,
-    },
-    takeOut: {
-      name: "PFBC White's Ferry access",
-      latitude: 41.475833,
-      longitude: -75.905,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, caution around the boulder-field reach, or a slower shuttle day',
-      shuttle:
-        "Stage the take-out at PFBC White's Ferry first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the access feels.",
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor lodging and campground options in the broader Section 2 guide, but neither is part of this put-in/take-out pair and the route should not imply on-route camping.",
-      campingClassification: 'nearby_basecamp',
-      summary:
-        "Launch at PFBC Tunkhannock and take out at PFBC White's Ferry for a mid-section North Branch day. The app uses the Meshoppen gauge as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field the main same-day hazard check.",
-      accessCaveats: [
-        "PFBC Section 2 publishes both PFBC Tunkhannock and PFBC White's Ferry coordinates directly in the official access table.",
-        "This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate White's Ferry ladder.",
-        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
-        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
-      ],
-      watchFor: [
-        'The PFBC Section 2 caution list flags a boulder field at mile 215 and long fast riffles at mile 214 inside this route.',
-        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
-        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
-        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
-      ],
-    },
-  },
-  'susquehanna-river-tunkhannock-west-falls': {
-    putIn: {
-      name: 'PFBC Tunkhannock access',
-      latitude: 41.522222,
-      longitude: -75.941389,
-    },
-    takeOut: {
-      name: 'PFBC West Falls access',
-      latitude: 41.459444,
-      longitude: -75.853611,
-    },
-    logistics: {
-      distanceLabel: 'About 10 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, caution around the riffle zones, or a slower shuttle day',
-      shuttle:
-        'Stage the take-out at PFBC West Falls first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the accesses feel.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor camping options in the broader Section 2 guide, but the Tunkhannock-to-West-Falls route itself should not imply open riverbank camping.",
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at PFBC Tunkhannock and take out at PFBC West Falls for a fuller lower Section 2 Susquehanna day. The app uses Meshoppen as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field plus the lower fast-riffle miles the main same-day hazard check.',
-      accessCaveats: [
-        'PFBC Section 2 publishes both PFBC Tunkhannock and PFBC West Falls coordinates directly in the official access table.',
-        'This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate West Falls ladder.',
-        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
-        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
-      ],
-      watchFor: [
-        'The PFBC Section 2 caution list flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
-        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
-        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
-        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
-      ],
-    },
-  },
-  'susquehanna-river-whites-ferry-west-falls': {
-    putIn: {
-      name: "PFBC White's Ferry access",
-      latitude: 41.475833,
-      longitude: -75.905,
-    },
-    takeOut: {
-      name: 'PFBC West Falls access',
-      latitude: 41.459444,
-      longitude: -75.853611,
-    },
-    logistics: {
-      distanceLabel: 'About 4 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 2.5 hr in ordinary conditions, longer with headwind, higher current, or a cautious shuttle around the fast-riffle mile',
-      shuttle:
-        "Stage the take-out at PFBC West Falls first, then drive back to PFBC White's Ferry. Check both accesses before launching because muddy footing, high water, or same-day local conditions can change the practical carry and landing line.",
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Treat this as a day trip. Susquehanna Shores Campground is listed downstream in the broader Section 2 corridor and can support a nearby basecamp stay, but the White\'s Ferry-to-West Falls route itself should not imply open riverbank camping.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        "Launch at PFBC White's Ferry and take out at PFBC West Falls for a short lower Section 2 link. The app uses Meshoppen as the official same-section planning reference and keeps the fast-riffle mile near 210 as the main route-specific caution.",
-      accessCaveats: [
-        "PFBC Section 2 publishes both PFBC White's Ferry and PFBC West Falls coordinates directly in the official access table.",
-        'The route is short, but broad-river wind or a slow shuttle can dominate the feel of the day more than the mileage suggests.',
-        'This route uses Meshoppen as a same-section proxy because PFBC writes the section relationship there rather than at the take-out.',
-        'PFBC West Falls is the committed finish. Stay within the posted public landing rather than improvising on nearby private banks.',
-      ],
-      watchFor: [
-        'The PFBC Section 2 caution list flags a long section of fast riffles around mile 210 inside this route.',
-        'Broad-river wind, thunderstorms, floating wood, muddy take-out footing after rain, and quick current when Meshoppen is above the calmer band.',
-        'Proxy-gauge judgment error near the low or high edge: make a visual current check at White\'s Ferry before launching.',
-        'Private shorelines and islands away from the named accesses and the chance of floating past the PFBC West Falls ramp if you relax because the route is short.',
       ],
     },
   },
@@ -11819,129 +10665,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'village-creek-sh327-baby-galvez': {
-    putIn: {
-      id: 'tx-327-boat-launch',
-      name: 'TX 327 Boat Launch',
-      latitude: 30.346944,
-      longitude: -94.239385,
-    },
-    takeOut: {
-      id: 'baby-galvez-road-boat-launch',
-      name: 'Baby Galvez Road Boat Launch',
-      latitude: 30.3345,
-      longitude: -94.20391,
-    },
-    logistics: {
-      distanceLabel: 'About 3.4 mi',
-      estimatedPaddleTime:
-        'About 1 hr to 2.5 hr at ordinary levels, longer if the creek is low, woody, stormy, or the group wants a slower beginner outing',
-      shuttle:
-        'Stage the Baby Galvez take-out first, then drive back to TX 327. Check both bridge-side launches before leaving vehicles because one is an unpaved highway launch and the other is a simple paved ramp at the end of a local road.',
-      permits:
-        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted access signs.',
-      camping:
-        'Treat this short segment as a day trip. Big Thicket allows year-round sandbar camping on Village Creek for larger through-trips, and Village Creek State Park is a stronger downstream base-camp option if you want more than a quick paddle.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at TX 327 and take out at Baby Galvez for the shortest named Village Creek public segment. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on wood, current, weather, and private-boundary discipline before launching.',
-      accessCaveats: [
-        'NPS identifies TX 327 as a TxDOT-managed launch and Baby Galvez Road as a paved public boat ramp, but neither endpoint is a staffed park marina.',
-        'This route is short enough to look casual, which makes it easy to underestimate rain-driven current or assume any bank stop is acceptable. Stay with the named public launches.',
-        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on a short paddle.',
-        'Big Thicket boundary markers and private banks still matter on this middle segment. Do not plan casual picnics or bailouts above the ordinary high-water line.',
-        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow weaving around sandbars and wood.',
-      ],
-      watchFor: [
-        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when sandbars, logs, and shallow route-finding become more common.',
-        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous despite the short mileage.',
-        'Snags, logjams, overhanging limbs, sandbars, insects, thunderstorms, and muddy or slick footing at the launches.',
-        'Private banks between the launches and the temptation to turn a short family paddle into an unsupported off-route stop.',
-      ],
-    },
-  },
-  'village-creek-baby-galvez-us-96': {
-    putIn: {
-      id: 'baby-galvez-road-boat-launch',
-      name: 'Baby Galvez Road Boat Launch',
-      latitude: 30.3345,
-      longitude: -94.20391,
-    },
-    takeOut: {
-      id: 'us-96-boat-launch',
-      name: 'US 96 Boat Launch',
-      latitude: 30.2857,
-      longitude: -94.19145,
-    },
-    logistics: {
-      distanceLabel: 'About 7.1 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr at ordinary levels, longer near the floor or when heat, sandbars, wood, or a slow group stretch out the day',
-      shuttle:
-        'Stage the US 96 take-out first, then drive back to Baby Galvez Road. Inspect both paved public ramps and parking areas before leaving vehicles because storms, mud, debris, or local maintenance can change how easy the access feels on arrival.',
-      permits:
-        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted county or preserve access notices.',
-      camping:
-        'Treat this as a long day trip by default. Big Thicket says camping is allowed year-round on sandbars along Village Creek, and Village Creek State Park is a stronger downstream base-camp option if you want legal campground support instead of primitive sandbar choices.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Baby Galvez Road and take out at US 96 for a longer lower-middle Village Creek float with public launches at both ends. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, weather, wood, and heat before committing.',
-      accessCaveats: [
-        'NPS identifies Baby Galvez and US 96 as public boat ramps tied to the Village Creek trail; US 96 is managed by Hardin County and Baby Galvez is a local road-end launch in preserve country.',
-        'The preserve does not provide boat rentals or shuttles. Arrange your own shuttle before launching.',
-        'TPWD says Village Creek water quality is variable and not recommended for drinking. Carry enough water for a longer East Texas day.',
-        'Big Thicket says sandbar camping is allowed on Village Creek, but this route still works best as a planned day float unless you have a clear overnight plan and are comfortable managing rising water risk.',
-        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more scraping, wood dodging, and slow travel.',
-      ],
-      watchFor: [
-        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars and logs become more common and the longer mileage gets slower.',
-        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous on an otherwise mellow corridor.',
-        'Snags, logjams, overhanging limbs, floating debris, insects, thunderstorms, sun exposure, and a longer self-supported shuttle than the short Village Creek links.',
-        "Private banks between the launches and overconfidence from the route's generally calm flatwater character.",
-      ],
-    },
-  },
-  'village-creek-us-96-state-park': {
-    putIn: {
-      id: 'us-96-boat-launch',
-      name: 'US 96 Boat Launch',
-      latitude: 30.2857,
-      longitude: -94.19145,
-    },
-    takeOut: {
-      id: 'village-creek-state-park-canoe-launch',
-      name: 'Village Creek State Park canoe launch',
-      latitude: 30.2553,
-      longitude: -94.171,
-    },
-    logistics: {
-      distanceLabel: 'About 3.2 mi',
-      estimatedPaddleTime:
-        'About 1 hr to 3 hr at ordinary levels, longer if low water, flooding, wildlife delays, or family pacing slow the trip',
-      shuttle:
-        'Stage the Village Creek State Park take-out first, then drive back to the US 96 launch. Confirm current state-park launch status, fees, and flooding impacts before leaving vehicles because the park access can change after high water.',
-      permits:
-        'No route-specific private paddling permit is known for a same-day trip, but you may need to pay any current state-park entrance fee at the take-out. Follow Texas boating and PFD rules, use the named public launches, and obey current Big Thicket and TPWD park notices.',
-      camping:
-        'This is the strongest lower Village Creek segment for legal campground support. Village Creek State Park has campsites, a cabin, and direct canoe-launch access at the take-out. Big Thicket also allows year-round sandbar camping on Village Creek for paddlers who have a more primitive overnight plan.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at the US 96 public ramp and finish at Village Creek State Park for the short downstream state-park segment. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, flood impacts, wildlife, and launch conditions before committing.',
-      accessCaveats: [
-        'NPS identifies the US 96 launch as a paved public ramp and says the next launch is Village Creek State Park 3.2 miles downstream; TPWD separately publishes the state-park canoe-launch coordinate and paddling access.',
-        'Check with Village Creek State Park on the status of the canoe launch after flooding or storm damage. Do not assume the normal take-out path is usable on every visit.',
-        'TPWD says alligators live in the area. Give wildlife space, keep pets and food controlled, and do not create shoreline conflicts at the park launch.',
-        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on this short segment.',
-        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow sandbars and wood near the park finish.',
-      ],
-      watchFor: [
-        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars, logs, and shallow routing become more common.',
-        'Stage around or above about 10 ft, rising water, fresh heavy rain, or park-launch flood impacts that can turn an easy short float into a poor access decision.',
-        'Snags, logjams, floating debris, insects, thunderstorms, muddy footing, alligators, and other wildlife near the lower corridor and park take-out.',
-        'Private banks between the launches and the temptation to treat state-park access as proof that any stop along the way is equally public.',
-      ],
-    },
-  },
   'guadalupe-river-fm766-sh72': {
     putIn: {
       id: 'fm-766-hells-gate',
@@ -12142,246 +10865,6 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'green-river-russell-ford-greensburg-city-ramp': {
-    putIn: {
-      id: 'russell-ford-access',
-      name: 'Russell Ford Access',
-      latitude: 37.2738,
-      longitude: -85.4784,
-    },
-    takeOut: {
-      id: 'greensburg-city-ramp',
-      name: 'Greensburg City Ramp',
-      latitude: 37.2581,
-      longitude: -85.5057,
-    },
-    logistics: {
-      distanceLabel: 'About 4.5 mi',
-      estimatedPaddleTime:
-        'About 2 hr to 3.5 hr, longer with fishing stops, shoal scouting, or low water',
-      shuttle:
-        'Stage the take-out at Greensburg City Ramp, then drive back to Russell Ford on Ralph Vaughn Road. The shuttle is short, but Russell Ford parking is limited and Greensburg can have city-park traffic.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
-      camping:
-        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Russell Ford and take out about 4.5 miles downstream at Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
-      accessCaveats: [
-        'Russell Ford is a carry-down gravel-bar access with limited unpaved parking and no amenities. Keep the approach clear for other users.',
-        'Greensburg City Ramp is the easier landing, but it sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
-        'American Legion Park lies between the endpoints and can shorten the day if conditions or group energy change, but this route assumes the full Russell-to-Greensburg float.',
-        'KDFWR notes private-property concerns around Pool 6 access sites. Use the named public accesses only and avoid treating intermediate banks as public.',
-      ],
-      watchFor: [
-        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
-        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
-        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
-        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
-      ],
-    },
-  },
-  'green-river-greensburg-city-ramp-glenview-road': {
-    putIn: {
-      id: 'greensburg-city-ramp',
-      name: 'Greensburg City Ramp',
-      latitude: 37.2581,
-      longitude: -85.5057,
-    },
-    takeOut: {
-      id: 'glenview-road-carrydown',
-      name: 'Glenview Road Carrydown',
-      latitude: 37.291,
-      longitude: -85.5913,
-    },
-    logistics: {
-      distanceLabel: 'About 13.7 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 8 hr, longer in low water or with fishing, drift breaks, and shuttle delays',
-      shuttle:
-        'Stage the take-out at Glenview Road, then drive back to Greensburg City Ramp. Glenview is a grassy road-end carrydown with no amenities, so keep the take-out vehicle compact and leave daylight margin for a longer Upper Green day.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
-      camping:
-        'Treat this as a day trip with town-based overnight support rather than on-route camping. Greensburg City Ramp has nearby lodging context, but KDFWR lists no camping at either endpoint and private banks should not be treated as legal campsites.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Greensburg City Ramp and take out at Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect slower shoals and more scraping whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
-      accessCaveats: [
-        'Greensburg City Ramp is the easier launch, with paved parking and city-park activity. Keep the ramp clear for anglers and other local users.',
-        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
-        'This segment has fewer comfortable legal stop options than the shorter Greensburg routes. Stay off private banks except for true emergencies.',
-        'The route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number.',
-      ],
-      watchFor: [
-        'Low water below about 1.0 ft, when shoals, mud edges, and slower current can turn this into a long day.',
-        'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
-        'Private-bank limits, woody debris after rain, exposed sun, and broad-river wind on longer pools.',
-        'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
-      ],
-    },
-  },
-  'green-river-rio-carrydown-hh-wilson-park': {
-    putIn: {
-      id: 'rio-carrydown-access',
-      name: 'Rio Carrydown Access',
-      latitude: 37.3183,
-      longitude: -85.7692,
-    },
-    takeOut: {
-      id: 'hh-wilson-park-ramp',
-      name: 'H.H. Wilson Park Ramp',
-      latitude: 37.2979,
-      longitude: -85.8506,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr, longer with sandbar stops, fishing, or lower water',
-      shuttle:
-        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Rio Carrydown Access. Rio has limited unpaved parking and Wilson has a short paved ramp with a gravel lot, so keep both access areas tight and efficient.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and carry normal hot-weather and river-rescue essentials.',
-      camping:
-        'Treat this as a day trip. KDFWR lists no camping at Rio, and private banks or sandbars between Rio and H.H. Wilson should not be assumed legal overnight stops.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Rio Carrydown Access and take out about 8 miles downstream at H.H. Wilson Park Ramp for the upper Hart County Blue Water Trail float. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this Green River corridor.',
-      accessCaveats: [
-        'Rio is a carry-down-only access with unpaved parking and no amenities. Keep the launch compact and avoid spilling onto nearby private ground.',
-        'H.H. Wilson Park Ramp is a paved launch, but KDFWR warns that the concrete does not extend far into the water and drops off at the end.',
-        'KDFWR notes private-property concerns around Green River Pool 6 access sites. Stay with the named public accesses and do not use mid-route banks for parking or casual trespass stops.',
-        'The Munfordville gauge is direct for this Hart County segment, but same-day rain, wind, wood, and ramp conditions still control the launch decision.',
-      ],
-      watchFor: [
-        'Low water below 300 cfs, when shoals, gravel, and dragging become more likely.',
-        'High water above 600 cfs, when current, wood, and landings get less forgiving on this broad river.',
-        'Fresh strainers, fallen trees, fishing lines, open-river sun and wind, and long pool sections between riffles.',
-        'Slippery footing at the Rio launch and the ramp drop at H.H. Wilson on exit.',
-      ],
-    },
-  },
-  'green-river-lynn-camp-creek-hh-wilson-park': {
-    putIn: {
-      id: 'lynn-camp-creek-vpa-1',
-      name: 'Lynn Camp Creek Ramp',
-      latitude: 37.3533,
-      longitude: -85.7098,
-    },
-    takeOut: {
-      id: 'hh-wilson-park-ramp',
-      name: 'H.H. Wilson Park Ramp',
-      latitude: 37.2979,
-      longitude: -85.8506,
-    },
-    logistics: {
-      distanceLabel: 'About 18.2 mi',
-      estimatedPaddleTime:
-        'About 6 hr to 9 hr, longer with low water, family pacing, or sandbar and fishing stops',
-      shuttle:
-        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Lynn Camp Creek Ramp. This is a committed day, so leave extra daylight and keep both access areas tight because Lynn Camp and Wilson each have limited space and no built-in shuttle services.',
-      permits:
-        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the private-land terms at Lynn Camp Creek VPA #1.',
-      camping:
-        'Treat this as a full day float, not a camping route. KDFWR lists no camping at either endpoint, and the private banks and sandbars between Lynn Camp and H.H. Wilson should not be assumed legal overnight stops.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Lynn Camp Creek Ramp and take out at H.H. Wilson Park for the longer upper Hart County Green River segment. Use the Munfordville gauge and expect a slower all-day float whenever the discharge stays below KDFWR\'s 300 to 600 cfs good band.',
-      accessCaveats: [
-        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful use, clean parking, and staying within the obvious access footprint.',
-        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site. Launch carefully and avoid blocking the narrow approach.',
-        'H.H. Wilson Park Ramp has a drop at the end of the concrete. Expect a less forgiving finish than a typical city-park ramp, especially if the river is low or the group is tired.',
-        'This route uses the direct Munfordville gauge for the Hart County corridor, but same-day weather, debris, and daylight matter as much as the cfs reading on a float this long.',
-      ],
-      watchFor: [
-        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
-        'High water above 600 cfs, when broad-river current, fresh wood, and the Wilson landing become less forgiving.',
-        'Fatigue, exposed sun, broad-river wind, fishing lines, and limited legal bailout options away from the named accesses.',
-        'Slippery footing at Lynn Camp, the ramp drop at Wilson, and any fresh strainers or downed trees after rain.',
-      ],
-    },
-  },
-  'green-river-rio-carrydown-stovall-park': {
-    putIn: {
-      id: 'rio-carrydown-access',
-      name: 'Rio Carrydown Access',
-      latitude: 37.3183,
-      longitude: -85.7692,
-    },
-    takeOut: {
-      id: 'munfordville-stovall-park-ramp',
-      name: 'Munfordville-Stovall Park Ramp',
-      latitude: 37.2663,
-      longitude: -85.8892,
-    },
-    logistics: {
-      distanceLabel: 'About 12 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 7 hr, longer with sandbar stops, low water, or family pacing',
-      shuttle:
-        'Stage the take-out at Munfordville-Stovall Park, then drive back to Rio Carrydown Access. This is a longer Hart County day, so leave daylight margin and keep both launch areas clear for other users.',
-      permits:
-        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, obey city-park rules at Stovall, and carry normal broad-river safety gear.',
-      camping:
-        'Stovall Park supports endpoint overnights better than improvised on-route camping. KDFWR lists primitive camping, restrooms, and park amenities at the take-out, but private banks and sandbars upstream should not be treated as automatic legal campsites.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Rio Carrydown Access and continue about 12 miles downstream to Munfordville-Stovall Park Ramp for the fuller Hart County Green River day. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this corridor.',
-      accessCaveats: [
-        'Rio is a carry-down-only access with unpaved parking and no amenities. Pack efficiently and avoid spreading gear onto adjacent private ground.',
-        'Stovall Park Ramp is a city-owned paved access with more amenities and park traffic. Use the ramp efficiently and avoid blocking trailers or anglers.',
-        'This route effectively combines the Rio-to-Wilson and Wilson-to-Stovall KDFWR segments, so it is longer than the shorter Hart County family float and needs a fuller shuttle, daylight, and hydration plan.',
-        'The Munfordville gauge is direct for this corridor, but same-day wind, heat, fresh debris, and release/weather trend still matter more across a longer day.',
-      ],
-      watchFor: [
-        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
-        'High water above 600 cfs, when broad-river current, wood, and park landings become less forgiving.',
-        'Fallen trees, fishing lines, open-river sun and wind, and fewer comfortable legal stop options away from public accesses.',
-        'Fatigue, slower group pace, and late-day weather because this is substantially longer than the Wilson-to-Stovall segment alone.',
-      ],
-    },
-  },
-  'green-river-stovall-park-dennison-ferry': {
-    putIn: {
-      id: 'munfordville-stovall-park-ramp',
-      name: 'Munfordville-Stovall Park Ramp',
-      latitude: 37.2663,
-      longitude: -85.8892,
-    },
-    takeOut: {
-      id: 'dennison-ferry',
-      name: 'Dennison Ferry',
-      latitude: 37.2174,
-      longitude: -86.0493,
-    },
-    logistics: {
-      distanceLabel: 'About 21.0 mi',
-      estimatedPaddleTime:
-        'About 7 hr to 10 hr, longer in low water or with family pacing, wind, or snack stops',
-      shuttle:
-        'Stage the take-out at Dennison Ferry in Mammoth Cave National Park, then drive back to Stovall Park in Munfordville. Build in extra road time, confirm park access before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
-      permits:
-        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
-      camping:
-        'Stovall Park offers the cleaner overnight support in this pair. KDFWR lists primitive camping at the put-in and no camping at Dennison Ferry, so use Stovall for endpoint overnights rather than improvising on private banks downstream.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Munfordville-Stovall Park and take out at Dennison Ferry for a long Green River day bridging Hart County and Mammoth Cave. Use the Munfordville gauge and expect a slower, more consequential outing whenever the discharge sits below KDFWR\'s 300 to 600 cfs good band.',
-      accessCaveats: [
-        'Stovall Park is the easiest side of this route: paved ramp, restrooms, primitive camping, and park amenities. Use the ramp efficiently because it also serves local anglers and park users.',
-        'Dennison Ferry is day-use only and finishes with a carry-down/carry-up park access rather than a simple motorboat ramp. Save energy for the take-out.',
-        'This is a very long day for a flatwater-style Green River trip. Use the shorter Green River family routes instead if the group is not comfortable with an all-day commitment.',
-        'The route uses the direct Munfordville gauge for the upstream corridor, but weather trend, fresh wood, and daylight are decisive on a float this long.',
-      ],
-      watchFor: [
-        'Low water below 300 cfs, when this long route can become unreasonably slow for a same-day plan.',
-        'High water above 600 cfs, when broad-river current, debris, and the park finish become less forgiving.',
-        'Fatigue, exposed sun, broad-river wind, limited bailout options, and reduced cell service closer to Mammoth Cave.',
-        'Muddy or slick footing at Dennison Ferry, plus any fresh strainers or debris after rain.',
-      ],
-    },
-  },
   'green-river-dennison-green-river-ferry': {
     putIn: {
       id: 'dennison-ferry',
@@ -12542,287 +11025,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-granville-lewistown-narrows': {
-    putIn: {
-      id: 'granville-pfbc-ramp',
-      name: 'Granville PFBC ramp',
-      latitude: 40.558333,
-      longitude: -77.603056,
-    },
-    takeOut: {
-      id: 'lewistown-narrows-pfbc-ramp',
-      name: 'Lewistown Narrows PFBC ramp',
-      latitude: 40.603889,
-      longitude: -77.487778,
-    },
-    logistics: {
-      distanceLabel: 'About 11 mi',
-      estimatedPaddleTime:
-        'About 4.5 hr to 6.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent easing through the mile-43 ledge zone',
-      shuttle:
-        'Stage the take-out at the Lewistown Narrows PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public ramps before launching because mud, current angle, and parking edges can change after storms.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Locust Campground sits about a mile downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the Granville PFBC ramp and take out at Lewistown Narrows PFBC for a longer Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Granville and Lewistown Narrows coordinates directly in the official lower Juniata access table.',
-        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Lewistown Narrows PFBC.',
-        'Eleven broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
-        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
-      ],
-      watchFor: [
-        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
-        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
-        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
-        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
-      ],
-    },
-  },
-  'juniata-river-lewistown-narrows-mifflin': {
-    putIn: {
-      id: 'lewistown-narrows-pfbc-ramp',
-      name: 'Lewistown Narrows PFBC ramp',
-      latitude: 40.603889,
-      longitude: -77.487778,
-    },
-    takeOut: {
-      id: 'mifflin-ramp',
-      name: 'Mifflin ramp',
-      latitude: 40.569167,
-      longitude: -77.401111,
-    },
-    logistics: {
-      distanceLabel: 'About 6 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4 hr in ordinary conditions, longer if low water forces channel picking or if you pause to inspect the mile-33 current zone',
-      shuttle:
-        'Stage the take-out at the Mifflin ramp first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'No established camping is identified for this Narrows-to-Mifflin segment. Treat it as a day trip.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Lewistown Narrows and take out at Mifflin for a middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Lewistown Narrows and Mifflin coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
-        'Use only the named public accesses rather than bridge shoulders or private banks.',
-        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
-        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
-        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
-        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
-      ],
-    },
-  },
-  'juniata-river-newport-howe-township': {
-    putIn: {
-      id: 'newport-primitive-access',
-      name: 'Newport access',
-      latitude: 40.479167,
-      longitude: -77.129444,
-    },
-    takeOut: {
-      id: 'howe-township-park-access',
-      name: 'Howe Township Park access',
-      latitude: 40.490833,
-      longitude: -77.096389,
-    },
-    logistics: {
-      distanceLabel: 'About 3 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 2.5 hr in ordinary conditions, longer if low water forces scraping or if you ease carefully through the mile-10.5 ledge zone',
-      shuttle:
-        'Stage the take-out at Howe Township Park first, then drive back upstream to the Newport primitive access. Confirm the intended park-side landing before launching so you do not drift past it while watching the ledge zone.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'No established camping is identified for this short Newport-to-Howe segment. Treat it as a day trip.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Newport and take out at Howe Township Park for a short lower-Juniata link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Newport and Howe Township Park coordinates directly in the official lower Juniata access table.',
-        'Howe Township Park is the intended river-left finish. Confirm same-day park access expectations before using it only as a take-out.',
-        'This is still a broad river despite the short mileage; wind can stall progress if you linger in the open bends.',
-        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
-      ],
-      watchFor: [
-        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
-        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
-        'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
-        'Private shorelines away from the named accesses and the chance of overshooting the Howe Township landing if you relax late in the run.',
-      ],
-    },
-  },
-  'juniata-river-howe-township-amity-hall': {
-    putIn: {
-      id: 'howe-township-park-access',
-      name: 'Howe Township Park access',
-      latitude: 40.490833,
-      longitude: -77.096389,
-    },
-    takeOut: {
-      id: 'amity-hall-pfbc-ramp',
-      name: 'Amity Hall PFBC ramp',
-      latitude: 40.430833,
-      longitude: -77.013333,
-    },
-    logistics: {
-      distanceLabel: 'About 7 mi',
-      estimatedPaddleTime:
-        'About 2.5 hr to 4 hr in ordinary conditions, longer with low-water scraping or time spent easing through the mile-5.5 and mile-5 ledge zones',
-      shuttle:
-        'Stage the take-out at the Amity Hall PFBC ramp first, then drive back upstream to Howe Township Park. Confirm the intended downstream finish before launching so you do not improvise on private shoreline once the lower river opens up.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Green Valley Campground sits on the route and is the clearest legal overnight support if you want to split this lower-Juniata link conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Howe Township Park and take out at Amity Hall PFBC for a lower-Juniata link with a real ledge-and-outcrop caution zone near the finish. The app uses the Newport gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Howe Township Park and Amity Hall coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Newport is upstream of this route, not on top of it.',
-        'Green Valley is a legal mid-route campground/support point, not the intended finish for this slug.',
-        'Use only the named public accesses rather than private banks, islands, or convenience pull-offs.',
-      ],
-      watchFor: [
-        'Outcrops scattered across the river near mile 5.5 and a series of ledges plus small outcrops near mile 5, both flagged by PFBC as potentially hazardous current zones.',
-        'Low water under the conservative Newport 3.5 ft proxy floor, when shallow bars and ledge lines become scratchier and slower.',
-        'Fresh wood after storms, broad-river headwind, and the need to hold the correct line through the lower outcrop zone.',
-        'Private shorelines away from the named accesses and the temptation to stop early once the route feels close to the river mouth.',
-      ],
-    },
-  },
-  'juniata-river-granville-mifflin': {
-    putIn: {
-      id: 'granville-pfbc-ramp',
-      name: 'Granville PFBC ramp',
-      latitude: 40.558333,
-      longitude: -77.603056,
-    },
-    takeOut: {
-      id: 'mifflin-ramp',
-      name: 'Mifflin ramp',
-      latitude: 40.569167,
-      longitude: -77.401111,
-    },
-    logistics: {
-      distanceLabel: 'About 17 mi',
-      estimatedPaddleTime:
-        'About 6.5 hr to 8.5 hr in ordinary conditions, longer with low-water dragging, headwind, or time spent easing through the mile-43 ledge zone',
-      shuttle:
-        'Stage the take-out at the Mifflin ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public accesses before launching because mud, current angle, or storm cleanup can change how straightforward the carry feels.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Locust Campground sits directly on the route near miles 50 to 49 and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at the Granville PFBC ramp and take out at Mifflin for a long Lewistown-area Juniata day. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Granville and Mifflin coordinates directly in the official lower Juniata access table.',
-        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is the Mifflin ramp.',
-        'This is a long day for an easy-classified river. Broad-river wind and low-water bars can turn the last miles into real work.',
-        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
-      ],
-      watchFor: [
-        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
-        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
-        'Rapid current near mile 33 in the lower half of the route.',
-        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
-      ],
-    },
-  },
-  'juniata-river-lewistown-narrows-walker': {
-    putIn: {
-      id: 'lewistown-narrows-pfbc-ramp',
-      name: 'Lewistown Narrows PFBC ramp',
-      latitude: 40.603889,
-      longitude: -77.487778,
-    },
-    takeOut: {
-      id: 'walker-pfbc-ramp',
-      name: 'Walker PFBC ramp',
-      latitude: 40.531944,
-      longitude: -77.357222,
-    },
-    logistics: {
-      distanceLabel: 'About 10 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr in ordinary conditions, longer if low water forces channel picking or if headwind stalls progress through the exposed middle bends',
-      shuttle:
-        'Stage the take-out at Walker PFBC first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'No established camping is identified for this Narrows-to-Walker segment. Treat it as a day trip.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Lewistown Narrows and take out at Walker PFBC for a longer middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Lewistown Narrows and Walker coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
-        'Use only the named public accesses rather than bridge shoulders or private banks.',
-        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
-        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
-        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
-        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
-      ],
-    },
-  },
-  'juniata-river-mifflin-muskrat-springs': {
-    putIn: {
-      id: 'mifflin-ramp',
-      name: 'Mifflin ramp',
-      latitude: 40.569167,
-      longitude: -77.401111,
-    },
-    takeOut: {
-      id: 'muskrat-springs-pfbc-ramp',
-      name: 'Muskrat Springs PFBC ramp',
-      latitude: 40.535,
-      longitude: -77.299444,
-    },
-    logistics: {
-      distanceLabel: 'About 8 mi',
-      estimatedPaddleTime:
-        'About 3 hr to 5 hr in ordinary conditions, longer if low water forces channel picking or if broad-river wind stalls progress through the Mexico bends',
-      shuttle:
-        'Stage the take-out at Muskrat Springs PFBC first, then drive back upstream to the Mifflin ramp. Check both ramp edges before leaving a vehicle because muddy approaches and river angle can change after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'Buttonwood Campground and River Rock Campground sit along the route near Mexico and are the clearest legal overnight support if you want to turn this longer link into a conservative camping-supported float.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Mifflin and take out at Muskrat Springs PFBC for a lower-Juniata corridor run that reaches the Mexico campground area. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Mifflin and Muskrat Springs coordinates directly in the official lower Juniata access table.',
-        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
-        'River Rock and Buttonwood are legal support points near Mexico, but Muskrat Springs is the intended finish for this slug.',
-        'Use only the named public accesses rather than bars, private banks, or informal campground-side pull-offs.',
-      ],
-      watchFor: [
-        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
-        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
-        'Fresh wood after storms, broad-river headwind through the exposed bends, and muddy landing edges at the public ramps.',
-        'Private shorelines away from the named public accesses and the temptation to stop early once the Mexico campground corridor comes into view.',
-      ],
-    },
-  },
-  'goose-creek-jacks-laurel-branch': {
+        'goose-creek-jacks-laurel-branch': {
     putIn: {
       id: 'jacks-bowling-branch-bridge-access',
       name: 'Jacks / Bowling Branch Bridge Access',
@@ -12862,7 +11065,2807 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-granville-victory-park': {
+    'juniata-river-granville-mifflin': {
+    "putIn": {
+      "id": "granville-pfbc-ramp",
+      "name": "Granville PFBC ramp",
+      "latitude": 40.558333,
+      "longitude": -77.603056
+    },
+    "takeOut": {
+      "id": "mifflin-ramp",
+      "name": "Mifflin ramp",
+      "latitude": 40.569167,
+      "longitude": -77.401111
+    },
+    "logistics": {
+      "distanceLabel": "About 17 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long day. Common access-planner pairings are about 5 to 11 mi.",
+      "shuttle": "Choose a public access pair, stage the downstream vehicle first, and inspect both landings before committing.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
+      "camping": "Treat this as a day-trip corridor. Nearby campground context does not make private banks or islands open camping.",
+      "campingClassification": "nearby_basecamp",
+      "summary": "Use this as the Lewistown-area lower Juniata access-planner corridor from Granville to Mifflin with Victory Park, Lewistown Narrows, and Mifflintown options.",
+      "accessCaveats": [
+        "The full corridor is a planning envelope; many users should choose a shorter pair such as Granville to Victory Park or Victory Park to Lewistown Narrows.",
+        "Inspect the selected take-out before launching because broad-river current and mud can make a missed landing consequential.",
+        "Stay with public accesses rather than using private banks or islands as backup exits."
+      ],
+      "watchFor": [
+        "The PFBC mile-43 ledge and rough water pushing toward a cut bank.",
+        "Low-water scraping below the Lewistown gauge floor.",
+        "Bridge remnants, fresh wood, open-bend wind, and private shorelines."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "granville-pfbc-ramp",
+        "name": "Granville PFBC ramp",
+        "latitude": 40.558333,
+        "longitude": -77.603056,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "victory-park-access",
+        "name": "Victory Park access",
+        "latitude": 40.595,
+        "longitude": -77.578889,
+        "mileFromStart": 5,
+        "segmentKind": "creek",
+        "note": "Lewistown-area short-trip access."
+      },
+      {
+        "id": "lewistown-narrows-pfbc-ramp",
+        "name": "Lewistown Narrows PFBC ramp",
+        "latitude": 40.603889,
+        "longitude": -77.487778,
+        "mileFromStart": 11,
+        "segmentKind": "creek",
+        "note": "PFBC access below the mile-43 ledge area."
+      },
+      {
+        "id": "mifflintown-pfbc-ramp",
+        "name": "Mifflintown PFBC ramp",
+        "latitude": 40.595,
+        "longitude": -77.415278,
+        "mileFromStart": 15,
+        "segmentKind": "creek",
+        "note": "Mifflintown option before the Mifflin finish."
+      },
+      {
+        "id": "mifflin-ramp",
+        "name": "Mifflin ramp",
+        "latitude": 40.569167,
+        "longitude": -77.401111,
+        "mileFromStart": 17,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
+  },
+        'juniata-river-mifflin-muskrat-springs': {
+    "putIn": {
+      "id": "mifflin-ramp",
+      "name": "Mifflin ramp",
+      "latitude": 40.569167,
+      "longitude": -77.401111
+    },
+    "takeOut": {
+      "id": "muskrat-springs-pfbc-ramp",
+      "name": "Muskrat Springs PFBC ramp",
+      "latitude": 40.535,
+      "longitude": -77.299444
+    },
+    "logistics": {
+      "distanceLabel": "About 8 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "About 3 hr to 5 hr for the full corridor, shorter if using Walker PFBC as a midpoint.",
+      "shuttle": "Stage the take-out at Walker or Muskrat Springs, then drive back to the selected upstream access.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
+      "camping": "Treat this as a day-trip corridor unless separate legal camping arrangements are confirmed.",
+      "summary": "Use this as the short lower Juniata access-planner corridor from Mifflin to Muskrat Springs, with Walker PFBC as the midpoint.",
+      "accessCaveats": [
+        "Walker PFBC is the practical split point for shorter plans.",
+        "Confirm ramp mud, parking, and same-day current direction before leaving vehicles.",
+        "Stay with public accesses rather than using private banks or islands as backup exits."
+      ],
+      "watchFor": [
+        "Low-water bars and slow pools.",
+        "Fresh wood and bridge current after storms.",
+        "Broad-river wind on exposed bends."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "mifflin-ramp",
+        "name": "Mifflin ramp",
+        "latitude": 40.569167,
+        "longitude": -77.401111,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "walker-pfbc-ramp",
+        "name": "Walker PFBC ramp",
+        "latitude": 40.531944,
+        "longitude": -77.357222,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Midpoint access for shorter outings."
+      },
+      {
+        "id": "muskrat-springs-pfbc-ramp",
+        "name": "Muskrat Springs PFBC ramp",
+        "latitude": 40.535,
+        "longitude": -77.299444,
+        "mileFromStart": 8,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
+  },
+      'juniata-river-greenwood-amity-hall': {
+    "putIn": {
+      "id": "greenwood-pfbc-ramp",
+      "name": "Greenwood PFBC ramp",
+      "latitude": 40.530278,
+      "longitude": -77.141944
+    },
+    "takeOut": {
+      "id": "amity-hall-pfbc-ramp",
+      "name": "Amity Hall PFBC ramp",
+      "latitude": 40.430833,
+      "longitude": -77.013333
+    },
+    "logistics": {
+      "distanceLabel": "About 14 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "About 4.5 hr to 7 hr for the full corridor, shorter with Newport or Green Valley pairings.",
+      "shuttle": "Choose a put-in and take-out from the planner, stage the downstream vehicle first, and inspect both landings.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
+      "camping": "Treat this as a day-trip corridor unless separate legal camping arrangements are confirmed.",
+      "summary": "Use this as the Newport-area lower Juniata access-planner corridor from Greenwood to Amity Hall, with Newport, Howe Township, and Green Valley options.",
+      "accessCaveats": [
+        "Newport is the practical hub for shorter lower-Juniata plans.",
+        "Howe Township and Green Valley options can shorten the day when wind, level, or daylight are marginal.",
+        "Stay with public accesses rather than using private banks or islands as backup exits."
+      ],
+      "watchFor": [
+        "Low-water bars and slow pools.",
+        "Fresh wood after storms.",
+        "Open-bend headwind and private shorelines."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "greenwood-pfbc-ramp",
+        "name": "Greenwood PFBC ramp",
+        "latitude": 40.530278,
+        "longitude": -77.141944,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default corridor put-in."
+      },
+      {
+        "id": "newport-primitive-access",
+        "name": "Newport access",
+        "latitude": 40.479167,
+        "longitude": -77.129444,
+        "mileFromStart": 4,
+        "segmentKind": "creek",
+        "note": "Newport hub access."
+      },
+      {
+        "id": "howe-township-park-access",
+        "name": "Howe Township Park access",
+        "latitude": 40.490833,
+        "longitude": -77.096389,
+        "mileFromStart": 7,
+        "segmentKind": "creek",
+        "note": "Shorter Newport-area finish option."
+      },
+      {
+        "id": "green-valley-ramp",
+        "name": "Green Valley access",
+        "latitude": 40.479167,
+        "longitude": -77.054722,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Green Valley access for shorter lower-corridor choices."
+      },
+      {
+        "id": "amity-hall-pfbc-ramp",
+        "name": "Amity Hall PFBC ramp",
+        "latitude": 40.430833,
+        "longitude": -77.013333,
+        "mileFromStart": 14,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
+  },
+        'juniata-river-portstown-park-juniata-point': {
+    putIn: {
+      id: 'portstown-park-access',
+      name: 'Portstown Park access',
+      latitude: 40.485833,
+      longitude: -78.014167,
+    },
+    takeOut: {
+      id: 'juniata-point-ramp',
+      name: 'Juniata Point ramp',
+      latitude: 40.458333,
+      longitude: -77.980833,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with low-water bars, headwind, or extra time lining up the Juniata Point finish',
+      shuttle:
+        'Stage the take-out at Juniata Point first, then drive back upstream to Portstown Park. This is a short shuttle, but check both public ramps before launching because mud and river angle can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this short Portstown-to-Juniata-Point corridor. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Portstown Park and take out at Juniata Point for a short upper-Juniata public-access link above the Raystown Branch mouth. Use the direct Huntingdon gauge and expect scraping whenever the river sits under PFBC\'s 1.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Portstown Park and Juniata Point coordinates directly in the official upper Juniata access table.',
+        'Juniata Point is the intended public finish near the Raystown Branch mouth. Do not drift past it looking for informal banks downstream.',
+        'Short mileage does not remove the need to inspect muddy landing edges and current direction before leaving a vehicle.',
+        'Use only the named public accesses rather than private banks or bridge shoulders.',
+      ],
+      watchFor: [
+        'Low water under the Huntingdon 1.5 ft floor, when bars and shallow inside lines slow the route down quickly.',
+        'Broad-river headwind, current changes around bridge infrastructure, and fresh wood after storms.',
+        'Private shorelines away from the named public accesses and the chance of overshooting Juniata Point if you relax late in the run.',
+      ],
+    },
+  },
+    'juniata-river-juniata-point-newton-hamilton': {
+    "putIn": {
+      "id": "juniata-point-ramp",
+      "name": "Juniata Point ramp",
+      "latitude": 40.458333,
+      "longitude": -77.980833
+    },
+    "takeOut": {
+      "id": "newton-hamilton-ramp",
+      "name": "Newton-Hamilton ramp",
+      "latitude": 40.391944,
+      "longitude": -77.834444
+    },
+    "logistics": {
+      "distanceLabel": "About 18 mi for the full corridor; choose a shorter segment in the access planner",
+      "estimatedPaddleTime": "Full corridor is a long day. Common planner pairings are about 3 to 9 mi and should be matched to level, wind, and daylight.",
+      "shuttle": "Choose a put-in and take-out from the access planner, stage the downstream vehicle first, then inspect both landings before launching.",
+      "permits": "PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.",
+      "camping": "Treat this as a day-trip corridor unless you have separately confirmed legal camping or campground arrangements.",
+      "summary": "Use this as the upper Juniata access-planner corridor from Juniata Point through Riverside Park, Mt. Union, and Shawmut to Newton-Hamilton.",
+      "accessCaveats": [
+        "The full corridor is a planning envelope; choose a shorter public-access pair when daylight, water level, or group pace calls for it.",
+        "Confirm current parking and bank conditions at the selected endpoints.",
+        "Stay with public accesses rather than using private banks or islands as backup exits."
+      ],
+      "watchFor": [
+        "Low-water scraping and exposed bars near the minimum gauge floor.",
+        "Fresh strainers and bridge-current zones after storms.",
+        "Broad-river wind and overlong segment choices."
+      ]
+    },
+    "accessPoints": [
+      {
+        "id": "juniata-point-ramp",
+        "name": "Juniata Point ramp",
+        "latitude": 40.458333,
+        "longitude": -77.980833,
+        "mileFromStart": 0,
+        "segmentKind": "creek",
+        "note": "Default upper-corridor put-in."
+      },
+      {
+        "id": "riverside-park-mapleton-ramp",
+        "name": "Riverside Park access",
+        "latitude": 40.386111,
+        "longitude": -77.938333,
+        "mileFromStart": 6,
+        "segmentKind": "creek",
+        "note": "Riverside split point for shorter outings."
+      },
+      {
+        "id": "mt-union-access",
+        "name": "Mt. Union access",
+        "latitude": 40.386111,
+        "longitude": -77.873333,
+        "mileFromStart": 10,
+        "segmentKind": "creek",
+        "note": "Mt. Union access for a moderate-length planner segment."
+      },
+      {
+        "id": "shawmut-access",
+        "name": "Shawmut access",
+        "latitude": 40.364722,
+        "longitude": -77.812222,
+        "mileFromStart": 15,
+        "segmentKind": "creek",
+        "note": "Shawmut access for shorter lower-corridor choices."
+      },
+      {
+        "id": "newton-hamilton-ramp",
+        "name": "Newton-Hamilton ramp",
+        "latitude": 40.391944,
+        "longitude": -77.834444,
+        "mileFromStart": 18,
+        "segmentKind": "creek",
+        "note": "Default corridor finish."
+      }
+    ]
+  },
+'susquehanna-river-sayre-ulster-bridge': {
+    putIn: {
+      name: 'Sayre PFBC access',
+      latitude: 41.988333,
+      longitude: -76.611667,
+    },
+    takeOut: {
+      name: 'Ulster Bridge access',
+      latitude: 41.8525,
+      longitude: -76.497222,
+    },
+    logistics: {
+      distanceLabel: 'About 11.7 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time exploring the Tioga Point corridor from legal stops only',
+      shuttle:
+        'Stage the take-out at Ulster Bridge first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because broad-river mud, current angle, storm cleanup, or local maintenance can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
+      camping:
+        'Harrigan Island is listed by the official water trail as a primitive campsite and overnight stop on this corridor. Treat that as designated on-route camping support only, not as permission to land on arbitrary islands or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sayre PFBC and take out at Ulster Bridge for a shorter upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the Tioga Point riffle miles on the same-day checklist.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Sayre PFBC and Ulster Bridge coordinates directly in the official access tables.',
+        'Harrigan Island is an official stopping point and primitive campsite, but Tioga Point itself is still described as private property except for limited stopping at the point.',
+        'This is still a broad river with private banks and islands outside the named legal stops. Stay with the obvious public accesses and published stopping points only.',
+        'Ulster is a simpler bridge access than the PFBC launch at Sayre. Confirm same-day footing, parking, and landing angle before leaving the shuttle vehicle.',
+      ],
+      watchFor: [
+        'Fast riffles at miles 286 and 277 flagged by PFBC.',
+        'Towanda stages below about 0 to 1 foot, when the upper riffles get scratchier and more technical even on a wide channel.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and accidentally drifting past the intended Ulster finish because the upper river feels calm early.',
+      ],
+    },
+  },
+'susquehanna-river-sayre-hornbrook': {
+    putIn: {
+      name: 'Sayre PFBC access',
+      latitude: 41.988333,
+      longitude: -76.611667,
+    },
+    takeOut: {
+      name: 'Larnard Hornbrook Park ramp',
+      latitude: 41.809444,
+      longitude: -76.486111,
+    },
+    logistics: {
+      distanceLabel: 'About 15 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, low-water line picking, or a slow shuttle day',
+      shuttle:
+        'Stage the take-out at Larnard Hornbrook Park first, then drive back to the Sayre PFBC ramp. Inspect both accesses before launching because mud, broad-river current, storm cleanup, or local maintenance can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Hornbrook Park is listed in the PFBC Section 1 corridor camping notes and can support a nearby basecamp-style stay, but this route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Sayre PFBC and take out at Larnard Hornbrook Park for a long upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-274 strainer area closely.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Sayre PFBC and Larnard Hornbrook Park coordinates directly in the official access table.',
+        'This is a long day for a nominally easy big river. PFBC says 15 to 18 miles is more of an experienced-paddler distance around the 2-foot Towanda level.',
+        'Neither endpoint should be treated as a license to stop on arbitrary islands or banks. Stay with the named public accesses and visible public parking areas.',
+        'Hornbrook Park conditions can change with mud, mowing, event use, or flood cleanup. Confirm same-day landing and parking conditions before leaving the shuttle.',
+      ],
+      watchFor: [
+        'Fast riffles at miles 286 and 277, plus fast riffles with a strainer in the mile-274 area flagged by PFBC.',
+        'Towanda stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow riffle lines.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should not be on this corridor above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Hornbrook finish late in a long day.',
+      ],
+    },
+  },
+'susquehanna-river-ulster-bridge-wysox-township-park': {
+    putIn: {
+      name: 'Ulster Bridge access',
+      latitude: 41.8525,
+      longitude: -76.497222,
+    },
+    takeOut: {
+      name: 'Wysox Township Park access',
+      latitude: 41.770833,
+      longitude: -76.397778,
+    },
+    logistics: {
+      distanceLabel: 'About 11.3 mi',
+      estimatedPaddleTime:
+        'About 3.5 hr to 5.5 hr in ordinary conditions, longer with low-water scouting, bridge-current caution, or a windy day across the Towanda corridor',
+      shuttle:
+        'Stage the take-out at Wysox Township Park first, then drive back to Ulster Bridge. Inspect both accesses before launching because broad-river mud, storm cleanup, bridge-current push, or local activity can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, municipal, boating, and PFD rules.',
+      camping:
+        'Larnard Hornbrook County Park and Riverside Acres Campground both sit on this official corridor and can support legal overnight use with current site rules or reservations. Treat that as on-route camping support rather than permission to stop on undeveloped banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Ulster Bridge and take out at Wysox Township Park for a route that carries you through the Towanda bridge corridor. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the mile-274 strainer and bridge-current sequence as real same-day hazards.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Ulster Bridge and Wysox Township Park coordinates directly in the official access tables.',
+        'This route includes the Towanda bridge area and its current lines, so do not relax just because the river looks broad and mostly open.',
+        'Wysox Township Park is a stronger park finish with parking and amenities, but it still requires a committed finish discipline rather than ad hoc take-outs on islands or private banks.',
+        'Hornbrook Park and Riverside Acres are helpful legal support on the corridor, but the slug itself still starts at Ulster and ends at Wysox Township Park.',
+      ],
+      watchFor: [
+        'Fast riffles at mile 277, the strainer-prone mile-274 area, fast current under bridge arches at mile 272, and more quick water at miles 270, 269, and 268 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the bridge-adjacent riffles and shallower lines get more technical and scratchy.',
+        'Towanda stages above about 4 feet, when current speeds up and mistakes near structure cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Wysox finish after the bridge sequence is behind you.',
+      ],
+    },
+  },
+'susquehanna-river-hornbrook-towanda': {
+    putIn: {
+      name: 'Larnard Hornbrook Park ramp',
+      latitude: 41.809444,
+      longitude: -76.486111,
+    },
+    takeOut: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind, low-water line picking, or careful approach to the Towanda bridge area',
+      shuttle:
+        'Stage the take-out at Towanda Riverfront Park first, then drive back to Larnard Hornbrook Park. Inspect both accesses before launching because mud, bridge-current push, storm cleanup, or local park activity can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, county-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Hornbrook Park can support a nearby basecamp-style stay, but the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Larnard Hornbrook Park and take out at Towanda Riverfront Park for a short upper-Bradford-County Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and keep the mile-274 strainer area plus the Towanda bridge riffles on the same-day checklist.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Larnard Hornbrook Park and Towanda Riverfront Park coordinates directly in the official access table.',
+        'Hornbrook is a park access rather than a huge ramp complex. Confirm same-day footing, parking, and launch angle before leaving the shuttle vehicle.',
+        'Towanda is a stronger town landing, but bridge current and riverfront activity can still complicate the finish if you arrive tired or in rising water.',
+        'Stay within the named public accesses and do not assume islands, bars, or private banks are legitimate substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles with a strainer in the mile-274 area and fast riffles before the bridge at mile 270 flagged by PFBC.',
+        'Towanda stages below about 0 to 1 foot, when the broad channel gets scratchier and more technical around shallow riffle lines.',
+        'Towanda stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the risk of drifting past the obvious Towanda take-out near the bridge corridor.',
+      ],
+    },
+  },
+'susquehanna-river-towanda-terrytown': {
+    putIn: {
+      name: 'Towanda Riverfront Park ramp',
+      latitude: 41.768611,
+      longitude: -76.438611,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a relaxed shuttle day',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Towanda Riverfront Park. Inspect both landings before launching because broad-river mud, event traffic, flood cleanup, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day float. Riverside Acres Campground is listed in the PFBC Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Towanda Riverfront Park and take out at Terrytown PFBC for a mid-corridor North Branch day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet, and scout the fast-riffle miles downstream of Towanda before committing.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Towanda Riverfront Park and Terrytown PFBC coordinates directly in the official access table.',
+        'This route starts at a stronger town access but still finishes at a gravel PFBC landing. Confirm same-day footing, parking, and any local closures at both ends.',
+        'PFBC treats 15 to 18 miles around the 2-foot Towanda level as more of an experienced-paddler day distance. Do not underrate the time commitment just because the river is broad and mostly open.',
+        'Stay within the named public accesses and do not assume mid-route bars, islands, or informal pull-offs are legitimate take-out substitutes.',
+      ],
+      watchFor: [
+        'Fast riffles before the bridge at mile 270, then more fast current at miles 269 and 268 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when the lower riverbed funnels current and can create class I to II style wave trains in shallow spots.',
+        'Towanda stages above about 4 feet, when the corridor moves faster and small mistakes at the end of a long day cost more time; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the Terrytown PFBC take-out after relaxing into the long flatwater rhythm.',
+      ],
+    },
+  },
+'susquehanna-river-wysox-township-park-terrytown': {
+    putIn: {
+      name: 'Wysox Township Park access',
+      latitude: 41.770833,
+      longitude: -76.397778,
+    },
+    takeOut: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    logistics: {
+      distanceLabel: 'About 13.6 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or extra time checking the lower fast-riffle sections',
+      shuttle:
+        'Stage the take-out at Terrytown PFBC first, then drive back to Wysox Township Park. Inspect both landings before launching because mud, flood cleanup, campground traffic, or local maintenance can change how straightforward the carry feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, township-park, boating, and PFD rules.',
+      camping:
+        'Riverside Acres Campground and the French Azilum Historical Site overnight stop are both listed on this official corridor. Treat that as on-route camping support only and not as permission to camp on broad gravel bars, islands, or private banks.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Wysox Township Park and take out at Terrytown PFBC for a lower Section 1 Susquehanna day with clean public endpoints. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-267, mile-261, and mile-258 fast-water zones carefully.',
+      accessCaveats: [
+        'PFBC and the North Branch guide family publish both Wysox Township Park and Terrytown PFBC coordinates directly in the official access tables.',
+        'This is a public-access route, but French Azilum and Riverside Acres remain support points rather than the planned take-out. Stay committed to the Terrytown PFBC finish unless you have made a deliberate legal overnight plan.',
+        'Terrytown is a gravel PFBC landing rather than a big municipal ramp. Confirm same-day footing, parking, and any local closure or maintenance issues before leaving the shuttle.',
+        'The broad river still has private banks and islands away from the named accesses. Stay within the obvious public launch, campground, and finish zones only.',
+      ],
+      watchFor: [
+        'A long fast-riffle section at mile 267, plus more fast riffles at miles 261 and 258 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when lower-riverbed shallows can create class I to II style wave trains and more exposed rocks.',
+        'Towanda stages above about 4 feet, when current speeds up and the route stops feeling as forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Terrytown PFBC finish after settling into the long lower-corridor rhythm.',
+      ],
+    },
+  },
+'susquehanna-river-terrytown-laceyville': {
+    putIn: {
+      name: 'Terrytown PFBC ramp',
+      latitude: 41.714167,
+      longitude: -76.281667,
+    },
+    takeOut: {
+      name: 'Laceyville Borough access',
+      latitude: 41.648889,
+      longitude: -76.161111,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr in ordinary conditions, longer with headwind, low-water wave trains, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at Laceyville Borough first, then drive back to the Terrytown PFBC ramp. Inspect both accesses before launching because gravel conditions, mud, flood cleanup, or local traffic can change the practical carry and landing line.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Endless Mountain Campground sits near the Laceyville end of the official Section 1 corridor and can support a nearby basecamp stay, but the route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Terrytown PFBC and take out at Laceyville Borough for a lower Section 1 Susquehanna day. Use the direct Towanda stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the fast-riffle miles in the lower half of the run.',
+      accessCaveats: [
+        'PFBC Section 1 publishes both Terrytown PFBC and Laceyville Borough coordinates directly in the official access table.',
+        'Laceyville is a carry-in style borough access rather than a huge developed ramp complex. Confirm same-day footing and parking before leaving the shuttle.',
+        'The broad North Branch still has private banks and islands away from the named public accesses. Stay within the obvious public launch and finish zones.',
+        'This route is shorter than Towanda-to-Terrytown but still long enough for wind and current to matter. Do not let the easy label hide the real same-day judgment call.',
+      ],
+      watchFor: [
+        'Fast riffles at mile 249, a long riffle section at mile 247, and more fast riffles at mile 244 flagged by PFBC.',
+        'Towanda stages below about 1 foot, when narrow lower-riverbed spots can create class I to II style wave trains and more exposed rocks.',
+        'Towanda stages above about 4 feet, when current speeds up and the easy public-day framing becomes less forgiving; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and drifting past the Laceyville finish because the lower corridor feels mellow until the take-out is suddenly close.',
+      ],
+    },
+  },
+'susquehanna-river-laceyville-meshoppen': {
+    putIn: {
+      name: 'Laceyville Borough access',
+      latitude: 41.648889,
+      longitude: -76.161111,
+    },
+    takeOut: {
+      name: 'Meshoppen ramp',
+      latitude: 41.608611,
+      longitude: -76.0475,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, low-water line picking, or a relaxed big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the Meshoppen ramp first, then drive back to the Laceyville Borough carry-in. Inspect both accesses before launching because mud, flood cleanup, broad-river current, or local riverbank changes can alter the practical carry and landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Endless Mountain Campground sits just off the river near the Laceyville end of the section and can work as a nearby basecamp, but the route itself should not be treated as open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Laceyville Borough and take out at Meshoppen for an 8-mile upper Wyoming County Susquehanna day. Use the direct Meshoppen stage gauge, keep the day conservative around 6.5 to 9 feet at Meshoppen, and watch for the fast-current hidden-rock mile inside the segment.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both Laceyville Borough and Meshoppen coordinates directly in the official access table.',
+        'Neither access is a large concrete ramp complex. Verify same-day footing, parking, and carry angle before leaving a shuttle vehicle.',
+        'The threshold model is intentionally conservative and derived from PFBCs published Meshoppen base-level relationship rather than a route-specific Meshoppen ladder.',
+        'The broad North Branch still has private banks and islands away from the named accesses. Stay within the obvious public launch and take-out zones.',
+      ],
+      watchFor: [
+        'Fast current and hidden rocks around mile 238, which the PFBC Section 2 caution list places inside this route.',
+        'Long stretches of quicker riffly water at lower stages, headwind across the wide channel, floating wood, and cold-water consequences outside warm midsummer weather.',
+        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go conditions around 12 ft and above based on the official section conversion.',
+        'Thunderstorms, flooded treelines after rain, private shorelines away from the named accesses, and the risk of drifting past the obvious Meshoppen take-out.',
+      ],
+    },
+  },
+'susquehanna-river-meshoppen-tunkhannock': {
+    putIn: {
+      name: 'Meshoppen ramp',
+      latitude: 41.608611,
+      longitude: -76.0475,
+    },
+    takeOut: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water line picking, or a slower big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the PFBC Tunkhannock ramp first, then drive back to the Meshoppen ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can alter the practical carry and landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Camp Lackawanna sits near mile 226 and is the clearest legal overnight support on this longer upper-half corridor, but camping is by prior arrangement only and the standard route should still be framed as a long day unless that support is secured.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Meshoppen and take out at PFBC Tunkhannock for a long upper Section 2 Susquehanna day. Use the direct Meshoppen gauge, keep the easier planning days around 6.5 to 9 feet there, and expect broad-river wind to matter more than any single rapid feature.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both Meshoppen and PFBC Tunkhannock coordinates directly in the official access table.',
+        'This route uses a conservative stage-conversion model rather than a route-specific Meshoppen ladder. Pay attention to trend, weather, and same-day visual current, not just the single gauge number.',
+        'Camp Lackawanna is useful legal support near the midpoint, but it is not a casual open campsite and requires prior arrangement.',
+        'Stay within the named public accesses rather than using private banks or islands as casual stops.',
+      ],
+      watchFor: [
+        'Meshoppen stages above about 9 ft, when current speeds up noticeably, and novice no-go water around 12 ft and above based on the official section conversion.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and fatigue from a long exposed mainstem day.',
+        'Lower water near or below about 6.5 ft at Meshoppen, when shallow bars and slower current can stretch the day materially.',
+        'Private shorelines away from the named accesses and the chance of underestimating the final miles into Tunkhannock because the route lacks a standout single hazard marker.',
+      ],
+    },
+  },
+'shiawassee-river-byron-walnut-hills': {
+    putIn: {
+      id: 'byron-high-school-ball-fields',
+      name: 'Byron High School Ball Fields concrete launch',
+      latitude: 42.840348,
+      longitude: -83.945658,
+    },
+    takeOut: {
+      id: 'walnut-hills-family-campground',
+      name: 'Walnut Hills Family Campground dirt launch',
+      latitude: 42.840348,
+      longitude: -84.009418,
+    },
+    logistics: {
+      distanceLabel: '4.87 mi',
+      estimatedPaddleTime: 'Short beginner day trip; time varies with low-water shallows and debris',
+      shuttle:
+        'Use the short water-trail road shuttle from Walnut Hills Family Campground back to the Byron High School Ball Fields area. Stage Walnut Hills first because it is a private seasonal campground access with fee and permission details to confirm.',
+      permits:
+        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch/take-out availability, seasonal dates, parking fee, and campground rules before leaving a vehicle there.',
+      camping:
+        'Walnut Hills is a campground, but this route is treated as a short day trip. Do not assume camping or off-season access without a current campground reservation or permission.',
+      summary:
+        'Launch from the concrete launch by Byron High School Ball Fields and take out at the Walnut Hills Family Campground dirt launch for a 4.87-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify Walnut Hills access and same-day shallows before launching.',
+      accessCaveats: [
+        'The route sheet identifies the Byron launch as a concrete launch by the High School ball fields, with nearby Byron services.',
+        'Walnut Hills Family Campground is private seasonal access open May 1 through October 1 in the route sheet, with parking for a small fee.',
+        'Respect houses, private property, and shoreline along this rural residential reach, and stop only at designated launches or landings.',
+      ],
+      watchFor: [
+        'Low-water scraping and slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'Debris in the water, rural residential shoreline, and private-property constraints.',
+        'Sand-and-silt bottom through most of the reach, with deeper water reported after the New Lothrop bridge under average conditions.',
+        'The Owosso gauge is a downstream corridor proxy for this Byron segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+'shiawassee-river-walnut-hills-geeck-road': {
+    putIn: {
+      id: 'walnut-hills-family-campground',
+      name: 'Walnut Hills Family Campground dirt launch',
+      latitude: 42.840348,
+      longitude: -84.009418,
+    },
+    takeOut: {
+      id: 'geeck-road-county-park',
+      name: 'Geeck Road County Park cement ramp',
+      latitude: 42.884522,
+      longitude: -84.045106,
+    },
+    logistics: {
+      distanceLabel: '6.98 mi',
+      estimatedPaddleTime: 'Beginner day trip; time varies with low-water shallows and debris',
+      shuttle:
+        'Use the water-trail road shuttle from Walnut Hills Family Campground to Geeck Road County Park via Lehring Road, Grand River Road, Geeck Road, Byam Road, and Exchange Road. Stage the Geeck Road take-out first because it is the public county-park endpoint.',
+      permits:
+        'No route-specific paddling permit is known, but Walnut Hills is private campground access. Confirm current public launch availability, seasonal dates, parking fee, and campground rules before staging a vehicle there.',
+      camping:
+        'Walnut Hills is a campground and outfitter access, but this route is treated as a day trip. Do not assume camping or off-season launch use without a current campground reservation or permission.',
+      summary:
+        'Launch from the Walnut Hills Family Campground dirt and gravel launch and take out at the Geeck Road County Park cement ramp for a 6.98-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then verify campground access and same-day shallows before launching.',
+      accessCaveats: [
+        'Walnut Hills Family Campground is a private site open to public paddlers seasonally, with a small vehicle fee; the local guide says no off-season use is possible when the facility is gated.',
+        'Geeck Road County Park is the downstream public park endpoint, with a visible cement ramp on river right, picnic facilities, and seasonal bathrooms.',
+        'Respect private docks and shoreline property, and stop only at designated launches or landings.',
+      ],
+      watchFor: [
+        'Shallow water between Vernon Road and Grand River Road, especially when the Owosso gauge trends toward 2.0 ft or below.',
+        'Debris, private docks, sandy and stony bottom, occasional aquatic vegetation, and three bridge crossings.',
+        'Low water can turn a beginner-rated trip into an experienced-navigation day.',
+        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+'shiawassee-river-geeck-road-shiatown': {
+    putIn: {
+      id: 'geeck-road-county-park',
+      name: 'Geeck Road County Park launch',
+      latitude: 42.884522,
+      longitude: -84.045106,
+    },
+    takeOut: {
+      id: 'shiatown-county-park',
+      name: 'Shiatown County Park take-out above the dam',
+      latitude: 42.929408,
+      longitude: -84.071308,
+    },
+    logistics: {
+      distanceLabel: '6.21 mi',
+      estimatedPaddleTime: 'Beginner day trip; time varies with low-water riffles, debris, and take-out caution',
+      shuttle:
+        'Use the water-trail road shuttle from Shiatown County Park back to Geeck Road County Park via Newberry Road, Newburg Road, and Geeck Road. Stage the Shiatown take-out first so the river-right exit above the dam is familiar before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
+      camping:
+        'Treat this as a day trip. The route sheet notes park amenities at both endpoints, but no on-route camping plan is assumed.',
+      summary:
+        'Launch at Geeck Road County Park and take out at Shiatown County Park for a 6.21-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because submerged rocks, riffles, debris, and the dam-adjacent take-out can change the day.',
+      accessCaveats: [
+        'The route sheet identifies Geeck Road as the start and Shiatown as the end, with parking and portable toilets at both access areas.',
+        'Exit on river right above the Shiatown dam and use the footpath up to the gravel parking lot; do not continue past the take-out without separate dam and downstream-route planning.',
+        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
+      ],
+      watchFor: [
+        'Low-water navigation around large submerged rocks and riffles.',
+        'Debris, three bridge crossings, and a transition from developed rural-residential shoreline to wooded wetland after the freeway.',
+        'High water, cold water, or poor visibility can make the Shiatown take-out above the dam more consequential.',
+        'The Owosso gauge is a corridor proxy for this upstream segment, so use it as a low-water check rather than a precise launch guarantee.',
+      ],
+    },
+  },
+'shiawassee-river-shiatown-lytle': {
+    putIn: {
+      id: 'shiatown-county-park',
+      name: 'Shiatown County Park launch below the partially removed dam',
+      latitude: 42.929408,
+      longitude: -84.071308,
+    },
+    takeOut: {
+      id: 'lytle-road-county-park',
+      name: 'Lytle Road County Park bank launch',
+      latitude: 42.9766,
+      longitude: -84.069441,
+    },
+    logistics: {
+      distanceLabel: '7.83 mi',
+      estimatedPaddleTime: 'Intermediate day trip; time varies with low-water scraping, debris, and bridge approaches',
+      shuttle:
+        'Use the water-trail road shuttle from Shiatown County Park to Lytle Road County Park via Bennington Road, Bancroft / Parmenter Road, Hibbard Road, South Kerby Road, and Lytle Road. Stage the Lytle Road take-out first because access sites are far apart on this segment.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance, and use only designated launches or landings.',
+      camping:
+        'Treat this as a day trip. No on-route camping plan is assumed between Shiatown and Lytle Road.',
+      summary:
+        'Launch downstream of the partially removed dam at Shiatown County Park and take out at Lytle Road County Park for a 7.83-mile Shiawassee River Water Trail segment. Use the Owosso USGS gauge only as a conservative low-water corridor check, then make same-day decisions from the launch because this route has dam-adjacent fast water, rocks, and debris.',
+      accessCaveats: [
+        'The route sheet identifies Shiatown County Park as the start and Lytle Road County Park as the end, with parking at both endpoints and a seasonal portable toilet at Shiatown.',
+        'Begin downstream of the partially removed Shiatown dam; do not treat the dam itself as a runnable feature.',
+        'Respect private docks and shoreline property, and stop only at designated landings or launches.',
+      ],
+      watchFor: [
+        'Fast moving rapids and a split channel immediately after the partially removed Shiatown dam.',
+        'Rocky shallow water after Bennington Road, faster current near the railroad tracks, six bridge crossings, and debris or vegetation covering rocks.',
+        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'High water can make the dam-adjacent start, bridge approaches, debris, and private-dock corridor unsuitable even though the app only scores a conservative low-water floor.',
+      ],
+    },
+  },
+'shiawassee-river-lytle-brady-street': {
+    putIn: {
+      id: 'lytle-road-county-park',
+      name: 'Lytle Road County Park bank launch',
+      latitude: 42.9766,
+      longitude: -84.069441,
+    },
+    takeOut: {
+      id: 'brady-street',
+      name: 'Brady Street dirt launch',
+      latitude: 42.9766,
+      longitude: -84.116539,
+    },
+    logistics: {
+      distanceLabel: '3.2 mi',
+      estimatedPaddleTime: 'About 1 hr, longer if low water or causeway decisions slow the trip',
+      shuttle:
+        'Use the short water-trail road shuttle from Lytle Road County Park to Brady Street Landing in Corunna via Lytle Road, South Shiawassee Street, West Mack Street, and North Brady Street.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, City of Corunna access rules, posted parking rules, and water-trail safety guidance.',
+      camping:
+        'Treat this as a short day trip. No on-route camping plan is assumed for this Corunna-area segment.',
+      summary:
+        'Launch from the bank at Lytle Road County Park and take out at the Brady Street dirt launch in Corunna. This 3.2-mile Shiawassee River Water Trail section is short but still asks paddlers to manage split channels, wood, and a causeway.',
+      accessCaveats: [
+        'The route sheet identifies Lytle Road as the start and Brady Street as the end, with parking at both ends and a porta-john / nearby town services at the Brady Street end.',
+        'Lytle Road County Park has no services at the launch and requires a carry to the bank.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'A causeway about 1.75 miles in; stay left to pass under it during low water and portage over it during high water.',
+        'Downed trees, islands, and split channels that require route-finding despite the short mileage.',
+        'Low-water scraping or slow travel when the Owosso gauge trends toward 2.0 ft or below.',
+        'High water can change the causeway decision and may make this short route unsuitable even though the app only scores a conservative low-water floor.',
+      ],
+    },
+  },
+'shiawassee-river-mccurdy-harmon-patridge': {
+    putIn: {
+      id: 'mccurdy-park',
+      name: 'Corunna McCurdy Park carry-in launch',
+      latitude: 42.98614,
+      longitude: -84.124008,
+    },
+    takeOut: {
+      id: 'harmon-patridge',
+      name: 'Harmon Patridge Park launch',
+      latitude: 43.020112,
+      longitude: -84.184547,
+    },
+    logistics: {
+      distanceLabel: '6.49 mi',
+      estimatedPaddleTime: 'About 2 hr to 2.5 hr if portages and downtown stops are smooth',
+      shuttle:
+        'Use the water-trail road shuttle from McCurdy Park in Corunna to the Harmon Patridge / Chippewa Trail launch in Owosso via Corunna Avenue, Washington Street, Main Street, M-52, and Getman Road. Stage the Harmon Patridge take-out first because the final launch is on river right before the park.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Corunna, City of Owosso, and water-trail access rules, and use only designated launches or landings.',
+      camping:
+        'Treat this as a trail-town day trip. The route has nearby services in Corunna and Owosso, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Corunna McCurdy Park and take out at Harmon Patridge Park for the 6.49-mile Shiawassee River Water Trail segment into Owosso. Use the Owosso USGS gauge as a conservative depth and high-water check, then make dam decisions by scouting in person.',
+      accessCaveats: [
+        'The route sheet identifies McCurdy Park as the start and Harmon Patridge Park as the end, with parking, restrooms or porta-johns, park access, and nearby services.',
+        'The route can be shortened at Oakwood Avenue, a developed City of Owosso launch, before the full set of Owosso dam decisions.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Three low-head dams or weirs through Owosso. Beginning paddlers should portage; only experienced paddlers should consider running passable spillways after scouting.',
+        'Scraping, rocky shallows, and harder boat control when the Owosso gauge trends toward 2.5 ft or below, especially around the weirs.',
+        'High water above 7 ft, faster urban current, strainers, and bridge-clearance problems.',
+        'Urban landings, downtown stops, and the James Miner River Walk corridor can make this a busier trail-town paddle than the downstream rural Shiawassee segments.',
+      ],
+    },
+  },
+'shiawassee-river-harmon-patridge-henderson': {
+    putIn: {
+      id: 'harmon-patridge',
+      name: 'Harmon Patridge Park launch',
+      latitude: 43.020112,
+      longitude: -84.184547,
+    },
+    takeOut: {
+      id: 'henderson-county-park',
+      name: 'Henderson County Park cement launch',
+      latitude: 43.087788,
+      longitude: -84.181933,
+    },
+    logistics: {
+      distanceLabel: '7.78 mi',
+      estimatedPaddleTime: 'About 2 hr 20 min at relaxed kayak pace, longer in low water',
+      shuttle:
+        'Use the water-trail road shuttle from Harmon Patridge Park near Owosso to Henderson County Park via Chippewa Trail, Curwood Road, M-52, and Henderson Road. Stage the Henderson take-out first because the launch and parking are back in the wooded park area.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Harmon Patridge Park and take out at Henderson County Park for the 7.78-mile Shiawassee River Water Trail segment north of Owosso. Use the Owosso USGS gauge as a stage-based check for enough depth and bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Harmon Patridge Park as the start and Henderson County Park as the end, with parking and restroom/porta-john amenities noted for the route.',
+        'The route sheet says the Henderson County Park launch is back in the woods and describes the take-out as a designated cement launch with seasonal restrooms, playground, and picnic area.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Scraping, sand bars, large rocks, and harder riffle navigation when the Owosso gauge trends toward 2.5 ft or below.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Two islands before Juddville Road, shallow rocky sections, late-summer aquatic vegetation, and changing depth in pools and riffles.',
+        'Use good judgment in high water or flood conditions and scout unfamiliar obstructions before committing.',
+      ],
+    },
+  },
+'shiawassee-river-henderson-ditch-road': {
+    putIn: {
+      id: 'henderson-county-park',
+      name: 'Henderson County Park cement launch',
+      latitude: 43.087788,
+      longitude: -84.181933,
+    },
+    takeOut: {
+      id: 'ditch-road',
+      name: 'Ditch Road gravel launch',
+      latitude: 43.143842,
+      longitude: -84.13413,
+    },
+    logistics: {
+      distanceLabel: '9.2 mi',
+      estimatedPaddleTime: 'Intermediate day trip; time varies with level, remoteness, and weir scouting',
+      shuttle:
+        'Use the water-trail road shuttle from Henderson County Park to the Ditch Road launch near Oakley and Parshallburg via Henderson Road, M-52, Johnstone Road, and Niver Road. Stage the Ditch Road take-out first because the launch and parking are just off the road.',
+      permits:
+        'No route-specific paddling permit is known. Follow Shiawassee County park rules, posted access rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a day trip. Henderson County Park has seasonal park facilities, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at Henderson County Park and take out at the Ditch Road gravel launch for the 9.2-mile Shiawassee River Water Trail segment toward Oakley and Parshallburg. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Henderson County Park as the start and Ditch Road as the end, with parking and restroom amenities at both endpoints.',
+        'The Ditch Road take-out is a gravel launch just before the bridge and near a wooden observation deck; identify it before launching so the weir and bridge area do not become a rushed decision.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'A weir near Ditch Road that must be maneuvered skillfully; use the right-side portage when needed.',
+        'Sand bars, stone bars, riffles, rapids, and harder boat control when the Owosso gauge trends toward 2.5 ft or below.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Three bridges, two islands, remoteness between landings, late-summer vegetation, and changing depth through pools and riffles.',
+      ],
+    },
+  },
+'shiawassee-river-ditch-road-cole-park': {
+    putIn: {
+      id: 'ditch-road',
+      name: 'Ditch Road gravel launch',
+      latitude: 43.143859,
+      longitude: -84.134264,
+    },
+    takeOut: {
+      id: 'cole-park',
+      name: 'Cole Park launch',
+      latitude: 43.185325,
+      longitude: -84.112656,
+    },
+    logistics: {
+      distanceLabel: '5.48 mi',
+      estimatedPaddleTime: 'Short day trip; time varies with level, shallow riffles, and the Cole Park portage',
+      shuttle:
+        'Use the water-trail road shuttle from the Ditch Road launch near Oakley and Parshallburg to Cole Park in Chesaning via Ditch Road, Corunna Road / Main Street, and Canal Street. Stage the Cole Park take-out first so the river-right portage and rock walk are not a surprise at the finish.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted access rules, Chesaning park rules, and water-trail safety guidance at both public landings.',
+      camping:
+        'Treat this as a short day trip. Chesaning has nearby park and lodging options, but no on-route overnight plan is assumed.',
+      summary:
+        'Launch at the Ditch Road gravel launch and take out at Cole Park for the final 5.48-mile Shiawassee River Water Trail segment into Chesaning. Use the Owosso USGS gauge as a stage-based check for enough depth and safe bridge clearance.',
+      accessCaveats: [
+        'The water-trail route sheet identifies Ditch Road as the start and Cole Park as the end, with parking and restroom amenities at both endpoints.',
+        'The route PDF text extraction reverses the coordinate labels in one place; the Ditch Road coordinate is reconciled against the adjacent upstream route endpoint, and the Cole Park coordinate is the downstream Chesaning endpoint.',
+        'Respect private property and stop only at designated launches or landings; the water-trail safety section calls this out explicitly.',
+      ],
+      watchFor: [
+        'Rocky bottom, riffles, shallow spots, and a large island where the right channel has deeper water.',
+        'Rock rapids near Showboat Park / Cole Park; portage on river right and expect a slippery rock walk to reach the Cole Park launch.',
+        'High water above 7 ft, faster current, strainers, and bridge-clearance problems.',
+        'Low summer water can make the short mileage slower than expected and increase scraping in riffles.',
+      ],
+    },
+  },
+'clinton-river-north-clinton-rotary': {
+    putIn: {
+      id: 'north-clinton-river-park',
+      name: 'North Clinton River Park accessible launch',
+      latitude: 42.607767,
+      longitude: -83.024447,
+    },
+    takeOut: {
+      id: 'rotary-park-sterling-heights',
+      name: 'Rotary Park accessible launch',
+      latitude: 42.570595,
+      longitude: -82.971459,
+    },
+    logistics: {
+      distanceLabel: 'About 6.0 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Rotary Park, then drive back to North Clinton River Park off Riverland Drive. Rotary has a longer carry from the water to parking, but the city provides a rail system for moving boats.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sterling Heights park, launch, parking, and posted water-trail rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between North Clinton River Park and Rotary Park.',
+      summary:
+        'Launch at North Clinton River Park and take out at Rotary Park for the Sterling Heights Clinton River Water Trail run. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
+      accessCaveats: [
+        'Both endpoints are City of Sterling Heights accessible kayak/canoe launches, but park hours, events, and launch conditions can still change.',
+        'The route passes Dodge Park before Rotary Park, so Dodge can serve as a check-in or earlier exit if conditions are worse than expected.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Golf-course crossing signs, bridges, blind bends, and other city-park traffic in the Sterling Heights corridor.',
+      ],
+    },
+  },
+'clinton-river-downtown-utica-north-clinton': {
+    putIn: {
+      id: 'downtown-utica',
+      name: 'Downtown Utica water-trail access',
+      latitude: 42.625576,
+      longitude: -83.037665,
+    },
+    takeOut: {
+      id: 'north-clinton-river-park',
+      name: 'North Clinton River Park accessible launch',
+      latitude: 42.607767,
+      longitude: -83.024447,
+    },
+    logistics: {
+      distanceLabel: 'About 2.2 mi',
+      estimatedPaddleTime: 'Short trip, roughly 1 hr to 1.5 hr depending on level and wood',
+      shuttle:
+        'Stage the take-out at North Clinton River Park off Riverland Drive, then drive back to Downtown Utica. Heritage Park is an intermediate access about a half mile below Downtown Utica if you need a very short check-out point.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Utica and City of Sterling Heights park, launch, parking, and posted water-trail rules at the public access sites.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Downtown Utica and North Clinton River Park.',
+      summary:
+        'Launch at Downtown Utica and take out at North Clinton River Park for the short upstream link into the Sterling Heights Clinton River Water Trail. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because this urban corridor can change quickly after rain.',
+      accessCaveats: [
+        'CRWC and Michigan Water Trails list Downtown Utica, Heritage Park, and North Clinton River Park as Clinton River Water Trail access points, but city parking and launch conditions can still change.',
+        'North Clinton River Park has the stronger take-out setup because the City of Sterling Heights confirms a public accessible EZDock launch there.',
+        'Do not extend upstream toward Rochester, Yates, or dam-adjacent reaches from this route without separate planning; this record is only the Downtown Utica-to-North Clinton segment.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Short mileage does not remove the need to scout wood, blind bends, bridges, and the landing before launching.',
+      ],
+    },
+  },
+'clinton-river-rotary-budd': {
+    putIn: {
+      id: 'rotary-park-sterling-heights',
+      name: 'Rotary Park accessible launch',
+      latitude: 42.570595,
+      longitude: -82.971459,
+    },
+    takeOut: {
+      id: 'budd-park',
+      name: 'Budd Park carry-in launch',
+      latitude: 42.586506,
+      longitude: -82.927598,
+    },
+    logistics: {
+      distanceLabel: '3.6 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Budd Park in Clinton Township, then drive back to Rotary Park in Sterling Heights. Rotary has an accessible launch and a longer carry from parking; check local park hours and event traffic before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow City of Sterling Heights, Clinton Township, and Clinton River Water Trail access rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Rotary Park and Budd Park.',
+      summary:
+        'Launch at Rotary Park and take out at Budd Park for a short lower Clinton River connector. Use the Sterling Heights USGS stage as a warning check, then verify the river visually because wood, rain, and urban runoff can change this corridor quickly.',
+      accessCaveats: [
+        'Rotary Park is a City of Sterling Heights accessible launch and Budd Park is listed by CRWC, Michigan Water Trails, and Outdoor Michigan as a Clinton River access point.',
+        'Budd Park has historically been a carry-in / informal launch area, so inspect the take-out before launching and respect posted parking or construction limits.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'Blind bends, bridge approaches, and changing wood between the Sterling Heights park corridor and Clinton Township.',
+      ],
+    },
+  },
+'clinton-river-budd-shadyside': {
+    putIn: {
+      id: 'budd-park',
+      name: 'Budd Park carry-in launch',
+      latitude: 42.586506,
+      longitude: -82.927598,
+    },
+    takeOut: {
+      id: 'shadyside-park',
+      name: 'Shadyside Park boat and canoe launch',
+      latitude: 42.582529,
+      longitude: -82.880104,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 2 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at Shadyside Park in Mount Clemens, then drive back to Budd Park in Clinton Township. George George Park is an intermediate access about 2.6 miles below Budd Park if conditions warrant an earlier exit.',
+      permits:
+        'No route-specific paddling permit is known. Follow Clinton Township, Mount Clemens, and Clinton River Water Trail access rules at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Budd Park and Shadyside Park.',
+      summary:
+        'Launch at Budd Park and take out at Shadyside Park for CRWC\'s slow/beginner lower Clinton River route into Mount Clemens. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, and urban runoff can still change the trip quickly.',
+      accessCaveats: [
+        'CRWC maps Budd Park, George George Park, and Shadyside Park as Clinton River Water Trail access points with coordinates and access spacing.',
+        'The City of Mount Clemens confirms Shadyside Park has fishing facilities and a handicapped-accessible pier with a boat and canoe launch, but park events, construction, or shoreline conditions can still affect the landing.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'A slower lower-river character does not remove the need to inspect log jams, blind bends, bridges, and the Shadyside take-out before committing.',
+      ],
+    },
+  },
+'clinton-river-shadyside-macarthur': {
+    putIn: {
+      id: 'shadyside-park',
+      name: 'Shadyside Park boat and canoe launch',
+      latitude: 42.582529,
+      longitude: -82.880104,
+    },
+    takeOut: {
+      id: 'neil-dempsey-macarthur-park',
+      name: 'Neil Dempsey Launch at MacArthur Park',
+      latitude: 42.597338,
+      longitude: -82.871104,
+    },
+    logistics: {
+      distanceLabel: 'About 2.0 mi',
+      estimatedPaddleTime: 'About 45 min to 1 hr, longer with low water, wood, or scouting',
+      shuttle:
+        'Stage the take-out at MacArthur Park in downtown Mount Clemens, then drive back to Shadyside Park. The road shuttle is short, but inspect the MacArthur landing and nearby river signage before launching.',
+      permits:
+        'No route-specific paddling permit is known. Follow Mount Clemens park rules, launch rules, parking signs, and Clinton River Water Trail safety guidance at both public launches.',
+      camping:
+        'Treat this as a short urban day trip. No on-route camping plan is assumed between Shadyside Park and MacArthur Park.',
+      summary:
+        'Launch at Shadyside Park and take out at the Neil Dempsey launch in MacArthur Park for a short Mount Clemens lower Clinton River link. Use the Sterling Heights USGS stage as a warning check, then verify the lower river visually because wood, rain, urban runoff, and weir signage can change the trip quickly.',
+      accessCaveats: [
+        'CRWC maps Shadyside Park and Neil Dempsey at MacArthur Park as Clinton River Water Trail access points with coordinates and a 2.0-mile access spacing.',
+        'The City of Mount Clemens confirms Shadyside Park has a boat and canoe launch and MacArthur Park has a universally accessible kayak launch, but park events, construction, or shoreline conditions can still affect landing space.',
+        'Stay with public launches and avoid private banks; CRWC specifically tells paddlers to plan exits at public access points.',
+      ],
+      watchFor: [
+        'Low-water scraping or slow travel when the Sterling Heights gauge is at or below the CRWC 8 ft low-water warning.',
+        'High, fast water, strainers, and woody debris when the gauge approaches or exceeds the 10 ft high-water warning, especially after rain.',
+        'Urban stormwater and possible sewage-overflow water-quality concerns after high-flow events.',
+        'CRWC map panels flag a dam/weir hazard in the Mount Clemens lower-river corridor. Identify the safe line, obey posted portage or warning signs, and do not enter dam or weir structures.',
+        'Do not continue toward Harley Ensign or Lake St. Clair without separate planning for motorboat traffic, wind, waves, and open-water exposure.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-oneida-rocky-branch': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    logistics: {
+      distanceLabel: 'About 5.0 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Rocky Branch Road Access, then drive back to Oneida Ramp near Oneida Elementary School. Oneida is the more developed paved launch, but Rocky Branch has limited parking and a simpler bridge-side take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Rocky Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 5 miles downstream at Rocky Branch Road Access for the upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Rocky Branch is a gravel and dirt bridge-side access with limited parking and no amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-oneida-cedar-valley': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    logistics: {
+      distanceLabel: 'About 7.5 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Cedar Valley Road Access, then drive back to Oneida Ramp. Oneida offers the easier paved launch, but Cedar Valley is a limited gravel and dirt exit, so walk the take-out before committing to the longer upper-South-Fork day.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Cedar Valley, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 7.5 miles downstream at Cedar Valley Road Access for a longer upper South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Cedar Valley is a gravel and dirt access with limited parking; KDFWR says bank fishing beyond the access is constrained because adjacent property is private.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more dragging, and a slower overall day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a longer day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving.',
+        'Wood, strainers, muddy landings, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
+    putIn: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.4036,
+      longitude: -83.6798,
+    },
+    takeOut: {
+      id: 'kay-wood-road-access',
+      name: 'Kay Wood Road Access',
+      latitude: 37.4594,
+      longitude: -83.6509,
+    },
+    logistics: {
+      distanceLabel: 'About 5.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Kay Wood Road Access, then drive back to Upper Wolf Creek Ramp. Upper Wolf Creek is the more developed paved launch, while Kay Wood is a simpler carry-down roadside exit with unpaved parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Upper Wolf Creek or Kay Wood, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Upper Wolf Creek Ramp and take out about 5.2 miles downstream at Kay Wood Road Access for a medium South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Upper Wolf Creek is a free single-lane paved ramp with paved parking and year-round 24-hour availability.',
+        'Kay Wood Road Access is a KDFWR carry-down site with unpaved parking, no ramp, no listed amenities, and a canoe/kayak suitability note.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+'saline-river-tony-kelly-peeler-bend': {
+    putIn: {
+      id: 'tony-kelly-ford-access',
+      name: 'Tony Kelly Ford Access',
+      latitude: 34.5844,
+      longitude: -92.6938,
+    },
+    takeOut: {
+      id: 'peeler-bend',
+      name: 'Peeler Bend',
+      latitude: 34.5852,
+      longitude: -92.6467,
+    },
+    logistics: {
+      distanceLabel: 'About 4.4 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4 hr, longer with low water, swimming, or fishing stops',
+      shuttle:
+        'Stage the take-out at Peeler Bend, then drive back to Tony Kelly Ford Access. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Tony Kelly Ford or Peeler Bend, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Tony Kelly Ford Access and take out at Peeler Bend for the shorter upper-middle Saline River water-trail split. The direct Benton gauge works well here because the route stays above the lower Benton spillway and low-water-bridge hazard package.',
+      accessCaveats: [
+        'Tony Kelly Ford is a simple public river access with no developed campground support in the reviewed source set.',
+        'Peeler Bend is a straightforward public access, but parking and launch conditions can change quickly with rain and runoff.',
+        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and late-day heat on the longer pools.',
+      ],
+    },
+  },
+'saline-river-peeler-bend-lyle-park': {
+    putIn: {
+      id: 'peeler-bend',
+      name: 'Peeler Bend',
+      latitude: 34.5852,
+      longitude: -92.6467,
+    },
+    takeOut: {
+      id: 'lyle-park-access',
+      name: 'Lyle Park Access',
+      latitude: 34.5873,
+      longitude: -92.6051,
+    },
+    logistics: {
+      distanceLabel: 'About 3.8 mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr, longer with low water, swimming, or fishing stops',
+      shuttle:
+        'Stage the take-out at Lyle Park in Benton, then drive back to Peeler Bend. Inspect both launches before leaving vehicles because gravel, mud, and recent rain can change the approach and footing.',
+      permits:
+        'No route-specific paddling permit is known. Use the named public Arkansas Water Trails accesses, follow Arkansas boating and PFD rules, and respect any same-day city, county, or wildlife-agency parking signs.',
+      camping:
+        'Treat this as a day trip. The reviewed AGFC route materials did not identify route camping at Peeler Bend or Lyle Park, and adjacent banks outside the public access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Peeler Bend and take out at Lyle Park for the short middle Benton Saline River split. The direct Benton gauge works well here because the route finishes before the downstream spillway and low-water-bridge hazard package.',
+      accessCaveats: [
+        'Peeler Bend is a simple public access with limited developed support in the reviewed source set.',
+        'Lyle Park is the clean public take-out before the lower-river spillway and low-water-bridge hazards downstream of Benton.',
+        'The current Benton gauge reading during this run sat below the broad paddle band, so expect more scraping and slower shoals than on stronger flow days.',
+        'Stay with the named public access points and avoid private banks, fences, signs, and purple-painted property lines along the corridor.',
+      ],
+      watchFor: [
+        'Low water around and below 3.5 ft, when dragging across shoals and slower pools becomes more likely.',
+        'Higher water above about 5.0 ft, when AGFC says the river becomes experienced-only with faster current and less forgiving eddies.',
+        'Fast chutes, riffles, strainers, fresh flood wood, muddy exits, and pushier current after thunderstorms.',
+        'Private banks, anglers, swimmers near town, and short-notice thunderstorms on this more urban split.',
+      ],
+    },
+  },
+'upper-illinois-river-chamber-springs-woka': {
+    putIn: {
+      id: 'chamber-springs-access',
+      name: 'Chamber Springs Access',
+      latitude: 36.166937,
+      longitude: -94.434458,
+    },
+    takeOut: {
+      id: 'woka-whitewater-park',
+      name: 'WOKA Whitewater Park',
+      latitude: 36.13388,
+      longitude: -94.5661,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 mi',
+      estimatedPaddleTime: 'About 7 hr to 10 hr, longer with feature carries, lower water, or shuttle delays',
+      shuttle:
+        'Stage the take-out at WOKA Whitewater Park in Oklahoma, then drive back to Chamber Springs Access. Scout Siloam Springs Kayak Park and WOKA before launching so the group has a clear carry-around plan at both park features if needed.',
+      permits:
+        'No route-specific paddling permit is known, but this is a two-state corridor. Follow Arkansas and Oklahoma boating and PFD rules, note that Oklahoma bars glass and Styrofoam on the Illinois River, and use the named public parks and accesses only.',
+      camping:
+        'Nearby basecamp options exist rather than route camping. AGFC lists Gypsy Camp and Canoe, Illinois River RV and Campground, and the two whitewater parks as nearby trip-support resources, but this full route is normally handled as a long day float.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Chamber Springs Access and take out at WOKA Whitewater Park for the full Upper Illinois Water Trail route. This is a guarded long route because it passes one Class II+ kayak park mid-route and finishes at another in Oklahoma.',
+      accessCaveats: [
+        'The route is source-backed and public at both ends, but it is long enough that the group should inspect the midpoint kayak park and final WOKA take-out before committing.',
+        'The current Siloam gauge reading during this run was far above the broad audience flow band, so the route should be treated as source-backed inventory work rather than a same-day casual recommendation.',
+        'Much of the river corridor remains private land. Do not assume casual bank stops, parking pull-offs, or emergency exits are legal outside the named accesses.',
+        'This route crosses into Oklahoma at the take-out. Verify same-day rules, event closures, and park operations before launching.',
+      ],
+      watchFor: [
+        'Low water below about 200 cfs, when AGFC says the river may be too low to float well.',
+        'Water above 1,000 cfs, which AGFC reserves for experienced floaters only and which raises consequence at both whitewater parks.',
+        'Class II+ features at Siloam Springs Kayak Park and WOKA Whitewater Park; scout and carry around anything outside the group skill set.',
+        'Fast rain rises, wood, strainers, slippery concrete or rock around the parks, private-bank issues, and interstate shuttle delays.',
+      ],
+    },
+  },
+'wabash-river-linn-grove-hale-street': {
+    putIn: {
+      id: 'linn-grove-park',
+      name: 'Linn Grove Park',
+      latitude: 40.645752,
+      longitude: -85.031219,
+    },
+    takeOut: {
+      id: 'hale-street-access',
+      name: 'Hale Street access',
+      latitude: 40.7448153,
+      longitude: -85.1745966,
+    },
+    logistics: {
+      distanceLabel: 'About 11.9 mi',
+      estimatedPaddleTime:
+        'About 5.25 hr to 9 hr depending on stage, current, wind, shallow dragging, woody debris, and how quickly the group reaches the east-end Hale finish',
+      shuttle:
+        'Stage the take-out at the east end of Hale Street, then drive back to Linn Grove Park. Inspect both public access points before launching because this is the longest current Wells County Wabash route and the Hale finish is a simple earthen access rather than an improved park ramp.',
+      permits:
+        'No route-specific private paddling permit is known. Use the public launch areas, follow Indiana boating and PFD requirements, obey posted Wells County or local rules, and skip the route during Action or Flood Stage.',
+      camping:
+        'Treat this as a long daylight day route rather than an overnight. Banks outside the named public accesses may be private, so do not camp, picnic, scout, or take out on adjacent land unless it is clearly public or you have permission.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Linn Grove Park and take out at the east-end Hale Street access for the longest currently supported Wells County Wabash day. Use USGS 03323000 at Bluffton as the direct stage check and stay conservative outside the local 1.5 to 3 ft kayaking band.',
+      accessCaveats: [
+        'Wells County Trails lists Linn Grove Park, Vera Cruz Paddlesports Launch, White Bridge Picnic Area, and Hale Street as public Wabash access points, with the full route supported by the official 5.3-mile, 4.2-mile, and 2.4-mile linked public legs.',
+        'The combined 11.9-mile distance comes from the public Linn Grove-to-Vera Cruz, Vera Cruz-to-White Bridge, and White Bridge-to-Hale legs. Plan food, water, daylight, and group pace around the longer commitment.',
+        'The Hale Street coordinate is a practical public-access anchor at the mapped no-exit east end of West Hale Street, matching Wells County Trails launch wording rather than a surveyed ramp pin.',
+        'Wells County Trails links the Wabash river-level check to the Bluffton gauge and warns never to enter during Action or Flood Stages.',
+        'Use only public access points. Indiana river-rights context still requires caution around private banks and land above the ordinary high-water mark.',
+      ],
+      watchFor: [
+        'Stage below 1.5 ft, when Wells County Trails says low water can require getting out of the kayak to pass shallow sections.',
+        'Stage above 3 ft, rising water, Action Stage, Flood Stage, or recent heavy rain, when stronger flow, debris, and obstacle hazards increase.',
+        'Fatigue, sun, wind, thunderstorms, cold water, and the risk of committing to nearly 12 miles without enough daylight or shuttle discipline.',
+        'Floating wood, log jams, bridge debris, strainers, submerged snags, and shallow gravel or sand bars.',
+        'Private banks between launches and the simpler earthen Hale finish; do not assume easy legal bailout access once you are downstream of Vera Cruz.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'linn-grove-park',
+        name: 'Linn Grove Park',
+        latitude: 40.645752,
+        longitude: -85.031219,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start at the public park launch.',
+      },
+      {
+        id: 'vera-cruz-paddlesports-launch',
+        name: 'Vera Cruz Paddlesports Launch',
+        latitude: 40.69890779,
+        longitude: -85.0828222,
+        mileFromStart: 5.3,
+        segmentKind: 'creek',
+        note: 'Official public split point for the short upstream leg and the longer Bluffton-bound segments.',
+      },
+      {
+        id: 'white-bridge-picnic-area',
+        name: 'White Bridge Picnic Area',
+        latitude: 40.728082,
+        longitude: -85.136707,
+        mileFromStart: 9.5,
+        segmentKind: 'creek',
+        note: 'Improved public launch that supports the middle and short downstream Wells County segments.',
+      },
+      {
+        id: 'kehoe-park',
+        name: 'Kehoe Park',
+        latitude: 40.74237,
+        longitude: -85.171271,
+        mileFromStart: 11.3,
+        segmentKind: 'creek',
+        note: 'Public Bluffton riverfront park landing before the final short connector to Hale Street.',
+      },
+      {
+        id: 'hale-street-access',
+        name: 'Hale Street access',
+        latitude: 40.7448153,
+        longitude: -85.1745966,
+        mileFromStart: 11.9,
+        segmentKind: 'creek',
+        note: 'Full downstream finish at the public east-end Hale Street access.',
+      },
+    ],
+  },
+'susquehanna-river-canal-park-pfbc-union-township': {
+    putIn: {
+      name: 'Canal Park access',
+      latitude: 41.22,
+      longitude: -76.018611,
+    },
+    takeOut: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, low-water line picking, or extra time around the rapid below Nanticoke bridge',
+      shuttle:
+        'Stage the take-out at the PFBC Union Township ramp first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because mud, broad-river current, or same-day maintenance can change how easy the landings feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Canal Park and take out at the PFBC Union Township ramp for a short Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and watch the mile-180 rapid below the Nanticoke bridge.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Canal Park and PFBC Union Township coordinates directly in the official access table.',
+        'Canal Park is a primitive access on a gravel path. Confirm same-day footing, parking, and bank angle before leaving a shuttle vehicle.',
+        'Union Township is the intended public finish. Stay with the named access and do not assume broad bars or private banks are legitimate substitutes.',
+        'This is a short route, but broad-river wind can erase much of the mileage advantage on an exposed day.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and more technical around shallow lines.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and missing the obvious Union Township take-out after relaxing into the wide river.',
+      ],
+    },
+  },
+'susquehanna-river-pfbc-union-township-wetlands': {
+    putIn: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    takeOut: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle into the Wetlands access road',
+      shuttle:
+        'Stage the take-out at Wetlands Nature Area first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, floating debris, or same-day maintenance can change the landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, nature-area, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the PFBC Union Township ramp and take out at Wetlands Nature Area for a quieter mid-section Susquehanna day. Use the Wilkes-Barre stage gauge and keep the easiest planning days around 2 to 4 feet there.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both PFBC Union Township and Wetlands Nature Area coordinates directly in the official access table.',
+        'Wetlands Nature Area is a primitive river-right finish reached from Hicks Ferry Road. Confirm same-day footing and parking before leaving the shuttle there.',
+        'This route has fewer formal mid-route exit options than the short mileage suggests. Treat the Wetlands finish as committed once you launch.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'Wilkes-Barre stages below about 0 feet, when the broad channel gets scratchier and line selection matters more around shallow bars.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up and the Wetlands finish becomes less forgiving late in the run; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, muddy footing at the primitive take-out, and private shorelines away from the named accesses.',
+      ],
+    },
+  },
+'susquehanna-river-canal-park-wetlands': {
+    putIn: {
+      name: 'Canal Park access',
+      latitude: 41.22,
+      longitude: -76.018611,
+    },
+    takeOut: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    logistics: {
+      distanceLabel: 'About 14 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 7 hr in ordinary conditions, longer with headwind, lower-water line picking, or extra care around the early rapid and the primitive Wetlands finish',
+      shuttle:
+        'Stage the take-out at Wetlands Nature Area first, then drive back to Canal Park in West Nanticoke. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Canal Park and take out at Wetlands Nature Area for a full upper Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the mile-180 rapid your first same-day hazard check.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Canal Park and Wetlands Nature Area coordinates directly in the official access table.',
+        'Canal Park is a primitive access on a gravel path and Wetlands is a primitive river-right finish. Confirm same-day footing, parking, and bank angle at both ends before leaving vehicles.',
+        'This route has more committed mileage than the shorter Section 3 slugs. Once you leave the Nanticoke corridor, broad-river wind and a thin exit network can matter more than the flat profile suggests.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and more technical around shallow bars and inside lines.',
+        'Wilkes-Barre stages above about 4 feet, when current speeds up noticeably; PFBC says novice paddlers should stay off above about 5 feet.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and muddy footing at the primitive Wetlands finish after a long exposed day.',
+      ],
+    },
+  },
+'susquehanna-river-pfbc-union-township-test-track': {
+    putIn: {
+      name: 'PFBC Union Township ramp',
+      latitude: 41.177778,
+      longitude: -76.111389,
+    },
+    takeOut: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    logistics: {
+      distanceLabel: 'About 16 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Nanticoke and Berwick caution zones',
+      shuttle:
+        'Stage the take-out at Test Track Park first, then drive back to the PFBC Union Township ramp. Inspect both accesses before launching because broad-river mud, current, or same-day maintenance can change how practical the landings feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this river corridor is none, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at the PFBC Union Township ramp and take out at Test Track Park for a full Section 3 Susquehanna day. Use the Wilkes-Barre stage gauge, keep the easiest planning days around 2 to 4 feet there, and make the Nanticoke rapid plus the lower Berwick ledge context part of the same-day check.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both PFBC Union Township and Test Track Park coordinates directly in the official access table.',
+        'This route is materially longer than the shorter Section 3 slugs. Wind, thunderstorms, and the lack of obvious mid-route public exits can matter more than the flat profile suggests.',
+        'Test Track Park is the intended public finish. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes.',
+      ],
+      watchFor: [
+        'A long class I-II rapid on river right about one-half mile downstream from the Nanticoke bridge, flagged by PFBC at mile 180.',
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when lower-section water is thin.',
+        'Wilkes-Barre stages below about -0.5 ft, when the broad channel gets scratchier and line selection matters more around shallow bars and ledges.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a long exposed mainstem day.',
+      ],
+    },
+  },
+'susquehanna-river-wetlands-test-track': {
+    putIn: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    takeOut: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, lower-water scouting, or extra care around the Berwick bridge ledge',
+      shuttle:
+        'Stage the take-out at Test Track Park first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because mud, broad-river current, or same-day park activity can change the practical landing angle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and banks away from the named accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wetlands Nature Area and take out at Test Track Park for a lower Section 3 Susquehanna day. Use the Bloomsburg stage gauge, keep the easiest planning days around 2 to 4 feet there, and pay attention to the Berwick-Nescopeck bridge ledge warning below 2 feet.',
+      accessCaveats: [
+        'PFBC Section 3 publishes both Wetlands Nature Area and Test Track Park coordinates directly in the official access table.',
+        'Test Track Park is the intended public finish for this route. Do not drift into the next downstream section without a separate plan and take-out confirmed.',
+        'This lower route uses Bloomsburg because PFBC ties the main low-water ledge warning to that gauge and says Towanda, Wilkes-Barre, and Bloomsburg read about the same base level in this section.',
+        'Stay within the named public access zones rather than using private banks or informal side landings.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
+        'Bloomsburg stages below about 0 feet, when shallow lines, exposed rocks, and low-water wave trains become more pronounced.',
+        'Bloomsburg stages above about 4 feet, when current speeds up materially; PFBC says novice paddlers should stay off above about 6 feet in this lower part of the section.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and the chance of drifting past the obvious Test Track finish if you get relaxed in the wide lower channel.',
+      ],
+    },
+  },
+'susquehanna-river-wetlands-bloomsburg': {
+    putIn: {
+      name: 'Wetlands Nature Area access',
+      latitude: 41.089444,
+      longitude: -76.1225,
+    },
+    takeOut: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    logistics: {
+      distanceLabel: 'About 17 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8.5 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle into Bloomsburg',
+      shuttle:
+        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back to Wetlands Nature Area. Inspect both accesses before launching because muddy footing, broad-river current, and same-day maintenance can change how practical the launch and finish feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official PFBC Section 3 guide says camping on this corridor is none, and the route should not imply open riverbank camping between the named accesses.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Wetlands Nature Area and take out at the PFBC Bloomsburg ramp for a long lower-corridor Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier planning around 1 to 4 feet there, and keep the Berwick bridge ledge warning visible whenever the gauge is under 2 feet.',
+      accessCaveats: [
+        'PFBC publishes the Wetlands Nature Area and PFBC Bloomsburg coordinates directly in the current North Branch section guides.',
+        'Wetlands is a primitive river-right launch while Bloomsburg is a formal PFBC landing. Confirm same-day footing, parking, and carry angle before leaving vehicles at either end.',
+        'This route crosses the Section 3 to Section 4 guide boundary but stays on one continuous public-access sequence and one direct lower-corridor stage gauge.',
+        'Stay with the named public accesses rather than using islands or private banks as casual substitutes late in the day.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 feet.',
+        'Bloomsburg stages above about 4 to 5 feet, when current becomes faster and the long open-water miles feel less forgiving.',
+        'Headwind, thunderstorms, floating wood, private shorelines, and fatigue from a longer exposed mainstem day.',
+        'Any muddy or slippery footing at the primitive Wetlands launch or the Bloomsburg finish after rain or high water cleanup.',
+      ],
+    },
+  },
+'susquehanna-river-test-track-bloomsburg': {
+    putIn: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    takeOut: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, low-water line-picking, or a slow big-river shuttle day',
+      shuttle:
+        'Stage the take-out at the PFBC Bloomsburg ramp first, then drive back upstream to Test Track Park. Inspect both accesses before launching because broad-river current, mud, storm cleanup, and parking conditions can change how easy the landings feel on the day you paddle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, local park, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The official Section 3 and Section 4 North Branch guides say camping on this river corridor is not provided as part of the water trail itself, and banks away from the named public accesses may be private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Test Track Park and take out at the PFBC Bloomsburg ramp for a broad North Branch Susquehanna day. Use the direct Bloomsburg stage gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
+      accessCaveats: [
+        'The PFBC North Branch Section 4 guide publishes both the Test Track Park and PFBC Bloomsburg coordinates and uses those named accesses for the official route table.',
+        'PFBC access conditions can change with mud, flood cleanup, local events, or same-day maintenance, so verify the launch lane, parking, and bank angle before leaving a shuttle vehicle.',
+        'This route uses the direct Bloomsburg gauge and official section guidance, but big-river wind can make a modest stage feel harder than the number alone suggests.',
+        'The PFBC Bloomsburg access is a formal public landing; stay within posted access boundaries rather than improvising on nearby private banks.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'Bloomsburg stages above about 4 to 5 ft bring faster current, fewer forgiving eddies, and a bigger margin for missed ferries or landings.',
+        'Headwind across the wide North Branch, floating wood, flooded trees after rain, cold water outside midsummer, and thunderstorms moving down the valley.',
+        'Private islands or banks away from the named accesses and the chance of overrunning Bloomsburg if you drift past the obvious public landing.',
+      ],
+    },
+  },
+'susquehanna-river-bloomsburg-indian-head': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    takeOut: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2 hr in ordinary conditions, longer with headwind, a relaxed shuttle, or extra time around the campground landing',
+      shuttle:
+        'Stage the take-out at Indian Head Campground first, then drive back to the PFBC Bloomsburg ramp. Confirm same-day campground access expectations before launching if anyone in your group is not staying there overnight.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail segment itself as a short day trip rather than assuming open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at Indian Head Campground for a short North Branch link. The same official Bloomsburg stage guidance applies here, and the campground finish makes this one of the easier shuttle-and-basecamp options in the corridor.',
+      accessCaveats: [
+        'PFBC publishes both access coordinates in the Section 4 guide and lists Indian Head Campground as a primitive-to-surfaced ramp on river right.',
+        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
+        'Because this route is short, wind or a slow shuttle can dominate the day more than raw current speed does.',
+        'The Bloomsburg ramp is a formal PFBC access. Stay within posted public-use areas rather than using nearby banks or side landings.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the short mileage can still feel pushy near bends or bridge lines.',
+        'Broad-river wind, thunderstorms, floating wood, and muddy or slippery footing at the campground landing after rain.',
+        'Private shorelines and islands between the two named endpoints and the chance of overshooting the campground ramp if you are relaxed by the short distance.',
+      ],
+    },
+  },
+'susquehanna-river-bloomsburg-danville': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996944,
+      longitude: -76.432222,
+    },
+    takeOut: {
+      name: 'PFBC Danville Access',
+      latitude: 40.943611,
+      longitude: -76.599722,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, slower current, or a careful downstream shuttle into Danville',
+      shuttle:
+        'Stage the take-out at the PFBC Danville ramp first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river current, mud, and same-day maintenance can change the practical landing feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Danville slug should still be planned as a day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at the PFBC Danville ramp for a longer lower Section 4 float. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet, and expect wind and open-river mileage to matter more than the flat profile suggests.',
+      accessCaveats: [
+        'PFBC Section 4 publishes both the PFBC Bloomsburg and PFBC Danville coordinates directly in the official access table.',
+        'This route uses the direct Bloomsburg gauge, with Danville serving as same-day downstream corroboration rather than a second scoring ladder.',
+        'Indian Head Campground is useful legal support near the midpoint, but the intended finish for this slug remains the PFBC Danville ramp.',
+        'Stay within the named public access areas rather than improvising on nearby private banks or islands.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the longer open-water miles feel less forgiving.',
+        'Broad-river wind, thunderstorms, floating wood, flooded trees after rain, and fatigue from a longer lower-corridor day.',
+        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the run.',
+        'Any muddy or slippery footing at Indian Head or Danville if you stop or scout during the trip.',
+      ],
+    },
+  },
+'susquehanna-river-pfbc-bloomsburg-montgomery-park': {
+    putIn: {
+      name: 'PFBC Bloomsburg Access',
+      latitude: 40.996681,
+      longitude: -76.432782,
+    },
+    takeOut: {
+      name: 'Montgomery Park Municipal Access',
+      latitude: 40.959161,
+      longitude: -76.61964,
+    },
+    logistics: {
+      distanceLabel: 'About 12.5 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr in ordinary conditions, longer with headwind, slower current, or extra time around the Danville finish',
+      shuttle:
+        'Stage the take-out at Montgomery Park first, then drive back to the PFBC Bloomsburg ramp. Inspect both landings before launching because broad-river mud, ramp traffic, and same-day park conditions can change how easy the shuttle feels.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, municipal, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground sits along this corridor and can support a legal overnight split if you have a current reservation or permission, but the standard Bloomsburg-to-Montgomery slug should still be planned as a day float.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the PFBC Bloomsburg ramp and take out at Montgomery Park in Danville for a lower North Branch Susquehanna day. Use the direct Bloomsburg gauge, keep the easiest planning days around 1 to 4 feet there, and expect wind plus private-island discipline to matter more than the easy rating suggests.',
+      accessCaveats: [
+        'Susquehanna Greenway publishes this exact public route and the current 2021 North Branch guide publishes the PFBC Bloomsburg and Montgomery Park coordinates directly in the access table.',
+        'The route passes multiple private islands. Susquehanna Greenway says not to stop on the islands even when the water looks inviting or low.',
+        'Montgomery Park is the intended finish, not just a backup carry. Do not assume the nearby PFBC Danville ramp or private banks make the route interchangeable on the fly.',
+        'Broad-river wind can erase much of the easy-current feel, especially if you launch late or take a relaxed pace downstream.',
+      ],
+      watchFor: [
+        'Bloomsburg stages above about 4 to 6 ft, when current gets faster and the longer open-water miles feel less forgiving for novice groups.',
+        'Headwind, thunderstorms, floating wood, flooded trees after rain, and muddy footing at Montgomery Park after recent high water.',
+        'Private islands and banks between Bloomsburg and Danville, plus the temptation to treat them as casual lunch or emergency stops.',
+        'Fishing Creek hazards such as Boone\'s Dam stay off this main route, but do not mistake side-water or tributary mouths for usable exits.',
+      ],
+    },
+  },
+'susquehanna-river-test-track-indian-head': {
+    putIn: {
+      name: 'Test Track Park',
+      latitude: 41.04,
+      longitude: -76.261111,
+    },
+    takeOut: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, low-water scouting, or a slower shuttle around the campground landing',
+      shuttle:
+        'Stage the take-out at Indian Head Campground first, then drive back to Test Track Park. Confirm same-day campground access expectations before launching if your group is only using the site as a take-out rather than staying there.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground is the route endpoint and can work as a conservative overnight base if you have a legal reservation or permission. Treat the water-trail route itself as a day float rather than assuming open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Test Track Park and take out at Indian Head Campground for a longer Section 4 North Branch day. Use the direct Bloomsburg gauge, expect easier big-river conditions around 1 to 4 feet, and pay attention to the Berwick bridge ledge warning when water is under 2 feet.',
+      accessCaveats: [
+        'The PFBC Section 4 guide publishes both Test Track Park and Indian Head Campground coordinates directly in the official access table.',
+        'The downstream take-out is tied to a private campground operation even though PFBC uses it as a water-trail access point. Respect current campground signs, parking rules, and any same-day staff instructions.',
+        'This route is materially longer than either adjacent Section 4 slug. Wind, thunderstorms, and a slow campground shuttle can dominate the day more than the current number suggests.',
+        'Stay within named public or customary access areas rather than improvising on nearby private banks or side landings.',
+      ],
+      watchFor: [
+        'About one-half mile before the Berwick-Nescopeck bridge, PFBC warns that the river drops over an exposed rock ledge when the Bloomsburg gauge is below 2 ft.',
+        'Bloomsburg stages above about 4 to 5 ft, when current becomes faster and the long open-water miles feel less forgiving.',
+        'Broad-river wind, thunderstorms, floating wood, muddy or slippery footing at the campground landing after rain, and the risk of overshooting the Indian Head finish if you relax late in the run.',
+        'Private shorelines and islands between the named endpoints and the need to keep enough daylight for the longer shuttle-and-finish day.',
+      ],
+    },
+  },
+'susquehanna-river-indian-head-danville': {
+    putIn: {
+      name: 'Indian Head Campground',
+      latitude: 40.975,
+      longitude: -76.469444,
+    },
+    takeOut: {
+      name: 'PFBC Danville Access',
+      latitude: 40.943611,
+      longitude: -76.599722,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with headwind, slower current, or a careful shuttle around the campground launch',
+      shuttle:
+        'Stage the take-out at the PFBC Danville ramp first, then drive back to Indian Head Campground. Confirm same-day campground access expectations before launching if your group is only using the site as a put-in rather than staying there.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        'Indian Head Campground can support a legal overnight start or finish if you have a reservation or permission, but the route itself should be planned as a day float between the named accesses rather than as open riverbank camping.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Indian Head Campground and take out at the PFBC Danville ramp for a longer lower Section 4 float. The app uses the Bloomsburg stage gauge as the official same-section planning reference for this corridor, then expects a same-day wind and landing judgment before committing to the longer mileage.',
+      accessCaveats: [
+        'PFBC publishes both Indian Head Campground and PFBC Danville coordinates in the Section 4 guide, with Danville listed as a surfaced public ramp on river left.',
+        'This route uses Bloomsburg as a same-section proxy because PFBC stage guidance is written around that gauge rather than a separate Danville threshold ladder.',
+        'Indian Head Campground remains a managed property even though it appears in the official water-trail access table. Respect current staff instructions, parking rules, and launch boundaries.',
+        'Danville is the committed finish for this route. Inspect the landing and shuttle path before launching because the final miles can feel longer when wind stalls the current.',
+      ],
+      watchFor: [
+        'Proxy-gauge judgment error: if Bloomsburg is near the low or high edge, make a visual check at Indian Head instead of trusting the number alone.',
+        'Headwind across the wide lower section, thunderstorms, floating wood, flooded trees after rain, and cold-water consequences outside warm midsummer weather.',
+        'Bloomsburg stages above about 4 to 5 ft, when the broader river carries more speed and novice groups have less time to recover from poor line choices or missed landings.',
+        'Private shorelines away from the named accesses and the risk of missing the PFBC Danville take-out late in the day.',
+      ],
+    },
+  },
+'susquehanna-river-pfbc-danville-wrays': {
+    putIn: {
+      name: 'PFBC Danville Access',
+      latitude: 40.94349,
+      longitude: -76.598507,
+    },
+    takeOut: {
+      name: "Wray's Riverfront Campground",
+      latitude: 40.953143,
+      longitude: -76.664439,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 3 hr in ordinary conditions, longer with headwind or a relaxed campground finish',
+      shuttle:
+        "Stage the take-out at Wray's first, then drive back to the PFBC Danville ramp. Confirm same-day campground access expectations before launching if your group is using the site as a take-out without staying there.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, boating, and PFD rules.',
+      camping:
+        "Wray's Riverfront Campground is a named endpoint campground in the current North Branch guide and can support a legal overnight finish if you have a reservation or permission.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at the PFBC Danville ramp and finish at Wray's Riverfront Campground for a short lower-Susquehanna link. Use the direct Danville stage gauge, keep the easiest planning days around 2 to 4 feet there, and treat the campground finish as managed private property rather than a casual public bank.",
+      accessCaveats: [
+        "The current 2021 North Branch guide publishes both PFBC Danville and Wray's coordinates directly in the official access table.",
+        "Wray's is a named water-trail access but still a private campground. Respect current staff instructions, parking rules, launch boundaries, and any reservation expectations.",
+        'The river is broad and can feel slower than it is. Headwind can erase much of the short-mileage advantage on an exposed day.',
+        'Stay with the named accesses and do not improvise on private banks or islands between Danville and the campground finish.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 feet, when the route becomes scratchier and less forgiving despite its short length.',
+        'Danville stages above about 4 feet, when current speeds up and the simple campground finish becomes more time-sensitive for less experienced groups.',
+        'Headwind, thunderstorms, floating wood, and managed-property expectations at the private campground take-out.',
+      ],
+    },
+  },
+'susquehanna-river-wrays-shikellamy-west': {
+    putIn: {
+      name: "Wray's Riverfront Campground",
+      latitude: 40.953143,
+      longitude: -76.664439,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park West',
+      latitude: 40.883406,
+      longitude: -76.79251,
+    },
+    logistics: {
+      distanceLabel: 'About 9 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta or a busy state-park finish',
+      shuttle:
+        "Stage the take-out at Shikellamy State Park West first, then drive back to Wray's. Confirm both the campground launch expectations and the state-park landing conditions before launching because the lower miles feel bigger when wind or boat traffic builds.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, campground, state-park, boating, and PFD rules.',
+      camping:
+        "Wray's can support an overnight start if you have a reservation or permission, but this route should still be planned as a same-day finish at Shikellamy rather than as open riverbank camping.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch from Wray's Riverfront Campground and finish at Shikellamy State Park West for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section proxy, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the decisive safety checks.",
+      accessCaveats: [
+        "The current guide publishes both Wray's and Shikellamy West coordinates directly in the access table.",
+        "This route uses Danville as a same-section proxy because the current guide writes Section 14 thresholds around that gauge rather than around a lower-lake site.",
+        "Wray's remains a managed private campground even though it is listed in the water-trail guide. Respect current launch and parking rules.",
+        'Shikellamy West is the intended finish. Do not drift downstream toward Sunbury unless you have a separate portage and access plan for the Fabridam corridor.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 feet, when the lower pool loses current help and wind matters more.',
+        'Danville stages above about 4 feet, when the broad river carries more speed and less experienced groups have less time to recover from missed landings.',
+        'Lake Augusta wind and powerboat wakes, floating wood, private shorelines, and the downstream Sunbury Fabridam hazard if you miss the planned take-out.',
+      ],
+    },
+  },
+'susquehanna-river-danville-montgomery-shikellamy-north': {
+    putIn: {
+      name: 'Montgomery Park Municipal Access',
+      latitude: 40.959161,
+      longitude: -76.61964,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park North Access',
+      latitude: 40.880559,
+      longitude: -76.789685,
+    },
+    logistics: {
+      distanceLabel: 'About 11.2 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 4.5 hr in ordinary conditions, longer with wind on Lake Augusta, slower pool current, or a busy state-park finish',
+      shuttle:
+        'Stage the take-out at Shikellamy State Park North first, then drive back to Montgomery Park. Inspect both carries before launching because the lower miles can feel materially longer when wind, boat wakes, or slower pool current build.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, municipal, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Wray's Riverfront Campground and Fantasy Island Campground are corridor support options, but the route itself should not imply open riverbank camping or a guaranteed mid-route overnight stop.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Montgomery Park in Danville and finish at Shikellamy State Park North for a lower Section 14 Susquehanna day. Use the Danville gauge as the official same-section reference, keep the easiest planning days around 2 to 4 feet there, and treat Lake Augusta wind plus Fabridam take-out discipline as the key same-day checks.',
+      accessCaveats: [
+        'The current 2021 North Branch guide lists Montgomery Park to Shikellamy North as a favorite public day trip and publishes both endpoint coordinates in the access table.',
+        'Shikellamy State Park North is primarily a canoe and kayak finish near the island. Stay alert for bridge current, motorboats, and other users as you approach.',
+        'This route uses Danville as the official same-section gauge reference even though the lower miles flatten into Lake Augusta before the take-out.',
+        'Keep the finish explicit before launching. The lower river feels forgiving when the current slows, but the wrong drift line can carry you past the intended state-park access zone.',
+      ],
+      watchFor: [
+        'Danville stages below about 2 ft, when the lower pool gets slower and the route becomes more exposed to wind and shallow rock decisions.',
+        'Danville stages above about 4 ft, when current speeds up and the lower finish becomes less forgiving for novice groups.',
+        'Wind and motorboat wakes on Lake Augusta, floating wood, and bridge-approach congestion near the final Shikellamy North take-out.',
+        'Missing the planned access and continuing downstream toward Sunbury Fabridam, which is not part of this route.',
+      ],
+    },
+  },
+'susquehanna-river-riverside-borough-shikellamy-north': {
+    putIn: {
+      name: 'Riverside Borough Access',
+      latitude: 40.962389,
+      longitude: -76.633444,
+    },
+    takeOut: {
+      name: 'Shikellamy State Park North Access',
+      latitude: 40.880559,
+      longitude: -76.789685,
+    },
+    logistics: {
+      distanceLabel: 'About 10.2 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr in ordinary conditions, longer with low-water stone dodging, Lake Augusta wind, or a slow state-park finish',
+      shuttle:
+        'Stage the take-out at Shikellamy State Park North first, then drive back to Riverside Borough Access. The Riverside launch has only brief unload space, so inspect both parking plans before committing to the shuttle.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, state-park, borough, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. The Susquehanna Greenway route page points paddlers toward nearby Danville and Shikellamy-area services, but it does not advertise camping as part of the route plan.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Riverside Borough Access and finish at Shikellamy State Park North for a moderate lower North Branch day. Use the Danville gauge as the official route reference, keep the same-day call conservative near the 2 ft floor, and watch the lower islands, Packers Island split, and busy Shikellamy finish closely.',
+      accessCaveats: [
+        'Susquehanna Greenway publishes this exact public route and says the Riverside launch is a carry-in with timed unloading before you move vehicles to the designated pull-off.',
+        'The launch slope can be muddy or slippery, especially after rain or when the concrete slab does not stay fully in the water.',
+        'Shikellamy State Park North is primarily for kayaks and canoes. Stay cautious around motorized traffic near the island and the final bridge approach.',
+        'A state launch permit is required at the Shikellamy take-out, and the intended finish is upstream of Sunbury Fabridam.',
+      ],
+      watchFor: [
+        'Island banks, ledges, and stones in low water, especially near river mile 133 and again near Packers Island in the lower miles.',
+        'Motorized boat traffic and wind on seasonal Lake Augusta, which can flatten the current advantage and make the final miles feel longer.',
+        'The lower split around Packers Island; keep right where the route page says to avoid wrong turns and extra shallow-water problems.',
+        'Missing the Shikellamy North take-out and continuing downstream toward Sunbury Fabridam.',
+      ],
+    },
+  },
+'susquehanna-river-tunkhannock-whites-ferry': {
+    putIn: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    takeOut: {
+      name: "PFBC White's Ferry access",
+      latitude: 41.475833,
+      longitude: -75.905,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer with headwind, caution around the boulder-field reach, or a slower shuttle day',
+      shuttle:
+        "Stage the take-out at PFBC White's Ferry first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the access feels.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor lodging and campground options in the broader Section 2 guide, but neither is part of this put-in/take-out pair and the route should not imply on-route camping.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at PFBC Tunkhannock and take out at PFBC White's Ferry for a mid-section North Branch day. The app uses the Meshoppen gauge as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field the main same-day hazard check.",
+      accessCaveats: [
+        "PFBC Section 2 publishes both PFBC Tunkhannock and PFBC White's Ferry coordinates directly in the official access table.",
+        "This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate White's Ferry ladder.",
+        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
+        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a boulder field at mile 215 and long fast riffles at mile 214 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
+        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
+        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
+      ],
+    },
+  },
+'susquehanna-river-tunkhannock-west-falls': {
+    putIn: {
+      name: 'PFBC Tunkhannock access',
+      latitude: 41.522222,
+      longitude: -75.941389,
+    },
+    takeOut: {
+      name: 'PFBC West Falls access',
+      latitude: 41.459444,
+      longitude: -75.853611,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer with headwind, caution around the riffle zones, or a slower shuttle day',
+      shuttle:
+        'Stage the take-out at PFBC West Falls first, then drive back to the PFBC Tunkhannock ramp. Inspect both landings before launching because broad-river mud, current, or same-day maintenance can change how straightforward the accesses feel.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        "Treat this as a day float. Camp Lackawanna and Susquehanna Shores Campground are corridor camping options in the broader Section 2 guide, but the Tunkhannock-to-West-Falls route itself should not imply open riverbank camping.",
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at PFBC Tunkhannock and take out at PFBC West Falls for a fuller lower Section 2 Susquehanna day. The app uses Meshoppen as the official same-section reference, keeps the planning window conservative around 6.5 to 9 feet there, and makes the mile-215 boulder field plus the lower fast-riffle miles the main same-day hazard check.',
+      accessCaveats: [
+        'PFBC Section 2 publishes both PFBC Tunkhannock and PFBC West Falls coordinates directly in the official access table.',
+        'This route uses Meshoppen as a same-section proxy because PFBC publishes the section-wide base-level relationship there rather than a separate West Falls ladder.',
+        'PFBC access conditions can change with mud, storm cleanup, or local maintenance. Verify the launch lane, parking, and bank angle before committing to the shuttle.',
+        'Stay within named public accesses and do not improvise on private banks or islands between the two PFBC landings.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a boulder field at mile 215 plus long sections of fast riffles at miles 214 and 210 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy footing after rain, and low-water wave trains when the river funnels into the lower riverbed.',
+        'Proxy-gauge judgment error when Meshoppen is near the low or high edge: make a same-day visual current check at Tunkhannock instead of trusting the number alone.',
+        'Fast current above about 9 ft at Meshoppen and novice no-go water around 12 ft and above on the converted section model.',
+      ],
+    },
+  },
+'susquehanna-river-whites-ferry-west-falls': {
+    putIn: {
+      name: "PFBC White's Ferry access",
+      latitude: 41.475833,
+      longitude: -75.905,
+    },
+    takeOut: {
+      name: 'PFBC West Falls access',
+      latitude: 41.459444,
+      longitude: -75.853611,
+    },
+    logistics: {
+      distanceLabel: 'About 4 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 2.5 hr in ordinary conditions, longer with headwind, higher current, or a cautious shuttle around the fast-riffle mile',
+      shuttle:
+        "Stage the take-out at PFBC West Falls first, then drive back to PFBC White's Ferry. Check both accesses before launching because muddy footing, high water, or same-day local conditions can change the practical carry and landing line.",
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Treat this as a day trip. Susquehanna Shores Campground is listed downstream in the broader Section 2 corridor and can support a nearby basecamp stay, but the White\'s Ferry-to-West Falls route itself should not imply open riverbank camping.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        "Launch at PFBC White's Ferry and take out at PFBC West Falls for a short lower Section 2 link. The app uses Meshoppen as the official same-section planning reference and keeps the fast-riffle mile near 210 as the main route-specific caution.",
+      accessCaveats: [
+        "PFBC Section 2 publishes both PFBC White's Ferry and PFBC West Falls coordinates directly in the official access table.",
+        'The route is short, but broad-river wind or a slow shuttle can dominate the feel of the day more than the mileage suggests.',
+        'This route uses Meshoppen as a same-section proxy because PFBC writes the section relationship there rather than at the take-out.',
+        'PFBC West Falls is the committed finish. Stay within the posted public landing rather than improvising on nearby private banks.',
+      ],
+      watchFor: [
+        'The PFBC Section 2 caution list flags a long section of fast riffles around mile 210 inside this route.',
+        'Broad-river wind, thunderstorms, floating wood, muddy take-out footing after rain, and quick current when Meshoppen is above the calmer band.',
+        'Proxy-gauge judgment error near the low or high edge: make a visual current check at White\'s Ferry before launching.',
+        'Private shorelines and islands away from the named accesses and the chance of floating past the PFBC West Falls ramp if you relax because the route is short.',
+      ],
+    },
+  },
+'village-creek-sh327-baby-galvez': {
+    putIn: {
+      id: 'tx-327-boat-launch',
+      name: 'TX 327 Boat Launch',
+      latitude: 30.346944,
+      longitude: -94.239385,
+    },
+    takeOut: {
+      id: 'baby-galvez-road-boat-launch',
+      name: 'Baby Galvez Road Boat Launch',
+      latitude: 30.3345,
+      longitude: -94.20391,
+    },
+    logistics: {
+      distanceLabel: 'About 3.4 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 2.5 hr at ordinary levels, longer if the creek is low, woody, stormy, or the group wants a slower beginner outing',
+      shuttle:
+        'Stage the Baby Galvez take-out first, then drive back to TX 327. Check both bridge-side launches before leaving vehicles because one is an unpaved highway launch and the other is a simple paved ramp at the end of a local road.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted access signs.',
+      camping:
+        'Treat this short segment as a day trip. Big Thicket allows year-round sandbar camping on Village Creek for larger through-trips, and Village Creek State Park is a stronger downstream base-camp option if you want more than a quick paddle.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at TX 327 and take out at Baby Galvez for the shortest named Village Creek public segment. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on wood, current, weather, and private-boundary discipline before launching.',
+      accessCaveats: [
+        'NPS identifies TX 327 as a TxDOT-managed launch and Baby Galvez Road as a paved public boat ramp, but neither endpoint is a staffed park marina.',
+        'This route is short enough to look casual, which makes it easy to underestimate rain-driven current or assume any bank stop is acceptable. Stay with the named public launches.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on a short paddle.',
+        'Big Thicket boundary markers and private banks still matter on this middle segment. Do not plan casual picnics or bailouts above the ordinary high-water line.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow weaving around sandbars and wood.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when sandbars, logs, and shallow route-finding become more common.',
+        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous despite the short mileage.',
+        'Snags, logjams, overhanging limbs, sandbars, insects, thunderstorms, and muddy or slick footing at the launches.',
+        'Private banks between the launches and the temptation to turn a short family paddle into an unsupported off-route stop.',
+      ],
+    },
+  },
+'village-creek-baby-galvez-us-96': {
+    putIn: {
+      id: 'baby-galvez-road-boat-launch',
+      name: 'Baby Galvez Road Boat Launch',
+      latitude: 30.3345,
+      longitude: -94.20391,
+    },
+    takeOut: {
+      id: 'us-96-boat-launch',
+      name: 'US 96 Boat Launch',
+      latitude: 30.2857,
+      longitude: -94.19145,
+    },
+    logistics: {
+      distanceLabel: 'About 7.1 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr at ordinary levels, longer near the floor or when heat, sandbars, wood, or a slow group stretch out the day',
+      shuttle:
+        'Stage the US 96 take-out first, then drive back to Baby Galvez Road. Inspect both paved public ramps and parking areas before leaving vehicles because storms, mud, debris, or local maintenance can change how easy the access feels on arrival.',
+      permits:
+        'No route-specific paddling permit is known for this segment. Follow Texas boating and PFD rules, use only the named public launches, and obey current Big Thicket National Preserve regulations and any posted county or preserve access notices.',
+      camping:
+        'Treat this as a long day trip by default. Big Thicket says camping is allowed year-round on sandbars along Village Creek, and Village Creek State Park is a stronger downstream base-camp option if you want legal campground support instead of primitive sandbar choices.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Baby Galvez Road and take out at US 96 for a longer lower-middle Village Creek float with public launches at both ends. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, weather, wood, and heat before committing.',
+      accessCaveats: [
+        'NPS identifies Baby Galvez and US 96 as public boat ramps tied to the Village Creek trail; US 96 is managed by Hardin County and Baby Galvez is a local road-end launch in preserve country.',
+        'The preserve does not provide boat rentals or shuttles. Arrange your own shuttle before launching.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Carry enough water for a longer East Texas day.',
+        'Big Thicket says sandbar camping is allowed on Village Creek, but this route still works best as a planned day float unless you have a clear overnight plan and are comfortable managing rising water risk.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more scraping, wood dodging, and slow travel.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars and logs become more common and the longer mileage gets slower.',
+        'Stage around or above about 10 ft, rising water, or fresh heavy rain, when the creek can become swift and hazardous on an otherwise mellow corridor.',
+        'Snags, logjams, overhanging limbs, floating debris, insects, thunderstorms, sun exposure, and a longer self-supported shuttle than the short Village Creek links.',
+        "Private banks between the launches and overconfidence from the route's generally calm flatwater character.",
+      ],
+    },
+  },
+'village-creek-us-96-state-park': {
+    putIn: {
+      id: 'us-96-boat-launch',
+      name: 'US 96 Boat Launch',
+      latitude: 30.2857,
+      longitude: -94.19145,
+    },
+    takeOut: {
+      id: 'village-creek-state-park-canoe-launch',
+      name: 'Village Creek State Park canoe launch',
+      latitude: 30.2553,
+      longitude: -94.171,
+    },
+    logistics: {
+      distanceLabel: 'About 3.2 mi',
+      estimatedPaddleTime:
+        'About 1 hr to 3 hr at ordinary levels, longer if low water, flooding, wildlife delays, or family pacing slow the trip',
+      shuttle:
+        'Stage the Village Creek State Park take-out first, then drive back to the US 96 launch. Confirm current state-park launch status, fees, and flooding impacts before leaving vehicles because the park access can change after high water.',
+      permits:
+        'No route-specific private paddling permit is known for a same-day trip, but you may need to pay any current state-park entrance fee at the take-out. Follow Texas boating and PFD rules, use the named public launches, and obey current Big Thicket and TPWD park notices.',
+      camping:
+        'This is the strongest lower Village Creek segment for legal campground support. Village Creek State Park has campsites, a cabin, and direct canoe-launch access at the take-out. Big Thicket also allows year-round sandbar camping on Village Creek for paddlers who have a more primitive overnight plan.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at the US 96 public ramp and finish at Village Creek State Park for the short downstream state-park segment. Use USGS 08041500 near Kountze with a conservative 200 cfs floor, then make a same-day call on current, flood impacts, wildlife, and launch conditions before committing.',
+      accessCaveats: [
+        'NPS identifies the US 96 launch as a paved public ramp and says the next launch is Village Creek State Park 3.2 miles downstream; TPWD separately publishes the state-park canoe-launch coordinate and paddling access.',
+        'Check with Village Creek State Park on the status of the canoe launch after flooding or storm damage. Do not assume the normal take-out path is usable on every visit.',
+        'TPWD says alligators live in the area. Give wildlife space, keep pets and food controlled, and do not create shoreline conflicts at the park launch.',
+        'TPWD says Village Creek water quality is variable and not recommended for drinking. Bring your own water even on this short segment.',
+        'This route uses a conservative minimum-only threshold, not a full ideal-range recommendation. If the gauge is below about 200 cfs, expect more shallow sandbars and wood near the park finish.',
+      ],
+      watchFor: [
+        'Flows near or below about 200 cfs, or stage below roughly 3 ft, when exposed sandbars, logs, and shallow routing become more common.',
+        'Stage around or above about 10 ft, rising water, fresh heavy rain, or park-launch flood impacts that can turn an easy short float into a poor access decision.',
+        'Snags, logjams, floating debris, insects, thunderstorms, muddy footing, alligators, and other wildlife near the lower corridor and park take-out.',
+        'Private banks between the launches and the temptation to treat state-park access as proof that any stop along the way is equally public.',
+      ],
+    },
+  },
+'green-river-russell-ford-greensburg-city-ramp': {
+    putIn: {
+      id: 'russell-ford-access',
+      name: 'Russell Ford Access',
+      latitude: 37.2738,
+      longitude: -85.4784,
+    },
+    takeOut: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    logistics: {
+      distanceLabel: 'About 4.5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr, longer with fishing stops, shoal scouting, or low water',
+      shuttle:
+        'Stage the take-out at Greensburg City Ramp, then drive back to Russell Ford on Ralph Vaughn Road. The shuttle is short, but Russell Ford parking is limited and Greensburg can have city-park traffic.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey city-park signage at Greensburg.',
+      camping:
+        'Greensburg supports endpoint overnights better than on-route camping. KDFWR says the city-ramp take-out sits in a park with cabins, nearby RV hookups, and shuttle help, but private banks between the accesses should not be treated as legal overnight stops.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Russell Ford and take out about 4.5 miles downstream at Greensburg City Ramp for the full upper-Green public float. Use the Greensburg gauge and expect a scrape-prone day whenever the river sits below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Russell Ford is a carry-down gravel-bar access with limited unpaved parking and no amenities. Keep the approach clear for other users.',
+        'Greensburg City Ramp is the easier landing, but it sits in a public city park with cabins, anglers, and other local users. Keep the ramp area clear and efficient.',
+        'American Legion Park lies between the endpoints and can shorten the day if conditions or group energy change, but this route assumes the full Russell-to-Greensburg float.',
+        'KDFWR notes private-property concerns around Pool 6 access sites. Use the named public accesses only and avoid treating intermediate banks as public.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and dragging become more likely.',
+        'High water above about 1.75 ft, when current at bends and landings becomes less forgiving for casual paddlers.',
+        'Bridge-adjacent current, anglers, woody debris after rain, and broad-river wind on exposed pools.',
+        'City-park activity at Greensburg and limited legal stopping options away from the named accesses.',
+      ],
+    },
+  },
+'green-river-greensburg-city-ramp-glenview-road': {
+    putIn: {
+      id: 'greensburg-city-ramp',
+      name: 'Greensburg City Ramp',
+      latitude: 37.2581,
+      longitude: -85.5057,
+    },
+    takeOut: {
+      id: 'glenview-road-carrydown',
+      name: 'Glenview Road Carrydown',
+      latitude: 37.291,
+      longitude: -85.5913,
+    },
+    logistics: {
+      distanceLabel: 'About 13.7 mi',
+      estimatedPaddleTime:
+        'About 5 hr to 8 hr, longer in low water or with fishing, drift breaks, and shuttle delays',
+      shuttle:
+        'Stage the take-out at Glenview Road, then drive back to Greensburg City Ramp. Glenview is a grassy road-end carrydown with no amenities, so keep the take-out vehicle compact and leave daylight margin for a longer Upper Green day.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and obey any local or landowner signage at Glenview.',
+      camping:
+        'Treat this as a day trip with town-based overnight support rather than on-route camping. Greensburg City Ramp has nearby lodging context, but KDFWR lists no camping at either endpoint and private banks should not be treated as legal campsites.',
+      campingClassification: 'nearby_basecamp',
+      summary:
+        'Launch at Greensburg City Ramp and take out at Glenview Road for a longer Upper Green float. Use the Greensburg gauge and expect slower shoals and more scraping whenever the stage stays below KDFWR\'s 1.0 to 1.75 ft good band.',
+      accessCaveats: [
+        'Greensburg City Ramp is the easier launch, with paved parking and city-park activity. Keep the ramp clear for anglers and other local users.',
+        'Glenview Road Carrydown ends in the water and is surrounded by private land. Use only the obvious public road-end access and obey posted signs.',
+        'This segment has fewer comfortable legal stop options than the shorter Greensburg routes. Stay off private banks except for true emergencies.',
+        'The route uses the direct Greensburg stage gauge. Trend, recent rain, and broad-river wind still matter more than a single number.',
+      ],
+      watchFor: [
+        'Low water below about 1.0 ft, when shoals, mud edges, and slower current can turn this into a long day.',
+        'High water above about 1.75 ft, when current at bends and the Glenview landing becomes less forgiving.',
+        'Private-bank limits, woody debris after rain, exposed sun, and broad-river wind on longer pools.',
+        'Steep or slick footing at the Glenview road-end carrydown, especially after rain.',
+      ],
+    },
+  },
+'green-river-rio-carrydown-hh-wilson-park': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    logistics: {
+      distanceLabel: 'About 8 mi',
+      estimatedPaddleTime:
+        'About 3 hr to 5 hr, longer with sandbar stops, fishing, or lower water',
+      shuttle:
+        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Rio Carrydown Access. Rio has limited unpaved parking and Wilson has a short paved ramp with a gravel lot, so keep both access areas tight and efficient.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and carry normal hot-weather and river-rescue essentials.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rio, and private banks or sandbars between Rio and H.H. Wilson should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rio Carrydown Access and take out about 8 miles downstream at H.H. Wilson Park Ramp for the upper Hart County Blue Water Trail float. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this Green River corridor.',
+      accessCaveats: [
+        'Rio is a carry-down-only access with unpaved parking and no amenities. Keep the launch compact and avoid spilling onto nearby private ground.',
+        'H.H. Wilson Park Ramp is a paved launch, but KDFWR warns that the concrete does not extend far into the water and drops off at the end.',
+        'KDFWR notes private-property concerns around Green River Pool 6 access sites. Stay with the named public accesses and do not use mid-route banks for parking or casual trespass stops.',
+        'The Munfordville gauge is direct for this Hart County segment, but same-day rain, wind, wood, and ramp conditions still control the launch decision.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when shoals, gravel, and dragging become more likely.',
+        'High water above 600 cfs, when current, wood, and landings get less forgiving on this broad river.',
+        'Fresh strainers, fallen trees, fishing lines, open-river sun and wind, and long pool sections between riffles.',
+        'Slippery footing at the Rio launch and the ramp drop at H.H. Wilson on exit.',
+      ],
+    },
+  },
+'green-river-lynn-camp-creek-hh-wilson-park': {
+    putIn: {
+      id: 'lynn-camp-creek-vpa-1',
+      name: 'Lynn Camp Creek Ramp',
+      latitude: 37.3533,
+      longitude: -85.7098,
+    },
+    takeOut: {
+      id: 'hh-wilson-park-ramp',
+      name: 'H.H. Wilson Park Ramp',
+      latitude: 37.2979,
+      longitude: -85.8506,
+    },
+    logistics: {
+      distanceLabel: 'About 18.2 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 9 hr, longer with low water, family pacing, or sandbar and fishing stops',
+      shuttle:
+        'Stage the take-out at H.H. Wilson Park Ramp, then drive back to Lynn Camp Creek Ramp. This is a committed day, so leave extra daylight and keep both access areas tight because Lynn Camp and Wilson each have limited space and no built-in shuttle services.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect the private-land terms at Lynn Camp Creek VPA #1.',
+      camping:
+        'Treat this as a full day float, not a camping route. KDFWR lists no camping at either endpoint, and the private banks and sandbars between Lynn Camp and H.H. Wilson should not be assumed legal overnight stops.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lynn Camp Creek Ramp and take out at H.H. Wilson Park for the longer upper Hart County Green River segment. Use the Munfordville gauge and expect a slower all-day float whenever the discharge stays below KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Lynn Camp Creek VPA #1 is privately owned but open to the public through KDFWR. Continuing access depends on respectful use, clean parking, and staying within the obvious access footprint.',
+        'The Lynn Camp ramp is steep and KDFWR says it is better used as a carry-down site. Launch carefully and avoid blocking the narrow approach.',
+        'H.H. Wilson Park Ramp has a drop at the end of the concrete. Expect a less forgiving finish than a typical city-park ramp, especially if the river is low or the group is tired.',
+        'This route uses the direct Munfordville gauge for the Hart County corridor, but same-day weather, debris, and daylight matter as much as the cfs reading on a float this long.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
+        'High water above 600 cfs, when broad-river current, fresh wood, and the Wilson landing become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, fishing lines, and limited legal bailout options away from the named accesses.',
+        'Slippery footing at Lynn Camp, the ramp drop at Wilson, and any fresh strainers or downed trees after rain.',
+      ],
+    },
+  },
+'green-river-rio-carrydown-stovall-park': {
+    putIn: {
+      id: 'rio-carrydown-access',
+      name: 'Rio Carrydown Access',
+      latitude: 37.3183,
+      longitude: -85.7692,
+    },
+    takeOut: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    logistics: {
+      distanceLabel: 'About 12 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 7 hr, longer with sandbar stops, low water, or family pacing',
+      shuttle:
+        'Stage the take-out at Munfordville-Stovall Park, then drive back to Rio Carrydown Access. This is a longer Hart County day, so leave daylight margin and keep both launch areas clear for other users.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, obey city-park rules at Stovall, and carry normal broad-river safety gear.',
+      camping:
+        'Stovall Park supports endpoint overnights better than improvised on-route camping. KDFWR lists primitive camping, restrooms, and park amenities at the take-out, but private banks and sandbars upstream should not be treated as automatic legal campsites.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Rio Carrydown Access and continue about 12 miles downstream to Munfordville-Stovall Park Ramp for the fuller Hart County Green River day. KDFWR gives a good Munfordville gauge band of 300 to 600 cfs for this corridor.',
+      accessCaveats: [
+        'Rio is a carry-down-only access with unpaved parking and no amenities. Pack efficiently and avoid spreading gear onto adjacent private ground.',
+        'Stovall Park Ramp is a city-owned paved access with more amenities and park traffic. Use the ramp efficiently and avoid blocking trailers or anglers.',
+        'This route effectively combines the Rio-to-Wilson and Wilson-to-Stovall KDFWR segments, so it is longer than the shorter Hart County family float and needs a fuller shuttle, daylight, and hydration plan.',
+        'The Munfordville gauge is direct for this corridor, but same-day wind, heat, fresh debris, and release/weather trend still matter more across a longer day.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when the longer mileage can turn into a slow scrape-and-drag day.',
+        'High water above 600 cfs, when broad-river current, wood, and park landings become less forgiving.',
+        'Fallen trees, fishing lines, open-river sun and wind, and fewer comfortable legal stop options away from public accesses.',
+        'Fatigue, slower group pace, and late-day weather because this is substantially longer than the Wilson-to-Stovall segment alone.',
+      ],
+    },
+  },
+'green-river-stovall-park-dennison-ferry': {
+    putIn: {
+      id: 'munfordville-stovall-park-ramp',
+      name: 'Munfordville-Stovall Park Ramp',
+      latitude: 37.2663,
+      longitude: -85.8892,
+    },
+    takeOut: {
+      id: 'dennison-ferry',
+      name: 'Dennison Ferry',
+      latitude: 37.2174,
+      longitude: -86.0493,
+    },
+    logistics: {
+      distanceLabel: 'About 21.0 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer in low water or with family pacing, wind, or snack stops',
+      shuttle:
+        'Stage the take-out at Dennison Ferry in Mammoth Cave National Park, then drive back to Stovall Park in Munfordville. Build in extra road time, confirm park access before leaving vehicles, and start early enough to avoid finishing the carry-out at dusk.',
+      permits:
+        'No permit is required for a same-day paddle, but this route finishes inside Mammoth Cave National Park. Follow Kentucky boating rules, park signs, and standard USCG PFD requirements, and do not assume improvised bankside camping is legal.',
+      camping:
+        'Stovall Park offers the cleaner overnight support in this pair. KDFWR lists primitive camping at the put-in and no camping at Dennison Ferry, so use Stovall for endpoint overnights rather than improvising on private banks downstream.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Munfordville-Stovall Park and take out at Dennison Ferry for a long Green River day bridging Hart County and Mammoth Cave. Use the Munfordville gauge and expect a slower, more consequential outing whenever the discharge sits below KDFWR\'s 300 to 600 cfs good band.',
+      accessCaveats: [
+        'Stovall Park is the easiest side of this route: paved ramp, restrooms, primitive camping, and park amenities. Use the ramp efficiently because it also serves local anglers and park users.',
+        'Dennison Ferry is day-use only and finishes with a carry-down/carry-up park access rather than a simple motorboat ramp. Save energy for the take-out.',
+        'This is a very long day for a flatwater-style Green River trip. Use the shorter Green River family routes instead if the group is not comfortable with an all-day commitment.',
+        'The route uses the direct Munfordville gauge for the upstream corridor, but weather trend, fresh wood, and daylight are decisive on a float this long.',
+      ],
+      watchFor: [
+        'Low water below 300 cfs, when this long route can become unreasonably slow for a same-day plan.',
+        'High water above 600 cfs, when broad-river current, debris, and the park finish become less forgiving.',
+        'Fatigue, exposed sun, broad-river wind, limited bailout options, and reduced cell service closer to Mammoth Cave.',
+        'Muddy or slick footing at Dennison Ferry, plus any fresh strainers or debris after rain.',
+      ],
+    },
+  },
+'juniata-river-granville-lewistown-narrows': {
+    putIn: {
+      id: 'granville-pfbc-ramp',
+      name: 'Granville PFBC ramp',
+      latitude: 40.558333,
+      longitude: -77.603056,
+    },
+    takeOut: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4.5 hr to 6.5 hr in ordinary conditions, longer with low-water line picking, headwind, or time spent easing through the mile-43 ledge zone',
+      shuttle:
+        'Stage the take-out at the Lewistown Narrows PFBC ramp first, then drive back upstream to the Granville PFBC ramp. Inspect both public ramps before launching because mud, current angle, and parking edges can change after storms.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Locust Campground sits about a mile downstream of the put-in and is the clearest legal overnight support if you want to split this longer lower-Juniata corridor conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at the Granville PFBC ramp and take out at Lewistown Narrows PFBC for a longer Lewistown-area Juniata float. Use the direct Lewistown gauge and expect scraping whenever the river sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Granville and Lewistown Narrows coordinates directly in the official lower Juniata access table.',
+        'Locust Campground is legal on-route support, but the intended downstream finish for this slug is Lewistown Narrows PFBC.',
+        'Eleven broad-river miles can feel longer than they look when the valley wind turns upstream or the channel gets scratchy.',
+        'Stay with the named public accesses rather than using private banks or islands as substitute stops.',
+      ],
+      watchFor: [
+        'Bridge abutments with possible strainers near miles 51 and 49, both flagged in the PFBC caution list.',
+        'A ledge stretching across the river at mile 43, followed by rough water pushing into a cut bank, as flagged by PFBC.',
+        'Lewistown stages below about 3.1 ft, when broad cobble bars, ledge lines, and slower pools can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river headwind through the exposed Lewistown bends.',
+      ],
+    },
+  },
+'juniata-river-lewistown-narrows-mifflin': {
+    putIn: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    takeOut: {
+      id: 'mifflin-ramp',
+      name: 'Mifflin ramp',
+      latitude: 40.569167,
+      longitude: -77.401111,
+    },
+    logistics: {
+      distanceLabel: 'About 6 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr in ordinary conditions, longer if low water forces channel picking or if you pause to inspect the mile-33 current zone',
+      shuttle:
+        'Stage the take-out at the Mifflin ramp first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this Narrows-to-Mifflin segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lewistown Narrows and take out at Mifflin for a middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Lewistown Narrows and Mifflin coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
+        'Use only the named public accesses rather than bridge shoulders or private banks.',
+        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
+        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
+'juniata-river-newport-howe-township': {
+    putIn: {
+      id: 'newport-primitive-access',
+      name: 'Newport access',
+      latitude: 40.479167,
+      longitude: -77.129444,
+    },
+    takeOut: {
+      id: 'howe-township-park-access',
+      name: 'Howe Township Park access',
+      latitude: 40.490833,
+      longitude: -77.096389,
+    },
+    logistics: {
+      distanceLabel: 'About 3 mi',
+      estimatedPaddleTime:
+        'About 1.5 hr to 2.5 hr in ordinary conditions, longer if low water forces scraping or if you ease carefully through the mile-10.5 ledge zone',
+      shuttle:
+        'Stage the take-out at Howe Township Park first, then drive back upstream to the Newport primitive access. Confirm the intended park-side landing before launching so you do not drift past it while watching the ledge zone.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this short Newport-to-Howe segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Newport and take out at Howe Township Park for a short lower-Juniata link. Use the direct Newport gauge and expect scraping whenever the river sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Newport and Howe Township Park coordinates directly in the official lower Juniata access table.',
+        'Howe Township Park is the intended river-left finish. Confirm same-day park access expectations before using it only as a take-out.',
+        'This is still a broad river despite the short mileage; wind can stall progress if you linger in the open bends.',
+        'Stay with the named public accesses rather than using private banks or islands as backup landings.',
+      ],
+      watchFor: [
+        'Rapid current falling over a ledge near mile 10.5, the main route-specific caution PFBC flags in this corridor.',
+        'Newport stages below about 3.5 ft, when shallow bars and ledge lines become scratchier and slower.',
+        'Broad-river headwind, fresh wood after storms, and slick footing at the primitive Newport launch.',
+        'Private shorelines away from the named accesses and the chance of overshooting the Howe Township landing if you relax late in the run.',
+      ],
+    },
+  },
+'juniata-river-howe-township-amity-hall': {
+    putIn: {
+      id: 'howe-township-park-access',
+      name: 'Howe Township Park access',
+      latitude: 40.490833,
+      longitude: -77.096389,
+    },
+    takeOut: {
+      id: 'amity-hall-pfbc-ramp',
+      name: 'Amity Hall PFBC ramp',
+      latitude: 40.430833,
+      longitude: -77.013333,
+    },
+    logistics: {
+      distanceLabel: 'About 7 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4 hr in ordinary conditions, longer with low-water scraping or time spent easing through the mile-5.5 and mile-5 ledge zones',
+      shuttle:
+        'Stage the take-out at the Amity Hall PFBC ramp first, then drive back upstream to Howe Township Park. Confirm the intended downstream finish before launching so you do not improvise on private shoreline once the lower river opens up.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'Green Valley Campground sits on the route and is the clearest legal overnight support if you want to split this lower-Juniata link conservatively.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Howe Township Park and take out at Amity Hall PFBC for a lower-Juniata link with a real ledge-and-outcrop caution zone near the finish. The app uses the Newport gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Howe Township Park and Amity Hall coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Newport is upstream of this route, not on top of it.',
+        'Green Valley is a legal mid-route campground/support point, not the intended finish for this slug.',
+        'Use only the named public accesses rather than private banks, islands, or convenience pull-offs.',
+      ],
+      watchFor: [
+        'Outcrops scattered across the river near mile 5.5 and a series of ledges plus small outcrops near mile 5, both flagged by PFBC as potentially hazardous current zones.',
+        'Low water under the conservative Newport 3.5 ft proxy floor, when shallow bars and ledge lines become scratchier and slower.',
+        'Fresh wood after storms, broad-river headwind, and the need to hold the correct line through the lower outcrop zone.',
+        'Private shorelines away from the named accesses and the temptation to stop early once the route feels close to the river mouth.',
+      ],
+    },
+  },
+'juniata-river-lewistown-narrows-walker': {
+    putIn: {
+      id: 'lewistown-narrows-pfbc-ramp',
+      name: 'Lewistown Narrows PFBC ramp',
+      latitude: 40.603889,
+      longitude: -77.487778,
+    },
+    takeOut: {
+      id: 'walker-pfbc-ramp',
+      name: 'Walker PFBC ramp',
+      latitude: 40.531944,
+      longitude: -77.357222,
+    },
+    logistics: {
+      distanceLabel: 'About 10 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6 hr in ordinary conditions, longer if low water forces channel picking or if headwind stalls progress through the exposed middle bends',
+      shuttle:
+        'Stage the take-out at Walker PFBC first, then drive back upstream to the Lewistown Narrows PFBC ramp. Check both ramp edges before leaving a vehicle because mud and current angle can shift after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this Narrows-to-Walker segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Lewistown Narrows and take out at Walker PFBC for a longer middle lower-Juniata link. The app uses the Lewistown gauge conservatively as an upstream same-river proxy and expects scraping whenever that corridor sits under PFBC\'s 3.1 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Lewistown Narrows and Walker coordinates directly in the official lower Juniata access table.',
+        'The gauge story here stays conservative because Lewistown is upstream of this route, not on top of it.',
+        'Use only the named public accesses rather than bridge shoulders or private banks.',
+        'This segment is broad enough for wind to matter more than the mileage suggests on an exposed day.',
+      ],
+      watchFor: [
+        'Rapid current near mile 33, the main caution point PFBC flags in this corridor.',
+        'Low water under the conservative Lewistown 3.1 ft proxy floor, when broad cobble bars and slower channels can force dragging.',
+        'Fresh wood after storms, muddy landing edges, and broad-river wind across exposed bends.',
+        'Private shorelines away from the named public accesses and the temptation to improvise on bars because the route looks simple.',
+      ],
+    },
+  },
+'juniata-river-granville-victory-park': {
     putIn: {
       id: 'granville-pfbc-ramp',
       name: 'Granville PFBC ramp',
@@ -12902,7 +13905,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-victory-park-lewistown-narrows': {
+'juniata-river-victory-park-lewistown-narrows': {
     putIn: {
       id: 'victory-park-access',
       name: 'Victory Park access',
@@ -12942,7 +13945,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-victory-park-mifflintown': {
+'juniata-river-victory-park-mifflintown': {
     putIn: {
       id: 'victory-park-access',
       name: 'Victory Park access',
@@ -12982,7 +13985,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-mifflintown-walker': {
+'juniata-river-mifflintown-walker': {
     putIn: {
       id: 'mifflintown-pfbc-ramp',
       name: 'Mifflintown PFBC ramp',
@@ -13022,7 +14025,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-mifflin-walker': {
+'juniata-river-mifflin-walker': {
     putIn: {
       id: 'mifflin-ramp',
       name: 'Mifflin ramp',
@@ -13062,7 +14065,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-mifflintown-muskrat-springs': {
+'juniata-river-mifflintown-muskrat-springs': {
     putIn: {
       id: 'mifflintown-pfbc-ramp',
       name: 'Mifflintown PFBC ramp',
@@ -13102,7 +14105,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-walker-muskrat-springs': {
+'juniata-river-walker-muskrat-springs': {
     putIn: {
       id: 'walker-pfbc-ramp',
       name: 'Walker PFBC ramp',
@@ -13142,7 +14145,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-greenwood-newport': {
+'juniata-river-greenwood-newport': {
     putIn: {
       id: 'greenwood-pfbc-ramp',
       name: 'Greenwood PFBC ramp',
@@ -13182,7 +14185,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-newport-green-valley': {
+'juniata-river-newport-green-valley': {
     putIn: {
       id: 'newport-primitive-access',
       name: 'Newport access',
@@ -13222,7 +14225,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-green-valley-amity-hall': {
+'juniata-river-green-valley-amity-hall': {
     putIn: {
       id: 'green-valley-ramp',
       name: 'Green Valley access',
@@ -13262,7 +14265,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-newport-amity-hall': {
+'juniata-river-newport-amity-hall': {
     putIn: {
       id: 'newport-primitive-access',
       name: 'Newport access',
@@ -13302,46 +14305,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-portstown-park-juniata-point': {
-    putIn: {
-      id: 'portstown-park-access',
-      name: 'Portstown Park access',
-      latitude: 40.485833,
-      longitude: -78.014167,
-    },
-    takeOut: {
-      id: 'juniata-point-ramp',
-      name: 'Juniata Point ramp',
-      latitude: 40.458333,
-      longitude: -77.980833,
-    },
-    logistics: {
-      distanceLabel: 'About 3 mi',
-      estimatedPaddleTime:
-        'About 1.5 hr to 3 hr in ordinary conditions, longer with low-water bars, headwind, or extra time lining up the Juniata Point finish',
-      shuttle:
-        'Stage the take-out at Juniata Point first, then drive back upstream to Portstown Park. This is a short shuttle, but check both public ramps before launching because mud and river angle can change after rain.',
-      permits:
-        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
-      camping:
-        'No established camping is identified for this short Portstown-to-Juniata-Point corridor. Treat it as a day trip.',
-      campingClassification: 'none',
-      summary:
-        'Launch at Portstown Park and take out at Juniata Point for a short upper-Juniata public-access link above the Raystown Branch mouth. Use the direct Huntingdon gauge and expect scraping whenever the river sits under PFBC\'s 1.5 ft minimum.',
-      accessCaveats: [
-        'PFBC publishes both Portstown Park and Juniata Point coordinates directly in the official upper Juniata access table.',
-        'Juniata Point is the intended public finish near the Raystown Branch mouth. Do not drift past it looking for informal banks downstream.',
-        'Short mileage does not remove the need to inspect muddy landing edges and current direction before leaving a vehicle.',
-        'Use only the named public accesses rather than private banks or bridge shoulders.',
-      ],
-      watchFor: [
-        'Low water under the Huntingdon 1.5 ft floor, when bars and shallow inside lines slow the route down quickly.',
-        'Broad-river headwind, current changes around bridge infrastructure, and fresh wood after storms.',
-        'Private shorelines away from the named public accesses and the chance of overshooting Juniata Point if you relax late in the run.',
-      ],
-    },
-  },
-  'juniata-river-portstown-park-riverside-park': {
+'juniata-river-portstown-park-riverside-park': {
     putIn: {
       id: 'portstown-park-access',
       name: 'Portstown Park access',
@@ -13381,7 +14345,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-juniata-point-riverside-park': {
+'juniata-river-juniata-point-riverside-park': {
     putIn: {
       id: 'juniata-point-ramp',
       name: 'Juniata Point ramp',
@@ -13421,7 +14385,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-juniata-point-mt-union': {
+'juniata-river-juniata-point-mt-union': {
     putIn: {
       id: 'juniata-point-ramp',
       name: 'Juniata Point ramp',
@@ -13461,7 +14425,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-riverside-park-mt-union': {
+'juniata-river-riverside-park-mt-union': {
     putIn: {
       id: 'riverside-park-mapleton-ramp',
       name: 'Riverside Park access',
@@ -13501,7 +14465,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-riverside-park-shawmut': {
+'juniata-river-riverside-park-shawmut': {
     putIn: {
       id: 'riverside-park-mapleton-ramp',
       name: 'Riverside Park access',
@@ -13541,7 +14505,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-riverside-park-newton-hamilton': {
+'juniata-river-riverside-park-newton-hamilton': {
     putIn: {
       id: 'riverside-park-mapleton-ramp',
       name: 'Riverside Park access',
@@ -13581,7 +14545,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-mt-union-newton-hamilton': {
+'juniata-river-mt-union-newton-hamilton': {
     putIn: {
       id: 'mt-union-access',
       name: 'Mt. Union access',
@@ -13621,7 +14585,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'juniata-river-shawmut-newton-hamilton': {
+'juniata-river-shawmut-newton-hamilton': {
     putIn: {
       id: 'shawmut-access',
       name: 'Shawmut access',
@@ -13661,7 +14625,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'french-creek-union-city-dam-cambridge-springs': {
+'french-creek-union-city-dam-cambridge-springs': {
     putIn: {
       name: 'Union City Dam access',
       latitude: 41.919722,
@@ -13728,7 +14692,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'french-creek-conneautee-bicentennial-park': {
+'french-creek-conneautee-bicentennial-park': {
     putIn: {
       name: 'Conneautee access',
       latitude: 41.811111,
@@ -13795,7 +14759,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'french-creek-wilson-chutes-utica': {
+'french-creek-wilson-chutes-utica': {
     putIn: {
       name: 'Wilson Chutes PFBC access',
       latitude: 41.589167,
@@ -13871,7 +14835,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'french-creek-utica-franklin': {
+'french-creek-utica-franklin': {
     putIn: {
       name: 'Utica PFBC access',
       latitude: 41.438056,
@@ -13929,7 +14893,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-  'south-llano-river-cupgrass-state-park': {
+'south-llano-river-cupgrass-state-park': {
     putIn: {
       name: 'TPWD Cupgrass Access',
       latitude: 30.393543,
@@ -13965,7 +14929,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'south-llano-river-state-park-flatrock-lane': {
+'south-llano-river-state-park-flatrock-lane': {
     putIn: {
       name: 'South Llano River State Park paddling access',
       latitude: 30.4498,
@@ -14000,7 +14964,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'south-llano-river-flatrock-lane-junction-city-park': {
+'south-llano-river-flatrock-lane-junction-city-park': {
     putIn: {
       name: 'Flatrock Lane Crossing',
       latitude: 30.4789,
