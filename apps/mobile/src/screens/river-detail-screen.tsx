@@ -65,7 +65,7 @@ import {
   verdictForRating,
 } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
-import { registerForRiverAlertPushNotifications, sendRiverAlertTestNotification } from '../lib/native-notifications';
+import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { captureAppException, trackAppEvent } from '../lib/observability';
 import {
   normalizeReportPhotoAsset,
@@ -198,7 +198,6 @@ export default function RiverDetailScreen() {
   }
 
   const riverSlug = detail.river.slug;
-  const routeName = detail.river.name;
   async function submitNativeRiverAlert(threshold: RiverAlertThreshold) {
     setPendingThreshold(threshold);
     try {
@@ -323,15 +322,6 @@ export default function RiverDetailScreen() {
 
   function removeReportPhoto(id: string) {
     setReportPhotos((current) => current.filter((photo) => photo.id !== id));
-  }
-
-  async function sendTestNotification() {
-    const result = await sendRiverAlertTestNotification(routeName);
-    setAlertStatus(result.message);
-    trackAppEvent('native_alert_test_sent', {
-      slug: riverSlug,
-      ok: result.ok,
-    });
   }
 
   function scrollToY(y: number) {
@@ -847,7 +837,6 @@ export default function RiverDetailScreen() {
         mutationPending={createAlertMutation.isPending}
         onClose={() => setAlertSheetVisible(false)}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
-        onTestNotification={() => void sendTestNotification()}
       />
     </>
   );
@@ -1653,7 +1642,6 @@ function AlertSetupSheet({
   mutationPending,
   onClose,
   onNativeAlert,
-  onTestNotification,
 }: {
   visible: boolean;
   routeName: string;
@@ -1663,7 +1651,6 @@ function AlertSetupSheet({
   mutationPending: boolean;
   onClose: () => void;
   onNativeAlert: (threshold: RiverAlertThreshold) => void;
-  onTestNotification: () => void;
 }) {
   return (
     <Modal animationType="slide" transparent visible={visible} onRequestClose={onClose}>
@@ -1707,16 +1694,6 @@ function AlertSetupSheet({
               {nativeAlertHelperText()}
             </Text>
           </View>
-
-          <Pressable
-            style={styles.alertTestButton}
-            onPress={onTestNotification}
-            accessibilityRole="button"
-            accessibilityLabel="Send a test notification"
-          >
-            <MaterialCommunityIcons name="bell-check-outline" color={colors.accent} size={18} />
-            <Text style={styles.alertTestButtonText}>Send test notification</Text>
-          </Pressable>
 
           <Text style={styles.alertStatus}>{status}</Text>
         </View>
@@ -3716,24 +3693,6 @@ const styles = StyleSheet.create({
     color: colors.textMuted,
     fontSize: 13,
     lineHeight: 19,
-  },
-  alertTestButton: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: 16,
-    paddingVertical: 11,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 7,
-  },
-  alertTestButtonText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
   },
   alertHelper: {
     color: colors.textMuted,

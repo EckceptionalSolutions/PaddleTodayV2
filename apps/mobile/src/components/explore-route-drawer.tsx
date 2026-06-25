@@ -5,7 +5,7 @@ import { useEffect, useMemo, useRef } from 'react';
 import { Animated, Linking, PanResponder, Pressable, ScrollView, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import { normalizeApiText } from '../lib/format';
 import { mapUrlForAccessPoint } from '../lib/maps';
-import { routeFactItems, routeFactLine } from '../lib/route-facts';
+import { routeFactLine } from '../lib/route-facts';
 import { RoutePhotoCard } from './route-photo-card';
 import { colors, radius, spacing } from '../theme/tokens';
 
@@ -84,36 +84,6 @@ export function ExploreRouteDrawer({
           />
         </Pressable>
       </View>
-      {expanded ? (
-        <RoutePhotoCard
-          river={selectedRiver.river}
-          compact
-          height={82}
-          onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
-        />
-      ) : null}
-      {expanded ? (
-        <View style={styles.mapPreviewFacts}>
-          {drawerFactItems(selectedRiver).slice(0, 3).map((fact) => (
-            <View key={fact} style={styles.mapPreviewFactPill}>
-              <Text style={styles.mapPreviewFactText} numberOfLines={1}>{fact}</Text>
-            </View>
-          ))}
-        </View>
-      ) : null}
-      <Text style={styles.mapPreviewReason} numberOfLines={expanded ? 2 : 1}>
-        {drawerDecisionLine(selectedRiver)}
-      </Text>
-      {expanded ? (
-        <View style={styles.conditionChipRow}>
-          {drawerConditionItems(selectedRiver).map((item) => (
-            <View key={item.label} style={styles.conditionChip}>
-              <Text style={styles.conditionChipLabel}>{item.label}</Text>
-              <Text style={styles.conditionChipValue} numberOfLines={1}>{item.value}</Text>
-            </View>
-          ))}
-        </View>
-      ) : null}
       <View style={styles.mapSheetActions}>
         <Pressable
           style={styles.mapPreviewOpenButton}
@@ -123,26 +93,18 @@ export function ExploreRouteDrawer({
         >
           <Text style={styles.mapPreviewOpenText} numberOfLines={1}>Open route</Text>
         </Pressable>
-        {routeCount > 1 && onOpenRiverRoutes ? (
-          <Pressable
-            style={styles.mapPreviewCompareButton}
-            onPress={onOpenRiverRoutes}
-            accessibilityRole="button"
-            accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
-          >
-            <Text style={styles.mapPreviewCompareText} numberOfLines={1}>Compare routes</Text>
-          </Pressable>
-        ) : null}
-        {selectedDirectionsUrl ? (
-          <Pressable
-            style={styles.mapDirectionsButton}
-            onPress={() => void Linking.openURL(selectedDirectionsUrl)}
-            accessibilityRole="button"
-            accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
-          >
-            <MaterialCommunityIcons name="directions" color={colors.accent} size={19} />
-          </Pressable>
-        ) : null}
+        <Pressable
+          style={[styles.mapDirectionsButton, selectedDirectionsUrl ? null : styles.mapDirectionsButtonDisabled]}
+          disabled={!selectedDirectionsUrl}
+          onPress={() => selectedDirectionsUrl ? void Linking.openURL(selectedDirectionsUrl) : undefined}
+          accessibilityRole="button"
+          accessibilityLabel={`Directions to ${selectedRiver.river.name} put-in`}
+        >
+          <MaterialCommunityIcons name="directions" color={selectedDirectionsUrl ? colors.accent : colors.textMuted} size={18} />
+          <Text style={[styles.mapDirectionsText, selectedDirectionsUrl ? null : styles.mapDirectionsTextDisabled]} numberOfLines={1}>
+            Directions
+          </Text>
+        </Pressable>
         <Pressable
           style={styles.mapSheetSnapButton}
           onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
@@ -152,43 +114,51 @@ export function ExploreRouteDrawer({
           <MaterialCommunityIcons name={sheetSnap === 'full' ? 'chevron-down' : 'chevron-up'} color={colors.text} size={21} />
         </Pressable>
       </View>
-      {full ? (
+      {expanded ? (
         <ScrollView
-          style={styles.selectedDetailsScroll}
+          style={styles.drawerContentScroll}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={styles.selectedDetails}
+          contentContainerStyle={styles.drawerContent}
         >
-          <View style={styles.selectedStatGrid}>
-            <DrawerStat label="Score" value={`${selectedRiver.score} / ${selectedRiver.rating}`} icon="chart-donut" />
-            <DrawerStat label="Distance" value={selectedRiver.river.distanceLabel || 'Unknown'} icon="map-marker-distance" />
-            <DrawerStat label="Paddle time" value={selectedRiver.river.estimatedPaddleTime || 'Unknown'} icon="clock-outline" />
-            <DrawerStat label="Difficulty" value={capitalize(selectedRiver.river.difficulty)} icon="waves" />
+          <RoutePhotoCard
+            river={selectedRiver.river}
+            compact
+            height={full ? 92 : 76}
+            onContributePhotos={() => onContributePhotos(selectedRiver.river.slug)}
+          />
+          <Text style={styles.mapPreviewReason}>
+            {drawerDecisionLine(selectedRiver)}
+          </Text>
+          <View style={styles.conditionChipRow}>
+            {drawerConditionItems(selectedRiver).map((item) => (
+              <View key={item.label} style={styles.conditionChip}>
+                <Text style={styles.conditionChipLabel}>{item.label}</Text>
+                <Text style={styles.conditionChipValue} numberOfLines={1}>{item.value}</Text>
+              </View>
+            ))}
           </View>
+          {routeCount > 1 && onOpenRiverRoutes ? (
+            <Pressable
+              style={styles.drawerCompareButton}
+              onPress={onOpenRiverRoutes}
+              accessibilityRole="button"
+              accessibilityLabel={`Compare ${routeCount} ${selectedRiver.river.name} routes`}
+            >
+              <MaterialCommunityIcons name="map-marker-path" color={colors.accent} size={17} />
+              <Text style={styles.drawerCompareText} numberOfLines={1}>Compare {routeCount} routes</Text>
+            </Pressable>
+          ) : null}
           <View style={styles.selectedNote}>
             <Text style={styles.selectedNoteTitle}>Route context</Text>
             <Text style={styles.selectedNoteText}>{drawerFactLine(selectedRiver)}</Text>
           </View>
         </ScrollView>
-      ) : null}
+      ) : (
+        <Text style={styles.mapPreviewReason} numberOfLines={1}>
+          {drawerDecisionLine(selectedRiver)}
+        </Text>
+      )}
     </Animated.View>
-  );
-}
-
-function DrawerStat({
-  label,
-  value,
-  icon,
-}: {
-  label: string;
-  value: string;
-  icon: keyof typeof MaterialCommunityIcons.glyphMap;
-}) {
-  return (
-    <View style={styles.selectedStat}>
-      <MaterialCommunityIcons name={icon} color={colors.accent} size={17} />
-      <Text style={styles.selectedStatLabel}>{label}</Text>
-      <Text style={styles.selectedStatValue} numberOfLines={2}>{value}</Text>
-    </View>
   );
 }
 
@@ -262,7 +232,7 @@ function sheetHeightStyle(bottomInset = 0) {
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
   if (value === 'full') return Math.min(510, maxHeight);
   if (value === 'half') return Math.min(356, Math.max(300, maxHeight - 96));
-  return 168;
+  return 188;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
@@ -289,15 +259,6 @@ function clampSheetHeight(height: number, maxSheetHeight: number) {
   return Math.min(sheetHeightValue('full', maxSheetHeight), Math.max(sheetHeightValue('peek', maxSheetHeight), height));
 }
 
-function drawerFactItems(river: ExploreDrawerRiver) {
-  return routeFactItems(river.river, {
-    includePaddleTime: true,
-    includeNoCamping: true,
-  }).filter((fact) => fact !== river.river.distanceLabel || !river.travelLabel)
-    .slice(0, river.travelLabel ? 2 : 3)
-    .concat(river.travelLabel ? [river.travelLabel] : []);
-}
-
 function drawerFactLine(river: ExploreDrawerRiver) {
   const base = routeFactLine(river.river, {
     includePaddleTime: true,
@@ -322,10 +283,6 @@ function drawerConditionItems(river: ExploreDrawerRiver) {
     { label: 'Data', value: river.liveData.overall === 'live' ? 'Live' : normalizeApiText(river.liveData.overall) },
     { label: 'Drive', value: river.travelLabel ?? river.river.region },
   ];
-}
-
-function capitalize(value: string) {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
 }
 
 const styles = StyleSheet.create({
@@ -416,11 +373,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  mapPreviewFacts: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 6,
-  },
   mapPreviewReason: {
     color: colors.textMuted,
     fontSize: 12,
@@ -453,18 +405,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '900',
   },
-  mapPreviewFactPill: {
-    maxWidth: '100%',
-    borderRadius: radius.pill,
-    backgroundColor: colors.canvasMuted,
-    paddingHorizontal: 9,
-    paddingVertical: 5,
-  },
-  mapPreviewFactText: {
-    color: colors.text,
-    fontSize: 11,
-    fontWeight: '900',
-  },
   mapPreviewOpenButton: {
     flex: 1,
     borderRadius: radius.pill,
@@ -478,7 +418,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '900',
   },
-  mapPreviewCompareButton: {
+  mapDirectionsButton: {
     flex: 1,
     borderRadius: radius.pill,
     borderWidth: 1,
@@ -487,22 +427,21 @@ const styles = StyleSheet.create({
     minHeight: 40,
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: 'row',
+    gap: 6,
     paddingHorizontal: spacing.sm,
   },
-  mapPreviewCompareText: {
+  mapDirectionsButtonDisabled: {
+    borderColor: colors.border,
+    backgroundColor: colors.canvasMuted,
+  },
+  mapDirectionsText: {
     color: colors.accent,
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '900',
   },
-  mapDirectionsButton: {
-    width: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    minHeight: 40,
-    alignItems: 'center',
-    justifyContent: 'center',
+  mapDirectionsTextDisabled: {
+    color: colors.textMuted,
   },
   mapSheetActions: {
     flexDirection: 'row',
@@ -516,39 +455,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  selectedDetailsScroll: {
+  drawerContentScroll: {
     flex: 1,
     minHeight: 0,
   },
-  selectedDetails: {
+  drawerContent: {
     gap: spacing.sm,
     paddingBottom: spacing.lg,
   },
-  selectedStatGrid: {
+  drawerCompareButton: {
+    minHeight: 40,
+    borderRadius: radius.pill,
+    borderWidth: 1,
+    borderColor: colors.border,
+    backgroundColor: colors.surfaceStrong,
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: spacing.sm,
-  },
-  selectedStat: {
-    width: '48%',
-    minHeight: 78,
-    borderRadius: radius.md,
-    backgroundColor: colors.surface,
-    padding: spacing.sm,
+    alignItems: 'center',
     justifyContent: 'center',
-    gap: 3,
+    gap: 7,
+    paddingHorizontal: spacing.md,
   },
-  selectedStatLabel: {
-    color: colors.textMuted,
-    fontSize: 10,
-    fontWeight: '900',
-    textTransform: 'uppercase',
-    letterSpacing: 0.3,
-  },
-  selectedStatValue: {
-    color: colors.text,
+  drawerCompareText: {
+    color: colors.accent,
     fontSize: 13,
-    lineHeight: 17,
     fontWeight: '900',
   },
   selectedNote: {

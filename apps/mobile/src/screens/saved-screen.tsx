@@ -10,7 +10,7 @@ import { AppLoadingState } from '../components/app-state';
 import { RiverCard } from '../components/river-card';
 import { SectionCard } from '../components/section-card';
 import { alertMutationMessage, alertThresholdLabel } from '../lib/alerts';
-import { registerForRiverAlertPushNotifications, sendRiverAlertTestNotification } from '../lib/native-notifications';
+import { registerForRiverAlertPushNotifications } from '../lib/native-notifications';
 import { useAlertPreferences, type SavedRouteAlertRecord } from '../providers/alert-preferences-provider';
 import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
@@ -67,11 +67,6 @@ export default function SavedScreen() {
     } finally {
       setPendingAlertKey(null);
     }
-  }
-
-  async function sendTestNotification() {
-    const result = await sendRiverAlertTestNotification();
-    setAlertStatus(result.message);
   }
 
   if (!isHydrated) {
@@ -186,15 +181,6 @@ export default function SavedScreen() {
           title="Saved alerts"
           subtitle="Turn on Good or Strong phone alerts for repeat routes."
         >
-          <Pressable
-            style={styles.alertTestButton}
-            onPress={() => void sendTestNotification()}
-            accessibilityRole="button"
-            accessibilityLabel="Send a test notification"
-          >
-            <MaterialCommunityIcons name="bell-check-outline" color={colors.accent} size={18} />
-            <Text style={styles.alertTestButtonText}>Send test notification</Text>
-          </Pressable>
           <View style={styles.alertRouteList}>
             {savedSummaries.map((river) => (
               <SavedAlertRow
@@ -560,24 +546,6 @@ const styles = StyleSheet.create({
     color: colors.text,
     fontSize: 14,
     lineHeight: 20,
-  },
-  alertTestButton: {
-    minHeight: 44,
-    borderRadius: radius.pill,
-    borderWidth: 1,
-    borderColor: colors.accent,
-    backgroundColor: colors.surfaceStrong,
-    paddingHorizontal: 16,
-    paddingVertical: 11,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'row',
-    gap: 7,
-  },
-  alertTestButtonText: {
-    color: colors.accent,
-    fontSize: 13,
-    fontWeight: '900',
   },
   alertRouteList: {
     gap: spacing.sm,
