@@ -28,6 +28,7 @@ The counts below are from the current working tree on 2026-05-31. Recompute befo
 | Kentucky | 0 | Fresh expansion state, KDFWR Blue Water Trails first | [Kentucky](kentucky.md) |
 | Arkansas | 0 | Fresh Ozark expansion state, NPS/USFS/AW first | [Arkansas](arkansas.md) |
 | Tennessee | 0 | Fresh Southeast expansion state, state/federal/AW first | [Tennessee](tennessee.md) |
+| Texas | 3 | New South Llano TPWD access-chain routes implemented | [Texas](texas.md) |
 | Indiana | 0 | Existing ledger backlog, threshold/gauge blockers first | [Indiana](indiana.md) |
 | Nebraska | 1 | Platte River Schramm-to-Louisville implemented; continue conservative blocker refresh for remaining leads | [Nebraska](nebraska.md) |
 | North Dakota | 3 | Sheyenne, Pembina, and Little Missouri implemented; remaining leads mostly coordinate or threshold blocked | [North Dakota](north-dakota.md) |

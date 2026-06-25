@@ -44103,4 +44103,387 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'south-llano-river-cupgrass-state-park',
+    slug: 'south-llano-river-cupgrass-state-park',
+    name: 'South Llano River',
+    reach: 'Cupgrass Access to South Llano River State Park',
+    aliases: [
+      'South Llano River - Cupgrass to State Park',
+      'South Llano River near Junction',
+      'TPWD Cupgrass to South Llano River State Park',
+    ],
+    state: 'Texas',
+    region: 'Texas Hill Country',
+    summary:
+      'Spring-fed Hill Country float from the TPWD Cupgrass lease site to South Llano River State Park. TPWD publishes the exact public access pair and 9.3-mile route shape, while the Junction gauge offers direct same-day flow support for a conservative minimum-only model.',
+    statusText:
+      'Use the South Llano gauge at Flat Rock Lane near Junction. Treat 65 cfs as the conservative community floor, and expect a better glide above roughly 100 cfs. TPWD says the South Llano averages around 75 cfs and paddles best when it is on a slight rise.',
+    latitude: 30.393543,
+    longitude: -99.886693,
+    gaugeSource: {
+      id: 'usgs-08149900',
+      provider: 'usgs',
+      siteId: '08149900',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'S Llano Rv at Flat Rock Ln at Junction, TX',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'Low water exposes shallow riffles, scrape spots, and wood that are easier to read from the boat when the gauge is comfortably above the conservative floor.',
+        'TPWD warns that heavy rains and high water can create dangerous conditions on this otherwise gentle corridor.',
+        'Respect private property and use only the named TPWD access sites, direct portage paths, and the designated state-park landing.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 65,
+      thresholdSource: {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'The South Llano is one of the more reliable spring-fed Texas runs and can work year-round when weather and gauge conditions cooperate. Even so, shallow riffles appear sooner near the 65 cfs floor, while storms can raise the current quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is generally gentle, but this is still a 9.3-mile moving-water day with shallow riffles, line choice around wood, bright sun exposure, and a public-park finish that deserves some planning.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: TPWD publishes the exact Cupgrass coordinates, the 9.3-mile distance to South Llano River State Park, the park access coordinates, and current gauge linkage to USGS 08149900. Flow guidance is weaker than the access package, so the route ships with a minimum-only model that uses the conservative 65 cfs floor from Texas paddling-community references and TPWD\'s older note that the South Llano averages about 75 cfs and is best on a slight rise.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published flow guidance',
+        value: '65 cfs minimum; 100-500 cfs broader ideal',
+        note: 'Texas Rivers Protection Association summarizes the South Llano with a 65 cfs minimum and 100-500 cfs ideal band at the Junction gauge.',
+        sourceUrl: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+      },
+      {
+        label: 'Official flow context',
+        value: 'Spring-fed river averaging about 75 cfs',
+        note: 'TPWD\'s Texas waterway analysis says the South Llano has a healthy flow averaging around 75 cfs and that the best recreation conditions come when rain is abundant and the river is on a slight rise.',
+        sourceUrl: 'https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/20_c_tx_llano.phtml',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Cupgrass to South Llano River State Park, about 9.3 mi',
+        note: 'The TPWD Cupgrass access page says a paddle from the lease site down to South Llano State Park is about 9.3 river miles.',
+        sourceUrl: 'https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Cupgrass Access, 30.393543, -99.886693',
+        note: 'TPWD publishes Cupgrass coordinates and says paddlers launch through Bailey Creek after reserving parking by text.',
+        sourceUrl: 'https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml',
+      },
+      {
+        label: 'Take-out access',
+        value: 'South Llano River State Park, 30.4498, -99.8128',
+        note: 'The TPWD South Llano Paddling Trail page identifies the state-park access point and the state-park page confirms camping and day-use reservation context at the finish.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 08149900 at 75.8 cfs / 2.25 ft',
+        note: 'USGS Water Services returned same-day values for S Llano River at Flat Rock Lane at Junction, TX at 2026-06-25 08:25 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Shallow riffles, strainers, high-water rises, private banks',
+        note: 'TPWD says the trail includes quiet pools, gentle riffles, and runs, warns about snags at low water, and says heavy rain and high water can create dangerous conditions.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'TPWD Cupgrass access',
+        url: 'https://tpwd.texas.gov/fishboat/fish/recreational/rivers/lease_access/south_llano_cupgrass.phtml',
+        provider: 'local',
+      },
+      {
+        label: 'TPWD South Llano paddling trail',
+        url: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'TPWD South Llano River State Park',
+        url: 'https://tpwd.texas.gov/state-parks/south-llano-river',
+        provider: 'local',
+      },
+      {
+        label: 'TPWD Texas waterway analysis for the Llano',
+        url: 'https://tpwd.texas.gov/publications/pwdpubs/pwd_rp_t3200_1047/20_c_tx_llano.phtml',
+        provider: 'local',
+      },
+      {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 08149900 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 08149900 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-llano-river-state-park-flatrock-lane',
+    slug: 'south-llano-river-state-park-flatrock-lane',
+    name: 'South Llano River',
+    reach: 'South Llano River State Park to Flatrock Lane Crossing',
+    aliases: [
+      'South Llano River - State Park to Flatrock',
+      'South Llano Paddling Trail upper split',
+      'TPWD South Llano River SP to Flatrock Lane',
+    ],
+    state: 'Texas',
+    region: 'Texas Hill Country',
+    summary:
+      'Shorter South Llano paddling-trail split from South Llano River State Park to Flatrock Lane Crossing. TPWD publishes the exact access pair, the 4.7-mile route length, and the state-park logistics that make this a conservative half-day add.',
+    statusText:
+      'Use the South Llano gauge at Flat Rock Lane near Junction. Treat 65 cfs as the conservative floor and expect a cleaner ride above roughly 100 cfs. At low water, the biggest issue is scraping through riffles and weaving around woody edges.',
+    latitude: 30.4498,
+    longitude: -99.8128,
+    gaugeSource: {
+      id: 'usgs-08149900',
+      provider: 'usgs',
+      siteId: '08149900',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'S Llano Rv at Flat Rock Ln at Junction, TX',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['mandatory_takeout', 'strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'TPWD says paddlers at South Llano River State Park must use the designated landing and portage around the damaged bridge area before reentering downstream.',
+        'Below the portage, expect shallow riffles and occasional snags, especially when the gauge is near the conservative floor.',
+        'Heavy rain can raise this spring-fed river quickly enough to turn a casual half-day float into a fast current check.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 65,
+      thresholdSource: {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'This short state-park segment can work most of the year, but it still feels bony near the 65 cfs floor and more pushy after storms. Warm-season day use is easiest because the route is short and the park services are fully active.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is a gentle moving-water float, not a whitewater run, but the start requires a manager-directed bridge portage and the riffles still reward basic boat control.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: TPWD publishes the state-park and Flatrock coordinates, the 4.7-mile subsegment length, and the safety note that paddlers must exit and portage around the damaged bridge area. Same-day direct USGS data was available at the Flatrock gauge, but the numeric flow ladder remains community-sourced rather than manager-published, so the route keeps a minimum-only model.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published flow guidance',
+        value: '65 cfs minimum; 100-500 cfs broader ideal',
+        note: 'Texas Rivers Protection Association summarizes the South Llano with a 65 cfs minimum and 100-500 cfs ideal band at the Junction gauge.',
+        sourceUrl: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+      },
+      {
+        label: 'Official route segment',
+        value: 'State Park to Flatrock Lane, 4.7 mi',
+        note: 'TPWD lists South Llano River State Park to Flatrock Lane Crossing as a 4.7-mile alternate split of the South Llano Paddling Trail.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'South Llano River State Park, 30.4498, -99.8128',
+        note: 'The TPWD paddling-trail page identifies the state-park trail access point, and the state-park page says the park has one designated place for paddlers to park and put in.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Flatrock Lane Crossing, 30.4789, -99.7778',
+        note: 'TPWD identifies Flatrock Lane Crossing as a named paddling-trail access point with published coordinates.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Bridge portage',
+        value: 'Mandatory state-park bridge portage',
+        note: 'TPWD says paddlers must exit the river at the designated location prior to the bridge at South Llano River State Park and portage around the bridge before reentering downstream.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 08149900 at 75.8 cfs / 2.25 ft',
+        note: 'USGS Water Services returned same-day values for S Llano River at Flat Rock Lane at Junction, TX at 2026-06-25 08:25 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'TPWD South Llano paddling trail',
+        url: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'TPWD South Llano River State Park',
+        url: 'https://tpwd.texas.gov/state-parks/south-llano-river',
+        provider: 'local',
+      },
+      {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 08149900 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 08149900 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'south-llano-river-flatrock-lane-junction-city-park',
+    slug: 'south-llano-river-flatrock-lane-junction-city-park',
+    name: 'South Llano River',
+    reach: 'Flatrock Lane Crossing to Junction City Park',
+    aliases: [
+      'South Llano River - Flatrock to Junction City Park',
+      'South Llano Paddling Trail lower split',
+      'TPWD Flatrock Lane to Junction City Park',
+    ],
+    state: 'Texas',
+    region: 'Texas Hill Country',
+    summary:
+      'Very short downstream South Llano paddling-trail connector from Flatrock Lane Crossing to Junction City Park. TPWD publishes the exact public access pair and 1.6-mile route shape, making this the easiest way to ship a short official Junction-area option beyond the state-park split.',
+    statusText:
+      'Use the South Llano gauge at Flat Rock Lane near Junction. Treat 65 cfs as the conservative floor, with a cleaner glide above roughly 100 cfs. This one-hour segment is still a moving river, so wood and post-rain current matter more than the mileage suggests.',
+    latitude: 30.4789,
+    longitude: -99.7778,
+    gaugeSource: {
+      id: 'usgs-08149900',
+      provider: 'usgs',
+      siteId: '08149900',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'S Llano Rv at Flat Rock Ln at Junction, TX',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This is a short route, but TPWD still warns that snags become more annoying at low water and that heavy rain can make the river dangerous.',
+        'Use the named public access points and do not treat nearby private banks as casual rest stops.',
+        'Treat the Junction City Park finish as the planned exit instead of drifting toward other banks or bridge edges near town.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 65,
+      thresholdSource: {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'community',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+      seasonNotes:
+        'This short town-edge connector can work in most seasons when the gauge is not scraping at the floor or surging after rain. Because the mileage is low, it works best as a quick outing or as part of a basecamp weekend.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Quiet pools and easy riffles keep the route approachable, but it is still moving water with occasional wood and changing current after storms.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: TPWD publishes the exact Flatrock and Junction City Park coordinates, the 1.6-mile split distance, and the route-level cautions about snags, private property, and dangerous high water. Same-day direct USGS values were available at the Flatrock gauge, but the numeric floor remains community-sourced rather than agency-published.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Published flow guidance',
+        value: '65 cfs minimum; 100-500 cfs broader ideal',
+        note: 'Texas Rivers Protection Association summarizes the South Llano with a 65 cfs minimum and 100-500 cfs ideal band at the Junction gauge.',
+        sourceUrl: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+      },
+      {
+        label: 'Official route segment',
+        value: 'Flatrock Lane to Junction City Park, 1.6 mi',
+        note: 'TPWD lists Flatrock Lane Crossing to Junction City Park as a 1.6-mile alternate split of the South Llano Paddling Trail.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Flatrock Lane Crossing, 30.4789, -99.7778',
+        note: 'TPWD identifies Flatrock Lane Crossing as a named paddling-trail access point with published coordinates.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Junction City Park, 30.4879, -99.7617',
+        note: 'TPWD identifies Junction City Park as a named paddling-trail access point with published coordinates.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Official trail cautions',
+        value: 'Low-water snags; dangerous high water',
+        note: 'TPWD says the trail has quiet pools, riffles, and runs, warns about snags at low water, and says heavy rains and high water can create dangerous conditions.',
+        sourceUrl: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 08149900 at 75.8 cfs / 2.25 ft',
+        note: 'USGS Water Services returned same-day values for S Llano River at Flat Rock Lane at Junction, TX at 2026-06-25 08:25 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'TPWD South Llano paddling trail',
+        url: 'https://tpwd.texas.gov/boating/paddling-trails/hill-country/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'Texas Rivers Protection Association South Llano overview',
+        url: 'https://txrivers.org/discover-texas-rivers/south-llano/',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 08149900 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/08149900/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 08149900 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=08149900&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];
