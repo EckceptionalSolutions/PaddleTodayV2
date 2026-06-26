@@ -50,7 +50,14 @@ export function ExploreRouteDrawer({
   return (
     <Animated.View style={[styles.mapSheet, styles.fullMapSheet, sheetHeightStyle(bottomInset), { height: sheetGesture.animatedHeight }]}>
       <View style={styles.mapSheetHandleWrap} collapsable={false} {...sheetGesture.panHandlers}>
-        <View style={styles.mapSheetHandle} />
+        <Pressable
+          style={styles.mapSheetHandleButton}
+          onPress={() => setSheetSnap(nextSheetSnap(sheetSnap))}
+          accessibilityRole="button"
+          accessibilityLabel={sheetSnap === 'peek' ? 'Expand route drawer' : 'Collapse route drawer'}
+        >
+          <View style={styles.mapSheetHandle} />
+        </Pressable>
       </View>
       <View style={styles.mapPreviewHeader}>
         <View style={styles.mapPreviewDragRegion} collapsable={false} {...sheetGesture.panHandlers}>
@@ -218,7 +225,7 @@ function useMapSheetPanResponder(
   const panResponder = useMemo(
     () =>
       PanResponder.create({
-        onStartShouldSetPanResponder: () => true,
+        onStartShouldSetPanResponder: () => false,
         onMoveShouldSetPanResponder: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onMoveShouldSetPanResponderCapture: (_event, gestureState) => Math.abs(gestureState.dy) > 3,
         onPanResponderGrant: () => {
@@ -266,13 +273,11 @@ function sheetHeightStyle(bottomInset = 0) {
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
   if (value === 'full') return Math.min(510, maxHeight);
   if (value === 'half') return Math.min(356, Math.max(300, maxHeight - 96));
-  return 286;
+  return 256;
 }
 
 function nextSheetSnap(value: MapSheetSnap): MapSheetSnap {
-  if (value === 'peek') return 'half';
-  if (value === 'half') return 'full';
-  return 'peek';
+  return value === 'peek' ? 'half' : 'peek';
 }
 
 function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
@@ -282,7 +287,6 @@ function snapSheetAfterDrag(value: MapSheetSnap, dragY: number): MapSheetSnap {
   }
 
   if (dragY > 28) {
-    if (value === 'full') return 'half';
     return 'peek';
   }
 
@@ -348,6 +352,12 @@ const styles = StyleSheet.create({
     paddingTop: 9,
     paddingBottom: 4,
     minHeight: 18,
+  },
+  mapSheetHandleButton: {
+    minWidth: 72,
+    minHeight: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   mapSheetHandle: {
     width: 42,

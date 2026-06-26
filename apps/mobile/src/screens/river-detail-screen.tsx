@@ -76,7 +76,7 @@ import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
-const ANDROID_NAV_CONTROL_MIN_INSET = 40;
+const ANDROID_NAV_CONTROL_MIN_INSET = 72;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
