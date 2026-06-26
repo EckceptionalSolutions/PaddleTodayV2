@@ -184,6 +184,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Public domain',
     },
   ],
+  'little-fork-river-dentaybow-devereaux': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-fork-river-highway-73-samuelson': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
+  'little-fork-river-highway-73-silverdale': [
+    {
+      id: 'little-fork-river-cook-rapids-dpla',
+      src: '/gallery/little-fork-river-dentaybow-fiedler/little-fork-river-cook-rapids.jpg',
+      alt: 'The Little Fork River tumbles through a rocky rapid below tree-lined banks near Cook, Minnesota.',
+      caption: 'Little Fork River below the rapids near Cook',
+      credit: 'Minnesota State University Moorhead via DPLA/Wikimedia Commons',
+      takenLabel: 'Public domain',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',

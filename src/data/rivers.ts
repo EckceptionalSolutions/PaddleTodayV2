@@ -1757,6 +1757,309 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-fork-river-dentaybow-devereaux',
+    slug: 'little-fork-river-dentaybow-devereaux',
+    name: 'Little Fork River',
+    reach: 'Dentaybow to Devereaux',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Longer lower run on the official Little Fork Map 2 corridor, starting at Dentaybow and finishing at the Devereaux access. The direct MN 65 gauge and mapped public accesses make this an implementation-ready extension of the existing upper split.',
+    statusText:
+      'The MN 65 gauge near Dentaybow is best from 700 to 2,732.9 cfs. Below 350 cfs this stretch gets scrapy fast, and above 3,777.3 cfs the current becomes too pushy for a general recommendation.',
+    latitude: 48.2140198,
+    longitude: -93.4818504,
+    gaugeSource: {
+      id: 'mn-dnr-294',
+      provider: 'mn_dnr',
+      siteId: '294',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Little Fork, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76099001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76099001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR documents several Class I to II rapids on this map sheet, with Flat Rock Rapids downstream near river mile 29.8 marked as Class II and lacking a developed portage if you continue past the planned take-out.',
+        'This is a remote northern route with long wooded miles, cold shoulder-season water, and limited quick bailout options between official accesses.',
+        'Storm wood, beaver activity, and shifting strainers can materially change the route between runs.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 700,
+      idealMax: 2732.9,
+      tooLow: 350,
+      tooHigh: 3777.3,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Littlefork / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'MN DNR says Little Fork levels usually peak in late April, then decline through summer. This longer Dentaybow continuation is still runnable into summer, but low water makes the rapids rocky and wet stretches can raise the consequence of wood and current quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a longer northern river day with multiple riffles and light rapids, not a beginner float. Strong intermediates with route-reading skill and remote-trip judgment are the right audience.',
+      confidenceNotes:
+        'Confidence is good: the direct site 294 gauge sits just upstream of Dentaybow, DNR Map 2 names both Dentaybow and Devereaux with river miles, and the Minnesota public-water-access feature service resolves both official endpoints cleanly.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '350 / 700-2,732.9 / 3,777.3 cfs',
+        note: 'MN DNR interprets site 294 as Scrapable below 350 cfs, Low from 350 to 700, Medium from 700 to 2,732.9, High from 2,732.9 to 3,777.3, and Very High above 3,777.3.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Dentaybow RM 57.9 to Devereaux RM 37.1',
+        note: 'DNR Map 2 places Dentaybow at river mile 57.9 and the Devereaux access at river mile 37.1, supporting a 20.8-mile continuation on the same official Little Fork corridor.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Access evidence',
+        value: 'Dentaybow WAS00503 and Devereaux WAS02588',
+        note: 'Minnesota public-water-access data resolves Dentaybow on river left and Devereaux on river left as official Little Fork access sites with coordinates and river-mile values.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping posture',
+        value: 'Conservative day-trip framing',
+        note: 'The DNR map notes state forest camping opportunities on the map sheet, but it does not name a designated campsite between Dentaybow and Devereaux, so the route stays conservative for camping filters.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork2.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-highway-73-samuelson',
+    slug: 'little-fork-river-highway-73-samuelson',
+    name: 'Little Fork River',
+    reach: 'Highway 73 Bridge to Samuelson Park',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Long upstream-to-mid-corridor Little Fork run from the Highway 73 bridge down to Samuelson Park. Official DNR map support, a same-corridor Silverdale gauge, and a county-park campsite at the finish make this a defensible new northern day trip.',
+    statusText:
+      'The Silverdale / MN 65 gauge is best from 500 to 1,300.5 cfs. Below 400 cfs, expect scraping; above 2,835 cfs, the current becomes too pushy for a general recommendation.',
+    latitude: 47.858288,
+    longitude: -92.870024,
+    gaugeSource: {
+      id: 'mn-dnr-295',
+      provider: 'mn_dnr',
+      siteId: '295',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Silverdale, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR documents several Class I to II rapids on the Map 1 corridor, including scout-first drops and rapids without developed portages.',
+        'This is a remote northern route with cold water, brushy exits, and long distances between obvious recovery points.',
+        'Fallen trees, undercut banks, and changing wood are a normal part of the risk story on this reach.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1300.5,
+      tooLow: 400,
+      tooHigh: 2835,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Silverdale / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Little Fork usually peaks in late April and falls through summer. This upper-middle corridor depends on recent rain to stay off the scrapy floor, while higher water shortens recovery windows in the rapids.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The mileage, repeated riffle-and-rapid texture, and remote rescue profile keep this in the moderate bucket despite the campground-supported finish.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: DNR Map 1 places Highway 73 and Samuelson Park on the same official corridor, the Silverdale DNR gauge carries a full official ladder downstream on that corridor, and the public-water-access feature service resolves Samuelson as an official endpoint.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '400 / 500-1,300.5 / 2,835 cfs',
+        note: 'MN DNR interprets site 295 as Scrapable below 400 cfs, Low from 400 to 500, Medium from 500 to 1,300.5, High from 1,300.5 to 2,835, and Very High above 2,835.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Highway 73 RM 126.8 to Samuelson RM about 104',
+        note: 'DNR Map 1 places the Highway 73 bridge carry-in at river mile 126.8 and shows Samuelson County Park farther downstream on the same corridor near river mile 103.5.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Access evidence',
+        value: 'Samuelson WAS00502',
+        note: 'Minnesota public-water-access data resolves Samuelson Park on river left with coordinates and a 104.0 river-mile value, matching the named county-park finish on the DNR map.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Samuelson County Park tent sites',
+        note: 'DNR Map 1 says Samuelson County Park has a carry-in access, picnic table, toilet, drinking water, and tent sites, making it a legitimate endpoint-campground finish.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'little-fork-river-highway-73-silverdale',
+    slug: 'little-fork-river-highway-73-silverdale',
+    name: 'Little Fork River',
+    reach: 'Highway 73 Bridge to Silverdale',
+    state: 'Minnesota',
+    region: 'Northern Minnesota',
+    summary:
+      'Fuller Map 1 continuation from the Highway 73 bridge to the Silverdale access. This route keeps the same official Silverdale gauge but stretches into a longer remote northern day with on-route campground context.',
+    statusText:
+      'The Silverdale / MN 65 gauge is best from 500 to 1,300.5 cfs. Below 400 cfs, expect scraping; above 2,835 cfs, the current becomes too pushy for a general recommendation.',
+    latitude: 47.858288,
+    longitude: -92.870024,
+    gaugeSource: {
+      id: 'mn-dnr-295',
+      provider: 'mn_dnr',
+      siteId: '295',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Fork River nr Silverdale, MN65',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=76090001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=76090001&var1=262&width=700&height=320',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'remote', 'cold_water'],
+      safetyNotes: [
+        'MN DNR documents several Class I to II rapids on this corridor, and the longer mileage means fatigue can stack on top of the rapids rather than replacing them.',
+        'This is a remote wooded route where cold water, long shuttle consequences, and sparse exits matter more than the simple access names suggest.',
+        'Watch for fresh wood and sweeper changes after storms or spring runoff.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1300.5,
+      tooLow: 400,
+      tooHigh: 2835,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Little Fork River near Silverdale / MN 65',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'The Little Fork usually peaks in late April and falls through summer. This longer Silverdale finish needs enough water to keep the upper rapids moving cleanly without pushing the lower corridor into a high-consequence run.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'This is a very long northern river day with repeated rapids, not a casual extension of the Highway 73 route. Strong intermediates with stamina and scouting discipline are the right fit.',
+      confidenceNotes:
+        'Confidence is good: DNR Map 1 places Highway 73, Samuelson, and Silverdale on the same official Little Fork corridor, the Silverdale gauge is the direct same-corridor level source, and the public-water-access feature service resolves the Silverdale endpoint cleanly.',
+    },
+    evidenceNotes: [
+      {
+        label: 'DNR bands',
+        value: '400 / 500-1,300.5 / 2,835 cfs',
+        note: 'MN DNR interprets site 295 as Scrapable below 400 cfs, Low from 400 to 500, Medium from 500 to 1,300.5, High from 1,300.5 to 2,835, and Very High above 2,835.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Highway 73 RM 126.8 to Silverdale RM 99.9',
+        note: 'DNR Map 1 places the Highway 73 bridge at river mile 126.8, and Minnesota public-water-access data resolves the Silverdale access at river mile 99.9 on the same corridor below Samuelson Park.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Access evidence',
+        value: 'Samuelson WAS00502 and Silverdale WAS03037',
+        note: 'Minnesota public-water-access data resolves both Samuelson Park and Silverdale on the downstream continuation, giving this route an official intermediate bailout plus a named public take-out.',
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'Samuelson County Park tent sites on route',
+        note: 'DNR Map 1 says Samuelson County Park has drinking water and tent sites, giving this longer route real on-route campground support even though the planned take-out is the simpler Silverdale access.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Little Fork River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/littleforkriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Little Fork River map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/littlefork1.pdf',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'red-lake-river-smiley-bridge-centennial-park',
     slug: 'red-lake-river-smiley-bridge-centennial-park',
     name: 'Red Lake River',

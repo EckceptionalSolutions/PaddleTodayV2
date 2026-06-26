@@ -1232,6 +1232,51 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'little-fork-river-dentaybow-devereaux': {
+    putIn: {
+      name: 'Dentaybow Public Water Access Site',
+      latitude: 48.2140198,
+      longitude: -93.4818504,
+    },
+    takeOut: {
+      name: 'Devereaux Public Water Access Site',
+      latitude: 48.331078,
+      longitude: -93.4851298,
+    },
+    logistics: {
+      distanceLabel: '20.8 mi',
+      estimatedPaddleTime: 'Very long day, roughly 7 hr to 9 hr depending on level and scouting',
+      shuttle:
+        'Plan a remote Koochiching County shuttle between Dentaybow and Devereaux and do not treat the extra mileage like a trivial add-on to the shorter Fiedler split. Backup drivers, daylight, and road-condition margin matter here.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access rules and any county or state-forest restrictions in the corridor.',
+      camping:
+        'Treat this as a committed day trip. The DNR map notes state-forest camping opportunities on the broader map sheet, but it does not name a designated campsite between Dentaybow and Devereaux, so this route should not be sold as a camping-filter yes.',
+      summary:
+        'Launch at Dentaybow and take out at Devereaux for a longer continuation on Little Fork Map 2. This combines the upper wooded rapids with a much longer remote commitment before the lower Flat Rock corridor.',
+      accessCaveats: [
+        'Both endpoints are official public-water-access sites, but neither is a staffed park or campground finish.',
+        'The direct gauge is at the MN 65 bridge just upstream of the put-in, so check the reading before driving farther into the corridor.',
+        'Most of the shoreland remains private or undeveloped. Use named accesses and legal public-land camping only.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rocky riffles, and scout-first drops that get more consequential when the river pushes into the high band.',
+        'Cold water, sweepers, and fatigue compounding across more than 20 river miles with limited easy exits.',
+        'Scraping and more boat damage risk when flows fall toward the 350 cfs scrapable floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'fiedler',
+        name: 'Fiedler Public Water Access Site',
+        latitude: 48.2920545,
+        longitude: -93.4416055,
+        mileFromStart: 13.1,
+        segmentKind: 'creek',
+        note: 'Best named mid-route bailout before committing to the final miles toward Devereaux.',
+      },
+    ],
+  },
   'little-fork-river-fiedler-devereaux': {
     putIn: {
       name: 'Fiedler Public Water Access Site',
@@ -1265,6 +1310,85 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Cold water and changing current after rain even though this shortened split avoids the named downstream rapids.',
       ],
     },
+  },
+  'little-fork-river-highway-73-samuelson': {
+    putIn: {
+      name: 'Highway 73 bridge carry-in access',
+      latitude: 47.858288,
+      longitude: -92.870024,
+    },
+    takeOut: {
+      name: 'Samuelson Park Public Water Access Site',
+      latitude: 47.9485284,
+      longitude: -93.0992707,
+    },
+    logistics: {
+      distanceLabel: '22.8 mi',
+      estimatedPaddleTime: 'Very long day, roughly 7 hr to 9 hr depending on level and scouting',
+      shuttle:
+        'Stage the take-out at Samuelson Park before driving to the Highway 73 bridge. This is a long rural shuttle with limited services at the put-in, so handle daylight and backup-driver planning conservatively.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, county-park, and bridge-area parking rules.',
+      camping:
+        'Samuelson Park makes this a legitimate endpoint-campground route. DNR Map 1 says the park has a carry-in access, picnic table, toilet, drinking water, and tent sites.',
+      summary:
+        'Launch at the Highway 73 bridge and finish at Samuelson Park for a long Little Fork continuation below the Linden Grove gauge. Expect repeated rapids, remote wooded miles, and a county-park finish with real services.',
+      accessCaveats: [
+        'The Highway 73 bridge access is a bridge/gauge-area carry-in rather than a developed park.',
+        'Samuelson Park is the intended finish. Do not casually continue toward Silverdale unless you have planned the extra mileage and checked the lower access story.',
+        'Most of the route remains remote despite the campground finish, so missed-shuttle or weather problems still feel expensive.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rock riffles, and scout-first drops with brushy or undeveloped portage options.',
+        'Scraping and stalled progress when the Silverdale gauge falls toward the 400 cfs floor.',
+        'Cold water, wood hazards, and fatigue over a long northern day with few easy exits before Samuelson.',
+      ],
+    },
+  },
+  'little-fork-river-highway-73-silverdale': {
+    putIn: {
+      name: 'Highway 73 bridge carry-in access',
+      latitude: 47.858288,
+      longitude: -92.870024,
+    },
+    takeOut: {
+      name: 'Silverdale Public Water Access Site',
+      latitude: 47.9768919,
+      longitude: -93.1445789,
+    },
+    logistics: {
+      distanceLabel: '26.9 mi',
+      estimatedPaddleTime: 'Full-commitment day, roughly 8 hr to 10 hr depending on level and scouting',
+      shuttle:
+        'Use a conservative two-car shuttle from the Highway 73 bridge to Silverdale and treat the route like a full-day remote commitment. The longer downstream finish means late starts and marginal weather are bad bets.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, bridge-area parking, and county-park rules along the corridor.',
+      camping:
+        'This route has real on-route camping support rather than a campground take-out. DNR Map 1 says Samuelson Park has drinking water and tent sites, which makes it the clearest legal overnight or bailout support before the Silverdale finish.',
+      summary:
+        'Launch at the Highway 73 bridge and continue past Samuelson to finish at Silverdale for one of the longest official Little Fork corridor options currently in the app. This is a remote northern run with repeated rapids and a useful named bailout at Samuelson Park.',
+      accessCaveats: [
+        'Samuelson Park is the best intermediate bailout and should be treated as a real decision point, not just a landmark.',
+        'Silverdale is a simpler public access finish than Samuelson, so do not expect campground services at the take-out.',
+        'Long mileage plus rural roads make the shuttle more consequential than the access names alone suggest.',
+      ],
+      watchFor: [
+        'Class I to II rapids, rocky riffles, and fatigue stacking across nearly 27 river miles.',
+        'Scraping, boat-banging, and slower-than-expected travel when the Silverdale gauge is below the 400 cfs floor.',
+        'Cold water, sweepers, and route-length commitment in a corridor with limited quick roadside exits.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'samuelson',
+        name: 'Samuelson Park Public Water Access Site',
+        latitude: 47.9485284,
+        longitude: -93.0992707,
+        mileFromStart: 22.8,
+        segmentKind: 'creek',
+        note: 'Best named bailout and only campground-supported stop before the final Silverdale miles.',
+      },
+    ],
   },
   'little-fork-river-devereaux-lofgren-park': {
     putIn: {
