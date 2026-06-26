@@ -214,6 +214,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Public domain',
     },
   ],
+  'little-beaver-creek-pioneer-village-sprucevale': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'little-beaver-creek-sprucevale-lock-57-park': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'little-beaver-creek-pioneer-village-lock-57-park': [
+    {
+      id: 'little-beaver-creek-ohio-river-water-trail-commons',
+      src: '/gallery/little-beaver-creek-pioneer-village-sprucevale/little-beaver-creek-ohio-river-water-trail.jpg',
+      alt: 'Kayakers paddle the Little Beaver Creek corridor near Ohioville with wooded banks and gentle current under a bright sky.',
+      caption: 'Little Beaver Creek corridor near Ohioville',
+      credit: 'Dr. Vincent Troia via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'red-lake-river-smiley-bridge-centennial-park': [
     {
       id: 'red-lake-river-red-lake-falls-kiddle',

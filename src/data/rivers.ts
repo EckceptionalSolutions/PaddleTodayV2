@@ -14718,6 +14718,376 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'little-beaver-creek-pioneer-village-sprucevale',
+    slug: 'little-beaver-creek-pioneer-village-sprucevale',
+    name: 'Little Beaver Creek',
+    reach: 'Pioneer Village Launch to Sprucevale Launch',
+    state: 'Ohio',
+    region: 'East Liverpool / Ohio-Pennsylvania border',
+    summary:
+      'Short upper Little Beaver training float from Beaver Creek State Park to Sprucevale, with Class I-II current, a direct same-river USGS gauge, and state-park camping at the put-in.',
+    statusText:
+      'Whitewater/swiftwater only. Treat 300 cfs on Little Beaver Creek near East Liverpool as the conservative floor. The official guide says the upper rapids clean up above that, with stronger play around 1000 cfs, but it does not publish a safe high-water ceiling.',
+    latitude: 40.727423,
+    longitude: -80.611394,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'The official guide treats this as a beginner/intermediate whitewater training stretch, not a flatwater park float.',
+        'Piano Rapid and Lock Ledge deserve a visual scout whenever the creek is rising or your group is new to current.',
+        'Use only the named launches and stay off private banks except for true emergencies.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03109500',
+      provider: 'usgs',
+      siteId: '03109500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Beaver Creek near East Liverpool, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Ohio River Water Trail / Little Beaver Creek minimum-flow guidance',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Warm-season trips are most practical, but same-day rain matters more than the calendar because Little Beaver is flashy and can move wood quickly after storms.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The guide calls the upper section Class I-II and suitable for beginner/intermediate paddlers, but it still includes real rapids, current-reading decisions, and changing wood.',
+      confidenceNotes:
+        'Confidence is good for a conservative Ohio add: the official Ohio River Water Trail guide names Pioneer Village and Sprucevale as public launches with coordinates, ties the creek to the Grimms Bridge USGS gauge, and publishes the 300 cfs / 1-foot minimum plus route-character notes. The put-in camping story is also current and official through Beaver Creek State Park.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'About 3.2 river miles',
+        note: 'The Ohio River Water Trail map places Pioneer Village Launch at river mile 14.3 and Sprucevale Launch at river mile 11.1, supporting a 3.2-mile upper Little Beaver segment.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Official minimum flow',
+        value: '300 cfs or 1.0 ft on the wooden gauge',
+        note: 'The guide says the best rapid on the upper section is surfable at a minimum of 1 foot on the Beaver Creek State Park wooden gauge or 300 cfs on the Grimms Bridge USGS gauge.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03109500 at 383 cfs / 3.53 ft',
+        note: 'USGS Water Services returned same-day June 26, 2026 values for Little Beaver Creek near East Liverpool at 3:00 PM EDT.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Public launch coordinates',
+        value: 'Pioneer Village 40.727423, -80.611394; Sprucevale 40.704704, -80.585233',
+        note: 'The official map prints both launch names, coordinates, and river-mile positions for the upper Little Beaver access pair.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Beaver Creek State Park Campground at the put-in',
+        note: 'The official guide lists Beaver Creek State Park for camping on this corridor, and the current Ohio DNR campground page describes family camping and Sherman cabins above Little Beaver Creek.',
+        sourceUrl: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park-campground',
+      },
+      {
+        label: 'Route hazards',
+        value: 'Lock Ledge, Piano Rapid, fast rises, wood',
+        note: 'The guide highlights Lock Ledge and Piano Rapid on the upper section and gives standard paddling warnings about uncertainty in rapids, weather, and obstructions.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Ohio River Water Trail map with Little Beaver Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03109500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03109500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ohio DNR Beaver Creek State Park',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'Ohio DNR Beaver Creek State Park Campground',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park-campground',
+        provider: 'local',
+      },
+      {
+        label: 'Wikimedia Commons Little Beaver corridor image',
+        url: 'https://commons.wikimedia.org/wiki/File:Kayaking_on_the_Ohio_River_Water_Trail_at_Little_Beaver_Creek,_Ohioville_Pa_Photo_Credit_Dr._Vincent_Troia.jpg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'little-beaver-creek-sprucevale-lock-57-park',
+    slug: 'little-beaver-creek-sprucevale-lock-57-park',
+    name: 'Little Beaver Creek',
+    reach: 'Sprucevale Launch to Lock 57 Park Launch',
+    state: 'Ohio',
+    region: 'East Liverpool / Ohio-Pennsylvania border',
+    summary:
+      'Longer Little Beaver run from Sprucevale to the creek mouth at Lock 57 Park, with the official lower-section whitewater, Eagle Rapid, and a direct same-river USGS gauge.',
+    statusText:
+      'Whitewater/swiftwater only. Treat 300 cfs on Little Beaver Creek near East Liverpool as the conservative floor. The official guide warns the lower section is intermediate/advanced and that Eagle Rapid approaches Class III at high water, so the app does not claim a casual high-side range.',
+    latitude: 40.704704,
+    longitude: -80.585233,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'The official guide treats the Fredericktown-to-Lock-57 section as intermediate/advanced because Eagle Rapid gets stronger quickly as water rises.',
+        'Lock 57 is the planned exit at the mouth. Do not drift into the Ohio River unless your group intentionally planned that larger-water finish and shuttle.',
+        'Use the named launches only and expect wood, faster current, and rougher footing than the upper training stretch.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03109500',
+      provider: 'usgs',
+      siteId: '03109500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Beaver Creek near East Liverpool, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Ohio River Water Trail / Little Beaver Creek minimum-flow guidance',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'Warm-weather runs are most practical, but the main decision is same-day flow and weather. Little Beaver is flashy, and the lower section gets less forgiving after rain.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The official guide explicitly upgrades the lower section to intermediate/advanced because Eagle Rapid becomes a stronger Class II to near-Class III feature at higher levels.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the official map names Sprucevale and Lock 57 as public launches with printed coordinates, ties the creek to the Grimms Bridge USGS gauge, and documents the lower-section character and Eagle Rapid escalation. The threshold model stays minimum-only because the official source gives a floor and feature notes, not a complete safe high-water band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'About 10.9 river miles',
+        note: 'The Ohio River Water Trail map places Sprucevale Launch at river mile 11.1 and Lock 57 Park Launch at river mile 0.2, supporting a 10.9-mile lower Little Beaver segment.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Official minimum flow',
+        value: '300 cfs or 1.0 ft on the wooden gauge',
+        note: 'The guide uses the same Grimms Bridge / Beaver Creek State Park minimum for Little Beaver and does not publish a broader lower-section sweet spot or ceiling.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03109500 at 383 cfs / 3.53 ft',
+        note: 'USGS Water Services returned same-day June 26, 2026 values for Little Beaver Creek near East Liverpool at 3:00 PM EDT.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Public launch coordinates',
+        value: 'Sprucevale 40.704704, -80.585233; Lock 57 Park 40.645913, -80.512518',
+        note: 'The official map prints both launch names, coordinates, and river-mile positions for the lower Little Beaver access pair.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Lower-section hazard',
+        value: 'Eagle Rapid reaches Class II to near Class III at high water',
+        note: 'The guide says the lower section is wider and deeper than the upper run, appropriate for intermediate/advanced paddlers, and includes Eagle Rapid just downstream of Fredericktown that approaches Class III at high water.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Image reuse',
+        value: 'Wikimedia Commons corridor photo at Little Beaver / Ohioville',
+        note: 'A rights-clean Commons image exists for kayakers on the Ohio River Water Trail at Little Beaver Creek in Ohioville near the Lock 57 corridor.',
+        sourceUrl: 'https://commons.wikimedia.org/wiki/File:Kayaking_on_the_Ohio_River_Water_Trail_at_Little_Beaver_Creek,_Ohioville_Pa_Photo_Credit_Dr._Vincent_Troia.jpg',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Ohio River Water Trail map with Little Beaver Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03109500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03109500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ohio DNR Beaver Creek State Park',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'Wikimedia Commons Little Beaver corridor image',
+        url: 'https://commons.wikimedia.org/wiki/File:Kayaking_on_the_Ohio_River_Water_Trail_at_Little_Beaver_Creek,_Ohioville_Pa_Photo_Credit_Dr._Vincent_Troia.jpg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'little-beaver-creek-pioneer-village-lock-57-park',
+    slug: 'little-beaver-creek-pioneer-village-lock-57-park',
+    name: 'Little Beaver Creek',
+    reach: 'Pioneer Village Launch to Lock 57 Park Launch',
+    state: 'Ohio',
+    region: 'East Liverpool / Ohio-Pennsylvania border',
+    summary:
+      'Full Little Beaver Creek whitewater day from Beaver Creek State Park to Lock 57 Park, combining the upper training section with the official lower run to the Ohio River mouth.',
+    statusText:
+      'Whitewater/swiftwater only. Treat 300 cfs on Little Beaver Creek near East Liverpool as the conservative floor. The full route includes the upper Class I-II rapids plus Eagle Rapid downstream, so the app stays minimum-only and does not infer a broad high-water recommendation.',
+    latitude: 40.727423,
+    longitude: -80.611394,
+    routeType: 'whitewater',
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'strainers', 'fast_rise', 'cold_water', 'private_banks'],
+      safetyNotes: [
+        'This full-day route combines the upper training water with the lower intermediate/advanced section, so paddlers should be comfortable with repeated rapids and a long shuttle.',
+        'Scout Piano Rapid, Lock Ledge, Eagle Rapid, and any fresh wood before committing to the full route.',
+        'Take out at Lock 57 Park before drifting into the Ohio River unless your group intentionally planned that bigger-water continuation.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03109500',
+      provider: 'usgs',
+      siteId: '03109500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Little Beaver Creek near East Liverpool, OH',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+    },
+    profile: {
+      thresholdModel: 'minimum-only',
+      tooLow: 300,
+      thresholdSource: {
+        label: 'Ohio River Water Trail / Little Beaver Creek minimum-flow guidance',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        'This is a committed warm-season whitewater day when same-day rain, wood, and the long shuttle matter more than any generic seasonal assumption.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The full route combines the upper Class I-II training section with the lower intermediate/advanced run and is too consequential to treat as a casual scenic float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: the official map names the full Pioneer-to-Lock-57 day, prints both endpoint coordinates, uses the Grimms Bridge gauge for Little Beaver, and documents both the upper minimum-flow cue and the lower Eagle-Rapid escalation. The route still stays minimum-only because the official source does not publish a complete high-side band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route shape',
+        value: 'About 14.1 river miles',
+        note: 'The Ohio River Water Trail map places Pioneer Village Launch at river mile 14.3 and Lock 57 Park Launch at river mile 0.2, supporting a 14.1-mile full Little Beaver day.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Official minimum flow',
+        value: '300 cfs or 1.0 ft on the wooden gauge',
+        note: 'The official guide says Little Beaver should have at least 1 foot on the state-park wooden gauge or 300 cfs on the Grimms Bridge USGS gauge before paddling.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03109500 at 383 cfs / 3.53 ft',
+        note: 'USGS Water Services returned same-day June 26, 2026 values for Little Beaver Creek near East Liverpool at 3:00 PM EDT.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Public launch coordinates',
+        value: 'Pioneer Village 40.727423, -80.611394; Lock 57 Park 40.645913, -80.512518',
+        note: 'The official map prints both endpoint names, coordinates, and river-mile positions for the full Little Beaver day route.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+      {
+        label: 'Camping support',
+        value: 'Beaver Creek State Park Campground at the put-in',
+        note: 'The official guide lists Beaver Creek State Park for camping on this corridor, and the current Ohio DNR campground page describes family camping and Sherman cabins above Little Beaver Creek.',
+        sourceUrl: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park-campground',
+      },
+      {
+        label: 'Main hazards',
+        value: 'Piano Rapid, Lock Ledge, Eagle Rapid, Ohio River mouth',
+        note: 'The official guide highlights the upper rapids, then says Eagle Rapid on the lower section approaches Class III at high water before the creek reaches Lock 57 at the Ohio River mouth.',
+        sourceUrl: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'Ohio River Water Trail map with Little Beaver Creek guide',
+        url: 'https://pfbc.pa.gov/watertrails/ohio/Ohio-side1.pdf',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03109500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03109500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03109500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03109500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Ohio DNR Beaver Creek State Park',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park',
+        provider: 'local',
+      },
+      {
+        label: 'Ohio DNR Beaver Creek State Park Campground',
+        url: 'https://ohiodnr.gov/go-and-do/plan-a-visit/find-a-property/beaver-creek-state-park-campground',
+        provider: 'local',
+      },
+      {
+        label: 'Wikimedia Commons Little Beaver corridor image',
+        url: 'https://commons.wikimedia.org/wiki/File:Kayaking_on_the_Ohio_River_Water_Trail_at_Little_Beaver_Creek,_Ohioville_Pa_Photo_Credit_Dr._Vincent_Troia.jpg',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'little-miami-river-kelley-milford',
     slug: 'little-miami-river-kelley-milford',
     name: 'Little Miami River',

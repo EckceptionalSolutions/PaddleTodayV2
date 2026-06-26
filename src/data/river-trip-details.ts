@@ -6359,6 +6359,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'little-beaver-creek-pioneer-village-sprucevale': {
+    putIn: {
+      name: 'Pioneer Village Launch',
+      latitude: 40.727423,
+      longitude: -80.611394,
+    },
+    takeOut: {
+      name: 'Sprucevale Launch',
+      latitude: 40.704704,
+      longitude: -80.585233,
+    },
+    logistics: {
+      distanceLabel: 'About 3.2 mi',
+      estimatedPaddleTime: 'About 1.5 hr to 2.5 hr depending on level and scouting',
+      shuttle:
+        'Use a short Echo Dell Road shuttle between Pioneer Village in Beaver Creek State Park and the Sprucevale bridge launch. Stage Sprucevale first because it is a simple road-edge take-out rather than a large developed ramp.',
+      permits:
+        'Ohio registration rules apply to recreational boats on this Ohio section. Follow current state-park, launch, and PFD rules at Beaver Creek State Park and the Sprucevale bridge access.',
+      camping:
+        'Beaver Creek State Park Campground makes this a practical camp-and-paddle route at the put-in. Reserve separately, and do not assume legal overnight stopping on private banks between the launches.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Pioneer Village in Beaver Creek State Park and take out at Sprucevale for the short upper-Little-Beaver training run. The official guide uses 300 cfs on the East Liverpool USGS gauge as the minimum and treats the upper rapids as a beginner/intermediate whitewater section.',
+      accessCaveats: [
+        'Pioneer Village is the named public launch inside Beaver Creek State Park. Campground and day-use traffic can tighten parking on busy weekends.',
+        'Sprucevale is a straightforward bridge launch rather than a full-service park. Keep the road shoulder and access area clear for other users.',
+        'This route intentionally stops above Fredericktown and Eagle Rapid. Continuing farther changes the hazard profile and should be treated as a different trip.',
+      ],
+      watchFor: [
+        'Lock Ledge and Piano Rapid on the upper section, especially if the creek is rising or the group is still learning to read current.',
+        'Fresh wood, strainers, and faster current after rain on a creek the official guide describes as flashy.',
+        'Cold water outside the hottest part of summer and limited legal stopping options away from the named launches.',
+      ],
+    },
+  },
+  'little-beaver-creek-sprucevale-lock-57-park': {
+    putIn: {
+      name: 'Sprucevale Launch',
+      latitude: 40.704704,
+      longitude: -80.585233,
+    },
+    takeOut: {
+      name: 'Lock 57 Park Launch',
+      latitude: 40.645913,
+      longitude: -80.512518,
+    },
+    logistics: {
+      distanceLabel: 'About 10.9 mi',
+      estimatedPaddleTime: 'About 4 hr to 6 hr depending on level, scouting, and group pace',
+      shuttle:
+        'Use a longer shuttle between Sprucevale and Lock 57 Park near Ohioville. Stage Lock 57 first because it sits at the mouth of Little Beaver Creek just upstream from the Ohio River.',
+      permits:
+        'Check current Ohio and Pennsylvania boating, launch, and PFD rules before using this border-section route. Follow posted access rules at Sprucevale and Lock 57 Park and do not assume any informal bank is public.',
+      camping:
+        'Treat this as a day trip. The official guide points to Beaver Creek State Park and Raccoon Creek State Park for camping, but neither sits at these endpoints and no on-route public campsite is documented.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Sprucevale and take out at Lock 57 Park for the lower Little Beaver run to the Ohio River mouth. The official guide keeps the same 300 cfs minimum, but it also says the lower section is intermediate/advanced and that Eagle Rapid approaches Class III at high water.',
+      accessCaveats: [
+        'Sprucevale is a simple bridge launch with less staging room than Pioneer Village. Keep vehicles tight and avoid blocking local traffic.',
+        'Lock 57 Park is the planned exit at the creek mouth. Missing the take-out pushes you into the Ohio River environment and changes the trip materially.',
+        'The route includes the Fredericktown / Eagle Rapid corridor. Scout and shorten the day if wood, weather, or group skill do not line up with the official lower-section warning level.',
+      ],
+      watchFor: [
+        'Eagle Rapid just downstream of Fredericktown, where the guide says the feature approaches Class III at high water.',
+        'Wider, deeper current on the lower section, plus wood, strainers, and fast rises after storms.',
+        'Cold water, fatigue on a longer day, and private-bank limits in the rural lower corridor.',
+      ],
+    },
+  },
+  'little-beaver-creek-pioneer-village-lock-57-park': {
+    putIn: {
+      name: 'Pioneer Village Launch',
+      latitude: 40.727423,
+      longitude: -80.611394,
+    },
+    takeOut: {
+      name: 'Lock 57 Park Launch',
+      latitude: 40.645913,
+      longitude: -80.512518,
+    },
+    logistics: {
+      distanceLabel: 'About 14.1 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr depending on level, scouting, and group pace',
+      shuttle:
+        'Use the full Beaver Creek State Park to Ohioville shuttle and leave extra daylight. This is a more committed day than either split section because it combines the upper training run with the lower Eagle-Rapid corridor.',
+      permits:
+        'Check current Ohio and Pennsylvania boating, launch, and PFD rules before using this border-section route. Follow posted state-park and Lock 57 access rules and stay with the named public launches.',
+      camping:
+        'Beaver Creek State Park Campground supports an endpoint-campground plan at the put-in. Reserve separately, and do not assume legal overnight use of private banks or the lower creek mouth corridor.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Pioneer Village in Beaver Creek State Park and continue all the way to Lock 57 Park for the full Little Beaver day. The official guide uses 300 cfs as the minimum, but this longer route includes both the upper rapids and Eagle Rapid downstream, so it is a conservative whitewater day rather than a casual scenic float.',
+      accessCaveats: [
+        'Pioneer Village is the cleanest staging area in this family, but this route is long enough that a borderline gauge or late start can become a real problem by the lower section.',
+        'Sprucevale is a mid-route bailout if the group decides not to continue into the lower Eagle-Rapid section, but the planned route assumes the full mouth finish at Lock 57 Park.',
+        'Lock 57 Park is the mandatory planned exit. Do not continue into the Ohio River without a separate open-water and shuttle plan.',
+      ],
+      watchFor: [
+        'Lock Ledge, Piano Rapid, Eagle Rapid, and any fresh downed wood on blind bends.',
+        'Fast post-rain rises, cold water, and the cumulative fatigue of a 14-mile whitewater day.',
+        'Private-bank limits, limited legal stops away from the named launches, and busier water near the Ohio River mouth.',
+      ],
+    },
+  },
   'little-miami-river-kelley-milford': {
     putIn: {
       name: 'Kelley Nature Preserve canoe/kayak access',
