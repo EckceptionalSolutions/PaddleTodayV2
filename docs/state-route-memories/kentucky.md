@@ -4,8 +4,8 @@ Last summarized: 2026-06-26 11:15 America/Chicago / 2026-06-26 16:15 UTC.
 
 ## Current Inventory
 
-- Live routes: 61.
-- Ledger candidates: 53 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
+- Live routes: 62.
+- Ledger candidates: 54 Kentucky-specific records. The newest live slug from this run is `south-fork-kentucky-river-oneida-hacker-branch`.
 
 ## Status
 
@@ -21,6 +21,10 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 13:30 America/New_York / 2026-06-26 17:30 UTC follow-up add
+  - Added `south-fork-kentucky-river-oneida-hacker-branch` as the full Oneida -> Rocky Branch -> Cedar Valley -> Bishop Bend -> Hacker Branch chain, using the KDFWR South Fork page mileages of `5.0`, `2.5`, `4.7`, and `3.3` miles for a `15.5` mile public route.
+  - Current KDFWR access-detail pages still support the public endpoint coordinates and launch notes for Oneida Ramp and Hacker Branch Road Access, while same-day direct USGS Water Services returned `98.3 cfs / 3.76 ft` at Booneville (`03281500`) at `2026-06-26 13:30 EDT`.
+  - The route stays conservative with `none` camping, low-water scraping warnings below the official Booneville good band, wood/muddy-landing cautions after rain, and reuse of the approved South Fork Commons corridor image instead of a new exact-route asset.
 - 2026-06-26 11:15 America/Chicago / 2026-06-26 16:15 UTC three-route add pass
   - Added `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek` to expand Kentucky to sixty-one live routes in the current tree.
   - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `5.0`, `2.5`, `4.7`, `3.3`, and `2.9` miles, which support the combined public routes of `12.2`, `10.5`, and `10.9` miles.

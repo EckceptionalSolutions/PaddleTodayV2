@@ -108,7 +108,7 @@ export default function ExploreScreen() {
     () => applyExploreFilters(rivers, draftFilters, location),
     [rivers, draftFilters, location]
   );
-  const selectedRiver = results.find((river) => river.river.slug === selectedSlug) ?? results[0] ?? null;
+  const selectedRiver = selectedSlug ? results.find((river) => river.river.slug === selectedSlug) ?? null : null;
   const activeFilterCount = countActiveFilters(filters);
 
   useEffect(() => {
@@ -197,8 +197,8 @@ export default function ExploreScreen() {
       return;
     }
 
-    if (!selectedSlug || !results.some((river) => river.river.slug === selectedSlug)) {
-      setSelectedSlug(results[0].river.slug);
+    if (selectedSlug && !results.some((river) => river.river.slug === selectedSlug)) {
+      setSelectedSlug(null);
     }
   }, [results, selectedSlug]);
 
@@ -352,7 +352,7 @@ function FullScreenExploreMap({
   onOpenRoute: (route: ExploreRiver) => void;
   onClearIntent: () => void;
   onSearchChange: (query: string) => void;
-  onSelectSlug: (slug: string) => void;
+  onSelectSlug: (slug: string | null) => void;
   onToggleSaved: (river: ExploreRiver) => void;
   onUseLocation: () => void;
   isSaved: (slug: string) => boolean;
@@ -361,7 +361,7 @@ function FullScreenExploreMap({
   const mapRef = useRef<RoutePlotMapHandle | null>(null);
   const points = useExploreMapPoints(results, routeCounts);
   const requesting = status === 'requesting';
-  const floatingControlBottom = sheetHeightValue(sheetSnap) + spacing.md;
+  const floatingControlBottom = (selectedRiver ? sheetHeightValue(sheetSnap) : 0) + spacing.md;
   const userOutOfRange = Boolean(userLocation && results.length === 0 && activeFilterCount === 0);
   const selectedRouteCount = selectedRiver ? routeGroupMetaForRoute(selectedRiver, routeCounts).routeCount : 0;
   const searchResultSignature = points.map((point) => point.id).join('|');
@@ -415,7 +415,10 @@ function FullScreenExploreMap({
           points={points}
           selectedId={selectedSlug}
           userLocation={userLocation}
-          onSelectPoint={(point) => onSelectSlug(point.id)}
+          onSelectPoint={(point) => {
+            setSheetSnap('peek');
+            onSelectSlug(point.id);
+          }}
           height={mapHeight}
           showFooter={false}
           fullBleed
@@ -543,6 +546,10 @@ function FullScreenExploreMap({
           bottomInset={bottomInset}
           routeCount={selectedRouteCount}
           isSaved={isSaved}
+          onClose={() => {
+            setSheetSnap('peek');
+            onSelectSlug(null);
+          }}
           onOpenRoute={() => {
             if (selectedRiver) {
               onOpenRoute(selectedRiver);

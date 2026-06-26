@@ -263,6 +263,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'kansas-river-junction-city-st-george': {
+    putIn: {
+      name: 'Junction City Access Ramp / Grant Park',
+      latitude: 39.06029,
+      longitude: -96.80341,
+    },
+    takeOut: {
+      name: 'St. George / Boggs Landing Access Ramp',
+      latitude: 39.18726,
+      longitude: -96.42202,
+    },
+    logistics: {
+      distanceLabel: 'About 35 mi',
+      estimatedPaddleTime:
+        'Best planned as an overnight or a very long endurance day; roughly 11 hr to 14 hr of moving time before wind, sandbar stops, or channel scouting',
+      shuttle:
+        'Stage the take-out at St. George / Boggs Landing first, then drive back to Grant Park in Junction City. This is too long to treat like a normal day float, so confirm both ramps, weather, and the overnight or emergency plan before launching.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that conservative sandbar camping is the honest plan for most paddlers. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Grant Park in Junction City and take out at St. George / Boggs Landing for a full upper-Kaw continuation through Ogden and Manhattan. The app uses the downstream Wamego gauge as a same-river proxy and treats this as overnight-capable distance content rather than a casual day route.',
+      accessCaveats: [
+        'The Junction City ramp is on the Republican River, not directly on the Kansas River. The Kansas River begins about one-third mile downstream where the Republican and Smoky Hill meet.',
+        'The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+        'All access and parking are subject to same-day city, county, mud, silt, high-water cleanup, and event conditions.',
+      ],
+      watchFor: [
+        'Unusual currents at the Republican and Smoky Hill confluence near the start.',
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Mid-route fatigue and heat on an exposed prairie river where the mileage keeps adding up after Ogden and Manhattan.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+  },
   'kansas-river-ogden-manhattan': {
     putIn: {
       name: 'Ogden Access Ramp',
@@ -335,6 +375,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
         'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
         'Mid-route fatigue on an exposed prairie river where the mileage keeps adding up after Manhattan.',
+        'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
+      ],
+    },
+  },
+  'kansas-river-ogden-wamego': {
+    putIn: {
+      name: 'Ogden Access Ramp',
+      latitude: 39.10503,
+      longitude: -96.69633,
+    },
+    takeOut: {
+      name: 'Wamego Access Ramp',
+      latitude: 39.19828,
+      longitude: -96.30537,
+    },
+    logistics: {
+      distanceLabel: 'About 34.5 mi',
+      estimatedPaddleTime:
+        'Best planned as an overnight or a very long endurance day; roughly 11 hr to 14 hr of moving time before wind, sandbar stops, or the Wamego bridge turn',
+      shuttle:
+        'Stage the take-out at the Wamego ramp beneath the K-99 bridge first, then drive back to Ogden. Inspect Wamego before launching because the approach often involves passing under the bridge and turning upstream next to the bank after a very long day.',
+      permits:
+        'No special paddling permit is known for private boats on the Kansas River. Use public ramps, follow posted city and county access rules, check Kansas boating/PFD requirements, and respect fishing-license rules if fishing.',
+      camping:
+        'This route is long enough that conservative sandbar camping is the honest plan for most paddlers. Friends of the Kaw says you can camp on public sandbars between the high-water marks without a special permit, but private banks above that line are off-limits and sandbars become scarce above about 8,000 cfs.',
+      campingClassification: 'sandbar_or_gravel_bar',
+      summary:
+        'Launch at Ogden and take out at Wamego for a full upper-Kaw continuation through Manhattan and St. George. The Wamego USGS gauge is direct for the take-out corridor, but the app still treats the broad Kansas River thresholds conservatively because the route is long and exposed.',
+      accessCaveats: [
+        'The Ogden ramp is straightforward, but same-day mud, sand, and trailer traffic still affect launch conditions.',
+        'The Manhattan K-177 / Fairmont ramp mid-corridor often has a sandbar at the toe, and nearby Blue River current can change when Tuttle Creek releases rise.',
+        'At Wamego, Friends of the Kaw says it is often advisable to pass under the K-99 bridge and turn upstream next to the bank to reach the ramp.',
+        'Stay with public ramps and legal sandbar stops between the high-water marks. The banks above the river are private property.',
+      ],
+      watchFor: [
+        'Low flows below about 1,000 cfs can make the channel narrow and sandbar navigation slow or technical.',
+        'Flows above 5,000 cfs are outside the novice band, and above 8,000 cfs Friends of the Kaw says sandbar rest stops become scarce.',
+        'Wind across open bends, storms, rising water, floating wood, strainers, and bank hooks or fishing lines left in shoreline trees.',
+        'Mid-route fatigue on an exposed prairie river where the mileage keeps adding up after Manhattan and St. George.',
+        'The final bridge-area approach into Wamego, where the safest line may include passing under K-99 and turning upstream along the bank.',
         'Private banks along the Kaw; do not plan on using them for rest, camping, or bailout access.',
       ],
     },
@@ -13904,6 +13984,44 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a long day.',
         'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving around bends and wood.',
         'Wood, strainers, muddy step-outs, occasional riffles, private banks outside the access sites, and simple endurance or weather mistakes on the longest route in this corridor.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-oneida-hacker-branch': {
+    putIn: {
+      id: 'oneida-ramp',
+      name: 'Oneida Ramp',
+      latitude: 37.2726,
+      longitude: -83.6532,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 15.5 mi',
+      estimatedPaddleTime: 'About 5.5 hr to 7.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Oneida Ramp. Oneida is the more developed paved launch, but Hacker Branch is a simpler carry-down exit with unpaved parking, so inspect the take-out before committing to the longer chain.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day ramp or roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Oneida or Hacker Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Oneida Ramp and take out about 15.5 miles downstream at Hacker Branch Road Access for a long upper-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Oneida Ramp is a free single-lane concrete launch with paved parking, but no listed amenities or camping.',
+        'Hacker Branch is a carry-down access with unpaved parking and no ramp or listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals, more dragging, and a slower overall day than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a long day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving around bends and wood.',
+        'Wood, strainers, muddy step-outs, occasional riffles, private banks outside the access sites, and simple endurance or weather mistakes on a long chained route.',
       ],
     },
   },

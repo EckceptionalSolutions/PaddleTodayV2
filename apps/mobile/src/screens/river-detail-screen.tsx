@@ -42,7 +42,7 @@ import {
   useRiverHistoryQuery,
   useRouteCommunityQuery,
 } from '../api/queries';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HistoryBars } from '../components/history-bars';
 import { AppErrorState, AppLoadingState } from '../components/app-state';
 import { RatingPill } from '../components/rating-pill';
@@ -76,7 +76,7 @@ import { useSavedRivers } from '../providers/saved-rivers-provider';
 import { colors, radius, spacing } from '../theme/tokens';
 
 const DETAIL_SECTIONS = ['Today', 'Access', 'Reports', 'More'] as const;
-const ANDROID_NAV_CONTROL_MIN_INSET = 72;
+const ANDROID_NAV_CONTROL_MIN_INSET = 96;
 
 type DetailSection = (typeof DETAIL_SECTIONS)[number];
 
@@ -97,6 +97,9 @@ export default function RiverDetailScreen() {
   const params = useLocalSearchParams<{ slug?: string | string[] }>();
   const router = useRouter();
   const insets = useSafeAreaInsets();
+  const bottomContentInset = Platform.OS === 'android'
+    ? Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET)
+    : insets.bottom;
   const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug ?? '';
   const detailQuery = useRiverDetailQuery(slug);
   const historyQuery = useRiverHistoryQuery(slug, 7);
@@ -426,14 +429,14 @@ export default function RiverDetailScreen() {
   }
 
   return (
-    <>
+    <SafeAreaView edges={['bottom']} style={styles.screenSafeArea}>
       <Stack.Screen options={{ title: detail.river.name }} />
       <ScrollView
         ref={scrollRef}
         style={styles.screen}
         contentContainerStyle={[
           styles.content,
-          { paddingBottom: spacing.xl + Math.max(insets.bottom, ANDROID_NAV_CONTROL_MIN_INSET) },
+          { paddingBottom: spacing.xl + bottomContentInset },
         ]}
         stickyHeaderIndices={[2]}
         refreshControl={
@@ -838,7 +841,7 @@ export default function RiverDetailScreen() {
         onClose={() => setAlertSheetVisible(false)}
         onNativeAlert={(threshold) => void submitNativeRiverAlert(threshold)}
       />
-    </>
+    </SafeAreaView>
   );
 }
 
@@ -2465,6 +2468,10 @@ function ageLabel(value: string) {
 }
 
 const styles = StyleSheet.create({
+  screenSafeArea: {
+    flex: 1,
+    backgroundColor: colors.canvas,
+  },
   screen: {
     flex: 1,
     backgroundColor: colors.canvas,
