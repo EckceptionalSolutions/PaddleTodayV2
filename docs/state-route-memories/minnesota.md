@@ -4,15 +4,21 @@ Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 60.
-- Top represented rivers: Crow Wing River 10, Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
-- Ledger candidates: 55 total; 21 added, 20 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`.
+- Live routes: 71.
+- Top represented rivers: Crow Wing River 14, Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
+- Ledger candidates: 70 total; 36 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
 
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-26 04:00 America/Chicago: added `crow-wing-river-mary-brown-little-white-dog`, `crow-wing-river-andersons-crossing-knob-hill`, and `crow-wing-river-stigmans-mound-cottingham`.
+- Implemented three longer Crow Wing continuations that bridge the remaining Mary Brown / Anderson's / Stigman's public chain into the already-live lower campground corridor instead of reopening a weaker new-state search.
+- Minnesota public-water-access GIS continues to resolve Mary Brown `WAS02558` at `46.7175822, -94.9289851`, Anderson's Crossing `WAS01526` at `46.6994226, -94.8818857`, Stigman's Mound `WAS02557` at `46.6404586, -94.8797039`, Little White Dog `WAS01527` at `46.5869849, -94.8226157`, Knob Hill `WAS01324` at `46.5338560, -94.8184926`, and Cottingham `WAS01325` at `46.5055299, -94.8073895`.
+- The corridor still uses direct MN DNR site `55` at Nimrod with same-day `217 cfs` at `2026-06-26 01:00 AM`; official bands remain Scrapable below `300 cfs`, Low `300-400`, Medium `400-800`, High `800-1100`, and Very High above `1100`.
+- All three routes ship as `on_route_campsite` because Anderson's Crossing, Little White Dog, and Knob Hill give documented midpoint overnight or bailout support on the longer continuations. Safety notes stay conservative around Walkin's / Burrows / Westra on the upstream half, low-water sandbars, fresh wood after storms, tubing/swimming traffic near Knob Hill and Cottingham, and private-bank limits. No route-gallery image was added.
 
 - 2026-06-26 01:00 America/Chicago: added `crow-wing-river-stigmans-mound-knob-hill`, `crow-wing-river-frames-landing-knob-hill`, and `crow-wing-river-frames-landing-cottingham`.
 - Implemented three longer lower Crow Wing continuations from the same official Map 2 county-park chain instead of forcing a weaker new-state discovery cycle.
