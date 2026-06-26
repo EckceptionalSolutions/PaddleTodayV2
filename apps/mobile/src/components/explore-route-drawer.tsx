@@ -290,8 +290,8 @@ function sheetHeightStyle(bottomInset = 0) {
 }
 
 export function sheetHeightValue(value: MapSheetSnap, maxHeight = 510) {
-  if (value === 'full') return Math.min(510, maxHeight);
-  if (value === 'half') return Math.min(356, Math.max(308, maxHeight - 112));
+  if (value === 'full') return Math.min(460, maxHeight);
+  if (value === 'half') return Math.min(318, Math.max(292, maxHeight - 160));
   return 196;
 }
 
