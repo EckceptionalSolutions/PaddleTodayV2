@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 02:30 America/Chicago / 2026-06-26 07:30 UTC.
+Last summarized: 2026-06-26 08:00 America/Chicago / 2026-06-26 13:00 UTC.
 
 ## Current Inventory
 
-- Live routes: 52.
-- Ledger candidates: 47 Kentucky-specific records. The ledger now splits across 31 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `big-south-fork-blue-heron-worley`, `big-south-fork-yamacraw-alum-ford`, and `big-south-fork-blue-heron-alum-ford`.
+- Live routes: 55.
+- Ledger candidates: 50 Kentucky-specific records. The ledger now splits across 31 `added`, 17 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-glenview-road-lynn-camp-creek`, `green-river-lynn-camp-creek-stovall-park`, and `green-river-hh-wilson-park-dennison-ferry`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 08:00 America/Chicago / 2026-06-26 13:00 UTC three-route add pass
+  - Added `green-river-glenview-road-lynn-camp-creek`, `green-river-lynn-camp-creek-stovall-park`, and `green-river-hh-wilson-park-dennison-ferry` to expand Kentucky to fifty-five live routes.
+  - The run reused the current KDFWR Pool 6 Green River page for the official site-to-site mileages of `19.2`, `18.2`, `3.6`, and `21.0` miles plus the official Greensburg stage ladder of Low below `1.0 ft`, Good `1.0-1.75 ft`, and High above `1.75 ft`, and the official Munfordville discharge ladder of Low below `300 cfs`, Good `300-600 cfs`, and High above `600 cfs`.
+  - Current KDFWR access-detail pages already supported the endpoint coordinates and public-use notes for Glenview Road Carrydown, Lynn Camp Creek VPA #1, H.H. Wilson Park Ramp, Munfordville-Stovall Park Ramp, and Dennison Ferry; same-day direct USGS Water Services returned `0.83 ft` at Greensburg (`03306500`) at `2026-06-26 07:15 CDT` plus `400 cfs / 2.88 ft` at Munfordville (`03308500`) at `2026-06-26 07:00 CDT`.
+  - Camping/safety stayed conservative by route: Glenview-to-Lynn-Camp ships as `none`; Lynn-Camp-to-Stovall ships as `endpoint_campground`; and H.H.-Wilson-to-Dennison ships as `on_route_campsite` because Stovall's primitive camping sits on the official corridor. Safety notes stay focused on private-bank limits, low-water shoals, broad-river wind, ramp-drop or steep-ramp landings, fresh wood after storms, and fatigue on the two longest days.
+  - Bounded KDFWR, NPS, Commons, and same-river USGS image review did not surface a clearly rights-clean exact-route asset for any of the three new slugs, so no gallery photo was added.
 - 2026-06-26 02:30 America/Chicago / 2026-06-26 07:30 UTC three-route add pass
   - Added `big-south-fork-blue-heron-worley`, `big-south-fork-yamacraw-alum-ford`, and `big-south-fork-blue-heron-alum-ford` to expand Kentucky to fifty-two live routes.
   - The run reused the current KDFWR Big South Fork page for the official Stearns gauge ladder of below `100 cfs` scrape-prone, `100-500 cfs` best casual floating, `500-1500 cfs` faster water for experienced open boats, and above `1500 cfs` experienced closed-boat water, with `3000 cfs` called extremely dangerous.
