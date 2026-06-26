@@ -2310,141 +2310,10 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'crow-wing-river-stigmans-little-white-dog': {
-    putIn: {
-      name: "Stigman's Mound public water access",
-      latitude: 46.6404505,
-      longitude: -94.8796954,
-    },
-    takeOut: {
-      name: 'Little White Dog public water access',
-      latitude: 46.586977,
-      longitude: -94.822607,
-    },
-    logistics: {
-      distanceLabel: '6.2 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr',
-      shuttle:
-        'Short Wadena County car shuttle. This is an easier logistics day than the downstream Crow Wing routes, so it works well when you want a cleaner half-day decision.',
-      permits:
-        'No route-specific paddling permit is known. Follow posted county-park and public-water-access parking rules at both ends.',
-      camping:
-        'Little White Dog is a county-park camping anchor at the take-out. Treat Stigman\'s Mound itself as a launch access unless you have separately confirmed overnight rules there.',
-      summary:
-        'Launch at Stigman\'s Mound and finish at Little White Dog for the shortest cleanly supported Crow Wing add in this corridor. The Nimrod gauge is right at the put-in, so the route is easy to screen for obvious low-water days before you drive.',
-      accessCaveats: [
-        'Both endpoints are now backed by Minnesota public-water-access GIS records, which is what finally clears this route for the product.',
-        'Stigman\'s Mound is an official public access, but it is still worth checking the exact parking setup on arrival because this is not a polished city-park launch.',
-      ],
-      watchFor: [
-        'Scraping and a slower sandy-river pace when the Nimrod gauge is hovering near 300 cfs.',
-        'Fresh wood, sweepers, or stronger current after storms.',
-        'A few occasional rapids and blind bends even though this is still an easy route overall.',
-      ],
-    },
-  },
-  'crow-wing-river-frames-landing-little-white-dog': {
-    putIn: {
-      name: "Frame's Landing public water access",
-      latitude: 46.629663080692076,
-      longitude: -94.86925421200144,
-    },
-    takeOut: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    logistics: {
-      distanceLabel: '5.1 river mi',
-      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
-      shuttle:
-        "Very short Wadena County car shuttle from Frame's Landing to Little White Dog. Both ends are county campground/access sites, so check the exact parking and fee setup before leaving a vehicle overnight.",
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use either endpoint as an overnight base.',
-      camping:
-        "Both Frame's Landing and Little White Dog are county campground/access sites, so this short route works best as an endpoint campground paddle if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Frame's Landing and finish at Little White Dog for a short lower Crow Wing split between two county campgrounds. Use the Nimrod gauge first and skip the day when it is still hugging the scrapable band.",
-      accessCaveats: [
-        "Both endpoints are backed by Minnesota public-water-access records and Wadena County campground pages, but Frame's Landing is still a simpler county access rather than a polished city-park launch.",
-        "This short route starts only about a mile below Nimrod, so the gauge story is cleaner than on the farther-downstream Crow Wing splits, but you should still defer to on-site river and parking conditions.",
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Private shoreland outside the designated county landings and campsites.',
-      ],
-    },
-  },
-  'crow-wing-river-mary-brown-andersons-crossing': {
-    putIn: {
-      name: 'Mary Brown Rest Area #5 carry-in access',
-      latitude: 46.71758222409383,
-      longitude: -94.92898508221442,
-    },
-    takeOut: {
-      name: "Anderson's Crossing #6 carry-in access",
-      latitude: 46.69942260942251,
-      longitude: -94.88188569131617,
-    },
-    logistics: {
-      distanceLabel: '4.5 mi',
-      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
-      shuttle:
-        "Very short Wadena County shuttle from Mary Brown to Anderson's Crossing. Anderson's is the easier place to stage the take-out because it is also a campground and river-access stop.",
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use Anderson\'s Crossing overnight.',
-      camping:
-        "Anderson's Crossing is a county campground at the take-out, so this short upstream Crow Wing split works best as an endpoint-campground paddle if you confirm current county rules, fees, and seasonal availability before planning an overnight.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Mary Brown and finish at Anderson's Crossing for a short upper-Wadena Crow Wing split. Use the Nimrod gauge first and treat recent storms or obvious fresh wood as a reason to reassess even when the flow is otherwise workable.",
-      accessCaveats: [
-        'Mary Brown is a remote carry-in access named on Crow Wing Map 1 and backed by the Minnesota public-water-access record, but it is not a polished park ramp with extra services.',
-        "Anderson's Crossing is a county campground and river-access site; identify the take-out before launching because the Butterfield / Walkin's rapids area begins right around the finish.",
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, sweepers, and stronger current after storms.',
-        "Faster water around Walkin's / Butterfield Rapids near the Anderson's finish.",
-      ],
-    },
-  },
-  'crow-wing-river-andersons-crossing-stigmans-mound': {
-    putIn: {
-      name: "Anderson's Crossing #6 carry-in access",
-      latitude: 46.69942260942251,
-      longitude: -94.88188569131617,
-    },
-    takeOut: {
-      name: "Stigman's Mound #7 carry-in access",
-      latitude: 46.64045859179894,
-      longitude: -94.87970389700178,
-    },
-    logistics: {
-      distanceLabel: '5.1 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
-      shuttle:
-        "Short Wadena County shuttle from Anderson's Crossing to Nimrod. Stage the Stigman's take-out first so the bridge-side landing setup is clear before you start.",
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow county campground and park rules at Anderson\'s Crossing and Stigman\'s Mound.',
-      camping:
-        "Anderson's Crossing is a county campground at the put-in, but Stigman's Mound itself is a day-use park without overnight camping.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Anderson's Crossing and finish at Stigman's Mound for the small-rapids Crow Wing split just above Nimrod. The Nimrod gauge is effectively at the take-out, but you still need to scout the faster water and know the Stigman's landing plan before committing.",
-      accessCaveats: [
-        "Anderson's Crossing is a county campground and river access with simple carry-in logistics rather than a wide trailer ramp.",
-        "Wadena County says Stigman's Mound park amenities are reached after landing across the river and walking over the bridge, so do not expect a standard drive-down campground take-out at the finish.",
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the downstream half of the route.",
-        'Fresh wood, blind bends, and faster recovery windows after storms.',
-        'Low-water scraping when the Nimrod gauge falls toward the 300 cfs floor.',
-      ],
-    },
-  },
+  
+  
+  
+  
   'crow-wing-river-mary-brown-stigmans-mound': {
     putIn: {
       name: 'Mary Brown Rest Area #5 carry-in access',
@@ -2479,147 +2348,41 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
       ],
     },
+
+    accessPoints: [
+      {
+        id: 'mary-brown-rest-area',
+        name: 'Mary Brown Rest Area #5 carry-in access',
+        latitude: 46.71758222409383,
+        longitude: -94.92898508221442,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Full upstream start for the canonical Map 1 corridor route.',
+      },
+      {
+        id: 'andersons-crossing',
+        name: "Anderson's Crossing #6 carry-in access",
+        latitude: 46.69942260942251,
+        longitude: -94.88188569131617,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Primary midpoint campground, bailout, and the former short-split take-out.',
+      },
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Canonical downstream finish for the full Map 1 route.',
+      },
+    ],
   },
-  'crow-wing-river-mary-brown-little-white-dog': {
-    putIn: {
-      name: 'Mary Brown Rest Area #5 carry-in access',
-      latitude: 46.71758222409383,
-      longitude: -94.92898508221442,
-    },
-    takeOut: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    logistics: {
-      distanceLabel: '16.0 mi',
-      estimatedPaddleTime: 'About 5 hr 15 min to 7 hr',
-      shuttle:
-        'Longer Wadena County shuttle from Mary Brown to Little White Dog. Stage the Little White Dog take-out first so the campground parking setup is clear before committing to the full route.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at the named landings.',
-      camping:
-        "This longer route passes Anderson's Crossing campground mid-route and finishes at Little White Dog campground, so it has clean documented overnight support if you confirm current county rules, fees, and seasonal availability before splitting the trip.",
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Mary Brown and finish at Little White Dog for the full Mary-Brown-through-Nimrod continuation. It keeps the same official DNR gauge story as the rest of this corridor, but the mileage and middle rapids mean it still needs a deliberate day plan.',
-      accessCaveats: [
-        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
-        "Anderson's Crossing and Stigman's Mound are the clearest midpoint break or bailout points before the Little White Dog finish.",
-        'Little White Dog is a county campground/access site rather than a staffed landing, so confirm the parking and fee setup before using it as an overnight finish.',
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the middle stretch of the route.",
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Longer low-water scraping and slower progress when the Nimrod gauge is near or below 300 cfs.',
-      ],
-    },
-  },
-  'crow-wing-river-andersons-crossing-knob-hill': {
-    putIn: {
-      name: "Anderson's Crossing #6 carry-in access",
-      latitude: 46.69942260942251,
-      longitude: -94.88188569131617,
-    },
-    takeOut: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    logistics: {
-      distanceLabel: '17.8 mi',
-      estimatedPaddleTime: 'About 6 hr to 8 hr 30 min',
-      shuttle:
-        "Long Wadena County shuttle from Anderson's Crossing to Knob Hill. Stage the Knob Hill take-out first so the campground parking setup and tubing traffic are understood before launching.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, public-access, and park rules at Anderson's Crossing, Stigman's Mound, Little White Dog, and Knob Hill.",
-      camping:
-        "This longer route starts at Anderson's campground and passes Little White Dog before finishing at Knob Hill, so it has clean documented overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
-      campingClassification: 'on_route_campsite',
-      summary:
-        "Launch at Anderson's Crossing and finish at Knob Hill for the full Wadena corridor below Mary Brown. The Nimrod gauge sits on this route, but the upper rapids stretch and long mileage still make it a real full-day commitment.",
-      accessCaveats: [
-        "Anderson's Crossing is a county campground and simple carry-in launch rather than a wide trailer ramp.",
-        "Stigman's Mound and Little White Dog are the clearest midpoint bailout or overnight options before the final miles to Knob Hill.",
-        'Knob Hill is a county campground and popular tubing put-in, so weekend parking and landing congestion can be the most practical challenge at the finish.',
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the upper half of the route.",
-        'Fresh wood, blind bends, and stronger current after storms.',
-        'Long low-water dragging or slow sandy channels when the Nimrod gauge sits near or below 300 cfs.',
-      ],
-    },
-  },
-  'crow-wing-river-andersons-crossing-little-white-dog': {
-    putIn: {
-      name: "Anderson's Crossing #6 carry-in access",
-      latitude: 46.69942260942251,
-      longitude: -94.88188569131617,
-    },
-    takeOut: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    logistics: {
-      distanceLabel: '11.5 mi',
-      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
-      shuttle:
-        "Moderate Wadena County shuttle from Anderson's Crossing to Little White Dog. Stage the Little White Dog take-out first so the campground parking and landing setup are clear before launching.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at Anderson's Crossing, Stigman's Mound, and Little White Dog.",
-      camping:
-        "Both Anderson's Crossing and Little White Dog are county campgrounds, so this route works cleanly as an endpoint-campground day or overnight option if you confirm current Wadena County rules, fees, and seasonal availability before planning a camp stay.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Anderson's Crossing and finish at Little White Dog for a mid-length Crow Wing route that covers the Nimrod-area rapids and then eases into the quieter lower campground corridor.",
-      accessCaveats: [
-        "Anderson's Crossing is a county campground and simple carry-in launch rather than a wide trailer ramp.",
-        "Stigman's Mound is the clearest midpoint stop or bailout if the group does not want to commit to the full downstream mileage.",
-        'Little White Dog is a county campground/access site rather than a staffed landing, so confirm the parking and fee setup before using it as a finish or overnight base.',
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the upper half of the route.",
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
-      ],
-    },
-  },
-  'crow-wing-river-mary-brown-knob-hill': {
-    putIn: {
-      name: 'Mary Brown Rest Area #5 carry-in access',
-      latitude: 46.71758222409383,
-      longitude: -94.92898508221442,
-    },
-    takeOut: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    logistics: {
-      distanceLabel: '22.3 mi',
-      estimatedPaddleTime: 'About 7 hr 30 min to 10 hr',
-      shuttle:
-        'Long Wadena County shuttle from Mary Brown to Knob Hill. Stage the Knob Hill take-out first so the campground parking setup and tubing traffic are understood before committing to the full route.',
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, public-access, and park rules at the named landings.",
-      camping:
-        "This longer route passes Anderson's Crossing and Little White Dog campgrounds before finishing at Knob Hill, so it has clean documented overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch at Mary Brown and finish at Knob Hill for a full upper-to-lower Wadena continuation. It keeps the same official DNR gauge story as the rest of this corridor, but the mileage makes it a real full-day or split-overnight route.',
-      accessCaveats: [
-        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
-        "Anderson's Crossing, Stigman's Mound, and Little White Dog are the clearest midpoint bailout or overnight options before the final miles to Knob Hill.",
-        'Knob Hill is a county campground and popular tubing put-in, so weekend parking and landing congestion can be the most practical challenge at the finish.',
-      ],
-      watchFor: [
-        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the middle stretch of the route.",
-        'Fresh wood, sweepers, and stronger current after storms.',
-        'Long low-water dragging and slower progress when the Nimrod gauge is near or below 300 cfs.',
-      ],
-    },
-  },
+  
+  
+  
+  
   'crow-wing-river-andersons-crossing-cottingham': {
     putIn: {
       name: "Anderson's Crossing #6 carry-in access",
@@ -2654,42 +2417,56 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Long low-water dragging plus tubing and swimmer traffic near Knob Hill and Cottingham on summer weekends.',
       ],
     },
+
+    accessPoints: [
+      {
+        id: 'andersons-crossing',
+        name: "Anderson's Crossing #6 carry-in access",
+        latitude: 46.69942260942251,
+        longitude: -94.88188569131617,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: "Canonical upstream start for the longest Anderson's-to-Cottingham route.",
+      },
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Primary midpoint bailout after the upper rapids-bearing stretch.',
+      },
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 11.5,
+        segmentKind: 'creek',
+        note: 'County campground midpoint and former shorter canonical finish.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill Landing #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 17.8,
+        segmentKind: 'creek',
+        note: 'Busy downstream campground/tubing access before the final miles.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 21.3,
+        segmentKind: 'creek',
+        note: "Canonical downstream finish for the full Anderson's corridor route.",
+      },
+    ],
   },
-  'crow-wing-river-stigmans-mound-knob-hill': {
-    putIn: {
-      name: "Stigman's Mound #7 carry-in access",
-      latitude: 46.64045859179894,
-      longitude: -94.87970389700178,
-    },
-    takeOut: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    logistics: {
-      distanceLabel: '12.7 mi',
-      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr',
-      shuttle:
-        "Moderate Wadena County shuttle from Nimrod to Knob Hill. Knob Hill is the easier vehicle stage because it is a campground landing, but inspect the Stigman's bridge-side access plan before launching.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at Stigman's Mound and Knob Hill.",
-      camping:
-        'Knob Hill is a county campground at the take-out, so this route works as an endpoint-campground day or overnight option if you confirm current county rules, fees, and seasonal availability before planning a camp stay.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Stigman's Mound and finish at Knob Hill for a long lower Crow Wing continuation that starts right at the Nimrod gauge corridor and stays below the upstream rapids cluster.",
-      accessCaveats: [
-        "Wadena County says Stigman's Mound amenities are reached after landing across the river and walking over the bridge, so have the launch and parking plan clear before leaving a vehicle.",
-        'Little White Dog is the natural midpoint stop if the group needs a break or a source-backed bailout before the Knob Hill finish.',
-        'Knob Hill is a county campground and popular tubing put-in, so expect more summer parking and river-use traffic at the take-out than at the quieter upstream sites.',
-      ],
-      watchFor: [
-        'Longer low-water dragging or slow sandy channels when the Nimrod gauge sits near or below 300 cfs.',
-        'Fresh wood, blind bends, and stronger current after storms despite the otherwise easy character.',
-        'Tubing traffic and crowded summer landing conditions near Knob Hill.',
-      ],
-    },
-  },
+  
   'crow-wing-river-stigmans-mound-cottingham': {
     putIn: {
       name: "Stigman's Mound #7 carry-in access",
@@ -2724,77 +2501,57 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Tubing, swimmers, and crowded take-out conditions near Knob Hill and Cottingham on summer weekends.',
       ],
     },
+
+    accessPoints: [
+      {
+        id: 'stigmans-mound',
+        name: "Stigman's Mound #7 carry-in access",
+        latitude: 46.64045859179894,
+        longitude: -94.87970389700178,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Canonical start for the lower Crow Wing county-park chain.',
+      },
+      {
+        id: 'frames-landing',
+        name: "Frame's Landing public water access",
+        latitude: 46.629663080692076,
+        longitude: -94.86925421200144,
+        mileFromStart: 1.1,
+        segmentKind: 'creek',
+        note: 'Short lower-chain public access and former split put-in.',
+      },
+      {
+        id: 'little-white-dog',
+        name: 'Little White Dog County Park #9 carry-in access',
+        latitude: 46.586984884675736,
+        longitude: -94.82261571200662,
+        mileFromStart: 6.2,
+        segmentKind: 'creek',
+        note: 'County campground midpoint and easiest lower-chain bailout.',
+      },
+      {
+        id: 'knob-hill',
+        name: 'Knob Hill Landing #10 carry-in access',
+        latitude: 46.533855996511825,
+        longitude: -94.81849257299048,
+        mileFromStart: 12.7,
+        segmentKind: 'creek',
+        note: 'Downstream campground/tubing access before the final stretch.',
+      },
+      {
+        id: 'cottingham-county-park',
+        name: 'Cottingham County Park #11 carry-in access',
+        latitude: 46.505529851247346,
+        longitude: -94.80738952007682,
+        mileFromStart: 16.2,
+        segmentKind: 'creek',
+        note: 'Canonical downstream finish for the full lower-chain route.',
+      },
+    ],
   },
-  'crow-wing-river-frames-landing-knob-hill': {
-    putIn: {
-      name: "Frame's Landing public water access",
-      latitude: 46.629663080692076,
-      longitude: -94.86925421200144,
-    },
-    takeOut: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    logistics: {
-      distanceLabel: '11.4 mi',
-      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
-      shuttle:
-        "Moderate Wadena County shuttle between Frame's Landing and Knob Hill. Stage the Knob Hill take-out first so the campground parking setup and tubing traffic are understood before you launch.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use Frame's, Little White Dog, or Knob Hill as overnight support.",
-      camping:
-        "Frame's Landing and Knob Hill are county campgrounds at the ends of the route, so this longer lower-Crow-Wing day fits endpoint camping if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.",
-      campingClassification: 'endpoint_campground',
-      summary:
-        "Launch at Frame's Landing and finish at Knob Hill for a full lower-Crow-Wing campground chain route. It stays easier than the rapids-bearing Map 1 corridor, but it is long enough that level, wood, and pace still matter.",
-      accessCaveats: [
-        "Frame's Landing is a simple county campground/access site rather than a polished city-park ramp, so inspect the launch and parking setup before leaving a vehicle.",
-        'Little White Dog is the natural midpoint stop and simplest source-backed bailout if the group decides not to commit to the full downstream mileage.',
-        'Knob Hill is a county campground and popular tubing put-in, so weekend parking and landing congestion can be the most practical challenge on the route.',
-      ],
-      watchFor: [
-        'Exposed sandbars and slower progress when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, side channels, and debris after storms.',
-        'Tubing traffic and more casual river users on warm weekends near the final miles.',
-      ],
-    },
-  },
-  'crow-wing-river-frames-landing-cottingham': {
-    putIn: {
-      name: "Frame's Landing public water access",
-      latitude: 46.629663080692076,
-      longitude: -94.86925421200144,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.505529851247346,
-      longitude: -94.80738952007682,
-    },
-    logistics: {
-      distanceLabel: '14.9 mi',
-      estimatedPaddleTime: 'About 5 hr to 7 hr',
-      shuttle:
-        "Longer Wadena County shuttle between Frame's Landing and Cottingham. Stage the Cottingham take-out first because it is the busiest summer-use landing in this chain and the full route takes enough time that finish logistics matter.",
-      permits:
-        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at the named access sites.",
-      camping:
-        "This longer route passes Little White Dog and Knob Hill county campgrounds before finishing at Cottingham, so it has clean documented on-route overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
-      campingClassification: 'on_route_campsite',
-      summary:
-        "Launch at Frame's Landing and finish at Cottingham for the full lower Map 2 county-park chain. The route is straightforward in character, but the mileage and busier downstream recreation zone make it a deliberate full-day choice.",
-      accessCaveats: [
-        "Frame's Landing is a simple county campground/access site with fewer frills than a city-park launch, so inspect it before leaving a vehicle.",
-        'Little White Dog and Knob Hill are the clean midpoint bailout or overnight options if you do not want to commit to the entire Cottingham finish.',
-        'Cottingham is a county park with heavier summer use for swimming and tubing, so expect a busier and less secluded take-out than the upstream landings.',
-      ],
-      watchFor: [
-        'Long low-water dragging and slower pacing when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood, strainers, and stronger current after storms.',
-        'Tubing, swimmers, and crowded take-out conditions near Knob Hill and Cottingham on summer weekends.',
-      ],
-    },
-  },
+  
+  
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',
@@ -4016,107 +3773,9 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
-  'crow-wing-river-little-white-dog-cottingham': {
-    putIn: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.58698,
-      longitude: -94.82262,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.5044417,
-      longitude: -94.8107221,
-    },
-    logistics: {
-      distanceLabel: '9.8 river mi',
-      estimatedPaddleTime: 'About 3 hr to 4 hr 30 min',
-      shuttle:
-        'Standard Wadena County self-shuttle. Confirm the Cottingham parking and camping setup before leaving a vehicle, especially if you are pairing the paddle with an overnight.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp.',
-      camping:
-        'Primitive campground/access context at the Little White Dog put-in and Cottingham take-out makes this an endpoint campground trip if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
-      summary:
-        'Launch at Little White Dog and finish at Cottingham County Park for the DNR-recommended Crow Wing day trip. The river character is friendly, but use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
-      accessCaveats: [
-        'Both endpoints are named by MN DNR and backed by Wadena County campground/access pages, but saved coordinates should still defer to on-site signage.',
-        'Cottingham and Little White Dog are county campground/access sites, so parking, camping, fees, and seasonal details should be checked before the shuttle.',
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
-        'Fresh wood, strainers, and debris after high water.',
-        'Tubing traffic on popular summer weekends in the lower part of the route.',
-      ],
-    },
-  },
-  'crow-wing-river-little-white-dog-knob-hill': {
-    putIn: {
-      name: 'Little White Dog County Park #9 carry-in access',
-      latitude: 46.586984884675736,
-      longitude: -94.82261571200662,
-    },
-    takeOut: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    logistics: {
-      distanceLabel: '6.3 river mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
-      shuttle:
-        'Standard Wadena County self-shuttle between two campground landings. This is a practical half-day option if you want the same lower Crow Wing gauge story without committing to the longer Cottingham finish.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp at either end.',
-      camping:
-        'Little White Dog and Knob Hill are both county campground/access sites, so this route fits endpoint camping if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Little White Dog and finish at Knob Hill for a mid-corridor Crow Wing paddle through wooded bends and small islands. Use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
-      accessCaveats: [
-        'Both endpoints are named by the DNR map and backed by Minnesota public-water-access records plus Wadena County campground pages.',
-        'Knob Hill is a popular tubing put-in in summer, so plan around busier weekend parking and river traffic.',
-      ],
-      watchFor: [
-        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
-        'Fresh wood, strainers, and debris after high water.',
-        'Tubing traffic and casual river users on warm summer weekends.',
-      ],
-    },
-  },
-  'crow-wing-river-knob-hill-cottingham': {
-    putIn: {
-      name: 'Knob Hill Landing #10 carry-in access',
-      latitude: 46.533855996511825,
-      longitude: -94.81849257299048,
-    },
-    takeOut: {
-      name: 'Cottingham County Park #11 carry-in access',
-      latitude: 46.505529851247346,
-      longitude: -94.80738952007682,
-    },
-    logistics: {
-      distanceLabel: '3.5 river mi',
-      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr',
-      shuttle:
-        'Very short Wadena County shuttle between Knob Hill and Cottingham. This is the easiest lower Crow Wing split to treat as a quick same-day condition check or campground-to-campground float.',
-      permits:
-        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp or leave vehicles at either end.',
-      camping:
-        'Knob Hill and Cottingham are both county campground/access sites, so this short route works as an endpoint campground float if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch at Knob Hill and finish at Cottingham for the shortest lower Crow Wing split in this county-park chain. The route is simple, but the Nimrod gauge still matters if you want to avoid an underfilled or pushy day.',
-      accessCaveats: [
-        'Both endpoints are named by DNR Map 2 and backed by Minnesota public-water-access records plus Wadena County campground pages.',
-        'Cottingham is a busy county park for picnicking, swimming, and tubing take-outs, so verify parking and riverbank congestion on arrival during peak weekends.',
-      ],
-      watchFor: [
-        'Scraping and slower sandy channels when the Nimrod gauge is near or below 300 cfs.',
-        'Fresh wood or debris after storms despite the otherwise easy character.',
-        'Tubing traffic, swimmers, and crowded take-out conditions near Cottingham on summer weekends.',
-      ],
-    },
-  },
+  
+  
+  
   'whitewater-river-elba-highway-74': {
     putIn: {
       name: 'Elba / Highway 26 and Center Street access',
@@ -16760,148 +16419,7 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
-'south-llano-river-cupgrass-state-park': {
-    putIn: {
-      name: 'TPWD Cupgrass Access',
-      latitude: 30.393543,
-      longitude: -99.886693,
-    },
-    takeOut: {
-      name: 'South Llano River State Park paddling access',
-      latitude: 30.4498,
-      longitude: -99.8128,
-    },
-    logistics: {
-      distanceLabel: 'About 9.3 mi',
-      estimatedPaddleTime:
-        'About 4 hr to 6 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops',
-      shuttle:
-        'Stage the take-out at South Llano River State Park first, then drive back to the gated Cupgrass lease site. Confirm Cupgrass parking by text before launch and reserve state-park entry or camping ahead of time during busy periods.',
-      permits:
-        'No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD, and South Llano River State Park often recommends advance reservations for day use and camping.',
-      camping:
-        'South Llano River State Park has developed campsites with hookups, walk-in sites, and primitive hike-in sites. This route can finish directly into that campground setting.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Launch through Bailey Creek at the TPWD Cupgrass access and paddle down to South Llano River State Park for a spring-fed Hill Country day with quiet pools, riffles, wildlife, and a campground finish.',
-      accessCaveats: [
-        'TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.',
-        'South Llano River State Park is a popular destination that can reach capacity, so day-use or camping reservations are the cleanest way to secure the take-out plan.',
-        'Use only the named public access points and direct river-portage paths because most of the shoreline between them remains private.',
-      ],
-      watchFor: [
-        'Shallow riffles, scrape spots, and woody edges when the Flat Rock gauge is near the conservative 65 cfs floor.',
-        'Fresh strainers after storms, plus faster current and murkier water when runoff reaches the corridor.',
-        'Bright sun, long mileage for casual groups, and limited mid-route public exits compared with the short trail splits near Junction.',
-      ],
-    },
-  },
-'south-llano-river-state-park-flatrock-lane': {
-    putIn: {
-      name: 'South Llano River State Park paddling access',
-      latitude: 30.4498,
-      longitude: -99.8128,
-    },
-    takeOut: {
-      name: 'Flatrock Lane Crossing',
-      latitude: 30.4789,
-      longitude: -99.7778,
-    },
-    logistics: {
-      distanceLabel: 'About 4.7 mi',
-      estimatedPaddleTime: 'About 2 hr to 3 hr at an easy recreational pace',
-      shuttle:
-        'Use a short Junction-area shuttle between South Llano River State Park and Flatrock Lane Crossing. If you are entering the park only to launch, reserve day use first during the busy season.',
-      permits:
-        'No route-specific paddling permit is published. South Llano River State Park charges normal park entry and often recommends reservations for day use; follow current park and PFD rules.',
-      camping:
-        'South Llano River State Park has developed and primitive campsites at the put-in, making this a simple campground-based half-day float.',
-      campingClassification: 'endpoint_campground',
-      summary:
-        'Put in at South Llano River State Park and float to Flatrock Lane for the upper split of the official paddling trail. This is a short spring-fed run with clear pools, easy riffles, and a required state-park bridge portage near the start.',
-      accessCaveats: [
-        'TPWD says the damaged state-park bridge apron is closed and that paddlers must exit at the designated location, portage around the bridge, and reenter downstream.',
-        'Use the marked state-park launch and the named Flatrock take-out rather than improvised bank stops.',
-        'Private shoreline begins quickly outside the park corridor, so keep rests brief and at the named public access points.',
-      ],
-      watchFor: [
-        'The required bridge portage at South Llano River State Park.',
-        'Low-water scraping and minor route reading through shallow riffles when the gauge is near the conservative floor.',
-        'Strainers, changing current after rain, and slippery rocks at either access.',
-      ],
-    },
-  },
-'south-llano-river-flatrock-lane-junction-city-park': {
-    putIn: {
-      name: 'Flatrock Lane Crossing',
-      latitude: 30.4789,
-      longitude: -99.7778,
-    },
-    takeOut: {
-      name: 'Junction City Park',
-      latitude: 30.4879,
-      longitude: -99.7617,
-    },
-    logistics: {
-      distanceLabel: 'About 1.6 mi',
-      estimatedPaddleTime: 'About 45 min to 1.5 hr',
-      shuttle:
-        'This is a very short in-town shuttle between Flatrock Lane Crossing and Junction City Park. Many paddlers will prefer to stage one vehicle at Junction City Park and keep the second trip simple.',
-      permits:
-        'No route-specific paddling permit is published. Use the named public accesses, follow local parking rules, and bring the normal Texas PFD and weather judgment even though the mileage is short.',
-      camping:
-        'Treat this as a short day float. South Llano River State Park and Junction lodging work as nearby basecamps, but the route itself does not include an on-route campsite.',
-      campingClassification: 'nearby_basecamp',
-      summary:
-        'Launch at Flatrock Lane Crossing and drift down to Junction City Park for the lower split of the official South Llano paddling trail. This is the quickest Junction-area option, but it still deserves the same same-day wood and flow check as the longer segments.',
-      accessCaveats: [
-        'TPWD publishes both access points and expects paddlers to stay off private banks except for direct hazard portages.',
-        'Junction City Park is the intended public finish; do not improvise a take-out along nearby private or bridge-adjacent banks.',
-        'Because the route is short, groups sometimes underestimate weather changes and same-day wood. Check the gauge anyway.',
-      ],
-      watchFor: [
-        'Shallow riffles and scraping when the gauge falls toward the 65 cfs floor.',
-        'Snags and fresh wood after rain.',
-        'Faster current and murkier water during runoff pulses, even though the route normally feels gentle.',
-      ],
-    },
-  },
-  'south-llano-river-cupgrass-flatrock-lane': {
-    putIn: {
-      name: 'TPWD Cupgrass Access',
-      latitude: 30.393543,
-      longitude: -99.886693,
-    },
-    takeOut: {
-      name: 'Flatrock Lane Crossing',
-      latitude: 30.4789,
-      longitude: -99.7778,
-    },
-    logistics: {
-      distanceLabel: 'About 14 mi',
-      estimatedPaddleTime:
-        'About 5 hr to 7.5 hr at a casual kayak or canoe pace, longer at lower water or with fishing stops',
-      shuttle:
-        'Stage the take-out at Flatrock Lane Crossing first, then drive back to the gated Cupgrass lease site. Build in extra shuttle margin because the route passes through South Llano River State Park and requires a bridge portage there before the lower finish.',
-      permits:
-        'No route-specific paddling permit is published. Cupgrass parking must be arranged with TPWD by text, and normal Texas PFD and access rules still apply at the state-park portage and Flatrock finish.',
-      camping:
-        'South Llano River State Park sits directly on the route corridor with developed, walk-in, and primitive campsites. Treat that as real on-route overnight support for this longer continuation.',
-      campingClassification: 'on_route_campsite',
-      summary:
-        'Launch through Bailey Creek at TPWD Cupgrass Access and continue past South Llano River State Park to Flatrock Lane for a longer spring-fed Hill Country float. The midpoint park portage and the longer mileage make this a more committed version of the official shorter trail splits.',
-      accessCaveats: [
-        'TPWD says Cupgrass parking is by advance text reservation and that boats launch via Bailey Creek before entering the South Llano proper.',
-        'At South Llano River State Park, paddlers must exit at the designated location before the damaged bridge, portage around it, and reenter downstream.',
-        'Use only the named public accesses and direct hazard portages because most shoreline between them remains private.',
-      ],
-      watchFor: [
-        'The required bridge portage at South Llano River State Park.',
-        'Long low-water scrape sections, strainers after storms, and changing current when runoff reaches the corridor.',
-        'Heat, sun exposure, and limited easy public exits compared with the shorter Junction-area trail splits.',
-      ],
-    },
-  },
+  
   'south-llano-river-state-park-junction-city-park': {
     putIn: {
       name: 'South Llano River State Park paddling access',
@@ -16936,6 +16454,36 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Strainers, changing current after rain, and slippery rocks at either access.',
       ],
     },
+
+    accessPoints: [
+      {
+        id: 'south-llano-river-state-park',
+        name: 'South Llano River State Park paddling access',
+        latitude: 30.4498,
+        longitude: -99.8128,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Canonical upstream launch for the full official TPWD trail.',
+      },
+      {
+        id: 'flatrock-lane-crossing',
+        name: 'Flatrock Lane Crossing',
+        latitude: 30.4789,
+        longitude: -99.7778,
+        mileFromStart: 4.7,
+        segmentKind: 'creek',
+        note: 'Official midpoint access and former short-split take-out.',
+      },
+      {
+        id: 'junction-city-park',
+        name: 'Junction City Park',
+        latitude: 30.4879,
+        longitude: -99.7617,
+        mileFromStart: 6.3,
+        segmentKind: 'creek',
+        note: 'Canonical downstream finish for the full TPWD trail.',
+      },
+    ],
   },
   'south-llano-river-cupgrass-junction-city-park': {
     putIn: {
@@ -16972,6 +16520,45 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Heat, fatigue, and fewer convenient public exits than the short official trail splits.',
       ],
     },
+
+    accessPoints: [
+      {
+        id: 'cupgrass-access',
+        name: 'TPWD Cupgrass Access',
+        latitude: 30.393543,
+        longitude: -99.886693,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Canonical upstream start for the longest current South Llano route.',
+      },
+      {
+        id: 'south-llano-river-state-park',
+        name: 'South Llano River State Park paddling access',
+        latitude: 30.4498,
+        longitude: -99.8128,
+        mileFromStart: 9.3,
+        segmentKind: 'creek',
+        note: 'Mid-route campground and mandatory bridge-portage access.',
+      },
+      {
+        id: 'flatrock-lane-crossing',
+        name: 'Flatrock Lane Crossing',
+        latitude: 30.4789,
+        longitude: -99.7778,
+        mileFromStart: 14,
+        segmentKind: 'creek',
+        note: 'Official lower midpoint access and former chained-route finish.',
+      },
+      {
+        id: 'junction-city-park',
+        name: 'Junction City Park',
+        latitude: 30.4879,
+        longitude: -99.7617,
+        mileFromStart: 15.6,
+        segmentKind: 'creek',
+        note: 'Canonical downstream finish for the full Cupgrass continuation.',
+      },
+    ],
   },
   'cumberland-river-redbird-thunderstruck': {
     putIn: {
@@ -17088,3 +16675,4 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
     },
   },
 };
+

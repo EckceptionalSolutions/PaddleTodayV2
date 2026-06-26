@@ -1,18 +1,22 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-06-26.
+Last summarized: 2026-06-26 09:55 America/Chicago.
 
 ## Current Inventory
 
-- Live routes: 77.
-- Top represented rivers: Crow Wing River 17, Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
+- Live routes: 63.
+- Top represented rivers: Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, Crow Wing River 3.
 - Ledger candidates: 70 total; 36 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
 
-Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
+Minnesota still has the strongest official-source foundation and a broad existing inventory. Crow Wing has now been trimmed back to three canonical live routes, so remaining work should stay selective rather than turning strong official families into endpoint-combination clutter.
 
 ## Latest Run
+
+- 2026-06-26 09:55 America/Chicago: consolidated the Crow Wing family from 17 live slugs to 3 canonical routes: `crow-wing-river-mary-brown-stigmans-mound`, `crow-wing-river-andersons-crossing-cottingham`, and `crow-wing-river-stigmans-mound-cottingham`.
+- Removed the overlapping Mary Brown / Anderson's / Stigman's / Frame's / Little White Dog / Knob Hill permutations because they reused the same Nimrod gauge, official DNR maps, and county-campground chain without adding meaningfully different trip stories.
+- The surviving trip-detail entries now carry explicit intermediate `accessPoints` for the deleted split landings so the public access ladder remains visible without keeping every combination as its own slug.
 
 - 2026-06-26 07:05 America/Chicago: added `crow-wing-river-andersons-crossing-little-white-dog`, `crow-wing-river-mary-brown-knob-hill`, and `crow-wing-river-andersons-crossing-cottingham`.
 - Implemented the remaining defensible longer Crow Wing continuations that still fit the Nimrod-gauge-supported Wadena access chain instead of forcing a weaker new-state search.
