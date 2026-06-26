@@ -47015,4 +47015,387 @@ export const rivers: River[] = [
       },
     ],
   },
+  {
+    id: 'cumberland-river-redbird-thunderstruck',
+    slug: 'cumberland-river-redbird-thunderstruck',
+    name: 'Cumberland River',
+    reach: 'Redbird Ramp to Thunderstruck Ramp',
+    aliases: [
+      'Cumberland River - Redbird to Thunderstruck',
+      'Upper Cumberland above the falls',
+      'North Fork Cumberland River upper float',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Remote upper Cumberland run from Redbird Ramp to Thunderstruck Access above Cumberland Falls. KDFWR documents this as the first of two official upstream-of-the-falls floats and ties it to the direct Williamsburg gauge with a 500 to 1,100 cfs preferred band.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and flows up to 2,000 cfs are challenging for skilled paddlers only.',
+    latitude: 36.7621,
+    longitude: -84.2216,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['whitewater', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'This is a remote gorge float with shoals and mild whitewater rapids, not a casual flatwater cruise.',
+        'KDFWR says water above 1,100 cfs becomes more challenging and up to 2,000 cfs is for skilled paddlers only.',
+        'Long Bottom and Mouth of Indian Creek are not dependable normal exits because KDFWR describes those roads as extremely rough.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This forested Cumberland run is best when the Williamsburg gauge is inside the KDFWR band. Dry spells can expose shoals, while storms can push the gorge into a more technical day quickly.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The route has mild whitewater, broad shoals, and a remote finish. It is manageable for competent moving-water paddlers at normal levels but should not be treated like an easy family float.',
+      confidenceNotes:
+        'Confidence is good for a guarded add: KDFWR explicitly names Redbird and Thunderstruck as the upstream-official float endpoints, publishes the 500 to 1,100 cfs Williamsburg band with higher-water caution up to 2,000 cfs, and KDFWR access-detail pages provide source-backed coordinates for both ramps. Same-day USGS Water Services showed 1,260 cfs at 2026-06-25 21:00 EDT, which is above the preferred band but still inside KDFWR\'s skilled-paddler higher-water envelope.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Redbird Ramp to Thunderstruck Ramp, about 11 mi',
+        note: 'KDFWR presents this as the first of the two official upstream Cumberland Falls floats and places Thunderstruck at the end of the first run.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '500-1100 cfs best; up to 2000 cfs challenging',
+        note: 'KDFWR says lower water may require dragging and higher water up to 2,000 cfs is challenging for skilled paddlers only.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Redbird Ramp, 36.7621, -84.2216',
+        note: 'KDFWR access detail lists Redbird as a paved public ramp with year-round availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
+        note: 'KDFWR access detail lists Thunderstruck as a year-round public ramp with unpaved parking.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1260 cfs / 4.56 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-06-25 21:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Float-camping banks downstream of Bee Shoals',
+        note: 'KDFWR says float campers use the banks downstream of Bee Shoals as camping sites on this route.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Redbird Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=904',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Thunderstruck Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'cumberland-river-thunderstruck-cumberland-falls',
+    slug: 'cumberland-river-thunderstruck-cumberland-falls',
+    name: 'Cumberland River',
+    reach: 'Thunderstruck Ramp to Cumberland Falls State Resort Park',
+    aliases: [
+      'Cumberland River - Thunderstruck to Cumberland Falls',
+      'Upper Cumberland gorge to the falls',
+      'North Fork Cumberland River lower float above the falls',
+    ],
+    state: 'Kentucky',
+    region: 'Daniel Boone Country',
+    routeType: 'whitewater',
+    summary:
+      'Shorter but more consequential upstream-of-the-falls Cumberland run from Thunderstruck Access to the public Cumberland Falls viewing parking area. KDFWR uses the same direct Williamsburg gauge and explicitly warns paddlers to work right and take out before the falls.',
+    statusText:
+      'Use the Cumberland River at Williamsburg gauge. KDFWR says 500 to 1,100 cfs is best, lower water can mean dragging, and higher water up to 2,000 cfs is challenging for skilled paddlers only. Missing the take-out is not acceptable because the falls are immediately downstream.',
+    latitude: 36.8077,
+    longitude: -84.3546,
+    gaugeSource: {
+      id: 'usgs-03404000',
+      provider: 'usgs',
+      siteId: '03404000',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Cumberland River at Williamsburg, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+    },
+    safetyProfile: {
+      riskLevel: 'advanced',
+      hazards: ['whitewater', 'mandatory_takeout', 'fast_rise', 'private_banks', 'remote'],
+      safetyNotes: [
+        'KDFWR says several drops lead toward Cumberland Falls and paddlers must work to the right of the river before the KY 90 bridge.',
+        'Any upset or missed line near the finish can create a treacherous situation because the current leads directly toward the 68-foot falls.',
+        'Treat this as an advanced moving-water route even when the gauge is inside the preferred band.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 500,
+      idealMax: 1100,
+      tooLow: 500,
+      tooHigh: 2000,
+      thresholdSource: {
+        label: 'KDFWR Cumberland River recommended Williamsburg flow band',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This gorge route is most defensible when the Williamsburg gauge stays in or near the KDFWR band and weather is stable. Rain can make the rapid sequence and final take-out substantially more serious.',
+      difficulty: 'hard',
+      difficultyNotes:
+        'The route includes Class II-style rapid features at higher water, a fast gorge finish, and a mandatory take-out above Cumberland Falls.',
+      confidenceNotes:
+        'Confidence is good for a guarded add because KDFWR explicitly names Thunderstruck as the put-in, the Cumberland Falls parking lot as the take-out, and the right-bank take-out behavior above the falls. The direct Williamsburg gauge and official flow band are the same as the upstream segment. Same-day USGS Water Services showed 1,260 cfs at 2026-06-25 21:00 EDT, slightly above the preferred band and therefore in KDFWR\'s more challenging higher-water posture.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Thunderstruck to Cumberland Falls, about 5 mi',
+        note: 'KDFWR presents this as the second of the two official upstream Cumberland Falls floats.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Mandatory take-out warning',
+        value: 'Work right and take out below the KY 90 bridge',
+        note: 'KDFWR says paddlers must work to the right and take out at the parking lot for viewing Cumberland Falls because the rapids otherwise lead toward the falls.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Thunderstruck Ramp, 36.8077, -84.3546',
+        note: 'KDFWR access detail lists Thunderstruck as a public year-round ramp.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Cumberland Falls viewing parking area, 36.837636, -84.343597',
+        note: 'KDFWR says the take-out is at the parking lot for viewing Cumberland Falls just downstream of the KY 90 bridge. The coordinate is anchored to the public falls parking and overlook trailhead area beside the bridge.',
+        sourceUrl: 'https://www.kentuckyhiker.com/latest/2020/11/26/cumberland-falls-overlooks-loop',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03404000 at 1260 cfs / 4.56 ft',
+        note: 'USGS Water Services returned same-day values for Cumberland River at Williamsburg, KY at 2026-06-25 21:00 EDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Cumberland Falls campgrounds and cabins',
+        note: 'Kentucky State Parks lists Clifty primitive sites, Ridgeline electric-and-water campsites, cabins, and other lodging at Cumberland Falls State Resort Park.',
+        sourceUrl: 'https://parks.ky.gov/explore/cumberland-falls-state-resort-park-7786',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Cumberland River',
+        url: 'https://fw.ky.gov/Education/Pages/Cumberland-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Thunderstruck Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=893',
+        provider: 'local',
+      },
+      {
+        label: 'Kentucky State Parks Cumberland Falls',
+        url: 'https://parks.ky.gov/explore/cumberland-falls-state-resort-park-7786',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03404000 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03404000/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03404000 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03404000&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
+  {
+    id: 'barren-river-martinsville-potter-combs',
+    slug: 'barren-river-martinsville-potter-combs',
+    name: 'Barren River',
+    reach: 'Martinsville Ford / Claypool Ramp to Potter/Combs Ramp',
+    aliases: [
+      'Barren River - Martinsville Ford to Potter/Combs',
+      'Lower Barren River long middle float',
+      'Barren River Claypool to Weldon Pete Park',
+    ],
+    state: 'Kentucky',
+    region: 'South-Central Kentucky',
+    summary:
+      'Long lower-Barren route from Martinsville Ford / Claypool Ramp to Potter/Combs Ramp at Weldon Pete Park. KDFWR lists this exact 24-mile segment and ties it to the direct Bowling Green gauge with official 350 to 700 cfs good-flow guidance.',
+    statusText:
+      'Use the Barren River at Bowling Green gauge. KDFWR rates 350 to 700 cfs as good, below that as low, and above that as high for boating and fishing on this downstream lower-Barren corridor.',
+    latitude: 36.9134,
+    longitude: -86.2293,
+    gaugeSource: {
+      id: 'usgs-03314500',
+      provider: 'usgs',
+      siteId: '03314500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Barren River at Bowling Green, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+    },
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'private_banks'],
+      safetyNotes: [
+        'This is a long broad-river day with limited legal stopping options away from the named accesses.',
+        'KDFWR says Potter/Combs sits above a dam-influenced pooled section, so stay with the named take-out and do not drift downstream assuming the route stays casual.',
+        'Low water can turn a 24-mile day into a much longer commitment.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 350,
+      idealMax: 700,
+      tooLow: 350,
+      tooHigh: 700,
+      thresholdSource: {
+        label: 'KDFWR recommended Bowling Green flow band',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This long lower-Barren segment is best in spring and wetter fall periods when the Bowling Green gauge is in or near the official good band. Summer lows can slow the route dramatically.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'The current is usually straightforward, but the 24-mile length, mixed shoals and pools, and downstream park take-out make this a serious endurance day rather than a casual after-work float.',
+      confidenceNotes:
+        'Confidence is good for a conservative add: KDFWR lists Martinsville Ford / Claypool Ramp to Potter/Combs Ramp as an exact 24.0-mile lower-Barren segment, publishes both endpoint coordinates, and gives official Bowling Green flow guidance of Low below 350 cfs, Good from 350 to 700 cfs, and High above 700 cfs. Same-day USGS Water Services returned 185 cfs at 2026-06-25 20:45 CDT, which keeps the live path current while honestly indicating a low-water day.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Martinsville Ford / Claypool Ramp to Potter/Combs Ramp, 24.0 mi',
+        note: 'KDFWR lists this exact downstream lower-Barren site-to-site mileage.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '350-700 cfs good',
+        note: 'KDFWR rates the Barren River at Bowling Green gauge as Low below 350 cfs, Good from 350 to 700 cfs, and High above 700 cfs.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Martinsville Ford / Claypool Ramp, 36.9134, -86.2293',
+        note: 'KDFWR access detail confirms a public ramp with year-round availability and parking along the ford crossing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Potter/Combs Ramp, 37.0027, -86.4184',
+        note: 'KDFWR access detail confirms Potter/Combs Ramp at Weldon Pete Park as a public ramp with year-round availability.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=628',
+      },
+      {
+        label: 'Live-gauge support',
+        value: 'USGS 03314500 at 185 cfs / 3.81 ft',
+        note: 'USGS Water Services returned same-day values for Barren River at Bowling Green, KY at 2026-06-25 20:45 CDT during this run.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Downstream take-out character',
+        value: 'Weldon Pete Park ramp above pooled dam section',
+        note: 'KDFWR says Potter/Combs is a concrete ramp in Weldon Pete Park and notes a dam 0.6 miles downstream that deepens the river near the take-out.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Lower Barren River',
+        url: 'https://fw.ky.gov/Fish/Pages/Lower-Barren-River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Martinsville Ford / Claypool Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=624',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Potter/Combs Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=628',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03314500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/03314500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03314500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03314500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+    ],
+  },
 ];

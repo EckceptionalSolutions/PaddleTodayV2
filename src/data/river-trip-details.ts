@@ -15664,4 +15664,118 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'cumberland-river-redbird-thunderstruck': {
+    putIn: {
+      id: 'redbird-ramp',
+      name: 'Redbird Ramp',
+      latitude: 36.7621,
+      longitude: -84.2216,
+    },
+    takeOut: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    logistics: {
+      distanceLabel: 'About 11 mi',
+      estimatedPaddleTime:
+        'About 4 hr to 6.5 hr, longer with scouting, fishing, or low-water scraping',
+      shuttle:
+        'Stage the Thunderstruck take-out first, then drive back to Redbird on KY 204 and KY 478. Do not count on Long Bottom or Mouth of Indian Creek as routine shuttle points because KDFWR describes those roads as extremely rough.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and keep emergency plans realistic for a remote gorge float.',
+      camping:
+        'KDFWR says float campers use the banks downstream of Bee Shoals on this route. Treat that as primitive on-route overnight context rather than developed campground support, and avoid private banks outside the commonly used river corridor.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Redbird Ramp and take out at Thunderstruck for the first official upstream Cumberland Falls float. Use the Williamsburg gauge and treat water above the 1,100 cfs preferred band as a more technical skilled-paddler day.',
+      accessCaveats: [
+        'Redbird and Thunderstruck are the clean public endpoints. Long Bottom and Mouth of Indian Creek are route-context accesses only and are not dependable normal shuttle points.',
+        'The float is remote enough that daylight, weather, and group self-rescue capacity matter more than on a town-edge run.',
+        'Same-day USGS flow on this run was above the KDFWR preferred band, so expect more push and less margin than the beginner phrasing on the route page might imply at normal levels.',
+      ],
+      watchFor: [
+        'Summer Shoals, Bee Shoals, Crow Shoals, and Thunderstruck Shoals.',
+        'Fresh wood, limited bailout options, and fast rises after rain.',
+        'Private banks and rough gorge exits away from the named ramps.',
+      ],
+    },
+  },
+  'cumberland-river-thunderstruck-cumberland-falls': {
+    putIn: {
+      id: 'thunderstruck-ramp',
+      name: 'Thunderstruck Ramp',
+      latitude: 36.8077,
+      longitude: -84.3546,
+    },
+    takeOut: {
+      id: 'cumberland-falls-viewing-parking',
+      name: 'Cumberland Falls viewing parking area',
+      latitude: 36.837636,
+      longitude: -84.343597,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 2.5 hr to 4.5 hr, longer with scouting or higher-water caution',
+      shuttle:
+        'Stage the Cumberland Falls vehicle first, then drive back to Thunderstruck by KY 90, US 27, and KY 700. Inspect the take-out before launching because the finish above the falls is the core safety gate for the route.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR put-in and the public Cumberland Falls viewing parking area only, follow Kentucky boating and PFD rules, and do not launch if your group is not prepared for a mandatory take-out above the falls.',
+      camping:
+        'Cumberland Falls State Resort Park has campgrounds, cabins, and other lodging at the take-out area, so this works best as a campground-based gorge day rather than a wilderness overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Thunderstruck and finish at the Cumberland Falls viewing parking area for the shorter official gorge float. The route is only about five miles, but the mandatory right-bank take-out above the falls makes it more serious than the mileage suggests.',
+      accessCaveats: [
+        'KDFWR says to work to the right side of the river before the KY 90 bridge and take out at the falls parking lot. Missing that move is a stand-down failure, not a recoverable inconvenience.',
+        'This run includes the Pitch Rapids, Slick Shoals gorge, and several drops before the bridge. Treat it as a whitewater route even though KDFWR also frames it as a good angling float.',
+        'Same-day flow on this run was above the preferred band, so the route should be treated as a stronger-water day for skilled paddlers rather than an entry-level outing.',
+      ],
+      watchFor: [
+        'Pitch Rapids, Slick Shoals gorge current, and the drop sequence below Blue Bend.',
+        'The mandatory take-out above Cumberland Falls.',
+        'Rain-driven rises, private gorge banks, and sparse mid-route exits.',
+      ],
+    },
+  },
+  'barren-river-martinsville-potter-combs': {
+    putIn: {
+      id: 'martinsville-ford-claypool-ramp',
+      name: 'Martinsville Ford / Claypool Ramp',
+      latitude: 36.9134,
+      longitude: -86.2293,
+    },
+    takeOut: {
+      id: 'potter-combs-ramp',
+      name: 'Potter/Combs Ramp',
+      latitude: 37.0027,
+      longitude: -86.4184,
+    },
+    logistics: {
+      distanceLabel: 'About 24.0 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr, longer with low-water scraping, upstream wind, or fishing stops',
+      shuttle:
+        'Leave the downstream vehicle at Potter/Combs Ramp in Weldon Pete Park, then drive back to Martinsville Ford / Claypool Ramp. This is a real full-day shuttle-and-commitment route, not a casual short float.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public ramps, follow Kentucky boating and PFD rules, and respect private banks between the endpoints.',
+      camping:
+        'Treat this as a long day route unless you have separate legal camping plans away from the river. KDFWR does not document public camping support on this exact segment.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Martinsville Ford / Claypool Ramp and finish at Potter/Combs Ramp for the official 24-mile lower-Barren middle segment. Use the Bowling Green gauge and expect a slow low-water day whenever the river stays below 350 cfs.',
+      accessCaveats: [
+        'This is a very long lower-Barren day. Start early enough that low water, fishing, or wind does not push the take-out into dusk.',
+        'Potter/Combs sits above a dam-influenced pooled section near Weldon Pete Park. Use the named park ramp rather than drifting downstream looking for another city-bank exit.',
+        'Most of the shoreline between the two ramps is private. Do not treat sand or mud banks as public rest stops just because the river is broad.',
+      ],
+      watchFor: [
+        'Low water below about 350 cfs, when shoals and long pools can turn the route into a grind.',
+        'High water above about 700 cfs, when bends, wood, and landings become less forgiving.',
+        'Bridge-area current, upstream wind on open pools, and fresh debris after rain.',
+      ],
+    },
+  },
 };
