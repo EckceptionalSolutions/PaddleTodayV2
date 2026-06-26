@@ -4,8 +4,8 @@ Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 71.
-- Top represented rivers: Crow Wing River 14, Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
+- Live routes: 74.
+- Top represented rivers: Crow Wing River 14, Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
 - Ledger candidates: 70 total; 36 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
@@ -13,6 +13,12 @@ Last summarized: 2026-06-26.
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-26 08:25 America/Chicago: added `big-fork-river-big-falls-west-ben-linn`, `big-fork-river-sturgeon-gowdy`, and `big-fork-river-big-falls-west-gowdy`.
+- Implemented three longer post-portage Big Fork continuations from the same official Map 2 access chain instead of reopening a weaker new-state discovery cycle.
+- Minnesota public-water-access GIS continues to resolve Big Falls West `WAS01791` at `48.1974059, -93.8049550`, Sturgeon `WAS01795` at `48.2118788, -93.8834227`, Ben Linn `WAS01796` at `48.2500692, -93.8861103`, and Gowdy `WAS02706` at `48.2991378, -93.8203830`.
+- The corridor still uses direct MN DNR site `5` at Big Falls with same-day `2.88 ft` at `2026-06-26 02:00 AM`; official bands remain Scrapable below `1.5 ft`, Low `1.5-2.8`, Medium `2.8-4.5`, High `4.5-6.0`, and Very High above `6.0`.
+- Big-Falls-West-to-Ben-Linn, Sturgeon-to-Gowdy, and Big-Falls-West-to-Gowdy all ship as `on_route_campsite` because DNR Map 2 documents watercraft campsites at Sturgeon, Ben Linn, and Gowdy. The two longer routes retain the mapped Class I rapid stretch at river miles `41.3-39.8`; all three routes keep fast-rise, wood, and private-bank cautions. No route-gallery image was added.
 
 - 2026-06-26 04:00 America/Chicago: added `crow-wing-river-mary-brown-little-white-dog`, `crow-wing-river-andersons-crossing-knob-hill`, and `crow-wing-river-stigmans-mound-cottingham`.
 - Implemented three longer Crow Wing continuations that bridge the remaining Mary Brown / Anderson's / Stigman's public chain into the already-live lower campground corridor instead of reopening a weaker new-state search.

@@ -963,6 +963,207 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       },
     ],
   },
+  'big-fork-river-big-falls-west-ben-linn': {
+    putIn: {
+      name: 'Big Falls West / Cody Landing Public Water Access Site',
+      latitude: 48.1974059,
+      longitude: -93.804955,
+    },
+    takeOut: {
+      name: 'Ben Linn Public Water Access Site',
+      latitude: 48.2500692,
+      longitude: -93.8861103,
+    },
+    logistics: {
+      distanceLabel: '9.6 mi',
+      estimatedPaddleTime: 'About 4 hr to 5.5 hr',
+      shuttle:
+        'Stage the take-out at Ben Linn before driving to Big Falls West / Cody Landing. This route starts below the Big Falls portage, so check the launch first and make sure no one confuses it with the upstream mandatory take-out.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, portage, and state-forest rules at Big Falls and Ben Linn.',
+      camping:
+        'Ben Linn has a watercraft campsite, and Big Falls City Park sits by the launch with campground support if you want a developed overnight base before paddling.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Big Falls at Cody Landing / Big Falls West and finish at Ben Linn for a longer post-portage continuation through the quieter middle Big Fork corridor.',
+      accessCaveats: [
+        'Big Falls West is the downstream put-in reached after the documented Big Falls portage. Do not start above the falls unless you have separately planned that upstream route and portage.',
+        'Sturgeon is the clearest midpoint bailout before the Ben Linn finish if the day is moving slower than expected.',
+        'Stay with the named public accesses and campsites rather than improvising on brushy banks.',
+      ],
+      watchFor: [
+        'Strainers, outside-bend wood, and blind corners on a lightly developed northern river.',
+        'Scraping and slower progress when the Big Falls gauge falls toward the 1.5 ft floor.',
+        'Faster current and fewer recovery options after heavy rain even though this corridor stays below the falls.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-falls-west',
+        name: 'Big Falls West / Cody Landing Public Water Access Site',
+        latitude: 48.1974059,
+        longitude: -93.804955,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Downstream launch reached after the documented Big Falls portage.',
+      },
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'Named midpoint bailout with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a grassy clearing and watercraft campsite.',
+      },
+    ],
+  },
+  'big-fork-river-sturgeon-gowdy': {
+    putIn: {
+      name: 'Sturgeon Public Water Access Site',
+      latitude: 48.2118788,
+      longitude: -93.8834227,
+    },
+    takeOut: {
+      name: 'Gowdy Public Water Access Site',
+      latitude: 48.2991378,
+      longitude: -93.820383,
+    },
+    logistics: {
+      distanceLabel: '13.3 mi',
+      estimatedPaddleTime: 'About 5 hr to 6.5 hr',
+      shuttle:
+        'Stage the take-out at Gowdy before driving to Sturgeon. Both endpoints are forest-edge landings with campsites, so check road conditions and parking space before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access and state-forest rules at Sturgeon, Ben Linn, and Gowdy.',
+      camping:
+        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, making this one of the cleaner northern camp-and-paddle options on the Big Fork.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Sturgeon and finish at Gowdy for a longer middle-lower Big Fork continuation that includes the mapped Class I rapid stretch below Ben Linn.',
+      accessCaveats: [
+        'Ben Linn is the clearest midpoint bailout or overnight stop before the final miles to Gowdy.',
+        'This is a forest-corridor route between named public accesses and campsites, not a park-to-park float with easy roadside exits.',
+        'Stay on the named public accesses and campsites rather than using private or brushy banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Scraping and rocky riffles when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Forested carry-in access with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 4.5,
+        segmentKind: 'creek',
+        note: 'Best named midpoint bailout with a watercraft campsite.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 13.3,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite at the downstream end of the rapid-stretch corridor.',
+      },
+    ],
+  },
+  'big-fork-river-big-falls-west-gowdy': {
+    putIn: {
+      name: 'Big Falls West / Cody Landing Public Water Access Site',
+      latitude: 48.1974059,
+      longitude: -93.804955,
+    },
+    takeOut: {
+      name: 'Gowdy Public Water Access Site',
+      latitude: 48.2991378,
+      longitude: -93.820383,
+    },
+    logistics: {
+      distanceLabel: '18.4 mi',
+      estimatedPaddleTime: 'Long day, roughly 7 hr to 9 hr depending on level and stops',
+      shuttle:
+        'Stage the take-out at Gowdy before driving to Big Falls West / Cody Landing. Check the launch in advance because this route begins below the Big Falls portage and commits you to a long remote forest run.',
+      permits:
+        'No route-specific paddling permit is known. Follow posted public-water-access, portage, and state-forest rules at Big Falls, Sturgeon, Ben Linn, and Gowdy.',
+      camping:
+        'Sturgeon, Ben Linn, and Gowdy all have documented watercraft campsites, so this long downstream continuation has clean bailout or overnight support if you do not want to force it into a single day.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch below Big Falls at Cody Landing / Big Falls West and finish at Gowdy for the full lower Big Fork continuation below the falls portage.',
+      accessCaveats: [
+        'Big Falls West is the downstream put-in reached after the documented Big Falls portage. Do not start above the falls unless you have separately planned that upstream route and portage.',
+        'Sturgeon and Ben Linn are the clearest midpoint bailout or overnight options before the final miles to Gowdy.',
+        'Stay with the named public accesses and campsites rather than improvising on brushy banks.',
+      ],
+      watchFor: [
+        'The mapped Class I rapid stretch between river miles 41.3 and 39.8 on the lower half of the route.',
+        'Outside-bend strainers, fresh storm wood, and quicker current after rain.',
+        'Long-day fatigue plus scraping and slower travel when the Big Falls gauge falls toward the 1.5 ft floor.',
+      ],
+    },
+    accessPoints: [
+      {
+        id: 'big-falls-west',
+        name: 'Big Falls West / Cody Landing Public Water Access Site',
+        latitude: 48.1974059,
+        longitude: -93.804955,
+        mileFromStart: 0,
+        segmentKind: 'creek',
+        note: 'Downstream launch reached after the documented Big Falls portage.',
+      },
+      {
+        id: 'sturgeon',
+        name: 'Sturgeon Public Water Access Site',
+        latitude: 48.2118788,
+        longitude: -93.8834227,
+        mileFromStart: 5.1,
+        segmentKind: 'creek',
+        note: 'First named bailout with a watercraft campsite.',
+      },
+      {
+        id: 'ben-linn',
+        name: 'Ben Linn Public Water Access Site',
+        latitude: 48.2500692,
+        longitude: -93.8861103,
+        mileFromStart: 9.6,
+        segmentKind: 'creek',
+        note: 'Mid-route campsite and best second bailout before the lower rapid stretch.',
+      },
+      {
+        id: 'gowdy',
+        name: 'Gowdy Public Water Access Site',
+        latitude: 48.2991378,
+        longitude: -93.820383,
+        mileFromStart: 18.4,
+        segmentKind: 'creek',
+        note: 'Carry-in access with a watercraft campsite at the downstream end of the rapid-stretch corridor.',
+      },
+    ],
+  },
   'little-fork-river-veterans-park-highway-73': {
     putIn: {
       name: 'Veterans Park carry-in access, Cook',
