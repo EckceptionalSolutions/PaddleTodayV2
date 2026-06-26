@@ -10624,6 +10624,126 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'tradewater-river-montezuma-vfw-bridge': {
+    putIn: {
+      id: 'montezuma-bridge-ramp',
+      name: 'Montezuma Bridge Ramp',
+      latitude: 37.3967,
+      longitude: -87.8446,
+    },
+    takeOut: {
+      id: 'vfw-bridge-ramp',
+      name: 'VFW Bridge Ramp',
+      latitude: 37.4794,
+      longitude: -87.9539,
+    },
+    logistics: {
+      distanceLabel: 'About 16.2 mi',
+      estimatedPaddleTime:
+        'About 6 hr to 8 hr 30 min, longer with wood scouting, soft current, or a slower group pace',
+      shuttle:
+        'Stage the take-out at VFW Bridge first, then drive back to Montezuma through Providence. This is a committed rural shuttle, so inspect both bridge accesses before launching and leave enough daylight for a full-day lower Tradewater plan.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Montezuma and VFW as simple public accesses with no camping amenities, so treat this as a long day trip rather than an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Montezuma Bridge Ramp and take out at VFW Bridge Ramp for a longer lower Tradewater day. Use the Providence gauge at the put-in as the route check, but stay conservative when recent rain leaves the discharge high or fresh wood moving through the channel.',
+      accessCaveats: [
+        'Montezuma is a carry-down bridge access with only a few parking spots, so inspect the launch before leaving a vehicle.',
+        'VFW Bridge Ramp is the easiest access in this lower chain, but it still sits in a rural corridor where storms can leave mud, debris, or confusing shoreline conditions.',
+        'KDFWR limits bank and wade fishing to the public access areas because adjacent property is private. Do not plan on informal bank stops or camping along the route.',
+        'This route effectively combines the official Montezuma-to-Fishtrap and Fishtrap-to-VFW segments, so it needs a fuller daylight, hydration, and fatigue plan than either shorter float alone.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'High water above 50 cfs or 15 ft at Providence, when KDFWR moves the route out of the good band and the Tradewater becomes too pushy for casual paddling.',
+        'The current Providence stage can still look reasonable while discharge is elevated, so treat recent weather as a real hazard signal rather than relying on one number.',
+        'Longer-mileage fatigue, sparse services, slick bridge landings, and private banks across a full rural day.',
+      ],
+    },
+  },
+  'tradewater-river-fishtrap-granger-landing': {
+    putIn: {
+      id: 'fishtrap-bridge-ramp',
+      name: 'Fishtrap Bridge Ramp',
+      latitude: 37.3988,
+      longitude: -87.9049,
+    },
+    takeOut: {
+      id: 'granger-landing-ramp',
+      name: 'Granger Landing Ramp',
+      latitude: 37.5463,
+      longitude: -88.0189,
+    },
+    logistics: {
+      distanceLabel: 'About 20.1 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 9 hr 30 min, longer with wood scouting, soft current mileage, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Granger Landing first, then drive back to Fishtrap. This is a long lower-Tradewater shuttle with few services, so inspect both access roads before committing and leave enough daylight for an all-day float.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Fishtrap and Granger as simple public accesses rather than campgrounds, so treat this as a committed day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Fishtrap Bridge Ramp and take out at Granger Landing Ramp for a long lower Tradewater day. Because no gauge sits on this exact reach, use the upstream Providence gauge as a conservative same-river check and stand down quickly when flashy weather pushes the river out of band.',
+      accessCaveats: [
+        'Fishtrap is a small bridge landing with minimal parking and no amenities, so settle the vehicle plan before launching.',
+        'Granger Landing is an uncomplicated public ramp near Sturgis, yet the lower river still runs past private banks and limited shoreline services. Do not assume open stopping points away from the ramp.',
+        'KDFWR limits bank and wade fishing to the public access areas because adjacent property is private. Do not plan on informal bank stops or camping along the route.',
+        'This route effectively combines the official Fishtrap-to-VFW and VFW-to-Granger segments, so it needs a fuller daylight, hydration, and fatigue plan than either shorter float alone.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'The Providence gauge is upstream of this route, so treat it as a conservative proxy rather than a perfect lower-reach forecast.',
+        'Longer-mileage fatigue, sparse services, slick bridge or ramp exits after storms, and limited legal bailout options.',
+        'Private banks across most of the corridor and the temptation to over-commit just because the river itself is gentle at ordinary flows.',
+      ],
+    },
+  },
+  'tradewater-river-montezuma-granger-landing': {
+    putIn: {
+      id: 'montezuma-bridge-ramp',
+      name: 'Montezuma Bridge Ramp',
+      latitude: 37.3967,
+      longitude: -87.8446,
+    },
+    takeOut: {
+      id: 'granger-landing-ramp',
+      name: 'Granger Landing Ramp',
+      latitude: 37.5463,
+      longitude: -88.0189,
+    },
+    logistics: {
+      distanceLabel: 'About 26.8 mi',
+      estimatedPaddleTime:
+        'About 8 hr 30 min to 11 hr, longer with wood scouting, soft current mileage, or a slower group pace',
+      shuttle:
+        'Stage the take-out at Granger Landing first, then drive back to Montezuma through Providence. This is a serious full-day rural shuttle and float, so confirm both landings before launch and leave enough daylight to finish without a dusk take-out.',
+      permits:
+        'No route-specific paddling permit is known. Use only the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect fishing-license requirements if you plan to fish.',
+      camping:
+        'No camping plan is assumed. KDFWR lists Montezuma and Granger as simple public accesses with no camping amenities, so treat this as a very long day trip rather than an overnight route.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Montezuma Bridge Ramp and take out at Granger Landing Ramp for the full lower Tradewater combination day. Use the Providence gauge at the put-in as the route check, but stay conservative whenever recent rain leaves discharge elevated or fresh wood moving through the channel.',
+      accessCaveats: [
+        'Montezuma is a carry-down bridge access with only a few parking spots, so inspect the launch before leaving a vehicle.',
+        'Granger Landing is a straightforward public ramp near Sturgis, but it comes at the end of a 26.8-mile day with sparse services and no guaranteed easy bailout points upstream.',
+        'KDFWR limits bank and wade fishing to the public access areas because adjacent property is private. Do not plan on informal bank stops or camping along the route.',
+        'This route effectively combines all three official downstream Tradewater segments from Montezuma through Granger, so it should be reserved for groups comfortable with a very full day on a flashy rural river.',
+      ],
+      watchFor: [
+        'Flashy post-rain rises, muddy current, fresh wood, and strainers on bends or in braided channels.',
+        'High water above 50 cfs or 15 ft at Providence, when KDFWR moves the route out of the good band and the Tradewater becomes too pushy for a route this long.',
+        'The current Providence stage can still look reasonable while discharge is elevated, so treat recent weather as a real hazard signal rather than relying on one number.',
+        'Very long-day fatigue, heat, sparse services, private banks, and the risk of arriving at the take-out late if the group underestimates the mileage.',
+      ],
+    },
+  },
   'buffalo-river-ponca-kyles-landing': {
     putIn: {
       id: 'ponca-access',

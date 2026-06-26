@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 08:00 America/Chicago / 2026-06-26 13:00 UTC.
+Last summarized: 2026-06-26 10:15 America/Chicago / 2026-06-26 15:15 UTC.
 
 ## Current Inventory
 
-- Live routes: 55.
-- Ledger candidates: 50 Kentucky-specific records. The ledger now splits across 31 `added`, 17 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `green-river-glenview-road-lynn-camp-creek`, `green-river-lynn-camp-creek-stovall-park`, and `green-river-hh-wilson-park-dennison-ferry`.
+- Live routes: 58.
+- Ledger candidates: 50 Kentucky-specific records. The ledger now splits across 31 `added`, 17 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `tradewater-river-montezuma-vfw-bridge`, `tradewater-river-fishtrap-granger-landing`, and `tradewater-river-montezuma-granger-landing`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 10:15 America/Chicago / 2026-06-26 15:15 UTC three-route add pass
+  - Added `tradewater-river-montezuma-vfw-bridge`, `tradewater-river-fishtrap-granger-landing`, and `tradewater-river-montezuma-granger-landing` to expand Kentucky to fifty-eight live routes.
+  - The run reused the current KDFWR Tradewater River page for the official Providence gauge ladder of Low below `5 cfs / 10.0 ft`, Good `5-50 cfs / 10-15 ft`, and High above `50 cfs / 15.0 ft`, plus the official Montezuma-to-Fishtrap `6.7 mi`, Fishtrap-to-VFW `9.5 mi`, and VFW-to-Granger `10.6 mi` access-chain mileages that support the combined public routes of `16.2`, `20.1`, and `26.8` miles.
+  - Current KDFWR access-detail pages already supported the endpoint coordinates and public-use notes for Montezuma Bridge Ramp, Fishtrap Bridge Ramp, VFW Bridge Ramp, and Granger Landing Ramp; same-day direct USGS Water Services returned `195 cfs / 12.50 ft` at Providence (`03384100`) at `2026-06-26 09:45 CDT`.
+  - Camping/safety stayed conservative by route: all three ship as `none` for camping because KDFWR treats the endpoints as simple access sites, while the safety package keeps the Tradewater warnings around flashy rain-driven rises, woody debris, braided current lines, private-bank limits, and the longer-day fatigue that comes with these combination slugs.
+  - Reused the approved Tradewater Commons corridor image for all three new slugs rather than selecting new KDFWR or USGS imagery.
 - 2026-06-26 08:00 America/Chicago / 2026-06-26 13:00 UTC three-route add pass
   - Added `green-river-glenview-road-lynn-camp-creek`, `green-river-lynn-camp-creek-stovall-park`, and `green-river-hh-wilson-park-dennison-ferry` to expand Kentucky to fifty-five live routes.
   - The run reused the current KDFWR Pool 6 Green River page for the official site-to-site mileages of `19.2`, `18.2`, `3.6`, and `21.0` miles plus the official Greensburg stage ladder of Low below `1.0 ft`, Good `1.0-1.75 ft`, and High above `1.75 ft`, and the official Munfordville discharge ladder of Low below `300 cfs`, Good `300-600 cfs`, and High above `600 cfs`.
