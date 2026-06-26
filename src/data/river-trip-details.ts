@@ -13108,6 +13108,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'south-fork-kentucky-river-rocky-branch-bishop-bend': {
+    putIn: {
+      id: 'rocky-branch-road-access',
+      name: 'Rocky Branch Road Access',
+      latitude: 37.3206,
+      longitude: -83.6648,
+    },
+    takeOut: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    logistics: {
+      distanceLabel: 'About 7.2 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Bishop Bend School Road Access, then drive back to Rocky Branch Road Access off KY-11. Both are limited gravel or dirt accesses, so inspect the exit before launching and avoid counting on extra roadside parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Rocky Branch or Bishop Bend, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Rocky Branch Road Access and take out about 7.2 miles downstream at Bishop Bend School Road Access for a fuller middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Rocky Branch is a gravel and dirt bridge-side access with limited parking and no amenities.',
+        'Bishop Bend is a gravel and dirt access with a small dirt parking area midway down the road and no amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines than the official mileage alone suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a longer day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and recovery becomes less forgiving around bends and wood.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-cedar-valley-hacker-branch': {
+    putIn: {
+      id: 'cedar-valley-road-access',
+      name: 'Cedar Valley Road Access',
+      latitude: 37.3363,
+      longitude: -83.656,
+    },
+    takeOut: {
+      id: 'hacker-branch-road-access',
+      name: 'Hacker Branch Road Access',
+      latitude: 37.3743,
+      longitude: -83.6708,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 3 hr to 5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Hacker Branch Road Access, then drive back to Cedar Valley Road Access. Cedar Valley and Hacker Branch are both simple no-amenity sites with limited parking, so inspect both approaches before leaving vehicles.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Cedar Valley or Hacker Branch, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Cedar Valley Road Access and take out about 8.0 miles downstream at Hacker Branch Road Access for a longer middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Cedar Valley is a gravel and dirt access with limited parking and no amenities.',
+        'Hacker Branch is a carry-down access with unpaved parking and no ramp or listed amenities.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect shallower shoals and more scraping than the ideal band suggests.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow rock bars, mud banks, and dragging become more likely over a longer middle-chain day.',
+        'High water above 900 cfs or 6.0 ft, when the broad river moves faster and fewer easy recovery spots remain.',
+        'Wood, strainers, muddy step-outs, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
+'south-fork-kentucky-river-bishop-bend-upper-wolf-creek': {
+    putIn: {
+      id: 'bishop-bend-school-road-access',
+      name: 'Bishop Bend School Road Access',
+      latitude: 37.3377,
+      longitude: -83.6882,
+    },
+    takeOut: {
+      id: 'upper-wolf-creek-ramp',
+      name: 'Upper Wolf Creek Ramp',
+      latitude: 37.4036,
+      longitude: -83.6798,
+    },
+    logistics: {
+      distanceLabel: 'About 6.2 mi',
+      estimatedPaddleTime: 'About 2.5 hr to 4.5 hr, longer with low water, fishing, or scouting',
+      shuttle:
+        'Stage the take-out at Upper Wolf Creek Ramp, then drive back to Bishop Bend School Road Access. Upper Wolf Creek is the more developed paved-ramp exit, while Bishop Bend is a simpler dirt-road put-in with limited parking.',
+      permits:
+        'No route-specific paddling permit is known. Use the KDFWR-listed public accesses, follow Kentucky boating and PFD rules, and respect any same-day roadside parking limits.',
+      camping:
+        'Treat this as a day trip. KDFWR lists no camping at Bishop Bend or Upper Wolf Creek, and banks outside the access sites should be treated as private.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Bishop Bend School Road Access and take out about 6.2 miles downstream at Upper Wolf Creek Ramp for a lower-middle South Fork Kentucky River float. KDFWR gives a good Booneville gauge band of 350 to 900 cfs, or 4.8 to 6.0 ft.',
+      accessCaveats: [
+        'Bishop Bend is a gravel and dirt access with a small dirt parking area and no amenities.',
+        'Upper Wolf Creek is a free single-lane paved ramp with paved parking and year-round 24-hour availability.',
+        'The current Booneville gauge reading was below the official good band during this run, so expect more dragging and shallower rock-bar lines until levels recover.',
+        'Stay with the named public access points and do not assume side banks, bars, or private-adjacent ground are legal stopping points.',
+      ],
+      watchFor: [
+        'Low water below 350 cfs or 4.8 ft, when shallow shoals, rock bars, and dragging become more likely.',
+        'High water above 900 cfs or 6.0 ft, when current becomes less forgiving around wood, bridge areas, and muddy landings.',
+        'Wood, strainers, mud banks, occasional riffles, and private banks outside the access sites.',
+      ],
+    },
+  },
 'south-fork-kentucky-river-upper-wolf-creek-kay-wood': {
     putIn: {
       id: 'upper-wolf-creek-ramp',

@@ -1,15 +1,15 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 00:40 America/Chicago / 2026-06-26 05:40 UTC.
+Last summarized: 2026-06-25 22:30 America/Chicago / 2026-06-26 03:30 UTC.
 
 ## Current Inventory
 
-- Live routes: 37.
-- Ledger candidates: 35 Kentucky-specific records. The ledger now splits across 19 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `north-fork-kentucky-river-hazard-city-ramp-perry-county-park`, `north-fork-kentucky-river-douthitt-park-roy-spencer`, and `south-fork-licking-river-lair-ramp-terry-dam`, all sourced from current KDFWR river pages plus same-day USGS support.
+- Live routes: 46.
+- Ledger candidates: 41 Kentucky-specific records. The ledger now splits across 25 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `south-fork-kentucky-river-rocky-branch-bishop-bend`, `south-fork-kentucky-river-cedar-valley-hacker-branch`, and `south-fork-kentucky-river-bishop-bend-upper-wolf-creek`.
 
 ## Status
 
-Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has one guarded Elkhorn Creek whitewater route plus fourteen KDFWR- or county-supported recreational routes on Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, and Green River. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
+Kentucky had been paused from the active automation rotation at user request while work shifted to other states, but the current resumes have kept paying off because multiple KDFWR families now clear the same-day USGS gate again. It now has broad KDFWR-backed coverage across Levisa Fork, Slate Creek, Floyds Fork, South Fork Kentucky River, South Fork Licking River, North Fork Kentucky River, Russell Creek, Drakes Creek, Tygarts Creek, Big South Fork, Tradewater, Cumberland River, Barren River, and Green River, plus the guarded Elkhorn Creek whitewater route. KDFWR Blue Water Trails remain the best seed source for future resumes, but the remaining near-term leads are narrower and more likely to be blocked by threshold gaps, same-river gauge limits, or route-shape hazards around dams and whitewater.
 
 ## Main Blockers
 
@@ -21,6 +21,11 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-25 22:30 America/Chicago / 2026-06-26 03:30 UTC three-route add pass
+  - Added `south-fork-kentucky-river-rocky-branch-bishop-bend`, `south-fork-kentucky-river-cedar-valley-hacker-branch`, and `south-fork-kentucky-river-bishop-bend-upper-wolf-creek` to expand Kentucky to forty-six live routes.
+  - The run used the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `2.5`, `4.7`, `3.3`, and `2.9` miles, current KDFWR access-detail coordinates for Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, and Upper Wolf Creek, and same-day direct USGS `03281500` at `107 cfs / 3.81 ft` on `2026-06-25 23:30 EDT`.
+  - All three routes ship on the official Booneville ladder of Low below `350 cfs / 4.8 ft`, Good `350-900 cfs / 4.8-6.0 ft`, and High above `900 cfs / 6.0 ft`, with conservative low-water scraping and private-bank caveats because the current reading sat below band.
+  - Reused the existing public-domain South Fork Commons corridor images for route gallery coverage rather than selecting new KDFWR or USGS imagery.
 - 2026-06-25 20:35 America/Chicago / 2026-06-26 01:35 UTC three-route add pass
   - Added `cumberland-river-redbird-thunderstruck`, `cumberland-river-thunderstruck-cumberland-falls`, and `barren-river-martinsville-potter-combs` to expand Kentucky to forty live routes.
   - The two Cumberland adds used the current KDFWR Cumberland River page for the exact Redbird-to-Thunderstruck and Thunderstruck-to-Cumberland-Falls floats, official Williamsburg gauge guidance of `500-1100 cfs` best with higher-water challenge up to `2000 cfs`, KDFWR access-detail coordinates for Redbird and Thunderstruck, same-day direct USGS `03404000` at `1260 cfs / 4.56 ft` on `2026-06-25 21:00 EDT`, and Kentucky State Parks Cumberland Falls campground/lodging context for the downstream finish. The Thunderstruck-to-Falls route ships as guarded whitewater with an explicit mandatory-take-out-above-the-falls warning.
