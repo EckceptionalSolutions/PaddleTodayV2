@@ -31302,6 +31302,402 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'tradewater-river-montezuma-fishtrap',
+    slug: 'tradewater-river-montezuma-fishtrap',
+    name: 'Tradewater River',
+    reach: 'Montezuma Bridge Ramp to Fishtrap Bridge Ramp',
+    aliases: [
+      'Tradewater River - Montezuma Bridge to Fishtrap Bridge',
+      'Tradewater River - Montezuma to Fishtrap',
+      'Tradewater lower Providence segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Downstream Tradewater continuation from Montezuma Bridge Ramp to Fishtrap Bridge Ramp with KDFWR public accesses, official Providence-gauge bands, and the Providence gauge sitting directly at the put-in corridor.',
+    statusText:
+      'Use the Tradewater River at Providence gauge. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good. Below that is low; above that is high, woody, and flashy enough that casual paddlers should stand down.',
+    latitude: 37.3967,
+    longitude: -87.8446,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the official gauge is in range.',
+        'Both public accesses border private property; use the signed ramps and legal public landings rather than treating banks as open stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Tradewater River near Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR positions the Tradewater as a warm-season small-river float, but the river is flashy enough that recent and forecast rain matter more than a rough seasonal assumption. Expect changing wood and muddy landings after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a gentle western-Kentucky river float, but the combination of rural mileage, wood, braided current lines, and limited bailout options makes it more serious than a park pond paddle.',
+      confidenceNotes:
+        'Confidence is good for this exact public segment: KDFWR publishes the Montezuma-to-Fishtrap mileage, official Providence gauge bands, route character notes, and access detail pages with coordinates for both endpoints. USGS 03384100 returned same-day June 26, 2026 discharge and gage-height values through Water Services, and the gauge is essentially at the Montezuma put-in. The route still ships with strong flashy-water warnings because the same-day Providence reading was above the KDFWR discharge band.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Montezuma Bridge Ramp to Fishtrap Bridge Ramp, 6.7 mi',
+        note: 'KDFWR lists Montezuma Bridge Ramp to Fishtrap Bridge Ramp as a 6.7-mile Tradewater segment in the official access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Montezuma Bridge Ramp, 37.3967, -87.8446',
+        note: 'KDFWR lists Montezuma Bridge Ramp as a free year-round carry-down access with published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=660',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Fishtrap Bridge Ramp, 37.3988, -87.9049',
+        note: 'KDFWR lists Fishtrap Bridge Ramp as a free carry-down access with published coordinates at the bridge landing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03384100 at 211 cfs / 12.66 ft',
+        note: 'USGS current conditions returned same-day Tradewater River near Providence discharge and gage-height values at 12:45 AM CDT on June 26, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats Montezuma and Fishtrap as simple access sites rather than campgrounds, so this route ships as a day-trip float without camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Montezuma Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=660',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fishtrap Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'tradewater-river-fishtrap-vfw-bridge',
+    slug: 'tradewater-river-fishtrap-vfw-bridge',
+    name: 'Tradewater River',
+    reach: 'Fishtrap Bridge Ramp to VFW Bridge Ramp',
+    aliases: [
+      'Tradewater River - Fishtrap Bridge to VFW Bridge',
+      'Tradewater River - Fishtrap to VFW',
+      'Tradewater lower western Kentucky segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Longer lower Tradewater float from Fishtrap Bridge Ramp to VFW Bridge Ramp with KDFWR public accesses, official Providence-gauge bands, and a conservative upstream same-river gauge proxy.',
+    statusText:
+      'There is not a gauge on this exact lower stretch, so Paddle Today uses the upstream Tradewater River at Providence gauge as a conservative same-river proxy. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good at Providence; below that is low, and above that expect flashy, woody current downstream.',
+    latitude: 37.3988,
+    longitude: -87.9049,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the upstream gauge is in range.',
+        'Both public accesses border private property; use the signed ramps and legal public landings rather than treating banks as open stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Tradewater River near Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence used as an upstream proxy',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR positions the Tradewater as a warm-season small-river float, but the river is flashy enough that recent and forecast rain matter more than a rough seasonal assumption. Expect changing wood and muddy landings after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a gentle western-Kentucky river float, but the combination of longer rural mileage, wood, braided current lines, and sparse services makes it more serious than a park pond paddle.',
+      confidenceNotes:
+        'Route and access confidence is good: KDFWR publishes the Fishtrap-to-VFW mileage, route character notes, and access detail pages with coordinates for both endpoints. Threshold confidence is intentionally lower than the Montezuma route because the selected Providence gauge is upstream, not on the exact VFW corridor. The app still uses the official KDFWR two-sided Providence model because KDFWR applies that gauge family to this lower Tradewater access chain and no cleaner downstream live gauge surfaced.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Fishtrap Bridge Ramp to VFW Bridge Ramp, 9.5 mi',
+        note: 'KDFWR lists Fishtrap Bridge Ramp to VFW Bridge Ramp as a 9.5-mile Tradewater segment in the official access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft at Providence',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Fishtrap Bridge Ramp, 37.3988, -87.9049',
+        note: 'KDFWR lists Fishtrap Bridge Ramp as a free carry-down access with published coordinates at the bridge landing.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+      },
+      {
+        label: 'Take-out access',
+        value: 'VFW Bridge Ramp, 37.4794, -87.9539',
+        note: 'KDFWR lists VFW Bridge Ramp as a free paved public ramp with published coordinates and a large gravel-and-grass parking area.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+      },
+      {
+        label: 'Proxy live gauge',
+        value: 'USGS 03384100 at 211 cfs / 12.66 ft',
+        note: 'USGS current conditions returned same-day Tradewater River near Providence discharge and gage-height values at 12:45 AM CDT on June 26, 2026. The gauge is upstream of this lower route and is used conservatively as the closest official same-river signal surfaced in KDFWR guidance.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats Fishtrap and VFW as simple access sites rather than campgrounds, so this route ships as a day-trip float without camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Fishtrap Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=1203',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR VFW Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
+    id: 'tradewater-river-vfw-bridge-granger-landing',
+    slug: 'tradewater-river-vfw-bridge-granger-landing',
+    name: 'Tradewater River',
+    reach: 'VFW Bridge Ramp to Granger Landing Ramp',
+    aliases: [
+      'Tradewater River - VFW Bridge to Granger Landing',
+      'Tradewater River - VFW to Granger',
+      'Tradewater Sturgis segment',
+    ],
+    state: 'Kentucky',
+    region: 'Western Kentucky',
+    summary:
+      'Lower Tradewater finish from VFW Bridge Ramp to Granger Landing Ramp with KDFWR public accesses, official Providence-gauge bands, and a conservative upstream same-river gauge proxy for the Sturgis corridor.',
+    statusText:
+      'There is not a gauge on this exact lower stretch, so Paddle Today uses the upstream Tradewater River at Providence gauge as a conservative same-river proxy. KDFWR rates 5 to 50 cfs, or 10 to 15 ft, as good at Providence; below that is low, and above that expect flashy, woody current downstream.',
+    latitude: 37.4794,
+    longitude: -87.9539,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR describes the Tradewater as extremely flashy, with rain events capable of raising the river very fast.',
+        'Woody debris, braided channels, and strainers are ordinary hazards on this corridor even when the upstream gauge is in range.',
+        'Both public accesses border private property or limited public shoreline; use the signed ramps and legal public landings rather than treating banks as open stops.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03384100',
+      provider: 'usgs',
+      siteId: '03384100',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'proxy',
+      siteName: 'Tradewater River near Providence, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 5,
+      idealMax: 50,
+      tooLow: 5,
+      tooHigh: 50,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Tradewater River at Providence used as an upstream proxy',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR positions the Tradewater as a warm-season small-river float, but the river is flashy enough that recent and forecast rain matter more than a rough seasonal assumption. Expect changing wood and muddy landings after storms.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'At normal levels this is a gentle western-Kentucky river float, but the combination of rural mileage, wood, limited services, and a fully committed shuttle still makes it more serious than a casual park float.',
+      confidenceNotes:
+        'Route and access confidence is good: KDFWR publishes the VFW-to-Granger mileage, route character notes, and access detail pages with coordinates for both endpoints. Threshold confidence is intentionally lower because the selected Providence gauge is upstream, not on the exact Sturgis corridor. The app still uses the official KDFWR two-sided Providence model because KDFWR applies that gauge family to this lower Tradewater access chain and no cleaner downstream live gauge surfaced.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'VFW Bridge Ramp to Granger Landing Ramp, 10.6 mi',
+        note: 'KDFWR lists VFW Bridge Ramp to Granger Landing Ramp as a 10.6-mile Tradewater segment in the official access-mileage table.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '5-50 cfs / 10-15 ft at Providence',
+        note: 'KDFWR rates the Providence gauge low below 5 cfs or 10.0 ft, good from 5.0 to 50.0 cfs or 10.0 to 15.0 ft, and high above 50.0 cfs or 15.0 ft.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'VFW Bridge Ramp, 37.4794, -87.9539',
+        note: 'KDFWR lists VFW Bridge Ramp as a free paved public ramp with published coordinates and a large gravel-and-grass parking area.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Granger Landing Ramp, 37.5463, -88.0189',
+        note: 'KDFWR lists Granger Landing Ramp as a free paved public ramp with published coordinates near Sturgis.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=618',
+      },
+      {
+        label: 'Proxy live gauge',
+        value: 'USGS 03384100 at 211 cfs / 12.66 ft',
+        note: 'USGS current conditions returned same-day Tradewater River near Providence discharge and gage-height values at 12:45 AM CDT on June 26, 2026. The gauge is upstream of this lower route and is used conservatively as the closest official same-river signal surfaced in KDFWR guidance.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'No endpoint campground support',
+        note: 'KDFWR treats VFW and Granger as simple access sites rather than campgrounds, so this route ships as a day-trip float without camping assumptions.',
+        sourceUrl: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Tradewater River',
+        url: 'https://fw.ky.gov/Fish/Pages/Tradewater_River.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR VFW Bridge Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=619',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Granger Landing Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=618',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03384100 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03384100/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03384100 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03384100&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'Wikimedia Commons Tradewater River image source',
+        url: 'https://commons.wikimedia.org/wiki/File:Tradewater_River_4899.JPG',
+        provider: 'local',
+      },
+    ],
+  },
+  {
     id: 'buffalo-river-ponca-kyles-landing',
     slug: 'buffalo-river-ponca-kyles-landing',
     name: 'Buffalo River',

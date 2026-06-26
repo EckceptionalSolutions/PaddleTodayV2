@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-25 22:30 America/Chicago / 2026-06-26 03:30 UTC.
+Last summarized: 2026-06-26 02:06 America/Chicago / 2026-06-26 07:06 UTC.
 
 ## Current Inventory
 
-- Live routes: 46.
-- Ledger candidates: 41 Kentucky-specific records. The ledger now splits across 25 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `south-fork-kentucky-river-rocky-branch-bishop-bend`, `south-fork-kentucky-river-cedar-valley-hacker-branch`, and `south-fork-kentucky-river-bishop-bend-upper-wolf-creek`.
+- Live routes: 49.
+- Ledger candidates: 44 Kentucky-specific records. The ledger now splits across 28 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `tradewater-river-montezuma-fishtrap`, `tradewater-river-fishtrap-vfw-bridge`, and `tradewater-river-vfw-bridge-granger-landing`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 02:06 America/Chicago / 2026-06-26 07:06 UTC three-route add pass
+  - Added `tradewater-river-montezuma-fishtrap`, `tradewater-river-fishtrap-vfw-bridge`, and `tradewater-river-vfw-bridge-granger-landing` to expand Kentucky to forty-nine live routes.
+  - The run used the current KDFWR Tradewater River page for the exact downstream site-to-site mileages of `6.7`, `9.5`, and `10.6` miles plus the official Providence gauge ladder of low below `5 cfs / 10.0 ft`, good from `5-50 cfs / 10-15 ft`, and high above `50 cfs / 15.0 ft`.
+  - KDFWR access-detail pages provided source-backed coordinates and public-launch descriptions for Montezuma Bridge Ramp, Fishtrap Bridge Ramp, VFW Bridge Ramp, and Granger Landing Ramp, while same-day official USGS current-conditions pages returned `211 cfs / 12.66 ft` at Providence (`03384100`) at `2026-06-26 00:45 CDT` and `21.7 cfs / 2.76 ft` at Olney (`03383000`) at `2026-06-26 01:15 CDT`.
+  - Montezuma-to-Fishtrap ships with direct Providence-gauge support; the two lower routes use Providence conservatively as the closest official same-river proxy because KDFWR applies that gauge family to the lower access chain and no cleaner downstream live gauge surfaced.
+  - All three routes keep the Tradewater caution package around flashy rain-driven rises, woody debris, braided current lines, private-bank limits, and sparse services. Reused the approved Tradewater Commons corridor image for all three new slugs rather than selecting fresh KDFWR or USGS imagery.
 - 2026-06-25 22:30 America/Chicago / 2026-06-26 03:30 UTC three-route add pass
   - Added `south-fork-kentucky-river-rocky-branch-bishop-bend`, `south-fork-kentucky-river-cedar-valley-hacker-branch`, and `south-fork-kentucky-river-bishop-bend-upper-wolf-creek` to expand Kentucky to forty-six live routes.
   - The run used the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `2.5`, `4.7`, `3.3`, and `2.9` miles, current KDFWR access-detail coordinates for Rocky Branch, Cedar Valley, Bishop Bend, Hacker Branch, and Upper Wolf Creek, and same-day direct USGS `03281500` at `107 cfs / 3.81 ft` on `2026-06-25 23:30 EDT`.

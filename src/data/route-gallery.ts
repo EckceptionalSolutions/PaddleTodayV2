@@ -1476,6 +1476,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
     },
   ],
+  'tradewater-river-montezuma-fishtrap': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-fishtrap-vfw-bridge': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
+  'tradewater-river-vfw-bridge-granger-landing': [
+    {
+      id: 'tradewater-river-commons',
+      src: '/gallery/tradewater-river-bellville-montezuma/tradewater-river.jpg',
+      alt: 'The Tradewater River flows through a broad wooded Kentucky river corridor under summer light.',
+      caption: 'Tradewater River near Dawson Springs',
+      credit: 'Jomegat via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY-SA 3.0',
+    },
+  ],
   'south-chickamauga-creek-shallowford-sterchi': [
     {
       id: 'south-chickamauga-audubon-acres-nps',
