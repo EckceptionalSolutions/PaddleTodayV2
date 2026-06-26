@@ -2155,6 +2155,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-stigmans-mound-knob-hill': {
+    putIn: {
+      name: "Stigman's Mound #7 carry-in access",
+      latitude: 46.64045859179894,
+      longitude: -94.87970389700178,
+    },
+    takeOut: {
+      name: 'Knob Hill Landing #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    logistics: {
+      distanceLabel: '12.7 mi',
+      estimatedPaddleTime: 'About 4 hr 30 min to 6 hr',
+      shuttle:
+        "Moderate Wadena County shuttle from Nimrod to Knob Hill. Knob Hill is the easier vehicle stage because it is a campground landing, but inspect the Stigman's bridge-side access plan before launching.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at Stigman's Mound and Knob Hill.",
+      camping:
+        'Knob Hill is a county campground at the take-out, so this route works as an endpoint-campground day or overnight option if you confirm current county rules, fees, and seasonal availability before planning a camp stay.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Stigman's Mound and finish at Knob Hill for a long lower Crow Wing continuation that starts right at the Nimrod gauge corridor and stays below the upstream rapids cluster.",
+      accessCaveats: [
+        "Wadena County says Stigman's Mound amenities are reached after landing across the river and walking over the bridge, so have the launch and parking plan clear before leaving a vehicle.",
+        'Little White Dog is the natural midpoint stop if the group needs a break or a source-backed bailout before the Knob Hill finish.',
+        'Knob Hill is a county campground and popular tubing put-in, so expect more summer parking and river-use traffic at the take-out than at the quieter upstream sites.',
+      ],
+      watchFor: [
+        'Longer low-water dragging or slow sandy channels when the Nimrod gauge sits near or below 300 cfs.',
+        'Fresh wood, blind bends, and stronger current after storms despite the otherwise easy character.',
+        'Tubing traffic and crowded summer landing conditions near Knob Hill.',
+      ],
+    },
+  },
+  'crow-wing-river-frames-landing-knob-hill': {
+    putIn: {
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+    },
+    takeOut: {
+      name: 'Knob Hill Landing #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    logistics: {
+      distanceLabel: '11.4 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
+      shuttle:
+        "Moderate Wadena County shuttle between Frame's Landing and Knob Hill. Stage the Knob Hill take-out first so the campground parking setup and tubing traffic are understood before you launch.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use Frame's, Little White Dog, or Knob Hill as overnight support.",
+      camping:
+        "Frame's Landing and Knob Hill are county campgrounds at the ends of the route, so this longer lower-Crow-Wing day fits endpoint camping if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Frame's Landing and finish at Knob Hill for a full lower-Crow-Wing campground chain route. It stays easier than the rapids-bearing Map 1 corridor, but it is long enough that level, wood, and pace still matter.",
+      accessCaveats: [
+        "Frame's Landing is a simple county campground/access site rather than a polished city-park ramp, so inspect the launch and parking setup before leaving a vehicle.",
+        'Little White Dog is the natural midpoint stop and simplest source-backed bailout if the group decides not to commit to the full downstream mileage.',
+        'Knob Hill is a county campground and popular tubing put-in, so weekend parking and landing congestion can be the most practical challenge on the route.',
+      ],
+      watchFor: [
+        'Exposed sandbars and slower progress when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood, side channels, and debris after storms.',
+        'Tubing traffic and more casual river users on warm weekends near the final miles.',
+      ],
+    },
+  },
+  'crow-wing-river-frames-landing-cottingham': {
+    putIn: {
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '14.9 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr',
+      shuttle:
+        "Longer Wadena County shuttle between Frame's Landing and Cottingham. Stage the Cottingham take-out first because it is the busiest summer-use landing in this chain and the full route takes enough time that finish logistics matter.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at the named access sites.",
+      camping:
+        "This longer route passes Little White Dog and Knob Hill county campgrounds before finishing at Cottingham, so it has clean documented on-route overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Frame's Landing and finish at Cottingham for the full lower Map 2 county-park chain. The route is straightforward in character, but the mileage and busier downstream recreation zone make it a deliberate full-day choice.",
+      accessCaveats: [
+        "Frame's Landing is a simple county campground/access site with fewer frills than a city-park launch, so inspect it before leaving a vehicle.",
+        'Little White Dog and Knob Hill are the clean midpoint bailout or overnight options if you do not want to commit to the entire Cottingham finish.',
+        'Cottingham is a county park with heavier summer use for swimming and tubing, so expect a busier and less secluded take-out than the upstream landings.',
+      ],
+      watchFor: [
+        'Long low-water dragging and slower pacing when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood, strainers, and stronger current after storms.',
+        'Tubing, swimmers, and crowded take-out conditions near Knob Hill and Cottingham on summer weekends.',
+      ],
+    },
+  },
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',

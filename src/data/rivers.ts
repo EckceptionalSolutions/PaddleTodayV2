@@ -8456,6 +8456,414 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-stigmans-mound-knob-hill',
+    slug: 'crow-wing-river-stigmans-mound-knob-hill',
+    name: 'Crow Wing River',
+    reach: "Stigman's Mound to Knob Hill",
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      "Long lower Crow Wing continuation from Nimrod to Knob Hill. It starts right at the official Nimrod gauge corridor, stays inside the county-park access chain, and avoids the upstream Map 1 rapids by launching below them.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6404586,
+    longitude: -94.8797039,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This run is easier than the upstream Stigman's approaches because it starts below Walkin's, Burrows, and Westra, but it is still a long moving-water day with wood, blind bends, and weather-sensitive current.",
+        'Sandbars and braided channels slow progress quickly when the Nimrod gauge is scraping the floor, so treat low water as a real full-day commitment issue rather than only a comfort concern.',
+        'Knob Hill is popular with tubers in warm weather, and private shoreland dominates outside the named public county accesses and campsites.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This lower corridor often stays paddleable, but low summer water exposes more sand and storms can move wood quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Mostly easy sandy-river character, but long mileage, wood, and busier summer recreation traffic make it more than a casual short float.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Map 2 names Stigman's Mound, Frame's Landing, Little White Dog, and Knob Hill in one continuous official corridor, the Nimrod gauge sits exactly at the put-in with a full official ladder, and Wadena County confirms campground/access support at the downstream county parks.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 10:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Stigman's 65.7 to Knob Hill 53.0",
+        note: "Crow Wing Map 2 places Stigman's Mound at river mile 65.7 and Knob Hill at 53.0, making this a 12.7-mile lower-corridor continuation.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Stigman's WAS02557 and Knob Hill WAS01324",
+        note: "Minnesota public-water-access records resolve Stigman's Mound and Knob Hill as official Crow Wing accesses with matching county-park placement.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping and recreation support',
+        value: 'County campground finish with tubing traffic',
+        note: 'Crow Wing Map 2 lists primitive campsites, water, and camping fees at Knob Hill, and Wadena County describes it as a popular tubing put-in about three miles above the next landing.',
+        sourceUrl: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Stigman's Mound Park",
+        url: 'https://www.co.wadena.mn.us/226/Stigmans-Mound-Park',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-frames-landing-knob-hill',
+    slug: 'crow-wing-river-frames-landing-knob-hill',
+    name: 'Crow Wing River',
+    reach: "Frame's Landing to Knob Hill",
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      "Mid-corridor Crow Wing full-day option linking Frame's Landing, Little White Dog, and Knob Hill. It keeps the same official Nimrod gauge story as the shorter county-park splits while turning them into one more substantial summer day.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6296631,
+    longitude: -94.8692542,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route stays below Nimrod's rapids cluster, but it still covers enough twisting sandy river that fresh wood, side channels, and long low-water scraping can turn an easy-looking day into more work.",
+        'Little White Dog is the natural midpoint break and bailout, but it is still a simple county campground/access rather than a staffed rescue point.',
+        'Expect warmer-season tubers and casual paddlers near the Knob Hill finish, and stay off private banks outside the named county properties.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Summer still works often here, but exposed sandbars and slower braided sections become the dominant concern near the floor.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'An easy moving-water route overall, but long enough that wind, wood, and level-driven dragging matter more than on the shorter campground splits.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Map 2 names Frame's Landing, Little White Dog, and Knob Hill in one continuous official county-park chain, the Nimrod DNR gauge remains the same-corridor source with a full ladder, and both shipped endpoints are already backed by the official access service.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 10:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Frame's 64.4 to Knob Hill 53.0",
+        note: "Crow Wing Map 2 places Frame's Landing at river mile 64.4 and Knob Hill at 53.0, making this an 11.4-mile continuous lower-Crow-Wing route.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Frame's WAS01538 and Knob Hill WAS01324",
+        note: "Minnesota public-water-access records resolve Frame's Landing and Knob Hill as official Crow Wing county-park accesses, with Little White Dog between them in the same map chain.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Camping support',
+        value: 'County campground chain',
+        note: "Crow Wing Map 2 lists primitive campsites, water, and camping fees at Frame's Landing, Little White Dog, and Knob Hill, and Wadena County maintains campground pages for the same three sites.",
+        sourceUrl: 'https://www.co.wadena.mn.us/221/Frames-Landing-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Frame's Landing Campground",
+        url: 'https://www.co.wadena.mn.us/221/Frames-Landing-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-frames-landing-cottingham',
+    slug: 'crow-wing-river-frames-landing-cottingham',
+    name: 'Crow Wing River',
+    reach: "Frame's Landing to Cottingham County Park",
+    state: 'Minnesota',
+    region: 'Central Minnesota',
+    summary:
+      "Longest lower Map 2 Crow Wing continuation in the Wadena county-park chain. It connects Frame's Landing, Little White Dog, Knob Hill, and Cottingham into one fuller downstream day while keeping the same official Nimrod gauge model.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6296631,
+    longitude: -94.8692542,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        'This is a long lower-corridor day with several legal camp/bail points, but low water can make the distance drag and fresh storm wood can change the character of the bends and islands quickly.',
+        'Knob Hill and Cottingham both attract summer tubing and swimming traffic, so expect more crowded downstream river use and plan the take-out before the final miles.',
+        'Camp only at designated county sites and stay off private banks; much of the shoreland between the parks is not public stopping ground.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. This full downstream county-park chain often stays runnable, but low summer water and busier weekend recreation both become more important on the longer mileage.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Still an approachable sandy river, but the mileage, slower low-water progress, and busy downstream recreation zone make this more of a planned full-day route than the short campground links.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Map 2 names Frame's Landing through Cottingham as one official access chain with published river miles, the Nimrod DNR gauge remains the accepted same-corridor ladder, and Wadena County confirms campground support at all of the named parks on or at the ends of the route.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-25 10:00 PM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Frame's 64.4 to Cottingham 49.5",
+        note: "Crow Wing Map 2 places Frame's Landing at river mile 64.4 and Cottingham at 49.5, making this a 14.9-mile full lower-corridor continuation.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Frame's WAS01538 and Cottingham WAS01325",
+        note: "Minnesota public-water-access records resolve Frame's Landing and Cottingham as official Crow Wing county-park accesses, with Little White Dog and Knob Hill between them on the same state map.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'On-route camping support',
+        value: 'Little White Dog and Knob Hill midpoint campgrounds',
+        note: "Crow Wing Map 2 lists primitive campsites, water, and camping fees at Frame's Landing, Little White Dog, Knob Hill, and Cottingham, giving this longer route documented overnight options in the middle as well as at both ends.",
+        sourceUrl: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Downstream recreation support',
+        value: 'Tubing and swimming at the finish corridor',
+        note: 'Wadena County describes Knob Hill as a popular tubing put-in and Cottingham as a popular park for picnicking and swimming, which matches the busier final miles of this longer route.',
+        sourceUrl: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Frame's Landing Campground",
+        url: 'https://www.co.wadena.mn.us/221/Frames-Landing-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'whitewater-river-elba-highway-74',
     slug: 'whitewater-river-elba-highway-74',
     name: 'Whitewater River',
