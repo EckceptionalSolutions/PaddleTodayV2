@@ -9406,6 +9406,438 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'crow-wing-river-andersons-crossing-little-white-dog',
+    slug: 'crow-wing-river-andersons-crossing-little-white-dog',
+    name: 'Crow Wing River',
+    reach: "Anderson's Crossing to Little White Dog",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Mid-length Crow Wing continuation from Anderson's Crossing through Nimrod to Little White Dog. It keeps the direct Nimrod gauge story and covers the small-rapids Map 1 stretch before easing into the first lower campground finish.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6994226,
+    longitude: -94.8818857,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "Walkin's, Burrows, and Westra Rapids all sit on this route, so the Anderson's start is still a moving-water commitment rather than a lazy campground float.",
+        "Stigman's Mound is the clearest midpoint checkpoint or bailout before the river settles into the quieter lower corridor toward Little White Dog.",
+        'Private shoreland dominates outside the named county accesses, and storms can still move fresh wood across bends and sweepers through the whole reach.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Lower flows slow the route down, and rising water makes the rapids-bearing upper half less forgiving.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Moderate moving-water day with small rapids early, then easier sandy miles into the lower campground corridor.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Maps 1 and 2 together name Anderson's Crossing through Little White Dog as one continuous official access chain, the Nimrod DNR gauge sits on the route with a full official ladder, the feature service resolves both shipped endpoints, and Wadena County confirms campground support at both ends.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-26 04:00 AM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Anderson's 70.8 to Little White Dog 59.3",
+        note: "Crow Wing Maps 1 and 2 place Anderson's Crossing at river mile 70.8 and Little White Dog at 59.3, making this an 11.5-mile continuous route.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Anderson's WAS01526 and Little White Dog WAS01527",
+        note: "Minnesota public-water-access records resolve Anderson's Crossing and Little White Dog as official Crow Wing accesses, with Stigman's Mound between them in the same corridor.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'Campground support',
+        value: "Anderson's Crossing and Little White Dog",
+        note: "Wadena County confirms Anderson's Crossing as a campground launch and Little White Dog as a campground finish, giving the route documented endpoint overnight support.",
+        sourceUrl: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks the named rapids on the upper half of this route, with Walkin's and Westra able to rise toward Class II at higher water.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-mary-brown-knob-hill',
+    slug: 'crow-wing-river-mary-brown-knob-hill',
+    name: 'Crow Wing River',
+    reach: 'Mary Brown to Knob Hill',
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      'Long Crow Wing continuation from Mary Brown through Nimrod to Knob Hill. It ties the lower Map 1 access chain into the lower campground corridor and keeps the same direct Nimrod gauge model throughout.',
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.7175822,
+    longitude: -94.9289851,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "This route combines the quieter Mary Brown miles with the Walkin's, Burrows, and Westra rapids cluster before continuing into the easier but longer lower corridor, so treat it as a real full-day or split-overnight commitment.",
+        "Anderson's Crossing, Stigman's Mound, and Little White Dog are the clearest checkpoint or bailout points, but storms can still add fresh wood and push current across the whole route.",
+        'Knob Hill is a busy tubing put-in in warm weather, and private shoreland dominates outside the named county accesses and campsites.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. Lower summer water slows the full route down, and rising water makes the middle rapids stretch more consequential.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Long, committed mixed-character route with small rapids in the middle and slower sandy miles downstream.',
+      confidenceNotes:
+        'Confidence is good because Crow Wing Maps 1 and 2 together name Mary Brown through Knob Hill as one continuous official access chain, the Nimrod DNR gauge sits near the route midpoint with a full official ladder, the feature service resolves both shipped endpoints, and Wadena County confirms campground support at the midpoint and finish parks.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-26 04:00 AM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: 'Mary Brown 75.3 to Knob Hill 53.0',
+        note: 'Crow Wing Maps 1 and 2 place Mary Brown at river mile 75.3 and Knob Hill at 53.0, making this a 22.3-mile continuous route.',
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: 'Mary Brown WAS02558 and Knob Hill WAS01324',
+        note: "Minnesota public-water-access records resolve Mary Brown and Knob Hill as official Crow Wing accesses, with Anderson's Crossing, Stigman's Mound, and Little White Dog between them in the same corridor.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'On-route camping support',
+        value: "Anderson's Crossing, Little White Dog, and Knob Hill",
+        note: "Wadena County confirms Anderson's Crossing and Little White Dog as midpoint campgrounds and Knob Hill as the campground finish, giving the route documented overnight support if the mileage is split.",
+        sourceUrl: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Rapids support',
+        value: "Walkin's, Burrows, and Westra Rapids",
+        note: "Crow Wing Map 1 marks the named rapids on the middle stretch of this route, with Walkin's and Westra able to rise toward Class II at higher water.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
+    id: 'crow-wing-river-andersons-crossing-cottingham',
+    slug: 'crow-wing-river-andersons-crossing-cottingham',
+    name: 'Crow Wing River',
+    reach: "Anderson's Crossing to Cottingham County Park",
+    state: 'Minnesota',
+    region: 'Wadena Area',
+    summary:
+      "Longest Anderson's-start Crow Wing continuation through Nimrod and the full lower county-park chain to Cottingham. It keeps one official Nimrod gauge model while linking the rapids-bearing upper half to the busier downstream recreation zone.",
+    statusText:
+      'The Nimrod gauge is best from 400 to 800 cfs. Below 300 cfs gets too thin for a clean day, and above 1,100 cfs is too high for a general recommendation.',
+    latitude: 46.6994226,
+    longitude: -94.8818857,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['strainers', 'fast_rise', 'private_banks', 'cold_water'],
+      safetyNotes: [
+        "Walkin's, Burrows, and Westra Rapids sit on the upper half of this route, and the final miles near Knob Hill and Cottingham add more tubing and summer traffic than the quieter upper corridor.",
+        "Stigman's Mound, Little White Dog, and Knob Hill are the clearest checkpoint, bailout, or overnight options before the Cottingham finish.",
+        'Fresh wood after storms, low-water dragging, and crowded warm-weather take-outs can all turn this easy-looking sandy corridor into a much longer day.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'mn-dnr-55',
+      provider: 'mn_dnr',
+      siteId: '55',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'Crow Wing River at Nimrod, MN',
+      detailUrl: 'https://www.dnr.state.mn.us/waters/csg/site.html?id=12085001',
+      hydrographUrl:
+        'https://maps.dnr.state.mn.us/cgi-bin/csg/hydrograph_cgi.py?site=12085001&var1=262&width=700&height=320',
+    },
+    fallbackGaugeSources: [
+      {
+        id: 'usgs-05244000',
+        provider: 'usgs',
+        siteId: '05244000',
+        metric: 'discharge_cfs',
+        unit: 'cfs',
+        kind: 'direct',
+        siteName: 'Crow Wing River at Nimrod, MN',
+      },
+    ],
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 400,
+      idealMax: 800,
+      tooLow: 300,
+      tooHigh: 1100,
+      thresholdSource: {
+        label: 'MN DNR river-level interpretation bands for Crow Wing River at Nimrod',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'medium',
+      seasonMonths: [5, 6, 7, 8, 9],
+      seasonNotes:
+        'Late spring through early fall is the practical window. The full route usually stays paddleable, but low summer water and busier weekend recreation both matter more on this longest option.',
+      difficulty: 'moderate',
+      difficultyNotes:
+        'Mostly easy moving water, but long mileage, rapids in the upper half, and a busier recreation finish make it a deliberate full-day route.',
+      confidenceNotes:
+        "Confidence is good because Crow Wing Maps 1 and 2 together name Anderson's Crossing through Cottingham as one continuous official access chain, the Nimrod DNR gauge sits on the route with a full official ladder, the feature service resolves both shipped endpoints, and Wadena County confirms campground support at the named midpoint and finish parks.",
+    },
+    evidenceNotes: [
+      {
+        label: 'Direct same-corridor gauge',
+        value: 'Nimrod gauge 217 cfs',
+        note: 'The official MN DNR river-level dataset reported 217 cfs at 2026-06-26 04:00 AM for Crow Wing River at Nimrod, confirming the live gauge path used for this route.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'DNR bands',
+        value: '300 / 400-800 / 1,100 cfs',
+        note: 'MN DNR interprets Nimrod as Scrapable below 300 cfs, Low from 300 to 400, Medium from 400 to 800, High from 800 to 1,100, and Very High above 1,100.',
+        sourceUrl: 'https://maps.dnr.state.mn.us/pat/river_levels/lib/river_level_sites.json',
+      },
+      {
+        label: 'Map support',
+        value: "Anderson's 70.8 to Cottingham 49.5",
+        note: "Crow Wing Maps 1 and 2 place Anderson's Crossing at river mile 70.8 and Cottingham County Park at 49.5, making this a 21.3-mile continuous route.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'Public access records',
+        value: "Anderson's WAS01526 and Cottingham WAS01325",
+        note: "Minnesota public-water-access records resolve Anderson's Crossing and Cottingham as official Crow Wing accesses, with Stigman's Mound, Little White Dog, and Knob Hill between them in the same corridor.",
+        sourceUrl: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+      {
+        label: 'On-route camping support',
+        value: "Little White Dog, Knob Hill, and Cottingham",
+        note: "Wadena County confirms campground support at Little White Dog and Knob Hill before the Cottingham finish, giving the long route documented midpoint and endpoint overnight options.",
+        sourceUrl: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Rapids and recreation support',
+        value: "Walkin's, Burrows, Westra, and downstream tubing traffic",
+        note: "Crow Wing Map 1 marks the named rapids on the upper half of this route, while Wadena County describes Knob Hill and Cottingham as active summer recreation landings farther downstream.",
+        sourceUrl: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'MN DNR river levels',
+        url: 'https://www.dnr.state.mn.us/river_levels/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River overview',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/index.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River segments and maps',
+        url: 'https://www.dnr.state.mn.us/watertrails/crowwingriver/segments-maps.html',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 1 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing1.pdf',
+      },
+      {
+        label: 'MN DNR Crow Wing River Map 2 PDF',
+        url: 'https://files.dnr.state.mn.us/maps/canoe_routes/crowwing2.pdf',
+      },
+      {
+        label: "Wadena County Anderson's Crossing Campground",
+        url: 'https://www.co.wadena.mn.us/218/Andersons-Crossing-Campground',
+      },
+      {
+        label: 'Wadena County Little White Dog Campground',
+        url: 'https://www.co.wadena.mn.us/223/Little-White-Dog-Campground',
+      },
+      {
+        label: 'Wadena County Knob Hill Campground',
+        url: 'https://www.co.wadena.mn.us/222/Knob-Hill-Campground',
+      },
+      {
+        label: 'Wadena County Cottingham Park Campground',
+        url: 'https://www.co.wadena.mn.us/220/Cottingham-Park-Campground',
+      },
+      {
+        label: 'Minnesota public water access feature service',
+        url: 'https://arcgis.metc.state.mn.us/server/rest/services/GDRS/DNR_loc_water_access_sites_in_mn_ad/FeatureServer/0',
+      },
+    ],
+  },
+  {
     id: 'crow-wing-river-stigmans-mound-knob-hill',
     slug: 'crow-wing-river-stigmans-mound-knob-hill',
     name: 'Crow Wing River',

@@ -2550,6 +2550,111 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-andersons-crossing-little-white-dog': {
+    putIn: {
+      name: "Anderson's Crossing #6 carry-in access",
+      latitude: 46.69942260942251,
+      longitude: -94.88188569131617,
+    },
+    takeOut: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    logistics: {
+      distanceLabel: '11.5 mi',
+      estimatedPaddleTime: 'About 4 hr to 5 hr 30 min',
+      shuttle:
+        "Moderate Wadena County shuttle from Anderson's Crossing to Little White Dog. Stage the Little White Dog take-out first so the campground parking and landing setup are clear before launching.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted public-access, county-campground, and park rules at Anderson's Crossing, Stigman's Mound, and Little White Dog.",
+      camping:
+        "Both Anderson's Crossing and Little White Dog are county campgrounds, so this route works cleanly as an endpoint-campground day or overnight option if you confirm current Wadena County rules, fees, and seasonal availability before planning a camp stay.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Anderson's Crossing and finish at Little White Dog for a mid-length Crow Wing route that covers the Nimrod-area rapids and then eases into the quieter lower campground corridor.",
+      accessCaveats: [
+        "Anderson's Crossing is a county campground and simple carry-in launch rather than a wide trailer ramp.",
+        "Stigman's Mound is the clearest midpoint stop or bailout if the group does not want to commit to the full downstream mileage.",
+        'Little White Dog is a county campground/access site rather than a staffed landing, so confirm the parking and fee setup before using it as a finish or overnight base.',
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the upper half of the route.",
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
+      ],
+    },
+  },
+  'crow-wing-river-mary-brown-knob-hill': {
+    putIn: {
+      name: 'Mary Brown Rest Area #5 carry-in access',
+      latitude: 46.71758222409383,
+      longitude: -94.92898508221442,
+    },
+    takeOut: {
+      name: 'Knob Hill Landing #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    logistics: {
+      distanceLabel: '22.3 mi',
+      estimatedPaddleTime: 'About 7 hr 30 min to 10 hr',
+      shuttle:
+        'Long Wadena County shuttle from Mary Brown to Knob Hill. Stage the Knob Hill take-out first so the campground parking setup and tubing traffic are understood before committing to the full route.',
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, public-access, and park rules at the named landings.",
+      camping:
+        "This longer route passes Anderson's Crossing and Little White Dog campgrounds before finishing at Knob Hill, so it has clean documented overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Mary Brown and finish at Knob Hill for a full upper-to-lower Wadena continuation. It keeps the same official DNR gauge story as the rest of this corridor, but the mileage makes it a real full-day or split-overnight route.',
+      accessCaveats: [
+        'Mary Brown is a remote carry-in access with few frills, so inspect the launch and parking setup before leaving a vehicle.',
+        "Anderson's Crossing, Stigman's Mound, and Little White Dog are the clearest midpoint bailout or overnight options before the final miles to Knob Hill.",
+        'Knob Hill is a county campground and popular tubing put-in, so weekend parking and landing congestion can be the most practical challenge at the finish.',
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the middle stretch of the route.",
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Long low-water dragging and slower progress when the Nimrod gauge is near or below 300 cfs.',
+      ],
+    },
+  },
+  'crow-wing-river-andersons-crossing-cottingham': {
+    putIn: {
+      name: "Anderson's Crossing #6 carry-in access",
+      latitude: 46.69942260942251,
+      longitude: -94.88188569131617,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '21.3 mi',
+      estimatedPaddleTime: 'About 7 hr to 9 hr 30 min',
+      shuttle:
+        "Long Wadena County shuttle from Anderson's Crossing to Cottingham. Stage the Cottingham take-out first because it is the busiest landing in this chain and the full route takes enough time that finish logistics matter.",
+      permits:
+        "No special paddling permit is known for this Minnesota DNR water-trail segment. Follow posted county campground, day-use, and parking rules at the named access sites.",
+      camping:
+        "This longer route passes Little White Dog and Knob Hill before finishing at Cottingham, so it has clean documented on-route overnight support if you confirm current Wadena County rules, fees, and seasonal availability before splitting the trip.",
+      campingClassification: 'on_route_campsite',
+      summary:
+        "Launch at Anderson's Crossing and finish at Cottingham for the longest Anderson's-start Crow Wing continuation. The upper half carries the Nimrod-area rapids and the lower half ends in a busier tubing and swimming corridor.",
+      accessCaveats: [
+        "Anderson's Crossing is a county campground and simple carry-in launch rather than a polished city-park ramp.",
+        "Stigman's Mound, Little White Dog, and Knob Hill are the clearest midpoint bailout or overnight options if the group does not want to commit to the full Cottingham finish.",
+        'Cottingham is a county park with heavier summer use for swimming and tubing, so expect a busier and less secluded take-out than the upstream landings.',
+      ],
+      watchFor: [
+        "Walkin's Rapids, Burrows Rapids, and Westra Rapids on the upper half of the route.",
+        'Fresh wood, strainers, and stronger current after storms.',
+        'Long low-water dragging plus tubing and swimmer traffic near Knob Hill and Cottingham on summer weekends.',
+      ],
+    },
+  },
   'crow-wing-river-stigmans-mound-knob-hill': {
     putIn: {
       name: "Stigman's Mound #7 carry-in access",

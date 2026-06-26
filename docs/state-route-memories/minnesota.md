@@ -4,8 +4,8 @@ Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 74.
-- Top represented rivers: Crow Wing River 14, Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
+- Live routes: 77.
+- Top represented rivers: Crow Wing River 17, Big Fork River 10, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4.
 - Ledger candidates: 70 total; 36 `added`, 19 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`, 1 `rejected`.
 
 ## Status
@@ -13,6 +13,12 @@ Last summarized: 2026-06-26.
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-26 07:05 America/Chicago: added `crow-wing-river-andersons-crossing-little-white-dog`, `crow-wing-river-mary-brown-knob-hill`, and `crow-wing-river-andersons-crossing-cottingham`.
+- Implemented the remaining defensible longer Crow Wing continuations that still fit the Nimrod-gauge-supported Wadena access chain instead of forcing a weaker new-state search.
+- Minnesota public-water-access GIS continues to resolve Mary Brown `WAS02558` at `46.7175822, -94.9289851`, Anderson's Crossing `WAS01526` at `46.6994226, -94.8818857`, Little White Dog `WAS01527` at `46.5869849, -94.8226157`, Knob Hill `WAS01324` at `46.5338560, -94.8184926`, and Cottingham `WAS01325` at `46.5055299, -94.8073895`.
+- The corridor still uses direct MN DNR site `55` at Nimrod with same-day `217 cfs` at `2026-06-26 04:00 AM`; official bands remain Scrapable below `300 cfs`, Low `300-400`, Medium `400-800`, High `800-1100`, and Very High above `1100`.
+- Anderson's-to-Little-White-Dog ships as `endpoint_campground`; Mary-Brown-to-Knob-Hill and Anderson's-to-Cottingham ship as `on_route_campsite` because Anderson's / Little White Dog / Knob Hill provide real midpoint overnight support on the longer continuations. Safety notes stay conservative around Walkin's / Burrows / Westra on the upper half, low-water sandbars, fresh wood after storms, tubing/swimming traffic near Knob Hill and Cottingham, and private-bank limits. No route-gallery image was added.
 
 - 2026-06-26 08:25 America/Chicago: added `big-fork-river-big-falls-west-ben-linn`, `big-fork-river-sturgeon-gowdy`, and `big-fork-river-big-falls-west-gowdy`.
 - Implemented three longer post-portage Big Fork continuations from the same official Map 2 access chain instead of reopening a weaker new-state discovery cycle.
