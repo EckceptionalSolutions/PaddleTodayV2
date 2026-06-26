@@ -1,10 +1,10 @@
 # Minnesota Route Memory
 
-Last summarized: 2026-06-25.
+Last summarized: 2026-06-26.
 
 ## Current Inventory
 
-- Live routes: 51.
+- Live routes: 54.
 - Top represented rivers: Big Fork River 7, Little Fork River 5, Minnesota River 4, Mississippi River 4, Root River 4, North Fork Crow River 3, Snake River 3.
 - Ledger candidates: 49 total; 15 added, 20 `threshold_weak`, 10 `no_live_gauge`, 2 `duplicate_corridor`, 2 `research_later`.
 
@@ -13,6 +13,12 @@ Last summarized: 2026-06-25.
 Minnesota has the strongest official-source foundation and a broad existing inventory. Remaining work should be selective rather than cadence-driven.
 
 ## Latest Run
+
+- 2026-06-25 20:20 America/Chicago: added `crow-wing-river-frames-landing-little-white-dog`, `crow-wing-river-little-white-dog-knob-hill`, and `crow-wing-river-knob-hill-cottingham`.
+- Implemented three additional lower Crow Wing splits from the same official Map 2 county-park chain instead of reopening weaker new-state research.
+- Minnesota public-water-access GIS resolves Frame's Landing `WAS01538` at `46.6296631, -94.8692542`, Little White Dog `WAS01527` at `46.5869849, -94.8226157`, Knob Hill `WAS01324` at `46.5338560, -94.8184926`, and Cottingham `WAS01325` at `46.5055299, -94.8073895`.
+- The corridor still uses direct MN DNR site `55` at Nimrod with same-day `217 cfs` at `2026-06-25 05:00 PM`; official bands remain Scrapable below `300 cfs`, Low `300-400`, Medium `400-800`, High `800-1100`, and Very High above `1100 cfs`.
+- All three routes ship as `endpoint_campground` because DNR Map 2 and Wadena County pages confirm campground/campsite support at each landing; lower-route cautions remain sandbars near the floor, wood after storms, tubing traffic on summer weekends, and private-bank limits. No route-gallery image was added.
 
 - 2026-06-25 17:35 America/Chicago: added `big-fork-river-big-falls-west-sturgeon`, `big-fork-river-sturgeon-ben-linn`, and `big-fork-river-ben-linn-gowdy`.
 - Implemented three new downstream Big Fork routes below the Big Falls portage instead of forcing a weaker cross-state discovery cycle.

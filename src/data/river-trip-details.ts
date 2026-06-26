@@ -2018,6 +2018,40 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'crow-wing-river-frames-landing-little-white-dog': {
+    putIn: {
+      name: "Frame's Landing public water access",
+      latitude: 46.629663080692076,
+      longitude: -94.86925421200144,
+    },
+    takeOut: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    logistics: {
+      distanceLabel: '5.1 river mi',
+      estimatedPaddleTime: 'About 1 hr 45 min to 2 hr 45 min',
+      shuttle:
+        "Very short Wadena County car shuttle from Frame's Landing to Little White Dog. Both ends are county campground/access sites, so check the exact parking and fee setup before leaving a vehicle overnight.",
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail segment. County camping or parking rules may apply if you use either endpoint as an overnight base.',
+      camping:
+        "Both Frame's Landing and Little White Dog are county campground/access sites, so this short route works best as an endpoint campground paddle if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.",
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Frame's Landing and finish at Little White Dog for a short lower Crow Wing split between two county campgrounds. Use the Nimrod gauge first and skip the day when it is still hugging the scrapable band.",
+      accessCaveats: [
+        "Both endpoints are backed by Minnesota public-water-access records and Wadena County campground pages, but Frame's Landing is still a simpler county access rather than a polished city-park launch.",
+        "This short route starts only about a mile below Nimrod, so the gauge story is cleaner than on the farther-downstream Crow Wing splits, but you should still defer to on-site river and parking conditions.",
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood, sweepers, and stronger current after storms.',
+        'Private shoreland outside the designated county landings and campsites.',
+      ],
+    },
+  },
   'cottonwood-river-juenemann-springfield': {
     putIn: {
       name: 'Juenemann Landing / County Road 2 public water access',
@@ -3269,6 +3303,74 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
         'Fresh wood, strainers, and debris after high water.',
         'Tubing traffic on popular summer weekends in the lower part of the route.',
+      ],
+    },
+  },
+  'crow-wing-river-little-white-dog-knob-hill': {
+    putIn: {
+      name: 'Little White Dog County Park #9 carry-in access',
+      latitude: 46.586984884675736,
+      longitude: -94.82261571200662,
+    },
+    takeOut: {
+      name: 'Knob Hill Landing #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    logistics: {
+      distanceLabel: '6.3 river mi',
+      estimatedPaddleTime: 'About 2 hr to 3 hr 15 min',
+      shuttle:
+        'Standard Wadena County self-shuttle between two campground landings. This is a practical half-day option if you want the same lower Crow Wing gauge story without committing to the longer Cottingham finish.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp at either end.',
+      camping:
+        'Little White Dog and Knob Hill are both county campground/access sites, so this route fits endpoint camping if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Little White Dog and finish at Knob Hill for a mid-corridor Crow Wing paddle through wooded bends and small islands. Use the Nimrod gauge to avoid a scrape-heavy or high-water day.',
+      accessCaveats: [
+        'Both endpoints are named by the DNR map and backed by Minnesota public-water-access records plus Wadena County campground pages.',
+        'Knob Hill is a popular tubing put-in in summer, so plan around busier weekend parking and river traffic.',
+      ],
+      watchFor: [
+        'Exposed sandbars and slower travel when the Nimrod gauge falls below the medium band.',
+        'Fresh wood, strainers, and debris after high water.',
+        'Tubing traffic and casual river users on warm summer weekends.',
+      ],
+    },
+  },
+  'crow-wing-river-knob-hill-cottingham': {
+    putIn: {
+      name: 'Knob Hill Landing #10 carry-in access',
+      latitude: 46.533855996511825,
+      longitude: -94.81849257299048,
+    },
+    takeOut: {
+      name: 'Cottingham County Park #11 carry-in access',
+      latitude: 46.505529851247346,
+      longitude: -94.80738952007682,
+    },
+    logistics: {
+      distanceLabel: '3.5 river mi',
+      estimatedPaddleTime: 'About 1 hr 15 min to 2 hr',
+      shuttle:
+        'Very short Wadena County shuttle between Knob Hill and Cottingham. This is the easiest lower Crow Wing split to treat as a quick same-day condition check or campground-to-campground float.',
+      permits:
+        'No special paddling permit is known for this Minnesota DNR water-trail route. County campground fees or rules may apply if you camp or leave vehicles at either end.',
+      camping:
+        'Knob Hill and Cottingham are both county campground/access sites, so this short route works as an endpoint campground float if you confirm current Wadena County rules, fees, and seasonal availability before planning an overnight.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Knob Hill and finish at Cottingham for the shortest lower Crow Wing split in this county-park chain. The route is simple, but the Nimrod gauge still matters if you want to avoid an underfilled or pushy day.',
+      accessCaveats: [
+        'Both endpoints are named by DNR Map 2 and backed by Minnesota public-water-access records plus Wadena County campground pages.',
+        'Cottingham is a busy county park for picnicking, swimming, and tubing take-outs, so verify parking and riverbank congestion on arrival during peak weekends.',
+      ],
+      watchFor: [
+        'Scraping and slower sandy channels when the Nimrod gauge is near or below 300 cfs.',
+        'Fresh wood or debris after storms despite the otherwise easy character.',
+        'Tubing traffic, swimmers, and crowded take-out conditions near Cottingham on summer weekends.',
       ],
     },
   },
