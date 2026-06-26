@@ -30764,6 +30764,402 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: 'big-south-fork-blue-heron-worley',
+    slug: 'big-south-fork-blue-heron-worley',
+    name: 'Big South Fork',
+    reach: 'Blue Heron Canoe Ramp to Worley Canoe Access',
+    aliases: [
+      'Big South Fork - Blue Heron to Worley',
+      'Blue Heron Mine to Worley',
+      'Big South Fork short family float',
+    ],
+    state: 'Kentucky',
+    region: 'Cumberland Plateau',
+    summary:
+      "Shortest KDFWR-documented Big South Fork family float from Blue Heron to Worley with public access at both ends, direct Stearns USGS live data, and the same official Kentucky gauge ladder used on the rest of the lower corridor below Devil's Jump.",
+    statusText:
+      'Use the South Fork Cumberland near Stearns gauge. KDFWR rates 100 to 500 cfs as the best casual-floating band, 500 to 1,500 cfs as faster water for more experienced open-boat paddlers, and anything above 1,500 cfs as expert-only conditions.',
+    latitude: 36.6683,
+    longitude: -84.5474,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'remote', 'strainers', 'private_banks'],
+      safetyNotes: [
+        "Blue Heron starts below the Devil's Jump rapid; do not paddle upstream into that wilderness section unless you have a separate advanced plan.",
+        'KDFWR calls the river extremely flashy, and storms in the Clear Fork or New River headwaters can turn a short scenic float into pushy brown water quickly.',
+        'Worley is a carry-down finish on a rougher road spur. Wood, boulders, and steep private banks still limit easy mid-route exits.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03410500',
+      provider: 'usgs',
+      siteId: '03410500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Cumberland River near Stearns, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 500,
+      tooLow: 100,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Big South Fork at Stearns',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR frames Blue Heron as the start of the easier family-float corridor. Treat same-day rain and gauge trend as more important than the calendar because plateau headwaters can raise the river quickly.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the shortest lower Big South Fork family split. It suits ordinary moving-water paddlers at normal levels, but the river still gets faster and more consequential above the 500 cfs family band.',
+      confidenceNotes:
+        'Confidence is high for this short Kentucky add: KDFWR explicitly names Blue Heron to Worley as a 2.5-mile float, publishes official Stearns-gauge cfs bands, and provides source-backed access-detail coordinates for both endpoints. USGS 03410500 returned same-day June 26, 2026 discharge and gage-height values through Water Services during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Blue Heron to Worley, 2.5 mi',
+        note: 'KDFWR says a family can make a half-day 2.5-mile float from Blue Heron to Worley.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '100-500 cfs best casual band',
+        note: 'KDFWR says expect dragging below 100 cfs at the Stearns gauge, rates 100 to 500 cfs as the best flow for casual floating, 500 to 1,500 cfs as faster water for more experienced open boats, and above 1,500 cfs as experienced closed-boat water. Flow above 3,000 cfs is described as extremely dangerous.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Blue Heron Canoe Ramp, 36.6683, -84.5474',
+        note: 'KDFWR lists Blue Heron Canoe Ramp as a carry-down public access with paved parking, restrooms, and published coordinates inside the Big South Fork corridor.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Worley Canoe Access, 36.6982, -84.5374',
+        note: 'KDFWR lists Worley as a public carry-down shoreline access with unpaved parking and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=921',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03410500 at 199 cfs / 2.11 ft',
+        note: 'USGS Water Services returned same-day South Fork Cumberland River near Stearns discharge and gage-height values at 03:30 EDT on June 26, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Blue Heron campground at the put-in',
+        note: 'Blue Heron Campground is a developed NPS campground in the Kentucky portion of Big South Fork and works as an endpoint campground for this short float.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/blueheroncampground.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Big South Fork',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Blue Heron Canoe Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Worley Canoe Access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=921',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03410500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03410500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'NPS Big South Fork access points',
+        url: 'https://www.nps.gov/biso/planyourvisit/riveraccesspoints.htm',
+        provider: 'nps',
+      },
+    ],
+  },
+  {
+    id: 'big-south-fork-yamacraw-alum-ford',
+    slug: 'big-south-fork-yamacraw-alum-ford',
+    name: 'Big South Fork',
+    reach: 'Yamacraw to Alum Ford',
+    aliases: [
+      'Big South Fork - Yamacraw to Alum Ford',
+      'Yamacraw Bridge to Alum Ford Boat Ramp',
+      'Big South Fork flatwater lower float',
+    ],
+    state: 'Kentucky',
+    region: 'Cumberland Plateau',
+    summary:
+      'Gentler lower Big South Fork float from Yamacraw to Alum Ford with public access at both ends, direct Stearns USGS live data, and official Kentucky flow guidance for the lower family-friendly lake-headwater section.',
+    statusText:
+      'Use the South Fork Cumberland near Stearns gauge. KDFWR rates 100 to 500 cfs as the best casual-floating band, 500 to 1,500 cfs as faster water for more experienced open-boat paddlers, and anything above 1,500 cfs as expert-only conditions.',
+    latitude: 36.7255,
+    longitude: -84.5446,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'strainers', 'private_banks'],
+      safetyNotes: [
+        'KDFWR still calls the Big South Fork extremely flashy, so headwater rain can raise or muddy the river faster than this gentle lower mileage suggests.',
+        'NPS and KDFWR describe this as the flatter headwaters-of-Lake-Cumberland section, which means motorboats can appear and lake level can change the feel of the route.',
+        'The corridor stays in a managed public river park, but banks outside the named accesses should still be treated as private or unsuitable for casual exit points.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03410500',
+      provider: 'usgs',
+      siteId: '03410500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Cumberland River near Stearns, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 500,
+      tooLow: 100,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Big South Fork at Stearns',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'KDFWR presents Yamacraw to Alum Ford as the beginner-friendlier lower section during the broader warm season, but storms and lake influence still make same-day judgment more important than the month.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'This is the easiest Big South Fork split added so far. Most of the consequence comes from low-water scraping, motorboat interaction, and sudden weather-driven rises rather than technical rapids.',
+      confidenceNotes:
+        'Confidence is high for this Kentucky add: KDFWR explicitly names Yamacraw to Alum Ford as an 8-mile family-and-beginners float, publishes official Stearns-gauge cfs bands, and provides source-backed access-detail coordinates for both endpoints. USGS 03410500 returned same-day June 26, 2026 discharge and gage-height values through Water Services during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Yamacraw to Alum Ford, 8 mi',
+        note: 'KDFWR says families and beginners should try the 8-mile stretch from Yamacraw to Alum Ford Boat Ramp.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Official level band',
+        value: '100-500 cfs best casual band',
+        note: 'KDFWR says expect dragging below 100 cfs at the Stearns gauge, rates 100 to 500 cfs as the best flow for casual floating, 500 to 1,500 cfs as faster water for more experienced open boats, and above 1,500 cfs as experienced closed-boat water. Flow above 3,000 cfs is described as extremely dangerous.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Yamacraw, 36.7255, -84.5446',
+        note: 'KDFWR lists Yamacraw as the upstream public access with year-round availability, an unpaved ramp, and published coordinates beside the KY 92 bridge corridor.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=367',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Alum Ford, 36.7639, -84.5471',
+        note: 'KDFWR lists Alum Ford as the downstream public access with a paved ramp, paved parking, and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=368',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03410500 at 199 cfs / 2.11 ft',
+        note: 'USGS Water Services returned same-day South Fork Cumberland River near Stearns discharge and gage-height values at 03:30 EDT on June 26, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Alum Ford campground at the take-out',
+        note: 'Alum Ford Campground sits adjacent to the Alum Ford boat launch and supports a developed endpoint campground finish for this lower float.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/alumfordcampground.htm',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Big South Fork',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Yamacraw access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=367',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Alum Ford access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=368',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03410500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03410500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'NPS Alum Ford Campground',
+        url: 'https://www.nps.gov/biso/planyourvisit/alumfordcampground.htm',
+        provider: 'nps',
+      },
+    ],
+  },
+  {
+    id: 'big-south-fork-blue-heron-alum-ford',
+    slug: 'big-south-fork-blue-heron-alum-ford',
+    name: 'Big South Fork',
+    reach: 'Blue Heron Canoe Ramp to Alum Ford',
+    aliases: [
+      'Big South Fork - Blue Heron to Alum Ford',
+      'Blue Heron Mine to Alum Ford Boat Ramp',
+      'Big South Fork full lower day float',
+    ],
+    state: 'Kentucky',
+    region: 'Cumberland Plateau',
+    summary:
+      "Longer lower Big South Fork day from Blue Heron to Alum Ford that combines the easier gorge exit below Devil's Jump with the lake-headwater finish. KDFWR and NPS support the route shape, while the direct Stearns gauge keeps the lower-corridor go/no-go decision grounded in same-day data.",
+    statusText:
+      'Use the South Fork Cumberland near Stearns gauge. KDFWR rates 100 to 500 cfs as the best casual-floating band, 500 to 1,500 cfs as faster water for more experienced open-boat paddlers, and anything above 1,500 cfs as expert-only conditions.',
+    latitude: 36.6683,
+    longitude: -84.5474,
+    safetyProfile: {
+      riskLevel: 'caution',
+      hazards: ['fast_rise', 'remote', 'strainers', 'private_banks'],
+      safetyNotes: [
+        "Blue Heron starts below the Devil's Jump rapid; do not paddle upstream into that wilderness section unless you have a separate advanced plan.",
+        'This longer route combines the pushier upper family section with the flatter lake-headwater lower miles, so storms, fatigue, and changing current deserve more respect than on the shorter splits.',
+        'Motorboats may appear on the lower half near Alum Ford, and the river still rises quickly after headwater rain.',
+      ],
+      reviewStatus: 'reviewed',
+    },
+    gaugeSource: {
+      id: 'usgs-03410500',
+      provider: 'usgs',
+      siteId: '03410500',
+      metric: 'discharge_cfs',
+      unit: 'cfs',
+      kind: 'direct',
+      siteName: 'South Fork Cumberland River near Stearns, KY',
+      detailUrl: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+    },
+    profile: {
+      thresholdModel: 'two-sided',
+      idealMin: 100,
+      idealMax: 500,
+      tooLow: 100,
+      tooHigh: 1500,
+      thresholdSource: {
+        label: 'KDFWR recommended river levels for Big South Fork at Stearns',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      thresholdSourceStrength: 'official',
+      rainfallSensitivity: 'high',
+      seasonMonths: [3, 4, 5, 6, 7, 8, 9, 10, 11],
+      seasonNotes:
+        'This full lower-day option works best in the same broad warm-season window as the shorter Blue Heron and Yamacraw splits, but same-day weather, gauge trend, and group pace still decide whether the combined route is smart.',
+      difficulty: 'easy',
+      difficultyNotes:
+        'Technically this stays in the easier Big South Fork family, but the full length makes it a more committed day than Blue Heron-to-Yamacraw or Yamacraw-to-Alum Ford. The risk is pace, weather, and remoteness more than rapids.',
+      confidenceNotes:
+        'Confidence is high for this combined Kentucky add: KDFWR still frames Blue Heron as the start and Alum Ford as the end of the easier lower corridor, while NPS lists Blue Heron Mine to Alum Ford as a 12.2-mile route. KDFWR access-detail pages provide source-backed coordinates at both ends, and USGS 03410500 returned same-day June 26, 2026 discharge and gage-height values through Water Services during this run.',
+    },
+    evidenceNotes: [
+      {
+        label: 'Official route segment',
+        value: 'Blue Heron to Alum Ford, 12.2 mi',
+        note: 'NPS lists Blue Heron Mine to Alum Ford as a 12.2-mile route, and KDFWR describes Blue Heron as the start and Alum Ford as the end of the easier lower Big South Fork section.',
+        sourceUrl: 'https://www.nps.gov/biso/planyourvisit/riverrundescriptions.htm',
+      },
+      {
+        label: 'Official level band',
+        value: '100-500 cfs best casual band',
+        note: 'KDFWR says expect dragging below 100 cfs at the Stearns gauge, rates 100 to 500 cfs as the best flow for casual floating, 500 to 1,500 cfs as faster water for more experienced open boats, and above 1,500 cfs as experienced closed-boat water. Flow above 3,000 cfs is described as extremely dangerous.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+      {
+        label: 'Put-in access',
+        value: 'Blue Heron Canoe Ramp, 36.6683, -84.5474',
+        note: 'KDFWR lists Blue Heron Canoe Ramp as a carry-down public access with paved parking, restrooms, and published coordinates inside the Big South Fork corridor.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+      },
+      {
+        label: 'Take-out access',
+        value: 'Alum Ford, 36.7639, -84.5471',
+        note: 'KDFWR lists Alum Ford as the downstream public access with a paved ramp, paved parking, and published coordinates.',
+        sourceUrl: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=368',
+      },
+      {
+        label: 'Direct live gauge',
+        value: 'USGS 03410500 at 199 cfs / 2.11 ft',
+        note: 'USGS Water Services returned same-day South Fork Cumberland River near Stearns discharge and gage-height values at 03:30 EDT on June 26, 2026.',
+        sourceUrl:
+          'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+      },
+      {
+        label: 'Camping support',
+        value: 'Blue Heron and Alum Ford campgrounds at the endpoints',
+        note: 'Blue Heron and Alum Ford both have developed NPS campground support, so this longer day can start or finish from an endpoint campground without implying a required overnight river camp.',
+        sourceUrl: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+      },
+    ],
+    sourceLinks: [
+      {
+        label: 'KDFWR Big South Fork',
+        url: 'https://fw.ky.gov/Education/Pages/Big-South-Fork.aspx',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Blue Heron Canoe Ramp',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=366',
+        provider: 'local',
+      },
+      {
+        label: 'KDFWR Alum Ford access',
+        url: 'https://app.fw.ky.gov/fisheries/accesssitedetail.aspx?asid=368',
+        provider: 'local',
+      },
+      {
+        label: 'USGS 03410500 monitoring location',
+        url: 'https://waterdata.usgs.gov/monitoring-location/USGS-03410500/',
+        provider: 'usgs',
+      },
+      {
+        label: 'USGS 03410500 Water Services current values',
+        url: 'https://waterservices.usgs.gov/nwis/iv/?format=json&sites=03410500&parameterCd=00060,00065&siteStatus=all',
+        provider: 'usgs',
+      },
+      {
+        label: 'NPS Big South Fork river run descriptions',
+        url: 'https://www.nps.gov/biso/planyourvisit/riverrundescriptions.htm',
+        provider: 'nps',
+      },
+    ],
+  },
+  {
     id: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
     slug: 'north-fork-kentucky-river-hazard-city-ramp-perry-county-park',
     name: 'North Fork Kentucky River',

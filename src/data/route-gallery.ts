@@ -1466,6 +1466,36 @@ const approvedRoutePhotosBySlug: Record<string, RouteGalleryPhoto[]> = {
       takenLabel: 'Wikimedia Commons: CC BY 3.0',
     },
   ],
+  'big-south-fork-blue-heron-worley': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'big-south-fork-yamacraw-alum-ford': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
+  'big-south-fork-blue-heron-alum-ford': [
+    {
+      id: 'big-south-fork-leatherwood-ford-commons',
+      src: '/gallery/big-south-fork-blue-heron-yamacraw/big-south-fork-leatherwood-ford.jpg',
+      alt: 'The Big South Fork flows through a wooded gorge corridor with clear green water and rocky banks.',
+      caption: 'Big South Fork corridor',
+      credit: 'Brian Stansberry via Wikimedia Commons',
+      takenLabel: 'Wikimedia Commons: CC BY 3.0',
+    },
+  ],
   'tradewater-river-bellville-montezuma': [
     {
       id: 'tradewater-river-commons',

@@ -10056,6 +10056,120 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+  'big-south-fork-blue-heron-worley': {
+    putIn: {
+      id: 'blue-heron-canoe-ramp',
+      name: 'Blue Heron Canoe Ramp',
+      latitude: 36.6683,
+      longitude: -84.5474,
+    },
+    takeOut: {
+      id: 'worley-canoe-access',
+      name: 'Worley Canoe Access',
+      latitude: 36.6982,
+      longitude: -84.5374,
+    },
+    logistics: {
+      distanceLabel: 'About 2.5 mi',
+      estimatedPaddleTime: 'About 1 hr to 2 hr, longer with low water, fishing stops, or extra scouting',
+      shuttle:
+        'Stage the Worley take-out first, then drive back to Blue Heron through Stearns and the mine-road corridor. Inspect Worley before launching because the final gravel road is rougher, narrower, and less forgiving than the developed Blue Heron put-in.',
+      permits:
+        'No route-specific private paddling permit is known for this normal Big South Fork day float. Follow KDFWR and NPS rules, carry required safety gear and PFDs, check current park alerts, and obey any posted access or parking restrictions at Blue Heron and Worley.',
+      camping:
+        'Blue Heron Campground can support an endpoint campground plan, but this is normally the shortest half-day Big South Fork option. Treat camping as a separate NPS campground decision rather than part of the float itself.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Blue Heron and take out at Worley for the shortest KDFWR-documented Big South Fork family float. Use the Stearns gauge as a direct official flow check and stand down when storms or rising water push the river out of the lower bands.",
+      accessCaveats: [
+        "Blue Heron is the correct put-in for the easier lower corridor. Do not continue upstream into the Devil's Jump / wilderness section unless your group has a separate advanced whitewater plan.",
+        'Worley is a carry-down access at the end of a rough gravel road. Inspect the road, shoulder, and shoreline landing before committing because two-wheel-drive comfort can change with washouts or mud.',
+        'The route lies in a publicly managed NPS corridor, but same-day closures, storm damage, or event traffic can still affect access. Check park alerts before leaving vehicles.',
+      ],
+      watchFor: [
+        'Fast rises after rain in the Clear Fork and New River headwaters, even if conditions look calm at Blue Heron.',
+        'Woody debris, boulder shoals, pushier current above 500 cfs, and more serious rescue consequences once the river climbs past the family band.',
+        'Dragging or scraping below 100 cfs, especially across shallow riffles and near Worley.',
+        'Cold-water exposure, limited cell service, remote-gorge shuttle timing, and steep or private banks away from the named accesses.',
+      ],
+    },
+  },
+  'big-south-fork-yamacraw-alum-ford': {
+    putIn: {
+      id: 'yamacraw-access',
+      name: 'Yamacraw',
+      latitude: 36.7255,
+      longitude: -84.5446,
+    },
+    takeOut: {
+      id: 'alum-ford',
+      name: 'Alum Ford',
+      latitude: 36.7639,
+      longitude: -84.5471,
+    },
+    logistics: {
+      distanceLabel: 'About 8.0 mi',
+      estimatedPaddleTime: 'About 3.5 hr to 5.5 hr, longer with low water, fishing stops, or lake-headwater wind',
+      shuttle:
+        'Stage the Alum Ford take-out first, then drive back to Yamacraw on KY 92. Inspect both ramps before launching because lower-river mud, lake-level changes, or vehicle traffic can change how easy the landings feel on a given day.',
+      permits:
+        'No route-specific private paddling permit is known for this normal Big South Fork day float. Follow KDFWR and NPS rules, carry required safety gear and PFDs, check current park alerts, and obey any posted access or parking restrictions at Yamacraw and Alum Ford.',
+      camping:
+        'Alum Ford Campground sits beside the take-out and works as an endpoint campground plan. Treat that campground as a separate NPS reservation decision rather than assuming overnight use is built into the paddle.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        'Launch at Yamacraw and take out at Alum Ford for the easier lower Big South Fork float into the headwaters of Lake Cumberland. Use the Stearns gauge as a direct official flow check and expect a flatter, more open finish than the upstream Blue Heron split.',
+      accessCaveats: [
+        'Yamacraw is the upstream bridge-area access on KY 92. Inspect the ramp and parking before committing because mud, cleanup work, or traffic can change the landing.',
+        'Alum Ford is a paved NPS/KDFWR ramp beside the campground, but the route finishes in a more lake-influenced section where motorboats and changing lake levels can affect the feel of the final miles.',
+        'The route lies in a publicly managed NPS corridor, but same-day closures, storm damage, or campground traffic can still affect access. Check park alerts before leaving vehicles.',
+      ],
+      watchFor: [
+        'Fast rises after rain in the Clear Fork and New River headwaters, even if the lower section looks gentler or lake-like.',
+        'Dragging or scraping below 100 cfs, especially on shoals before the route slows into the lower pool-like miles.',
+        'Motorboats, wind, exposed sun, and slower-than-expected progress in the headwaters of Lake Cumberland.',
+        'Woody debris, private banks outside the named accesses, and limited cell coverage in the gorge corridor.',
+      ],
+    },
+  },
+  'big-south-fork-blue-heron-alum-ford': {
+    putIn: {
+      id: 'blue-heron-canoe-ramp',
+      name: 'Blue Heron Canoe Ramp',
+      latitude: 36.6683,
+      longitude: -84.5474,
+    },
+    takeOut: {
+      id: 'alum-ford',
+      name: 'Alum Ford',
+      latitude: 36.7639,
+      longitude: -84.5471,
+    },
+    logistics: {
+      distanceLabel: 'About 12.2 mi',
+      estimatedPaddleTime: 'About 5 hr to 7 hr, longer with low water, fishing stops, or wind on the lower miles',
+      shuttle:
+        'Stage the Alum Ford take-out first, then drive back to Blue Heron through Stearns. This is a longer commitment than the shorter Big South Fork family splits, so inspect both endpoints, check weather and gauge trend, and make sure the group is comfortable with a full lower-river day before leaving vehicles.',
+      permits:
+        'No route-specific private paddling permit is known for this normal Big South Fork day float. Follow KDFWR and NPS rules, carry required safety gear and PFDs, check current park alerts, and obey any posted access or parking restrictions at Blue Heron and Alum Ford.',
+      camping:
+        'Blue Heron and Alum Ford campgrounds can support an endpoint campground plan, but this route is still a long single-day float rather than an implied overnight run. Treat camping as a separate NPS reservation or backcountry-permit decision.',
+      campingClassification: 'endpoint_campground',
+      summary:
+        "Launch at Blue Heron and take out at Alum Ford for the full easier Big South Fork day below Devil's Jump. Use the Stearns gauge as a direct official flow check and expect the lower half to flatten toward Lake Cumberland compared with the upstream Blue Heron-to-Yamacraw section.",
+      accessCaveats: [
+        "Blue Heron is the correct put-in for the easier lower corridor. Do not continue upstream into the Devil's Jump / wilderness section unless your group has a separate advanced whitewater plan.",
+        'Alum Ford is the planned downstream finish beside the campground and paved boat launch. Identify the take-out plan before launching because the lower headwaters section feels broader and slower than the upper part of the route.',
+        'The route lies in a publicly managed NPS corridor, but same-day closures, storm damage, or campground traffic can still affect access. Check park alerts before leaving vehicles.',
+      ],
+      watchFor: [
+        'Fast rises after rain in the Clear Fork and New River headwaters, even if only the lower Kentucky section is on the plan.',
+        'Woody debris, boulder shoals, pushier current above 500 cfs, and more serious rescue consequences once the river climbs past the family band.',
+        'Dragging or scraping below 100 cfs in the upper miles, followed by slower pace, wind, and occasional motorboats in the lower lake-headwater section.',
+        'Cold-water exposure, limited cell service, fatigue on the long day, and steep or private banks away from the named public accesses.',
+      ],
+    },
+  },
   'north-fork-kentucky-river-hazard-city-ramp-perry-county-park': {
     putIn: {
       id: 'hazard-city-ramp',

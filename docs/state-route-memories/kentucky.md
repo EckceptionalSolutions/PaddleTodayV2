@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 02:06 America/Chicago / 2026-06-26 07:06 UTC.
+Last summarized: 2026-06-26 02:30 America/Chicago / 2026-06-26 07:30 UTC.
 
 ## Current Inventory
 
-- Live routes: 49.
-- Ledger candidates: 44 Kentucky-specific records. The ledger now splits across 28 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `tradewater-river-montezuma-fishtrap`, `tradewater-river-fishtrap-vfw-bridge`, and `tradewater-river-vfw-bridge-granger-landing`.
+- Live routes: 52.
+- Ledger candidates: 47 Kentucky-specific records. The ledger now splits across 31 `added`, 14 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `big-south-fork-blue-heron-worley`, `big-south-fork-yamacraw-alum-ford`, and `big-south-fork-blue-heron-alum-ford`.
 
 ## Status
 
@@ -21,6 +21,12 @@ Kentucky had been paused from the active automation rotation at user request whi
 
 ## Current Guidance
 
+- 2026-06-26 02:30 America/Chicago / 2026-06-26 07:30 UTC three-route add pass
+  - Added `big-south-fork-blue-heron-worley`, `big-south-fork-yamacraw-alum-ford`, and `big-south-fork-blue-heron-alum-ford` to expand Kentucky to fifty-two live routes.
+  - The run reused the current KDFWR Big South Fork page for the official Stearns gauge ladder of below `100 cfs` scrape-prone, `100-500 cfs` best casual floating, `500-1500 cfs` faster water for experienced open boats, and above `1500 cfs` experienced closed-boat water, with `3000 cfs` called extremely dangerous.
+  - KDFWR access-detail pages provided source-backed coordinates and public-launch details for Blue Heron Canoe Ramp, Worley Canoe Access, Yamacraw, and Alum Ford, while same-day direct USGS `03410500` returned `199 cfs / 2.11 ft` at `2026-06-26 03:30 EDT`.
+  - Route-shape support stayed official across the corridor: KDFWR still names Blue Heron-to-Worley as `2.5 mi` and Yamacraw-to-Alum-Ford as `8 mi`, while NPS still preserves the combined Blue-Heron-to-Alum-Ford route at `12.2 mi`.
+  - Reused the approved Commons Big South Fork corridor image for all three new slugs rather than selecting new KDFWR or NPS imagery. Safety notes stay conservative around Devil's Jump staying upstream of the Blue Heron start, rain-driven fast rises, woody debris, lower-river motorboats near Alum Ford, and longer-day fatigue on the full Blue-Heron-to-Alum-Ford route.
 - 2026-06-26 02:06 America/Chicago / 2026-06-26 07:06 UTC three-route add pass
   - Added `tradewater-river-montezuma-fishtrap`, `tradewater-river-fishtrap-vfw-bridge`, and `tradewater-river-vfw-bridge-granger-landing` to expand Kentucky to forty-nine live routes.
   - The run used the current KDFWR Tradewater River page for the exact downstream site-to-site mileages of `6.7`, `9.5`, and `10.6` miles plus the official Providence gauge ladder of low below `5 cfs / 10.0 ft`, good from `5-50 cfs / 10-15 ft`, and high above `50 cfs / 15.0 ft`.
