@@ -1,11 +1,11 @@
 # Kentucky Route Memory
 
-Last summarized: 2026-06-26 10:15 America/Chicago / 2026-06-26 15:15 UTC.
+Last summarized: 2026-06-26 11:15 America/Chicago / 2026-06-26 16:15 UTC.
 
 ## Current Inventory
 
-- Live routes: 58.
-- Ledger candidates: 50 Kentucky-specific records. The ledger now splits across 31 `added`, 17 `implemented`, 1 `no_live_gauge`, and 1 `research_later` records. The newest live slugs from this run are `tradewater-river-montezuma-vfw-bridge`, `tradewater-river-fishtrap-granger-landing`, and `tradewater-river-montezuma-granger-landing`.
+- Live routes: 61.
+- Ledger candidates: 53 Kentucky-specific records. The newest live slugs from this run are `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek`.
 
 ## Status
 
@@ -20,6 +20,13 @@ Kentucky had been paused from the active automation rotation at user request whi
 - For Elkhorn specifically, do not substitute nearby bank/wade-only VPA sites for boat access; KDFWR explicitly prohibits boat carry-in/out at some Elkhorn VPA points.
 
 ## Current Guidance
+
+- 2026-06-26 11:15 America/Chicago / 2026-06-26 16:15 UTC three-route add pass
+  - Added `south-fork-kentucky-river-oneida-bishop-bend`, `south-fork-kentucky-river-rocky-branch-hacker-branch`, and `south-fork-kentucky-river-cedar-valley-upper-wolf-creek` to expand Kentucky to sixty-one live routes in the current tree.
+  - The run reused the current KDFWR South Fork Kentucky River page for the exact access-chain mileages of `5.0`, `2.5`, `4.7`, `3.3`, and `2.9` miles, which support the combined public routes of `12.2`, `10.5`, and `10.9` miles.
+  - Current KDFWR access-detail pages still supported the endpoint coordinates and public-use notes for Oneida Ramp, Rocky Branch Road Access, Cedar Valley Road Access, Bishop Bend School Road Access, Hacker Branch Road Access, and Upper Wolf Creek Ramp; same-day direct USGS Water Services returned `98.3 cfs / 3.76 ft` at Booneville (`03281500`) at `2026-06-26 11:30 EDT`.
+  - Camping stays conservative at `none` for all three because KDFWR treats the access chain as day-use public launches rather than overnight sites. Safety notes stay focused on private-bank limits, low-water scraping below band, muddy landings, fresh wood after rain, and longer-day fatigue on the two longest combinations.
+  - Reused the approved South Fork Commons corridor images for all three new slugs rather than selecting new KDFWR or USGS imagery.
 
 - 2026-06-26 10:15 America/Chicago / 2026-06-26 15:15 UTC three-route add pass
   - Added `tradewater-river-montezuma-vfw-bridge`, `tradewater-river-fishtrap-granger-landing`, and `tradewater-river-montezuma-granger-landing` to expand Kentucky to fifty-eight live routes.
