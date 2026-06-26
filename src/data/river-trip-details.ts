@@ -16565,6 +16565,86 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
       ],
     },
   },
+'juniata-river-portstown-park-mt-union': {
+    putIn: {
+      id: 'portstown-park-access',
+      name: 'Portstown Park access',
+      latitude: 40.485833,
+      longitude: -78.014167,
+    },
+    takeOut: {
+      id: 'mt-union-access',
+      name: 'Mt. Union access',
+      latitude: 40.386111,
+      longitude: -77.873333,
+    },
+    logistics: {
+      distanceLabel: 'About 13 mi',
+      estimatedPaddleTime:
+        'About 5.5 hr to 8 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-90 and Mapleton caution zones',
+      shuttle:
+        'Stage the take-out at Mt. Union first, then drive back upstream to Portstown Park in Huntingdon. This is a longer shuttle with a real midpoint commitment, so inspect both public landings before leaving a vehicle because mud, current angle, and bridge eddies can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park near the route midpoint. Confirm same-day local rules before turning that into an overnight split.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Portstown Park and take out at Mt. Union for a longer upper-Juniata public-access day. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Portstown Park and Mt. Union coordinates directly in the official upper Juniata access table.',
+        'Mapleton community-park camping support is helpful on-route, but it does not change the need to inspect both access edges before leaving a vehicle.',
+        'The route carries the Juniata Point/Raystown-Branch reach early and the Mapleton bridge-current zone later, so do not treat the middle miles as hazard-free just because the gradient stays modest.',
+        'Use only the named public accesses rather than private banks, islands, or bridge shoulders.',
+      ],
+      watchFor: [
+        'Hazardous current with waves near mile 90 plus the Mapleton caution features at miles 86.5 and 85.5, as flagged by PFBC.',
+        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines become slower, scratchier, and more exposed across the full run.',
+        'Fresh wood after storms, broad-river headwind, and slick footing at either public landing.',
+        'Private shorelines away from the named public accesses and the temptation to improvise a stop at informal banks around the Mapleton midpoint.',
+      ],
+    },
+  },
+'juniata-river-portstown-park-shawmut': {
+    putIn: {
+      id: 'portstown-park-access',
+      name: 'Portstown Park access',
+      latitude: 40.485833,
+      longitude: -78.014167,
+    },
+    takeOut: {
+      id: 'shawmut-access',
+      name: 'Shawmut access',
+      latitude: 40.364722,
+      longitude: -77.812222,
+    },
+    logistics: {
+      distanceLabel: 'About 18 mi',
+      estimatedPaddleTime:
+        'About 7 hr to 10 hr in ordinary conditions, longer with low-water bars, headwind, or extra time easing through the mile-90, Mapleton, and mile-75 caution zones',
+      shuttle:
+        'Stage the take-out at Shawmut first, then drive back upstream to Portstown Park in Huntingdon. This is a genuine all-day shuttle plan, so inspect both public access edges before leaving a vehicle because mud, current angle, and bridge eddies can change after rain.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'The upper-Juniata guide says small groups may camp overnight at the Mapleton community park on the corridor. Confirm same-day local rules before turning that support point into an overnight split.',
+      campingClassification: 'on_route_campsite',
+      summary:
+        'Launch at Portstown Park and take out at Shawmut for a long upper-Juniata day toward Jacks Narrows. Use the direct Mapleton Depot gauge and expect scraping whenever the river sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Portstown Park and Shawmut coordinates directly in the official upper Juniata access table.',
+        'Mapleton community-park camping support is useful on-route, but the intended finish for this slug remains the Shawmut access.',
+        'This is a long broad-river route even at friendly levels. Do not underrate the time commitment just because the gradient stays modest.',
+        'Use only the named public accesses rather than private banks, islands, or bridge shoulders.',
+      ],
+      watchFor: [
+        'Hazardous current with waves near mile 90, the Mapleton caution features at miles 86.5 and 85.5, and waves with hidden rocks near mile 75, all flagged by PFBC.',
+        'Mapleton stages below about 2.5 ft, when broad bars and shallow inside lines slow the route down quickly.',
+        'Fresh wood after storms, broad-river headwind, and fatigue late in the day after the Mapleton midpoint is behind you.',
+        'Private shorelines away from the named public accesses and the temptation to settle for an informal bank instead of holding the Shawmut finish.',
+      ],
+    },
+  },
 'juniata-river-juniata-point-riverside-park': {
     putIn: {
       id: 'juniata-point-ramp',
@@ -16802,6 +16882,46 @@ export const riverTripDetails: Record<string, RiverTripDetails> = {
         'Low water under the conservative Mapleton 2.5 ft proxy floor, when broad bars and rockier lines become slower and less forgiving.',
         'Current pushing toward bridge abutments late in the route, fresh wood after storms, and broad-river headwind.',
         'Private shorelines away from the named public accesses and the risk of taking out too early at the campground if you are aiming for the full run to Newton-Hamilton.',
+      ],
+    },
+  },
+'juniata-river-mt-union-shawmut': {
+    putIn: {
+      id: 'mt-union-access',
+      name: 'Mt. Union access',
+      latitude: 40.386111,
+      longitude: -77.873333,
+    },
+    takeOut: {
+      id: 'shawmut-access',
+      name: 'Shawmut access',
+      latitude: 40.364722,
+      longitude: -77.812222,
+    },
+    logistics: {
+      distanceLabel: 'About 5 mi',
+      estimatedPaddleTime:
+        'About 2 hr to 3.5 hr in ordinary conditions, longer if low water tightens the line or if you pause to inspect the Shawmut approach',
+      shuttle:
+        'Stage the take-out at Shawmut first, then drive back upstream to Mt. Union. Check both access edges before launching because mud, current angle, and recent storm cleanup can change the practical carry.',
+      permits:
+        'PFBC says unpowered boats using PFBC or Pennsylvania State Parks and Forests access areas need boat registration, a PFBC launch permit, or a DCNR State Parks launch permit. Follow current PFBC, boating, and PFD rules.',
+      camping:
+        'No established camping is identified for this Mt.-Union-to-Shawmut segment. Treat it as a day trip.',
+      campingClassification: 'none',
+      summary:
+        'Launch at Mt. Union and take out at Shawmut for a shorter upper-Juniata Jacks Narrows approach run. The app uses the Mapleton Depot gauge conservatively as an upstream same-river reference and expects scraping whenever that corridor sits under PFBC\'s 2.5 ft minimum.',
+      accessCaveats: [
+        'PFBC publishes both Mt. Union and Shawmut coordinates directly in the official upper Juniata access table.',
+        'The gauge story stays conservative here because Mapleton Depot is upstream of both accesses, not on top of the route.',
+        'Use only the named public accesses rather than bridge shoulders, islands, or private banks.',
+        'This route is shorter, but it still deserves a same-day look at the Shawmut finish and the low-water line through the approach wave zone.',
+      ],
+      watchFor: [
+        'Waves with hidden rocks near mile 75 on the Shawmut approach, the main route-specific caution PFBC flags in this corridor.',
+        'Low water under the conservative Mapleton 2.5 ft proxy floor, when rockier lines become tighter and less forgiving.',
+        'Fresh wood after storms, broad-river headwind, and slick footing at either access.',
+        'Private shorelines away from the named public accesses and the temptation to treat a broad-looking bank as a backup exit.',
       ],
     },
   },

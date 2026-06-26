@@ -49234,6 +49234,220 @@ export const rivers: River[] = [
     ],
   },
   {
+    id: "juniata-river-portstown-park-mt-union",
+    slug: "juniata-river-portstown-park-mt-union",
+    name: "Juniata River",
+    reach: "Upper Section: Portstown Park to Mt. Union",
+    aliases: [
+      "Juniata River - Portstown Park to Mt. Union",
+      "Upper Juniata - Huntingdon to Mt. Union",
+      "Juniata River - Portstown Park to Mt. Union access",
+    ],
+    state: "Pennsylvania",
+    region: "Upper Juniata",
+    summary:
+      "Thirteen-mile upper-Juniata float from Portstown Park in Huntingdon to the Mt. Union access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties this corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
+    latitude: 40.485833,
+    longitude: -78.014167,
+    gaugeSource: {
+      id: "usgs-01563500",
+      provider: "usgs",
+      siteId: "01563500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Mapleton Depot, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["private_banks"],
+      safetyNotes: [
+        "PFBC flags hazardous current with waves near mile 90 plus the same Mapleton-corridor caution features near miles 86.5 and 85.5.",
+        "This is a longer broad-river day than the map can make it look, and same-day wood, headwind, or low-water bars can stretch the route well beyond the nominal mileage.",
+        "Use only the named public accesses at Portstown Park and Mt. Union rather than private banks, islands, or bridge shoulders.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 2.5,
+      thresholdSource: {
+        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "The PFBC guide says snowmelt and spring rain often produce the best upper-Juniata levels, while summer dry spells expose bars and make the wider pools slower.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy public-access float when Mapleton clears the official floor, but the mile-90 wave/current feature and the Mapleton bridge-current zone still deserve attention.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Mt. Union, defines them as a 13-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for direct USGS 01563500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Portstown Park to Mt. Union, about 13 mi",
+        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Mt. Union at river mile 81.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Mt. Union at 40 23 10 / 77 52 24.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01563500 at Mapleton Depot",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for Juniata River at Mapleton Depot, PA.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Mapleton Depot 2.5 ft minimum",
+        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Miles 90, 86.5, and 85.5 caution features",
+        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, and strong bridge-abutment current near mile 85.5.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC upper Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01563500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-portstown-park-shawmut",
+    slug: "juniata-river-portstown-park-shawmut",
+    name: "Juniata River",
+    reach: "Upper Section: Portstown Park to Shawmut",
+    aliases: [
+      "Juniata River - Portstown Park to Shawmut",
+      "Upper Juniata - Huntingdon to Shawmut",
+      "Juniata River - Portstown Park to Shawmut access",
+    ],
+    state: "Pennsylvania",
+    region: "Upper Juniata",
+    summary:
+      "Eighteen-mile upper-Juniata run from Portstown Park in Huntingdon to the Shawmut access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and ties the core corridor to the direct Mapleton Depot gauge with a 2.5 ft minimum level.",
+    statusText:
+      "Use the Juniata River at Mapleton Depot gauge. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
+    latitude: 40.485833,
+    longitude: -78.014167,
+    gaugeSource: {
+      id: "usgs-01563500",
+      provider: "usgs",
+      siteId: "01563500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "direct",
+      siteName: "Juniata River at Mapleton Depot, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["private_banks"],
+      safetyNotes: [
+        "PFBC flags hazardous current with waves near mile 90, the Mapleton-corridor caution features near miles 86.5 and 85.5, and waves with hidden rocks near mile 75 on the Shawmut approach.",
+        "This is a legitimately long public-access day, and broad-river headwind, fresh wood, or low-water bars can turn it into a much slower commitment than the clean map line suggests.",
+        "Use only the named public accesses at Portstown Park and Shawmut rather than bridge shoulders, islands, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 2.5,
+      thresholdSource: {
+        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "The PFBC guide says upper-Juniata levels improve after snowmelt or rain, while summer dry spells expose bars and make the wider pools slower and scratchier.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy public-access route in the product sense, but its length plus the mile-90, Mapleton, and mile-75 current features make it more consequential than the shorter upper-Juniata cards.",
+      confidenceNotes:
+        "Confidence is good for a conservative Pennsylvania add: the PFBC upper Juniata guide publishes exact coordinates for Portstown Park and Shawmut, defines them as an 18-mile access pair, and lists Mapleton Depot as a useful direct gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for direct USGS 01563500 during this run.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Portstown Park to Shawmut, about 18 mi",
+        note: "The PFBC upper Juniata guide places Portstown Park at river mile 94 and Shawmut at river mile 76.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Portstown Park at 40 29 09 / 78 00 51 and Shawmut at 40 21 53 / 77 48 44.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Direct gauge",
+        value: "USGS 01563500 at Mapleton Depot",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for Juniata River at Mapleton Depot, PA.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Mapleton Depot 2.5 ft minimum",
+        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Miles 90, 86.5, 85.5, and 75 current features",
+        note: "PFBC flags hazardous current with waves near mile 90, small ledges and ripples at mile 86.5, strong bridge-abutment current near mile 85.5, and waves with hidden rocks near mile 75.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC upper Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01563500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
     id: "juniata-river-juniata-point-riverside-park",
     slug: "juniata-river-juniata-point-riverside-park",
     name: "Juniata River",
@@ -49885,6 +50099,113 @@ export const rivers: River[] = [
         note: "PFBC flags waves and hidden rocks at mile 75 plus hazardous current at mile 73 with hidden rocks, waves, holes, and shallow rock on river left.",
         sourceUrl:
           "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+    ],
+    sourceLinks: [
+      {
+        label: "PFBC upper Juniata guide",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      {
+        label: "USGS 01563500 monitoring location",
+        url: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+        provider: "usgs",
+      },
+      {
+        label: "PFBC launch permit vs boat registration",
+        url: "https://www.pa.gov/agencies/fishandboat/boating/paddlesports/launch-permit-vs-boat-reg",
+        provider: "local",
+      },
+    ],
+  },
+  {
+    id: "juniata-river-mt-union-shawmut",
+    slug: "juniata-river-mt-union-shawmut",
+    name: "Juniata River",
+    reach: "Upper Section: Mt. Union to Shawmut",
+    aliases: [
+      "Juniata River - Mt. Union to Shawmut",
+      "Upper Juniata - Mt. Union to Shawmut",
+      "Juniata River - Mt. Union access to Shawmut access",
+    ],
+    state: "Pennsylvania",
+    region: "Upper Juniata",
+    summary:
+      "Five-mile upper-Juniata link from the Mt. Union access to the Shawmut access. The official PFBC upper guide publishes both access coordinates, defines the pair through its river-mile access table, and supports a conservative minimum-only model using the Mapleton Depot gauge as the upstream same-river reference.",
+    statusText:
+      "Use the Juniata River at Mapleton Depot gauge as a conservative upstream reference. The official PFBC upper Juniata guide recommends at least 2.5 ft there for this corridor.",
+    latitude: 40.386111,
+    longitude: -77.873333,
+    gaugeSource: {
+      id: "usgs-01563500",
+      provider: "usgs",
+      siteId: "01563500",
+      metric: "gage_height_ft",
+      unit: "ft",
+      kind: "proxy",
+      siteName: "Juniata River at Mapleton Depot, PA",
+      detailUrl: "https://waterdata.usgs.gov/monitoring-location/01563500/",
+    },
+    safetyProfile: {
+      riskLevel: "caution",
+      hazards: ["private_banks"],
+      safetyNotes: [
+        "PFBC flags waves with hidden rocks near mile 75 on the Shawmut approach.",
+        "This shorter corridor still deserves attention because low water tightens the rockier lines and fresh wood can shift the cleanest channel after storms.",
+        "Use only the named public accesses at Mt. Union and Shawmut rather than bridge shoulders, islands, or private banks.",
+      ],
+      reviewStatus: "reviewed",
+    },
+    profile: {
+      thresholdModel: "minimum-only",
+      tooLow: 2.5,
+      thresholdSource: {
+        label: "PFBC upper Juniata guide minimum Mapleton Depot gauge level used as an upstream same-river proxy",
+        url: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+        provider: "local",
+      },
+      thresholdSourceStrength: "official",
+      rainfallSensitivity: "medium",
+      seasonMonths: [4, 5, 6, 7, 8, 9, 10],
+      seasonNotes:
+        "The PFBC guide says upper-Juniata conditions improve after snowmelt or rain, while summer low water exposes bars, rocks, and slower channels.",
+      difficulty: "easy",
+      difficultyNotes:
+        "This is an easy public-access run in the broad product sense, but the mile-75 wave/rock zone and the upstream-gauge posture keep it intentionally conservative.",
+      confidenceNotes:
+        "Confidence is solid but intentionally capped below the direct start-at-gauge routes. The PFBC upper Juniata guide publishes exact coordinates for Mt. Union and Shawmut, defines them as a 5-mile access pair, and lists Mapleton Depot as a useful upper-Juniata gauge with a 2.5 ft minimum. USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft at direct site 01563500 during this run, but that gauge sits upstream of this corridor, so the app keeps only a conservative minimum floor.",
+    },
+    evidenceNotes: [
+      {
+        label: "Official route segment",
+        value: "Mt. Union to Shawmut, about 5 mi",
+        note: "The PFBC upper Juniata guide places Mt. Union at river mile 81 and Shawmut at river mile 76.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Endpoint coordinates",
+        value: "PFBC access-site coordinates",
+        note: "The PFBC access table publishes Mt. Union at 40 23 10 / 77 52 24 and Shawmut at 40 21 53 / 77 48 44.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Proxy gauge support",
+        value: "USGS 01563500 at Mapleton Depot",
+        note: "USGS Water Services returned same-day June 26, 2026 values of 923 cfs and 2.99 ft for Juniata River at Mapleton Depot, PA. PFBC lists Mapleton Depot as a useful upper-Juniata gauge, but it remains upstream of this route.",
+        sourceUrl: "https://waterservices.usgs.gov/nwis/iv/?format=json&sites=01563500&parameterCd=00060,00065&siteStatus=all",
+      },
+      {
+        label: "Official minimum level",
+        value: "Mapleton Depot 2.5 ft minimum",
+        note: "PFBC lists Mapleton Depot among the useful gauges for the upper Juniata and recommends a minimum level of 2.5 ft there.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
+      },
+      {
+        label: "Primary cautions",
+        value: "Mile 75 wave and hidden-rock zone",
+        note: "PFBC flags waves with hidden rocks near mile 75 on the Shawmut approach.",
+        sourceUrl: "https://pfbc.pa.gov/watertrails/juniata/juniata_upper/juniata_upper_guide_map.pdf",
       },
     ],
     sourceLinks: [

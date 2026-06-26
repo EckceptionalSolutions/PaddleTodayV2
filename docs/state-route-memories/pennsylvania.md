@@ -34,6 +34,14 @@ Created 2026-06-08 for the `pennsylvania-route-additions` automation.
 
 ## Run Notes
 
+- 2026-06-26 16:12 America/Chicago / 2026-06-26 21:12 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
+  - Rebuilt current inventory from route objects and trip details before editing: 63 live Pennsylvania routes and 63 Pennsylvania trip-detail keys after the June 25 French Creek cleanup.
+  - Implemented `juniata-river-portstown-park-mt-union`, `juniata-river-portstown-park-shawmut`, and `juniata-river-mt-union-shawmut` from the PFBC upper Juniata guide.
+  - Qualification package: the PFBC upper Juniata guide publishes exact public access coordinates for Portstown Park, Mt. Union, and Shawmut; official river-mile spacing for the chosen `13`/`18`/`5`-mile day runs; route-specific caution points at miles `90`, `86.5`, `85.5`, and `75`; and the upper-corridor minimum gauge floor of `2.5 ft` at Mapleton Depot. Same-day direct USGS Water Services returned `923 cfs / 2.99 ft` at Mapleton Depot (`01563500`) at `2026-06-26 16:15 EDT`, and the upstream Huntingdon gauge still corroborated the corridor at `605 cfs / 1.93 ft` at `2026-06-26 16:00 EDT`.
+  - Camping and safety/logistics notes were added for all three routes. Portstown-to-Mt.-Union and Portstown-to-Shawmut ship as `on_route_campsite` because the guide says small groups may camp at the Mapleton community park on the corridor; Mt.-Union-to-Shawmut stays `none` because no established campsite is identified for that exact pair.
+  - No gallery image was added. Bounded Commons, PFBC guide-imagery, and USGS-media checks found useful Huntingdon-to-Jacks-Narrows corridor context but no clearly rights-clean exact-route asset was selected for these three slugs.
+  - Validation passed: `npm run typecheck:routes`, `npm run routes:audit`, `npm run routes:leads:gather`, `npm run typecheck`, and `npm test`. Route audit now reports `439` live routes, and the regenerated lead inbox still reports `269` open leads with `implementation_ready: 0`.
+
 - 2026-06-25 07:45 America/Chicago / 2026-06-25 12:45 UTC: Pennsylvania three-route implementation pass; added three more upper Juniata routes.
   - Rebuilt current inventory from route objects and trip details before editing: 47 live Pennsylvania routes, 47 Pennsylvania trip-detail keys, and 47 implemented Pennsylvania ledger rows before this pass.
   - Implemented `juniata-river-portstown-park-riverside-park`, `juniata-river-juniata-point-mt-union`, and `juniata-river-riverside-park-newton-hamilton` from the PFBC upper Juniata guide.
